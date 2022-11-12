@@ -3,6 +3,11 @@
  */
 package arcadeflex.v078.platform;
 
+//mame imports
+import static arcadeflex.v078.mame.mame.*;
+//platform imports
+import static arcadeflex.v078.platform.config.*;
+
 public class osdepend {
 
     /*TODO*/////============================================================
@@ -110,11 +115,10 @@ public class osdepend {
 /*TODO*///#endif
 /*TODO*///
     public static int main(int argc, String[] argv) {
-        throw new UnsupportedOperationException("Unsupported");
-        /*TODO*///	int game_index;
-/*TODO*///	char *ext;
-/*TODO*///	int res = 0;
-/*TODO*///
+        int game_index;
+        /*TODO*///	char *ext;
+        int res = 0;
+        /*TODO*///
 /*TODO*///#if 1
 /*TODO*/// #ifndef WINUI
 /*TODO*///	STARTUPINFO startup_info = { sizeof(STARTUPINFO) };
@@ -192,15 +196,14 @@ public class osdepend {
 /*TODO*///	pass_thru_filter = SetUnhandledExceptionFilter(exception_filter);
 /*TODO*///
 /*TODO*///	// parse config and cmdline options
-/*TODO*///	game_index = cli_frontend_init(argc, argv);
-/*TODO*///
+        game_index = cli_frontend_init(argc, argv);
+        /*TODO*///
 /*TODO*///	// remember the initial LED states and init keyboard handle
 /*TODO*///	start_led();
 /*TODO*///
-/*TODO*///	// have we decided on a game?
-/*TODO*///	if (game_index != -1)
-/*TODO*///	{
-/*TODO*///		TIMECAPS caps;
+        // have we decided on a game?
+        if (game_index != -1) {
+            /*TODO*///		TIMECAPS caps;
 /*TODO*///		MMRESULT result;
 /*TODO*///
 /*TODO*///		// crank up the multimedia timer resolution to its max
@@ -213,19 +216,19 @@ public class osdepend {
 /*TODO*///		start_profiler();
 /*TODO*///#endif
 /*TODO*///
-/*TODO*///		// run the game
-/*TODO*///		res = run_game(game_index);
-/*TODO*///
-/*TODO*///#if ENABLE_PROFILER
+            // run the game
+            res = run_game(game_index);
+
+            /*TODO*///#if ENABLE_PROFILER
 /*TODO*///		stop_profiler();
 /*TODO*///#endif
 /*TODO*///
 /*TODO*///		// restore the timer resolution
 /*TODO*///		if (result == TIMERR_NOERROR)
 /*TODO*///			timeEndPeriod(caps.wPeriodMin);
-/*TODO*///	}
-/*TODO*///
-/*TODO*///	// restore the original LED state and close keyboard handle
+        }
+
+        /*TODO*///	// restore the original LED state and close keyboard handle
 /*TODO*///	stop_led();
 /*TODO*///
 /*TODO*///	win_process_events();
@@ -237,7 +240,7 @@ public class osdepend {
 /*TODO*///	output_symbol_list(stderr);
 /*TODO*///#endif
 /*TODO*///
-/*TODO*///	exit(res);
+        return res;
     }
     /*TODO*///
 /*TODO*///
