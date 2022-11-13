@@ -125,6 +125,10 @@ public class osdepend {
 /*TODO*///	GetStartupInfo(&startup_info);
 /*TODO*///
 /*TODO*///	// try to determine if MAME was simply double-clicked
+                if(argc <=1)
+                {
+                    throw new UnsupportedOperationException("Unsupported");
+                }
 /*TODO*///	if (argc <= 1 &&
 /*TODO*///		startup_info.dwFlags &&
 /*TODO*///		!(startup_info.dwFlags & STARTF_USESTDHANDLES))

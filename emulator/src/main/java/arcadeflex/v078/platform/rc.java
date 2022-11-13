@@ -3,65 +3,25 @@
  */
 package arcadeflex.v078.platform;
 
+//platform imports
+import static arcadeflex.v078.platform.rcH.*;
+//common imports
+import static common.libc.cstdio.*;
 
 public class rc {
-/*TODO*////* A simple rcfile and commandline parsing mechanism
-/*TODO*///
-/*TODO*///   Copyright 1999,2000 Hans de Goede
-/*TODO*///
-/*TODO*///   This file and the acompanying files in this directory are free software;
-/*TODO*///   you can redistribute them and/or modify them under the terms of the GNU
-/*TODO*///   Library General Public License as published by the Free Software Foundation;
-/*TODO*///   either version 2 of the License, or (at your option) any later version.
-/*TODO*///
-/*TODO*///   These files are distributed in the hope that they will be useful,
-/*TODO*///   but WITHOUT ANY WARRANTY; without even the implied warranty of
-/*TODO*///   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-/*TODO*///   Library General Public License for more details.
-/*TODO*///
-/*TODO*///   You should have received a copy of the GNU Library General Public
-/*TODO*///   License along with these files; see the file COPYING.LIB.  If not,
-/*TODO*///   write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-/*TODO*///   Boston, MA 02111-1307, USA.
-/*TODO*///*/
-/*TODO*////* Changelog
-/*TODO*///Version 0.1, December 1999
-/*TODO*///-Initial release (Hans de Goede)
-/*TODO*///Version 0.2, January 2000
-/*TODO*///-Fixed priority parsing for booleans (Hans de Goede)
-/*TODO*///-Fixed error messages for: "error optionx requires an argument". (Hans de
-/*TODO*/// Goede)
-/*TODO*///-Fixed --boolean option parsing. (Hans de Goede)
-/*TODO*///Version 0.3, Februari 2000
-/*TODO*///-Reworked and cleaned up the interface, broke backward compatibility (Hans
-/*TODO*/// de Goede)
-/*TODO*///*/
-/*TODO*///#include <stdlib.h>
-/*TODO*///#include <string.h>
-/*TODO*/////#include <pwd.h>
-/*TODO*///#include <errno.h>
-/*TODO*///#include <sys/types.h>
-/*TODO*///#include <sys/stat.h>
-/*TODO*///#include "rc.h"
-/*TODO*///#include "misc.h"
-/*TODO*///
-/*TODO*///#include "rc.h"
-/*TODO*///#include "osdepend.h"
-/*TODO*///
-/*TODO*///#ifdef _MSC_VER
-/*TODO*///#define snprintf _snprintf
-/*TODO*///#endif
-/*TODO*///#define BUF_SIZE 512
-/*TODO*///
-/*TODO*///struct rc_struct
-/*TODO*///{
-/*TODO*///   struct rc_option *option;
-/*TODO*///   int option_size;
-/*TODO*///   char **arg;
-/*TODO*///   int arg_size;
-/*TODO*///   int args_registered;
-/*TODO*///};
-/*TODO*///
+
+    public static final int BUF_SIZE = 512;
+
+    public static class rc_struct {
+
+        rc_option[] option;
+        int option_size;
+        String[] arg;
+        int arg_size;
+        int args_registered;
+    }
+
+    /*TODO*///
 /*TODO*////* private variables */
 /*TODO*///static int rc_requires_arg[] = {0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0 };
 /*TODO*///
@@ -77,26 +37,24 @@ public class rc {
 /*TODO*///   return 0;
 /*TODO*///}
 /*TODO*///
-/*TODO*///static int rc_set_defaults(struct rc_option *option)
-/*TODO*///{
-/*TODO*///   int i;
-/*TODO*///
-/*TODO*///   /* set the defaults */
-/*TODO*///   for(i=0; option[i].type; i++)
-/*TODO*///   {
-/*TODO*///      if (option[i].type == rc_link)
-/*TODO*///      {
-/*TODO*///         if(rc_set_defaults(option[i].dest))
-/*TODO*///            return -1;
-/*TODO*///      }
-/*TODO*///      else if (option[i].deflt && rc_set_option3(option+i, option[i].deflt,
-/*TODO*///         option[i].priority))
-/*TODO*///         return -1;
-/*TODO*///   }
-/*TODO*///
-/*TODO*///   return 0;
-/*TODO*///}
-/*TODO*///
+    static int rc_set_defaults(rc_option[] option) {
+        int i;
+
+        /* set the defaults */
+        for (i = 0; option[i].type != 0; i++) {
+            if (option[i].type == rc_link) {
+                if (rc_set_defaults((rc_option[]) option[i].dest) != 0) {
+                    return -1;
+                }
+            } else if (option[i].deflt != null && rc_set_option3(option[i], option[i].deflt, option[i].priority) != 0) {
+                return -1;
+            }
+        }
+
+        return 0;
+    }
+
+    /*TODO*///
 /*TODO*///static void rc_free_stuff(struct rc_option *option)
 /*TODO*///{
 /*TODO*///   int i;
@@ -126,23 +84,21 @@ public class rc {
 /*TODO*///   }
 /*TODO*///}
 /*TODO*///
-/*TODO*////* public methods (in rc.h) */
-/*TODO*///struct rc_struct *rc_create(void)
-/*TODO*///{
-/*TODO*///   struct rc_struct *rc = NULL;
-/*TODO*///
-/*TODO*///   if(!(rc = calloc(1, sizeof(struct rc_struct))))
-/*TODO*///   {
-/*TODO*///      fprintf(stderr, "error: malloc failed for: struct rc_struct\n");
-/*TODO*///      return NULL;
-/*TODO*///   }
-/*TODO*///
-/*TODO*///   return rc;
-/*TODO*///}
-/*TODO*///
-/*TODO*///void rc_destroy(struct rc_struct *rc)
-/*TODO*///{
-/*TODO*///   if(rc->option)
+/* public methods (in rc.h) */
+    public static rc_struct rc_create() {
+        rc_struct rc = null;
+
+        if ((rc = new rc_struct()) == null) {
+            fprintf(System.out, "error: malloc failed for: struct rc_struct\n");
+            return null;
+        }
+
+        return rc;
+    }
+
+    public static void rc_destroy(rc_struct rc) {
+        System.out.println("TODO fix rc_destroy in platform/rc.java");
+        /*TODO*///   if(rc->option)
 /*TODO*///   {
 /*TODO*///      rc_free_stuff(rc->option);
 /*TODO*///      free (rc->option);
@@ -150,44 +106,48 @@ public class rc {
 /*TODO*///   if(rc->arg)
 /*TODO*///      free(rc->arg);
 /*TODO*///   free(rc);
-/*TODO*///}
-/*TODO*///
-/*TODO*///int rc_register(struct rc_struct *rc, struct rc_option *option)
-/*TODO*///{
-/*TODO*///   int i;
-/*TODO*///
-/*TODO*///   /* try to find a free entry in our option list */
-/*TODO*///   for(i = 0; i < rc->option_size; i++)
-/*TODO*///      if(rc->option[i].type <= 0)
-/*TODO*///         break;
-/*TODO*///
-/*TODO*///   /* do we have space to register this option list ? */
-/*TODO*///   if(i >= (rc->option_size-1))
-/*TODO*///   {
-/*TODO*///      struct rc_option *tmp = realloc(rc->option,
-/*TODO*///         (rc->option_size + BUF_SIZE) * sizeof(struct rc_option));
-/*TODO*///      if (!tmp)
-/*TODO*///      {
-/*TODO*///         fprintf(stderr, "error: malloc failed in rc_register_option\n");
-/*TODO*///         return -1;
-/*TODO*///      }
-/*TODO*///      rc->option = tmp;
-/*TODO*///      memset(rc->option + rc->option_size, 0, BUF_SIZE *
-/*TODO*///         sizeof(struct rc_option));
-/*TODO*///      rc->option_size += BUF_SIZE;
-/*TODO*///   }
-/*TODO*///
-/*TODO*///   /* set the defaults */
-/*TODO*///   if(rc_set_defaults(option))
-/*TODO*///      return -1;
-/*TODO*///
-/*TODO*///   /* register the option */
-/*TODO*///   rc->option[i].type = rc_link;
-/*TODO*///   rc->option[i].dest = option;
-/*TODO*///
-/*TODO*///   return 0;
-/*TODO*///}
-/*TODO*///
+    }
+
+    public static int rc_register(rc_struct rc, rc_option[] option) {
+        int i;
+
+        for (i = 0; i < rc.option_size; i++) {
+            if (rc.option[i] == null) {
+                rc.option[i] = new rc_option();
+            }
+        }
+
+        /* try to find a free entry in our option list */
+        for (i = 0; i < rc.option_size; i++) {
+            if (rc.option[i].type <= 0) {
+                break;
+            }
+        }
+
+        /* do we have space to register this option list ? */
+        if (i >= (rc.option_size - 1)) {
+            rc_option[] tmp = new rc_option[rc.option_size + BUF_SIZE];
+
+            rc.option = tmp;
+            rc.option_size += BUF_SIZE;
+        }
+
+        /* set the defaults */
+        if (rc_set_defaults(option) != 0) {
+            return -1;
+        }
+
+        if (rc.option[i] == null) {
+            rc.option[i] = new rc_option();
+        }
+        /* register the option */
+        rc.option[i].type = rc_link;
+        rc.option[i].dest = option;
+
+        return 0;
+    }
+
+    /*TODO*///
 /*TODO*///int rc_unregister(struct rc_struct *rc, struct rc_option *option)
 /*TODO*///{
 /*TODO*///   int i;
@@ -475,23 +435,20 @@ public class rc {
 /*TODO*///   return rc_real_write(rc->option, f, description);
 /*TODO*///}
 /*TODO*///
-/*TODO*///int rc_parse_commandline(struct rc_struct *rc, int argc, char *argv[],
-/*TODO*///   int priority, int (*arg_callback)(char *arg))
-/*TODO*///{
-/*TODO*///   int i;
-/*TODO*///
-/*TODO*///   for(i=1; i<argc; i++)
-/*TODO*///   {
-/*TODO*///      if(argv[i][0] == '-')
-/*TODO*///      {
-/*TODO*///         int start = 1;
-/*TODO*///         struct rc_option *option;
-/*TODO*///         const char *arg = NULL;
-/*TODO*///
-/*TODO*///         if(argv[i][1] == '-')
-/*TODO*///            start = 2;
-/*TODO*///
-/*TODO*///         if((option = rc_get_option2(rc->option, argv[i] + start)))
+    public static int rc_parse_commandline(rc_struct rc, int argc, String[] argv, int priority, ArgCallbackHandlerPtr arg_callback) {
+        int i;
+        for (i = 1; i < argc; i++) {
+            if (argv[i].charAt(0) == '-') {
+                int start = 1;
+                rc_option option;
+                String arg = null;
+
+                if (argv[i].charAt(1) == '-') {
+                    start = 2;
+                }
+
+                throw new UnsupportedOperationException("Unsupported");
+                /*TODO*///         if((option = rc_get_option2(rc->option, argv[i] + start)))
 /*TODO*///         {
 /*TODO*///            if (option->type == rc_bool)
 /*TODO*///            {
@@ -528,37 +485,27 @@ public class rc {
 /*TODO*///
 /*TODO*///         if(rc_set_option3(option, arg, priority))
 /*TODO*///            return -1;
-/*TODO*///      }
-/*TODO*///      else
-/*TODO*///      {
-/*TODO*///         /* do we have space to register the non-option arg */
-/*TODO*///         if(rc->args_registered >= (rc->arg_size))
-/*TODO*///         {
-/*TODO*///            char **tmp = realloc(rc->arg, (rc->arg_size + BUF_SIZE) *
-/*TODO*///               sizeof(char *));
-/*TODO*///            if (!tmp)
-/*TODO*///            {
-/*TODO*///               fprintf(stderr,
-/*TODO*///                  "error: malloc failed in rc_parse_commadline\n");
-/*TODO*///               return -1;
-/*TODO*///            }
-/*TODO*///            rc->arg = tmp;
-/*TODO*///            memset(rc->arg + rc->arg_size, 0, BUF_SIZE * sizeof(char *));
-/*TODO*///            rc->arg_size += BUF_SIZE;
-/*TODO*///         }
-/*TODO*///
-/*TODO*///         /* register the non-option arg */
-/*TODO*///         rc->arg[rc->args_registered] = argv[i];
-/*TODO*///         rc->args_registered++;
-/*TODO*///
-/*TODO*///         /* call the callback if defined */
-/*TODO*///         if(arg_callback && (*arg_callback)(argv[i]))
-/*TODO*///            return -1;
-/*TODO*///      }
-/*TODO*///   }
-/*TODO*///   return 0;
-/*TODO*///}
-/*TODO*///
+            } else {
+                /* do we have space to register the non-option arg */
+                if (rc.args_registered >= (rc.arg_size)) {
+                    String[] tmp = new String[rc.arg_size + BUF_SIZE];
+                    rc.arg = tmp;
+                    rc.arg_size += BUF_SIZE;
+                }
+                /* register the non-option arg */
+                rc.arg[rc.args_registered] = argv[i];
+                rc.args_registered++;
+
+                /* call the callback if defined */
+                if (arg_callback != null && (arg_callback).handler(argv[i]) != 0) {
+                    return -1;
+                }
+            }
+        }
+        return 0;
+    }
+
+    /*TODO*///
 /*TODO*///int rc_get_non_option_args(struct rc_struct *rc, int *argc, char **argv[])
 /*TODO*///{
 /*TODO*///   *argv = rc->arg;
@@ -726,9 +673,9 @@ public class rc {
 /*TODO*///   return rc_set_option3(my_option, arg, priority);
 /*TODO*///}
 /*TODO*///
-/*TODO*///int rc_set_option3(struct rc_option *option, const char *arg, int priority)
-/*TODO*///{
-/*TODO*///   char *end;
+    public static int rc_set_option3(rc_option option, String arg, int priority) {
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///   char *end;
 /*TODO*///
 /*TODO*///   /* check priority */
 /*TODO*///   if(priority < option->priority)
@@ -807,9 +754,9 @@ public class rc {
 /*TODO*///
 /*TODO*///   option->priority = priority;
 /*TODO*///
-/*TODO*///   return 0;
-/*TODO*///}
-/*TODO*///
+/*TODO*///        return 0;
+    }
+    /*TODO*///
 /*TODO*///struct rc_option *rc_get_option(struct rc_struct *rc, const char *name)
 /*TODO*///{
 /*TODO*///   return rc_get_option2(rc->option, name);
