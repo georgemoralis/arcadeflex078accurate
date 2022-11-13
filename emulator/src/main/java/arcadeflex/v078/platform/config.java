@@ -4,11 +4,12 @@
 package arcadeflex.v078.platform;
 
 //platform imports
+import static arcadeflex.v078.platform.fronthlp.*;
 import static arcadeflex.v078.platform.rc.*;
 import static arcadeflex.v078.platform.rcH.*;
 //common imports
 import static common.libc.cstdio.*;
-import static common.libc.cstring.strlen;
+import static common.libc.cstring.*;
 
 public class config {
 
@@ -124,8 +125,8 @@ public class config {
 /*TODO*///
 /* struct definitions */
     static rc_option opts[] = {
-        /*TODO*///	/* name, shortname, type, dest, deflt, min, max, func, help */
-        /*TODO*///	{ NULL, NULL, rc_link, frontend_opts, NULL, 0, 0, NULL, NULL },
+        /* name, shortname, type, dest, deflt, min, max, func, help */
+        new rc_option(null, null, rc_link, frontend_opts, null, 0, 0, null, null),
         /*TODO*///	{ NULL, NULL, rc_link, fileio_opts, NULL, 0, 0, NULL, NULL },
         /*TODO*///	{ NULL, NULL, rc_link, video_opts, NULL, 0,	0, NULL, NULL },
         /*TODO*///	{ NULL, NULL, rc_link, sound_opts, NULL, 0,	0, NULL, NULL },
@@ -481,8 +482,8 @@ public class config {
 /*TODO*///	}
 /*TODO*///
 /*TODO*///	/* check for frontend options, horrible 1234 hack */
-/*TODO*///	if (frontend_help(gamename) != 1234)
-/*TODO*///		exit(0);
+	if (frontend_help(gamename) != 1234)
+		System.exit(0);
 /*TODO*///
 /*TODO*///	gamename = win_basename(gamename);
 /*TODO*///	gamename = win_strip_extension(gamename);

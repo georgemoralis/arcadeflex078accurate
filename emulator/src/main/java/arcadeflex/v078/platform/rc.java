@@ -7,6 +7,8 @@ package arcadeflex.v078.platform;
 import static arcadeflex.v078.platform.rcH.*;
 //common imports
 import static common.libc.cstdio.*;
+import static common.libc.cstring.strcmp;
+import static common.libc.cstring.strncmp;
 
 public class rc {
 
@@ -21,10 +23,10 @@ public class rc {
         int args_registered;
     }
 
+    /* private variables */
+    static int rc_requires_arg[] = {0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0};
+
     /*TODO*///
-/*TODO*////* private variables */
-/*TODO*///static int rc_requires_arg[] = {0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0 };
-/*TODO*///
 /*TODO*////* private methods */
 /*TODO*///static int rc_verify(struct rc_option *option, float value)
 /*TODO*///{
@@ -447,44 +449,36 @@ public class rc {
                     start = 2;
                 }
 
-                throw new UnsupportedOperationException("Unsupported");
-                /*TODO*///         if((option = rc_get_option2(rc->option, argv[i] + start)))
-/*TODO*///         {
-/*TODO*///            if (option->type == rc_bool)
-/*TODO*///            {
-/*TODO*///               /* handle special bool set case */
-/*TODO*///               arg = "1";
-/*TODO*///            }
-/*TODO*///            else
-/*TODO*///            {
-/*TODO*///               /* normal option */
-/*TODO*///               if (rc_requires_arg[option->type])
-/*TODO*///               {
-/*TODO*///                  i++;
+                if ((option = rc_get_option2(rc.option, argv[i].substring(start))) != null) {
+                    if (option.type == rc_bool) {
+                        /* handle special bool set case */
+                        arg = "1";
+                    } else {
+                        /* normal option */
+                        if (rc_requires_arg[option.type] != 0) {
+                            throw new UnsupportedOperationException("Unsupported");
+                            /*TODO*///                  i++;
 /*TODO*///                  if (i >= argc)
 /*TODO*///                  {
 /*TODO*///                     fprintf(stderr, "error: %s requires an argument\n", argv[i-1]);
 /*TODO*///                     return -1;
 /*TODO*///                  }
 /*TODO*///                  arg = argv[i];
-/*TODO*///               }
-/*TODO*///            }
-/*TODO*///         }
-/*TODO*///         else if(!strncmp(argv[i] + start, "no", 2) &&
-/*TODO*///            (option = rc_get_option2(rc->option, argv[i] + start + 2)) &&
-/*TODO*///            (option->type == rc_bool))
-/*TODO*///         {
-/*TODO*///            /* handle special bool clear case */
-/*TODO*///            arg = "0";
-/*TODO*///         }
-/*TODO*///         else
-/*TODO*///         {
-/*TODO*///            fprintf(stderr, "error: unknown option %s\n", argv[i]);
-/*TODO*///            return -1;
-/*TODO*///         }
-/*TODO*///
-/*TODO*///         if(rc_set_option3(option, arg, priority))
-/*TODO*///            return -1;
+                        }
+                    }
+                } else if (!strncmp((argv[i].substring(start)).toCharArray(), "no", 2)
+                        && (option = rc_get_option2(rc.option, argv[i].substring(start + 2))) != null
+                        && (option.type == rc_bool)) {
+                    /* handle special bool clear case */
+                    arg = "0";
+                } else {
+                    fprintf(stderr, "error: unknown option %s\n", argv[i]);
+                    return -1;
+                }
+
+                if (rc_set_option3(option, arg, priority) != 0) {
+                    return -1;
+                }
             } else {
                 /* do we have space to register the non-option arg */
                 if (rc.args_registered >= (rc.arg_size)) {
@@ -674,18 +668,17 @@ public class rc {
 /*TODO*///}
 /*TODO*///
     public static int rc_set_option3(rc_option option, String arg, int priority) {
-        throw new UnsupportedOperationException("Unsupported");
-        /*TODO*///   char *end;
-/*TODO*///
-/*TODO*///   /* check priority */
-/*TODO*///   if(priority < option->priority)
-/*TODO*///      return 0;
-/*TODO*///
-/*TODO*///   switch(option->type)
-/*TODO*///   {
-/*TODO*///      case rc_string:
-/*TODO*///         {
-/*TODO*///            char *str;
+        String end;
+
+        /* check priority */
+        if (priority < option.priority) {
+            return 0;
+        }
+
+        switch (option.type) {
+            case rc_string: {
+                throw new UnsupportedOperationException("Unsupported");
+                /*TODO*///            char *str;
 /*TODO*///            if ( !( str = malloc(strlen(arg)+1) ) )
 /*TODO*///            {
 /*TODO*///               fprintf(stderr, "error: malloc failed for %s\n", option->name);
@@ -695,12 +688,12 @@ public class rc {
 /*TODO*///            if(*(char **)option->dest)
 /*TODO*///               free(*(char **)option->dest);
 /*TODO*///            *(char **)option->dest = str;
-/*TODO*///         }
-/*TODO*///         break;
-/*TODO*///      case rc_int:
-/*TODO*///      case rc_bool:
-/*TODO*///         {
-/*TODO*///            int x;
+            }
+            /*TODO*///            break;
+            case rc_int:
+            case rc_bool: {
+                throw new UnsupportedOperationException("Unsupported");
+                /*TODO*///            int x;
 /*TODO*///            x = strtol(arg, &end, 0);
 /*TODO*///            if (*end || rc_verify(option, x))
 /*TODO*///            {
@@ -708,11 +701,12 @@ public class rc {
 /*TODO*///               return -1;
 /*TODO*///            }
 /*TODO*///            *(int *)option->dest = x;
-/*TODO*///         }
-/*TODO*///         break;
-/*TODO*///      case rc_float:
-/*TODO*///         {
-/*TODO*///            float x;
+
+            }
+/*TODO*///            break;
+            case rc_float: {
+                throw new UnsupportedOperationException("Unsupported");
+                /*TODO*///            float x;
 /*TODO*///            x = strtod(arg, &end);
 /*TODO*///            if (*end || rc_verify(option, x))
 /*TODO*///            {
@@ -720,14 +714,14 @@ public class rc {
 /*TODO*///               return -1;
 /*TODO*///            }
 /*TODO*///            *(float *)option->dest = x;
-/*TODO*///         }
-/*TODO*///         break;
-/*TODO*///      case rc_set_int:
-/*TODO*///         *(int*)option->dest = option->min;
-/*TODO*///         break;
-/*TODO*///      case rc_file:
-/*TODO*///         {
-/*TODO*///            FILE *f = fopen(arg, (option->min)? "w":"r");
+            }
+            /*TODO*///             break;
+            case rc_set_int:
+                ((RcAssignFuncHandlerPtr) (option.dest)).handler((int) option.min);
+                break;
+            case rc_file: {
+                throw new UnsupportedOperationException("Unsupported");
+                /*TODO*///            FILE *f = fopen(arg, (option->min)? "w":"r");
 /*TODO*///            if(!f)
 /*TODO*///            {
 /*TODO*///               fprintf(stderr, "error: couldn't open file: %s\n", arg);
@@ -736,58 +730,60 @@ public class rc {
 /*TODO*///            if (*(FILE **)option->dest)
 /*TODO*///               fclose(*(FILE **)option->dest);
 /*TODO*///            *(FILE **)option->dest = f;
-/*TODO*///         }
-/*TODO*///         break;
-/*TODO*///      case rc_use_function:
-/*TODO*///      case rc_use_function_no_arg:
-/*TODO*///         break;
-/*TODO*///      default:
-/*TODO*///         fprintf(stderr,
+            }
+            /*TODO*///         break;
+            case rc_use_function:
+            case rc_use_function_no_arg:
+                break;
+            default:
+                throw new UnsupportedOperationException("Unsupported");
+            /*TODO*///         fprintf(stderr,
 /*TODO*///            "error: unknown option type: %d, this should not happen!\n",
 /*TODO*///            option->type);
 /*TODO*///         return -1;
-/*TODO*///   }
-/*TODO*///   /* functions should do there own priority handling, so that they can
-/*TODO*///      ignore priority handling if they wish */
-/*TODO*///   if(option->func)
-/*TODO*///      return (*option->func)(option, arg, priority);
-/*TODO*///
-/*TODO*///   option->priority = priority;
-/*TODO*///
-/*TODO*///        return 0;
+        }
+        /* functions should do there own priority handling, so that they can
+      ignore priority handling if they wish */
+        if (option.func != null) {
+            return (option.func).handler(option, arg, priority);
+        }
+
+        option.priority = priority;
+
+        return 0;
     }
+
     /*TODO*///
 /*TODO*///struct rc_option *rc_get_option(struct rc_struct *rc, const char *name)
 /*TODO*///{
 /*TODO*///   return rc_get_option2(rc->option, name);
 /*TODO*///}
 /*TODO*///
-/*TODO*///struct rc_option *rc_get_option2(struct rc_option *option, const char *name)
-/*TODO*///{
-/*TODO*///   int i;
-/*TODO*///   struct rc_option *result;
-/*TODO*///
-/*TODO*///   for(i=0; option[i].type; i++)
-/*TODO*///   {
-/*TODO*///      switch(option[i].type)
-/*TODO*///      {
-/*TODO*///         case rc_ignore:
-/*TODO*///         case rc_seperator:
-/*TODO*///            break;
-/*TODO*///         case rc_link:
-/*TODO*///            if((result = rc_get_option2(option[i].dest, name)))
-/*TODO*///               return result;
-/*TODO*///            break;
-/*TODO*///         default:
-/*TODO*///            if(!strcmp(name, option[i].name) ||
-/*TODO*///               (option[i].shortname &&
-/*TODO*///                  !strcmp(name, option[i].shortname)))
-/*TODO*///               return &option[i];
-/*TODO*///      }
-/*TODO*///   }
-/*TODO*///   return NULL;
-/*TODO*///}
-/*TODO*///
+    static rc_option rc_get_option2(rc_option[] option, String name) {
+        int i;
+        rc_option result;
+
+        for (i = 0; ((option[i] != null) && (option[i].type != 0)); i++) {
+            switch (option[i].type) {
+                case rc_ignore:
+                case rc_seperator:
+                    break;
+                case rc_link:
+                    if ((result = rc_get_option2((rc_option[]) option[i].dest, name)) != null) {
+                        return result;
+                    }
+                    break;
+                default:
+                    if (strcmp(name, option[i].name) == 0
+                            || (option[i].shortname != null
+                            && strcmp(name, option[i].shortname) == 0)) {
+                        return option[i];
+                    }
+            }
+        }
+        return null;
+    }
+    /*TODO*///
 /*TODO*////* gimmi the entire tree, I want todo all the parsing myself */
 /*TODO*///struct rc_option *rc_get_options(struct rc_struct *rc)
 /*TODO*///{

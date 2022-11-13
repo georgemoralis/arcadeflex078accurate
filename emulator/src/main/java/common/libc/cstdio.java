@@ -12,7 +12,7 @@ public class cstdio {
      * Streams redirect
      */
     public static PrintStream stderr = System.out;
-    
+
     /**
      * fprintf
      */
@@ -23,5 +23,12 @@ public class cstdio {
             file.print(print);
         } catch (Exception e) {
         }
+    }
+
+    /**
+     * printf
+     */
+    public static void printf(String str, Object... arguments) {
+        System.out.printf(str, arguments);
     }
 }
