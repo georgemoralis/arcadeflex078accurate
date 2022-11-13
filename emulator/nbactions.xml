@@ -12,7 +12,7 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>-help</exec.appArgs>
+                <exec.appArgs></exec.appArgs>
                 <exec.mainClass>arcadeflex.v078.platform.Main</exec.mainClass>
                 <exec.executable>java</exec.executable>
             </properties>
@@ -29,8 +29,8 @@
             <properties>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>-help</exec.appArgs>
-                <exec.mainClass>${packageClassName}</exec.mainClass>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>arcadeflex.v078.platform.Main</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
             </properties>
@@ -47,9 +47,9 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.mainClass>${packageClassName}</exec.mainClass>
+                <exec.mainClass>arcadeflex.v078.platform.Main</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.appArgs>-help</exec.appArgs>
+                <exec.appArgs></exec.appArgs>
             </properties>
         </action>
     </actions>

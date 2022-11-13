@@ -9,7 +9,7 @@ rem
 rem PROJECT_VERSION: version used in pom.xml, e.g. 1.0-SNAPSHOT
 rem APP_VERSION: the application version, e.g. 1.0.0, shown in "about" dialog
 
-set JAVA_VERSION=18
+set JAVA_VERSION=15
 set MAIN_JAR=arcadeflex-%PROJECT_VERSION%.jar
 
 rem ------ SETUP DIRECTORIES AND FILES ----------------------------------------
@@ -82,4 +82,4 @@ for %%s in ("app-image") do call "%JAVA_HOME%\bin\jpackage" ^
   --icon src/main/logo/arcadeflex.ico ^
   --app-version %APP_VERSION% ^
   --vendor "Codebb" ^
-  --copyright "Copyright 2013-2022 arcadeflex emu"
+  --copyright "Copyright 2013-2020 codebb.gr."
