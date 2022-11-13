@@ -81,5 +81,5 @@ for %%s in ("app-image") do call "%JAVA_HOME%\bin\jpackage" ^
   --runtime-image target/java-runtime ^
   --icon src/main/logo/arcadeflex.ico ^
   --app-version %APP_VERSION% ^
-  --vendor "Codebb" ^
-  --copyright "Copyright 2013-2020 codebb.gr."
+  --vendor "Arcadeflex" ^
+  --copyright "Copyright 2013-2022 arcadeflex team."
