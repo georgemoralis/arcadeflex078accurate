@@ -3,19 +3,15 @@
  */
 package arcadeflex.v078.mame;
 
+//generic imports
+import static arcadeflex.v078.generic.funcPtr.*;
+//mame imports
+import static arcadeflex.v078.mame.commonH.*;
+import static arcadeflex.v078.mame.inptportH.*;
+
 public class driverH {
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	driver.h
-/*TODO*///
-/*TODO*///	Include this with all MAME files. Includes all the core system pieces.
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*///#ifndef DRIVER_H
-/*TODO*///#define DRIVER_H
-/*TODO*///
-/*TODO*///
+
+    /*TODO*///
 /*TODO*////***************************************************************************
 /*TODO*///
 /*TODO*///	Macros for declaring common callbacks
@@ -291,9 +287,8 @@ public class driverH {
 /*TODO*///#define MAX_SOUND 5	/* MAX_SOUND is the maximum number of sound subsystems */
 /*TODO*///					/* which can run at the same time. Currently, 5 is enough. */
 /*TODO*///
-/*TODO*///struct InternalMachineDriver
-/*TODO*///{
-/*TODO*///	struct MachineCPU cpu[MAX_CPU];
+    public static class InternalMachineDriver {
+        /*TODO*///	struct MachineCPU cpu[MAX_CPU];
 /*TODO*///	float frames_per_second;
 /*TODO*///	int vblank_duration;
 /*TODO*///	UINT32 cpu_slices_per_frame;
@@ -318,8 +313,9 @@ public class driverH {
 /*TODO*///
 /*TODO*///	UINT32 sound_attributes;
 /*TODO*///	struct MachineSound sound[MAX_SOUND];
-/*TODO*///};
-/*TODO*///
+    }
+
+    /*TODO*///
 /*TODO*///
 /*TODO*///
 /*TODO*////***************************************************************************
@@ -399,32 +395,40 @@ public class driverH {
 /*TODO*///
 /*TODO*///***************************************************************************/
 /*TODO*///
-/*TODO*///struct GameDriver
-/*TODO*///{
-/*TODO*///	const char *source_file;	/* set this to __FILE__ */
-/*TODO*///	const struct GameDriver *clone_of;	/* if this is a clone, point to */
-/*TODO*///										/* the main version of the game */
-/*TODO*///	const char *name;
-/*TODO*///	const struct SystemBios *bios;	/* if this system has alternate bios roms use this */
-/*TODO*///									/* structure to list names and ROM_BIOSFLAGS. */
-/*TODO*///	const char *description;
-/*TODO*///	const char *year;
-/*TODO*///	const char *manufacturer;
-/*TODO*///	void (*drv)(struct InternalMachineDriver *);
-/*TODO*///	const struct InputPortTiny *input_ports;
-/*TODO*///	void (*driver_init)(void);	/* optional function to be called during initialization */
-/*TODO*///								/* This is called ONCE, unlike Machine->init_machine */
-/*TODO*///								/* which is called every time the game is reset. */
-/*TODO*///
-/*TODO*///	const struct RomModule *rom;
-/*TODO*///#ifdef MESS
-/*TODO*///	void (*sysconfig_ctor)(struct SystemConfigurationParamBlock *cfg);
-/*TODO*///	const struct GameDriver *compatible_with;
-/*TODO*///#endif
-/*TODO*///
-/*TODO*///	UINT32 flags;	/* orientation and other flags; see defines below */
-/*TODO*///};
-/*TODO*///
+    public static class GameDriver {
+
+        //this is used instead of GAME macro
+        public GameDriver(String year, String name, String source, RomLoadHandlerPtr romload, GameDriver parent, MachineHandlerPtr drv, InputPortHandlerPtr input, DriverInitHandlerPtr init, int monitor, String manufacture, String fullname) {
+            this.year = year;
+            this.source_file = source;
+            this.clone_of = parent;
+            this.name = name;
+            this.description = fullname;
+            this.manufacturer = manufacture;
+            this.drv = drv;
+            //inputports
+            this.driver_init = init;
+            romload.handler();//load the rom
+            input.handler();//load input
+            this.input_ports = input_macro;//copy input macro to input ports
+            this.rom = rommodule_macro; //copy rommodule_macro to rom
+            this.flags = monitor;
+        }
+
+        public String source_file;/* set this to __FILE__ */
+        public GameDriver clone_of;/* if this is a clone, point to the main version of the game */
+        public String name;
+        /*TODO*///	const struct SystemBios *bios;	/* if this system has alternate bios roms use this structure to list names and ROM_BIOSFLAGS. */
+        public String description;
+        public String year;
+        public String manufacturer;
+        public MachineHandlerPtr drv;
+        public InputPortTiny[] input_ports;
+        public DriverInitHandlerPtr driver_init;/* optional function to be called during initialization This is called ONCE, unlike Machine->init_machine which is called every time the game is reset. */
+        public RomModule[] rom;
+        public int flags;/* orientation and other flags; see defines below */
+    }
+    /*TODO*///
 /*TODO*///
 /*TODO*///
 /*TODO*////***************************************************************************
@@ -463,23 +467,6 @@ public class driverH {
 /*TODO*///
 /*TODO*///***************************************************************************/
 /*TODO*///
-/*TODO*///#define GAME(YEAR,NAME,PARENT,MACHINE,INPUT,INIT,MONITOR,COMPANY,FULLNAME)	\
-/*TODO*///extern const struct GameDriver driver_##PARENT;	\
-/*TODO*///const struct GameDriver driver_##NAME =		\
-/*TODO*///{											\
-/*TODO*///	__FILE__,								\
-/*TODO*///	&driver_##PARENT,						\
-/*TODO*///	#NAME,									\
-/*TODO*///	system_bios_0,							\
-/*TODO*///	FULLNAME,								\
-/*TODO*///	#YEAR,									\
-/*TODO*///	COMPANY,								\
-/*TODO*///	construct_##MACHINE,					\
-/*TODO*///	input_ports_##INPUT,					\
-/*TODO*///	init_##INIT,							\
-/*TODO*///	rom_##NAME,								\
-/*TODO*///	MONITOR									\
-/*TODO*///};
 /*TODO*///
 /*TODO*///#define GAMEX(YEAR,NAME,PARENT,MACHINE,INPUT,INIT,MONITOR,COMPANY,FULLNAME,FLAGS)	\
 /*TODO*///extern const struct GameDriver driver_##PARENT;	\
