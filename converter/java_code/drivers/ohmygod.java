@@ -125,7 +125,7 @@ public class ohmygod
 	
 	
 	
-	static InputPortPtr input_ports_ohmygod = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ohmygod )
+	static InputPortHandlerPtr input_ports_ohmygod = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ohmygod )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -225,7 +225,7 @@ public class ohmygod
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_naname = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( naname )
+	static InputPortHandlerPtr input_ports_naname = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( naname )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -403,7 +403,7 @@ public class ohmygod
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ohmygod = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ohmygod = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_WORD_SWAP( "omg-p.114", 0x00000, 0x80000, CRC(48fa40ca) SHA1(b1d91e1a4a888526febbe53a12b73e375f604f2b) )
 	
@@ -419,7 +419,7 @@ public class ohmygod
 		ROM_RELOAD(               0x40000, 0x200000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_naname = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_naname = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_WORD_SWAP( "036-prg.114", 0x00000, 0x80000, CRC(3b7362f7) SHA1(ba16ec9df8569bacd387561ef2b3ea5b17cb650c) )
 	

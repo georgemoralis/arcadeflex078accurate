@@ -327,7 +327,7 @@ public class exidy
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_sidetrac = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sidetrac )
+	static InputPortHandlerPtr input_ports_sidetrac = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sidetrac )
 		PORT_START();               /* DSW0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "2");
@@ -381,7 +381,7 @@ public class exidy
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_targ = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( targ )
+	static InputPortHandlerPtr input_ports_targ = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( targ )
 		PORT_START();               /* DSW0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );/* upright/cocktail switch? */
 		PORT_DIPNAME( 0x02, 0x00, "P Coinage" );
@@ -430,7 +430,7 @@ public class exidy
 	
 	
 	/* identical to Targ, the only difference is the additional Language dip switch */
-	static InputPortPtr input_ports_spectar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spectar )
+	static InputPortHandlerPtr input_ports_spectar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spectar )
 		PORT_START();               /* DSW0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );/* upright/cocktail switch? */
 		PORT_DIPNAME( 0x02, 0x00, "P Coinage" );
@@ -482,7 +482,7 @@ public class exidy
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rallys = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rallys )
+	static InputPortHandlerPtr input_ports_rallys = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rallys )
 		PORT_START();               /* DSW0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );/* upright/cocktail switch? */
 		PORT_DIPNAME( 0x02, 0x00, "P Coinage" );
@@ -533,7 +533,7 @@ public class exidy
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mtrap = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mtrap )
+	static InputPortHandlerPtr input_ports_mtrap = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mtrap )
 		PORT_START();       /* DSW0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
 		PORT_DIPNAME( 0x06, 0x06, DEF_STR( "Bonus_Life") );
@@ -600,7 +600,7 @@ public class exidy
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_venture = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( venture )
+	static InputPortHandlerPtr input_ports_venture = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( venture )
 		PORT_START();       /* DSW0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
 		PORT_DIPNAME( 0x06, 0x00, DEF_STR( "Bonus_Life") );
@@ -654,7 +654,7 @@ public class exidy
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pepper2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pepper2 )
+	static InputPortHandlerPtr input_ports_pepper2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pepper2 )
 		PORT_START();               /* DSW */
 		PORT_BIT ( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
 		PORT_DIPNAME( 0x06, 0x06, DEF_STR( "Bonus_Life") );
@@ -709,7 +709,7 @@ public class exidy
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_fax = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fax )
+	static InputPortHandlerPtr input_ports_fax = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fax )
 		PORT_START();               /* DSW */
 		PORT_BIT ( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
 		PORT_DIPNAME( 0x06, 0x06, "Bonus Time" );
@@ -775,7 +775,7 @@ public class exidy
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_phantoma = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( phantoma )
+	static InputPortHandlerPtr input_ports_phantoma = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( phantoma )
 		PORT_START();               /* DSW */
 		/* Mode 1*/
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Coinage") );
@@ -1060,7 +1060,7 @@ public class exidy
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_sidetrac = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sidetrac = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "stl8a-1",     0x2800, 0x0800, CRC(e41750ff) SHA1(3868a0d7e34a5118b39b31cff9e4fc839df541ff) )
 		ROM_LOAD( "stl7a-2",     0x3000, 0x0800, CRC(57fb28dc) SHA1(6addd633d655d6a56b3e509d18e5f7c0ab2d0fbb) )
@@ -1072,7 +1072,7 @@ public class exidy
 		ROM_LOAD( "stl11d",      0x0000, 0x0200, CRC(3bd1acc1) SHA1(06f900cb8f56cd4215c5fbf58a852426d390e0c1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_targ = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_targ = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "targ10a1",    0x1800, 0x0800, CRC(969744e1) SHA1(e123bdb02b3b5f6a59c1e7c9ef557fe6bb19c62c) )
 		ROM_LOAD( "targ09a1",    0x2000, 0x0800, CRC(a177a72d) SHA1(0e705e3e32021e55af4414fa0e2ccbc4980ee848) )
@@ -1085,7 +1085,7 @@ public class exidy
 		ROM_LOAD( "targ11d1",    0x0000, 0x0400, CRC(9f03513e) SHA1(aa4763e49df65e5686a96431543580b8d8285893) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_targc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_targc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "ctl.10a",     0x1800, 0x0800, CRC(058b3983) SHA1(8079667613c9273e95131c3c68cd92ce34c18148) )
 		ROM_LOAD( "ctl.9a1",     0x2000, 0x0800, CRC(3ac44b6b) SHA1(8261ee7ee1c3cb05b2549464086bf6df09685743) )
@@ -1098,7 +1098,7 @@ public class exidy
 		ROM_LOAD( "targ11d1",    0x0000, 0x0400, CRC(9f03513e) SHA1(aa4763e49df65e5686a96431543580b8d8285893) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spectar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spectar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "spl11a-3",    0x1000, 0x0800, CRC(08880aff) SHA1(3becef348245ff4c8b0aae4a14751ab740b7d160) )
 		ROM_LOAD( "spl10a-2",    0x1800, 0x0800, CRC(fca667c1) SHA1(168426f9e87c002d2673c0230fceac4d0831d594) )
@@ -1113,7 +1113,7 @@ public class exidy
 		ROM_CONTINUE(            0x0000, 0x0400 )  /* overwrite with the real one */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spectar1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spectar1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "spl12a1",     0x0800, 0x0800, CRC(7002efb4) SHA1(fbb19ccd2aee49b78606eadcbef94e842e1be905) )
 		ROM_LOAD( "spl11a1",     0x1000, 0x0800, CRC(8eb8526a) SHA1(0c42ee073fc73c89731dec4e3ecfc82c9b8301e9) )
@@ -1129,7 +1129,7 @@ public class exidy
 		ROM_CONTINUE(            0x0000, 0x0400 )  /* overwrite with the real one */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rallys = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rallys = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "rallys.01",     0x1000, 0x0400, CRC(a192b22b) SHA1(aaae0b1822f934df30b354f787ffa8848c71b52f) )
 		ROM_LOAD( "rallys.02",     0x1400, 0x0400, CRC(19e730aa) SHA1(4f4e87d26c14a9ff2be5b4173c4e5804db551e33) )
@@ -1150,7 +1150,7 @@ public class exidy
 		ROM_LOAD( "targ82s.123", 0x0000, 0x0020, CRC(9eb9125c) SHA1(660ad9b2c7c28c3fda4b10c1401c03165d131c61) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_phantoma = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_phantoma = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "156_a1",       0xf800, 0x0800, CRC(26292c0a) SHA1(d4157e261f6247cfafb948d1a9dbf0b02b2b84de) )
 		ROM_LOAD( "156_a2",       0x1000, 0x0800, CRC(c5af9d34) SHA1(4c9f9a06cc7f6caf13a79fa8491db17b01b24774) )
@@ -1165,7 +1165,7 @@ public class exidy
 		ROM_LOAD( "156_pal",      0x0000, 0x0020, CRC(9fb1daee) SHA1(2ec1189a57c95d7ad820eb12343fcf2c3fb08431) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mtrap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mtrap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "mtl11a.bin",  0xa000, 0x1000, CRC(bd6c3eb5) SHA1(248956374222a09caa5b8c8fa842e9286d8e1c5d) )
 		ROM_LOAD( "mtl10a.bin",  0xb000, 0x1000, CRC(75b0593e) SHA1(48ce5382905f7c52929a95267d65fd0d3f0dcc92) )
@@ -1190,7 +1190,7 @@ public class exidy
 		ROM_LOAD( "mtl11d.bin",  0x0000, 0x0800, CRC(c6e4d339) SHA1(b091923e4d52e93d7c567afba217a10b2a3735fc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mtrap3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mtrap3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "mtl-3.11a",   0xa000, 0x1000, CRC(4091be6e) SHA1(a4432f4588915276583f4b2e8db527fd24eb4291) )
 		ROM_LOAD( "mtl-3.10a",   0xb000, 0x1000, CRC(38250c2f) SHA1(b70a2a1d423ba90ca873cc43db40422abee07718) )
@@ -1215,7 +1215,7 @@ public class exidy
 		ROM_LOAD( "mtl11d.bin",  0x0000, 0x0800, CRC(c6e4d339) SHA1(b091923e4d52e93d7c567afba217a10b2a3735fc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mtrap4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mtrap4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "mta411a.bin",  0xa000, 0x1000, CRC(2879cb8d) SHA1(738bd3cd968fd733adcfe0fb5efdb2e2fcfb344e) )
 		ROM_LOAD( "mta410a.bin",  0xb000, 0x1000, CRC(d7378af9) SHA1(44c8ba4c84f51306e5bdd64e6c255d1c1018db72) )
@@ -1241,7 +1241,7 @@ public class exidy
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_venture = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_venture = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "13a-cpu",      0x8000, 0x1000, CRC(f4e4d991) SHA1(6683c1552b56b20f2296e461aff697af73563792) )
 		ROM_LOAD( "12a-cpu",      0x9000, 0x1000, CRC(c6d8cb04) SHA1(3b9ae8fdc35117c73c91daed66e93e5344bdcd7e) )
@@ -1264,7 +1264,7 @@ public class exidy
 		ROM_LOAD( "11d-cpu",      0x0000, 0x0800, CRC(b4bb2503) SHA1(67303603b7c5e6301e976ef19f81c7519648b179) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_venture2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_venture2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "vent_a13.cpu", 0x8000, 0x1000, CRC(4c833f99) SHA1(1ff4eafe48b9f0ab8a123659d78c3dfa0bf56d7d) )
 		ROM_LOAD( "vent_a12.cpu", 0x9000, 0x1000, CRC(8163cefc) SHA1(7061819dd1105e8368c045dad2effae62d124539) )
@@ -1287,7 +1287,7 @@ public class exidy
 		ROM_LOAD( "11d-cpu",      0x0000, 0x0800, CRC(b4bb2503) SHA1(67303603b7c5e6301e976ef19f81c7519648b179) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_venture4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_venture4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "vel13a-4",     0x8000, 0x1000, CRC(1c5448f9) SHA1(59d3ca2a2d7048f5f7bd23fa5d9c9a2cc0734cb8) )
 		ROM_LOAD( "vel12a-4",     0x9000, 0x1000, CRC(e62491cc) SHA1(a98b6c6e60d83fd4591d0de145a99c5e4576121a) )
@@ -1311,7 +1311,7 @@ public class exidy
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pepper2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pepper2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "main_12a",     0x9000, 0x1000, CRC(33db4737) SHA1(d8f7a5d340ddbc4d06d403c3bff0102ce637d24e) )
 		ROM_LOAD( "main_11a",     0xa000, 0x1000, CRC(a1f43b1f) SHA1(a669f2ef55d9a0617110f65863822fdcaf153511) )
@@ -1332,7 +1332,7 @@ public class exidy
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hardhat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hardhat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "hhl-2.11a",    0xa000, 0x1000, CRC(7623deea) SHA1(3c47c0439c80e66536af42c5ee4e522fea5f8374) )
 		ROM_LOAD( "hhl-2.10a",    0xb000, 0x1000, CRC(e6bf2fb1) SHA1(ad41859129774fc51462726a825c0ae16ed81a6e) )
@@ -1352,7 +1352,7 @@ public class exidy
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_fax = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fax = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 64k for code + 192k for extra memory */
 		ROM_LOAD( "fxl8-13a.32",  0x8000, 0x1000, CRC(8e30bf6b) SHA1(1fdf010da0258bc038554cf33c26e539a1f6b648) )
 		ROM_LOAD( "fxl8-12a.32",  0x9000, 0x1000, CRC(60a41ff1) SHA1(1703dbedd09354d89c6014644d0ffe13ec657b8b) )

@@ -840,7 +840,7 @@ public class shanghai
 	
 	
 	
-	static InputPortPtr input_ports_shanghai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shanghai )
+	static InputPortHandlerPtr input_ports_shanghai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shanghai )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -919,7 +919,7 @@ public class shanghai
 		PORT_DIPSETTING(    0x00, "120" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_shangha2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shangha2 )
+	static InputPortHandlerPtr input_ports_shangha2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shangha2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -1070,7 +1070,7 @@ public class shanghai
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_shanghai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shanghai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "shg-22a.rom", 0xa0001, 0x10000, CRC(e0a085be) SHA1(e281043f97c4cd34a33eb1ec7154abbe67a9aa03) )
 		ROM_LOAD16_BYTE( "shg-21a.rom", 0xa0000, 0x10000, CRC(4ab06d32) SHA1(02667d1270b101386b947d5b9bfe64052e498041) )
@@ -1080,7 +1080,7 @@ public class shanghai
 		ROM_LOAD16_BYTE( "shg-36b.rom", 0xe0000, 0x10000, CRC(a1d6af96) SHA1(01c4c22bf03b3d260fffcbc6dfc5f2dd2bcba14a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shangha2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shangha2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "sht-27j", 0x80001, 0x20000, CRC(969cbf00) SHA1(350025f4e39c7d89cb72e46b52fb467e3e9056f4) )
 		ROM_LOAD16_BYTE( "sht-26j", 0x80000, 0x20000, CRC(4bf01ab4) SHA1(6928374db080212a371991ee98cd563e158907f0) )

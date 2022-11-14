@@ -107,7 +107,7 @@ public class bishi
 		{ 0xb00000, 0xb03fff, paletteram16_xbgr_word_w, &paletteram16 },
 	MEMORY_END
 	
-	static InputPortPtr input_ports_bishi = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bishi )
+	static InputPortHandlerPtr input_ports_bishi = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bishi )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -254,7 +254,7 @@ public class bishi
 	
 	// ROM definitions
 	
-	static RomLoadPtr rom_bishi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bishi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_WORD_SWAP( "575jaa.a05", 0x000000, 0x80000, CRC(7d354567) SHA1(7fc11585693c91c0ef7a8e00df4f2f01b356210f) )
 		ROM_LOAD16_WORD_SWAP( "575jaa.a06", 0x080000, 0x80000, CRC(9b2f7fbb) SHA1(26c828085c44a9c4d4e713e8fcc0bc8fc973d107) )

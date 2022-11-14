@@ -139,7 +139,7 @@ public class lsasquad
 	
 	
 	
-	static InputPortPtr input_ports_lsasquad = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lsasquad )
+	static InputPortHandlerPtr input_ports_lsasquad = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lsasquad )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -375,7 +375,7 @@ public class lsasquad
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_lsasquad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lsasquad = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD( "a64-21.4",     0x00000, 0x8000, CRC(5ff6b017) SHA1(96cc74edba1208bb8e82f93d2d3a88ea24922dc0) )
 	    /* ROMs banked at 8000-9fff */
@@ -407,7 +407,7 @@ public class lsasquad
 		ROM_LOAD( "a64-06.9",     0x0600, 0x0400, CRC(7ced30ba) SHA1(f22de13d4fd49b7b2ffd06032eb5e14fbdeec91c) )	/* priority */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_storming = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_storming = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD( "stpartyj.001", 0x00000, 0x8000, CRC(07e6bc61) SHA1(6989a1401868dd93c9466cfd1636ac48a734a5d4) )
 	    /* ROMs banked at 8000-9fff */

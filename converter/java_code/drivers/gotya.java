@@ -70,7 +70,7 @@ public class gotya
 	};
 	
 	
-	static InputPortPtr input_ports_gotya = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gotya )
+	static InputPortHandlerPtr input_ports_gotya = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gotya )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_PLAYER1 );
@@ -224,7 +224,7 @@ public class gotya
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_thehand = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thehand = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "hand6.bin",	0x0000, 0x1000, CRC(a33b806c) SHA1(1e552af5362e7b003f55e78bb59589e1db55557c) )
 		ROM_LOAD( "hand5.bin",	0x1000, 0x1000, CRC(89bcde82) SHA1(d074bb6a1975160eb533d5fd9289170a68209046) )
@@ -252,7 +252,7 @@ public class gotya
 		ROM_LOAD( "hand7.bin",	0x3000, 0x1000, CRC(fbf1c5de) SHA1(dd3181a8da1972e3c997678bb868256a10f33d04) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gotya = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gotya = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "gb-06.bin",	0x0000, 0x1000, CRC(7793985a) SHA1(23aa8bd161e700bea59b92075423cdf55e9a26c3) )
 		ROM_LOAD( "gb-05.bin",	0x1000, 0x1000, CRC(683d188b) SHA1(5341c62f5cf384c73be0d7a0a230bb8cebfbe709) )

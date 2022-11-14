@@ -111,7 +111,7 @@ public class tagteam
 	} };
 	
 	
-	static InputPortPtr input_ports_bigprowr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bigprowr )
+	static InputPortHandlerPtr input_ports_bigprowr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bigprowr )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -181,7 +181,7 @@ public class tagteam
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'bigprowr', but additional "Coin Mode" Dip Switch */
-	static InputPortPtr input_ports_tagteam = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tagteam )
+	static InputPortHandlerPtr input_ports_tagteam = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tagteam )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -332,7 +332,7 @@ public class tagteam
 	
 	
 	
-	static RomLoadPtr rom_bigprowr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bigprowr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "bf00-1.20",    0x08000, 0x2000, CRC(8aba32c9) SHA1(9228082a8251feaf25849311c3de63ca42cf659e) )
 		ROM_LOAD( "bf01.33",      0x0a000, 0x2000, CRC(0a41f3ae) SHA1(1b82cd864f0bd7f16f961fec0b88307996abb166) )
@@ -363,7 +363,7 @@ public class tagteam
 		ROM_LOAD( "fjo.25",       0x0020, 0x0020, CRC(24da2b63) SHA1(4db7e1ff1b9fd5ae4098cd7ca66cf1fa2574501a) ) /* What is this prom for? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tagteam = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tagteam = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "prowbf0.bin",  0x08000, 0x2000, CRC(6ec3afae) SHA1(8ae11cb41a72bda053ce8b79c383503da5324cd1) )
 		ROM_LOAD( "prowbf1.bin",  0x0a000, 0x2000, CRC(b8fdd176) SHA1(afa8e890ac54101eef0274c8aabe25d188085a18) )

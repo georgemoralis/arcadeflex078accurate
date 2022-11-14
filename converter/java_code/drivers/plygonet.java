@@ -412,7 +412,7 @@ public class plygonet
 		MDRV_SOUND_ADD(K054539, k054539_interface)
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_polygonet = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( polygonet )
+	static InputPortHandlerPtr input_ports_polygonet = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( polygonet )
 		PORT_START(); 
 	
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1);
@@ -473,7 +473,7 @@ public class plygonet
 		reset_sound_region();
 	} };
 	
-	static RomLoadPtr rom_plygonet = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_plygonet = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0)
 		ROM_LOAD32_BYTE( "305a01.bin", 0x000003, 512*1024, CRC(8bdb6c95) SHA1(e981833842f8fd89b9726901fbe2058444204792) )

@@ -858,7 +858,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_hanamai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hanamai )
+	static InputPortHandlerPtr input_ports_hanamai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hanamai )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -960,7 +960,7 @@ public class dynax
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_hnkochou = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hnkochou )
+	static InputPortHandlerPtr input_ports_hnkochou = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hnkochou )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1065,7 +1065,7 @@ public class dynax
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hnoridur = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hnoridur )
+	static InputPortHandlerPtr input_ports_hnoridur = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hnoridur )
 		PORT_START(); 	/* note that these are in reverse order wrt the others */
 		PORT_DIPNAME( 0x80, 0x80, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x80, DEF_STR( "Off") );
@@ -1220,7 +1220,7 @@ public class dynax
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sprtmtch = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sprtmtch )
+	static InputPortHandlerPtr input_ports_sprtmtch = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sprtmtch )
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -1301,7 +1301,7 @@ public class dynax
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mjfriday = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjfriday )
+	static InputPortHandlerPtr input_ports_mjfriday = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjfriday )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "3C_1C") );
@@ -1403,7 +1403,7 @@ public class dynax
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mjdialq2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjdialq2 )
+	static InputPortHandlerPtr input_ports_mjdialq2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjdialq2 )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1507,7 +1507,7 @@ public class dynax
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_yarunara = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( yarunara )
+	static InputPortHandlerPtr input_ports_yarunara = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( yarunara )
 		PORT_START(); 	// IN0 - DSW
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "3C_1C") );
@@ -1619,7 +1619,7 @@ public class dynax
 		PORT_BIT( 0x3f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_quiztvqq = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( quiztvqq )
+	static InputPortHandlerPtr input_ports_quiztvqq = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( quiztvqq )
 		PORT_START(); 	// IN0 - DSW
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "3C_1C") );
@@ -1714,7 +1714,7 @@ public class dynax
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mcnpshnt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mcnpshnt )
+	static InputPortHandlerPtr input_ports_mcnpshnt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mcnpshnt )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1815,7 +1815,7 @@ public class dynax
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_nanajign = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nanajign )
+	static InputPortHandlerPtr input_ports_nanajign = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nanajign )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "3C_1C") );
@@ -2289,7 +2289,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hanamai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hanamai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "1611.13a", 0x00000, 0x10000, CRC(5ca0b073) SHA1(56b64077e7967fdbb87a7685ca9662cc7881b5ec) )
 		ROM_LOAD( "1610.14a", 0x48000, 0x10000, CRC(b20024aa) SHA1(bb6ce9821c1edbf7d4cfadc58a2b257755856937) )
@@ -2330,7 +2330,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hnkochou = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hnkochou = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "2009.s4a", 0x00000, 0x10000, CRC(b3657123) SHA1(3385edb2055abc7be3abb030509c6ac71907a5f3) )
 		ROM_LOAD( "2008.s3a", 0x18000, 0x10000, CRC(1c009be0) SHA1(0f950d2685f8b67f37065e19deae0cf0cb9594f1) )
@@ -2367,7 +2367,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hnoridur = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hnoridur = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000 + 0x19*0x8000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "2309.12",  0x00000, 0x20000, CRC(5517dd68) SHA1(3da27032a412b51b67e852b61166c2fdc138a370) )
 		ROM_RELOAD(           0x10000, 0x20000 )
@@ -2409,7 +2409,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_drgpunch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drgpunch = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "2401.3d", 0x00000, 0x10000, CRC(b310709c) SHA1(6ad6cfb54856f65a888ac44e694890f32f26e049) )
 		ROM_LOAD( "2402.6d", 0x28000, 0x10000, CRC(d21ed237) SHA1(7e1c7b40c300578132ebd79cbad9f7976cc85947) )
@@ -2427,7 +2427,7 @@ public class dynax
 		ROM_LOAD( "1.17g", 0x200, 0x200, CRC(324fa9cf) SHA1(a03e23d9a9687dec4c23a8e41254a3f4b70c7e25) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sprtmtch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprtmtch = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "3101.3d", 0x00000, 0x08000, CRC(d8fa9638) SHA1(9851d38b6b3f56cf3cc101419c24f8d5f97950a9) )
 		ROM_CONTINUE(        0x28000, 0x08000 )
@@ -2474,7 +2474,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_roldfrog = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roldfrog = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "roldfrog.001", 0x00000, 0x20000, CRC(ba9eb1c6) SHA1(649d1103f3188554eaa3fc87a1f52c53233932b2) )
 		ROM_RELOAD(               0x20000, 0x20000 )
@@ -2498,7 +2498,7 @@ public class dynax
 		ROM_LOAD( "roldfrog.013",       0x60000, 0x20000, CRC(fad3e8be) SHA1(eccd7b1440d3a0d433c92ff33213326e0d57422a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_roldfrga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roldfrga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "roldfrog.001", 0x00000, 0x20000, CRC(ba9eb1c6) SHA1(649d1103f3188554eaa3fc87a1f52c53233932b2) )
 		ROM_RELOAD(               0x20000, 0x20000 )
@@ -2538,7 +2538,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mjfriday = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjfriday = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "2606.2b",  0x00000, 0x10000, CRC(00e0e0d3) SHA1(89fa4d684ec36d5e974e39294efd65a9fd832517) )
 		ROM_LOAD( "2605.2c",  0x28000, 0x10000, CRC(5459ebda) SHA1(86e51f0c120de87be8f51b498a562360e6b242b8) )
@@ -2583,7 +2583,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_maya = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maya = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "1.17e", 0x00000, 0x10000, CRC(5aaa015e) SHA1(b84d02b1b6c07636176f226fef09a034d00445f0) )
 		ROM_LOAD( "2.15e", 0x28000, 0x10000, CRC(7ea5b49a) SHA1(aaae848669d9f88c0660f46cc801e4eb0f5e3b89) )
@@ -2639,7 +2639,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mjdialq2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjdialq2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x78000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "5201.2b", 0x00000, 0x10000, CRC(5186c2df) SHA1(f05ae3fd5e6c39f3bf2263eaba645d89c454bd70) )
 		ROM_RELOAD(          0x10000, 0x08000 )				// 1
@@ -2709,7 +2709,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_yarunara = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yarunara = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000 + 0x1d*0x8000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "5501m.2d",  0x00000, 0x20000, CRC(d86fade5) SHA1(4ae5e22972eb4ead9aa4a455ff1a18e128c33ed6) )
 		ROM_RELOAD(            0x10000, 0x20000 )
@@ -2760,7 +2760,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_quiztvqq = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quiztvqq = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000 + 0x28*0x8000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "6401.2d",      0x000000, 0x020000, CRC(ce0e237c) SHA1(fd94a45052e3a68ef8cda2853b911a9993675fa6) )
 		// 14-17
@@ -2809,7 +2809,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mjangels = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjangels = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000 + 0x28*0x8000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "612-01.2d",    0x000000, 0x020000, CRC(cd353ba9) SHA1(8344dc5dd482ad6d36aa1e6b5824a09a3627dc65) )
 		// 00-03
@@ -2884,7 +2884,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mcnpshnt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mcnpshnt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000 + 0xc*0x8000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "3318.12", 0x000000, 0x020000, CRC(e3b457a8) SHA1(b768895797157cad029ac1f652a838ecf6587d4f) )
 		ROM_RELOAD(          0x010000, 0x020000 )
@@ -2952,7 +2952,7 @@ public class dynax
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_7jigen = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_7jigen = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000 + 0xc*0x8000, REGION_CPU1, 0 )	/* Z80 Code */
 		ROM_LOAD( "3701.1a",      0x000000, 0x020000, CRC(ee8ab3c4) SHA1(9ccc9e9697dd452cd28e38c81cebea0b862f0642) )
 		ROM_RELOAD(               0x010000, 0x020000 )

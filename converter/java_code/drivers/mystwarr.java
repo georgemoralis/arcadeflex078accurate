@@ -1006,7 +1006,7 @@ public class mystwarr
 	
 	/**********************************************************************************/
 	
-	static InputPortPtr input_ports_mystwarr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mystwarr )
+	static InputPortHandlerPtr input_ports_mystwarr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mystwarr )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1074,7 +1074,7 @@ public class mystwarr
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_metamrph = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( metamrph )
+	static InputPortHandlerPtr input_ports_metamrph = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( metamrph )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1144,7 +1144,7 @@ public class mystwarr
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_viostorm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( viostorm )
+	static InputPortHandlerPtr input_ports_viostorm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( viostorm )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1214,7 +1214,7 @@ public class mystwarr
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dadandrn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dadandrn )
+	static InputPortHandlerPtr input_ports_dadandrn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dadandrn )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1292,7 +1292,7 @@ public class mystwarr
 		PORT_DIPSETTING(    0x02, "High" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_martchmp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( martchmp )
+	static InputPortHandlerPtr input_ports_martchmp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( martchmp )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1365,7 +1365,7 @@ public class mystwarr
 	#define ROM_LOADTILE_WORD(name,offset,length,crc) ROMX_LOAD(name, offset, length, crc, ROM_GROUPWORD | ROM_SKIP(3) | ROM_REVERSE)
 	#define ROM_LOADTILE_BYTE(name,offset,length,crc) ROMX_LOAD(name, offset, length, crc, ROM_GROUPBYTE | ROM_SKIP(4))
 	
-	static RomLoadPtr rom_mystwarr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mystwarr = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "128eaa01.20f", 0x000000, 0x40000, CRC(508f249c) SHA1(d27a272ec63e4a39379c4a23fe15c4fb45674cb4) )
@@ -1402,7 +1402,7 @@ public class mystwarr
 		ROM_LOAD( "128a07.1d", 0x200000, 2*1024*1024, CRC(db79a66e) SHA1(b7e118ed26bac557038e8ae6cb77f23f3da5646f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mystwaru = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mystwaru = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "128uaa01.20f", 0x000000, 0x40000, CRC(3a89aafd) SHA1(6d2ebb7e04d262545276c8dbe1c63405e5de4901) )
@@ -1439,7 +1439,7 @@ public class mystwarr
 		ROM_LOAD( "128a07.1d", 0x200000, 2*1024*1024, CRC(db79a66e) SHA1(b7e118ed26bac557038e8ae6cb77f23f3da5646f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_viostorm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_viostorm = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0)
 		ROM_LOAD16_BYTE( "168eab01.15h", 0x000001, 0x80000, CRC(4eee6a8e) SHA1(5c83ed2011aa77f590abca4c469fdb565f35dde5) )
@@ -1471,7 +1471,7 @@ public class mystwarr
 		ROM_LOAD( "168a07.1e", 0x200000, 2*1024*1024, CRC(fdbbf8cc) SHA1(a8adf72a25fe2b9c4c338350d02c92deb5f8c8e9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_viostrmu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_viostrmu = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0)
 		ROM_LOAD16_BYTE( "168uab01.15h", 0x000001, 0x80000, CRC(2d6a9fa3) SHA1(a2f82702896eddb11cd2b2f9ed5fff730f6baf0f) )
@@ -1503,7 +1503,7 @@ public class mystwarr
 		ROM_LOAD( "168a07.1e", 0x200000, 2*1024*1024, CRC(fdbbf8cc) SHA1(a8adf72a25fe2b9c4c338350d02c92deb5f8c8e9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_viostrma = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_viostrma = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "168aac01.15h", 0x000001, 0x80000, CRC(3620635c) SHA1(d296ba707a131bd78b401608d6b165b214f4fe61) )
@@ -1535,7 +1535,7 @@ public class mystwarr
 		ROM_LOAD( "168a07.1e", 0x200000, 2*1024*1024, CRC(fdbbf8cc) SHA1(a8adf72a25fe2b9c4c338350d02c92deb5f8c8e9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_viostrmj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_viostrmj = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "168jac01.b01", 0x000001, 0x80000, CRC(f8be1225) SHA1(8c38ca218c0005c60a48cd3a43b5460b63a851e7) )
@@ -1567,7 +1567,7 @@ public class mystwarr
 		ROM_LOAD( "168a07.1e", 0x200000, 2*1024*1024, CRC(fdbbf8cc) SHA1(a8adf72a25fe2b9c4c338350d02c92deb5f8c8e9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_metamrph = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_metamrph = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "224a01", 0x000001, 0x40000, CRC(e1d9b516) SHA1(387ed5ce87af376c0568e39187330a4585dc499a) )
@@ -1602,7 +1602,7 @@ public class mystwarr
 		ROM_LOAD( "224a07", 0x200000, 1*1024*1024, CRC(61b2f97a) SHA1(34bf835d6361c7809d40fa20fd238c9e2a84b101) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_metamrpj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_metamrpj = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "224jaa01", 0x000001, 0x40000, CRC(558d2602) SHA1(2dbc16fcc07436ca7eff8d070196348f272b8723) )
@@ -1637,7 +1637,7 @@ public class mystwarr
 		ROM_LOAD( "224a07", 0x200000, 1*1024*1024, CRC(61b2f97a) SHA1(34bf835d6361c7809d40fa20fd238c9e2a84b101) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mtlchamp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mtlchamp = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )
 	        ROM_LOAD16_BYTE( "234eaa01.20f", 0x000000, 0x040000, CRC(8fa731db) SHA1(e2ed81762070a764f51aae36ce03859b5d86520d) )
@@ -1671,7 +1671,7 @@ public class mystwarr
 		ROM_LOAD( "234a07.1d", 0x200000, 2*1024*1024, CRC(05ee239f) SHA1(f4e6e7568dc73666a2b5e0c3fe743432e0436464) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mtlchmpj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mtlchmpj = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "234jaa01.20f", 0x000000, 0x40000, CRC(76c3c568) SHA1(14c0009804fcedd8a3e5a105cc871dd6cd4cf7b3) )
@@ -1705,7 +1705,7 @@ public class mystwarr
 		ROM_LOAD( "234a07.1d", 0x200000, 2*1024*1024, CRC(05ee239f) SHA1(f4e6e7568dc73666a2b5e0c3fe743432e0436464) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gaiapols = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaiapols = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "123e07.24m", 0x000000, 1*1024*1024, CRC(f1a1db0f) SHA1(1394b8a57493cbc8d5bf555d363ad844a2407d98) )
@@ -1750,7 +1750,7 @@ public class mystwarr
 		ROM_LOAD( "123e15.2m", 0x200000, 2*1024*1024, CRC(7017ff07) SHA1(37ecd54f2c757c5385305ab726d9f66aa1afd456) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dadandrn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dadandrn = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "170a07.24m", 0x000000, 0x80000, CRC(6a55e828) SHA1(06be9a45fdddcc826a33ff8d6eb595e11b98a31f) )

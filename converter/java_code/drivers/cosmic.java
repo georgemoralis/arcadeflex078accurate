@@ -383,7 +383,7 @@ public class cosmic
 	};
 	
 	
-	static InputPortPtr input_ports_panic = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( panic )
+	static InputPortHandlerPtr input_ports_panic = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( panic )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
@@ -440,7 +440,7 @@ public class cosmic
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cosmica = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cosmica )
+	static InputPortHandlerPtr input_ports_cosmica = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cosmica )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_2WAY );
@@ -497,7 +497,7 @@ public class cosmic
 	
 	/* Offsets are in BYTES, so bits 0-7 are at offset 0 etc.   */
 	
-	static InputPortPtr input_ports_cosmicg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cosmicg )
+	static InputPortHandlerPtr input_ports_cosmicg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cosmicg )
 		PORT_START();  /* 4-7 */
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_SPECIAL );/* pixel clock */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_START1 );
@@ -547,7 +547,7 @@ public class cosmic
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_magspot2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( magspot2 )
+	static InputPortHandlerPtr input_ports_magspot2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( magspot2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_2WAY );
@@ -636,7 +636,7 @@ public class cosmic
 		PORT_DIPSETTING(    0x40, DEF_STR( "1C_5C") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_devzone = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( devzone )
+	static InputPortHandlerPtr input_ports_devzone = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( devzone )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_2WAY );
@@ -720,7 +720,7 @@ public class cosmic
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_devzone2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( devzone2 )
+	static InputPortHandlerPtr input_ports_devzone2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( devzone2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_2WAY );
@@ -804,7 +804,7 @@ public class cosmic
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_nomnlnd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nomnlnd )
+	static InputPortHandlerPtr input_ports_nomnlnd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nomnlnd )
 		PORT_START(); 	/* Controls - Remapped for game */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -852,7 +852,7 @@ public class cosmic
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_nomnlndg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nomnlndg )
+	static InputPortHandlerPtr input_ports_nomnlndg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nomnlndg )
 		PORT_START(); 	/* Controls - Remapped for game */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -1146,7 +1146,7 @@ public class cosmic
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_panic = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_panic = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "spe1",         0x0000, 0x0800, CRC(70ac0888) SHA1(bdc6dfb74b4643df36cae60923f9759751340c86) )
 		ROM_LOAD( "spe2",         0x0800, 0x0800, CRC(2b910c48) SHA1(9ebb15694e068a4d8769ec5d312af1148818d472) )
@@ -1169,7 +1169,7 @@ public class cosmic
 		ROM_LOAD( "spcpanic.8",   0x0000, 0x0800, CRC(7da0b321) SHA1(b450cc02de9cc27e3f336c626221c90c6961b51e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_panic2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_panic2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "spcpanic.1",   0x0000, 0x0800, CRC(405ae6f9) SHA1(92000f5f9bc1384ebae36dd30e715764747504d8) )
 		ROM_LOAD( "spcpanic.2",   0x0800, 0x0800, CRC(b6a286c5) SHA1(b33beb1fbe622e9c90888d25d018fd5bef6cb65b) )
@@ -1192,7 +1192,7 @@ public class cosmic
 		ROM_LOAD( "spcpanic.8",   0x0000, 0x0800, CRC(7da0b321) SHA1(b450cc02de9cc27e3f336c626221c90c6961b51e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_panic3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_panic3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "panica.1",     0x0000, 0x0800, CRC(289720ce) SHA1(8601bda95ac32a55f17fe9c723796bfe8b2b2fa7) )
 		ROM_LOAD( "spcpanic.2",   0x0800, 0x0800, CRC(b6a286c5) SHA1(b33beb1fbe622e9c90888d25d018fd5bef6cb65b) )
@@ -1215,7 +1215,7 @@ public class cosmic
 		ROM_LOAD( "spcpanic.8",   0x0000, 0x0800, CRC(7da0b321) SHA1(b450cc02de9cc27e3f336c626221c90c6961b51e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_panich = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_panich = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sph1",         0x0000, 0x0800, CRC(f6e9c6ef) SHA1(90b5bba0fd726e4c6618793467eba8c18c63fd43) )
 		ROM_LOAD( "sph2",         0x0800, 0x0800, CRC(58dbc49b) SHA1(f716e8cdbb7eb456bd7f2996241b5ebd03086de3) )
@@ -1238,7 +1238,7 @@ public class cosmic
 		ROM_LOAD( "spcpanic.8",   0x0000, 0x0800, CRC(7da0b321) SHA1(b450cc02de9cc27e3f336c626221c90c6961b51e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_panicger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_panicger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "spacepan.001", 0x0000, 0x0800, CRC(a6d9515a) SHA1(20fe6fa4cb10e83f97b77e19d9d4f883aba73d1a) )
 		ROM_LOAD( "spacepan.002", 0x0800, 0x0800, CRC(cfc22663) SHA1(44036a69ca3463759c56637c3435a3305b102879) )
@@ -1261,7 +1261,7 @@ public class cosmic
 		ROM_LOAD( "spcpanic.8",   0x0000, 0x0800, CRC(7da0b321) SHA1(b450cc02de9cc27e3f336c626221c90c6961b51e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cosmica = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cosmica = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ca.e3",        0x0000, 0x0800, CRC(535ee0c5) SHA1(3ec3056b7fabe07ef49a9179114aa74be44a943e) )
 		ROM_LOAD( "ca.e4",        0x0800, 0x0800, CRC(ed3cf8f7) SHA1(6ba1d98d82400519e844b950cb2fb1274c06d89a) )
@@ -1283,7 +1283,7 @@ public class cosmic
 		ROM_LOAD( "ca.sub",       0x0000, 0x0400, CRC(acbd4e98) SHA1(d33fe8bdc77bb18a3ffb369ea692210d1b890771) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cosmica2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cosmica2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ca.e3",        0x0000, 0x0800, CRC(535ee0c5) SHA1(3ec3056b7fabe07ef49a9179114aa74be44a943e) )
 		ROM_LOAD( "c3.bin",       0x0800, 0x0400, CRC(699c849e) SHA1(90a58ab8ede9c31eec3df1f8f251b59858f85eb6) )
@@ -1307,7 +1307,7 @@ public class cosmic
 		ROM_LOAD( "ca.sub",       0x0000, 0x0400, CRC(acbd4e98) SHA1(d33fe8bdc77bb18a3ffb369ea692210d1b890771) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cosmicg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cosmicg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 8k for code */
 		ROM_LOAD( "cosmicg1.bin", 0x0000, 0x0400, CRC(e1b9f894) SHA1(bab7fd9b3db145a889542653191905b6efc5ce75) )
 		ROM_LOAD( "cosmicg2.bin", 0x0400, 0x0400, CRC(35c75346) SHA1(4e50eaa0b50ab04802dc63992ad2600c227301ad) )
@@ -1323,7 +1323,7 @@ public class cosmic
 	ROM_END(); }}; 
 	
 	/* rom 9 not dumped according to readme? */
-	static RomLoadPtr rom_magspot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_magspot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ms1.bin",	  0x0000, 0x0800, CRC(59e9019d) SHA1(3c64ae956ec4eed988018b89c986ad8f6f065fe0) )
 		ROM_LOAD( "ms2.bin",	  0x0800, 0x0800, CRC(98b913b1) SHA1(2ce86f5069e2664e2ea44bda567ca26432fd59f7) )
@@ -1343,7 +1343,7 @@ public class cosmic
 		ROM_LOAD( "ms.e2",        0x0000, 0x0400, CRC(89f23ebd) SHA1(a56bda82f8be8e541a50d2a411ada89a6d9c0373) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_magspot2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_magspot2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ms.e3",        0x0000, 0x0800, CRC(c0085ade) SHA1(ab60ba7c0e45ea2576d935135e930e2fdf165867) )
 		ROM_LOAD( "ms.e4",        0x0800, 0x0800, CRC(d534a68b) SHA1(fd3b5e619b22a8c53e3c6f5f5351068a3f26eb61) )
@@ -1363,7 +1363,7 @@ public class cosmic
 		ROM_LOAD( "ms.e2",        0x0000, 0x0400, CRC(89f23ebd) SHA1(a56bda82f8be8e541a50d2a411ada89a6d9c0373) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_devzone = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_devzone = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "dv1.e3",       0x0000, 0x0800, CRC(c70faf00) SHA1(d3f0f071e6c7552724eba64a7182637dae4438c7) )
 		ROM_LOAD( "dv2.e4",       0x0800, 0x0800, CRC(eacfed61) SHA1(493c0d21fd1574b12978dd1f52e8735df6c1732c) )
@@ -1389,7 +1389,7 @@ public class cosmic
 		ROM_LOAD( "ic1.sub",      0x0000, 0x0020, CRC(df974878) SHA1(2ef2e1b771923f9a0bfe1841444de61200298605) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_devzone2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_devzone2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "p10_1.e3",     0x0000, 0x0800, BAD_DUMP CRC(38bd45a4) SHA1(192eee64ff53c20fb5b369703b52a5bb3976ba1d)  )
 		ROM_LOAD( "my4_2.e4",     0x0800, 0x0800, BAD_DUMP CRC(e1637800) SHA1(3705ce1f02f3fefec0285f5db6a7606e6cec1bac)  )
@@ -1415,7 +1415,7 @@ public class cosmic
 		ROM_LOAD( "ic1.sub",      0x0000, 0x0020, CRC(df974878) SHA1(2ef2e1b771923f9a0bfe1841444de61200298605) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nomnlnd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nomnlnd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1.bin",        0x0000, 0x0800, CRC(ba117ba6) SHA1(7399e7ac8a585ed6502ea0d740850b1ed2dc5bcd) )
 		ROM_LOAD( "2.bin",        0x0800, 0x0800, CRC(e5ed654f) SHA1(c26dc12ade6dc63392945ec0caca229d936f7f89) )
@@ -1439,7 +1439,7 @@ public class cosmic
 		ROM_LOAD( "nl11.ic7",     0x0400, 0x0400, CRC(e717b241) SHA1(6d234a75514e22d484dc027db5bb85cf8b58f4f2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nomnlndg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nomnlndg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "nml1.e3",      0x0000, 0x0800, CRC(e212ed91) SHA1(135c20fc97790769d5e1619d7ac844a1d3f6aace) )
 		ROM_LOAD( "nml2.e4",      0x0800, 0x0800, CRC(f66ef3d8) SHA1(c42a325dd952cda074ef2857e7fa5154f0b7c7ce) )

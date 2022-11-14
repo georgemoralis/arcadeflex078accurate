@@ -85,7 +85,7 @@ public class circus
 	};
 	
 	
-	static InputPortPtr input_ports_circus = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( circus )
+	static InputPortHandlerPtr input_ports_circus = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( circus )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START2 );
@@ -119,7 +119,7 @@ public class circus
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_robotbwl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( robotbwl )
+	static InputPortHandlerPtr input_ports_robotbwl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( robotbwl )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON1 );
@@ -154,7 +154,7 @@ public class circus
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_crash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crash )
+	static InputPortHandlerPtr input_ports_crash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crash )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START2 );
@@ -184,7 +184,7 @@ public class circus
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_ripcord = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ripcord )
+	static InputPortHandlerPtr input_ports_ripcord = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ripcord )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START2 );
@@ -387,7 +387,7 @@ public class circus
 	
 	
 	
-	static RomLoadPtr rom_circus = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_circus = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "circus.1a",    0x1000, 0x0200, CRC(7654ea75) SHA1(fa29417618157002b8ecb21f4c15104c8145a742) ) /* Code */
 		ROM_LOAD( "circus.2a",    0x1200, 0x0200, CRC(b8acdbc5) SHA1(634bb11089f7a57a316b6829954cc4da4523f267) )
@@ -409,7 +409,7 @@ public class circus
 		ROM_LOAD( "circus.14d",   0x0000, 0x0200, CRC(2fde3930) SHA1(a21e2d342f16a39a07edf4bea8d698a52216ecba) )  /* Clown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_robotbwl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_robotbwl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "robotbwl.1a",  0xf000, 0x0200, CRC(df387a0b) SHA1(97291f1a93cbbff987b0fbc16c2e87ad0db96e12) ) /* Code */
 		ROM_LOAD( "robotbwl.2a",  0xf200, 0x0200, CRC(c948274d) SHA1(1bf8c6e994d601d4e6d30ca2a9da97e140ff5eee) )
@@ -430,7 +430,7 @@ public class circus
 		ROM_LOAD( "robotbwl.14d", 0x0000, 0x0020, CRC(a402ac06) SHA1(3bd75630786bcc86d9e9fbc826adc909eef9b41f) )  /* Ball */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crash = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "crash.a1",     0x1000, 0x0200, CRC(b9571203) SHA1(1299e476598d07a67aa1640f3320de1198280296) ) /* Code */
 		ROM_LOAD( "crash.a2",     0x1200, 0x0200, CRC(b4581a95) SHA1(b3662bda5013443a56eabbe21fefa91e255e18e7) )
@@ -452,7 +452,7 @@ public class circus
 		ROM_LOAD( "crash.d14",    0x0000, 0x0200, CRC(833f81e4) SHA1(78a0ace3510546691ecaf6f6275cb3269495edc9) )  /* Cars */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ripcord = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ripcord = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "9027.1a",      0x1000, 0x0200, CRC(56b8dc06) SHA1(5432e4f2e321805a8dc9cfce20b8372793a9a4dd) ) /* Code */
 		ROM_LOAD( "9028.2a",      0x1200, 0x0200, CRC(a8a78a30) SHA1(e6ddcba608f9b34e07a5402872793dafe5054156) )

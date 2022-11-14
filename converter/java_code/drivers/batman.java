@@ -155,7 +155,7 @@ public class batman
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_batman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( batman )
+	static InputPortHandlerPtr input_ports_batman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( batman )
 		PORT_START(); 		/* 26000 */
 		PORT_BIT( 0x01ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0200, IP_ACTIVE_LOW, IPT_START1 );
@@ -263,7 +263,7 @@ public class batman
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_batman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_batman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xc0000, REGION_CPU1, 0 )	/* 6*128k for 68000 code */
 		ROM_LOAD16_BYTE( "085-2030.10r",  0x00000, 0x20000, CRC(7cf4e5bf) SHA1(d6068a65fb524d839a34e596a272fac1ce90981c) )
 		ROM_LOAD16_BYTE( "085-2031.7r",   0x00001, 0x20000, CRC(7d7f3fc4) SHA1(8ee3e9ad3464006a26c36155b6099433110e2a6e) )

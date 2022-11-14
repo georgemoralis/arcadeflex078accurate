@@ -120,7 +120,7 @@ public class kickgoal
 	
 	/* INPUT ports ***************************************************************/
 	
-	static InputPortPtr input_ports_kickgoal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kickgoal )
+	static InputPortHandlerPtr input_ports_kickgoal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kickgoal )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -242,7 +242,7 @@ public class kickgoal
 	
 	/* Rom Loading ***************************************************************/
 	
-	static RomLoadPtr rom_kickgoal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kickgoal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "ic6",   0x000000, 0x40000, CRC(498ca792) SHA1(c638c3a1755870010c5961b58bcb02458ff4e238) )
 		ROM_LOAD16_BYTE( "ic5",   0x000001, 0x40000, CRC(d528740a) SHA1(d56a71004aabc839b0833a6bf383e5ef9d4948fa) )

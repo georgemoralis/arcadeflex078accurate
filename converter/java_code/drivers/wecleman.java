@@ -864,7 +864,7 @@ public class wecleman
 							WEC Le Mans 24 Input Ports
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_wecleman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wecleman )
+	static InputPortHandlerPtr input_ports_wecleman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wecleman )
 		PORT_START(); 	/* IN0 - Controls and Coins - $140011.b */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -954,7 +954,7 @@ public class wecleman
 								Hot Chase Input Ports
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_hotchase = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hotchase )
+	static InputPortHandlerPtr input_ports_hotchase = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hotchase )
 		PORT_START(); 	/* IN0 - Controls and Coins - $140011.b */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1231,7 +1231,7 @@ public class wecleman
 							WEC Le Mans 24 ROM Definitions
 	***************************************************************************/
 	
-	static RomLoadPtr rom_wecleman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wecleman = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* Main CPU Code */
 		ROM_LOAD16_BYTE( "602f08.17h", 0x00000, 0x10000, CRC(493b79d3) SHA1(9625e3b65c211d5081d8ed8977de287eff100842) )
@@ -1362,7 +1362,7 @@ public class wecleman
 								Hot Chase ROM Definitions
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hotchase = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hotchase = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* Main Code */
 		ROM_LOAD16_BYTE( "763k05", 0x000000, 0x010000, CRC(f34fef0b) SHA1(9edaf6da988348cb32d5686fe7a67fb92b1c9777) )
 		ROM_LOAD16_BYTE( "763k04", 0x000001, 0x010000, CRC(60f73178) SHA1(49c919d09fa464b205d7eccce337349e3a633a14) )

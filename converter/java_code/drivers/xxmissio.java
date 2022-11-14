@@ -195,7 +195,7 @@ public class xxmissio
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_xxmissio = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( xxmissio )
+	static InputPortHandlerPtr input_ports_xxmissio = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( xxmissio )
 		PORT_START(); 
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_START1 );
@@ -358,7 +358,7 @@ public class xxmissio
 	
 	/****************************************************************************/
 	
-	static RomLoadPtr rom_xxmissio = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xxmissio = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* CPU1 */
 		ROM_LOAD( "xx1.4l", 0x0000,  0x8000, CRC(86e07709) SHA1(7bfb7540b6509f07a6388ca2da6b3892f5b1df74) )
 	

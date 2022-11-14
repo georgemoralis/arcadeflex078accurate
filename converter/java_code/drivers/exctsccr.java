@@ -172,7 +172,7 @@ public class exctsccr
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_exctsccr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( exctsccr )
+	static InputPortHandlerPtr input_ports_exctsccr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( exctsccr )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -419,7 +419,7 @@ public class exctsccr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_exctsccr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exctsccr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1_g10.bin",    0x0000, 0x2000, CRC(aa68df66) SHA1(f10cac5a4c5aad1e1eb8835174dc8d517bb2921a) )
 		ROM_LOAD( "2_h10.bin",    0x2000, 0x2000, CRC(2d8f8326) SHA1(8809e7b081fa2a1966cb51ac969fd7b468d35be0) )
@@ -447,7 +447,7 @@ public class exctsccr
 		ROM_LOAD( "prom3.k5",     0x0120, 0x0100, CRC(b5db1c2c) SHA1(900aaaac6b674a9c5c7b7804a4b0c3d5cce761aa) ) /* lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_exctscca = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exctscca = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1_g10.bin",    0x0000, 0x2000, CRC(aa68df66) SHA1(f10cac5a4c5aad1e1eb8835174dc8d517bb2921a) )
 		ROM_LOAD( "2_h10.bin",    0x2000, 0x2000, CRC(2d8f8326) SHA1(8809e7b081fa2a1966cb51ac969fd7b468d35be0) )
@@ -476,7 +476,7 @@ public class exctsccr
 	ROM_END(); }}; 
 	
 	/* Bootleg */
-	static RomLoadPtr rom_exctsccb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exctsccb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "es-1.e2",      0x0000, 0x2000, CRC(997c6a82) SHA1(60fe27a12eedd22c775b7e65c5ba692cfcf5ac74) )
 		ROM_LOAD( "es-2.g2",      0x2000, 0x2000, CRC(5c66e792) SHA1(f7a7f32806965fa926261217cee3159ccd198d49) )
@@ -503,7 +503,7 @@ public class exctsccr
 		ROM_LOAD( "prom3.k5",     0x0120, 0x0100, CRC(b5db1c2c) SHA1(900aaaac6b674a9c5c7b7804a4b0c3d5cce761aa) ) /* lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_exctscc2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exctscc2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "vr.3j",        0x0000, 0x2000, CRC(c6115362) SHA1(6a258631abd72ef6b8d7968bb4b2bc88e89e597d) )
 		ROM_LOAD( "vr.3k",        0x2000, 0x2000, CRC(de36ba00) SHA1(0a0d92e710b8c749f145571bc8a204609456d19d) )

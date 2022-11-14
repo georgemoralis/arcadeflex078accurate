@@ -93,7 +93,7 @@ public class lethalj
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_lethalj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lethalj )
+	static InputPortHandlerPtr input_ports_lethalj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lethalj )
 		PORT_START(); 
 		PORT_BIT( 0x0003, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0004, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER2 );
@@ -155,7 +155,7 @@ public class lethalj
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_eggventr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( eggventr )
+	static InputPortHandlerPtr input_ports_eggventr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( eggventr )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_SERVICE1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -209,7 +209,7 @@ public class lethalj
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_eggventdx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( eggventdx )
+	static InputPortHandlerPtr input_ports_eggventdx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( eggventdx )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_SERVICE1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -347,7 +347,7 @@ public class lethalj
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_lethalj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lethalj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( TOBYTE(0x400000), REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION16_LE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */
@@ -373,7 +373,7 @@ public class lethalj
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_eggventr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_eggventr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( TOBYTE(0x400000), REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION16_LE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */
@@ -400,7 +400,7 @@ public class lethalj
 		ROM_LOAD( "eu18.bin", 0x00000, 0x40000, CRC(3760b1db) SHA1(70e258a6036f9ce26b354c4df57e0e4d2c871bcb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_eggvntdx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_eggvntdx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( TOBYTE(0x400000), REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION16_LE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */

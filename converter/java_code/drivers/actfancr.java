@@ -153,7 +153,7 @@ public class actfancr
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_actfancr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( actfancr )
+	static InputPortHandlerPtr input_ports_actfancr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( actfancr )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -233,7 +233,7 @@ public class actfancr
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_triothep = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( triothep )
+	static InputPortHandlerPtr input_ports_triothep = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( triothep )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -466,7 +466,7 @@ public class actfancr
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_actfancr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_actfancr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* Need to allow full RAM allocation for now */
 		ROM_LOAD( "fe08-2.bin", 0x00000, 0x10000, CRC(0d36fbfa) SHA1(cef5cfd053beac5ca2ac52421024c316bdbfba42) )
 		ROM_LOAD( "fe09-2.bin", 0x10000, 0x10000, CRC(27ce2bb1) SHA1(52a423dfc2bba7b3330d1a10f4149ae6eeb9198c) )
@@ -499,7 +499,7 @@ public class actfancr
 		ROM_LOAD( "18",   0x00000, 0x10000, CRC(5c55b242) SHA1(62ba60b2f02483875da12aefe849f7e2fd137ef1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_actfanc1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_actfanc1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* Need to allow full RAM allocation for now */
 		ROM_LOAD( "08-1", 0x00000, 0x10000, CRC(3bf214a4) SHA1(f7513672b2292d3acb4332b392695888bf6560a5) )
 		ROM_LOAD( "09-1", 0x10000, 0x10000, CRC(13ae78d5) SHA1(eba77d3dbfe273e18c7fa9c0ca305ac2468f9381) )
@@ -532,7 +532,7 @@ public class actfancr
 		ROM_LOAD( "18",   0x00000, 0x10000, CRC(5c55b242) SHA1(62ba60b2f02483875da12aefe849f7e2fd137ef1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_actfancj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_actfancj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* Need to allow full RAM allocation for now */
 		ROM_LOAD( "fd08-1.bin", 0x00000, 0x10000, CRC(69004b60) SHA1(7c6b876ca04377d2aa2d3c3f19d8e6cc7345363d) )
 		ROM_LOAD( "fd09-1.bin", 0x10000, 0x10000, CRC(a455ae3e) SHA1(960798271c8370c1c4ffce2a453f59d7a301c9f9) )
@@ -565,7 +565,7 @@ public class actfancr
 		ROM_LOAD( "18",   0x00000, 0x10000, CRC(5c55b242) SHA1(62ba60b2f02483875da12aefe849f7e2fd137ef1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_triothep = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triothep = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* Need to allow full RAM allocation for now */
 		ROM_LOAD( "ff16",     0x00000, 0x20000, CRC(84d7e1b6) SHA1(28381d2e1f6d22a959383eb2e8d73f2e03f4d39f) )
 		ROM_LOAD( "ff15.bin", 0x20000, 0x10000, CRC(6eada47c) SHA1(98fc4e93c47bc42ea7c20e8ac994b117cd7cb5a5) )

@@ -140,7 +140,7 @@ public class ataxx
 	#define IPT_EEPROM_DATA	IPT_SPECIAL
 	
 	
-	static InputPortPtr input_ports_ataxx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ataxx )
+	static InputPortHandlerPtr input_ports_ataxx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ataxx )
 		PORT_START(); 		/* 0xF6 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -171,7 +171,7 @@ public class ataxx
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_wsf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wsf )
+	static InputPortHandlerPtr input_ports_wsf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wsf )
 		PORT_START(); 		/* 0xF6 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -225,7 +225,7 @@ public class ataxx
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_indyheat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( indyheat )
+	static InputPortHandlerPtr input_ports_indyheat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( indyheat )
 		PORT_START(); 		/* 0xF6 */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT_IMPULSE( 0x02, IP_ACTIVE_HIGH, IPT_COIN1, 1 );
@@ -271,7 +271,7 @@ public class ataxx
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_brutforc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( brutforc )
+	static InputPortHandlerPtr input_ports_brutforc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( brutforc )
 		PORT_START(); 		/* 0xF6 */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT_IMPULSE( 0x02, IP_ACTIVE_HIGH, IPT_COIN2, 1 );
@@ -429,7 +429,7 @@ public class ataxx
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_ataxx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ataxx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "ataxx.038",   0x00000, 0x20000, CRC(e1cf6236) SHA1(fabf423a006b1db22273c6fffa03edc148d7d957) )
 		ROM_RELOAD(              0x10000, 0x20000 )
@@ -462,7 +462,7 @@ public class ataxx
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ataxxa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ataxxa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "u38",   0x00000, 0x20000, CRC(3378937d) SHA1(3c62da7e11b2860c7fe3a35c077cadcf4d0272ca) )
 		ROM_RELOAD(        0x10000, 0x20000 )
@@ -495,7 +495,7 @@ public class ataxx
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ataxxj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ataxxj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "ataxxj.038", 0x00000, 0x20000, CRC(513fa7d4) SHA1(1aada72214c0165d76667935855bf996a5b3d55b) )
 		ROM_RELOAD(             0x10000, 0x20000 )
@@ -528,7 +528,7 @@ public class ataxx
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wsf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wsf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )
 		ROM_LOAD( "30022-03.u64",  0x00000, 0x20000, CRC(2e7faa96) SHA1(d43915a433133eca650fabece61a4a65642b39f6) )
 		ROM_RELOAD(                0x10000, 0x20000 )
@@ -571,7 +571,7 @@ public class ataxx
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_indyheat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_indyheat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )
 		ROM_LOAD( "u64_27c.010",   0x00000, 0x20000, CRC(2b97a347) SHA1(958a774e9ea3678c0fdd2466e578df8267b4413e) )
 		ROM_RELOAD(                0x10000, 0x20000 )
@@ -621,7 +621,7 @@ public class ataxx
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_brutforc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_brutforc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )
 		ROM_LOAD( "u64",   0x00000, 0x20000, CRC(008ae3b8) SHA1(bc9fdba761501efeaf665ac33ff1ad6935d70638) )
 		ROM_RELOAD(                 0x10000, 0x20000 )
@@ -671,7 +671,7 @@ public class ataxx
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_asylum = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_asylum = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )
 		ROM_LOAD( "asy-m0.64",   0x00000, 0x20000, CRC(f5ca36fd) SHA1(8c36ce3ca1c30ffb0a32ff7e9df61901c1ee6151) )
 		ROM_RELOAD(              0x10000, 0x20000 )

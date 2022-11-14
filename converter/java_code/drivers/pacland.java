@@ -177,7 +177,7 @@ public class pacland
 	
 	
 	
-	static InputPortPtr input_ports_pacland = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pacland )
+	static InputPortHandlerPtr input_ports_pacland = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pacland )
 		PORT_START();       /* DSWA */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coin_B") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -343,7 +343,7 @@ public class pacland
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_pacland = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacland = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128k for code */
 		ROM_LOAD( "pl5_01b.bin",  0x08000, 0x4000, CRC(b0ea7631) SHA1(424afa6f397310c7af39c9e8b580aa9ccd42c39c) )
 		ROM_LOAD( "pl5_02.bin",   0x0C000, 0x4000, CRC(d903e84e) SHA1(25338726227bfbec65847879aac5228a6a307db4) )
@@ -379,7 +379,7 @@ public class pacland
 		ROM_LOAD( "pl1-4.bin",    0x1000, 0x0400, CRC(3a7be418) SHA1(475cdc68205e3acce83fe79b00b74c6a7e28dde4) )	/* background lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pacland2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacland2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128k for code */
 		ROM_LOAD( "pl6_01.bin",   0x08000, 0x4000, CRC(4c96e11c) SHA1(c136dc3877155b7a600173c876f6a53394d9260d) )
 		ROM_LOAD( "pl6_02.bin",   0x0C000, 0x4000, CRC(8cf5bd8d) SHA1(0771ca1ab5db58f5632583a5e6e84660e8ab727d) )
@@ -415,7 +415,7 @@ public class pacland
 		ROM_LOAD( "pl1-4.bin",    0x1000, 0x0400, CRC(3a7be418) SHA1(475cdc68205e3acce83fe79b00b74c6a7e28dde4) )	/* background lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pacland3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacland3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128k for code */
 		ROM_LOAD( "pln1-1",       0x08000, 0x4000, CRC(f729fb94) SHA1(332ff2e4aae67eb8ed0f52048097f74323a176f8) )
 		ROM_LOAD( "pln1-2",       0x0C000, 0x4000, CRC(5c66eb6f) SHA1(376233f51e655df8922886c1e808a2f37ccae5d4) )
@@ -451,7 +451,7 @@ public class pacland
 		ROM_LOAD( "pl1-4.bin",    0x1000, 0x0400, CRC(3a7be418) SHA1(475cdc68205e3acce83fe79b00b74c6a7e28dde4) )	/* background lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_paclandm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_paclandm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128k for code */
 		ROM_LOAD( "pl1-1",        0x08000, 0x4000, CRC(a938ae99) SHA1(bf12097d8c69685cb7af763f9b9617c767aaed2f) )
 		ROM_LOAD( "pl1-2",        0x0C000, 0x4000, CRC(3fe43bb5) SHA1(14e6144d06ff2fd786f383f36f1b8238ac364849) )

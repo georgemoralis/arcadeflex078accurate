@@ -219,7 +219,7 @@ public class raiden2
 	
 	/* INPUT PORTS */
 	
-	static InputPortPtr input_ports_raiden2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( raiden2 )
+	static InputPortHandlerPtr input_ports_raiden2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( raiden2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_8WAY | IPF_PLAYER1 );
@@ -353,7 +353,7 @@ public class raiden2
 	
 	/* ROM LOADING */
 	
-	static RomLoadPtr rom_raiden2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_raiden2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v30 main cpu */
 		ROM_LOAD16_BYTE("prg0",   0x100000, 0x80000, CRC(09475ec4) SHA1(05027f2d8f9e11fcbd485659eda68ada286dae32) )
 		ROM_LOAD16_BYTE("prg1",   0x100001, 0x80000, CRC(4609b5f2) SHA1(272d2aa75b8ea4d133daddf42c4fc9089093df2e) )

@@ -114,7 +114,7 @@ public class gotcha
 	
 	
 	
-	static InputPortPtr input_ports_gotcha = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gotcha )
+	static InputPortHandlerPtr input_ports_gotcha = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gotcha )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -288,7 +288,7 @@ public class gotcha
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gotcha = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gotcha = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "gotcha.u3",    0x00000, 0x40000, CRC(5e5d52e0) SHA1(c3e9375350b7931e3c9874a045d7a9d8df5ea691) )
 		ROM_LOAD16_BYTE( "gotcha.u2",    0x00001, 0x40000, CRC(3aa8eaff) SHA1(348f2ab43101d51c553ff10f9d18cc499006c965) )

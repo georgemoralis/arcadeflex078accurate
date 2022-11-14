@@ -102,7 +102,7 @@ public class clshroad
 	
 	
 	
-	static InputPortPtr input_ports_clshroad = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( clshroad )
+	static InputPortHandlerPtr input_ports_clshroad = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( clshroad )
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP );
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN );
@@ -186,7 +186,7 @@ public class clshroad
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_firebatl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( firebatl )
+	static InputPortHandlerPtr input_ports_firebatl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( firebatl )
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP );
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN );
@@ -388,7 +388,7 @@ public class clshroad
 	
 	
 	
-	static RomLoadPtr rom_firebatl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_firebatl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "rom01",       0x00000, 0x2000, CRC(10e24ef6) SHA1(b6dae9824eb3cecececbdfdb416a90b1b61ff18d) )
 		ROM_LOAD( "rom02",       0x02000, 0x2000, CRC(47f79bee) SHA1(23e64ff69ff5112b0413d12a283ca90cf3642389) )
@@ -433,7 +433,7 @@ public class clshroad
 		ROM_LOAD( "prom2.bpr",   0x0100, 0x0100, CRC(4017a2a6) SHA1(dadef2de7a1119758c8e6d397aa42815b0218889) )	/* high 4 bits */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_clshroad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_clshroad = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "clashr3.bin", 0x0000, 0x8000, CRC(865c32ae) SHA1(e5cdd2d624fe6dc8bd6bebf2bd1c79d287408c63) )
 	

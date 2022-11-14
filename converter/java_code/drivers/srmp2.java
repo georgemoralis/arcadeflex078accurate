@@ -645,7 +645,7 @@ public class srmp2
 		PORT_BIT ( 0x0080, IP_ACTIVE_LOW, IPT_UNKNOWN );\
 		PORT_BIT ( 0xff00, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	
-	static InputPortPtr input_ports_srmp2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( srmp2 )
+	static InputPortHandlerPtr input_ports_srmp2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( srmp2 )
 		PORT_START(); 			/* Coinnage (0) */
 		PORT_BIT ( 0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT ( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -724,7 +724,7 @@ public class srmp2
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_srmp3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( srmp3 )
+	static InputPortHandlerPtr input_ports_srmp3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( srmp3 )
 		PORT_START(); 			/* Coinnage (0) */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -801,7 +801,7 @@ public class srmp2
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mjyuugi = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjyuugi )
+	static InputPortHandlerPtr input_ports_mjyuugi = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjyuugi )
 		PORT_START(); 			/* Coinnage (0) */
 		PORT_BIT ( 0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT ( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -911,7 +911,7 @@ public class srmp2
 		PORT_BIT ( 0xfff0, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ponchin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ponchin )
+	static InputPortHandlerPtr input_ports_ponchin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ponchin )
 		PORT_START(); 			/* Coinnage (0) */
 		PORT_BIT ( 0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT ( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -1208,7 +1208,7 @@ public class srmp2
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_srmp2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srmp2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )					/* 68000 Code */
 		ROM_LOAD16_BYTE( "uco-2.17", 0x000000, 0x020000, CRC(0d6c131f) SHA1(be85f2578b0ae2a072565605b7dbeb970e5e3851) )
 		ROM_LOAD16_BYTE( "uco-3.18", 0x000001, 0x020000, CRC(e9fdf5f8) SHA1(aa1f8cc3f1d0ed942403c0473605775bc1537cbf) )
@@ -1231,7 +1231,7 @@ public class srmp2
 		ROM_LOAD( "uc-2o.13", 0x000400, 0x000400, CRC(50a33b96) SHA1(cfb6d3cb6b73d1bf484014fb340c28bc1774137d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_srmp3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srmp3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x028000, REGION_CPU1, 0 )					/* 68000 Code */
 		ROM_LOAD( "za0-10.bin", 0x000000, 0x008000, CRC(939d126f) SHA1(7a5c7f7fbee8de11a08194d3c8f10a20f8dc2f0a) )
 		ROM_CONTINUE(           0x010000, 0x018000 )
@@ -1254,7 +1254,7 @@ public class srmp2
 		ROM_LOAD( "za0-13.prm", 0x000200, 0x000200, CRC(4ea3d2fe) SHA1(c7d18b9c1331e08faadf33e52033c658bf2b16fc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mjyuugi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjyuugi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )					/* 68000 Code */
 		ROM_LOAD16_BYTE( "um001.001", 0x000000, 0x020000, CRC(28d5340f) SHA1(683d89987b8b794695fdb6104d8e6ff5204afafb) )
 		ROM_LOAD16_BYTE( "um001.003", 0x000001, 0x020000, CRC(275197de) SHA1(2f8efa112f23f172eaef9bb732b2a253307dd896) )
@@ -1276,7 +1276,7 @@ public class srmp2
 		ROM_LOAD( "maj-001.02", 0x080000, 0x080000, CRC(eb28e641) SHA1(67e1d89c9b40e4a83a3783d4343d7a8121668091) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mjyuugia = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjyuugia = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )					/* 68000 Code */
 		ROM_LOAD16_BYTE( "um_001.001", 0x000000, 0x020000, CRC(76dc0594) SHA1(4bd81616769cdc59eaf6f7921e404e166500f67f) )
 		ROM_LOAD16_BYTE( "um001.003",  0x000001, 0x020000, CRC(275197de) SHA1(2f8efa112f23f172eaef9bb732b2a253307dd896) )
@@ -1298,7 +1298,7 @@ public class srmp2
 		ROM_LOAD( "maj-001.02", 0x080000, 0x080000, CRC(eb28e641) SHA1(67e1d89c9b40e4a83a3783d4343d7a8121668091) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ponchin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ponchin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )					/* 68000 Code */
 		ROM_LOAD16_BYTE( "um2_1_1.u22", 0x000000, 0x020000, CRC(cf88efbb) SHA1(7bd2304d365524fc5bcf3fb30752f5efec73a9f5) )
 		ROM_LOAD16_BYTE( "um2_1_3.u42", 0x000001, 0x020000, CRC(e053458f) SHA1(db4a34589a08d0252d700144a6260a0f6c4e8e30) )
@@ -1316,7 +1316,7 @@ public class srmp2
 		ROM_LOAD( "um2_1_10.u63", 0x080000, 0x080000, CRC(53e643e9) SHA1(3b221217e8f846ae96a9a47149037cea19d97549) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ponchina = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ponchina = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )					/* 68000 Code */
 		ROM_LOAD16_BYTE( "u22.bin",     0x000000, 0x020000, CRC(9181de20) SHA1(03fdb289d862ff2d87249d35991bd60784e172d9) )
 		ROM_LOAD16_BYTE( "um2_1_3.u42", 0x000001, 0x020000, CRC(e053458f) SHA1(db4a34589a08d0252d700144a6260a0f6c4e8e30) )

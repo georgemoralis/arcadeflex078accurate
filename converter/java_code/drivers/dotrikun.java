@@ -60,7 +60,7 @@ public class dotrikun
 	};
 	
 	
-	static InputPortPtr input_ports_dotrikun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dotrikun )
+	static InputPortHandlerPtr input_ports_dotrikun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dotrikun )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN );
@@ -103,12 +103,12 @@ public class dotrikun
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_dotrikun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dotrikun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "14479a.mpr",	0x0000, 0x4000, CRC(b77a50db) SHA1(2a5d812d39f0f58f5c3e1b46f80aca75aa225115) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dotriku2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dotriku2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "14479.mpr",	0x0000, 0x4000, CRC(a6aa7fa5) SHA1(4dbea33fb3541fdacf2195355751078a33bb30d5) )
 	ROM_END(); }}; 

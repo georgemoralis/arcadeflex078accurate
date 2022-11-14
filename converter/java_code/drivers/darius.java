@@ -634,7 +634,7 @@ public class darius
 		PORT_BIT( 0x80, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 	
 	
-	static InputPortPtr input_ports_darius = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( darius )
+	static InputPortHandlerPtr input_ports_darius = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( darius )
 		DARIUS_PLAYERS_INPUT( IPF_PLAYER1 )
 	
 		DARIUS_PLAYERS_INPUT( IPF_PLAYER2 )
@@ -672,7 +672,7 @@ public class darius
 		PORT_DIPSETTING(      0x8000, DEF_STR( "Yes") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dariuse = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dariuse )
+	static InputPortHandlerPtr input_ports_dariuse = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dariuse )
 		DARIUS_PLAYERS_INPUT( IPF_PLAYER1 )
 	
 		DARIUS_PLAYERS_INPUT( IPF_PLAYER2 )
@@ -710,7 +710,7 @@ public class darius
 		PORT_DIPSETTING(      0x8000, DEF_STR( "Yes") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dariusj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dariusj )
+	static InputPortHandlerPtr input_ports_dariusj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dariusj )
 		DARIUS_PLAYERS_INPUT( IPF_PLAYER1 )
 	
 		DARIUS_PLAYERS_INPUT( IPF_PLAYER2 )
@@ -872,7 +872,7 @@ public class darius
 	                                  DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_darius = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_darius = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_FILL( 0x00000, 0x60000, 0xffffffff )
 		ROM_LOAD16_BYTE( "da-59.bin",   0x00000, 0x10000, CRC(11aab4eb) SHA1(92f795e96a940e8d94abbf429ba4ac119992b991) )
@@ -931,7 +931,7 @@ public class darius
 		ROM_LOAD16_BYTE( "a96-26.165",   0x0800, 0x0400, CRC(4891b9c0) SHA1(1f550a9a4ad3ca379f88f5865ed1b281c7b87f31) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dariusj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dariusj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_FILL( 0x00000, 0x60000, 0xffffffff )
 		ROM_LOAD16_BYTE( "a96_29-1.185", 0x00000, 0x10000, CRC(75486f62) SHA1(818b095f2c6cc5764161c3e14ba70fe1c4b2f724) )
@@ -986,7 +986,7 @@ public class darius
 		ROM_LOAD16_BYTE( "a96-26.165",   0x0800, 0x0400, CRC(4891b9c0) SHA1(1f550a9a4ad3ca379f88f5865ed1b281c7b87f31) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dariuso = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dariuso = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_FILL( 0x00000, 0x60000, 0xffffffff )
 		ROM_LOAD16_BYTE( "a96-29.185",   0x00000, 0x10000, CRC(f775162b) SHA1(a17e570c2ba4daf0a3526b45c324c822faac0c8d) )
@@ -1041,7 +1041,7 @@ public class darius
 		ROM_LOAD16_BYTE( "a96-26.165",   0x0800, 0x0400, CRC(4891b9c0) SHA1(1f550a9a4ad3ca379f88f5865ed1b281c7b87f31) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dariuse = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dariuse = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_FILL( 0x00000, 0x60000, 0xffffffff )
 		ROM_LOAD16_BYTE( "dae-68.bin",   0x00000, 0x10000, CRC(ed721127) SHA1(8127f4a9b26b5fb83a381235eef0577d60d1cfd7) )

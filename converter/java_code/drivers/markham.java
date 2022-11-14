@@ -100,7 +100,7 @@ public class markham
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_markham = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( markham )
+	static InputPortHandlerPtr input_ports_markham = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( markham )
 		PORT_START();   /* dsw1 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "3" );
@@ -263,7 +263,7 @@ public class markham
 	
 	/****************************************************************************/
 	
-	static RomLoadPtr rom_markham = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_markham = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "tv3.9",   0x0000,  0x2000, CRC(59391637) SHA1(e0cfe49a5591d6a6e64c3277319a19235b0ee6ea) )
 		ROM_LOAD( "tvg4.10", 0x2000,  0x2000, CRC(1837bcce) SHA1(50e1ae0a4937f09a3dced48bb12f57cee846487a) )

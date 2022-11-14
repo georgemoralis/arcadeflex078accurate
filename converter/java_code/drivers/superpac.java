@@ -124,7 +124,7 @@ public class superpac
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_superpac = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( superpac )
+	static InputPortHandlerPtr input_ports_superpac = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( superpac )
 		PORT_START(); 	/* DSW0 */
 		PORT_DIPNAME( 0x0f, 0x00, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x00, "Rank 0-Normal" );
@@ -223,7 +223,7 @@ public class superpac
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pacnpal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pacnpal )
+	static InputPortHandlerPtr input_ports_pacnpal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pacnpal )
 		PORT_START(); 	/* DSW0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coin_B") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -408,7 +408,7 @@ public class superpac
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_superpac = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superpac = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sp1.2",        0xc000, 0x2000, CRC(4bb33d9c) SHA1(dd87f71b4db090a32a6b791079eedd17580cc741) )
 		ROM_LOAD( "sp1.1",        0xe000, 0x2000, CRC(846fbb4a) SHA1(f6bf90281986b9b7a3ef1dbbeddb722182e84d7c) )
@@ -432,7 +432,7 @@ public class superpac
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_superpcm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superpcm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "spc-2.1c",     0xc000, 0x2000, CRC(1a38c30e) SHA1(ae0ee9f3df0991a80698fe745a7a853a4bb60710) )
 		ROM_LOAD( "spc-1.1b",     0xe000, 0x2000, CRC(730e95a9) SHA1(ca73c8bcb03c2f5c05968c707a5d3f7f9956b886) )
@@ -456,7 +456,7 @@ public class superpac
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pacnpal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacnpal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pap13b.cpu",   0xa000, 0x2000, CRC(ed64a565) SHA1(b16930981490d97486d4df96acbb3d1cddbd3a80) )
 		ROM_LOAD( "pap12b.cpu",   0xc000, 0x2000, CRC(15308bcf) SHA1(334603f8904f8968d05edc420b5f9e3b483ee86d) )
@@ -481,7 +481,7 @@ public class superpac
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pacnpal2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacnpal2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pap1_3.1d",    0xa000, 0x2000, CRC(d7ec2719) SHA1(b633a5360a199d528bcef209c06a21f266525769) )
 		ROM_LOAD( "pap1_2.1c",    0xc000, 0x2000, CRC(0245396e) SHA1(7e8467e317879621a7b31bc922b5187f20fcea78) )
@@ -506,7 +506,7 @@ public class superpac
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pacnchmp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacnchmp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pap3.1d",      0xa000, 0x2000, CRC(20a07d3d) SHA1(2135ad154b575a73cfb1b0f0f282dfc013672aec) )
 		ROM_LOAD( "pap3.1c",      0xc000, 0x2000, CRC(505bae56) SHA1(590ce9f0e92115a71eb76b71ab4eac16ffa2a28e) )

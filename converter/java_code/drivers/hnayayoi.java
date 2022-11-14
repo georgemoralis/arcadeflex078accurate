@@ -229,7 +229,7 @@ public class hnayayoi
 	
 	
 	
-	static InputPortPtr input_ports_hnayayoi = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hnayayoi )
+	static InputPortHandlerPtr input_ports_hnayayoi = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hnayayoi )
 		PORT_START(); 	/* DSW1 */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -358,7 +358,7 @@ public class hnayayoi
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hnfubuki = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hnfubuki )
+	static InputPortHandlerPtr input_ports_hnfubuki = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hnfubuki )
 		PORT_START(); 	/* DSW1 */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -489,7 +489,7 @@ public class hnayayoi
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_untoucha = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( untoucha )
+	static InputPortHandlerPtr input_ports_untoucha = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( untoucha )
 		PORT_START(); 	/* DSW1 */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -685,7 +685,7 @@ public class hnayayoi
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hnayayoi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hnayayoi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "021.4a",     0x00000, 0x08000, CRC(d9734da4) SHA1(a2c8f5113c8136bea990c282d60f67b2793f9a2c) )
 		ROM_LOAD( "022.3a",     0x08000, 0x08000, CRC(e6be5af4) SHA1(cdc56705ba0d191930f892618512cb687975ecbb) )
@@ -705,7 +705,7 @@ public class hnayayoi
 		ROM_LOAD( "b.17c",      0x0200, 0x0100, CRC(e33bd9ea) SHA1(47395511d7bd44a27fa55d43094c67c5551cdfbf) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hnfubuki = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hnfubuki = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "s1.s2c",     0x00000, 0x10000, CRC(afe3179c) SHA1(fdfba1e7073318f9782d628f3c7dd0d9c84cbeea) )
 	
@@ -721,7 +721,7 @@ public class hnayayoi
 		ROM_LOAD( "b-17c",      0x0200, 0x0100, CRC(d1f912e5) SHA1(0e0b61498ef5e4685754c0786b7288156b8a56ce) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_untoucha = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_untoucha = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "b4.10b",     0x00000, 0x10000, CRC(4df04e41) SHA1(4d5232c2f383640394d85417aa973f92c78184c9) )
 	

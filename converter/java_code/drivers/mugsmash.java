@@ -245,7 +245,7 @@ public class mugsmash
 	
 	
 	#if USE_FAKE_INPUT_PORTS
-	static InputPortPtr input_ports_mugsmash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mugsmash )
+	static InputPortHandlerPtr input_ports_mugsmash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mugsmash )
 		PORT_START(); 	/* Fake IN0 (player 1 inputs) */
 		MUGSMASH_PLAYER_INPUT( IPF_PLAYER1, IPT_START1 )
 	
@@ -306,7 +306,7 @@ public class mugsmash
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	#else
-	static InputPortPtr input_ports_mugsmash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mugsmash )
+	static InputPortHandlerPtr input_ports_mugsmash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mugsmash )
 		PORT_START(); 	/* IN0 - $180000.w */
 		MUGSMASH_PLAYER_INPUT( IPF_PLAYER1, IPT_START1 )
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_COIN1 );
@@ -473,7 +473,7 @@ public class mugsmash
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_mugsmash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mugsmash = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "mugs_04.bin", 0x00000, 0x40000, CRC(2498fd27) SHA1(7b746efe8aaf346e4489118ac2a3fc9929a55b83) )
 		ROM_LOAD16_BYTE( "mugs_05.bin", 0x00001, 0x40000, CRC(95efb40b) SHA1(878c0a3754aa728f58044c6a7f243724b718fe1b) )

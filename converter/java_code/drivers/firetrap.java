@@ -318,7 +318,7 @@ public class firetrap
 	
 	
 	
-	static InputPortPtr input_ports_firetrap = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( firetrap )
+	static InputPortHandlerPtr input_ports_firetrap = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( firetrap )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_UP | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_DOWN | IPF_4WAY );
@@ -401,7 +401,7 @@ public class firetrap
 		PORT_BIT( 0x04, IP_ACTIVE_LOW, IPT_SERVICE1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_firetpbl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( firetpbl )
+	static InputPortHandlerPtr input_ports_firetpbl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( firetpbl )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_UP | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_DOWN | IPF_4WAY );
@@ -644,7 +644,7 @@ public class firetrap
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_firetrap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_firetrap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code + 64k for banked ROMs */
 		ROM_LOAD( "di02.bin",     0x00000, 0x8000, CRC(3d1e4bf7) SHA1(ee903b469619f49edb1727fb545c9a6085f50746) )
 		ROM_LOAD( "di01.bin",     0x10000, 0x8000, CRC(9bbae38b) SHA1(dc1d3ed5da71bfb104fd54fc70c56833f31d281f) )
@@ -706,7 +706,7 @@ public class firetrap
 		ROM_LOAD( "firetrap.4b",  0x0100,  0x0100, CRC(d5abfc64) SHA1(6c808c1d6087804214dc29d35280f42382c40b18) ) /* palette blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_firetpbl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_firetpbl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code + 96k for banked ROMs */
 		ROM_LOAD( "ft0d.bin",     0x00000, 0x8000, CRC(793ef849) SHA1(5a2c587370733d43484ba0a38a357260cdde8357) )
 		ROM_LOAD( "ft0a.bin",     0x08000, 0x8000, CRC(613313ee) SHA1(54e386b2b1faada3441e3e0bb7822a63eab36930) )	/* unprotection code */

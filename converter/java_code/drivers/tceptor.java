@@ -352,7 +352,7 @@ public class tceptor
 	
 	/*******************************************************************/
 	
-	static InputPortPtr input_ports_tceptor = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tceptor )
+	static InputPortHandlerPtr input_ports_tceptor = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tceptor )
 		PORT_START();       /* DSW 1 */
 		PORT_DIPNAME( 0x07, 0x07, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "3C_1C") );
@@ -408,7 +408,7 @@ public class tceptor
 		PORT_ANALOG(  0xff, 0x7f, IPT_AD_STICK_Y | IPF_CENTER, 100, 16, 0x00, 0xfe );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tceptor2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tceptor2 )
+	static InputPortHandlerPtr input_ports_tceptor2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tceptor2 )
 		PORT_START();       /* DSW 1 */
 		PORT_DIPNAME( 0x07, 0x07, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "3C_1C") );
@@ -597,7 +597,7 @@ public class tceptor
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tceptor = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tceptor = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )			// 68A09EP
 		ROM_LOAD( "tc1-1.10f",  0x08000, 0x08000, CRC(4C6B063E) SHA1(d9701657186f8051391084f51a720037f9f418b1) )
 	
@@ -653,7 +653,7 @@ public class tceptor
 		ROM_LOAD( "tc1-17.7k",  0x01500, 0x02000, CRC(90DB1BF6) SHA1(dbb9e50a8efc3b4012fcf587cc87da9ef42a1b80) )	// sprite related
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tceptor2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tceptor2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )			// 68A09EP
 		ROM_LOAD( "tc2-1.10f",  0x08000, 0x08000, CRC(F953F153) SHA1(f4cd0a133d23b4bf3c24c70c28c4ecf8ad4daf6f) )
 	

@@ -934,7 +934,7 @@ public class system24
 		mlatch = 0x00;
 	} };
 	
-	static InputPortPtr input_ports_hotrod = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hotrod )
+	static InputPortHandlerPtr input_ports_hotrod = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hotrod )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1004,7 +1004,7 @@ public class system24
 		PORT_ANALOG( 0xff, 0x01, IPT_PEDAL | IPF_PLAYER3, 25, 15, 0x01, 0xff );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bnzabros = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bnzabros )
+	static InputPortHandlerPtr input_ports_bnzabros = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bnzabros )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
@@ -1063,7 +1063,7 @@ public class system24
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_qgh = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( qgh )
+	static InputPortHandlerPtr input_ports_qgh = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( qgh )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
@@ -1121,7 +1121,7 @@ public class system24
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dcclub = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dcclub )
+	static InputPortHandlerPtr input_ports_dcclub = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dcclub )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON3 | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
@@ -1172,7 +1172,7 @@ public class system24
 		PORT_ANALOG( 0xff, 0x00, IPT_PEDAL | IPF_PLAYER1, 16, 16, 0x00, 0x8f );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_quizmeku = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( quizmeku )
+	static InputPortHandlerPtr input_ports_quizmeku = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( quizmeku )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
@@ -1230,7 +1230,7 @@ public class system24
 		PORT_DIPSETTING(    0x00, "Hardest" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mahmajn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mahmajn )
+	static InputPortHandlerPtr input_ports_mahmajn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mahmajn )
 		PORT_START(); 
 		PORT_BITX(0x01, IP_ACTIVE_LOW, 0, "A", KEYCODE_A, IP_JOY_NONE );
 		PORT_BITX(0x02, IP_ACTIVE_LOW, 0, "B", KEYCODE_B, IP_JOY_NONE );
@@ -1312,7 +1312,7 @@ public class system24
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static RomLoadPtr rom_hotrod = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hotrod = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr11339.bin", 0x000000, 0x20000, CRC(75130e73) SHA1(e079739f4a3da3807aac570442c5afef1a7d7b0e) )
 		ROM_LOAD16_BYTE( "epr11338.bin", 0x000001, 0x20000, CRC(7d4a7ff3) SHA1(3d3af04d990d232ba0a8fe155de59bc632a0a461) )
@@ -1321,7 +1321,7 @@ public class system24
 		ROM_LOAD( "ds3-5000-01d_3p_turbo.bin", 0x000000, 0x1d6000, CRC(627e8053) SHA1(d1a95f99078f5a29cccacfb1b30c3c9ead7b605c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qgh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qgh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "16900b", 0x000000, 0x20000, CRC(20d7b7d1) SHA1(345b228c27e5f2fef9a2b8b5f619c59450a070f8) )
 		ROM_LOAD16_BYTE( "16899b", 0x000001, 0x20000, CRC(397b3ba9) SHA1(1773212cd87dcff840f3953ec368be7e2394faf0) )
@@ -1337,7 +1337,7 @@ public class system24
 		ROM_LOAD16_BYTE( "16907",  0x300001, 0x80000, CRC(734b0a82) SHA1(d3fb31c55e79b99040beb7c49faaf2e17b95aa87) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qrouka = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qrouka = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "14485", 0x000000, 0x20000, CRC(fc0085f9) SHA1(0250d1e17e19b541b85198ec4207e55bfbd5c32e) )
 		ROM_LOAD16_BYTE( "14484", 0x000001, 0x20000, CRC(f51c641c) SHA1(3f2fd0be7d58c75e88565393da5e810655413b53) )
@@ -1347,7 +1347,7 @@ public class system24
 		ROM_LOAD16_BYTE( "14483", 0x100000, 0x80000, CRC(f3eb51a0) SHA1(6904830ff5e7aa5f016e115572fb6da678896ede) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mahmajn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mahmajn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr14813.bin", 0x000000, 0x20000, CRC(ea38cf4b) SHA1(118ab2e0ae20a4db5e619945dfbb3f200de3979c) )
 		ROM_LOAD16_BYTE( "epr14812.bin", 0x000001, 0x20000, CRC(5a3cb4a7) SHA1(c0f21282140e8e6e927664f5f2b90525ae0207e9) )
@@ -1363,7 +1363,7 @@ public class system24
 		ROM_LOAD16_BYTE( "mpr14825.bin", 0x300001, 0x80000, CRC(191080a1) SHA1(407c1c5fa4c76732e8a444860094542e90a1e8e8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mahmajn2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mahmajn2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr16799.bin", 0x000000, 0x20000, CRC(3a34cf75) SHA1(d22bf6334668af29167cf4244d18f9cd2e7ff7d6) )
 		ROM_LOAD16_BYTE( "epr16798.bin", 0x000001, 0x20000, CRC(662923fa) SHA1(dcd3964d899d3f34dab22ffcd1a5af895804fae1) )
@@ -1379,7 +1379,7 @@ public class system24
 		ROM_LOAD16_BYTE( "mpr16806.bin", 0x300001, 0x80000, CRC(54b353d3) SHA1(40632e4571b44ee215b5a1f7aab9d89c460a5c9e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bnzabros = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bnzabros = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr12187.ic2", 0x000000, 0x20000, CRC(e83783f3) SHA1(4b3b32df7de85aef9cd77c8a4ffc17e10466b638) )
 		ROM_LOAD16_BYTE( "epr12186.ic1", 0x000001, 0x20000, CRC(ce76319d) SHA1(0ede61f0700f9161285c768fa97636f0e42b96f8) )
@@ -1396,7 +1396,7 @@ public class system24
 		ROM_LOAD( "bb-disk.bin",        0x000000, 0x1c2000, CRC(ea7a3302) SHA1(5f92efb2e1135c1f3eeca38ba5789739a22dbd11) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_quizmeku = new RomLoadPtr(){ public void handler(){  // Quiz Mekuromeku Story
+	static RomLoadHandlerPtr rom_quizmeku = new RomLoadHandlerPtr(){ public void handler(){  // Quiz Mekuromeku Story
 		 ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		 ROM_LOAD16_BYTE( "epr15343.ic2", 0x000000, 0x20000, CRC(c72399a7) SHA1(bfbf0079ea63f89bca4ce9081aed5d5c1d9d169a) )
 		 ROM_LOAD16_BYTE( "epr15342.ic1", 0x000001, 0x20000, CRC(0968ac84) SHA1(4e1170ac123adaec32819754b5075531ff1925fe) )
@@ -1410,7 +1410,7 @@ public class system24
 		 ROM_LOAD16_BYTE( "mpr15348.ic8", 0x200001, 0x80000, CRC(7666e960) SHA1(f3f88d5c8318301a8c73141de60292f8349ac0ce) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sspirits = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sspirits = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr12187.ic2", 0x000000, 0x20000, CRC(e83783f3) SHA1(4b3b32df7de85aef9cd77c8a4ffc17e10466b638) )
 		ROM_LOAD16_BYTE( "epr12186.ic1", 0x000001, 0x20000, CRC(ce76319d) SHA1(0ede61f0700f9161285c768fa97636f0e42b96f8) )
@@ -1419,7 +1419,7 @@ public class system24
 		ROM_LOAD( "ss-dump.bin",         0x000000, 0x1c2000, CRC(75d79c0c) SHA1(413ff2c10ce5e74d47da946fdd07eab14af53778) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sgmast = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sgmast = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr12187.ic2", 0x000000, 0x20000, CRC(e83783f3) SHA1(4b3b32df7de85aef9cd77c8a4ffc17e10466b638) )
 		ROM_LOAD16_BYTE( "epr12186.ic1", 0x000001, 0x20000, CRC(ce76319d) SHA1(0ede61f0700f9161285c768fa97636f0e42b96f8) )
@@ -1428,7 +1428,7 @@ public class system24
 		ROM_LOAD( "sm-dump.bin",         0x000000, 0x1c2000, CRC(460bdcd5) SHA1(49b7384ac5742b45b7369f220f33f04ef955e992) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qsww = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qsww = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr12187.ic2", 0x000000, 0x20000, CRC(e83783f3) SHA1(4b3b32df7de85aef9cd77c8a4ffc17e10466b638) )
 		ROM_LOAD16_BYTE( "epr12186.ic1", 0x000001, 0x20000, CRC(ce76319d) SHA1(0ede61f0700f9161285c768fa97636f0e42b96f8) )
@@ -1437,7 +1437,7 @@ public class system24
 		ROM_LOAD( "ds3-5000-08b.bin",    0x000000, 0x1c2000, CRC(5a886d38) SHA1(2e974a9ffe3534da4fb117c579b8b0e61a63542c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gground = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gground = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr12187.ic2", 0x000000, 0x20000, CRC(e83783f3) SHA1(4b3b32df7de85aef9cd77c8a4ffc17e10466b638) )
 		ROM_LOAD16_BYTE( "epr12186.ic1", 0x000001, 0x20000, CRC(ce76319d) SHA1(0ede61f0700f9161285c768fa97636f0e42b96f8) )
@@ -1446,7 +1446,7 @@ public class system24
 		ROM_LOAD( "gg-dump.bin",         0x000000, 0x1c2000, CRC(5c5910f2) SHA1(9ed564a03c0d4ca4a207f3ecfb7336c6cbcaa70f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crkdown = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crkdown = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr12187.ic2", 0x000000, 0x20000, CRC(e83783f3) SHA1(4b3b32df7de85aef9cd77c8a4ffc17e10466b638) )
 		ROM_LOAD16_BYTE( "epr12186.ic1", 0x000001, 0x20000, CRC(ce76319d) SHA1(0ede61f0700f9161285c768fa97636f0e42b96f8) )
@@ -1455,7 +1455,7 @@ public class system24
 		ROM_LOAD( "ds3-5000-04d.bin",    0x000000, 0x1c2000, CRC(b95bcdb7) SHA1(25c465349972ec5e57765ca6446883943daf3890) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dcclub = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dcclub = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr13948.bin", 0x000000, 0x20000, CRC(d6a031c8) SHA1(45b7e3cd2c7412e24f547cd4185166199d3938d5) )
 		ROM_LOAD16_BYTE( "epr13947.bin", 0x000001, 0x20000, CRC(7e3cff5e) SHA1(ff8cb776d2491796feeb8892c7e644e590438945) )

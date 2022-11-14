@@ -427,7 +427,7 @@ public class fitfight
 	
 	/* I've put the inputs the same way they can be read in the "test mode" */
 	
-	static InputPortPtr input_ports_fitfight = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fitfight )
+	static InputPortHandlerPtr input_ports_fitfight = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fitfight )
 		PORT_START(); 	// 0x200000.w
 		/* players inputs -> 0xe022cc.w */
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
@@ -555,7 +555,7 @@ public class fitfight
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_histryma = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( histryma )
+	static InputPortHandlerPtr input_ports_histryma = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( histryma )
 		PORT_START(); 	// 0x200000.w
 		/* players inputs -> 0xe02cf2.w and 0xe02cf8.w */
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
@@ -697,7 +697,7 @@ public class fitfight
 	/* Surprisingly, the Dip Switches look very similar to the ones from 'histryma'
 	   (the only difference being that there is no "Needed Points/Maximum Points"
 	   Dip Switch, the value always being set to "2/3") */
-	static InputPortPtr input_ports_bbprot = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bbprot )
+	static InputPortHandlerPtr input_ports_bbprot = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bbprot )
 		PORT_START(); 	// 0x300000.w
 		/* players inputs -> 0xe0545e.w and 0xe05464.w */
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
@@ -960,7 +960,7 @@ public class fitfight
 	
 	***/
 	
-	static RomLoadPtr rom_fitfight = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fitfight = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "u138_ff1.bin", 0x000001, 0x080000, CRC(165600fe) SHA1(b1987dbf34abdb6d08bdf7f71b256b62125e6517) )
 		ROM_LOAD16_BYTE( "u125_ff1.bin", 0x000000, 0x080000, CRC(2f9bdb66) SHA1(4c1ade349f1219d448453b27d4a7517966912ffa) )
@@ -1013,7 +1013,7 @@ public class fitfight
 	
 	***/
 	
-	static RomLoadPtr rom_histryma = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_histryma = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "l_th.bin", 0x000001, 0x080000, CRC(5af9356a) SHA1(f3d797dcc528a3a2a4f0ebbf07d59bd2cc868622) )
 		ROM_LOAD16_BYTE( "r_th.bin", 0x000000, 0x080000, CRC(1a44b504) SHA1(621d95b67d413da3e8a90c0cde494b2529b92407) )
@@ -1077,7 +1077,7 @@ public class fitfight
 	
 	***/
 	
-	static RomLoadPtr rom_bbprot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bbprot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "l_bb.bin", 0x000001, 0x080000, CRC(2b7b9a9a) SHA1(51088358814cc337af150526ac7fd6216c102299) )
 		ROM_LOAD16_BYTE( "r_bb.bin", 0x000000, 0x080000, CRC(28480f3e) SHA1(b89533fd01781e1b83c98b0b61a77f554fbdb4f3) )

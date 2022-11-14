@@ -133,7 +133,7 @@ public class flkatck
 	};
 	
 	
-	static InputPortPtr input_ports_flkatck = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( flkatck )
+	static InputPortHandlerPtr input_ports_flkatck = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( flkatck )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(	0x02, DEF_STR( "4C_1C") );
@@ -312,7 +312,7 @@ public class flkatck
 	
 	
 	
-	static RomLoadPtr rom_mx5000 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mx5000 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )		/* 6309 code */
 		ROM_LOAD( "r01",          0x010000, 0x006000, CRC(79b226fc) SHA1(3bc4d93717230fecd54bd08a0c3eeedc1c8f571d) )/* banked ROM */
 		ROM_CONTINUE(			  0x006000, 0x00a000 )			/* fixed ROM */
@@ -327,7 +327,7 @@ public class flkatck
 		ROM_LOAD( "mask2m.bin",     0x000000, 0x040000, CRC(6d1ea61c) SHA1(9e6eb9ac61838df6e1f74e74bb72f3edf1274aed) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_flkatck = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_flkatck = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )		/* 6309 code */
 		ROM_LOAD( "gx669_p1.16c", 0x010000, 0x006000, CRC(c5cd2807) SHA1(22ddd911a23954ff2d52552e07323f5f0ddaeead) )/* banked ROM */
 		ROM_CONTINUE(			  0x006000, 0x00a000 )			/* fixed ROM */

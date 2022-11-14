@@ -506,7 +506,7 @@ public class psikyosh
 		PORT_BIT(  0x40, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | player );\
 		PORT_BIT(  0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | player );
 	
-	static InputPortPtr input_ports_s1945ii = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( s1945ii )
+	static InputPortHandlerPtr input_ports_s1945ii = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( s1945ii )
 		PORT_PLAYER( IPF_PLAYER1, IPT_START1, 2 )
 		PORT_PLAYER( IPF_PLAYER2, IPT_START2, 2 )
 		UNUSED_PORT /* IN2 unused? */
@@ -518,7 +518,7 @@ public class psikyosh
 		PORT_DIPSETTING(    0x01, "World" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_soldivid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( soldivid )
+	static InputPortHandlerPtr input_ports_soldivid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( soldivid )
 		PORT_PLAYER( IPF_PLAYER1, IPT_START1, 3 )
 		PORT_PLAYER( IPF_PLAYER2, IPT_START2, 3 )
 		UNUSED_PORT /* IN2 unused? */
@@ -530,7 +530,7 @@ public class psikyosh
 		PORT_DIPSETTING(    0x01, "World" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_daraku = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( daraku )
+	static InputPortHandlerPtr input_ports_daraku = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( daraku )
 		PORT_PLAYER( IPF_PLAYER1, IPT_START1, 2 )
 		PORT_PLAYER( IPF_PLAYER2, IPT_START2, 2 )
 	
@@ -552,7 +552,7 @@ public class psikyosh
 		PORT_DIPSETTING(    0x01, "World" );/* Title screen is different, English is default now */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sbomberb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sbomberb )
+	static InputPortHandlerPtr input_ports_sbomberb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sbomberb )
 		PORT_PLAYER( IPF_PLAYER1, IPT_START1, 2 )
 		PORT_PLAYER( IPF_PLAYER2, IPT_START2, 2 )
 		UNUSED_PORT /* IN2 unused? */
@@ -564,7 +564,7 @@ public class psikyosh
 		PORT_DIPSETTING(    0x01, "World" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gunbird2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gunbird2 ) /* Different Region */
+	static InputPortHandlerPtr input_ports_gunbird2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gunbird2 ) /* Different Region */
 		PORT_PLAYER( IPF_PLAYER1, IPT_START1, 3 )
 		PORT_PLAYER( IPF_PLAYER2, IPT_START2, 3 )
 		UNUSED_PORT /* IN2 unused? */
@@ -577,7 +577,7 @@ public class psikyosh
 		PORT_DIPSETTING(    0x02, "International Ver B." );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_s1945iii = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( s1945iii ) /* Different Region again */
+	static InputPortHandlerPtr input_ports_s1945iii = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( s1945iii ) /* Different Region again */
 		PORT_PLAYER( IPF_PLAYER1, IPT_START1, 3 )
 		PORT_PLAYER( IPF_PLAYER2, IPT_START2, 3 )
 		UNUSED_PORT /* IN2 unused? */
@@ -590,7 +590,7 @@ public class psikyosh
 		PORT_DIPSETTING(    0x01, "International Ver B." );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dragnblz = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dragnblz ) /* Security requires bit high */
+	static InputPortHandlerPtr input_ports_dragnblz = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dragnblz ) /* Security requires bit high */
 		PORT_PLAYER( IPF_PLAYER1, IPT_START1, 3 )
 		PORT_PLAYER( IPF_PLAYER2, IPT_START2, 3 )
 		UNUSED_PORT /* IN2 unused? */
@@ -611,7 +611,7 @@ public class psikyosh
 	
 	/* PS3 */
 	
-	static RomLoadPtr rom_soldivid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_soldivid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "2-prog_l.u18", 0x000002, 0x080000, CRC(cf179b04) SHA1(343f00a81cffd44334a4db81b6b828b7cf73c1e8) )
 		ROM_LOAD32_WORD_SWAP( "1-prog_h.u17", 0x000000, 0x080000, CRC(f467d1c4) SHA1(a011e6f310a54f09efa0bf4597783cd78c05ad6f) )
@@ -629,7 +629,7 @@ public class psikyosh
 		ROM_LOAD( "sound.bin", 0x000000, 0x400000, CRC(e98f8d45) SHA1(7791c0f31d08f37c6ec65e7cecf8ef54ca73b1fd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_s1945ii = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_s1945ii = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0) /* Code */
 		ROM_LOAD32_WORD_SWAP( "2_prog_l.u18", 0x000002, 0x080000, CRC(20a911b8) SHA1(82ba7b93bd621fc45a4dc2722752077b59a0a233) )
 		ROM_LOAD32_WORD_SWAP( "1_prog_h.u17", 0x000000, 0x080000, CRC(4c0fe85e) SHA1(74f810a1c3e9d629c8b190f68d73ce07b11f77b7) )
@@ -651,7 +651,7 @@ public class psikyosh
 		    Iron Casket level causing a crash otherwise, not sure why, bug in the sound emulation? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_daraku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_daraku = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x200000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "4_prog_l.u18", 0x000002, 0x080000, CRC(660b4609) SHA1(ee6b5606fae41881c3e671ee642baae5c03331ca) )
@@ -678,7 +678,7 @@ public class psikyosh
 		ROM_LOAD( "sound.u32", 0x000000, 0x400000, CRC(ef2c781d) SHA1(1313f082f6dbe4da0efaf261226085eb7325667f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sbomberb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sbomberb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "1-b_pr_l.u18", 0x000002, 0x080000, CRC(52d12225) SHA1(0a31a5d557414e7bf51dc6f7fbdd417a20b78df1) )
 		ROM_LOAD32_WORD_SWAP( "1-b_pr_h.u17", 0x000000, 0x080000, CRC(1bbd0345) SHA1(c6ccb7c97cc9e9ea298c1883d1dd5563907a7255) )
@@ -701,7 +701,7 @@ public class psikyosh
 	
 	/* PS5 */
 	
-	static RomLoadPtr rom_gunbird2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunbird2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "2_prog_l.u16", 0x000002, 0x080000, CRC(76f934f0) SHA1(cf197796d66f15639a6b3d5311c18da33cefd06b) )
 		ROM_LOAD32_WORD_SWAP( "1_prog_h.u17", 0x000000, 0x080000, CRC(7328d8bf) SHA1(c640de1ab5b32400b2d77e0dc6e3ee0f78ab7803) )
@@ -721,7 +721,7 @@ public class psikyosh
 		ROM_LOAD( "sound.u9", 0x000000, 0x400000, CRC(f19796ab) SHA1(b978f0550ebd675e8ce9d9edcfcc3f6214e49e8b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_s1945iii = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_s1945iii = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "2_progl.u16", 0x000002, 0x080000, CRC(5d5d385f) SHA1(67b3bcabd71cf084bcea7a59939281a8d6257059) )
 		ROM_LOAD32_WORD_SWAP( "1_progh.u17", 0x000000, 0x080000, CRC(1b8a5a18) SHA1(718a176bd48e16f964fcb07c568b5227cfc0515f) )
@@ -744,7 +744,7 @@ public class psikyosh
 	
 	/* PS5v2 */
 	
-	static RomLoadPtr rom_dragnblz = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dragnblz = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "2prog_h.u21",   0x000000, 0x080000, CRC(fc5eade8) SHA1(e5d05543641e4a3900b0d42e0d5f75734683d635) )
 		ROM_LOAD32_WORD_SWAP( "1prog_l.u22",   0x000002, 0x080000, CRC(95d6fd02) SHA1(2b2830e7fa66cbd13666191762bfddc40571caec) )

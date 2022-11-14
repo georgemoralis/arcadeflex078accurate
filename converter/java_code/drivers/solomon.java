@@ -85,7 +85,7 @@ public class solomon
 	
 	
 	
-	static InputPortPtr input_ports_solomon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( solomon )
+	static InputPortHandlerPtr input_ports_solomon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( solomon )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -245,7 +245,7 @@ public class solomon
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_solomon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_solomon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "slmn_06.bin",  0x00000, 0x4000, CRC(e4d421ff) SHA1(9599fa6e2d42bf0cfe77d62c6b162f56eae5efff) )
 		ROM_LOAD( "slmn_07.bin",  0x08000, 0x4000, CRC(d52d7e38) SHA1(8439eeeedd1e47d2b9719a05c85a05283c11d7a8) )

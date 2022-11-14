@@ -121,7 +121,7 @@ public class quizdna
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_quizdna = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( quizdna )
+	static InputPortHandlerPtr input_ports_quizdna = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( quizdna )
 		PORT_START();   /* sw2 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "9C_1C") );
@@ -215,7 +215,7 @@ public class quizdna
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gakupara = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gakupara )
+	static InputPortHandlerPtr input_ports_gakupara = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gakupara )
 	    PORT_START();   /* sw2 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, "10 Coins/1 Credit" );
@@ -311,7 +311,7 @@ public class quizdna
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gekiretu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gekiretu )
+	static InputPortHandlerPtr input_ports_gekiretu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gekiretu )
 		PORT_START();   /* dsw2 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "9C_1C") );
@@ -521,7 +521,7 @@ public class quizdna
 	
 	/****************************************************************************/
 	
-	static RomLoadPtr rom_quizdna = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quizdna = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xd0000, REGION_CPU1, 0 ) /* CPU */
 		ROM_LOAD( "quiz2-pr.28",  0x00000,  0x08000, CRC(a428ede4) SHA1(cdca3bd84b2ea421fb05502ea29e9eb605e574eb) )
 		ROM_CONTINUE(             0x18000,  0x78000 ) /* banked */
@@ -547,7 +547,7 @@ public class quizdna
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gakupara = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gakupara = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xd0000, REGION_CPU1, 0 ) /* CPU */
 		ROM_LOAD( "u28.bin",  0x00000,  0x08000, CRC(72124bb8) SHA1(e734acff7e9d6b8c6a95c76860732320a2e3a828) )
 		ROM_CONTINUE(         0x18000,  0x78000 )             /* banked */
@@ -573,7 +573,7 @@ public class quizdna
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gekiretu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gekiretu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xd0000, REGION_CPU1, 0 ) /* CPU */
 		ROM_LOAD( "quiz3-pr.28",  0x00000,  0x08000, CRC(a761e86f) SHA1(85331ef53598491e78c2d123b1ebd358aff46436) )
 		ROM_CONTINUE(             0x18000,  0x78000 ) /* banked */

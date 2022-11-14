@@ -255,7 +255,7 @@ public class atarifb
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_atarifb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( atarifb )
+	static InputPortHandlerPtr input_ports_atarifb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( atarifb )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT ( 0x0F, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT ( 0x10, IP_ACTIVE_LOW,  IPT_BUTTON1 );
@@ -298,7 +298,7 @@ public class atarifb
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_atarifb4 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( atarifb4 )
+	static InputPortHandlerPtr input_ports_atarifb4 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( atarifb4 )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT ( 0xff, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 	
@@ -361,7 +361,7 @@ public class atarifb
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_abaseb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( abaseb )
+	static InputPortHandlerPtr input_ports_abaseb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( abaseb )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT ( 0x0F, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT ( 0x10, IP_ACTIVE_LOW,  IPT_BUTTON1 );
@@ -404,7 +404,7 @@ public class atarifb
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_soccer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( soccer )
+	static InputPortHandlerPtr input_ports_soccer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( soccer )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT ( 0xff, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 	
@@ -796,7 +796,7 @@ public class atarifb
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_atarifb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atarifb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "03302602.m1", 0x6800, 0x0800, CRC(352e35db) SHA1(ae3f1bdb274858edf203dbffe4ba2912c065cff2) )
 		ROM_LOAD( "03302801.p1", 0x7000, 0x0800, CRC(a79c79ca) SHA1(7791b431e9aadb09fd286ae56699c4beda54830a) )
@@ -812,7 +812,7 @@ public class atarifb
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_atarifb1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atarifb1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "03302601.m1", 0x6800, 0x0800, CRC(f8ce7ed8) SHA1(54520d7d31c6c8f9028b7253a33aba3b2c35ae7c) )
 		ROM_LOAD( "03302801.p1", 0x7000, 0x0800, CRC(a79c79ca) SHA1(7791b431e9aadb09fd286ae56699c4beda54830a) )
@@ -828,7 +828,7 @@ public class atarifb
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_atarifb4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atarifb4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code, the ROMs are nibble-wide */
 		ROM_LOAD_NIB_LOW ( "34889.m1", 0x6000, 0x0400, CRC(5c63974a) SHA1(e91f318be80d985a09ff92f4db5792290a06dc0f) )
 		ROM_LOAD_NIB_HIGH( "34891.m2", 0x6000, 0x0400, CRC(9d03baa1) SHA1(1b57f39fa4d43e3f3d22f2d9a5478b5f5e4d0cb1) )
@@ -858,7 +858,7 @@ public class atarifb
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_abaseb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_abaseb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "34738-01.n0", 0x6000, 0x0800, CRC(edcfffe8) SHA1(a445668352da5039ed1a090bcdf2ce092215f165) )
 		ROM_LOAD( "34737-03.m1", 0x6800, 0x0800, CRC(7250863f) SHA1(83ec735a60d74ca9c3e3f5d4b248071f3e3330af) )
@@ -875,7 +875,7 @@ public class atarifb
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_abaseb2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_abaseb2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code, the ROMs are nibble-wide */
 		ROM_LOAD_NIB_LOW ( "034725.c0", 0x6000, 0x0400, CRC(95912c58) SHA1(cb15b60e31ee212e30a81c170611be1e36d2a6dd) )
 		ROM_LOAD_NIB_HIGH( "034723.m0", 0x6000, 0x0400, CRC(5eb1597f) SHA1(78f83d4e79de13d3723732d68738660c3f8d4787) )
@@ -905,7 +905,7 @@ public class atarifb
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_soccer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_soccer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code, the ROMs are nibble-wide */
 		ROM_LOAD_NIB_LOW ( "035222.e1", 0x2000, 0x0400, CRC(03ec6bce) SHA1(f81f2ac3bab5f1ae687543427e0187ca51d3be7e) )
 		ROM_LOAD_NIB_HIGH( "035224.e2", 0x2000, 0x0400, CRC(a1aeaa70) SHA1(2018318a0e652b1dbea7696ef3dc2b7f12ebd632) )

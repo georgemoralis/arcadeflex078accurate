@@ -341,7 +341,7 @@ public class taito_h
 		PORT_DIPSETTING(    0x01, "Hard" );\
 		PORT_DIPSETTING(    0x00, "Hardest" );
 	
-	static InputPortPtr input_ports_syvalion = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( syvalion )
+	static InputPortHandlerPtr input_ports_syvalion = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( syvalion )
 		PORT_START();   /* DSW1 (0) */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -403,7 +403,7 @@ public class taito_h
 		PORT_ANALOG( 0xff, 0x00, IPT_TRACKBALL_Y | IPF_PLAYER2 | IPF_CENTER | IPF_REVERSE, 30, 30, 0, 0 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_recordbr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( recordbr )
+	static InputPortHandlerPtr input_ports_recordbr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( recordbr )
 		PORT_START();   /* DSW1 (0) */
 		PORT_DIPNAME( 0x00, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -466,7 +466,7 @@ public class taito_h
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_BUTTON4 | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dleague = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dleague )
+	static InputPortHandlerPtr input_ports_dleague = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dleague )
 		PORT_START();   /* DSW1 (0) */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -681,7 +681,7 @@ public class taito_h
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_syvalion = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_syvalion = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* main cpu */
 		ROM_LOAD16_BYTE( "b51-20.bin", 0x00000, 0x20000, CRC(440b6418) SHA1(262b65f39eb13c11ae7b87013951097ab0a9cb63) )
 		ROM_LOAD16_BYTE( "b51-22.bin", 0x00001, 0x20000, CRC(e6c61079) SHA1(b786ef1bfc72706347c12c17616652bc8302a98c) )
@@ -717,7 +717,7 @@ public class taito_h
 		ROM_LOAD( "b51-17.bin", 0x00000, 0x80000, CRC(d85096aa) SHA1(dac39ed182e9eda06575f1667c4c1ff9a4a56599) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_recordbr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_recordbr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* main cpu */
 		ROM_LOAD16_BYTE( "b56-17.rom", 0x00000, 0x20000, CRC(3e0a9c35) SHA1(900a741b2abbbbe883b9d78162a88b4397af1a56) )
 		ROM_LOAD16_BYTE( "b56-16.rom", 0x00001, 0x20000, CRC(b447f12c) SHA1(58ee30337836f260c7fbda728dac93f06d861ec4) )
@@ -745,7 +745,7 @@ public class taito_h
 		ROM_LOAD( "b56-10.bin", 0x00000, 0x80000, CRC(de1bce59) SHA1(aa3aea30d6f53e60d9a0d4ec767e1b261d5efc8a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dleague = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dleague = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "c02-19a.33", 0x00000, 0x20000, CRC(7e904e45) SHA1(04ac470c973753e71fba3998099a88ab0e6fcbab) )
 		ROM_LOAD16_BYTE( "c02-21a.36", 0x00001, 0x20000, CRC(18c8a32b) SHA1(507cd7a83dcb6eaefa52f2661b9f3a6fabbfbd46) )

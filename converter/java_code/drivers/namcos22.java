@@ -1143,7 +1143,7 @@ public class namcos22
 	
 	/*********************************************************************************/
 	
-	static RomLoadPtr rom_airco22b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_airco22b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "acs1verb.1", 0x00003, 0x100000, CRC(062c4f61) SHA1(98e1c75dd0f493eb6ebb64b46543217c1d40116e) )
 		ROM_LOAD32_BYTE( "acs1verb.2", 0x00002, 0x100000, CRC(8ae69711) SHA1(4c5323fa8f0419275e330fec66d1fb2b89bb3795) )
@@ -1191,7 +1191,7 @@ public class namcos22
 		ROM_LOAD( "acs1wav1.2", 0x400000, 0x400000, CRC(b568dca2) SHA1(503deb277691d801acac1380ded2868a5d5ac501) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_alpinerc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_alpinerc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "ar2ver-c.1", 0x00003, 0x100000, CRC(61323842) SHA1(e3c33248340bee252f230124fa9b7fa935a60565) )
 		ROM_LOAD32_BYTE( "ar2ver-c.2", 0x00002, 0x100000, CRC(43795b2d) SHA1(e060f3259661279a36300431c5ca7347bde8b6ec) )
@@ -1238,7 +1238,7 @@ public class namcos22
 		ROM_LOAD( "ar1wavea.2l", 0, 0x200000, CRC(dbf64562) SHA1(454fd7d5b860f0e5557d8900393be95d6c992ad1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_alpinerd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_alpinerd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "ar2ver-d.1", 0x00003, 0x100000, CRC(fa3380b9) SHA1(2a46988745bd2672f8082399a68ae0d0ab3d28f2) )
 		ROM_LOAD32_BYTE( "ar2ver-d.2", 0x00002, 0x100000, CRC(76141352) SHA1(0f7230dd9cd6f1b83d499034affc7bc2c4385ab5) )
@@ -1285,7 +1285,7 @@ public class namcos22
 		ROM_LOAD( "ar1wavea.2l", 0, 0x200000, CRC(dbf64562) SHA1(454fd7d5b860f0e5557d8900393be95d6c992ad1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cybrcomm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cybrcomm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "cy1prgll.4d", 0x00003, 0x80000, CRC(b3eab156) SHA1(2a5c4e0360c3b9500687a4d70f7110a0c30da2a5) )
 		ROM_LOAD32_BYTE( "cy1prglm.2d", 0x00002, 0x80000, CRC(884a5b0e) SHA1(0e27ae366b8a2695fe112b4740c8c9013bb97e26) )
@@ -1327,7 +1327,7 @@ public class namcos22
 		ROM_LOAD( "cy1wav3.10l", 0x300000, 0x100000, CRC(43dbac19) SHA1(83fd4ae4e7ec264fc217ed18caf59bf438af0c3d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cybrcycc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cybrcycc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "cb2ver-c.1", 0x00003, 0x100000, CRC(a8e07a14) SHA1(9bef7068c9bf792960df922ea79e4565d7680433) )
 		ROM_LOAD32_BYTE( "cb2ver-c.2", 0x00002, 0x100000, CRC(054c504f) SHA1(9bde803ff09be0402f9b0388e55407362a2508e3) )
@@ -1372,7 +1372,7 @@ public class namcos22
 		ROM_LOAD( "cb1waveb.1l", 0x400000, 0x200000, CRC(33bf08f6) SHA1(bf9d68b26a8158ea1abfe8428b7454cac25242c5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_propcycl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_propcycl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "pr2ver-a.1", 0x00003, 0x100000, CRC(3f58594c) SHA1(5fdd8c61b47b51088a201799ce0c2f08c32ef852) )
 		ROM_LOAD32_BYTE( "pr2ver-a.2", 0x00002, 0x100000, CRC(c0da354a) SHA1(f27a71a62385b842404fcd8ed6513158e3639b8f) )
@@ -1425,7 +1425,7 @@ public class namcos22
 		ROM_LOAD( "pr1waveb.1l", 0x400000, 0x400000, CRC(d91acb26) SHA1(c2161e2d70e08aed15cbc875ffee685190611daf) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_acedrvrw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_acedrvrw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "ad2prgll.4d", 0x00003, 0x80000, CRC(808c5ff8) SHA1(119c90ecb5aa099a0e5d1d7944c004beacead367) )
 		ROM_LOAD32_BYTE( "ad2prglm.2d", 0x00002, 0x80000, CRC(5f726a10) SHA1(d077312c6a387fbdf906d278c73c6a3730687f32) )
@@ -1462,7 +1462,7 @@ public class namcos22
 		ROM_LOAD( "ad1wave3.10l", 0x100000*3, 0x100000,CRC(cd8ecb0b) SHA1(7950b5a3a81f5554f57accabc7a623b8265a21a1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_victlapw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_victlapw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "advprgll.4d", 0x00003, 0x80000, CRC(4dc1b0ab) SHA1(b5913388d16f824af6dbb01b5b0350d510667a87) )
 		ROM_LOAD32_BYTE( "advprglm.2d", 0x00002, 0x80000, CRC(7b658bef) SHA1(cf982b49fde0c1897c4c16e77f9eb2a145d8cd42) )
@@ -1508,7 +1508,7 @@ public class namcos22
 		ROM_LOAD( "adv1wav3.10l", 0x300000, 0x100000, CRC(fc6b8004) SHA1(5c9e0805895931ec2b6a43376059bdbf5777222f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_raveracw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_raveracw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "rv2prllb.4d", 0x00003, 0x80000, CRC(3017cd1e) SHA1(ccd648b4a5dfc74fd141815af2969f423311042f) )
 		ROM_LOAD32_BYTE( "rv2prlmb.2d", 0x00002, 0x80000, CRC(894be0c3) SHA1(4dba93dc3ca1cf502c5f54018b64ad79bb2a632b) )
@@ -1558,7 +1558,7 @@ public class namcos22
 		ROM_LOAD( "rv1wav3.10l", 0x300000, 0x100000, CRC(ffb9ad75) SHA1(a9a61a597bd3bbe9732f92747d82264fe4d9af48) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ridger2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ridger2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "rrs1pr11.4d", 0x00003, 0x80000, CRC(fbf785a2) SHA1(b9333c7623f68f48aa6ae50913a22a527a19576a) )
 		ROM_LOAD32_BYTE( "rrs1prlm.2d", 0x00002, 0x80000, CRC(562f747a) SHA1(79d818b87c9a992fc9706fb39e6d560c2b0aa392) )
@@ -1599,7 +1599,7 @@ public class namcos22
 		ROM_LOAD( "rrs1wav3.10l", 0x100000*3, 0x100000,CRC(106e761f) SHA1(97f47b857bdcbc79b0aface53dd385e67fcc9108) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ridgeraj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ridgeraj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_BYTE( "rr1prll.4d", 0x00003, 0x80000, CRC(4bb7fc86) SHA1(8291375b8ec4d37e0d9e3bf38da2d5907b0f31bd) )
 		ROM_LOAD32_BYTE( "rr1prlm.2d", 0x00002, 0x80000, CRC(68e13830) SHA1(ddc447c7afbb5c4238969d7e78bfe9cf8fac6061) )
@@ -1636,7 +1636,7 @@ public class namcos22
 		ROM_LOAD( "rr1wav3.10l", 0x100000*3, 0x100000,CRC(c4cda1a7) SHA1(60bc96880ec79efdff3cc70c09e848692a40bea4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_timecrsa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_timecrsa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD32_WORD_SWAP( "ts2ver-a.1", 0x00002, 0x200000, CRC(d57eb74b) SHA1(536dd9305d0ac44110c575776333310cc57b5242) )
 		ROM_LOAD32_WORD_SWAP( "ts2ver-a.2", 0x00000, 0x200000, CRC(671588af) SHA1(63f992c6795521fd263a0ebf230f8dc88cbfc443) )
@@ -1680,7 +1680,7 @@ public class namcos22
 		ROM_LOAD( "ts1waveb.1l", 0x400000, 0x200000, CRC(bf4d7272) SHA1(c7c7b3620e7b3176644b6784ee36e679c9e31cc1) )
 	ROM_END(); }}; 
 	
-	static InputPortPtr input_ports_alpiner = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( alpiner )
+	static InputPortHandlerPtr input_ports_alpiner = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( alpiner )
 		PORT_START();  /* DIP4 */
 		PORT_DIPNAME( 0x01, 0x00, "DIP1" );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -1724,7 +1724,7 @@ public class namcos22
 		PORT_ANALOG( 0xffff, 0x8000, IPT_AD_STICK_Y|IPF_CENTER, 100, 4, 0x00, 0xffff );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cybrcycc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cybrcycc )
+	static InputPortHandlerPtr input_ports_cybrcycc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cybrcycc )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0001, 0x0001, "DIP2-1 (test mode"));
 		PORT_DIPSETTING(    0x0001, DEF_STR( "Off") );
@@ -1794,7 +1794,7 @@ public class namcos22
 		PORT_BIT( 0x8000, IP_ACTIVE_LOW, IPT_TILT );	/* motion stop (unused) */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_propcycl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( propcycl )
+	static InputPortHandlerPtr input_ports_propcycl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( propcycl )
 		PORT_START();  /* DIP4 */
 		PORT_DIPNAME( 0x01, 0x01, "DIP1" );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1846,7 +1846,7 @@ public class namcos22
 	//	PORT_ANALOG( 0xffff, 0x8000, IPT_AD_STICK_Y|IPF_CENTER, 100, 4, 0x00, 0xffff );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_victlap = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( victlap )
+	static InputPortHandlerPtr input_ports_victlap = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( victlap )
 		PORT_START();  /* 0: DIP2 and DIP3 */
 		PORT_DIPNAME( 0x0001, 0x0001, "DIP2-1" );
 		PORT_DIPSETTING(    0x0001, DEF_STR( "Off") );
@@ -1958,7 +1958,7 @@ public class namcos22
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_ridgera = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ridgera )
+	static InputPortHandlerPtr input_ports_ridgera = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ridgera )
 		PORT_START();  /* 0: DIP2 and DIP3 */
 		PORT_DIPNAME( 0x0001, 0x0001, "DIP2-1" );
 		PORT_DIPSETTING(    0x0001, DEF_STR( "Off") );
@@ -2069,7 +2069,7 @@ public class namcos22
 		PORT_DIPSETTING(    0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_raveracw = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( raveracw )
+	static InputPortHandlerPtr input_ports_raveracw = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( raveracw )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0001, 0x0001, "DIP2-1" );
 		PORT_DIPSETTING(    0x0001, DEF_STR( "Off") );
@@ -2139,7 +2139,7 @@ public class namcos22
 		PORT_BIT( 0x8000, IP_ACTIVE_LOW, IPT_TILT );	/* motion stop (unused) */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cybrcomm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cybrcomm )
+	static InputPortHandlerPtr input_ports_cybrcomm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cybrcomm )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0001, 0x0001, "DIP2-1" );
 		PORT_DIPSETTING(    0x0001, DEF_STR( "Off") );
@@ -2191,7 +2191,7 @@ public class namcos22
 		PORT_DIPSETTING(    0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_timecris = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( timecris )
+	static InputPortHandlerPtr input_ports_timecris = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( timecris )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0001, 0x0001, "DIP2-1" );
 		PORT_DIPSETTING(    0x0001, DEF_STR( "Off") );

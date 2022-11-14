@@ -237,7 +237,7 @@ public class olibochu
 	
 	
 	
-	static InputPortPtr input_ports_olibochu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( olibochu )
+	static InputPortHandlerPtr input_ports_olibochu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( olibochu )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -439,7 +439,7 @@ public class olibochu
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_olibochu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_olibochu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* main CPU */
 		ROM_LOAD( "1b.3n",        0x0000, 0x1000, CRC(bf17f4f4) SHA1(1075456f4b70a68548e0e1b6271fd4b845a77ce4) )
 		ROM_LOAD( "2b.3lm",       0x1000, 0x1000, CRC(63833b0d) SHA1(0135c449c92470241d03a87709c739209139d660) )

@@ -120,7 +120,7 @@ public class sbugger
 	
 	/* input ports */
 	
-	static InputPortPtr input_ports_sbugger = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sbugger )
+	static InputPortHandlerPtr input_ports_sbugger = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sbugger )
 		PORT_START(); 	/* 8-bit */
 		PORT_DIPNAME( 0x01, 0x01, "E1" );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -223,7 +223,7 @@ public class sbugger
 	
 	/* rom loading */
 	
-	static RomLoadPtr rom_sbugger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sbugger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 8085 Code */
 	
 		ROM_LOAD( "spbugger.u35", 0x0000, 0x0800, CRC(7c2000a1) SHA1(01a60745ea8e9a70de37d1a785fad1d17eafc812) ) // seems to map at 0

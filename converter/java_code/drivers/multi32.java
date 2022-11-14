@@ -750,7 +750,7 @@ public class multi32
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_PLAYER##_n_ );
 	
 	
-	static InputPortPtr input_ports_orunners = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( orunners )
+	static InputPortHandlerPtr input_ports_orunners = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( orunners )
 		PORT_START(); 	// port 0
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_SPECIAL );/* EEPROM data */
@@ -846,7 +846,7 @@ public class multi32
 		PORT_DIPSETTING(    0x02, "B only" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_titlef = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( titlef )
+	static InputPortHandlerPtr input_ports_titlef = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( titlef )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_SPECIAL );/* EEPROM data */
@@ -877,7 +877,7 @@ public class multi32
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_harddunk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( harddunk )
+	static InputPortHandlerPtr input_ports_harddunk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( harddunk )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_SPECIAL );/* EEPROM data */
@@ -943,7 +943,7 @@ public class multi32
 		PORT_DIPSETTING(    0x02, "B only" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_scross = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( scross )
+	static InputPortHandlerPtr input_ports_scross = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( scross )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_SPECIAL );/* EEPROM data */
@@ -1020,7 +1020,7 @@ public class multi32
 	
 	
 	
-	static RomLoadPtr rom_orunners = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_orunners = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD32_WORD( "epr15618.bin", 0x000000, 0x020000, CRC(25647f76) SHA1(9f882921ebb2f078350295c322b263f75812c053) )
 		ROM_RELOAD(                      0x040000, 0x020000 )
@@ -1060,7 +1060,7 @@ public class multi32
 		ROM_REGION( 0x20000, REGION_GFX3, 0 ) /* FG tiles */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_harddunk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddunk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD32_WORD( "ep16512.37", 0x000000, 0x40000, CRC(1a7de085) SHA1(2e0dac1f7715089b7f6b1035c859ffe2d674932f) )
 		ROM_RELOAD(                      0x080000, 0x040000 )
@@ -1093,7 +1093,7 @@ public class multi32
 		ROM_REGION( 0x20000, REGION_GFX3, 0 ) /* FG tiles */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_harddunj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddunj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD32_WORD( "16508.37", 0x000000, 0x40000, CRC(b3713be5) SHA1(8123638a838e41fcc0d32e14382421b521eff94f) )
 		ROM_RELOAD(                      0x080000, 0x040000 )
@@ -1125,7 +1125,7 @@ public class multi32
 		ROM_REGION( 0x20000, REGION_GFX3, 0 ) /* FG tiles */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_titlef = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_titlef = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD32_WORD( "tf-15386.rom", 0x000000, 0x40000, CRC(7ceaf15d) SHA1(0295ac248e5814fbe7caecb346ccbcaf8abf67dc) )
 		ROM_RELOAD(                      0x080000, 0x040000 )
@@ -1156,7 +1156,7 @@ public class multi32
 		ROM_REGION( 0x20000, REGION_GFX3, 0 ) /* FG tiles */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_scross = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_scross = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD32_WORD( "epr15093.bin", 0x000000, 0x040000, CRC(2adc7a4b) SHA1(dca71f00d94898c0758394704d819e13482bf120) )
 		ROM_RELOAD(                      0x080000, 0x040000 )

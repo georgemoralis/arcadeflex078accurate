@@ -144,7 +144,7 @@ public class hexion
 	
 	
 	
-	static InputPortPtr input_ports_hexion = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hexion )
+	static InputPortHandlerPtr input_ports_hexion = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hexion )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -330,7 +330,7 @@ public class hexion
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hexion = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hexion = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x34800, REGION_CPU1, 0 )	/* ROMs + space for additional RAM */
 		ROM_LOAD( "122jab01.bin", 0x00000, 0x20000, CRC(eabc6dd1) SHA1(e74c1f1f2fcf8973f0741a2d544f25c8639448bf) )
 		ROM_RELOAD(               0x10000, 0x20000 )	/* banked at 8000-9fff */

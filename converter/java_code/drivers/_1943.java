@@ -83,7 +83,7 @@ public class _1943
 	
 	
 	
-	static InputPortPtr input_ports_1943 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 1943 )
+	static InputPortHandlerPtr input_ports_1943 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 1943 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -292,7 +292,7 @@ public class _1943
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_1943 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_1943 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for the banked ROMs images */
 		ROM_LOAD( "1943.01",      0x00000, 0x08000, CRC(c686cc5c) SHA1(5efb2d9df737564d599f71b71a6438f7624b27c3) )
 		ROM_LOAD( "1943.02",      0x10000, 0x10000, CRC(d8880a41) SHA1(2f9b6a3922efa05eed66c63284bace5f337304ac) )
@@ -347,7 +347,7 @@ public class _1943
 		ROM_LOAD( "bmprom.06",    0x0b00, 0x0100, CRC(0eaf5158) SHA1(bafd4108708f66cd7b280e47152b108f3e254fc9) )	/* video timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_1943j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_1943j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for the banked ROMs images */
 		ROM_LOAD( "1943jap.001",  0x00000, 0x08000, CRC(f6935937) SHA1(6fe8885d734447c2a667cf80dd545200aad6c767) )
 		ROM_LOAD( "1943jap.002",  0x10000, 0x10000, CRC(af971575) SHA1(af1d8ce73e8671b7b41248ce6486c9b5aaf6a233) )
@@ -402,7 +402,7 @@ public class _1943
 		ROM_LOAD( "bmprom.06",    0x0b00, 0x0100, CRC(0eaf5158) SHA1(bafd4108708f66cd7b280e47152b108f3e254fc9) )	/* video timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_1943kai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_1943kai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for the banked ROMs images */
 		ROM_LOAD( "1943kai.01",   0x00000, 0x08000, CRC(7d2211db) SHA1(b02a0b3daf7e1e224b7cad8fbe93439bd5ec9f0b) )
 		ROM_LOAD( "1943kai.02",   0x10000, 0x10000, CRC(2ebbc8c5) SHA1(3be5ad061411642723e3f2bcb7b3c3caa11ee15f) )

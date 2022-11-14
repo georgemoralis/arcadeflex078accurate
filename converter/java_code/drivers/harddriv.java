@@ -625,7 +625,7 @@ public class harddriv
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_harddriv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( harddriv )
+	static InputPortHandlerPtr input_ports_harddriv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( harddriv )
 		PORT_START(); 		/* 600000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNUSED );/* diagnostic switch */
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_SPECIAL );/* HBLANK */
@@ -681,7 +681,7 @@ public class harddriv
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_racedriv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( racedriv )
+	static InputPortHandlerPtr input_ports_racedriv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( racedriv )
 		PORT_START(); 		/* 600000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNUSED );/* diagnostic switch */
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_SPECIAL );/* HBLANK */
@@ -737,7 +737,7 @@ public class harddriv
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_racedrvc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( racedrvc )
+	static InputPortHandlerPtr input_ports_racedrvc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( racedrvc )
 		PORT_START(); 		/* 60c000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNUSED );/* diagnostic switch */
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_SPECIAL );/* HBLANK */
@@ -799,7 +799,7 @@ public class harddriv
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_stunrun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stunrun )
+	static InputPortHandlerPtr input_ports_stunrun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stunrun )
 		PORT_START(); 		/* 60c000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_SPECIAL );/* HBLANK */
@@ -857,7 +857,7 @@ public class harddriv
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_steeltal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( steeltal )
+	static InputPortHandlerPtr input_ports_steeltal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( steeltal )
 		PORT_START(); 		/* 60c000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_SPECIAL );/* HBLANK */
@@ -916,7 +916,7 @@ public class harddriv
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hdrivair = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hdrivair )
+	static InputPortHandlerPtr input_ports_hdrivair = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hdrivair )
 		PORT_START(); 		/* 60c000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_SPECIAL );/* HBLANK */
@@ -1298,7 +1298,7 @@ public class harddriv
 		they look legit, but I can't find any official record of them
 	*/
 	
-	static RomLoadPtr rom_harddriv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddriv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "7105200r.052", 0x000000, 0x010000, CRC(af5d5c3e) SHA1(09ccf4aa933413b71b6a42796d42299e1334902f) )
 		ROM_LOAD16_BYTE( "7113210r.052", 0x000001, 0x010000, CRC(3330a942) SHA1(b9210f6befd875be8bc1dbd31f44d0cb63166748) )
@@ -1333,7 +1333,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrvg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrvg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "7205200r.052", 0x000000, 0x010000, CRC(b50b1968) SHA1(b6fd9f0600cba995bf31fd0f30f15f091bbbfb09) )
 		ROM_LOAD16_BYTE( "7213210r.052", 0x000001, 0x010000, CRC(e6d57108) SHA1(a4eda6db4ec67b1cb8f9bfee17d8adc93675ef8a) )
@@ -1368,7 +1368,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrvj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrvj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "7805200r.052", 0x000000, 0x010000, CRC(f170c842) SHA1(842cef66646a664300a7e2b827c0bbd53e5f27ad) )
 		ROM_LOAD16_BYTE( "7813210r.052", 0x000001, 0x010000, CRC(e5a3367d) SHA1(96b3a6fb5561fa59d7ac4b840fa1891d02f1bd8c) )
@@ -1405,7 +1405,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrvb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrvb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "7905200r.052", 0x000000, 0x010000, CRC(c4379a2e) SHA1(41dc66c1576c591520543343a798e0d80def2188) )
 		ROM_LOAD16_BYTE( "7913210r.052", 0x000001, 0x010000, CRC(1e76fa17) SHA1(80ec1de4c8a4622fb5c65ec3e8c194a8eabacc38) )
@@ -1440,7 +1440,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrb6 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrb6 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "6905200r.052", 0x000000, 0x010000, CRC(b1f38593) SHA1(958622128c7c687071211343ef657c38f928e25a) )
 		ROM_LOAD16_BYTE( "6913210r.052", 0x000001, 0x010000, CRC(15eb0da5) SHA1(0200328582c77d4d64e9f7df1f8755f7f4975ac3) )
@@ -1475,7 +1475,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrj6 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrj6 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "6805200r.052", 0x000000, 0x010000, CRC(e61ce7af) SHA1(38115a5a44f330abf1f7d684e630a1a232769f7c) )
 		ROM_LOAD16_BYTE( "6813210r.052", 0x000001, 0x010000, CRC(adfef1e7) SHA1(dc1bdb5ce9143a94d734ce9ecdf9195589608b65) )
@@ -1512,7 +1512,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrb5 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrb5 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "5905200r.052", 0x000000, 0x010000, CRC(6dd28313) SHA1(c1f860470070dad7d8865aca508ecf5eb92fa8c5) )
 		ROM_LOAD16_BYTE( "5913210r.052", 0x000001, 0x010000, CRC(2e5a006f) SHA1(8a2da1868bbad54b33e993f5bf9ba61186caef5b) )
@@ -1547,7 +1547,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrg4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrg4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "4205200r.052", 0x000000, 0x010000, CRC(94db6d9e) SHA1(98a509daacb9f18c7171246d1782d09a6456e241) )
 		ROM_LOAD16_BYTE( "4213210r.052", 0x000001, 0x010000, CRC(cacaf671) SHA1(7bd0f531402b2f10cb00bb8f7ca0b62eed23bffa) )
@@ -1582,7 +1582,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrv3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrv3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "3105200r.052", 0x000000, 0x010000, CRC(a42a2c69) SHA1(66233f25533106aab69df21db69f96368f1399a9) )
 		ROM_LOAD16_BYTE( "3113210r.052", 0x000001, 0x010000, CRC(358995b5) SHA1(f18c0da58ec7befefc61d5f0d35787516b775c92) )
@@ -1617,7 +1617,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrv2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrv2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2105200r.052", 0x000000, 0x010000, CRC(967903b9) SHA1(4363f3b3f08d00819f47a3682462fd0e5dc4e0ac) )
 		ROM_LOAD16_BYTE( "2113210r.052", 0x000001, 0x010000, CRC(c87f7067) SHA1(3d85d2ba818739ed05086502cd8e57438251b20b) )
@@ -1652,7 +1652,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrv1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrv1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "1105200r.052", 0x000000, 0x010000, CRC(1dfda789) SHA1(83be0d66fe21e974f8d4582b0ab60245f1db7e55) )
 		ROM_LOAD16_BYTE( "1113210r.052", 0x000001, 0x010000, CRC(db2f6593) SHA1(864ea5604cea2507b180a91b35e349d3924bf9bc) )
@@ -1687,7 +1687,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrvc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrvc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.068", 0x000000, 0x010000, CRC(6252048b) SHA1(64caf3adfad6965768fc6d39a8bcde62fe6dfa9e) )
 		ROM_LOAD16_BYTE( "2101210r.068", 0x000001, 0x010000, CRC(4805ba06) SHA1(e0c2d935ced05b8162f2925520422184a81d5294) )
@@ -1722,7 +1722,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrcg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrcg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2202200r.068", 0x000000, 0x010000, CRC(ea09bdc2) SHA1(9e38ed0a47a2bfb6b80cbf1e0b3e891b94f30c10) )
 		ROM_LOAD16_BYTE( "2201210r.068", 0x000001, 0x010000, CRC(a5e9947f) SHA1(75973346c9399752d8ae82fbada3a24c6d5fec94) )
@@ -1757,7 +1757,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrcb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrcb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.068", 0x000000, 0x010000, CRC(6252048b) SHA1(64caf3adfad6965768fc6d39a8bcde62fe6dfa9e) )
 		ROM_LOAD16_BYTE( "2101210r.068", 0x000001, 0x010000, CRC(4805ba06) SHA1(e0c2d935ced05b8162f2925520422184a81d5294) )
@@ -1792,7 +1792,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_harddrc1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_harddrc1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "1102200r.068", 0x000000, 0x010000, CRC(f1d3779f) SHA1(1ab84fc920f6810aa7c1af80b0472ea17d07e58b) )
 		ROM_LOAD16_BYTE( "1101210r.068", 0x000001, 0x010000, CRC(3ea4d3d9) SHA1(3901e8c07bed35bf6a55ab92f5c7eb9335675792) )
@@ -1827,7 +1827,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -1866,7 +1866,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrunj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrunj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "3402200r.070", 0x000000, 0x010000, CRC(d8d56923) SHA1(248b22dab791c2d9ee6e6097dac9f3bf85d572be) )
 		ROM_LOAD16_BYTE( "3401210r.070", 0x000001, 0x010000, CRC(ce11126c) SHA1(cf27b56103048cc23dc6763763b7419583a27c76) )
@@ -1905,7 +1905,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrun5 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrun5 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -1944,7 +1944,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrune = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrune = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -1983,7 +1983,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrun4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrun4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -2022,7 +2022,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrun3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrun3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -2061,7 +2061,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrn3e = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrn3e = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -2100,7 +2100,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrun2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrun2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -2139,7 +2139,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrn2e = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrn2e = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -2178,7 +2178,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrun0 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrun0 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -2217,7 +2217,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stunrunp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stunrunp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2102200r.070", 0x000000, 0x010000, CRC(e0ed54d8) SHA1(15850568d8308b6499cbe55b5d8308041d906a29) )
 		ROM_LOAD16_BYTE( "2101210r.070", 0x000001, 0x010000, CRC(3008bcf8) SHA1(9d3a20b639969bab68441f76467ed60e395c10e3) )
@@ -2256,7 +2256,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedriv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedriv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "5002200r.077", 0x000000, 0x010000, CRC(0a78adca) SHA1(a44722340ff7c99253107be092bec2e87cae340b) )
 		ROM_LOAD16_BYTE( "5001210r.077", 0x000001, 0x010000, CRC(74b4cd49) SHA1(48fc4344c092c9eb14249874ac305b87bba53e7e) )
@@ -2304,7 +2304,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrvb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrvb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "5002200r.077", 0x000000, 0x010000, CRC(0a78adca) SHA1(a44722340ff7c99253107be092bec2e87cae340b) )
 		ROM_LOAD16_BYTE( "5001210r.077", 0x000001, 0x010000, CRC(74b4cd49) SHA1(48fc4344c092c9eb14249874ac305b87bba53e7e) )
@@ -2352,7 +2352,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrvg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrvg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "5202200r.077", 0x000000, 0x010000, CRC(69016b69) SHA1(8da1314b4b6da6fc95479b9034190181bf778b25) )
 		ROM_LOAD16_BYTE( "5201210r.077", 0x000001, 0x010000, CRC(439a1ce7) SHA1(fc376c654c494d2895bcf85d5d8a9d6f17b6887e) )
@@ -2400,7 +2400,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrv4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrv4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "4002200r.077", 0x000000, 0x010000, CRC(afe1beb5) SHA1(66dba58f2a02eaa2d6306e53adffb662a8021031) )
 		ROM_LOAD16_BYTE( "4001210r.077", 0x000001, 0x010000, CRC(8a449e44) SHA1(03800b96a3992baa4bd37db20e559e08b12e55d1) )
@@ -2448,7 +2448,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrb4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrb4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "4002200r.077", 0x000000, 0x010000, CRC(afe1beb5) SHA1(66dba58f2a02eaa2d6306e53adffb662a8021031) )
 		ROM_LOAD16_BYTE( "4001210r.077", 0x000001, 0x010000, CRC(8a449e44) SHA1(03800b96a3992baa4bd37db20e559e08b12e55d1) )
@@ -2496,7 +2496,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrg4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrg4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "4202200r.077", 0x000000, 0x010000, CRC(a8c7e15e) SHA1(6aa4b819e5c8562c8eef92a411b2dc91ed35ae4c) )
 		ROM_LOAD16_BYTE( "4201210r.077", 0x000001, 0x010000, CRC(1dfa4df2) SHA1(1db0676f0ff1e7996c9791b041d9cd4ca9c70261) )
@@ -2544,7 +2544,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrv3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrv3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "3002200r.077", 0x000000, 0x010000, CRC(78771253) SHA1(88fdae99eb4feb40db8ad171b3435315db3adedb) )
 		ROM_LOAD16_BYTE( "3001210r.077", 0x000001, 0x010000, CRC(c75373a4) SHA1(d2f14190218cfedf4478806a26c77edd4d7c73eb) )
@@ -2592,7 +2592,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrv2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrv2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2002200r.077", 0x000000, 0x010000, CRC(6b440e10) SHA1(8074a1de01e2cdc497a51339f9c05329d6f540b0) )
 		ROM_LOAD16_BYTE( "2001210r.077", 0x000001, 0x010000, CRC(eee12973) SHA1(0cd2e88c431d08fba5a73c903327f39f8692f3aa) )
@@ -2640,7 +2640,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrv1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrv1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "1002200r.077", 0x000000, 0x010000, CRC(d39f6d53) SHA1(c278cd4109a65304a21dd1d8ba27375713a8b107) )
 		ROM_LOAD16_BYTE( "1001210r.077", 0x000001, 0x010000, CRC(e29e011c) SHA1(7044e7f9c8551309b5867a06672796411007a427) )
@@ -2688,7 +2688,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrg1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrg1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "1202200r.077", 0x000000, 0x010000, CRC(bd363903) SHA1(8f0937725adabf5ee9e0ac015c83916e2575670a) )
 		ROM_LOAD16_BYTE( "1201210r.077", 0x000001, 0x010000, CRC(748c3be4) SHA1(ddf149f333d23e9c782ae447f6fb3f780680b3f5) )
@@ -2736,7 +2736,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrb1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrb1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2002200r.077", 0x000000, 0x010000, CRC(6b440e10) SHA1(8074a1de01e2cdc497a51339f9c05329d6f540b0) )
 		ROM_LOAD16_BYTE( "2001210r.077", 0x000001, 0x010000, CRC(eee12973) SHA1(0cd2e88c431d08fba5a73c903327f39f8692f3aa) )
@@ -2784,7 +2784,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrvc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrvc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "5002200r.078", 0x000000, 0x010000, CRC(ae8f79bd) SHA1(054f2d1948d6d03832c4557c3dd7667c0784716d) )
 		ROM_LOAD16_BYTE( "5001210r.078", 0x000001, 0x010000, CRC(ad896e7f) SHA1(7b047f0c972fac075db00faf19cdf9ccdcef5c63) )
@@ -2832,7 +2832,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrcb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrcb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "5002200r.078", 0x000000, 0x010000, CRC(ae8f79bd) SHA1(054f2d1948d6d03832c4557c3dd7667c0784716d) )
 		ROM_LOAD16_BYTE( "5001210r.078", 0x000001, 0x010000, CRC(ad896e7f) SHA1(7b047f0c972fac075db00faf19cdf9ccdcef5c63) )
@@ -2880,7 +2880,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrcg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrcg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "5202200r.078", 0x000000, 0x010000, CRC(c37b5281) SHA1(1ff7a879853dd1e10881fd56e8ae0962676ef319) )
 		ROM_LOAD16_BYTE( "5201210r.078", 0x000001, 0x010000, CRC(80072dad) SHA1(ba33465f639431cf6e9ce377ed31e538a0304dc5) )
@@ -2928,7 +2928,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrc4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrc4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "4002200r.078", 0x000000, 0x010000, CRC(d6522b97) SHA1(0e4c4ce9f6147cc3878a3f1e60cf58f00bfe9e4c) )
 		ROM_LOAD16_BYTE( "4001210r.078", 0x000001, 0x010000, CRC(d658a8ed) SHA1(59d823d8150de62ba5c4fddf87584bd2044e87f7) )
@@ -2976,7 +2976,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedcb4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedcb4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "4002200r.078", 0x000000, 0x010000, CRC(d6522b97) SHA1(0e4c4ce9f6147cc3878a3f1e60cf58f00bfe9e4c) )
 		ROM_LOAD16_BYTE( "4001210r.078", 0x000001, 0x010000, CRC(d658a8ed) SHA1(59d823d8150de62ba5c4fddf87584bd2044e87f7) )
@@ -3024,7 +3024,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedcg4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedcg4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "4202200r.078", 0x000000, 0x010000, CRC(be58215d) SHA1(0497efbd696e8d2db4e42678dd6cfe6cd3f78688) )
 		ROM_LOAD16_BYTE( "4201210r.078", 0x000001, 0x010000, CRC(609c5f23) SHA1(a66e1f10f8ad9d25fca5b681ad543967287f2036) )
@@ -3072,7 +3072,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrc2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrc2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "2002200r.078", 0x000000, 0x010000, CRC(669fe6fe) SHA1(1775ee3ef4817f553113772cf0fb35cbbe2e73a5) )
 		ROM_LOAD16_BYTE( "2001210r.078", 0x000001, 0x010000, CRC(9312fd5f) SHA1(9dd1b30ebceedf50fb18d744540e2003a8110d09) )
@@ -3120,7 +3120,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_racedrc1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racedrc1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "1002200r.078", 0x000000, 0x010000, CRC(ed997f08) SHA1(9512f347120174345dbe8c756e5c239fdce438a5) )
 		ROM_LOAD16_BYTE( "1001210r.078", 0x000001, 0x010000, CRC(5540ee7d) SHA1(f1d16cfa20b61f1cf075e3275ea4af0b46aa5470) )
@@ -3168,7 +3168,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_steeltal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_steeltal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "1002200r.087", 0x000000, 0x010000, CRC(31bf01a9) SHA1(cd08a839dbb5283a6e2bb35bc9e1578a14e3c2e6) )
 		ROM_LOAD16_BYTE( "1001210r.087", 0x000001, 0x010000, CRC(b4fa2900) SHA1(5e92ab4af31321b891c072305f8b8ef30a3e1fb0) )
@@ -3211,7 +3211,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_steeltag = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_steeltag = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "1002200r.087", 0x000000, 0x010000, CRC(31bf01a9) SHA1(cd08a839dbb5283a6e2bb35bc9e1578a14e3c2e6) )
 		ROM_LOAD16_BYTE( "1001210r.087", 0x000001, 0x010000, CRC(b4fa2900) SHA1(5e92ab4af31321b891c072305f8b8ef30a3e1fb0) )
@@ -3254,7 +3254,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_steelta1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_steelta1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "1002200r.087", 0x000000, 0x010000, CRC(31bf01a9) SHA1(cd08a839dbb5283a6e2bb35bc9e1578a14e3c2e6) )
 		ROM_LOAD16_BYTE( "1001210r.087", 0x000001, 0x010000, CRC(b4fa2900) SHA1(5e92ab4af31321b891c072305f8b8ef30a3e1fb0) )
@@ -3297,7 +3297,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_steeltap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_steeltap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 1MB for 68000 code */
 		ROM_LOAD16_BYTE( "rom-200r.bin", 0x00000, 0x10000, CRC(72a9ce3b) SHA1(6706ff32173735d16d9da1321b64a4a9bb317b2e) )
 		ROM_LOAD16_BYTE( "rom-210r.bin", 0x00001, 0x10000, CRC(46d83b42) SHA1(85b178781f0595b5af0375fee32d0dd8cdba8fca) )
@@ -3340,7 +3340,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hdrivair = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hdrivair = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )		/* 2MB for 68000 code */
 		ROM_LOAD16_BYTE( "stesthi.bin", 0x000000, 0x20000, CRC(b4bfa451) SHA1(002a5d213ba8ec76ad83a87d76aefbd98b1e4c94) )
 		ROM_LOAD16_BYTE( "stestlo.bin", 0x000001, 0x20000, CRC(58758419) SHA1(7951d4c8cf0b28b4fac3fe172ea3bc56f61bd9ff) )
@@ -3394,7 +3394,7 @@ public class harddriv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hdrivaip = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hdrivaip = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )		/* 2MB for 68000 code */
 		ROM_LOAD16_BYTE( "stest.0h",    0x000000, 0x20000, CRC(bf4bb6a0) SHA1(e38ec5ce245f98bfe8084ba684bffc85dc19d3be) )
 		ROM_LOAD16_BYTE( "stest.0l",    0x000001, 0x20000, CRC(f462b511) SHA1(d88efb8cc30322a8332a1f50de775a204758e176) )

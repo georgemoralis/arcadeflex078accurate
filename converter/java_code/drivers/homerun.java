@@ -140,7 +140,7 @@ public class homerun
 	};
 	
 	
-	static InputPortPtr input_ports_homerun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( homerun )
+	static InputPortHandlerPtr input_ports_homerun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( homerun )
 		PORT_START(); 
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_COIN1  );
 		PORT_DIPNAME( 0x80, 0x80, DEF_STR( "Unknown") );
@@ -192,7 +192,7 @@ public class homerun
 		
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_homerun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_homerun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	  
 		ROM_LOAD( "homerun.43",        0x0000, 0x4000, CRC(e759e476) SHA1(ad4f356ff26209033320a3e6353e4d4d9beb59c1) )
 		ROM_CONTINUE(        0x10000,0x1c000) 

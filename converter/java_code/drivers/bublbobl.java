@@ -346,7 +346,7 @@ public class bublbobl
 	
 	
 	
-	static InputPortPtr input_ports_bublbobl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bublbobl )
+	static InputPortHandlerPtr input_ports_bublbobl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bublbobl )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_TILT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -420,7 +420,7 @@ public class bublbobl
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_boblbobl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( boblbobl )
+	static InputPortHandlerPtr input_ports_boblbobl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( boblbobl )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, "Language" );
 		PORT_DIPSETTING(    0x00, "English" );
@@ -486,7 +486,7 @@ public class bublbobl
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sboblbob = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sboblbob )
+	static InputPortHandlerPtr input_ports_sboblbob = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sboblbob )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, "Game" );
 		PORT_DIPSETTING(    0x01, "Bobble Bobble" );
@@ -552,7 +552,7 @@ public class bublbobl
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tokio = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tokio )
+	static InputPortHandlerPtr input_ports_tokio = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tokio )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -809,7 +809,7 @@ public class bublbobl
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bublbobl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bublbobl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "a78-06.51",    0x00000, 0x08000, CRC(32c8305b) SHA1(6bf69b3edfbefd33cd670a762b4bf0b39629a220) )
 	    /* ROMs banked at 8000-bfff */
@@ -845,7 +845,7 @@ public class bublbobl
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bublbobr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bublbobr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "a78-25.51",    0x00000, 0x08000, CRC(2d901c9d) SHA1(72504225d3a26212e8f35508a79200eeb91138b6) )
 	    /* ROMs banked at 8000-bfff */
@@ -881,7 +881,7 @@ public class bublbobl
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bubbobr1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubbobr1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "a78-06.51",    0x00000, 0x08000, CRC(32c8305b) SHA1(6bf69b3edfbefd33cd670a762b4bf0b39629a220) )
 	    /* ROMs banked at 8000-bfff */
@@ -917,7 +917,7 @@ public class bublbobl
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_boblbobl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_boblbobl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "bb3",          0x00000, 0x08000, CRC(01f81936) SHA1(a48489a13bfd01949e7fd273029d9cb8bfd7be48) )
 	    /* ROMs banked at 8000-bfff */
@@ -951,7 +951,7 @@ public class bublbobl
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sboblbob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sboblbob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "bbb-3.rom",    0x00000, 0x08000, CRC(f304152a) SHA1(103d9beddccef289ed739d28ebda69bbad3d42f9) )
 	    /* ROMs banked at 8000-bfff */
@@ -985,7 +985,7 @@ public class bublbobl
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tokio = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokio = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* main CPU */
 		ROM_LOAD( "a71-27-1.256", 0x00000, 0x8000, CRC(8c180896) SHA1(bc8aeb42da4bae7db6f65b9874224f60a9bc4500) )
 	    /* ROMs banked at 8000-bfff */
@@ -1025,7 +1025,7 @@ public class bublbobl
 		ROM_LOAD( "a71-25.bin",   0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tokiob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokiob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "2",            0x00000, 0x8000, CRC(f583b1ef) SHA1(a97b36299b51792953516224191f11decc579a38) )
 	    /* ROMs banked at 8000-bfff */

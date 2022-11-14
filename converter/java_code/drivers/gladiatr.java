@@ -341,7 +341,7 @@ public class gladiatr
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_gladiatr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gladiatr )
+	static InputPortHandlerPtr input_ports_gladiatr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gladiatr )
 		PORT_START(); 		/* DSW1 (8741-0 parallel port)*/
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x00, "Easy" );
@@ -592,7 +592,7 @@ public class gladiatr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gladiatr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gladiatr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "qb0-5",          0x00000, 0x4000, CRC(25b19efb) SHA1(c41344278f6c7f3d6527aced3e459ed1ba86dea5) )
 		ROM_LOAD( "qb0-4",          0x04000, 0x2000, CRC(347ec794) SHA1(51100f9fef2e96f00e94fce709eed6583b01a2eb) )
@@ -624,7 +624,7 @@ public class gladiatr
 		ROM_LOAD( "qc2-11",       	0x28000, 0x8000, CRC(c9fecfff) SHA1(7c13ace4293fbfab7fe924b7b24c498d8cefc7ac) ) /* planes 1,2 */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ogonsiro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ogonsiro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "qb0-5",          0x00000, 0x4000, CRC(25b19efb) SHA1(c41344278f6c7f3d6527aced3e459ed1ba86dea5) )
 		ROM_LOAD( "qb0-4",          0x04000, 0x2000, CRC(347ec794) SHA1(51100f9fef2e96f00e94fce709eed6583b01a2eb) )

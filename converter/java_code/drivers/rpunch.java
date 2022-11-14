@@ -300,7 +300,7 @@ public class rpunch
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_rpunch = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rpunch )
+	static InputPortHandlerPtr input_ports_rpunch = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rpunch )
 		PORT_START(); 	/* c0018 lower 8 bits */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -383,7 +383,7 @@ public class rpunch
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_rabiolep = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rabiolep )
+	static InputPortHandlerPtr input_ports_rabiolep = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rabiolep )
 		PORT_START(); 	/* c0018 lower 8 bits */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -467,7 +467,7 @@ public class rpunch
 	
 	
 	
-	static InputPortPtr input_ports_svolley = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( svolley )
+	static InputPortHandlerPtr input_ports_svolley = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( svolley )
 		PORT_START(); 	/* c0018 lower 8 bits */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -658,7 +658,7 @@ public class rpunch
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_rpunch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rpunch = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "rpunch.20", 0x00000, 0x08000, CRC(a2028d59) SHA1(d304811853ad68b3977edb90b94f3e2c7507be82) )
 		ROM_LOAD16_BYTE( "rpunch.21", 0x00001, 0x08000, CRC(1cdb13d3) SHA1(a51b2bbbd7b4553500b65aa6a20fabe03432e6ca) )
@@ -693,7 +693,7 @@ public class rpunch
 	//	ROM_LOAD( "rpunch.91", 0x00000, 0x0f000, CRC(7512cc59) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rabiolep = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rabiolep = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "rl_e2.bin", 0x00000, 0x08000, CRC(7d936a12) SHA1(4f472ccbceb13b4d0b14c686d151faa8d4c466c7) )
 		ROM_LOAD16_BYTE( "rl_d2.bin", 0x00001, 0x08000, CRC(d8d85429) SHA1(dc52c30c18026300a4625bddc987a00396bcd079) )
@@ -728,7 +728,7 @@ public class rpunch
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_svolley = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_svolley = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "sps_13.bin", 0x00000, 0x10000, CRC(2fbc5dcf) SHA1(fba4d353948f29b75b4db464509f7e606703f9dc) )
 		ROM_LOAD16_BYTE( "sps_11.bin", 0x00001, 0x10000, CRC(51b025c9) SHA1(4eae91ee9fe893083d0ff5fed28d847dba49b244) )
@@ -768,7 +768,7 @@ public class rpunch
 		ROM_LOAD( "sps_15.bin", 0x40000, 0x10000, CRC(f33f415f) SHA1(1dd465d9b3009754a7d53400562a53dacff364fc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_svolleyk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_svolleyk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "a14.bin", 0x00000, 0x10000, CRC(dbab3bf9) SHA1(b329245666fb5082871d661714332b10cf49fe41) )
 		ROM_LOAD16_BYTE( "a11.bin", 0x00001, 0x10000, CRC(92afd56f) SHA1(6edb421af6051de640c3ed9bb75bd9e7f609ce14) )
@@ -809,7 +809,7 @@ public class rpunch
 		ROM_LOAD( "sps_15.bin", 0x40000, 0x10000, CRC(f33f415f) SHA1(1dd465d9b3009754a7d53400562a53dacff364fc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_svolleyu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_svolleyu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "svb-du8.137", 0x00000, 0x10000, CRC(ffd5d261) SHA1(cf1a6897b88481d6dc7ffca647f85b91b04c2242) )
 		ROM_LOAD16_BYTE( "svb-du5.136", 0x00001, 0x10000, CRC(c1e943f5) SHA1(dda0db7dcf61038fd14d1717ee036e0e5b92253d) )

@@ -133,7 +133,7 @@ public class madmotor
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_madmotor = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( madmotor )
+	static InputPortHandlerPtr input_ports_madmotor = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( madmotor )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -338,7 +338,7 @@ public class madmotor
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_madmotor = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_madmotor = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "02", 0x00000, 0x20000, CRC(50b554e0) SHA1(e33d0ab5464ab5ff394dd630536ac83baf0aa2c9) )
 		ROM_LOAD16_BYTE( "00", 0x00001, 0x20000, CRC(2d6a1b3f) SHA1(fa7058bf907becac56ed9938c5643aaefdf7a2c0) )

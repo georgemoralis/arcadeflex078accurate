@@ -169,7 +169,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_invaders = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( invaders )
+	static InputPortHandlerPtr input_ports_invaders = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( invaders )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -239,7 +239,7 @@ public class _8080bw
 	
 	/* same as Invaders with a test mode switch */
 	
-	static InputPortPtr input_ports_sitv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sitv )
+	static InputPortHandlerPtr input_ports_sitv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sitv )
 		PORT_START(); 		/* TEST MODE */
 		PORT_SERVICE( 0x01, IP_ACTIVE_LOW );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -291,7 +291,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_invadpt2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( invadpt2 )
+	static InputPortHandlerPtr input_ports_invadpt2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( invadpt2 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -355,7 +355,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_cosmo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cosmo )
+	static InputPortHandlerPtr input_ports_cosmo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cosmo )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -450,7 +450,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_earthinv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( earthinv )
+	static InputPortHandlerPtr input_ports_earthinv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( earthinv )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -503,7 +503,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_spaceatt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spaceatt )
+	static InputPortHandlerPtr input_ports_spaceatt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spaceatt )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -558,7 +558,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_invrvnge = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( invrvnge )
+	static InputPortHandlerPtr input_ports_invrvnge = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( invrvnge )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -621,7 +621,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_invad2ct = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( invad2ct )
+	static InputPortHandlerPtr input_ports_invad2ct = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( invad2ct )
 		PORT_START(); 
 		PORT_SERVICE(0x01, IP_ACTIVE_LOW);			  /* dip 8 */
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* tied to pull-down */
@@ -696,7 +696,7 @@ public class _8080bw
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_sstrangr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sstrangr )
+	static InputPortHandlerPtr input_ports_sstrangr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sstrangr )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -771,7 +771,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_sstrngr2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sstrngr2 )
+	static InputPortHandlerPtr input_ports_sstrngr2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sstrngr2 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -850,7 +850,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_spclaser = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spclaser )
+	static InputPortHandlerPtr input_ports_spclaser = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spclaser )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -905,7 +905,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_spacewr3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacewr3 )
+	static InputPortHandlerPtr input_ports_spacewr3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacewr3 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -957,7 +957,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_galxwars = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( galxwars )
+	static InputPortHandlerPtr input_ports_galxwars = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galxwars )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -1011,7 +1011,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_lrescue = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lrescue )
+	static InputPortHandlerPtr input_ports_lrescue = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lrescue )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -1063,7 +1063,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_cosmicmo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cosmicmo )
+	static InputPortHandlerPtr input_ports_cosmicmo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cosmicmo )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -1140,7 +1140,7 @@ public class _8080bw
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_rollingc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rollingc )
+	static InputPortHandlerPtr input_ports_rollingc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rollingc )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	
@@ -1267,7 +1267,7 @@ public class _8080bw
 	/* probably never completed.                                           */
 	/* e.g. cocktail players button will give 6 credits!                   */
 	
-	static InputPortPtr input_ports_sheriff = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sheriff )
+	static InputPortHandlerPtr input_ports_sheriff = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sheriff )
 		PORT_START();       /* 00 Main Controls */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_RIGHT  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_LEFT   | IPF_8WAY );
@@ -1325,7 +1325,7 @@ public class _8080bw
 		PORT_DIPSETTING(    0x00, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bandido = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bandido )
+	static InputPortHandlerPtr input_ports_bandido = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bandido )
 		PORT_START();       /* 00 Main Controls */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_RIGHT  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_LEFT   | IPF_8WAY );
@@ -1422,7 +1422,7 @@ public class _8080bw
 	};
 	
 	
-	static InputPortPtr input_ports_spcenctr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spcenctr )
+	static InputPortHandlerPtr input_ports_spcenctr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spcenctr )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG( 0x3f, 0x1f, IPT_AD_STICK_X | IPF_REVERSE, 10, 10, 0, 0x3f);/* 6 bit horiz encoder - Gray's binary */
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_BUTTON1 );   /* fire */
@@ -1483,7 +1483,7 @@ public class _8080bw
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_gunfight = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gunfight )
+	static InputPortHandlerPtr input_ports_gunfight = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gunfight )
 	    /* Gun position uses bits 4-6, handled using fake paddles */
 		PORT_START();       /* IN0 - Player 2 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER2 );
@@ -1565,7 +1565,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_m4 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( m4 )
+	static InputPortHandlerPtr input_ports_m4 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( m4 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW,  IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW,  IPT_JOYSTICK_UP   | IPF_2WAY | IPF_PLAYER2 );
@@ -1620,7 +1620,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_boothill = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( boothill )
+	static InputPortHandlerPtr input_ports_boothill = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( boothill )
 	    /* Gun position uses bits 4-6, handled using fake paddles */
 		PORT_START();       /* IN0 - Player 2 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER2 );
@@ -1696,7 +1696,7 @@ public class _8080bw
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_schaser = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( schaser )
+	static InputPortHandlerPtr input_ports_schaser = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( schaser )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_4WAY | IPF_PLAYER2 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY | IPF_PLAYER2 );
@@ -1775,7 +1775,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_schasrcv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( schasrcv )
+	static InputPortHandlerPtr input_ports_schasrcv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( schasrcv )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -1875,7 +1875,7 @@ public class _8080bw
 	
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_sflush = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sflush )
+	static InputPortHandlerPtr input_ports_sflush = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sflush )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START1 );
@@ -1913,7 +1913,7 @@ public class _8080bw
 	/*
 	 * Clowns (EPROM version)
 	 */
-	static InputPortPtr input_ports_clowns = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( clowns )
+	static InputPortHandlerPtr input_ports_clowns = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( clowns )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG( 0xff, 0x7f, IPT_PADDLE, 100, 10, 0x01, 0xfe);
 	
@@ -1952,7 +1952,7 @@ public class _8080bw
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_clowns1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( clowns1 )
+	static InputPortHandlerPtr input_ports_clowns1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( clowns1 )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG( 0xff, 0x7f, IPT_PADDLE, 100, 10, 0x01, 0xfe);
 	
@@ -2009,7 +2009,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_gmissile = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gmissile )
+	static InputPortHandlerPtr input_ports_gmissile = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gmissile )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -2058,7 +2058,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_280zzzap = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 280zzzap )
+	static InputPortHandlerPtr input_ports_280zzzap = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 280zzzap )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG( 0x0f, 0x00, IPT_PEDAL, 100, 64, 0x00, 0x0f );/* accelerator */
 		PORT_BIT( 0x10, IP_ACTIVE_HIGH, IPT_BUTTON2 | IPF_TOGGLE ); /* shift */
@@ -2109,7 +2109,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_lupin3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lupin3 )
+	static InputPortHandlerPtr input_ports_lupin3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lupin3 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* selects color mode (dynamic vs. static) */
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* something has to do with sound */
@@ -2216,7 +2216,7 @@ public class _8080bw
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_helifire = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( helifire )
+	static InputPortHandlerPtr input_ports_helifire = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( helifire )
 		PORT_START();       /* 00 Main Controls */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY  );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -2353,7 +2353,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_spacefev = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacefev )
+	static InputPortHandlerPtr input_ports_spacefev = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacefev )
 		PORT_START();       /* 00 Main Controls */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_2WAY );
@@ -2392,7 +2392,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_polaris = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( polaris )
+	static InputPortHandlerPtr input_ports_polaris = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( polaris )
 	
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x01, 0x00, "Not Used" );
@@ -2481,7 +2481,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_lagunar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lagunar )
+	static InputPortHandlerPtr input_ports_lagunar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lagunar )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG( 0x0f, 0x00, IPT_PEDAL, 100, 64, 0x00, 0x0f );/* accelerator */
 		PORT_BIT( 0x10, IP_ACTIVE_HIGH, IPT_BUTTON2 | IPF_TOGGLE ); /* shift */
@@ -2531,7 +2531,7 @@ public class _8080bw
 	} };
 	
 	
-	static InputPortPtr input_ports_phantom2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( phantom2 )
+	static InputPortHandlerPtr input_ports_phantom2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( phantom2 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2588,7 +2588,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_dogpatch = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dogpatch )
+	static InputPortHandlerPtr input_ports_dogpatch = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dogpatch )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START1 );
@@ -2643,7 +2643,7 @@ public class _8080bw
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_bowler = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bowler )
+	static InputPortHandlerPtr input_ports_bowler = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bowler )
 		PORT_START();       /* IN2 */
 		PORT_DIPNAME( 0x03, 0x00, "Language" );
 		PORT_DIPSETTING(    0x00, "English" );
@@ -2715,7 +2715,7 @@ public class _8080bw
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_shuffle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shuffle )
+	static InputPortHandlerPtr input_ports_shuffle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shuffle )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x03, 0x00, "Language" );
 		PORT_DIPSETTING(    0x00, "English" );
@@ -2780,7 +2780,7 @@ public class _8080bw
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_seawolf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( seawolf )
+	static InputPortHandlerPtr input_ports_seawolf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( seawolf )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG( 0x1f, 0x01, IPT_PADDLE, 20, 5, 0, 0x1f);
 		PORT_BIT( 0x20, IP_ACTIVE_HIGH, IPT_BUTTON1 );
@@ -2829,7 +2829,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_blueshrk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blueshrk )
+	static InputPortHandlerPtr input_ports_blueshrk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blueshrk )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG( 0x7f, 0x45, IPT_PADDLE, 100, 10, 0xf, 0x7f);
 	
@@ -2864,7 +2864,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_desertgu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( desertgu )
+	static InputPortHandlerPtr input_ports_desertgu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( desertgu )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG( 0x7f, 0x55, IPT_LIGHTGUN_X, 70, 10, 0xf, 0x7f);
 	
@@ -2914,7 +2914,7 @@ public class _8080bw
 	 * while the upright version ties the pairs of inputs together through
 	 * jumpers in the wiring harness.
 	 */
-	static InputPortPtr input_ports_einnings = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( einnings )
+	static InputPortHandlerPtr input_ports_einnings = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( einnings )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER2 );		/* home bat */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_PLAYER2 );/* home fielders left */
@@ -2957,7 +2957,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_maze = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( maze )
+	static InputPortHandlerPtr input_ports_maze = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( maze )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_PLAYER1 );
@@ -3012,7 +3012,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_tornbase = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tornbase )
+	static InputPortHandlerPtr input_ports_tornbase = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tornbase )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON3 | IPF_PLAYER1);
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_PLAYER2 );
@@ -3074,7 +3074,7 @@ public class _8080bw
 	};
 	
 	
-	static InputPortPtr input_ports_checkmat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( checkmat )
+	static InputPortHandlerPtr input_ports_checkmat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( checkmat )
 		PORT_START();       /* IN0  */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -3146,7 +3146,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_ozmawars = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ozmawars )
+	static InputPortHandlerPtr input_ports_ozmawars = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ozmawars )
 		PORT_START(); 		/* IN0 */
 	
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3193,7 +3193,7 @@ public class _8080bw
 		PORT_DIPSETTING(    0x01, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_spaceph = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spaceph )
+	static InputPortHandlerPtr input_ports_spaceph = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spaceph )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3242,7 +3242,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_sinvemag = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sinvemag )
+	static InputPortHandlerPtr input_ports_sinvemag = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sinvemag )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3297,7 +3297,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_jspecter = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jspecter )
+	static InputPortHandlerPtr input_ports_jspecter = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jspecter )
 	
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3352,7 +3352,7 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static InputPortPtr input_ports_ballbomb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ballbomb )
+	static InputPortHandlerPtr input_ports_ballbomb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ballbomb )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3427,7 +3427,7 @@ public class _8080bw
 	MACHINE_DRIVER_END
 	
 	
-	static InputPortPtr input_ports_spceking = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spceking )
+	static InputPortHandlerPtr input_ports_spceking = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spceking )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3476,7 +3476,7 @@ public class _8080bw
 	
 	
 	
-	static RomLoadPtr rom_invaders = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_invaders = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "invaders.h",   0x0000, 0x0800, CRC(734f5ad8) SHA1(ff6200af4c9110d8181249cbcef1a8a40fa40b7f) )
 		ROM_LOAD( "invaders.g",   0x0800, 0x0800, CRC(6bfaca4a) SHA1(16f48649b531bdef8c2d1446c429b5f414524350) )
@@ -3484,7 +3484,7 @@ public class _8080bw
 		ROM_LOAD( "invaders.e",   0x1800, 0x0800, CRC(14e538b0) SHA1(1d6ca0c99f9df71e2990b610deb9d7da0125e2d8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_earthinv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_earthinv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )             /* 64k for code */
 		ROM_LOAD( "earthinv.h",   0x0000, 0x0800, CRC(58a750c8) SHA1(90bfa4ea06f38e67fe4286d37d151632439249d2) )
 		ROM_LOAD( "earthinv.g",   0x0800, 0x0800, CRC(b91742f1) SHA1(8d9ca92405fbaf1d5a7138d400986616378d061e) )
@@ -3492,7 +3492,7 @@ public class _8080bw
 		ROM_LOAD( "earthinv.e",   0x1800, 0x0800, CRC(df397b12) SHA1(e7e8c080cb6baf342ec637532e05d38129ae73cf) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spaceatt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spaceatt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "h",            0x0000, 0x0400, CRC(d0c32d72) SHA1(b3bd950b1ba940fbeb5d95e55113ed8f4c311434) )
 		ROM_LOAD( "sv02.bin",     0x0400, 0x0400, CRC(0e159534) SHA1(94b2015a9d38ca738705b8d024a79fd2f9855b98) )
@@ -3502,7 +3502,7 @@ public class _8080bw
 		ROM_LOAD( "a",            0x1c00, 0x0400, CRC(211ac4a3) SHA1(e08e90a4e77cfa30400626a484c9f37c87ea13f9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spaceat2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spaceat2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "spaceatt.h",   0x0000, 0x0800, CRC(a31d0756) SHA1(2b76929654ed0b180091348546dac29fc6e5438e) )
 		ROM_LOAD( "spaceatt.g",   0x0800, 0x0800, CRC(f41241f7) SHA1(d93cead75922510075433849c4f7099279eafc18) )
@@ -3510,7 +3510,7 @@ public class _8080bw
 		ROM_LOAD( "spaceatt.e",   0x1800, 0x0800, CRC(7cf6f604) SHA1(469557de15178c4b2d686e5724e1006f7c20d7a4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sinvzen = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sinvzen = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1.bin",        0x0000, 0x0400, CRC(9b0da779) SHA1(a52ccdb252eb69c497aa5eafb35d7f25a311b44e) )
 		ROM_LOAD( "2.bin",        0x0400, 0x0400, CRC(9858ccab) SHA1(5ad8e5ef0d95779f0e513634b97bc330c9269ce4) )
@@ -3522,7 +3522,7 @@ public class _8080bw
 		ROM_LOAD( "8.bin",        0x1c00, 0x0400, CRC(f4bc4a98) SHA1(bff3806750a3695a136f398c7dbb69a0b7daa88a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sinvemag = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sinvemag = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sv0h.bin",     0x0000, 0x0400, CRC(86bb8cb6) SHA1(a75648e7f2446c756d86624b15d387d25ce47b66) )
 		ROM_LOAD( "emag_si.b",    0x0400, 0x0400, CRC(febe6d1a) SHA1(e1c3a24b4fa5862107ada1f9d7249466e8c3f06a) )
@@ -3532,7 +3532,7 @@ public class _8080bw
 		ROM_LOAD( "emag_si.f",    0x1c00, 0x0400, CRC(077f5ef2) SHA1(625de6839073ac4c904f949efc1b2e0afea5d676) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tst_invd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tst_invd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "test.h",   0x0000, 0x0800, CRC(f86a2eea) SHA1(4a72ff01f3e6d16bbe9bf7f123cd98895bfbed9a) )   /*  The Test ROM */
 		ROM_LOAD( "invaders.g",   0x0800, 0x0800, CRC(6bfaca4a) SHA1(16f48649b531bdef8c2d1446c429b5f414524350) )
@@ -3541,7 +3541,7 @@ public class _8080bw
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_alieninv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_alieninv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1h.bin",       0x0000, 0x0800, CRC(c46df7f4) SHA1(eec34b3d5585bae03c7b80585daaa05ddfcc2164) )
 		ROM_LOAD( "1g.bin",       0x0800, 0x0800, CRC(4b1112d6) SHA1(b693667656e5d8f44eeb2ea730f4d4db436da579) )
@@ -3549,7 +3549,7 @@ public class _8080bw
 		ROM_LOAD( "1e.bin",       0x1800, 0x0800, CRC(0449cb52) SHA1(8adcb7cd4492fa6649d9ee81172d8dff56621d64) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sitv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sitv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "tv0h.s1",      0x0000, 0x0800, CRC(fef18aad) SHA1(043edeefe6a6d4934bd384eafea19326de1dbeec) )
 		ROM_LOAD( "tv02.rp1",     0x0800, 0x0800, CRC(3c759a90) SHA1(d847d592dee592b1d3a575c21d89eaf3f7f6ae1b) )
@@ -3557,7 +3557,7 @@ public class _8080bw
 		ROM_LOAD( "tv04.m1",      0x1800, 0x0800, CRC(cd2c67f6) SHA1(60f9d8fe2d36ff589277b607f07c1edc917c755c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sicv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sicv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cv17.bin",     0x0000, 0x0800, CRC(3dfbe9e6) SHA1(26487df7fa0bbd0b9b7f74347c4b9318b0a73b89) )
 		ROM_LOAD( "cv18.bin",     0x0800, 0x0800, CRC(bc3c82bf) SHA1(33e39fc97bd46699be1f9b9741a86f433efdc911) )
@@ -3569,7 +3569,7 @@ public class _8080bw
 		ROM_LOAD( "cv02_2.bin",   0x0400, 0x0400, CRC(2bdf83a0) SHA1(01ffbd43964c41987e7d44816271308f9a70802b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sisv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sisv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sv0h.bin",     0x0000, 0x0400, CRC(86bb8cb6) SHA1(a75648e7f2446c756d86624b15d387d25ce47b66) )
 		ROM_LOAD( "sv02.bin",     0x0400, 0x0400, CRC(0e159534) SHA1(94b2015a9d38ca738705b8d024a79fd2f9855b98) )
@@ -3582,7 +3582,7 @@ public class _8080bw
 		ROM_LOAD( "cv02_2.bin",   0x0400, 0x0400, CRC(2bdf83a0) SHA1(01ffbd43964c41987e7d44816271308f9a70802b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sisv2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sisv2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sv0h.bin",     0x0000, 0x0400, CRC(86bb8cb6) SHA1(a75648e7f2446c756d86624b15d387d25ce47b66) )
 		ROM_LOAD( "emag_si.b",    0x0400, 0x0400, CRC(febe6d1a) SHA1(e1c3a24b4fa5862107ada1f9d7249466e8c3f06a) )
@@ -3596,7 +3596,7 @@ public class _8080bw
 		ROM_LOAD( "cv02_2.bin",   0x0400, 0x0400, CRC(2bdf83a0) SHA1(01ffbd43964c41987e7d44816271308f9a70802b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spceking = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spceking = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "invaders.h",   0x0000, 0x0800, CRC(734f5ad8) SHA1(ff6200af4c9110d8181249cbcef1a8a40fa40b7f) )
 		ROM_LOAD( "spcekng2",     0x0800, 0x0800, CRC(96dcdd42) SHA1(e18d7ffca92e863ef40e235b2be973d8c5879fdb) )
@@ -3604,7 +3604,7 @@ public class _8080bw
 		ROM_LOAD( "spcekng4",     0x1800, 0x0800, CRC(54170ada) SHA1(1e8b3774355ec0d448f04805a917f4c1fe64bceb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spcewars = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spcewars = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sanritsu.1",   0x0000, 0x0400, CRC(ca331679) SHA1(5c362c3d1c721d293bcddbef4033533769c8f0e0) )
 		ROM_LOAD( "sanritsu.2",   0x0400, 0x0400, CRC(48dc791c) SHA1(91a98205c83ca38961e6ba2ac43a41e6e8bc2675) )
@@ -3616,7 +3616,7 @@ public class _8080bw
 		ROM_LOAD( "sanritsu.9",   0x4000, 0x0400, CRC(b2f29601) SHA1(ce855e312f50df7a74682974803cb4f9b2d184f3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacewr3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacewr3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "ic36.bin",     0x0000, 0x0800, CRC(9e30f88a) SHA1(314dfb2920d9b43b977cc19e40ac315e6933c3b9) )
 		ROM_LOAD( "ic35.bin",     0x0800, 0x0800, CRC(40c2d55b) SHA1(b641b63046d242ad23911143ed840011fc98eaff) )
@@ -3625,7 +3625,7 @@ public class _8080bw
 		ROM_LOAD( "ic32.bin",     0x4000, 0x0800, CRC(1e5a753c) SHA1(5b7cd7b347203f4edf816f02c366bd3b1b9517c4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_invaderl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_invaderl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "c01",          0x0000, 0x0400, CRC(499f253a) SHA1(e13353194277f5d35e92db9b11912b5f392f51b7) )
 		ROM_LOAD( "c02",          0x0400, 0x0400, CRC(2d0b2e1f) SHA1(2e0262d9dba607824fcd720d2995531649bdd03d) )
@@ -3636,19 +3636,19 @@ public class _8080bw
 		ROM_LOAD( "sv06.bin",     0x1c00, 0x0400, CRC(2c68e0b4) SHA1(a5e5357120102ad32792bf3ef6362f45b7ba7070) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jspecter = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jspecter = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "3305.u6",      0x0000, 0x1000, CRC(ab211a4f) SHA1(d675ed29c3479d7318f8559bd56dd619cf631b6a) )
 		ROM_LOAD( "3306.u7",      0x1400, 0x1000, CRC(0df142a7) SHA1(2f1c32d6fe7eafb7808fef0bdeb69b4909427417) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jspectr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jspectr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "unksi.b2",     0x0000, 0x1000, CRC(0584b6c4) SHA1(c130021b878bde2beda4a189f71bbfed61088535) )
 		ROM_LOAD( "unksi.a2",     0x1400, 0x1000, CRC(58095955) SHA1(545df3bb9ee4ff09f491d7a4b704e31aa311a8d7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_invadpt2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_invadpt2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "pv.01",        0x0000, 0x0800, CRC(7288a511) SHA1(ff617872784c28ed03591aefa9f0519e5651701f) )
 		ROM_LOAD( "pv.02",        0x0800, 0x0800, CRC(097dd8d5) SHA1(8d68654d54d075c0f0d7f63c87ff4551ce8b7fbf) )
@@ -3661,7 +3661,7 @@ public class _8080bw
 		ROM_LOAD( "pv07_2.bin",   0x0400, 0x0400, CRC(2c5b91cb) SHA1(7fa4d4aef85473b1b4f18734230c164e72be44e7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_invaddlx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_invaddlx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "invdelux.h",   0x0000, 0x0800, CRC(e690818f) SHA1(0860fb03a64d34a9704a1459a5e96929eafd39c7) )
 		ROM_LOAD( "invdelux.g",   0x0800, 0x0800, CRC(4268c12d) SHA1(df02419f01cf0874afd1f1aa16276751acd0604a) )
@@ -3671,7 +3671,7 @@ public class _8080bw
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moonbase = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moonbase = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	   /* 64k for code */
 		ROM_LOAD( "pv.01",        0x0000, 0x0800, CRC(7288a511) SHA1(ff617872784c28ed03591aefa9f0519e5651701f) )
@@ -3684,7 +3684,7 @@ public class _8080bw
 		ROM_LOAD( "ze3-10.bin",   0x4400, 0x0400, CRC(1e7c22a4) SHA1(b34173375494ffbf5400dd4014a683a9807f4f08) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_invad2ct = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_invad2ct = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 	    ROM_LOAD( "invad2ct.h",   0x0000, 0x0800, CRC(51d02a71) SHA1(2fa82ddc2702a72de0a9559ec244b70ab3db3f18) )
 	    ROM_LOAD( "invad2ct.g",   0x0800, 0x0800, CRC(533ac770) SHA1(edb65c289027432dad7861a7d6abbda9223c13b1) )
@@ -3694,7 +3694,7 @@ public class _8080bw
 	    ROM_LOAD( "invad2ct.a",   0x5800, 0x0800, CRC(efdabb03) SHA1(33f4cf249e88e2b7154350e54c479eb4fa86f26f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_invrvnge = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_invrvnge = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "invrvnge.h",   0x0000, 0x0800, CRC(aca41bbb) SHA1(ca71f792abd6d9a44d15b19d2ccf678e82ccba4f) )
 		ROM_LOAD( "invrvnge.g",   0x0800, 0x0800, CRC(cfe89dad) SHA1(218b6a0b636c49c4cdc3667e8b1387ef0e257115) )
@@ -3702,7 +3702,7 @@ public class _8080bw
 		ROM_LOAD( "invrvnge.e",   0x1800, 0x0800, CRC(1ec8dfc8) SHA1(fc8fbe1161958f57c9f4ccbcab8a769184b1c562) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_invrvnga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_invrvnga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "5m.bin",       0x0000, 0x0800, CRC(b145cb71) SHA1(127eb11de7ab9835f06510fb12838c0b728c0d42) )
 		ROM_LOAD( "5n.bin",       0x0800, 0x0800, CRC(660e8af3) SHA1(bd52eadf4ee3d717fd5bd7206e1e87d729250c92) )
@@ -3710,7 +3710,7 @@ public class _8080bw
 		ROM_LOAD( "5r.bin",       0x1800, 0x0800, CRC(74516811) SHA1(0f595c7b0fae5f3f83fdd1ffed5a408ee77c9438) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spclaser = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spclaser = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "la01",         0x0000, 0x0800, CRC(bedc0078) SHA1(a5bb0cbbb8e3f27d03beb8101b2be1111d73689d) )
 		ROM_LOAD( "spcewarl.2",   0x0800, 0x0800, CRC(43bc65c5) SHA1(5f9827c02c2d221e1607359c840374ff7fb92fbf) )
@@ -3718,7 +3718,7 @@ public class _8080bw
 		ROM_LOAD( "la04",         0x1800, 0x0800, CRC(5116b234) SHA1(b165b2574cbcb26a5bb43f91df5f8be5f111f486) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_laser = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_laser = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1.u36",        0x0000, 0x0800, CRC(b44e2c41) SHA1(00e0b2e088495d6f3bc175e8a53dcb3686ea8484) )
 		ROM_LOAD( "2.u35",        0x0800, 0x0800, CRC(9876f331) SHA1(14e36b26d186d9a195492834ef989ed5664d7b65) )
@@ -3726,7 +3726,7 @@ public class _8080bw
 		ROM_LOAD( "4.u33",        0x1800, 0x0800, CRC(10a160a1) SHA1(e2d4208af11b65fc42d2856e57ee3c196f89d360) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spcewarl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spcewarl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "spcewarl.1",   0x0000, 0x0800, CRC(1fcd34d2) SHA1(674139944e0d842a85bd21b326bd735e15453038) )
 		ROM_LOAD( "spcewarl.2",   0x0800, 0x0800, CRC(43bc65c5) SHA1(5f9827c02c2d221e1607359c840374ff7fb92fbf) )
@@ -3734,7 +3734,7 @@ public class _8080bw
 		ROM_LOAD( "spcewarl.4",   0x1800, 0x0800, CRC(adc05b8d) SHA1(c4acf75537c0662a4785d5d6a90643239a54bf43) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galxwars = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galxwars = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "univgw3.0",    0x0000, 0x0400, CRC(937796f4) SHA1(88e9494cc532498e51e3a68fa1122c40f22b27dd) )
 		ROM_LOAD( "univgw4.1",    0x0400, 0x0400, CRC(4b86e7a6) SHA1(167f9f7491a2de39d08e3e6f7057cc75b36c9340) )
@@ -3744,13 +3744,13 @@ public class _8080bw
 		ROM_LOAD( "univgw2.5",    0x4400, 0x0400, CRC(6036d7bf) SHA1(36c2ad2ffdb47bbecc40fd67ced6ab51a5cd2f3e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galxwar2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galxwar2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "3192.h6",      0x0000, 0x1000, CRC(bde6860b) SHA1(e04b8add32d8f7ea588fae6d6a387f1d40495f1b) )
 		ROM_LOAD( "3193.h7",      0x4000, 0x1000, CRC(a17cd507) SHA1(554ab0e8bdc0e7af4a30b0ddc8aa053c8e70255c) ) /* 2nd half unused */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galxwart = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galxwart = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "galxwars.0",   0x0000, 0x0400, CRC(608bfe7f) SHA1(a41a40a2f0a1bb61a70b9ff8a7da925ab1db7f74) )
 		ROM_LOAD( "galxwars.1",   0x0400, 0x0400, CRC(a810b258) SHA1(030a72fffcf240f643bc3006028cb4883cf58bbc) )
@@ -3760,7 +3760,7 @@ public class _8080bw
 		ROM_LOAD( "galxwars.5",   0x4400, 0x0400, CRC(37708a35) SHA1(df6fd521ddfa146ef93e390e47741bdbfda1e7ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "roma",         0x0000, 0x0400, CRC(60e8993c) SHA1(0bdf163ff0f2e6a8771987d4e7ac604c45af21b8) )
 		ROM_LOAD( "romb",         0x0400, 0x0400, CRC(b8060773) SHA1(92aa358c338ef8f5773bccada8988d068764e7ea) )
@@ -3770,7 +3770,7 @@ public class _8080bw
 		ROM_LOAD( "romf",         0x1c00, 0x0400, CRC(c8e42d3d) SHA1(841b27af251b9c3a964972e864fb7c88acc742e0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lrescue = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lrescue = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "lrescue.1",    0x0000, 0x0800, CRC(2bbc4778) SHA1(0167f1ac1501ab0b4c4e555023fa5efed59d56ae) )
 		ROM_LOAD( "lrescue.2",    0x0800, 0x0800, CRC(49e79706) SHA1(bed675bb97d59ae0132c007ccead0d096ed2ddf1) )
@@ -3784,7 +3784,7 @@ public class _8080bw
 		ROM_RELOAD(  			  0x0400, 0x0400 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_grescue = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grescue = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "lrescue.1",    0x0000, 0x0800, CRC(2bbc4778) SHA1(0167f1ac1501ab0b4c4e555023fa5efed59d56ae) )
 		ROM_LOAD( "lrescue.2",    0x0800, 0x0800, CRC(49e79706) SHA1(bed675bb97d59ae0132c007ccead0d096ed2ddf1) )
@@ -3798,7 +3798,7 @@ public class _8080bw
 		ROM_RELOAD(  			  0x0400, 0x0400 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_desterth = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_desterth = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "36_h.bin",     0x0000, 0x0800, CRC(f86923e5) SHA1(d19935ba3d2c1c2553b3779f1a7ad8856c003dae) )
 		ROM_LOAD( "35_g.bin",     0x0800, 0x0800, CRC(797f440d) SHA1(a96917f2296ae467acc795eacc1533a2a2d2f401) )
@@ -3813,7 +3813,7 @@ public class _8080bw
 		ROM_RELOAD(  			  0x0400, 0x0400 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cosmo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cosmo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1.36",         0x0000, 0x0800, CRC(445c9a98) SHA1(89bce80a061e9c12544231f970d9dec801eb1b94) ) 
 		ROM_LOAD( "2.35",         0x0800, 0x0800, CRC(df3eb731) SHA1(fb90c1d0f2518195dd49062c9f0fd890536d89f4) ) 
@@ -3829,7 +3829,7 @@ public class _8080bw
 		ROM_LOAD( "n-2.6e",       0x0000, 0x0800, CRC(48f1ade5) SHA1(a1b45f82f3649cde8ae6a2ef494a3a6cdb5e65d0) ) 
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cosmicmo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cosmicmo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cosmicmo.1",   0x0000, 0x0400, CRC(d6e4e5da) SHA1(8b4275a3c71ac3fa80d17237dc04de5f586645f4) )
 		ROM_LOAD( "cosmicmo.2",   0x0400, 0x0400, CRC(8f7988e6) SHA1(b6a01d5dcab013350f8f7f3e3ebfc986bb939fe0) )
@@ -3840,7 +3840,7 @@ public class _8080bw
 		ROM_LOAD( "cosmicmo.7",   0x4800, 0x0400, CRC(6a13b15b) SHA1(dc03a6c3e938cfd08d16bd1660899f951ba72ea2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_superinv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superinv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )             /* 64k for code */
 		ROM_LOAD( "00",           0x0000, 0x0400, CRC(7a9b4485) SHA1(dde918ec106971972bf7c7e5085c1262522f7e35) )
 		ROM_LOAD( "01",           0x0400, 0x0400, CRC(7c86620d) SHA1(9e92ec0aa4eee96a7fa115a14a611c488d13b9dd) )
@@ -3850,7 +3850,7 @@ public class _8080bw
 		ROM_LOAD( "05",           0x1c00, 0x0400, CRC(8abe2466) SHA1(17494b1e5db207e37a7d28d7c89cbc5f36b7aefc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rollingc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rollingc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "rc01.bin",     0x0000, 0x0400, CRC(66fa50bf) SHA1(7451d4ff8d3b351a324aaecdbdc5b46672f5fdd0) )
 		ROM_LOAD( "rc02.bin",     0x0400, 0x0400, CRC(61c06ae4) SHA1(7685c806e20e4a4a0508a547ac08ca8f6d75bb79) )
@@ -3867,7 +3867,7 @@ public class _8080bw
 		ROM_LOAD( "rc12.bin",     0x5800, 0x0800, CRC(2052f6d9) SHA1(036702fc40cf133eb374ed674695d7c6c79e8311) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_boothill = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_boothill = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "romh.cpu",     0x0000, 0x0800, CRC(1615d077) SHA1(e59a26c2f2fc67ab24301e22d2e3f33043acdf72) )
 		ROM_LOAD( "romg.cpu",     0x0800, 0x0800, CRC(65a90420) SHA1(9f36c44b5ae5b912cdbbeb9ff11a42221b8362d2) )
@@ -3875,7 +3875,7 @@ public class _8080bw
 		ROM_LOAD( "rome.cpu",     0x1800, 0x0800, CRC(374529f4) SHA1(18c57b79df0c66052eef40a694779a5ade15d0e0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_schaser = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_schaser = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "rt13.bin",     0x0000, 0x0400, CRC(0dfbde68) SHA1(7367b138ad8448aba9222fed632a892df65cecbd) )
 		ROM_LOAD( "rt14.bin",     0x0400, 0x0400, CRC(5a508a25) SHA1(c681d0bbf49317e79b596fb094e66b8912f0e409) )
@@ -3892,7 +3892,7 @@ public class _8080bw
 		ROM_LOAD( "rt06.ic2",     0x0000, 0x0400, CRC(950cf973) SHA1(d22df09b325835a0057ccd0d54f827b374254ac6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sflush = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sflush = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "taitofr.005",        0xd800, 0x800, CRC(c4f08f9f) SHA1(997f216f5244942fc1a19f5c1988adbfadc301fc) )
 		ROM_LOAD( "taitofr.004",        0xe000, 0x800, CRC(87a754a5) SHA1(07c0e2c3cb7aa0086d8f4dd202a452bc6c20d4ee) )
@@ -3901,7 +3901,7 @@ public class _8080bw
 		ROM_LOAD( "taitofr.001",        0xf800, 0x800, CRC(55d688c6) SHA1(574a3a2ca73cabb4b8f3444aa4464e6d64daa3ad) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_schasrcv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_schasrcv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1",     		  0x0000, 0x0400, CRC(bec2b16b) SHA1(c62210ecb64d7c38e5b63481d7fe04eb59bb1068) )
 		ROM_LOAD( "2",     		  0x0400, 0x0400, CRC(9d25e608) SHA1(4cc52a93a3ab96a0ec1d07593e17832fa59b30a1) )
@@ -3919,7 +3919,7 @@ public class _8080bw
 		ROM_LOAD( "cv02",         0x0400, 0x0400, CRC(8263da38) SHA1(2e7c769d129e6f8a1a31eba1e02777bb94ac32b2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spcenctr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spcenctr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "4m33.cpu",     0x0000, 0x0800, CRC(7458b2db) SHA1(c4f41efb8a35fd8bebc75bff0111476affe2b34d) )
 		ROM_LOAD( "4m32.cpu",     0x0800, 0x0800, CRC(1b873788) SHA1(6cdf0d602a65c7efcf8abe149c6172b4c7ab87a1) )
@@ -3931,7 +3931,7 @@ public class _8080bw
 		ROM_LOAD( "4m26.cpu",     0x5800, 0x0800, CRC(7f1d1f44) SHA1(2f4951171a55e7ac072742fa24eceeee6aca7e39) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_clowns = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_clowns = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "h2.cpu",       0x0000, 0x0400, CRC(ff4432eb) SHA1(997aee1e3669daa1d8169b4e103d04baaab8ea8d) )
 		ROM_LOAD( "g2.cpu",       0x0400, 0x0400, CRC(676c934b) SHA1(72b681ca9ef23d820fdd297cc417932aecc9677b) )
@@ -3941,7 +3941,7 @@ public class _8080bw
 		ROM_LOAD( "c2.cpu",       0x1400, 0x0400, CRC(154d129a) SHA1(61eebb319ee3a6be598b764b295c18a93a953c1e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_clowns1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_clowns1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "clownsv1.h",   0x0000, 0x0400, CRC(5560c951) SHA1(b6972e1918604263579de577ec58fa6a91e8ff3e) )
 		ROM_LOAD( "clownsv1.g",   0x0400, 0x0400, CRC(6a571d66) SHA1(e825f95863e901a1b648c74bb47098c8e74f179b) )
@@ -3951,7 +3951,7 @@ public class _8080bw
 		ROM_LOAD( "clownsv1.c",   0x1400, 0x0400, CRC(12968e52) SHA1(71e4f09d30b992a4ac44b0e88e83b4f8a0f63caa) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gmissile = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gmissile = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "gm_623.h",     0x0000, 0x0800, CRC(a3ebb792) SHA1(30d9613de849c1a868056c5e28cf2a8608b63e88) )
 		ROM_LOAD( "gm_623.g",     0x0800, 0x0800, CRC(a5e740bb) SHA1(963c0984953eb58fe7eab84fabb724ec6e29e706) )
@@ -3959,7 +3959,7 @@ public class _8080bw
 		ROM_LOAD( "gm_623.e",     0x1800, 0x0800, CRC(f350146b) SHA1(a07000a979b1a735754eca623cc880988924877f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_seawolf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_seawolf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sw0041.h",     0x0000, 0x0400, CRC(8f597323) SHA1(b538277d3a633dd8a3179cff202f18d322e6fe17) )
 		ROM_LOAD( "sw0042.g",     0x0400, 0x0400, CRC(db980974) SHA1(cc2a99b18695f61e0540c9f6bf8fe3b391dde4a0) )
@@ -3967,7 +3967,7 @@ public class _8080bw
 		ROM_LOAD( "sw0044.e",     0x0c00, 0x0400, CRC(c3557d6a) SHA1(bd345dd72fed8ce15da76c381782b025f71b006f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gunfight = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunfight = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "7609h.bin",    0x0000, 0x0400, CRC(0b117d73) SHA1(99d01313e251818d336281700e206d9003c71dae) )
 		ROM_LOAD( "7609g.bin",    0x0400, 0x0400, CRC(57bc3159) SHA1(c177e3f72db9af17ab99b2481448ca26318184b9) )
@@ -3975,7 +3975,7 @@ public class _8080bw
 		ROM_LOAD( "7609e.bin",    0x0c00, 0x0400, CRC(773264e2) SHA1(de3f2e6841122bbe6e2fda5b87d37842c072289a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_280zzzap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_280zzzap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "zzzaph",       0x0000, 0x0400, CRC(1fa86e1c) SHA1(b9cf16eb037ada73631ed24297e9e3b3bf6ab3cd) )
 		ROM_LOAD( "zzzapg",       0x0400, 0x0400, CRC(9639bc6b) SHA1(b2e2497e421e79a411d07ebf2eed2bb8dc227003) )
@@ -3985,7 +3985,7 @@ public class _8080bw
 		ROM_LOAD( "zzzapc",       0x1400, 0x0400, CRC(6e85aeaf) SHA1(ffa6bb84ef1f7c2d72fd26c24bd33aa014aeab7e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lupin3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lupin3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "lp12.bin",     0x0000, 0x0800, CRC(68a7f47a) SHA1(dce99b3810331d7603fa468f1dea984e571f709b) )
 		ROM_LOAD( "lp13.bin",     0x0800, 0x0800, CRC(cae9a17b) SHA1(a333ba7db45325996e3254ab36162bb7577e8a38) )
@@ -3996,7 +3996,7 @@ public class _8080bw
 		ROM_LOAD( "lp18.bin",     0x5000, 0x0800, CRC(2f07b4ba) SHA1(982e4c437b39b45e23d15af1b2fc8c7aa3034559) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_polaris = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_polaris = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "ps-01",        0x0000, 0x0800, CRC(c04ce5a9) SHA1(62cc9b3b682ebecfb7600393862c65e26ff5263f) )
 		ROM_LOAD( "ps-09",        0x0800, 0x0800, CRC(9a5c8cb2) SHA1(7a8c5d74f8b431072d9476d3ef65a3fe1d639813) )
@@ -4012,7 +4012,7 @@ public class _8080bw
 		ROM_LOAD( "mb7052.2c",    0x0000, 0x0100, CRC(2953253b) SHA1(2fb851bc9652ca4e51d473b484ede6dab05f1b51) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_polarisa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_polarisa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "ps01-1",       0x0000, 0x0800, CRC(7d41007c) SHA1(168f002fe997aac6e4141292de826d389859bb04) )
 		ROM_LOAD( "ps-09",        0x0800, 0x0800, CRC(9a5c8cb2) SHA1(7a8c5d74f8b431072d9476d3ef65a3fe1d639813) )
@@ -4029,7 +4029,7 @@ public class _8080bw
 		ROM_LOAD( "mb7052.2c",    0x0000, 0x0100, CRC(2953253b) SHA1(2fb851bc9652ca4e51d473b484ede6dab05f1b51) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lagunar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lagunar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "lagunar.h",    0x0000, 0x0800, CRC(0cd5a280) SHA1(89a744c912070f11b0b90b0cc92061e238b00b64) )
 		ROM_LOAD( "lagunar.g",    0x0800, 0x0800, CRC(824cd6f5) SHA1(a74f6983787cf040eab6f19de2669c019962b9cb) )
@@ -4037,7 +4037,7 @@ public class _8080bw
 		ROM_LOAD( "lagunar.e",    0x1800, 0x0800, CRC(20e098ed) SHA1(e0c52c013f5e93794b363d7762ce0f34ba98c660) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_m4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_m4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "m4.h",         0x0000, 0x0800, CRC(9ee2a0b5) SHA1(b81b4001c90ac6db25edd838652c42913022d9a9) )
 		ROM_LOAD( "m4.g",         0x0800, 0x0800, CRC(0e84b9cb) SHA1(a7b74851979aaaa16496e506c487a18df14ab6dc) )
@@ -4045,7 +4045,7 @@ public class _8080bw
 		ROM_LOAD( "m4.e",         0x1800, 0x0800, CRC(b6983238) SHA1(3f3b99b33135e144c111d2ebaac8f9433c269bc5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_phantom2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_phantom2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "phantom2.h",   0x0000, 0x0800, CRC(0e3c2439) SHA1(450182e590845c651530b2c84e1f11fe2451dcf6) )
 		ROM_LOAD( "phantom2.g",   0x0800, 0x0800, CRC(e8df3e52) SHA1(833925e44e686df4d4056bce4c0ffae3269d57df) )
@@ -4056,7 +4056,7 @@ public class _8080bw
 		ROM_LOAD( "p2clouds",     0x0000, 0x0800, CRC(dcdd2927) SHA1(d8d42c6594e36c12b40ee6342a9ad01a8bbdef75) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dogpatch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dogpatch = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "dogpatch.h",   0x0000, 0x0800, CRC(74ebdf4d) SHA1(6b31f9563b0f79fe9128ee83e85a3e2f90d7985b) )
 		ROM_LOAD( "dogpatch.g",   0x0800, 0x0800, CRC(ac246f70) SHA1(7ee356c3218558a78ee0ff495f9f51ef88cac951) )
@@ -4064,7 +4064,7 @@ public class _8080bw
 		ROM_LOAD( "dogpatch.e",   0x1800, 0x0800, CRC(c12b1f60) SHA1(f0504e16d2ce60a0fb3fc2af8c323bfca0143818) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bowler = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bowler = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "h.cpu",        0x0000, 0x0800, CRC(74c29b93) SHA1(9cbd5b7b8a4c889406b6bc065360f74c036320b2) )
 		ROM_LOAD( "g.cpu",        0x0800, 0x0800, CRC(ca26d8b4) SHA1(cf18991cde8044a961cf556f18c6eb60a7ade595) )
@@ -4073,7 +4073,7 @@ public class _8080bw
 		ROM_LOAD( "d.cpu",        0x4000, 0x0800, CRC(e7dbc9d9) SHA1(05049a69ee588de85db86df188e7670778b77e90) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shuffle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shuffle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "shuffle.h",    0x0000, 0x0800, CRC(0d422a18) SHA1(909c5b9e3c1194abd101cbf993a2ed7c8fbeb5d0) )
 		ROM_LOAD( "shuffle.g",    0x0800, 0x0800, CRC(7db7fcf9) SHA1(f41b568f2340e5307a7a45658946cfd4cf4056bf) )
@@ -4081,14 +4081,14 @@ public class _8080bw
 		ROM_LOAD( "shuffle.e",    0x1800, 0x0800, CRC(2c118357) SHA1(178db02aaa70963dd8dbcb9b8651209913c539af) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blueshrk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blueshrk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "blueshrk.h",   0x0000, 0x0800, CRC(4ff94187) SHA1(7cb80e2ccc34983bfd688c549ffc032d6dacf880) )
 		ROM_LOAD( "blueshrk.g",   0x0800, 0x0800, CRC(e49368fd) SHA1(2495ba48532bb714361e4f0e94c9317161c6c77f) )
 		ROM_LOAD( "blueshrk.f",   0x1000, 0x0800, CRC(86cca79d) SHA1(7b4633fb8033ee2c0e692135c383ebf57deef0e5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_einnings = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_einnings = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "ei.h",         0x0000, 0x0800, CRC(eff9c7af) SHA1(316fffc972bd9935ead5ee4fd629bddc8a8ed5ce) )
 		ROM_LOAD( "ei.g",         0x0800, 0x0800, CRC(5d1e66cb) SHA1(a5475362e12b7c251a05d67c2fd070cf7d333ad0) )
@@ -4097,7 +4097,7 @@ public class _8080bw
 		ROM_LOAD( "ei.b",         0x5000, 0x0800, CRC(56b407d4) SHA1(95e4be5b2f28192df85c6118079de2e68838b67c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dplay = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dplay = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "dplay619.h",   0x0000, 0x0800, CRC(6680669b) SHA1(49ad2333f81613c2f27231de60b415cbc254546a) )
 		ROM_LOAD( "dplay619.g",   0x0800, 0x0800, CRC(0eec7e01) SHA1(2661e77061119d7d95d498807bd29d2630c6b6ab) )
@@ -4105,20 +4105,20 @@ public class _8080bw
 		ROM_LOAD( "dplay619.e",   0x1800, 0x0800, CRC(65cab4fc) SHA1(1ce7cb832e95e4a6d0005bf730eec39225b2e960) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_maze = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maze = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "invaders.h",   0x0000, 0x0800, CRC(f2860cff) SHA1(62b3fd3d04bf9c5dd9b50964374fb884dc0ab79c) )
 		ROM_LOAD( "invaders.g",   0x0800, 0x0800, CRC(65fad839) SHA1(893f0a7621e7df19f777be991faff0db4a9ad571) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tornbase = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tornbase = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "tb.h",         0x0000, 0x0800, CRC(653f4797) SHA1(feb4c802aa3e0c2a66823cd032496cca5742c883) )
 		ROM_LOAD( "tb.g",         0x0800, 0x0800, BAD_DUMP CRC(33468006) SHA1(cc54da39ef14df6fa5e4e10a4798158a9a7f867e)  )	/* this ROM fails the test */
 		ROM_LOAD( "tb.f",         0x1000, 0x0800, CRC(215e070c) SHA1(425915b37e5315f9216707de0850290145f69a30) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_checkmat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_checkmat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "checkmat.h",   0x0000, 0x0400, CRC(3481a6d1) SHA1(f758599d6393398a6a8e6e7399dc1a3862604f65) )
 		ROM_LOAD( "checkmat.g",   0x0400, 0x0400, CRC(df5fa551) SHA1(484ff9bfb95166ba09f34c753a7908a73de3cc7d) )
@@ -4126,7 +4126,7 @@ public class _8080bw
 		ROM_LOAD( "checkmat.e",   0x0c00, 0x0400, CRC(59330d84) SHA1(453f95dd31968d439339c41e625481170437eb0f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_desertgu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_desertgu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "desertgu.h",   0x0000, 0x0800, CRC(c0030d7c) SHA1(4d0a3a59d4f8181c6e30966a6b1d19ba5b29c398) )
 		ROM_LOAD( "desertgu.g",   0x0800, 0x0800, CRC(1ddde10b) SHA1(8fb8e85844a8ec6c0722883013ecdd4eeaeb08c1) )
@@ -4134,7 +4134,7 @@ public class _8080bw
 		ROM_LOAD( "desertgu.e",   0x1800, 0x0800, CRC(ac64dc62) SHA1(202433dfb174901bd3b91e843d9d697a8333ef9e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ozmawars = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ozmawars = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "mw01",         0x0000, 0x0800, CRC(31f4397d) SHA1(bba9765aadd608d19e2515a5edf8e0eceb70916a) )
 		ROM_LOAD( "mw02",         0x0800, 0x0800, CRC(d8e77c62) SHA1(84fc81cf9a924ecbb13a008cd7435b7d465bddf6) )
@@ -4144,7 +4144,7 @@ public class _8080bw
 		ROM_LOAD( "mw06",         0x4800, 0x0800, CRC(99ca2eae) SHA1(8d0f220f68043eff0c85d2de7bee7fd4365fb51c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ozmawar2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ozmawar2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "mw01",         0x0000, 0x0800, CRC(31f4397d) SHA1(bba9765aadd608d19e2515a5edf8e0eceb70916a) )
 		ROM_LOAD( "mw02",         0x0800, 0x0800, CRC(d8e77c62) SHA1(84fc81cf9a924ecbb13a008cd7435b7d465bddf6) )
@@ -4157,7 +4157,7 @@ public class _8080bw
 		ROM_LOAD( "oz12",         0x4c00, 0x0400, CRC(8b969f61) SHA1(6d12cacc73c31a897812ccd8de24725ee56dd975) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_solfight = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_solfight = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "solfight.m",   0x0000, 0x0800, CRC(a4f2814e) SHA1(e2437e3543dcc97eeaea32babcd4aec6455581ac) )
 		ROM_LOAD( "solfight.n",   0x0800, 0x0800, CRC(5657ec07) SHA1(9a2fb398841160f59483bb70060caba37addb8a4) )
@@ -4167,7 +4167,7 @@ public class _8080bw
 		ROM_LOAD( "solfight.t",   0x4800, 0x0800, CRC(3b6fb206) SHA1(db631f4a0bd5344d130ff8d723d949e9914b6f92) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spaceph = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spaceph = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sv01.bin",     0x0000, 0x0400, CRC(de84771d) SHA1(13a7e5eedb826cca4d59634d38db9fcf5e65b732) )
 		ROM_LOAD( "sv02.bin",     0x0400, 0x0400, CRC(957fc661) SHA1(ac0edc901d8033619f62967f8eaf53a02947e109) )
@@ -4183,7 +4183,7 @@ public class _8080bw
 		ROM_LOAD( "sv12.bin",     0x4c00, 0x0400, CRC(a2a3366a) SHA1(87032787450216d378406122effa95ea01145bf7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ballbomb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ballbomb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "tn01",         0x0000, 0x0800, CRC(551585b5) SHA1(7c17b046bdfca6ab107b7e68ba9bde6ca590c3d4) )
 		ROM_LOAD( "tn02",         0x0800, 0x0800, CRC(7e1f734f) SHA1(a15656818cd730d9bc98d00ff1e7fe3f860bd624) )
@@ -4196,7 +4196,7 @@ public class _8080bw
 		ROM_LOAD( "tn07",         0x0400, 0x0400, CRC(deb0ac82) SHA1(839581c4e58cb7b0c2c14cf4f239220017cc26eb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_yosakdon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yosakdon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "yd1.bin", 	  0x0000, 0x0400, CRC(607899c9) SHA1(219c0c99894715818606fba49cc75517f6f43e0c) )
 		ROM_LOAD( "yd2.bin", 	  0x0400, 0x0400, CRC(78336df4) SHA1(b0b6254568d191d2d0b9c9280a3ccf2417ef3f38) )
@@ -4207,7 +4207,7 @@ public class _8080bw
 		ROM_LOAD( "yd7.bin", 	  0x1c00, 0x0400, CRC(2744e68b) SHA1(5ad5a7a615d36f57b6d560425e035c15e25e9005) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sheriff = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sheriff = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )             /* 64k for code */
 		ROM_LOAD( "f1",           0x0000, 0x0400, CRC(e79df6e8) SHA1(908176de9bfc3d48e2da9af6ba7ebdee698ec2de) )
 		ROM_LOAD( "f2",           0x0400, 0x0400, CRC(da67721a) SHA1(ee6a5fb98da1d1fcfad0ef27af300473a637f578) )
@@ -4227,7 +4227,7 @@ public class _8080bw
 		ROM_LOAD( "sheriff.cl2",  0x0400, 0x0400, NO_DUMP )  /* PROMs or the size */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bandido = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bandido = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )             /* 64k for code */
 		ROM_LOAD( "baf1-3",       0x0000, 0x0400, CRC(aec94829) SHA1(aa6d241670ea061bac4a71dff82dfa832095eae6) )
 		ROM_LOAD( "f2",           0x0400, 0x0400, CRC(da67721a) SHA1(ee6a5fb98da1d1fcfad0ef27af300473a637f578) )
@@ -4244,7 +4244,7 @@ public class _8080bw
 		ROM_LOAD( "basnd.u2",     0x0000, 0x0400, CRC(75731745) SHA1(538a63c9c60f1886fca4caf3eb1e0bada2d3f162) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_helifire = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_helifire = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )             /* 64k for code */
 		ROM_LOAD( "tub.f1b",      0x0000, 0x0400, CRC(032f89ca) SHA1(63b0310875ed78a6385e44eea781ddcc4a63557c) )
 		ROM_LOAD( "tub.f2b",      0x0400, 0x0400, CRC(2774e70f) SHA1(98d845e80db61799493dbebe8db801567277432c) )
@@ -4261,7 +4261,7 @@ public class _8080bw
 		ROM_LOAD( "tub.snd",      0x0000, 0x0400, CRC(9d77a31f) SHA1(36db9b5087b6661de88042854874bc247c92d985) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_helifira = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_helifira = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )             /* 64k for code */
 		ROM_LOAD( "f1a.bin",      0x0000, 0x0400, CRC(92c9d6c1) SHA1(860a7b3980e9e11d48769fad347c965e04ed3f89) )
 		ROM_LOAD( "f2a.bin",      0x0400, 0x0400, CRC(a264dde8) SHA1(48f972ad5af6c2ab61117f60d9244df6df6d313c) )
@@ -4278,7 +4278,7 @@ public class _8080bw
 		ROM_LOAD( "tub.snd",      0x0000, 0x0400, CRC(9d77a31f) SHA1(36db9b5087b6661de88042854874bc247c92d985) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacefev = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacefev = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )             /* 64k for code */
 		ROM_LOAD( "f1.bin",       0x0000, 0x0400, CRC(35f295bd) SHA1(34d1df25fcdea598ca1191cecc2125e6f63dbce3) )
 		ROM_LOAD( "f2.bin",       0x0400, 0x0400, CRC(0c633f4c) SHA1(a551ddbf21670fb1f000404b92da87a97f7ba157) )
@@ -4295,7 +4295,7 @@ public class _8080bw
 		ROM_LOAD( "f5.bpr",       0x0000, 0x0020, CRC(c5914ec1) SHA1(198875fcab36d09c8726bb21e2fdff9882f6721a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfeverbw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfeverbw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )             /* 64k for code */
 		ROM_LOAD( "spacefev.f1",  0x0000, 0x0400, CRC(b8887351) SHA1(ccd49937f1cbd7a157b3715474ccc3e8fdcea2b2) )
 		ROM_LOAD( "spacefev.f2",  0x0400, 0x0400, CRC(cda933a7) SHA1(a0447c8c98e24674081c9bf4b1ef07dc186c6e2b) )
@@ -4310,7 +4310,7 @@ public class _8080bw
 		ROM_LOAD( "ss3.ic2",      0x0000, 0x0400, CRC(95c2c1ee) SHA1(42a3a382fc7d2782052372d71f6d0e8a153e74d0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sstrangr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sstrangr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "hss-01.58",     0x0000, 0x0400, CRC(feec7600) SHA1(787a6be4e24ce931e7678e777699b9f6789bc199) )
 		ROM_LOAD( "hss-02.59",     0x0400, 0x0400, CRC(7281ff0b) SHA1(56649d1362be1b9f517cb8616cbf9e4f955e9a2d) )
@@ -4322,7 +4322,7 @@ public class _8080bw
 		ROM_LOAD( "hss-08.65",     0x1c00, 0x0400, CRC(bd14d0b0) SHA1(9665f639afef9c1291f2efc054216ff44c595b45) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sstrngr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sstrngr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "4764.09",      0x0000, 0x2000, CRC(d88f86cc) SHA1(9f284ee50caf3c64bd04a79a798de620348881bc) )
 		ROM_LOAD( "2708.10",      0x6000, 0x0400, CRC(eba304c1) SHA1(3fa6fbb29fa46c146283f69a712bfc51cbb2a43c) )

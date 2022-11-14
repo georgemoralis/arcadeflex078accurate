@@ -121,7 +121,7 @@ public class surpratk
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_surpratk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( surpratk )
+	static InputPortHandlerPtr input_ports_surpratk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( surpratk )
 		PORT_START(); 	/* PLAYER 1 INPUTS */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
@@ -268,7 +268,7 @@ public class surpratk
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_surpratk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_surpratk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x51000, REGION_CPU1, 0 ) /* code + banked roms + palette RAM */
 		ROM_LOAD( "911m01.bin", 0x10000, 0x20000, CRC(ee5b2cc8) SHA1(4b05f7ba4e804a3bccb41fe9d3258cbcfe5324aa) )
 		ROM_LOAD( "911m02.bin", 0x30000, 0x18000, CRC(5d4148a8) SHA1(4fa5947db777b4c742775d588dea38758812a916) )

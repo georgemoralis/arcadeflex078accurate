@@ -747,7 +747,7 @@ public class system18
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_astorm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( astorm )
+	static InputPortHandlerPtr input_ports_astorm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( astorm )
 		PORT_START();  /* player 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -812,7 +812,7 @@ public class system18
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER3 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_moonwalk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( moonwalk )
+	static InputPortHandlerPtr input_ports_moonwalk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( moonwalk )
 		PORT_START();  /* player 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -877,7 +877,7 @@ public class system18
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER3 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_shdancer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shdancer )
+	static InputPortHandlerPtr input_ports_shdancer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shdancer )
 		PORT_START();  /* player 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -925,7 +925,7 @@ public class system18
 	/*****************************************************************************/
 	
 	// Ace Attacker
-	static RomLoadPtr rom_aceattac = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aceattac = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "11491.4a", 0x000000, 0x10000, CRC(77b820f1) SHA1(c33183c94c5029e2c4d6444f37404da66aacecc4) )
 		ROM_LOAD16_BYTE( "11489.1a", 0x000001, 0x10000, CRC(bbe623c5) SHA1(6d047699c7b6df7ebb7a3c9bee032e2536eed84c) )
@@ -956,7 +956,7 @@ public class system18
 	ROM_END(); }}; 
 	
 	// Alien Storm
-	static RomLoadPtr rom_astorm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astorm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr13085.bin", 0x000000, 0x40000, CRC(15f74e2d) SHA1(30d9d099ec18907edd3d20df312565c3bd5a80de) )
 		ROM_LOAD16_BYTE( "epr13084.bin", 0x000001, 0x40000, CRC(9687b38f) SHA1(cdeb5b4f06ad4ad8ca579392c1ec901487b08e76) )
@@ -983,7 +983,7 @@ public class system18
 		ROM_LOAD( "epr13078.bin", 0xb0000, 0x40000, CRC(15684dc5) SHA1(595051006de24f791dae937584e502ff2fa31d9c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_astorm2p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astorm2p = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr13182.bin", 0x000000, 0x40000, CRC(e31f2a1c) SHA1(690ee10c36e5bb6175470fb5564527e0e4a94d2c) )
 		ROM_LOAD16_BYTE( "epr13181.bin", 0x000001, 0x40000, CRC(78cd3b26) SHA1(a81b807c5da625d8e4648ae80c41e4ca3870c0fa) )
@@ -1010,7 +1010,7 @@ public class system18
 		ROM_LOAD( "epr13078.bin", 0xb0000, 0x40000, CRC(15684dc5) SHA1(595051006de24f791dae937584e502ff2fa31d9c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_astormbl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astormbl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "astorm.a6", 0x000000, 0x40000, CRC(7682ed3e) SHA1(b857352ad9c66488e91f60989472638c483e4ae8) )
 		ROM_LOAD16_BYTE( "astorm.a5", 0x000001, 0x40000, CRC(efe9711e) SHA1(496fd9e30941fde1658fab7292a669ef7964cecb) )
@@ -1038,7 +1038,7 @@ public class system18
 	ROM_END(); }}; 
 	
 	// Bloxeed
-	static RomLoadPtr rom_bloxeed = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bloxeed = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "rom-e.rom", 0x000000, 0x20000, CRC(a481581a) SHA1(5ce5a0a082622919d2fe0e7d52ec807b2e2c25a2) )
 		ROM_LOAD16_BYTE( "rom-o.rom", 0x000001, 0x20000, CRC(dd1bc3bf) SHA1(c0d79862a349ea4dac103c17325633c5dd4a93d1) )
@@ -1057,7 +1057,7 @@ public class system18
 	ROM_END(); }}; 
 	
 	// Clutch Hitter
-	static RomLoadPtr rom_cltchitr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cltchitr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr13795.6a", 0x000000, 0x40000, CRC(b0b60b67) SHA1(ee3325ddb7461008f556c1696157a766225b9ef5) )
 		ROM_LOAD16_BYTE( "epr13751.4a", 0x000001, 0x40000, CRC(c8d80233) SHA1(69cdbb989f580abbb006820347becf8d233fa773) )
@@ -1084,7 +1084,7 @@ public class system18
 	ROM_END(); }}; 
 	
 	// DD Crew
-	static RomLoadPtr rom_ddcrew = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddcrew = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "14153.6a", 0x000000, 0x40000, CRC(e01fae0c) SHA1(7166f955324f73e94d8ae6d2a5b2f4b497e62933) )
 		ROM_LOAD16_BYTE( "14152.4a", 0x000001, 0x40000, CRC(69c7b571) SHA1(9fe4815a1cff0a46a754a6bdee12abaf7beb6501) )
@@ -1114,7 +1114,7 @@ public class system18
 	ROM_END(); }}; 
 	
 	// Laser Ghost
-	static RomLoadPtr rom_lghost = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lghost = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "13429", 0x000000, 0x20000, CRC(0e0ccf26) SHA1(072c39771f4d8806c05499bad9a0e7f63709333e) )
 		ROM_LOAD16_BYTE( "13437", 0x000001, 0x20000, CRC(38b4dc2f) SHA1(28071d4bc1e658e97f6a63ac07aea5e38cbced24) )
@@ -1143,7 +1143,7 @@ public class system18
 		ROM_LOAD( "13418",   0x60000, 0x20000, CRC(4006c9f1) SHA1(e9cecfafdbcfdf716aa2ba911273b18550faea98) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moonwalk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moonwalk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code - custom cpu 317-0159 */
 		ROM_LOAD16_BYTE( "epr13235.a6", 0x000000, 0x40000, CRC(6983e129) SHA1(a8dd430620ab8ce11df46aa208d762d47f510464) )
 		ROM_LOAD16_BYTE( "epr13234.a5", 0x000001, 0x40000, CRC(c9fd20f2) SHA1(9476e6481e6d8f223acd52f543fa04f408d48dc3) )
@@ -1170,7 +1170,7 @@ public class system18
 		ROM_LOAD( "mpr13249.b6", 0xb0000, 0x40000, CRC(623edc5d) SHA1(c32d9f818d40f311877fbe6532d9e95b6045c3c4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moonwlka = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moonwlka = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code - custom cpu 317-0158 */
 		ROM_LOAD16_BYTE( "epr13233", 0x000000, 0x40000, CRC(f3dac671) SHA1(cd9d372c7e272d2371bc1f9fb0167831c804423f) )
 		ROM_LOAD16_BYTE( "epr13232", 0x000001, 0x40000, CRC(541d8bdf) SHA1(6a99153fddca246ba070e93c4bacd145f15f76bf) )
@@ -1197,7 +1197,7 @@ public class system18
 		ROM_LOAD( "mpr13249.b6", 0xb0000, 0x40000, CRC(623edc5d) SHA1(c32d9f818d40f311877fbe6532d9e95b6045c3c4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moonwlkb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moonwlkb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "moonwlkb.01", 0x000000, 0x10000, CRC(f49cdb16) SHA1(34b7e98d31c3b9db2f0f055d7b249b0e5e5cb746) )
 		ROM_LOAD16_BYTE( "moonwlkb.05", 0x000001, 0x10000, CRC(c483f29f) SHA1(8fdfa764d8e49754844a9dc001400d439f9af9f0) )
@@ -1231,7 +1231,7 @@ public class system18
 	ROM_END(); }}; 
 	
 	// Shadow Dancer
-	static RomLoadPtr rom_shdancer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shdancer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "shdancer.a6", 0x000000, 0x40000, CRC(3d5b3fa9) SHA1(370dd6e8ab9fb9e77eee9262d13fbdb4cf575abc) )
 		ROM_LOAD16_BYTE( "shdancer.a5", 0x000001, 0x40000, CRC(2596004e) SHA1(1b993aa74e7559f7e99253fd2144db9449c04cce) )
@@ -1256,7 +1256,7 @@ public class system18
 		ROM_LOAD( "sd12715.bin", 0x30000, 0x40000, CRC(07051a52) SHA1(d48658497f4a34665d3e051f893ff057c38925ae) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shdancbl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shdancbl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "ic39", 0x000000, 0x10000, CRC(adc1781c) SHA1(b2ca2831a48779df7533e6b2a406ee539e1f650c) )
 		ROM_LOAD16_BYTE( "ic53", 0x000001, 0x10000, CRC(1c1ac463) SHA1(21075f7afae372daef197f04f5f12d14479a8140) )
@@ -1314,7 +1314,7 @@ public class system18
 		ROM_LOAD( "ic46", 0x20000, 0x10000, CRC(c84e8c84) SHA1(f57895bedb6152c30733e91e6f4795702a62ac3a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shdancrj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shdancrj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "sd12722b.bin", 0x000000, 0x40000, CRC(c00552a2) SHA1(74fddfe596bc00bc11c4a06e2103417e8fd334f6) )
 		ROM_LOAD16_BYTE( "sd12721b.bin", 0x000001, 0x40000, CRC(653d351a) SHA1(1a03a154cb81a5a2f28c38aecdd6b5d107ea7ffa) )

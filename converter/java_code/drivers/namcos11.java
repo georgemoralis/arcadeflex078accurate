@@ -704,7 +704,7 @@ public class namcos11
 		MDRV_VIDEO_START( psx_type2_1024x1024 )
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_namcos11 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( namcos11 )
+	static InputPortHandlerPtr input_ports_namcos11 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( namcos11 )
 		/* IN 0 */
 		PORT_START(); 
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -770,7 +770,7 @@ public class namcos11
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tekken = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tekken )
+	static InputPortHandlerPtr input_ports_tekken = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tekken )
 		/* IN 0 */
 		PORT_START(); 
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -836,7 +836,7 @@ public class namcos11
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_souledge = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( souledge )
+	static InputPortHandlerPtr input_ports_souledge = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( souledge )
 		/* IN 0 */
 		PORT_START(); 
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -902,7 +902,7 @@ public class namcos11
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_myangel3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( myangel3 )
+	static InputPortHandlerPtr input_ports_myangel3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( myangel3 )
 		/* IN 0 */
 		PORT_START(); 
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -969,7 +969,7 @@ public class namcos11
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static RomLoadPtr rom_danceyes = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_danceyes = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -996,7 +996,7 @@ public class namcos11
 		ROM_LOAD( "dc1wave.8k",   0x0000000, 0x400000, CRC(8ba0f6a7) SHA1(e9868debd808e92b196d1baeeeae9c4855356a01) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dunkmnia = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dunkmnia = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1023,7 +1023,7 @@ public class namcos11
 		ROM_LOAD( "dm1wave.8k",   0x0000000, 0x400000, CRC(4891d53e) SHA1(a1fee060e94d3219174b5974517f4fd3be32aaa5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_myangel3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_myangel3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1044,7 +1044,7 @@ public class namcos11
 		ROM_LOAD( "kqt1wave.bin", 0x0000000, 0x400000, CRC(92ca8e4f) SHA1(48d6bdfcc5de1c280afa36c3f0dd6d4177771355) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_primglex = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_primglex = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1069,7 +1069,7 @@ public class namcos11
 		ROM_LOAD( "pg1wave.8k",   0x0000000, 0x400000, CRC(fc9ad9eb) SHA1(ce5bb2288ed8cf1348825c39423cbb99d9324b9c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_souledge = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_souledge = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1096,7 +1096,7 @@ public class namcos11
 		ROM_LOAD( "so1wave.8k",   0x0000000, 0x400000, CRC(0e68836b) SHA1(c392b370a807803c7ab060105861253e1b407f49) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_souledga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_souledga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1123,7 +1123,7 @@ public class namcos11
 		ROM_LOAD( "so1wave.8k",   0x0000000, 0x400000, CRC(0e68836b) SHA1(c392b370a807803c7ab060105861253e1b407f49) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_souledgb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_souledgb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1150,7 +1150,7 @@ public class namcos11
 		ROM_LOAD( "so1wave.8k",   0x0000000, 0x400000, CRC(0e68836b) SHA1(c392b370a807803c7ab060105861253e1b407f49) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starswep = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starswep = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1167,7 +1167,7 @@ public class namcos11
 		ROM_LOAD( "stp1wave.bin", 0x0000000, 0x400000, CRC(18f30e92) SHA1(b3819455856298527a7224495f541145aecf23dd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tekken = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekken = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1192,7 +1192,7 @@ public class namcos11
 		ROM_LOAD( "te1wave.8k",   0x0000000, 0x200000, CRC(fce6c57a) SHA1(7fb8c69452c92c59a940a2b69d0d73ef7aefcb82) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tekkena = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekkena = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1217,7 +1217,7 @@ public class namcos11
 		ROM_LOAD( "te1wave.8k",   0x0000000, 0x200000, CRC(fce6c57a) SHA1(7fb8c69452c92c59a940a2b69d0d73ef7aefcb82) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tekkenb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekkenb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1242,7 +1242,7 @@ public class namcos11
 		ROM_LOAD( "te1wave.8k",   0x0000000, 0x200000, CRC(fce6c57a) SHA1(7fb8c69452c92c59a940a2b69d0d73ef7aefcb82) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tekken2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekken2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1269,7 +1269,7 @@ public class namcos11
 		ROM_LOAD( "tes1wavb.8k",  0x0000000, 0x400000, BAD_DUMP CRC(bee9a7e6) SHA1(c017e4e2ef7bc8193444e2e685a4d8a89ff15ca9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tekken2a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekken2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1296,7 +1296,7 @@ public class namcos11
 		ROM_LOAD( "tes1wavb.8k",  0x0000000, 0x400000, BAD_DUMP CRC(bee9a7e6) SHA1(c017e4e2ef7bc8193444e2e685a4d8a89ff15ca9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tekken2b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekken2b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -1323,7 +1323,7 @@ public class namcos11
 		ROM_LOAD( "tes1wave.8k",  0x0000000, 0x400000, CRC(34a34eab) SHA1(8e83a579abdcd419dc5cff8aa4c1d7e6c3add773) )
 		ROM_END(); }}; 
 	
-	static RomLoadPtr rom_xevi3dg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xevi3dg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	

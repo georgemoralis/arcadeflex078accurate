@@ -187,7 +187,7 @@ public class missile
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_missile = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( missile )
+	static InputPortHandlerPtr input_ports_missile = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( missile )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON3 | IPF_COCKTAIL );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_COCKTAIL );
@@ -269,7 +269,7 @@ public class missile
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_suprmatk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( suprmatk )
+	static InputPortHandlerPtr input_ports_suprmatk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( suprmatk )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON3 | IPF_COCKTAIL );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_COCKTAIL );
@@ -417,7 +417,7 @@ public class missile
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_missile = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_missile = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "035820.02",    0x5000, 0x0800, CRC(7a62ce6a) SHA1(9a39978138dc28fdefe193bfae1b226391e471db) )
 		ROM_LOAD( "035821.02",    0x5800, 0x0800, CRC(df3bd57f) SHA1(0916925d3c94d766d33f0e4badf6b0add835d748) )
@@ -429,7 +429,7 @@ public class missile
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_missile2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_missile2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "35820-01.h1",  0x5000, 0x0800, CRC(41cbb8f2) SHA1(5dcb58276c08d75d36baadb6cefe30d4916de9b0) )
 		ROM_LOAD( "35821-01.jk1", 0x5800, 0x0800, CRC(728702c8) SHA1(6f25af7133d3ec79029117162649f94e93f36e0e) )
@@ -441,7 +441,7 @@ public class missile
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_suprmatk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suprmatk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "035820.sma",   0x5000, 0x0800, CRC(75f01b87) SHA1(32ed71b6a869d7b361f244c384bbe6f407f6c6d7) )
 		ROM_LOAD( "035821.sma",   0x5800, 0x0800, CRC(3320d67e) SHA1(5bb04b985421af6309818b94676298f4b90495cf) )

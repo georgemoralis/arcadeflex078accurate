@@ -460,7 +460,7 @@ public class punchout
 	
 	
 	
-	static InputPortPtr input_ports_punchout = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( punchout )
+	static InputPortHandlerPtr input_ports_punchout = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( punchout )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -531,7 +531,7 @@ public class punchout
 	INPUT_PORTS_END(); }}; 
 	
 	/* same as punchout with additional duck button */
-	static InputPortPtr input_ports_spnchout = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spnchout )
+	static InputPortHandlerPtr input_ports_spnchout = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spnchout )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -601,7 +601,7 @@ public class punchout
 		PORT_START(); 
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_armwrest = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( armwrest )
+	static InputPortHandlerPtr input_ports_armwrest = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( armwrest )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -817,7 +817,7 @@ public class punchout
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_punchout = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_punchout = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "chp1-c.8l",    0x0000, 0x2000, CRC(a4003adc) SHA1(a8026eb39aa883993a0c9cb4400bf1a7e5898a2b) )
 		ROM_LOAD( "chp1-c.8k",    0x2000, 0x2000, CRC(745ecf40) SHA1(430f80b688a515953fab177a3ec2eb31c886df22) )
@@ -876,7 +876,7 @@ public class punchout
 		ROM_LOAD( "chp1-c.6p",    0x0000, 0x4000, CRC(ea0bbb31) SHA1(b1da024cb688341d39791a78d1144fe09acb00cf) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spnchout = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spnchout = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "chs1-c.8l",    0x0000, 0x2000, CRC(703b9780) SHA1(93b2fd8392ef094413330cd2474ac406c3db426e) )
 		ROM_LOAD( "chs1-c.8k",    0x2000, 0x2000, CRC(e13719f6) SHA1(d0f08a0999801dd5d55f2f4ae3e76f25b765b8d6) )
@@ -956,7 +956,7 @@ public class punchout
 		ROM_LOAD( "chs1-c.6p",    0x0000, 0x4000, CRC(ad8b64b8) SHA1(0f1232a10faf71b782f9f6653cca8570243c17e0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spnchotj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spnchotj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "chs1c8la.bin", 0x0000, 0x2000, CRC(dc2a592b) SHA1(a8a7fc5c836e2723ba6abcb1137f4c4f79e21c87) )
 		ROM_LOAD( "chs1c8ka.bin", 0x2000, 0x2000, CRC(ce687182) SHA1(f07d930d90eda199b089f9023b51fd4456c87bdf) )
@@ -1030,7 +1030,7 @@ public class punchout
 		ROM_LOAD( "chs1c6pa.bin", 0x0000, 0x4000, CRC(d05fb730) SHA1(9f4c4c7e5113739312558eff4d3d3e42d513aa31) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_armwrest = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_armwrest = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "chv1-c.8l",    0x0000, 0x2000, CRC(b09764c1) SHA1(2f32acd689ef70ec81fe958c7a604855ae39cf5e) )
 		ROM_LOAD( "chv1-c.8k",    0x2000, 0x2000, CRC(0e147ff7) SHA1(7ea8b7b5562d9432c6cace2ee13377f91543975d) )

@@ -457,7 +457,7 @@ public class fromance
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	
 	
-	static InputPortPtr input_ports_nekkyoku = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nekkyoku )
+	static InputPortHandlerPtr input_ports_nekkyoku = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nekkyoku )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -538,7 +538,7 @@ public class fromance
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_idolmj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( idolmj )
+	static InputPortHandlerPtr input_ports_idolmj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( idolmj )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -619,7 +619,7 @@ public class fromance
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_fromance = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fromance )
+	static InputPortHandlerPtr input_ports_fromance = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fromance )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -698,7 +698,7 @@ public class fromance
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_nmsengen = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nmsengen )
+	static InputPortHandlerPtr input_ports_nmsengen = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nmsengen )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -777,7 +777,7 @@ public class fromance
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_daiyogen = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( daiyogen )
+	static InputPortHandlerPtr input_ports_daiyogen = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( daiyogen )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -858,7 +858,7 @@ public class fromance
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mfunclub = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mfunclub )
+	static InputPortHandlerPtr input_ports_mfunclub = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mfunclub )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -939,7 +939,7 @@ public class fromance
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mjnatsu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjnatsu )
+	static InputPortHandlerPtr input_ports_mjnatsu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjnatsu )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -1202,7 +1202,7 @@ public class fromance
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_nekkyoku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nekkyoku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "1-ic1a.bin",  0x000000, 0x008000, CRC(bb52d959) SHA1(1dfeb108879978dbcc1398e64b26c36505bee6d0) )
 		ROM_LOAD( "2-ic2a.bin",  0x008000, 0x008000, CRC(61848d8b) SHA1(72048c53e4364544ca8a79e213db9d02b7b4778f) )
@@ -1230,7 +1230,7 @@ public class fromance
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_idolmj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_idolmj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "3-13g.bin", 0x000000, 0x008000, CRC(910e9e7a) SHA1(5d577549ca25def14fbc6db682afda105244b7c1) )
 	
@@ -1254,7 +1254,7 @@ public class fromance
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mjnatsu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjnatsu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "3-ic70.bin", 0x000000, 0x008000, CRC(543eb9e1) SHA1(cfe1d33bdf6541e2207465a941f342be21b69f7d) )
 	
@@ -1279,7 +1279,7 @@ public class fromance
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_natsuiro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_natsuiro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "3-ic70.bin", 0x000000, 0x008000, CRC(543eb9e1) SHA1(cfe1d33bdf6541e2207465a941f342be21b69f7d) )
 	
@@ -1305,7 +1305,7 @@ public class fromance
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mfunclub = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mfunclub = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "3.70",        0x000000, 0x008000, CRC(e6f76ca3) SHA1(2f4292e50770c3325c1573781cb21940d73e8fb1) )
 	
@@ -1330,7 +1330,7 @@ public class fromance
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_daiyogen = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_daiyogen = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "n1-ic70.bin", 0x000000, 0x008000, CRC(29af632b) SHA1(9a55cc7a82dc2735be6310de27521ff0f5c352bd) )
 	
@@ -1350,7 +1350,7 @@ public class fromance
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_nmsengen = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nmsengen = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "3-ic70.bin",   0x000000, 0x008000, CRC(4e6edbbb) SHA1(890f93569a6dec6bf7c917a3db4f268c6ec64564) )
 	
@@ -1375,7 +1375,7 @@ public class fromance
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_fromance = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fromance = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "2-ic70.bin", 0x000000, 0x008000, CRC(a0866e26) SHA1(019a8dfaa54dd397f642622d7ed847b7147a61f7) )
 	

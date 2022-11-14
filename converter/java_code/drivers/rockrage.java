@@ -114,7 +114,7 @@ public class rockrage
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_rockrage = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rockrage )
+	static InputPortHandlerPtr input_ports_rockrage = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rockrage )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -302,7 +302,7 @@ public class rockrage
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_rockrage = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rockrage = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "rr-q01.rom", 0x08000, 0x08000, CRC(0ddb5ef5) SHA1(71b38c9f957858371f0ac95720d3c6d07339e5c5) )	/* fixed ROM */
 		ROM_LOAD( "rr-q02.rom", 0x10000, 0x10000, CRC(b4f6e346) SHA1(43fded4484836ff315dd6e40991f909dad73f1ed) )	/* banked ROM */
@@ -327,7 +327,7 @@ public class rockrage
 		ROM_LOAD( "620k04.6e", 0x00000, 0x08000, CRC(8be969f3) SHA1(9856b4c13fac77b645aed67a08cb4965b4966492) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rockragj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rockragj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "620k01.16c", 0x08000, 0x08000, CRC(4f5171f7) SHA1(5bce9e3f9d01c113c697853763cd891b91297eb2) )	/* fixed ROM */
 		ROM_LOAD( "620k02.15c", 0x10000, 0x10000, CRC(04c4d8f7) SHA1(2a1a024fc38bb934c454092b0aed74d0f1d1c4af) )	/* banked ROM */

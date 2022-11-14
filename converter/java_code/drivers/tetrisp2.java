@@ -348,7 +348,7 @@ public class tetrisp2
 								Tetris Plus 2 (World)
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_tetrisp2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tetrisp2 )
+	static InputPortHandlerPtr input_ports_tetrisp2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tetrisp2 )
 	
 		PORT_START(); 	// IN0 - $be0002.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
@@ -444,7 +444,7 @@ public class tetrisp2
 	***************************************************************************/
 	
 	
-	static InputPortPtr input_ports_teplus2j = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( teplus2j )
+	static InputPortHandlerPtr input_ports_teplus2j = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( teplus2j )
 	
 		PORT_START(); 	// IN0 - $be0002.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
@@ -544,7 +544,7 @@ public class tetrisp2
 	***************************************************************************/
 	
 	
-	static InputPortPtr input_ports_rockn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rockn )
+	static InputPortHandlerPtr input_ports_rockn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rockn )
 		PORT_START(); 	// IN0 - $be0002.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN  );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN  );
@@ -807,7 +807,7 @@ public class tetrisp2
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tetrisp2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tetrisp2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "t2p_04.rom", 0x000000, 0x080000, CRC(e67f9c51) SHA1(d8b2937699d648267b163c7c3f591426877f3701) )
@@ -859,7 +859,7 @@ public class tetrisp2
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_teplus2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_teplus2j = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "tet2-4v2.2", 0x000000, 0x080000, CRC(5bfa32c8) SHA1(55fb2872695fcfbad13f5c0723302e72da69e44a) )	// v2.2
@@ -888,7 +888,7 @@ public class tetrisp2
 	Rock 'n' Tread
 	
 	***/
-	static RomLoadPtr rom_rockn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rockn = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "98344_1.bin", 0x000001, 0x80000, CRC(4cf79e58) SHA1(f50e596d43c9ab2072ae0476169eee2a8512fd8d) )

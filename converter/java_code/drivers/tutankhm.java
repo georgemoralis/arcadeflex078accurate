@@ -247,7 +247,7 @@ public class tutankhm
 	};
 	
 	
-	static InputPortPtr input_ports_tutankhm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tutankhm )
+	static InputPortHandlerPtr input_ports_tutankhm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tutankhm )
 		PORT_START();       /* DSW2 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x03, "3" );
@@ -370,7 +370,7 @@ public class tutankhm
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_tutankhm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tutankhm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )      /* 64k for M6809 CPU code + 64k for ROM banks */
 		ROM_LOAD( "h1.bin",       0x0a000, 0x1000, CRC(da18679f) SHA1(8d2a3665db937d0e1d19300ae22277d9db61fcbc) ) /* program ROMs */
 		ROM_LOAD( "h2.bin",       0x0b000, 0x1000, CRC(a0f02c85) SHA1(29a78b3ffd6b597772953543b02dd59acf5af38c) )
@@ -395,7 +395,7 @@ public class tutankhm
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tutankst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tutankst = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )      /* 64k for M6809 CPU code + 64k for ROM banks */
 		ROM_LOAD( "h1.bin",       0x0a000, 0x1000, CRC(da18679f) SHA1(8d2a3665db937d0e1d19300ae22277d9db61fcbc) ) /* program ROMs */
 		ROM_LOAD( "h2.bin",       0x0b000, 0x1000, CRC(a0f02c85) SHA1(29a78b3ffd6b597772953543b02dd59acf5af38c) )

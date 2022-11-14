@@ -114,7 +114,7 @@ public class tourtabl
 	} };
 	
 	
-	static InputPortPtr input_ports_tourtabl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tourtabl )
+	static InputPortHandlerPtr input_ports_tourtabl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tourtabl )
 	
 		PORT_START(); 
 		PORT_ANALOG( 0xff, 0x80, IPT_PADDLE | IPF_PLAYER1 | IPF_REVERSE, 40, 10, 0, 255 );
@@ -213,7 +213,7 @@ public class tourtabl
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_tourtabl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tourtabl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "030751.ab2", 0x0800, 0x0800, CRC(4479a6f7) SHA1(bf3fd859614533a592f831e3539ea0a9d1964c82) )
 		ROM_RELOAD(             0xE800, 0x0800 )
@@ -224,7 +224,7 @@ public class tourtabl
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tourtab2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tourtab2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "030929.ab2", 0x0800, 0x0800, CRC(fcdfafa2) SHA1(f35ab83366a334a110fbba0cef09f4db950dbb68) )
 		ROM_RELOAD(             0xE800, 0x0800 )

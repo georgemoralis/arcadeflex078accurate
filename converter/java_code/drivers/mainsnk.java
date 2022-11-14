@@ -135,7 +135,7 @@ public class mainsnk
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_mainsnk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mainsnk )
+	static InputPortHandlerPtr input_ports_mainsnk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mainsnk )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -255,7 +255,7 @@ public class mainsnk
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_mainsnk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mainsnk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "snk.p01",      0x000000, 0x002000, CRC(00db1ca2) SHA1(efe83488cf88adc185e6024b8f6ad5f8ef7f4cfd) ) 
 		ROM_LOAD( "snk.p02",      0x002000, 0x002000, CRC(df5c86b5) SHA1(e9c854524e3d8231c874314cdff321e66ec7f0c4) ) 

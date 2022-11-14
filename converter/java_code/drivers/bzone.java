@@ -388,7 +388,7 @@ public class bzone
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_bzone = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bzone )
+	static InputPortHandlerPtr input_ports_bzone = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bzone )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -466,7 +466,7 @@ public class bzone
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_redbaron = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( redbaron )
+	static InputPortHandlerPtr input_ports_redbaron = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( redbaron )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN1);
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_COIN2);
@@ -533,7 +533,7 @@ public class bzone
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_bradley = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bradley )
+	static InputPortHandlerPtr input_ports_bradley = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bradley )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -775,7 +775,7 @@ public class bzone
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_bzone = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bzone = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "036414.01",  0x5000, 0x0800, CRC(efbc3fa0) SHA1(6d284fab34b09dde8aa0df7088711d4723f07970) )
 		ROM_LOAD( "036413.01",  0x5800, 0x0800, CRC(5d9d9111) SHA1(42638cff53a9791a0f18d316f62a0ea8eea4e194) )
@@ -790,7 +790,7 @@ public class bzone
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bzone2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bzone2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "036414a.01", 0x5000, 0x0800, CRC(13de36d5) SHA1(40e356ddc5c042bc1ce0b71f51e8b6de72daf1e4) )
 		ROM_LOAD( "036413.01",  0x5800, 0x0800, CRC(5d9d9111) SHA1(42638cff53a9791a0f18d316f62a0ea8eea4e194) )
@@ -805,7 +805,7 @@ public class bzone
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bzonec = new RomLoadPtr(){ public void handler(){  /* cocktail version */
+	static RomLoadHandlerPtr rom_bzonec = new RomLoadHandlerPtr(){ public void handler(){  /* cocktail version */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "bz1g4800",   0x4800, 0x0800, CRC(e228dd64) SHA1(247c788b4ccadf6c1e9201ad4f31d55c0036ff0f) )
 		ROM_LOAD( "bz1f5000",   0x5000, 0x0800, CRC(dddfac9a) SHA1(e6f2761902e1ffafba437a1117e9ba40f116087d) )
@@ -821,7 +821,7 @@ public class bzone
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bradley = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bradley = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "btc1.bin",   0x4000, 0x0800, CRC(0bb8e049) SHA1(158517ff9a4e8ae7270ccf7eab87bf77427a4a8c) )
 		ROM_LOAD( "btd1.bin",   0x4800, 0x0800, CRC(9e0566d4) SHA1(f14aa5c3d14136c5e9a317004f82d44a8d5d6815) )
@@ -838,7 +838,7 @@ public class bzone
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_redbaron = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_redbaron = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "037587.01",  0x4800, 0x0800, CRC(60f23983) SHA1(7a9e5380bf49bf50a2d8ab0e0bd1ba3ac8efde24) )
 		ROM_CONTINUE(           0x5800, 0x0800 )

@@ -204,7 +204,7 @@ public class senjyo
 	
 	
 	
-	static InputPortPtr input_ports_senjyo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( senjyo )
+	static InputPortHandlerPtr input_ports_senjyo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( senjyo )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -285,7 +285,7 @@ public class senjyo
 		PORT_DIPSETTING(    0xc0, "Hardest" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_starforc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( starforc )
+	static InputPortHandlerPtr input_ports_starforc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( starforc )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -366,7 +366,7 @@ public class senjyo
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_baluba = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( baluba )
+	static InputPortHandlerPtr input_ports_baluba = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( baluba )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -592,7 +592,7 @@ public class senjyo
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_senjyo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_senjyo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "08m_05t.bin", 0x0000, 0x2000, CRC(b1f3544d) SHA1(59997164dfb740fce1862d89754be7517303161a) )
 		ROM_LOAD( "08k_04t.bin", 0x2000, 0x2000, CRC(e34468a8) SHA1(1931788e4ebe0dab9525f795b639be6544a6b31a) )
@@ -633,7 +633,7 @@ public class senjyo
 	    ROM_LOAD( "07b.bin",    0x0000, 0x0020, CRC(68db8300) SHA1(33cd6b5ed92d7b73a708f2e4b12b6e7f6496d0c6) )	/* unknown - timing? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starforc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starforc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "starforc.3",   0x0000, 0x4000, CRC(8ba27691) SHA1(2b8b1e634ef5bed5c61a078e64a6dda77f84cdf5) )
 		ROM_LOAD( "starforc.2",   0x4000, 0x4000, CRC(0fc4d2d6) SHA1(0743e3928d5cc0e3f1bcdaf4b0cc83aeb7a2f7a8) )
@@ -670,7 +670,7 @@ public class senjyo
 	    ROM_LOAD( "07b.bin",    0x0000, 0x0020, CRC(68db8300) SHA1(33cd6b5ed92d7b73a708f2e4b12b6e7f6496d0c6) )	/* unknown - timing? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starfore = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starfore = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "starfore.005", 0x0000, 0x2000, CRC(825f7ebe) SHA1(d63fd516e075bcc28d42189216b95bbf491a4cd1) )
 		ROM_LOAD( "starfore.004", 0x2000, 0x2000, CRC(fbcecb65) SHA1(0406ae134915539a171603ecdd1b549f98dd048c) )
@@ -709,7 +709,7 @@ public class senjyo
 	    ROM_LOAD( "07b.bin",    0x0000, 0x0020, CRC(68db8300) SHA1(33cd6b5ed92d7b73a708f2e4b12b6e7f6496d0c6) )	/* unknown - timing? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_megaforc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_megaforc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "mf3.bin",      0x0000, 0x4000, CRC(d3ea82ec) SHA1(e15fda65ba24517cc04abc55b5d079a33327553c) )
 		ROM_LOAD( "mf2.bin",      0x4000, 0x4000, CRC(aa320718) SHA1(cbbf8e4d06a1ecf77d776058d965afdaa7f5b47f) )
@@ -746,7 +746,7 @@ public class senjyo
 	    ROM_LOAD( "07b.bin",    0x0000, 0x0020, CRC(68db8300) SHA1(33cd6b5ed92d7b73a708f2e4b12b6e7f6496d0c6) )	/* unknown - timing? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_baluba = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_baluba = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "0",   		  0x0000, 0x4000, CRC(0e2ebe32) SHA1(d5cac260b19dc4e8d2064a7e3de5d52ab0eb95d0) )
 		ROM_LOAD( "1",   		  0x4000, 0x4000, CRC(cde97076) SHA1(ef47851b2ed0d820e1564545795b707d00d5c6ce) )

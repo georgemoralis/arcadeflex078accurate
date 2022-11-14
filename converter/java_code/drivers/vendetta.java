@@ -369,7 +369,7 @@ public class vendetta
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_vendet4p = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vendet4p )
+	static InputPortHandlerPtr input_ports_vendet4p = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vendet4p )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -428,7 +428,7 @@ public class vendetta
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_COIN4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_vendetta = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vendetta )
+	static InputPortHandlerPtr input_ports_vendetta = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vendetta )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -467,7 +467,7 @@ public class vendetta
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_esckids = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( esckids )
+	static InputPortHandlerPtr input_ports_esckids = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( esckids )
 		PORT_START(); 		// Player 1 Control
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -610,7 +610,7 @@ public class vendetta
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_vendetta = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vendetta = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x49000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "081t01", 0x10000, 0x38000, CRC(e76267f5) SHA1(efef6c2edb4c181374661f358dad09123741b63d) )
 		ROM_CONTINUE(		0x08000, 0x08000 )
@@ -632,7 +632,7 @@ public class vendetta
 		ROM_LOAD( "081a03", 0x000000, 0x100000, CRC(14b6baea) SHA1(fe15ee57f19f5acaad6c1642d51f390046a7468a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vendetao = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vendetao = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x49000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "081r01", 0x10000, 0x38000, CRC(84796281) SHA1(e4330c6eaa17adda5b4bd3eb824388c89fb07918) )
 		ROM_CONTINUE(		0x08000, 0x08000 )
@@ -654,7 +654,7 @@ public class vendetta
 		ROM_LOAD( "081a03", 0x000000, 0x100000, CRC(14b6baea) SHA1(fe15ee57f19f5acaad6c1642d51f390046a7468a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vendet2p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vendet2p = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x49000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "081w01", 0x10000, 0x38000, CRC(cee57132) SHA1(8b6413877e127511daa76278910c2ee3247d613a) )
 		ROM_CONTINUE(		0x08000, 0x08000 )
@@ -676,7 +676,7 @@ public class vendetta
 		ROM_LOAD( "081a03", 0x000000, 0x100000, CRC(14b6baea) SHA1(fe15ee57f19f5acaad6c1642d51f390046a7468a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vendetas = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vendetas = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x49000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "081u01", 0x10000, 0x38000, CRC(b4d9ade5) SHA1(fbd543738cb0b68c80ff05eed7849b608de03395) )
 		ROM_CONTINUE(		0x08000, 0x08000 )
@@ -698,7 +698,7 @@ public class vendetta
 		ROM_LOAD( "081a03", 0x000000, 0x100000, CRC(14b6baea) SHA1(fe15ee57f19f5acaad6c1642d51f390046a7468a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vendtaso = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vendtaso = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x49000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "081d01", 0x10000, 0x38000, CRC(335da495) SHA1(ea74680eb898aeecf9f1eec95f151bcf66e6b6cb) )
 		ROM_CONTINUE(		0x08000, 0x08000 )
@@ -720,7 +720,7 @@ public class vendetta
 		ROM_LOAD( "081a03", 0x000000, 0x100000, CRC(14b6baea) SHA1(fe15ee57f19f5acaad6c1642d51f390046a7468a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vendettj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vendettj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x49000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "081p01", 0x10000, 0x38000, CRC(5fe30242) SHA1(2ea98e66637fa2ad60044b1a2b0dd158a82403a2) )
 		ROM_CONTINUE(		0x08000, 0x08000 )
@@ -743,7 +743,7 @@ public class vendetta
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_esckids = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_esckids = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x049000, REGION_CPU1, 0 )		// Main CPU (053248) Code & Banked (1M x 1)
 		ROM_LOAD( "975r01", 0x010000, 0x018000, CRC(7b5c5572) SHA1(b94b58c010539926d112c2dfd80bcbad76acc986) )
 		ROM_CONTINUE(		0x008000, 0x008000 )

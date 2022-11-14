@@ -311,7 +311,7 @@ public class namcos12
 		MDRV_SOUND_ATTRIBUTES( SOUND_SUPPORTS_STEREO )
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_namcos12 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( namcos12 )
+	static InputPortHandlerPtr input_ports_namcos12 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( namcos12 )
 		/* IN 0 */
 		PORT_START(); 
 		PORT_BITX( 0x8000, IP_ACTIVE_HIGH, 0, "Test Switch", KEYCODE_F2, IP_JOY_NONE );
@@ -388,7 +388,7 @@ public class namcos12
 		PORT_BIT( 0xfffc, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static RomLoadPtr rom_aquarush = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aquarush = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -407,7 +407,7 @@ public class namcos12
 		ROM_LOAD( "aq1wav0.2",    0x000000, 0x800000, CRC(0cf7278d) SHA1(aee31e4d9b3522f42325071768803c542aa6de09) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ehrgeiz = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ehrgeiz = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -432,7 +432,7 @@ public class namcos12
 		ROM_LOAD( "eg1wav0.2",    0x0000000, 0x800000, CRC(961fe69f) SHA1(0189a061959a8d94b9d2db627911264faf9f28fd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fgtlayer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fgtlayer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -457,7 +457,7 @@ public class namcos12
 		ROM_LOAD( "ftl1wav1.1",   0x0800000, 0x800000, CRC(a54a89cd) SHA1(543b47c6442f7a78e26992b041235a91d719bb89) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_golgo13 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_golgo13 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -487,7 +487,7 @@ public class namcos12
 		ROM_LOAD( "glg1wav1.13",  0x0800000, 0x800000, CRC(480b0a1a) SHA1(341d5ec8ad0f3c0a121eeeec9466aaeec2bd1c74) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mdhorse = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mdhorse = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -510,7 +510,7 @@ public class namcos12
 		ROM_LOAD( "mdh1wav0",     0x0000000, 0x800000, CRC(7b031123) SHA1(7cbc1f71d259405f9f1ef26026d51abcb255b057) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mrdrillr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrdrillr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -529,7 +529,7 @@ public class namcos12
 		ROM_LOAD( "dri1wav0.5",   0x0000000, 0x800000, CRC(32928df1) SHA1(79af92a2d24a0e3d5bfe1785776b0f86a93882ce) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pacapp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacapp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -553,7 +553,7 @@ public class namcos12
 		ROM_LOAD( "ppp1wav1.4",   0x0800000, 0x800000, CRC(cbcf74c5) SHA1(a089277c9befc87b5bbe0d4e5b8187a4ad5ef143) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_soulclbr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_soulclbr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -575,7 +575,7 @@ public class namcos12
 		ROM_LOAD( "soc1wav0.2",   0x0000000, 0x800000, CRC(c100618d) SHA1(b87f88ee42ad9c5affa674e5f816d902143fed99) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sws99 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sws99 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -600,7 +600,7 @@ public class namcos12
 		ROM_LOAD( "ss91wav1.1",   0x0800000, 0x800000, CRC(5f4c8861) SHA1(baee7182c32bc064d805de5a16948faf78941ac4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tekken3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekken3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	
@@ -626,7 +626,7 @@ public class namcos12
 		ROM_LOAD( "tet1wav1.4",   0x0400000, 0x400000, CRC(ffeba79f) SHA1(941412bbe9d0305d9a23c224c1bb774c4321f6df) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tekkentt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekkentt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	

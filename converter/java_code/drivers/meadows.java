@@ -463,7 +463,7 @@ public class meadows
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_meadows = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( meadows )
+	static InputPortHandlerPtr input_ports_meadows = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( meadows )
 		PORT_START(); 		/* IN0 buttons */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START1  );
@@ -507,7 +507,7 @@ public class meadows
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_minferno = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( minferno )
+	static InputPortHandlerPtr input_ports_minferno = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( minferno )
 		PORT_START(); 		/* IN0 left joystick */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -707,7 +707,7 @@ public class meadows
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_deadeye = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_deadeye = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x08000, REGION_CPU1, 0 ) 	/* 32K for code */
 		ROM_LOAD( "de1.8h",       0x0000, 0x0400, CRC(bd09e4dc) SHA1(5428835f6bc3d162496fdce174fcaaaba98c09f9) )
 		ROM_LOAD( "de2.9h",       0x0400, 0x0400, CRC(b89edec3) SHA1(5ce0058f23b7e5c832029ca97d9a40d1494bf972) )
@@ -735,7 +735,7 @@ public class meadows
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gypsyjug = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gypsyjug = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x08000, REGION_CPU1, 0 ) 	/* 32K for code */
 		ROM_LOAD( "gj.1b",        0x0000, 0x0400, CRC(f6a71d9f) SHA1(11a86ae781297e4077a69e6809487022fed9c444) )
 		ROM_LOAD( "gj.2b",        0x0400, 0x0400, CRC(94c14455) SHA1(ed704680c2b83d1726d1a17d64f5d57925a495b2) )
@@ -765,7 +765,7 @@ public class meadows
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_minferno = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_minferno = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x08000, REGION_CPU1, ROMREGION_INVERT )	/* 32K for code */
 		ROM_LOAD_NIB_LOW ( "inferno.f5",	0x0000, 0x0400, CRC(58472a73) SHA1(7f8b9502c3db11219d6b765dec7b6ff3f62d6c8b) )
 		ROM_LOAD_NIB_HIGH( "inferno.e5",	0x0000, 0x0400, CRC(451942af) SHA1(0a03d74c1b98771d2170c76ca41e972300c34c3a) )

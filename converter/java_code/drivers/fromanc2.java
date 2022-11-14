@@ -621,7 +621,7 @@ public class fromanc2
 		PORT_BIT ( 0x4000, IP_ACTIVE_LOW, IPT_UNKNOWN );\
 		PORT_BIT ( 0x8000, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	
-	static InputPortPtr input_ports_fromanc2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fromanc2 )
+	static InputPortHandlerPtr input_ports_fromanc2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fromanc2 )
 		PORT_START(); 	/* (0) COIN SW, TEST SW, EEPROM DATA, etc */
 		PORT_BIT ( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );	// COIN1 (1P)
 		PORT_BIT ( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );	// COIN2 (1P)
@@ -646,7 +646,7 @@ public class fromanc2
 		VSYSMJCTRL_PORT4	/* (4) PORT 1-3 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fromanc4 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fromanc4 )
+	static InputPortHandlerPtr input_ports_fromanc4 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fromanc4 )
 		PORT_START(); 	/* (0) COIN SW, TEST SW, EEPROM DATA, etc */
 		PORT_BITX( 0x0001, IP_ACTIVE_LOW, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE )	// TEST (1P)
 		PORT_BIT ( 0x0002, IP_ACTIVE_LOW, IPT_COIN1 );	// COIN1 (1P)
@@ -854,7 +854,7 @@ public class fromanc2
 	//
 	// ----------------------------------------------------------------------------
 	
-	static RomLoadPtr rom_fromanc2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fromanc2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0080000, REGION_CPU1, 0 )	// MAIN CPU
 		ROM_LOAD16_WORD_SWAP( "4-ic23.bin", 0x000000, 0x080000, CRC(96c90f9e) SHA1(c233e91d6967ef05cf14923273be84b17fce200f) )
 	
@@ -885,7 +885,7 @@ public class fromanc2
 		ROM_LOAD( "ic97.bin",    0x200000, 0x200000, CRC(1d1377fc) SHA1(0dae5dfcbcf4ed6662522e9404fcac0236dce04d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fromancr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fromancr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0080000, REGION_CPU1, 0 )	// MAIN CPU
 		ROM_LOAD16_WORD_SWAP( "2-ic20.bin", 0x000000, 0x080000, CRC(378eeb9c) SHA1(c1cfc7440590a229b3cdc1114428a473fea15b63) )
 	
@@ -918,7 +918,7 @@ public class fromanc2
 		ROM_LOAD( "ic82.bin",    0x0200000, 0x200000, CRC(f57daaf8) SHA1(720eadf771c89d8749317b632bbc5e8ff1f6f520) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fromanc4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fromanc4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0800000, REGION_CPU1, 0 )	// MAIN CPU + DATA
 		ROM_LOAD16_WORD_SWAP( "ic18.bin",    0x0000000, 0x080000, CRC(46a47839) SHA1(f1ba47b193e7e4b1c0fe8d67a76a9c452989885c) )
 		ROM_LOAD16_WORD_SWAP( "em33-m00.19", 0x0400000, 0x400000, CRC(6442534b) SHA1(a504d5cdd569ad4301f9917247531d4fdb807c76) )

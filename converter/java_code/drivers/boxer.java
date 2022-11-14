@@ -218,7 +218,7 @@ public class boxer
 	};
 	
 	
-	static InputPortPtr input_ports_boxer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( boxer )
+	static InputPortHandlerPtr input_ports_boxer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( boxer )
 	
 		PORT_START(); 
 		PORT_BIT ( 0x01, IP_ACTIVE_HIGH, IPT_UNUSED );
@@ -336,7 +336,7 @@ public class boxer
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_boxer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_boxer = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_LOW ( "3400l.e1", 0x3400, 0x0400, CRC(df85afa4) SHA1(5a74a08f1e0b0bbec02999d5e46513d8afd333ac) )

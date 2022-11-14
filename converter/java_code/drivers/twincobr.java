@@ -451,7 +451,7 @@ public class twincobr
 	
 	
 	
-	static InputPortPtr input_ports_twincobr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( twincobr )
+	static InputPortHandlerPtr input_ports_twincobr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( twincobr )
 		TWINCOBR_VBLANK_INPUT( IP_ACTIVE_HIGH )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER1 )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER2 )
@@ -484,7 +484,7 @@ public class twincobr
 		TWINCOBR_SYSTEM_INPUTS
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_twincobu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( twincobu )
+	static InputPortHandlerPtr input_ports_twincobu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( twincobu )
 		TWINCOBR_VBLANK_INPUT( IP_ACTIVE_HIGH )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER1 )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER2 )
@@ -517,7 +517,7 @@ public class twincobr
 		TWINCOBR_SYSTEM_INPUTS
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ktiger = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ktiger )
+	static InputPortHandlerPtr input_ports_ktiger = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ktiger )
 		TWINCOBR_VBLANK_INPUT( IP_ACTIVE_HIGH )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER1 )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER2 )
@@ -549,7 +549,7 @@ public class twincobr
 		TWINCOBR_SYSTEM_INPUTS
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fshark = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fshark )
+	static InputPortHandlerPtr input_ports_fshark = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fshark )
 		FSHARK_SYSTEM_INPUTS
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER1 )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER2 )
@@ -581,7 +581,7 @@ public class twincobr
 		FSHARK_DSW_B
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_skyshark = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skyshark )
+	static InputPortHandlerPtr input_ports_skyshark = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skyshark )
 		FSHARK_SYSTEM_INPUTS
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER1 )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER2 )
@@ -613,7 +613,7 @@ public class twincobr
 		FSHARK_DSW_B
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_hishouza = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hishouza )
+	static InputPortHandlerPtr input_ports_hishouza = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hishouza )
 		FSHARK_SYSTEM_INPUTS
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER1 )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER2 )
@@ -621,7 +621,7 @@ public class twincobr
 		FSHARK_DSW_B
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gulfwar2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gulfwar2 )
+	static InputPortHandlerPtr input_ports_gulfwar2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gulfwar2 )
 		TWINCOBR_VBLANK_INPUT( IP_ACTIVE_LOW )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER1 )
 		TOAPLAN_PLAYER_INPUT( IPF_PLAYER2 )
@@ -761,7 +761,7 @@ public class twincobr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_twincobr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_twincobr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* Main 68K code */
 		ROM_LOAD16_BYTE( "tc16",		0x00000, 0x10000, CRC(07f64d13) SHA1(864ce0f9369c40c3ae792fc4ab2444a168214749) )
 		ROM_LOAD16_BYTE( "tc14",		0x00001, 0x10000, CRC(41be6978) SHA1(4784804b738a332c7f24a43bcbb7a1e607365735) )
@@ -811,7 +811,7 @@ public class twincobr
 		ROM_LOAD( "82s123.b24",	0x240, 0x020, CRC(4fb5df2a) SHA1(506ef2c8e4cf45c256d6831a0a5760732f2de422) )	/* tile to sprite priority ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_twincobu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_twincobu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* Main 68K code */
 		ROM_LOAD16_BYTE( "tc16",			0x00000, 0x10000, CRC(07f64d13) SHA1(864ce0f9369c40c3ae792fc4ab2444a168214749) )
 		ROM_LOAD16_BYTE( "tc14",			0x00001, 0x10000, CRC(41be6978) SHA1(4784804b738a332c7f24a43bcbb7a1e607365735) )
@@ -856,7 +856,7 @@ public class twincobr
 		ROM_LOAD( "82s123.b24",	0x240, 0x020, CRC(4fb5df2a) SHA1(506ef2c8e4cf45c256d6831a0a5760732f2de422) )	/* tile to sprite priority ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ktiger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ktiger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* Main 68K code */
 		ROM_LOAD16_BYTE( "tc16",		0x00000, 0x10000, CRC(07f64d13) SHA1(864ce0f9369c40c3ae792fc4ab2444a168214749) )
 		ROM_LOAD16_BYTE( "tc14",		0x00001, 0x10000, CRC(41be6978) SHA1(4784804b738a332c7f24a43bcbb7a1e607365735) )
@@ -901,7 +901,7 @@ public class twincobr
 		ROM_LOAD( "82s123.b24",	0x240, 0x020, CRC(4fb5df2a) SHA1(506ef2c8e4cf45c256d6831a0a5760732f2de422) )	/* tile to sprite priority ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fshark = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fshark = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* Main 68K code */
 		ROM_LOAD16_BYTE( "b02_18-1.rom",	0x00000, 0x10000, CRC(04739e02) SHA1(8a14284adb0f0f33adf9affdec081c90de85d594) )
 		ROM_LOAD16_BYTE( "b02_17-1.rom",	0x00001, 0x10000, CRC(fd6ef7a8) SHA1(ddbc05ce694ab4d929f5f621d95800b612bc5f66) )
@@ -950,7 +950,7 @@ public class twincobr
 		ROM_LOAD( "clr3.bpr",	0x200, 0x100, CRC(016fe2f7) SHA1(909f815a61e759fdf998674ee383512ecd8fee65) )	/* ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_skyshark = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skyshark = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* Main 68K code */
 		ROM_LOAD16_BYTE( "18-2",		0x00000, 0x10000, CRC(888e90f3) SHA1(3a40d7e7653cc929af8186e48f272989fb332e14) )
 		ROM_LOAD16_BYTE( "17-2",		0x00001, 0x10000, CRC(066d67be) SHA1(a66be35b956da2c2ddf97cae66d79c0efd228621) )
@@ -999,7 +999,7 @@ public class twincobr
 		ROM_LOAD( "clr3.bpr",	0x200, 0x100, CRC(016fe2f7) SHA1(909f815a61e759fdf998674ee383512ecd8fee65) )	/* ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hishouza = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hishouza = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* Main 68K code */
 		ROM_LOAD16_BYTE( "b02-18.rom",	0x00000, 0x10000, CRC(4444bb94) SHA1(5ff955a5190d1b356187de105cfb8ea181fc1282) )
 		ROM_LOAD16_BYTE( "b02-17.rom",	0x00001, 0x10000, CRC(cdac7228) SHA1(6b0d67e4b0661a858653d2eabb8936af9148167e) )
@@ -1048,7 +1048,7 @@ public class twincobr
 		ROM_LOAD( "clr3.bpr",	0x200, 0x100, CRC(016fe2f7) SHA1(909f815a61e759fdf998674ee383512ecd8fee65) )	/* ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fsharkbt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fsharkbt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* Main 68K code */
 		ROM_LOAD16_BYTE( "r18",		0x00000, 0x10000, CRC(ef30f563) SHA1(755d6ce4c1e631d7c11d3fab99dae300b6a3452e) )
 		ROM_LOAD16_BYTE( "r17",		0x00001, 0x10000, CRC(0e18d25f) SHA1(82fc94830b3087c826d07cff699af9a3638e8087) )
@@ -1097,7 +1097,7 @@ public class twincobr
 		ROM_LOAD( "clr3.bpr",	0x200, 0x100, CRC(016fe2f7) SHA1(909f815a61e759fdf998674ee383512ecd8fee65) )	/* ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gulfwar2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gulfwar2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* Main 68K code */
 		ROM_LOAD16_BYTE( "07-u92.bin",  0x00001, 0x20000, CRC(b73e6b25) SHA1(53cde41e5a2e8f721c3f43abf1fff46479f658d8) )
 		ROM_LOAD16_BYTE( "08-u119.bin", 0x00000, 0x20000, CRC(41ebf9c0) SHA1(85207dda76abded727ed95717024a2ea2bd85dac) )

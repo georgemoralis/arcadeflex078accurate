@@ -330,7 +330,7 @@ public class groundfx
 				 INPUT PORTS (dips in eprom)
 	***********************************************************/
 	
-	static InputPortPtr input_ports_groundfx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( groundfx )
+	static InputPortHandlerPtr input_ports_groundfx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( groundfx )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0xffff, IP_ACTIVE_LOW,  IPT_UNUSED );
 	
@@ -489,7 +489,7 @@ public class groundfx
 						DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_groundfx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_groundfx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 2048K for 68020 code (CPU A) */
 		ROM_LOAD32_BYTE( "d51-24.79", 0x00000, 0x80000, CRC(5caaa031) SHA1(03e727e26df701e3f5e16c5f933d5b29a528945a) )
 		ROM_LOAD32_BYTE( "d51-23.61", 0x00001, 0x80000, CRC(462e3c9b) SHA1(7f116ee755748497b911868a948d3e3b5134e475) )

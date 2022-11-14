@@ -267,7 +267,7 @@ public class gijoe
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_gijoe = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gijoe )
+	static InputPortHandlerPtr input_ports_gijoe = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gijoe )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW,  IPT_START1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW,  IPT_START2 );
@@ -382,7 +382,7 @@ public class gijoe
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_gijoe = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gijoe = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "069eab03.rom", 0x000000,  0x40000, CRC(dd2d533f) SHA1(6fc9f7a8fc89155ef2b9ee43fe5e456d9b574f8c) )
 		ROM_LOAD16_BYTE( "069eab02.rom", 0x000001,  0x40000, CRC(6bb11c87) SHA1(86581d24f73f2e837f1d4fc5f1f2188f610c50b6) )
@@ -406,7 +406,7 @@ public class gijoe
 		ROM_LOAD( "069a04", 0x000000, 0x200000, CRC(11d6dcd6) SHA1(04cbff9f61cd8641db538db809ddf20da29fd5ac) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gijoeu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gijoeu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE("069b03", 0x000000,  0x40000, CRC(25ff77d2) SHA1(bea2ae975718806698fd35ef1217bd842b2b69ec) )
 		ROM_LOAD16_BYTE("069b02", 0x000001,  0x40000, CRC(31cced1c) SHA1(3df1def671966b3c3d8117ac1b68adeeef9d98c0) )
@@ -430,7 +430,7 @@ public class gijoe
 		ROM_LOAD( "069a04", 0x000000, 0x200000, CRC(11d6dcd6) SHA1(04cbff9f61cd8641db538db809ddf20da29fd5ac) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gijoej = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gijoej = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE("069jaa03", 0x000000,  0x40000, CRC(4b398901) SHA1(98fcc6ae9cc69c67d82eb1a7ab0bb71e61aee623) )
 		ROM_LOAD16_BYTE("069jaa02", 0x000001,  0x40000, CRC(8bb22392) SHA1(9f066ce2b529f7dad6f80a91fff266c478d56414) )

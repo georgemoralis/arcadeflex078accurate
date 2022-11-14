@@ -148,7 +148,7 @@ public class orbit
 	};
 	
 	
-	static InputPortPtr input_ports_orbit = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( orbit )
+	static InputPortHandlerPtr input_ports_orbit = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( orbit )
 		PORT_START();  /* 0800 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -436,7 +436,7 @@ public class orbit
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_orbit = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_orbit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_LOW ( "033701.h2", 0x6800, 0x400, CRC(6de43b85) SHA1(1643972f45d3a0dd6540158c575cd84cee2b0c9a) )
 		ROM_LOAD_NIB_HIGH( "033693.l2", 0x6800, 0x400, CRC(8878409e) SHA1(a14e0161705bbc230f0aec1837ebc41d62178368) )

@@ -425,7 +425,7 @@ public class gauntlet
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_gauntlet = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gauntlet )
+	static InputPortHandlerPtr input_ports_gauntlet = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gauntlet )
 		PORT_START(); 	/* 803000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -486,7 +486,7 @@ public class gauntlet
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_vindctr2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vindctr2 )
+	static InputPortHandlerPtr input_ports_vindctr2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vindctr2 )
 		PORT_START(); 	/* 803000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON3 | IPF_PLAYER1 );
@@ -664,7 +664,7 @@ public class gauntlet
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_gaunts = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaunts = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1507-9a.037",  0x000000, 0x008000, CRC(b5183228) SHA1(5cf433acf1463076576ce7c29298c609b0bd9705) )
 		ROM_LOAD16_BYTE( "1508-9b.037",  0x000001, 0x008000, CRC(afd3c501) SHA1(99a7bb6c05fc4a865a44887a5ca9dc5e710397d9) )
@@ -692,7 +692,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntlet = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntlet = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1307-9a.037",  0x000000, 0x008000, CRC(46fe8743) SHA1(d5fa19e028a2f43658330c67c10e0c811d332780) )
 		ROM_LOAD16_BYTE( "1308-9b.037",  0x000001, 0x008000, CRC(276e15c4) SHA1(7467b2ec21b1b4fcc18ff9387ce891495f4b064c) )
@@ -720,7 +720,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1307-9a.037",  0x000000, 0x008000, CRC(46fe8743) SHA1(d5fa19e028a2f43658330c67c10e0c811d332780) )
 		ROM_LOAD16_BYTE( "1308-9b.037",  0x000001, 0x008000, CRC(276e15c4) SHA1(7467b2ec21b1b4fcc18ff9387ce891495f4b064c) )
@@ -748,7 +748,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntj12 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntj12 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1207-9a.037",  0x000000, 0x008000, CRC(6dc0610d) SHA1(6f810a8ac1c753b2fd24e6b008f0cdf82e9e0831) )
 		ROM_LOAD16_BYTE( "1208-9b.037",  0x000001, 0x008000, CRC(faa306eb) SHA1(48c5632a365b4c3df8f424d06229f10b608edfa5) )
@@ -776,7 +776,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1007-9a.037",  0x000000, 0x008000, CRC(6a224cea) SHA1(1d9205a1587a39b3bc6da1813e380a8babee2994) )
 		ROM_LOAD16_BYTE( "1008-9b.037",  0x000001, 0x008000, CRC(fa391dab) SHA1(7dcb67fa969b437fe2474daeb3c7c3652df2ff5d) )
@@ -804,7 +804,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntr9 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntr9 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "907-9a.037",   0x000000, 0x008000, CRC(c13a6399) SHA1(569c8eac81ec7d0ea451b73888efd5dce4d4906d) )
 		ROM_LOAD16_BYTE( "908-9b.037",   0x000001, 0x008000, CRC(417607d9) SHA1(b168773d5868adc9b8d860f32d847bb525d9069f) )
@@ -832,7 +832,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntgr8 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntgr8 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "807-9a.037",   0x000000, 0x008000, CRC(671c0bc2) SHA1(73c8249bac8a131b2fb93fc4ac7235b3f329b987) )
 		ROM_LOAD16_BYTE( "808-9b.037",   0x000001, 0x008000, CRC(f2842af4) SHA1(8ecaec141f21b26647b2f2fd224c92b8a36acbad) )
@@ -860,7 +860,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntr7 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntr7 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "207-9a.037",   0x000000, 0x008000, CRC(fd871f81) SHA1(111615cb3990fe2121ed5b3dd0c28054c98ef665) )
 		ROM_LOAD16_BYTE( "208-9b.037",   0x000001, 0x008000, CRC(bcb2fb1d) SHA1(62f2acf81d8094617e4fcaa427e47c5940d85ad2) )
@@ -888,7 +888,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntgr6 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntgr6 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "307-9a.037",   0x000000, 0x008000, CRC(759827c9) SHA1(d267e2416365814cd9a2b2c587edc8334031b77f) )
 		ROM_LOAD16_BYTE( "308-9b.037",   0x000001, 0x008000, CRC(d71262d1) SHA1(cc7f64f75d325b0531c3ee509d3eb1159a149b81) )
@@ -916,7 +916,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntr5 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntr5 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "207-9a.037",   0x000000, 0x008000, CRC(fd871f81) SHA1(111615cb3990fe2121ed5b3dd0c28054c98ef665) )
 		ROM_LOAD16_BYTE( "208-9b.037",   0x000001, 0x008000, CRC(bcb2fb1d) SHA1(62f2acf81d8094617e4fcaa427e47c5940d85ad2) )
@@ -944,7 +944,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntr4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntr4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "207-9a.037",   0x000000, 0x008000, CRC(fd871f81) SHA1(111615cb3990fe2121ed5b3dd0c28054c98ef665) )
 		ROM_LOAD16_BYTE( "208-9b.037",   0x000001, 0x008000, CRC(bcb2fb1d) SHA1(62f2acf81d8094617e4fcaa427e47c5940d85ad2) )
@@ -972,7 +972,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntgr3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntgr3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "307-9a.037",   0x000000, 0x008000, CRC(759827c9) SHA1(d267e2416365814cd9a2b2c587edc8334031b77f) )
 		ROM_LOAD16_BYTE( "308-9b.037",   0x000001, 0x008000, CRC(d71262d1) SHA1(cc7f64f75d325b0531c3ee509d3eb1159a149b81) )
@@ -1000,7 +1000,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "207-9a.037",   0x000000, 0x008000, CRC(fd871f81) SHA1(111615cb3990fe2121ed5b3dd0c28054c98ef665) )
 		ROM_LOAD16_BYTE( "208-9b.037",   0x000001, 0x008000, CRC(bcb2fb1d) SHA1(62f2acf81d8094617e4fcaa427e47c5940d85ad2) )
@@ -1028,7 +1028,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gauntr1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gauntr1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "107-9a.037",   0x000000, 0x008000, CRC(a5885e14) SHA1(aa49a3bd8352179532d1cbbb27badb6fbe7d3394) )
 		ROM_LOAD16_BYTE( "108-9b.037",   0x000001, 0x008000, CRC(0087f1ab) SHA1(d16a44a5ad4faf26df63b91fac813111c9302713) )
@@ -1056,7 +1056,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaunt2p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaunt2p = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "507-9a.041",   0x000000, 0x008000, CRC(8784133f) SHA1(98017427d84209405bb15d95a47bda5e1bd69f45) )
 		ROM_LOAD16_BYTE( "508-9b.041",   0x000001, 0x008000, CRC(2843bde3) SHA1(15e480c5245fd407f0fd5f0a3f3189ff18de88b3) )
@@ -1084,7 +1084,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaunt2pj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaunt2pj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "507-9a.041",   0x000000, 0x008000, CRC(8784133f) SHA1(98017427d84209405bb15d95a47bda5e1bd69f45) )
 		ROM_LOAD16_BYTE( "508-9b.041",   0x000001, 0x008000, CRC(2843bde3) SHA1(15e480c5245fd407f0fd5f0a3f3189ff18de88b3) )
@@ -1112,7 +1112,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaunt2pg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaunt2pg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "407-9a.041",   0x000000, 0x008000, CRC(cde72140) SHA1(6cf4254e90a32ee36f5fbfa44b69fca82f68d2bc) )
 		ROM_LOAD16_BYTE( "408-9b.041",   0x000001, 0x008000, CRC(4ab1af62) SHA1(46915a6822551004f3670678691a4ffb6d187914) )
@@ -1140,7 +1140,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaun2pr3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaun2pr3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "207-9a.041",   0x000000, 0x008000, CRC(0e1af1b4) SHA1(7091d3ff15dce33959e3c2268843c8d4f4140097) )
 		ROM_LOAD16_BYTE( "208-9b.041",   0x000001, 0x008000, CRC(bf51a238) SHA1(2110e6aa4a8076b1ed29432876138590102a7408) )
@@ -1168,7 +1168,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaun2pj2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaun2pj2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "207-9a.041",   0x000000, 0x008000, CRC(0e1af1b4) SHA1(7091d3ff15dce33959e3c2268843c8d4f4140097) )
 		ROM_LOAD16_BYTE( "208-9b.041",   0x000001, 0x008000, CRC(bf51a238) SHA1(2110e6aa4a8076b1ed29432876138590102a7408) )
@@ -1196,7 +1196,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaun2pg1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaun2pg1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "107-9a.041",   0x000000, 0x008000, CRC(3faf74d8) SHA1(366256fb42e9d3a548c6545f6fa718beb766ba16) )
 		ROM_LOAD16_BYTE( "108-9b.041",   0x000001, 0x008000, CRC(f1e6d815) SHA1(9bda05ee05c1f49078a152aa30a1fafa108f1c93) )
@@ -1224,7 +1224,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaunt2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaunt2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1307-9a.037",  0x000000, 0x008000, CRC(46fe8743) SHA1(d5fa19e028a2f43658330c67c10e0c811d332780) )
 		ROM_LOAD16_BYTE( "1308-9b.037",  0x000001, 0x008000, CRC(276e15c4) SHA1(7467b2ec21b1b4fcc18ff9387ce891495f4b064c) )
@@ -1262,7 +1262,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaunt2g = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaunt2g = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1007-9a.037",  0x000000, 0x008000, CRC(6a224cea) SHA1(1d9205a1587a39b3bc6da1813e380a8babee2994) )
 		ROM_LOAD16_BYTE( "1008-9b.037",  0x000001, 0x008000, CRC(fa391dab) SHA1(7dcb67fa969b437fe2474daeb3c7c3652df2ff5d) )
@@ -1300,7 +1300,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaunt22p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaunt22p = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1307-9a.037",  0x000000, 0x008000, CRC(46fe8743) SHA1(d5fa19e028a2f43658330c67c10e0c811d332780) )
 		ROM_LOAD16_BYTE( "1308-9b.037",  0x000001, 0x008000, CRC(276e15c4) SHA1(7467b2ec21b1b4fcc18ff9387ce891495f4b064c) )
@@ -1338,7 +1338,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaun22p1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaun22p1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1307-9a.037",  0x000000, 0x008000, CRC(46fe8743) SHA1(d5fa19e028a2f43658330c67c10e0c811d332780) )
 		ROM_LOAD16_BYTE( "1308-9b.037",  0x000001, 0x008000, CRC(276e15c4) SHA1(7467b2ec21b1b4fcc18ff9387ce891495f4b064c) )
@@ -1376,7 +1376,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaun22pg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaun22pg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1007-9a.037",  0x000000, 0x008000, CRC(6a224cea) SHA1(1d9205a1587a39b3bc6da1813e380a8babee2994) )
 		ROM_LOAD16_BYTE( "1008-9b.037",  0x000001, 0x008000, CRC(fa391dab) SHA1(7dcb67fa969b437fe2474daeb3c7c3652df2ff5d) )
@@ -1414,7 +1414,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_vindctr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vindctr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1186-9a.059",  0x000000, 0x008000, CRC(af138263) SHA1(acb1b7f497b83c9950d51776e620adee347b48a7) )
 		ROM_LOAD16_BYTE( "1187-9b.059",  0x000001, 0x008000, CRC(44baff64) SHA1(3cb3af1e93208ac139e90482d329e2368fde66d5) )
@@ -1467,7 +1467,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_vindc2r2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vindc2r2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1186-9a.059",  0x000000, 0x008000, CRC(af138263) SHA1(acb1b7f497b83c9950d51776e620adee347b48a7) )
 		ROM_LOAD16_BYTE( "1187-9b.059",  0x000001, 0x008000, CRC(44baff64) SHA1(3cb3af1e93208ac139e90482d329e2368fde66d5) )
@@ -1520,7 +1520,7 @@ public class gauntlet
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_vindc2r1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vindc2r1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1186-9a.059",  0x000000, 0x008000, CRC(af138263) SHA1(acb1b7f497b83c9950d51776e620adee347b48a7) )
 		ROM_LOAD16_BYTE( "1187-9b.059",  0x000001, 0x008000, CRC(44baff64) SHA1(3cb3af1e93208ac139e90482d329e2368fde66d5) )

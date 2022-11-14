@@ -248,7 +248,7 @@ public class tigeroad
 	
 	
 	
-	static InputPortPtr input_ports_tigeroad = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tigeroad )
+	static InputPortHandlerPtr input_ports_tigeroad = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tigeroad )
 		PORT_START();   /* IN0 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -324,7 +324,7 @@ public class tigeroad
 		PORT_DIPSETTING(      0x8000, DEF_STR( "Yes") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_toramich = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( toramich )
+	static InputPortHandlerPtr input_ports_toramich = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( toramich )
 		PORT_START();   /* IN0 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -401,7 +401,7 @@ public class tigeroad
 		PORT_DIPSETTING(      0x8000, DEF_STR( "Yes") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_f1dream = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( f1dream )
+	static InputPortHandlerPtr input_ports_f1dream = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( f1dream )
 		PORT_START();   /* IN0 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -618,7 +618,7 @@ public class tigeroad
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tigeroad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tigeroad = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 256K for 68000 code */
 		ROM_LOAD16_BYTE( "tru02.bin",    0x00000, 0x20000, CRC(8d283a95) SHA1(eb6c9225f79f62c22ae1e8980a557d896f598947) )
 		ROM_LOAD16_BYTE( "tru04.bin",    0x00001, 0x20000, CRC(72e2ef20) SHA1(57ab7df2050042690ccfb1f2d170840f926dcf46) )
@@ -654,7 +654,7 @@ public class tigeroad
 		ROM_LOAD( "trprom.bin",   0x0000, 0x0100, CRC(ec80ae36) SHA1(397ec8fc1b106c8b8d4bf6798aa429e8768a101a) )	/* priority (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_toramich = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_toramich = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 256K for 68000 code */
 		ROM_LOAD16_BYTE( "tr_02.bin",    0x00000, 0x20000, CRC(b54723b1) SHA1(dfad82e96dff072c967dd59e3db71fb3b43b6dcb) )
 		ROM_LOAD16_BYTE( "tr_04.bin",    0x00001, 0x20000, CRC(ab432479) SHA1(b8ec547f7bab67107a7c83931c7ed89142a7af69) )
@@ -691,7 +691,7 @@ public class tigeroad
 		ROM_LOAD( "trprom.bin",   0x0000, 0x0100, CRC(ec80ae36) SHA1(397ec8fc1b106c8b8d4bf6798aa429e8768a101a) )	/* priority (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_f1dream = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_f1dream = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 256K for 68000 code */
 		ROM_LOAD16_BYTE( "06j_02.bin",   0x00000, 0x20000, CRC(3c2ec697) SHA1(bccb431ad92455484420f91770e91db6d69b09ec) )
 		ROM_LOAD16_BYTE( "06k_03.bin",   0x00001, 0x20000, CRC(85ebad91) SHA1(000f5c617417ff20ee9b378166776fecfacdff95) )
@@ -723,7 +723,7 @@ public class tigeroad
 		ROM_LOAD( "09e_tr.bin",   0x0000, 0x0100, CRC(ec80ae36) SHA1(397ec8fc1b106c8b8d4bf6798aa429e8768a101a) )	/* priority (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_f1dreamb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_f1dreamb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 256K for 68000 code */
 		ROM_LOAD16_BYTE( "f1d_04.bin",   0x00000, 0x10000, CRC(903febad) SHA1(73726b220ce45e1f13798e50fb6455671f1150f3) )
 		ROM_LOAD16_BYTE( "f1d_05.bin",   0x00001, 0x10000, CRC(666fa2a7) SHA1(f38e71293368ddc586f437c38ced1d8ce91527ea) )

@@ -122,7 +122,7 @@ public class dogfgt
 	
 	
 	
-	static InputPortPtr input_ports_dogfgt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dogfgt )
+	static InputPortHandlerPtr input_ports_dogfgt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dogfgt )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -289,7 +289,7 @@ public class dogfgt
 	
 	
 	
-	static RomLoadPtr rom_dogfgt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dogfgt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "bx00.52",        0x8000, 0x2000, CRC(e602a21c) SHA1(12c659608d04ffc35ea9c1c0e1e82a8aab9f24bb) )
 		ROM_LOAD( "bx01.37",        0xa000, 0x2000, CRC(4921c4fb) SHA1(995b9ac123110c5c6d34d90f706ed72afdeaa231) )
@@ -323,7 +323,7 @@ public class dogfgt
 		ROM_LOAD( "bx21.64",     0x0020, 0x0020, CRC(5de4319f) SHA1(f70e116b80627d3eccc27c1964b08a0c8cdfff44) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dogfgtj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dogfgtj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "bx00.52",     0x8000, 0x2000, CRC(e602a21c) SHA1(12c659608d04ffc35ea9c1c0e1e82a8aab9f24bb) )
 		ROM_LOAD( "bx01.37",     0xa000, 0x2000, CRC(4921c4fb) SHA1(995b9ac123110c5c6d34d90f706ed72afdeaa231) )

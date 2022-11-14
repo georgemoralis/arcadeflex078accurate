@@ -178,7 +178,7 @@ public class quantum
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_quantum = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( quantum )
+	static InputPortHandlerPtr input_ports_quantum = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( quantum )
 		PORT_START(); 		/* IN0 */
 		/* YHALT here MUST BE ALWAYS 0  */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH,IPT_SPECIAL );/* vg YHALT */
@@ -288,7 +288,7 @@ public class quantum
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_quantum = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quantum = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x014000, REGION_CPU1, 0 )
 	    ROM_LOAD16_BYTE( "136016.201",   0x000000, 0x002000, CRC(7e7be63a) SHA1(11b2d0168cdbaa7a48656b77abc0bcbe9408fe84) )
 	    ROM_LOAD16_BYTE( "136016.206",   0x000001, 0x002000, CRC(2d8f5759) SHA1(54b0388ef44b5d34e621b48b465566aa16887e8f) )
@@ -303,7 +303,7 @@ public class quantum
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_quantum1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quantum1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x014000, REGION_CPU1, 0 )
 	    ROM_LOAD16_BYTE( "136016.101",   0x000000, 0x002000, CRC(5af0bd5b) SHA1(f6e46fbebbf52294e78ae240fe2628c6b29b8dea) )
 	    ROM_LOAD16_BYTE( "136016.106",   0x000001, 0x002000, CRC(f9724666) SHA1(1bb073135029c92bef9afc9ccd910e0ab3302c8a) )
@@ -318,7 +318,7 @@ public class quantum
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_quantump = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quantump = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x014000, REGION_CPU1, 0 )
 	    ROM_LOAD16_BYTE( "quantump.2e",  0x000000, 0x002000, CRC(176d73d3) SHA1(b887ee50af5db6f6d43cc6ba57451173f996dedc) )
 	    ROM_LOAD16_BYTE( "quantump.3e",  0x000001, 0x002000, CRC(12fc631f) SHA1(327a44da897199536f43e5f792cb4a18d9055ac4) )

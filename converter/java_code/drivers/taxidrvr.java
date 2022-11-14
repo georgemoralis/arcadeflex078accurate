@@ -202,7 +202,7 @@ public class taxidrvr
 	
 	
 	
-	static InputPortPtr input_ports_taxidrvr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( taxidrvr )
+	static InputPortHandlerPtr input_ports_taxidrvr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( taxidrvr )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0f, 0x00, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x0d, DEF_STR( "4C_1C") );
@@ -406,7 +406,7 @@ public class taxidrvr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_taxidrvr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_taxidrvr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "1",            0x0000, 0x2000, CRC(6b2424e9) SHA1(a65bb01da8f3b0649d945981cc4f1324b7fac5c7) )
 		ROM_LOAD( "2",            0x2000, 0x2000, CRC(15111229) SHA1(0350918f9504b0e470684ebc94a823bb2513a54d) )

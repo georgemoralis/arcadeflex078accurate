@@ -210,7 +210,7 @@ public class starfire
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_starfire = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( starfire )
+	static InputPortHandlerPtr input_ports_starfire = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( starfire )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x03, 0x00, "Time" );
 		PORT_DIPSETTING(    0x00, "90 Sec" );
@@ -254,7 +254,7 @@ public class starfire
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_fireone = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fireone )
+	static InputPortHandlerPtr input_ports_fireone = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fireone )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, "2 Coins/1 Player" );
@@ -337,7 +337,7 @@ public class starfire
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_starfire = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starfire = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sfire.1a",     0x0000, 0x0800, CRC(9990af64) SHA1(05eccf1084ace55be9d6cf0fccddcaa18fa5487a) )
 		ROM_LOAD( "sfire.2a",     0x0800, 0x0800, CRC(6e17ba33) SHA1(59433696f56018a7b253491b1db3ff45546dcd46) )
@@ -352,7 +352,7 @@ public class starfire
 		ROM_LOAD( "sfire.1f",     0x5000, 0x0800, CRC(af31dc39) SHA1(0dfeff6973fd03e85b08e70c77d212f0bb60121d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starfira = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starfira = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "starfire.1a",  0x0000, 0x0800, CRC(6adcd7e7) SHA1(a931fb80e48db3050ce3bc39f455961c0c7c56ce) )
 		ROM_LOAD( "starfire.2a",  0x0800, 0x0800, CRC(835c70ea) SHA1(36828735aa48de5e3e973ca1f42ef08537e1c6ce) )
@@ -366,7 +366,7 @@ public class starfire
 		ROM_LOAD( "starfire.2e",  0x4800, 0x0800, CRC(ba8434c5) SHA1(1831b291dfe3e4b081e66caa909b8c727bfffa7b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fireone = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fireone = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "fo-ic13.7b",     0x0000, 0x0800, CRC(f927f086) SHA1(509db84d781dd2d5aaefd561539738f0db7c4ca5) )
 		ROM_LOAD( "fo-ic24.7c",     0x0800, 0x0800, CRC(0d2d8723) SHA1(e9bb2092ce7786016f15e42916ad48ef12735e9c) )

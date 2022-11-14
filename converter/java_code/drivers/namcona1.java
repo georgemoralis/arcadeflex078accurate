@@ -196,7 +196,7 @@ public class namcona1
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_namcona1_joy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( namcona1_joy )
+	static InputPortHandlerPtr input_ports_namcona1_joy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( namcona1_joy )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x00, "DIP2 (Freeze"));
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -260,7 +260,7 @@ public class namcona1
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_namcona1_quiz = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( namcona1_quiz )
+	static InputPortHandlerPtr input_ports_namcona1_quiz = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( namcona1_quiz )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x00, "DIP2 (Freeze"));
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -324,7 +324,7 @@ public class namcona1
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_xday2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( xday2 )
+	static InputPortHandlerPtr input_ports_xday2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( xday2 )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x00, "DIP2 (Freeze"));
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -1053,7 +1053,7 @@ public class namcona1
 	public static DriverInitHandlerPtr init_tinklpit  = new DriverInitHandlerPtr() { public void handler()init_namcona1(); namcona1_gametype = NAMCO_TINKLPIT; }
 	public static DriverInitHandlerPtr init_xday2  = new DriverInitHandlerPtr() { public void handler()	init_namcona1(); namcona1_gametype = NAMCO_XDAY2; }
 	
-	static RomLoadPtr rom_bkrtmaq = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bkrtmaq = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "mq1_ep0l.bin", 0x080001, 0x080000, CRC(f029bc57) SHA1(fdbf8b8b9f69d5755ca5197dda4f887b12dd66f4) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "mq1_ep0u.bin", 0x080000, 0x080000, CRC(4cff62b8) SHA1(5cac170dcfbeb3dcfa0840bdbe7541a9d2f44a14) )
@@ -1066,19 +1066,19 @@ public class namcona1
 		ROM_LOAD16_BYTE( "mq1_ma1u.bin", 0x480000, 0x100000, CRC(0cdb6bd0) SHA1(b8b398477c9654e96921110fb30c754240183897) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cgangpzl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cgangpzl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "cp2-ep0l.bin", 0x080001, 0x80000, CRC(8f5cdcc5) SHA1(925db3f3f16224bc28f97a57aba0ab2b51c5067c) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "cp2-ep0u.bin", 0x080000, 0x80000, CRC(3a816140) SHA1(613c367e08a0a20ec62e1938faab0128743b26f8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cgangpzj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cgangpzj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "cp1-ep0l.bin", 0x080001, 0x80000, CRC(2825f7ba) SHA1(5f6f8df6bdf0f45656904411cdbb31fdcf8f3be0) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "cp1-ep0u.bin", 0x080000, 0x80000, CRC(94d7d6fc) SHA1(2460741e0dbb2ccff28f4fbc419a7507382467d2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_emeralda = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_emeralda = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x280000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "ep0lb.bin",    0x080001, 0x080000, CRC(fcd55293) SHA1(fdabf9d5f528c37196ac1e031b097618b4c887b5) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "ep0ub.bin",    0x080000, 0x080000, CRC(a52f00d5) SHA1(85f95d2a69a2df2e9195f55583645c064b0b6fe6) )
@@ -1086,7 +1086,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "em1-ep1u.bin", 0x180000, 0x080000, CRC(4e969152) SHA1(2c89ae5d43585f479f16cf8278f8fc001e077e45) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_emerldaa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_emerldaa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x280000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "em1-ep0l.bin", 0x080001, 0x080000, CRC(443f3fce) SHA1(35b6c834e5716c1e9b55f1e39f4e7336dbbe2d9b) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "em1-ep0u.bin", 0x080000, 0x080000, CRC(484a2a81) SHA1(1b60c18dfb2aebfd4aa8b2a85a1e90883a1f8e61) )
@@ -1094,7 +1094,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "em1-ep1u.bin", 0x180000, 0x080000, CRC(4e969152) SHA1(2c89ae5d43585f479f16cf8278f8fc001e077e45) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_exvania = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exvania = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "ex1-ep0l.bin", 0x080001, 0x080000, CRC(18c12015) SHA1(e4f3524e798545c434549719b377c8b5863f580f) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "ex1-ep0u.bin", 0x080000, 0x080000, CRC(07d054d1) SHA1(e2d2cb81acd309c519686572804648bef4cbd191) )
@@ -1105,7 +1105,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "ex1-ma1u.bin", 0x480000, 0x100000, CRC(04e7c4b0) SHA1(78180d96cd1fae583617d4d227ed4ee24f2f9e29) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_knckhead = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_knckhead = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "kh2-ep0l.bin", 0x080001, 0x080000, CRC(b4b88077) SHA1(9af03d1832ad6c77222e18427f4afca330a41ce6) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "kh2-ep0u.bin", 0x080000, 0x080000, CRC(a578d97e) SHA1(9a5bb6649cca7b98daf538a66c813f61cca2e2ec) )
@@ -1122,7 +1122,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "kh1-ma3u.bin", 0x880000, 0x100000, CRC(efeb768d) SHA1(15d016244549f3ea0d19f5cfb04bcebd65ac6134) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_knckhedj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_knckhedj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "kh1-ep0l.bin", 0x080001, 0x080000, CRC(94660bec) SHA1(42fa23f759cf66b05f30c2fc03a12fd14ae1f796) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "kh1-ep0u.bin", 0x080000, 0x080000, CRC(ad640d69) SHA1(62595a9d1d5952cbe3dd7266cfda9292be51d269) )
@@ -1139,7 +1139,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "kh1-ma3u.bin", 0x880000, 0x100000, CRC(efeb768d) SHA1(15d016244549f3ea0d19f5cfb04bcebd65ac6134) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_numanatj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_numanatj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "nm1_ep0l.bin", 0x080001, 0x080000, CRC(4398b898) SHA1(0d1517409ba181f796f7f413cac704c60085b505) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "nm1_ep0u.bin", 0x080000, 0x080000, CRC(be90aa79) SHA1(6884a8d72dd34c889527e8e653f5e5b4cf3fb5d6) )
@@ -1156,7 +1156,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "nm1_ma3u.bin", 0x880000, 0x100000, CRC(f79e2112) SHA1(8bb8639a9d3a5d3ac5c9bb78e72b3d76582a9c25) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_numanath = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_numanath = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "nm2_ep0l.bin", 0x080001, 0x080000, CRC(f24414bb) SHA1(68b13dfdc2292afd5279edb891fe63972f991e7b) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "nm2_ep0u.bin", 0x080000, 0x080000, CRC(25c41616) SHA1(68ba67d3dd45f3bdddfa2fd21b574535306c1214) )
@@ -1173,7 +1173,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "nm1_ma3u.bin", 0x880000, 0x100000, CRC(f79e2112) SHA1(8bb8639a9d3a5d3ac5c9bb78e72b3d76582a9c25) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_quiztou = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quiztou = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "qt1_ep0l.bin", 0x080001, 0x080000, CRC(b680e543) SHA1(f10f38113a46c821d8e9d66f52d7311d9d52e595) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "qt1_ep0u.bin", 0x080000, 0x080000, CRC(143c5e4d) SHA1(24c584986c97a5e6fe7e73f0e9af4af28ed20c4a) )
@@ -1190,7 +1190,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "qt1_ma3u.bin", 0x880000, 0x100000, CRC(14a5a163) SHA1(1107f50e491bedeb4ab7ac3f32cfe47727274ba9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_swcourt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_swcourt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "sc1-ep0l.bin", 0x080001, 0x080000, CRC(145111dd) SHA1(f8f74f77fb80af2ea37ea8ddbf02c1f3fcaf3fdb) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "sc1-ep0u.bin", 0x080000, 0x080000, CRC(c721c138) SHA1(5d30d66629d982b54c3bb62118be940dc7b69a6b) )
@@ -1203,7 +1203,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "sc1-ma1u.bin", 0x480000, 0x100000, CRC(252dc4b7) SHA1(f1be6bd045495c7a0ecd97f01d1dc8ad341fecfd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tinklpit = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tinklpit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "tk1-ep0l.bin", 0x080001, 0x080000, CRC(fdccae42) SHA1(398384482ccb3eb08bfb9db495513272a5188d92) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "tk1-ep0u.bin", 0x080000, 0x080000, CRC(62cdb48c) SHA1(73c7b99b117b8dc567bc254b0ffcc117c9d42fb5) )
@@ -1218,7 +1218,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "tk1-ma2u.bin", 0x680000, 0x100000, CRC(5ce20c2c) SHA1(7eaff21714bae44f8b21b6db98f055e04bfbae18) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fghtatck = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fghtatck = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "fa2_ep0l.bin", 0x080001, 0x080000, CRC(8996db9c) SHA1(ebbe7d4cb2960a346cfbdf38c77638d71b6ba20e) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "fa2_ep0u.bin", 0x080000, 0x080000, CRC(58d5e090) SHA1(950219d4e9bf440f92e3c8765f47e23a9019d2d1) )
@@ -1231,7 +1231,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "fa1_ma1u.bin", 0x480000, 0x100000, CRC(900297be) SHA1(57bb2078ff104c6f631c67219f80f8ede5ddbd09) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "fa1_ep0l.bin", 0x080001, 0x080000, CRC(182eee5c) SHA1(49769e3b72b59fc3e7b73364fe97168977dbe66b) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "fa1_ep0u.bin", 0x080000, 0x080000, CRC(7ea7830e) SHA1(79390943eea0b8029b2b8869233caf27228e776a) )
@@ -1244,7 +1244,7 @@ public class namcona1
 		ROM_LOAD16_BYTE( "fa1_ma1u.bin", 0x480000, 0x100000, CRC(900297be) SHA1(57bb2078ff104c6f631c67219f80f8ede5ddbd09) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_xday2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xday2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "xds1mpr0.4b", 0x080001, 0x080000, CRC(83539aaa) SHA1(42d97bb2daaf5ff48efac70f0ff37869c5ba177d) ) /* 0xc00000 */
 		ROM_LOAD16_BYTE( "xds1mpr1.8b", 0x080000, 0x080000, CRC(468b36de) SHA1(52817be9913a6938ce6add2834ba1a727b1d677e) )

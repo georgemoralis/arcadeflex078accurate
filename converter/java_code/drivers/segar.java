@@ -357,7 +357,7 @@ public class segar
 		PORT_DIPSETTING(    0x10, DEF_STR( "1C_6C") );
 	
 	
-	static InputPortPtr input_ports_astrob = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( astrob )
+	static InputPortHandlerPtr input_ports_astrob = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( astrob )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -426,7 +426,7 @@ public class segar
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_astrob2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( astrob2 )
+	static InputPortHandlerPtr input_ports_astrob2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( astrob2 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -495,7 +495,7 @@ public class segar
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_astrob1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( astrob1 )
+	static InputPortHandlerPtr input_ports_astrob1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( astrob1 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -564,7 +564,7 @@ public class segar
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_005 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 005 )
+	static InputPortHandlerPtr input_ports_005 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 005 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -635,7 +635,7 @@ public class segar
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_monsterb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( monsterb )
+	static InputPortHandlerPtr input_ports_monsterb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( monsterb )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -703,7 +703,7 @@ public class segar
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_spaceod = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spaceod )
+	static InputPortHandlerPtr input_ports_spaceod = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spaceod )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -772,7 +772,7 @@ public class segar
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pignewt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pignewt )
+	static InputPortHandlerPtr input_ports_pignewt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pignewt )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -842,7 +842,7 @@ public class segar
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pignewta = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pignewta )
+	static InputPortHandlerPtr input_ports_pignewta = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pignewta )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -909,7 +909,7 @@ public class segar
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sindbadm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sindbadm )
+	static InputPortHandlerPtr input_ports_sindbadm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sindbadm )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -1307,7 +1307,7 @@ public class segar
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_astrob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astrob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "829b",	  0x0000, 0x0800, CRC(14ae953c) SHA1(eb63d1b95faa5193db7fa6ab245e99325d519b5e) ) /* U25 */
 		ROM_LOAD( "907a",     0x0800, 0x0800, CRC(a9aaaf38) SHA1(73c2b9421b267563acb33d63fbbbda818793c4c1) ) /* U1 */
@@ -1339,7 +1339,7 @@ public class segar
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_astrob2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astrob2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "829b",     0x0000, 0x0800, CRC(14ae953c) SHA1(eb63d1b95faa5193db7fa6ab245e99325d519b5e) ) /* U25 */
 		ROM_LOAD( "888",      0x0800, 0x0800, CRC(42601744) SHA1(6bb58384c28b2105746a2f410f5e0979609db9bf) ) /* U1 */
@@ -1371,7 +1371,7 @@ public class segar
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_astrob1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astrob1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "829",      0x0000, 0x0800, CRC(5f66046e) SHA1(6aa7f94122db1a75a89c12ad9d087aec1a70d675) ) /* U25 */
 		ROM_LOAD( "837",      0x0800, 0x0800, CRC(ce9c3763) SHA1(2cb4c3041905d38b040ef76f69f6197d699f9ec5) ) /* U1 */
@@ -1400,7 +1400,7 @@ public class segar
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_005 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_005 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1346b.u25",    0x0000, 0x0800, CRC(8e68533e) SHA1(a257c556d31691068ed5c991f1fb2b51da4826db) ) /* U25 */
 		ROM_LOAD( "5092.u1",      0x0800, 0x0800, CRC(29e10a81) SHA1(c4b4e6c75bcf276e53f39a456d8d633c83dcf485) ) /* U1 */
@@ -1429,7 +1429,7 @@ public class segar
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_monsterb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_monsterb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )     /* 64k for code + space for background */
 		ROM_LOAD( "1778cpu.bin",  0x0000, 0x0800, CRC(19761be3) SHA1(551a5eb958b6efac41f32e7feb2786400fcfb6d3) ) /* U25 */
 		ROM_LOAD( "1779.bin",     0x0800, 0x0800, CRC(5b67dc4c) SHA1(5d2c5128b6cba2d8aa98cae8cb78dbe0c998e965) ) /* U1 */
@@ -1475,7 +1475,7 @@ public class segar
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_spaceod = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spaceod = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "so-959.dat",   0x0000, 0x0800, CRC(bbae3cd1) SHA1(2e99fd4b0db60462721b174b0db1b10b2fd13d25) ) /* U25 */
 		ROM_LOAD( "so-941.dat",   0x0800, 0x0800, CRC(8b63585a) SHA1(eb064a2dca5cb44373f1acc86243a3dcca1951ee) ) /* U1 */
@@ -1513,7 +1513,7 @@ public class segar
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pignewt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pignewt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cpu.u25",    0x0000, 0x0800, NO_DUMP ) /* U25 */
 		ROM_LOAD( "1888c",      0x0800, 0x0800, CRC(fd18ed09) SHA1(8bba49d93ae72dbc0497a5a24991c5da26d169d3) ) /* U1 */
@@ -1551,7 +1551,7 @@ public class segar
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pignewta = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pignewta = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cpu.u25",    0x0000, 0x0800, NO_DUMP ) /* U25 */
 		ROM_LOAD( "1888a",      0x0800, 0x0800, CRC(491c0835) SHA1(65c917ebcfa8e5199e9923c04626c067fda3c637) ) /* U1 */
@@ -1590,7 +1590,7 @@ public class segar
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sindbadm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sindbadm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "epr5393.new",  0x0000, 0x2000, CRC(51f2e51e) SHA1(0fd96863d0dfaa0bab09be6fea1e7d12b9c40d68) )
 		ROM_LOAD( "epr5394.new",  0x2000, 0x2000, CRC(d39ce2ee) SHA1(376065a40caa499da99e556098a03387edca5883) )

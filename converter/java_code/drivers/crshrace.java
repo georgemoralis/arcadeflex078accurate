@@ -255,7 +255,7 @@ public class crshrace
 	
 	
 	
-	static InputPortPtr input_ports_crshrace = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crshrace )
+	static InputPortHandlerPtr input_ports_crshrace = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crshrace )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -411,7 +411,7 @@ public class crshrace
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'crshrace', but additional "unknown" Dip Switch (see notes) */
-	static InputPortPtr input_ports_crshrac2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crshrac2 )
+	static InputPortHandlerPtr input_ports_crshrac2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crshrac2 )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -668,7 +668,7 @@ public class crshrace
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_crshrace = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crshrace = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "1",            0x000000, 0x80000, CRC(21e34fb7) SHA1(be47b4a9bce2d6ce0a127dffe032c61547b2a3c0) )
 	
@@ -702,7 +702,7 @@ public class crshrace
 		ROM_LOAD( "h893",         0x000000, 0x100000, CRC(32513b63) SHA1(c4ede4aaa2611cedb53d47448422a1926acf3052) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crshrac2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crshrac2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "01-ic10.bin",  0x000000, 0x80000, CRC(b284aacd) SHA1(f0ef279cdec30eb32e8aa8cdd51e289b70f2d6f5) )
 	

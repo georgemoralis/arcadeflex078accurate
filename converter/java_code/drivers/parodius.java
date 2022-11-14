@@ -192,7 +192,7 @@ public class parodius
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_parodius = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( parodius )
+	static InputPortHandlerPtr input_ports_parodius = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( parodius )
 		PORT_START(); 	/* PLAYER 1 INPUTS */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
@@ -353,7 +353,7 @@ public class parodius
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_parodius = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_parodius = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x51000, REGION_CPU1, 0 ) /* code + banked roms + palette RAM */
 		ROM_LOAD( "955l01.bin", 0x10000, 0x20000, CRC(49a658eb) SHA1(dd53060c4da99b8e1f896ebfec572296ef2b5665) )
 		ROM_LOAD( "955l02.bin", 0x30000, 0x18000, CRC(161d7322) SHA1(a752f28c19c58263680221ad1119f2fd57df4723) )
@@ -374,7 +374,7 @@ public class parodius
 		ROM_LOAD( "955d04.bin", 0x00000, 0x80000, CRC(e671491a) SHA1(79e71cb5212eb7d14d3479b0734ea0270473a66d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_parodisj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_parodisj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x51000, REGION_CPU1, 0 ) /* code + banked roms + palette RAM */
 		ROM_LOAD( "955e01.bin", 0x10000, 0x20000, CRC(49baa334) SHA1(8902fbb2228111b15de6537bd168241933df134d) )
 		ROM_LOAD( "955e02.bin", 0x30000, 0x18000, CRC(14010d6f) SHA1(69fe162ea08c3bd4b3e78e9d10d278bd15444af4) )

@@ -423,7 +423,7 @@ public class jedi
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_jedi = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jedi )
+	static InputPortHandlerPtr input_ports_jedi = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jedi )
 		PORT_START(); 	/* 0C00 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW,  IPT_BUTTON3 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW,  IPT_BUTTON2 );
@@ -584,7 +584,7 @@ public class jedi
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_jedi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jedi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1C000, REGION_CPU1, 0 )	/* 64k for code + 48k for banked ROMs */
 		ROM_LOAD( "14f_221.bin",  0x08000, 0x4000, CRC(414d05e3) SHA1(e5f5f8d85433467a13d6ca9e3889e07a62b00e52) )
 		ROM_LOAD( "13f_222.bin",  0x0c000, 0x4000, CRC(7b3f21be) SHA1(8fe62401f9b78c7a3e62b544c4b705b1bfa9b8f3) )

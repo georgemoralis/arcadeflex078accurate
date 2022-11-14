@@ -329,7 +329,7 @@ public class shougi
 	
 	
 	
-	static InputPortPtr input_ports_shougi = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shougi )
+	static InputPortHandlerPtr input_ports_shougi = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shougi )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START2 );/+-
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START1 );/+-
@@ -405,7 +405,7 @@ public class shougi
 	
 	
 	
-	static RomLoadPtr rom_shougi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shougi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "1.3a",    0x0000, 0x1000, CRC(b601303f) SHA1(ed07fb09053e15be49f4cb66e8916d1bdff48336) )
 		ROM_LOAD( "3.3c",    0x1000, 0x1000, CRC(2b8c7314) SHA1(5d21e425889f8dc118fcd2ba8cfc6fb8f94ddc5f) )
@@ -424,7 +424,7 @@ public class shougi
 		ROM_LOAD( "pr.2l",   0x0000, 0x0020, CRC(cd3559ff) SHA1(a1291b06a8a337943660b2ef62c94c49d58a6fb5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shougi2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shougi2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "1-2.3a",    0x0000, 0x1000, CRC(16d75306) SHA1(2d090396abd1fe2b31cb8450cc5d2fbde75e0230) )
 		ROM_LOAD( "3-2.3c",    0x1000, 0x1000, CRC(35b6d98b) SHA1(fc125acd4d504d9c883e685b9c6e5a509dc75c69) )

@@ -365,7 +365,7 @@ public class rungun
 		MDRV_SOUND_ADD(K054539, k054539_interface)
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_rng = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rng )
+	static InputPortHandlerPtr input_ports_rng = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rng )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -445,7 +445,7 @@ public class rungun
 	
 	#define ROM_LOAD64_WORD(name,offset,length,crc)		ROMX_LOAD(name, offset, length, crc, ROM_GROUPWORD | ROM_SKIP(6))
 	
-	static RomLoadPtr rom_rungunu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rungunu = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0)
 		ROM_LOAD16_BYTE( "247b03", 0x000000, 0x80000, CRC(f259fd11) SHA1(60381a3fa7f78022dcb3e2f3d13ea32a10e4e36e) )
@@ -481,7 +481,7 @@ public class rungun
 		ROM_LOAD( "247-a07", 0x200000, 0x200000, CRC(0108142d) SHA1(4dc6a36d976dad9c0da5a5b1f01f2eb3b369c99d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rungun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rungun = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0)
 		ROM_LOAD16_BYTE( "247-c03", 0x000000, 0x80000, CRC(fec3e1d6) SHA1(cd89dc32ad06308134d277f343a7e8b5fe381f69) )
@@ -522,7 +522,7 @@ public class rungun
 		ROM_LOAD( "247-a07", 0x200000, 0x200000, CRC(0108142d) SHA1(4dc6a36d976dad9c0da5a5b1f01f2eb3b369c99d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_slmdunkj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slmdunkj = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0)
 		ROM_LOAD16_BYTE( "247jaa03.bin", 0x000000, 0x20000, CRC(87572078) SHA1(cfa784eb40ed8b3bda9d57abb6022bbe92056206) )

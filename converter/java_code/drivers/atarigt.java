@@ -656,7 +656,7 @@ public class atarigt
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_tmek = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tmek )
+	static InputPortHandlerPtr input_ports_tmek = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tmek )
 		PORT_START(); 		/* 68.SW (A1=0) */
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START1 );
@@ -723,7 +723,7 @@ public class atarigt
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_primrage = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( primrage )
+	static InputPortHandlerPtr input_ports_primrage = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( primrage )
 		PORT_START(); 		/* 68.SW (A1=0) */
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START1 );
@@ -878,7 +878,7 @@ public class atarigt
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_tmek = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tmek = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "0044d", 0x00000, 0x20000, CRC(1cd62725) SHA1(7685794d9fbe3fe7a9978d12e489447b4fba5282) )
 		ROM_LOAD32_BYTE( "0043d", 0x00001, 0x20000, CRC(82185051) SHA1(a21aad4f6ec948d9cd47efb89e7811c5c2e4850b) )
@@ -935,7 +935,7 @@ public class atarigt
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tmekprot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tmekprot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "pgm0", 0x00000, 0x20000, CRC(f5f7f7be) SHA1(66be472e7c0ef26e2ce2b45488a8e4cfc1b0f80a) )
 		ROM_LOAD32_BYTE( "pgm1", 0x00001, 0x20000, CRC(284f7971) SHA1(5327f6368abd2ab9740a5150a8660c420f750476) )
@@ -992,7 +992,7 @@ public class atarigt
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_primrage = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_primrage = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "1044b", 0x000000, 0x80000, CRC(35c9c34b) SHA1(4bd1d35cc7c68574819afd648405eedb8db25b4c) )
 		ROM_LOAD32_BYTE( "1043b", 0x000001, 0x80000, CRC(86322829) SHA1(e0e72888def0931d078921f099bae6788738a291) )
@@ -1051,7 +1051,7 @@ public class atarigt
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_primraga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_primraga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "0044b", 0x000000, 0x80000, CRC(26139575) SHA1(22e59ab621d58e56969b64701fc59aec085193dd) )
 		ROM_LOAD32_BYTE( "0043b", 0x000001, 0x80000, CRC(928d2447) SHA1(9bbbdbf056a7b986d985d79be889b9876a710631) )

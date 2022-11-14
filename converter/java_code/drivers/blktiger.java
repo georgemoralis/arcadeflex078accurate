@@ -128,7 +128,7 @@ public class blktiger
 	
 	
 	
-	static InputPortPtr input_ports_blktiger = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blktiger )
+	static InputPortHandlerPtr input_ports_blktiger = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blktiger )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -306,7 +306,7 @@ public class blktiger
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_blktiger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blktiger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )	/* 64k for code + banked ROMs images */
 		ROM_LOAD( "blktiger.5e",  0x00000, 0x08000, CRC(a8f98f22) SHA1(f77c0d0ebf3e52a21d2c0c5004350a408b8e6d24) )	/* CODE */
 		ROM_LOAD( "blktiger.6e",  0x10000, 0x10000, CRC(7bef96e8) SHA1(6d05a73d8400dead78c561b904bf6ef8311e7b91) )	/* 0+1 */
@@ -339,7 +339,7 @@ public class blktiger
 		ROM_LOAD( "mb7114e.11l",  0x0300, 0x0100, CRC(e5490b68) SHA1(40f9f92efe7dd97b49144aec02eb509834056915) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bktigerb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bktigerb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )	/* 64k for code + banked ROMs images */
 		ROM_LOAD( "btiger1.f6",   0x00000, 0x08000, CRC(9d8464e8) SHA1(c847ee9a22b8b636e85427214747e6bd779023e8) )	/* CODE */
 		ROM_LOAD( "blktiger.6e",  0x10000, 0x10000, CRC(7bef96e8) SHA1(6d05a73d8400dead78c561b904bf6ef8311e7b91) )	/* 0+1 */
@@ -372,7 +372,7 @@ public class blktiger
 		ROM_LOAD( "mb7114e.11l",  0x0300, 0x0100, CRC(e5490b68) SHA1(40f9f92efe7dd97b49144aec02eb509834056915) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blkdrgon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blkdrgon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )	/* 64k for code + banked ROMs images */
 		ROM_LOAD( "blkdrgon.5e",  0x00000, 0x08000, CRC(27ccdfbc) SHA1(3caafe00735ba9b24d870ee61ad2cae541551024) )	/* CODE */
 		ROM_LOAD( "blkdrgon.6e",  0x10000, 0x10000, CRC(7d39c26f) SHA1(562a3f578e109ae020f65e341c876ad7e510a311) )	/* 0+1 */
@@ -405,7 +405,7 @@ public class blktiger
 		ROM_LOAD( "mb7114e.11l",  0x0300, 0x0100, CRC(e5490b68) SHA1(40f9f92efe7dd97b49144aec02eb509834056915) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blkdrgnb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blkdrgnb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )	/* 64k for code + banked ROMs images */
 		ROM_LOAD( "j1-5e",        0x00000, 0x08000, CRC(97e84412) SHA1(70a1add634750257d8f41a834d930919ce29c9fa) )	/* CODE */
 		ROM_LOAD( "blkdrgon.6e",  0x10000, 0x10000, CRC(7d39c26f) SHA1(562a3f578e109ae020f65e341c876ad7e510a311) )	/* 0+1 */

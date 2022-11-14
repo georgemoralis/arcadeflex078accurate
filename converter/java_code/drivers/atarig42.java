@@ -381,7 +381,7 @@ public class atarig42
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_roadriot = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( roadriot )
+	static InputPortHandlerPtr input_ports_roadriot = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( roadriot )
 		PORT_START(); 		/* e00000 */
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START1 );
@@ -408,7 +408,7 @@ public class atarig42
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_guardian = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( guardian )
+	static InputPortHandlerPtr input_ports_guardian = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( guardian )
 		PORT_START(); 		/* e00000 */
 		PORT_BIT( 0x01ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0200, IP_ACTIVE_LOW, IPT_BUTTON5 | IPF_PLAYER1 );
@@ -541,7 +541,7 @@ public class atarig42
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_roadriot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadriot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80004, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "rriot.8d", 0x00000, 0x20000, CRC(bf8aaafc) SHA1(1594d91b56609d49921c866d8f5796619e79217b) )
 		ROM_LOAD16_BYTE( "rriot.8c", 0x00001, 0x20000, CRC(5dd2dd70) SHA1(8f6a0e809ec1f6feea8a18197a789086a7b9dd6a) )
@@ -594,7 +594,7 @@ public class atarig42
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_guardian = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_guardian = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80004, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "2021.8e",  0x00000, 0x20000, CRC(efea1e02) SHA1(f0f1ef300f36953aff73b68ffe6d9950ac575f7d) )
 		ROM_LOAD16_BYTE( "2020.8cd", 0x00001, 0x20000, CRC(a8f655ba) SHA1(2defe4d138613e248718a617d103794e051746f7) )

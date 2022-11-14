@@ -211,7 +211,7 @@ public class arcadecl
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_arcadecl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( arcadecl )
+	static InputPortHandlerPtr input_ports_arcadecl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( arcadecl )
 		PORT_START(); 	/* 640000 */
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START1 );
@@ -265,7 +265,7 @@ public class arcadecl
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sparkz = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sparkz )
+	static InputPortHandlerPtr input_ports_sparkz = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sparkz )
 		PORT_START(); 	/* 640000 */
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START1 );
@@ -405,7 +405,7 @@ public class arcadecl
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_arcadecl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arcadecl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "pgm0",  0x00000, 0x80000, CRC(b5b93623) SHA1(a2e96c0c6eceb3d8f205e28d6b8197055aeb8cc4) )
 		ROM_LOAD16_BYTE( "prog1", 0x00001, 0x80000, CRC(e7efef85) SHA1(05f2119d8ecc27f6efea85f5174ea7da404d7e9b) )
@@ -418,7 +418,7 @@ public class arcadecl
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sparkz = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sparkz = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "sparkzpg.0", 0x00000, 0x80000, CRC(a75c331c) SHA1(855ed44bd23c1dd0ca64926cacc8be62aca82fe2) )
 		ROM_LOAD16_BYTE( "sparkzpg.1", 0x00001, 0x80000, CRC(1af1fc04) SHA1(6d92edb1a881ba6b63e0144c9c3e631b654bf8ae) )

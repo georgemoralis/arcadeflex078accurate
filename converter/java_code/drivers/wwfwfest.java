@@ -212,7 +212,7 @@ public class wwfwfest
 	 There are 4 players, 2 sets of dipswitches and 2 misc
 	*******************************************************************************/
 	
-	static InputPortPtr input_ports_wwfwfest = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wwfwfest )
+	static InputPortHandlerPtr input_ports_wwfwfest = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wwfwfest )
 		PORT_START(); 	/* Player 1 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -483,7 +483,7 @@ public class wwfwfest
 	  31J9_IC15    61C16-35 61C16-35     Z80      YM2151
 	
 	*******************************************************************************/
-	static RomLoadPtr rom_wwfwfest = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wwfwfest = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* Main CPU  (68000) */
 		ROM_LOAD16_BYTE( "31a13-2.19", 0x00001, 0x40000, CRC(7175bca7) SHA1(992b47a787b5bc2a5a381ec78b8dfaf7d42c614b) )
 		ROM_LOAD16_BYTE( "31a14-2.18", 0x00000, 0x40000, CRC(5d06bfd1) SHA1(39a93da662158aa5a9953dcabfcb47c2fc196dc7) )
@@ -512,7 +512,7 @@ public class wwfwfest
 		ROM_LOAD( "wf_02.rom",    0x00000, 0x40000, CRC(82ed7155) SHA1(b338e1150ffe3277c11d4d6e801a7d3bd7c58492) ) /* 2,3 */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wwfwfsta = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wwfwfsta = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* Main CPU  (68000) */
 		ROM_LOAD16_BYTE( "wf_18.rom", 0x00000, 0x40000, CRC(933ea1a0) SHA1(61da142cfa7abd3b77ab21979c061a078c0d0c63) )
 		ROM_LOAD16_BYTE( "wf_19.rom", 0x00001, 0x40000, CRC(bd02e3c4) SHA1(7ae63e48caf9919ce7b63b4c5aa9474ba8c336da) )
@@ -541,7 +541,7 @@ public class wwfwfest
 		ROM_LOAD( "wf_02.rom",    0x00000, 0x40000, CRC(82ed7155) SHA1(b338e1150ffe3277c11d4d6e801a7d3bd7c58492) ) /* 2,3 */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wwfwfstj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wwfwfstj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* Main CPU  (68000) */
 		ROM_LOAD16_BYTE( "31j13-0.bin", 0x00001, 0x40000, CRC(2147780d) SHA1(9a7a5db06117f3780e084d3f0c7b642ff8a9db55) )
 		ROM_LOAD16_BYTE( "31j14-0.bin", 0x00000, 0x40000, CRC(d76fc747) SHA1(5f6819bc61756d1df4ac0776ac420a59c438cf8a) )

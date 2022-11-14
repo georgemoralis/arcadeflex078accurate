@@ -487,7 +487,7 @@ public class moo
 	};
 	
 	
-	static InputPortPtr input_ports_moo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( moo )
+	static InputPortHandlerPtr input_ports_moo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( moo )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -556,7 +556,7 @@ public class moo
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'moo', but additional "Button 3" for all players */
-	static InputPortPtr input_ports_bucky = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bucky )
+	static InputPortHandlerPtr input_ports_bucky = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bucky )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -728,7 +728,7 @@ public class moo
 	
 	
 	
-	static RomLoadPtr rom_moo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 )
 		/* main program */
 		ROM_LOAD16_BYTE( "151b01",    0x000000,  0x40000, CRC(fb2fa298) SHA1(f03b24681a2b329ba797fd2780ac9a3cf862ebcb) )
@@ -760,7 +760,7 @@ public class moo
 		ROM_LOAD( "151a08", 0x000000, 0x200000, CRC(962251d7) SHA1(32dccf515d2ca8eeffb45cada3dcc60089991b77) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mooua = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mooua = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 )
 		/* main program */
 		ROM_LOAD16_BYTE( "151b01", 0x000000,  0x40000, CRC(fb2fa298) SHA1(f03b24681a2b329ba797fd2780ac9a3cf862ebcb) )
@@ -792,7 +792,7 @@ public class moo
 		ROM_LOAD( "151a08", 0x000000, 0x200000, CRC(962251d7) SHA1(32dccf515d2ca8eeffb45cada3dcc60089991b77) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bucky = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bucky = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x240000, REGION_CPU1, 0 )
 		/* main program */
 		ROM_LOAD16_BYTE( "173ea.b01", 0x000000,  0x40000, CRC(7785ac8a) SHA1(ef78d14f54d3a0b724b9702a18c67891e2d366a7) )
@@ -825,7 +825,7 @@ public class moo
 		ROM_LOAD("173a09.a6", 0x200000, 0x200000, CRC(c93697c4) SHA1(0528a604868267a30d281b822c187df118566691) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_buckyua = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_buckyua = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x240000, REGION_CPU1, 0 )
 		/* main program */
 		ROM_LOAD16_BYTE( "q5", 0x000000,  0x40000, CRC(dcaecca0) SHA1(c41847c9d89cdaf7cfa81ad9cc018c32592a882f) )
@@ -869,7 +869,7 @@ public class moo
 		game_type = (!strcmp(Machine->gamedrv->name, "bucky") || !strcmp(Machine->gamedrv->name, "buckyua"));
 	} };
 	
-	static RomLoadPtr rom_moobl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moobl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 )
 		ROM_LOAD16_WORD_SWAP( "moo03.rom", 0x000000, 0x80000, CRC(fed6a1cb) SHA1(be58e266973930d643b5e15dcc974a82e1a3ae35) )
 		ROM_LOAD16_WORD_SWAP( "moo04.rom", 0x100000, 0x80000, CRC(ec45892a) SHA1(594330cbbfbca87e61ddf519e565018b6eaf5a20) )

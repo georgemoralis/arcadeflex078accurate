@@ -176,7 +176,7 @@ public class pass
 	
 	
 	/* todo : work out function of unknown but used dsw */
-	static InputPortPtr input_ports_pass = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pass )
+	static InputPortHandlerPtr input_ports_pass = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pass )
 		PORT_START(); 	/* DSW */
 		PORT_DIPNAME( 0x0001, 0x0001, "Unknown SW 0-0" );// USED ! Check code at 0x0046ea
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -330,7 +330,7 @@ public class pass
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_pass = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pass = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68k */
 		ROM_LOAD16_BYTE( "33", 0x00001, 0x20000, CRC(0c5f18f6) SHA1(49b60d46e4149ad1d49b044522a6888737c17e7d) )
 		ROM_LOAD16_BYTE( "34", 0x00000, 0x20000, CRC(7b54573d) SHA1(251e99fa1f045ae4c90676e1953e49e8191440e4) )

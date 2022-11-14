@@ -245,7 +245,7 @@ public class cloak
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_cloak = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cloak )
+	static InputPortHandlerPtr input_ports_cloak = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cloak )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICKRIGHT_DOWN  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICKRIGHT_UP    | IPF_8WAY );
@@ -399,7 +399,7 @@ public class cloak
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_cloak = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cloak = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "501.023",      0x4000, 0x2000, CRC(c2dbef1b) SHA1(3bab091afb846ea5f09200e3b44dc8dd430993fe) )
 		ROM_LOAD( "502.023",      0x6000, 0x2000, CRC(316d0c7b) SHA1(58e50661c077415d9465d85c015b8238b4552304) )
@@ -425,7 +425,7 @@ public class cloak
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cloaksp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cloaksp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "501.023",      0x4000, 0x2000, CRC(c2dbef1b) SHA1(3bab091afb846ea5f09200e3b44dc8dd430993fe) )
 		ROM_LOAD( "502.023",      0x6000, 0x2000, CRC(316d0c7b) SHA1(58e50661c077415d9465d85c015b8238b4552304) )
@@ -451,7 +451,7 @@ public class cloak
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cloakfr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cloakfr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "501.023",      0x4000, 0x2000, CRC(c2dbef1b) SHA1(3bab091afb846ea5f09200e3b44dc8dd430993fe) )
 		ROM_LOAD( "502.023",      0x6000, 0x2000, CRC(316d0c7b) SHA1(58e50661c077415d9465d85c015b8238b4552304) )
@@ -477,7 +477,7 @@ public class cloak
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cloakgr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cloakgr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "501.023",      0x4000, 0x2000, CRC(c2dbef1b) SHA1(3bab091afb846ea5f09200e3b44dc8dd430993fe) )
 		ROM_LOAD( "502.023",      0x6000, 0x2000, CRC(316d0c7b) SHA1(58e50661c077415d9465d85c015b8238b4552304) )

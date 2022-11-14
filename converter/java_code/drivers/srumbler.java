@@ -131,7 +131,7 @@ public class srumbler
 	};
 	
 	
-	static InputPortPtr input_ports_srumbler = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( srumbler )
+	static InputPortHandlerPtr input_ports_srumbler = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( srumbler )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -312,7 +312,7 @@ public class srumbler
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_srumbler = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srumbler = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 64k for code */
 		/* empty, will be filled later */
 	
@@ -358,7 +358,7 @@ public class srumbler
 		ROM_LOAD( "63s141.8j",    0x0200, 0x0100, CRC(1a89a7ff) SHA1(437160ad5d61a257b7deaf5f5e8b3d4cf56a9663) )	/* priority (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_srumblr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srumblr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 64k for code */
 		/* empty, will be filled later */
 	
@@ -404,7 +404,7 @@ public class srumbler
 		ROM_LOAD( "63s141.8j",    0x0200, 0x0100, CRC(1a89a7ff) SHA1(437160ad5d61a257b7deaf5f5e8b3d4cf56a9663) )	/* priority (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rushcrsh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rushcrsh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 64k for code */
 		/* empty, will be filled later */
 	

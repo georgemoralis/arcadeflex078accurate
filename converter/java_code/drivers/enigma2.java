@@ -122,7 +122,7 @@ public class enigma2
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_enigma2a = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( enigma2a )
+	static InputPortHandlerPtr input_ports_enigma2a = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( enigma2a )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START2 );
@@ -169,7 +169,7 @@ public class enigma2
 		PORT_DIPSETTING(    0x00, DEF_STR( "1C_1C") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_enigma2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( enigma2 )
+	static InputPortHandlerPtr input_ports_enigma2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( enigma2 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START2 );
@@ -261,7 +261,7 @@ public class enigma2
 		MDRV_CPU_REPLACE("main", 8080, 2000000)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_enigma2a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_enigma2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "36_en1.bin",   0x0000, 0x0800, CRC(15f44806) SHA1(4a2f7bc91d4edf7a069e0865d964371c97af0a0a) )
 		ROM_LOAD( "35_en2.bin",   0x0800, 0x0800, CRC(e841072f) SHA1(6ab02fd9fdeac5ab887cd25eee3d6b70ab01f849) )
@@ -276,7 +276,7 @@ public class enigma2
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_enigma2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_enigma2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "1.5d",         0x0000, 0x0800, CRC(499749de) SHA1(401928ff41d3b4cbb68e6ad3bf3be4a10ae1781f) )
 		ROM_LOAD( "2.7d",         0x0800, 0x0800, CRC(173c1329) SHA1(3f1ad46d0e58ab236e4ff2b385d09fbf113627da) )

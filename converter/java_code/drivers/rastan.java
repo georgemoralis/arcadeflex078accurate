@@ -94,7 +94,7 @@ public class rastan
 	
 	
 	
-	static InputPortPtr input_ports_rastan = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rastan )
+	static InputPortHandlerPtr input_ports_rastan = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rastan )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -171,7 +171,7 @@ public class rastan
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rastsaga = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rastsaga )		/* same as rastan, coinage is different */
+	static InputPortHandlerPtr input_ports_rastsaga = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rastsaga )		/* same as rastan, coinage is different */
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -348,7 +348,7 @@ public class rastan
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_rastan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rastan = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "ic19_38.bin", 0x00000, 0x10000, CRC(1c91dbb1) SHA1(17fc55e8546cc0b847aebd67fb4570a1e9f128f3) )
 		ROM_LOAD16_BYTE( "ic07_37.bin", 0x00001, 0x10000, CRC(ecf20bdd) SHA1(92e46b1edef40a19be17091c09daba598d77bca8) )
@@ -377,7 +377,7 @@ public class rastan
 		ROM_LOAD( "ic76_20.bin", 0x0000, 0x10000, CRC(fd1a34cc) SHA1(b1682959521fa295769207b75cf7d839e9ec95fd) ) /* samples are 4bit ADPCM */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rastanu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rastanu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "ic19_38.bin", 0x00000, 0x10000, CRC(1c91dbb1) SHA1(17fc55e8546cc0b847aebd67fb4570a1e9f128f3) )
 		ROM_LOAD16_BYTE( "ic07_37.bin", 0x00001, 0x10000, CRC(ecf20bdd) SHA1(92e46b1edef40a19be17091c09daba598d77bca8) )
@@ -406,7 +406,7 @@ public class rastan
 		ROM_LOAD( "ic76_20.bin", 0x0000, 0x10000, CRC(fd1a34cc) SHA1(b1682959521fa295769207b75cf7d839e9ec95fd) ) /* samples are 4bit ADPCM */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rastanu2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rastanu2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "rs19_38.bin", 0x00000, 0x10000, CRC(a38ac909) SHA1(66d792fee03c6bd87d15060b9d5cae74137c5ebd) )
 		ROM_LOAD16_BYTE( "b04-21.7",    0x00001, 0x10000, CRC(7c8dde9a) SHA1(0cfc3b4f3bc7b940a6c07267ac95e4aae25801ea) )
@@ -435,7 +435,7 @@ public class rastan
 		ROM_LOAD( "ic76_20.bin", 0x0000, 0x10000, CRC(fd1a34cc) SHA1(b1682959521fa295769207b75cf7d839e9ec95fd) ) /* samples are 4bit ADPCM */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rastsaga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rastsaga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "rs19_38.bin", 0x00000, 0x10000, CRC(a38ac909) SHA1(66d792fee03c6bd87d15060b9d5cae74137c5ebd) )
 		ROM_LOAD16_BYTE( "rs07_37.bin", 0x00001, 0x10000, CRC(bad60872) SHA1(e020f79b3ac3d2abccfcd5d135d2dc49e1335c7d) )

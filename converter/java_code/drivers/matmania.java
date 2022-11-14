@@ -181,7 +181,7 @@ public class matmania
 	
 	
 	
-	static InputPortPtr input_ports_matmania = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( matmania )
+	static InputPortHandlerPtr input_ports_matmania = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( matmania )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -439,7 +439,7 @@ public class matmania
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_matmania = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_matmania = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "k0-03",        0x4000, 0x4000, CRC(314ab8a4) SHA1(dc86b2f71a9af8524edad2317343b0d05fe5ef4a) )
 		ROM_LOAD( "k1-03",        0x8000, 0x4000, CRC(3b3c3f08) SHA1(65f0c5dba0b8eeb5c2d42b050cac37c475e6a398) )
@@ -489,7 +489,7 @@ public class matmania
 		ROM_LOAD( "matmania.16",  0x0060, 0x0020, CRC(09325dc2) SHA1(3d9ebdf73840a9603af2acc4bcc4339f3029d284) ) /* tile palette blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_excthour = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_excthour = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "e29",          0x04000, 0x4000, CRC(c453e855) SHA1(52ce83042ec04e7ba5b45a61316d6281cb10170a) )
 		ROM_LOAD( "e28",          0x08000, 0x4000, CRC(17b63708) SHA1(01c868b7ea32c4857f7187ce73a4cab5b4def246) )
@@ -539,7 +539,7 @@ public class matmania
 		ROM_LOAD( "matmania.16",  0x0060, 0x0020, CRC(09325dc2) SHA1(3d9ebdf73840a9603af2acc4bcc4339f3029d284) ) /* tile palette blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_maniach = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maniach = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "mc-mb2.bin",   0x04000, 0x4000, CRC(a6da1ba8) SHA1(d861c1c68b25272205939df43cdcca423ba7c937) )
 		ROM_LOAD( "mc-ma2.bin",   0x08000, 0x4000, CRC(84583323) SHA1(f1512fec6f3e03dc633a96917a114b0b6369c577) )
@@ -593,7 +593,7 @@ public class matmania
 		ROM_LOAD( "prom.17",      0x0060, 0x0020, CRC(41f51d49) SHA1(7cfaf308752cbfddf5a37a31140119afc3febaa7) ) /* tile palette blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_maniach2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maniach2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ic40-mb1",     0x04000, 0x4000, CRC(b337a867) SHA1(a615283a70700028267e223df00e70bdd159ec09) )
 		ROM_LOAD( "ic41-ma1",     0x08000, 0x4000, CRC(85ec8279) SHA1(dada5fa6981573a1fbb235becbc647e1e2d497e1) )

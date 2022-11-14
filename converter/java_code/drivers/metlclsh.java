@@ -165,7 +165,7 @@ public class metlclsh
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_metlclsh = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( metlclsh )
+	static InputPortHandlerPtr input_ports_metlclsh = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( metlclsh )
 		PORT_START(); 	/* IN0 - c000 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "2C_1C") );
@@ -418,7 +418,7 @@ public class metlclsh
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_metlclsh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_metlclsh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "cs04.bin",    0x00000, 0x8000, CRC(c2cc79a6) SHA1(0f586d4145afabbb45ea4865ed7a6590b14a2ab0) )
 		ROM_LOAD( "cs00.bin",    0x0a000, 0x2000, CRC(af0f2998) SHA1(09dd2516406168660d5cd3a36be1e5f0adbcdb8a) )

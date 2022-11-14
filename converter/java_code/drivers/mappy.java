@@ -183,7 +183,7 @@ public class mappy
 	
 	
 	/* input from the outside world */
-	static InputPortPtr input_ports_mappy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mappy )
+	static InputPortHandlerPtr input_ports_mappy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mappy )
 		PORT_START();       /* DSW0 */
 	/* According to the manual, 0x04, 0x08 and 0x10 should always be off,
 	but... */
@@ -284,7 +284,7 @@ public class mappy
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_digdug2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( digdug2 )
+	static InputPortHandlerPtr input_ports_digdug2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( digdug2 )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -371,7 +371,7 @@ public class mappy
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_motos = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( motos )
+	static InputPortHandlerPtr input_ports_motos = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( motos )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, "Reset" );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -437,7 +437,7 @@ public class mappy
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_todruaga = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( todruaga )
+	static InputPortHandlerPtr input_ports_todruaga = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( todruaga )
 		PORT_START();       /* DSW0 */
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_UNUSED );
 		PORT_DIPNAME( 0x30, 0x00, DEF_STR( "Lives") );
@@ -729,7 +729,7 @@ public class mappy
 	
 	
 	
-	static RomLoadPtr rom_mappy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mappy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code for the first CPU  */
 		ROM_LOAD( "mpx_3.1d",	0xa000, 0x2000, CRC(52e6c708) SHA1(b9722941438e93325e84691ada4e95620bec73b2) )
 		ROM_LOAD( "mp1_2.1c",	0xc000, 0x2000, CRC(a958a61c) SHA1(e5198703cdf47b2cd7fc9f2a5fde7bf4ab2275db) )
@@ -754,7 +754,7 @@ public class mappy
 		ROM_LOAD( "mp1-3.3m",	0x0000, 0x0100, CRC(16a9166a) SHA1(847cbaf7c88616576c410177e066ae1d792ac0ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mappyj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mappyj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code for the first CPU  */
 		ROM_LOAD( "mp1_3.1d",	0xa000, 0x2000, CRC(db9d5ab5) SHA1(32a0190f96f9c00c541b24dd17d6ad487938a8bf) )
 		ROM_LOAD( "mp1_2.1c",	0xc000, 0x2000, CRC(a958a61c) SHA1(e5198703cdf47b2cd7fc9f2a5fde7bf4ab2275db) )
@@ -779,7 +779,7 @@ public class mappy
 		ROM_LOAD( "mp1-3.3m",	0x0000, 0x0100, CRC(16a9166a) SHA1(847cbaf7c88616576c410177e066ae1d792ac0ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_digdug2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_digdug2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code for the first CPU  */
 		ROM_LOAD( "d23_3.1d",	0x8000, 0x4000, CRC(cc155338) SHA1(d6796479ebb00081e9ae281380a4ce75f730766e) )
 		ROM_LOAD( "d23_1.1b",	0xc000, 0x4000, CRC(40e46af8) SHA1(698a5c425e23627331d85216a4edee9c391e5749) )
@@ -803,7 +803,7 @@ public class mappy
 		ROM_LOAD( "d21-3.3m",	0x0000, 0x0100, CRC(e0074ee2) SHA1(f4f02977130110be52f4dd82fc3c0d02f45778b9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_digdug2o = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_digdug2o = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code for the first CPU  */
 		ROM_LOAD( "d21_3.1d",	0x8000, 0x4000, CRC(be7ec80b) SHA1(a053274ffbf3200e9b89a8be1bd91744acb4a823) )
 		ROM_LOAD( "d21_1.1b",	0xc000, 0x4000, CRC(5c77c0d4) SHA1(56709e5db1686fd996d21c1005accf34e2d863e1) )
@@ -828,7 +828,7 @@ public class mappy
 		ROM_LOAD( "d21-3.3m",	0x0000, 0x0100, CRC(e0074ee2) SHA1(f4f02977130110be52f4dd82fc3c0d02f45778b9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_motos = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_motos = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code for the first CPU  */
 		ROM_LOAD( "mo1_3.1d",	0x8000, 0x4000, CRC(1104abb2) SHA1(ade809a73ac24494b9f95f65b7592df5f86dce60) )
 		ROM_LOAD( "mo1_1.1b",	0xc000, 0x4000, CRC(57b157e2) SHA1(b050495fcc4a4d93551b29d4f05e49f64017c870) )
@@ -852,7 +852,7 @@ public class mappy
 		ROM_LOAD( "mo1-3.3m",	0x0000, 0x0100, CRC(2accdfb4) SHA1(e21a0618c0f8e35ce26666b6850ac9c0d95d7971) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_todruaga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_todruaga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code for the first CPU  */
 		ROM_LOAD( "td2_3.1d",	0x8000, 0x4000, CRC(fbf16299) SHA1(9abbaaaf0a53aff38df8287f62d091b13146cf13) )
 		ROM_LOAD( "td2_1.1b",	0xc000, 0x4000, CRC(b238d723) SHA1(ab8eadd45638ff1ab2dacbd5ab2c6870b9f79086) )
@@ -876,7 +876,7 @@ public class mappy
 		ROM_LOAD( "td1-3.3m",	0x0000, 0x0100, CRC(07104c40) SHA1(16db55525034bacb71e7dc8bd2a7c3c4464d4808) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_todruago = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_todruago = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code for the first CPU  */
 		ROM_LOAD( "td1_3.1d",	0x8000, 0x4000, CRC(7ab4f5b2) SHA1(65035a5ecdff14bf23e01fe0f5e0935d156d94ff) )
 		ROM_LOAD( "td1_1.1b",	0xc000, 0x4000, CRC(8c20ef10) SHA1(12ea4875ce4d4590b88862139d3379ab9f5cec03) )

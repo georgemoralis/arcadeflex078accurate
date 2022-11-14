@@ -301,7 +301,7 @@ public class lasso
 	
 	
 	
-	static InputPortPtr input_ports_lasso = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lasso )
+	static InputPortHandlerPtr input_ports_lasso = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lasso )
 		PORT_START();  /* 1804 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -366,7 +366,7 @@ public class lasso
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_START1  );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_chameleo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( chameleo )
+	static InputPortHandlerPtr input_ports_chameleo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chameleo )
 		PORT_START();  /* 1804 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -431,7 +431,7 @@ public class lasso
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_START1  );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_wwjgtin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wwjgtin )
+	static InputPortHandlerPtr input_ports_wwjgtin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wwjgtin )
 		PORT_START();  /* 1804 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -497,7 +497,7 @@ public class lasso
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_START2  );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pinbo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pinbo )
+	static InputPortHandlerPtr input_ports_pinbo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pinbo )
 		PORT_START();   /* 1804 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -562,7 +562,7 @@ public class lasso
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_START1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pinbos = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pinbos )
+	static InputPortHandlerPtr input_ports_pinbos = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pinbos )
 		PORT_START();   /* 1804 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -836,7 +836,7 @@ public class lasso
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_lasso = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lasso = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "wm3",       0x8000, 0x2000, CRC(f93addd6) SHA1(b0a1b263874da8608c3bab4e8785358e2aa19c2e) )
 		ROM_RELOAD(            0xc000, 0x2000)
@@ -868,7 +868,7 @@ public class lasso
 		ROM_LOAD( "82s123.70", 0x0020, 0x0020, CRC(09060f8c) SHA1(8f14b00bcfb7ab89d2e443cc82f7a65dc96ee819) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_chameleo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chameleo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )		/* 6502 Code (Main CPU) */
 		ROM_LOAD( "chamel4.bin", 0x4000, 0x2000, CRC(97379c47) SHA1(b29fa2318d4260c29fc95d22a461173dc960ad1a) )
 		ROM_LOAD( "chamel5.bin", 0x6000, 0x2000, CRC(0a2cadfd) SHA1(1ccc43accd60ca15b8f03ed1c3fda76a840a2bb1) )
@@ -897,7 +897,7 @@ public class lasso
 		ROM_LOAD( "chamaprm.bin", 0x0020, 0x0020, CRC(c7063b54) SHA1(53baed3806848207ab3a8fafd182cabec3be4b04) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wwjgtin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wwjgtin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )		/* 6502 Code (Main CPU) */
 		ROM_LOAD( "ic2.6", 0x4000, 0x4000, CRC(744ba45b) SHA1(cccf3e2dd3c27bf54d2abd366cd9a044311aa031) )
 		ROM_LOAD( "ic5.5", 0x8000, 0x4000, CRC(af751614) SHA1(fc0f0a3967524b1743a182c1da4f9b0c3097a157) )
@@ -938,7 +938,7 @@ public class lasso
 		ROM_LOAD( "1.bpr",  0x0020, 0x0020, CRC(c1a93cc8) SHA1(805641ea2ce86589b968f1ff44e5d3ab9377769d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pinbo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pinbo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "rom2.b7",     0x2000, 0x2000, CRC(9a185338) SHA1(4029cf927686b5e14ef7600b17ea3056cc58b15b) )
 		ROM_LOAD( "rom3.e7",     0x6000, 0x2000, CRC(1cd1b3bd) SHA1(388ea72568f5bfd39856d872415327a2afaf7fad) )
@@ -981,7 +981,7 @@ public class lasso
 		ROM_LOAD( "blue.n10",    0x0200, 0x0100, CRC(e41250ad) SHA1(2e9a2babbacb1753057d46cf1dd6dc183611747e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pinbos = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pinbos = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "b4.bin",      0x2000, 0x2000, CRC(d9452d4f) SHA1(c744ee037275b880c0ddc2fd83b3c05eb0a53621) )
 		ROM_LOAD( "b5.bin",      0x6000, 0x2000, CRC(f80b204c) SHA1(ee9b4ae1d8ea2fc062022fcfae67df87ed7aff41) )

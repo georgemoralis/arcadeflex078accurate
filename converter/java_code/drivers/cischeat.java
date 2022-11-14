@@ -882,7 +882,7 @@ public class cischeat
 	//					[1] Coins		[2] Controls	[3] Unknown
 	//					[4]	DSW 1 & 2	[5] DSW 3		[6] Driving Wheel
 	
-	static InputPortPtr input_ports_bigrun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bigrun )
+	static InputPortHandlerPtr input_ports_bigrun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bigrun )
 		PORT_START(); 	// IN0 - Fake input port - Buttons status
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON1 );\
 		PORT_BIT( 0x04, IP_ACTIVE_HIGH, IPT_BUTTON3 );\
@@ -1005,7 +1005,7 @@ public class cischeat
 	//					[1] Coins		[2] Controls	[3] Unknown
 	//					[4]	DSW 1 & 2	[5] DSW 3		[6] Driving Wheel
 	
-	static InputPortPtr input_ports_cischeat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cischeat )
+	static InputPortHandlerPtr input_ports_cischeat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cischeat )
 		PORT_START(); 	// IN0 - Fake input port - Buttons status
 		PORT_BIT( 0x04, IP_ACTIVE_HIGH, IPT_BUTTON3 );\
 		PORT_BIT( 0x08, IP_ACTIVE_HIGH, IPT_BUTTON4 );\
@@ -1107,7 +1107,7 @@ public class cischeat
 	//					[4]	DSW 3			[5] Driving Wheel
 	//					[6]	Coinage JP&USA	[7] Coinage UK&FR
 	
-	static InputPortPtr input_ports_f1gpstar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( f1gpstar )
+	static InputPortHandlerPtr input_ports_f1gpstar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( f1gpstar )
 		PORT_START(); 	// IN0 - Fake input port - Buttons status
 	    PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON1 );\
 		PORT_BIT( 0x04, IP_ACTIVE_HIGH, IPT_BUTTON3 );\
@@ -1250,7 +1250,7 @@ public class cischeat
 									Scud Hammer
 	**************************************************************************/
 	
-	static InputPortPtr input_ports_scudhamm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( scudhamm )
+	static InputPortHandlerPtr input_ports_scudhamm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( scudhamm )
 		PORT_START(); 	// IN0 - Buttons
 		PORT_BIT_IMPULSE( 0x0001, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN  );// GAME OVER if pressed on the selection screen
@@ -1764,7 +1764,7 @@ public class cischeat
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bigrun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bigrun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "br8950b.e1",  0x000000, 0x040000, CRC(bfb54a62) SHA1(49f78e162e8bc19a75c62029737acd665b9b124b) )
 		ROM_LOAD16_BYTE( "br8950b.e2",  0x000001, 0x040000, CRC(c0483e81) SHA1(e8fd8860191c7d8cb4dda44c69ce05cd58174a07) )
@@ -1890,7 +1890,7 @@ public class cischeat
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_cischeat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cischeat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "ch9071v2.03", 0x000000, 0x040000, CRC(dd1bb26f) SHA1(2b9330b45edcc3291ad4ac935558c1f070ab5bd9) )
 		ROM_LOAD16_BYTE( "ch9071v2.01", 0x000001, 0x040000, CRC(7b65276a) SHA1(e0075b6d09da12ab7c84b888ffe65cd33ec7c6b6) )
@@ -2094,7 +2094,7 @@ public class cischeat
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_f1gpstar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_f1gpstar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "9188a-27.v20", 0x000000, 0x040000, CRC(0a9d3896) SHA1(5e3332a1b779dead1e4f9ef274a2f168721db0ed) )
 		ROM_LOAD16_BYTE( "9188a-22.v20", 0x000001, 0x040000, CRC(de15c9ca) SHA1(f356b02ca66b7e8ab0293e6e28fcd3f7996c80c8) )
@@ -2310,7 +2310,7 @@ public class cischeat
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_f1gpstr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_f1gpstr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "9188a-27.125", 0x000000, 0x040000, CRC(ee60b894) SHA1(92247cd3b0e3fb2ed0ad27062d1cc13dadb21465) )
 		ROM_LOAD16_BYTE( "9188a-22.92" , 0x000001, 0x040000, CRC(f229332b) SHA1(f7037515d77a1f42ce555b8baa15075d7009a5c6) )
@@ -2436,7 +2436,7 @@ public class cischeat
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_scudhamm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_scudhamm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "3", 0x000000, 0x040000, CRC(a908e7bd) SHA1(be0a8f959ab5c19122eee6c3def6137f37f1a9c6) )
 		ROM_LOAD16_BYTE( "4", 0x000001, 0x040000, CRC(981c8b02) SHA1(db6c8993bf1c3993ab31dd649022ab76169975e1) )

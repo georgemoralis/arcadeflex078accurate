@@ -125,7 +125,7 @@ public class volfied
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_COCKTAIL );
 	
 	
-	static InputPortPtr input_ports_volfied = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( volfied )
+	static InputPortHandlerPtr input_ports_volfied = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( volfied )
 		PORT_START(); 	/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -174,7 +174,7 @@ public class volfied
 		VOLFIED_INPUT_BITS
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_volfiedu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( volfiedu )
+	static InputPortHandlerPtr input_ports_volfiedu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( volfiedu )
 		PORT_START(); 	/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -224,7 +224,7 @@ public class volfied
 		VOLFIED_INPUT_BITS
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_volfiedj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( volfiedj )
+	static InputPortHandlerPtr input_ports_volfiedj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( volfiedj )
 		PORT_START(); 	/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -361,7 +361,7 @@ public class volfied
 						DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_volfied = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_volfied = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code and tile data */
 		ROM_LOAD16_BYTE( "c04-12-1.bin", 0x00000, 0x10000, CRC(afb6a058) SHA1(fca488e86725a0a673332afeb0002f0e77ef2dbf) )
 		ROM_LOAD16_BYTE( "c04-08-1.bin", 0x00001, 0x10000, CRC(19f7e66b) SHA1(51b5d0d00ec398ed717154286bec24b05c3f81b8) )
@@ -386,7 +386,7 @@ public class volfied
 		ROM_LOAD( "c04-06.bin", 0x0000, 0x8000, CRC(b70106b2) SHA1(d71062f9d9b11492e13fc93982b95883f564f902) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_volfiedu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_volfiedu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code and tile data */
 		ROM_LOAD16_BYTE( "c04-12-1.bin", 0x00000, 0x10000, CRC(afb6a058) SHA1(fca488e86725a0a673332afeb0002f0e77ef2dbf) )
 		ROM_LOAD16_BYTE( "c04-08-1.bin", 0x00001, 0x10000, CRC(19f7e66b) SHA1(51b5d0d00ec398ed717154286bec24b05c3f81b8) )
@@ -411,7 +411,7 @@ public class volfied
 		ROM_LOAD( "c04-06.bin", 0x0000, 0x8000, CRC(b70106b2) SHA1(d71062f9d9b11492e13fc93982b95883f564f902) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_volfiedj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_volfiedj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code and tile data */
 		ROM_LOAD16_BYTE( "c04-12-1.bin", 0x00000, 0x10000, CRC(afb6a058) SHA1(fca488e86725a0a673332afeb0002f0e77ef2dbf) )
 		ROM_LOAD16_BYTE( "c04-08-1.bin", 0x00001, 0x10000, CRC(19f7e66b) SHA1(51b5d0d00ec398ed717154286bec24b05c3f81b8) )

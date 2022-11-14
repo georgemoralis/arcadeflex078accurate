@@ -93,7 +93,7 @@ public class ladybug
 			cpu_set_irq_line(0, 0, HOLD_LINE);
 	} };
 	
-	static InputPortPtr input_ports_ladybug = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ladybug )
+	static InputPortHandlerPtr input_ports_ladybug = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ladybug )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_4WAY );
@@ -184,7 +184,7 @@ public class ladybug
 		PORT_BIT_IMPULSE( 0x02, IP_ACTIVE_HIGH, IPT_COIN2, 1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_snapjack = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( snapjack )
+	static InputPortHandlerPtr input_ports_snapjack = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( snapjack )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_8WAY );
@@ -277,7 +277,7 @@ public class ladybug
 		PORT_BIT_IMPULSE( 0x02, IP_ACTIVE_HIGH, IPT_COIN2, 1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cavenger = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cavenger )
+	static InputPortHandlerPtr input_ports_cavenger = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cavenger )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_8WAY );
@@ -366,7 +366,7 @@ public class ladybug
 		PORT_BIT_IMPULSE( 0x02, IP_ACTIVE_HIGH, IPT_COIN2, 1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dorodon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dorodon )
+	static InputPortHandlerPtr input_ports_dorodon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dorodon )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_4WAY );
@@ -543,7 +543,7 @@ public class ladybug
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ladybug = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ladybug = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "lb1.cpu",      0x0000, 0x1000, CRC(d09e0adb) SHA1(ddc1f849cbcefb64b70a26c2a4c993f0516af814) )
 		ROM_LOAD( "lb2.cpu",      0x1000, 0x1000, CRC(88bc4a0a) SHA1(193c9f90b7550020c0923cb158dff7d5faa53bc6) )
@@ -566,7 +566,7 @@ public class ladybug
 		ROM_LOAD( "10-3.vid",     0x0040, 0x0020, CRC(27fa3a50) SHA1(7cf59b7a37c156640d6ea91554d1c4276c1780e0) ) /* ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ladybugb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ladybugb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "lb1a.cpu",     0x0000, 0x1000, CRC(ec135e54) SHA1(69fc6db04b28c25eda329fc88c235267ca93a09f) )
 		ROM_LOAD( "lb2a.cpu",     0x1000, 0x1000, CRC(3049c5c6) SHA1(51ceb70fa4789ff91c9bb1e157be5b6c09ff3c8e) )
@@ -589,7 +589,7 @@ public class ladybug
 		ROM_LOAD( "10-3.vid",     0x0040, 0x0020, CRC(27fa3a50) SHA1(7cf59b7a37c156640d6ea91554d1c4276c1780e0) ) /* ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_snapjack = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_snapjack = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sj2a.bin",     0x0000, 0x1000, CRC(6b30fcda) SHA1(85e4ebbbe8e8d6c79a14387d7a6818abc9430037) )
 		ROM_LOAD( "sj2b.bin",     0x1000, 0x1000, CRC(1f1088d1) SHA1(0fd5204ea27e9bdd811e9ea21e9bbab84b916f4a) )
@@ -612,7 +612,7 @@ public class ladybug
 		ROM_LOAD( "sj9h.bin",     0x0040, 0x0020, CRC(27fa3a50) SHA1(7cf59b7a37c156640d6ea91554d1c4276c1780e0) ) /* ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cavenger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cavenger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1",            0x0000, 0x1000, CRC(9e0cc781) SHA1(f23bd6b9f427c26ac996a5c8ba29f356cf45c78a) )
 		ROM_LOAD( "2",            0x1000, 0x1000, CRC(5ce5b950) SHA1(170e3f8be592dcccb8868474f40f8f2223e8a8b5) )
@@ -635,7 +635,7 @@ public class ladybug
 		ROM_LOAD( "h9.bpr",       0x0040, 0x0020, CRC(27fa3a50) SHA1(7cf59b7a37c156640d6ea91554d1c4276c1780e0) ) /* ?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dorodon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dorodon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 64K for data, 64K for encrypted opcodes */
 		ROM_LOAD( "dorodon.0",   0x0000, 0x2000, CRC(460aaf26) SHA1(c4ea41cba4ac2d93fedec3c117a4470fee2a910f) )
 		ROM_LOAD( "dorodon.1",   0x2000, 0x2000, CRC(d2451eb6) SHA1(4154bfe50b7f75444d3f0c9be6bd2475fdba1938) )
@@ -662,7 +662,7 @@ public class ladybug
 		ROM_LOAD( "dorodon.bp2", 0x0040, 0x0020, CRC(27fa3a50) SHA1(7cf59b7a37c156640d6ea91554d1c4276c1780e0) ) /* timing?? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dorodon2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dorodon2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 64K for data, 64K for encrypted opcodes */
 		ROM_LOAD( "1.3fg",        0x0000, 0x2000, CRC(4d05d6f8) SHA1(db12ad04295f0ce112b6e90fde94a53ed1d6c3b9) )
 		ROM_LOAD( "2.3h",         0x2000, 0x2000, CRC(27b43b09) SHA1(12a8a6b8665bb9d1967ec631a794aab564a50570) )

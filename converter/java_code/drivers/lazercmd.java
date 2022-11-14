@@ -504,7 +504,7 @@ public class lazercmd
 	};
 	
 	
-	static InputPortPtr input_ports_lazercmd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lazercmd )
+	static InputPortHandlerPtr input_ports_lazercmd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lazercmd )
 		PORT_START(); 					   /* IN0 player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_PLAYER1 );
@@ -553,7 +553,7 @@ public class lazercmd
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_medlanes = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( medlanes )
+	static InputPortHandlerPtr input_ports_medlanes = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( medlanes )
 		PORT_START(); 					   /* IN0 player 1 controls */
 		PORT_BIT( 0x04, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -596,7 +596,7 @@ public class lazercmd
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bbonk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bbonk )
+	static InputPortHandlerPtr input_ports_bbonk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bbonk )
 		PORT_START(); 					   /* IN0 player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_PLAYER1 );
@@ -777,7 +777,7 @@ public class lazercmd
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_lazercmd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lazercmd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )			   /* 32K cpu, 4K for ROM/RAM */
 		ROM_LOAD( "lc.e5",        0x0000, 0x0400, CRC(56dc7a40) SHA1(1324d5d6a44d7314723a0b5745d89f8e27f49d25) )
 		ROM_LOAD( "lc.e6",        0x0400, 0x0400, CRC(b1ef0aa2) SHA1(3edeaa4d4f4e18536066898284d430a1ac00512e) )
@@ -790,7 +790,7 @@ public class lazercmd
 		ROM_LOAD( "lc.b8",        0x0a00, 0x0200, CRC(6d708edd) SHA1(85a45a292eb7bca288b06a118658bf754f828a92) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_medlanes = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_medlanes = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )			   /* 32K cpu, 4K for ROM/RAM */
 		ROM_LOAD( "medlanes.2a", 0x0000, 0x0400, CRC(9c77566a) SHA1(60e1820012b47da8b86d54f00b6f60d2d0123745) )
 		ROM_LOAD( "medlanes.2b", 0x0400, 0x0400, CRC(7841b1a9) SHA1(80621d30995dad42ae44c62494922ca8b75415cf) )
@@ -808,7 +808,7 @@ public class lazercmd
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bbonk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bbonk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )			   /* 32K cpu, 4K for ROM/RAM */
 		ROM_LOAD( "bbonk.e5",     0x0000, 0x0400, CRC(d032baa0) SHA1(09cba16f6a2b7d8a8c501db639bd5eeefb63dc0f) )
 		ROM_LOAD( "bbonk.e6",     0x0400, 0x0400, CRC(71df0e25) SHA1(c2f78490816add1296923861a89df15be9822fed) )

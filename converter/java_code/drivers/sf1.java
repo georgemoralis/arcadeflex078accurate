@@ -295,7 +295,7 @@ public class sf1
 	
 	
 	
-	static InputPortPtr input_ports_sf1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sf1 )
+	static InputPortHandlerPtr input_ports_sf1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sf1 )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0000, DEF_STR( "4C_1C") );
@@ -473,7 +473,7 @@ public class sf1
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sf1us = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sf1us )
+	static InputPortHandlerPtr input_ports_sf1us = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sf1us )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0000, DEF_STR( "4C_1C") );
@@ -611,7 +611,7 @@ public class sf1
 		PORT_BIT( 0x8000, IP_ACTIVE_LOW, IPT_BUTTON5 | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sf1jp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sf1jp )
+	static InputPortHandlerPtr input_ports_sf1jp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sf1jp )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0000, DEF_STR( "4C_1C") );
@@ -891,7 +891,7 @@ public class sf1
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_sf1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sf1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE("sfe-19", 0x00000, 0x10000, CRC(8346c3ca) SHA1(404e26d210e453ef0f03b092d70c770106eed1d1) )
 		ROM_LOAD16_BYTE("sfe-22", 0x00001, 0x10000, CRC(3a4bfaa8) SHA1(6a6fc8d967838eca7d2973de987bb350c25628d5) )
@@ -955,7 +955,7 @@ public class sf1
 		ROM_LOAD( "mmi-7603.13h", 0x0300, 0x0020, CRC(06bcda53) SHA1(fa69b77697bb12aa6012d82ef5b504d3a1d20232) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sf1us = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sf1us = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE("sfd-19", 0x00000, 0x10000, CRC(faaf6255) SHA1(f6d0186c6109780839576c141fc6b557c170c182) )
 		ROM_LOAD16_BYTE("sfd-22", 0x00001, 0x10000, CRC(e1fe3519) SHA1(5c59343a8acaaa4f36636d8e28a4ca7854110dad) )
@@ -1019,7 +1019,7 @@ public class sf1
 		ROM_LOAD( "mmi-7603.13h", 0x0300, 0x0020, CRC(06bcda53) SHA1(fa69b77697bb12aa6012d82ef5b504d3a1d20232) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sf1jp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sf1jp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE("sf-19.bin", 0x00000, 0x10000, CRC(116027d7) SHA1(6bcb117ee415aff4d8ea962d4eff4088ca94c251) )
 		ROM_LOAD16_BYTE("sf-22.bin", 0x00001, 0x10000, CRC(d3cbd09e) SHA1(7274c603100132102de09e10d2129cfeb6c06369) )
@@ -1083,7 +1083,7 @@ public class sf1
 		ROM_LOAD( "mmi-7603.13h", 0x0300, 0x0020, CRC(06bcda53) SHA1(fa69b77697bb12aa6012d82ef5b504d3a1d20232) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sf1p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sf1p = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE("prg8.2a", 0x00000, 0x20000, CRC(d48d06a3) SHA1(d899771c66c1e7a5caa11f67a1122adb6f0f4d28) )
 		ROM_LOAD16_BYTE("prg0.2c", 0x00001, 0x20000, CRC(e8606c1a) SHA1(be94203cba733e337993e6f386ff5ce1e76d8913) )

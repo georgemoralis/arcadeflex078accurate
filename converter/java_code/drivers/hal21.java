@@ -353,7 +353,7 @@ public class hal21
 	} };
 	
 	
-	static InputPortPtr input_ports_hal21 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hal21 )
+	static InputPortHandlerPtr input_ports_hal21 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hal21 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -432,7 +432,7 @@ public class hal21
 	
 	/**************************************************************************/
 	
-	static InputPortPtr input_ports_aso = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( aso )
+	static InputPortHandlerPtr input_ports_aso = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( aso )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW,  IPT_COIN2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW,  IPT_SERVICE1 );
@@ -872,7 +872,7 @@ public class hal21
 	
 	/**************************************************************************/
 	
-	static RomLoadPtr rom_hal21 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hal21 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )   /* 64k for CPUA code */
 		ROM_LOAD( "hal21p1.bin",    0x0000, 0x2000, CRC(9d193830) SHA1(8e4e9c8bc774d7c7c0b68a5fa5cabdc6b5cfa41b) )
 		ROM_LOAD( "hal21p2.bin",    0x2000, 0x2000, CRC(c1f00350) SHA1(8709455a980931565ccca60162a04c6c3133099b) )
@@ -909,7 +909,7 @@ public class hal21
 		ROM_LOAD( "hal21_1.prm",  0x800, 0x400, CRC(195768fc) SHA1(c88bc9552d57d52fb4b030d118f48fedccf563f4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hal21j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hal21j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )   /* 64k for CPUA code */
 		ROM_LOAD( "hal21p1.bin",    0x0000, 0x2000, CRC(9d193830) SHA1(8e4e9c8bc774d7c7c0b68a5fa5cabdc6b5cfa41b) )
 		ROM_LOAD( "hal21p2.bin",    0x2000, 0x2000, CRC(c1f00350) SHA1(8709455a980931565ccca60162a04c6c3133099b) )
@@ -946,7 +946,7 @@ public class hal21
 		ROM_LOAD( "hal21_1.prm",  0x800, 0x400, CRC(195768fc) SHA1(c88bc9552d57d52fb4b030d118f48fedccf563f4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_aso = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aso = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )   /* 64k for cpuA code */
 		ROM_LOAD( "aso.1",    0x0000, 0x8000, CRC(3fc9d5e4) SHA1(1318904d3d896affd5affd8e475ac9ee6929b955) )
 		ROM_LOAD( "aso.3",    0x8000, 0x4000, CRC(39a666d2) SHA1(b5426520eb600d44bc5566d742d7b88194076494) )

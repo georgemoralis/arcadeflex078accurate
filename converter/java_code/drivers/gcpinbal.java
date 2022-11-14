@@ -230,7 +230,7 @@ public class gcpinbal
 	                   INPUT PORTS, DIPs
 	***********************************************************/
 	
-	static InputPortPtr input_ports_gcpinbal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gcpinbal )
+	static InputPortHandlerPtr input_ports_gcpinbal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gcpinbal )
 		PORT_START(); 	/* DSW */
 		PORT_DIPNAME( 0x0003, 0x0003, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(      0x0002, "Easy" );
@@ -424,7 +424,7 @@ public class gcpinbal
 	                                  DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gcpinbal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gcpinbal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )     /* 512k for 68000 program */
 		ROM_LOAD16_WORD_SWAP( "u43.2",  0x000000, 0x80000, CRC(d174bd7f) SHA1(0e6c17265e1400de941e3e2ca3be835aaaff6695) )
 		ROM_FILL            ( 0x80000,  0x080000, 0x0 )

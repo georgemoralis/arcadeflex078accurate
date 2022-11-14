@@ -200,7 +200,7 @@ public class compgolf
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_compgolf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( compgolf )
+	static InputPortHandlerPtr input_ports_compgolf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( compgolf )
 		/*Player 1 Port*/
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -358,7 +358,7 @@ public class compgolf
 	
 	/***************************************************************************/
 	
-	static RomLoadPtr rom_compgolf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_compgolf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "cv06.bin",     0x04000, 0x4000, CRC(8f76979d) SHA1(432f6a1402fd3276669f5f45f03fd12380900178) )
 		ROM_CONTINUE(             0x04000, 0x4000 )

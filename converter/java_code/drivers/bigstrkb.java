@@ -120,7 +120,7 @@ public class bigstrkb
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_BUTTON3 | player );\
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, start );
 	
-	static InputPortPtr input_ports_bigstrkb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bigstrkb )
+	static InputPortHandlerPtr input_ports_bigstrkb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bigstrkb )
 		PORT_START(); 	/* DSW0 (0x700000.w) */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x07, DEF_STR( "4C_1C") );
@@ -264,7 +264,7 @@ public class bigstrkb
 	
 	/* Rom Loading */
 	
-	static RomLoadPtr rom_bigstrkb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bigstrkb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "footgaa.015", 0x00001, 0x40000, CRC(33b1d7f3) SHA1(7a48c3c7f5ed61099d07b3259778ad382b7660a2) )
 		ROM_LOAD16_BYTE( "footgaa.016", 0x00000, 0x40000, CRC(1c6b8709) SHA1(b371cb1421877247d88ffc52ad090b3c6279b78f) )

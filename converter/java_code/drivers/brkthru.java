@@ -177,7 +177,7 @@ public class brkthru
 		}
 	} };
 	
-	static InputPortPtr input_ports_brkthru = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( brkthru )
+	static InputPortHandlerPtr input_ports_brkthru = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( brkthru )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -241,7 +241,7 @@ public class brkthru
 		PORT_DIPSETTING(    0xc0, DEF_STR( "Cocktail") );		// "Cocktail 2 Players"
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_brkthruj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( brkthruj )
+	static InputPortHandlerPtr input_ports_brkthruj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( brkthruj )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -303,7 +303,7 @@ public class brkthru
 		PORT_DIPSETTING(    0xc0, DEF_STR( "Cocktail") );		// "Cocktail 2 Players"
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_darwin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( darwin )
+	static InputPortHandlerPtr input_ports_darwin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( darwin )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -540,7 +540,7 @@ public class brkthru
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_brkthru = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_brkthru = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for main CPU + 64k for banked ROMs */
 		ROM_LOAD( "brkthru.1",    0x04000, 0x4000, CRC(cfb4265f) SHA1(4cd748fa06fd2727de1694196912d605672d4883) )
 		ROM_LOAD( "brkthru.2",    0x08000, 0x8000, CRC(fa8246d9) SHA1(d6da03b2a3d8a83411191351ee110b89352a3ead) )
@@ -580,7 +580,7 @@ public class brkthru
 		ROM_LOAD( "brkthru.5",    0x8000, 0x8000, CRC(c309435f) SHA1(82914004c2b169a7c31aa49af83a699ebbc7b33f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_brkthruj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_brkthruj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for main CPU + 64k for banked ROMs */
 		ROM_LOAD( "1",            0x04000, 0x4000, CRC(09bd60ee) SHA1(9591a4c89bb69d5615a5d6b29c47e6b17350c007) )
 		ROM_LOAD( "2",            0x08000, 0x8000, CRC(f2b2cd1c) SHA1(dafccc74310876bc1c88de7f3c86f93ed8a0eb62) )
@@ -620,7 +620,7 @@ public class brkthru
 		ROM_LOAD( "brkthru.5",    0x8000, 0x8000, CRC(c309435f) SHA1(82914004c2b169a7c31aa49af83a699ebbc7b33f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_darwin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_darwin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for main CPU + 64k for banked ROMs */
 		ROM_LOAD( "darw_04.rom",  0x04000, 0x4000, CRC(0eabf21c) SHA1(ccad6b30fe9361e8a21b8aaf8116aa85f9e6bb19) )
 		ROM_LOAD( "darw_05.rom",  0x08000, 0x8000, CRC(e771f864) SHA1(8ba9f97c6abf035ceaf9f5505495708506f1b0c5) )

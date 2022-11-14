@@ -161,7 +161,7 @@ public class exerion
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_exerion = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( exerion )
+	static InputPortHandlerPtr input_ports_exerion = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( exerion )
 		PORT_START();       /* player 1 inputs (muxed on 0xa000) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -350,7 +350,7 @@ public class exerion
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_exerion = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exerion = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "exerion.07",   0x0000, 0x2000, CRC(4c78d57d) SHA1(ac702e9ad2bc05493fb1355858667c31c36acfe4) )
 		ROM_LOAD( "exerion.08",   0x2000, 0x2000, CRC(dcadc1df) SHA1(91388f617cfaa4289ca1c84c697fcfdd8834ae15) )
@@ -381,7 +381,7 @@ public class exerion
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_exeriont = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exeriont = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "prom5.4p",     0x0000, 0x4000, CRC(58b4dc1b) SHA1(3e34d1eda0b0537dac1062e96259d4cc7c64049c) )
 		ROM_LOAD( "prom6.4s",     0x4000, 0x2000, CRC(fca18c2d) SHA1(31077dada3ed4aa2e26af933f589e01e0c71e5cd) )
@@ -411,7 +411,7 @@ public class exerion
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_exerionb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exerionb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "eb5.bin",      0x0000, 0x4000, CRC(da175855) SHA1(11ea46fd1d504e16e5ffc604d74c1ce210d6be1c) )
 		ROM_LOAD( "eb6.bin",      0x4000, 0x2000, CRC(0dbe2eff) SHA1(5b0e5e8453619beec46c4350d1b2ed571fe3dc24) )

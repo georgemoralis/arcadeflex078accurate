@@ -111,7 +111,7 @@ public class chaknpop
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_chaknpop = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( chaknpop )
+	static InputPortHandlerPtr input_ports_chaknpop = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chaknpop )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -303,7 +303,7 @@ public class chaknpop
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_chaknpop = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chaknpop = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )			/* Main CPU */
 		ROM_LOAD( "a04-01.28",    0x00000, 0x2000, CRC(386fe1c8) SHA1(cca24abfb8a7f439251e7936036475c694002561) )
 		ROM_LOAD( "a04-02.27",    0x02000, 0x2000, CRC(5562a6a7) SHA1(0c5d81f9aaf858f88007a6bca7f83dc3ef59c5b5) )

@@ -242,7 +242,7 @@ public class drgnmst
 	
 	
 	
-	static InputPortPtr input_ports_drgnmst = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( drgnmst )
+	static InputPortHandlerPtr input_ports_drgnmst = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( drgnmst )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -426,7 +426,7 @@ public class drgnmst
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_drgnmst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drgnmst = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "dm1000e", 0x00000, 0x80000, CRC(29467dac) SHA1(42ca42340ffd9b04be23853ca4e936d0528a66ee) )
 		ROM_LOAD16_BYTE( "dm1000o", 0x00001, 0x80000, CRC(ba48e9cf) SHA1(1107f927424107918bb10ff23f40c50579b23836) )

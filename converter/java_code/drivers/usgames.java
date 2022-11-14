@@ -145,7 +145,7 @@ public class usgames
 	
 	
 	
-	static InputPortPtr input_ports_usg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( usg )
+	static InputPortHandlerPtr input_ports_usg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( usg )
 		PORT_START(); 
 		PORT_BITX(0x01, IP_ACTIVE_LOW, IPT_BUTTON1, "Button 1", KEYCODE_Z, IP_JOY_DEFAULT );
 		PORT_BITX(0x02, IP_ACTIVE_LOW, IPT_BUTTON2, "Button 2", KEYCODE_X, IP_JOY_DEFAULT );
@@ -303,7 +303,7 @@ public class usgames
 	
 	
 	
-	static RomLoadPtr rom_usg32 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_usg32 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD( "usg32-0.bin", 0x08000, 0x08000, CRC(bc313387) SHA1(8df2e2736f14e965303993ae4105176bdd59f49d) )
 		/* for the banked region */
@@ -314,7 +314,7 @@ public class usgames
 	
 	
 	/* You can't change the status of "Sexy Triv I" and "Sexy Triv II" */
-	static RomLoadPtr rom_usg83 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_usg83 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD( "grom08-3.rom", 0x08000, 0x08000, CRC(aae84186) SHA1(8385b5c1dded1ea6f90c277b045778c7110a45db) )
 		/* for the banked region */
@@ -325,7 +325,7 @@ public class usgames
 	ROM_END(); }}; 
 	
 	/* Similar to 'usg83', but you can change the status of "Sexy Triv I" */
-	static RomLoadPtr rom_usg83x = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_usg83x = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD( "usg83-0.bin", 0x08000, 0x08000, CRC(4ad9b6e0) SHA1(54940619511b37577bbcd9d05b941079ba793c72) )
 		/* for the banked region */
@@ -336,7 +336,7 @@ public class usgames
 	ROM_END(); }}; 
 	
 	/* Similar to 'usg83', but "Sport Triv" and "Rush Hour" aren't available by default */
-	static RomLoadPtr rom_usg82 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_usg82 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD( "rom0.rom",   0x08000, 0x08000, CRC(09c20b78) SHA1(8b622fef536e98e22866a15c6a5b5da583169e8c) )
 		/* for the banked region */
@@ -347,7 +347,7 @@ public class usgames
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_usg185 = new RomLoadPtr(){ public void handler(){  // an upgraded 182?
+	static RomLoadHandlerPtr rom_usg185 = new RomLoadHandlerPtr(){ public void handler(){  // an upgraded 182?
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD( "usg182.u12",   0x08000, 0x08000, CRC(2f4ed125) SHA1(6ea2ce263b8abe8d283d1c85d403ec908a422448) )
 		/* for the banked region */
@@ -358,7 +358,7 @@ public class usgames
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_usg252 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_usg252 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD( "usg252.u12",   0x08000, 0x08000, CRC(766a855a) SHA1(e67ca9944d92192de423de6aa8a60f2e28b17db1) )
 		/* for the banked region */

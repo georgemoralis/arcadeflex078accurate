@@ -183,7 +183,7 @@ public class wwfsstar
 	 2 Sets of Dipswitches
 	*******************************************************************************/
 	
-	static InputPortPtr input_ports_wwfsstar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wwfsstar )
+	static InputPortHandlerPtr input_ports_wwfsstar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wwfsstar )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_PLAYER1 );
@@ -396,7 +396,7 @@ public class wwfsstar
 	 just the 1 sets supported
 	*******************************************************************************/
 	
-	static RomLoadPtr rom_wwfsstar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wwfsstar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* Main CPU  (68000) */
 		ROM_LOAD16_BYTE( "24ac-04.34", 0x00000, 0x20000, CRC(ee9b850e) SHA1(6b634ad98b6104b9e860d05e73f3a139c2a19a78) )
 		ROM_LOAD16_BYTE( "24ad-04.35", 0x00001, 0x20000, CRC(057c2eef) SHA1(6eb5f60fa51b3e7f17fc6a81182a01ea406febea) )

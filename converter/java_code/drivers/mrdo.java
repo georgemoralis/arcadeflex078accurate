@@ -64,7 +64,7 @@ public class mrdo
 	};
 	
 	
-	static InputPortPtr input_ports_mrdo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mrdo )
+	static InputPortHandlerPtr input_ports_mrdo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mrdo )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_4WAY );
@@ -218,7 +218,7 @@ public class mrdo
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mrdo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrdo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "a4-01.bin",    0x0000, 0x2000, CRC(03dcfba2) SHA1(c15e3d0c4225e0ca120bcd28aca39632575f8e11) )
 		ROM_LOAD( "c4-02.bin",    0x2000, 0x2000, CRC(0ecdd39c) SHA1(c64b3363593911a676c647bf3dba8fe063fcb0de) )
@@ -244,7 +244,7 @@ public class mrdo
 		ROM_LOAD( "j10--4.bin",   0x0060, 0x0020, CRC(ff7fe284) SHA1(3ac8e30011c1fcba0ee8f4dc932f82296c3ba143) )	/* timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mrdot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrdot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "d1",           0x0000, 0x2000, CRC(3dcd9359) SHA1(bfe00450ee8822f437d87514f051ad1be6de9463) )
 		ROM_LOAD( "d2",           0x2000, 0x2000, CRC(710058d8) SHA1(168cc179f2266bbf9437445bef9ff7d3358a8e6b) )
@@ -270,7 +270,7 @@ public class mrdo
 		ROM_LOAD( "j10--4.bin",   0x0060, 0x0020, CRC(ff7fe284) SHA1(3ac8e30011c1fcba0ee8f4dc932f82296c3ba143) )	/* timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mrdofix = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrdofix = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "d1",           0x0000, 0x2000, CRC(3dcd9359) SHA1(bfe00450ee8822f437d87514f051ad1be6de9463) )
 		ROM_LOAD( "d2",           0x2000, 0x2000, CRC(710058d8) SHA1(168cc179f2266bbf9437445bef9ff7d3358a8e6b) )
@@ -296,7 +296,7 @@ public class mrdo
 		ROM_LOAD( "j10--4.bin",   0x0060, 0x0020, CRC(ff7fe284) SHA1(3ac8e30011c1fcba0ee8f4dc932f82296c3ba143) )	/* timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mrlo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrlo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "mrlo01.bin",   0x0000, 0x2000, CRC(6f455e7d) SHA1(82fbe05229f19fb849c90b41e3365be74f4f448f) )
 		ROM_LOAD( "d2",           0x2000, 0x2000, CRC(710058d8) SHA1(168cc179f2266bbf9437445bef9ff7d3358a8e6b) )
@@ -322,7 +322,7 @@ public class mrdo
 		ROM_LOAD( "j10--4.bin",   0x0060, 0x0020, CRC(ff7fe284) SHA1(3ac8e30011c1fcba0ee8f4dc932f82296c3ba143) )	/* timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mrdu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrdu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "d1",           0x0000, 0x2000, CRC(3dcd9359) SHA1(bfe00450ee8822f437d87514f051ad1be6de9463) )
 		ROM_LOAD( "d2",           0x2000, 0x2000, CRC(710058d8) SHA1(168cc179f2266bbf9437445bef9ff7d3358a8e6b) )
@@ -348,7 +348,7 @@ public class mrdo
 		ROM_LOAD( "j10--4.bin",   0x0060, 0x0020, CRC(ff7fe284) SHA1(3ac8e30011c1fcba0ee8f4dc932f82296c3ba143) )	/* timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mrdoy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrdoy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "dosnow.1",     0x0000, 0x2000, CRC(d3454e2c) SHA1(f8ecb9eec414badbcb65b7188d4a4d06739534cc) )
 		ROM_LOAD( "dosnow.2",     0x2000, 0x2000, CRC(5120a6b2) SHA1(1db6dc3a91ac024e763179f425ad46d9d0aff8f9) )
@@ -374,7 +374,7 @@ public class mrdo
 		ROM_LOAD( "j10--4.bin",   0x0060, 0x0020, CRC(ff7fe284) SHA1(3ac8e30011c1fcba0ee8f4dc932f82296c3ba143) )	/* timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_yankeedo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yankeedo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "a4-01.bin",    0x0000, 0x2000, CRC(03dcfba2) SHA1(c15e3d0c4225e0ca120bcd28aca39632575f8e11) )
 		ROM_LOAD( "yd_d2.c4",     0x2000, 0x2000, CRC(7c9d7ce0) SHA1(37889575c7c83cb647008b038e4efdc87355bd3e) )

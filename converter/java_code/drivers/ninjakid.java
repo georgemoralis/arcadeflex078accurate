@@ -218,7 +218,7 @@ public class ninjakid
 	 Rom Definitions
 	*******************************************************************************/
 	
-	static RomLoadPtr rom_ninjakun = new RomLoadPtr(){ public void handler(){  /* Original Board? */
+	static RomLoadHandlerPtr rom_ninjakun = new RomLoadHandlerPtr(){ public void handler(){  /* Original Board? */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Main CPU */
 		ROM_LOAD( "ninja-1.7a",  0x0000, 0x02000, CRC(1c1dc141) SHA1(423d3ed35e73a8d5bfce075a889b0322b207bd0d) )
 		ROM_LOAD( "ninja-2.7b",  0x2000, 0x02000, CRC(39cc7d37) SHA1(7f0d0e1e92cb6a57f15eb7fc51a67112f1c5fc8e) )
@@ -248,7 +248,7 @@ public class ninjakid
 	 2 Sets of Dipsiwtches
 	*******************************************************************************/
 	
-	static InputPortPtr input_ports_ninjakid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ninjakid )
+	static InputPortHandlerPtr input_ports_ninjakid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ninjakid )
 		PORT_START(); 	/* 0xa000 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW,	IPT_JOYSTICK_LEFT | IPF_2WAY );/* "XPOS1" */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW,	IPT_JOYSTICK_RIGHT| IPF_2WAY );

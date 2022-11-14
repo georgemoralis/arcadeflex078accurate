@@ -171,7 +171,7 @@ public class epos
 	   so that ROMs couldn't be simply swapped.  Each game checks these bits and halts
 	   the processor if an unexpected value is read. */
 	
-	static InputPortPtr input_ports_megadon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( megadon )
+	static InputPortHandlerPtr input_ports_megadon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( megadon )
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "1C_1C") );
@@ -219,7 +219,7 @@ public class epos
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_suprglob = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( suprglob )
+	static InputPortHandlerPtr input_ports_suprglob = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( suprglob )
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "1C_1C") );
@@ -270,7 +270,7 @@ public class epos
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_igmo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( igmo )
+	static InputPortHandlerPtr input_ports_igmo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( igmo )
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "1C_1C") );
@@ -319,7 +319,7 @@ public class epos
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_dealer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dealer )
+	static InputPortHandlerPtr input_ports_dealer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dealer )
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -451,7 +451,7 @@ public class epos
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_megadon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_megadon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "2732u10b.bin",   0x0000, 0x1000, CRC(af8fbe80) SHA1(2d7857616462112fe17343a9357ee51d8f965a0f) )
 		ROM_LOAD( "2732u09b.bin",   0x1000, 0x1000, CRC(097d1e73) SHA1(b6141155b2c63c33a367dd18fe53ff9f01b99380) )
@@ -467,7 +467,7 @@ public class epos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_catapult = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_catapult = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "co3223.u10",     0x0000, 0x1000, CRC(50abcfd2) SHA1(13ce04addc7bcaa1ec6659da26b1c13ed9dc28f9) )
 		ROM_LOAD( "co3223.u09",     0x1000, 0x1000, CRC(fd5a9a1c) SHA1(512374e8450459537ba2cc41e7d0178052445316) )
@@ -483,7 +483,7 @@ public class epos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_suprglob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suprglob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "u10",			0x0000, 0x1000, CRC(c0141324) SHA1(a54bd71da233eb22f45da630693fddd5a0bcf25b) )
 		ROM_LOAD( "u9",				0x1000, 0x1000, CRC(58be8128) SHA1(534f0a093b3ff577a2a5461498bc11ce14dc6d97) )
@@ -499,7 +499,7 @@ public class epos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_theglob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_theglob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "globu10.bin",	0x0000, 0x1000, CRC(08fdb495) SHA1(739efa676b5a3df36a6061382aeb8c2d495ba23f) )
 		ROM_LOAD( "globu9.bin",		0x1000, 0x1000, CRC(827cd56c) SHA1(3aedc1cefb463cf6b31befb33e50c832dc2e3941) )
@@ -515,7 +515,7 @@ public class epos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_theglob2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_theglob2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "611293.u10",		0x0000, 0x1000, CRC(870af7ce) SHA1(f901619663313a72997f30ccecdeac8294fe200e) )
 		ROM_LOAD( "611293.u9",		0x1000, 0x1000, CRC(a3679782) SHA1(fbc26ae98e2bf10272d61159b084d78a6f410374) )
@@ -531,7 +531,7 @@ public class epos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_theglob3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_theglob3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "theglob3.u10",	0x0000, 0x1000, CRC(969cfaf6) SHA1(b63226b8694640d6452bca12755780d1b52d1d3c) )
 		ROM_LOAD( "theglob3.u9",	0x1000, 0x1000, CRC(8e6c010a) SHA1(ec9627742ce52eb29bbafc9d0555d16ac7146f2e) )
@@ -547,7 +547,7 @@ public class epos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_igmo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_igmo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "igmo-u10.732",	0x0000, 0x1000, CRC(a9f691a4) SHA1(e3f2dc41bd8760fc52e99b7e9faa12c7cf51ffe0) )
 		ROM_LOAD( "igmo-u9.732",	0x1000, 0x1000, CRC(3c133c97) SHA1(002b5aff6b947b6a9cbabeed5be798c1ddf2bda1) )
@@ -563,7 +563,7 @@ public class epos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_dealer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dealer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )
 		ROM_LOAD( "u1.bin",			0x0000, 0x2000, CRC(e06f3563) SHA1(0d58cd1f2e1ca89adb9c64d7dd520bb1f2d50f1a) )
 		ROM_LOAD( "u2.bin",			0x2000, 0x2000, CRC(726bbbd6) SHA1(3538f3d655899c2a0f984c43fb7545ea4be1b231) )

@@ -329,7 +329,7 @@ public class galpani2
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_galpani2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( galpani2 )
+	static InputPortHandlerPtr input_ports_galpani2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galpani2 )
 		PORT_START(); 	// IN0 - DSW + Player - 780000.w
 		PORT_DIPNAME( 0x0007, 0x0007, "Unknown 2-0&1&2*" );
 		PORT_DIPSETTING(      0x007, "7" );
@@ -595,7 +595,7 @@ public class galpani2
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_galpani2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galpani2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* CPU#1 Code */
 		ROM_LOAD16_BYTE( "g000t1.133", 0x000000, 0x080000, CRC(332048e7) SHA1(1a353d4b29f7a08158fc454309dc496df6b5b108) )
 		ROM_LOAD16_BYTE( "g001t1.134", 0x000001, 0x080000, CRC(c92937c3) SHA1(0c9e894c0e23e319bd2d01ec573f02ed510e3ed6) )

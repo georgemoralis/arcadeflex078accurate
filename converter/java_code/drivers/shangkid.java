@@ -463,7 +463,7 @@ public class shangkid
 	
 	/***************************************************************************************/
 	
-	static InputPortPtr input_ports_dynamski = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dynamski )
+	static InputPortHandlerPtr input_ports_dynamski = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dynamski )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -519,7 +519,7 @@ public class shangkid
 		PORT_DIPSETTING(	0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_chinhero = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( chinhero )
+	static InputPortHandlerPtr input_ports_chinhero = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chinhero )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Lives") );
 		PORT_DIPSETTING(	0x01, "3" );
@@ -574,7 +574,7 @@ public class shangkid
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_BUTTON4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_shangkid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shangkid )
+	static InputPortHandlerPtr input_ports_shangkid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shangkid )
 		PORT_START(); 
 		/*	There are also two potentiometers on the PCB for volume:
 		**	RV1 - Music
@@ -637,7 +637,7 @@ public class shangkid
 	
 	/***************************************************************************************/
 	
-	static RomLoadPtr rom_chinhero = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chinhero = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 code (main) */
 		ROM_LOAD( "ic2.1",		  0x0000, 0x2000, CRC(8974bac4) SHA1(932a677d0928f4146201f206b71ac2bcc0f6735c) )
 		ROM_LOAD( "ic3.2",		  0x2000, 0x2000, CRC(9b7a02fe) SHA1(b17593262ec24b999d66634b84eee95c1088f7eb) )
@@ -686,7 +686,7 @@ public class shangkid
 		ROM_LOAD( "ic42",		  0xa60, 0x020, CRC(2ccfe10a) SHA1(d89ea91e5da436805fca9ded9b33609f4a862724) ) /* sound cpu banking */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_chinher2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chinher2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 code (main) */
 		ROM_LOAD( "1.128",        0x0000, 0x4000, CRC(68e247aa) SHA1(27c2b864e482ba10c81337ed7c03a58b395e52bb) ) 
 		ROM_LOAD( "2.128",        0x4000, 0x4000, CRC(0346d8c9) SHA1(458b9a37b0ad0cafecdb0348f7d93508531bc310) ) 
@@ -731,7 +731,7 @@ public class shangkid
 		ROM_LOAD( "ic42",         0xa60, 0x020, CRC(2ccfe10a) SHA1(d89ea91e5da436805fca9ded9b33609f4a862724) ) /* sound cpu banking */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shangkid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shangkid = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Main CPU - handles game logic */
 		ROM_REGION( 0x12000, REGION_CPU1, 0 ) /* Z80 (NEC D780C-1) code */
 		ROM_LOAD( "cr00ic02.bin", 0x00000, 0x4000, CRC(2e420377) SHA1(73eb916b1693ffab8049ea0d8d3503629fa27948) )
@@ -795,7 +795,7 @@ public class shangkid
 		ROM_LOAD( "cr24ic42.bin", 0xa60, 0x020, CRC(823878aa) SHA1(eb5026270890e5af9193e354b7e814f32238a9bf) )	/* 82S123 - sample player banking */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hiryuken = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hiryuken = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Main CPU - handles game logic */
 		ROM_REGION( 0x12000, REGION_CPU1, 0 ) /* Z80 (NEC D780C-1) code */
 		ROM_LOAD( "1.2", 0x00000, 0x4000, CRC(c7af7f2e) SHA1(b035a4230e10bcf0891e41423a51fb6169087b8e) )
@@ -859,7 +859,7 @@ public class shangkid
 		ROM_LOAD( "cr24ic42.bin", 0xa60, 0x020, CRC(823878aa) SHA1(eb5026270890e5af9193e354b7e814f32238a9bf) ) /* 82S123 - sample player banking */	// 3.42
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dynamski = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dynamski = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x12000, REGION_CPU1, 0 ) /* Z80 code */
 		ROM_LOAD( "dynski.1",     0x00000, 0x1000, CRC(30191160) SHA1(5ffa3355f53e4be65bd96101088d2d7b66490141) ) /* code */
 		ROM_LOAD( "dynski.2",     0x01000, 0x1000, CRC(5e08a0b0) SHA1(89398752e8ea1ffd8ec8392f5c8e20f25cf8fdfb) )

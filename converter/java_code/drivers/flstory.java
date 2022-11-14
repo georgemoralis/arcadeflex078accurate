@@ -276,7 +276,7 @@ public class flstory
 	   (0xe781) is between 8 and 98 (included).
 	*/
 	
-	static InputPortPtr input_ports_flstory = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( flstory )
+	static InputPortHandlerPtr input_ports_flstory = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( flstory )
 		PORT_START();       /* D800: DSW0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Bonus_Life") );
 		PORT_DIPSETTING(    0x00, "30000 100000" );
@@ -380,7 +380,7 @@ public class flstory
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_onna34ro = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( onna34ro )
+	static InputPortHandlerPtr input_ports_onna34ro = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( onna34ro )
 		PORT_START();       /* D800: DSW0 */
 		PORT_DIPNAME(0x03, 0x00, DEF_STR( "Bonus_Life") );
 		PORT_DIPSETTING(   0x00, "200000 200000" );
@@ -638,7 +638,7 @@ public class flstory
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_flstory = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_flstory = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "cpu-a45.15",   0x0000, 0x4000, CRC(f03fc969) SHA1(c8dd25ca25fd413b1a29bd4e58ce5820e5f852b2) )
 		ROM_LOAD( "cpu-a45.16",   0x4000, 0x4000, CRC(311aa82e) SHA1(c2dd806f70ea917818ec844a275fb2fecc2e6c19) )
@@ -662,7 +662,7 @@ public class flstory
 		ROM_LOAD( "vid-a45.21",   0x1c000, 0x4000, CRC(fc382bd1) SHA1(a773c87454a3d7b80374a6d38ecb8633af2cd990) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_flstoryj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_flstoryj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "cpu-a45.15",   0x0000, 0x4000, CRC(f03fc969) SHA1(c8dd25ca25fd413b1a29bd4e58ce5820e5f852b2) )
 		ROM_LOAD( "cpu-a45.16",   0x4000, 0x4000, CRC(311aa82e) SHA1(c2dd806f70ea917818ec844a275fb2fecc2e6c19) )
@@ -686,7 +686,7 @@ public class flstory
 		ROM_LOAD( "vid-a45.21",   0x1c000, 0x4000, CRC(fc382bd1) SHA1(a773c87454a3d7b80374a6d38ecb8633af2cd990) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_onna34ro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_onna34ro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "a52-01-1.40c", 0x0000, 0x4000, CRC(ffddcb02) SHA1(d7002e8a577a5f9c2f63ec8d93076cd720443e05) )
 		ROM_LOAD( "a52-02-1.41c", 0x4000, 0x4000, CRC(da97150d) SHA1(9b18f4d0bff811e332f6d2e151c7583400d60f23) )
@@ -713,7 +713,7 @@ public class flstory
 		ROM_LOAD( "a52-11.32v",   0x1c000, 0x4000, CRC(d1dda6b3) SHA1(fadf1404e8a03ec7e3fafb6281d33bc73bb5c473) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_onna34ra = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_onna34ra = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "ry-08.rom", 0x0000, 0x4000, CRC(e4587b85) SHA1(2fc4439953dd086eac11ba6d7937d8075fc39639) )
 		ROM_LOAD( "ry-07.rom", 0x4000, 0x4000, CRC(6ffda515) SHA1(429e7bb22c66eb3c6d31981c2021af61c44ed51b) )

@@ -209,7 +209,7 @@ public class yamato
 	
 	
 	
-	static InputPortPtr input_ports_yamato = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( yamato )
+	static InputPortHandlerPtr input_ports_yamato = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( yamato )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -370,7 +370,7 @@ public class yamato
 	
 	
 	
-	static RomLoadPtr rom_yamato = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yamato = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "2.5de",        0x0000, 0x2000, CRC(20895096) SHA1(af76786e3c519e710899f143d46c53087e9817c7) )
 		ROM_LOAD( "3.5f",         0x2000, 0x2000, CRC(57a696f9) SHA1(28ea80fb100ac92295fc3eb318617d7cb014408d) )
@@ -403,7 +403,7 @@ public class yamato
 		ROM_LOAD( "5.bpr",        0x0080, 0x0020, CRC(edd6c05f) SHA1(b95db8aaf74fe175d1179f0d85f79242b16f5fb4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_yamato2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yamato2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "2-2.5de",      0x0000, 0x2000, CRC(93da1d52) SHA1(21b72856ebbd969e4e075b52719e6acdbd1bc4c5) )
 		ROM_LOAD( "3-2.5f",       0x2000, 0x2000, CRC(31e73821) SHA1(e582c9fcea1b29d43f65b6aa67e1895c38d2736c) )

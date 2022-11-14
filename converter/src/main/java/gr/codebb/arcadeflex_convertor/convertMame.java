@@ -295,7 +295,7 @@ public class convertMame {
                             Convertor.inpos = i;
                             break;
                         }
-                        sUtil.putString((new StringBuilder()).append("static InputPortPtr input_ports_").append(Convertor.token[0]).append(" = new InputPortPtr(){ public void handler() { ").toString());
+                        sUtil.putString((new StringBuilder()).append("static InputPortHandlerPtr input_ports_").append(Convertor.token[0]).append(" = new InputPortHandlerPtr(){ public void handler() { ").toString());
                     }
                     if (sUtil.getToken("INPUT_PORTS_END")) {
                         sUtil.putString((new StringBuilder()).append("INPUT_PORTS_END(); }}; ").toString());
@@ -562,7 +562,7 @@ public class convertMame {
                             Convertor.inpos = i;
                             break;
                         }
-                        sUtil.putString((new StringBuilder()).append("static RomLoadPtr rom_").append(Convertor.token[0]).append(" = new RomLoadPtr(){ public void handler(){ ").toString());
+                        sUtil.putString((new StringBuilder()).append("static RomLoadHandlerPtr rom_").append(Convertor.token[0]).append(" = new RomLoadHandlerPtr(){ public void handler(){ ").toString());
                         continue;
                     }
                     if (sUtil.getToken("ROM_END")) {

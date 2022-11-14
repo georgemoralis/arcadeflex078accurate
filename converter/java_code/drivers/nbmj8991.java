@@ -637,7 +637,7 @@ public class nbmj8991
 	};
 	
 	
-	static InputPortPtr input_ports_pstadium = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pstadium )
+	static InputPortHandlerPtr input_ports_pstadium = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pstadium )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "1 (Easy"));
@@ -706,7 +706,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_triplew1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( triplew1 )
+	static InputPortHandlerPtr input_ports_triplew1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( triplew1 )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "1 (Easy"));
@@ -775,7 +775,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ntopstar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ntopstar )
+	static InputPortHandlerPtr input_ports_ntopstar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ntopstar )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "1 (Easy"));
@@ -844,7 +844,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mjlstory = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjlstory )
+	static InputPortHandlerPtr input_ports_mjlstory = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjlstory )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "1 (Easy"));
@@ -913,7 +913,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_vanilla = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vanilla )
+	static InputPortHandlerPtr input_ports_vanilla = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vanilla )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "1 (Easy"));
@@ -982,7 +982,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_finalbny = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( finalbny )
+	static InputPortHandlerPtr input_ports_finalbny = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( finalbny )
 	
 		// I don't have manual for this game.
 	
@@ -1053,7 +1053,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_qmhayaku = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( qmhayaku )
+	static InputPortHandlerPtr input_ports_qmhayaku = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( qmhayaku )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "1 (Easy"));
@@ -1122,7 +1122,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_galkoku = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( galkoku )
+	static InputPortHandlerPtr input_ports_galkoku = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galkoku )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x07, 0x07, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x07, "1 (Easy"));
@@ -1192,7 +1192,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_hyouban = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hyouban )
+	static InputPortHandlerPtr input_ports_hyouban = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hyouban )
 	
 		// I don't have manual for this game.
 	
@@ -1265,7 +1265,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_galkaika = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( galkaika )
+	static InputPortHandlerPtr input_ports_galkaika = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galkaika )
 	
 		// I don't have manual for this game.
 	
@@ -1338,7 +1338,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tokyogal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tokyogal )
+	static InputPortHandlerPtr input_ports_tokyogal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tokyogal )
 	
 		// I don't have manual for this game.
 	
@@ -1411,7 +1411,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tokimbsj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tokimbsj )
+	static InputPortHandlerPtr input_ports_tokimbsj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tokimbsj )
 	
 		// I don't have manual for this game.
 	
@@ -1484,7 +1484,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mcontest = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mcontest )
+	static InputPortHandlerPtr input_ports_mcontest = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mcontest )
 	
 		// I don't have manual for this game.
 	
@@ -1557,7 +1557,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_uchuuai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( uchuuai )
+	static InputPortHandlerPtr input_ports_uchuuai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( uchuuai )
 	
 		// I don't have manual for this game.
 	
@@ -1630,7 +1630,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_av2mj1bb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( av2mj1bb )
+	static InputPortHandlerPtr input_ports_av2mj1bb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( av2mj1bb )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x07, 0x07, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x07, "1 (Easy"));
@@ -1698,7 +1698,7 @@ public class nbmj8991
 		NBMJCTRL_PORT5	/* (7) PORT 1-5 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_av2mj2rg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( av2mj2rg )
+	static InputPortHandlerPtr input_ports_av2mj2rg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( av2mj2rg )
 	
 		// I don't have manual for this game.
 	
@@ -2027,7 +2027,7 @@ public class nbmj8991
 	
 	
 	
-	static RomLoadPtr rom_pstadium = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pstadium = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD( "psdm_01.bin",  0x00000,  0x10000, CRC(4af81589) SHA1(d3fc618ecd7763facb465fcd4ba2def1760a99ff) )
 	
@@ -2055,7 +2055,7 @@ public class nbmj8991
 		ROM_LOAD( "psdm_20.bin",  0x100000, 0x10000, CRC(c410ce4b) SHA1(117d556ba0ed219225975d1b800e300d33343db0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_triplew1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triplew1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD( "tpw1_01.bin",  0x00000,  0x10000, CRC(2542958a) SHA1(3d904990ac4d51f80aefe3f84252603de87e791d) )
 	
@@ -2086,7 +2086,7 @@ public class nbmj8991
 		ROM_LOAD( "tpw1_23.bin",  0x150000, 0x10000, CRC(11580513) SHA1(8c2e9e91ffdc1f323290f3d67bf10e1f3275e8bd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_triplew2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triplew2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD( "tpw2_01.bin",  0x00000,  0x10000, CRC(2637f19d) SHA1(0f6372eda7586d6531664036aaaefc135d9ca522) )
 	
@@ -2115,7 +2115,7 @@ public class nbmj8991
 		ROM_LOAD( "mj_1802.bin",  0x180000, 0x80000, CRC(e6213f10) SHA1(377399e9cd20fc2055b680eb28d024824161b2ff) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ntopstar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ntopstar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD( "ntsr_01.bin",  0x00000,  0x10000, CRC(3a4325f2) SHA1(bfd1797d4a5acb83866438ae70f79b3d78aec003) )
 	
@@ -2144,7 +2144,7 @@ public class nbmj8991
 		ROM_LOAD( "ntsr_21.bin",  0x130000, 0x10000, CRC(133183db) SHA1(9c01c8c4f3dd2eaaa93cad78387d478529494f21) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mjlstory = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjlstory = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD( "mjls_01.bin",  0x00000,  0x10000, CRC(a9febe8b) SHA1(b29570434145885120304ab001e6dd15fb40d528) )
 	
@@ -2168,7 +2168,7 @@ public class nbmj8991
 		ROM_LOAD( "mjls_16.bin",  0x180000, 0x10000, CRC(53366690) SHA1(9155897a886d0a1ce3ab5bb5389dd8852a014244) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vanilla = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vanilla = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD( "vanilla.01",   0x00000,  0x10000, CRC(2a3341a8) SHA1(d434adf3e2dd0c95b614a0208e874bdd6bc2ede7) )
 	
@@ -2199,7 +2199,7 @@ public class nbmj8991
 		ROM_LOAD( "vanilla.23",   0x1f0000, 0x10000, CRC(64186e8a) SHA1(3dbcc4d79e2e28e67267e6cb76f42dadb2f974e9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_finalbny = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalbny = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD( "22.4e",        0x00000,  0x10000, CRC(ccb85d99) SHA1(1fb64fd2cd8bccd6bfd9496792d5e57f128d270e) )
 	
@@ -2226,7 +2226,7 @@ public class nbmj8991
 		ROM_LOAD( "19.7j",        0x1b0000, 0x10000, CRC(d7deca63) SHA1(eac27eb9cf4e26f72f26e11aac4edfa639ca9d84) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qmhayaku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qmhayaku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main program */
 		ROM_LOAD( "1.4e",    0x00000,  0x10000, CRC(5a73cdf8) SHA1(bec7764175b1cc142ed08b18e3ff240c4c996e36) )
 	
@@ -2254,7 +2254,7 @@ public class nbmj8991
 		ROM_LOAD( "20.7l",   0x1d0000, 0x10000, CRC(18e18174) SHA1(e80f140f1e389569ea4db63e544df82afaf30791) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galkoku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galkoku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "gkok_01.bin",  0x00000,  0x10000, CRC(254c526c) SHA1(644095cccf8812342ddc0eb452db4ec032965152) )
 	
@@ -2282,7 +2282,7 @@ public class nbmj8991
 		ROM_LOAD( "gkok_20.bin",  0x100000, 0x10000, CRC(36107e6f) SHA1(0872d0ae2add129bdd036754fd5d751627bc142e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hyouban = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hyouban = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "1.3d",         0x00000,  0x10000, CRC(307b4f7e) SHA1(303e1818cb12ede15dadec165f18a6a33d564d5e) )
 	
@@ -2310,7 +2310,7 @@ public class nbmj8991
 		ROM_LOAD( "gkok_20.bin",  0x100000, 0x10000, CRC(36107e6f) SHA1(0872d0ae2add129bdd036754fd5d751627bc142e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galkaika = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galkaika = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "gkai_01.bin",  0x00000,  0x10000, CRC(81b89559) SHA1(9c9136f9483a23eafdf69bc8a31659c772533d01) )
 	
@@ -2331,7 +2331,7 @@ public class nbmj8991
 		ROM_LOAD( "gkai_13.bin",  0x110000, 0x10000, CRC(d9f495f3) SHA1(06fc64088568564ac8ec7103585fff48962f3a2e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tokyogal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokyogal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "tgal_21.bin",  0x00000,  0x10000, CRC(ad4eecec) SHA1(76f7411d504de9d75b4004966c69655c0df3870d) )
 	
@@ -2361,7 +2361,7 @@ public class nbmj8991
 		ROM_LOAD( "tgal_20.bin",  0x130000, 0x10000, CRC(b8542eeb) SHA1(9d9897a7eb267fcf4cc578d4ab6d8ac4c13082e3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tokimbsj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokimbsj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "tmbj_01.bin",  0x00000,  0x10000, CRC(b335c300) SHA1(4e35400285a062bfe204b9a82e676dd4d86691d5) )
 	
@@ -2391,7 +2391,7 @@ public class nbmj8991
 		ROM_LOAD( "tmbj_22.bin",  0x130000, 0x10000, CRC(e706fc87) SHA1(fc6f72b1c7dbdc2644458a90861da5279cc46cfb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mcontest = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mcontest = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "mcon_01.bin",  0x00000, 0x10000, CRC(79a30028) SHA1(7255cf161010314ae4308455e7573190e42ba27e) )
 	
@@ -2422,7 +2422,7 @@ public class nbmj8991
 		ROM_LOAD( "mcon_23.bin",  0x150000, 0x10000, CRC(979e0f93) SHA1(b1f4fedb7b64f79936d43e328e170dd38f712ca2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_uchuuai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_uchuuai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "1.3h",   0x00000, 0x10000, CRC(6a6fd569) SHA1(4c3986f111c6db1d375d1ab35a85af0f250ffb4f) )
 	
@@ -2452,7 +2452,7 @@ public class nbmj8991
 		ROM_LOAD( "22.11p", 0x150000, 0x10000, CRC(be5ebd80) SHA1(1f9a84339520c5653f89c638d2650cee8effd7fc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_av2mj1bb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_av2mj1bb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "1.bin",      0x00000, 0x10000, CRC(df0f03fb) SHA1(e6c2d6905b507611782bbd29f4d5fcd378a0a993) )
 	
@@ -2467,7 +2467,7 @@ public class nbmj8991
 		ROM_LOAD( "mj-1802.9a", 0x180000, 0x80000, CRC(e6213f10) SHA1(377399e9cd20fc2055b680eb28d024824161b2ff) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_av2mj2rg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_av2mj2rg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "1.4e",       0x00000, 0x10000, CRC(2295b8df) SHA1(600b23c968dca480db59baf708ffa4b4e4fc7c81) )
 	

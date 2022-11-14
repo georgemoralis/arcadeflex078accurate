@@ -263,7 +263,7 @@ public class gunbustr
 				 INPUT PORTS (dips in eprom)
 	***********************************************************/
 	
-	static InputPortPtr input_ports_gunbustr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gunbustr )
+	static InputPortHandlerPtr input_ports_gunbustr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gunbustr )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW,  IPT_UNKNOWN );
@@ -464,7 +464,7 @@ public class gunbustr
 	
 	/***************************************************************************/
 	
-	static RomLoadPtr rom_gunbustr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunbustr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1024K for 68020 code (CPU A) */
 		ROM_LOAD32_BYTE( "d27-23.bin", 0x00000, 0x40000, CRC(cd1037cc) SHA1(8005a6a84081ce609e7a605ec8e00e740bfc6846) )
 		ROM_LOAD32_BYTE( "d27-22.bin", 0x00001, 0x40000, CRC(475949fc) SHA1(3d5aa3411d2618004902f9d05dff61d9af01ff35) )

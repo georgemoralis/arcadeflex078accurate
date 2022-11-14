@@ -300,7 +300,7 @@ public class spdodgeb
 	};
 	
 	
-	static InputPortPtr input_ports_spdodgeb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spdodgeb )
+	static InputPortHandlerPtr input_ports_spdodgeb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spdodgeb )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_SPECIAL );/* mcu63701_busy flag */
@@ -467,7 +467,7 @@ public class spdodgeb
 	
 	
 	
-	static RomLoadPtr rom_spdodgeb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spdodgeb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "22a-04.139",	  0x10000, 0x08000, CRC(66071fda) SHA1(4a239295900e6234a2a693321ca821671747a58e) )  /* Two banks */
 		ROM_CONTINUE(             0x08000, 0x08000 )		 /* Static code */
@@ -495,7 +495,7 @@ public class spdodgeb
 		ROM_LOAD( "mb7122e.159",  0x0400, 0x0400, CRC(69706e8d) SHA1(778ee88ff566aa38c80e0e61bb3fe8458f0e9450) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nkdodgeb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nkdodgeb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "12.bin",	      0x10000, 0x08000, CRC(aa674fd8) SHA1(4e8d3e07b54d23b221cb39cf10389bc7a56c4021) )  /* Two banks */
 		ROM_CONTINUE(             0x08000, 0x08000 )		 /* Static code */

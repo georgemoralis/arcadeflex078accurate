@@ -76,7 +76,7 @@ public class m79amb
 	};
 	
 	
-	static InputPortPtr input_ports_m79amb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( m79amb )
+	static InputPortHandlerPtr input_ports_m79amb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( m79amb )
 		PORT_START();       /* 8000 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* dip switch */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -160,7 +160,7 @@ public class m79amb
 	
 	
 	
-	static RomLoadPtr rom_m79amb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_m79amb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "m79.10t",      0x0000, 0x0200, CRC(ccf30b1e) SHA1(c1a77f8dc81c491928f81121ca5c9b7f8753794f) )
 		ROM_LOAD( "m79.9t",       0x0200, 0x0200, CRC(daf807dd) SHA1(16cd9d553bfb111c8380966cbde39dbddd5fe58c) )

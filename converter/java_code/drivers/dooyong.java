@@ -307,7 +307,7 @@ public class dooyong
 	
 	
 	
-	static InputPortPtr input_ports_lastday = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lastday )
+	static InputPortHandlerPtr input_ports_lastday = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lastday )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -385,7 +385,7 @@ public class dooyong
 		PORT_DIPSETTING(    0x80, DEF_STR( "Yes") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gulfstrm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gulfstrm )
+	static InputPortHandlerPtr input_ports_gulfstrm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gulfstrm )
 		PORT_START(); 
 		PORT_SERVICE( 0x01, IP_ACTIVE_LOW );
 		PORT_DIPNAME( 0x04, 0x04, DEF_STR( "Demo_Sounds") );
@@ -464,7 +464,7 @@ public class dooyong
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pollux = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pollux )
+	static InputPortHandlerPtr input_ports_pollux = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pollux )
 		PORT_START(); 
 		PORT_SERVICE( 0x01, IP_ACTIVE_LOW );
 		PORT_DIPNAME( 0x04, 0x04, DEF_STR( "Demo_Sounds") );
@@ -543,7 +543,7 @@ public class dooyong
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bluehawk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bluehawk )
+	static InputPortHandlerPtr input_ports_bluehawk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bluehawk )
 		PORT_START(); 
 		PORT_SERVICE( 0x01, IP_ACTIVE_LOW );
 		PORT_DIPNAME( 0x04, 0x04, DEF_STR( "Demo_Sounds") );
@@ -622,7 +622,7 @@ public class dooyong
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_primella = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( primella )
+	static InputPortHandlerPtr input_ports_primella = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( primella )
 		PORT_START(); 
 		PORT_SERVICE( 0x01, IP_ACTIVE_LOW );
 		PORT_DIPNAME( 0x04, 0x04, DEF_STR( "Demo_Sounds") );
@@ -701,7 +701,7 @@ public class dooyong
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rshark = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rshark )
+	static InputPortHandlerPtr input_ports_rshark = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rshark )
 		PORT_START(); 
 		PORT_SERVICE( 0x0001, IP_ACTIVE_LOW );
 		PORT_DIPNAME( 0x0004, 0x0004, DEF_STR( "Demo_Sounds") );
@@ -1149,7 +1149,7 @@ public class dooyong
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_lastday = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lastday = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "lday3.bin",    0x00000, 0x10000, CRC(a06dfb1e) SHA1(c6220eda8c01d55862700e369db7291dbbedc8c8) )
 		ROM_RELOAD(               0x10000, 0x10000 )				/* banked at 0x8000-0xbfff */
@@ -1186,7 +1186,7 @@ public class dooyong
 		ROM_LOAD16_BYTE( "lday13.bin",   0x00001, 0x10000, CRC(6bdbd887) SHA1(a54f26f9ddd72b8b8f7a030610c1c4a5f94a3358) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lastdaya = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lastdaya = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "lday3.bin",    0x00000, 0x10000, CRC(a06dfb1e) SHA1(c6220eda8c01d55862700e369db7291dbbedc8c8) )
 		ROM_RELOAD(               0x10000, 0x10000 )				/* banked at 0x8000-0xbfff */
@@ -1223,7 +1223,7 @@ public class dooyong
 		ROM_LOAD16_BYTE( "lday13.bin",   0x00001, 0x10000, CRC(6bdbd887) SHA1(a54f26f9ddd72b8b8f7a030610c1c4a5f94a3358) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gulfstrm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gulfstrm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "1.l4",         0x00000, 0x20000, CRC(59e0478b) SHA1(dd6e48c6e91ddb087d20336eab79bbadd968d4b1) )
 		ROM_RELOAD(               0x10000, 0x20000 )				/* banked at 0x8000-0xbfff */
@@ -1260,7 +1260,7 @@ public class dooyong
 		ROM_LOAD16_BYTE( "11.n9",        0x00001, 0x10000, CRC(7dfe4a9c) SHA1(40982b5b266e4a928544ab5ec330080935588c57) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gulfstr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gulfstr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "18.1",         0x00000, 0x20000, CRC(d38e2667) SHA1(3690d708c7be85871d6bb32a774d711a30782126) )
 		ROM_RELOAD(               0x10000, 0x20000 )				/* banked at 0x8000-0xbfff */
@@ -1297,7 +1297,7 @@ public class dooyong
 		ROM_LOAD16_BYTE( "11.bin",       0x00001, 0x10000, CRC(2ed7545b) SHA1(6a70743bbb03ef694310f2b5531f384209db62a1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pollux = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pollux = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "pollux2.bin",  0x00000, 0x10000, CRC(45e10d4e) SHA1(ece25fcc0acda9a8cfc00f3132a87469037b5a4e) )
 		ROM_RELOAD(               0x10000, 0x10000 )	/* banked at 0x8000-0xbfff */
@@ -1329,7 +1329,7 @@ public class dooyong
 		ROM_LOAD16_BYTE( "pollux4.bin",  0x00001, 0x10000, CRC(2c6bd3be) SHA1(6648264be83588a01f264e7ec72d84e29e0d4795) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_polluxa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_polluxa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "dooyong2.bin",  0x00000, 0x10000, CRC(e4ea8dbd) SHA1(19652261981672fae896e3065f1f5078f7ae93b6) )
 		ROM_RELOAD(               0x10000, 0x10000 )	/* banked at 0x8000-0xbfff */
@@ -1361,7 +1361,7 @@ public class dooyong
 		ROM_LOAD16_BYTE( "pollux4.bin",  0x00001, 0x10000, CRC(2c6bd3be) SHA1(6648264be83588a01f264e7ec72d84e29e0d4795) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bluehawk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bluehawk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "rom19",        0x00000, 0x20000, CRC(24149246) SHA1(458fd429a895353b8636c717dcd58d57b8723012) )
 		ROM_RELOAD(               0x10000, 0x20000 )	/* banked at 0x8000-0xbfff */
@@ -1389,7 +1389,7 @@ public class dooyong
 		ROM_LOAD( "rom4",         0x00000, 0x20000, CRC(f7318919) SHA1(8b7e2ffe77603142cf1b9440585f8dfa9199ed05) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bluehawn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bluehawn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "rom19",        0x00000, 0x20000, CRC(24149246) SHA1(458fd429a895353b8636c717dcd58d57b8723012) )	// ROM2
 		ROM_RELOAD(               0x10000, 0x20000 )	/* banked at 0x8000-0xbfff */
@@ -1417,7 +1417,7 @@ public class dooyong
 		ROM_LOAD( "rom4",         0x00000, 0x20000, CRC(f7318919) SHA1(8b7e2ffe77603142cf1b9440585f8dfa9199ed05) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sadari = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sadari = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "1.3d",         0x00000, 0x20000, CRC(bd953217) SHA1(6e230103ea01744761ab8a194d0dde6921bee92e) )
 		ROM_RELOAD(               0x10000, 0x20000 )				/* banked at 0x8000-0xbfff */
@@ -1446,7 +1446,7 @@ public class dooyong
 		ROM_LOAD( "8.10r",        0x00000, 0x20000, CRC(9c29a093) SHA1(b6252e0cb8e618cdc4a741ee7ab01058f929fd11) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gundl94 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gundl94 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "gd94_001.d3",  0x00000, 0x20000, CRC(3a5cc045) SHA1(182743458c36bb6254a39cf9a371fd2b0d72d145) )
 		ROM_RELOAD(               0x10000, 0x20000 )				/* banked at 0x8000-0xbfff */
@@ -1479,7 +1479,7 @@ public class dooyong
 		ROM_LOAD16_BYTE( "gd94_010.l7",  0x00001, 0x20000, CRC(4b74857f) SHA1(a4413369fdb165c0f12454592181675095f28145) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_primella = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_primella = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "1_d3.bin",     0x00000, 0x20000, CRC(82fea4e0) SHA1(3603c0edda29868d5e282465880e1ad341365f6f) )
 		ROM_RELOAD(               0x10000, 0x20000 )				/* banked at 0x8000-0xbfff */
@@ -1566,7 +1566,7 @@ public class dooyong
 	
 	*/
 	
-	static RomLoadPtr rom_superx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD16_BYTE( "2.3m",   0x00000, 0x20000, CRC(be7aebe7) SHA1(81934d861a15a96cf23721ad38f821e1f94ec980) )
 		ROM_LOAD16_BYTE( "3.3l",   0x00001, 0x20000, CRC(dc4a25fc) SHA1(660bf33a9ae7534c37353f9690af180268ce7f30) )
@@ -1601,7 +1601,7 @@ public class dooyong
 	ROM_END(); }}; 
 	
 	/* this set only had 68k roms, sound program, and samples */
-	static RomLoadPtr rom_superxm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superxm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD16_BYTE( "2_m.3m",   0x00000, 0x20000, CRC(41c50aac) SHA1(75f6470bde217e4b9139d8af97a17ca22c374944) )
 		ROM_LOAD16_BYTE( "3_m.3l",   0x00001, 0x20000, CRC(6738b703) SHA1(e37f5f76b1efbd2f5098014ca380d4340204e487) )
@@ -1635,7 +1635,7 @@ public class dooyong
 		ROM_LOAD( "5.7u",     0x20000, 0x20000, CRC(ebe6abb4) SHA1(801b22845603f86c7bab77baa6946afc613aebdb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rshark = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rshark = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD16_BYTE( "rspl00.bin",   0x00000, 0x20000, CRC(40356b9d) SHA1(28749a0d4c1ac8e094c551594033d47061071d8b) )
 		ROM_LOAD16_BYTE( "rspu00.bin",   0x00001, 0x20000, CRC(6635c668) SHA1(242d9c5828e142d5820c75c4e4696fcc5f5ffbb7) )

@@ -668,7 +668,7 @@ public class cojag
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_area51 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( area51 )
+	static InputPortHandlerPtr input_ports_area51 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( area51 )
 		PORT_START(); 
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START2 );
@@ -711,7 +711,7 @@ public class cojag
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_vcircle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vcircle )
+	static InputPortHandlerPtr input_ports_vcircle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vcircle )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_BUTTON4 | IPF_PLAYER2 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON5 | IPF_PLAYER2 );
@@ -891,7 +891,7 @@ public class cojag
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_area51 = new RomLoadPtr(){ public void handler(){  /* 68020 based, Area51 v?? Date: Oct 25, 1995 */
+	static RomLoadHandlerPtr rom_area51 = new RomLoadHandlerPtr(){ public void handler(){  /* 68020 based, Area51 v?? Date: Oct 25, 1995 */
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* 4MB for RAM at 0 */
 	
 		ROM_REGION32_BE( 0x200000, REGION_USER1, ROMREGION_DISPOSE )	/* 2MB for 68020 code */
@@ -905,7 +905,7 @@ public class cojag
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_maxforce = new RomLoadPtr(){ public void handler(){  /* R3000 based, labeled as "Maximum Force 5-23-97 v1.05" */
+	static RomLoadHandlerPtr rom_maxforce = new RomLoadHandlerPtr(){ public void handler(){  /* R3000 based, labeled as "Maximum Force 5-23-97 v1.05" */
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* 4MB for RAM at 0 */
 	
 		ROM_REGION32_BE( 0x200000, REGION_USER1, ROMREGION_DISPOSE )	/* 2MB for IDT 79R3041 code */
@@ -919,7 +919,7 @@ public class cojag
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_maxf_102 = new RomLoadPtr(){ public void handler(){  /* R3000 based, labeled as "Maximum Force 2-27-97 v1.02" */
+	static RomLoadHandlerPtr rom_maxf_102 = new RomLoadHandlerPtr(){ public void handler(){  /* R3000 based, labeled as "Maximum Force 2-27-97 v1.02" */
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* 4MB for RAM at 0 */
 	
 		ROM_REGION32_BE( 0x200000, REGION_USER1, ROMREGION_DISPOSE )	/* 2MB for IDT 79R3041 code */
@@ -933,7 +933,7 @@ public class cojag
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_area51mx = new RomLoadPtr(){ public void handler(){ 	/* 68020 based, Labeled as "68020 MAX/A51 KIT 2.0" Date: Apr 22, 1998 */
+	static RomLoadHandlerPtr rom_area51mx = new RomLoadHandlerPtr(){ public void handler(){ 	/* 68020 based, Labeled as "68020 MAX/A51 KIT 2.0" Date: Apr 22, 1998 */
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )  /* 4MB for RAM at 0 */
 	
 		ROM_REGION32_BE( 0x200000, REGION_USER1, ROMREGION_DISPOSE ) /* 2MB for 68020 code */
@@ -947,7 +947,7 @@ public class cojag
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_a51mxr3k = new RomLoadPtr(){ public void handler(){  /* R3000 based, Labeled as "R3K Max/A51 Kit Ver 1.0" */
+	static RomLoadHandlerPtr rom_a51mxr3k = new RomLoadHandlerPtr(){ public void handler(){  /* R3000 based, Labeled as "R3K Max/A51 Kit Ver 1.0" */
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* 4MB for RAM at 0 */
 	
 		ROM_REGION32_BE( 0x200000, REGION_USER1, ROMREGION_DISPOSE )	/* 2MB for IDT 79R3041 code */
@@ -961,7 +961,7 @@ public class cojag
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_vcircle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vcircle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* dummy region for R3000 */
 	
 		ROM_REGION32_BE( 0x200000, REGION_USER1, ROMREGION_DISPOSE )	/* 2MB for R3000 code */

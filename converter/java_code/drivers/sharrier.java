@@ -941,7 +941,7 @@ public class sharrier
 	
 	/*****************************************************************************/
 	
-	static RomLoadPtr rom_hangon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hangon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "6918.rom", 0x000000, 0x8000, CRC(20b1c2b0) SHA1(01b4f5105e2bbeb6ec6dbd18bfb728e3a973e0ca) )
 		ROM_LOAD16_BYTE( "6916.rom", 0x000001, 0x8000, CRC(7d9db1bf) SHA1(952ee3e7a0d57ec1bb3385e0e6675890b8378d31) )
@@ -984,7 +984,7 @@ public class sharrier
 		ROM_LOAD( "6840.rom", 0x0000, 0x8000, CRC(581230e3) SHA1(954eab35059322a12a197bba04bf85f816132f20) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_enduror = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_enduror = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "7640a.rom",0x00000, 0x8000, CRC(1d1dc5d4) SHA1(8e7ae5abd23e949de5d5e1772f90e53d05c866ec) )
 		ROM_LOAD16_BYTE( "7636a.rom",0x00001, 0x8000, CRC(84131639) SHA1(04981464577d2604eec36c14c5de9c91604ae501) )
@@ -1051,7 +1051,7 @@ public class sharrier
 		ROM_LOAD( "7633.rom", 0x0000, 0x8000, CRC(6f146210) SHA1(2f58f0c3563b434ed02700b9ca1545a696a5716e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_endurobl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_endurobl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000+0x010000+0x040000, REGION_CPU1, 0 ) /* 68000 code + space for RAM + space for decrypted opcodes */
 		ROM_LOAD16_BYTE( "7.13j", 0x030000, 0x08000, CRC(f1d6b4b7) SHA1(32bd966191cbb36d1e60ed1a06d4caa023dd6b88) )
 		ROM_CONTINUE (            0x000000, 0x08000 )
@@ -1118,7 +1118,7 @@ public class sharrier
 		ROM_LOAD( "7633.rom", 0x0000, 0x8000, CRC(6f146210) SHA1(2f58f0c3563b434ed02700b9ca1545a696a5716e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_endurob2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_endurob2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000+0x010000+0x040000, REGION_CPU1, 0 ) /* 68000 code + space for RAM + space for decrypted opcodes */
 		ROM_LOAD16_BYTE( "enduro.a07", 0x000000, 0x08000, CRC(259069bc) SHA1(42fa47ce4a29294f9eff3eddbba6c305d750aaa5) )
 		ROM_LOAD16_BYTE( "enduro.a04", 0x000001, 0x08000, CRC(f584fbd9) SHA1(6c9ddcd1d9cf95c6250b705b27865644da45d197) )
@@ -1181,7 +1181,7 @@ public class sharrier
 		ROM_LOAD( "7633.rom", 0x0000, 0x8000, CRC(6f146210) SHA1(2f58f0c3563b434ed02700b9ca1545a696a5716e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sharrier = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sharrier = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "ic97.bin", 0x000000, 0x8000, CRC(7c30a036) SHA1(d3902342be714b4e181c87ad2bad7102e3eeec20) )
 		ROM_LOAD16_BYTE( "ic84.bin", 0x000001, 0x8000, CRC(16deaeb1) SHA1(bdf85b924a914865bf876eda7fc2b20131a4cf2d) )
@@ -1249,7 +1249,7 @@ public class sharrier
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_hangon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hangon )
+	static InputPortHandlerPtr input_ports_hangon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hangon )
 		PORT_START(); 	/* Steering */
 			PORT_ANALOG( 0xff, 0x7f, IPT_AD_STICK_X | IPF_REVERSE | IPF_CENTER , 100, 3, 0x48, 0xb7 );
 		PORT_START(); 	/* Accel / Decel */
@@ -1277,7 +1277,7 @@ public class sharrier
 			PORT_ANALOG( 0xff, 0x1, IPT_AD_STICK_Z | IPF_CENTER | IPF_REVERSE, 100, 16, 0, 0xa2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_enduror = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( enduror )
+	static InputPortHandlerPtr input_ports_enduror = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( enduror )
 		PORT_START(); 	/* handle right left */
 			PORT_ANALOG( 0xff, 0x7f, IPT_AD_STICK_X | IPF_REVERSE | IPF_CENTER, 100, 4, 0x0, 0xff );
 		PORT_START(); 	/* Fake Buttons */
@@ -1320,7 +1320,7 @@ public class sharrier
 		//PORT_ANALOG( 0xff, 0x0, IPT_AD_STICK_Y | IPF_CENTER , 100, 8, 0x0, 0xff );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sharrier = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sharrier )
+	static InputPortHandlerPtr input_ports_sharrier = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sharrier )
 		SYS16_JOY1
 		SYS16_JOY2
 		PORT_START(); 

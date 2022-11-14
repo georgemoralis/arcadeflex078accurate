@@ -156,7 +156,7 @@ public class amspdwy
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_amspdwy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( amspdwy )
+	static InputPortHandlerPtr input_ports_amspdwy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( amspdwy )
 	
 		PORT_START(); 	// IN0 - DSW 1
 		PORT_DIPNAME( 0x01, 0x00, "Character Test" );
@@ -354,7 +354,7 @@ public class amspdwy
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_amspdwy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_amspdwy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "game5807.u33", 0x00000, 0x8000, CRC(88233b59) SHA1(bfdf10dde1731cde5c579a9a5173cafe9295a80c) )
 		ROM_LOAD( "trks6092.u34", 0x10000, 0x8000, CRC(74a4e7b7) SHA1(b4f6e3faaf048351c6671205f52378a64b81bcb1) )
@@ -369,7 +369,7 @@ public class amspdwy
 		ROM_LOAD( "lohi4644.2a", 0x3000, 0x1000, CRC(a1d802b1) SHA1(1249ce406b1aa518885a02ab063fa14906ccec2e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_amspdwya = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_amspdwya = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "game.u33",     0x00000, 0x8000, CRC(facab102) SHA1(e232969eaaad8b89ac8e28ee0a7996107a7de9a2) )
 		ROM_LOAD( "trks6092.u34", 0x10000, 0x8000, CRC(74a4e7b7) SHA1(b4f6e3faaf048351c6671205f52378a64b81bcb1) )

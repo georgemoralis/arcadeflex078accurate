@@ -177,7 +177,7 @@ public class warpwarp
 	
 	
 	
-	static InputPortPtr input_ports_bombbee = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bombbee )
+	static InputPortHandlerPtr input_ports_bombbee = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bombbee )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -225,7 +225,7 @@ public class warpwarp
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cutieq = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cutieq )
+	static InputPortHandlerPtr input_ports_cutieq = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cutieq )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -273,7 +273,7 @@ public class warpwarp
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_warpwarp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( warpwarp )
+	static InputPortHandlerPtr input_ports_warpwarp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( warpwarp )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_COCKTAIL );
@@ -332,7 +332,7 @@ public class warpwarp
 	INPUT_PORTS_END(); }}; 
 	
 	/* has High Score Initials dip switch instead of rack test */
-	static InputPortPtr input_ports_warpwarr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( warpwarr )
+	static InputPortHandlerPtr input_ports_warpwarr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( warpwarr )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_COCKTAIL );
@@ -475,19 +475,19 @@ public class warpwarp
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bombbee = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bombbee = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "bombbee.1k",   0x0000, 0x2000, CRC(9f8cd7af) SHA1(0d6e1ee5519660d1498eb7a093872ed5034423f2) )
 		ROM_LOAD( "bombbee.4c",   0x4800, 0x0800, CRC(5f37d569) SHA1(d5e3fb4c5a1612a6e568c8970161b0290b88993f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cutieq = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cutieq = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cutieq.1k",    0x0000, 0x2000, CRC(6486cdca) SHA1(914c36487fba2dd57c3fd1f011b2225d2baac2bf) )
 		ROM_LOAD( "cutieq.4c",    0x4800, 0x0800, CRC(0e1618c9) SHA1(456e9b3d6bae8b4af7778a38e4f40bb6736b0690) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_warpwarp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_warpwarp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "g-n9601n.2r",  0x0000, 0x1000, CRC(f5262f38) SHA1(1c64d0282b0a209390a548ceeaaf8b7b55e50896) )
 		ROM_LOAD( "g-09602n.2m",  0x1000, 0x1000, CRC(de8355dd) SHA1(133d137711d79aaeb45cd3ee041c0be3b73e1b2f) )
@@ -496,7 +496,7 @@ public class warpwarp
 		ROM_LOAD( "g-9611n.4c",   0x4800, 0x0800, CRC(380994c8) SHA1(0cdf6a05db52c423365bff9c9df6d93ac885794e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_warpwarr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_warpwarr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "g-09601.2r",   0x0000, 0x1000, CRC(916ffa35) SHA1(bca2087f8b78a128cdffc55db9814854b72daab5) )
 		ROM_LOAD( "g-09602.2m",   0x1000, 0x1000, CRC(398bb87b) SHA1(74373336288dc13d59e6f7e7c718aa51d857b087) )
@@ -505,7 +505,7 @@ public class warpwarp
 		ROM_LOAD( "g-9611.4c",    0x4800, 0x0800, CRC(00e6a326) SHA1(67b7ab5b7b2c9a97d4d690d88561da48b86bc66e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_warpwar2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_warpwar2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "g-09601.2r",   0x0000, 0x1000, CRC(916ffa35) SHA1(bca2087f8b78a128cdffc55db9814854b72daab5) )
 		ROM_LOAD( "g-09602.2m",   0x1000, 0x1000, CRC(398bb87b) SHA1(74373336288dc13d59e6f7e7c718aa51d857b087) )

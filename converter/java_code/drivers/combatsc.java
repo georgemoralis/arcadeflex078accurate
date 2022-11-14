@@ -384,7 +384,7 @@ public class combatsc
 		PORT_DIPSETTING(    0x90, DEF_STR( "1C_7C") ); \
 		PORT_DIPSETTING(    0x00, "coin 2 invalidity" );
 	
-	static InputPortPtr input_ports_combasc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( combasc )
+	static InputPortHandlerPtr input_ports_combasc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( combasc )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -459,7 +459,7 @@ public class combatsc
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_combasct = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( combasct )
+	static InputPortHandlerPtr input_ports_combasct = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( combasct )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -529,7 +529,7 @@ public class combatsc
 		PORT_ANALOG( 0xff, 0x00, IPT_TRACKBALL_X | IPF_PLAYER2, 10, 10, 0, 0 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_combascb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( combascb )
+	static InputPortHandlerPtr input_ports_combascb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( combascb )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -731,7 +731,7 @@ public class combatsc
 	
 	
 	
-	static RomLoadPtr rom_combasc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_combasc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 6309 code */
 		ROM_LOAD( "611g01.rom", 0x30000, 0x08000, CRC(857ffffe) SHA1(de7566d58314df4b7fdc07eb31a3f9bdd12d1a73) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -759,7 +759,7 @@ public class combatsc
 		ROM_LOAD( "611g04.rom",  0x00000, 0x20000, CRC(2987e158) SHA1(87c5129161d3be29a339083349807e60b625c3f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_combasct = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_combasct = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 6309 code */
 		ROM_LOAD( "g01.rom",     0x30000, 0x08000, CRC(489c132f) SHA1(c717195f89add4be4a21ecc1ddd58361b0ab4a74) )
 		ROM_CONTINUE(            0x08000, 0x08000 )
@@ -787,7 +787,7 @@ public class combatsc
 		ROM_LOAD( "611g04.rom",  0x00000, 0x20000, CRC(2987e158) SHA1(87c5129161d3be29a339083349807e60b625c3f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_combascj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_combascj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 6309 code */
 		ROM_LOAD( "611p01.a14",  0x30000, 0x08000, CRC(d748268e) SHA1(91588b6a0d3af47065204b980a56544a9f29b6d9) )
 		ROM_CONTINUE(            0x08000, 0x08000 )
@@ -815,7 +815,7 @@ public class combatsc
 		ROM_LOAD( "611g04.rom",  0x00000, 0x20000, CRC(2987e158) SHA1(87c5129161d3be29a339083349807e60b625c3f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bootcamp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bootcamp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 6309 code */
 		ROM_LOAD( "xxx-v01.12a", 0x30000, 0x08000, CRC(c10dca64) SHA1(f34de26e998b1501e430d46e96cdc58ebc68481e) )
 		ROM_CONTINUE(            0x08000, 0x08000 )
@@ -843,7 +843,7 @@ public class combatsc
 		ROM_LOAD( "611g04.rom",  0x00000, 0x20000, CRC(2987e158) SHA1(87c5129161d3be29a339083349807e60b625c3f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_combascb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_combascb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 6809 code */
 		ROM_LOAD( "combat.002",	 0x30000, 0x08000, CRC(0996755d) SHA1(bb6bbbf7ab3b5fab5e1c6cebc7b3f0d720493c3b) )
 		ROM_CONTINUE(            0x08000, 0x08000 )

@@ -96,7 +96,7 @@ public class chindrag
 	};
 	
 	
-	static InputPortPtr input_ports_chindrag = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( chindrag )
+	static InputPortHandlerPtr input_ports_chindrag = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chindrag )
 	INPUT_PORTS_END(); }}; 
 	
 	static MACHINE_DRIVER_START( chindrag )
@@ -154,7 +154,7 @@ public class chindrag
 	} };
 	
 	
-	static RomLoadPtr rom_chindrag = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chindrag = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_WORD_SWAP( "v-021j",         0x00000, 0x80000, CRC(2f87f6e4) SHA1(d43065b078fdd9605c121988ad3092dce6cf0bf1) )
 	

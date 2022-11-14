@@ -478,7 +478,7 @@ public class konamigq
 		MDRV_SOUND_ADD( K054539, k054539_interface )
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_konamigq = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( konamigq )
+	static InputPortHandlerPtr input_ports_konamigq = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( konamigq )
 		/* IN 0 */
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -571,7 +571,7 @@ public class konamigq
 		PORT_ANALOG( 0xff, 0x00, IPT_LIGHTGUN_Y | IPF_PLAYER3, 25, 15, 0, 0xff );
 	INPUT_PORTS_END(); }}; 
 	
-	static RomLoadPtr rom_cryptklr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cryptklr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	

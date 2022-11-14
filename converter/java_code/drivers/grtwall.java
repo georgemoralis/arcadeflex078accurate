@@ -69,7 +69,7 @@ public class grtwall
 	};
 	
 	
-	static InputPortPtr input_ports_grtwall = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( grtwall )
+	static InputPortHandlerPtr input_ports_grtwall = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( grtwall )
 	INPUT_PORTS_END(); }}; 
 	
 	static MACHINE_DRIVER_START( grtwall )
@@ -122,7 +122,7 @@ public class grtwall
 	} };
 	
 	
-	static RomLoadPtr rom_grtwall = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grtwall = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_WORD_SWAP( "wlcc4096.rom",         0x00000, 0x100000, CRC(3b16729f) SHA1(4ef4e5cbd6ccc65775e36c2c8b459bc1767d6574) ) // 1ST+2ND IDENTICAL
 	

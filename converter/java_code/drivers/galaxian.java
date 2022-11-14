@@ -872,7 +872,7 @@ public class galaxian
 	};
 	
 	
-	static InputPortPtr input_ports_galaxian = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( galaxian )
+	static InputPortHandlerPtr input_ports_galaxian = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galaxian )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -913,7 +913,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_superg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( superg )
+	static InputPortHandlerPtr input_ports_superg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( superg )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -954,7 +954,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_swarm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( swarm )
+	static InputPortHandlerPtr input_ports_swarm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( swarm )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -995,7 +995,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gmgalax = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gmgalax )
+	static InputPortHandlerPtr input_ports_gmgalax = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gmgalax )
 		PORT_START();       /* Ghost Muncher - IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_4WAY | IPF_COCKTAIL);
@@ -1079,7 +1079,7 @@ public class galaxian
 		PORT_DIPSETTING( 0x01, "Galaxian" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_zerotime = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zerotime )
+	static InputPortHandlerPtr input_ports_zerotime = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zerotime )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1120,7 +1120,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pisces = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pisces )
+	static InputPortHandlerPtr input_ports_pisces = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pisces )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN1 );
@@ -1162,7 +1162,7 @@ public class galaxian
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'pisces', but different "Coinage" Dip Switch */
-	static InputPortPtr input_ports_piscesb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( piscesb )
+	static InputPortHandlerPtr input_ports_piscesb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( piscesb )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN1 );
@@ -1203,7 +1203,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gteikokb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gteikokb )
+	static InputPortHandlerPtr input_ports_gteikokb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gteikokb )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1245,7 +1245,7 @@ public class galaxian
 	INPUT_PORTS_END(); }}; 
 	
 	/* same as gteikokb with cabinet reversed */
-	static InputPortPtr input_ports_gteikob2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gteikob2 )
+	static InputPortHandlerPtr input_ports_gteikob2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gteikob2 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1286,7 +1286,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_spacbatt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacbatt )
+	static InputPortHandlerPtr input_ports_spacbatt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacbatt )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1327,7 +1327,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_batman2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( batman2 )
+	static InputPortHandlerPtr input_ports_batman2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( batman2 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1368,7 +1368,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_warofbug = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( warofbug )
+	static InputPortHandlerPtr input_ports_warofbug = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( warofbug )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_COCKTAIL );
@@ -1409,7 +1409,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_redufo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( redufo )
+	static InputPortHandlerPtr input_ports_redufo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( redufo )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1448,7 +1448,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_exodus = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( exodus )
+	static InputPortHandlerPtr input_ports_exodus = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( exodus )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1491,7 +1491,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_streakng = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( streakng )
+	static InputPortHandlerPtr input_ports_streakng = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( streakng )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_4WAY | IPF_COCKTAIL);
@@ -1531,7 +1531,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pacmanbl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pacmanbl )
+	static InputPortHandlerPtr input_ports_pacmanbl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pacmanbl )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1572,7 +1572,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_devilfsg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( devilfsg )
+	static InputPortHandlerPtr input_ports_devilfsg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( devilfsg )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1611,7 +1611,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_zigzag = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zigzag )
+	static InputPortHandlerPtr input_ports_zigzag = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zigzag )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -1650,7 +1650,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_scramblb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( scramblb )
+	static InputPortHandlerPtr input_ports_scramblb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( scramblb )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_COCKTAIL );
@@ -1687,7 +1687,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_jumpbug = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jumpbug )
+	static InputPortHandlerPtr input_ports_jumpbug = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jumpbug )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_COCKTAIL );
@@ -1726,7 +1726,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_levers = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( levers )
+	static InputPortHandlerPtr input_ports_levers = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( levers )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER2 );
@@ -1774,7 +1774,7 @@ public class galaxian
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_azurian = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( azurian )
+	static InputPortHandlerPtr input_ports_azurian = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( azurian )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY );
@@ -1818,7 +1818,7 @@ public class galaxian
 		PORT_DIPSETTING(    0x00, "Very hard" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_orbitron = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( orbitron )
+	static InputPortHandlerPtr input_ports_orbitron = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( orbitron )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1858,7 +1858,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_blkhole = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blkhole )
+	static InputPortHandlerPtr input_ports_blkhole = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blkhole )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNUSED );
@@ -1898,7 +1898,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_checkman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( checkman )
+	static InputPortHandlerPtr input_ports_checkman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( checkman )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN1 );
@@ -1938,7 +1938,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_checkmaj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( checkmaj )
+	static InputPortHandlerPtr input_ports_checkmaj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( checkmaj )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -1979,7 +1979,7 @@ public class galaxian
 		PORT_BIT( 0x20, IP_ACTIVE_HIGH, IPT_BUTTON1 );/* p1 tiles left */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dingo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dingo )
+	static InputPortHandlerPtr input_ports_dingo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dingo )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2020,7 +2020,7 @@ public class galaxian
 		PORT_BIT( 0x20, IP_ACTIVE_HIGH, IPT_BUTTON1 );/* Check code at 0x22e1 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mooncrst = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mooncrst )
+	static InputPortHandlerPtr input_ports_mooncrst = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mooncrst )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2061,7 +2061,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mooncrsg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mooncrsg )
+	static InputPortHandlerPtr input_ports_mooncrsg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mooncrsg )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2102,7 +2102,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_smooncrs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( smooncrs )
+	static InputPortHandlerPtr input_ports_smooncrs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( smooncrs )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2143,7 +2143,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mooncrsa = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mooncrsa )
+	static InputPortHandlerPtr input_ports_mooncrsa = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mooncrsa )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2184,7 +2184,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fantazia = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fantazia )
+	static InputPortHandlerPtr input_ports_fantazia = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fantazia )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2225,7 +2225,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_eagle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( eagle )
+	static InputPortHandlerPtr input_ports_eagle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( eagle )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2267,7 +2267,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_eagle2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( eagle2 )
+	static InputPortHandlerPtr input_ports_eagle2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( eagle2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2313,7 +2313,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mooncrgx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mooncrgx )
+	static InputPortHandlerPtr input_ports_mooncrgx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mooncrgx )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2354,7 +2354,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_skybase = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skybase )
+	static InputPortHandlerPtr input_ports_skybase = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skybase )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNUSED );
@@ -2397,7 +2397,7 @@ public class galaxian
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_BUTTON2 | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_omega = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( omega )
+	static InputPortHandlerPtr input_ports_omega = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( omega )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2434,7 +2434,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_moonqsr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( moonqsr )
+	static InputPortHandlerPtr input_ports_moonqsr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( moonqsr )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2474,7 +2474,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_moonal2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( moonal2 )
+	static InputPortHandlerPtr input_ports_moonal2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( moonal2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2515,7 +2515,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mshuttle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mshuttle )
+	static InputPortHandlerPtr input_ports_mshuttle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mshuttle )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -2562,7 +2562,7 @@ public class galaxian
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kingball = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kingball )
+	static InputPortHandlerPtr input_ports_kingball = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kingball )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2612,7 +2612,7 @@ public class galaxian
 		PORT_DIPSETTING(    0x01, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_scorpnmc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( scorpnmc )
+	static InputPortHandlerPtr input_ports_scorpnmc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( scorpnmc )
 		PORT_START();       /* IN0 - 0xa000 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SERVICE1 );	// COIN2? (it ALWAYS adds 1 credit)
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN1 );
@@ -2665,7 +2665,7 @@ public class galaxian
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_frogg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( frogg )
+	static InputPortHandlerPtr input_ports_frogg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( frogg )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2706,7 +2706,7 @@ public class galaxian
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_4in1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 4in1 )
+	static InputPortHandlerPtr input_ports_4in1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 4in1 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_COCKTAIL );
@@ -2826,7 +2826,7 @@ public class galaxian
 		PORT_DIPSETTING(    0xc0, DEF_STR( "Free_Play") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bagmanmc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bagmanmc )
+	static InputPortHandlerPtr input_ports_bagmanmc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bagmanmc )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2878,7 +2878,7 @@ public class galaxian
 		PORT_DIPSETTING(	0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dkongjrm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dkongjrm )
+	static InputPortHandlerPtr input_ports_dkongjrm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dkongjrm )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2917,7 +2917,7 @@ public class galaxian
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_froggrmc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( froggrmc )
+	static InputPortHandlerPtr input_ports_froggrmc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( froggrmc )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -2957,7 +2957,7 @@ public class galaxian
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rockclim = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rockclim )
+	static InputPortHandlerPtr input_ports_rockclim = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rockclim )
 	
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
@@ -3039,7 +3039,7 @@ public class galaxian
 	- you can insert 99 credits 3 times consecutively, then it resets
 	
 	*/
-	static InputPortPtr input_ports_ozon1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ozon1 )
+	static InputPortHandlerPtr input_ports_ozon1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ozon1 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -3090,7 +3090,7 @@ public class galaxian
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ladybugg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ladybugg )
+	static InputPortHandlerPtr input_ports_ladybugg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ladybugg )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -3131,7 +3131,7 @@ public class galaxian
 		PORT_BIT( 0x20, IP_ACTIVE_HIGH, IPT_BUTTON1 );/* Check code at 0x22e1 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_vpool = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vpool )
+	static InputPortHandlerPtr input_ports_vpool = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vpool )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -3188,7 +3188,7 @@ public class galaxian
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_drivfrcg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( drivfrcg )
+	static InputPortHandlerPtr input_ports_drivfrcg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( drivfrcg )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -3864,7 +3864,7 @@ public class galaxian
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_galaxian = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galaxian = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "galmidw.u",    0x0000, 0x0800, CRC(745e2d61) SHA1(e65f74e35b1bfaccd407e168ea55678ae9b68edf) )
 		ROM_LOAD( "galmidw.v",    0x0800, 0x0800, CRC(9c999a40) SHA1(02fdcd95d8511e64c0d2b007b874112d53e41045) )
@@ -3880,7 +3880,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galaxiaj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galaxiaj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "7f.bin",       0x0000, 0x1000, CRC(4335b1de) SHA1(e41e3d90dac738cf71377f3b476ec67b14dee27a) )
 		ROM_LOAD( "7j.bin",       0x1000, 0x1000, CRC(4e6f66a1) SHA1(ee2a675ab34485c0f58c51be7630a51e27a7a8f3) )
@@ -3894,7 +3894,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galmidw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galmidw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "galmidw.u",    0x0000, 0x0800, CRC(745e2d61) SHA1(e65f74e35b1bfaccd407e168ea55678ae9b68edf) )
 		ROM_LOAD( "galmidw.v",    0x0800, 0x0800, CRC(9c999a40) SHA1(02fdcd95d8511e64c0d2b007b874112d53e41045) )
@@ -3910,7 +3910,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galmidwo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galmidwo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "galaxian.u",   0x0000, 0x0800, CRC(fac42d34) SHA1(0b96d9f1c6bf0e0b7f757dcbaeacfbfafefc54d1) )
 		ROM_LOAD( "galaxian.v",   0x0800, 0x0800, CRC(f58283e3) SHA1(edc6e72516c50fd3402281d9936574d276581ce9) )
@@ -3926,7 +3926,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_superg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "7f.bin",       0x0000, 0x1000, CRC(4335b1de) SHA1(e41e3d90dac738cf71377f3b476ec67b14dee27a) )
 		ROM_LOAD( "superg.w",     0x1000, 0x0800, CRC(ddeabdae) SHA1(daa5109a32c7c9a80bdb212dc3e4e3e3c104a731) )
@@ -3941,7 +3941,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galapx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galapx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "galx.u",       0x0000, 0x0800, CRC(79e4007d) SHA1(d55050498a670d1c022ba3caad34f8fcaccf4a30) )
 		ROM_LOAD( "galx.v",       0x0800, 0x0800, CRC(bc16064e) SHA1(4e3220fd63c8184bf9581a89dffb6944d8fae3bb) )
@@ -3957,7 +3957,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moonaln = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moonaln = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "galx.u",       0x0000, 0x0800, CRC(79e4007d) SHA1(d55050498a670d1c022ba3caad34f8fcaccf4a30) ) // prg1.bin
 		ROM_LOAD( "prg2.bin",     0x0800, 0x0800, CRC(59580b30) SHA1(e659426ad8c4e5e10a7cdd07d8b4fea93f875026) )
@@ -3973,7 +3973,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galap1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galap1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "7f.bin",       0x0000, 0x1000, CRC(4335b1de) SHA1(e41e3d90dac738cf71377f3b476ec67b14dee27a) )
 		ROM_LOAD( "galaxian.w",   0x1000, 0x0800, CRC(4c7031c0) SHA1(97f7ab0cedcd8eba1c8f6f516d84d672a2108258) )
@@ -3988,7 +3988,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galap4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galap4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "galnamco.u",   0x0000, 0x0800, CRC(acfde501) SHA1(4b72c1ffecaccadc541da2367f3ef70a2a9aed64) )
 		ROM_LOAD( "galnamco.v",   0x0800, 0x0800, CRC(65cf3c77) SHA1(1c5249815816b395e1e04bf6a7dbb63e40faa0e3) )
@@ -4004,7 +4004,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galturbo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galturbo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "galturbo.u",   0x0000, 0x0800, CRC(e8f3aa67) SHA1(a0e9576784dbe602dd9780e667f01f31defd7c00) )
 		ROM_LOAD( "galx.v",       0x0800, 0x0800, CRC(bc16064e) SHA1(4e3220fd63c8184bf9581a89dffb6944d8fae3bb) )
@@ -4020,7 +4020,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_swarm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_swarm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "swarm1.bin",   0x0000, 0x0800, CRC(21eba3d0) SHA1(d07f141d785c86faca8c40af034c26f2789e9346) )
 		ROM_LOAD( "swarm2.bin",   0x0800, 0x0800, CRC(f3a436cd) SHA1(8d64e61b823e22f17cb79bf9e0c7b3c80c76413f) )
@@ -4036,7 +4036,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_zerotime = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zerotime = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "zt-p01c.016",  0x0000, 0x0800, CRC(90a2bc61) SHA1(9d23dfcf5310cf1d4aa1b473ec84279585e1a876) )
 		ROM_LOAD( "zt-2.016",     0x0800, 0x0800, CRC(a433067e) SHA1(1aed1a2153c4a32a9996fc709e544f2063885599) )
@@ -4052,7 +4052,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tst_galx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tst_galx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "test.u",    0x0000, 0x0800, CRC(0614cd7f) SHA1(12440678be8a27a6c3032b6e43c45e27905ffa83) )   /*  The Test ROM */
 		ROM_LOAD( "galmidw.v",    0x0800, 0x0800, CRC(9c999a40) SHA1(02fdcd95d8511e64c0d2b007b874112d53e41045) )
@@ -4069,7 +4069,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gmgalax = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gmgalax = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )	/* 64k for code + 32k for banked code */
 		ROM_LOAD( "pcb1_pm1.bin",0x10000, 0x1000, CRC(19338c70) SHA1(cc2665b7d534d324627d12025ee099ff415d4214) )
 		ROM_LOAD( "pcb1_pm2.bin",0x11000, 0x1000, CRC(18db074d) SHA1(a70ed18f632e947493e648e6fc057dfb7a2a3322) )
@@ -4094,7 +4094,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0020, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pisces = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pisces = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "p1.bin",       0x0000, 0x0800, CRC(40c5b0e4) SHA1(6c18e6f4719eb0d7eb13b778d7ea58e4b87ac35c) )
 		ROM_LOAD( "p2.bin",       0x0800, 0x0800, CRC(055f9762) SHA1(9d821874dd48a80651adc58a2f7fe5d2b3ed67bc) )
@@ -4115,7 +4115,7 @@ public class galaxian
 		ROM_LOAD( "colour.bin",   0x0000, 0x0020, CRC(57a45057) SHA1(d4ec6a54f72640e5b485aa59e206c090e67ff640) )	// same as checkman.clr
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_piscesb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_piscesb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pisces.a1",    0x0000, 0x0800, CRC(856b8e1f) SHA1(24d468b5f06f54c3fa1cb54ceec8a0c8e285430e) )
 		ROM_LOAD( "p2.bin",       0x0800, 0x0800, CRC(055f9762) SHA1(9d821874dd48a80651adc58a2f7fe5d2b3ed67bc) )
@@ -4137,7 +4137,7 @@ public class galaxian
 		ROM_LOAD( "colour.bin",   0x0000, 0x0020, CRC(57a45057) SHA1(d4ec6a54f72640e5b485aa59e206c090e67ff640) )	// same as checkman.clr
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_uniwars = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_uniwars = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "f07_1a.bin",   0x0000, 0x0800, CRC(d975af10) SHA1(a2e2a36a75db8fd09441308b08b6ae073c68b8cf) )
 		ROM_LOAD( "h07_2a.bin",   0x0800, 0x0800, CRC(b2ed14c3) SHA1(7668df11f64b8e296eedfee53437777dc53a56d5) )
@@ -4158,7 +4158,7 @@ public class galaxian
 		ROM_LOAD( "uniwars.clr",  0x0000, 0x0020, CRC(25c79518) SHA1(e8f7e8b3d0cf1ed9d723948548f58abf0e2c6d1f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gteikoku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gteikoku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "f07_1a.bin",   0x0000, 0x0800, CRC(d975af10) SHA1(a2e2a36a75db8fd09441308b08b6ae073c68b8cf) )
 		ROM_LOAD( "h07_2a.bin",   0x0800, 0x0800, CRC(b2ed14c3) SHA1(7668df11f64b8e296eedfee53437777dc53a56d5) )
@@ -4179,7 +4179,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gteikokb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gteikokb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1.bin",        0x0000, 0x0800, CRC(bf00252f) SHA1(a4ec48c6b9468f52bcf8b01d1bdb908dcf81d42d) )
 		ROM_LOAD( "2.bin",   	  0x0800, 0x0800, CRC(f712b7d5) SHA1(c269db2e9984a3fbd33888bd426c53d319cad36f) )
@@ -4200,7 +4200,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gteikob2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gteikob2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "94gnog.bin",   0x0000, 0x0800, CRC(67ec3235) SHA1(f250db867257f474f693012c11008bf92f038cc7) )
 		ROM_LOAD( "92gnog.bin",   0x0800, 0x0800, CRC(813c41f2) SHA1(bd92e0b53e3c8874d63f3444bca02246cd74b1c6) )
@@ -4221,7 +4221,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacbatt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacbatt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "f07_1a.bin",   0x0000, 0x0800, CRC(d975af10) SHA1(a2e2a36a75db8fd09441308b08b6ae073c68b8cf) )
 		ROM_LOAD( "h07_2a.bin",   0x0800, 0x0800, CRC(b2ed14c3) SHA1(7668df11f64b8e296eedfee53437777dc53a56d5) )
@@ -4242,7 +4242,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_skyraidr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skyraidr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "f07_1a.bin",   0x0000, 0x0800, CRC(d975af10) SHA1(a2e2a36a75db8fd09441308b08b6ae073c68b8cf) )
 		ROM_LOAD( "h07_2a.bin",   0x0800, 0x0800, CRC(b2ed14c3) SHA1(7668df11f64b8e296eedfee53437777dc53a56d5) )
@@ -4263,7 +4263,7 @@ public class galaxian
 		ROM_LOAD( "uniwars.clr",  0x0000, 0x0020, CRC(25c79518) SHA1(e8f7e8b3d0cf1ed9d723948548f58abf0e2c6d1f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_batman2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_batman2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "01.bin",    	  0x0000, 0x0800, CRC(150fbca5) SHA1(a5dc104169eb3225c6200e7e07102f8a9bee6861) )
 		ROM_LOAD( "02.bin",       0x0800, 0x0800, CRC(b1624fd0) SHA1(ca4678cf7a8b935be2f68d6e342c1f961bf6f1a2) )
@@ -4284,7 +4284,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_warofbug = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_warofbug = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "warofbug.u",   0x0000, 0x0800, CRC(b8dfb7e3) SHA1(c7c675b2638869a9cd7dbd554e6131d8c71b567a) )
 		ROM_LOAD( "warofbug.v",   0x0800, 0x0800, CRC(fd8854e0) SHA1(b39ab41b834f18341968dd780f0a3cd07d70c16c) )
@@ -4300,7 +4300,7 @@ public class galaxian
 		ROM_LOAD( "warofbug.clr", 0x0000, 0x0020, CRC(8688e64b) SHA1(ed13414257f580b98b50c9892a14159c55e7838d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_redufo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_redufo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ru1a",         0x0000, 0x0800, CRC(5a8e4f37) SHA1(c0957ede91e2dc3f80e4912b877843aed5d15779) )
 		ROM_LOAD( "ru2a",         0x0800, 0x0800, CRC(c624f52d) SHA1(119a660513ad33e35c9bdaecd588219bf8026d82) )
@@ -4317,7 +4317,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_exodus = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exodus = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "exodus1.bin",  0x0000, 0x0800, CRC(5dfe65e1) SHA1(5f1ce289b3c98a89d61d4dea952b4b8888d92ed7) )
 		ROM_LOAD( "exodus2.bin",  0x0800, 0x0800, CRC(6559222f) SHA1(520497f6fb2b0c76be8419702e8af894283ebf0b) )
@@ -4335,7 +4335,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_streakng = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_streakng = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sk1",          0x0000, 0x1000, CRC(c8866ccb) SHA1(1fc8bc643ecbfa86a50448d79b299f5a3dd586c5) )
 		ROM_LOAD( "sk2",          0x1000, 0x1000, CRC(7caea29b) SHA1(5b3946ee914b1637db9046abf92d66ceaeb4fc5f) )
@@ -4350,7 +4350,7 @@ public class galaxian
 		ROM_LOAD( "sk.bpr",       0x0000, 0x0020, CRC(bce79607) SHA1(49d60fde149240bcd025f721b0fbbbdbc549a42f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pacmanbl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacmanbl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "blpac1b",      0x0000, 0x0800, CRC(6718df42) SHA1(ee15c3f583d381fba4878f824f83d04479a0cee5) )
 		ROM_LOAD( "blpac2b",      0x0800, 0x0800, CRC(33be3648) SHA1(50175889cf37fe8a81c931e009b55d10f8d0444a) )
@@ -4370,7 +4370,7 @@ public class galaxian
 		ROM_LOAD( "blpaccp",      0x0000, 0x0020, CRC(24652bc4) SHA1(d89575f3749c75dc963317fe451ffeffd9856e4d) ) /* same as pisces */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_devilfsg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_devilfsg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "dfish1.7f",    0x2000, 0x0800, CRC(2ab19698) SHA1(8450981d3cf3fa8abf2fb5487aa98b03a4cf03a1) )
 		ROM_CONTINUE(             0x0000, 0x0800 )
@@ -4391,7 +4391,7 @@ public class galaxian
 		ROM_LOAD( "82s123.6e",    0x0000, 0x0020, CRC(4e3caeab) SHA1(a25083c3e36d28afdefe4af6e6d4f3155e303625) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_zigzag = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zigzag = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "zz_d1.bin",    0x0000, 0x1000, CRC(8cc08d81) SHA1(be671192ef06dc3ed6963dc39e6bdce3275300e9) )
 		ROM_LOAD( "zz_d2.bin",    0x1000, 0x1000, CRC(326d8d45) SHA1(563b9fc64c34e36cfadffb107ce30d3a04d62d9c) )
@@ -4408,7 +4408,7 @@ public class galaxian
 		ROM_LOAD( "zzbp_e9.bin",  0x0000, 0x0020, CRC(aa486dd0) SHA1(b845b52715bf6361ceee8c1ac541733963bd47af) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_zigzag2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zigzag2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "z1",           0x0000, 0x1000, CRC(4c28349a) SHA1(646134ce506deaee88cc2ec5a973f8fedaddb66b) )
 		ROM_LOAD( "zz_d2.bin",    0x1000, 0x1000, CRC(326d8d45) SHA1(563b9fc64c34e36cfadffb107ce30d3a04d62d9c) )
@@ -4425,7 +4425,7 @@ public class galaxian
 		ROM_LOAD( "zzbp_e9.bin",  0x0000, 0x0020, CRC(aa486dd0) SHA1(b845b52715bf6361ceee8c1ac541733963bd47af) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mooncrgx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mooncrgx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1",            0x0000, 0x0800, CRC(84cf420b) SHA1(82c979467c51df699337d5878340d05bee606480) )
 		ROM_LOAD( "2",            0x0800, 0x0800, CRC(4c2a61a1) SHA1(a3759bd2c062f2843cd5b812529c798d5d12086c) )
@@ -4446,7 +4446,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_omega = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_omega = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "omega1.bin",   0x0000, 0x0800, CRC(fc2a096b) SHA1(071ff30060a1aa0a47ae6e88140b80caed00fc4e) )
 		ROM_LOAD( "omega2.bin",   0x0800, 0x0800, CRC(ad100357) SHA1(7c5e82c25e65b4a390cf5607f15bf4df407f7f11) )
@@ -4463,7 +4463,7 @@ public class galaxian
 		ROM_LOAD( "6331-1j.86",   0x0000, 0x0020, NO_DUMP )	/* missing */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_scramblb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_scramblb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "scramble.1k",  0x0000, 0x0800, CRC(9e025c4a) SHA1(a8cc9391bdd01a5a2fe7f0c4e889b4e2495df891) )
 		ROM_LOAD( "scramble.2k",  0x0800, 0x0800, CRC(306f783e) SHA1(92d19f90f1123cd211706294d668ab23c8b0760b) )
@@ -4482,7 +4482,7 @@ public class galaxian
 		ROM_LOAD( "82s123.6e",    0x0000, 0x0020, CRC(4e3caeab) SHA1(a25083c3e36d28afdefe4af6e6d4f3155e303625) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jumpbug = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jumpbug = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "jb1",          0x0000, 0x1000, CRC(415aa1b7) SHA1(4f9edd7e9720acf085dd8910849c2f2fac5cb547) )
 		ROM_LOAD( "jb2",          0x1000, 0x1000, CRC(b1c27510) SHA1(66fbe0b94b6c101cb50d7a3ff78160110415dff9) )
@@ -4504,7 +4504,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jumpbugb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jumpbugb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "jb1",          0x0000, 0x1000, CRC(415aa1b7) SHA1(4f9edd7e9720acf085dd8910849c2f2fac5cb547) )
 		ROM_LOAD( "jb2",          0x1000, 0x1000, CRC(b1c27510) SHA1(66fbe0b94b6c101cb50d7a3ff78160110415dff9) )
@@ -4526,7 +4526,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_levers = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_levers = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "g96059.a8", 	  0x0000, 0x1000, CRC(9550627a) SHA1(3da9a614622d5b880852fe2bb2e8e4a60afb2d34) )
 		ROM_LOAD( "g96060.d8", 	  0x2000, 0x1000, CRC(5ac64646) SHA1(459755932a033095eff72d78d1e916932964c5cc) )
@@ -4547,7 +4547,7 @@ public class galaxian
 		ROM_LOAD( "g960lev.clr",  0x0000, 0x0020, CRC(01febbbe) SHA1(11b1dab7983ba29e830ccb7f14eb1a99465c9e81) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_azurian = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_azurian = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pgm.1",        0x0000, 0x1000, CRC(17a0fca7) SHA1(0ffb80d433fbaa0631d0d982a453f9e6cccab297) )
 		ROM_LOAD( "pgm.2",        0x1000, 0x1000, CRC(14659848) SHA1(bb9d9c01b074bf7ed7a1c29379bbef41728dd27a) )
@@ -4561,7 +4561,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_orbitron = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_orbitron = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "orbitron.3",   0x0600, 0x0200, CRC(419f9c9b) SHA1(788a3920f4270b886b3a578f8c2df33e6314a1c3) )
 		ROM_CONTINUE(			  0x0400, 0x0200)
@@ -4591,7 +4591,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_checkman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_checkman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cm1",          0x0000, 0x0800, CRC(e8cbdd28) SHA1(ba0b41e375b94bbfed6a2c949cc7958474c8ba6e) )
 		ROM_LOAD( "cm2",          0x0800, 0x0800, CRC(b8432d4d) SHA1(d331476f1f88b7ef1426bed7442392f369e0650b) )
@@ -4613,7 +4613,7 @@ public class galaxian
 		ROM_LOAD( "checkman.clr", 0x0000, 0x0020, CRC(57a45057) SHA1(d4ec6a54f72640e5b485aa59e206c090e67ff640) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_checkmaj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_checkmaj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cm_1.bin",     0x0000, 0x1000, CRC(456a118f) SHA1(7c2e8343360f446af4391012784a1ccfecae3299) )
 		ROM_LOAD( "cm_2.bin",     0x1000, 0x1000, CRC(146b2c44) SHA1(80455396a9b1802fcefaec1340b76461c0601bf9) )
@@ -4630,7 +4630,7 @@ public class galaxian
 		ROM_LOAD( "checkman.clr", 0x0000, 0x0020, CRC(57a45057) SHA1(d4ec6a54f72640e5b485aa59e206c090e67ff640) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dingo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dingo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "003.e7",       0x0000, 0x1000, CRC(d088550f) SHA1(13b87995881e484825c45ab4e558ac3d90bf162a) )
 		ROM_LOAD( "004.h7",       0x1000, 0x1000, CRC(a228446a) SHA1(4b7e611edd6bce308cc7b17caa068445f5438f4f) )
@@ -4647,7 +4647,7 @@ public class galaxian
 		ROM_LOAD( "18s030.l6",	  0x0000, 0x0020, CRC(3061d0f9) SHA1(5af85499c6219137dc57d9fba79cb5afa3548ab1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blkhole = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blkhole = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "bh1",          0x0000, 0x0800, CRC(64998819) SHA1(69fe5dfbe6cde18ef4cae62da12b5c692c2c72b9) )
 		ROM_LOAD( "bh2",          0x0800, 0x0800, CRC(26f26ce4) SHA1(720ce7af05ef596fb9a109591534c74d282955e8) )
@@ -4664,7 +4664,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mooncrst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mooncrst = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "mc1",          0x0000, 0x0800, CRC(7d954a7a) SHA1(a93ee403cfd7887538ad12d33f6dd6c71bea2a32) )
 		ROM_LOAD( "mc2",          0x0800, 0x0800, CRC(44bb7cfa) SHA1(349c2e23a9fce73f95bb8168d369082fa129fe3d) )
@@ -4685,7 +4685,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mooncrsu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mooncrsu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "smc1f",        0x0000, 0x0800, CRC(389ca0d6) SHA1(51cf6d190a0ebf23b70c2bcf1ccaa4705e29cd09) )
 		ROM_LOAD( "smc2f",        0x0800, 0x0800, CRC(410ab430) SHA1(d89abff6ac4afbf69377a1d63043d629a634aab7) )
@@ -4706,7 +4706,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mooncrsa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mooncrsa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "mc1.7d",       0x0000, 0x0800, CRC(92a86aac) SHA1(f5818ac97d8b779e1fb29bf903f74185d24afb0d) )
 		ROM_LOAD( "mc2.7e",       0x0800, 0x0800, CRC(438c2b4b) SHA1(11f56b489b5489999952e91919c5e1f622c59c36) )
@@ -4727,7 +4727,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mooncrsg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mooncrsg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr194",       0x0000, 0x0800, CRC(0e5582b1) SHA1(946ad4aeb10c0b7b3f93fd24925cc9bcb49e443c) )
 		ROM_LOAD( "epr195",       0x0800, 0x0800, CRC(12cb201b) SHA1(ebb01ec646b9e015cbcb93f70dfdaf448afefc12) )
@@ -4748,7 +4748,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_smooncrs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_smooncrs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "927",          0x0000, 0x0800, CRC(55c5b994) SHA1(3451b121fa22361b2684385cf5d4455fa6963215) )
 		ROM_LOAD( "928a",         0x0800, 0x0800, CRC(77ae26d3) SHA1(cbc16a024b73bedff76a6c47336d6ef098e92c53) )
@@ -4769,7 +4769,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mooncrsb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mooncrsb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "bepr194",      0x0000, 0x0800, CRC(6a23ec6d) SHA1(df2214bdde26a71db59ffd39a745052076563f65) )
 		ROM_LOAD( "bepr195",      0x0800, 0x0800, CRC(ee262ff2) SHA1(4e2202023ad53109ea58304071735d2425a617f3) )
@@ -4791,7 +4791,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mooncrs2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mooncrs2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "f8.bin",       0x0000, 0x0800, CRC(d36003e5) SHA1(562b27f1bccce6ae29de18b93fa51c508446cda9) )
 		ROM_LOAD( "bepr195",      0x0800, 0x0800, CRC(ee262ff2) SHA1(4e2202023ad53109ea58304071735d2425a617f3) )
@@ -4818,7 +4818,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fantazia = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fantazia = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "f01.bin",      0x0000, 0x0800, CRC(d3e23863) SHA1(f0a6f7491fdf8aae214f40078b29b7aecdcf2f1e) )
 		ROM_LOAD( "f02.bin",      0x0800, 0x0800, CRC(63fa4149) SHA1(603ee6d4d2952cc08b3f6e98b1a2053671875e44) )
@@ -4841,7 +4841,7 @@ public class galaxian
 		ROM_LOAD( "6l_prom.bin",  0x0000, 0x0020, BAD_DUMP CRC(f5381d3e) SHA1(977a5e024b2a08649269533d36984bc1f290cb14)  )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_eagle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_eagle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "e1",           0x0000, 0x0800, CRC(224c9526) SHA1(4c014d60d4ee80de7f60b4609269461688c181d0) )
 		ROM_LOAD( "e2",           0x0800, 0x0800, CRC(cc538ebd) SHA1(4ef3c7363e2dcd9ed99779039ccc50a9f2084dbd) )
@@ -4868,7 +4868,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_eagle2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_eagle2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "e1.7f",        0x0000, 0x0800, CRC(45aab7a3) SHA1(52ae0463f363dc0964b976faa2c0c428d85a4f12) )
 		ROM_LOAD( "e2",           0x0800, 0x0800, CRC(cc538ebd) SHA1(4ef3c7363e2dcd9ed99779039ccc50a9f2084dbd) )
@@ -4895,7 +4895,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_skybase = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skybase = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "skybase.9a",   0x0000, 0x1000, CRC(845b87a5) SHA1(8a249c1ec921532cb1bb85ed7fec11396634ca38) )
 		ROM_LOAD( "skybase.8a",   0x1000, 0x1000, CRC(096785c2) SHA1(a0833bc1984e1f198587195e58b6fed6657922bd) )
@@ -4914,7 +4914,7 @@ public class galaxian
 		ROM_LOAD( "skybase.123",  0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moonqsr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moonqsr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "mq1",          0x0000, 0x0800, CRC(132c13ec) SHA1(d95166b025442f184e44a70312fb3b4f6366f324) )
 		ROM_LOAD( "mq2",          0x0800, 0x0800, CRC(c8eb74f1) SHA1(4efa85c40349852da47a0f725ae06873efe4ce1c) )
@@ -4936,7 +4936,7 @@ public class galaxian
 		ROM_LOAD( "vid_e6.bin",   0x0000, 0x0020, CRC(0b878b54) SHA1(3667aca564ebfef5b88d7f74fabbd16dd23183b4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moonal2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moonal2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "ali1",         0x0000, 0x0400, CRC(0dcecab4) SHA1(493628640de1a7e3bb9914ee3459b74cedc599fd) )
 		ROM_LOAD( "ali2",         0x0400, 0x0400, CRC(c6ee75a7) SHA1(36503351380f7638069637c22bd06da06da54a1c) )
@@ -4960,7 +4960,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moonal2b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moonal2b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "ali1",         0x0000, 0x0400, CRC(0dcecab4) SHA1(493628640de1a7e3bb9914ee3459b74cedc599fd) )
 		ROM_LOAD( "ali2",         0x0400, 0x0400, CRC(c6ee75a7) SHA1(36503351380f7638069637c22bd06da06da54a1c) )
@@ -4983,7 +4983,7 @@ public class galaxian
 		ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(c3ac9467) SHA1(f382ad5a34d282056c78a5ec00c30ec43772bae2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mshuttle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mshuttle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "my05",         0x0000, 0x1000, CRC(83574af1) SHA1(d69c2a0538a49d6c72c3346ac4e3959d91da6c98) )
 		ROM_LOAD( "my04",         0x1000, 0x1000, CRC(1cfae2c8) SHA1(6c7eeee70e91b8498c41525dcc60f8086cff8da7) )
@@ -5005,7 +5005,7 @@ public class galaxian
 		ROM_LOAD( "my06",         0x1000, 0x1000, CRC(466415f2) SHA1(a05f8238cdcebe926a564ef6268b3cd677987fa2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mshuttlj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mshuttlj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "mcs.5",        0x0000, 0x1000, CRC(a5a292b4) SHA1(b4e9d969c762f4114eba88051917df122fc7181f) )
 		ROM_LOAD( "mcs.4",        0x1000, 0x1000, CRC(acdc0f9e) SHA1(8cd6d6566fe3f4090ccb625c3c1e5850a371826f) )
@@ -5028,7 +5028,7 @@ public class galaxian
 		ROM_LOAD( "my06",         0x1000, 0x1000, CRC(466415f2) SHA1(a05f8238cdcebe926a564ef6268b3cd677987fa2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kingball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kingball = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "prg1.7f",      0x0000, 0x1000, CRC(6cb49046) SHA1(a0891605dff7f9ff51bc7ad85f831a749f2f61e9) )
 		ROM_LOAD( "prg2.7j",      0x1000, 0x1000, CRC(c223b416) SHA1(ca2d9f6b8ef6db4f382089161f4147d9828c3554) )
@@ -5050,7 +5050,7 @@ public class galaxian
 		ROM_LOAD( "kb2-1",        0x0000, 0x0020, CRC(15dd5b16) SHA1(3d2ca2b42bf508a9e5198e970abcbbedf5729164) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kingbalj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kingbalj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "prg1.7f",      0x0000, 0x1000, CRC(6cb49046) SHA1(a0891605dff7f9ff51bc7ad85f831a749f2f61e9) )
 		ROM_LOAD( "prg2.7j",      0x1000, 0x1000, CRC(c223b416) SHA1(ca2d9f6b8ef6db4f382089161f4147d9828c3554) )
@@ -5073,7 +5073,7 @@ public class galaxian
 		ROM_LOAD( "kb2-1",        0x0000, 0x0020, CRC(15dd5b16) SHA1(3d2ca2b42bf508a9e5198e970abcbbedf5729164) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_scorpnmc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_scorpnmc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "p1.bin",       0x0000, 0x0800, CRC(58818d88) SHA1(d9fbfb6fff9ba1d078c3735889b8878ab0442ded) )
 		ROM_LOAD( "p2.bin",       0x0800, 0x0800, CRC(8bec5f9f) SHA1(78642124edbf946140f62985bafe2dca314cb257) )
@@ -5094,7 +5094,7 @@ public class galaxian
 		ROM_LOAD( "6331.bin",     0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_frogg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_frogg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "p1.bin",       0x0000, 0x0800, CRC(1762b266) SHA1(2cf34dcfe00dc476b327f9d762a8d2aa268a2d25) )
 		ROM_LOAD( "p2.bin",       0x0800, 0x0800, CRC(322f3916) SHA1(9236aaa260c4db4adbd92c8bba3674d07d7235a8) )
@@ -5112,7 +5112,7 @@ public class galaxian
 		ROM_LOAD( "l06_prom.bin", 0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_4in1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_4in1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )   /* 64k for code  64k for banked code, encrypted */
 		/* Menu Code, Fixed at 0xc000 - 0xdfff */
 		ROM_LOAD( "rom1a",        0xc000, 0x1000, CRC(ce1af4d9) SHA1(260d81cb703ab33fa5f282454214dea06e59a5d6) )
@@ -5162,7 +5162,7 @@ public class galaxian
 	    ROM_LOAD( "6l.bpr",       0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bagmanmc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bagmanmc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "b1.bin",       0x0000, 0x1000, CRC(b74c75ee) SHA1(620083c30136e24a37b79eb4647d99b997107693) )
 		ROM_LOAD( "b2.bin",       0x1000, 0x1000, CRC(a7d99916) SHA1(13185e8ff6de92ad5135895e5a7fc8b956f009d3) )
@@ -5184,7 +5184,7 @@ public class galaxian
 		ROM_LOAD( "bagmanmc.clr", 0x0000, 0x0020, NO_DUMP )	// missing
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkongjrm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkongjrm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "a1",           0x0000, 0x1000, CRC(299486e9) SHA1(cc4143ff8cb7a37c151bebab007a932381ae733b) )
 		ROM_LOAD( "a2",           0x1000, 0x1000, CRC(a74a193b) SHA1(46f208293c0944b468550738d1238de9b672f403) )
@@ -5204,7 +5204,7 @@ public class galaxian
 		ROM_LOAD( "hustler.clr",  0x0000, 0x0020, CRC(aa1f7f5e) SHA1(311dd17aa11490a1173c76223e4ccccf8ea29850) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_froggrmc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_froggrmc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr-1031.15",  0x0000, 0x1000, CRC(4b7c8d11) SHA1(9200b33cac0ef5a6647c95ebd25237fa62fcdf30) )
 		ROM_LOAD( "epr-1032.16",  0x1000, 0x1000, CRC(ac00b9d9) SHA1(6414d2aa2c0ccb8cb567ffde3acdb693cfd28dbb) )
@@ -5223,7 +5223,7 @@ public class galaxian
 		ROM_LOAD( "pr-91.6l",     0x0000, 0x0020, CRC(413703bf) SHA1(66648b2b28d3dcbda5bdb2605d1977428939dd3c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rockclim = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rockclim = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "lc01.a1",   0x0000, 0x1000, CRC(8601ae8d) SHA1(6e0c3b34ce5e6879ce7a116c5c2660889a68320d) )
@@ -5248,7 +5248,7 @@ public class galaxian
 		ROM_LOAD( "lc11.f4",  0x0020, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ozon1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ozon1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "rom1.bin",     0x0000, 0x1000, CRC(54899e8b) SHA1(270af76ae4396ebda767f160535fa77c0b49726a) )
 		ROM_LOAD( "rom2.bin",     0x1000, 0x1000, CRC(3c90fbfc) SHA1(92da614dba3a644eac144bb0ed434d78a31fcb1a) )
@@ -5262,7 +5262,7 @@ public class galaxian
 		ROM_LOAD( "ozon1.clr", 0x0000, 0x0020, CRC(605ea6e9) SHA1(d3471e6ef756059c2f7feb32fb8e41181cc1718e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ladybugg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ladybugg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "lbuggx.1",   0x0000, 0x0800, CRC(e67e241d) SHA1(42b8eaca71c6b346ab54bc722850d6e6d169c517) )
 		ROM_LOAD( "lbuggx.2",   0x0800, 0x0800, CRC(3cb1fb9a) SHA1(ee76758c94329dfcc740571195a74d9242aaf49f) )
@@ -5283,7 +5283,7 @@ public class galaxian
 		ROM_LOAD( "lbuggx.clr", 0x0000, 0x0020, CRC(4e3caeab) SHA1(a25083c3e36d28afdefe4af6e6d4f3155e303625) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vpool = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vpool = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "vidpool1.bin", 0x0000, 0x0800, CRC(333f4732) SHA1(b57460c039c69137645bd4280ad877aa789277d6) )
 		ROM_CONTINUE(             0x2000, 0x0800 )
@@ -5302,7 +5302,7 @@ public class galaxian
 		ROM_LOAD( "hustler.clr",  0x0000, 0x0020, CRC(aa1f7f5e) SHA1(311dd17aa11490a1173c76223e4ccccf8ea29850) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_drivfrcg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drivfrcg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 ) /* 32k for code */
 		ROM_LOAD( "dfgp1.bin",    0x2800, 0x0400, CRC(52d5e77d) SHA1(4e68ac1274bbc8cb5b6a7dfb511232bd83482453) )
 		ROM_CONTINUE(			  0x2c00, 0x0400 )

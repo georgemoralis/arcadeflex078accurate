@@ -218,7 +218,7 @@ public class yumefuda
 	
 	/***************************************************************************************/
 	
-	static InputPortPtr input_ports_yumefuda = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( yumefuda )
+	static InputPortHandlerPtr input_ports_yumefuda = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( yumefuda )
 		PORT_START(); 	/* DSW1 (00 - Port A) */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -327,7 +327,7 @@ public class yumefuda
 	/***************************************************************************************/
 	
 	
-	static RomLoadPtr rom_yumefuda = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yumefuda = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 ) /* code */
 		ROM_LOAD("zg004y02.u43", 0x00000, 0x8000, CRC(974c543c) SHA1(56aeb318cb00445f133246dfddc8c24bb0c23f2d))
 		ROM_LOAD("zg004y01.u42", 0x10000, 0x8000, CRC(ae99126b) SHA1(4ae2c1c804bbc505a013f5e3d98c0bfbb51b747a))

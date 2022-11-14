@@ -46,7 +46,7 @@ public class troangel
 	
 	
 	
-	static InputPortPtr input_ports_troangel = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( troangel )
+	static InputPortHandlerPtr input_ports_troangel = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( troangel )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -203,7 +203,7 @@ public class troangel
 	
 	
 	
-	static RomLoadPtr rom_troangel = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_troangel = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* main CPU */
 		ROM_LOAD( "ta-a-3k",	0x0000, 0x2000, CRC(f21f8196) SHA1(7cbf74b77a559ee70312b799e707394d9b849f5b) )
 		ROM_LOAD( "ta-a-3m",	0x2000, 0x2000, CRC(58801e55) SHA1(91bdda778f2c4486001bc4ad26d6f21ba275ae08) )

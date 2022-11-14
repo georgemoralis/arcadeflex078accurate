@@ -73,7 +73,7 @@ public class rotaryf
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_rotaryf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rotaryf )
+	static InputPortHandlerPtr input_ports_rotaryf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rotaryf )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -157,7 +157,7 @@ public class rotaryf
 	
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_rotaryf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rotaryf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "krf-1.bin",            0x0000, 0x0400, CRC(f7b2d3e6) SHA1(be7afc1a14be60cb895fc4180167353c7156fc4c) )
 		ROM_RELOAD (                      0x4000, 0x0400             )

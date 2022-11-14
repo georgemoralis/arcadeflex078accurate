@@ -722,7 +722,7 @@ public class williams
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_defender = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( defender )
+	static InputPortHandlerPtr input_ports_defender = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( defender )
 		PORT_START();       /* IN0 */
 		PORT_BITX(0x01, IP_ACTIVE_HIGH, IPT_BUTTON1, "Fire", IP_KEY_DEFAULT, IP_JOY_DEFAULT );
 		PORT_BITX(0x02, IP_ACTIVE_HIGH, IPT_BUTTON2, "Thrust", IP_KEY_DEFAULT, IP_JOY_DEFAULT );
@@ -753,7 +753,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_colony7 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( colony7 )
+	static InputPortHandlerPtr input_ports_colony7 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( colony7 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT );
@@ -780,7 +780,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_stargate = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stargate )
+	static InputPortHandlerPtr input_ports_stargate = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stargate )
 		PORT_START();       /* IN0 */
 		PORT_BITX(0x01, IP_ACTIVE_HIGH, IPT_BUTTON1, "Fire", IP_KEY_DEFAULT, IP_JOY_DEFAULT );
 		PORT_BITX(0x02, IP_ACTIVE_HIGH, IPT_BUTTON2, "Thrust", IP_KEY_DEFAULT, IP_JOY_DEFAULT );
@@ -812,7 +812,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_joust = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( joust )
+	static InputPortHandlerPtr input_ports_joust = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( joust )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_2WAY | IPF_PLAYER2 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_2WAY | IPF_PLAYER2 );
@@ -845,7 +845,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_robotron = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( robotron )
+	static InputPortHandlerPtr input_ports_robotron = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( robotron )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_DOWN );
@@ -872,7 +872,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_spdball = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spdball )
+	static InputPortHandlerPtr input_ports_spdball = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spdball )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0xff, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	
@@ -922,7 +922,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_bubbles = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bubbles )
+	static InputPortHandlerPtr input_ports_bubbles = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bubbles )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN );
@@ -945,7 +945,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_splat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( splat )
+	static InputPortHandlerPtr input_ports_splat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( splat )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_UP | IPF_8WAY | IPF_PLAYER2 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_DOWN | IPF_8WAY | IPF_PLAYER2 );
@@ -987,7 +987,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sinistar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sinistar )
+	static InputPortHandlerPtr input_ports_sinistar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sinistar )
 		PORT_START();       /* IN0 */
 		/* pseudo analog joystick, see below */
 	
@@ -1014,7 +1014,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_playball = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( playball )
+	static InputPortHandlerPtr input_ports_playball = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( playball )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT );
@@ -1035,7 +1035,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_lottofun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lottofun )
+	static InputPortHandlerPtr input_ports_lottofun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lottofun )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN );
@@ -1059,7 +1059,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_blaster = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blaster )
+	static InputPortHandlerPtr input_ports_blaster = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blaster )
 		PORT_START();       /* IN0 */
 		/* pseudo analog joystick, see below */
 	
@@ -1089,7 +1089,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_blastkit = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blastkit )
+	static InputPortHandlerPtr input_ports_blastkit = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blastkit )
 		PORT_START();       /* IN0 */
 		/* pseudo analog joystick, see below */
 	
@@ -1121,7 +1121,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mysticm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mysticm )
+	static InputPortHandlerPtr input_ports_mysticm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mysticm )
 		PORT_START(); 	/* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT );
@@ -1147,7 +1147,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_tshoot = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tshoot )
+	static InputPortHandlerPtr input_ports_tshoot = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tshoot )
 		PORT_START(); 	/* IN0 (muxed with IN3)*/
 		PORT_ANALOG(0x3F, 0x20, IPT_LIGHTGUN_Y, 25, 10, 0, 0x3F);
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -1177,7 +1177,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_inferno = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( inferno )
+	static InputPortHandlerPtr input_ports_inferno = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( inferno )
 		PORT_START(); 	/* IN0 (muxed with IN3) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPF_PLAYER1 | IPT_JOYSTICKLEFT_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPF_PLAYER1 | IPT_JOYSTICKLEFT_LEFT );
@@ -1217,7 +1217,7 @@ public class williams
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_joust2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( joust2 )
+	static InputPortHandlerPtr input_ports_joust2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( joust2 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_2WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_2WAY | IPF_PLAYER1 );
@@ -1436,7 +1436,7 @@ public class williams
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_defender = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_defender = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )
 		ROM_LOAD( "defend.1",     0x0d000, 0x0800, CRC(c3e52d7e) SHA1(a57f5278ffe44248fc73f9925d107f4024ad981a) )
 		ROM_LOAD( "defend.4",     0x0d800, 0x0800, CRC(9a72348b) SHA1(ed6ce796702ff32209ced3cb1ba3837dbafa526f) )
@@ -1457,7 +1457,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_defendg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_defendg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )
 		ROM_LOAD( "defeng01.bin", 0x0d000, 0x0800, CRC(6111d74d) SHA1(2a335bdce8269f75012df44b446cb261ddd5924c) )
 		ROM_LOAD( "defeng04.bin", 0x0d800, 0x0800, CRC(3cfc04ce) SHA1(8ee65c7daed4d6956d0e15ada4dc414c28376012) )
@@ -1478,7 +1478,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_defendw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_defendw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )
 		ROM_LOAD( "wb01.bin",     0x0d000, 0x1000, CRC(0ee1019d) SHA1(a76247e825b8267abfd195c12f96348fe10d4cbc) )
 		ROM_LOAD( "defeng02.bin", 0x0e000, 0x1000, CRC(d184ab6b) SHA1(ed61a95b04f6162aedba8a72bc46005b77283955) )
@@ -1498,7 +1498,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_defndjeu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_defndjeu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x15000, REGION_CPU1, 0 )
 		ROM_LOAD( "15", 0x0d000, 0x1000, CRC(706a24bd) SHA1(60cef3d4f7204eff42de2c08244863e83bc842b4) )
 		ROM_LOAD( "16", 0x0e000, 0x1000, CRC(03201532) SHA1(77e8c10ba0ecb6e7a7cb4229a5025c4b9ea4c73e) )
@@ -1515,7 +1515,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_defcmnd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_defcmnd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x15000, REGION_CPU1, 0 )
 		ROM_LOAD( "defcmnda.1",   0x0d000, 0x1000, CRC(68effc1d) SHA1(459fd95cdf94233e1a4302d1c166e0f7cc239579) )
 		ROM_LOAD( "defcmnda.2",   0x0e000, 0x1000, CRC(1126adc9) SHA1(526cf1ca3a7eefd6115d74ac9af1a50774cc258e) )
@@ -1534,7 +1534,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_defence = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_defence = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x15000, REGION_CPU1, 0 )
 		ROM_LOAD( "1",            0x0d000, 0x1000, CRC(ebc93622) SHA1(bd1c098e91b24409925d01aa25de013451dba8e6) )
 		ROM_LOAD( "2",            0x0e000, 0x1000, CRC(2a4f4f44) SHA1(8c0519fcb631e05e967cf0953ab2749183655594) )
@@ -1553,7 +1553,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mayday = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mayday = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x15000, REGION_CPU1, 0 )
 		ROM_LOAD( "ic03-3.bin",  0x0d000, 0x1000, CRC(a1ff6e62) SHA1(c3c60ce94c6bdc4b07e45f386eff9a4aa4816953) )
 		ROM_LOAD( "ic02-2.bin",  0x0e000, 0x1000, CRC(62183aea) SHA1(3843fe055ab6d3bb5a3362f57a63ce99e36cec47) )
@@ -1570,7 +1570,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_maydaya = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maydaya = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x15000, REGION_CPU1, 0 )
 		ROM_LOAD( "mayday.c", 0x0d000, 0x1000, CRC(872a2f2d) SHA1(5823e889151b34e3fa739775440c788cca0b44c6) )
 		ROM_LOAD( "mayday.b", 0x0e000, 0x1000, CRC(c4ab5e22) SHA1(757fd9311cffea420b1de8f574e84c13c0aac77d) )
@@ -1587,7 +1587,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_maydayb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maydayb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x15000, REGION_CPU1, 0 )
 		ROM_LOAD( "ic03-3.bin",  0x0d000, 0x1000, CRC(a1ff6e62) SHA1(c3c60ce94c6bdc4b07e45f386eff9a4aa4816953) )
 		ROM_LOAD( "ic02-2.bin",  0x0e000, 0x1000, CRC(62183aea) SHA1(3843fe055ab6d3bb5a3362f57a63ce99e36cec47) )
@@ -1610,7 +1610,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_colony7 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_colony7 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )
 		ROM_LOAD( "cs03.bin",     0x0d000, 0x1000, CRC(7ee75ae5) SHA1(1d268d83c2b0c7897d9e783f5da4e1d892709ba4) )
 		ROM_LOAD( "cs02.bin",     0x0e000, 0x1000, CRC(c60b08cb) SHA1(8cf91a2c2c04199b2870bb11e10fa6ffef5b877f) )
@@ -1628,7 +1628,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_colony7a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_colony7a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )
 		ROM_LOAD( "cs03a.bin",    0x0d000, 0x1000, CRC(e0b0d23b) SHA1(4c50e00a71b3b2bf8d032a3cb496e5473204a8d6) )
 		ROM_LOAD( "cs02a.bin",    0x0e000, 0x1000, CRC(370c6f41) SHA1(4e13a4cf9c1a3b1c354443c41549b59581d8b357) )
@@ -1646,7 +1646,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stargate = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stargate = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "01",           0x0000, 0x1000, CRC(88824d18) SHA1(f003a5a9319c4eb8991fa2aae3f10c72d6b8e81a) )
 		ROM_LOAD( "02",           0x1000, 0x1000, CRC(afc614c5) SHA1(087c6da93318e8dc922d3d22e0a2af7b9759701c) )
@@ -1666,7 +1666,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_joust = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_joust = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "joust.wg1",    0x0000, 0x1000, CRC(fe41b2af) SHA1(0443e00ae2eb3e66cf805562ee04309487bb0ba4) )
 		ROM_LOAD( "joust.wg2",    0x1000, 0x1000, CRC(501c143c) SHA1(5fda266d43cbbf42eeae1a078b5209d9408ab99f) )
@@ -1686,7 +1686,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_joustwr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_joustwr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "joust.wg1",    0x0000, 0x1000, CRC(fe41b2af) SHA1(0443e00ae2eb3e66cf805562ee04309487bb0ba4) )
 		ROM_LOAD( "joust.wg2",    0x1000, 0x1000, CRC(501c143c) SHA1(5fda266d43cbbf42eeae1a078b5209d9408ab99f) )
@@ -1706,7 +1706,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_joustr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_joustr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "joust.wg1",    0x0000, 0x1000, CRC(fe41b2af) SHA1(0443e00ae2eb3e66cf805562ee04309487bb0ba4) )
 		ROM_LOAD( "joust.wg2",    0x1000, 0x1000, CRC(501c143c) SHA1(5fda266d43cbbf42eeae1a078b5209d9408ab99f) )
@@ -1726,7 +1726,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_robotron = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_robotron = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "robotron.sb1", 0x0000, 0x1000, CRC(66c7d3ef) SHA1(f6d60e26c209c1df2cc01ac07ad5559daa1b7118) )
 		ROM_LOAD( "robotron.sb2", 0x1000, 0x1000, CRC(5bc6c614) SHA1(4d6e82bc29f49100f7751ccfc6a9ff35695b84b3) )
@@ -1746,7 +1746,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_robotryo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_robotryo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "robotron.sb1", 0x0000, 0x1000, CRC(66c7d3ef) SHA1(f6d60e26c209c1df2cc01ac07ad5559daa1b7118) )
 		ROM_LOAD( "robotron.sb2", 0x1000, 0x1000, CRC(5bc6c614) SHA1(4d6e82bc29f49100f7751ccfc6a9ff35695b84b3) )
@@ -1766,7 +1766,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_spdball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spdball = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "speedbal.01", 0x0000, 0x1000, CRC(7f4801bb) SHA1(8f22396170571189b1d088d73331d6a713c76f41) )
 		ROM_LOAD( "speedbal.02", 0x1000, 0x1000, CRC(5cd5e489) SHA1(83c1bce945ecbaa4a59e0023198e574d9069680c) )
@@ -1789,7 +1789,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bubbles = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubbles = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "bubbles.1b",   0x0000, 0x1000, CRC(8234f55c) SHA1(4d60942320c03ae50b0b17267062a321cf49e240) )
 		ROM_LOAD( "bubbles.2b",   0x1000, 0x1000, CRC(4a188d6a) SHA1(2788c4a21659799e59ab82bc8d1864a3abe3b6d7) )
@@ -1809,7 +1809,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bubblesr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubblesr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "bubblesr.1b",  0x0000, 0x1000, CRC(dda4e782) SHA1(ad6825ebc05931942ce1042f18e18e3873083abc) )
 		ROM_LOAD( "bubblesr.2b",  0x1000, 0x1000, CRC(3c8fa7f5) SHA1(fd3db6c2abab7000d586ef1a4e425329da292144) )
@@ -1829,7 +1829,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bubblesp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubblesp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "bub_prot.1b",  0x0000, 0x1000, CRC(6466a746) SHA1(ed67d879d82ef05bcd2b655f761f84bc0cf08897) )
 		ROM_LOAD( "bub_prot.2b",  0x1000, 0x1000, CRC(cca04357) SHA1(98f879675c02e7ad5532da30f663714913a059b9) )
@@ -1849,7 +1849,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_splat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_splat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "splat.01",     0x0000, 0x1000, CRC(1cf26e48) SHA1(6ba4de6cc7d1359ed450da7bae1000552373f873) )
 		ROM_LOAD( "splat.02",     0x1000, 0x1000, CRC(ac0d4276) SHA1(710aba98909d5d63c4b9b08579021f9c026b3111) )
@@ -1869,7 +1869,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sinistar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sinistar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "sinistar.01",  0x0000, 0x1000, CRC(f6f3a22c) SHA1(026d8cab07734fa294a5645edbe65a904bcbc302) )
 		ROM_LOAD( "sinistar.02",  0x1000, 0x1000, CRC(cab3185c) SHA1(423d1e3b0c07333ec582529bc4d0b7baf591820a) )
@@ -1892,7 +1892,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sinista1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sinista1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "sinrev1.01",   0x0000, 0x1000, CRC(3810d7b8) SHA1(dcd690cbc958a2f97f022765315d77fb7c7d8e8b) )
 		ROM_LOAD( "sinistar.02",  0x1000, 0x1000, CRC(cab3185c) SHA1(423d1e3b0c07333ec582529bc4d0b7baf591820a) )
@@ -1915,7 +1915,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sinista2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sinista2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "sinistar.01",  0x0000, 0x1000, CRC(f6f3a22c) SHA1(026d8cab07734fa294a5645edbe65a904bcbc302) )
 		ROM_LOAD( "sinistar.02",  0x1000, 0x1000, CRC(cab3185c) SHA1(423d1e3b0c07333ec582529bc4d0b7baf591820a) )
@@ -1938,7 +1938,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_playball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_playball = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "playball.01",  0x0000, 0x1000, CRC(7ba8fd71) SHA1(9b77996238c67aead8c2cfc7f964f8cf9c6182eb) )
 		ROM_LOAD( "playball.02",  0x1000, 0x1000, CRC(2387c3d4) SHA1(19d9da6af317595d0f3336e886154e0b8467cb3e) )
@@ -1962,7 +1962,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_lottofun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lottofun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "vl4e.dat",     0x0000, 0x1000, CRC(5e9af236) SHA1(6f26c9be6da6f1195a4569f003a010d3f2e0c24d) )
 		ROM_LOAD( "vl4c.dat",     0x1000, 0x1000, CRC(4b134ae2) SHA1(86756e1d8de113571857818a98d347789c003339) )
@@ -1982,7 +1982,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blaster = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blaster = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x3c000, REGION_CPU1, 0 )
 		ROM_LOAD( "blaster.11",   0x04000, 0x2000, CRC(6371e62f) SHA1(dc4173d2ee88757a6ac0838acaee325eadc2c4fb) )
 		ROM_LOAD( "blaster.12",   0x06000, 0x2000, CRC(9804faac) SHA1(e61218fe190ad268af48d611d140d8f4cd38e4c7) )
@@ -2011,7 +2011,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blastkit = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blastkit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x3c000, REGION_CPU1, 0 )
 		ROM_LOAD( "blastkit.11",  0x04000, 0x2000, CRC(b7df4914) SHA1(81f7a89dfde06c160f2c8974eec701f2298ec434) )
 		ROM_LOAD( "blastkit.12",  0x06000, 0x2000, CRC(8b1e26ab) SHA1(7d30800a9302f5a83792499d8df536693d01f75d) )
@@ -2040,7 +2040,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tshoot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tshoot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )
 		ROM_LOAD( "rom18.cpu", 0x0d000, 0x1000, CRC(effc33f1) SHA1(cd1b16b4a4a46ce9d550d10b465b8cf1ab3c5273) )	/* IC55 */
 		ROM_LOAD( "rom2.cpu",  0x0e000, 0x1000, CRC(fd982687) SHA1(70be1ea57ea0a1e75b1bd988492a9c0244e8b91f) )	/* IC9	*/
@@ -2075,7 +2075,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mysticm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mysticm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )
 		ROM_LOAD( "mm02_2.a09", 0x0e000, 0x1000, CRC(3a776ea8) SHA1(1fef5f5cef5e10606c97ac9c365f000a88d51314) )	/* IC9	*/
 		ROM_LOAD( "mm03_2.a10", 0x0f000, 0x1000, CRC(6e247c75) SHA1(4daf5206d29b887cd1a78528fac4b0cd8ec7f39b) )	/* IC10 */
@@ -2110,7 +2110,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_inferno = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_inferno = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )
 		ROM_LOAD( "ic9.inf",  0x0e000, 0x1000, CRC(1a013185) SHA1(9079c082ec043714f9d8ea92bc81d0b93d2ce715) )		/* IC9	*/
 		ROM_LOAD( "ic10.inf", 0x0f000, 0x1000, CRC(dbf64a36) SHA1(54326bc527797f0a3a55764073eb40030aec1aae) ) 	/* IC10 */
@@ -2141,7 +2141,7 @@ public class williams
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_joust2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_joust2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )
 		ROM_LOAD( "ic55_r1.cpu", 0x0D000, 0x1000, CRC(08b0d5bd) SHA1(b58da478aef36ae20fcfee48151d5d556e16b7b9) )	/* IC55 ROM02 */
 		ROM_LOAD( "ic09_r2.cpu", 0x0E000, 0x1000, CRC(951175ce) SHA1(ac70df125bb438f9fccc082276df4a76ff693e16) )	/* IC09 ROM03 */

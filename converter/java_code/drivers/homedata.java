@@ -729,7 +729,7 @@ public class homedata
 	/**************************************************************************/
 	
 	
-	static InputPortPtr input_ports_mjhokite = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjhokite )
+	static InputPortHandlerPtr input_ports_mjhokite = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjhokite )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -834,7 +834,7 @@ public class homedata
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_reikaids = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( reikaids )
+	static InputPortHandlerPtr input_ports_reikaids = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( reikaids )
 		PORT_START(); 	// IN0  - 0x7801
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_4WAY | IPF_PLAYER1 );
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_4WAY | IPF_PLAYER1 );
@@ -915,7 +915,7 @@ public class homedata
 		PORT_DIPSETTING(    0x60, DEF_STR( "1C_5C") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_battlcry = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battlcry )
+	static InputPortHandlerPtr input_ports_battlcry = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battlcry )
 		PORT_START(); 	// IN0  - 0x7801
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_4WAY | IPF_PLAYER1 );
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_4WAY | IPF_PLAYER1 );
@@ -1044,7 +1044,7 @@ public class homedata
 		PORT_BIT( 0xc0, IP_ACTIVE_LOW, IPT_UNUSED );
 	
 	
-	static InputPortPtr input_ports_pteacher = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pteacher )
+	static InputPortHandlerPtr input_ports_pteacher = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pteacher )
 		PORT_START(); 	/* dip switches (handled by pteacher_keyboard_r) */
 		PORT_DIPNAME( 0x0001, 0x0000, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1090,7 +1090,7 @@ public class homedata
 		MJ_KEYBOARD
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_jogakuen = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jogakuen )
+	static InputPortHandlerPtr input_ports_jogakuen = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jogakuen )
 		PORT_START(); 	/* dip switches (handled by pteacher_keyboard_r) */
 		PORT_DIPNAME( 0x0001, 0x0001, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1136,7 +1136,7 @@ public class homedata
 		MJ_KEYBOARD
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mjikaga = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjikaga )
+	static InputPortHandlerPtr input_ports_mjikaga = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjikaga )
 		PORT_START(); 	/* dip switches (handled by pteacher_keyboard_r) */
 		PORT_DIPNAME( 0x0001, 0x0001, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1442,7 +1442,7 @@ public class homedata
 	/**************************************************************************/
 	
 	
-	static RomLoadPtr rom_hourouki = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hourouki = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "x77f01.bin", 0x08000, 0x8000, CRC(cd3197b8) SHA1(7dad9ce57a83d675a8a9a4e06df360c22100fe4b) )
 	
@@ -1465,7 +1465,7 @@ public class homedata
 		ROM_LOAD( "x77a08.bin", 0x0000, 0x20000, CRC(22bde229) SHA1(8b44fa895f77b5c95d798172225a030fa0c04126) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mhgaiden = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mhgaiden = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "x72e01.bin", 0x08000, 0x8000, CRC(98cfa53e) SHA1(dd08f5f9ff9d4a9e01e531247fcb17a8407ca8b6) )
 	
@@ -1488,7 +1488,7 @@ public class homedata
 		ROM_LOAD( "x72b08.bin", 0x0000, 0x20000, CRC(be312d23) SHA1(f2c18d6372c2f819248976c67abe0ddcd5cc1de1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mjhokite = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjhokite = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "a74_g01.6g", 0x08000, 0x8000, CRC(409cc501) SHA1(6e9ab81198a5a54489cca8b6dcafb67995351207) )
 	
@@ -1513,7 +1513,7 @@ public class homedata
 		ROM_LOAD( "a74_a08.13a", 0x0000, 0x20000, CRC(dffdd855) SHA1(91469a997a6a9f74f1b84c127f30f5b0e2f974ac) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mjclinic = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjclinic = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "x80_g01.6g", 0x08000, 0x8000, CRC(787b4fb5) SHA1(d1708979d209113b604f6d0973fe14a0c4348351) )
 	
@@ -1538,7 +1538,7 @@ public class homedata
 		ROM_LOAD( "x80_a08.13a", 0x0000, 0x20000, CRC(174e8ec0) SHA1(a5075fe4bba9403ef9e0636d5f3f66aad8b2bc54) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mrokumei = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrokumei = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "m81d01.bin", 0x08000, 0x8000, CRC(6f81a78a) SHA1(5e16327b04b065ed4e39a147b18711902dba6384) )
 	
@@ -1564,7 +1564,7 @@ public class homedata
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_reikaids = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_reikaids = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x02c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "j82c01.bin", 0x010000, 0x01c000, CRC(50fcc451) SHA1(ad717b8300f0903ef136569cf933b8af0e67eb6b) )
 		ROM_CONTINUE(           0x00c000, 0x004000             )
@@ -1600,7 +1600,7 @@ public class homedata
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_battlcry = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlcry = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x02c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "s88e01.j13", 0x010000, 0x01c000, CRC(b08438fe) SHA1(41a0fcdabee449081840848c45983984d7153d1b) )
 		ROM_CONTINUE(           0x00c000, 0x004000             )
@@ -1637,7 +1637,7 @@ public class homedata
 	
 	
 	
-	static RomLoadPtr rom_mjkojink = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjkojink = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x01c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "x83j01.16e", 0x010000, 0xc000, CRC(91f90376) SHA1(d452f538f4a1b774640ced49f0ab2784b112e8ba) )
 		ROM_CONTINUE(           0x00c000, 0x4000             )
@@ -1665,7 +1665,7 @@ public class homedata
 		ROM_LOAD( "x83b03.12e", 0x0000, 0x40000, CRC(4ba8b5ec) SHA1(cee77583f2f7b7fdba7e0f17e4d1244891488d36) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vitaminc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vitaminc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x01c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "x90e01.bin", 0x010000, 0xc000, CRC(bc982525) SHA1(30f5e9ab27f799b895a3d979109e331603d94249) )
 		ROM_CONTINUE(           0x00c000, 0x4000             )
@@ -1693,7 +1693,7 @@ public class homedata
 		ROM_LOAD( "x90a03.bin", 0x0000, 0x40000, CRC(35d5b4e6) SHA1(1ea4d03946aad33d33a817f83d20e7ad8faace6d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mjyougo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjyougo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x01c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "x91c01.bin", 0x010000, 0xc000, CRC(e28e8c21) SHA1(8039d764fb48269f0cab549c5a8861c05ecb1ef1) )
 		ROM_CONTINUE(           0x00c000, 0x4000             )
@@ -1721,7 +1721,7 @@ public class homedata
 		ROM_LOAD( "x91a03.bin", 0x0000, 0x40000, CRC(4863caa2) SHA1(6ef511cb4d184d4705eb0fd3eb3d82daad49564a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mjkinjas = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjkinjas = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x01c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "x07c01.bin", 0x010000, 0xc000, CRC(e6534904) SHA1(59c092f0369fc893763ad4b96551e0b4c2430a6a) )
 		ROM_CONTINUE(           0x00c000, 0x4000             )
@@ -1749,7 +1749,7 @@ public class homedata
 		ROM_LOAD( "x07a03.bin", 0x0000, 0x80000, CRC(f5ff3e72) SHA1(e3489a3b8988677866aadd41cb99f146217022ce) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jogakuen = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jogakuen = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x01c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "a01.bin",    0x010000, 0xc000, CRC(a189490a) SHA1(0d9f6389d4b16c3b885cdc8be20b19db25812aad) )
 		ROM_CONTINUE(           0x00c000, 0x4000             )
@@ -1778,7 +1778,7 @@ public class homedata
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_lemnangl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lemnangl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x01c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "x02_d01.16e", 0x010000, 0xc000, CRC(4c2fae05) SHA1(86516399bd1eb1565b446dfa0f9a974bde6f9af2) )
 		ROM_CONTINUE(            0x00c000, 0x4000             )
@@ -1806,7 +1806,7 @@ public class homedata
 		ROM_LOAD( "x02a03.12e", 0x0000, 0x40000, CRC(02ef0378) SHA1(6223a019fc7794872dd49151952c56892295a779) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mjikaga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjikaga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x01c000, REGION_CPU1, 0 ) /* 6809 Code */
 		ROM_LOAD( "m15a01.bin", 0x010000, 0xc000, CRC(938cc4fb) SHA1(f979c6eee0b72bf53be8c7ebbc4e1dc05bd447d4) )
 		ROM_CONTINUE(           0x00c000, 0x4000             )

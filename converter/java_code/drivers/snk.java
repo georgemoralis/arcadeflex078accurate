@@ -1366,7 +1366,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_tnk3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tnk3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "tnk3-p1.bin",  0x0000, 0x4000, CRC(0d2a8ca9) SHA1(eba950dab044496e8c1c02af20a9d380996ea20a) )
 		ROM_LOAD( "tnk3-p2.bin",  0x4000, 0x4000, CRC(0ae0a483) SHA1(6a1ba86da4fd75bfb00855db04eac2727ec4159e) )
@@ -1400,7 +1400,7 @@ public class snk
 		ROM_LOAD( "tnk3-p9.bin", 0x10000, 0x4000, CRC(872e3fac) SHA1(98e7e9315fe7ccc51151c67dc60a362a1c2d8372) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tnk3j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tnk3j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "p1.4e",  0x0000, 0x4000, CRC(03aca147) SHA1(9ce4cfdfbd22f10e13c8e474dc2e5aa3bfd57e0b) )
 		ROM_LOAD( "tnk3-p2.bin",  0x4000, 0x4000, CRC(0ae0a483) SHA1(6a1ba86da4fd75bfb00855db04eac2727ec4159e) )
@@ -1436,7 +1436,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_athena = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_athena = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for cpuA code */
 		ROM_LOAD( "up02_p4.rom",  0x0000, 0x4000,  CRC(900a113c) SHA1(3a85f87cbf79d60f58858df4852d6d97300c9280) )
 		ROM_LOAD( "up02_m4.rom",  0x4000, 0x8000,  CRC(61c69474) SHA1(93f1222a3908c84fe6679e2deb90afbe4a22e675) )
@@ -1468,7 +1468,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_fitegolf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fitegolf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "gu2",    0x0000, 0x4000, CRC(19be7ad6) SHA1(6f0faf606e44a3f8cc027699cc816aa3414a1b98) )
 		ROM_LOAD( "gu1",    0x4000, 0x8000, CRC(bc32568f) SHA1(35fec3dbdd773ec7f427ecdd81066fb8f1b74e05) )
@@ -1498,7 +1498,7 @@ public class snk
 		ROM_LOAD( "gu11",  0x10000, 0x8000, CRC(b99cf73b) SHA1(23989fc3914e77d364807a9eb96a4ddf75ad7cf1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fitegol2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fitegol2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "np45.128", 0x0000, 0x4000, CRC(16e8e763) SHA1(0b5296f2a91a7f3176b7461ca4958865ce998241) )
 		ROM_LOAD( "mn45.256", 0x4000, 0x8000, CRC(a4fa09d5) SHA1(ae7f0cb47de06006ae71252c4201a93a01a26887) )
@@ -1528,7 +1528,7 @@ public class snk
 		ROM_LOAD( "gu11",  0x10000, 0x8000, CRC(b99cf73b) SHA1(23989fc3914e77d364807a9eb96a4ddf75ad7cf1) )	// S2.256
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_countryc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_countryc = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "cc2.2e",  0x0000, 0x04000,  CRC(43d205e0) SHA1(d32f597bf2b70e326e68583cb95e0beeea34d5d0) )
@@ -1564,7 +1564,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_ikari = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ikari = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* CPU A */
 		ROM_LOAD( "1.rom",  0x0000, 0x10000, CRC(52a8b2dd) SHA1(a896387d68ed9a55c313bdb81acdf8d68b7a1264) )
 	
@@ -1602,7 +1602,7 @@ public class snk
 		ROM_LOAD( "16.rom", 0x28000, 0x8000, CRC(e9b03e07) SHA1(124e5328a965ea2af28c4d74934a82394a2ffd72) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ikarijp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ikarijp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "up03_l4.rom",  0x0000, 0x4000, CRC(cde006be) SHA1(a42e23659cf0ea5194f8a7a9a1679ebcaed75ead) )
 		ROM_LOAD( "up03_k4.rom",  0x4000, 0x8000, CRC(26948850) SHA1(bfeba5f7019f6eaacf2a5464756d9cb283c5f5a2) )
@@ -1643,7 +1643,7 @@ public class snk
 		ROM_LOAD( "16.rom", 0x28000, 0x8000, CRC(e9b03e07) SHA1(124e5328a965ea2af28c4d74934a82394a2ffd72) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ikarijpb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ikarijpb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* CPU A */
 		ROM_LOAD( "ik1",	  0x00000, 0x4000, CRC(2ef87dce) SHA1(4b52567fee81018f7a4b33bac79ea521c7d19d52) )
 		ROM_LOAD( "up03_k4.rom",  0x04000, 0x8000, CRC(26948850) SHA1(bfeba5f7019f6eaacf2a5464756d9cb283c5f5a2) )
@@ -1686,7 +1686,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_victroad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_victroad = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* CPU A code */
 		ROM_LOAD( "p1",  0x0000, 0x10000,  CRC(e334acef) SHA1(f6d8da554276abbe5579c92eea46591a92623f6e) )
 	
@@ -1728,7 +1728,7 @@ public class snk
 		ROM_LOAD( "p5",  0x10000, 0x10000, CRC(93e5f110) SHA1(065a78805e50ce6a48cb7930f264bada236feb13) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dogosoke = new RomLoadPtr(){ public void handler(){  /* Victory Road Japan */
+	static RomLoadHandlerPtr rom_dogosoke = new RomLoadHandlerPtr(){ public void handler(){  /* Victory Road Japan */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* CPU A code */
 		ROM_LOAD( "up03_p4.rom",  0x0000, 0x10000,  CRC(37867ad2) SHA1(4444e428eb7126451f34351b1a2bc193484ca641) )
 	
@@ -1772,7 +1772,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_gwar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gwar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "7g",  0x00000, 0x10000, CRC(5bcfa7dc) SHA1(1af2c36df287c9c84be8e7fc173b66f3dde5375e) )
 	
@@ -1816,7 +1816,7 @@ public class snk
 		ROM_LOAD( "g04",  0x00000, 0x10000, CRC(2255f8dd) SHA1(fac31b617762d0fa39cf82a658be250b91ab73ce) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gwara = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gwara = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "gv3",  0x00000, 0x10000, CRC(24936d83) SHA1(33842322ead66e426946c6cfaa04e56afea90d78) )
 	
@@ -1860,7 +1860,7 @@ public class snk
 		ROM_LOAD( "g04",  0x00000, 0x10000, CRC(2255f8dd) SHA1(fac31b617762d0fa39cf82a658be250b91ab73ce) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gwarj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gwarj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "7y3047",  0x00000, 0x10000, CRC(7f8a880c) SHA1(1eb1c3eb45aa933118e5bd116eb3f81f39063ae3) )
 	
@@ -1904,7 +1904,7 @@ public class snk
 		ROM_LOAD( "g04",  0x00000, 0x10000, CRC(2255f8dd) SHA1(fac31b617762d0fa39cf82a658be250b91ab73ce) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gwarb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gwarb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "g01",  0x00000, 0x10000, CRC(ce1d3c80) SHA1(605ada3529d0b26425e6c573c31117249bb7a7db) )
 	
@@ -1950,7 +1950,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_bermudat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bermudat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "bt_p1.rom",  0x0000, 0x10000,  CRC(43dec5e9) SHA1(2b29016d4af2a0a6be87f440f235a6a76f8a52a0) )
 	
@@ -1997,7 +1997,7 @@ public class snk
 		ROM_LOAD( "bt_p5.rom",  0x10000, 0x10000, CRC(817bd62c) SHA1(d3ee2ff01a4da8b928728b2fd4948fabd2b04420) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bermudao = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bermudao = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "btj_p01.bin", 0x0000, 0x10000,  CRC(eda75f36) SHA1(d6fcb46dc45007a77bf6a8ca7aa53aefedcecf92) )
 	
@@ -2044,7 +2044,7 @@ public class snk
 		ROM_LOAD( "btj_p05.bin", 0x10000, 0x10000, CRC(924c24f7) SHA1(7a2dafbdaa748121fc6279677f6bffd9e10b1a54) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_worldwar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_worldwar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "ww4.bin",  0x0000, 0x10000,  CRC(bc29d09f) SHA1(9bd5a47565934590347b7152457869331ae94375) )
 	
@@ -2091,7 +2091,7 @@ public class snk
 		ROM_LOAD( "bt_p5.rom",  0x10000, 0x10000, CRC(817bd62c) SHA1(d3ee2ff01a4da8b928728b2fd4948fabd2b04420) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bermudaa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bermudaa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "4",  0x0000, 0x10000,  CRC(4de39d01) SHA1(4312660c6658079c2d148c07d24f741804f3e45c) )
 	
@@ -2140,7 +2140,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_psychos = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_psychos = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "p7",  0x00000, 0x10000, CRC(562809f4) SHA1(71d2a0fbfbe953e2bc4169d3c0a4f259911f04c3) )
 	
@@ -2189,7 +2189,7 @@ public class snk
 		ROM_LOAD( "p4",  0x30000, 0x10000, CRC(437d775a) SHA1(355c227b22ae34f47e2bb27d4b5440ccaedf2eea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_psychosj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_psychosj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "up03_m4.rom",  0x0000, 0x10000,  CRC(05dfb409) SHA1(e6c378c86689c7ab9190908c8e4aa2d4563c3774) )
 	
@@ -2240,7 +2240,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_chopper = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chopper = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "kk_01.rom",  0x0000, 0x10000,  CRC(8fa2f839) SHA1(13cfdbeb433aa3e1dc7e7927c00690e02ed08274) )
 	
@@ -2284,7 +2284,7 @@ public class snk
 		ROM_LOAD( "kk_02.rom",  0x00000, 0x10000, CRC(06169ae0) SHA1(2690ce7cb28cf5c6d37886ce5fbe444067c08403) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_choppera = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_choppera = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "1a.rom",  0x0000, 0x10000,  CRC(dc325860) SHA1(89391897e6f31d9c1d3b7f27618f63fe8018d42a) )
 	
@@ -2328,7 +2328,7 @@ public class snk
 		ROM_LOAD( "kk_02.rom",  0x00000, 0x10000, CRC(06169ae0) SHA1(2690ce7cb28cf5c6d37886ce5fbe444067c08403) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_chopperb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chopperb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "chpri-1.bin",  0x0000, 0x10000,  CRC(a4e6e978) SHA1(dafc2a3da3725344023a09f5bdaedd0e8e1dbbe2) )
 	
@@ -2372,7 +2372,7 @@ public class snk
 		ROM_LOAD( "kk_02.rom",  0x00000, 0x10000, CRC(06169ae0) SHA1(2690ce7cb28cf5c6d37886ce5fbe444067c08403) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_legofair = new RomLoadPtr(){ public void handler(){  /* ChopperI (Japan) */
+	static RomLoadHandlerPtr rom_legofair = new RomLoadHandlerPtr(){ public void handler(){  /* ChopperI (Japan) */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "up03_m4.rom",  0x0000, 0x10000,  CRC(79a485c0) SHA1(bbf51e7321656b6a04223909d4958ceb4892193a) )
 	
@@ -2418,7 +2418,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_ftsoccer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ftsoccer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for cpuA code */
 		ROM_LOAD( "ft-003.bin",  0x00000, 0x10000, CRC(649d4448) SHA1(876a4cf3ce3211ee19390deb17a661ec52b419d2) )
 	
@@ -2461,7 +2461,7 @@ public class snk
 	
 	/***********************************************************************/
 	
-	static RomLoadPtr rom_tdfever = new RomLoadPtr(){ public void handler(){  /* USA set */
+	static RomLoadHandlerPtr rom_tdfever = new RomLoadHandlerPtr(){ public void handler(){  /* USA set */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "td2-ver3.6c",  0x0000, 0x10000,  CRC(92138fe4) SHA1(17a2bc12f516cdbea3cc5e283b0a8a2d101dfa47) )
 	
@@ -2501,7 +2501,7 @@ public class snk
 		ROM_LOAD( "up02_n6.rom",  0x10000, 0x10000, CRC(155e472e) SHA1(722b4625e6ab796e129daf903386b5b6b1a945cd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tdfeverj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tdfeverj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "up02_c6.rom",  0x0000, 0x10000,  CRC(88d88ec4) SHA1(774de920290b5c787b0f3d0076883dda106364be) )
 	
@@ -2541,7 +2541,7 @@ public class snk
 		ROM_LOAD( "up02_n6.rom",  0x10000, 0x10000, CRC(155e472e) SHA1(722b4625e6ab796e129daf903386b5b6b1a945cd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tdfever2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tdfever2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "tdmain.6c",	  0x0000,  0x10000, CRC(9e3eaed8) SHA1(4a591767b22a46605747740a1e1de9aada2893fe) )
 	
@@ -2641,7 +2641,7 @@ public class snk
 		PORT_DIPSETTING(    0x80, DEF_STR( "1C_4C") ); \
 		PORT_DIPSETTING(    0xc0, DEF_STR( "1C_6C") );
 	
-	static InputPortPtr input_ports_ikari = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ikari )
+	static InputPortHandlerPtr input_ports_ikari = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ikari )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* sound CPU status */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -2697,7 +2697,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "Yes") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ikarijp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ikarijp )
+	static InputPortHandlerPtr input_ports_ikarijp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ikarijp )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -2754,7 +2754,7 @@ public class snk
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_victroad = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( victroad )
+	static InputPortHandlerPtr input_ports_victroad = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( victroad )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );	/* sound related ??? */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -2811,7 +2811,7 @@ public class snk
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_gwar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gwar )
+	static InputPortHandlerPtr input_ports_gwar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gwar )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );	/* sound related ??? */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -2868,7 +2868,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_athena = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( athena )
+	static InputPortHandlerPtr input_ports_athena = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( athena )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN ); /* sound CPU status */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -2939,7 +2939,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, "14" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tnk3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tnk3 )
+	static InputPortHandlerPtr input_ports_tnk3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tnk3 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -3023,7 +3023,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "Yes") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bermudat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bermudat )
+	static InputPortHandlerPtr input_ports_bermudat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bermudat )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* sound CPU status */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -3078,7 +3078,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, "Time attack 5 minutes" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bermudaa = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bermudaa )
+	static InputPortHandlerPtr input_ports_bermudaa = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bermudaa )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* sound CPU status */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -3138,7 +3138,7 @@ public class snk
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as Bermudaa, but has different Bonus Life */
-	static InputPortPtr input_ports_worldwar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( worldwar )
+	static InputPortHandlerPtr input_ports_worldwar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( worldwar )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* sound CPU status */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -3194,7 +3194,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_psychos = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( psychos )
+	static InputPortHandlerPtr input_ports_psychos = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( psychos )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN ); /* sound related */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -3255,7 +3255,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_legofair = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( legofair )
+	static InputPortHandlerPtr input_ports_legofair = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( legofair )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN ); /* sound CPU status */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -3325,7 +3325,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_choppera = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( choppera )
+	static InputPortHandlerPtr input_ports_choppera = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( choppera )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN ); /* sound CPU status */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -3381,7 +3381,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fitegolf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fitegolf )
+	static InputPortHandlerPtr input_ports_fitegolf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fitegolf )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN ); /* sound related? */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -3461,7 +3461,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_countryc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( countryc )
+	static InputPortHandlerPtr input_ports_countryc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( countryc )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN ); /* sound related? */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE1 );
@@ -3529,7 +3529,7 @@ public class snk
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ftsoccer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ftsoccer )
+	static InputPortHandlerPtr input_ports_ftsoccer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ftsoccer )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -3643,7 +3643,7 @@ public class snk
 		PORT_BITX(0x80, IP_ACTIVE_LOW, IPT_START4, "Start Game D", IP_KEY_DEFAULT, IP_JOY_DEFAULT );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tdfever = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tdfever )
+	static InputPortHandlerPtr input_ports_tdfever = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tdfever )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_SERVICE1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );

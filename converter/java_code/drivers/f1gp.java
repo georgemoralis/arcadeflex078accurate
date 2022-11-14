@@ -219,7 +219,7 @@ public class f1gp
 	
 	
 	
-	static InputPortPtr input_ports_f1gp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( f1gp )
+	static InputPortHandlerPtr input_ports_f1gp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( f1gp )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -324,7 +324,7 @@ public class f1gp
 	
 	
 	/* the same as f1gp, but with an extra button */
-	static InputPortPtr input_ports_f1gp2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( f1gp2 )
+	static InputPortHandlerPtr input_ports_f1gp2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( f1gp2 )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -553,7 +553,7 @@ public class f1gp
 	
 	
 	
-	static RomLoadPtr rom_f1gp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_f1gp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "rom1-a.3",     0x000000, 0x20000, CRC(2d8f785b) SHA1(6eca42ad2d57a31e055496141c89cb537f284378) )
 	
@@ -601,7 +601,7 @@ public class f1gp
 		ROM_LOAD( "rom17-a.08",   0x000000, 0x100000, CRC(ea70303d) SHA1(8de1a0e6d47cd80a622663c1745a1da54cd0ea05) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_f1gp2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_f1gp2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "rom12.v1",     0x000000, 0x20000, CRC(c5c5f199) SHA1(56fcbf1d9b15a37204296c578e1585599f76a107) )
 		ROM_LOAD16_BYTE( "rom14.v2",     0x000001, 0x20000, CRC(dd5388e2) SHA1(66e88f86edc2407e5794519f988203a52d65636d) )

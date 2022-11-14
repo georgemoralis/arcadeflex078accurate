@@ -133,7 +133,7 @@ public class rollerg
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_rollerg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rollerg )
+	static InputPortHandlerPtr input_ports_rollerg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rollerg )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -292,7 +292,7 @@ public class rollerg
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_rollerg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rollerg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "999m02.g7",  0x10000, 0x18000, CRC(3df8db93) SHA1(10c46d53d11b12b8f7cc6417601baef4638c1efe) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -312,7 +312,7 @@ public class rollerg
 		ROM_LOAD( "999h09.c5",  0x000000, 0x080000, CRC(c5188783) SHA1(d9ab69e4197ba2b42e3b0bb713236c8037fc2ab3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rollergj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rollergj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "999v02.bin", 0x10000, 0x18000, CRC(0dd8c3ac) SHA1(4c3d5514dec317c6640ceaaa06411766632f4412) )
 		ROM_CONTINUE(           0x08000, 0x08000 )

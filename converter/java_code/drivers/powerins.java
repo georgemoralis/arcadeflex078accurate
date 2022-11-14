@@ -150,7 +150,7 @@ public class powerins
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_powerins = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( powerins )
+	static InputPortHandlerPtr input_ports_powerins = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( powerins )
 		PORT_START(); 	// IN0 - $100000 - Coins
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1    );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2    );
@@ -412,7 +412,7 @@ public class powerins
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_powerins = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_powerins = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_WORD_SWAP( "rom1", 0x000000, 0x080000, CRC(b86c84d6) SHA1(2ec0933130925dfae859ea6abe62a8c92385aee8) )
 		ROM_LOAD16_WORD_SWAP( "rom2", 0x080000, 0x080000, CRC(d3d7a782) SHA1(7846de0ebb09bd9b2534cd451ff9aa5175e60647) )
@@ -486,7 +486,7 @@ public class powerins
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_powerina = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_powerina = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "2q.bin", 0x000000, 0x80000, CRC(11bf3f2a) SHA1(c840add78da9b19839c667f9bbd77e0a7c560ed7) )
 		ROM_LOAD16_BYTE( "2r.bin", 0x000001, 0x80000, CRC(d8d621be) SHA1(91d501ac661c1ff52c85eee96c455c008a7dad1c) )

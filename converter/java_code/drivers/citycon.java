@@ -70,7 +70,7 @@ public class citycon
 	
 	
 	
-	static InputPortPtr input_ports_citycon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( citycon )
+	static InputPortHandlerPtr input_ports_citycon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( citycon )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -264,7 +264,7 @@ public class citycon
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_citycon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_citycon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "c10",          0x4000, 0x4000, CRC(ae88b53c) SHA1(dd12310bd9c9b93462446e8e0a1c853506bf3aa1) )
 		ROM_LOAD( "c11",          0x8000, 0x8000, CRC(139eb1aa) SHA1(c570e8ca1499f7ea61938e78c32c1cc3050ca2b7) )
@@ -291,7 +291,7 @@ public class citycon
 		ROM_LOAD( "c5",           0xc000, 0x2000, CRC(c03d8b1b) SHA1(641c1eba334d36ea64b9293a20320b31c7c88858) )	/* color codes for the background */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_citycona = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_citycona = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "c10",          0x4000, 0x4000, CRC(ae88b53c) SHA1(dd12310bd9c9b93462446e8e0a1c853506bf3aa1) )
 		ROM_LOAD( "c11b",         0x8000, 0x8000, CRC(d64af468) SHA1(5bb3541af3ce632e8eca313231205713d72fb9dc) )
@@ -318,7 +318,7 @@ public class citycon
 		ROM_LOAD( "c5",           0xc000, 0x2000, CRC(c03d8b1b) SHA1(641c1eba334d36ea64b9293a20320b31c7c88858) )	/* color codes for the background */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cruisin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cruisin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cr10",         0x4000, 0x4000, CRC(cc7c52f3) SHA1(69d76f146fb1dac62c6def3a4269012b3880f03b) )
 		ROM_LOAD( "cr11",         0x8000, 0x8000, CRC(5422f276) SHA1(d384fc4f853fe79b73e939a8fc7b7af780659c5e) )

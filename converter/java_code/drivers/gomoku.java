@@ -70,7 +70,7 @@ public class gomoku
 	};
 	
 	
-	static InputPortPtr input_ports_gomoku = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gomoku )
+	static InputPortHandlerPtr input_ports_gomoku = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gomoku )
 		PORT_START(); 	/* 0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN );
@@ -182,7 +182,7 @@ public class gomoku
 	
 	
 	
-	static RomLoadPtr rom_gomoku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gomoku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// program
 		ROM_LOAD( "rj_1.7a",      0x0000, 0x1000, CRC(ed20d539) SHA1(7cbbc678cbe5c85b914ca44f82bdbd452cf694a0) )
 		ROM_LOAD( "rj_2.7c",      0x1000, 0x1000, CRC(26a28516) SHA1(53d5d134cd91020fa06e380d355deb1df6b9cb6e) )

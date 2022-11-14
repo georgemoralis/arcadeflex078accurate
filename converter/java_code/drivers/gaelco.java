@@ -128,7 +128,7 @@ public class gaelco
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_bigkarnk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bigkarnk )
+	static InputPortHandlerPtr input_ports_bigkarnk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bigkarnk )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x07, DEF_STR( "4C_1C") );
@@ -261,7 +261,7 @@ public class gaelco
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_bigkarnk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bigkarnk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"d16",	0x000000, 0x040000, CRC(44fb9c73) SHA1(c33852b37afea15482f4a43cb045434660e7a056) )
 		ROM_LOAD16_BYTE(	"d19",	0x000001, 0x040000, CRC(ff79dfdd) SHA1(2bfa440299317967ba2018d3a148291ae0c144ae) )
@@ -325,7 +325,7 @@ public class gaelco
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_maniacsq = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( maniacsq )
+	static InputPortHandlerPtr input_ports_maniacsq = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( maniacsq )
 	
 	PORT_START(); 	/* DSW #2 */
 		PORT_SERVICE( 0x01, IP_ACTIVE_LOW );
@@ -400,7 +400,7 @@ public class gaelco
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_biomtoy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( biomtoy )
+	static InputPortHandlerPtr input_ports_biomtoy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( biomtoy )
 		PORT_START(); 	/* DSW #2 */
 		PORT_SERVICE( 0x01, IP_ACTIVE_LOW );
 		PORT_DIPNAME( 0x02, 0x02, DEF_STR( "Unknown") );
@@ -506,7 +506,7 @@ public class gaelco
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_maniacsp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maniacsp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"d18",	0x000000, 0x020000, CRC(740ecab2) SHA1(8d8583364cc6aeea58ea2b9cb9a2aab2a43a44df) )
 		ROM_LOAD16_BYTE(	"d16",	0x000001, 0x020000, CRC(c6c42729) SHA1(1aac9f93d47a4eb57e06e206e9f50e349b1817da) )
@@ -533,7 +533,7 @@ public class gaelco
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_biomtoy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_biomtoy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"d18",	0x000000, 0x080000, CRC(4569ce64) SHA1(96557aca55779c23f7c2c11fddc618823c04ead0) )
 		ROM_LOAD16_BYTE(	"d16",	0x000001, 0x080000, CRC(739449bd) SHA1(711a8ea5081f15dea6067577516c9296239c4145) )

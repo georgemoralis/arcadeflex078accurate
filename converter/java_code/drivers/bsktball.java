@@ -184,7 +184,7 @@ public class bsktball
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_bsktball = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bsktball )
+	static InputPortHandlerPtr input_ports_bsktball = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bsktball )
 		PORT_START(); 	/* IN0 */
 		PORT_ANALOG( 0xFF, 0x00, IPT_TRACKBALL_X, 100, 10, 0, 0 );/* Sensitivity, clip, min, max */
 	
@@ -408,7 +408,7 @@ public class bsktball
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_bsktball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bsktball = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "034765.d1",    0x2000, 0x0800, CRC(798cea39) SHA1(b1b709a74258b01b21d7c2038a3b6abe879944c5) )
 		ROM_LOAD( "034764.c1",    0x2800, 0x0800, CRC(a087109e) SHA1(f5d6dcccc4a54db35be3d8997bc51e73892747fb) )

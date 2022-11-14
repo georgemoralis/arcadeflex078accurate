@@ -56,7 +56,7 @@ public class higemaru
 	};
 	
 	
-	static InputPortPtr input_ports_higemaru = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( higemaru )
+	static InputPortHandlerPtr input_ports_higemaru = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( higemaru )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_4WAY );
@@ -217,7 +217,7 @@ public class higemaru
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_higemaru = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_higemaru = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "hg4",          0x0000, 0x2000, CRC(dc67a7f9) SHA1(701875e2e85efbe84bf66515117861563f3883c0) )
 		ROM_LOAD( "hg5",          0x2000, 0x2000, CRC(f65a4b68) SHA1(687d46406de389c8bad6cc052a2516135db93d4a) )

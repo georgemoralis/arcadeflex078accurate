@@ -159,7 +159,7 @@ public class r2dtank
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_r2dtank = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( r2dtank )
+	static InputPortHandlerPtr input_ports_r2dtank = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( r2dtank )
 	
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
@@ -364,7 +364,7 @@ public class r2dtank
 		/* sound hardware */
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_r2dtank = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_r2dtank = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "r2d1.1c",      0xc800, 0x0800, CRC(20606a0f) SHA1(9a55e595c7ea332bdc89142338947be8a28a92a3) )
 		ROM_LOAD( "r2d2.1a",      0xd000, 0x1000, CRC(7561c67f) SHA1(cccc7bbd7975db340fe571a4c31c25b41b2563b8) )

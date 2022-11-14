@@ -224,7 +224,7 @@ public class videopin
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_videopin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( videopin )
+	static InputPortHandlerPtr input_ports_videopin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( videopin )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -363,7 +363,7 @@ public class videopin
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_videopin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_videopin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	    ROM_LOAD_NIB_LOW ( "34242-01.e0", 0x2000, 0x0400, CRC(c6a83795) SHA1(73a65cca7c1e337b336b7d515eafc2981e669be8) )
 		ROM_LOAD_NIB_HIGH( "34237-01.k0", 0x2000, 0x0400, CRC(9b5ef087) SHA1(4ecf441742e7c39237cd544b0f0d9339943e1a2c) )

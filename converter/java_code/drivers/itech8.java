@@ -839,7 +839,7 @@ public class itech8
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_UNUSED );
 	
 	
-	static InputPortPtr input_ports_stratab = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stratab )
+	static InputPortHandlerPtr input_ports_stratab = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stratab )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x06, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -876,7 +876,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sstrike = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sstrike )
+	static InputPortHandlerPtr input_ports_sstrike = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sstrike )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x7e, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -911,7 +911,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_wfortune = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wfortune )
+	static InputPortHandlerPtr input_ports_wfortune = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wfortune )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x06, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -944,7 +944,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_gtg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gtg )
+	static InputPortHandlerPtr input_ports_gtg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gtg )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x06, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -981,7 +981,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_gtg2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gtg2 )
+	static InputPortHandlerPtr input_ports_gtg2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gtg2 )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_SERVICE_NO_TOGGLE( 0x02, IP_ACTIVE_LOW )
@@ -1021,7 +1021,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_gtg2t = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gtg2t )
+	static InputPortHandlerPtr input_ports_gtg2t = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gtg2t )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x06, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -1058,7 +1058,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_slikshot = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( slikshot )
+	static InputPortHandlerPtr input_ports_slikshot = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( slikshot )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x7e, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -1093,7 +1093,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_dynobop = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dynobop )
+	static InputPortHandlerPtr input_ports_dynobop = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dynobop )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x7e, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -1128,7 +1128,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_arlingtn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( arlingtn )
+	static InputPortHandlerPtr input_ports_arlingtn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( arlingtn )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x06, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -1164,7 +1164,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_neckneck = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( neckneck )
+	static InputPortHandlerPtr input_ports_neckneck = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( neckneck )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x06, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -1200,7 +1200,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_peggle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( peggle )
+	static InputPortHandlerPtr input_ports_peggle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( peggle )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x7e, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -1225,7 +1225,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pegglet = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pegglet )
+	static InputPortHandlerPtr input_ports_pegglet = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pegglet )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x7e, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -1250,7 +1250,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hstennis = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hstennis )
+	static InputPortHandlerPtr input_ports_hstennis = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hstennis )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0x06, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -1290,7 +1290,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_rimrockn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rimrockn )
+	static InputPortHandlerPtr input_ports_rimrockn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rimrockn )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_SPECIAL );/* input from sound board */
 		PORT_BIT( 0xfe, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -1353,7 +1353,7 @@ public class itech8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_ninclown = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ninclown )
+	static InputPortHandlerPtr input_ports_ninclown = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ninclown )
 		PORT_START(); 	/* 40 */
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_SERVICE1 );
 		PORT_SERVICE_NO_TOGGLE( 0x0200, IP_ACTIVE_LOW )
@@ -1649,7 +1649,7 @@ public class itech8
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_stratab = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stratab = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "sbprogv3.bin", 0x08000, 0x8000, CRC(a5ae728f) SHA1(85098eef1614d5148e8082df4c936883662292ee) )
 		ROM_COPY( REGION_CPU1,    0x8000, 0x14000, 0x8000 )
@@ -1667,7 +1667,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stratab1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stratab1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "sbprgv1.bin",  0x08000, 0x8000, CRC(46d51604) SHA1(de7b6306fdcee4907b07667baf874bd195822e6a) )
 		ROM_COPY( REGION_CPU1,    0x8000, 0x14000, 0x8000 )
@@ -1685,7 +1685,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wfortune = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wfortune = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "wofpgm", 0x04000, 0x4000, CRC(bd984654) SHA1(8e16d2feb26e9a6f86c4a36bf0f03db80ded03f6) )
 		ROM_CONTINUE(       0x10000, 0xc000 )
@@ -1705,7 +1705,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wfortuna = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wfortuna = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "wofpgmr1.bin", 0x04000, 0x4000, CRC(c3d3eb21) SHA1(21137663afd19fba875e188640f0347fc8c5dcf0) )
 		ROM_CONTINUE(             0x10000, 0xc000 )
@@ -1725,7 +1725,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gtg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gtg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "u5.bin", 0x04000, 0x4000, CRC(61984272) SHA1(be735f8576fb2cccc0e9e6ea6f2fd54b6c0b3bb3) )
 		ROM_CONTINUE(       0x10000, 0xc000 )
@@ -1747,7 +1747,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_slikshot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slikshot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "pgm20.u5",  0x04000, 0x4000, CRC(370a00eb) SHA1(b2878f161f4931d9fc3979a84b29660941e2608f) )
 		ROM_CONTINUE(          0x10000, 0xc000 )
@@ -1771,7 +1771,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sliksh17 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sliksh17 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "u5.bin", 0x04000, 0x4000, CRC(09d70554) SHA1(a009cd3b22261c60f1028694baef51f61713154f) )
 		ROM_CONTINUE(       0x10000, 0xc000 )
@@ -1795,7 +1795,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_dynobop = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dynobop = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "dynobop.u5", 0x04000, 0x4000, CRC(98452c40) SHA1(9b9316fc258792e0d825f16e0fadf8e0c35a864e) )
 		ROM_CONTINUE(           0x10000, 0xc000 )
@@ -1819,7 +1819,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sstrike = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sstrike = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "sstrku5.bin", 0x08000, 0x8000, CRC(af00cddf) SHA1(b866e8dfce1449f7462a79efa385ea6b55cdc6e7) )
 		ROM_COPY( REGION_CPU1,    0x8000, 0x14000, 0x8000 )
@@ -1843,7 +1843,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gtg2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gtg2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* banks are loaded in the opposite order from the others, */
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "u5.2",   0x10000, 0x4000, CRC(4a61580f) SHA1(7c64648d47418fbcc0f9b5bd91f88856209bc0f5) )
@@ -1866,7 +1866,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gtg2t = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gtg2t = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* banks are loaded in the opposite order from the others, */
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "u5",     0x10000, 0x4000, CRC(c7b3a9f3) SHA1(5edaca6fd6ee58bd1676dc9b2c86da4dd2f51687) )
@@ -1889,7 +1889,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gtg2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gtg2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "u5.bin", 0x04000, 0x4000, CRC(9c95ceaa) SHA1(d9fd2b2419c026822a07d2ba51d6ab40b7cd0d49) )
 		ROM_CONTINUE(       0x10000, 0xc000 )
@@ -1911,7 +1911,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_arlingtn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arlingtn = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* banks are loaded in the opposite order from the others, */
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "ahrd121.bin", 0x10000, 0x4000, CRC(00aae02e) SHA1(3bcfbd256c34ae222dde24ba9544f19da70b698e) )
@@ -1931,7 +1931,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_neckneck = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_neckneck = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* banks are loaded in the opposite order from the others, */
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "nn_prg12.u5", 0x04000, 0x4000, CRC(8e51734a) SHA1(c184af73670235a9245bfdeec2b58acfe93170e3) )
@@ -1952,7 +1952,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_peggle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_peggle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "j-stick.u5", 0x04000, 0x4000, CRC(140d5a9c) SHA1(841e5f45c6f306d9bd286e7d3e3c75b169c932e1) )
 		ROM_CONTINUE(           0x10000, 0xc000 )
@@ -1971,7 +1971,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pegglet = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pegglet = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "trakball.u5", 0x04000, 0x4000, CRC(d2694868) SHA1(9945a308550c9d89a647d80257e3ab14f793ac6f) )
 		ROM_CONTINUE(            0x10000, 0xc000 )
@@ -1990,7 +1990,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hstennis = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hstennis = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "tenbim.v11", 0x04000, 0x4000, CRC(faffab5c) SHA1(4de525f6adb16205c47788b78aecdebd57008295) )
 		ROM_CONTINUE(           0x10000, 0xc000 )
@@ -2011,7 +2011,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hstenn10 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hstenn10 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "tenbim.v10", 0x04000, 0x4000, CRC(d108a6e0) SHA1(1041e1d95b10245fc50f6484e710803db2706f9a) )
 		ROM_CONTINUE(           0x10000, 0xc000 )
@@ -2032,7 +2032,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rimrockn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rimrockn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x34000, REGION_CPU1, 0 )
 		ROM_LOAD( "u5-2_2",    0x04000, 0x4000, CRC(97777683) SHA1(0998dde26daaa2d2b78e83647e03ba01b0ef31f2) )
 		ROM_CONTINUE(          0x10000, 0x4000 )
@@ -2057,7 +2057,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rimrck20 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rimrck20 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x34000, REGION_CPU1, 0 )
 		ROM_LOAD( "rrb.bin",   0x04000, 0x4000, CRC(7e9d5545) SHA1(2aa028b3f5d05bec4ee289e7d39eaad30b3d4d5f) )
 		ROM_CONTINUE(          0x10000, 0x4000 )
@@ -2082,7 +2082,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rimrck16 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rimrck16 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x34000, REGION_CPU1, 0 )
 		ROM_LOAD( "rrbbv16.u5",0x04000, 0x4000, CRC(999cd502) SHA1(8ad0d641a9f853eff27be1d4de04ab86b9275d57) )
 		ROM_CONTINUE(          0x10000, 0x4000 )
@@ -2107,7 +2107,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rimrck12 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rimrck12 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x34000, REGION_CPU1, 0 )
 		ROM_LOAD( "rrbbv12.u5",0x04000, 0x4000, CRC(661761a6) SHA1(7224b1eac2fd0969d70657448ab241a433143df4) )
 		ROM_CONTINUE(          0x10000, 0x4000 )
@@ -2132,7 +2132,7 @@ public class itech8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ninclown = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ninclown = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "prog1", 0x00000, 0x20000, CRC(fabfdcd2) SHA1(7a9852838cf7772d8f8f956b03823c4222520a5a) )
 		ROM_LOAD16_BYTE( "prog0", 0x00001, 0x20000, CRC(eca63db5) SHA1(b86d75ee81e155a21de18c2e0fa898f15d61560d) )

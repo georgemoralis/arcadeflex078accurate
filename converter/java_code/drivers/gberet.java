@@ -180,7 +180,7 @@ public class gberet
 	
 	
 	
-	static InputPortPtr input_ports_gberet = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gberet )
+	static InputPortHandlerPtr input_ports_gberet = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gberet )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -287,7 +287,7 @@ public class gberet
 	INPUT_PORTS_END(); }}; 
 	
 	/* IN2 is different and IN1 and DSW0 are swapped */
-	static InputPortPtr input_ports_gberetb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gberetb )
+	static InputPortHandlerPtr input_ports_gberetb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gberetb )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -393,7 +393,7 @@ public class gberet
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mrgoemon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mrgoemon )
+	static InputPortHandlerPtr input_ports_mrgoemon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mrgoemon )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
@@ -659,7 +659,7 @@ public class gberet
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gberet = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gberet = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "577l03.10c",   0x0000, 0x4000, CRC(ae29e4ff) SHA1(5c66de1403c5df5b6647bb37e26070ffd33590e8) )
 		ROM_LOAD( "577l02.8c",    0x4000, 0x4000, CRC(240836a5) SHA1(b76f3789f152198bf8a9a366378d664e683c6c9d) )
@@ -680,7 +680,7 @@ public class gberet
 		ROM_LOAD( "577h11.6f",    0x0120, 0x0100, CRC(2a1a992b) SHA1(77cff7c9c8433f999a87776021935864cf9dccb4) ) /* characters */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rushatck = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rushatck = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "577h03.10c",   0x0000, 0x4000, CRC(4d276b52) SHA1(ba5d61c89fd2db4b303b81deccc887561156cbe3) )
 		ROM_LOAD( "577h02.8c",    0x4000, 0x4000, CRC(b5802806) SHA1(0e4698ecfb9eda916703165ea5d55516fdef5fe4) )
@@ -701,7 +701,7 @@ public class gberet
 		ROM_LOAD( "577h11.6f",    0x0120, 0x0100, CRC(2a1a992b) SHA1(77cff7c9c8433f999a87776021935864cf9dccb4) ) /* characters */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gberetb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gberetb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "2-ic82.10g",   0x0000, 0x8000, CRC(6d6fb494) SHA1(0d01c86ed7a8962ee3e1056a8d41584ad1406f0f) )
 		ROM_LOAD( "3-ic81.10f",   0x8000, 0x4000, CRC(f1520a0a) SHA1(227b2d2e1fc0e81ae02e663a3089e7399612e3cf) )
@@ -721,7 +721,7 @@ public class gberet
 		ROM_LOAD( "577h11",       0x0120, 0x0100, CRC(2a1a992b) SHA1(77cff7c9c8433f999a87776021935864cf9dccb4) ) /* characters */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mrgoemon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrgoemon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )	/* 64k for code + banked ROM */
 		ROM_LOAD( "621d01.10c",   0x00000, 0x8000, CRC(b2219c56) SHA1(274160be5dabbbfa61af71d92bddffbb56eadab6) )
 		ROM_LOAD( "621d02.12c",   0x08000, 0x4000, CRC(c3337a97) SHA1(6fd5f365b2624a37f252c202cd97877705b4a6c2) )

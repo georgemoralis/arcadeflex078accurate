@@ -692,7 +692,7 @@ public class ssv
 		                       Change Air Blade
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_cairblad = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cairblad )
+	static InputPortHandlerPtr input_ports_cairblad = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cairblad )
 		PORT_START(); 	// IN0
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0005, DEF_STR( "3C_1C") );
@@ -774,7 +774,7 @@ public class ssv
 									Drift Out '94
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_drifto94 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( drifto94 )
+	static InputPortHandlerPtr input_ports_drifto94 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( drifto94 )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0001, 0x0001, DEF_STR( "Flip_Screen") );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -856,7 +856,7 @@ public class ssv
 					Place holder for corrected dip switch settings
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_eaglshot = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( eaglshot )
+	static InputPortHandlerPtr input_ports_eaglshot = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( eaglshot )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x000f, 0x0009, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(      0x0007, DEF_STR( "4C_1C") );
@@ -948,7 +948,7 @@ public class ssv
 									Hyper Reaction
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_hypreact = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hypreact )
+	static InputPortHandlerPtr input_ports_hypreact = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hypreact )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0005, DEF_STR( "3C_1C") );
@@ -1064,7 +1064,7 @@ public class ssv
 									Hyper Reaction 2
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_hypreac2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hypreac2 )
+	static InputPortHandlerPtr input_ports_hypreac2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hypreac2 )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0005, DEF_STR( "3C_1C") );
@@ -1179,7 +1179,7 @@ public class ssv
 									Jan Jan Simasyo
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_janjans1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( janjans1 )
+	static InputPortHandlerPtr input_ports_janjans1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( janjans1 )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0001, 0x0001, "Unknown 1-0" );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1285,7 +1285,7 @@ public class ssv
 									Keith & Lucy
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_keithlcy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( keithlcy )
+	static InputPortHandlerPtr input_ports_keithlcy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( keithlcy )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0001, 0x0001, "Unknown 1-0" );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1364,7 +1364,7 @@ public class ssv
 								Koi Koi Simasyo 2
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_koikois2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( koikois2 )
+	static InputPortHandlerPtr input_ports_koikois2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( koikois2 )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0001, 0x0001, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1485,7 +1485,7 @@ public class ssv
 									Meosis Magic
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_meosism = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( meosism )
+	static InputPortHandlerPtr input_ports_meosism = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( meosism )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0003, 0x0003, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(      0x0003, "1 Medal/1 Credit" );
@@ -1570,7 +1570,7 @@ public class ssv
 									Monster Slider
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_mslider = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mslider )
+	static InputPortHandlerPtr input_ports_mslider = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mslider )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0005, DEF_STR( "3C_1C") );
@@ -1652,7 +1652,7 @@ public class ssv
 						Gourmet Battle Quiz Ryohrioh CooKing
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_ryorioh = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ryorioh )
+	static InputPortHandlerPtr input_ports_ryorioh = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ryorioh )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0001, 0x0001, "Unknown 1-0" );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1734,7 +1734,7 @@ public class ssv
 								Super Real Mahjong PIV
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_srmp4 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( srmp4 )
+	static InputPortHandlerPtr input_ports_srmp4 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( srmp4 )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0000, DEF_STR( "5C_1C") );
@@ -1844,7 +1844,7 @@ public class ssv
 								Super Real Mahjong P7
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_srmp7 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( srmp7 )
+	static InputPortHandlerPtr input_ports_srmp7 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( srmp7 )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(      0x0000, DEF_STR( "5C_1C") );
@@ -1955,7 +1955,7 @@ public class ssv
 									Storm Blade
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_stmblade = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stmblade )
+	static InputPortHandlerPtr input_ports_stmblade = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stmblade )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0005, DEF_STR( "3C_1C") );
@@ -2037,7 +2037,7 @@ public class ssv
 									Survival Arts
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_survarts = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( survarts )
+	static InputPortHandlerPtr input_ports_survarts = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( survarts )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x000f, 0x000f, DEF_STR( "Coin_A") ); // Verified Defualt is 2 coins 1 Credit
 		PORT_DIPSETTING(      0x0007, DEF_STR( "4C_1C") );
@@ -2149,7 +2149,7 @@ public class ssv
 								Pachinko Sexy Reaction
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_sxyreact = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sxyreact )
+	static InputPortHandlerPtr input_ports_sxyreact = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sxyreact )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0007, 0x0007, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(      0x0005, DEF_STR( "3C_1C") );
@@ -2233,7 +2233,7 @@ public class ssv
 									Twin Eagle II
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_twineag2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( twineag2 )
+	static InputPortHandlerPtr input_ports_twineag2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( twineag2 )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x000f, 0x000f, DEF_STR( "Coin_A") ); // No values listed for all "ON"
 		PORT_DIPSETTING(      0x0007, DEF_STR( "4C_1C") );
@@ -2341,7 +2341,7 @@ public class ssv
 									Ultra X
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_ultrax = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ultrax )
+	static InputPortHandlerPtr input_ports_ultrax = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ultrax )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x000f, 0x000f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(      0x0008, DEF_STR( "3C_1C") );
@@ -2419,7 +2419,7 @@ public class ssv
 			                       Vasara
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_vasara = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vasara )
+	static InputPortHandlerPtr input_ports_vasara = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vasara )
 		PORT_START(); 	// IN0 - $210002
 		PORT_DIPNAME( 0x0001, 0x0001, DEF_STR( "Free_Play") ); )
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -2956,7 +2956,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_cairblad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cairblad = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x200000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_WORD( "ac1810e0.u32",  0x000000, 0x200000, CRC(13a0b4c2) SHA1(3498303e9b186ab329ee761cee9d4cb8ed552455) ) // AC1810E01.U32    27C160
 	
@@ -3038,7 +3038,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_drifto94 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drifto94 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x400000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_WORD( "vg003-19.u26", 0x000000, 0x200000, CRC(238e5e2b) SHA1(fe58f571857804263642d7d089df962327a007b6) )	// "SoundDriverV1.1a"
 		ROM_LOAD16_BYTE( "visco-37.bin", 0x200000, 0x080000, CRC(78fa3ccb) SHA1(0c79ff1aa31e7ca1eeb14fbef7774278fa83ba44) )
@@ -3117,7 +3117,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_eaglshot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_eaglshot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x100000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "si003-10.u20",  0x000001, 0x080000, CRC(c8872e48) SHA1(c8e1e712d5fa380f8fc1447502f21d2ae592811a) )
 		ROM_LOAD16_BYTE( "si003-09.u18",  0x000000, 0x080000, CRC(219c71ce) SHA1(4f8996b4c5b267a90073d67857358147732f8c0d) )
@@ -3144,7 +3144,7 @@ public class ssv
 		ROM_COPY( REGION_SOUND1, 0x000000, 0x000000, 0x400000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_eaglshta = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_eaglshta = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x100000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "si003-10.prh",  0x000001, 0x080000, CRC(2060c304) SHA1(2ecd178ea6459b8aaac1fa499e7c91809cd22649) )
 		ROM_LOAD16_BYTE( "si003-09.prl",  0x000000, 0x080000, CRC(36989004) SHA1(115a8dd4d7c4b4e042d51f886a93613b1405603b) )
@@ -3182,7 +3182,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hypreact = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hypreact = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x100000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "s14-1-02.u2", 0x000000, 0x080000, CRC(d90a383c) SHA1(9945f60ce6e1f50c24c2ae3c2c5d0df9ec3b8926) )
 		ROM_LOAD16_BYTE( "s14-1-01.u1", 0x000001, 0x080000, CRC(80481401) SHA1(4b1b7050893b6659762297d0f6496c7193ea6c4e) )
@@ -3220,7 +3220,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hypreac2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hypreac2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x200000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "u2.bin",  0x000000, 0x080000, CRC(05c93266) SHA1(0833e80f67ccb4ac17e771fa04dc6f433554a34f) )
 		ROM_LOAD16_BYTE( "u1.bin",  0x000001, 0x080000, CRC(80cf9e59) SHA1(7025321539891e1a3354ca233255f5395d716933) )
@@ -3258,7 +3258,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_janjans1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_janjans1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x400000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_WORD( "jj1-data.bin", 0x000000, 0x200000, CRC(6734537e) SHA1(a40f84479141a6f33ce465e66ba9313b54915002) )
 		ROM_LOAD16_BYTE( "jj1-prol.bin", 0x200000, 0x080000, CRC(4231d928) SHA1(820d1233cd1a8d0c4ece15b94bd9be976b383fe2) )
@@ -3322,7 +3322,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_jsk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jsk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x400000, REGION_USER1, 0 )		/* !! V810 Code !! */
 		ROM_LOAD32_BYTE( "jsk-u4.bin",  0x00000, 0x20000, CRC(ec22fb41) SHA1(c0d6b0a92075214a91da78be52d273771cb9f646) )	// order?
 		ROM_LOAD32_BYTE( "jsk-u24.bin", 0x00001, 0x20000, CRC(1fa6e156) SHA1(4daedf660d89c185c945d4a526312f6528fe7b17) )
@@ -3362,7 +3362,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_keithlcy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_keithlcy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x200000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_WORD( "vg002-07.u28", 0x000000, 0x100000, CRC(57f80ff5) SHA1(9dcc35a79d3799407190d113e0f1b57864d6c56a) )	// "SETA SoundDriver"
 		ROM_LOAD16_BYTE( "kl-p0l.u26",   0x100000, 0x080000, CRC(d7b177fb) SHA1(2a3533b952a7b2404720916662743c144e870c0b) )
@@ -3409,7 +3409,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_koikois2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_koikois2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x400000, REGION_USER1, 0 )		/* V60 Code */
 	//	socket for DATA ROM is empty
 		ROM_LOAD16_BYTE( "u26.bin", 0x200000, 0x080000, CRC(4be937a1) SHA1(b2c22ec12fc110984bd1914f8e3e16a8cb866816) )
@@ -3459,7 +3459,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_meosism = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_meosism = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x100000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "s15-2-2.u47", 0x000000, 0x080000, CRC(2ab0373f) SHA1(826aec3b9698ec5db5d7a72c3a24b1ef779fb227) )
 		ROM_LOAD16_BYTE( "s15-2-1.u46", 0x000001, 0x080000, CRC(a4bce148) SHA1(17ec4d91e215bd38258329b1a71e7f135c5733ad) )
@@ -3508,7 +3508,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mslider = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mslider = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x100000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "ms-pl.bin", 0x000000, 0x080000, CRC(70b2a05d) SHA1(387cf67e3e505c4cc1b5cd0b6c9fb3bc27d07e24) )
 		ROM_LOAD16_BYTE( "ms-ph.bin", 0x000001, 0x080000, CRC(34a64e9f) SHA1(acf3d8490f3ec99b6171e71328a991fcc9c5a8b1) )
@@ -3539,7 +3539,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ryorioh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ryorioh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x400000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD( "ryorioh.dat",      0x000000, 0x200000, CRC(d1335a6a) SHA1(a5670ab3c399736232baaabc59573bdb3bf762da) )
 		ROM_LOAD16_BYTE( "ryorioh.l", 0x200000, 0x080000, CRC(9ad60e7d) SHA1(572b84bab08eb8293d93e03182d9871d8973b7dd) )
@@ -3600,7 +3600,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_srmp4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srmp4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x100000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "sx001-14.prl", 0x000000, 0x080000, CRC(19aaf46e) SHA1(0c0f5acc1880971c56e7e2c2e3ad7c2932b82d4b) )
 		ROM_LOAD16_BYTE( "sx001-15.prh", 0x000001, 0x080000, CRC(dbd31399) SHA1(a77dc85f481454b10223d7f4e0395e07d2f8d4f3) )
@@ -3625,7 +3625,7 @@ public class ssv
 		ROM_RELOAD(                           0x200000, 0x200000             )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_srmp4o = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srmp4o = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x100000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "sx001-11.prl", 0x000000, 0x080000, CRC(dede3e64) SHA1(6fe998babfd2ad8f268c59bd365115a2d7cfc8f9) )
 		ROM_LOAD16_BYTE( "sx001-12.prh", 0x000001, 0x080000, CRC(739c53c3) SHA1(68f12cf42177df208ff6499ccc7ccc1423e3ad5f) )
@@ -3659,7 +3659,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_srmp7 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srmp7 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x400000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_WORD( "sx015-10.dat", 0x000000, 0x200000, CRC(fad3ac6a) SHA1(9a4695c06bc74ca4de0c1a83bdf38f6651c0e2a1) )
 		ROM_LOAD16_BYTE( "sx015-07.pr0", 0x200000, 0x080000, CRC(08d7f841) SHA1(67567acff0ce278576290a896005de0397605eef) )
@@ -3767,7 +3767,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_survarts = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_survarts = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x100000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "usa-pr-l.u4", 0x000000, 0x080000, CRC(fa328673) SHA1(f7217eaa2a8d3fb7f706fa1aecaaa5b1b8d5e32c) )
 		ROM_LOAD16_BYTE( "usa-pr-h.u3", 0x000001, 0x080000, CRC(6bee2635) SHA1(a2d0517bf599331ef47beb8a902589039e4502e0) )
@@ -3810,7 +3810,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_sxyreact = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sxyreact = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x200000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_BYTE( "ac414e00.u2",  0x000000, 0x080000, CRC(d5dd7593) SHA1(ad1c7c2f27e0423ab346172a5c91316c9c0b3620) )
 		ROM_LOAD16_BYTE( "ac413e00.u1",  0x000001, 0x080000, CRC(f46aee4a) SHA1(8336304797987321903977373dec027cfca2e211) )
@@ -3864,7 +3864,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_stmblade = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stmblade = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x400000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_WORD( "sb-pd0.u26",  0x000000, 0x100000, CRC(91c4fbf7) SHA1(68e57ea2a9756a95a81c6688905352d631e9f2de) )
 		ROM_LOAD16_BYTE( "s-blade.u37", 0x200000, 0x080000, CRC(a6a42cc7) SHA1(4bff79ff03b81a7ed96d3ad285242580146976be) )
@@ -3895,7 +3895,7 @@ public class ssv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_twineag2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_twineag2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x200000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_WORD( "sx002_12", 0x000000, 0x200000, CRC(846044dc) SHA1(c1c85de1c466fb7c3580824baa1571cd0fed6ec6) )
 	
@@ -3937,7 +3937,7 @@ public class ssv
 	
 	****************************************************************************/
 	
-	static RomLoadPtr rom_ultrax = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ultrax = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x200000, REGION_USER1, 0 )  /* V60 Code */
 		ROM_LOAD16_BYTE( "71047-11.u64", 0x000000, 0x080000, CRC(593b2678) SHA1(3b24b59a21386a4688502c5f0a2dd4eb0ec92544) )
 		ROM_LOAD16_BYTE( "71047-09.u65", 0x000001, 0x080000, CRC(08ea8d91) SHA1(5d2672f6c96fbbe9d80bd6539c1400b62745892a) )
@@ -4003,7 +4003,7 @@ public class ssv
 	
 	****************************************************************************/
 	
-	static RomLoadPtr rom_vasara = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vasara = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION16_LE( 0x400000, REGION_USER1, 0 )		/* V60 Code */
 		ROM_LOAD16_WORD( "data.u34",  0x000000, 0x200000, CRC(7704cc7e) SHA1(62bb018b7f0c7ee67fee37de17bb22a73bb9e420) )
 		ROM_LOAD16_BYTE( "prg-l.u30", 0x200000, 0x080000, CRC(f0547886) SHA1(6a3717f8b89575d3cb4c7d56dd9df5052faa3c7f) )

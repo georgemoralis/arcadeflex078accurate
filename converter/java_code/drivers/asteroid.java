@@ -311,7 +311,7 @@ public class asteroid
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_asteroid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( asteroid )
+	static InputPortHandlerPtr input_ports_asteroid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( asteroid )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		/* Bit 2 and 3 are handled in the machine dependent part. */
@@ -360,7 +360,7 @@ public class asteroid
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_asteroib = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( asteroib )
+	static InputPortHandlerPtr input_ports_asteroib = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( asteroib )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* resets */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );/* resets */
@@ -412,7 +412,7 @@ public class asteroid
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_asterock = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( asterock )
+	static InputPortHandlerPtr input_ports_asterock = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( asterock )
 		PORT_START();  /* IN0 */
 		/* Bit 0 is VG_HALT, handled in the machine dependant part */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -466,7 +466,7 @@ public class asteroid
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_astdelux = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( astdelux )
+	static InputPortHandlerPtr input_ports_astdelux = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( astdelux )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		/* Bit 2 and 3 are handled in the machine dependent part. */
@@ -535,7 +535,7 @@ public class asteroid
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_llander = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( llander )
+	static InputPortHandlerPtr input_ports_llander = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( llander )
 		PORT_START();  /* IN0 */
 		/* Bit 0 is VG_HALT, handled in the machine dependant part */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -585,7 +585,7 @@ public class asteroid
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_llander1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( llander1 )
+	static InputPortHandlerPtr input_ports_llander1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( llander1 )
 		PORT_START();  /* IN0 */
 		/* Bit 0 is VG_HALT, handled in the machine dependant part */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -742,7 +742,7 @@ public class asteroid
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_asteroid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_asteroid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "035145.02",    0x6800, 0x0800, CRC(0cc75459) SHA1(2af85c9689b878155004da47fedbde5853a18723) )
 		ROM_LOAD( "035144.02",    0x7000, 0x0800, CRC(096ed35c) SHA1(064d680ded7f30c543f93ae5ca85f90d550f73e5) )
@@ -753,7 +753,7 @@ public class asteroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_asteroi1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_asteroi1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "035145.01",    0x6800, 0x0800, CRC(e9bfda64) SHA1(291dc567ebb31b35df83d9fb87f4080f251ff9c8) )
 		ROM_LOAD( "035144.01",    0x7000, 0x0800, CRC(e53c28a9) SHA1(d9f081e73511ec43377f0c6457747f15a470d4dc) )
@@ -764,7 +764,7 @@ public class asteroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_asteroib = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_asteroib = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "035145ll.bin", 0x6800, 0x0800, CRC(605fc0f2) SHA1(8d897a3b75bd1f2537470f0a34a97a8c0853ee08) )
 		ROM_LOAD( "035144ll.bin", 0x7000, 0x0800, CRC(e106de77) SHA1(003e99d095bd4df6fae243ea1dd5b12f3eb974f1) )
@@ -775,7 +775,7 @@ public class asteroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_asterock = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_asterock = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sidamas.2",    0x6800, 0x0400, CRC(cdf720c6) SHA1(85fe748096478e28a06bd98ff3aad73ab21b22a4) )
 		ROM_LOAD( "sidamas.3",    0x6c00, 0x0400, CRC(ee58bdf0) SHA1(80094cb5dafd327aff6658ede33106f0493a809d) )
@@ -790,7 +790,7 @@ public class asteroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_astdelux = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astdelux = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "036430.02",    0x6000, 0x0800, CRC(a4d7a525) SHA1(abe262193ec8e1981be36928e9a89a8ac95cd0ad) )
 		ROM_LOAD( "036431.02",    0x6800, 0x0800, CRC(d4004aae) SHA1(aa2099b8fc62a79879efeea70ea1e9ed77e3e6f0) )
@@ -803,7 +803,7 @@ public class asteroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_astdelu1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astdelu1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "036430.01",    0x6000, 0x0800, CRC(8f5dabc6) SHA1(5d7543e19acab99ddb63c0ffd60f54d7a0f267f5) )
 		ROM_LOAD( "036431.01",    0x6800, 0x0800, CRC(157a8516) SHA1(9041d8c2369d004f198681e02b59a923fa8f70c9) )
@@ -816,7 +816,7 @@ public class asteroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_llander = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_llander = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "034572.02",    0x6000, 0x0800, CRC(b8763eea) SHA1(5a15eaeaf825ccdf9ce013a6789cf51da20f785c) )
 		ROM_LOAD( "034571.02",    0x6800, 0x0800, CRC(77da4b2f) SHA1(4be6cef5af38734d580cbfb7e4070fe7981ddfd6) )
@@ -832,7 +832,7 @@ public class asteroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_llander1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_llander1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "034572.01",    0x6000, 0x0800, CRC(2aff3140) SHA1(4fc8aae640ce655417c11d9a3121aae9a1238e7c) )
 		ROM_LOAD( "034571.01",    0x6800, 0x0800, CRC(493e24b7) SHA1(125a2c335338ccabababef12fd7096ef4b605a31) )

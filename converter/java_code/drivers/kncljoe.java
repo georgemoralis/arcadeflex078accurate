@@ -65,7 +65,7 @@ public class kncljoe
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_kncljoe = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kncljoe )
+	static InputPortHandlerPtr input_ports_kncljoe = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kncljoe )
 		PORT_START(); 	/* IN 0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -209,7 +209,7 @@ public class kncljoe
 	
 	
 	
-	static RomLoadPtr rom_kncljoe = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kncljoe = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 64k for code */
 		ROM_LOAD( "kj-1.bin", 0x0000, 0x4000, CRC(4e4f5ff2) SHA1(7d889aa4f4138f01014c1dda391f82396074cfab) )
 		ROM_LOAD( "kj-2.bin", 0x4000, 0x4000, CRC(cb11514b) SHA1(c75d4019d1617493ff074ce8187a81ad70d9b60c) )
@@ -241,7 +241,7 @@ public class kncljoe
 		ROM_LOAD( "kjprom4.bin", 0x320, 0x100, CRC(48dc2066) SHA1(b8007a5115d475b535284965681ae341f819d3db) ) /* sprite clut */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kncljoea = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kncljoea = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 64k for code */
 		ROM_LOAD( "kj01.bin", 0x0000, 0x4000, CRC(f251019e) SHA1(a7ca2fae57ce698ec19e118e967c74eb92341803) )
 		ROM_LOAD( "kj-2.bin", 0x4000, 0x4000, CRC(cb11514b) SHA1(c75d4019d1617493ff074ce8187a81ad70d9b60c) )
@@ -273,7 +273,7 @@ public class kncljoe
 		ROM_LOAD( "kjprom4.bin", 0x320, 0x100, CRC(48dc2066) SHA1(b8007a5115d475b535284965681ae341f819d3db) ) /* sprite clut */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bcrusher = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bcrusher = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 64k for code */
 		ROM_LOAD( "bcrush1.bin", 0x0000, 0x4000, CRC(e8979196) SHA1(f1aff40e645760c786510c77a4841acb782ba157) )
 		ROM_LOAD( "bcrush2.bin", 0x4000, 0x4000, CRC(1be4c731) SHA1(11f3a33263d66172902dfb6f3fe2d0ab5cad38d7) )

@@ -233,7 +233,7 @@ public class pandoras
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_pandoras = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pandoras )
+	static InputPortHandlerPtr input_ports_pandoras = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pandoras )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -464,7 +464,7 @@ public class pandoras
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_pandoras = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pandoras = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64K for the CPU A */
 		ROM_LOAD( "pand_j13.cpu",	0x08000, 0x02000, CRC(7a0fe9c5) SHA1(e68c8d76d1abb69ac72b0e2cd8c1dfc540064ee3) )
 		ROM_LOAD( "pand_j12.cpu",	0x0a000, 0x02000, CRC(7dc4bfe1) SHA1(359c3051e5d7a34d0e49578e4c168fd19c73e202) )

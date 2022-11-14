@@ -233,7 +233,7 @@ public class tecmo
 	
 	
 	
-	static InputPortPtr input_ports_rygar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rygar )
+	static InputPortHandlerPtr input_ports_rygar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rygar )
 		PORT_START(); 	/* IN0 bits 0-3 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -322,7 +322,7 @@ public class tecmo
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gemini = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gemini )
+	static InputPortHandlerPtr input_ports_gemini = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gemini )
 		PORT_START(); 	/* IN0 bits 0-3 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -414,7 +414,7 @@ public class tecmo
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_silkworm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( silkworm )
+	static InputPortHandlerPtr input_ports_silkworm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( silkworm )
 		PORT_START(); 	/* IN0 bit 0-3 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -634,7 +634,7 @@ public class tecmo
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_rygar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rygar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "5.5p",         0x00000, 0x08000, CRC(062cd55d) SHA1(656e29c890f5de964920b7841b3e11469cd20051) ) /* code */
 		ROM_LOAD( "cpu_5m.bin",   0x08000, 0x04000, CRC(7ac5191b) SHA1(305f39d974f906f9bc24e9fe2ca58e647925ab63) ) /* code */
@@ -668,7 +668,7 @@ public class tecmo
 		ROM_LOAD( "cpu_1f.bin",   0x0000, 0x4000, CRC(3cc98c5a) SHA1(ea1035be939ed1a994f3273b33412c85dda0973e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rygar2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rygar2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cpu_5p.bin",   0x00000, 0x08000, CRC(e79c054a) SHA1(1aaffa53d121d5c55899bf18e85c42333fe0df54) ) /* code */
 		ROM_LOAD( "cpu_5m.bin",   0x08000, 0x04000, CRC(7ac5191b) SHA1(305f39d974f906f9bc24e9fe2ca58e647925ab63) ) /* code */
@@ -702,7 +702,7 @@ public class tecmo
 		ROM_LOAD( "cpu_1f.bin",   0x0000, 0x4000, CRC(3cc98c5a) SHA1(ea1035be939ed1a994f3273b33412c85dda0973e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rygarj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rygarj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )	/* 64k for code */
 	
 		ROM_LOAD( "cpuj_5p.bin",  0x00000, 0x08000, CRC(b39698ba) SHA1(01a5a12a71973ad117b0bbd763e470f89c439e45) ) /* code */
@@ -737,7 +737,7 @@ public class tecmo
 		ROM_LOAD( "cpu_1f.bin",   0x0000, 0x4000, CRC(3cc98c5a) SHA1(ea1035be939ed1a994f3273b33412c85dda0973e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_silkworm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_silkworm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "silkworm.4",   0x00000, 0x10000, CRC(a5277cce) SHA1(3886a3f3d1230d49d541f884c5b29938e13f98c8) )	/* c000-ffff is not used */
 		ROM_LOAD( "silkworm.5",   0x10000, 0x10000, CRC(a6c7bb51) SHA1(75f6625459ab65f2d47a282c1295d4db38f5fe51) )	/* banked at f000-f7ff */
@@ -770,7 +770,7 @@ public class tecmo
 		ROM_LOAD( "silkworm.1",   0x0000, 0x8000, CRC(5b553644) SHA1(5d39d2251094c17f7b732b4861401b3516fce9b1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_silkwrm2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_silkwrm2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "r4",           0x00000, 0x10000, CRC(6df3df22) SHA1(9d6201c2df014bdb6877dfff936dddde1fe6fbd0) )	/* c000-ffff is not used */
 		ROM_LOAD( "silkworm.5",   0x10000, 0x10000, CRC(a6c7bb51) SHA1(75f6625459ab65f2d47a282c1295d4db38f5fe51) )	/* banked at f000-f7ff */
@@ -803,7 +803,7 @@ public class tecmo
 		ROM_LOAD( "silkworm.1",   0x0000, 0x8000, CRC(5b553644) SHA1(5d39d2251094c17f7b732b4861401b3516fce9b1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gemini = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gemini = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "gw04-5s.rom",  0x00000, 0x10000, CRC(ff9de855) SHA1(34167af8456a081f68b338f10d4319ce1e703fd4) )	/* c000-ffff is not used */
 		ROM_LOAD( "gw05-6s.rom",  0x10000, 0x10000, CRC(5a6947a9) SHA1(18b7aeb0f0e2c396bc759118dd7c45fd6070b804) )	/* banked at f000-f7ff */

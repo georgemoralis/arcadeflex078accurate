@@ -116,7 +116,7 @@ public class zodiack
 	
 	
 	
-	static InputPortPtr input_ports_zodiack = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zodiack )
+	static InputPortHandlerPtr input_ports_zodiack = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zodiack )
 		PORT_START();       /* DSW0 */  /* never read in this game */
 		PORT_BIT( 0xff, IP_ACTIVE_HIGH, IPT_UNUSED );
 	
@@ -166,7 +166,7 @@ public class zodiack
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dogfight = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dogfight )
+	static InputPortHandlerPtr input_ports_dogfight = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dogfight )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x07, 0x00, DEF_STR( "Coin_B") );
 		PORT_DIPSETTING(    0x05, DEF_STR( "2C_1C") );
@@ -239,7 +239,7 @@ public class zodiack
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_moguchan = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( moguchan )
+	static InputPortHandlerPtr input_ports_moguchan = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( moguchan )
 		PORT_START();       /* DSW0 */
 		PORT_BIT( 0xff, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	
@@ -289,7 +289,7 @@ public class zodiack
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_percuss = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( percuss )
+	static InputPortHandlerPtr input_ports_percuss = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( percuss )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -358,7 +358,7 @@ public class zodiack
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bounty = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bounty )
+	static InputPortHandlerPtr input_ports_bounty = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bounty )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -547,7 +547,7 @@ public class zodiack
 	  Game driver(s)
 	
 	***************************************************************************/
-	static RomLoadPtr rom_zodiack = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zodiack = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "ovg30c.2",     0x0000, 0x2000, CRC(a2125e99) SHA1(00ae4ed2c7b6895d2dc58aa2fc51c25b6428e4ba) )
 		ROM_LOAD( "ovg30c.3",     0x2000, 0x2000, CRC(aee2b77f) SHA1(2581b7a75d38663cc5ebc91a77385ca7eb9b4aba) )
@@ -566,7 +566,7 @@ public class zodiack
 		ROM_LOAD( "ovg40c.2b",    0x0020, 0x0020, CRC(21f77ec7) SHA1(b1019afc4361aca98b7120b21743bfeb5ea2ff63) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dogfight = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dogfight = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "df-2",         0x0000, 0x2000, CRC(ad24b28b) SHA1(5bfc24c9d176a987525c5ad3eff3308f679d4d44) )
 		ROM_LOAD( "df-3",         0x2000, 0x2000, CRC(cd172707) SHA1(9d7a494006db13cbe9c895875a18d9423a0128bc) )
@@ -586,7 +586,7 @@ public class zodiack
 		ROM_LOAD( "2.bpr",        0x0020, 0x0020, CRC(596ae457) SHA1(1c1a3130d88c5fd5c66ce9f91d97a09c0a0b535f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moguchan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moguchan = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "2.5r",         0x0000, 0x1000, CRC(85d0cb7e) SHA1(20066f71d80161dff556bc86edf40fcc2ac3b993) )
 		ROM_LOAD( "4.5m",         0x1000, 0x1000, CRC(359ef951) SHA1(93e80fcd371e8d2026919d0e046b636b7c19002e) )
@@ -605,7 +605,7 @@ public class zodiack
 		ROM_LOAD( "moguchan.2b",  0x0020, 0x0020, CRC(9abfdf40) SHA1(44c4dcdd3d79af2c4a897cc003b5287dece0313e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_percuss = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_percuss = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "percuss.1",    0x0000, 0x1000, CRC(ff0364f7) SHA1(048963d70e513068fdb591b4bc152473fe4cc2c3) )
 		ROM_LOAD( "percuss.3",    0x1000, 0x1000, CRC(7f646c59) SHA1(976210f1fed11c03e0a159c8189630a1fec63fc9) )
@@ -627,7 +627,7 @@ public class zodiack
 		ROM_LOAD( "percus2b.prm", 0x0020, 0x0020, CRC(e561b029) SHA1(7d21a3492a179f5ce541911d19e4816960547089) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bounty = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bounty = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "1.4f",      0x0000, 0x1000, CRC(f495b19d) SHA1(df2de0869b10da1ee1d98d48615c9e1dce798c26) )
 		ROM_LOAD( "3.4k",      0x1000, 0x1000, CRC(fa3086c3) SHA1(b8bab26a4e68e6d2e5b899e900c9affd297c22de) )

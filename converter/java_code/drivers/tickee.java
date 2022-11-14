@@ -129,7 +129,7 @@ public class tickee
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_tickee = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tickee )
+	static InputPortHandlerPtr input_ports_tickee = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tickee )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x01, "Game Time/Diff" );
 		PORT_DIPSETTING(    0x03, "Very Fast/Very Easy" );
@@ -265,7 +265,7 @@ public class tickee
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_tickee = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tickee = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( TOBYTE(0x800000), REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION16_LE( 0x200000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */

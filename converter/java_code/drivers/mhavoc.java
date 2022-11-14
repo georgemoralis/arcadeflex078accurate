@@ -372,7 +372,7 @@ public class mhavoc
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_mhavoc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mhavoc )
+	static InputPortHandlerPtr input_ports_mhavoc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mhavoc )
 		PORT_START(); 	/* IN0 - alpha (player_1 = 0) */
 		PORT_BIT ( 0x03, IP_ACTIVE_HIGH, IPT_SPECIAL );
 		PORT_BIT ( 0x04, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -441,7 +441,7 @@ public class mhavoc
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mhavocp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mhavocp )
+	static InputPortHandlerPtr input_ports_mhavocp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mhavocp )
 		PORT_START(); 	/* IN0 - alpha (player_1 = 0) */
 		PORT_BIT ( 0x0f, IP_ACTIVE_HIGH, IPT_SPECIAL );
 		PORT_BIT ( 0x10, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -507,7 +507,7 @@ public class mhavoc
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_alphaone = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( alphaone )
+	static InputPortHandlerPtr input_ports_alphaone = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( alphaone )
 		PORT_START(); 	/* IN0 - alpha (player_1 = 0) */
 		PORT_BIT ( 0x03, IP_ACTIVE_HIGH, IPT_SPECIAL );
 		PORT_BIT ( 0x7c, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -639,7 +639,7 @@ public class mhavoc
 	 * Alpha one is a single-board prototype
 	 */
 	
-	static RomLoadPtr rom_mhavoc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mhavoc = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Alpha Processor ROMs */
 		ROM_REGION( 0x21000, REGION_CPU1, 0 )	/* 152KB for ROMs */
 		/* Vector Generator ROM */
@@ -664,7 +664,7 @@ public class mhavoc
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mhavoc2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mhavoc2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Alpha Processor ROMs */
 		ROM_REGION( 0x21000, REGION_CPU1, 0 )
 		/* Vector Generator ROM */
@@ -691,7 +691,7 @@ public class mhavoc
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mhavocrv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mhavocrv = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Alpha Processor ROMs */
 		ROM_REGION( 0x21000, REGION_CPU1, 0 )	/* 152KB for ROMs */
 		/* Vector Generator ROM */
@@ -716,7 +716,7 @@ public class mhavoc
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mhavocp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mhavocp = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Alpha Processor ROMs */
 		ROM_REGION( 0x21000, REGION_CPU1, 0 )
 		/* Vector Generator ROM */
@@ -743,7 +743,7 @@ public class mhavoc
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_alphaone = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_alphaone = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x21000, REGION_CPU1, 0 )
 		/* Vector Generator ROM */
 		ROM_LOAD( "vec5000.tw",   0x05000, 0x1000, CRC(2a4c149f) SHA1(b60a0b29958bee9b5f7c1d88163680b626bb76dd) )
@@ -766,7 +766,7 @@ public class mhavoc
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_alphaona = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_alphaona = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x21000, REGION_CPU1, 0 )
 		/* Vector Generator ROM */
 		ROM_LOAD( "vec5000.tw",   0x05000, 0x1000, CRC(2a4c149f) SHA1(b60a0b29958bee9b5f7c1d88163680b626bb76dd) )

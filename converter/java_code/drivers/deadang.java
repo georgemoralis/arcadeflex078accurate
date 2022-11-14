@@ -112,7 +112,7 @@ public class deadang
 	
 	/* Input Ports */
 	
-	static InputPortPtr input_ports_deadang = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( deadang )
+	static InputPortHandlerPtr input_ports_deadang = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( deadang )
 		SEIBU_COIN_INPUTS	/* Must be port 0: coin inputs read through sound cpu */
 	
 		PORT_START(); 	/* IN0 */
@@ -181,7 +181,7 @@ public class deadang
 		PORT_DIPSETTING(    0x80, "Overseas" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ghunter = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ghunter )
+	static InputPortHandlerPtr input_ports_ghunter = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ghunter )
 		SEIBU_COIN_INPUTS	/* Must be port 0: coin inputs read through sound cpu */
 	
 		PORT_START(); 	/* IN0 */
@@ -348,7 +348,7 @@ public class deadang
 	
 	/* ROMs */
 	
-	static RomLoadPtr rom_deadang = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_deadang = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* v20 main cpu */
 		ROM_LOAD16_BYTE("2.18h",   0x0c0000, 0x10000, CRC(1bc05b7e) SHA1(21833150a1f5ab543999a67f5b3bfbaf703e5508) )
 		ROM_LOAD16_BYTE("4.22h",   0x0c0001, 0x10000, CRC(5751d4e7) SHA1(2e1a30c20199461fd876849f7563fef1d9a80c2d) )
@@ -393,7 +393,7 @@ public class deadang
 		ROM_LOAD( "16.11a", 0x010000, 0x10000, CRC(a8d46fc9) SHA1(3ba51bdec4057413396a152b35015f9d95253e3f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ghunter = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ghunter = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* v20 main cpu */
 		ROM_LOAD16_BYTE("ggh-2.h18",   0x0c0000, 0x10000, CRC(7ccc6fee) SHA1(bccc283d82f080157f0521457b04fdd1d63caafe) )
 		ROM_LOAD16_BYTE("ggh-4.h22",   0x0c0001, 0x10000, CRC(d1f23ad7) SHA1(2668729af797ccab52ac2bf519d43ab2fa9e54ce) )

@@ -89,7 +89,7 @@ public class ttmahjng
 	};
 	
 	
-	static InputPortPtr input_ports_ttmahjng = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ttmahjng )
+	static InputPortHandlerPtr input_ports_ttmahjng = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ttmahjng )
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x01, 0x00, "Unknown 01" );
 		PORT_DIPSETTING(    0x00, "00" );
@@ -214,7 +214,7 @@ public class ttmahjng
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ttmahjng = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ttmahjng = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "ju04", 0x0000, 0x1000, CRC(fe7c693a) SHA1(be0630557e0bcd9ec2e9542cc4a4d947889ec57a) )
 		ROM_LOAD( "ju05", 0x1000, 0x1000, CRC(985723d3) SHA1(9d7499c48cfc242875a95d01459b8f3252ea41bc) )

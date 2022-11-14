@@ -271,7 +271,7 @@ public class silkroad
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_silkroad = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( silkroad )
+	static InputPortHandlerPtr input_ports_silkroad = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( silkroad )
 		PORT_START(); 	/* Players inputs */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON3 | IPF_PLAYER2 );
@@ -453,7 +453,7 @@ public class silkroad
 		}
 	} };
 	
-	static RomLoadPtr rom_silkroad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_silkroad = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )
 		ROM_LOAD32_WORD_SWAP( "rom02.bin", 0x000000, 0x100000, CRC(4e5200fc) SHA1(4d4cab03a6ec4ad825001e1e92193940646141e5) )
 		ROM_LOAD32_WORD_SWAP( "rom03.bin", 0x000002, 0x100000, CRC(73ccc78c) SHA1(2ac17aa8d7dac8636d29a4e4228a556334b51f1a) )

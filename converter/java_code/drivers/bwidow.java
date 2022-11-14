@@ -403,7 +403,7 @@ public class bwidow
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_bwidow = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bwidow )
+	static InputPortHandlerPtr input_ports_bwidow = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bwidow )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );// To fit "Coin B" Dip Switch
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );// To fit "Coin A" Dip Switch
@@ -482,7 +482,7 @@ public class bwidow
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_gravitar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gravitar )
+	static InputPortHandlerPtr input_ports_gravitar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gravitar )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );// To fit "Coin B" Dip Switch
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );// To fit "Coin A" Dip Switch
@@ -556,7 +556,7 @@ public class bwidow
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_lunarbat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lunarbat )
+	static InputPortHandlerPtr input_ports_lunarbat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lunarbat )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );// To be similar with other games
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );// To be similar with other games
@@ -590,7 +590,7 @@ public class bwidow
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_spacduel = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacduel )
+	static InputPortHandlerPtr input_ports_spacduel = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacduel )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );// To fit "Coin B" Dip Switch
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );// To fit "Coin A" Dip Switch
@@ -773,7 +773,7 @@ public class bwidow
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_bwidow = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bwidow = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "136017.107",   0x2800, 0x0800, CRC(97f6000c) SHA1(bbae93058228820ee67b05f23e45fb54ee0963ff) )
@@ -790,7 +790,7 @@ public class bwidow
 		ROM_RELOAD(               0xf000, 0x1000 )	/* for reset/interrupt vectors */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gravitar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gravitar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "136010.210",   0x2800, 0x0800, CRC(debcb243) SHA1(2c50cd38d60739c126f1d0d8e7fbd46a0bde6e1c) )
@@ -807,7 +807,7 @@ public class bwidow
 		ROM_RELOAD(              0xf000, 0x1000 )	/* for reset/interrupt vectors */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gravitr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gravitr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "136010.210",   0x2800, 0x0800, CRC(debcb243) SHA1(2c50cd38d60739c126f1d0d8e7fbd46a0bde6e1c) )
@@ -824,7 +824,7 @@ public class bwidow
 		ROM_RELOAD(              0xf000, 0x1000 )	/* for reset/interrupt vectors */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gravp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gravp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "l7.bin",   0x2800, 0x0800, CRC(1da0d845) SHA1(99bccae0521c105388784175c475035bf19270a7) )
@@ -841,7 +841,7 @@ public class bwidow
 		ROM_RELOAD(           0xf000, 0x1000 )	/* for reset/interrupt vectors */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lunarbat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lunarbat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "010.010",      0x2800, 0x0800, CRC(48fd38aa) SHA1(e6ec31e784c2965369161c33d00903ba027f7f20) )
@@ -857,7 +857,7 @@ public class bwidow
 		ROM_RELOAD(               0xf000, 0x1000 )	/* for reset/interrupt vectors */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lunarba1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lunarba1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "vrom1.bin",   0x2800, 0x0800, CRC(c60634d9) SHA1(b94f056b5e73a2e015ba9a4be66dc2abee325016) )
@@ -877,7 +877,7 @@ public class bwidow
 		ROM_RELOAD(              0xf000, 0x1000 )	/* for reset/interrupt vectors */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacduel = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacduel = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "136006.106",   0x2800, 0x0800, CRC(691122fe) SHA1(f53be76a49dba319050ca7767de3441521910e83) )

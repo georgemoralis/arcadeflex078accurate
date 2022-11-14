@@ -236,7 +236,7 @@ public class mcatadv
 	
 	/*** Inputs ***/
 	
-	static InputPortPtr input_ports_mcatadv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mcatadv )
+	static InputPortHandlerPtr input_ports_mcatadv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mcatadv )
 		PORT_START(); 	// IN0
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -319,7 +319,7 @@ public class mcatadv
 	//	PORT_DIPSETTING(    0x00, "Upright 2 Players" );	// duplicated setting (NEVER tested)
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_nost = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nost )
+	static InputPortHandlerPtr input_ports_nost = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nost )
 		PORT_START(); 	// IN0
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -489,7 +489,7 @@ public class mcatadv
 	} };
 	
 	
-	static RomLoadPtr rom_mcatadv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mcatadv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* M68000 */
 		ROM_LOAD16_BYTE( "mca-u30e", 0x00000, 0x80000, CRC(c62fbb65) SHA1(39a30a165d4811141db8687a4849626bef8e778e) )
 		ROM_LOAD16_BYTE( "mca-u29e", 0x00001, 0x80000, CRC(cf21227c) SHA1(4012811ebfe3c709ab49946f8138bc4bad881ef7) )
@@ -518,7 +518,7 @@ public class mcatadv
 		ROM_LOAD( "mca-u53.bin", 0x00000, 0x80000, CRC(64c76e05) SHA1(379cef5e0cba78d0e886c9cede41985850a3afb7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mcatadvj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mcatadvj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* M68000 */
 		ROM_LOAD16_BYTE( "u30.bin", 0x00000, 0x80000, CRC(05762f42) SHA1(3675fb606bf9d7be9462324e68263f4a6c2fea1c) )
 		ROM_LOAD16_BYTE( "u29.bin", 0x00001, 0x80000, CRC(4c59d648) SHA1(2ab77ea254f2c11fc016078cedcab2fffbe5ee1b) )
@@ -547,7 +547,7 @@ public class mcatadv
 		ROM_LOAD( "mca-u53.bin", 0x00000, 0x80000, CRC(64c76e05) SHA1(379cef5e0cba78d0e886c9cede41985850a3afb7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nost = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nost = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* M68000 */
 		ROM_LOAD16_BYTE( "nos-pe-u.bin", 0x00000, 0x80000, CRC(4b080149) SHA1(e1dbbe5bf554c7c5731cc3079850f257417e3caa) )
 		ROM_LOAD16_BYTE( "nos-po-u.bin", 0x00001, 0x80000, CRC(9e3cd6d9) SHA1(db5351ff9a05f602eceae62c0051c16ae0e4ead9) )
@@ -576,7 +576,7 @@ public class mcatadv
 		ROM_LOAD( "nossn-00.u53", 0x00000, 0x100000, CRC(3bd1bcbc) SHA1(1bcad43792e985402db4eca122676c2c555f3313) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nostj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nostj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* M68000 */
 		ROM_LOAD16_BYTE( "nos-pe-j.u30", 0x00000, 0x80000, CRC(4b080149) SHA1(e1dbbe5bf554c7c5731cc3079850f257417e3caa) )
 		ROM_LOAD16_BYTE( "nos-po-j.u29", 0x00001, 0x80000, CRC(7fe241de) SHA1(aa4ffd81cb73efc59690c2038ae9375021a775a4) )
@@ -605,7 +605,7 @@ public class mcatadv
 		ROM_LOAD( "nossn-00.u53", 0x00000, 0x100000, CRC(3bd1bcbc) SHA1(1bcad43792e985402db4eca122676c2c555f3313) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nostk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nostk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* M68000 */
 		ROM_LOAD16_BYTE( "nos-pe-t.u30", 0x00000, 0x80000, CRC(bee5fbc8) SHA1(a8361fa004bb31471f973ece51a9a87b9f3438ab) )
 		ROM_LOAD16_BYTE( "nos-po-t.u29", 0x00001, 0x80000, CRC(f4736331) SHA1(7a6db2db1a4dbf105c22e15deff6f6032e04609c) )

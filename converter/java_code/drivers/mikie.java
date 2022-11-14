@@ -113,7 +113,7 @@ public class mikie
 	
 	
 	
-	static InputPortPtr input_ports_mikie = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mikie )
+	static InputPortHandlerPtr input_ports_mikie = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mikie )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -298,7 +298,7 @@ public class mikie
 	***************************************************************************/
 	
 	
-	static RomLoadPtr rom_mikie = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mikie = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "11c_n14.bin",  0x6000, 0x2000, CRC(f698e6dd) SHA1(99220eeee4e7b88caa26f2d08502689e1f1fcdf8) )
 		ROM_LOAD( "12a_o13.bin",  0x8000, 0x4000, CRC(826e7035) SHA1(bd62783cb1ba4e7f0196f337280461bb7627f70f) )
@@ -324,7 +324,7 @@ public class mikie
 		ROM_LOAD( "f09_d18.bin",  0x0400, 0x0100, CRC(7396b374) SHA1(fedcc421a61d6623dc9c41b0a3e164efeb50ec7c) )	/* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mikiej = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mikiej = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "11c_n14.bin",  0x6000, 0x2000, CRC(f698e6dd) SHA1(99220eeee4e7b88caa26f2d08502689e1f1fcdf8) )
 		ROM_LOAD( "12a_o13.bin",  0x8000, 0x4000, CRC(826e7035) SHA1(bd62783cb1ba4e7f0196f337280461bb7627f70f) )
@@ -350,7 +350,7 @@ public class mikie
 		ROM_LOAD( "f09_d18.bin",  0x0400, 0x0100, CRC(7396b374) SHA1(fedcc421a61d6623dc9c41b0a3e164efeb50ec7c) )	/* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mikiehs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mikiehs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "11c_l14.bin",  0x6000, 0x2000, CRC(633f3a6d) SHA1(9255e0cb8d53773a52cade2fbd2e4c1968164313) )
 		ROM_LOAD( "12a_m13.bin",  0x8000, 0x4000, CRC(9c42d715) SHA1(533ae7c5bde6d341b9138dd439d9ff46fe0767f4) )

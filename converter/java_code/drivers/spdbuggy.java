@@ -190,7 +190,7 @@ public class spdbuggy
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_spdbuggy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spdbuggy )
+	static InputPortHandlerPtr input_ports_spdbuggy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spdbuggy )
 	
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
@@ -473,7 +473,7 @@ public class spdbuggy
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_spdbuggy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spdbuggy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "ic174.6",  0xf0001, 0x08000, CRC(5e352d8d) SHA1(350c206b5241d5628e673ce1108f728c8c4f980c) )
 		ROM_LOAD16_BYTE( "ic213.8",  0xf0000, 0x08000, CRC(abcc8ad2) SHA1(aeb695c3675d40a951fe8272cbf0f6673435dab8) )

@@ -546,7 +546,7 @@ public class namcos86
 	
 	/*******************************************************************/
 	
-	static InputPortPtr input_ports_hopmappy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hopmappy )
+	static InputPortHandlerPtr input_ports_hopmappy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hopmappy )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* button 3 player 2 */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );/* button 2 player 1 */
@@ -625,7 +625,7 @@ public class namcos86
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_skykiddx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skykiddx )
+	static InputPortHandlerPtr input_ports_skykiddx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skykiddx )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* button 3 player 2 */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -704,7 +704,7 @@ public class namcos86
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_roishtar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( roishtar )
+	static InputPortHandlerPtr input_ports_roishtar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( roishtar )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* button 3 player 2 */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -786,7 +786,7 @@ public class namcos86
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICKRIGHT_LEFT | IPF_8WAY );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_genpeitd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( genpeitd )
+	static InputPortHandlerPtr input_ports_genpeitd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( genpeitd )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* button 3 player 2 */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -864,7 +864,7 @@ public class namcos86
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rthunder = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rthunder )
+	static InputPortHandlerPtr input_ports_rthunder = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rthunder )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* button 3 player 2 */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -943,7 +943,7 @@ public class namcos86
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_4WAY | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rthundro = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rthundro )
+	static InputPortHandlerPtr input_ports_rthundro = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rthundro )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* button 3 player 2 */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -1022,7 +1022,7 @@ public class namcos86
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_4WAY | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_wndrmomo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wndrmomo )
+	static InputPortHandlerPtr input_ports_wndrmomo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wndrmomo )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/* button 3 player 2 */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -1314,7 +1314,7 @@ public class namcos86
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hopmappy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hopmappy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "hm1",         0x08000, 0x8000, CRC(1a83914e) SHA1(6cb96b2518f4b867e20bd5d31ac6913d09c95f06) )
 		/* 9d empty */
@@ -1351,7 +1351,7 @@ public class namcos86
 		/* the PCM expansion board is not present in this game */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_skykiddx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skykiddx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "sk3_1b.9c", 0x08000, 0x8000, CRC(767b3514) SHA1(7b85e520e56924235d1f4987333f183c914fafc1) )
 		ROM_LOAD( "sk3_2.9d",  0x10000, 0x8000, CRC(74b8f8e2) SHA1(0c9f0a283c764d5db59abea17a7f3285718b4501) )
@@ -1389,7 +1389,7 @@ public class namcos86
 		/* the PCM expansion board is not present in this game */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_skykiddo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skykiddo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "sk3-1.9c",  0x08000, 0x8000, CRC(5722a291) SHA1(0b3ca2585bf5c18214c1337dce8f92027e9d78c2) )
 		ROM_LOAD( "sk3_2.9d",  0x10000, 0x8000, CRC(74b8f8e2) SHA1(0c9f0a283c764d5db59abea17a7f3285718b4501) )
@@ -1427,7 +1427,7 @@ public class namcos86
 		/* the PCM expansion board is not present in this game */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_roishtar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roishtar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "ri1-1c.9c", 0x08000, 0x8000, CRC(14acbacb) SHA1(3c6130f9e5a4ba84be0cc3547c1086707ee3b8e9) )
 		ROM_LOAD( "ri1-2.9d",  0x14000, 0x2000, CRC(fcd58d91) SHA1(e7b6d7afd7cf6c374ee90d6499ea0f205e742b21) )
@@ -1471,7 +1471,7 @@ public class namcos86
 		/* the PCM expansion board is not present in this game */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_genpeitd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_genpeitd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "gt1-1b.9c", 0x08000, 0x8000, CRC(75396194) SHA1(2a526064fb91b2796c913f3050867352ac63e643) )
 		/* 9d empty */
@@ -1522,7 +1522,7 @@ public class namcos86
 		/* m3 empty */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rthunder = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rthunder = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "rt3-1b.9c",  0x8000, 0x8000, CRC(7d252a1b) SHA1(cb92709e94eb273b3ce44c55cd252170ad1017f4) )
 		/* 9d empty */
@@ -1573,7 +1573,7 @@ public class namcos86
 		/* m3 empty */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rthundro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rthundro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "r1",         0x8000, 0x8000, CRC(6f8c1252) SHA1(586f2e33dd16f31131e4ae9423d639fdc6555c9c) )
 		/* 9d empty */
@@ -1624,7 +1624,7 @@ public class namcos86
 		/* m3 empty */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wndrmomo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wndrmomo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "wm1-1.9c", 0x8000, 0x8000, CRC(34b50bf0) SHA1(112c8c8a0a16382008cacd2e484f91fa9338d10a) )
 		/* 9d empty */

@@ -301,7 +301,7 @@ public class turbo
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_turbo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( turbo )
+	static InputPortHandlerPtr input_ports_turbo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( turbo )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );			/* ACCEL B */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );			/* ACCEL A */
@@ -370,7 +370,7 @@ public class turbo
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_subroc3d = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( subroc3d )
+	static InputPortHandlerPtr input_ports_subroc3d = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( subroc3d )
 		PORT_START(); 
 		PORT_BIT( 0x04, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN );
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_JOYSTICK_UP );
@@ -439,7 +439,7 @@ public class turbo
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_buckrog = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( buckrog )
+	static InputPortHandlerPtr input_ports_buckrog = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( buckrog )
 		PORT_START(); 
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_START2 );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_BUTTON3 );// Accel Hi
@@ -681,7 +681,7 @@ public class turbo
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_turbo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_turbo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr1513.bin",  0x0000, 0x2000, CRC(0326adfc) SHA1(d9f06f0bc78667fa58c4b8ab3a3897d0dd0bdfbf) )
 		ROM_LOAD( "epr1514.bin",  0x2000, 0x2000, CRC(25af63b0) SHA1(9af4b3da83a4cef79b7dd0e9061132c499872c1c) )
@@ -737,7 +737,7 @@ public class turbo
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_turboa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_turboa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr1262.rom",  0x0000, 0x2000, CRC(1951b83a) SHA1(31933676140db66281b7ca016a1b42cb985f44dd) )
 		ROM_LOAD( "epr1263.rom",  0x2000, 0x2000, CRC(45e01608) SHA1(0a9812714c41904bef7a8777b4aae63b5a1dd633) )
@@ -793,7 +793,7 @@ public class turbo
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_turbob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_turbob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "epr-1363.cpu",  0x0000, 0x2000, CRC(5c110fb6) SHA1(fdcdf488bd112db12aa22c4b7e9f34004185d4ce) )
 		ROM_LOAD( "epr-1364.cpu",  0x2000, 0x2000, CRC(6a341693) SHA1(428927c4a14bf82225875012c255d25dcffaf2ab) )
@@ -849,7 +849,7 @@ public class turbo
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_subroc3d = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_subroc3d = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr1614a.88", 0x0000, 0x2000, CRC(0ed856b4) SHA1(c2f48170365a53bff312ca20df5b74466de6349a) )
 		ROM_LOAD( "epr1615.87",  0x2000, 0x2000, CRC(6281eb2e) SHA1(591d7f184f51f33fb583c916eddacf4581d612d7) )
@@ -896,7 +896,7 @@ public class turbo
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_buckrog = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_buckrog = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 ) /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "br-3.bin", 0x0000, 0x4000, CRC(f0055e97) SHA1(f6ee2afd6fef710949087d1cb04cbc242d1fa9f5) )	/* encrypted */
 		ROM_LOAD( "br-4.bin", 0x4000, 0x4000, CRC(7d084c39) SHA1(ef2c0a2a59e14d9e196fd3837139fc5acf0f63be) )	/* encrypted */
@@ -930,7 +930,7 @@ public class turbo
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_buckrogn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_buckrogn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ic3", 0x0000, 0x4000, CRC(7f1910af) SHA1(22d37750282676d8fd1f602e928c174f823245c9) )
 		ROM_LOAD( "ic4", 0x4000, 0x4000, CRC(5ecd393b) SHA1(d069f12326644f2c685e516d91d33b97ec162c56) )

@@ -244,7 +244,7 @@ public class cinemat
 	#define SW1ON  0
 	
 	
-	static InputPortPtr input_ports_spacewar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacewar )
+	static InputPortHandlerPtr input_ports_spacewar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacewar )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_DIPNAME( SW2|SW1, SW2ON |SW1ON,  "Time" );
@@ -286,7 +286,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_barrier = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( barrier )
+	static InputPortHandlerPtr input_ports_barrier = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( barrier )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_DIPNAME( SW1, SW1ON,  DEF_STR( "Lives") );
@@ -338,7 +338,7 @@ public class cinemat
 	
 	
 	/* TODO: 4way or 8way stick? */
-	static InputPortPtr input_ports_starhawk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( starhawk )
+	static InputPortHandlerPtr input_ports_starhawk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( starhawk )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 2 );
 		PORT_DIPNAME( SW7,	   SW7OFF,		  DEF_STR( "Unknown") );
@@ -380,7 +380,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_starcas = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( starcas )
+	static InputPortHandlerPtr input_ports_starcas = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( starcas )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_SERVICE( SW7,     SW7ON );
@@ -427,7 +427,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_tailg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tailg )
+	static InputPortHandlerPtr input_ports_tailg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tailg )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_DIPNAME( SW6|SW2|SW1, SW6OFF|SW2OFF|SW1OFF, "Shield Points" );
@@ -478,7 +478,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_ripoff = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ripoff )
+	static InputPortHandlerPtr input_ports_ripoff = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ripoff )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_SERVICE( SW7,	   SW7OFF );
@@ -525,7 +525,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_speedfrk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( speedfrk )
+	static InputPortHandlerPtr input_ports_speedfrk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( speedfrk )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_DIPNAME( SW7,     SW7OFF,        DEF_STR( "Unknown") );
@@ -580,7 +580,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sundance = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sundance )
+	static InputPortHandlerPtr input_ports_sundance = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sundance )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_DIPNAME( SW5,	   SW5OFF,		 DEF_STR( "Unknown") );
@@ -652,7 +652,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_warrior = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( warrior )
+	static InputPortHandlerPtr input_ports_warrior = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( warrior )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_DIPNAME( SW7, SW7OFF, DEF_STR( "Unknown") );
@@ -701,7 +701,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_armora = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( armora )
+	static InputPortHandlerPtr input_ports_armora = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( armora )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_SERVICE( SW7,     SW7ON );
@@ -745,7 +745,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_solarq = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( solarq )
+	static InputPortHandlerPtr input_ports_solarq = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( solarq )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_SERVICE( SW7,	   SW7ON );
@@ -794,7 +794,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_demon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( demon )
+	static InputPortHandlerPtr input_ports_demon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( demon )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_DIPNAME( SW7,     SW7OFF,        DEF_STR( "Free_Play") );
@@ -843,7 +843,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_wotw = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wotw )
+	static InputPortHandlerPtr input_ports_wotw = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wotw )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_SERVICE( SW7, SW7OFF );
@@ -892,7 +892,7 @@ public class cinemat
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_boxingb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( boxingb )
+	static InputPortHandlerPtr input_ports_boxingb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( boxingb )
 		PORT_START();  /* switches */
 		PORT_BIT_IMPULSE( 0x80, IP_ACTIVE_LOW, IPT_COIN1, 1 );
 		PORT_SERVICE( SW7,	   SW7OFF );
@@ -1081,28 +1081,28 @@ public class cinemat
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_spacewar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacewar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 4k for code */
 		ROM_LOAD16_BYTE( "spacewar.1l", 0x8000, 0x0800, CRC(edf0fd53) SHA1(a543d8b95bc77ec061c6b10161a6f3e07401e251) )
 		ROM_LOAD16_BYTE( "spacewar.2r", 0x8001, 0x0800, CRC(4f21328b) SHA1(8889f1a9353d6bb1e1078829c1ba77557853739b) )
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_barrier = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_barrier = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 4k for code */
 		ROM_LOAD16_BYTE( "barrier.t7", 0x8000, 0x0800, CRC(7c3d68c8) SHA1(1138029552b73e94522b3b48096befc057d603c7) )
 		ROM_LOAD16_BYTE( "barrier.p7", 0x8001, 0x0800, CRC(aec142b5) SHA1(b268936b82e072f38f1f1dd54e0bc88bcdf19925) )
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_starhawk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starhawk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 4k for code */
 		ROM_LOAD16_BYTE( "u7", 0x8000, 0x0800, CRC(376e6c5c) SHA1(7d9530ed2e75464578b541f61408ba64ee9d2a95) )
 		ROM_LOAD16_BYTE( "r7", 0x8001, 0x0800, CRC(bb71144f) SHA1(79591cd3ef8df78ec26e158f7e82ca0dcd72260d) )
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_starcas = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starcas = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "starcas3.t7", 0x8000, 0x0800, CRC(b5838b5d) SHA1(6ac30be55514cba55180c85af69072b5056d1d4c) )
 		ROM_LOAD16_BYTE( "starcas3.p7", 0x8001, 0x0800, CRC(f6bc2f4d) SHA1(ef6f01556b154cfb3e37b2a99d6ea6292e5ec844) )
@@ -1110,7 +1110,7 @@ public class cinemat
 		ROM_LOAD16_BYTE( "starcas3.r7", 0x9001, 0x0800, CRC(c367b69d) SHA1(98354d34ceb03e080b1846611d533be7bdff01cc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starcasp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starcasp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "starcasp.t7", 0x8000, 0x0800, CRC(d2c551a2) SHA1(90b5e1c6988839b812028f1baaea16420c011c08) )
 		ROM_LOAD16_BYTE( "starcasp.p7", 0x8001, 0x0800, CRC(baa4e422) SHA1(9035ac675fcbbb93ae3f658339fdfaef47796dab) )
@@ -1119,7 +1119,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_starcas1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starcas1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "starcast.t7", 0x8000, 0x0800, CRC(65d0a225) SHA1(e1fbee5ff42dd040ab2e90bbe2189fcb76d6167e) )
 		ROM_LOAD16_BYTE( "starcast.p7", 0x8001, 0x0800, CRC(d8f58d9a) SHA1(abba459431dcacc75099b0d340b957be71b89cfd) )
@@ -1127,7 +1127,7 @@ public class cinemat
 		ROM_LOAD16_BYTE( "starcast.r7", 0x9001, 0x0800, CRC(9fd3de54) SHA1(17195a490b190e68660829850ff9d702ca1939bb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starcase = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starcase = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "starcast.t7", 0x8000, 0x0800, CRC(65d0a225) SHA1(e1fbee5ff42dd040ab2e90bbe2189fcb76d6167e) )
 		ROM_LOAD16_BYTE( "starcast.p7", 0x8001, 0x0800, CRC(d8f58d9a) SHA1(abba459431dcacc75099b0d340b957be71b89cfd) )
@@ -1135,7 +1135,7 @@ public class cinemat
 		ROM_LOAD16_BYTE( "mottoeis.r7", 0x9001, 0x0800, CRC(a2c1ed52) SHA1(ed9743f44ee98c9e7c2a6819ec681af7c7a97fc9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_stellcas = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stellcas = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "starcast.t7", 0x8000, 0x0800, CRC(65d0a225) SHA1(e1fbee5ff42dd040ab2e90bbe2189fcb76d6167e) )
 		ROM_LOAD16_BYTE( "starcast.p7", 0x8001, 0x0800, CRC(d8f58d9a) SHA1(abba459431dcacc75099b0d340b957be71b89cfd) )
@@ -1144,7 +1144,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tailg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tailg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "tgunner.t70", 0x8000, 0x0800, CRC(21ec9a04) SHA1(b442f34360d1d4769e7bca73a2d79ce97d335460) )
 		ROM_LOAD16_BYTE( "tgunner.p70", 0x8001, 0x0800, CRC(8d7410b3) SHA1(59ead49bd229a873f15334d0999c872d3d6581d4) )
@@ -1153,7 +1153,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ripoff = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ripoff = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "ripoff.t7", 0x8000, 0x0800, CRC(40c2c5b8) SHA1(bc1f3b540475c9868443a72790a959b1f36b93c6) )
 		ROM_LOAD16_BYTE( "ripoff.p7", 0x8001, 0x0800, CRC(a9208afb) SHA1(ea362494855be27a07014832b01e65c1645385d0) )
@@ -1162,7 +1162,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_speedfrk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_speedfrk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "speedfrk.t7", 0x8000, 0x0800, CRC(3552c03f) SHA1(c233dd064195b336556d7405b51065389b228c78) )
 		ROM_LOAD16_BYTE( "speedfrk.p7", 0x8001, 0x0800, CRC(4b90cdec) SHA1(69e2312acdc22ef52236b1c4dfee9f51fcdcaa52) )
@@ -1171,7 +1171,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sundance = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sundance = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "sundance.t7", 0x8000, 0x0800, CRC(d5b9cb19) SHA1(72dca386b48a582186898c32123d61b4fd58632e) )
 		ROM_LOAD16_BYTE( "sundance.p7", 0x8001, 0x0800, CRC(445c4f20) SHA1(972d0b0613f154ee3347206cae05ee8c36796f84) )
@@ -1180,7 +1180,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_warrior = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_warrior = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 8k for code */
 		ROM_LOAD16_BYTE( "warrior.t7", 0x8000, 0x0800, CRC(ac3646f9) SHA1(515c3acb638fad27fa57f6b438c8ec0b5b76f319) )
 		ROM_LOAD16_BYTE( "warrior.p7", 0x8001, 0x0800, CRC(517d3021) SHA1(0483dcaf92c336a07d2c535823348ee886567e85) )
@@ -1189,7 +1189,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_armora = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_armora = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 16k for code */
 		ROM_LOAD16_BYTE( "ar414le.t6", 0x8000, 0x1000, CRC(d7e71f84) SHA1(0b29278a6a698f07eae597bc0a8650e91eaabffa) )
 		ROM_LOAD16_BYTE( "ar414lo.p6", 0x8001, 0x1000, CRC(df1c2370) SHA1(b74834d1a591a741892ec41269a831d3590ff766) )
@@ -1197,7 +1197,7 @@ public class cinemat
 		ROM_LOAD16_BYTE( "ar414uo.r6", 0xa001, 0x1000, CRC(229d779f) SHA1(0cbdd83eb224146944049346f30d9c72d3ad5f52) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_armorap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_armorap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 16k for code */
 		ROM_LOAD16_BYTE( "ar414le.t6", 0x8000, 0x1000, CRC(d7e71f84) SHA1(0b29278a6a698f07eae597bc0a8650e91eaabffa) )
 		ROM_LOAD16_BYTE( "ar414lo.p6", 0x8001, 0x1000, CRC(df1c2370) SHA1(b74834d1a591a741892ec41269a831d3590ff766) )
@@ -1205,7 +1205,7 @@ public class cinemat
 		ROM_LOAD16_BYTE( "armorp.r7",  0xa001, 0x1000, CRC(d2dd4eae) SHA1(09afaeb0b8f88edb17e42bd2d754af0ae53e609a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_armorar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_armorar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 16k for code */
 		ROM_LOAD16_BYTE( "armorr.t7", 0x8000, 0x0800, CRC(256d1ed9) SHA1(8c101356c3fe93f2f49d5dc9d739f3b37cdb98b5) )
 		ROM_LOAD16_BYTE( "armorr.p7", 0x8001, 0x0800, CRC(bf75c158) SHA1(4d52630ae0ea2ad16bb5f577ad6d21f52e2f0a3c) )
@@ -1214,7 +1214,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_solarq = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_solarq = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 16k for code */
 		ROM_LOAD16_BYTE( "solar.6t", 0x8000, 0x1000, CRC(1f3c5333) SHA1(58d847b5f009a0363ae116768b22d0bcfb3d60a4) )
 		ROM_LOAD16_BYTE( "solar.6p", 0x8001, 0x1000, CRC(d6c16bcc) SHA1(6953bdc698da060d37f6bc33a810ba44595b1257) )
@@ -1223,7 +1223,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_demon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_demon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 16k for code */
 		ROM_LOAD16_BYTE( "demon.7t",  0x8000, 0x1000, CRC(866596c1) SHA1(65202dcd5c6bf6c11fe76a89682a1505b1870cc9) )
 		ROM_LOAD16_BYTE( "demon.7p",  0x8001, 0x1000, CRC(1109e2f1) SHA1(c779b6af1ca09e2e295fc9a0e221ddf283b683ed) )
@@ -1235,7 +1235,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wotw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wotw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 16k for code */
 		ROM_LOAD16_BYTE( "wow_le.t7", 0x8000, 0x1000, CRC(b16440f9) SHA1(9656a26814736f8ff73575063b5ebbb2e8aa7dd0) )
 		ROM_LOAD16_BYTE( "wow_lo.p7", 0x8001, 0x1000, CRC(bfdf4a5a) SHA1(db4eceb68e17020d0a597ba105ec3b91ce48b7c1) )
@@ -1244,7 +1244,7 @@ public class cinemat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_boxingb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_boxingb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 32k for code */
 		ROM_LOAD16_BYTE( "u1a", 0x8000, 0x1000, CRC(d3115b0f) SHA1(9448e7ac1cdb5c7e0739623151be230ab630c4ea) )
 		ROM_LOAD16_BYTE( "u1b", 0x8001, 0x1000, CRC(3a44268d) SHA1(876ebe942ded787cfe357563a33d3e26a1483c5a) )

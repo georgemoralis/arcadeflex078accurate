@@ -216,7 +216,7 @@ public class sprint8
 	};
 	
 	
-	static InputPortPtr input_ports_sprint8 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sprint8 )
+	static InputPortHandlerPtr input_ports_sprint8 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sprint8 )
 	
 		PORT_START(); 
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW,  IPT_COIN1 );
@@ -351,7 +351,7 @@ public class sprint8
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sprint8p = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sprint8p )
+	static InputPortHandlerPtr input_ports_sprint8p = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sprint8p )
 	
 		PORT_START(); 
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW,  IPT_COIN1 );
@@ -562,7 +562,7 @@ public class sprint8
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_sprint8 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprint8 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "7313.j1", 0x2400, 0x0800, CRC(1231f944) SHA1(d16c76da6a74513eb40811d806e0dd009f6dcafb) )
 		ROM_LOAD( "7314.h1", 0x2c00, 0x0800, CRC(c77c0d49) SHA1(a57b5d340a41d02edb20fcb66875908110582bc5) )
@@ -576,7 +576,7 @@ public class sprint8
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sprint8a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprint8a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_LOW ( "l2800s8", 0x2800, 0x0800, CRC(3926de69) SHA1(ec03d7684e393061d1d48ae73897e9dc38131c14) )
 		ROM_LOAD_NIB_HIGH( "m2800s8", 0x2800, 0x0800, CRC(d009d6da) SHA1(3210806b0eb344d88d2cbcc46895f7224771c1f2) )

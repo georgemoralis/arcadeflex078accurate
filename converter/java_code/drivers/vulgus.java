@@ -109,7 +109,7 @@ public class vulgus
 	
 	
 	
-	static InputPortPtr input_ports_vulgus = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vulgus )
+	static InputPortHandlerPtr input_ports_vulgus = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vulgus )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -296,7 +296,7 @@ public class vulgus
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_vulgus = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vulgus = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "v2",           0x0000, 0x2000, CRC(3e18ff62) SHA1(03f61cc25b4c258effac2172f25641b668a1ae97) )
 		ROM_LOAD( "v3",           0x2000, 0x2000, CRC(b4650d82) SHA1(4567dfe2b12c59f8c75f5198a136a9afe4975e09) )
@@ -335,7 +335,7 @@ public class vulgus
 		ROM_LOAD( "82s129.8n",    0x0700, 0x0100, CRC(4921635c) SHA1(aee37d6cdc36acf0f11ff5f93e7b16e4b12f6c39) )	/* video timing? (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vulgus2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vulgus2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "vulgus.002",   0x0000, 0x2000, CRC(e49d6c5d) SHA1(48072aaa1f2603b6301d7542cc3df10ead2847bb) )
 		ROM_LOAD( "vulgus.003",   0x2000, 0x2000, CRC(51acef76) SHA1(14dda82b90f9c3a309561a73c300cb54b5fca77d) )
@@ -374,7 +374,7 @@ public class vulgus
 		ROM_LOAD( "82s129.8n",    0x0700, 0x0100, CRC(4921635c) SHA1(aee37d6cdc36acf0f11ff5f93e7b16e4b12f6c39) )	/* video timing? (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vulgusj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vulgusj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1-4n.bin",     0x0000, 0x2000, CRC(fe5a5ca5) SHA1(bb1b5ba5ce54f5e329d23fb8ad1357f65f10d6bf) )
 		ROM_LOAD( "1-5n.bin",     0x2000, 0x2000, CRC(847e437f) SHA1(1d45ca0b92e7aa3099b8a61c27629d9bec3f25b8) )

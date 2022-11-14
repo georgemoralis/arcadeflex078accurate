@@ -357,7 +357,7 @@ public class xevious
 	
 	
 	
-	static InputPortPtr input_ports_xevious = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( xevious )
+	static InputPortHandlerPtr input_ports_xevious = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( xevious )
 		PORT_START(); 	/* DSW0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );
 		PORT_DIPNAME( 0x02, 0x02, "Flags Award Bonus Life" );
@@ -445,7 +445,7 @@ public class xevious
 	INPUT_PORTS_END(); }}; 
 	
 	/* same as xevious but different "Coin B" Dip Switch and "Copyright" Dip Switch instead of "Freeze?" */
-	static InputPortPtr input_ports_xeviousa = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( xeviousa )
+	static InputPortHandlerPtr input_ports_xeviousa = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( xeviousa )
 		PORT_START(); 	/* DSW0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );
 		PORT_DIPNAME( 0x02, 0x02, "Flags Award Bonus Life" );
@@ -534,7 +534,7 @@ public class xevious
 	INPUT_PORTS_END(); }}; 
 	
 	/* same as xevious but "Copyright" Dip Switch instead of "Freeze?" */
-	static InputPortPtr input_ports_xeviousb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( xeviousb )
+	static InputPortHandlerPtr input_ports_xeviousb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( xeviousb )
 		PORT_START(); 	/* DSW0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );
 		PORT_DIPNAME( 0x02, 0x02, "Flags Award Bonus Life" );
@@ -622,7 +622,7 @@ public class xevious
 		PORT_SERVICE( 0x80, IP_ACTIVE_LOW );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_battles = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battles )
+	static InputPortHandlerPtr input_ports_battles = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battles )
 		PORT_START(); 	/* DSW0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );
 		PORT_DIPNAME( 0x02, 0x02, "Flags Award Bonus Life" );
@@ -711,7 +711,7 @@ public class xevious
 	INPUT_PORTS_END(); }}; 
 	
 	/* same as xevious but different "Coin B" Dip Switch and inverted "Freeze?" Dip Switch */
-	static InputPortPtr input_ports_sxevious = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sxevious )
+	static InputPortHandlerPtr input_ports_sxevious = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sxevious )
 		PORT_START(); 	/* DSW0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );
 		PORT_DIPNAME( 0x02, 0x02, "Flags Award Bonus Life" );
@@ -1078,7 +1078,7 @@ public class xevious
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_xevious = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xevious = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "xvi_1.3p",     0x0000, 0x1000, CRC(09964dda) SHA1(4882b25b0938a903f3a367455ba788a30759b5b0) )
 		ROM_LOAD( "xvi_2.3m",     0x1000, 0x1000, CRC(60ecce84) SHA1(8adc60a5fcbca74092518dbc570ffff0f04c5b17) )
@@ -1125,7 +1125,7 @@ public class xevious
 		ROM_LOAD( "xvi_1bpr.5n",  0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_xeviousa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xeviousa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "xea-1m-a.bin", 0x0000, 0x2000, CRC(8c2b50ec) SHA1(f770873b711d838556dde67a8aac8a7f572fcc5b) )
 		ROM_LOAD( "xea-1l-a.bin", 0x2000, 0x2000, CRC(0821642b) SHA1(c6c322c61d0985a2ac59f5e92d4e351107afb9eb) )
@@ -1169,7 +1169,7 @@ public class xevious
 		ROM_LOAD( "xvi_1bpr.5n",  0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_xeviousb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xeviousb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "1m.bin",     0x0000, 0x2000, CRC(e82a22f6) SHA1(6fd09a7fb263cda3d5268cc6d7bfe71a57ac4b47) )
 		ROM_LOAD( "1l.bin",     0x2000, 0x2000, CRC(13831df9) SHA1(a7892d1d98868a83a5d1092976873b82577e9e94) )
@@ -1213,7 +1213,7 @@ public class xevious
 		ROM_LOAD( "xvi_1bpr.5n",  0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_xevios = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xevios = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "4.7h",         0x0000, 0x1000, CRC(1f8ca4c0) SHA1(9fdaa2e0016c07e274544f8334778fe81b8344a5) )
 		ROM_LOAD( "5.6h",         0x1000, 0x1000, CRC(2e47ce8f) SHA1(fb35dd086e98279a5f17036f624ef5294c777d84) )
@@ -1266,7 +1266,7 @@ public class xevious
 		ROM_LOAD( "2.17b",        0x1000, 0x2000, CRC(de359fac) SHA1(a55df9984bfffafeadae8a5a63b07f1fa9c5eebf) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_battles = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battles = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "b_1.bin",      0x0000, 0x2000, CRC(b6e4f4f3) SHA1(ceaaa63b50e75dcb05aeb68574336dfe56a8434a) )
 		ROM_LOAD( "b_2.bin",      0x2000, 0x2000, CRC(47017bc8) SHA1(0da73ae079fb6a64eed56197e2c88609ef34166c) )
@@ -1313,7 +1313,7 @@ public class xevious
 		ROM_LOAD( "xvi_1bpr.5n",  0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sxevious = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sxevious = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for the first CPU */
 		ROM_LOAD( "cpu_3p.rom",   0x0000, 0x1000, CRC(1c8d27d5) SHA1(2c41303d8c74acb5840295a4b460a39a9a8e21bb) )
 		ROM_LOAD( "cpu_3m.rom",   0x1000, 0x1000, CRC(fd04e615) SHA1(7169e7f3bd1e9cfae9671b89f2a45f56b968e1ff) )

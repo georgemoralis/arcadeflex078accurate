@@ -235,7 +235,7 @@ public class mainevt
 	
 	/*****************************************************************************/
 	
-	static InputPortPtr input_ports_mainevt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mainevt )
+	static InputPortHandlerPtr input_ports_mainevt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mainevt )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -355,7 +355,7 @@ public class mainevt
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mainev2p = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mainev2p )
+	static InputPortHandlerPtr input_ports_mainev2p = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mainev2p )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -466,7 +466,7 @@ public class mainevt
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_devstors = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( devstors )
+	static InputPortHandlerPtr input_ports_devstors = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( devstors )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -577,7 +577,7 @@ public class mainevt
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'devstors', but additional "Cocktail" Dip Switch (even if I don't see the use) */
-	static InputPortPtr input_ports_devstor2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( devstor2 )
+	static InputPortHandlerPtr input_ports_devstor2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( devstor2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -790,7 +790,7 @@ public class mainevt
 	
 	/* 4 players - English title screen - No "Warning" message in the ROM */
 	
-	static RomLoadPtr rom_mainevt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mainevt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD( "799c02.k11",   0x10000, 0x08000, CRC(e2e7dbd5) SHA1(80314cd42a9f47f7bb82a2160fb5ef2ddc6dff30) )
 		ROM_CONTINUE(             0x08000, 0x08000 )
@@ -821,7 +821,7 @@ public class mainevt
 	
 	/* 4 players - English title screen - No "Warning" message in the ROM */
 	
-	static RomLoadPtr rom_mainevto = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mainevto = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD( "799_02.k11",   0x10000, 0x08000, CRC(c143596b) SHA1(5da7efaf0f7c7a493cc242eae115f278bc9c134b) )
 		ROM_CONTINUE(             0x08000, 0x08000 )
@@ -852,7 +852,7 @@ public class mainevt
 	
 	/* 2 players - English title screen - "Warning" message in the ROM (not displayed) */
 	
-	static RomLoadPtr rom_mainev2p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mainev2p = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD( "799x02.k11",   0x10000, 0x08000, CRC(42cfc650) SHA1(2d1918ebc0d93a2356ad995a6854dbde7c3b8daf) )
 		ROM_CONTINUE(             0x08000, 0x08000 )
@@ -883,7 +883,7 @@ public class mainevt
 	
 	/* 2 players - Japan title screen - "Warning" message in the ROM (displayed) */
 	
-	static RomLoadPtr rom_ringohja = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ringohja = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD( "799n02.k11",   0x10000, 0x08000, CRC(f9305dd0) SHA1(7135053be9d46ac9c09ab63eca1eb71825a71a13) )
 		ROM_CONTINUE(             0x08000, 0x08000 )
@@ -911,7 +911,7 @@ public class mainevt
 		ROM_LOAD( "799b06.c22",   0x00000, 0x80000, CRC(2c8c47d7) SHA1(18a899767177ddfd870df9ed156d8bbc04b58a19) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_devstors = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_devstors = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD( "890-z02.k11",  0x10000, 0x08000, CRC(ebeb306f) SHA1(838fcfe95dfedd61f21f34301d48e337db765ab2) )
 		ROM_CONTINUE(             0x08000, 0x08000 )
@@ -936,7 +936,7 @@ public class mainevt
 	 	ROM_LOAD( "dev-f03.rom",  0x00000, 0x80000, CRC(19065031) SHA1(12c47fbe28f85fa2f901fe52601188a5e9633f22) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_devstor2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_devstor2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD( "dev-x02.rom",  0x10000, 0x08000, CRC(e58ebb35) SHA1(4253b6a7128534cc0866bc910a271d91ac8b40fd) )
 		ROM_CONTINUE(             0x08000, 0x08000 )
@@ -961,7 +961,7 @@ public class mainevt
 	 	ROM_LOAD( "dev-f03.rom",  0x00000, 0x80000, CRC(19065031) SHA1(12c47fbe28f85fa2f901fe52601188a5e9633f22) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_devstor3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_devstor3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD( "890k02.k11",   0x10000, 0x08000, CRC(52f4ccdd) SHA1(074e526ed170a5f2083c8c0808734291a2ea7403) )
 		ROM_CONTINUE(             0x08000, 0x08000 )
@@ -986,7 +986,7 @@ public class mainevt
 	 	ROM_LOAD( "dev-f03.rom",  0x00000, 0x80000, CRC(19065031) SHA1(12c47fbe28f85fa2f901fe52601188a5e9633f22) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_garuka = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_garuka = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD( "890w02.bin",   0x10000, 0x08000, CRC(b2f6f538) SHA1(95dad3258a2e4c5648d0fc22c06fa3e2da3b5ed1) )
 		ROM_CONTINUE(             0x08000, 0x08000 )

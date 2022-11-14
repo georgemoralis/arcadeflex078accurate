@@ -92,7 +92,7 @@ public class bogeyman
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_bogeyman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bogeyman )
+	static InputPortHandlerPtr input_ports_bogeyman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bogeyman )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -274,7 +274,7 @@ public class bogeyman
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_bogeyman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bogeyman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x58000, REGION_CPU1, 0 )
 	 	ROM_LOAD( "j20.c14",  0x04000, 0x04000, CRC(ea90d637) SHA1(aa89bee806badb05119516d84e7674cd302aaf4e) )
 		ROM_LOAD( "j10.c15",  0x08000, 0x04000, CRC(0a8f218d) SHA1(5e5958cccfe634e3d274d187a0a7fe4789f3a9c3) )

@@ -159,7 +159,7 @@ public class iqblock
 	
 	
 	
-	static InputPortPtr input_ports_iqblock = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( iqblock )
+	static InputPortHandlerPtr input_ports_iqblock = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( iqblock )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START1 );
@@ -361,7 +361,7 @@ public class iqblock
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_iqblock = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_iqblock = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code + 64K for extra RAM */
 		ROM_LOAD( "u7.v5",        0x0000, 0x10000, CRC(811f306e) SHA1(d0aef80f1624002d05721276358f26a3ef69a3f6) )
 	
@@ -378,7 +378,7 @@ public class iqblock
 		ROM_LOAD( "u24.5",        0x4000, 0x4000, CRC(61050e1e) SHA1(1f7185b2a5a2e237120276c95344744b146b4bf6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_grndtour = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grndtour = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code + 64K for extra RAM */
 		ROM_LOAD( "grand7.u7",        0x0000, 0x10000, CRC(95cac31e) SHA1(47bbcce6981ea3d38e0aa49ccd3762a4529f3c96) )
 	
@@ -395,7 +395,7 @@ public class iqblock
 		ROM_LOAD( "grand5.u24",        0x4000, 0x4000, CRC(f896efb2) SHA1(8dc8546e363b4ff80983e3b8e2a19ebb7ff30c7b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cabaret = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cabaret = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code + 64K for extra RAM */
 		ROM_LOAD( "cg-8v204.u97",  0x0000, 0x10000, CRC(44cebf77) SHA1(e3f4e4abf41388f0eed50cf9a0fd0b14aa2f8b93) )
 	

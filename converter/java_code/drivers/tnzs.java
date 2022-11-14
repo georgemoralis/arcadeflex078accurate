@@ -476,7 +476,7 @@ public class tnzs
 	
 	
 	
-	static InputPortPtr input_ports_extrmatn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( extrmatn )
+	static InputPortHandlerPtr input_ports_extrmatn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( extrmatn )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -562,7 +562,7 @@ public class tnzs
 		PORT_BIT( 0xfe, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_arknoid2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( arknoid2 )
+	static InputPortHandlerPtr input_ports_arknoid2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( arknoid2 )
 		PORT_START(); 		/* DSW1 - IN2 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -650,7 +650,7 @@ public class tnzs
 		PORT_BIT   ( 0xf000, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_arknid2u = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( arknid2u )
+	static InputPortHandlerPtr input_ports_arknid2u = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( arknid2u )
 		PORT_START(); 		/* DSW1 - IN2 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -738,7 +738,7 @@ public class tnzs
 		PORT_BIT   ( 0xf000, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_plumppop = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( plumppop )
+	static InputPortHandlerPtr input_ports_plumppop = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( plumppop )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -829,7 +829,7 @@ public class tnzs
 		PORT_ANALOG( 0xffff, 0x0000, IPT_DIAL | IPF_PLAYER2, 70, 15, 0, 0 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_drtoppel = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( drtoppel )
+	static InputPortHandlerPtr input_ports_drtoppel = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( drtoppel )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -914,7 +914,7 @@ public class tnzs
 		PORT_BIT( 0xfe, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_drtopplu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( drtopplu )
+	static InputPortHandlerPtr input_ports_drtopplu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( drtopplu )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -999,7 +999,7 @@ public class tnzs
 		PORT_BIT( 0xfe, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_chukatai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( chukatai )
+	static InputPortHandlerPtr input_ports_chukatai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chukatai )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -1084,7 +1084,7 @@ public class tnzs
 		PORT_BIT( 0xfe, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_chukatau = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( chukatau )
+	static InputPortHandlerPtr input_ports_chukatau = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chukatau )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -1169,7 +1169,7 @@ public class tnzs
 		PORT_BIT( 0xfe, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tnzs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tnzs )
+	static InputPortHandlerPtr input_ports_tnzs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tnzs )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -1254,7 +1254,7 @@ public class tnzs
 		PORT_BIT( 0xfe, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tnzsb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tnzsb )
+	static InputPortHandlerPtr input_ports_tnzsb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tnzsb )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -1331,7 +1331,7 @@ public class tnzs
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tnzs2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tnzs2 )
+	static InputPortHandlerPtr input_ports_tnzs2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tnzs2 )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -1416,7 +1416,7 @@ public class tnzs
 		PORT_BIT( 0xfe, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_insectx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( insectx )
+	static InputPortHandlerPtr input_ports_insectx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( insectx )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -1493,7 +1493,7 @@ public class tnzs
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kageki = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kageki )
+	static InputPortHandlerPtr input_ports_kageki = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kageki )
 		PORT_START(); 		/* DSW A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -1893,7 +1893,7 @@ public class tnzs
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_plumppop = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_plumppop = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "a98-09.bin", 0x00000, 0x08000, CRC(107f9e06) SHA1(0aa7f32721c3cab96eccc7c831b9f57877c4e1dc) )
 		ROM_CONTINUE(           0x18000, 0x08000 )				/* banked at 8000-bfff */
@@ -1929,7 +1929,7 @@ public class tnzs
 		ROM_LOAD( "a98-12.bpr", 0x0200, 0x200, CRC(90dc9da7) SHA1(f719dead7f4597e5ee6f1103599505b98cb58299) )	/* lo bytes */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_extrmatn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_extrmatn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )				/* Region 0 - main cpu */
 		ROM_LOAD( "b06-20.bin", 0x00000, 0x08000, CRC(04e3fc1f) SHA1(b1cf2f79f43fa33d6175368c897f84ec6aa6e746) )
 		ROM_CONTINUE(           0x18000, 0x08000 )				/* banked at 8000-bfff */
@@ -1953,7 +1953,7 @@ public class tnzs
 		ROM_LOAD( "b06-08.bin", 0x00200, 0x200, CRC(10c9aac3) SHA1(09d6f791dea358e78099af7a370b00b8504ffc97) )	/* lo bytes */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arknoid2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arknoid2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )				/* Region 0 - main cpu */
 		ROM_LOAD( "b08_05.11c",	0x00000, 0x08000, CRC(136edf9d) SHA1(f632321650897eee585511a84f451a205d1f7704) )
 		ROM_CONTINUE(           0x18000, 0x08000 )			/* banked at 8000-bfff */
@@ -1977,7 +1977,7 @@ public class tnzs
 		ROM_LOAD( "b08-07.16f",	0x00200, 0x200, CRC(ea34d9f7) SHA1(9a46edc64f961bd96908419cabd92445d300fc19) )	/* lo bytes */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arknid2u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arknid2u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )				/* Region 0 - main cpu */
 		ROM_LOAD( "b08_11.11c", 0x00000, 0x08000, CRC(99555231) SHA1(2798f3f5b3f1fa27598fe7a6e95c75d9142c8d34) )
 		ROM_CONTINUE(           0x18000, 0x08000 )			/* banked at 8000-bfff */
@@ -2001,7 +2001,7 @@ public class tnzs
 		ROM_LOAD( "b08-07.16f",	0x00200, 0x200, CRC(ea34d9f7) SHA1(9a46edc64f961bd96908419cabd92445d300fc19) )	/* lo bytes */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arknid2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arknid2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )				/* Region 0 - main cpu */
 		ROM_LOAD( "b08_05.11c", 0x00000, 0x08000, CRC(136edf9d) SHA1(f632321650897eee585511a84f451a205d1f7704) )
 		ROM_CONTINUE(           0x18000, 0x08000 )			/* banked at 8000-bfff */
@@ -2025,7 +2025,7 @@ public class tnzs
 		ROM_LOAD( "b08-07.16f",	0x00200, 0x200, CRC(ea34d9f7) SHA1(9a46edc64f961bd96908419cabd92445d300fc19) )	/* lo bytes */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_drtoppel = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drtoppel = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "b19-09.bin", 0x00000, 0x08000, CRC(3e654f82) SHA1(d9e351d82546b08eb7887ea1d976fa97a259db6e) )
 		ROM_CONTINUE(           0x18000, 0x08000 )				/* banked at 8000-bfff */
@@ -2053,7 +2053,7 @@ public class tnzs
 		ROM_LOAD( "b19-12.bin", 0x0200, 0x200, CRC(5754e9d8) SHA1(8c7d29e22c90b1f72929b95675dc15e431aae044) )	/* lo bytes */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_drtopplu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drtopplu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "b19-09.bin", 0x00000, 0x08000, CRC(3e654f82) SHA1(d9e351d82546b08eb7887ea1d976fa97a259db6e) )
 		ROM_CONTINUE(           0x18000, 0x08000 )				/* banked at 8000-bfff */
@@ -2081,7 +2081,7 @@ public class tnzs
 		ROM_LOAD( "b19-12.bin", 0x0200, 0x200, CRC(5754e9d8) SHA1(8c7d29e22c90b1f72929b95675dc15e431aae044) )	/* lo bytes */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_drtopplj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drtopplj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "b19-09.bin", 0x00000, 0x08000, CRC(3e654f82) SHA1(d9e351d82546b08eb7887ea1d976fa97a259db6e) )
 		ROM_CONTINUE(           0x18000, 0x08000 )				/* banked at 8000-bfff */
@@ -2109,7 +2109,7 @@ public class tnzs
 		ROM_LOAD( "b19-12.bin", 0x0200, 0x200, CRC(5754e9d8) SHA1(8c7d29e22c90b1f72929b95675dc15e431aae044) )	/* lo bytes */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kageki = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kageki = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "b35-16.11c", 0x00000, 0x08000, CRC(a4e6fd58) SHA1(7cfe5b3fa6c88cdab45719f5b58541270825ad30) )	/* US ver */
 		ROM_CONTINUE(           0x18000, 0x08000 )
@@ -2133,7 +2133,7 @@ public class tnzs
 		ROM_LOAD( "b35-15.98g",  0x00000, 0x10000, CRC(e6212a0f) SHA1(43891f4fd141b00ed458be47a107a2550a0534c2) )	/* US ver */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kagekij = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kagekij = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "b35-09j.11c", 0x00000, 0x08000, CRC(829637d5) SHA1(0239ae925968336a90cbe16e23519773b6f2f2ac) )	/* JP ver */
 		ROM_CONTINUE(            0x18000, 0x08000 )
@@ -2157,7 +2157,7 @@ public class tnzs
 		ROM_LOAD( "b35-12j.98g", 0x00000, 0x10000, CRC(184409f1) SHA1(711bdd499670e86630ebb6820262b1d8d651c987) )	/* JP ver */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_chukatai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chukatai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "b44-10", 0x00000, 0x08000, CRC(8c69e008) SHA1(7825965f517f3562a508345b7c0d32b8a57bd38a) )
 		ROM_CONTINUE(       0x18000, 0x08000 )				/* banked at 8000-bfff */
@@ -2181,7 +2181,7 @@ public class tnzs
 		ROM_LOAD( "b44-08.a02", 0xe0000, 0x20000, CRC(6cb1e8fc) SHA1(4ab0c2cce1de2616044a9bfb9bf17f95a49baffd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_chukatau = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chukatau = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "b44-10", 0x00000, 0x08000, CRC(8c69e008) SHA1(7825965f517f3562a508345b7c0d32b8a57bd38a) )
 		ROM_CONTINUE(       0x18000, 0x08000 )				/* banked at 8000-bfff */
@@ -2205,7 +2205,7 @@ public class tnzs
 		ROM_LOAD( "b44-08.a02", 0xe0000, 0x20000, CRC(6cb1e8fc) SHA1(4ab0c2cce1de2616044a9bfb9bf17f95a49baffd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_chukataj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chukataj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "b44-10", 0x00000, 0x08000, CRC(8c69e008) SHA1(7825965f517f3562a508345b7c0d32b8a57bd38a) )
 		ROM_CONTINUE(       0x18000, 0x08000 )				/* banked at 8000-bfff */
@@ -2229,7 +2229,7 @@ public class tnzs
 		ROM_LOAD( "b44-08.a02", 0xe0000, 0x20000, CRC(6cb1e8fc) SHA1(4ab0c2cce1de2616044a9bfb9bf17f95a49baffd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tnzs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tnzs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "b53_10.32", 0x00000, 0x08000, CRC(a73745c6) SHA1(73eb38e75e08312d752332f988dc655084b4a86d) )
 		ROM_CONTINUE(          0x18000, 0x18000 )		/* banked at 8000-bfff */
@@ -2253,7 +2253,7 @@ public class tnzs
 		ROM_LOAD( "b53-01.1",	0xe0000, 0x20000, CRC(9800c54d) SHA1(761647177d621ac2cdd8b009876eed35809f3c92) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tnzsb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tnzsb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "nzsb5324.bin", 0x00000, 0x08000, CRC(d66824c6) SHA1(fd381ac0dc52ce670c3fde320ea60a209e288a52) )
 		ROM_CONTINUE(             0x18000, 0x18000 )		/* banked at 8000-bfff */
@@ -2277,7 +2277,7 @@ public class tnzs
 		ROM_LOAD( "b53-01.1",	0xe0000, 0x20000, CRC(9800c54d) SHA1(761647177d621ac2cdd8b009876eed35809f3c92) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tnzs2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tnzs2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "ns_c-11.rom", 0x00000, 0x08000, CRC(3c1dae7b) SHA1(0004fccc171714c80565326f8690f9662c5b75d9) )
 		ROM_CONTINUE(            0x18000, 0x18000 )		/* banked at 8000-bfff */
@@ -2300,7 +2300,7 @@ public class tnzs
 		ROM_LOAD( "ns_a02.rom",   0xe0000, 0x20000, CRC(2ab06bda) SHA1(2b208b564e55c258665e1f66b26fe14a6c68eb96) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_insectx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_insectx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k + bankswitch areas for the first CPU */
 		ROM_LOAD( "insector.u32", 0x00000, 0x08000, CRC(18eef387) SHA1(b22633930d39be1e72fbd5b080972122da3cb3ef) )
 		ROM_CONTINUE(             0x18000, 0x18000 )		/* banked at 8000-bfff */

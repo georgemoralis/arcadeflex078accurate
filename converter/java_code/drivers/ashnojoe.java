@@ -178,7 +178,7 @@ public class ashnojoe
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_ashnojoe = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ashnojoe )
+	static InputPortHandlerPtr input_ports_ashnojoe = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ashnojoe )
 		PORT_START(); 	/* player 1 16-bit */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_4WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_4WAY | IPF_PLAYER1 );
@@ -375,7 +375,7 @@ public class ashnojoe
 		MDRV_SOUND_ADD(MSM5205, msm5205_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_ashnojoe = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ashnojoe = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xc0000, REGION_CPU1, 0 )     /* 68000 code */
 		ROM_LOAD16_BYTE( "5.bin", 0x00000, 0x10000, CRC(c61e1569) SHA1(422c18f5810539b5a9e3a9bd4e3b4d70bde8d1d5) )
 		ROM_LOAD16_BYTE( "6.bin", 0x00001, 0x10000, CRC(c0a16338) SHA1(fb127b9d38f2c9807b6e23ff71935fc8a22a2e8f) )

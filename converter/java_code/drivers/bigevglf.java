@@ -194,7 +194,7 @@ public class bigevglf
 		beg_sharedram[offset] = data;
 	} };
 	
-	static InputPortPtr input_ports_bigevglf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bigevglf )
+	static InputPortHandlerPtr input_ports_bigevglf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bigevglf )
 	
 		PORT_START(); 	/* port 00 on sub cpu */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN3 );
@@ -511,7 +511,7 @@ public class bigevglf
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bigevglf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bigevglf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )
 		ROM_LOAD( "a67-21",   0x00000, 0x8000, CRC(2a62923d) SHA1(7b025180e203f268ae4d11baa18096e0a5704f77))
 		ROM_LOAD( "a67-20",   0x08000, 0x4000, CRC(841561b1) SHA1(5d91449e135ef22508194a9543343c29e1c496cf))

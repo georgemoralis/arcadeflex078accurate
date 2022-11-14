@@ -322,7 +322,7 @@ public class freekick
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_gigas = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gigas )
+	static InputPortHandlerPtr input_ports_gigas = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gigas )
 	
 		PORT_START(); 
 		PORT_ANALOG( 0xff, 0x00, IPT_DIAL | IPF_REVERSE, 30, 15, 0, 0 );
@@ -414,7 +414,7 @@ public class freekick
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_gigasm2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gigasm2 )
+	static InputPortHandlerPtr input_ports_gigasm2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gigasm2 )
 	
 		PORT_START(); 
 		PORT_ANALOG( 0xff, 0x00, IPT_DIAL | IPF_REVERSE, 30, 15, 0, 0 );
@@ -506,7 +506,7 @@ public class freekick
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pbillrd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pbillrd )
+	static InputPortHandlerPtr input_ports_pbillrd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pbillrd )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -589,7 +589,7 @@ public class freekick
 		PORT_DIPSETTING(    0xd0, DEF_STR( "1C_5C") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_freekckb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( freekckb )
+	static InputPortHandlerPtr input_ports_freekckb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( freekckb )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x01, "3" );
@@ -832,7 +832,7 @@ public class freekick
 	
 	/* roms */
 	
-	static RomLoadPtr rom_pbillrd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbillrd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 ) /* Z80 Code */
 		ROM_LOAD( "pb.18",       0x00000, 0x4000, CRC(9e6275ac) SHA1(482e845e7fb4190da483155bd908ad470373cd5c) )
 		ROM_LOAD( "pb.7",        0x04000, 0x4000, CRC(dd438431) SHA1(07a950e38b3f627ecf95e5831e5480abb337a010) )
@@ -858,7 +858,7 @@ public class freekick
 		ROM_LOAD( "82s129.3c", 0x0500, 0x0100, CRC(cc1657e5) SHA1(358f20dce376c2389009f9673ce38b297af863f6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbillrds = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbillrds = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 ) /* Z80 Code */
 		ROM_LOAD( "10627.10n",   0x00000, 0x4000, CRC(2335e6dd) SHA1(82352b6f4abea88aad3a96ca63cccccb6e278f48) )	/* encrypted */
 		ROM_LOAD( "10625.8r",    0x04000, 0x4000, CRC(8977c724) SHA1(f00835a04dc6fa7d8c1e382dace515f2aa7d6f44) )	/* encrypted */
@@ -892,7 +892,7 @@ public class freekick
 	
 	*/
 	
-	static RomLoadPtr rom_freekick = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_freekick = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 Code */
 		// Custom (NS6201-A 1987.9)
 		ROM_LOAD( "freekck.cpu", 0x00000, 0x10000, NO_DUMP ) // missing, might be the same as the bootleg but not confirmed
@@ -919,7 +919,7 @@ public class freekick
 		ROM_LOAD( "7h.bpr",    0x0500, 0x0100, CRC(a507f941) SHA1(97619959ee4c366cb010525636ab5eefe5a3127a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_freekckb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_freekckb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 Code */
 		ROM_LOAD( "freekbl8.q7", 0x00000, 0x10000, CRC(4208cfe5) SHA1(21628cbe8a217fbae30a6c24c9cc4c790fe45d65) ) // this was on the bootleg, would normally be battery backed inside cpu?
 	
@@ -945,7 +945,7 @@ public class freekick
 		ROM_LOAD( "7h.bpr",    0x0500, 0x0100, CRC(a507f941) SHA1(97619959ee4c366cb010525636ab5eefe5a3127a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_countrun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_countrun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 Code */
 		//  Custom CPU (pack) No. NS6201-A 1988.3 COUNTER RUN
 		ROM_LOAD( "countrun.cpu", 0x00000, 0x10000, NO_DUMP ) // missing
@@ -972,7 +972,7 @@ public class freekick
 		ROM_LOAD( "prom3.bpr",    0x0500, 0x0100, CRC(c77d0077) SHA1(4cbbf625ad5e45d00ca6aebe9566538ff0a3348d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_countrnb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_countrnb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 Code */
 		ROM_LOAD( "crunbl.8", 0x00000, 0x10000, CRC(318f95d9) SHA1(f2386b9d26d1bc98728aad9e257363b381043dc9) ) // encrypted? bad? its strange anyway
 	
@@ -1002,7 +1002,7 @@ public class freekick
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gigasm2b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gigasm2b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000*2, REGION_CPU1, 0 )
 		ROM_LOAD( "8.rom", 0x10000, 0x4000, CRC(c00a4a6c) SHA1(0d1bb849c9bfe4e92ad70e4ef19da494c0bd7ba8) )
 		ROM_CONTINUE(      0x00000, 0x4000 )
@@ -1030,7 +1030,7 @@ public class freekick
 		ROM_LOAD( "3.pr",    0x0500, 0x0100, CRC(28b5ee4c) SHA1(e21b9c38f433dca1e8894619b1d9f0389a81b48a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gigasb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gigasb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000*2, REGION_CPU1, 0 )
 		ROM_LOAD( "g-7",   0x10000, 0x4000, CRC(daf4e88d) SHA1(391dff914ce8e9b7975fc8827c066d7db16c4171) )
 		ROM_CONTINUE(      0x00000, 0x4000 )
@@ -1056,7 +1056,7 @@ public class freekick
 		ROM_LOAD( "3.pr",    0x0500, 0x0100, CRC(28b5ee4c) SHA1(e21b9c38f433dca1e8894619b1d9f0389a81b48a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_oigas = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_oigas = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000*2, REGION_CPU1, 0 )
 		ROM_LOAD( "rom.7",   0x10000, 0x4000, CRC(e5bc04cc) SHA1(ffbd416313a9e49d2f9a7268d5ef48a8b641e480) )
 		ROM_CONTINUE(        0x00000, 0x4000)

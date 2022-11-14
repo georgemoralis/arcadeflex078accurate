@@ -265,7 +265,7 @@ public class thunderj
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_thunderj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( thunderj )
+	static InputPortHandlerPtr input_ports_thunderj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( thunderj )
 		PORT_START(); 		/* 260000 */
 		PORT_BIT( 0xffff, IP_ACTIVE_LOW, IPT_UNUSED );
 	
@@ -385,7 +385,7 @@ public class thunderj
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_thunderj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thunderj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa0000, REGION_CPU1, 0 )	/* 10*64k for 68000 code */
 		ROM_LOAD16_BYTE( "2001.14e",   0x00000, 0x10000, CRC(f6a71532) SHA1(b1c55968d7da9b64bde737d66aa8f0ddcdcfee27) )
 		ROM_LOAD16_BYTE( "2002.14c",   0x00001, 0x10000, CRC(173ec10d) SHA1(e32eca9194336f3d7e289b2a187ed125ed03688c) )

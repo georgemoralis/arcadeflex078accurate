@@ -143,7 +143,7 @@ public class aztarac
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_aztarac = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( aztarac )
+	static InputPortHandlerPtr input_ports_aztarac = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( aztarac )
 		PORT_START();  /* IN0 */
 		PORT_ANALOG( 0x1f, 0xf, IPT_AD_STICK_Z | IPF_CENTER, 100, 1, 0, 0x1e );
 	
@@ -228,7 +228,7 @@ public class aztarac
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_aztarac = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aztarac = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xc000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "l8_6.bin", 0x000000, 0x001000, CRC(25f8da18) SHA1(e8179ba3683e39c8225b549ead74c8af2d0a0b3e) )
 		ROM_LOAD16_BYTE( "n8_0.bin", 0x000001, 0x001000, CRC(04e20626) SHA1(2b6a04992037257830df2c01a6da748fb4449f79) )

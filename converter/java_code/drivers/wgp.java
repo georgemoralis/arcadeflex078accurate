@@ -782,7 +782,7 @@ public class wgp
 		PORT_DIPSETTING(    0x00, "8" );
 	
 	
-	static InputPortPtr input_ports_wgp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wgp )
+	static InputPortHandlerPtr input_ports_wgp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wgp )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, "Motor Test" );			// Only available in "test mode"
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -864,7 +864,7 @@ public class wgp
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'wgp', but different coinage */
-	static InputPortPtr input_ports_wgpj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wgpj )
+	static InputPortHandlerPtr input_ports_wgpj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wgpj )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, "Motor Test" );			// Only available in "test mode"
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -945,7 +945,7 @@ public class wgp
 		PORT_ANALOG( 0xff, 0x00, IPT_AD_STICK_Y | IPF_PLAYER2, 20, 10, 0, 0xff);
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_wgpjoy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wgpjoy )
+	static InputPortHandlerPtr input_ports_wgpjoy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wgpjoy )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1009,7 +1009,7 @@ public class wgp
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'wgpj', but no "Motor Test" Dip Switch (DSWA 0) */
-	static InputPortPtr input_ports_wgp2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wgp2 )	/* Wgp2 has no "lumps" ? */
+	static InputPortHandlerPtr input_ports_wgp2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wgp2 )	/* Wgp2 has no "lumps" ? */
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1248,7 +1248,7 @@ public class wgp
 	                                   DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_wgp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wgp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c32-25.12",      0x00000, 0x20000, CRC(0cc81e77) SHA1(435190bc24423e1e34134dff3cd4b79e120852d1) )
 		ROM_LOAD16_BYTE( "c32-29.13",      0x00001, 0x20000, CRC(fab47cf0) SHA1(c0129c0290b48f24c25e4dd7c6c937675e31842a) )
@@ -1301,7 +1301,7 @@ public class wgp
 	//	ROM_LOAD( "c32-35", 0x00000, 0x00???, NO_DUMP )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wgpj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wgpj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c32-48.12",      0x00000, 0x20000, CRC(819cc134) SHA1(501bb1038979117586f6d8202ca6e1e44191f421) )
 		ROM_LOAD16_BYTE( "c32-49.13",      0x00001, 0x20000, CRC(4a515f02) SHA1(d0be52bbb5cc8151b23363092ac04e27b2d20a50) )
@@ -1337,7 +1337,7 @@ public class wgp
 		ROM_LOAD( "c32-12.7", 0x00000, 0x80000, CRC(df48a37b) SHA1(c0c191f4b8a5f55c0f1e52dac9cd3f7d15adace6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wgpjoy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wgpjoy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c32-57.12",      0x00000, 0x20000, CRC(13a78911) SHA1(d3ace25dddce56cc35e93992f4fae01e87693d36) )
 		ROM_LOAD16_BYTE( "c32-58.13",      0x00001, 0x20000, CRC(326d367b) SHA1(cbfb15841f61fa856876d4321fbce190f89a5020) )
@@ -1373,7 +1373,7 @@ public class wgp
 		ROM_LOAD( "c32-12.7", 0x00000, 0x80000, CRC(df48a37b) SHA1(c0c191f4b8a5f55c0f1e52dac9cd3f7d15adace6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wgpjoya = new RomLoadPtr(){ public void handler(){ 	/* Older joystick version ??? */
+	static RomLoadHandlerPtr rom_wgpjoya = new RomLoadHandlerPtr(){ public void handler(){ 	/* Older joystick version ??? */
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c32-57.12",      0x00000, 0x20000, CRC(13a78911) SHA1(d3ace25dddce56cc35e93992f4fae01e87693d36) )
 		ROM_LOAD16_BYTE( "c32-58.13",      0x00001, 0x20000, CRC(326d367b) SHA1(cbfb15841f61fa856876d4321fbce190f89a5020) )
@@ -1409,7 +1409,7 @@ public class wgp
 		ROM_LOAD( "c32-12.7", 0x00000, 0x80000, CRC(df48a37b) SHA1(c0c191f4b8a5f55c0f1e52dac9cd3f7d15adace6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wgp2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wgp2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c73-01.12",      0x00000, 0x20000, CRC(c6434834) SHA1(75b2937a9bf18d268fa7bbfb3e822fba510ec2f1) )
 		ROM_LOAD16_BYTE( "c73-02.13",      0x00001, 0x20000, CRC(c67f1ed1) SHA1(c30dc3fd46f103a75aa71f87c1fd6c0e7fed9214) )

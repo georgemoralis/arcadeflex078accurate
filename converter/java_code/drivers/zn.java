@@ -971,7 +971,7 @@ public class zn
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_zn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zn )
+	static InputPortHandlerPtr input_ports_zn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zn )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON5 | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON5 | IPF_PLAYER2 );
@@ -1025,11 +1025,11 @@ public class zn
 		ROM_REGION( 0x480400, REGION_CPU1, 0 ) \
 		ROM_LOAD( "coh1002c.bin", 0x0400000, 0x080000, CRC(50033af6) SHA1(486d92ff6c7f1e54f8e0ef41cd9116eca0e10e1a) )
 	
-	static RomLoadPtr rom_cpzn1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cpzn1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_glpracr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_glpracr = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1052,7 +1052,7 @@ public class zn
 	*/
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rvschool = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rvschool = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1078,7 +1078,7 @@ public class zn
 		ROM_LOAD( "jst-01m", 0x0000000, 0x400000, CRC(9a7c98f9) SHA1(764c6c4f41047e1f36d2dceac4aa9b943a9d529a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jgakuen = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jgakuen = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1104,7 +1104,7 @@ public class zn
 		ROM_LOAD( "jst-01m", 0x0000000, 0x400000, CRC(9a7c98f9) SHA1(764c6c4f41047e1f36d2dceac4aa9b943a9d529a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfex = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfex = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1127,7 +1127,7 @@ public class zn
 		ROM_LOAD( "sfe-01m", 0x0000000, 0x400000, CRC(f5afff0d) SHA1(7f9ac32ba0a3d9c6fef367e36a92d47c9ac1feb3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfexj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfexj = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1150,7 +1150,7 @@ public class zn
 		ROM_LOAD( "sfe-01m", 0x0000000, 0x400000, CRC(f5afff0d) SHA1(7f9ac32ba0a3d9c6fef367e36a92d47c9ac1feb3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfexp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfexp = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1173,7 +1173,7 @@ public class zn
 		ROM_LOAD( "sfe-01m", 0x0000000, 0x400000, CRC(f5afff0d) SHA1(7f9ac32ba0a3d9c6fef367e36a92d47c9ac1feb3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfexpj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfexpj = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1196,7 +1196,7 @@ public class zn
 		ROM_LOAD( "sfe-01m", 0x0000000, 0x400000, CRC(f5afff0d) SHA1(7f9ac32ba0a3d9c6fef367e36a92d47c9ac1feb3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starglad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starglad = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1219,7 +1219,7 @@ public class zn
 		ROM_LOAD( "ps1-01m.3b",   0x000000, 0x400000, CRC(0bfb17aa) SHA1(cf4482785a2a33ad814c8b1461c5bc8e8e027895) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tgmj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tgmj = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1237,7 +1237,7 @@ public class zn
 		ROM_LOAD( "ate-01",  0x0000000, 0x400000, CRC(a21c6521) SHA1(560e4855f6e00def5277bdd12064b49e55c3b46b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ts2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ts2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1257,7 +1257,7 @@ public class zn
 		ROM_LOAD( "ts2-01",  0x0000000, 0x400000, CRC(d7a505e0) SHA1(f1b0cdea712101f695bd326eccd753eb79a07490) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ts2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ts2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN1_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1283,11 +1283,11 @@ public class zn
 		ROM_REGION32_LE( 0x480400, REGION_CPU1, 0 ) \
 		ROM_LOAD( "coh3002c.bin", 0x0400000, 0x080000, CRC(e860ea8b) SHA1(66e7e1d4e426466b8f48a2ba055a91b475569504) )
 	
-	static RomLoadPtr rom_cpzn2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cpzn2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_techromn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_techromn = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1310,7 +1310,7 @@ public class zn
 		ROM_LOAD( "kio-01m.bin", 0x0000000, 0x400000, CRC(6dc5bd07) SHA1(e1755a48465f741691ea0fa1166cb2dc09210ed9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kikaioh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kikaioh = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1333,7 +1333,7 @@ public class zn
 		ROM_LOAD( "kio-01m.bin", 0x0000000, 0x400000, CRC(6dc5bd07) SHA1(e1755a48465f741691ea0fa1166cb2dc09210ed9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfex2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfex2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1354,7 +1354,7 @@ public class zn
 		ROM_LOAD( "ex2-01m", 0x0000000, 0x400000, CRC(14a5bb0e) SHA1(dfe3c3a53bd4c58743d8039b5344d3afbe2a9c24) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfex2p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfex2p = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1377,7 +1377,7 @@ public class zn
 		ROM_LOAD( "ex2-01m", 0x0000000, 0x400000, CRC(14a5bb0e) SHA1(dfe3c3a53bd4c58743d8039b5344d3afbe2a9c24) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sg2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sg2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1399,7 +1399,7 @@ public class zn
 		ROM_LOAD( "sg2-01m", 0x0000000, 0x400000, CRC(643ea27b) SHA1(40747432d5cfebac54d3824b6a6f26b5e7742fc1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_strider2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_strider2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1422,7 +1422,7 @@ public class zn
 		ROM_RELOAD( 0x0200000, 0x200000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_stridr2a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stridr2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1445,7 +1445,7 @@ public class zn
 		ROM_RELOAD( 0x0200000, 0x200000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shiryu2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shiryu2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		CPZN2_BIOS
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER2, 0 )
@@ -1475,11 +1475,11 @@ public class zn
 		ROM_REGION( 0x480400, REGION_CPU1, 0 ) \
 		ROM_LOAD( "coh1002m.bin", 0x0400000, 0x080000, CRC(69ffbcb4) SHA1(03eb2febfab3fcde716defff291babd9392de965) )
 	
-	static RomLoadPtr rom_tps = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tps = new RomLoadHandlerPtr(){ public void handler(){ 
 		TPS_BIOS
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_doapp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_doapp = new RomLoadHandlerPtr(){ public void handler(){ 
 		TPS_BIOS
 	
 		ROM_REGION32_LE( 0x01a00000, REGION_USER1, 0 )
@@ -1493,7 +1493,7 @@ public class zn
 		ROM_LOAD( "doapp-5.221",         0x1600000, 0x400000, CRC(e11e8b71) SHA1(b1d1b9532b5f074ce216a603436d5674d136865d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_glpracr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_glpracr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		TPS_BIOS
 	
 		ROM_REGION32_LE( 0x02200000, REGION_USER1, 0 )
@@ -1509,7 +1509,7 @@ public class zn
 		ROM_LOAD( "gra2-7.323",          0x1e00000, 0x400000, CRC(7dfb6c54) SHA1(6e9a9a4172f957ba354ddd82c30735a56c5934b1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_glprac2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_glprac2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		TPS_BIOS
 	
 		ROM_REGION32_LE( 0x02200000, REGION_USER1, 0 )
@@ -1525,7 +1525,7 @@ public class zn
 		ROM_LOAD( "gra2-7.323",          0x1e00000, 0x400000, CRC(7dfb6c54) SHA1(6e9a9a4172f957ba354ddd82c30735a56c5934b1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_glprac2l = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_glprac2l = new RomLoadHandlerPtr(){ public void handler(){ 
 		TPS_BIOS
 	
 		ROM_REGION32_LE( 0x02200000, REGION_USER1, 0 )
@@ -1544,7 +1544,7 @@ public class zn
 		ROM_LOAD( "link3118.bin", 0x0000000, 0x040000, CRC(a4d4761e) SHA1(3fb25dfa5220d25093588d9501e0666214491100) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tondemo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tondemo = new RomLoadHandlerPtr(){ public void handler(){ 
 		TPS_BIOS
 	
 		ROM_REGION32_LE( 0x01600000, REGION_USER1, 0 )
@@ -1564,7 +1564,7 @@ public class zn
 		ROM_REGION( 0x480400, REGION_CPU1, 0 ) \
 		ROM_LOAD( "coh1002v.bin", 0x0400000, 0x080000, CRC(5ff165f3) SHA1(8f59314c1093446b9bcb06d232244da6df78e206) )
 	
-	static RomLoadPtr rom_sncwgltd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sncwgltd = new RomLoadHandlerPtr(){ public void handler(){ 
 		KN_BIOS
 	
 		ROM_REGION32_LE( 0x01a80000, REGION_USER1, 0 )
@@ -1588,11 +1588,11 @@ public class zn
 		ROM_REGION( 0x480400, REGION_CPU1, 0 ) \
 		ROM_LOAD( "coh1002t.bin", 0x0400000, 0x080000, CRC(e3f23b6e) SHA1(e18907cf8c6ba54d96edba0a9a00487a90219e0d) )
 	
-	static RomLoadPtr rom_taitofx1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_taitofx1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ftimpcta = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ftimpcta = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x00e00000, REGION_USER1, 0 )
@@ -1610,7 +1610,7 @@ public class zn
 		ROM_LOAD( "e25-05.28",    0x0040000, 0x200000, CRC(3fb57636) SHA1(aa38bfac11ecf10fd55143cf4525a2a529be8bb6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gdarius = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gdarius = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x00e00000, REGION_USER1, 0 )
@@ -1627,7 +1627,7 @@ public class zn
 		ROM_LOAD( "e39-04.27",    0x0000000, 0x400000, CRC(6ee35e68) SHA1(fdfe63203d8cecf84cb869039fb893d5b63cdd67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gdarius2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gdarius2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x00e00000, REGION_USER1, 0 )
@@ -1644,7 +1644,7 @@ public class zn
 		ROM_LOAD( "e39-04.27",    0x0000000, 0x400000, CRC(6ee35e68) SHA1(fdfe63203d8cecf84cb869039fb893d5b63cdd67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mgcldate = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mgcldate = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x00c00000, REGION_USER1, 0 )
@@ -1662,7 +1662,7 @@ public class zn
 		ROM_LOAD( "e32-04.15",           0x0000000, 0x400000, CRC(c72f9eea) SHA1(7ab8b412a8ed00a42016acb7d13d3b074155780a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mgcldtea = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mgcldtea = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x00c00000, REGION_USER1, 0 )
@@ -1680,7 +1680,7 @@ public class zn
 		ROM_LOAD( "e32-04.15",           0x0000000, 0x400000, CRC(c72f9eea) SHA1(7ab8b412a8ed00a42016acb7d13d3b074155780a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_psyforce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_psyforce = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x00900000, REGION_USER1, 0 )
@@ -1698,7 +1698,7 @@ public class zn
 		ROM_LOAD( "e22-01.15",           0x000000,  0x200000, CRC(808b8340) SHA1(d8bde850dd9b5b71e94ea707d2d728754f907977) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_raystorm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_raystorm = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x00900000, REGION_USER1, 0 )
@@ -1714,7 +1714,7 @@ public class zn
 		ROM_LOAD( "e24-04.27",    0x0000000, 0x400000, CRC(f403493a) SHA1(3e49fd2a060a3893e26f14cc3cf47c4ba91e17d4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfchamp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfchamp = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x00900000, REGION_USER1, 0 )
@@ -1739,11 +1739,11 @@ public class zn
 		ROM_REGION( 0x480400, REGION_CPU1, 0 ) \
 		ROM_LOAD( "coh1002e.bin", 0x0400000, 0x080000, NO_DUMP )
 	
-	static RomLoadPtr rom_psarc95 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_psarc95 = new RomLoadHandlerPtr(){ public void handler(){ 
 		PSARC95_BIOS
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_beastrzr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_beastrzr = new RomLoadHandlerPtr(){ public void handler(){ 
 		PSARC95_BIOS
 	
 		ROM_REGION32_LE( 0x0200000, REGION_USER1, 0 )
@@ -1762,7 +1762,7 @@ public class zn
 		ROM_LOAD( "rabroar3.snd", 0x800000, 0x400000, CRC(b74cc4d1) SHA1(eb5485582a12959ae06927a2f1d8a7e63e0f956f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_beastrzb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_beastrzb = new RomLoadHandlerPtr(){ public void handler(){ 
 		TAITOFX1_BIOS
 	
 		ROM_REGION32_LE( 0x0900000, REGION_USER1, 0 )
@@ -1778,7 +1778,7 @@ public class zn
 		ROM_LOAD( "27c240.3",     0x0100000, 0x080000, CRC(509cdc8b) SHA1(8b92b79be09de56e7d40c2d02fcbeca92bb60226) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_brvblade = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_brvblade = new RomLoadHandlerPtr(){ public void handler(){ 
 		PSARC95_BIOS
 	
 		ROM_REGION32_LE( 0x0c00000, REGION_USER1, 0 )
@@ -1801,11 +1801,11 @@ public class zn
 		ROM_REGION( 0x480400, REGION_CPU1, 0 ) \
 		ROM_LOAD( "coh1000t.bin", 0x0400000, 0x080000, NO_DUMP )
 	
-	static RomLoadPtr rom_atpsx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atpsx = new RomLoadHandlerPtr(){ public void handler(){ 
 		AT_BIOS
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_primrag2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_primrag2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		AT_BIOS
 	
 		ROM_REGION32_LE( 0x080000, REGION_USER1, 0 )
@@ -1824,11 +1824,11 @@ public class zn
 		ROM_REGION( 0x480400, REGION_CPU1, 0 ) \
 		ROM_LOAD( "coh1000a.bin", 0x0400000, 0x080000, CRC(8d8d0764) SHA1(7ee83d317190bb1cef2f8f01c81eaaae47150ebb) )
 	
-	static RomLoadPtr rom_acpsx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_acpsx = new RomLoadHandlerPtr(){ public void handler(){ 
 		AC_BIOS
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nbajamex = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nbajamex = new RomLoadHandlerPtr(){ public void handler(){ 
 		AC_BIOS
 	
 		ROM_REGION32_LE( 0x01a00000, REGION_USER1, 0 )
@@ -1857,7 +1857,7 @@ public class zn
 		ROM_LOAD( "360snda1.u52", 0x000000, 0x080000, CRC(36d8a628) SHA1(944a01c9128f5e90c7dba3557a3ecb2c5ca90831) ) 
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jdredd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jdredd = new RomLoadHandlerPtr(){ public void handler(){ 
 		AC_BIOS
 	
 		ROM_REGION32_LE( 0x01a00000, REGION_USER1, 0 )
@@ -1868,7 +1868,7 @@ public class zn
 		DISK_IMAGE( "jdreddc", 0, MD5(b66074f3df1e90ec4e3ff09dcdf33033) SHA1(83ed8df25d100b1c060f4dde2f162ba31803db7d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jdreddb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jdreddb = new RomLoadHandlerPtr(){ public void handler(){ 
 		AC_BIOS
 	
 		ROM_REGION32_LE( 0x01a00000, REGION_USER1, 0 )

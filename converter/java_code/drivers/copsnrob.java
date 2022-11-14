@@ -139,7 +139,7 @@ public class copsnrob
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_copsnrob = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( copsnrob )
+	static InputPortHandlerPtr input_ports_copsnrob = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( copsnrob )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_VBLANK );
 	
@@ -287,7 +287,7 @@ public class copsnrob
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_copsnrob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_copsnrob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "5777.l7",      0x1200, 0x0200, CRC(2b62d627) SHA1(ff4d3546ad931b8e8c5cffd65469814ba7200925) )
 		ROM_LOAD( "5776.k7",      0x1400, 0x0200, CRC(7fb12a49) SHA1(8cd2f4bd2405835d06eb4d76d028e1b14a97b500) )

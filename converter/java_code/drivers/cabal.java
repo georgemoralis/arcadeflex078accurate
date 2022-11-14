@@ -286,7 +286,7 @@ public class cabal
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_cabal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cabal )
+	static InputPortHandlerPtr input_ports_cabal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cabal )
 		PORT_START(); 
 	/* Coin Mode 1, todo Mode 2 */
 		PORT_DIPNAME( 0x000f, 0x000f, DEF_STR( "Coinage") );
@@ -380,7 +380,7 @@ public class cabal
 		PORT_ANALOG( 0x0fff, 0x0000, IPT_TRACKBALL_Y | IPF_PLAYER2, 100, 30, 0, 0 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cabalbl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cabalbl )
+	static InputPortHandlerPtr input_ports_cabalbl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cabalbl )
 		PORT_START(); 
 	/* Coin Mode 1, todo Mode 2 */
 		PORT_DIPNAME( 0x000f, 0x000f, DEF_STR( "Coinage") );
@@ -613,7 +613,7 @@ public class cabal
 	
 	
 	
-	static RomLoadPtr rom_cabal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cabal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )	/* 64k for cpu code */
 		ROM_LOAD16_BYTE( "h7_512.bin",      0x00000, 0x10000, CRC(8fe16fb4) SHA1(fedb2d0c6c21516f68cfa99093772fe8fa862389) )
 		ROM_LOAD16_BYTE( "h6_512.bin",      0x00001, 0x10000, CRC(6968101c) SHA1(d65005ac235dae5c32bbcd182cb365e8fa067fe7) )
@@ -642,7 +642,7 @@ public class cabal
 		ROM_LOAD( "prom10.4j",      0x0100, 0x0100, CRC(261c93bc) SHA1(942470198143d584d3766f28587d1879abd912c1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cabal2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cabal2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )	/* 64k for cpu code */
 		ROM_LOAD16_BYTE( "9-7h",            0x00000, 0x10000, CRC(ebbb9484) SHA1(2c77d5b4acdc37720dc7ccab526862981bf8da51) )
 		ROM_LOAD16_BYTE( "7-6h",            0x00001, 0x10000, CRC(51aeb49e) SHA1(df38dc58d8c6fa3d35904bf34e29111e7bd523ad) )
@@ -671,7 +671,7 @@ public class cabal
 		ROM_LOAD( "prom10.4j",      0x0100, 0x0100, CRC(261c93bc) SHA1(942470198143d584d3766f28587d1879abd912c1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cabalbl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cabalbl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )	/* 64k for cpu code */
 		ROM_LOAD16_BYTE( "cabal_24.bin",    0x00000, 0x10000, CRC(00abbe0c) SHA1(bacf17444abfb4f56248ff56e37b0aa2b1a3800d) )
 		ROM_LOAD16_BYTE( "cabal_22.bin",    0x00001, 0x10000, CRC(78c4af27) SHA1(31049d1ec76d76284682de7a0592f63d97019240) )

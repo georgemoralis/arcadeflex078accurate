@@ -1748,7 +1748,7 @@ public class halleys
 		Dip sw 2 is not used and all contacts should be set off.
 	*/
 	
-	static InputPortPtr input_ports_halleys = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( halleys )
+	static InputPortHandlerPtr input_ports_halleys = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( halleys )
 		PORT_START();  // 0xff95
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -1861,7 +1861,7 @@ public class halleys
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_benberob = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( benberob )
+	static InputPortHandlerPtr input_ports_benberob = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( benberob )
 		PORT_START();  // 0xff95
 		PORT_DIPNAME( 0x01, 0x01, "Unknown(1-1"));
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -2056,7 +2056,7 @@ public class halleys
 	//**************************************************************************
 	// ROM Definitions
 	
-	static RomLoadPtr rom_benberob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_benberob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) //MAIN PRG
 		ROM_LOAD( "a26_01.31",   0x4000, 0x4000, CRC(9ed566ba) SHA1(15c042e727b00b1dc6f24c72226d1a361fc0fa58) )
 		ROM_LOAD( "a26_02.52",   0x8000, 0x4000, CRC(a563a033) SHA1(c2c4a73f190303b7101e7849a638d35a80e4c36b) )
@@ -2082,7 +2082,7 @@ public class halleys
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_halleys = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_halleys = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) //MAIN PRG
 		ROM_LOAD( "a62_01.30",   0x0000, 0x4000, CRC(a5e82b3e) SHA1(c16c6a6c23a579454b8a2be4b951c35b04f2a856) )
 		ROM_LOAD( "a62_02.31",   0x4000, 0x4000, CRC(25f5bcd3) SHA1(9d72afe866df363d2ac33dab3ed6c3913f4de12d) )
@@ -2110,7 +2110,7 @@ public class halleys
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_halleycj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_halleycj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) //MAIN PRG
 		ROM_LOAD( "a62_01.30",   0x0000, 0x4000, CRC(a5e82b3e) SHA1(c16c6a6c23a579454b8a2be4b951c35b04f2a856) )
 		ROM_LOAD( "a62_02.31",   0x4000, 0x4000, CRC(25f5bcd3) SHA1(9d72afe866df363d2ac33dab3ed6c3913f4de12d) )
@@ -2138,7 +2138,7 @@ public class halleys
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_halleysc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_halleysc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) //MAIN PRG
 		ROM_LOAD( "a62_01.30",   0x0000, 0x4000, CRC(a5e82b3e) SHA1(c16c6a6c23a579454b8a2be4b951c35b04f2a856) )
 		ROM_LOAD( "a62_02.31",   0x4000, 0x4000, CRC(25f5bcd3) SHA1(9d72afe866df363d2ac33dab3ed6c3913f4de12d) )

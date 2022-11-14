@@ -1121,7 +1121,7 @@ public class taito_b
 		PORT_DIPSETTING(    0x08, DEF_STR( "On") );
 	
 	
-	static InputPortPtr input_ports_rastsag2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rastsag2 )
+	static InputPortHandlerPtr input_ports_rastsag2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rastsag2 )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );  // all 2 "unused" in manual
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1162,7 +1162,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_nastar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nastar )
+	static InputPortHandlerPtr input_ports_nastar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nastar )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1203,7 +1203,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_nastarw = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nastarw )
+	static InputPortHandlerPtr input_ports_nastarw = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nastarw )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1244,7 +1244,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_masterw = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( masterw )
+	static InputPortHandlerPtr input_ports_masterw = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( masterw )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1286,7 +1286,7 @@ public class taito_b
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_crimec = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crimec )
+	static InputPortHandlerPtr input_ports_crimec = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crimec )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, "Hi Score" );
 		PORT_DIPSETTING(    0x01, "Scribble" );
@@ -1326,7 +1326,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_crimecj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crimecj )
+	static InputPortHandlerPtr input_ports_crimecj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crimecj )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, "Hi Score" );
 		PORT_DIPSETTING(    0x01, "Scribble" );
@@ -1366,7 +1366,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_crimecu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crimecu )
+	static InputPortHandlerPtr input_ports_crimecu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crimecu )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, "Hi Score" );
 		PORT_DIPSETTING(    0x01, "Scribble" );
@@ -1407,7 +1407,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tetrist = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tetrist )
+	static InputPortHandlerPtr input_ports_tetrist = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tetrist )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1450,7 +1450,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ashura = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ashura )
+	static InputPortHandlerPtr input_ports_ashura = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ashura )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1491,7 +1491,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ashurau = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ashurau )
+	static InputPortHandlerPtr input_ports_ashurau = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ashurau )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1577,7 +1577,7 @@ public class taito_b
 	5,6,7 are set to off
 	*/
 	
-	static InputPortPtr input_ports_hitice = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hitice )
+	static InputPortHandlerPtr input_ports_hitice = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hitice )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, "Cabinet Style" );
 		PORT_DIPSETTING(    0x01, "4 Players");
@@ -1660,7 +1660,7 @@ public class taito_b
 		PORT_BIT( 0x8000, IP_ACTIVE_LOW, IPT_START4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rambo3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rambo3 )
+	static InputPortHandlerPtr input_ports_rambo3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rambo3 )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );  // all 5 "unused" in manual
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1703,7 +1703,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rambo3a = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rambo3a )
+	static InputPortHandlerPtr input_ports_rambo3a = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rambo3a )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1788,7 +1788,7 @@ public class taito_b
 	
 	/* Helps document the input ports. */
 	
-	static InputPortPtr input_ports_pbobble = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pbobble )	/* Missing P3&4 controls ! */
+	static InputPortHandlerPtr input_ports_pbobble = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pbobble )	/* Missing P3&4 controls ! */
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/*unused in test mode*/
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );/*unused in test mode*/
@@ -1860,7 +1860,7 @@ public class taito_b
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_spacedxo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacedxo )
+	static InputPortHandlerPtr input_ports_spacedxo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacedxo )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Upright") );
@@ -1949,7 +1949,7 @@ public class taito_b
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_qzshowby = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( qzshowby )
+	static InputPortHandlerPtr input_ports_qzshowby = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( qzshowby )
 		PORT_START();  /* DSW B */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );/*unused in test mode*/
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );/*unused in test mode*/
@@ -2021,7 +2021,7 @@ public class taito_b
 		PORT_BIT( 0x8000, IP_ACTIVE_LOW, IPT_BUTTON3 | IPF_PLAYER4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_viofight = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( viofight )
+	static InputPortHandlerPtr input_ports_viofight = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( viofight )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );  // all 7 "unused" in manual
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -2064,7 +2064,7 @@ public class taito_b
 		TAITO_B_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_silentd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( silentd )	/* World Version */
+	static InputPortHandlerPtr input_ports_silentd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( silentd )	/* World Version */
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );	/* Listed as "NOT USED" in the manual and only shown as "OFF" */
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -2188,7 +2188,7 @@ public class taito_b
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_silentdj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( silentdj )
+	static InputPortHandlerPtr input_ports_silentdj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( silentdj )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );	/* Listed as "NOT USED" in the manual and only shown as "OFF" */
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -2283,7 +2283,7 @@ public class taito_b
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_selfeena = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( selfeena )
+	static InputPortHandlerPtr input_ports_selfeena = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( selfeena )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -2341,7 +2341,7 @@ public class taito_b
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ryujin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ryujin )
+	static InputPortHandlerPtr input_ports_ryujin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ryujin )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -2400,7 +2400,7 @@ public class taito_b
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sbm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sbm )
+	static InputPortHandlerPtr input_ports_sbm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sbm )
 		PORT_START();  /* DSW A *///+-ok
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -3202,7 +3202,7 @@ public class taito_b
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_rastsag2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rastsag2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "b81-08.50" , 0x00000, 0x20000, CRC(d6da9169) SHA1(33d74315754576e6f879059de033f96f9003f819) )
 		ROM_LOAD16_BYTE( "b81-07.31" , 0x00001, 0x20000, CRC(8edf17d7) SHA1(b0c03002ed520abffefd55d4969d0ed4fcf3a3a4) )
@@ -3224,7 +3224,7 @@ public class taito_b
 		ROM_LOAD( "b81-02.2", 0x00000, 0x80000, CRC(20ec3b86) SHA1(fcdcc7f0a09feb824d8d73b1af0aae7ec30fd1ed) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nastarw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nastarw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "b81-08.50" , 0x00000, 0x20000, CRC(d6da9169) SHA1(33d74315754576e6f879059de033f96f9003f819) )
 		ROM_LOAD16_BYTE( "b81-12.31" , 0x00001, 0x20000, CRC(f9d82741) SHA1(f5f3a1101d92b6c241e819dcdcdcdc4b125140f7) )
@@ -3246,7 +3246,7 @@ public class taito_b
 		ROM_LOAD( "b81-02.2", 0x00000, 0x80000, CRC(20ec3b86) SHA1(fcdcc7f0a09feb824d8d73b1af0aae7ec30fd1ed) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nastar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nastar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "b81-08.50" , 0x00000, 0x20000, CRC(d6da9169) SHA1(33d74315754576e6f879059de033f96f9003f819) )
 		ROM_LOAD16_BYTE( "b81-13.31" , 0x00001, 0x20000, CRC(60d176fb) SHA1(fbe3a0603bcd23e565b0d474a63742d20a3ce8cc) )
@@ -3273,7 +3273,7 @@ public class taito_b
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crimec = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crimec = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "b99_07.40",    0x00000, 0x20000, CRC(26e886e6) SHA1(b7d0024a084216c1139eb6705f1b8143902cbed3) )
 		ROM_LOAD16_BYTE( "b99_05.29",    0x00001, 0x20000, CRC(ff7f9a9d) SHA1(c1897a141eea423879d2792640a9ee85636ed5be) )
@@ -3292,7 +3292,7 @@ public class taito_b
 		ROM_LOAD( "b99_03.37", 0x000000, 0x080000, CRC(dda10df7) SHA1(ffbe1423794035e6f049fddb096b7282610b7cee) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crimecu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crimecu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "b99_07.40",    0x00000, 0x20000, CRC(26e886e6) SHA1(b7d0024a084216c1139eb6705f1b8143902cbed3) )
 		ROM_LOAD16_BYTE( "b99_05.29",    0x00001, 0x20000, CRC(ff7f9a9d) SHA1(c1897a141eea423879d2792640a9ee85636ed5be) )
@@ -3311,7 +3311,7 @@ public class taito_b
 		ROM_LOAD( "b99_03.37", 0x000000, 0x080000, CRC(dda10df7) SHA1(ffbe1423794035e6f049fddb096b7282610b7cee) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crimecj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crimecj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "b99_07.40", 0x00000, 0x20000, CRC(26e886e6) SHA1(b7d0024a084216c1139eb6705f1b8143902cbed3) )
 		ROM_LOAD16_BYTE( "b99_05.29", 0x00001, 0x20000, CRC(ff7f9a9d) SHA1(c1897a141eea423879d2792640a9ee85636ed5be) )
@@ -3330,7 +3330,7 @@ public class taito_b
 		ROM_LOAD( "b99_03.37", 0x000000, 0x080000, CRC(dda10df7) SHA1(ffbe1423794035e6f049fddb096b7282610b7cee) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ashura = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ashura = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c4307-1.50", 0x00000, 0x20000, CRC(d5ceb20f) SHA1(59bc9468d7f43d3b1388c2915fafeba7e2cf13a5) )
 		ROM_LOAD16_BYTE( "c4305-1.31", 0x00001, 0x20000, CRC(a6f3bb37) SHA1(6959f3bcbcd2d5b13c95dcfd7a536541dcab49f8) )
@@ -3349,7 +3349,7 @@ public class taito_b
 		ROM_LOAD( "c43-01",  0x00000, 0x80000, CRC(db953f37) SHA1(252591b676366d4828acb20c77aa9960ad9b367e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ashurau = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ashurau = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c43-11", 0x00000, 0x20000, CRC(d5aefc9b) SHA1(0fdfa166942ea70a77f956d16fd3b31225044c54) )
 		ROM_LOAD16_BYTE( "c43-09", 0x00001, 0x20000, CRC(e91d0ab1) SHA1(992f63ebba538e624c695c1a868b14f4baa66ab9) )
@@ -3368,7 +3368,7 @@ public class taito_b
 		ROM_LOAD( "c43-01",  0x00000, 0x80000, CRC(db953f37) SHA1(252591b676366d4828acb20c77aa9960ad9b367e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tetrist = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tetrist = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c12-03.bin", 0x000000, 0x020000, CRC(38f1ed41) SHA1(d11194dd6686e6eba8c481bb0f9662041ca396ed) )
 		ROM_LOAD16_BYTE( "c12-02.bin", 0x000001, 0x020000, CRC(ed9530bc) SHA1(84c324e4ef0c5c3af04ea000ad3e9c319bd9f2a2) )
@@ -3389,7 +3389,7 @@ public class taito_b
 		/* empty */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hitice = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hitice = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c59-10", 0x00000, 0x20000, CRC(e4ffad15) SHA1(87da85e1489fe57bd012177a70434152e5475009) )
 		ROM_LOAD16_BYTE( "c59-12", 0x00001, 0x20000, CRC(a080d7af) SHA1(9c68b78fbcc42a2f748d1b7f84f138be79f7c0c9) )
@@ -3408,7 +3408,7 @@ public class taito_b
 		ROM_LOAD( "c59-01",  0x00000, 0x20000, CRC(46ae291d) SHA1(d36ab48cfa393a6a1eae5caa2a397087eb098f7f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rambo3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rambo3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "r3-0e.rom",  0x00000, 0x10000, CRC(3efa4177) SHA1(5e4995e34b92f625f7825238dfbc9e76d4090871) )
 		ROM_LOAD16_BYTE( "r3-0o.rom",  0x00001, 0x10000, CRC(55c38d92) SHA1(4f712b4eb20ee176da83a5f1154d5890d1360398) )
@@ -3450,7 +3450,7 @@ public class taito_b
 		ROM_LOAD( "r3-a4.rom", 0x60000, 0x20000, CRC(9cf4c21b) SHA1(756fc6bbc798a39a18eab3829e032cac8fe3f8ed) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rambo3a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rambo3a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "ramb3-11.bin",  0x00000, 0x20000, CRC(1cc42247) SHA1(e5a226a0016ec329fc23046c426c6303e452ef1d) )
 		ROM_LOAD16_BYTE( "ramb3-13.bin",  0x00001, 0x20000, CRC(0a964cb7) SHA1(332fe23c33b1400c628e0c491f3e00820bde6696) )
@@ -3471,7 +3471,7 @@ public class taito_b
 		ROM_LOAD( "ramb3-05.bin", 0x00000, 0x80000, CRC(0179dc40) SHA1(89feb708618ae7fa96883473d5c7a09dcc6f452a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rambo3ae = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rambo3ae = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "ramb3-11.bin",  0x00000, 0x20000, CRC(1cc42247) SHA1(e5a226a0016ec329fc23046c426c6303e452ef1d) )
 		ROM_LOAD16_BYTE( "ramb3-14.bin",  0x00001, 0x20000, CRC(7d917c21) SHA1(2850c46d6bdabfb76c40a7dc78ebc14b69ce95c9) )
@@ -3492,7 +3492,7 @@ public class taito_b
 		ROM_LOAD( "ramb3-05.bin", 0x00000, 0x80000, CRC(0179dc40) SHA1(89feb708618ae7fa96883473d5c7a09dcc6f452a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobble = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobble = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "pb-1c18.bin", 0x00000, 0x40000, CRC(5de14f49) SHA1(91d537748f26e19a5c32de4b8dad341750de39ef) )
 		ROM_LOAD16_BYTE( "pb-ic2.bin",  0x00001, 0x40000, CRC(2abe07d1) SHA1(2bb78b606a7341d74cced0447f8bd5ccc635cc4c) )
@@ -3509,7 +3509,7 @@ public class taito_b
 		ROM_LOAD( "pb-ic15.bin", 0x000000, 0x100000, CRC(0840cbc4) SHA1(1adbd7aef44fa80832f63dfb8efdf69fd7256a57) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacedx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacedx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "d89-06",       0x00000, 0x40000, CRC(7122751e) SHA1(4b4eb58af28f1988ff102251407449d0affbd4c2) )
 		ROM_LOAD16_BYTE( "si-dxusa.ic2", 0x00001, 0x40000, CRC(50a4b8d1) SHA1(a8feac97c03cc8dc303dd9f4dae28f3daf851181) )
@@ -3526,7 +3526,7 @@ public class taito_b
 		ROM_LOAD( "d89-03.15", 0x00000, 0x80000, CRC(218f31a4) SHA1(9f52b9fa8f02003888180524a6e9ee7c9230f55d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacedxj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacedxj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "d89-06", 0x00000, 0x40000, CRC(7122751e) SHA1(4b4eb58af28f1988ff102251407449d0affbd4c2) )
 		ROM_LOAD16_BYTE( "d89-05", 0x00001, 0x40000, CRC(be1638af) SHA1(5d28af674dd355159602e323800419a33e0b77d2) )
@@ -3543,7 +3543,7 @@ public class taito_b
 		ROM_LOAD( "d89-03.15", 0x00000, 0x80000, CRC(218f31a4) SHA1(9f52b9fa8f02003888180524a6e9ee7c9230f55d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacedxo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacedxo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 256k for 68000 code */
 		ROM_LOAD16_BYTE( "d89-08.bin",  0x00000, 0x20000, CRC(0c2fe7f9) SHA1(a0773c059c8ff2c9e367e0fb460d7e5f9a762ab1) )
 		ROM_LOAD16_BYTE( "d89-09j.bin", 0x00001, 0x20000, CRC(7f0a0ba4) SHA1(479df027929201997aeebbea5901a0a494f2dd61) )
@@ -3560,7 +3560,7 @@ public class taito_b
 		ROM_LOAD( "d89-03.15", 0x00000, 0x80000, CRC(218f31a4) SHA1(9f52b9fa8f02003888180524a6e9ee7c9230f55d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qzshowby = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qzshowby = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 1M for 68000 code */
 		ROM_LOAD16_BYTE( "d72-13.bin", 0x00000, 0x80000, CRC(a867759f) SHA1(ab06f42d58ae099fe5c1f810786c2a3e5a667e8e) )
 		ROM_LOAD16_BYTE( "d72-12.bin", 0x00001, 0x80000, CRC(522c09a7) SHA1(2ceeb7ac24bb621630cc996381e57501f9ea672e) )
@@ -3577,7 +3577,7 @@ public class taito_b
 		ROM_LOAD( "d72-01.bin", 0x00000, 0x200000, CRC(b82b8830) SHA1(4b2dca16fe072a5ee51de5cf40637e3f1b39f695) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_viofight = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_viofight = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )     /* 1M for 68000 code */
 		ROM_LOAD16_BYTE( "c16-11.42", 0x00000, 0x10000, CRC(23dbd388) SHA1(488f928826d16b201dcc4b491b09955d0af91f19) )
 		ROM_LOAD16_BYTE( "c16-14.23", 0x00001, 0x10000, CRC(dc934f6a) SHA1(36d7b10478f2b97d0521edb84f1f4fa5a11f962b) )
@@ -3603,7 +3603,7 @@ public class taito_b
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_masterw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_masterw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "b72-06.rom"   , 0x00000, 0x20000, CRC(ae848eff) SHA1(8715e64c5e03097aff5bf1a27e3809619a7731f0) )
 		ROM_LOAD16_BYTE( "b72-12.rom"   , 0x00001, 0x20000, CRC(7176ce70) SHA1(f3462ab9fe7e118b16fbe31d8caca27452280bf9) )
@@ -3619,7 +3619,7 @@ public class taito_b
 		ROM_LOAD( "mow-m01.rom", 0x080000, 0x080000, CRC(a24ac26e) SHA1(895715a2bb0cb15334cba2283bd228b4fc08cd0c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_silentd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_silentd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 256k for 68000 code */
 		ROM_LOAD16_BYTE( "sr_12-1.rom", 0x00000, 0x20000, CRC(5883d362) SHA1(21c3af053fa92c26f119466ecd655697cc72ff3a) )
 		ROM_LOAD16_BYTE( "sr_15-1.rom", 0x00001, 0x20000, CRC(8c0a72ae) SHA1(2199c4d6b87913ffb24cdccd6ca5176a97132baa) )
@@ -3643,7 +3643,7 @@ public class taito_b
 		ROM_LOAD( "sd_m01.rom", 0x00000, 0x80000, CRC(b41fff1a) SHA1(54920d13fa2b3000eedab9d0050a299ae743c663) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_silentdj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_silentdj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 256k for 68000 code */
 		ROM_LOAD16_BYTE( "sr_12-1.rom", 0x00000, 0x20000, CRC(5883d362) SHA1(21c3af053fa92c26f119466ecd655697cc72ff3a) )
 		ROM_LOAD16_BYTE( "10-1.10",     0x00001, 0x20000, CRC(584306fc) SHA1(961cb6aaa426e3d83c499d101ef369b86a84c5d8) )
@@ -3667,7 +3667,7 @@ public class taito_b
 		ROM_LOAD( "sd_m01.rom", 0x00000, 0x80000, CRC(b41fff1a) SHA1(54920d13fa2b3000eedab9d0050a299ae743c663) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_selfeena = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_selfeena = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 256k for 68000 code */
 		ROM_LOAD16_BYTE( "se-02.27", 0x00000, 0x20000, CRC(08f0c8e3) SHA1(2279ebfcd0cd05eec9c7a01ca7db82fcdc3b7ca7) )
 		ROM_LOAD16_BYTE( "se-01.26", 0x00001, 0x20000, CRC(a06ca64b) SHA1(6bfd3c5faf169678ba9bb1c483901b6c06605faf) )
@@ -3684,7 +3684,7 @@ public class taito_b
 		ROM_LOAD( "se-06.11", 0x00000, 0x80000, CRC(80d5e772) SHA1(bee4982a3d65210ff86495e36a0b656934b00c7d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ryujin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ryujin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 256k for 68000 code */
 		ROM_LOAD16_BYTE( "ruj02.27", 0x00000, 0x20000, CRC(0d223aee) SHA1(33f5498a650b244c5a4a22415408a269da597abf) )
 		ROM_LOAD16_BYTE( "ruj01.26", 0x00001, 0x20000, CRC(c6bcdd1e) SHA1(d8620995ad1bc256eab4ed7e1c549e8b6ec5c3fb) )
@@ -3703,7 +3703,7 @@ public class taito_b
 		ROM_LOAD( "ryujin08.11", 0x00000, 0x80000, CRC(480d040d) SHA1(50add2f304ef34f7f45f25a2a2cf0568d58259ad) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sbm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sbm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 256k for 68000 code */
 		ROM_LOAD16_BYTE( "c69-20-1.10", 0x00000, 0x20000, CRC(b40e4910) SHA1(1436990b8c3c1d0763283133b2ce9d47cd65f825) )
 		ROM_LOAD16_BYTE( "c69-22-1.12", 0x00001, 0x20000, CRC(ecbcf830) SHA1(49f04a198d327866b26b978a302ddc7aea5ac6de) )

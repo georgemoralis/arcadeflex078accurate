@@ -224,7 +224,7 @@ public class decocass
 		new IO_WritePort( 0x02, 0x02, i8041_p2_w ),
 	MEMORY_END
 	
-	static InputPortPtr input_ports_decocass = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( decocass )
+	static InputPortHandlerPtr input_ports_decocass = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( decocass )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH,IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH,IPT_JOYSTICK_LEFT );
@@ -695,7 +695,7 @@ public class decocass
 		ROM_LOAD( "rms8.j3",      0x0040, 0x0020, CRC(51eef657) SHA1(eaedce5caf55624ad6ae706aedf82c5717c60f1f) ) /* DRAM banking and timing */ \
 	
 	
-	static RomLoadPtr rom_decocass = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_decocass = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 	ROM_END(); }}; 
@@ -703,7 +703,7 @@ public class decocass
 	/* The Following use Dongle Type 1 (DE-0061)
 	    (dongle data same for each game)		 */
 	
-	static RomLoadPtr rom_ctsttape = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ctsttape = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -713,7 +713,7 @@ public class decocass
 		ROM_LOAD( "testtape.cas", 0x0000, 0x2000, CRC(4f9d8efb) SHA1(5b77747dad1033e5703f06c0870441b54b4256c5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_clocknch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_clocknch = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -723,7 +723,7 @@ public class decocass
 		ROM_LOAD( "clocknch.cas", 0x0000, 0x8000, CRC(c9d163a4) SHA1(3ef55a8d8f603059e263776c08eb81f2cf18b75c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ctisland = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ctisland = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -733,7 +733,7 @@ public class decocass
 		ROM_LOAD( "ctisland.cas", 0x0000, 0x8000, CRC(3f63b8f8) SHA1(2fd0679ef9750a228ebb098672ab6091fda75804) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ctislnd2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ctislnd2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -743,7 +743,7 @@ public class decocass
 		ROM_LOAD( "ctislnd3.cas", 0x0000, 0x8000, CRC(2854b4c0) SHA1(d3b4e0031dbb2340fbbe396a1ff9b8fbfd63663e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ctislnd3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ctislnd3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -753,7 +753,7 @@ public class decocass
 		ROM_LOAD( "ctislnd2.cas", 0x0000, 0x8000, CRC(45464e1e) SHA1(03275694d963c7ab0e0f5525e248e69da5f9b591) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_csuperas = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_csuperas = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -763,7 +763,7 @@ public class decocass
 		ROM_LOAD( "csuperas.cas", 0x0000, 0x8000, CRC(fabcd07f) SHA1(4070c668ad6725f0710cf7fe6df0d5f80272a449) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_castfant = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_castfant = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -773,7 +773,7 @@ public class decocass
 		ROM_LOAD( "castfant.cas", 0x0000, 0x8000, CRC(6d77d1b5) SHA1(821bd65fbe887cbeac9281a2ad3f88595918f886) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cluckypo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cluckypo = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -783,7 +783,7 @@ public class decocass
 		ROM_LOAD( "cluckypo.cas", 0x0000, 0x8000, CRC(2070c243) SHA1(cd3af309af8eb27937756c1fe6fd0504be5aaaf5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cterrani = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cterrani = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -793,7 +793,7 @@ public class decocass
 		ROM_LOAD( "cterrani.cas", 0x0000, 0x8000, CRC(eb71adbc) SHA1(67becfde39c034d4b8edc2eb100050de102773da) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cexplore = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cexplore = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -803,7 +803,7 @@ public class decocass
 		ROM_LOAD( "cexplore.cas", 0x0000, 0x8000, CRC(fae49c66) SHA1(4ae69e2f706fdf30204f0aa1277619395cacc21b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cprogolf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cprogolf = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00020, REGION_USER1, 0 )	  /* dongle data */
@@ -816,7 +816,7 @@ public class decocass
 	/* The Following use Dongle Type 2 (CS82-007)
 	    (dongle data differs for each game)		 */
 	
-	static RomLoadPtr rom_cmissnx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cmissnx = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00800, REGION_USER1, 0 )	  /* dongle data */
@@ -826,7 +826,7 @@ public class decocass
 		ROM_LOAD( "cmissnx.cas",  0x0000, 0x8000, CRC(3a094e11) SHA1(c355fe14838187cbde19a799e5c60083c82615ac) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cdiscon1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cdiscon1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00800, REGION_USER1, 0 )	  /* dongle data */
@@ -836,7 +836,7 @@ public class decocass
 		ROM_LOAD( "cdiscon1.cas", 0x0000, 0x8000, CRC(1429a397) SHA1(12f9e03fcda31dc6161a39bf5c3315a1e9e94565) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_csweetht = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_csweetht = new RomLoadHandlerPtr(){ public void handler(){ 
 	 DECOCASS_COMMON_ROMS
 	
 	 ROM_REGION( 0x00800, REGION_USER1, 0 )   /* dongle data */
@@ -846,7 +846,7 @@ public class decocass
 	 ROM_LOAD( "csweetht.cas", 0x0000, 0x8000, CRC(175ef706) SHA1(49b86233f69d0daf54a6e59b86e69b8159e8f6cc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cptennis = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cptennis = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00800, REGION_USER1, 0 )	  /* dongle data */
@@ -856,7 +856,7 @@ public class decocass
 		ROM_LOAD( "cptennis.cas", 0x0000, 0x8000, CRC(6bb257fe) SHA1(7554bf1996bc9e9c04a276aab050708d70103f54) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ctornado = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ctornado = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x00800, REGION_USER1, 0 )	  /* dongle data */
@@ -869,7 +869,7 @@ public class decocass
 	/* The Following use Dongle Type 3 (unknown part number?)
 	    (dongle data differs for each game)		 */
 	
-	static RomLoadPtr rom_cburnrub = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cburnrub = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -879,7 +879,7 @@ public class decocass
 		ROM_LOAD( "cburnrub.cas",   0x0000, 0x8000, CRC(4528ac22) SHA1(dc0fcc5e5fd21c1c858a90f43c175e36a24b3c3d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cburnrb2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cburnrb2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -889,7 +889,7 @@ public class decocass
 		ROM_LOAD( "cburnrb2.cas",   0x0000, 0x8000, CRC(84a9ed66) SHA1(a9c536e46b89fc6b9c6271776292fed1241d2f3f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cbnj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cbnj = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -899,7 +899,7 @@ public class decocass
 		ROM_LOAD( "cbnj.cas",       0x0000, 0x8000, CRC(eed41560) SHA1(85d5df76efac33cd10427f659c4259afabb3daaf) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cbtime = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cbtime = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -909,7 +909,7 @@ public class decocass
 		ROM_LOAD( "cbtime.cas",   0x0000, 0x8000, CRC(56d7dc58) SHA1(34b2513c9ca7ab40f532b6d6d911aa3012113632) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cgraplop = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cgraplop = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -919,7 +919,7 @@ public class decocass
 		ROM_LOAD( "cgraplop.cas", 0x0000, 0x8000, CRC(d2c1c1bb) SHA1(db67304caa11540363735e7d4bf03507ccbe9980) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cgraplp2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cgraplp2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -929,7 +929,7 @@ public class decocass
 		ROM_LOAD( "cgraplp2.cas", 0x0000, 0x8000, CRC(2e728981) SHA1(83ba90d95858d647315a1c311b8643672afea5f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_clapapa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_clapapa = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -939,7 +939,7 @@ public class decocass
 		ROM_LOAD( "clapapa.cas",  0x0000, 0x8000, CRC(4ffbac24) SHA1(1ec0d7ac1886d4b430dc12be27f387e9d952d235) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_clapapa2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_clapapa2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	 DECOCASS_COMMON_ROMS
 	
 	 ROM_REGION( 0x01000, REGION_USER1, 0 )   /* dongle data */
@@ -949,7 +949,7 @@ public class decocass
 	 ROM_LOAD( "clapapa2.cas",  0x0000, 0x8000, CRC(069dd3c4) SHA1(5a19392c7ac5aea979187c96267e73bf5126307e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cfghtice = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cfghtice = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -959,7 +959,7 @@ public class decocass
 		ROM_LOAD( "cfghtice.cas", 0x0000, 0x10000, CRC(906dd7fb) SHA1(894a7970d5476ed035edd15656e5cf10d6ddcf57) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cprobowl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cprobowl = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -969,7 +969,7 @@ public class decocass
 		ROM_LOAD( "cprobowl.cas", 0x0000, 0x8000, CRC(cb86c5e1) SHA1(66c467418cff2ed6d7c121a8b1650ee97ae48fe9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cnightst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cnightst = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -979,7 +979,7 @@ public class decocass
 		ROM_LOAD( "cnightst.cas", 0x0000, 0x8000, CRC(c6f844cb) SHA1(5fc6154c20ee4e2f4049a78df6f3cacbb96b0dc0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cnights2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cnights2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	 DECOCASS_COMMON_ROMS
 	
 	 ROM_REGION( 0x01000, REGION_USER1, 0 )   /* dongle data */
@@ -989,7 +989,7 @@ public class decocass
 	 ROM_LOAD( "cnights2.cas", 0x0000, 0x8000, CRC(1a28128c) SHA1(4b620a1919d02814f734aba995115c09dc2db930) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cprosocc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cprosocc = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -999,7 +999,7 @@ public class decocass
 		ROM_LOAD( "cprosocc.cas", 0x0000, 0x10000, CRC(76b1ad2c) SHA1(6188667e5bc001dfdf83deaf7251eae794de4702) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cppicf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cppicf = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x01000, REGION_USER1, 0 )	  /* dongle data */
@@ -1009,7 +1009,7 @@ public class decocass
 		ROM_LOAD( "cppicf.cas",   0x0000, 0x8000, CRC(8c02f160) SHA1(03430dd8d4b2e6ca931986dac4d39be6965ffa6f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cppicf2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cppicf2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	 DECOCASS_COMMON_ROMS
 	
 	 ROM_REGION( 0x01000, REGION_USER1, 0 )   /* dongle data */
@@ -1022,7 +1022,7 @@ public class decocass
 	/* The Following use Dongle Type 4 (unknown part number?)
 	    (dongle data probably differs for each game, but only one is known using it atm) */
 	
-	static RomLoadPtr rom_cscrtry = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cscrtry = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		ROM_REGION( 0x08000, REGION_USER1, 0 )	  /* dongle data */
@@ -1032,7 +1032,7 @@ public class decocass
 		ROM_LOAD( "cscrtry.cas",  0x0000, 0x8000, CRC(5625f0ca) SHA1(f4b0a6f2ca908880386838f06b626479b4b74134) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cscrtry2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cscrtry2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	 DECOCASS_COMMON_ROMS
 	
 	 ROM_REGION( 0x08000, REGION_USER1, 0 )   /* dongle data */
@@ -1045,7 +1045,7 @@ public class decocass
 	/* The Following use Dongle Type 5 (unknown part number?)
 	    (dongle data not read)		 */
 	
-	static RomLoadPtr rom_cbdash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cbdash = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 	/*	ROM_REGION( 0x01000, REGION_USER1, 0 ) */ /* (max) 4k for dongle data */
@@ -1058,7 +1058,7 @@ public class decocass
 	/* The Following have unknown Dongles
 	    (dongle data not read)		 */
 	
-	static RomLoadPtr rom_chwy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chwy = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		/* no dumped dongle data, type1? its an early game if its highway chase */
@@ -1067,7 +1067,7 @@ public class decocass
 		ROM_LOAD( "chwy.cas",   0x0000, 0x8000, CRC(68a48064) SHA1(7e389737972fd0c54f398d296159c561f5ec3a93) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cflyball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cflyball = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		/* no dumped dongle data */
@@ -1076,7 +1076,7 @@ public class decocass
 		ROM_LOAD( "cflyball.cas",   0x0000, 0x10000, CRC(cb40d043) SHA1(57698bac7e0d552167efa99d08116bf19a3b29c9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_czeroize = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_czeroize = new RomLoadHandlerPtr(){ public void handler(){ 
 		DECOCASS_COMMON_ROMS
 	
 		/* no dumped dongle data */

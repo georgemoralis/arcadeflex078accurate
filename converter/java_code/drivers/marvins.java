@@ -278,7 +278,7 @@ public class marvins
 	};
 	
 	
-	static InputPortPtr input_ports_marvins = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( marvins )
+	static InputPortHandlerPtr input_ports_marvins = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( marvins )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -359,7 +359,7 @@ public class marvins
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_vangrd2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vangrd2 )
+	static InputPortHandlerPtr input_ports_vangrd2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vangrd2 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -441,7 +441,7 @@ public class marvins
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_madcrash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( madcrash )
+	static InputPortHandlerPtr input_ports_madcrash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( madcrash )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -673,7 +673,7 @@ public class marvins
 	**
 	***************************************************************************/
 	
-	static RomLoadPtr rom_marvins = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_marvins = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for CPUA code */
 		ROM_LOAD( "pa1",   0x0000, 0x2000, CRC(0008d791) SHA1(6ffb174b2d680314f74efeef83da9f3ee3e0c753) )
 		ROM_LOAD( "pa2",   0x2000, 0x2000, CRC(9457003c) SHA1(05ecd5c638a12163e2a65bdfcc09875618f792e1) )
@@ -706,7 +706,7 @@ public class marvins
 		ROM_LOAD( "marvmaze.j3",  0x800, 0x400, CRC(df9e6005) SHA1(8f633f664c3f8e4f6ca94bee74a68c8fda8873e3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_madcrash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_madcrash = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for CPUA code */
 		ROM_LOAD( "p8",    0x0000, 0x2000, CRC(ecb2fdc9) SHA1(7dd79fbbe286a9f18ed2cae45b1bfab765e549a1) )
 		ROM_LOAD( "p9",    0x2000, 0x2000, CRC(0a87df26) SHA1(327710452bdc5dbb931abc853957225814f224c5) )
@@ -743,7 +743,7 @@ public class marvins
 		ROM_LOAD( "m1-prom.j5",  0x800, 0x400, CRC(07678443) SHA1(267951886d8b031dd633dc4823d9bd862a585437) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vangrd2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vangrd2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "p1.9a",  0x0000, 0x2000, CRC(bc9eeca5) SHA1(5a737e0f0aa1a3a5296d1e1fec13b34aee970609) )
 		ROM_LOAD( "p3.11a", 0x2000, 0x2000, CRC(3970f69d) SHA1(b0ef7494888804ab5b4002730fb0232a7fd6797b) )

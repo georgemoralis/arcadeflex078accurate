@@ -246,7 +246,7 @@ public class atarig1
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_hydra = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hydra )
+	static InputPortHandlerPtr input_ports_hydra = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hydra )
 		PORT_START(); 		/* fc0000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_BUTTON5 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -274,7 +274,7 @@ public class atarig1
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pitfight = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pitfight )
+	static InputPortHandlerPtr input_ports_pitfight = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pitfight )
 		PORT_START(); 		/* fc0000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_PLAYER1 );
@@ -320,7 +320,7 @@ public class atarig1
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pitfighj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pitfighj )
+	static InputPortHandlerPtr input_ports_pitfighj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pitfighj )
 		PORT_START(); 		/* fc0000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_PLAYER1 );
@@ -451,7 +451,7 @@ public class atarig1
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_hydra = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hydra = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "hydr3028.bin", 0x00000, 0x10000, CRC(43475f73) SHA1(48a0de5bcbfa2f986edeee93e5a4ef99e13be4de) )
 		ROM_LOAD16_BYTE( "hydr3029.bin", 0x00001, 0x10000, CRC(886e1de8) SHA1(5728f5823c6020ff28cbb52faf1e06cb7088eb75) )
@@ -511,7 +511,7 @@ public class atarig1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hydrap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hydrap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "hydhi0.bin", 0x00000, 0x10000, CRC(dab2e8a2) SHA1(ba13b973b2c351fcf36e8dc1a481e797c6e5911e) )
 		ROM_LOAD16_BYTE( "hydlo0.bin", 0x00001, 0x10000, CRC(c18d4f16) SHA1(93a165b1726ea6fc6488ddfd49ba4cec960612e4) )
@@ -571,7 +571,7 @@ public class atarig1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hydrap2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hydrap2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "05c", 0x00001, 0x10000, CRC(531ebb3b) SHA1(866de3e2c747bd272c5235f9717ebeaeca90735b) )
 		ROM_LOAD16_BYTE( "05e", 0x00000, 0x10000, CRC(6d77b124) SHA1(a485a783211a052ca01aa400b3c5e59a2dba6faa) )
@@ -631,7 +631,7 @@ public class atarig1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pitfight = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pitfight = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "4028", 0x00000, 0x10000, CRC(f7cb1a4b) SHA1(024eb80d822559d9f3756710d1988f592639cd5e) )
 		ROM_LOAD16_BYTE( "4029", 0x00001, 0x10000, CRC(13ae0d4f) SHA1(1816f40f7e3fee2427e11623c9f1d1b3515cbf72) )
@@ -683,7 +683,7 @@ public class atarig1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pitfigh3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pitfigh3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "3028", 0x00000, 0x10000, CRC(99530da4) SHA1(b542910127553d285f699d2b75e5d6fb071ff046) )
 		ROM_LOAD16_BYTE( "3029", 0x00001, 0x10000, CRC(78c7afbf) SHA1(7588dfee1e120b69591499ddf2860490b1c66885) )
@@ -735,7 +735,7 @@ public class atarig1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pitfighj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pitfighj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "3428.dat", 0x00000, 0x10000, CRC(39be5484) SHA1(683ab8cf21f2b82aee11ce21b9dfbdb82083d6b6) )
 		ROM_LOAD16_BYTE( "3429.dat", 0x00001, 0x10000, CRC(2cb14a58) SHA1(004178b4869766c11904d1fdf72725ba481bc8cc) )
@@ -787,7 +787,7 @@ public class atarig1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pitfighb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pitfighb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "pit9.bin", 0x00000, 0x10000, CRC(946fb15b) SHA1(dbde8daf60a6bda242ea0d627c1fe5034de18090) )
 		ROM_LOAD16_BYTE( "pit7.bin", 0x00001, 0x10000, CRC(a9e7163a) SHA1(d1536bde0df20fb5f78e5ce55d453cb0c2c0b663) )

@@ -179,7 +179,7 @@ public class toratora
 	
 	
 	
-	static InputPortPtr input_ports_toratora = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( toratora )
+	static InputPortHandlerPtr input_ports_toratora = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( toratora )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT );
@@ -247,7 +247,7 @@ public class toratora
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_toratora = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_toratora = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "tora.u1",      0x1000, 0x0800, CRC(413c743a) SHA1(a887dfaaee557327a1699bb424488b934dab8612) )
 		ROM_LOAD( "tora.u10",     0x1800, 0x0800, CRC(dc771b1c) SHA1(1bd81decb4d0a854878227c52d45ac0eea0602ec) )

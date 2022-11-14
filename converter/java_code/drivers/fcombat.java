@@ -40,7 +40,7 @@ package arcadeflex.v078.drivers;
 public class fcombat
 {
 	
-	static InputPortPtr input_ports_fcombat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fcombat )
+	static InputPortHandlerPtr input_ports_fcombat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fcombat )
 		PORT_START();       /* player 1 inputs (muxed on 0xe000) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -384,7 +384,7 @@ public class fcombat
 		free(temp);
 	} };
 	
-	static RomLoadPtr rom_fcombat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fcombat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "fcombat2.t9",  0x0000, 0x4000, CRC(30cb0c14) SHA1(8b5b6a4efaca2f138709184725e9e0e0b9cfc4c7) )
 		ROM_LOAD( "fcombat3.10t", 0x4000, 0x4000, CRC(e8511da0) SHA1(bab5c9244c970b97c025381c37ad372aa3b5cddf) )

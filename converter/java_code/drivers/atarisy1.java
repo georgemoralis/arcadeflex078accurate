@@ -568,7 +568,7 @@ public class atarisy1
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_marble = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( marble )
+	static InputPortHandlerPtr input_ports_marble = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( marble )
 		PORT_START();   /* F20000 */
 	    PORT_ANALOG( 0xff, 0x00, IPT_TRACKBALL_X | IPF_REVERSE | IPF_PLAYER1, 30, 30, 0, 0 );
 	
@@ -603,7 +603,7 @@ public class atarisy1
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_peterpak = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( peterpak )
+	static InputPortHandlerPtr input_ports_peterpak = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( peterpak )
 		PORT_START(); 	/* F40000 */
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_UNUSED );
 		PORT_BIT( 0x10, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP );
@@ -643,7 +643,7 @@ public class atarisy1
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_indytemp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( indytemp )
+	static InputPortHandlerPtr input_ports_indytemp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( indytemp )
 		PORT_START(); 	/* F40000 */
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_UNUSED );
 		PORT_BIT( 0x10, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP );
@@ -683,7 +683,7 @@ public class atarisy1
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_roadrunn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( roadrunn )
+	static InputPortHandlerPtr input_ports_roadrunn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( roadrunn )
 		PORT_START(); 	/* F40000 */
 		PORT_ANALOG( 0xff, 0x80, IPT_AD_STICK_Y | IPF_PLAYER1, 100, 10, 0x10, 0xf0 );
 	
@@ -719,7 +719,7 @@ public class atarisy1
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_roadblst = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( roadblst )
+	static InputPortHandlerPtr input_ports_roadblst = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( roadblst )
 		PORT_START(); 	/* F20000 */
 		PORT_ANALOG( 0xff, 0x40, IPT_DIAL | IPF_REVERSE, 25, 10, 0x00, 0x7f );
 	
@@ -860,7 +860,7 @@ public class atarisy1
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_marble = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_marble = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -905,7 +905,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_marble2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_marble2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -946,7 +946,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_marble3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_marble3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -987,7 +987,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_marble4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_marble4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1032,7 +1032,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_peterpak = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_peterpak = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1074,7 +1074,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_indytemp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_indytemp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1122,7 +1122,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_indytem2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_indytem2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1170,7 +1170,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_indytem3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_indytem3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1218,7 +1218,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_indytem4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_indytem4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1266,7 +1266,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_indytemd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_indytemd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x00000, 0x04000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x00001, 0x04000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1314,7 +1314,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadrunn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadrunn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1375,7 +1375,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadrun2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadrun2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1436,7 +1436,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadrun1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadrun1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1497,7 +1497,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadblst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadblst = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1561,7 +1561,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadblsg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadblsg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1625,7 +1625,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadbls3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadbls3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1689,7 +1689,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadblg2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadblg2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1753,7 +1753,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadbls2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadbls2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1817,7 +1817,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadblg1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadblg1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1881,7 +1881,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadbls1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadbls1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -1945,7 +1945,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadblsc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadblsc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -2009,7 +2009,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadblcg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadblcg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )
@@ -2073,7 +2073,7 @@ public class atarisy1
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_roadblc1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roadblc1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x88000, REGION_CPU1, 0 )	/* 8.5*64k for 68000 code & slapstic ROM */
 		ROM_LOAD16_BYTE( "136032.205",   0x000000, 0x004000, CRC(88d0be26) SHA1(d124045eccc562ff0423b23a240e27ad740fa0c9) )
 		ROM_LOAD16_BYTE( "136032.206",   0x000001, 0x004000, CRC(3c79ef05) SHA1(20fdca7131478e1ee12691bdafd2d5bb74cbd16f) )

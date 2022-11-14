@@ -191,7 +191,7 @@ public class digdug
 	
 	
 	/* input from the outside world */
-	static InputPortPtr input_ports_digdug = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( digdug )
+	static InputPortHandlerPtr input_ports_digdug = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( digdug )
 		PORT_START(); 	/* DSW0 */
 		PORT_DIPNAME( 0x07, 0x01, DEF_STR( "Coin_B") );
 		PORT_DIPSETTING(    0x07, DEF_STR( "3C_1C") );
@@ -373,7 +373,7 @@ public class digdug
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_digdug = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_digdug = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code for the first CPU  */
 		ROM_LOAD( "136007.101",   0x0000, 0x1000, CRC(b9198079) SHA1(1d3fe04020f584ed250e32fdc6f6a3b769342884) )
 		ROM_LOAD( "136007.102",   0x1000, 0x1000, CRC(b2acbe49) SHA1(c8f713e8cfa70d3bc64d3002ff7bffc65ee138e2) )
@@ -411,7 +411,7 @@ public class digdug
 		ROM_LOAD( "digdug.spr",   0x0000, 0x0100, CRC(7a2815b4) SHA1(085ada18c498fdb18ecedef0ea8fe9217edb7b46) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_digdugb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_digdugb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code for the first CPU  */
 		ROM_LOAD( "dd1a.1",       0x0000, 0x1000, CRC(a80ec984) SHA1(86689980410b9429cd7582c7a76342721c87d030) )
 		ROM_LOAD( "dd1a.2",       0x1000, 0x1000, CRC(559f00bd) SHA1(fde17785df21956d6fd06bcfe675c392dadb1524) )
@@ -449,7 +449,7 @@ public class digdug
 		ROM_LOAD( "digdug.spr",   0x0000, 0x0100, CRC(7a2815b4) SHA1(085ada18c498fdb18ecedef0ea8fe9217edb7b46) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_digdugat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_digdugat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code for the first CPU  */
 		ROM_LOAD( "201.007",      0x0000, 0x1000, CRC(23d0b1a4) SHA1(a118d55e03a9ccf069f37c7bac2c9044dccd1f5e) )
 		ROM_LOAD( "202.007",      0x1000, 0x1000, CRC(5453dc1f) SHA1(8be091dd53e9b44e80e1ac9b1751efbe832db78d) )
@@ -487,7 +487,7 @@ public class digdug
 		ROM_LOAD( "digdug.spr",   0x0000, 0x0100, CRC(7a2815b4) SHA1(085ada18c498fdb18ecedef0ea8fe9217edb7b46) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_digduga1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_digduga1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code for the first CPU  */
 		ROM_LOAD( "136007.101",   0x0000, 0x1000, CRC(b9198079) SHA1(1d3fe04020f584ed250e32fdc6f6a3b769342884) )
 		ROM_LOAD( "136007.102",   0x1000, 0x1000, CRC(b2acbe49) SHA1(c8f713e8cfa70d3bc64d3002ff7bffc65ee138e2) )
@@ -525,7 +525,7 @@ public class digdug
 		ROM_LOAD( "digdug.spr",   0x0000, 0x0100, CRC(7a2815b4) SHA1(085ada18c498fdb18ecedef0ea8fe9217edb7b46) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dzigzag = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dzigzag = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code for the first CPU  */
 		ROM_LOAD( "136007.101",   0x0000, 0x1000, CRC(b9198079) SHA1(1d3fe04020f584ed250e32fdc6f6a3b769342884) )
 		ROM_LOAD( "136007.102",   0x1000, 0x1000, CRC(b2acbe49) SHA1(c8f713e8cfa70d3bc64d3002ff7bffc65ee138e2) )

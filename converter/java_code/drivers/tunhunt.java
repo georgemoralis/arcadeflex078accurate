@@ -177,7 +177,7 @@ public class tunhunt
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_tunhunt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tunhunt )
+	static InputPortHandlerPtr input_ports_tunhunt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tunhunt )
 		PORT_START(); 
 		PORT_BIT ( 0x01, IP_ACTIVE_HIGH, IPT_TILT );
 		PORT_BIT ( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON1 );
@@ -371,7 +371,7 @@ public class tunhunt
 	
 	*/
 	
-	static RomLoadPtr rom_tunhunt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tunhunt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "001.lm1",	0x5000, 0x800, CRC(2601a3a4) SHA1(939bafc54576fdaccf688b49cc9d201b03feec3a) )
 		ROM_LOAD( "002.k1",		0x5800, 0x800, CRC(29bbf3df) SHA1(4a0ec4cfab362a976d3962b347f687db45095cfd) )
@@ -395,7 +395,7 @@ public class tunhunt
 		ROM_LOAD( "018.h9",		0x140, 0x400, CRC(6547c208) SHA1(f19c334f9b4a1cfcbc913c0920688db2730dded0) )	/* color lookup table? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tunhuntc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tunhuntc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "001.lm1",	0x5000, 0x800, CRC(2601a3a4) SHA1(939bafc54576fdaccf688b49cc9d201b03feec3a) )
 		ROM_LOAD( "002.k1",		0x5800, 0x800, CRC(29bbf3df) SHA1(4a0ec4cfab362a976d3962b347f687db45095cfd) )

@@ -115,7 +115,7 @@ public class blockhl
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_blockhl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blockhl )
+	static InputPortHandlerPtr input_ports_blockhl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blockhl )
 		PORT_START(); 	/* PLAYER 1 INPUTS */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
@@ -265,7 +265,7 @@ public class blockhl
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_blockhl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blockhl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18800, REGION_CPU1, 0 ) /* code + banked roms + space for banked RAM */
 		ROM_LOAD( "973l02.e21", 0x10000, 0x08000, CRC(e14f849a) SHA1(d44cf178cc98998b72ed32c6e20b6ebdf1f97579) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -289,7 +289,7 @@ public class blockhl
 		ROM_LOAD( "973a11.h10", 0x0000, 0x0100, CRC(46d28fe9) SHA1(9d0811a928c8907785ef483bfbee5445506b3ec8) )	/* priority encoder (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_quarth = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quarth = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18800, REGION_CPU1, 0 ) /* code + banked roms + space for banked RAM */
 		ROM_LOAD( "973j02.e21", 0x10000, 0x08000, CRC(27a90118) SHA1(51309385b93db29b9277d14252166c4ea1746303) )
 		ROM_CONTINUE(           0x08000, 0x08000 )

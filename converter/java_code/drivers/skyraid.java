@@ -138,7 +138,7 @@ public class skyraid
 	};
 	
 	
-	static InputPortPtr input_ports_skyraid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skyraid )
+	static InputPortHandlerPtr input_ports_skyraid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skyraid )
 		PORT_START(); 
 		PORT_DIPNAME( 0x30, 0x00, "Language" );
 		PORT_DIPSETTING(    0x00, "English" );
@@ -295,7 +295,7 @@ public class skyraid
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_skyraid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skyraid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "030595.e1", 0x7000, 0x800, CRC(c6cb3a2b) SHA1(e4cb8d259446d0614c0c8f097f97dcf21869782e) )
 		ROM_RELOAD(            0xF000, 0x800 )

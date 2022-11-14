@@ -208,7 +208,7 @@ public class atetris
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_atetris = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( atetris )
+	static InputPortHandlerPtr input_ports_atetris = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( atetris )
 		// These ports are read via the Pokeys
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -234,7 +234,7 @@ public class atetris
 	
 	
 	// Same as the regular one except they added a Flip Controls switch
-	static InputPortPtr input_ports_atetcktl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( atetcktl )
+	static InputPortHandlerPtr input_ports_atetcktl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( atetcktl )
 		// These ports are read via the Pokeys
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -355,7 +355,7 @@ public class atetris
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_atetris = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atetris = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "1100.45f",     0x10000, 0x8000, CRC(2acbdb09) SHA1(5e1189227f26563fd3e5372121ea5c915620f892) )
 		ROM_CONTINUE(             0x08000, 0x8000 )
@@ -365,7 +365,7 @@ public class atetris
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_atetrisa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atetrisa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "d1",           0x10000, 0x8000, CRC(2bcab107) SHA1(3cfb8df8cd3782f3ff7f6b32ff15c461352061ee) )
 		ROM_CONTINUE(             0x08000, 0x8000 )
@@ -375,7 +375,7 @@ public class atetris
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_atetrisb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atetrisb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "tetris.01",    0x10000, 0x8000, CRC(944d15f6) SHA1(926fa5cb26b6e6a50bea455eec1f6d3fb92aa95c) )
 		ROM_CONTINUE(             0x08000, 0x8000 )
@@ -390,7 +390,7 @@ public class atetris
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_atetcktl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atetcktl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "tetcktl1.rom", 0x10000, 0x8000, CRC(9afd1f4a) SHA1(323d1576d92c905e8e95108b39cabf6fa0c10db6) )
 		ROM_CONTINUE(             0x08000, 0x8000 )
@@ -400,7 +400,7 @@ public class atetris
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_atetckt2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_atetckt2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "1102.45f",     0x10000, 0x8000, CRC(1bd28902) SHA1(ae8c34f082bce1f827bf60830f207c46cb282421) )
 		ROM_CONTINUE(             0x08000, 0x8000 )

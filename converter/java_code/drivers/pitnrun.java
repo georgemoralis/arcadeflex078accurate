@@ -193,7 +193,7 @@ public class pitnrun
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_pitnrun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pitnrun )
+	static InputPortHandlerPtr input_ports_pitnrun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pitnrun )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1  );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_SERVICE1 );
@@ -317,7 +317,7 @@ public class pitnrun
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_pitnrun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pitnrun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "pr12",  0x00000, 0x02000, CRC(587a7b85) SHA1(f200ff9b706e13760a23e0187c6bffe496af0087) )
 		ROM_LOAD( "pr11",  0x02000, 0x02000, CRC(270cd6dd) SHA1(ad42562e18aa30319fc55c201e5507e8734a5b4d) )

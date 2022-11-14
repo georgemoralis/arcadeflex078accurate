@@ -122,7 +122,7 @@ public class diverboy
 	
 	
 	
-	static InputPortPtr input_ports_diverboy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( diverboy )
+	static InputPortHandlerPtr input_ports_diverboy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( diverboy )
 		PORT_START(); 	// 0x180000.w
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );// unused ?
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );// unused ?
@@ -238,7 +238,7 @@ public class diverboy
 	
 	
 	
-	static RomLoadPtr rom_diverboy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_diverboy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "db_01.bin", 0x00000, 0x20000, CRC(6aa11366) SHA1(714c8a4a64c18632825a734a76a2d1b031106d76) )
 		ROM_LOAD16_BYTE( "db_02.bin", 0x00001, 0x20000, CRC(45f8a673) SHA1(4eea1374cafacb4a2e0b623fcb802deb5fca1b3a) )

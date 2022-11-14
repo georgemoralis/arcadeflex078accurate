@@ -273,7 +273,7 @@ public class exzisus
 		PORT_DIPSETTING(    0x01, "Hard" );\
 		PORT_DIPSETTING(    0x00, "Hardest" );
 	
-	static InputPortPtr input_ports_exzisus = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( exzisus )
+	static InputPortHandlerPtr input_ports_exzisus = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( exzisus )
 		/* IN0 */
 		EXZISUS_PLAYERS_INPUT( IPF_PLAYER1 )
 		PORT_BIT( 0xc0, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -393,7 +393,7 @@ public class exzisus
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_exzisus = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exzisus = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )     				/* Z80 CPU A */
 		ROM_LOAD( "b23-11.bin", 0x00000, 0x08000, CRC(d6a79cef) SHA1(e2b56aa38c017b24b50f304b9fe49ee14006f9a4) )
 		ROM_CONTINUE(           0x10000, 0x08000 )

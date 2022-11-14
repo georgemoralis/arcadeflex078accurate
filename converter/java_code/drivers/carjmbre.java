@@ -118,7 +118,7 @@ public class carjmbre
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_carjmbre = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( carjmbre )
+	static InputPortHandlerPtr input_ports_carjmbre = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( carjmbre )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );	//coin error if held high for 1s
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );	//or if many coins inserted quickly
@@ -236,7 +236,7 @@ public class carjmbre
 		MDRV_SOUND_ADD(AY8910, carjmbre_ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_carjmbre = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_carjmbre = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "c1",      0x0000, 0x1000, CRC(62b21739) SHA1(710e5c52f27603aa8f864f6f28d7272f21271d60) )
 		ROM_LOAD( "c2",      0x1000, 0x1000, CRC(9ab1a0fa) SHA1(519cf67b98e62b2b42232788ba01ab6637880afc) )

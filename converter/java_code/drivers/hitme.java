@@ -33,7 +33,7 @@ public class hitme
 	data8_t *hitme_vidram;
 	
 	
-	static InputPortPtr input_ports_hitme = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hitme )
+	static InputPortHandlerPtr input_ports_hitme = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hitme )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );/* Start button */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );/* Always high */
@@ -99,7 +99,7 @@ public class hitme
 		PORT_DIPSETTING(    0x07, "40 Hands" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_brickyrd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( brickyrd )
+	static InputPortHandlerPtr input_ports_brickyrd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( brickyrd )
 		PORT_START(); 
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );/* Start button */
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );/* Always high */
@@ -329,7 +329,7 @@ public class hitme
 		/* sound hardware */
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_hitme = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hitme = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, ROMREGION_INVERT ) /* 64k for code */
 		ROM_LOAD( "hm0.b7", 0x0000, 0x0200, CRC(6c48c50f) SHA1(42dc7c3461687e5be4393cc21d695bc84ae4f5dc) )
 		ROM_LOAD( "hm2.c7", 0x0200, 0x0200, CRC(25d47ba4) SHA1(6f3bb4ca6918dc07f37d0c0c7fe5ec53aa7171a5) )
@@ -340,7 +340,7 @@ public class hitme
 	    ROM_LOAD( "hmcg.h7", 0x0000, 0x0200, CRC(818f5fbe) SHA1(e2b3349e51ba57d14f3388ba93891bc6274b7a14) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mblkjack = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mblkjack = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, ROMREGION_INVERT ) /* 64k for code */
 		ROM_LOAD( "mirco1.bin", 0x0000, 0x0200, CRC(aa796ad7) SHA1(2908bdb4ab17a2f5bc4da2f957906bf2b57afa50) )
 		ROM_LOAD( "hm2.c7", 0x0200, 0x0200, CRC(25d47ba4) SHA1(6f3bb4ca6918dc07f37d0c0c7fe5ec53aa7171a5) )
@@ -351,7 +351,7 @@ public class hitme
 	    ROM_LOAD( "hmcg.h7", 0x0000, 0x0200, CRC(818f5fbe) SHA1(e2b3349e51ba57d14f3388ba93891bc6274b7a14) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_barricad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_barricad = new RomLoadHandlerPtr(){ public void handler(){ 
 	   ROM_REGION( 0x10000, REGION_CPU1, ROMREGION_INVERT ) /* 64k for code */
 	   ROM_LOAD( "550806.7b",   0x0000, 0x0200, CRC(ea7f5da7) SHA1(c0ad37a0ffdb0500e8adc8fb9c4369e461307f84) )
 	   ROM_LOAD( "550807.7c",   0x0200, 0x0200, CRC(0afef174) SHA1(2a7be988262b855bc81a1b0036fa9f2481d4d53b) )
@@ -362,7 +362,7 @@ public class hitme
 	   ROM_LOAD( "550805.7h",   0x0000, 0x0200, CRC(35197599) SHA1(3c49af89b1bc1d495e1d6265ff3feaf33c56facb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_brickyrd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_brickyrd = new RomLoadHandlerPtr(){ public void handler(){ 
 	   ROM_REGION( 0x10000, REGION_CPU1, ROMREGION_INVERT ) /* 64k for code */
 	   ROM_LOAD( "550806.7b",   0x0000, 0x0200, CRC(ea7f5da7) SHA1(c0ad37a0ffdb0500e8adc8fb9c4369e461307f84) )
 	   ROM_LOAD( "barricad.7c", 0x0200, 0x0200, CRC(94e1d1c0) SHA1(f6e6f9a783867c3602ba8cff6a18c47c5df987a4) )

@@ -103,7 +103,7 @@ public class ltcasino
 	};
 	
 	
-	static InputPortPtr input_ports_ltcasino = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ltcasino )
+	static InputPortHandlerPtr input_ports_ltcasino = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ltcasino )
 		PORT_START();  /* Q in service */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START1 );//or start2?
 		PORT_DIPNAME( 0x02, 0x00, DEF_STR( "Unknown") );
@@ -290,7 +290,7 @@ public class ltcasino
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ltcasin2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ltcasin2 )
+	static InputPortHandlerPtr input_ports_ltcasin2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ltcasin2 )
 		PORT_START();  /* Q in service */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START1 );//start?
 		PORT_DIPNAME( 0x02, 0x00, DEF_STR( "Unknown") );
@@ -542,7 +542,7 @@ public class ltcasino
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_ltcasino = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ltcasino = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "a",			0x8000, 0x1000, CRC(14909fee) SHA1(bf53fa65da7f013ea1ac6b4942cdfdb34ef16252) )
 		ROM_LOAD( "b",			0x9800, 0x0800, CRC(1473f854) SHA1(eadaec1f6d653e61458bc262945c20140f4530eb) )
@@ -556,7 +556,7 @@ public class ltcasino
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ltcasin2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ltcasin2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "lc2_ra.bin", 0x8000, 0x1000, CRC(1a595442) SHA1(b8fe3e5ed2024a57187c0ce547c1bbef2429ed63) )
 		ROM_LOAD( "lc2_rb.bin", 0x9000, 0x1000, CRC(4f5502c1) SHA1(cd1b7c08d26fed71c45e44ebd208bd18dc262e8f) )

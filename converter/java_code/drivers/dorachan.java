@@ -78,7 +78,7 @@ public class dorachan
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_dorachan = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dorachan )
+	static InputPortHandlerPtr input_ports_dorachan = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dorachan )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START1 );
@@ -122,7 +122,7 @@ public class dorachan
 		MDRV_VIDEO_UPDATE(generic_bitmapped)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_dorachan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dorachan = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "c1.e1",      0x0000, 0x400, CRC(29d66a96) SHA1(a0297d87574af65c6ded99aeb377ac407f6f163f) )
 		ROM_LOAD( "d2.e2",      0x0400, 0x400, CRC(144b6cd1) SHA1(195ce86e912a4b395097008c6d812fd75a1a2482) )

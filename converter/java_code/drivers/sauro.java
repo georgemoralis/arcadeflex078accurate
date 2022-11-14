@@ -203,7 +203,7 @@ public class sauro
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_tecfri = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tecfri )
+	static InputPortHandlerPtr input_ports_tecfri = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tecfri )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON2 );
@@ -393,7 +393,7 @@ public class sauro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_sauro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sauro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )          /* 64k for code */
 		ROM_LOAD( "sauro-2.bin",     0x00000, 0x8000, CRC(19f8de25) SHA1(52eea7c0416ab0a8dbb3d1664b2f57ab7a405a67) )
 		ROM_LOAD( "sauro-1.bin",     0x08000, 0x8000, CRC(0f8b876f) SHA1(6e61a8934a2cc3c80c1f47dd59aa43aaeec12f75) )
@@ -421,7 +421,7 @@ public class sauro
 		ROM_LOAD( "82s137-1.bin",    0x0800, 0x0400, CRC(bdfcf00c) SHA1(9faf4d7f8959b64faa535c9945eec59c774a3760) )  /* Blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_trckydoc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_trckydoc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )          /* 64k for code */
 		ROM_LOAD( "trckydoc.d9",  0x0000,  0x8000, CRC(c6242fc3) SHA1(c8a6f6abe8b51061a113ed75fead0479df68ec40) )
 		ROM_LOAD( "trckydoc.b9",  0x8000,  0x8000, CRC(8645c840) SHA1(79c2acfc1aeafbe94afd9d230200bd7cdd7bcd1b) )

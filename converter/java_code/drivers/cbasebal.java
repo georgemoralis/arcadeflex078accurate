@@ -175,7 +175,7 @@ public class cbasebal
 	};
 	
 	
-	static InputPortPtr input_ports_cbasebal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cbasebal )
+	static InputPortHandlerPtr input_ports_cbasebal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cbasebal )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON3 );
@@ -304,7 +304,7 @@ public class cbasebal
 	
 	
 	
-	static RomLoadPtr rom_cbasebal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cbasebal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x90000, REGION_CPU1, 0 )	/* 576k for code + 576k for decrypted opcodes */
 		ROM_LOAD( "cbj10.11j",    0x00000, 0x08000, CRC(bbff0acc) SHA1(db9e2c89e030255851789caaf85f24dc73609d9b) )
 		ROM_LOAD( "cbj07.16f",    0x10000, 0x20000, CRC(8111d13f) SHA1(264e21e824c87f55da326440c6ed71e1c287a63e) )

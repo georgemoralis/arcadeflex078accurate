@@ -521,7 +521,7 @@ public class psikyo
 							Samurai Aces / Sengoku Ace (Japan)
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_samuraia = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( samuraia )
+	static InputPortHandlerPtr input_ports_samuraia = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( samuraia )
 	
 		PORT_START(); 	// IN0 - c00000&1
 		PSIKYO_PORT_PLAYER2
@@ -640,7 +640,7 @@ public class psikyo
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sngkace = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sngkace )
+	static InputPortHandlerPtr input_ports_sngkace = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sngkace )
 	
 		PORT_START(); 	// IN0 - c00000&1
 		PSIKYO_PORT_PLAYER2
@@ -765,7 +765,7 @@ public class psikyo
 									Battle K-Road
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_btlkroad = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( btlkroad )
+	static InputPortHandlerPtr input_ports_btlkroad = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( btlkroad )
 	
 		PORT_START(); 	// IN0 - c00000&1
 		PSIKYO_PORT_PLAYER2
@@ -892,7 +892,7 @@ public class psikyo
 									Gun Bird
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_gunbird = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gunbird )
+	static InputPortHandlerPtr input_ports_gunbird = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gunbird )
 	
 		PORT_START(); 	// IN0 - c00000&1
 		PSIKYO_PORT_PLAYER2
@@ -1002,7 +1002,7 @@ public class psikyo
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gunbirdj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gunbirdj )
+	static InputPortHandlerPtr input_ports_gunbirdj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gunbirdj )
 	
 		PORT_START(); 	// IN0 - c00000&1
 		PSIKYO_PORT_PLAYER2
@@ -1095,7 +1095,7 @@ public class psikyo
 									Strikers 1945
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_s1945 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( s1945 )
+	static InputPortHandlerPtr input_ports_s1945 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( s1945 )
 	
 		PORT_START(); 	// IN0 - c00000&1
 		PSIKYO_PORT_PLAYER2
@@ -1206,7 +1206,7 @@ public class psikyo
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_s1945j = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( s1945j )
+	static InputPortHandlerPtr input_ports_s1945j = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( s1945j )
 	
 		PORT_START(); 	// IN0 - c00000&1
 		PSIKYO_PORT_PLAYER2
@@ -1299,7 +1299,7 @@ public class psikyo
 									Tengai
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_tengai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tengai )
+	static InputPortHandlerPtr input_ports_tengai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tengai )
 	
 		PORT_START(); 	// IN0 - c00000&1
 		PSIKYO_PORT_PLAYER2
@@ -1625,7 +1625,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_samuraia = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_samuraia = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "4-u127.bin", 0x000000, 0x040000, CRC(8c9911ca) SHA1(821ba648b9a1d495c600cbf4606f2dbddc6f9e6f) ) // 1&0
@@ -1651,7 +1651,7 @@ public class psikyo
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sngkace = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sngkace = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1-u127.bin", 0x000000, 0x040000, CRC(6c45b2f8) SHA1(08473297e174f3a6d67043f3b16f4e6b9c68b826) ) // 1&0
@@ -1734,7 +1734,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gunbird = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunbird = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "4-u46.bin", 0x000000, 0x040000, CRC(b78ec99d) SHA1(399b79931652d9df1632cd4d7ec3d214e473a5c3) ) // 1&0
@@ -1764,7 +1764,7 @@ public class psikyo
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gunbirdk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunbirdk = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1k-u46.bin", 0x000000, 0x080000, CRC(745cee52) SHA1(6c5bb92c92c55f882484417bc1aa580684019610) ) // 1&0
@@ -1794,7 +1794,7 @@ public class psikyo
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gunbirdj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunbirdj = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1-u46.bin", 0x000000, 0x040000, CRC(474abd69) SHA1(27f37333075f9c92849101aad4875e69004d747b) ) // 1&0
@@ -1825,7 +1825,7 @@ public class psikyo
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_btlkroad = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_btlkroad = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "4-u46.bin", 0x000000, 0x040000, CRC(8a7a28b4) SHA1(f7197be673dfd0ddf46998af81792b81d8fe9fbf) ) // 1&0
@@ -1884,7 +1884,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_s1945jn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_s1945jn = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1-u46.bin", 0x000000, 0x080000, CRC(45fa8086) SHA1(f1753b9420596f4b828c77e877a044ba5fb01b28) ) // 1&0
@@ -1948,7 +1948,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_s1945 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_s1945 = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "2s.u40", 0x000000, 0x040000, CRC(9b10062a) SHA1(cf963bba157422b659d8d64b4493eb7d69cd07b7) ) // 1&0
@@ -1978,7 +1978,7 @@ public class psikyo
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_s1945j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_s1945j = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1-u40.bin", 0x000000, 0x040000, CRC(c00eb012) SHA1(080dae010ca83548ebdb3324585d15e48baf0541) ) // 1&0
@@ -2057,7 +2057,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tengai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tengai = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "2-u40.bin", 0x000000, 0x080000, CRC(ab6fe58a) SHA1(6687a3af192b3eab60d75ca286ebb8e0636297b5) ) // 1&0

@@ -132,7 +132,7 @@ public class raiders5
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_raiders5 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( raiders5 )
+	static InputPortHandlerPtr input_ports_raiders5 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( raiders5 )
 		PORT_START(); 
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_VBLANK );
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -289,7 +289,7 @@ public class raiders5
 	/****************************************************************************/
 	
 	
-	static RomLoadPtr rom_raiders5 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_raiders5 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* CPU1 */
 		ROM_LOAD( "raiders5.1", 0x0000,  0x4000, CRC(47cea11f) SHA1(0499e6627ad9c16775fdc59f2ff56dfdfc23490a) )
 		ROM_LOAD( "raiders5.2", 0x4000,  0x4000, CRC(eb2ff410) SHA1(5c995b66b6301cd3cd58efd173481deaa036f842) )
@@ -303,7 +303,7 @@ public class raiders5
 		ROM_LOAD( "raiders5.11n", 0x8000,  0x4000, CRC(c0895090) SHA1(a3a1ae57ed66bc095ea9bfb26470290f67aab1fe) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_raidrs5t = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_raidrs5t = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* CPU1 */
 		ROM_LOAD( "raiders1.4c", 0x0000,  0x4000, CRC(4e2d5679) SHA1(a1c1603ba98814a83b92ad024ca4422aea872111) )
 		ROM_LOAD( "raiders2.4d", 0x4000,  0x4000, CRC(c8604be1) SHA1(6d23f26174bb9b2f7db3a5fa6b39674fe237135b) )

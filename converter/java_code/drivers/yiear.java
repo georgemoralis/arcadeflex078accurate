@@ -112,7 +112,7 @@ public class yiear
 	
 	
 	
-	static InputPortPtr input_ports_yiear = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( yiear )
+	static InputPortHandlerPtr input_ports_yiear = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( yiear )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -299,7 +299,7 @@ public class yiear
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_yiear = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yiear = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "i08.10d",      0x08000, 0x4000, CRC(e2d7458b) SHA1(1b192130b5cd879ab686a21aa2b518c90edd89aa) )
 		ROM_LOAD( "i07.8d",       0x0c000, 0x4000, CRC(7db7442e) SHA1(d604a995a5505251904447ad697fc9e7f94bf241) )
@@ -321,7 +321,7 @@ public class yiear
 		ROM_LOAD( "a12_9.bin",    0x00000, 0x2000, CRC(f75a1539) SHA1(f139f6cb41351eb81ee47d777db03012aa5fadb1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_yiear2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yiear2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "d12_8.bin",    0x08000, 0x4000, CRC(49ecd9dd) SHA1(15692029351e87837cc5a251947ff315fd723aa4) )
 		ROM_LOAD( "d14_7.bin",    0x0c000, 0x4000, CRC(bc2e1208) SHA1(a5a0c78ff4e02bd7da3eab3842dfe99956e74155) )

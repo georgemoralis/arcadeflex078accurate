@@ -208,7 +208,7 @@ public class pirates
 	
 	/* Input Ports */
 	
-	static InputPortPtr input_ports_pirates = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pirates )
+	static InputPortHandlerPtr input_ports_pirates = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pirates )
 		PORT_START(); 	// IN0 - 0x300000.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -323,7 +323,7 @@ public class pirates
 	
 	/* Rom Loading */
 	
-	static RomLoadPtr rom_pirates = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pirates = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code (encrypted) */
 		ROM_LOAD16_BYTE( "r_449b.bin",  0x00000, 0x80000, CRC(224aeeda) SHA1(5b7e47a106af0debf8b07f120571f437ad6ab5c3) )
 		ROM_LOAD16_BYTE( "l_5c1e.bin",  0x00001, 0x80000, CRC(46740204) SHA1(6f1da3b2cbea25bbfdec74c625c5fb23459b83b6) )
@@ -344,7 +344,7 @@ public class pirates
 		ROM_LOAD( "s89_49d4.bin", 0x000000, 0x080000, CRC(63a739ec) SHA1(c57f657225e62b3c9c5f0c7185ad7a87794d55f4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_genix = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_genix = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code (encrypted) */
 		ROM_LOAD16_BYTE( "1.15",  0x00000, 0x80000, CRC(d26abfb0) SHA1(4a89ba7504f86cb612796c376f359ab61ec3d902) )
 		ROM_LOAD16_BYTE( "2.16",  0x00001, 0x80000, CRC(a14a25b4) SHA1(9fa64c6514bdee56b5654b001f8367283b461e8a) )

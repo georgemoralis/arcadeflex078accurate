@@ -232,7 +232,7 @@ public class nyny
 	
 	
 	
-	static InputPortPtr input_ports_nyny = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nyny )
+	static InputPortHandlerPtr input_ports_nyny = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nyny )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );	/* PIA0 PA0 */
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_SERVICE1 );/* PIA0 PA1 */
@@ -370,7 +370,7 @@ public class nyny
 	***************************************************************************/
 	
 	
-	static RomLoadPtr rom_nyny = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nyny = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x10000, REGION_CPU1, 0)	/* 64k for code for the first CPU (Video) */
 		ROM_LOAD( "nyny01s.100",  0xa800, 0x800, CRC(a2b76eca) SHA1(e46717e6ad330be4c4e7d9fab4f055f89aa31bcc) )
 		ROM_LOAD( "nyny02s.099",  0xb000, 0x800, CRC(ef2d4dae) SHA1(718c0ecf7770a780aebb1dc8bf4ca86ea0a5ea28) )
@@ -392,7 +392,7 @@ public class nyny
 		ROM_LOAD( "nyny11.snd",   0xf800, 0x800, CRC(650450fc) SHA1(214693df394ca05eff5dbe1e800107d326ba80f6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nynyg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nynyg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x10000, REGION_CPU1, 0)	/* 64k for code for the first CPU (Video) */
 		ROM_LOAD( "gny1.cpu",     0xa800, 0x800, CRC(fb5b8f17) SHA1(2202325451dfd4e7c16cba93f0fade46929ffa72) )
 		ROM_LOAD( "gny2.cpu",     0xb000, 0x800, CRC(d248dd93) SHA1(0c4579698f8917332041c08af6902b8f8acd7d62) )
@@ -416,7 +416,7 @@ public class nyny
 		ROM_LOAD( "nyny11.snd",   0xf800, 0x800, CRC(650450fc) SHA1(214693df394ca05eff5dbe1e800107d326ba80f6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arcadia = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arcadia = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x10000, REGION_CPU1, 0)	/* 64k for code for the first CPU (Video) */
 		ROM_LOAD( "ar-01",        0xa800, 0x800, CRC(7b7e8f27) SHA1(2bb1d07d87ad5b952de9460c840d7e8b59ed1b4a) )
 		ROM_LOAD( "ar-02",        0xb000, 0x800, CRC(81d9e172) SHA1(4279582f1edf54f0974fa277565d8ade6d9faa50) )

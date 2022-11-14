@@ -95,7 +95,7 @@ public class labyrunr
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_labyrunr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( labyrunr )
+	static InputPortHandlerPtr input_ports_labyrunr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( labyrunr )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -270,7 +270,7 @@ public class labyrunr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tricktrp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tricktrp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "771e04",     0x10000, 0x08000, CRC(ba2c7e20) SHA1(713dcc0e65bf9431f2c0df9db1210346a9476a52) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -287,7 +287,7 @@ public class labyrunr
 																/* there is no char lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_labyrunr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_labyrunr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "771j04.10f", 0x10000, 0x08000, CRC(354a41d0) SHA1(302e8f5c469ad3f615aeca8005ebde6b6051aaae) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -301,7 +301,7 @@ public class labyrunr
 																/* there is no char lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_labyrunk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_labyrunk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "771k04.10f", 0x10000, 0x08000, CRC(9816ab35) SHA1(6efb0332f4a62f20889f212682ee7225e4a182a9) )
 		ROM_CONTINUE(           0x08000, 0x08000 )

@@ -112,7 +112,7 @@ public class thoop2
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_thoop2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( thoop2 )
+	static InputPortHandlerPtr input_ports_thoop2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( thoop2 )
 	
 	PORT_START(); 	/* DSW #2 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
@@ -228,7 +228,7 @@ public class thoop2
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_thoop2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thoop2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"th2c23.040",	0x000000, 0x080000, CRC(3e465753) SHA1(1ea1173b9fe5d652e7b5fafb822e2535cecbc198) )
 		ROM_LOAD16_BYTE(	"th2c22.040",	0x000001, 0x080000, CRC(837205b7) SHA1(f78b90c2be0b4dddaba26f074ea00eff863cfdb2) )

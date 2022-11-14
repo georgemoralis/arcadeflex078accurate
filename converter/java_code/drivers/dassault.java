@@ -303,7 +303,7 @@ public class dassault
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, start );
 	
 	
-	static InputPortPtr input_ports_thndzone = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( thndzone )
+	static InputPortHandlerPtr input_ports_thndzone = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( thndzone )
 		PORT_START(); 
 		DASSAULT_PLAYER_INPUT( IPF_PLAYER1, IPT_START1 )
 	
@@ -381,7 +381,7 @@ public class dassault
 		DASSAULT_PLAYER_INPUT( IPF_PLAYER4, IPT_COIN4 )
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dassault = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dassault )
+	static InputPortHandlerPtr input_ports_dassault = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dassault )
 		PORT_START(); 
 		DASSAULT_PLAYER_INPUT( IPF_PLAYER1, IPT_START1 )
 	
@@ -454,7 +454,7 @@ public class dassault
 		DASSAULT_PLAYER_INPUT( IPF_PLAYER4, IPT_COIN4 )
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dassaul4 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dassaul4 )
+	static InputPortHandlerPtr input_ports_dassaul4 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dassaul4 )
 		PORT_START(); 
 		DASSAULT_PLAYER_INPUT( IPF_PLAYER1, IPT_UNUSED )
 	
@@ -646,7 +646,7 @@ public class dassault
 	
 	/**********************************************************************************/
 	
-	static RomLoadPtr rom_dassault = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dassault = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE("01.bin", 0x00000, 0x20000, CRC(14f17ea7) SHA1(0bb8b7dba05f1ea42e68838861f0d4c263eac6b3) )
 		ROM_LOAD16_BYTE("03.bin", 0x00001, 0x20000, CRC(bed1b90c) SHA1(c100f89b69025e2ff885b35a733abc627da98a07) )
@@ -702,7 +702,7 @@ public class dassault
 		/* Above prom also at 16s and 17s */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dassaul4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dassaul4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE("gs01", 0x00000, 0x20000, CRC(8613634d) SHA1(69b64e54fde3b5f1ee3435d7327b84e7a7d43f6d) )
 		ROM_LOAD16_BYTE("gs03", 0x00001, 0x20000, CRC(ea860bd4) SHA1(6e4e2d004433ad5842b4bc895eaa8f55bd1ee168) )
@@ -758,7 +758,7 @@ public class dassault
 		/* Above prom also at 16s and 17s */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_thndzone = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thndzone = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE("gz_01.bin", 0x00000, 0x20000, CRC(15e8c328) SHA1(8876b5fde77604c2fe4654271ceb341a8fa460c1) )
 		ROM_LOAD16_BYTE("gz_03.bin", 0x00001, 0x20000, CRC(aab5c86e) SHA1(c3560b15360ddf14e8444d9f70724e698b2bd42f) )

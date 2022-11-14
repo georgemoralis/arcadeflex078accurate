@@ -2046,7 +2046,7 @@ public class metro
 										Bal Cube
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_balcube = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( balcube )
+	static InputPortHandlerPtr input_ports_balcube = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( balcube )
 		PORT_START(); 	// IN0 - $500000
 		COINS
 	
@@ -2090,7 +2090,7 @@ public class metro
 									Bang Bang Ball
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_bangball = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bangball )
+	static InputPortHandlerPtr input_ports_bangball = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bangball )
 		PORT_START(); 	// IN0 - $d00000
 		COINS
 	
@@ -2133,7 +2133,7 @@ public class metro
 								Blazing Tornado
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_blzntrnd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blzntrnd )
+	static InputPortHandlerPtr input_ports_blzntrnd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blzntrnd )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0007, 0x0004, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(      0x0007, "Beginner" );
@@ -2250,7 +2250,7 @@ public class metro
 								Grand Striker 2
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_gstrik2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gstrik2 )
+	static InputPortHandlerPtr input_ports_gstrik2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gstrik2 )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0003, 0x0003, "Player Vs Com" );
 		PORT_DIPSETTING(      0x0003, "1:00" );
@@ -2395,7 +2395,7 @@ public class metro
 	     On  On    Continue, Retry level
 	
 	*/
-	static InputPortPtr input_ports_daitorid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( daitorid )
+	static InputPortHandlerPtr input_ports_daitorid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( daitorid )
 		PORT_START(); 	// IN0 - $c00000
 		COINS
 	
@@ -2446,7 +2446,7 @@ public class metro
 	
 	   Even if there are 4 "tables" the 2 first ones and the 2 last ones
 	   contains the same values for the timer. */
-	static InputPortPtr input_ports_dharma = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dharma )
+	static InputPortHandlerPtr input_ports_dharma = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dharma )
 		PORT_START(); 	// IN0 - $c00000
 		COINS
 	
@@ -2489,7 +2489,7 @@ public class metro
 									Karate Tournament
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_karatour = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( karatour )
+	static InputPortHandlerPtr input_ports_karatour = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( karatour )
 		PORT_START(); 	// IN0 - $400002
 		JOY_LSB(2, BUTTON1, BUTTON2, UNKNOWN, UNKNOWN)
 	
@@ -2553,7 +2553,7 @@ public class metro
 									Lady Killer
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_ladykill = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ladykill )
+	static InputPortHandlerPtr input_ports_ladykill = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ladykill )
 		PORT_START(); 	// IN0 - $400002
 		JOY_LSB(2, BUTTON1, BUTTON2, UNKNOWN, UNKNOWN)
 	
@@ -2613,7 +2613,7 @@ public class metro
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'ladykill' but NO "Nudity" Dip Switch */
-	static InputPortPtr input_ports_moegonta = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( moegonta )
+	static InputPortHandlerPtr input_ports_moegonta = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( moegonta )
 		PORT_START(); 	// IN0 - $400002
 		JOY_LSB(2, BUTTON1, BUTTON2, UNKNOWN, UNKNOWN)
 	
@@ -2681,7 +2681,7 @@ public class metro
 	   So WHY can't the game display cards instead of mahjong tiles ?
 	   Is it due to different GFX ROMS or to an emulation bug ?
 	*/
-	static InputPortPtr input_ports_lastfort = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lastfort )
+	static InputPortHandlerPtr input_ports_lastfort = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lastfort )
 		PORT_START(); 	// IN0 - $c00004
 		COINS
 	
@@ -2729,7 +2729,7 @@ public class metro
 	***************************************************************************/
 	
 	/* Same as 'lastfort' but WORKING "Tiles" Dip Switch */
-	static InputPortPtr input_ports_lastfero = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lastfero )
+	static InputPortHandlerPtr input_ports_lastfero = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lastfero )
 		PORT_START(); 	// IN0 - $c00004
 		COINS
 	
@@ -2776,7 +2776,7 @@ public class metro
 								Mahjong Doukyuusei
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_dokyusei = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dokyusei )
+	static InputPortHandlerPtr input_ports_dokyusei = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dokyusei )
 		PORT_START(); 	// IN0 - $478880.w
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BITX(0x0002, IP_ACTIVE_LOW, 0, "A",   KEYCODE_A,        IP_JOY_NONE );
@@ -2892,7 +2892,7 @@ public class metro
 	
 	/* Same as dokyusei, without the DSWs (these games have an eeprom) */
 	
-	static InputPortPtr input_ports_gakusai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gakusai )
+	static InputPortHandlerPtr input_ports_gakusai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gakusai )
 		PORT_START(); 	// IN0 - $278880.w
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BITX(0x0002, IP_ACTIVE_LOW, 0, "A",   KEYCODE_A,        IP_JOY_NONE );
@@ -2957,7 +2957,7 @@ public class metro
 										Mouja
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_mouja = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mouja )
+	static InputPortHandlerPtr input_ports_mouja = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mouja )
 		PORT_START(); 	// IN0 - $478880
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
@@ -3042,7 +3042,7 @@ public class metro
 									Pang Poms
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_pangpoms = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pangpoms )
+	static InputPortHandlerPtr input_ports_pangpoms = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pangpoms )
 		PORT_START(); 	// IN0 - $800004
 		COINS
 	
@@ -3087,7 +3087,7 @@ public class metro
 									Poitto!
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_poitto = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( poitto )
+	static InputPortHandlerPtr input_ports_poitto = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( poitto )
 		PORT_START(); 	// IN0 - $800000
 		COINS
 	
@@ -3131,7 +3131,7 @@ public class metro
 									Puzzli
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_puzzli = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( puzzli )
+	static InputPortHandlerPtr input_ports_puzzli = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( puzzli )
 		PORT_START(); 	// IN0 - $c00000
 		COINS
 	
@@ -3175,7 +3175,7 @@ public class metro
 									Sankokushi
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_3kokushi = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 3kokushi )
+	static InputPortHandlerPtr input_ports_3kokushi = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 3kokushi )
 		PORT_START(); 	// IN0 - $c00000
 		COINS
 	
@@ -3237,7 +3237,7 @@ public class metro
 									Pururun
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_pururun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pururun )
+	static InputPortHandlerPtr input_ports_pururun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pururun )
 		PORT_START(); 	// IN0 - $400000
 		COINS
 	
@@ -3296,7 +3296,7 @@ public class metro
 	       "none"       "none"
 	
 	*/
-	static InputPortPtr input_ports_skyalert = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skyalert )
+	static InputPortHandlerPtr input_ports_skyalert = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skyalert )
 		PORT_START(); 	// IN0 - $400004
 		COINS
 	
@@ -3345,7 +3345,7 @@ public class metro
 	   All I can tell is that is that it affects the levels which are
 	   proposed, but there is no evidence that one "table" is harder
 	   than another. */
-	static InputPortPtr input_ports_toride2g = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( toride2g )
+	static InputPortHandlerPtr input_ports_toride2g = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( toride2g )
 		PORT_START(); 	// IN0 - $800000
 		COINS
 	
@@ -4232,7 +4232,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_balcube = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_balcube = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "6", 0x000000, 0x040000, CRC(c400f84d) SHA1(416eb82ec1201d24d9d964191a5a1792c9445923) )
 		ROM_LOAD16_BYTE( "5", 0x000001, 0x040000, CRC(15313e3f) SHA1(10a8702016f223194dc91875b4736253fd47dbb8) )
@@ -4278,7 +4278,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bangball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bangball = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "rom#006.u18", 0x000000, 0x040000, CRC(0e4124bc) SHA1(f5cd762df4e822ab5c8dba6f276b3366895235d1) )
 		ROM_LOAD16_BYTE( "rom#005.u19", 0x000001, 0x040000, CRC(3fa08587) SHA1(8fdafdde5e77d077b5cd8f94f97b5430fe062936) )
@@ -4310,7 +4310,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_blzntrnd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blzntrnd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 68000 */
 		ROM_LOAD16_BYTE( "1k.bin", 0x000000, 0x80000, CRC(b007893b) SHA1(609363449c0218b8a38de72d37c66e6f3bb4f8cd) )
 		ROM_LOAD16_BYTE( "2k.bin", 0x000001, 0x80000, CRC(ec173252) SHA1(652d70055d2799442beede1ae68e54551931068f) )
@@ -4389,7 +4389,7 @@ public class metro
 	
 	*/
 	
-	static RomLoadPtr rom_gstrik2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gstrik2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 68000 */
 		ROM_LOAD16_BYTE( "prg0.107", 0x000000, 0x80000, CRC(e60a8c19) SHA1(19be6cfcb60ede6fd4eb2e14914b174107c4b52d) )
 		ROM_LOAD16_BYTE( "prg1.108", 0x000001, 0x80000, CRC(853f6f7c) SHA1(8fb9d7cd0390f620560a1669bb13f2033eed7c81) )
@@ -4450,7 +4450,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_daitorid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_daitorid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "dt-ja-5.19e", 0x000000, 0x020000, CRC(441efd77) SHA1(18b255f42ba7a180535f0897aaeebe5d2a33df46) )
 		ROM_LOAD16_BYTE( "dt-ja-6.19c", 0x000001, 0x020000, CRC(494f9cc3) SHA1(b88af581fee9e2d94a12a5c1fed0797614bb738e) )
@@ -4492,7 +4492,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_dharma = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dharma = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "jc-5", 0x000000, 0x020000, CRC(b5d44426) SHA1(d68aaf6b9976ccf5cb665d7ec0afa44e2453094d) )
 		ROM_LOAD16_BYTE( "jc-6", 0x000001, 0x020000, CRC(bc5a202e) SHA1(c2b6d2e44e3605e0525bde4030c5162badad4d4b) )
@@ -4547,7 +4547,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_karatour = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_karatour = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "kt002.8g",  0x000000, 0x040000, CRC(316a97ec) SHA1(4b099d2fa91822c9c85d647aab3d6779fc400250) )
 		ROM_LOAD16_BYTE( "kt003.10g", 0x000001, 0x040000, CRC(abe1b991) SHA1(9b6327169d66717dd9dd74816bc33eb208c3763c) )
@@ -4597,7 +4597,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ladykill = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ladykill = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "e2.bin",    0x000000, 0x040000, CRC(211a4865) SHA1(4315c0a708383d357d8dd89a1820fe6cf7652adb) )
 		ROM_LOAD16_BYTE( "e3.bin",    0x000001, 0x040000, CRC(581a55ea) SHA1(41bfcaae84e583bf185948ab53ec39c05180a7a4) )
@@ -4618,7 +4618,7 @@ public class metro
 		ROM_REGION( 0x20000*3, REGION_USER1, 0 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_moegonta = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_moegonta = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "j2.8g",     0x000000, 0x040000, CRC(aa18d130) SHA1(6e0fd3b95d8589665b418bcae4fe64b288289c78) )
 		ROM_LOAD16_BYTE( "j3.10g",    0x000001, 0x040000, CRC(b555e6ab) SHA1(adfc6eafec612c8770b9f832a0a2574c53c3d047) )
@@ -4662,7 +4662,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_lastfort = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lastfort = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "tr_jc09", 0x000000, 0x020000, CRC(8b98a49a) SHA1(15adca78d54973820d04f8b308dc58d0784eb900) )
 		ROM_LOAD16_BYTE( "tr_jc10", 0x000001, 0x020000, CRC(8d04da04) SHA1(5c7e65a39929e94d1fa99aeb5fed7030b110451f) )
@@ -4699,7 +4699,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_lastfero = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lastfero = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "tre_jc09", 0x000000, 0x020000, CRC(32f43390) SHA1(b5bad9d80f2155f277265fe487a59f0f4ec6575d) )
 		ROM_LOAD16_BYTE( "tre_jc10", 0x000001, 0x020000, CRC(9536369c) SHA1(39291e92c107be35d130ff29533b42581efc308b) )
@@ -4736,7 +4736,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_dokyusei = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dokyusei = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "330_a06.bin", 0x000000, 0x020000, CRC(36157c2e) SHA1(f855175143caf476dcbee5a8aaec802a8fdb64fa) )
 		ROM_LOAD16_BYTE( "330_a05.bin", 0x000001, 0x020000, CRC(177f50d2) SHA1(2298411152553041b907d9243aaa7983ca21c946) )
@@ -4769,7 +4769,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_dokyusp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dokyusp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "6.bin", 0x000000, 0x020000, CRC(01729b7f) SHA1(42a60f034ee5d5c2a42856b97d0d4c499b24627b) )
 		ROM_LOAD16_BYTE( "5.bin", 0x000001, 0x020000, CRC(57770776) SHA1(15093886f2fe49443e8d7541903714de0a14aa0b) )
@@ -4802,7 +4802,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gakusai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gakusai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "6.bin", 0x000000, 0x040000, CRC(6f8ab082) SHA1(18caf49a0c65f831d375f089f27b8570b094f029) )
 		ROM_LOAD16_BYTE( "5.bin", 0x000001, 0x040000, CRC(010176c4) SHA1(48fcea18c02c1426a699a636f44b21cf7625e8a0) )
@@ -4839,7 +4839,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gakusai2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gakusai2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "mg2a06.bin", 0x000000, 0x020000, CRC(8b006dd4) SHA1(893ec0e7c367d79bc99e65ab8abd0d290f2ede58) )
 		ROM_LOAD16_BYTE( "mg2a05.bin", 0x000001, 0x020000, CRC(7702b9ac) SHA1(09d0c11fa2c9ed9cde365cb1ff215d55e39b7734) )
@@ -4872,7 +4872,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mouja = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mouja = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "10.bin",      0x000000, 0x040000, CRC(f9742b69) SHA1(f8c6508b227403a82413ceeb0651922759d7e0f4) )
 		ROM_LOAD16_BYTE( "9.bin",       0x000001, 0x040000, CRC(dc77216f) SHA1(3b73d29f4e8e385f45f2abfb38eaffc2d8406948) )
@@ -4902,7 +4902,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_pangpoms = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pangpoms = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "ppoms09.bin", 0x000000, 0x020000, CRC(0c292dbc) SHA1(8b09de2a560e804e0dea514c95b317c2e2b6501d) )
 		ROM_LOAD16_BYTE( "ppoms10.bin", 0x000001, 0x020000, CRC(0bc18853) SHA1(68d50ad50caad34e72d32e7b9fea1d85af74b879) )
@@ -4924,7 +4924,7 @@ public class metro
 		ROM_LOAD( "ppoms11.bin", 0x000000, 0x020000, CRC(e89bd565) SHA1(6c7c1ad67ba708dbbe9654c1d290af290207d2be) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pangpomm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pangpomm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "pa.c09", 0x000000, 0x020000, CRC(e01a7a08) SHA1(1890b290dfb1521ab73b2392409aaf44b99d63bb) )
 		ROM_LOAD16_BYTE( "pa.c10", 0x000001, 0x020000, CRC(5e509cee) SHA1(821cfbf5f65cc3091eb8008310266f9f2c838072) )
@@ -4978,7 +4978,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_poitto = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_poitto = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "pt-jd05.20e", 0x000000, 0x020000, CRC(6b1be034) SHA1(270c94f6017c5ce77f562bfe17273c79d4455053) )
 		ROM_LOAD16_BYTE( "pt-jd06.20c", 0x000001, 0x020000, CRC(3092d9d4) SHA1(4ff95355fdf94eaa55c0ad46e6ce3b505e3ef790) )
@@ -5019,7 +5019,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_puzzli = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_puzzli = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "pz.jb5",       0x000000, 0x020000, CRC(33bbbd28) SHA1(41a98cfbdd60a638e4aa08f15f1730a2436106f9) )
 		ROM_LOAD16_BYTE( "pz.jb6",       0x000001, 0x020000, CRC(e0bdea18) SHA1(9941a2cd88d7a3c1a640f837d9f34c39ba643ee5) )
@@ -5049,7 +5049,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_3kokushi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_3kokushi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "5.bin",        0x000000, 0x040000, CRC(6104ea35) SHA1(efb4a9a98577894fac720028f18cb9877a00239a) )
 		ROM_LOAD16_BYTE( "6.bin",        0x000001, 0x040000, CRC(aac25540) SHA1(811de761bb1b3cc47d811b00f4b5c960c8f061d0) )
@@ -5102,7 +5102,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_pururun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pururun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "pu9-19-5.20e", 0x000000, 0x020000, CRC(5a466a1b) SHA1(032eeaf66ce1b601385a8e76d2efd9ea6fd34680) )
 		ROM_LOAD16_BYTE( "pu9-19-6.20c", 0x000001, 0x020000, CRC(d155a53c) SHA1(6916a1bad82c624b8757f5124416dac50a8dd7f5) )
@@ -5134,7 +5134,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_skyalert = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skyalert = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "sa_c_09.bin", 0x000000, 0x020000, CRC(6f14d9ae) SHA1(37e134af3d8461280dab971bc3ee9112f25de335) )
 		ROM_LOAD16_BYTE( "sa_c_10.bin", 0x000001, 0x020000, CRC(f10bb216) SHA1(d904030fbb838d906ca69a77cffe286e903b273d) )
@@ -5188,7 +5188,7 @@ public class metro
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_toride2g = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_toride2g = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "tr2aja-5.20e", 0x000000, 0x040000, CRC(b96a52f6) SHA1(353b5599d50d96b96bdd6352c046ad669cf8da44) )
 		ROM_LOAD16_BYTE( "tr2aja-6.20c", 0x000001, 0x040000, CRC(2918b6b4) SHA1(86ebb884759dc9a8a701784d19845467aa1ce11b) )

@@ -188,7 +188,7 @@ public class dlair
 	
 	
 	
-	static InputPortPtr input_ports_dlair = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dlair )
+	static InputPortHandlerPtr input_ports_dlair = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dlair )
 		PORT_START(); 
 	INPUT_PORTS_END(); }}; 
 	
@@ -257,7 +257,7 @@ public class dlair
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_dlair = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dlair = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "u45",          0x0000, 0x2000, CRC(329b354a) SHA1(54bbc5aa647d3c20166a57f9d3aa5569e7289af8) )
 		ROM_LOAD( "u46",          0x2000, 0x2000, CRC(8479612b) SHA1(b5543a06928274bde0e1bdda0747d936feaff177) )

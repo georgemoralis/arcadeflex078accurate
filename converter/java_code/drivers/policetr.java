@@ -317,7 +317,7 @@ public class policetr
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_policetr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( policetr )
+	static InputPortHandlerPtr input_ports_policetr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( policetr )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -472,7 +472,7 @@ public class policetr
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_policetr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_policetr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )		/* dummy region for R3000 */
 	
 		ROM_REGION( 0x400000, REGION_GFX1, ROMREGION_ERASE00 )
@@ -495,7 +495,7 @@ public class policetr
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_policeto = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_policeto = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )		/* dummy region for R3000 */
 	
 		ROM_REGION( 0x400000, REGION_GFX1, ROMREGION_ERASE00 )
@@ -518,7 +518,7 @@ public class policetr
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_plctr13b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_plctr13b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )		/* dummy region for R3000 */
 	
 		ROM_REGION( 0x400000, REGION_GFX1, ROMREGION_ERASE00 )
@@ -546,7 +546,7 @@ public class policetr
 		ROM_RELOAD(              0x4f8000, 0x100000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sshooter = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sshooter = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )		/* dummy region for R3000 */
 	
 		ROM_REGION( 0x800000, REGION_GFX1, ROMREGION_ERASE00 )

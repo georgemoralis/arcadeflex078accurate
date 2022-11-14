@@ -180,7 +180,7 @@ public class xyonix
 	
 	/* Inputs Ports **************************************************************/
 	
-	static InputPortPtr input_ports_xyonix = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( xyonix )
+	static InputPortHandlerPtr input_ports_xyonix = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( xyonix )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -281,7 +281,7 @@ public class xyonix
 	
 	/* ROM Loading ***************************************************************/
 	
-	static RomLoadPtr rom_xyonix = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xyonix = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "xyonix3.bin", 0x00000, 0x10000, CRC(1960a74e) SHA1(5fd7bc31ca2f5f1e114d3d0ccf6554ebd712cbd3) )
 	

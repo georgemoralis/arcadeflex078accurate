@@ -107,7 +107,7 @@ public class ssozumo
 	};
 	
 	
-	static InputPortPtr input_ports_ssozumo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ssozumo )
+	static InputPortHandlerPtr input_ports_ssozumo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ssozumo )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -281,7 +281,7 @@ public class ssozumo
 	
 	
 	
-	static RomLoadPtr rom_ssozumo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ssozumo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		/* Main Program ROMs */
 		ROM_LOAD( "ic61.g01",	0x06000, 0x2000, CRC(86968f46) SHA1(6acd111b71fbb4ef00ae03be4fb93d305a6564e7) )	// m1

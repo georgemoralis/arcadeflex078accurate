@@ -75,7 +75,7 @@ public class midxunit
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_revx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( revx )
+	static InputPortHandlerPtr input_ports_revx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( revx )
 		PORT_START(); 
 		PORT_BIT( 0x000f, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0010, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
@@ -245,7 +245,7 @@ public class midxunit
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_revx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_revx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34020 dummy region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */

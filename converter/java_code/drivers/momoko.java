@@ -112,7 +112,7 @@ public class momoko
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_momoko = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( momoko )
+	static InputPortHandlerPtr input_ports_momoko = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( momoko )
 	    PORT_START(); 
 	    PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START2 );
 	    PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_START1 );
@@ -286,7 +286,7 @@ public class momoko
 	
 	/****************************************************************************/
 	
-	static RomLoadPtr rom_momoko = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_momoko = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "momoko03.bin", 0x0000,  0x8000, CRC(386e26ed) SHA1(ad746ed1b87bafc5b4df9a28aade58cf894f4e7b) )
 		ROM_LOAD( "momoko02.bin", 0x8000,  0x4000, CRC(4255e351) SHA1(27a0e8d8aea223d2128139582e3b66106f3608ef) )

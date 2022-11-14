@@ -120,7 +120,7 @@ public class sonson
 	
 	
 	
-	static InputPortPtr input_ports_sonson = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sonson )
+	static InputPortHandlerPtr input_ports_sonson = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sonson )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );/* probably unused */
@@ -289,7 +289,7 @@ public class sonson
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_sonson = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sonson = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code + 3*16k for the banked ROMs images */
 		ROM_LOAD( "ss.01e",       0x4000, 0x4000, CRC(cd40cc54) SHA1(4269586099638d31dd30381e94538701982e9f5a) )
 		ROM_LOAD( "ss.02e",       0x8000, 0x4000, CRC(c3476527) SHA1(499b879a12b55443ec833e5a2819e9da20e3b033) )
@@ -318,7 +318,7 @@ public class sonson
 		ROM_LOAD( "ssb1.k11",     0x0240, 0x0100, CRC(a04b0cfe) SHA1(89ab33c6b0aa313ebda2f11516cea667a9951a81) )	/* unknown (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sonsonj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sonsonj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code + 3*16k for the banked ROMs images */
 		ROM_LOAD( "ss_0.l9",      0x4000, 0x2000, CRC(705c168f) SHA1(28d3b186cd0b927d96664051fb759b64ecc18908) )
 		ROM_LOAD( "ss_1.j9",      0x6000, 0x2000, CRC(0f03b57d) SHA1(7d14a88f43952d5c4df2951a5b62e399ba5ef37b) )

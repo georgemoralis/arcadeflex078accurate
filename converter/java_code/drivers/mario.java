@@ -217,7 +217,7 @@ public class mario
 	
 	
 	
-	static InputPortPtr input_ports_mario = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mario )
+	static InputPortHandlerPtr input_ports_mario = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mario )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_2WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_2WAY );
@@ -261,7 +261,7 @@ public class mario
 		PORT_DIPSETTING(    0xc0, "Hardest" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mariojp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mariojp )
+	static InputPortHandlerPtr input_ports_mariojp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mariojp )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_2WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_2WAY );
@@ -477,7 +477,7 @@ public class mario
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mario = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mario = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "mario.7f",     0x0000, 0x2000, CRC(c0c6e014) SHA1(36a04f9ca1c2a583477cb8a6f2ef94e044e08296) )
 		ROM_LOAD( "mario.7e",     0x2000, 0x2000, CRC(116b3856) SHA1(e372f846d0e5a2b9b47ebd0330293fcc8a12363f) )
@@ -503,7 +503,7 @@ public class mario
 		ROM_LOAD( "mario.4p",     0x0000, 0x0200, CRC(afc9bd41) SHA1(90b739c4c7f24a88b6ac5ca29b06c032906a2801) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mariojp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mariojp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "tma1c-a1.7f",  0x0000, 0x2000, CRC(b64b6330) SHA1(f7084251ac325bbfa3fb804da16a50622e1fd213) )
 		ROM_LOAD( "tma1c-a2.7e",  0x2000, 0x2000, CRC(290c4977) SHA1(5af266be0ddc883c6548c90e4a9084024a1e91a0) )
@@ -529,7 +529,7 @@ public class mario
 		ROM_LOAD( "mario.4p",     0x0000, 0x0200, CRC(afc9bd41) SHA1(90b739c4c7f24a88b6ac5ca29b06c032906a2801) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_masao = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_masao = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "masao-4.rom",  0x0000, 0x2000, CRC(07a75745) SHA1(acc760242a8862d177e3cff90aa32c4f3dac4e65) )
 		ROM_LOAD( "masao-3.rom",  0x2000, 0x2000, CRC(55c629b6) SHA1(1f5b5699821871aadacc511663cb4bd4e357e215) )

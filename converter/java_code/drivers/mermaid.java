@@ -86,7 +86,7 @@ public class mermaid
 	};
 	
 	
-	static InputPortPtr input_ports_mermaid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mermaid )
+	static InputPortHandlerPtr input_ports_mermaid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mermaid )
 		PORT_START();       /* DSW */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -248,7 +248,7 @@ public class mermaid
 	  Game driver(s)
 	
 	***************************************************************************/
-	static RomLoadPtr rom_mermaid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mermaid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "g960_32.15",	  0x0000, 0x1000, CRC(8311f090) SHA1(c59485a712cf1cd384f03874c693b58e972fe4da) )
 		ROM_LOAD( "g960_33.16",	  0x1000, 0x1000, CRC(9f274fc4) SHA1(4098e98c9d95f7e621de061925374154a23c5d35) )
@@ -278,7 +278,7 @@ public class mermaid
 		ROM_LOAD( "g960_42.39",	  0x0000, 0x1000, CRC(287840bb) SHA1(9a1836f39f328b0c9672976d95a9ece45bb9e89f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rougien = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rougien = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "rou-00.bin", 0x0000,  0x1000,  CRC(14cd1108) SHA1(46657fa4d900936e2a71ad43702d2c43fef09efe) )
 		ROM_LOAD( "rou-01.bin", 0x1000,  0x1000,  CRC(ee40670d) SHA1(7c31c3b693999bc1ae42b9f2de1a9883d3db535d) )

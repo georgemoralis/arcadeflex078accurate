@@ -221,7 +221,7 @@ public class jrpacman
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_jrpacman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jrpacman )
+	static InputPortHandlerPtr input_ports_jrpacman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jrpacman )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_4WAY );
@@ -379,7 +379,7 @@ public class jrpacman
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_jrpacman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jrpacman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "jrp8d.bin",    0x0000, 0x2000, CRC(e3fa972e) SHA1(5ea34621213c649ca2848ab31aab2cbe751723d4) )
 		ROM_LOAD( "jrp8e.bin",    0x2000, 0x2000, CRC(ec889e94) SHA1(8294e9e79f8fd19a419431fa690e6ac4a1302f58) )

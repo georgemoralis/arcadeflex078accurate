@@ -3155,7 +3155,7 @@ public class stv
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_PLAYER##_n_ );\
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_PLAYER##_n_ );
 	
-	static InputPortPtr input_ports_stv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stv )
+	static InputPortHandlerPtr input_ports_stv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stv )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, "PDR1" );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -3279,7 +3279,7 @@ public class stv
 	INPUT_PORTS_END(); }}; 
 	
 	/*Same as the regular one,but with an additional & optional mahjong panel*/
-	static InputPortPtr input_ports_stvmp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stvmp )
+	static InputPortHandlerPtr input_ports_stvmp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stvmp )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, "PDR1" );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -3726,7 +3726,7 @@ public class stv
 		ROM_REGION( 0x100000, REGION_GFX1, 0 ) /* VDP2 GFX */ \
 		ROM_REGION( 0x100000, REGION_GFX2, 0 ) /* VDP1 GFX */ \
 	
-	static RomLoadPtr rom_stvbios = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stvbios = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	ROM_END(); }}; 
 	
@@ -3780,7 +3780,7 @@ public class stv
 	
 	
 	
-	static RomLoadPtr rom_astrass = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astrass = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2400000, REGION_USER1, 0 ) /* SH2 code */
@@ -3795,7 +3795,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20833.9",     0x2000000, 0x0400000, CRC(cb6af231) SHA1(4a2e5d7c2fd6179c19cdefa84a03f9a34fbb9e70) ) // good (was .19s)
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bakubaku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bakubaku = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -3806,7 +3806,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr17973.5",    0x1000000, 0x0400000, CRC(5f6e0e8b) SHA1(eeb5efb5216ab8b8fdee4656774bbd5a2a5b2d42) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_colmns97 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_colmns97 = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0xc00000, REGION_USER1, 0 ) /* SH2 code */
@@ -3816,7 +3816,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr19555.3",     0x800000, 0x400000, CRC(74f6e6b8) SHA1(8080860550eb770e04447e344fb337748a249761) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cotton2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cotton2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2000000, REGION_USER1, 0 ) /* SH2 code */
@@ -3830,7 +3830,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20123.8",    0x1c00000, 0x0400000, CRC(35f1b89f) SHA1(1d6007c380f817def734fc3030d4fe56df4a15be) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cottonbm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cottonbm = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1c00000, REGION_USER1, 0 ) /* SH2 code */
@@ -3843,7 +3843,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr21069.1",    0x1800000, 0x0400000, CRC(6a28e3c5) SHA1(60454b71db49b872e0cb89fae2259fed601588bd) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_decathlt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_decathlt = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1800000, REGION_USER1, 0 ) /* SH2 code */
@@ -3855,7 +3855,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr18972.6",    0x1400000, 0x0400000, CRC(45c64fca) SHA1(ae2f678b9885426ce99b615b7f62a451f9ef83f9) ) // good (was .5)
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_diehard = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_diehard = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	STV_BIOS // must use USA
 		ROM_REGION32_BE( 0x1800000, REGION_USER1, 0 ) /* SH2 code */
 		ROM_LOAD( "fpr19119.13",               0x0000000, 0x0100000, CRC(de5c4f7c) SHA1(35f670a15e9c86edbe2fe718470f5a75b5b096ac) ) // ic13 bad?!
@@ -3865,7 +3865,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr19118.5",    0x1000000, 0x0400000, CRC(2c9702f0) SHA1(5c2c66de83f2ccbe97d3b1e8c7e65999e1fa2de1) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dnmtdeka = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dnmtdeka = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1800000, REGION_USER1, 0 ) /* SH2 code */
@@ -3876,7 +3876,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr19118.5",    0x1000000, 0x0400000, CRC(2c9702f0) SHA1(5c2c66de83f2ccbe97d3b1e8c7e65999e1fa2de1) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ejihon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ejihon = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1800000, REGION_USER1, 0 ) /* SH2 code */
@@ -3888,7 +3888,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr18142.6",    0x1400000, 0x0400000, CRC(cf259541) SHA1(51e2c8d16506d6074f6511112ec4b6b44bed4886) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_elandore = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elandore = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2000000, REGION_USER1, 0 ) /* SH2 code */
@@ -3902,7 +3902,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr21308.8",    0x1c00000, 0x0400000, CRC(336ec1a4) SHA1(20d1fce050cf6132d284b91853a4dd5626372ef0) ) // good (was .18s)
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ffreveng = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ffreveng = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1c00000, REGION_USER1, 0 ) /* SH2 code */
@@ -3916,7 +3916,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	/* set system to 1 player to test rom */
-	static RomLoadPtr rom_fhboxers = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fhboxers = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2400000, REGION_USER1, 0 ) /* SH2 code */
@@ -3937,7 +3937,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	/* set system to 1 player to test rom */
-	static RomLoadPtr rom_findlove = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_findlove = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x3000000, REGION_USER1, 0 ) /* SH2 code */
@@ -3960,7 +3960,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20436.12",   0x2c00000, 0x0400000, CRC(e3823f49) SHA1(754d48635bd1d4fb01ff665bfe2a71593d92f688) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_finlarch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finlarch = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -3972,7 +3972,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gaxeduel = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaxeduel = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2000000, REGION_USER1, 0 ) /* SH2 code */
@@ -3985,7 +3985,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr17767.1",    0x1800000, 0x0400000, CRC(9ba1e7b1) SHA1(f297c3697d2e8ba4476d672267163f91f371b362) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_grdforce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grdforce = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1800000, REGION_USER1, 0 ) /* SH2 code */
@@ -3997,7 +3997,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20843.6",    0x1400000, 0x0400000, CRC(263e49cc) SHA1(67979861ca2784b3ce39d87e7994e6e7351b40e5) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_groovef = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_groovef = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4012,7 +4012,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr19822.9",    0x2000000, 0x0200000, CRC(5e8c4b5f) SHA1(1d146fbe3d0bfa68993135ba94ef18081ab65d31) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hanagumi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hanagumi = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x3000000, REGION_USER1, 0 ) /* SH2 code */
@@ -4030,7 +4030,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20148.12",   0x2c00000, 0x0400000, CRC(5337ccb0) SHA1(a998bb116eb10c4044410f065c5ddeb845f9dab5) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_introdon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_introdon = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1c00000, REGION_USER1, 0 ) /* SH2 code */
@@ -4045,7 +4045,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	/* set system to 1 player to test rom */
-	static RomLoadPtr rom_kiwames = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kiwames = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2000000, REGION_USER1, 0 ) /* SH2 code */
@@ -4055,7 +4055,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr18740.4",    0x0c00000, 0x0200000, CRC(9ca7962f) SHA1(a09e0db2246b34ca7efa3165afbc5ba292a95398) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_maruchan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maruchan = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4071,7 +4071,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	/* set system to 1 player to test rom */
-	static RomLoadPtr rom_myfairld = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_myfairld = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2000000, REGION_USER1, 0 ) /* SH2 code */
@@ -4085,7 +4085,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr21001.8",    0x1c00000, 0x0400000, CRC(95fbe549) SHA1(8cfb48f353b2849600373d66f293f103bca700df) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_othellos = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_othellos = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4096,7 +4096,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20966.5",    0x1000000, 0x0400000, CRC(b94b83de) SHA1(ba1b3135d0ad057f0786f94c9d06b5e347bedea8) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pblbeach = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pblbeach = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4107,7 +4107,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr18856.5",    0x1000000, 0x0400000, CRC(214cef24) SHA1(f62b462170b377cff16bb6c6126cbba00b013a87) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_prikura = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_prikura = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4118,7 +4118,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr19336.5",    0x1000000, 0x0400000, CRC(2363fa4b) SHA1(f45e53352520be4ea313eeab87bcab83f479d5a8) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_puyosun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_puyosun = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4133,7 +4133,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr19539.9",    0x2000000, 0x0400000, CRC(72a297e5) SHA1(679987e62118dd1bf7c074f4b88678e1a1187437) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rsgun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rsgun = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4144,7 +4144,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20962.5",   0x1000000, 0x0400000, CRC(f1e6c7fc) SHA1(0ba0972f1bc7c56f4e0589d3e363523cea988bb0) ) // good (was .15)
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sandor = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sandor = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2c00000, REGION_USER1, 0 ) /* SH2 code */
@@ -4155,7 +4155,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr18638.11",  0x2800000, 0x0400000, CRC(caab531b) SHA1(a77bdcc27d183896c0ed576eeebcc1785d93669e) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_thunt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thunt = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2c00000, REGION_USER1, 0 ) /* SH2 code */
@@ -4170,7 +4170,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "thunt.5",   0x1000000, 0x0400000, NO_DUMP )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sassisu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sassisu = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1c00000, REGION_USER1, 0 ) /* SH2 code */
@@ -4184,7 +4184,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	/* set to 1 player to test */
-	static RomLoadPtr rom_seabass = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_seabass = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4199,7 +4199,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20557.9",    0x2000000, 0x0400000, CRC(3c9ba442) SHA1(2e5b795cf4cdc11ab3e4887b2f77c7147c6e3eec) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shanhigw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shanhigw = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x0800000, REGION_USER1, 0 ) /* SH2 code */
@@ -4207,7 +4207,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr18340.2",    0x0400000, 0x0200000, CRC(8db23212) SHA1(85d604a5c6ab97188716dbcd77d365af12a238fe) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shienryu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shienryu = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x0c00000, REGION_USER1, 0 ) /* SH2 code */
@@ -4216,7 +4216,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr19633.3",    0x0800000, 0x0400000, CRC(e2f0b037) SHA1(97861d09e10ce5d2b10bf5559574b3f489e28077) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sleague = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sleague = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS // must use USA
 		ROM_REGION32_BE( 0x3000000, REGION_USER1, 0 ) /* SH2 code */
 		ROM_LOAD( "epr18777.13",               0x0000000, 0x0080000, CRC(8d180866) SHA1(d47ebabab6e06400312d39f68cd818852e496b96) ) // ic13 bad
@@ -4227,7 +4227,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr18782.12",   0x2c00000, 0x0200000, CRC(9be2270a) SHA1(f2de5cd6b269f123305e30bed2b474019e4f05b8) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sokyugrt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sokyugrt = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4239,7 +4239,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	/* set to 1 player to test */
-	static RomLoadPtr rom_sss = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sss = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1800000, REGION_USER1, 0 ) /* SH2 code */
@@ -4251,7 +4251,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr21493.6",    0x1400000, 0x0400000, CRC(efb2d271) SHA1(a591e48206704fbda5fef3ce69ad279da1017ed6) ) // ic6 good (was .16)
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_suikoenb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suikoenb = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4269,7 +4269,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr17842.9",    0x2000000, 0x0400000, CRC(ac8deed7) SHA1(370eb2216b8080d3ddadbd32804db63c4ebac76f) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_twcup98 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_twcup98 = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4280,7 +4280,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20824.5",    0x1000000, 0x0400000, CRC(4cf18a25) SHA1(310961a5f114fea8938a3f514dffd5231e910a5a) ) // ic5 good (was .15)
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vfkids = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vfkids = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x3000000, REGION_USER1, 0 ) /* SH2 code */
@@ -4296,7 +4296,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr18923.12",   0x2c00000, 0x0400000, CRC(30a41ae9) SHA1(78a3d88b5e6cf669b660460ac967daf408038883) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vfremix = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vfremix = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1c00000, REGION_USER1, 0 ) /* SH2 code */
@@ -4310,7 +4310,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	/* set to 1 player to test */
-	static RomLoadPtr rom_vmahjong = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vmahjong = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2000000, REGION_USER1, 0 ) /* SH2 code */
@@ -4324,7 +4324,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr19621.8",    0x1c00000, 0x0400000, CRC(f92616b3) SHA1(61a9dda92a86a02d027260e11b1bad3b0dda9f02) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_winterht = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_winterht = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2000000, REGION_USER1, 0 ) /* SH2 code */
@@ -4338,7 +4338,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20115.8",    0x1c00000, 0x0400000, CRC(dd01f2ad) SHA1(3bb48dc8670d9460fea2a67400ddb573472c2f4f) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_znpwfv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_znpwfv = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2800000, REGION_USER1, 0 ) /* SH2 code */
@@ -4354,7 +4354,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr20407.10",   0x2400000, 0x0400000, CRC(58356050) SHA1(f8fb5a14f4ec516093c785891b05d55ae345754e) ) // good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_danchih = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_danchih = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x1400000, REGION_USER1, 0 ) /* SH2 code */
@@ -4365,7 +4365,7 @@ public class stv
 		ROM_LOAD16_WORD_SWAP( "mpr21973.5",    0x1000000, 0x0400000, CRC(b0f23f14) SHA1(4e7076c29fd57bb3ef9af50a6104e39ecda94e06) )// good
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mausuke = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mausuke = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x2000000, REGION_USER1, 0 ) /* SH2 code */
@@ -4385,7 +4385,7 @@ public class stv
 	ROM_END(); }}; 
 	
 	/* acclaim game, not a standard cart ... */
-	static RomLoadPtr rom_batmanfr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_batmanfr = new RomLoadHandlerPtr(){ public void handler(){ 
 		STV_BIOS
 	
 		ROM_REGION32_BE( 0x3000000, REGION_USER1, 0 ) /* SH2 code */
@@ -4423,7 +4423,7 @@ public class stv
 		ROM_LOAD( "snd3.u51",   0x600000, 0x200000, CRC(31af26ae) SHA1(2c9f4c078afec55964b5c2a4d00f5c43f2661a04) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfish2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfish2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	//	STV_BIOS  - sports fishing 2 uses its own bios
 	
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH2 code */
@@ -4459,7 +4459,7 @@ public class stv
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sfish2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfish2j = new RomLoadHandlerPtr(){ public void handler(){ 
 	//	STV_BIOS  - sports fishing 2 uses its own bios
 	
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH2 code */

@@ -196,7 +196,7 @@ public class destroyr
 	};
 	
 	
-	static InputPortPtr input_ports_destroyr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( destroyr )
+	static InputPortHandlerPtr input_ports_destroyr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( destroyr )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW,  IPT_UNUSED );/* call 7400 */
 		PORT_BIT( 0x02, IP_ACTIVE_LOW,  IPT_UNUSED );
@@ -372,7 +372,7 @@ public class destroyr
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_destroyr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_destroyr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )                  /* program code */
 		ROM_LOAD( "30146-01.c3", 0x7800, 0x0800, CRC(e560c712) SHA1(0505ab57eee5421b4ff4e87d14505e02b18fd54c) )
 		ROM_RELOAD(              0xF800, 0x0800 )

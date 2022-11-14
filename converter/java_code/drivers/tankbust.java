@@ -264,7 +264,7 @@ public class tankbust
 	
 	
 	
-	static InputPortPtr input_ports_tankbust = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tankbust )
+	static InputPortHandlerPtr input_ports_tankbust = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tankbust )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -411,7 +411,7 @@ public class tankbust
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tankbust = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tankbust = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "a-s4-6.bin",		0x00000, 0x4000, CRC(8ebe7317) SHA1(bc45d530ad6335312c9c3efdcedf7acd2cdeeb55) )
 		ROM_LOAD( "a-s7-9.bin",		0x04000, 0x2000, CRC(047aee33) SHA1(62ee776c403b228e065baa9218f32597951ca935) )

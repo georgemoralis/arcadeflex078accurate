@@ -138,7 +138,7 @@ public class blueprnt
 	
 	
 	
-	static InputPortPtr input_ports_blueprnt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blueprnt )
+	static InputPortHandlerPtr input_ports_blueprnt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blueprnt )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START1 );
@@ -209,7 +209,7 @@ public class blueprnt
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_saturn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( saturn )
+	static InputPortHandlerPtr input_ports_saturn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( saturn )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START1 );
@@ -367,7 +367,7 @@ public class blueprnt
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_blueprnt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blueprnt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1m",           0x0000, 0x1000, CRC(b20069a6) SHA1(aa0a61c898ec58fc4872a24666f422e1abdc09f3) )
 		ROM_LOAD( "1n",           0x1000, 0x1000, CRC(4a30302e) SHA1(a3a22b78585cc9677bf03bbfeb20afb05f026075) )
@@ -389,7 +389,7 @@ public class blueprnt
 		ROM_LOAD( "d20",          0x2000, 0x1000, CRC(2fcb4f26) SHA1(508cb2800737bad0a7dea0789d122b7c802aecfd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blueprnj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blueprnj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "bp_01.bin",    0x0000, 0x1000, CRC(2e746693) SHA1(4a9bb023f753ba792d1db86a0fb128d5261db685) )
 		ROM_LOAD( "bp_02.bin",    0x1000, 0x1000, CRC(a0eb0b8e) SHA1(b3c830b61172880fd2843a47350d8cb9461a25a4) )
@@ -411,7 +411,7 @@ public class blueprnt
 		ROM_LOAD( "bp_12.bin",    0x2000, 0x1000, CRC(23026765) SHA1(9b16de37922208f4f2d2afc94189f11f5e5011fa) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_saturn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_saturn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "r1",           0x0000, 0x1000, CRC(18a6d68e) SHA1(816baca24dd75c6f9d4c91c86f90825dbb9a1347) )
 		ROM_LOAD( "r2",           0x1000, 0x1000, CRC(a7dd2665) SHA1(02d03fb436c704ccdbad751ccf034742fcd4ae43) )

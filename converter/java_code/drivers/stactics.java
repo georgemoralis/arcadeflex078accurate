@@ -125,7 +125,7 @@ public class stactics
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_stactics = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stactics )
+	static InputPortHandlerPtr input_ports_stactics = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stactics )
 	
 	    PORT_START();   /* 	IN0 */
 	    /*PORT_BIT (0x80, IP_ACTIVE_HIGH, IPT_UNUSED );Motor status. see stactics_port_0_r */
@@ -265,7 +265,7 @@ public class stactics
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_stactics = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stactics = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "epr-218x",     0x0000, 0x0800, CRC(b1186ad2) SHA1(88929a183ac0499619b3e07241f3b5a0c89bdab1) )
 		ROM_LOAD( "epr-219x",     0x0800, 0x0800, CRC(3b86036d) SHA1(6ad5e14dcfdbc6d2a0a32ae7f18ce41ab4b51eec) )

@@ -269,7 +269,7 @@ public class rockola
 	} };
 	
 	/* Derived from Zarzon. Might not reflect the actual hardware. */
-	static InputPortPtr input_ports_sasuke = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sasuke )
+	static InputPortHandlerPtr input_ports_sasuke = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sasuke )
 	    PORT_START();   /* IN0 */
 	    PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_2WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_2WAY );
@@ -317,7 +317,7 @@ public class rockola
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNKNOWN );/* connected to a counter - random number generator? */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_satansat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( satansat )
+	static InputPortHandlerPtr input_ports_satansat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( satansat )
 	    PORT_START();   /* IN0 */
 	    PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_2WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_2WAY );
@@ -364,7 +364,7 @@ public class rockola
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNKNOWN );/* connected to a counter - random number generator? */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_vanguard = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vanguard )
+	static InputPortHandlerPtr input_ports_vanguard = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vanguard )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON3 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON4 );
@@ -428,7 +428,7 @@ public class rockola
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_START1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fantasy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fantasy )
+	static InputPortHandlerPtr input_ports_fantasy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fantasy )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -492,7 +492,7 @@ public class rockola
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_START1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pballoon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pballoon )
+	static InputPortHandlerPtr input_ports_pballoon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pballoon )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -556,7 +556,7 @@ public class rockola
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_START1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_nibbler = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nibbler )
+	static InputPortHandlerPtr input_ports_nibbler = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nibbler )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* Slow down */
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* debug command? */
@@ -833,7 +833,7 @@ public class rockola
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_sasuke = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sasuke = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sc1",          0x4000, 0x0800, CRC(34cbbe03) SHA1(3d643e11370e61dde0c42c7761a856c5cf53d621) )
 		ROM_LOAD( "sc2",          0x4800, 0x0800, CRC(38cc14f0) SHA1(d60df67f2a32c131e8957e225b79618d6262463d) )
@@ -858,7 +858,7 @@ public class rockola
 		/* no sound ROMs - the sound section is entirely analog */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_satansat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_satansat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ss1",          0x4000, 0x0800, CRC(549dd13a) SHA1(06b55d0b1da84bef30857faa398aabfd04365eb6) )
 		ROM_LOAD( "ss2",          0x4800, 0x0800, CRC(04972fa8) SHA1(89833a7c893168acd5599ca7ad4b33a8f3df40c5) )
@@ -885,7 +885,7 @@ public class rockola
 		ROM_LOAD( "zarz134.54",   0x0800, 0x0800, CRC(580934d2) SHA1(c1c7eba56bca2a0ea6a68c0245b071a3308f92bd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_zarzon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zarzon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "zarz122.07",   0x4000, 0x0800, CRC(bdfa67e2) SHA1(0de06cf53ee21b8f14b933b61e6dc706338746c4) )
 		ROM_LOAD( "zarz123.08",   0x4800, 0x0800, CRC(d034e61e) SHA1(dc802c3d7a9f7e473e323e3272fca406dab6d55d) )
@@ -912,7 +912,7 @@ public class rockola
 		ROM_LOAD( "zarz134.54",   0x0800, 0x0800, CRC(580934d2) SHA1(c1c7eba56bca2a0ea6a68c0245b071a3308f92bd) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vanguard = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vanguard = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sk4_ic07.bin", 0x4000, 0x1000, CRC(6a29e354) SHA1(ff953962ebc14a28cfc96f8e269cb1e1c188ed8a) )
 		ROM_LOAD( "sk4_ic08.bin", 0x5000, 0x1000, CRC(302bba54) SHA1(1944f229481328a0635fafda65054106f42a532a) )
@@ -942,7 +942,7 @@ public class rockola
 		ROM_LOAD( "sk6_ic11.bin", 0x1000, 0x0800, CRC(c36df041) SHA1(8b51934229b961180d1edb99be3a4d337d37f66f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vangrdce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vangrdce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sk4_ic07.bin", 0x4000, 0x1000, CRC(6a29e354) SHA1(ff953962ebc14a28cfc96f8e269cb1e1c188ed8a) )
 		ROM_LOAD( "sk4_ic08.bin", 0x5000, 0x1000, CRC(302bba54) SHA1(1944f229481328a0635fafda65054106f42a532a) )
@@ -972,7 +972,7 @@ public class rockola
 		ROM_LOAD( "sk6_ic11.bin", 0x1000, 0x0800, CRC(c36df041) SHA1(8b51934229b961180d1edb99be3a4d337d37f66f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fantasy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fantasy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ic12.cpu",        0x3000, 0x1000, CRC(22cb2249) SHA1(6c43e3fa9638b6d2e069199968923e470bd5d18b) )
 		ROM_LOAD( "ic07.cpu",        0x4000, 0x1000, CRC(0e2880b6) SHA1(666d6942864eb7a90178b3b6e2b0eb23aa3c967f) )
@@ -1004,7 +1004,7 @@ public class rockola
 		ROM_LOAD( "fs_f_11.bin",     0x1000, 0x0800, CRC(3a352e1f) SHA1(af880ce3daed0877d454421bd08c86ff71f6bf72) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fantasyj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fantasyj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "fs5jic12.bin",    0x3000, 0x1000, CRC(dd1eac89) SHA1(d63078d4666e3c6db0c9b3f8b45ef81606ed5a4f) )
 		ROM_LOAD( "fs1jic7.bin",     0x4000, 0x1000, CRC(7b8115ae) SHA1(6274f937c57ab9cbb7c6283022b81f70dad7c232) )
@@ -1036,7 +1036,7 @@ public class rockola
 		ROM_LOAD( "fs_f_11.bin",     0x1000, 0x0800, CRC(3a352e1f) SHA1(af880ce3daed0877d454421bd08c86ff71f6bf72) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pballoon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pballoon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "sk7_ic12.bin", 0x3000, 0x1000, CRC(dfe2ae05) SHA1(21c98bef9d4d5fcb65ce5e9b20cde2259840459e) )
 		ROM_LOAD( "sk7_ic07.bin", 0x4000, 0x1000, CRC(736e67df) SHA1(a58d9561f62d396ca90b0f69afe6240d809b10bb) )
@@ -1061,7 +1061,7 @@ public class rockola
 		ROM_LOAD( "sk7_ic53.bin", 0x1000, 0x0800, CRC(a4c505cd) SHA1(47eea7e7ffa3dc8b35dc050ac1a1d77d6a5c4ece) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nibbler = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nibbler = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "g960-52.12",   0x3000, 0x1000, CRC(ac6a802b) SHA1(ac1072e30994f13097663dc24d9d1dc35a95d874) )
 		ROM_LOAD( "g960-48.07",   0x4000, 0x1000, CRC(35971364) SHA1(6430c7be9e5f47d3f1f2cc157d949246e4085e8b) )
@@ -1088,7 +1088,7 @@ public class rockola
 		ROM_LOAD( "g959-45.53",   0x1000, 0x0800, CRC(33189917) SHA1(01a1b1693db0172609780daeb60430fa0c8bcec2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nibblera = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nibblera = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ic12",         0x3000, 0x1000, CRC(6dfa1be5) SHA1(bb265702a2f74cb7d5ba27081f9fb2fe01dd95a5) )
 		ROM_LOAD( "ic07",         0x4000, 0x1000, CRC(808e1a03) SHA1(a747a16ee0c8cb803b72ac84e80f791b2bf1813a) )

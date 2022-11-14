@@ -1074,7 +1074,7 @@ public class namcos2
 	/*															 */
 	/*************************************************************/
 	
-	static InputPortPtr input_ports_default = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( default )
+	static InputPortHandlerPtr input_ports_default = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( default )
 		NAMCOS2_MCU_PORT_B_DEFAULT
 		NAMCOS2_MCU_PORT_C_DEFAULT
 		NAMCOS2_MCU_ANALOG_PORT_DEFAULT
@@ -1083,7 +1083,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gollygho = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gollygho )
+	static InputPortHandlerPtr input_ports_gollygho = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gollygho )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -1120,7 +1120,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_finallap = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( finallap )
+	static InputPortHandlerPtr input_ports_finallap = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( finallap )
 		PORT_START(); 		/* 63B05Z0 - PORT B */
 		PORT_DIPNAME( 0x01, 0x01, "PortB 0x01");
 		PORT_DIPSETTING(	0x01, "H" );
@@ -1187,7 +1187,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT  /* 63B05Z0 - $3000 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_finalap3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( finalap3 )
+	static InputPortHandlerPtr input_ports_finalap3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( finalap3 )
 		PORT_START(); 		/* 63B05Z0 - PORT B */
 		PORT_DIPNAME( 0x01, 0x01, "PortB 0x01");
 		PORT_DIPSETTING(	0x01, "H" );
@@ -1249,7 +1249,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT  /* 63B05Z0 - $3000 */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fourtrax = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fourtrax )
+	static InputPortHandlerPtr input_ports_fourtrax = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fourtrax )
 		PORT_START(); 		/* 63B05Z0 - PORT B */
 		PORT_DIPNAME( 0x01, 0x01, "PortB 0x01");
 		PORT_DIPSETTING(	0x01, "H" );
@@ -1334,7 +1334,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_assault = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( assault )
+	static InputPortHandlerPtr input_ports_assault = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( assault )
 		PORT_START(); 		/* 63B05Z0 - PORT B */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_LEFT | IPF_PLAYER2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_LEFT );
@@ -1381,7 +1381,7 @@ public class namcos2
 		PORT_BIT( 0xe0, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_suzuka = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( suzuka )
+	static InputPortHandlerPtr input_ports_suzuka = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( suzuka )
 		PORT_START(); 		/* 63B05Z0 - PORT B */
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_START2 );
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START1 );
@@ -1435,7 +1435,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_luckywld = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( luckywld )
+	static InputPortHandlerPtr input_ports_luckywld = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( luckywld )
 		PORT_START(); 		/* 63B05Z0 - PORT B */
 		PORT_BIT( 0x3f, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_START2 );
@@ -1470,7 +1470,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sgunner = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sgunner  )
+	static InputPortHandlerPtr input_ports_sgunner = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sgunner  )
 		PORT_START(); 		/* 63B05Z0 - PORT B */
 		PORT_BIT( 0x3f, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_START2 );
@@ -1507,7 +1507,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dirtfox = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dirtfox )
+	static InputPortHandlerPtr input_ports_dirtfox = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dirtfox )
 		PORT_START(); 		/* 63B05Z0 - PORT B */ \
 		PORT_BIT( 0x20, IP_ACTIVE_LOW, IPT_JOYSTICK_UP );/* Gear shift up */
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN );/* Gear shift down */
@@ -1538,7 +1538,7 @@ public class namcos2
 		NAMCOS2_MCU_DIAL_DEFAULT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_metlhawk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( metlhawk )
+	static InputPortHandlerPtr input_ports_metlhawk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( metlhawk )
 		PORT_START(); 		/* 63B05Z0 - PORT B */
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_START2 );
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START1 );
@@ -2043,7 +2043,7 @@ public class namcos2
 	
 	
 	/* ASSAULT (NAMCO) */
-	static RomLoadPtr rom_assault = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_assault = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "at2mp0b.bin",  0x000000, 0x010000, CRC(801f71c5) SHA1(b07366a7b5cc4f3dd12fc0455c55146680f9f3f7) )
 		ROM_LOAD16_BYTE( "at2mp1b.bin",  0x000001, 0x010000, CRC(72312d4f) SHA1(cbb1d430937dc201293885e177eb18535d8b2884) )
@@ -2097,7 +2097,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* ASSAULT (JAPAN) */
-	static RomLoadPtr rom_assaultj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_assaultj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "at1_mp0.bin",  0x000000, 0x010000, CRC(2d3e5c8c) SHA1(e43081a94c0d35fcb9ef48e248be59f0dd390b9b) )
 		ROM_LOAD16_BYTE( "at1_mp1.bin",  0x000001, 0x010000, CRC(851cec3a) SHA1(75afae79e1b5843d765677b457f38bed8eebf07c) )
@@ -2151,7 +2151,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* ASSAULT PLUS (NAMCO) */
-	static RomLoadPtr rom_assaultp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_assaultp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "mpr0.bin",	0x000000, 0x010000, CRC(97519f9f) SHA1(760580c0865931f18f4b0b4f609379c0dbeff977) )
 		ROM_LOAD16_BYTE( "mpr1.bin",	0x000001, 0x010000, CRC(c7f437c7) SHA1(f56d908ed557192cd6d583eccd5ded33807e73a9) )
@@ -2205,7 +2205,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* BURNING FORCE */
-	static RomLoadPtr rom_burnforc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_burnforc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "bumpr0c.bin",  0x000000, 0x020000, CRC(cc5864c6) SHA1(278b02b634ca07b066a817ed38a8557bcb13aa78) )
 		ROM_LOAD16_BYTE( "bumpr1c.bin",  0x000001, 0x020000, CRC(3e6b4b1b) SHA1(c765e1ba5873239c4d440678baaac6e95a410339) )
@@ -2258,7 +2258,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* COSMO GANG THE VIDEO (USA) */
-	static RomLoadPtr rom_cosmogng = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cosmogng = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "co2_mp0",  0x000000, 0x020000, CRC(2632c209) SHA1(a03136c18eff4e3d69dda955a3c774f2829393ec) )
 		ROM_LOAD16_BYTE( "co2_mp1",  0x000001, 0x020000, CRC(65840104) SHA1(71dfd379a985779e11e9e321ee998df21d03c30e) )
@@ -2304,7 +2304,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* COSMO GANG THE VIDEO (JAPAN) */
-	static RomLoadPtr rom_cosmognj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cosmognj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "co1mpr0.bin",  0x000000, 0x020000, CRC(d1b4c8db) SHA1(d14974edc458b95cca02defef073804f1af0f5de) )
 		ROM_LOAD16_BYTE( "co1mpr1.bin",  0x000001, 0x020000, CRC(2f391906) SHA1(d97e58eecaca84127caa3bc55d6aa256628e35d7) )
@@ -2350,7 +2350,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* DIRT FOX (JAPAN) */
-	static RomLoadPtr rom_dirtfoxj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dirtfoxj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "df1_mpr0.bin",	0x000000, 0x020000, CRC(8386c820) SHA1(a30f4e1b34d3a8294b42960fee6753c4a157e0a0) )
 		ROM_LOAD16_BYTE( "df1_mpr1.bin",	0x000001, 0x020000, CRC(51085728) SHA1(04ce7bd625f50bdf8f204d89b873072e5f48de20) )
@@ -2402,7 +2402,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* DRAGON SABER */
-	static RomLoadPtr rom_dsaber = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dsaber = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "mpr0.bin",	0x000000, 0x020000, CRC(45309ddc) SHA1(53b63046b0e5178695c998a0956667f4cf4204f2) )
 		ROM_LOAD16_BYTE( "mpr1.bin",	0x000001, 0x020000, CRC(cbfc4cba) SHA1(2037119f28af2b6a4af9e2019506ad7fccfa3113) )
@@ -2447,7 +2447,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* DRAGON SABER (JAPAN) */
-	static RomLoadPtr rom_dsaberj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dsaberj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "do1mpr0b.bin",	0x000000, 0x020000, CRC(2898e791) SHA1(9f4fd4899897cfb7c8f918abc2070e1ac4169f5d) )
 		ROM_LOAD16_BYTE( "do1mpr1b.bin",	0x000001, 0x020000, CRC(5fa9778e) SHA1(3beeb73a42e6afdf866a88618aa03fe8934ec2aa) )
@@ -2492,7 +2492,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINAL LAP (REV E) */
-	static RomLoadPtr rom_finallap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finallap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fl2mp0e",  0x000000, 0x010000, CRC(ed805674) SHA1(1d3f391a736303677c69438e5dd0919d0df9aec7) )
 		ROM_LOAD16_BYTE( "fl2mp1e",  0x000001, 0x010000, CRC(4c1d523b) SHA1(2aa096008f115c0c45bc930c8c7d514e824686f1) )
@@ -2544,7 +2544,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINAL LAP (revision D) */
-	static RomLoadPtr rom_finalapd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalapd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fl2-mp0d",	0x000000, 0x010000, CRC(3576d3aa) SHA1(4928cfc5c929de8cc5ec12ea87c678188d314c39) )
 		ROM_LOAD16_BYTE( "fl2-mp1d",	0x000001, 0x010000, CRC(22d3906d) SHA1(63f3076eeefca57daf427633f82fdea353a52da2) )
@@ -2596,7 +2596,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINAL LAP (revision C) */
-	static RomLoadPtr rom_finalapc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalapc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fl2-mp0c",	0x000000, 0x010000, CRC(f667f2c9) SHA1(79096bd600c001b21020ddf468e55c34dad9f1eb) )
 		ROM_LOAD16_BYTE( "fl2-mp1c",	0x000001, 0x010000, CRC(b8615d33) SHA1(f72ce75047cf41d47684d6657aa3bd1b00f68056) )
@@ -2648,7 +2648,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINAL LAP (Rev C - Japan) */
-	static RomLoadPtr rom_finlapjc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finlapjc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fl1_mp0c.bin",	0x000000, 0x010000, CRC(63cd7304) SHA1(f9342a03b6e3c599946fec1690f34be2d0fe0307) )
 		ROM_LOAD16_BYTE( "fl1_mp1c.bin",	0x000001, 0x010000, CRC(cc9c5fb6) SHA1(7da82f5c8c1574c92432ee003c8433b7dde9d393) )
@@ -2700,7 +2700,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINAL LAP  (REV B - JAPAN) */
-	static RomLoadPtr rom_finlapjb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finlapjb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fl1_mp0b.bin",	0x000000, 0x010000, CRC(870a482a) SHA1(776afe0206385732f9bcad4a75399ad7cc8fcda1) )
 		ROM_LOAD16_BYTE( "fl1_mp1b.bin",	0x000001, 0x010000, CRC(af52c991) SHA1(23d440cc0f53872739fce1d0837ef906a5e75f98) )
@@ -2751,7 +2751,7 @@ public class namcos2
 		ROM_RELOAD(  0x0e0000, 0x020000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_finalap2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalap2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fls2mp0b",	0x000000, 0x020000, CRC(97b48aae) SHA1(03774b642c5a8186e443ad4138a9e86a931a2199) )
 		ROM_LOAD16_BYTE( "fls2mp1b",	0x000001, 0x020000, CRC(c9f3e0e7) SHA1(4127e373239e4ca31b5fa8b71d8f10b7d7ed93c2) )
@@ -2803,7 +2803,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINAL LAP 2 (Japan) */
-	static RomLoadPtr rom_finalp2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalp2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fls1_mp0.bin",	0x000000, 0x020000, CRC(05ea8090) SHA1(edd3d8780e9f849f45fff1593821aed6b7711a57) )
 		ROM_LOAD16_BYTE( "fls1_mp1.bin",	0x000001, 0x020000, CRC(fb189f50) SHA1(9436aea727adf9e11e8061d0ded4e4b00df90b70) )
@@ -2855,7 +2855,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINAL LAP 3 JAPAN */
-	static RomLoadPtr rom_finalap3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalap3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fltmp0",  0x000000, 0x020000, CRC(2f2a997a) SHA1(02c805b0727d55bd7782d3352d3563c490694fdb) )
 		ROM_LOAD16_BYTE( "fltmp1",  0x000001, 0x020000, CRC(b505ca0b) SHA1(2dd6c264806a32466df78a0bc1f44e2e2796f81e) )
@@ -2909,7 +2909,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINAL LAP 3 (WORLD?) */
-	static RomLoadPtr rom_finalp3a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalp3a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fl3mpr0.bin",  0x000000, 0x020000, CRC(9ff361ff) SHA1(0a197f5a3e9a03455cd5afe6979587baf757973f) )
 		ROM_LOAD16_BYTE( "fl3mpr1.bin",  0x000001, 0x020000, CRC(17efb7f2) SHA1(74940950b8b1a3353a130846937c9f651be3f335) )
@@ -2963,7 +2963,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FINEST HOUR */
-	static RomLoadPtr rom_finehour = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finehour = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fh1_mp0.bin",  0x000000, 0x020000, CRC(355d9119) SHA1(e8d834bbcfc9efa4bec9d5d38a0223bcea9e55de) )
 		ROM_LOAD16_BYTE( "fh1_mp1.bin",  0x000001, 0x020000, CRC(647eb621) SHA1(441bcb492982db81ceb035cf81970eaa9cc1886c) )
@@ -3017,7 +3017,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* FOUR TRAX */
-	static RomLoadPtr rom_fourtrax = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fourtrax = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "fx2mp0",  0x000000, 0x020000, CRC(f147cd6b) SHA1(7cdadd68d55dd8fa9b19cbee1434d9266ae1f4b9) )
 		ROM_LOAD16_BYTE( "fx2mp1",  0x000001, 0x020000, CRC(8af4a309) SHA1(538076359cfd08e99e42c05bcccd95df71856696) )
@@ -3080,7 +3080,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* MARVEL LAND (USA) */
-	static RomLoadPtr rom_marvland = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_marvland = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "mv2_mpr0",	0x000000, 0x020000, CRC(d8b14fee) SHA1(8b5615106426efad45c651f1d6b9a6e3238bc242) )
 		ROM_LOAD16_BYTE( "mv2_mpr1",	0x000001, 0x020000, CRC(29ff2738) SHA1(9f493f32ae1c4e7ef48d7e208c63a222636bda06) )
@@ -3131,7 +3131,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* MARVEL LAND (JAPAN) */
-	static RomLoadPtr rom_marvlanj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_marvlanj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "mv1-mpr0.bin",	0x000000, 0x010000, CRC(8369120f) SHA1(58cf481bf97f74a91ecc5ff77696528441b41b04) )
 		ROM_LOAD16_BYTE( "mv1-mpr1.bin",	0x000001, 0x010000, CRC(6d5442cc) SHA1(8cdaf6e1ec735740ace78393df2d867a213a4725) )
@@ -3180,7 +3180,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* METAL HAWK */
-	static RomLoadPtr rom_metlhawk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_metlhawk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "mh2mp0c.11d",  0x000000, 0x020000, CRC(cd7dae6e) SHA1(73600e44923446ce5a6aa692aebfc1ba5a6491bc) )
 		ROM_LOAD16_BYTE( "mh2mp1c.13d",  0x000001, 0x020000, CRC(e52199fd) SHA1(0c626b89f2dd9fb91654b759f2a902a28268ac84) )
@@ -3243,7 +3243,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* MIRAI NINJA */
-	static RomLoadPtr rom_mirninja = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mirninja = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "mn_mpr0e.bin",	0x000000, 0x010000, CRC(fa75f977) SHA1(15f8ce9417d663ea659e2c35d5b318c5e275f997) )
 		ROM_LOAD16_BYTE( "mn_mpr1e.bin",	0x000001, 0x010000, CRC(58ddd464) SHA1(1b0c0023f7130c8b4cdc207ed32582f107953b51) )
@@ -3298,7 +3298,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* ORDYNE */
-	static RomLoadPtr rom_ordyne = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ordyne = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "or1_mp0.bin",  0x000000, 0x020000, CRC(f5929ed3) SHA1(7926c736904646e2918a708e33c7f9b4aa75d929) )
 		ROM_LOAD16_BYTE( "or1_mp1.bin",  0x000001, 0x020000, CRC(c1c8c1e2) SHA1(153ebfdbc2bc73ea4f4628ebba4d90530b7ecd9d) )
@@ -3354,7 +3354,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* PHELIOS */
-	static RomLoadPtr rom_phelios = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_phelios = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "ps1mpr0.bin",  0x000000, 0x020000, CRC(bfbe96c6) SHA1(e597fc66b058aca4f55c38fbaec0abcad4ed6547) )
 		ROM_LOAD16_BYTE( "ps1mpr1.bin",  0x000001, 0x020000, CRC(f5c0f883) SHA1(9fd8b05a568a024e049bedc3c1c1893cb5bd249f) )
@@ -3412,7 +3412,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* ROLLING THUNDER 2 */
-	static RomLoadPtr rom_rthun2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rthun2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "mpr0.bin",	0x000000, 0x020000, CRC(e09a3549) SHA1(027fe87c98a497c50d12c810b9c7e7216f985dca) )
 		ROM_LOAD16_BYTE( "mpr1.bin",	0x000001, 0x020000, CRC(09573bff) SHA1(b75e036419f95967d5d95c14f1e08aa0c2a05d8a) )
@@ -3458,7 +3458,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* ROLLING THUNDER 2 (Japan) */
-	static RomLoadPtr rom_rthun2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rthun2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "mpr0j.bin",  0x000000, 0x020000, CRC(2563b9ee) SHA1(c6a4305f88ca5d796f3ba4f36af54fed51c16b75) )
 		ROM_LOAD16_BYTE( "mpr1j.bin",  0x000001, 0x020000, CRC(14c4c564) SHA1(a826176fef65c53518fdbc7b14c7a1a65c821c8c) )
@@ -3504,7 +3504,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* STEEL GUNNER */
-	static RomLoadPtr rom_sgunner = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sgunner = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "sn2mpr0b.11d",	0x000000, 0x020000, CRC(4bb33394) SHA1(0c93e851d2b7ecfdc63593569baae2ea51a8dbc8) )
 		ROM_LOAD16_BYTE( "sn2mpr1b.13d",	0x000001, 0x020000, CRC(d8b47334) SHA1(7aec721a06121b39e15de41b7f90b1653e43b034) )
@@ -3552,7 +3552,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* STEEL GUNNER 2 */
-	static RomLoadPtr rom_sgunner2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sgunner2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "sns2mpr0.bin",	0x000000, 0x020000, CRC(f1a44039) SHA1(c8e73c786a69780d9c66c5d599713976d541e36c) )
 		ROM_LOAD16_BYTE( "sns2mpr1.bin",	0x000001, 0x020000, CRC(9184c4db) SHA1(ef3208157d6e5278a99baca0b31f0d43e5ffd89a) )
@@ -3604,7 +3604,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* STEEL GUNNER 2 (Japan) */
-	static RomLoadPtr rom_sgunnr2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sgunnr2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "sns1mpr0.a",	0x000000, 0x020000, CRC(e7216ad7) SHA1(ebc8e31ee6909d89bc4f40889e80f3c8b46dcd85) )
 		ROM_LOAD16_BYTE( "sns1mpr1.a",	0x000001, 0x020000, CRC(6caef2ee) SHA1(8003517ff8b74480147786af3abdc7a78ba9d379) )
@@ -3656,7 +3656,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* SUPER WORLD STADIUM 92 */
-	static RomLoadPtr rom_sws92 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sws92 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "sss1mpr0.bin",	0x000000, 0x020000, CRC(dbea0210) SHA1(573c170cb2b32ed9c0c711d5b7484850d860bf88) )
 		ROM_LOAD16_BYTE( "sss1mpr1.bin",	0x000001, 0x020000, CRC(b5e6469a) SHA1(d07010fd9a1318a08cdf14fe99e0855ff42639cb) )
@@ -3702,7 +3702,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* SUPER WORLD STADIUM 92 */
-	static RomLoadPtr rom_sws92g = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sws92g = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "ssg1mpr0.bin",	0x000000, 0x020000, CRC(5596c535) SHA1(e2fd8e158662058636b804d6ce7caba8658675c2) )
 		ROM_LOAD16_BYTE( "ssg1mpr1.bin",	0x000001, 0x020000, CRC(3289ef0c) SHA1(028eb28d824332bc59a552c2a9e5013073bb0949) )
@@ -3750,7 +3750,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* SUPER WORLD STADIUM 93 */
-	static RomLoadPtr rom_sws93 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sws93 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "sst1mpr0.bin",	0x000000, 0x020000, CRC(bd2679bc) SHA1(6916d2bdeb99aea5779697c825acf9a5ade9cb08) )
 		ROM_LOAD16_BYTE( "sst1mpr1.bin",	0x000001, 0x020000, CRC(9132e220) SHA1(dbeb9171c29c2fa33104adee8ff71b2635ae435b) )
@@ -3796,7 +3796,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* SUZUKA 8 HOURS (World?) */
-	static RomLoadPtr rom_suzuka8h = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suzuka8h = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "eh2-mp0c.bin",	0x000000, 0x020000, CRC(9B9271AC) SHA1(92BB911A4F4705E5EE6962010B16E74AEEB78943) )
 		ROM_LOAD16_BYTE( "eh2-mp1c.bin",	0x000001, 0x020000, CRC(24FDD4BC) SHA1(FD4EEC21E24AFE26281D41DE7F9DB6767CCF26A0) )
@@ -3843,7 +3843,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* SUZUKA 8 HOURS (Japan) */
-	static RomLoadPtr rom_suzuk8hj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suzuk8hj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "eh1-mp0b.bin",	0x000000, 0x020000, CRC(2850f469) SHA1(65142451db8ddbd1500f4bb5d5a6b2ede5871dd5) )
 		ROM_LOAD16_BYTE( "eh1-mp1b.bin",	0x000001, 0x020000, CRC(be83eb2c) SHA1(f54ca4469050f734e4c2d7d681e3e51cc067f2c2) )
@@ -3890,7 +3890,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* SUZUKA 8 HOURS 2 */
-	static RomLoadPtr rom_suzuk8h2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suzuk8h2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "ehs2mp0b.bin",	0x000000, 0x020000, CRC(ade97f90) SHA1(8674da5b72d9c9dc09004cb5458b4e87a2b33459) )
 		ROM_LOAD16_BYTE( "ehs2mp1b.bin",	0x000001, 0x020000, CRC(19744a66) SHA1(90a9699d988eca89633def190836bc3862b8e49e) )
@@ -3946,7 +3946,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* LEGEND OF THE VALKYRIE */
-	static RomLoadPtr rom_valkyrie = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_valkyrie = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) 	 /* Master CPU */
 		ROM_LOAD16_BYTE( "wd1mpr0.bin",  0x000000, 0x020000, CRC(94111a2e) SHA1(bd0dfe362fc98c1e94422a898b4daf6a08ef7982) )
 		ROM_LOAD16_BYTE( "wd1mpr1.bin",  0x000001, 0x020000, CRC(57b5051c) SHA1(de399381823251e2ee45f51c96be3e93ed763f94) )
@@ -4005,7 +4005,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* KYUUKAI DOUCHUUKI */
-	static RomLoadPtr rom_kyukaidk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kyukaidk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) 	 /* Master CPU */
 		ROM_LOAD16_BYTE( "ky1_mp0b.bin", 0x000000, 0x010000, CRC(d1c992c8) SHA1(f3d49159ca3cbec7b905e6d877b8b76d023dd621) )
 		ROM_LOAD16_BYTE( "ky1_mp1b.bin", 0x000001, 0x010000, CRC(723553af) SHA1(ae611c699c276521a064b79c74fcc0ecd76a22cf) )
@@ -4055,7 +4055,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* KYUUKAI DOUCHUUKI (OLD) */
-	static RomLoadPtr rom_kyukaido = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kyukaido = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) 	 /* Master CPU */
 		ROM_LOAD16_BYTE( "ky1_mp0.bin",  0x000000, 0x010000, CRC(01978a19) SHA1(dac40f6629ee025733ac160d83523488c99794c7) )
 		ROM_LOAD16_BYTE( "ky1_mp1.bin",  0x000001, 0x010000, CRC(b40717a7) SHA1(10a0e4eaa2502f51f34949007e6cc9d3bf031554) )
@@ -4105,7 +4105,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* GOLLY GHOST */
-	static RomLoadPtr rom_gollygho = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gollygho = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "gl2mpr0.11d",	0x000000, 0x010000, CRC(e5d48bb9) SHA1(53e790b9f11a8befc6e3b79b7af2e97500562e20) )
 		ROM_LOAD16_BYTE( "gl2mpr1.13d",	0x000001, 0x010000, CRC(584ef971) SHA1(6ebeba593f056823311181831824cc9ef26ef6ea) )
@@ -4151,7 +4151,7 @@ public class namcos2
 	ROM_END(); }}; 
 	
 	/* LUCKY & WILD */
-	static RomLoadPtr rom_luckywld = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_luckywld = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 ) /* Master CPU */
 		ROM_LOAD16_BYTE( "lw2mp0.11d",	0x000000, 0x020000, CRC(368306bb) SHA1(e529ff2cc8baed8fd9cb1c010ad0c9f46c5e5f97) )
 		ROM_LOAD16_BYTE( "lw2mp1.13d",	0x000001, 0x020000, CRC(9be3a4b8) SHA1(238977abf558db6d91f9d8b289288bdb65715529) )

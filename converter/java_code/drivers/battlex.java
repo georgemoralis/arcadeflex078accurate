@@ -101,7 +101,7 @@ public class battlex
 	
 	/*** INPUT PORTS *************************************************************/
 	
-	static InputPortPtr input_ports_battlex = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battlex )
+	static InputPortHandlerPtr input_ports_battlex = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battlex )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -250,7 +250,7 @@ public class battlex
 	
 	/*** ROM LOADING *************************************************************/
 	
-	static RomLoadPtr rom_battlex = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlex = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "p-rom1.6",    0x0000, 0x1000, CRC(b00ae551) SHA1(32a963fea23ea58fc3aab93cc814784a932f045e) )
 		ROM_LOAD( "p-rom2.5",    0x1000, 0x1000, CRC(e765bb11) SHA1(99671e63f4c7d3d8754277451f0b35cba03b532d) )

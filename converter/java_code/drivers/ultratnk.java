@@ -345,7 +345,7 @@ public class ultratnk
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_ultratnk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ultratnk )
+	static InputPortHandlerPtr input_ports_ultratnk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ultratnk )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x01, "Extended Play" );
 		PORT_DIPSETTING(	0x01, "25 Points" );
@@ -660,7 +660,7 @@ public class ultratnk
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_ultratnk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ultratnk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x12000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_LOW ( "030180.n1",	 0xb000, 0x0800, CRC(b6aa6056) SHA1(6de094017b5d87a238053fac88129d20260f8222) ) /* ROM 3 D0-D3 */
 		ROM_LOAD_NIB_HIGH( "030181.k1",	 0xb000, 0x0800, CRC(17145c97) SHA1(afe0c9c562c27cd1fba57ea83377b0a4c12496db) ) /* ROM 3 D4-D7 */

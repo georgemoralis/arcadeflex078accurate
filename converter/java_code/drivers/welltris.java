@@ -439,7 +439,7 @@ public class welltris
 	
 	
 	
-	static InputPortPtr input_ports_welltris = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( welltris )
+	static InputPortHandlerPtr input_ports_welltris = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( welltris )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -599,7 +599,7 @@ public class welltris
 	  	PORT_SERVICE( 0x0080, IP_ACTIVE_LOW );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_quiz18k = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( quiz18k )
+	static InputPortHandlerPtr input_ports_quiz18k = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( quiz18k )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -803,7 +803,7 @@ public class welltris
 	
 	
 	
-	static RomLoadPtr rom_welltris = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_welltris = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "j2.8", 0x000000, 0x20000, CRC(68ec5691) SHA1(8615415c5c98aa9caa0878a8251da7985f050f94) )
 		ROM_LOAD16_BYTE( "j1.7", 0x000001, 0x20000, CRC(1598ea2c) SHA1(e9150c3ab9b5c0eb9a5fee3e071358f92a005078) )
@@ -830,7 +830,7 @@ public class welltris
 		ROM_LOAD( "lh534j10.124", 0x80000, 0x80000, CRC(e3682221) SHA1(3e1cda07cf451955dc473eabe007854e5148ae27) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_quiz18k = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quiz18k = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "1-ic8.bin", 0x000000, 0x20000, CRC(10a64336) SHA1(d63c0752385e1d66b09a7197e267dcd0e5e93be8) )
 		ROM_LOAD16_BYTE( "2-ic7.bin", 0x000001, 0x20000, CRC(8b21b431) SHA1(278238ab4a5d11577c5ab3c7462b429f510a1d50) )

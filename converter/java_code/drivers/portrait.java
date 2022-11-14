@@ -156,7 +156,7 @@ public class portrait
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_portrait = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( portrait )
+	static InputPortHandlerPtr input_ports_portrait = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( portrait )
 		PORT_START(); 		/* IN 0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -272,7 +272,7 @@ public class portrait
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_portrait = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_portrait = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for the cpu */
 		ROM_LOAD( "prt-p0.bin",  0x0000, 0x2000, CRC(a21874fa) SHA1(3db863f465a35d7d14dd71b47aa7dfe7b39fccf0) )
 		ROM_LOAD( "prt-p1.bin",  0x2000, 0x2000, CRC(4d4d7793) SHA1(f828950ebbf285fc92c65f24421a20ceacef1cb9) )

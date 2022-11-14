@@ -69,7 +69,7 @@ public class gumbo
 		{ 0x1f0000, 0x1f3fff, gumbo_fg_videoram_w, &gumbo_fg_videoram }, // fg tilemap
 	MEMORY_END
 	
-	static InputPortPtr input_ports_gumbo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gumbo )
+	static InputPortHandlerPtr input_ports_gumbo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gumbo )
 		PORT_START(); 	/* DSW */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -173,7 +173,7 @@ public class gumbo
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_gumbo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gumbo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "u1.bin", 0x00001, 0x20000, CRC(e09899e4) SHA1(b62876dc3ada8509b766a80f496f1227b6af0ced) )
 		ROM_LOAD16_BYTE( "u2.bin", 0x00000, 0x20000, CRC(60e59acb) SHA1(dd11329374c8f63851ddf5af54c91f78fad4fd3d) )

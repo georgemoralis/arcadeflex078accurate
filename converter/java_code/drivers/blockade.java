@@ -217,7 +217,7 @@ public class blockade
 	/* different harnesses which plugged in here, and */
 	/* some pins were unused.                         */
 	
-	static InputPortPtr input_ports_blockade = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blockade )
+	static InputPortHandlerPtr input_ports_blockade = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blockade )
 	    PORT_START();   /* IN0 */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -259,7 +259,7 @@ public class blockade
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_comotion = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( comotion )
+	static InputPortHandlerPtr input_ports_comotion = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( comotion )
 	    PORT_START();   /* IN0 */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -301,7 +301,7 @@ public class blockade
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_VBLANK );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_blasto = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blasto )
+	static InputPortHandlerPtr input_ports_blasto = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blasto )
 	    PORT_START();   /* IN0 */
 	    PORT_DIPNAME(    0x03, 0x03, DEF_STR( "Coinage") );
 	    PORT_DIPSETTING( 0x00, DEF_STR( "4C_1C") );
@@ -346,7 +346,7 @@ public class blockade
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_VBLANK );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_hustle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hustle )
+	static InputPortHandlerPtr input_ports_hustle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hustle )
 	    PORT_START();   /* IN0 */
 	    PORT_DIPNAME(    0x03, 0x03, DEF_STR( "Coinage") );
 	    PORT_DIPSETTING( 0x00, DEF_STR( "4C_1C") );
@@ -509,7 +509,7 @@ public class blockade
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_blockade = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blockade = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -523,7 +523,7 @@ public class blockade
 	    ROM_LOAD( "316-01.u43", 0x0100, 0x0100, CRC(41a00b28) SHA1(2d0a90aac9d10a1ded240e5202fdf9cd7f70c4a7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_comotion = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_comotion = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -539,7 +539,7 @@ public class blockade
 	    ROM_LOAD( "316-05.u29", 0x0100, 0x0100, CRC(53fb8821) SHA1(0a499aa4cf15f7ebea155aacd914de8851544215) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blasto = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blasto = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -555,7 +555,7 @@ public class blockade
 	    ROM_LOAD( "blasto.u43", 0x0200, 0x0200, CRC(104051a4) SHA1(cae6b9d48e3eda5ba12ff5d9835ce2733e90f774) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hustle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hustle = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -571,7 +571,7 @@ public class blockade
 	    ROM_LOAD( "3160021.u43", 0x0200, 0x0200, CRC(b5083128) SHA1(d7e8242e9d12d09f3d69c08e373ede2bdd4deba9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mineswpr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mineswpr = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */

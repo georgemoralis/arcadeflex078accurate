@@ -97,7 +97,7 @@ public class ambush
 	};
 	
 	
-	static InputPortPtr input_ports_ambush = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ambush )
+	static InputPortHandlerPtr input_ports_ambush = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ambush )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -222,7 +222,7 @@ public class ambush
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ambush = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ambush = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "ambush.h7",    0x0000, 0x2000, CRC(ce306563) SHA1(c69b5c4465187a8eda6367d6cd3e0b71a57588d1) )
 		ROM_LOAD( "ambush.g7",    0x2000, 0x2000, CRC(90291409) SHA1(82f1e109bd066ad9fdea1ce0086be6c334e2658a) )
@@ -242,7 +242,7 @@ public class ambush
 	ROM_END(); }}; 
 	
 	/* displays an M next to ROM 1 during the test, why? */
-	static RomLoadPtr rom_ambusht = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ambusht = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "a1.i7",    0x0000, 0x2000, CRC(a7cd149d) SHA1(470ebe60bc23a7908fb96caef8074d65f8c57625) )
 		ROM_LOAD( "a2.g7",    0x2000, 0x2000, CRC(8328d88a) SHA1(690f0af10a0550566b67ee570f849b2764448d15) )

@@ -198,7 +198,7 @@ public class polyplay
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_polyplay = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( polyplay )
+	static InputPortHandlerPtr input_ports_polyplay = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( polyplay )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -333,7 +333,7 @@ public class polyplay
 	
 	
 	/* ROM loading and mapping */
-	static RomLoadPtr rom_polyplay = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_polyplay = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cpu_0000.37",       0x0000, 0x0400, CRC(87884c5f) SHA1(849c6b3f40496c694a123d6eec268a7128c037f0) )
 		ROM_LOAD( "cpu_0400.36",       0x0400, 0x0400, CRC(d5c84829) SHA1(baa8790e77db66e1e543b3a0e5390cc71256de2f) )

@@ -1220,7 +1220,7 @@ public class system32
 	
 	
 	/* Generic entry for 2 players games - to be used for games which haven't been tested yet */
-	static InputPortPtr input_ports_system32 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( system32 )
+	static InputPortHandlerPtr input_ports_system32 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( system32 )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_SPECIAL );// EEPROM data
@@ -1252,7 +1252,7 @@ public class system32
 	INPUT_PORTS_END(); }}; 
 	
 	/* Generic entry for 4 players games - to be used for games which haven't been tested yet */
-	static InputPortPtr input_ports_sys32_4p = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sys32_4p )
+	static InputPortHandlerPtr input_ports_sys32_4p = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sys32_4p )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_SPECIAL );// EEPROM data
@@ -1288,7 +1288,7 @@ public class system32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_holo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( holo )
+	static InputPortHandlerPtr input_ports_holo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( holo )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1321,7 +1321,7 @@ public class system32
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_svf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( svf )
+	static InputPortHandlerPtr input_ports_svf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( svf )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1354,7 +1354,7 @@ public class system32
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ga2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ga2 )
+	static InputPortHandlerPtr input_ports_ga2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ga2 )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1391,7 +1391,7 @@ public class system32
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ga2j = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ga2j )
+	static InputPortHandlerPtr input_ports_ga2j = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ga2j )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1428,7 +1428,7 @@ public class system32
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_spidey = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spidey )
+	static InputPortHandlerPtr input_ports_spidey = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spidey )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1465,7 +1465,7 @@ public class system32
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_spideyj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spideyj )
+	static InputPortHandlerPtr input_ports_spideyj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spideyj )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1500,7 +1500,7 @@ public class system32
 		PORT_BIT( 0xfc, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_brival = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( brival )
+	static InputPortHandlerPtr input_ports_brival = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( brival )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1540,7 +1540,7 @@ public class system32
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_f1en = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( f1en )
+	static InputPortHandlerPtr input_ports_f1en = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( f1en )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1600,7 +1600,7 @@ public class system32
 		PORT_BIT( 0x00, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_radm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( radm )
+	static InputPortHandlerPtr input_ports_radm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( radm )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1661,7 +1661,7 @@ public class system32
 		PORT_BIT( 0x00, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_radr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( radr )
+	static InputPortHandlerPtr input_ports_radr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( radr )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1720,7 +1720,7 @@ public class system32
 		PORT_BIT( 0x00, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_alien3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( alien3 )
+	static InputPortHandlerPtr input_ports_alien3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( alien3 )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1768,7 +1768,7 @@ public class system32
 		PORT_ANALOG( 0xff, 0x80, IPT_LIGHTGUN_Y | IPF_PLAYER2, 35, 15, 0, 0xff );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sonic = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sonic )
+	static InputPortHandlerPtr input_ports_sonic = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sonic )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_SPECIAL );// EEPROM data
@@ -1821,7 +1821,7 @@ public class system32
 		PORT_ANALOG( 0xff, 0, IPT_TRACKBALL_Y | IPF_PLAYER3, 100, 15, 0, 0 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_jpark = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jpark )
+	static InputPortHandlerPtr input_ports_jpark = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jpark )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1868,7 +1868,7 @@ public class system32
 		PORT_ANALOG( 0xff, 0x80, IPT_LIGHTGUN_Y | IPF_PLAYER2, 35, 15, 0x39, 0xbf );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_f1lap = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( f1lap )
+	static InputPortHandlerPtr input_ports_f1lap = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( f1lap )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -1918,7 +1918,7 @@ public class system32
 		PORT_BIT( 0x00, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_darkedge = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( darkedge )
+	static InputPortHandlerPtr input_ports_darkedge = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( darkedge )
 		PORT_START(); 	// 0xc0000a - port 0
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_SERVICE3 );// PSW1
@@ -2066,7 +2066,7 @@ public class system32
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_ga2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ga2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_WORD( "epr14960.b", 0x000000, 0x20000, CRC(87182fea) SHA1(bb669ea7091f1ea34589a565490effa934ca44a3) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2107,7 +2107,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ga2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ga2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "epr14961.b", 0x000000, 0x20000, CRC(d9cd8885) SHA1(dc9d1f01770bd23ba5959e300badbc5093a149bc) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2148,7 +2148,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_radm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_radm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "epr13690.bin", 0x000000, 0x20000, CRC(21637dec) SHA1(b9921effb10a72f3bdca4d540149c7f46662b716) )
 		ROM_RELOAD     (                 0x020000, 0x20000 )
@@ -2191,7 +2191,7 @@ public class system32
 		ROM_LOAD( "epr13686.bin", 0x00000, 0x8000, CRC(317a2857) SHA1(e0788dc7a7d214d9c4d26b24e44c1a0dc9ae477c) ) /* cabinet movement */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_radr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_radr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "epr14241.06", 0x000000, 0x20000, CRC(59a5f63d) SHA1(325a26a09475ddc828de71e71a1d3043f3959cec) )
 		ROM_RELOAD     (                0x020000, 0x20000 )
@@ -2234,7 +2234,7 @@ public class system32
 		ROM_LOAD( "epr14084.17", 0x00000, 0x8000, CRC(f14ed074) SHA1(e1bb23eac85e3236046527c5c7688f6f23d43aef) ) /* cabinet link */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_svf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_svf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "ep16872a.17", 0x000000, 0x020000, CRC(1f383b00) SHA1(c3af01743de5ff09ada19879902842efdbceb595) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2272,7 +2272,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_svs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_svs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "ep16883a.17", 0x000000, 0x020000, CRC(e1c0c3ce) SHA1(12dd8d9d1a2c2c7bf1ab652a6a6f947384d79577) )
 		ROM_RELOAD	   (			   0x020000, 0x20000 )
@@ -2310,7 +2310,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jleague = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jleague = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "epr16782.17",0x000000, 0x020000, CRC(f0278944) SHA1(49e3842231ee5abdd6205b598309153d6b4ddc02) )
 		ROM_RELOAD     (        0x020000, 0x020000 )
@@ -2348,7 +2348,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spidey = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spidey = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x140000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "14303", 0x000000, 0x020000, CRC(7f1bd28f) SHA1(cff57e66d09682baf44aace99d698ad305f6a3d5) )
 		ROM_RELOAD (       0x020000, 0x020000 )
@@ -2388,7 +2388,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spideyj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spideyj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x140000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "14307", 0x000000, 0x020000, CRC(d900219c) SHA1(d59654db1fc0ec4d5f8cda9000ab4bd3bb36cdfc) )
 		ROM_RELOAD (       0x020000, 0x020000 )
@@ -2428,7 +2428,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sonic = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sonic = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "epr-c-87.17", 0x000000, 0x020000, CRC(25e3c27e) SHA1(8f173cd5c7c817dcccdcad9be5781cfaa081d73e) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2470,7 +2470,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sonicp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sonicp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "sonpg0.bin", 0x000000, 0x020000, CRC(da05dcbb) SHA1(c2ced1f3aee92b0e531d5cd7611d4811f2ae95e7) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2510,7 +2510,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_holo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_holo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x140000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "epr14977.a", 0x000000, 0x020000, CRC(e0d7e288) SHA1(3126041ba73f21fac0207bf5c63230c61180f564) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2547,7 +2547,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arabfgt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arabfgt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "mp14608.8",  0x000000, 0x20000, CRC(cd5efba9) SHA1(a7daf8e95d31359753c984c447e93d40f43a179d) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2589,7 +2589,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_brival = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_brival = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "ep15720.8", 0x000000, 0x020000, CRC(0d182d78) SHA1(53e9e5898869ea4a354dc3e9a78d8b8e9a7274c9) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2627,7 +2627,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_alien3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_alien3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "15943.bin", 0x000000, 0x040000, CRC(ac4591aa) SHA1(677155a3ebdac6602525e06adb25d287eaf9e089) )
 		ROM_RELOAD     (               0x040000, 0x40000 )
@@ -2661,7 +2661,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_f1lap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_f1lap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "15598", 0x000000, 0x020000, CRC(9feab7cd) SHA1(2a14c0df39e7bdae12a34679fabc6abb7618e27d) )
 		ROM_RELOAD     (               0x020000, 0x20000 )
@@ -2702,7 +2702,7 @@ public class system32
 		ROM_LOAD( "15612", 0x00000, 0x20000, CRC(9d204617) SHA1(8db57121065f5d1ac52fcfb88459bdbdc30e645b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_f1en = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_f1en = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "ep14452a.006", 0x000000, 0x20000, CRC(b5b4a9d9) SHA1(6699c15dc1155c3cee33a06d320acbff0ab5ad11) )
 		ROM_RELOAD     (                  0x020000, 0x20000 )
@@ -2742,7 +2742,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dbzvrvs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dbzvrvs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "16543",   0x000000, 0x80000, CRC(7b9bc6f5) SHA1(556fd8471bf471e41fc6a50471c2be1bd6b98697) )
 		ROM_LOAD16_WORD( "16542.a", 0x080000, 0x80000, CRC(6449ab22) SHA1(03e6cdacf77f2ff80dd6798094deac5486f2c840) )
@@ -2772,7 +2772,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_darkedge = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_darkedge = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "epr15244.8", 0x000000, 0x80000, CRC(0db138cb) SHA1(79ccb754e0d816b395b536a6d9c5a6e93168a913) )
 		ROM_RELOAD     (               0x080000, 0x80000 )
@@ -2802,7 +2802,7 @@ public class system32
 		/* populated at runtime */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jpark = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jpark = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD( "ep16402a.8", 0x000000, 0x080000, CRC(c70db239) SHA1(fd79dfd1ce194fcc8ccb58117bc845cdfe9943b1) )
 		ROM_RELOAD     (               0x080000, 0x80000 )
@@ -2837,7 +2837,7 @@ public class system32
 		ROM_LOAD( "ep13908.xx", 0x00000, 0x8000, CRC(6228c1d2) SHA1(bd37fe775534fb94c9af80546948ce5f9c47bbf5) ) /* cabinet movement */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_slipstrm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slipstrm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* v60 code */
 		ROM_LOAD16_WORD( "slipstrm.u6", 0x000000, 0x80000, CRC(7d066307) SHA1(d87e04167263b435b77830db02ed58651ccc020c) )
 		ROM_RELOAD     (               0x080000, 0x80000 )

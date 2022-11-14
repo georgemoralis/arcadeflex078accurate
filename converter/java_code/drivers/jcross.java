@@ -164,7 +164,7 @@ public class jcross
 	};
 	
 	
-	static InputPortPtr input_ports_jcross = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jcross )
+	static InputPortHandlerPtr input_ports_jcross = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jcross )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -330,7 +330,7 @@ public class jcross
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_jcross = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jcross = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "jcrossa0.10b",  0x0000, 0x2000, CRC(0e79bbcd) SHA1(7088a8effd30080529b797991e24e9807bf90475) )
 		ROM_LOAD( "jcrossa1.12b",  0x2000, 0x2000, CRC(999b2bcc) SHA1(e5d13c9c11a82cedee15777341e6424639ecf2f5) )

@@ -336,7 +336,7 @@ public class gridlee
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_gridlee = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gridlee )
+	static InputPortHandlerPtr input_ports_gridlee = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gridlee )
 		PORT_START(); 	/* 9500 (fake) */
 	    PORT_ANALOG( 0xff, 0, IPT_TRACKBALL_Y, 20, 8, 0x00, 0xff );
 	
@@ -468,7 +468,7 @@ public class gridlee
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_gridlee = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gridlee = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "gridfnla.bin", 0xa000, 0x1000, CRC(1c43539e) SHA1(8b4a6f5c2c22bb021937157606d2129e2b01f718) )
 		ROM_LOAD( "gridfnlb.bin", 0xb000, 0x1000, CRC(c48b91b8) SHA1(651210470ddf7c14f16f6c3046a9b8e903824ab8) )

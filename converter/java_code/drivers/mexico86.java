@@ -186,7 +186,7 @@ public class mexico86
 	
 	
 	
-	static InputPortPtr input_ports_mexico86 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mexico86 )
+	static InputPortHandlerPtr input_ports_mexico86 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mexico86 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -280,7 +280,7 @@ public class mexico86
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kikikai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kikikai )
+	static InputPortHandlerPtr input_ports_kikikai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kikikai )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -468,7 +468,7 @@ public class mexico86
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_kikikai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kikikai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )    /* 196k for code */
 		ROM_LOAD( "a85-17.rom", 0x00000, 0x08000, CRC(c141d5ab) SHA1(fe3622ba283e514416c43a44f83f922a958b27cd) ) /* 1st half, main code        */
 		ROM_CONTINUE(           0x20000, 0x08000 )             /* 2nd half, banked at 0x8000 */
@@ -493,7 +493,7 @@ public class mexico86
 		ROM_LOAD( "a85-09.rom", 0x0200, 0x0100, CRC(b931c94d) SHA1(fb554084f34c602d1ff7806fb945a06cf14332af) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kicknrun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kicknrun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )    /* 196k for code */
 		ROM_LOAD( "a87-08.bin", 0x00000, 0x08000, CRC(715e1b04) SHA1(60b7259758ec73f1cc945556e9c2b25766b745a8) ) /* 1st half, main code        */
 		ROM_CONTINUE(           0x20000, 0x08000 )             /* 2nd half, banked at 0x8000 */
@@ -522,7 +522,7 @@ public class mexico86
 		ROM_LOAD( "a87-11.bin", 0x0200, 0x0100, CRC(14f6c28d) SHA1(8c60974e4607906a3f77260bdd0704af60d596fc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mexico86 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mexico86 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )    /* 196k for code */
 		ROM_LOAD( "2_g.bin",    0x00000, 0x08000, CRC(2bbfe0fb) SHA1(8f047e001ea8e49d28f73e546c82812af1c2533c) ) /* 1st half, main code        */
 		ROM_CONTINUE(           0x20000, 0x08000 )             /* 2nd half, banked at 0x8000 */

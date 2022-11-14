@@ -251,7 +251,7 @@ public class missb2
 	
 	
 	
-	static InputPortPtr input_ports_missb2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( missb2 )
+	static InputPortHandlerPtr input_ports_missb2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( missb2 )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, "Language" );
 		PORT_DIPSETTING(    0x00, "English" );
@@ -461,7 +461,7 @@ public class missb2
 	
 	
 	
-	static RomLoadPtr rom_missb2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_missb2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "msbub2-u.204", 0x00000, 0x10000, CRC(b633bdde) SHA1(29a389c52ff06718f1c4c39f6a854856c237356b) ) /* FIRST AND SECOND HALF IDENTICAL */
 		/* ROMs banked at 8000-bfff */

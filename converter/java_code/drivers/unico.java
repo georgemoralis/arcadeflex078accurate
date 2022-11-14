@@ -333,7 +333,7 @@ public class unico
 									Burglar X
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_burglarx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( burglarx )
+	static InputPortHandlerPtr input_ports_burglarx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( burglarx )
 	
 		PORT_START(); 	// IN0 - $800000.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_PLAYER1 );
@@ -422,7 +422,7 @@ public class unico
 									Zero Point
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_zeropnt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zeropnt )
+	static InputPortHandlerPtr input_ports_zeropnt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zeropnt )
 	
 		PORT_START(); 	// IN0 - $800018.w
 		PORT_BIT(  0x0001, IP_ACTIVE_HIGH, IPT_COIN1    );
@@ -515,7 +515,7 @@ public class unico
 									Zero Point 2
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_zeropnt2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zeropnt2 )
+	static InputPortHandlerPtr input_ports_zeropnt2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zeropnt2 )
 		PORT_START(); 	// IN0 - $800019.b
 		PORT_BIT(  0x0001, IP_ACTIVE_HIGH, IPT_COIN1    );
 		PORT_BIT(  0x0002, IP_ACTIVE_HIGH, IPT_COIN2    );
@@ -836,7 +836,7 @@ public class unico
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_burglarx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_burglarx = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "bx-rom2.pgm", 0x000000, 0x080000, CRC(f81120c8) SHA1(f0240cf9aceb755e3c920bc3bcae0a9de29fd8c1) )
@@ -903,7 +903,7 @@ public class unico
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_zeropnt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zeropnt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "zero_2.bin", 0x000000, 0x080000, CRC(1e599509) SHA1(5a562a3c85700126b95fbdf21ef8c0ddd35d9037) )
 		ROM_LOAD16_BYTE( "zero_3.bin", 0x000001, 0x080000, CRC(588aeef7) SHA1(0dfa22c9e7b1fe493c16160b1ac76fa4d3bb2e68) )
@@ -926,7 +926,7 @@ public class unico
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_zeropnta = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zeropnta = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "zpa2.bin", 0x000000, 0x080000, CRC(285fbca3) SHA1(61f8d48388a666ed9300c0688fbf844e316b8892) )
 		ROM_LOAD16_BYTE( "zpa3.bin", 0x000001, 0x080000, CRC(ad7b3129) SHA1(d814b5d9336d011386aa0b316b11225e5ea799fc) )
@@ -1110,7 +1110,7 @@ public class unico
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_zeropnt2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zeropnt2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )		/* 68020 Code */
 		ROM_LOAD32_WORD_SWAP( "d16-d31.4", 0x000000, 0x100000, CRC(48314fdb) SHA1(a5bdb6a3f520587ff5e73438dc414cfdff34167b) )
 		ROM_LOAD32_WORD_SWAP( "d0-d15.3",  0x000002, 0x100000, CRC(5ec4151e) SHA1(f7c857bdb6a92f76f09a089b37def7e6cf24b65a) )

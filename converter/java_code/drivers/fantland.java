@@ -174,7 +174,7 @@ public class fantland
 									Fantasy Land
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_fantland = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fantland )
+	static InputPortHandlerPtr input_ports_fantland = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fantland )
 		PORT_START(); 	/* IN0 - a3000 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1			);
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START1			);
@@ -248,7 +248,7 @@ public class fantland
 									Galaxy Gunners
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_galaxygn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( galaxygn )
+	static InputPortHandlerPtr input_ports_galaxygn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galaxygn )
 		PORT_START(); 	/* IN0 - 53000 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1			);
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START1			);
@@ -482,7 +482,7 @@ public class fantland
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_fantland = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fantland = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )					// Main CPU
 		ROMX_LOAD( "fantasyl.ev2", 0x00000, 0x20000, CRC(f5bdca0e) SHA1(d05cf6f68d4d1a3dcc0171f7cf220c4920bd47bb) , ROM_SKIP(1) )
 		ROMX_LOAD( "fantasyl.od2", 0x00001, 0x20000, CRC(9db35023) SHA1(81e2accd67dcf8563a68b2c4e35526f23a40150c) , ROM_SKIP(1) )
@@ -514,7 +514,7 @@ public class fantland
 									Galaxy Gunners
 	***************************************************************************/
 	
-	static RomLoadPtr rom_galaxygn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galaxygn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )					// Main CPU
 		ROM_LOAD( "gg03.bin", 0x10000, 0x10000, CRC(9e469189) SHA1(07e5d36ca9665bdd13e3bb4241d34b9042371b79) )
 		ROM_LOAD( "gg02.bin", 0x20000, 0x10000, CRC(b87a438f) SHA1(96c39cc4d51a2fc0779f148971220117967173c0) )

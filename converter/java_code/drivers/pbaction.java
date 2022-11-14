@@ -115,7 +115,7 @@ public class pbaction
 	};
 	
 	
-	static InputPortPtr input_ports_pbaction = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pbaction )
+	static InputPortHandlerPtr input_ports_pbaction = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pbaction )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON3 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -312,7 +312,7 @@ public class pbaction
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_pbaction = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbaction = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "b-p7.bin",     0x0000, 0x4000, CRC(8d6dcaae) SHA1(c9e605f9d291cb8c7163655ea96c605b7d30365f) )
 		ROM_LOAD( "b-n7.bin",     0x4000, 0x4000, CRC(d54d5402) SHA1(a4c3205bfe5fba8bb1ff3ad15941a77c35b44a27) )
@@ -339,7 +339,7 @@ public class pbaction
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pbactio2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbactio2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pba16.bin",     0x0000, 0x4000, CRC(4a239ebd) SHA1(74e6da0485ac78093b4f09953fa3accb14bc3e43) )
 		ROM_LOAD( "pba15.bin",     0x4000, 0x4000, CRC(3afef03a) SHA1(dec714415d2fd00c9021171a48f6c94b40888ae8) )

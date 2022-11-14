@@ -176,7 +176,7 @@ public class lkage
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_lkage = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lkage )
+	static InputPortHandlerPtr input_ports_lkage = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lkage )
 		PORT_START();       /* DSW1 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Bonus_Life") );
 		PORT_DIPSETTING(    0x03, "10000" );/* unconfirmed */
@@ -422,7 +422,7 @@ public class lkage
 	
 	
 	
-	static RomLoadPtr rom_lkage = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lkage = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 ) /* Z80 code (main CPU) */
 		ROM_LOAD( "a54-01-1.37", 0x0000, 0x8000, CRC(973da9c5) SHA1(ad3b5d6a329b784e47be563c6f8dc628f32ba0a5) )
 		ROM_LOAD( "a54-02-1.38", 0x8000, 0x8000, CRC(27b509da) SHA1(c623950bd7dd2b5699ca948e3731455964106b89) )
@@ -446,7 +446,7 @@ public class lkage
 		ROM_LOAD( "a54-10.2",    0x0000, 0x0200, CRC(17dfbd14) SHA1(f8f0b6dfedd4ba108dad43ccc7697ef4ab9cbf86) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lkageb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lkageb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 code (main CPU) */
 		ROM_LOAD( "ic37_1",      0x0000, 0x8000, CRC(05694f7b) SHA1(08a3796d6cf04d64db52ed8208a51084c420e10a) )
 		ROM_LOAD( "ic38_2",      0x8000, 0x8000, CRC(22efe29e) SHA1(f7a29d54081ca7509e822ad8823ec977bccc4a40) )
@@ -470,7 +470,7 @@ public class lkage
 		ROM_LOAD( "a54-10.2",    0x0000, 0x0200, CRC(17dfbd14) SHA1(f8f0b6dfedd4ba108dad43ccc7697ef4ab9cbf86) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lkageb2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lkageb2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 code (main CPU) */
 		ROM_LOAD( "lok.a",       0x0000, 0x8000, CRC(866df793) SHA1(44a9a773d7bbfc5f9d53f56682438ef8b23ecbd6) )
 		ROM_LOAD( "lok.b",       0x8000, 0x8000, CRC(fba9400f) SHA1(fedcb9b717feaeec31afda098f0ac2744df6c7be) )
@@ -491,7 +491,7 @@ public class lkage
 		ROM_LOAD( "a54-10.2",    0x0000, 0x0200, CRC(17dfbd14) SHA1(f8f0b6dfedd4ba108dad43ccc7697ef4ab9cbf86) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lkageb3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lkageb3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 code (main CPU) */
 		ROM_LOAD( "z1.bin",      0x0000, 0x8000, CRC(60cac488) SHA1(b61df14159f37143b1faed22d77fc7be31602022) )
 		ROM_LOAD( "z2.bin",      0x8000, 0x8000, CRC(22c95f17) SHA1(8ca438d508a36918778651adf599cf45a7c4a5d7) )

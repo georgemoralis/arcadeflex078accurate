@@ -204,7 +204,7 @@ public class popper
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_popper = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( popper )
+	static InputPortHandlerPtr input_ports_popper = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( popper )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START1 );
@@ -349,7 +349,7 @@ public class popper
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_popper = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_popper = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "p1",   0x0000, 0x2000, CRC(56881b70) SHA1(d3ade7a54a6cb8a0babf0d667a6b27f492a739dc) )
 		ROM_LOAD( "p2",   0x2000, 0x2000, CRC(a054d9d2) SHA1(fcd86e7247b40cf07ea595a64c104b99b0e93ced) )

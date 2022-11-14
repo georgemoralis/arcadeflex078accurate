@@ -145,7 +145,7 @@ public class flower
 	
 	
 	
-	static InputPortPtr input_ports_flower = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( flower )
+	static InputPortHandlerPtr input_ports_flower = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( flower )
 		PORT_START(); 	/* IN0 (CPU0) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START1  );
@@ -291,7 +291,7 @@ public class flower
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_flower = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_flower = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main cpu */
 		ROM_LOAD( "1.5j",   0x0000, 0x8000, CRC(a4c3af78) SHA1(d149b0e0d82318273dd9cc5a143b175cdc818d0d) )
 	

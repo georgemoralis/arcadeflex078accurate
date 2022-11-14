@@ -242,7 +242,7 @@ public class rmhaihai
 		new IO_WritePort( 0xbc0c, 0xbc0c, IOWP_NOP ),	// ??
 	MEMORY_END
 	
-	static InputPortPtr input_ports_rmhaihai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rmhaihai )
+	static InputPortHandlerPtr input_ports_rmhaihai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rmhaihai )
 		PORT_START();   /* dsw2 */
 		PORT_DIPNAME( 0x01, 0x01, "Unknown 2-1" );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -353,7 +353,7 @@ public class rmhaihai
 		PORT_BIT_IMPULSE( 0x8000, IP_ACTIVE_HIGH, IPT_COIN2, 1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_rmhaihib = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rmhaihib )
+	static InputPortHandlerPtr input_ports_rmhaihib = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rmhaihib )
 		PORT_START();   /* dsw2 */
 		PORT_DIPNAME( 0x01, 0x01, "Unknown 2-1" );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -594,7 +594,7 @@ public class rmhaihai
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_rmhaihai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rmhaihai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "s3-6.11g",     0x00000, 0x2000, CRC(e7af7ba2) SHA1(1b0f87a16006a96e5b59e055966addac3e2ca926) )
 		ROM_CONTINUE(             0x06000, 0x2000 )
@@ -621,7 +621,7 @@ public class rmhaihai
 		ROM_LOAD( "s0-1.5g",      0x00000, 0x8000, CRC(65e55b7e) SHA1(3852fb3b37eccdcddff05d8ef4a742fcb8b63473) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rmhaihib = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rmhaihib = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "s-30-6.11g",   0x00000,  0x2000, CRC(f3e13cc8) SHA1(7eb9b17ea9efb5b2891ec40a9ff9744e84c0511c) )
 		ROM_CONTINUE(             0x06000,  0x2000 )
@@ -648,7 +648,7 @@ public class rmhaihai
 		ROM_LOAD( "s0-1.5g",      0x00000, 0x8000, CRC(65e55b7e) SHA1(3852fb3b37eccdcddff05d8ef4a742fcb8b63473) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rmhaijin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rmhaijin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "s-4-6.11g",    0x00000, 0x2000, CRC(474c9ace) SHA1(9161a5c64054f079d57676f3d7f61ca149018f61) )
 		ROM_CONTINUE(             0x06000, 0x2000 )
@@ -675,7 +675,7 @@ public class rmhaihai
 		ROM_LOAD( "s-0-1.5g",     0x00000, 0x8000, CRC(65e55b7e) SHA1(3852fb3b37eccdcddff05d8ef4a742fcb8b63473) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rmhaisei = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rmhaisei = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sei-11.h11",   0x00000, 0x2000, CRC(7c35692b) SHA1(8890ca90ae84c63bfd2b4857bbdd02bd9a2f29a9) )
 		ROM_CONTINUE(             0x06000, 0x2000 )
@@ -703,7 +703,7 @@ public class rmhaihai
 		ROM_LOAD( "sei-7.h5",     0x00000, 0x8000, CRC(3e412c1a) SHA1(bc5e324ea26b8dd1e37c4e8b0d7ba712c1222bc7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_themj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_themj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* CPU */
 		ROM_LOAD( "t7.bin",       0x00000,  0x02000, CRC(a58563c3) SHA1(53faeb66606214eb97ef8ff9affe68705e18a0b3) )
 		ROM_CONTINUE(             0x06000,  0x02000 )

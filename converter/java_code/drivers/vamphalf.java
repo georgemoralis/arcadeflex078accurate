@@ -46,7 +46,7 @@ public class vamphalf
 		{ 0xffc00000, 0xffffffff, MWA32_ROM },
 	MEMORY_END
 	
-	static InputPortPtr input_ports_vamphalf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vamphalf )
+	static InputPortHandlerPtr input_ports_vamphalf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vamphalf )
 	INPUT_PORTS_END(); }}; 
 	
 	
@@ -118,7 +118,7 @@ public class vamphalf
 	
 	/* f2 systems hardware */
 	
-	static RomLoadPtr rom_vamphalf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vamphalf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, 0 ) /* Hyperstone CPU Code */
@@ -155,7 +155,7 @@ public class vamphalf
 	hc_u111.bin    32768  0x79012474  AMIC 275308 dumped as 27256
 	*/
 	
-	static RomLoadPtr rom_hidnctch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hidnctch = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, 0 ) /* Hyperstone CPU Code */
@@ -205,7 +205,7 @@ public class vamphalf
 	
 	*/
 	
-	static RomLoadPtr rom_landbrk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_landbrk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, 0 ) /* Hyperstone CPU Code */
@@ -260,7 +260,7 @@ public class vamphalf
 	
 	*/
 	
-	static RomLoadPtr rom_racoon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racoon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, 0 ) /* Hyperstone CPU Code */
@@ -343,7 +343,7 @@ public class vamphalf
 	
 	*/
 	
-	static RomLoadPtr rom_xfiles = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xfiles = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x400000, REGION_USER1, 0 ) /* Hyperstone CPU Code */

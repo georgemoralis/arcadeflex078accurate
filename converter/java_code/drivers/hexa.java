@@ -69,7 +69,7 @@ public class hexa
 	
 	
 	
-	static InputPortPtr input_ports_hexa = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hexa )
+	static InputPortHandlerPtr input_ports_hexa = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hexa )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_4WAY );
@@ -173,7 +173,7 @@ public class hexa
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hexa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hexa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )		/* 64k for code + 32k for banked ROM */
 		ROM_LOAD( "hexa.20",      0x00000, 0x8000, CRC(98b00586) SHA1(3591a3b0486d720f0aaa9f0bf4be352cd0ffcbc7) )
 		ROM_LOAD( "hexa.21",      0x10000, 0x8000, CRC(3d5d006c) SHA1(ad4eadab82024b122182eacb5a322cfd6e476a70) )

@@ -109,7 +109,7 @@ public class drmicro
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_drmicro = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( drmicro )
+	static InputPortHandlerPtr input_ports_drmicro = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( drmicro )
 		PORT_START();  // 1P (0)
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x40, IP_ACTIVE_HIGH, IPT_SERVICE1 );
@@ -270,7 +270,7 @@ public class drmicro
 	
 	/****************************************************************************/
 	
-	static RomLoadPtr rom_drmicro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drmicro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // CPU
 		ROM_LOAD( "dm-00.13b", 0x0000,  0x2000, CRC(270f2145) SHA1(1557428387e2c0f711c676a13a763c8d48aa497b) )
 		ROM_LOAD( "dm-01.14b", 0x2000,  0x2000, CRC(bba30c80) SHA1(a084429fad58fa6348936084652235d5f55e3b89) )

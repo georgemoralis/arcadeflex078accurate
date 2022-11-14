@@ -98,7 +98,7 @@ public class subs
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_subs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( subs )
+	static InputPortHandlerPtr input_ports_subs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( subs )
 		PORT_START();  /* OPTIONS */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -349,7 +349,7 @@ public class subs
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_subs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_subs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "34190.p1",     0x2800, 0x0800, CRC(a88aef21) SHA1(3811c137041ca43a6e49fbaf7d9d8ef37ba190a2) )
 		ROM_LOAD( "34191.p2",     0x3000, 0x0800, CRC(2c652e72) SHA1(097b665e803cbc57b5a828403a8d9a258c19e97f) )

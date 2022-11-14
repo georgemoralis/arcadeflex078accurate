@@ -218,7 +218,7 @@ public class sbowling
 	};
 	
 	
-	static InputPortPtr input_ports_sbowling = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sbowling )
+	static InputPortHandlerPtr input_ports_sbowling = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sbowling )
 		PORT_START(); 
 		PORT_BIT( 0x10, IP_ACTIVE_HIGH, IPT_COIN1   );
 		PORT_BIT( 0x20, IP_ACTIVE_HIGH,	IPT_TILT );
@@ -374,7 +374,7 @@ public class sbowling
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_sbowling = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sbowling = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	
 		ROM_LOAD( "kb01.6h",        0x0000, 0x1000, CRC(dd5d411a) SHA1(ca15676d234353bc47f642be13d58f3d6d880126))
 		ROM_LOAD( "kb02.5h",        0x1000, 0x1000, CRC(75d3c45f) SHA1(af6e6237b7b28efaac258e6ddd85518c3406b24a))

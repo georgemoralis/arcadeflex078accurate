@@ -234,7 +234,7 @@ public class starwars
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_starwars = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( starwars )
+	static InputPortHandlerPtr input_ports_starwars = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( starwars )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );
@@ -311,7 +311,7 @@ public class starwars
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_esb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( esb )
+	static InputPortHandlerPtr input_ports_esb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( esb )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );
@@ -467,7 +467,7 @@ public class starwars
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_starwar1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starwar1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x12000, REGION_CPU1, 0 )     /* 2 64k ROM spaces */
 		ROM_LOAD( "136021.105",   0x3000, 0x1000, CRC(538e7d2f) SHA1(032c933fd94a6b0b294beee29159a24494ae969b) ) /* 3000-3fff is 4k vector rom */
 		ROM_LOAD( "136021.114",   0x6000, 0x2000, CRC(e75ff867) SHA1(3a40de920c31ffa3c3e67f3edf653b79fcc5ddd7) )   /* ROM 0 bank pages 0 and 1 */
@@ -493,7 +493,7 @@ public class starwars
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_starwars = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starwars = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x12000, REGION_CPU1, 0 )     /* 2 64k ROM spaces */
 		ROM_LOAD( "136021.105",   0x3000, 0x1000, CRC(538e7d2f) SHA1(032c933fd94a6b0b294beee29159a24494ae969b) ) /* 3000-3fff is 4k vector rom */
 		ROM_LOAD( "136021.214",   0x6000, 0x2000, CRC(04f1876e) SHA1(c1d3637cb31ece0890c25f6122d6bcd27e6ffe0c) )   /* ROM 0 bank pages 0 and 1 */
@@ -519,7 +519,7 @@ public class starwars
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_esb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_esb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x22000, REGION_CPU1, 0 )     /* 64k for code and a buttload for the banked ROMs */
 		ROM_LOAD( "136031.111",   0x03000, 0x1000, CRC(b1f9bd12) SHA1(76f15395c9fdcd80dd241307a377031a1f44e150) )    /* 3000-3fff is 4k vector rom */
 		ROM_LOAD( "136031.101",   0x06000, 0x2000, CRC(ef1e3ae5) SHA1(d228ff076faa7f9605badeee3b827adb62593e0a) )

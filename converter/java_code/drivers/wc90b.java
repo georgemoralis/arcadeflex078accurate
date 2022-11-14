@@ -208,7 +208,7 @@ public class wc90b
 	
 	
 	
-	static InputPortPtr input_ports_wc90b = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wc90b )
+	static InputPortHandlerPtr input_ports_wc90b = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wc90b )
 		PORT_START(); 	/* IN0 bit 0-5 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -399,7 +399,7 @@ public class wc90b
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_wc90b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wc90b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128k for code */
 		ROM_LOAD( "a02.bin",      0x00000, 0x10000, CRC(192a03dd) SHA1(ab98d370bba5437f956631b0199b173be55f1c27) )	/* c000-ffff is not used */
 		ROM_LOAD( "a03.bin",      0x10000, 0x10000, CRC(f54ff17a) SHA1(a19850fc28a5a0da20795a5cc6b56d9c16554bce) )	/* banked at f000-f7ff */

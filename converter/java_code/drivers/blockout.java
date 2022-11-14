@@ -89,7 +89,7 @@ public class blockout
 	};
 	
 	
-	static InputPortPtr input_ports_blockout = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blockout )
+	static InputPortHandlerPtr input_ports_blockout = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blockout )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -164,7 +164,7 @@ public class blockout
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_blckoutj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blckoutj )
+	static InputPortHandlerPtr input_ports_blckoutj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blckoutj )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -303,7 +303,7 @@ public class blockout
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_blockout = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blockout = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 2*128k for 68000 code */
 		ROM_LOAD16_BYTE( "bo29a0-2.bin", 0x00000, 0x20000, CRC(b0103427) SHA1(53cac2adc04783abbde21e9f3c0e655f22f68f69) )
 		ROM_LOAD16_BYTE( "bo29a1-2.bin", 0x00001, 0x20000, CRC(5984d5a2) SHA1(4b350856d0313d40eaa3d8a8d9e310f74bc20398) )
@@ -318,7 +318,7 @@ public class blockout
 		ROM_LOAD( "mb7114h.25",   0x0000, 0x0100, CRC(b25bbda7) SHA1(840f1470886bd0019db3cd29e3d1d80205a65f48) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blckout2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blckout2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 2*128k for 68000 code */
 		ROM_LOAD16_BYTE( "29a0",         0x00000, 0x20000, CRC(605f931e) SHA1(65fa7227dafde1fc8564e09fa949fe575b394d8a) )
 		ROM_LOAD16_BYTE( "29a1",         0x00001, 0x20000, CRC(38f07000) SHA1(e4070e3067d77cc1b0d8d0c63786f2729c5c703a) )
@@ -333,7 +333,7 @@ public class blockout
 		ROM_LOAD( "mb7114h.25",   0x0000, 0x0100, CRC(b25bbda7) SHA1(840f1470886bd0019db3cd29e3d1d80205a65f48) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blckoutj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blckoutj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 2*128k for 68000 code */
 		ROM_LOAD16_BYTE( "2.bin",         0x00000, 0x20000, CRC(e16cf065) SHA1(541b30b054cf08f10d6ca4746423759f4326c005) )
 		ROM_LOAD16_BYTE( "1.bin",         0x00001, 0x20000, CRC(950b28a3) SHA1(7d1635ac2a3fc1efdd2f78cd6038bd7b4c907b1b) )

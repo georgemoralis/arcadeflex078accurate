@@ -264,7 +264,7 @@ public class kingobox
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_kingofb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kingofb )
+	static InputPortHandlerPtr input_ports_kingofb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kingofb )
 	    PORT_START();  /* DSW0 - 0xfc01 */
 	    PORT_DIPNAME( 0x03, 0x01, "Rest Up Points" );
 	    PORT_DIPSETTING(    0x02, "70000" );
@@ -355,7 +355,7 @@ public class kingobox
 	INPUT_PORTS_END(); }}; 
 	
 	/* Ring King */
-	static InputPortPtr input_ports_ringking = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ringking )
+	static InputPortHandlerPtr input_ports_ringking = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ringking )
 	    PORT_START();  /* DSW0 - 0xe000 */
 	    PORT_DIPNAME( 0x03, 0x03, "Replay" );
 	    PORT_DIPSETTING(    0x01, "70000" );
@@ -679,7 +679,7 @@ public class kingobox
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_kingofb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kingofb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "d09_22.bin",   0x00000, 0x4000, CRC(6220bfa2) SHA1(cb329406ed07b71f9d2c40fc6c2c196daaa56fc8) )
 		ROM_LOAD( "e09_23.bin",   0x04000, 0x4000, CRC(5782fdd8) SHA1(6c8c1114ce7863f9e8331796e2c5fb4928904b55) )
@@ -721,7 +721,7 @@ public class kingobox
 	ROM_END(); }}; 
 	
 	/* Ring King */
-	static RomLoadPtr rom_ringking = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ringking = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cx13.9f",      0x00000, 0x8000, CRC(93e38c02) SHA1(8f96f16f2904ef83101448fdf201b98b8e75e1d6) )
 		ROM_LOAD( "cx14.11f",     0x08000, 0x4000, CRC(a435acb0) SHA1(2c9d4e8471d87ce148f9c2180769350401914fc0) )
@@ -758,7 +758,7 @@ public class kingobox
 		ROM_LOAD( "82s129.1a",    0x0100, 0x0100, CRC(d345cbb3) SHA1(6318022ebbbe59d4c0a207801fffed1167b98a66) )	/* blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ringkin2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ringkin2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "rkngm1.bin",   0x00000, 0x8000, CRC(086921ea) SHA1(c5a594be0738a80c5f912dc819332ff61aa6fc4b) )
 		ROM_LOAD( "rkngm2.bin",   0x08000, 0x4000, CRC(c0b636a4) SHA1(c3640a5597242e735673e1dbf8bf866e9122a20f) )
@@ -795,7 +795,7 @@ public class kingobox
 		ROM_LOAD( "82s129.1a",    0x0100, 0x0100, CRC(d345cbb3) SHA1(6318022ebbbe59d4c0a207801fffed1167b98a66) )	/* blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ringkin3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ringkin3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "14.9d",        0x00000, 0x4000, CRC(63627b8b) SHA1(eea736c8eec59fa561b9d1b5aa43df5410d8dde7) )
 		ROM_LOAD( "15.9e",        0x04000, 0x4000, CRC(e7557489) SHA1(49dce8f6ce26283fbdca17d75699de4d636a900a) )

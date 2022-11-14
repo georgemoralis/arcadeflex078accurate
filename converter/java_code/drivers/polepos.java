@@ -181,7 +181,7 @@ public class polepos
 	 * Input port definitions
 	 *********************************************************************/
 	
-	static InputPortPtr input_ports_polepos = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( polepos )
+	static InputPortHandlerPtr input_ports_polepos = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( polepos )
 		PORT_START(); 	/* IN0 - Mostly Fake - Handled by the MCU */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNUSED );
 		PORT_BITX(0x02, IP_ACTIVE_HIGH, IPT_BUTTON1 | POLEPOS_TOGGLE, "Gear Change", KEYCODE_SPACE, IP_JOY_DEFAULT );/* Gear */
@@ -255,7 +255,7 @@ public class polepos
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_polepos2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( polepos2 )
+	static InputPortHandlerPtr input_ports_polepos2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( polepos2 )
 		PORT_START(); 	/* IN0 - Mostly Fake - Handled by the MCU */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNUSED );
 		PORT_BITX(0x02, IP_ACTIVE_HIGH, IPT_BUTTON1 | POLEPOS_TOGGLE, "Gear Change", KEYCODE_SPACE, IP_JOY_DEFAULT );/* Gear */
@@ -472,7 +472,7 @@ public class polepos
 	 * ROM definitions
 	 *********************************************************************/
 	
-	static RomLoadPtr rom_polepos = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_polepos = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Z80 memory/ROM data */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD	 ( "014-105.rom",   0x0000, 0x2000, CRC(c918c043) SHA1(abc1aa3d7b670b5a65b4565dc646cd3c4edf4e6f) )
@@ -539,7 +539,7 @@ public class polepos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_poleposa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_poleposa = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Z80 memory/ROM data */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD	 ( "014-105.rom",   0x0000, 0x2000, CRC(c918c043) SHA1(abc1aa3d7b670b5a65b4565dc646cd3c4edf4e6f) )
@@ -604,7 +604,7 @@ public class polepos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_polepos1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_polepos1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Z80 memory/ROM data */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD	 ( "014-105.rom",   0x0000, 0x2000, CRC(c918c043) SHA1(abc1aa3d7b670b5a65b4565dc646cd3c4edf4e6f) )
@@ -669,7 +669,7 @@ public class polepos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_topracer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_topracer = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Z80 memory/ROM data */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD	 ( "tr9b.bin",      0x0000, 0x2000, CRC(94436b70) SHA1(7495c2a8c3928c59146760d19e672afee01c5b17) )
@@ -734,7 +734,7 @@ public class polepos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_polepos2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_polepos2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Z80 memory/ROM data */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD	 ( "pp4_9.6h",      0x0000, 0x2000, CRC(bcf87004) SHA1(0c60cbb777fe72dfd11c6f3e9da806a515cd0f8a) )
@@ -806,7 +806,7 @@ public class polepos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_poleps2a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_poleps2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Z80 memory/ROM data */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD	 ( "180.7h",        0x0000, 0x2000, CRC(f85212c4) SHA1(666e55a7662247e72393b105b3e719be4233f1ff) )
@@ -875,7 +875,7 @@ public class polepos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_poleps2b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_poleps2b = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Z80 memory/ROM data */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD	 ( "180.7h",        0x0000, 0x2000, CRC(f85212c4) SHA1(666e55a7662247e72393b105b3e719be4233f1ff) )
@@ -945,7 +945,7 @@ public class polepos
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_poleps2c = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_poleps2c = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Z80 memory/ROM data */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD	 ( "180.7h",        0x0000, 0x2000, CRC(f85212c4) SHA1(666e55a7662247e72393b105b3e719be4233f1ff) )

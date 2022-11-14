@@ -184,7 +184,7 @@ public class flyball
 	};
 	
 	
-	static InputPortPtr input_ports_flyball = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( flyball )
+	static InputPortHandlerPtr input_ports_flyball = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( flyball )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -295,7 +295,7 @@ public class flyball
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_flyball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_flyball = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x11000, REGION_CPU1, 0 )                  /* program */
 		ROM_LOAD( "6129.d5", 0x10000, 0x0200, CRC(17eda069) SHA1(e4ef0bf4546cf00668d759a188e0989a4f003825) )
 		ROM_LOAD( "6130.f5", 0x10200, 0x0200, CRC(a756955b) SHA1(220b7f1789bba4481d595b36b4bae25f98d3ad8d) )

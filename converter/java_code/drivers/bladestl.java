@@ -162,7 +162,7 @@ public class bladestl
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_bladestl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bladestl )
+	static InputPortHandlerPtr input_ports_bladestl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bladestl )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -273,7 +273,7 @@ public class bladestl
 		PORT_ANALOG( 0xff, 0x00, IPT_TRACKBALL_X | IPF_PLAYER2, 100, 63, 0, 0);
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bladstle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bladstle )
+	static InputPortHandlerPtr input_ports_bladstle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bladstle )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -479,7 +479,7 @@ public class bladestl
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bladestl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bladestl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "797t01.bin", 0x10000, 0x08000, CRC(89d7185d) SHA1(0d2f346d9515cab0389106c0e227fb0bd84a2c9c) )	/* fixed ROM */
 		ROM_CONTINUE(			0x08000, 0x08000 )				/* banked ROM */
@@ -499,7 +499,7 @@ public class bladestl
 		ROM_LOAD( "797a04",	0x80000, 0x40000, CRC(9ac8ea4e) SHA1(9f81eff970c9e8aea6f67d8a7d89805fae044ae1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bladstle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bladstle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "797e01", 0x10000, 0x08000, CRC(f8472e95) SHA1(8b6caa905fb1642300dd9da508871b00429872c3) )	/* fixed ROM */
 		ROM_CONTINUE(		0x08000, 0x08000 )				/* banked ROM */

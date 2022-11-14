@@ -495,7 +495,7 @@ public class nycaptor
 	
 	
 	/* Cycle Shooting */
-	static InputPortPtr input_ports_cyclshtg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cyclshtg )
+	static InputPortHandlerPtr input_ports_cyclshtg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cyclshtg )
 	
 	
 	
@@ -536,7 +536,7 @@ public class nycaptor
 	
 	
 	
-	static InputPortPtr input_ports_nycaptor = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nycaptor )
+	static InputPortHandlerPtr input_ports_nycaptor = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nycaptor )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Bonus_Life") );
 		PORT_DIPSETTING(    0x02, "20k, 80k then every 80k" );
@@ -761,7 +761,7 @@ public class nycaptor
 	  Game driver(s)
 	***************************************************************************/
 	
-	static RomLoadPtr rom_nycaptor = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nycaptor = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "a50_04",   0x00000, 0x4000, CRC(33d971a3) SHA1(8bf6cb8d799739dc6f115d352453af278d58de9a) )
 		ROM_LOAD( "a50_03",   0x04000, 0x4000, CRC(8557fa44) SHA1(5639ec2ac21ae94c416c01bd7c0dae722cc14598) )
@@ -790,7 +790,7 @@ public class nycaptor
 		ROM_LOAD( "a50_14",   0x1c000, 0x4000, CRC(24b2f1bf) SHA1(4757aec2e4b99ce33d993ce1e19ee46a4eb76e86) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cyclshtg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyclshtg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "a97_01.i17",   0x00000, 0x4000, CRC(686fac1a) SHA1(46d17cb98f064413bb76c5d869f8061d2771cda0) )
 		ROM_LOAD( "a97_02.i16",   0x04000, 0x4000, CRC(48a812f9) SHA1(8ab18cb8d6a8b7ce1ed1a4009f5435ce4b0937b4) )

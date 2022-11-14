@@ -177,7 +177,7 @@ public class mjsister
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_mjsister = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjsister )
+	static InputPortHandlerPtr input_ports_mjsister = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjsister )
 	
 		PORT_START(); 	/* DSW1 (0) */
 		PORT_DIPNAME( 0x07, 0x07, DEF_STR( "Coinage") );
@@ -342,7 +342,7 @@ public class mjsister
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mjsister = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjsister = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )   /* CPU */
 		ROM_LOAD( "ms00.bin",  0x00000, 0x08000, CRC(9468c33b) SHA1(63aecdcaa8493d58549dfd1d217743210cf953bc) )
 		ROM_LOAD( "ms01t.bin", 0x10000, 0x10000, CRC(a7b6e530) SHA1(fda9bea214968a8814d2c43226b3b32316581050) ) /* banked */

@@ -106,7 +106,7 @@ public class zerozone
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_zerozone = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zerozone )
+	static InputPortHandlerPtr input_ports_zerozone = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zerozone )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -253,7 +253,7 @@ public class zerozone
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_zerozone = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zerozone = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 128k for 68000 code */
 		ROM_LOAD16_BYTE( "zz-4.rom", 0x0000, 0x10000, CRC(83718b9b) SHA1(b3fc6da5816142b9c92a7b8615eb5bcb2c78ea46) )
 		ROM_LOAD16_BYTE( "zz-5.rom", 0x0001, 0x10000, CRC(18557f41) SHA1(6ef908732b7775c1ea2b33f799635075db5756de) )
@@ -269,7 +269,7 @@ public class zerozone
 		ROM_LOAD( "zz-3.rom", 0x20000, 0x20000, CRC(e348ff5e) SHA1(6d2755d9b31366f4c2ddd296790234deb8f821c8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lvgirl94 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lvgirl94 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 128k for 68000 code */
 		ROM_LOAD16_BYTE( "rom4", 0x0000, 0x10000, CRC(c4fb449e) SHA1(dd1c567ba2cf951267dd622e2e9af265e742f246) )
 		ROM_LOAD16_BYTE( "rom5", 0x0001, 0x10000, CRC(5d446a1a) SHA1(2d7ea25e5b86e7cf4eb7f10daa1eaaaed6830a53) )

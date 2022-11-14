@@ -147,7 +147,7 @@ public class battlera
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_battlera = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battlera )
+	static InputPortHandlerPtr input_ports_battlera = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battlera )
 		PORT_START();   /* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -323,7 +323,7 @@ public class battlera
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_bldwolf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bldwolf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* Main cpu code */
 		ROM_LOAD( "es00-1.rom", 0x00000, 0x10000, CRC(ff4aa252) SHA1(3c190e49020bb6923abb3f3c2632d3c86443c292) )
 		ROM_LOAD( "es01.rom",   0x10000, 0x10000, CRC(9fea3189) SHA1(0692df6df533dfe55f61df8aa0c5c11944ba3ae3) )
@@ -344,7 +344,7 @@ public class battlera
 		/* Nothing */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_battlera = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlera = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* Main cpu code */
 		ROM_LOAD( "00_e1.bin", 0x00000, 0x10000, CRC(aa1cbe69) SHA1(982530f3202bc7b8d94d2b818873b71f02c0e8de) ) /* ET00 */
 		ROM_LOAD( "es01.rom",  0x10000, 0x10000, CRC(9fea3189) SHA1(0692df6df533dfe55f61df8aa0c5c11944ba3ae3) ) /* ET01 */

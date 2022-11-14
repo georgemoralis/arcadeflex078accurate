@@ -231,7 +231,7 @@ public class tp84
 	
 	
 	
-	static InputPortPtr input_ports_tp84 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tp84 )
+	static InputPortHandlerPtr input_ports_tp84 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tp84 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -322,7 +322,7 @@ public class tp84
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tp84a = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tp84a )
+	static InputPortHandlerPtr input_ports_tp84a = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tp84a )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -499,7 +499,7 @@ public class tp84
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tp84 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tp84 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "tp84_7j.bin",  0x8000, 0x2000, CRC(605f61c7) SHA1(6848ef35ec7f92cccefb0fb2de42c4b0e9ec476f) )
 		ROM_LOAD( "tp84_8j.bin",  0xa000, 0x2000, CRC(4b4629a4) SHA1(f3bb1ee66c9e47d050370ac9ca74f3020cb9cfa3) )
@@ -530,7 +530,7 @@ public class tp84
 		ROM_LOAD( "tp84_16c.bin", 0x0400, 0x0100, CRC(13c4e198) SHA1(42ab23206be99e840bd9c52cefa175c12fac8e5b) ) /* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tp84a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tp84a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "tp84_7j.bin",  0x8000, 0x2000, CRC(605f61c7) SHA1(6848ef35ec7f92cccefb0fb2de42c4b0e9ec476f) )
 		ROM_LOAD( "f05",          0xa000, 0x2000, CRC(e97d5093) SHA1(c76c119574d19d2ac10e6987150744542803ef5b) )

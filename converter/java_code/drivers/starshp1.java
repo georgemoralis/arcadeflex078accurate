@@ -241,7 +241,7 @@ public class starshp1
 	};
 	
 	
-	static InputPortPtr input_ports_starshp1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( starshp1 )
+	static InputPortHandlerPtr input_ports_starshp1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( starshp1 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );/* SWA1? */
@@ -384,7 +384,7 @@ public class starshp1
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_starshp1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starshp1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_HIGH( "7529-02.c2", 0x2c00, 0x0400, CRC(f191c328) SHA1(5d44be879bcf16a142a69e4f1501533e02720fe5) )
 		ROM_LOAD_NIB_LOW ( "7528-02.c1", 0x2c00, 0x0400, CRC(605ed4df) SHA1(b0d892bcd08b611d2c01ab23b491c1d9db498e7b) )
@@ -409,7 +409,7 @@ public class starshp1
 		ROM_LOAD( "7519-01.b5",  0x0200, 0x0020, CRC(23b9cd3c) SHA1(220f9f73d86cdcf1b390c52c591750a73402af50) ) /* address */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_starshpp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starshpp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_HIGH( "7529-02.c2", 0x2c00, 0x0400, CRC(f191c328) SHA1(5d44be879bcf16a142a69e4f1501533e02720fe5) )
 		ROM_LOAD_NIB_LOW ( "7528-02.c1", 0x2c00, 0x0400, CRC(605ed4df) SHA1(b0d892bcd08b611d2c01ab23b491c1d9db498e7b) )

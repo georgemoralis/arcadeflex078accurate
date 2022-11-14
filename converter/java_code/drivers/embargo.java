@@ -142,7 +142,7 @@ public class embargo
 	};
 	
 	
-	static InputPortPtr input_ports_embargo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( embargo )
+	static InputPortHandlerPtr input_ports_embargo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( embargo )
 	
 		PORT_START();  /* port 0x01 */
 		PORT_DIPNAME( 0x03, 0x00, "Rounds" );
@@ -199,7 +199,7 @@ public class embargo
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_embargo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_embargo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 		ROM_LOAD( "emb1", 0x0000, 0x0200, CRC(00dcbc24) SHA1(67018a20d7694618123499640f041fb518ea29fa) )
 		ROM_LOAD( "emb2", 0x0200, 0x0200, CRC(e7069b11) SHA1(b933095087cd4fe10f12fd244606aaaed1c31bca) )

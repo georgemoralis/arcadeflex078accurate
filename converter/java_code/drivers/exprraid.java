@@ -156,7 +156,7 @@ public class exprraid
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_exprraid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( exprraid )
+	static InputPortHandlerPtr input_ports_exprraid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( exprraid )
 		PORT_START();  /* IN 0 - 0x3800 */
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_VBLANK );
 	
@@ -371,7 +371,7 @@ public class exprraid
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_exprraid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exprraid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cz01",    0x4000, 0x4000, CRC(dc8f9fba) SHA1(cae6af54fc0081d606b6884e8873aed356a37ba9) )
 		ROM_LOAD( "cz00",    0x8000, 0x8000, CRC(a81290bc) SHA1(ddb0acda6124427bee691f9926c41fda27ed816e) )
@@ -406,7 +406,7 @@ public class exprraid
 		ROM_LOAD( "cz14.prm", 0x0300, 0x0100, CRC(52aad300) SHA1(ff09772b930afa87e28d0628ef85a589a3d149c9) ) /* ??? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wexpress = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wexpress = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "2",       0x4000, 0x4000, CRC(ea5e5a8f) SHA1(fa92bcb6b97c2966cd330b309eba73f9c059f14e) )
 		ROM_LOAD( "1",       0x8000, 0x8000, CRC(a7daae12) SHA1(a97f4bc05a3ec096d8c717bdf096f4b0e59dc2c2) )
@@ -441,7 +441,7 @@ public class exprraid
 		ROM_LOAD( "cz14.prm", 0x0300, 0x0100, CRC(52aad300) SHA1(ff09772b930afa87e28d0628ef85a589a3d149c9) ) /* ??? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wexpresb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wexpresb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "wexpress.3", 0x4000, 0x4000, CRC(b4dd0fa4) SHA1(8d17eb28ae92486c67859871ea2bef8f50f39dbd) )
 		ROM_LOAD( "wexpress.1", 0x8000, 0x8000, CRC(e8466596) SHA1(dbbd3b84d0f017292595fc19f7412b984851221a) )
@@ -476,7 +476,7 @@ public class exprraid
 		ROM_LOAD( "cz14.prm", 0x0300, 0x0100, CRC(52aad300) SHA1(ff09772b930afa87e28d0628ef85a589a3d149c9) ) /* ??? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wexpresc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wexpresc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "s2",      0x4000, 0x4000, CRC(40d70fcb) SHA1(1327d39f872a39e020972952e5756ca59c55f9d0) )
 		ROM_LOAD( "s1",      0x8000, 0x8000, CRC(7c573824) SHA1(f5e4d4f0866c08c88d012a77e8aa2e74a779f986) )

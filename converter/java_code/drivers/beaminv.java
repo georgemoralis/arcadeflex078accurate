@@ -78,7 +78,7 @@ public class beaminv
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_beaminv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( beaminv )
+	static InputPortHandlerPtr input_ports_beaminv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( beaminv )
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "3" );
@@ -154,7 +154,7 @@ public class beaminv
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_beaminv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_beaminv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "0a", 0x0000, 0x0400, CRC(17503086) SHA1(18c789216e5c4330dba3eeb24919dae636bf803d) )
 		ROM_LOAD( "1a", 0x0400, 0x0400, CRC(aa9e1666) SHA1(050e2bd169f1502f49b7e6f5f2df9dac0d8107aa) )

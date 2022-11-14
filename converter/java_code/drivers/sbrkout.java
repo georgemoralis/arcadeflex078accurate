@@ -158,7 +158,7 @@ public class sbrkout
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_sbrkout = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sbrkout )
+	static InputPortHandlerPtr input_ports_sbrkout = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sbrkout )
 		PORT_START(); 		/* DSW - fake port, gets mapped to Super Breakout ports */
 		PORT_DIPNAME( 0x03, 0x00, "Language" );
 		PORT_DIPSETTING(	0x00, "English" );
@@ -306,7 +306,7 @@ public class sbrkout
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_sbrkout = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sbrkout = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "033453.c1",    0x2800, 0x0800, CRC(a35d00e3) SHA1(53617ed1d362e82d6f45abd66056bffe23300e3b) )
 		ROM_LOAD( "033454.d1",    0x3000, 0x0800, CRC(d42ea79a) SHA1(66c9b29226cde36d1ac6d1e81f34ebb5c79eded4) )

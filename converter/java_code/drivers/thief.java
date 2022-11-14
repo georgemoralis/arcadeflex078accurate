@@ -208,7 +208,7 @@ public class thief
 	
 	/**********************************************************/
 	
-	static InputPortPtr input_ports_sharkatt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sharkatt )
+	static InputPortHandlerPtr input_ports_sharkatt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sharkatt )
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x7f, 0x7f, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "2C_1C") );
@@ -261,7 +261,7 @@ public class thief
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_thief = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( thief )
+	static InputPortHandlerPtr input_ports_thief = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( thief )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "2C_1C") );
@@ -330,7 +330,7 @@ public class thief
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_natodef = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( natodef )
+	static InputPortHandlerPtr input_ports_natodef = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( natodef )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "2C_1C") );
@@ -542,7 +542,7 @@ public class thief
 	
 	/**********************************************************/
 	
-	static RomLoadPtr rom_sharkatt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sharkatt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sharkatt.0",   0x0000, 0x800, CRC(c71505e9) SHA1(068c92e9d797918f281fa509f3c86578b3f0de3a) )
 		ROM_LOAD( "sharkatt.1",   0x0800, 0x800, CRC(3e3abf70) SHA1(ef69e72db583a22093a3c32ba437a6eaef4b132a) )
@@ -559,7 +559,7 @@ public class thief
 		ROM_LOAD( "sharkatt.12a", 0x6000, 0x800, CRC(5dd8785a) SHA1(4eaceb781271757c4f4f6f9a4647d394d1912d72) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_thief = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thief = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 code */
 		ROM_LOAD( "t8a0ah0a",	0x0000, 0x1000, CRC(edbbf71c) SHA1(9f13841c54fbe5449280c24954a45517014a834e) )
 		ROM_LOAD( "t2662h2",	0x1000, 0x1000, CRC(85b4f6ff) SHA1(8e007bfff2f27809e7a9881bc3b2587bf35cff6d) )
@@ -582,7 +582,7 @@ public class thief
 		/* next 0x4000 bytes are unmapped (used by Nato Defense) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_natodef = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_natodef = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 code */
 		ROM_LOAD( "natodef.cp0",	0x0000, 0x1000, CRC(8397c787) SHA1(5957613f1ace7dc4612f28f6fba3a7374be905ac) )
 		ROM_LOAD( "natodef.cp2",	0x1000, 0x1000, CRC(8cfbf26f) SHA1(a15f0d5d82cd96b80ee91dc91858b660c5895f34) )
@@ -608,7 +608,7 @@ public class thief
 		ROM_LOAD16_BYTE( "natodef.e2",	0x4000, 0x1000, CRC(886c3f05) SHA1(306c8621455d2d6b7b2f545500b27e56a7159a1b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_natodefa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_natodefa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 code */
 		ROM_LOAD( "natodef.cp0",	0x0000, 0x1000, CRC(8397c787) SHA1(5957613f1ace7dc4612f28f6fba3a7374be905ac) )
 		ROM_LOAD( "natodef.cp2",	0x1000, 0x1000, CRC(8cfbf26f) SHA1(a15f0d5d82cd96b80ee91dc91858b660c5895f34) )

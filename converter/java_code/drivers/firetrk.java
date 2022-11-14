@@ -639,7 +639,7 @@ public class firetrk
 	};
 	
 	
-	static InputPortPtr input_ports_firetrk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( firetrk )
+	static InputPortHandlerPtr input_ports_firetrk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( firetrk )
 		PORT_START(); 
 		PORT_ANALOG( 0xff, 0x00, IPT_DIAL | IPF_PLAYER1, 25, 10, 0, 0 );
 	
@@ -715,7 +715,7 @@ public class firetrk
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_superbug = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( superbug )
+	static InputPortHandlerPtr input_ports_superbug = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( superbug )
 		PORT_START(); 
 		PORT_ANALOG( 0xff, 0x00, IPT_DIAL, 25, 10, 0, 0 );
 	
@@ -779,7 +779,7 @@ public class firetrk
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_montecar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( montecar )
+	static InputPortHandlerPtr input_ports_montecar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( montecar )
 		PORT_START(); 
 		PORT_ANALOG( 0xff, 0x00, IPT_DIAL | IPF_PLAYER1, 25, 10, 0, 0 );
 	
@@ -1701,7 +1701,7 @@ public class firetrk
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_firetrk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_firetrk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD(          "32823-02.c1", 0x2000, 0x800, CRC(9570bdd3) SHA1(4d26a9490d05d53da55fc59459a4dce5bca6c761) )
 		ROM_LOAD(          "32824-01.d1", 0x2800, 0x800, CRC(a5fc5629) SHA1(bf20510d8623eda2740ff296a7813a3e6f7ec76e) )
@@ -1730,7 +1730,7 @@ public class firetrk
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_superbug = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superbug = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "9121.d1", 0x0800, 0x800, CRC(350df308) SHA1(b957c830bb95e0752ea9793e3edcfdd52235e0ab) )
 		ROM_LOAD( "9122.c1", 0x1000, 0x800, CRC(eb6e3e37) SHA1(5237f6bd3a7a3eca737c728296230cf0d1f436b0) )
@@ -1755,7 +1755,7 @@ public class firetrk
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_montecar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_montecar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "35766-01.h1", 0x2000, 0x800, CRC(d3695f09) SHA1(8aa3b3921acd0d2c3230d610843042613defcba9) )
 	    ROM_LOAD( "35765-01.f1", 0x2800, 0x800, CRC(9491a7ee) SHA1(712959c5f97be3db7be1d5bd70c780d4da2f6d47) )

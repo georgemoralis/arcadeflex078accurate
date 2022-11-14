@@ -54,7 +54,7 @@ public class pkunwar
 	
 	
 	
-	static InputPortPtr input_ports_pkunwar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pkunwar )
+	static InputPortHandlerPtr input_ports_pkunwar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pkunwar )
 		PORT_START(); 	/* IN0 */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_2WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_2WAY );
@@ -208,7 +208,7 @@ public class pkunwar
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_pkunwar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pkunwar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pkwar.01r",    0x0000, 0x4000, CRC(ce2d2c7b) SHA1(2ffe2eb339fd668ec4fe90eff66124a334db0693) )
 		ROM_LOAD( "pkwar.02r",    0x4000, 0x4000, CRC(abc1f661) SHA1(c4bf4a345efd4271617de9f334303d81c6885aa5) )
@@ -228,7 +228,7 @@ public class pkunwar
 		ROM_LOAD( "pkwar.col",    0x0000, 0x0020, CRC(af0fc5e2) SHA1(480908bf893211b580ae19cfb40dc35ad1bbc343) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pkunwarj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pkunwarj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pgunwar.6",    0x0000, 0x4000, CRC(357f3ef3) SHA1(bc651fb7701b395ae8cda1888814af5c5aa325a6) )
 		ROM_LOAD( "pgunwar.5",    0x4000, 0x4000, CRC(0092e49e) SHA1(7945361036f7679e4f4bb6b94f60f3ca09c077dc) )

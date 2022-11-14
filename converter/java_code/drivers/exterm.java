@@ -344,7 +344,7 @@ public class exterm
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_exterm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( exterm )
+	static InputPortHandlerPtr input_ports_exterm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( exterm )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_START1 );
@@ -511,7 +511,7 @@ public class exterm
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_exterm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_exterm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )		/* dummy region for TMS34010 #1 */
 	
 		ROM_REGION( 0x20000, REGION_CPU2, 0 )		/* dummy region for TMS34010 #2 */

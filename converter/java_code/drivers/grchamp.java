@@ -403,7 +403,7 @@ public class grchamp
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_grchamp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( grchamp )
+	static InputPortHandlerPtr input_ports_grchamp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( grchamp )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x0f, 0x00, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x0f, DEF_STR( "9C_1C") );
@@ -482,7 +482,7 @@ public class grchamp
 		//mask,default,type,sensitivity,delta,min,max
 	INPUT_PORTS_END(); }}; 
 	
-	static RomLoadPtr rom_grchamp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grchamp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "gm03",   0x0000, 0x1000, CRC(47fda76e) SHA1(fd5f1a651481669d64e5e0799369c22472265535) )
 		ROM_LOAD( "gm04",   0x1000, 0x1000, CRC(07a623dc) SHA1(bb8a6531d95e996148c06fd336db4054eb1d28dd) )

@@ -108,7 +108,7 @@ public class avalnche
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_avalnche = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( avalnche )
+	static InputPortHandlerPtr input_ports_avalnche = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( avalnche )
 		PORT_START();  /* IN0 */
 		PORT_BIT (0x03, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* Spare */
 		PORT_DIPNAME( 0x0c, 0x04, DEF_STR( "Coinage") );
@@ -266,7 +266,7 @@ public class avalnche
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_avalnche = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_avalnche = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		/* Note: These are being loaded into a bogus location, */
 		/*		 They are nibble wide rom images which will be */

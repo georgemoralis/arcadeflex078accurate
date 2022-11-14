@@ -326,7 +326,7 @@ public class shadfrce
 	
 	
 	#if USE_SHADFRCE_FAKE_INPUT_PORTS
-	static InputPortPtr input_ports_shadfrce = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shadfrce )
+	static InputPortHandlerPtr input_ports_shadfrce = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shadfrce )
 		PORT_START(); 	/* Fake IN0 (player 1 inputs) */
 		SHADFRCE_PLAYER_INPUT( IPF_PLAYER1, IPT_START1 )
 	
@@ -404,7 +404,7 @@ public class shadfrce
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	#else
-	static InputPortPtr input_ports_shadfrce = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shadfrce )
+	static InputPortHandlerPtr input_ports_shadfrce = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shadfrce )
 		PORT_START(); 	/* IN0 - $1d0020.w */
 		SHADFRCE_PLAYER_INPUT( IPF_PLAYER1, IPT_START1 )
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_COIN1 );
@@ -598,7 +598,7 @@ public class shadfrce
 	
 	/* Rom Defs. */
 	
-	static RomLoadPtr rom_shadfrce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shadfrce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "32a12-01.34", 0x00001, 0x40000, CRC(04501198) SHA1(50f981c13f9ed19d681d494376018ba86464ea13) )
 		ROM_LOAD16_BYTE( "32a13-01.26", 0x00000, 0x40000, CRC(b8f8a05c) SHA1(bd9d4218a7cf57b56aec1f7e710e02af8471f9d7) )

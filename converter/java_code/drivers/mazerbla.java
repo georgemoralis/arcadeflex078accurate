@@ -1158,7 +1158,7 @@ public class mazerbla
 	
 	
 	
-	static InputPortPtr input_ports_mazerbla = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mazerbla )
+	static InputPortHandlerPtr input_ports_mazerbla = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mazerbla )
 		PORT_START(); 	/* Strobe 0: ZPU Switches */
 		PORT_DIPNAME( 0x40, 0x40, "ZPU Switch 1" );
 		PORT_DIPSETTING(    0x40, DEF_STR( "Off") );
@@ -1300,7 +1300,7 @@ public class mazerbla
 		PORT_ANALOG( 0xff, 0x80, IPT_LIGHTGUN_Y | IPF_PLAYER2, 25, 7, 0, 255);
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_greatgun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( greatgun )
+	static InputPortHandlerPtr input_ports_greatgun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( greatgun )
 		PORT_START(); 	/* Strobe 0: ZPU Switches */
 		PORT_DIPNAME( 0x40, 0x40, "ZPU Switch 1" );
 		PORT_DIPSETTING(    0x40, DEF_STR( "Off") );
@@ -1575,7 +1575,7 @@ public class mazerbla
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mazerbla = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mazerbla = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU (ZPU board) */
 		ROM_LOAD( "mblzpu0.bin",0x0000, 0x2000, CRC(82766187) SHA1(cfc425c87cccb84180f1091998eafeaede126d9d) )
 		ROM_LOAD( "mblzpu1.bin",0x2000, 0x2000, CRC(8ba2b3f9) SHA1(1d203332e434d1d9821f98c6ac959ae65dcc51ef) )
@@ -1596,7 +1596,7 @@ public class mazerbla
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_greatgun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_greatgun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU (ZPU board) */
 		ROM_LOAD( "zpu0",0x0000, 0x2000, CRC(80cf2cbf) SHA1(ea24b844ea6d8fc54adb2e28be68e1f3e1184b8b) )
 		ROM_LOAD( "zpu1",0x2000, 0x2000, CRC(fc12af94) SHA1(65f5bca2853271c232bd02dfc3467e6a4f7f0a6f) )

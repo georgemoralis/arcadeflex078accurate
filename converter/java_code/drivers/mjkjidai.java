@@ -135,7 +135,7 @@ public class mjkjidai
 	
 	
 	
-	static InputPortPtr input_ports_mjkjidai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mjkjidai )
+	static InputPortHandlerPtr input_ports_mjkjidai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mjkjidai )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -344,7 +344,7 @@ public class mjkjidai
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mjkjidai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mjkjidai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1c000, REGION_CPU1, 0 )
 		ROM_LOAD( "mkj-00.14g",   0x00000, 0x8000, CRC(188a27e9) SHA1(2306ad112aaf8d9ac77a89d0e4c3a17f36945130) )
 		ROM_LOAD( "mkj-01.15g",   0x08000, 0x4000, CRC(a6a5e9c7) SHA1(974f4343f4347a0065f833c1fdcc47e96d42932d) )	/* banked, there is code flowing from 7fff to this bank */

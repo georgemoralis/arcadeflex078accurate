@@ -254,7 +254,7 @@ public class sega
 			PORT_DIPSETTING(	0x10, DEF_STR ( 1C_6C );
 	
 	
-	static InputPortPtr input_ports_spacfury = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacfury )
+	static InputPortHandlerPtr input_ports_spacfury = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacfury )
 		PORT_START(); 	/* IN0 - port 0xf8 */
 		/* The next bit is referred to as the Service switch in the self test - it just adds a credit */
 		PORT_BIT_IMPULSE( 0x20, IP_ACTIVE_LOW, IPT_COIN3, 3 );
@@ -318,7 +318,7 @@ public class sega
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_zektor = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zektor )
+	static InputPortHandlerPtr input_ports_zektor = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zektor )
 		PORT_START(); 	/* IN0 - port 0xf8 */
 		/* The next bit is referred to as the Service switch in the self test - it just adds a credit */
 		PORT_BIT_IMPULSE( 0x20, IP_ACTIVE_LOW, IPT_COIN3, 3 );
@@ -377,7 +377,7 @@ public class sega
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_startrek = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( startrek )
+	static InputPortHandlerPtr input_ports_startrek = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( startrek )
 		PORT_START(); 	/* IN0 - port 0xf8 */
 		/* The next bit is referred to as the Service switch in the self test - it just adds a credit */
 		PORT_BIT_IMPULSE( 0x20, IP_ACTIVE_LOW, IPT_COIN3, 3 );
@@ -438,7 +438,7 @@ public class sega
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_tacscan = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tacscan )
+	static InputPortHandlerPtr input_ports_tacscan = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tacscan )
 		PORT_START(); 	/* IN0 - port 0xf8 */
 		/* The next bit is referred to as the Service switch in the self test - it just adds a credit */
 		PORT_BIT_IMPULSE( 0x20, IP_ACTIVE_LOW, IPT_COIN3, 3 );
@@ -497,7 +497,7 @@ public class sega
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_elim2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( elim2 )
+	static InputPortHandlerPtr input_ports_elim2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( elim2 )
 		PORT_START(); 	/* IN0 - port 0xf8 */
 		/* The next bit is referred to as the Service switch in the self test - it just adds a credit */
 		PORT_BIT_IMPULSE( 0x20, IP_ACTIVE_LOW, IPT_COIN3, 3 );
@@ -556,7 +556,7 @@ public class sega
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_elim4 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( elim4 )
+	static InputPortHandlerPtr input_ports_elim4 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( elim4 )
 		PORT_START(); 	/* IN0 - port 0xf8 */
 		PORT_BIT ( 0x10, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		/* The next bit is referred to as the Service switch in the self test - it just adds a credit */
@@ -945,7 +945,7 @@ public class sega
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_spacfury = new RomLoadPtr(){ public void handler(){  /* Revision C */
+	static RomLoadHandlerPtr rom_spacfury = new RomLoadHandlerPtr(){ public void handler(){  /* Revision C */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "969c.u25",     0x0000, 0x0800, CRC(411207f2) SHA1(2a082be4052b5d8f365abd0a51ea805d270d1189) )
 		ROM_LOAD( "960c.u1",      0x0800, 0x0800, CRC(d071ab7e) SHA1(c7d2429e4fa77988d7ac62bc68f876ffb7467838) )
@@ -966,7 +966,7 @@ public class sega
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_spacfura = new RomLoadPtr(){ public void handler(){  /* Revision A */
+	static RomLoadHandlerPtr rom_spacfura = new RomLoadHandlerPtr(){ public void handler(){  /* Revision A */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "969a.u25",     0x0000, 0x0800, CRC(896a615c) SHA1(542386196eca9fd822e36508e173201ee8a962ed) )
 		ROM_LOAD( "960a.u1",      0x0800, 0x0800, CRC(e1ea7964) SHA1(9c84c525973fcf1437b062d98195272723249d02) )
@@ -987,7 +987,7 @@ public class sega
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_zektor = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zektor = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1611.cpu",     0x0000, 0x0800, CRC(6245aa23) SHA1(815f3c7edad9c290b719a60964085e90e7268112) )
 		ROM_LOAD( "1586.rom",     0x0800, 0x0800, CRC(efeb4fb5) SHA1(b337179c01870c953b8d38c20263802e9a7936d3) )
@@ -1020,7 +1020,7 @@ public class sega
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tacscan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tacscan = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1711a",        0x0000, 0x0800, CRC(0da13158) SHA1(256c5441a4841441501c9b7bcf09e0e99e8dd671) )
 		ROM_LOAD( "1670c",        0x0800, 0x0800, CRC(98de6fd5) SHA1(f22c215d7558e00366fec5092abb51c670468f8c) )
@@ -1047,7 +1047,7 @@ public class sega
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_elim2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elim2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cpu_u25.969",  0x0000, 0x0800, CRC(411207f2) SHA1(2a082be4052b5d8f365abd0a51ea805d270d1189) )
 		ROM_LOAD( "1333",         0x0800, 0x0800, CRC(fd2a2916) SHA1(431d340c0c9257d66f5851a591861bcefb600cec) )
@@ -1069,7 +1069,7 @@ public class sega
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_elim2a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elim2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cpu_u25.969",  0x0000, 0x0800, CRC(411207f2) SHA1(2a082be4052b5d8f365abd0a51ea805d270d1189) )
 		ROM_LOAD( "1158",         0x0800, 0x0800, CRC(a40ac3a5) SHA1(9cf707e3439def17390ae16b49552fb1996a6335) )
@@ -1091,7 +1091,7 @@ public class sega
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_elim4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elim4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1390_cpu.u25", 0x0000, 0x0800, CRC(97010c3e) SHA1(b07db05abf48461b633bbabe359a973a5bc6da13) )
 		ROM_LOAD( "1347",         0x0800, 0x0800, CRC(657d7320) SHA1(ef8a637d94dfa8b9dfa600269d914d635e597a9c) )
@@ -1114,7 +1114,7 @@ public class sega
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_startrek = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_startrek = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cpu1873",      0x0000, 0x0800, CRC(be46f5d9) SHA1(fadf13042d31b0dacf02a3166545c946f6fd3f33) )
 		ROM_LOAD( "1848",         0x0800, 0x0800, CRC(65e3baf3) SHA1(0c081ed6c8be0bb5eb3d5769ac1f0b8fe4735d11) )

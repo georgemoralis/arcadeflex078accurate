@@ -191,7 +191,7 @@ public class ginganin
 	
 	/*	Input Ports:	[0] Controls	[1] DSWs */
 	
-	static InputPortPtr input_ports_ginganin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ginganin )
+	static InputPortHandlerPtr input_ports_ginganin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ginganin )
 	
 		PORT_START(); 	/* IN0 - Controls - Read from 70000.w */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
@@ -405,7 +405,7 @@ public class ginganin
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ginganin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ginganin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* main cpu */
 		ROM_LOAD16_BYTE( "gn_02.bin", 0x00000, 0x10000, CRC(4a4e012f) SHA1(7c94a5b6b71e037af355f3aa4623be1f585db8dc) )
 		ROM_LOAD16_BYTE( "gn_01.bin", 0x00001, 0x10000, CRC(30256fcb) SHA1(dc15e0da88ae5cabe0150f7290508c3d58c06c11) )

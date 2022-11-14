@@ -574,7 +574,7 @@ public class midvunit
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_crusnusa = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crusnusa )
+	static InputPortHandlerPtr input_ports_crusnusa = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crusnusa )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -698,7 +698,7 @@ public class midvunit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_crusnwld = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crusnwld )
+	static InputPortHandlerPtr input_ports_crusnwld = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crusnwld )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -819,7 +819,7 @@ public class midvunit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_offroadc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( offroadc )
+	static InputPortHandlerPtr input_ports_offroadc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( offroadc )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -914,7 +914,7 @@ public class midvunit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_wargods = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wargods )
+	static InputPortHandlerPtr input_ports_wargods = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wargods )
 		PORT_START(); 	    /* DS1 */
 		PORT_DIPNAME( 0x0001, 0x0001, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1080,7 +1080,7 @@ public class midvunit
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_crusnusa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crusnusa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy 32C031 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -1117,7 +1117,7 @@ public class midvunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_crusnu40 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crusnu40 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy 32C031 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -1154,7 +1154,7 @@ public class midvunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_crusnu21 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crusnu21 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy 32C031 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -1191,7 +1191,7 @@ public class midvunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_crusnwld = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crusnwld = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy 32C031 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -1224,7 +1224,7 @@ public class midvunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_crusnw20 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crusnw20 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy 32C031 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -1257,7 +1257,7 @@ public class midvunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_crusnw13 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crusnw13 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy 32C031 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -1290,7 +1290,7 @@ public class midvunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_offroadc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_offroadc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy 32C031 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -1323,7 +1323,7 @@ public class midvunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wargods = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wargods = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy 32C031 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x208000, REGION_CPU2, 0 )	/* ADSP-2105 data */

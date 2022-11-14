@@ -2145,7 +2145,7 @@ public class toaplan2
 	
 	
 	
-	static InputPortPtr input_ports_tekipaki = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tekipaki )
+	static InputPortHandlerPtr input_ports_tekipaki = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tekipaki )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2195,7 +2195,7 @@ public class toaplan2
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ghox = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ghox )
+	static InputPortHandlerPtr input_ports_ghox = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ghox )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2257,7 +2257,7 @@ public class toaplan2
 		PORT_ANALOG( 0xff,	0x00, IPT_DIAL_V | IPF_PLAYER2, 15, 0, 0, 0xff );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dogyuun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dogyuun )
+	static InputPortHandlerPtr input_ports_dogyuun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dogyuun )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2321,7 +2321,7 @@ public class toaplan2
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* bit 0x10 sound ready */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kbash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kbash )
+	static InputPortHandlerPtr input_ports_kbash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kbash )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2382,7 +2382,7 @@ public class toaplan2
 		PORT_BIT( 0xfff0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_truxton2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( truxton2 )
+	static InputPortHandlerPtr input_ports_truxton2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( truxton2 )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2439,7 +2439,7 @@ public class toaplan2
 		PORT_DIPSETTING(	0x04, "Korea" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pipibibs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pipibibs )
+	static InputPortHandlerPtr input_ports_pipibibs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pipibibs )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2485,7 +2485,7 @@ public class toaplan2
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_whoopee = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( whoopee )
+	static InputPortHandlerPtr input_ports_whoopee = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( whoopee )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2531,7 +2531,7 @@ public class toaplan2
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* bit 0x10 sound ready */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pipibibi = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pipibibi )
+	static InputPortHandlerPtr input_ports_pipibibi = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pipibibi )
 		PORT_START(); 		/* (0) VBlank */
 	//	PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );	/* This video HW */
 	//	PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );	/* doesnt wait for VBlank */
@@ -2588,7 +2588,7 @@ public class toaplan2
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fixeight = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fixeight )
+	static InputPortHandlerPtr input_ports_fixeight = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fixeight )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2670,7 +2670,7 @@ public class toaplan2
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_grindstm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( grindstm )
+	static InputPortHandlerPtr input_ports_grindstm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( grindstm )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2734,7 +2734,7 @@ public class toaplan2
 		PORT_BIT( 0xf0, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* bit 0x10 sound ready */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_vfive = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vfive )
+	static InputPortHandlerPtr input_ports_vfive = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vfive )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2779,7 +2779,7 @@ public class toaplan2
 		PORT_BIT( 0xff, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* bit 0x10 sound ready */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_batsugun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( batsugun )
+	static InputPortHandlerPtr input_ports_batsugun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( batsugun )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2841,7 +2841,7 @@ public class toaplan2
 		PORT_BIT( 0xfff0, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* bit 0x10 sound ready */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_snowbro2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( snowbro2 )
+	static InputPortHandlerPtr input_ports_snowbro2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( snowbro2 )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2910,7 +2910,7 @@ public class toaplan2
 		PORT_BIT( 0xc3ff, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sstriker = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sstriker )
+	static InputPortHandlerPtr input_ports_sstriker = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sstriker )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -2965,7 +2965,7 @@ public class toaplan2
 		PORT_BIT( 0xfff1, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mahoudai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mahoudai )
+	static InputPortHandlerPtr input_ports_mahoudai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mahoudai )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3011,7 +3011,7 @@ public class toaplan2
 		PORT_BIT( 0xffff, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kingdmgp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kingdmgp )
+	static InputPortHandlerPtr input_ports_kingdmgp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kingdmgp )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3069,7 +3069,7 @@ public class toaplan2
 		PORT_BIT( 0xfff1, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_shippumd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shippumd )
+	static InputPortHandlerPtr input_ports_shippumd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shippumd )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3118,7 +3118,7 @@ public class toaplan2
 		PORT_BIT( 0xffff, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_battleg = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battleg )
+	static InputPortHandlerPtr input_ports_battleg = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battleg )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3207,7 +3207,7 @@ public class toaplan2
 		PORT_BIT( 0xfff0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_battlega = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battlega )
+	static InputPortHandlerPtr input_ports_battlega = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battlega )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3295,7 +3295,7 @@ public class toaplan2
 		PORT_BIT( 0xfff0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_battlegb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battlegb )
+	static InputPortHandlerPtr input_ports_battlegb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battlegb )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3384,7 +3384,7 @@ public class toaplan2
 		PORT_BIT( 0xfff0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_batrider = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( batrider )
+	static InputPortHandlerPtr input_ports_batrider = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( batrider )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -3509,7 +3509,7 @@ public class toaplan2
 		PORT_DIPSETTING(		0xc000, "None" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bbakraid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bbakraid )
+	static InputPortHandlerPtr input_ports_bbakraid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bbakraid )
 		PORT_START(); 		/* (0) VBlank */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0xfffe, IP_ACTIVE_HIGH, IPT_UNKNOWN );
@@ -4407,7 +4407,7 @@ public class toaplan2
 	***************************************************************************/
 	
 	/* -------------------------- Toaplan games ------------------------- */
-	static RomLoadPtr rom_tekipaki = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tekipaki = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x020000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "tp020-1.bin", 0x000000, 0x010000, CRC(d8420bd5) SHA1(30c1ad9e053cd7e79adb42aa428ebee28e144755) )
 		ROM_LOAD16_BYTE( "tp020-2.bin", 0x000001, 0x010000, CRC(7222de8e) SHA1(8352ae23efc24a2e20cc24b6d37cb8fc6b1a730c) )
@@ -4423,7 +4423,7 @@ public class toaplan2
 		ROM_LOAD( "tp020-3.bin", 0x080000, 0x080000, CRC(2d5e2201) SHA1(5846c844eedd48305c1c67dc645b6e070b3f5b98) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ghox = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ghox = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "tp021-01.u10", 0x000000, 0x020000, CRC(9e56ac67) SHA1(daf241d9e55a6e60fc004ed61f787641595b1e62) )
 		ROM_LOAD16_BYTE( "tp021-02.u11", 0x000001, 0x020000, CRC(15cac60f) SHA1(6efa3a50a5dfe6ef4072738d6a7d0d95dca8a675) )
@@ -4439,7 +4439,7 @@ public class toaplan2
 		ROM_LOAD( "tp021-04.u37", 0x080000, 0x080000, CRC(26ed1c9a) SHA1(37da8af86ea24327444c2d4ad3dfbd936208d43d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dogyuun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dogyuun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD( "tp022_01.r16", 0x000000, 0x080000, CRC(72f18907) SHA1(9d1b3800764a63e046644c78a2e0339280e038cb) )
 	
@@ -4463,7 +4463,7 @@ public class toaplan2
 		ROM_LOAD( "tp022_2.w30", 0x00000, 0x40000, CRC(043271b3) SHA1(c7eaa929e55dd956579b824ea9d20a1d0129a925) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kbash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kbash = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "kbash01.bin", 0x000000, 0x080000, CRC(2965f81d) SHA1(46f2df30fa92c80ba5a37f75e756424e15534784) )
 	
@@ -4488,7 +4488,7 @@ public class toaplan2
 		ROM_LOAD( "kbash07.bin", 0x00000, 0x40000, CRC(3732318f) SHA1(f0768459f5ad2dee53d408a0a5ae3a314864e667) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_truxton2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_truxton2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD( "tp024_1.bin", 0x000000, 0x080000, CRC(f5cfe6ee) SHA1(30979888a4cd6500244117748f28386a7e20a169) )
 	
@@ -4500,7 +4500,7 @@ public class toaplan2
 		ROM_LOAD( "tp024_2.bin", 0x00000, 0x80000, CRC(f2f6cae4) SHA1(bb4e8c36531bed97ced4696ca12fd40ede2531aa) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pipibibs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pipibibs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "tp025-1.bin", 0x000000, 0x020000, CRC(b2ea8659) SHA1(400431b656dbfbd5a9bc5961c3ea04c4d38b6f77) )
 		ROM_LOAD16_BYTE( "tp025-2.bin", 0x000001, 0x020000, CRC(dc53b939) SHA1(e4de371f97ba7c350273ad43b7f58ff31672a269) )
@@ -4513,7 +4513,7 @@ public class toaplan2
 		ROM_LOAD( "tp025-3.bin", 0x100000, 0x100000, CRC(7b16101e) SHA1(ae0119bbfa0937d18c4fbb0a3ef7cdc3b9fa6b56) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_whoopee = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_whoopee = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "whoopee.1", 0x000000, 0x020000, CRC(28882e7e) SHA1(8fcd278a7d005eb81cd9e461139c0c0f756a4fa4) )
 		ROM_LOAD16_BYTE( "whoopee.2", 0x000001, 0x020000, CRC(6796f133) SHA1(d4e657be260ba3fd3f0556ade617882513b52685) )
@@ -4528,7 +4528,7 @@ public class toaplan2
 		ROM_LOAD( "tp025-3.bin", 0x100000, 0x100000, CRC(7b16101e) SHA1(ae0119bbfa0937d18c4fbb0a3ef7cdc3b9fa6b56) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pipibibi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pipibibi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "ppbb06.bin", 0x000000, 0x020000, CRC(14c92515) SHA1(2d7f7c89272bb2a8115f163ad651bef3bca5107e) )
 		ROM_LOAD16_BYTE( "ppbb05.bin", 0x000001, 0x020000, CRC(3d51133c) SHA1(d7bd94ad11e9aeb5a5165c5ac6f71950849bcd2f) )
@@ -4547,7 +4547,7 @@ public class toaplan2
 		ROM_LOAD( "ppbb07.bin", 0x0000, 0x8000, CRC(456dd16e) SHA1(84779ee64d3ea33ba1ba4dee39b504a81c6811a1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fixeight = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fixeight = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "tp-026-1", 0x000000, 0x080000, CRC(f7b1746a) )
 	
@@ -4570,7 +4570,7 @@ public class toaplan2
 		ROM_LOAD( "93c45.u21", 0x00, 0x80, CRC(40d75df0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_grindstm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grindstm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "01.bin", 0x000000, 0x080000, CRC(4923f790) SHA1(1c2d66b432d190d0fb6ac7ca0ec0687aea3ccbf4) )
 	
@@ -4586,7 +4586,7 @@ public class toaplan2
 		ROM_LOAD( "tp027_03.bin", 0x100000, 0x100000, CRC(b1fc6362) SHA1(5e97e3cce31be57689d394a50178cda4d80cce5f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_grindsta = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grindsta = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "tp027-01.rom", 0x000000, 0x080000, CRC(8d8c0392) SHA1(824dde274c8bef8a87c54d8ccdda7f0feb8d11e1) )
 	
@@ -4602,7 +4602,7 @@ public class toaplan2
 		ROM_LOAD( "tp027_03.bin", 0x100000, 0x100000, CRC(b1fc6362) SHA1(5e97e3cce31be57689d394a50178cda4d80cce5f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vfive = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vfive = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "tp027_01.bin", 0x000000, 0x080000, CRC(731d50f4) SHA1(794255d0a809cda9170f5bac473df9d7f0efdac8) )
 	
@@ -4618,7 +4618,7 @@ public class toaplan2
 		ROM_LOAD( "tp027_03.bin", 0x100000, 0x100000, CRC(b1fc6362) SHA1(5e97e3cce31be57689d394a50178cda4d80cce5f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_batsugun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_batsugun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "tp030_01.bin", 0x000000, 0x080000, CRC(3873d7dd) SHA1(baf6187d7d554cfcf4a86b63f07fc30df7ef84c9) )
 	
@@ -4643,7 +4643,7 @@ public class toaplan2
 		ROM_LOAD( "tp030_2.bin", 0x00000, 0x40000, CRC(276146f5) SHA1(bf11d1f6782cefcad77d52af4f7e6054a8f93440) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_batugnsp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_batugnsp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "tp030-sp.u69", 0x000000, 0x080000, CRC(8072a0cd) SHA1(3a0a9cdf894926a16800c4882a2b00383d981367) )
 	
@@ -4668,7 +4668,7 @@ public class toaplan2
 		ROM_LOAD( "tp030_2.bin", 0x00000, 0x40000, CRC(276146f5) SHA1(bf11d1f6782cefcad77d52af4f7e6054a8f93440) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_snowbro2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_snowbro2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "pro-4", 0x000000, 0x080000, CRC(4c7ee341) SHA1(ad46c605a38565d0148daac301be4e4b72302fe7) )
 	
@@ -4684,7 +4684,7 @@ public class toaplan2
 	
 	/* -------------------------- Raizing games ------------------------- */
 	
-	static RomLoadPtr rom_sstriker = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sstriker = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "ra-ma-01.01", 0x000000, 0x080000, CRC(92259f84) SHA1(127e62e407d95efd360bfe2cac9577f326abf6ef) )
 	
@@ -4702,7 +4702,7 @@ public class toaplan2
 		ROM_LOAD( "ra_ma_01.06", 0x00000, 0x40000, CRC(6edb2ab8) SHA1(e3032e8eda2686f30df4b7a088c5a4d4d45782ed) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mahoudai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mahoudai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_WORD_SWAP( "ra_ma_01.01", 0x000000, 0x080000, CRC(970ccc5c) SHA1(c87cab83bde0284e631f02e50068407fee81d941) )
 	
@@ -4720,7 +4720,7 @@ public class toaplan2
 		ROM_LOAD( "ra_ma_01.06", 0x00000, 0x40000, CRC(6edb2ab8) SHA1(e3032e8eda2686f30df4b7a088c5a4d4d45782ed) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kingdmgp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kingdmgp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "ma02rom1.bin", 0x000000, 0x080000, CRC(a678b149) SHA1(8c1a631e023dbba0a3fa6cd1b7d10dec1663213a) )
 		ROM_LOAD16_BYTE( "ma02rom0.bin", 0x000001, 0x080000, CRC(f226a212) SHA1(526acf3d05fdc88054a772fbea3de2af532bf3d2) )
@@ -4739,7 +4739,7 @@ public class toaplan2
 		ROM_LOAD( "ma02rom6.bin", 0x00000, 0x80000, CRC(199e7cae) SHA1(0f5e13cc8ec42c80bb4bbff90aba29cdb15213d4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shippumd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shippumd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "ma02rom1.bin", 0x000000, 0x080000, CRC(a678b149) SHA1(8c1a631e023dbba0a3fa6cd1b7d10dec1663213a) )
 		ROM_LOAD16_BYTE( "ma02rom0.bin", 0x000001, 0x080000, CRC(f226a212) SHA1(526acf3d05fdc88054a772fbea3de2af532bf3d2) )
@@ -4758,7 +4758,7 @@ public class toaplan2
 		ROM_LOAD( "ma02rom6.bin", 0x00000, 0x80000, CRC(199e7cae) SHA1(0f5e13cc8ec42c80bb4bbff90aba29cdb15213d4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_battleg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battleg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "u123", 0x000000, 0x080000, CRC(88a4e66a) SHA1(ca97e564eed0c5e028b937312e55da56400d5c8c) )
 		ROM_LOAD16_BYTE( "u65",  0x000001, 0x080000, CRC(5dea32a3) SHA1(59df6689e3eb5ea9e49a758604d21a64c65ca14d) )
@@ -4780,7 +4780,7 @@ public class toaplan2
 		ROM_LOAD( "rom5.bin", 0x040000, 0x100000, CRC(f6d49863) SHA1(3a3c354852adad06e8a051511abfab7606bce382) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_battlega = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlega = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "prg0.bin", 0x000000, 0x080000, CRC(f80c2fc2) SHA1(a9aac5c7f5439b6fe8d1b3db1fb02a27cc28fdf6) )
 		ROM_LOAD16_BYTE( "prg1.bin", 0x000001, 0x080000, CRC(2ccfdd1e) SHA1(7a9f11f851854f3f8389b9c3c0906ebb8dc28712) )
@@ -4802,7 +4802,7 @@ public class toaplan2
 		ROM_LOAD( "rom5.bin", 0x040000, 0x100000, CRC(f6d49863) SHA1(3a3c354852adad06e8a051511abfab7606bce382) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_battlegb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlegb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* Main 68K code */
 		ROM_LOAD16_BYTE( "prg_0.bin", 0x000000, 0x080000, CRC(951ecc07) SHA1(a82e4b59e4a974566e59f3ab2fbae1aec7d88a2b) )
 		ROM_LOAD16_BYTE( "prg_1.bin", 0x000001, 0x080000, CRC(729a60c6) SHA1(cb6f5d138bb82c32910f42d8ee16fa573a23cef3) )
@@ -4824,7 +4824,7 @@ public class toaplan2
 		ROM_LOAD( "rom5.bin", 0x040000, 0x100000, CRC(f6d49863) SHA1(3a3c354852adad06e8a051511abfab7606bce382) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_batrider = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_batrider = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )			/* Main 68k code */
 		ROM_LOAD16_BYTE( "prg0b.u22", 0x000000, 0x080000, CRC(4f3fc729) SHA1(b32d51c254741b82171a86c271679522a7aefd34) )
 		ROM_LOAD16_BYTE( "prg1b.u23", 0x000001, 0x080000, CRC(8e70b492) SHA1(f84f2039826ae815afb058d71c1dbd190f9d524d) )
@@ -4848,7 +4848,7 @@ public class toaplan2
 		ROM_LOAD( "rom-6.bin", 0x040000, 0x100000, CRC(2a1c2426) SHA1(8abc3688ffc5ebb94b8d5118d4fa0908f07fe791) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_batridra = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_batridra = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )			/* Main 68k code */
 		ROM_LOAD16_BYTE( "prg0.bin", 0x000000, 0x080000, CRC(f93ea27c) SHA1(41023c2ee1efd70b5aa9c70e1ddd9e5c3d51d68a) )
 		ROM_LOAD16_BYTE( "prg1.bin", 0x000001, 0x080000, CRC(8ae7f592) SHA1(8a20ebf85eca621f578d2302c3a3988647b077a7) )
@@ -4872,7 +4872,7 @@ public class toaplan2
 		ROM_LOAD( "rom-6.bin", 0x040000, 0x100000, CRC(2a1c2426) SHA1(8abc3688ffc5ebb94b8d5118d4fa0908f07fe791) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_batridrk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_batridrk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )			/* Main 68k code */
 		ROM_LOAD16_BYTE( "prg0.u22", 0x000000, 0x080000, CRC(d9d8c907) SHA1(69c197f2a41f288913f042de9eb8274c0df3ac27) )
 		ROM_LOAD16_BYTE( "prg1.u23", 0x000001, 0x080000, CRC(8e70b492) SHA1(f84f2039826ae815afb058d71c1dbd190f9d524d) )
@@ -4896,7 +4896,7 @@ public class toaplan2
 		ROM_LOAD( "rom-6.bin", 0x040000, 0x100000, CRC(2a1c2426) SHA1(8abc3688ffc5ebb94b8d5118d4fa0908f07fe791) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bbakraid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bbakraid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )			/* Main 68k code */
 		ROM_LOAD16_BYTE( "prg0u022.bin", 0x000000, 0x080000, CRC(0dd59512) SHA1(c6a4e6aa49c6ac3b04ae62a0a4cc8084ae048381) )
 		ROM_LOAD16_BYTE( "prg1u023.bin", 0x000001, 0x080000, CRC(fecde223) SHA1(eb5ac0eda49b4b0f3d25d8a8bb356e77a453d3a7) )
@@ -4919,7 +4919,7 @@ public class toaplan2
 		ROM_LOAD( "rom8.831", 0x800000, 0x400000, CRC(a101dfb0) SHA1(4b729b0d562e09df35438e9e6b457b8de2690a6e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bbakradu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bbakradu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )			/* Main 68k code */
 		ROM_LOAD16_BYTE( "prg0u022.new", 0x000000, 0x080000, CRC(fa8d38d3) SHA1(aba91d87a8a62d3fe1139b4437b16e2f844264ad) )
 		ROM_LOAD16_BYTE( "prg1u023.new", 0x000001, 0x080000, CRC(4ae9aa64) SHA1(45fdf72141c4c9f24a38d4218c65874799b9c868) )

@@ -181,7 +181,7 @@ public class vastar
 	
 	
 	
-	static InputPortPtr input_ports_vastar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vastar )
+	static InputPortHandlerPtr input_ports_vastar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vastar )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -372,7 +372,7 @@ public class vastar
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_vastar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vastar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "e_f4.rom",     0x0000, 0x1000, CRC(45fa5075) SHA1(99c3d7414f3bc3a84430067a71dd00d260bbcdab) )
 		ROM_LOAD( "e_k4.rom",     0x1000, 0x1000, CRC(84531982) SHA1(bf2fd92d821734f64ad72e13f4e1aae8e055aa43) )
@@ -407,7 +407,7 @@ public class vastar
 		ROM_LOAD( "tbp24s10.8n",  0x0300, 0x0100, CRC(b5297a3b) SHA1(a5a512f86097b7d892f6d11e8492e8a379c07f60) )	/* ???? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vastar2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vastar2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "3.4f",         0x0000, 0x1000, CRC(6741ff9c) SHA1(d83e8233626845962b4cf9302d4aa75915017f36) )
 		ROM_LOAD( "6.4k",         0x1000, 0x1000, CRC(5027619b) SHA1(5fa1d53f6ee125048d4ef3bc3bff5655648c5bd6) )

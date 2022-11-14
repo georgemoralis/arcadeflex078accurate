@@ -320,7 +320,7 @@ public class balsente
 		PORT_ANALOG( 0xff, 0x80, IPT_LIGHTGUN_Y, 70, 10, 0, 255 );
 	
 	
-	static InputPortPtr input_ports_sentetst = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sentetst )
+	static InputPortHandlerPtr input_ports_sentetst = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sentetst )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -374,7 +374,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_cshift = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cshift )
+	static InputPortHandlerPtr input_ports_cshift = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cshift )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -415,7 +415,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_gghost = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gghost )
+	static InputPortHandlerPtr input_ports_gghost = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gghost )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -464,7 +464,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hattrick = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hattrick )
+	static InputPortHandlerPtr input_ports_hattrick = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hattrick )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -516,7 +516,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_otwalls = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( otwalls )
+	static InputPortHandlerPtr input_ports_otwalls = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( otwalls )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -557,7 +557,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_snakepit = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( snakepit )
+	static InputPortHandlerPtr input_ports_snakepit = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( snakepit )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -611,7 +611,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_snakjack = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( snakjack )
+	static InputPortHandlerPtr input_ports_snakjack = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( snakjack )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -658,7 +658,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_stocker = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stocker )
+	static InputPortHandlerPtr input_ports_stocker = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stocker )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "2C_1C") );
@@ -710,7 +710,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_triviag1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( triviag1 )
+	static InputPortHandlerPtr input_ports_triviag1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( triviag1 )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -771,7 +771,7 @@ public class balsente
 	#define input_ports_triviabb input_ports_triviag1
 	
 	
-	static InputPortPtr input_ports_gimeabrk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gimeabrk )
+	static InputPortHandlerPtr input_ports_gimeabrk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gimeabrk )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "2C_1C") );
@@ -840,7 +840,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_minigolf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( minigolf )
+	static InputPortHandlerPtr input_ports_minigolf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( minigolf )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -912,7 +912,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_minigol2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( minigol2 )
+	static InputPortHandlerPtr input_ports_minigol2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( minigol2 )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "2C_1C") );
@@ -984,7 +984,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_toggle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( toggle )
+	static InputPortHandlerPtr input_ports_toggle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( toggle )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -1031,7 +1031,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_nametune = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nametune )
+	static InputPortHandlerPtr input_ports_nametune = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nametune )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "2C_1C") );
@@ -1106,7 +1106,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_nstocker = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nstocker )
+	static InputPortHandlerPtr input_ports_nstocker = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nstocker )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -1165,7 +1165,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sfootbal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sfootbal )
+	static InputPortHandlerPtr input_ports_sfootbal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sfootbal )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -1228,7 +1228,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_spiker = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spiker )
+	static InputPortHandlerPtr input_ports_spiker = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spiker )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -1300,7 +1300,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_stompin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stompin )
+	static InputPortHandlerPtr input_ports_stompin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stompin )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -1394,7 +1394,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_grudge = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( grudge )
+	static InputPortHandlerPtr input_ports_grudge = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( grudge )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x00, "0" );
@@ -1443,7 +1443,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_rescraid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rescraid )
+	static InputPortHandlerPtr input_ports_rescraid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rescraid )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -1515,7 +1515,7 @@ public class balsente
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_shrike = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shrike )
+	static InputPortHandlerPtr input_ports_shrike = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shrike )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -1644,7 +1644,7 @@ public class balsente
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_sentetst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sentetst = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "sdiagef.bin",  0x2e000, 0x2000, CRC(2a39fc53) SHA1(04ea68bfad455cc928e57390eba5597c38bbab69) )
 	
@@ -1656,7 +1656,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cshift = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cshift = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "cs-ab0.bin", 0x10000, 0x2000, CRC(d2069e75) SHA1(17d5719e6e1976cebb332932cf3e900a88136928) )
 		ROM_LOAD( "cs-ab1.bin", 0x12000, 0x2000, CRC(198f25a8) SHA1(5ca25fe57e94d8362896c903196e0080efd35ef5) )
@@ -1679,7 +1679,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gghost = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gghost = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ggh-ab0.bin", 0x10000, 0x2000, CRC(ed0fdeac) SHA1(294cee47c0541c58d4d766388c281ed30b8f5426) )
 		ROM_LOAD( "ggh-ab1.bin", 0x12000, 0x2000, CRC(5bfbae58) SHA1(65c795354223cd5e2474ad9e779b77f58ed5b896) )
@@ -1703,7 +1703,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hattrick = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hattrick = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "rom-ab0.u9a", 0x10000, 0x2000, CRC(f25c1b99) SHA1(43b2334be7cfb8091eea963e10547295362372d3) )
 		ROM_LOAD( "rom-ab1.u8a", 0x12000, 0x2000, CRC(c1df3d1f) SHA1(754f537d12efe8891638fd11a2ee8a5b234fb079) )
@@ -1720,7 +1720,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_otwalls = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_otwalls = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "otw-ab0.bin", 0x10000, 0x2000, CRC(474441c7) SHA1(16fb5be9f94e072d4f3003abcc9dcf6d7af2359a) )
 		ROM_LOAD( "otw-ab1.bin", 0x12000, 0x2000, CRC(2e9e9411) SHA1(7dfd8dafa34e4d22fa0c5e472e3e98a1c0969f43) )
@@ -1744,7 +1744,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_snakepit = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_snakepit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "spit-ab0.bin", 0x10000, 0x2000, CRC(5aa86081) SHA1(e65e256661b13a0631398e115dd02fce281bafa4) )
 		ROM_LOAD( "spit-ab1.bin", 0x12000, 0x2000, CRC(588228b8) SHA1(b64032a4fd1f52179d38e2073380bba6ec321302) )
@@ -1768,7 +1768,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_snakjack = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_snakjack = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "rom-ab0.u9a", 0x10000, 0x2000, CRC(da2dd119) SHA1(85ae452b137e69e051fa66648f295d180339794e) )
 		ROM_LOAD( "rom-ab1.u8a", 0x12000, 0x2000, CRC(657ddf26) SHA1(48591a6b0c30d576f0e08dd54c95cbda76b5dfbd) )
@@ -1792,7 +1792,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stocker = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stocker = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "stkr-ab0.bin", 0x10000, 0x2000, CRC(784a00ad) SHA1(33e76be44207bc24dbb9c2f04204df22ba5154ff) )
 		ROM_LOAD( "stkr-ab1.bin", 0x12000, 0x2000, CRC(cdae01dc) SHA1(7c2956acae639fd2f2cf061d1c32ae9edabe9270) )
@@ -1812,7 +1812,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_triviag1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triviag1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "tpg1-ab0.bin", 0x10000, 0x2000, CRC(79fd3ac3) SHA1(52db0ba445f9a953f6ceb43c3d173b73c71af192) )
 		ROM_LOAD( "tpg1-ab1.bin", 0x12000, 0x2000, CRC(0ff677e9) SHA1(14fdc1ee87893ea91eea40949aeac5381c569bdd) )
@@ -1836,7 +1836,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_triviag2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triviag2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.bin",  0x10000, 0x4000, CRC(4fca20c5) SHA1(595b32ff035036cafbf49d75aa170f39e9f52b38) )
 		ROM_LOAD( "ab23.bin",  0x14000, 0x4000, CRC(6cf2ddeb) SHA1(0d6667babd9ab70820cf165900d90003f0893be7) )
@@ -1855,7 +1855,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_triviasp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triviasp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "allsport.8a", 0x10000, 0x4000, CRC(54b7ff31) SHA1(1bdf9c9eb1a0fb4c1013680372d289882abf4b47) )
 		ROM_LOAD( "allsport.7a", 0x14000, 0x4000, CRC(59fae9d2) SHA1(a555f0679c59bf7c9dad0ecb9656a2f8faf39902) )
@@ -1874,7 +1874,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_triviayp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triviayp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.bin",  0x10000, 0x4000, CRC(97d35a85) SHA1(3ee8400fc3a2bf8a2f6374ffc34a4d295ee13bab) )
 		ROM_LOAD( "ab23.bin",  0x14000, 0x4000, CRC(2ff67c70) SHA1(c45b5fde4ec979322c9e251e66183632552d35bd) )
@@ -1893,7 +1893,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_triviabb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triviabb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.bin",  0x10000, 0x4000, CRC(1b7c439d) SHA1(8b3020dcb375b2f2e5e975a8067df6504aa8691e) )
 		ROM_LOAD( "ab23.bin",  0x14000, 0x4000, CRC(e4f1e704) SHA1(e5135134b54e1e2e95c5bfe6e5f0e2dd280db69d) )
@@ -1912,7 +1912,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_gimeabrk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gimeabrk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.u8a",  0x10000, 0x4000, CRC(18cc53db) SHA1(3bb47c349b3ab7b81e3557e3b4877617fb549c9e) )
 		ROM_LOAD( "ab23.u7a",  0x14000, 0x4000, CRC(6bd4190a) SHA1(b6562b3575dc8265c01719cfbcb554b69bc1b37f) )
@@ -1928,7 +1928,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_minigolf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_minigolf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.u8a",  0x10000, 0x4000, CRC(348f827f) SHA1(a013ef3068e14e0738bcfa4de26c0c2df4c0a7f6) )
 		ROM_LOAD( "ab23.u7a",  0x14000, 0x4000, CRC(19a6ff47) SHA1(70b6da3b4186e5b9463f2ea0fefefad21ec80637) )
@@ -1946,7 +1946,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_minigol2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_minigol2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.u8a",  0x10000, 0x4000, CRC(348f827f) SHA1(a013ef3068e14e0738bcfa4de26c0c2df4c0a7f6) )
 		ROM_LOAD( "ab23.u7a",  0x14000, 0x4000, CRC(19a6ff47) SHA1(70b6da3b4186e5b9463f2ea0fefefad21ec80637) )
@@ -1965,7 +1965,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_toggle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_toggle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "tgle-ab0.bin", 0x10000, 0x2000, CRC(8c7b7fad) SHA1(13eaf5b3727ff8b7ce2cfbab99541ca1e538aeba) )
 		ROM_LOAD( "tgle-ab1.bin", 0x12000, 0x2000, CRC(771e5434) SHA1(b1bcefc81054c81a22a91106c5bc99ef204cd009) )
@@ -1985,7 +1985,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_nametune = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nametune = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x70000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "nttab01.bin",  0x10000, 0x4000, CRC(f99054f1) SHA1(aaa3aae71f67be2df34b9682b1b4092a208fbf26) )
 		ROM_CONTINUE(             0x40000, 0x4000 )
@@ -2012,7 +2012,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_nstocker = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nstocker = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.u8a",  0x10000, 0x4000, CRC(a635f973) SHA1(edb12469818a3114fb97d21e11c63eb37678a07b) )
 		ROM_LOAD( "ab23.u7a",  0x14000, 0x4000, CRC(223acbb2) SHA1(195ebd349722cce323616c81cc4e86f0a9c6fa13) )
@@ -2034,7 +2034,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sfootbal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfootbal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "sfbab01.bin",  0x10000, 0x4000, CRC(2a69803f) SHA1(ca86c9d079fbebae4c93c889d98a8573facc05da) )
 		ROM_LOAD( "sfbab23.bin",  0x14000, 0x4000, CRC(89f157c2) SHA1(59701b7770dce7ec01d0feb01d67450943e6cfbb) )
@@ -2052,7 +2052,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_spiker = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spiker = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.u8a",  0x10000, 0x4000, CRC(2d53d023) SHA1(01c1d2cd7d8be60c40527e9c1571b84388a39bd8) )
 		ROM_LOAD( "ab23.u7a",  0x14000, 0x4000, CRC(3be87edf) SHA1(0d4f1ff501d5d865abc3906f6b232ec04586d3dc) )
@@ -2068,7 +2068,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stompin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stompin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab01.bin",  0x10000, 0x4000, CRC(46f428c6) SHA1(06c59d06ccc0bd7067e419f12781050ab4ac98c2) )
 		ROM_LOAD( "ab23.bin",  0x14000, 0x4000, CRC(0e13132f) SHA1(d572e5d170df99bb99db7d41ede881c24e5b8d1c) )
@@ -2088,7 +2088,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rescraid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rescraid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab1.a10",   0x10000, 0x8000, CRC(33a76b47) SHA1(72cefb3ae7d0ecfc099f9d09a26533dd7ca7c4f2) )
 		ROM_LOAD( "ab12.a12",  0x18000, 0x8000, CRC(7c7a9f12) SHA1(2dbe1158d124ecd24aeb6e46079a8e08fda61208) )
@@ -2104,7 +2104,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rescrdsa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rescrdsa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "ab1-sa.a10",   0x10000, 0x8000, CRC(aa0a9f48) SHA1(b871573df0abdba20de78f655da846423191f0b4) )
 		ROM_LOAD( "ab12-sa.a12",  0x18000, 0x8000, CRC(16d4da86) SHA1(240cfe8c5c4c005da9b9f370a04ed32fc245ec64) )
@@ -2120,7 +2120,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_grudge = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grudge = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "grudge.ab0", 0x10000, 0x8000, CRC(260965ca) SHA1(79eb5dc6605974ece3d5564f10c4598204907398) )
 		ROM_LOAD( "grudge.ab4", 0x18000, 0x8000, CRC(c6cd734d) SHA1(076546569e9c8ff40f96bd2cac014bcabc53099d) )
@@ -2135,7 +2135,7 @@ public class balsente
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_shrike = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shrike = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus 128k of banked ROMs */
 		ROM_LOAD( "savgu35.bin", 0x10000, 0x2000, CRC(dd2230a0) SHA1(72be0e07d76ee1f170ab457ae62db87111758697) )
 		ROM_LOAD( "savgu20.bin", 0x12000, 0x2000, CRC(3d140edc) SHA1(6c7e7dda7718e3f9644aad317da0b2277c2c1402) )

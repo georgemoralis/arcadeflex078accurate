@@ -305,7 +305,7 @@ public class superchs
 	
 	/***********************************************************/
 	
-	static InputPortPtr input_ports_superchs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( superchs )
+	static InputPortHandlerPtr input_ports_superchs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( superchs )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW,  IPT_UNKNOWN );
@@ -500,7 +500,7 @@ public class superchs
 	
 	/***************************************************************************/
 	
-	static RomLoadPtr rom_superchs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superchs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1024K for 68020 code (CPU A) */
 		ROM_LOAD32_BYTE( "d46-35.27", 0x00000, 0x40000, CRC(1575c9a7) SHA1(e3441d6018ed3315c62c5e5c4534d8712b025ae2) )
 		ROM_LOAD32_BYTE( "d46-34.25", 0x00001, 0x40000, CRC(c72a4d2b) SHA1(6ef64de15e52007406ce3255071a1f856e0e8b49) )

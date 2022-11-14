@@ -375,7 +375,7 @@ public class suna16
 								Back Street Soccer
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_bssoccer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bssoccer )
+	static InputPortHandlerPtr input_ports_bssoccer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bssoccer )
 	
 		PORT_START(); 	// IN0 - $a00001.b - Player 1
 		JOY(1)
@@ -458,7 +458,7 @@ public class suna16
 									Ultra Balloon
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_uballoon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( uballoon )
+	static InputPortHandlerPtr input_ports_uballoon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( uballoon )
 	
 		PORT_START(); 	// IN0 - $600000.w - Player 1
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP     | IPF_PLAYER1 );
@@ -748,7 +748,7 @@ public class suna16
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bssoccer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bssoccer = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) 	/* 68000 Code */
 		ROM_LOAD16_BYTE( "02", 0x000000, 0x080000, CRC(32871005) SHA1(b094ee3f4fc24c0521915d565f6e203d51e51f6d) )
@@ -796,7 +796,7 @@ public class suna16
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_uballoon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_uballoon = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) 	/* 68000 Code */
 		ROM_LOAD16_BYTE( "prg2.rom", 0x000000, 0x080000, CRC(72ab80ea) SHA1(b755940877cf286559208106dd5e6933aeb72242) )

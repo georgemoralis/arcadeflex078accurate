@@ -173,7 +173,7 @@ public class speedspn
 	
 	/*** INPUT PORT **************************************************************/
 	
-	static InputPortPtr input_ports_speedspn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( speedspn )
+	static InputPortHandlerPtr input_ports_speedspn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( speedspn )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -340,7 +340,7 @@ public class speedspn
 	
 	/*** ROM LOADING *************************************************************/
 	
-	static RomLoadPtr rom_speedspn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_speedspn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x088000, REGION_CPU1, 0 )	/* CPU1 code */
 		/* most of this is probably actually banked */
 		ROM_LOAD( "tch-ss1.u78", 0x00000, 0x008000, CRC(41b6b45b) SHA1(d969119959db4cc3be50f188bfa41e4b4896eaca) ) /* fixed code */

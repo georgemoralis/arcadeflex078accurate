@@ -210,7 +210,7 @@ public class cbuster
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_twocrude = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( twocrude )
+	static InputPortHandlerPtr input_ports_twocrude = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( twocrude )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -408,7 +408,7 @@ public class cbuster
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_cbuster = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cbuster = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 	  	ROM_LOAD16_BYTE( "fx01.rom", 0x00000, 0x20000, CRC(ddae6d83) SHA1(ce3fed1393b71821730fb8d87869a89c8e07c456) )
 		ROM_LOAD16_BYTE( "fx00.rom", 0x00001, 0x20000, CRC(5bc2c0de) SHA1(fa9c357ae4a5c814b7113df3b2f12982077f3e6b) )
@@ -448,7 +448,7 @@ public class cbuster
 		ROM_LOAD( "mb7114h.18e",   0x0000, 0x0100, CRC(3645b70f) SHA1(7d3831867362037892b43efb007e27d3bd5f6488) )	/* Priority (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cbusterw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cbusterw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 	  	ROM_LOAD16_BYTE( "fu01-.rom", 0x00000, 0x20000, CRC(0203e0f8) SHA1(7709636429f2cab43caba3422122dba970dfb50b) )
 		ROM_LOAD16_BYTE( "fu00-.rom", 0x00001, 0x20000, CRC(9c58626d) SHA1(6bc950929391221755972658258937a1ef96c244) )
@@ -488,7 +488,7 @@ public class cbuster
 		ROM_LOAD( "mb7114h.18e",   0x0000, 0x0100, CRC(3645b70f) SHA1(7d3831867362037892b43efb007e27d3bd5f6488) )	/* Priority (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cbusterj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cbusterj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 	  	ROM_LOAD16_BYTE( "fr01-1",   0x00000, 0x20000, CRC(af3c014f) SHA1(a7724c48f73e52b19f3688a413e2ed013e226c6b) )
 		ROM_LOAD16_BYTE( "fr00-1",   0x00001, 0x20000, CRC(f666ad52) SHA1(6f7325bc3bb79fd8112df677250c4bae572dfa43) )
@@ -528,7 +528,7 @@ public class cbuster
 		ROM_LOAD( "mb7114h.18e",   0x0000, 0x0100, CRC(3645b70f) SHA1(7d3831867362037892b43efb007e27d3bd5f6488) )	/* Priority (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_twocrude = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_twocrude = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "ft01",     0x00000, 0x20000, CRC(08e96489) SHA1(1e75893cc086d6d6b428ca055851b51d0bc367aa) )
 		ROM_LOAD16_BYTE( "ft00",     0x00001, 0x20000, CRC(6765c445) SHA1(b2bbb86414eafe32ed66f3f8ab095a2bce3a1a4b) )

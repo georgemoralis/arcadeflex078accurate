@@ -1571,7 +1571,7 @@ public class konamigx
 	/**********************************************************************************/
 	/* port maps */
 	
-	static InputPortPtr input_ports_konamigx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( konamigx )
+	static InputPortHandlerPtr input_ports_konamigx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( konamigx )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1698,7 +1698,7 @@ public class konamigx
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_racinfrc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( racinfrc )
+	static InputPortHandlerPtr input_ports_racinfrc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( racinfrc )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1832,7 +1832,7 @@ public class konamigx
 		PORT_DIPSETTING(    0x02, "High" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_le2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( le2 )
+	static InputPortHandlerPtr input_ports_le2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( le2 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1957,7 +1957,7 @@ public class konamigx
 		PORT_DIPSETTING(    0x02, "High" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gokuparo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gokuparo )
+	static InputPortHandlerPtr input_ports_gokuparo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gokuparo )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -2057,7 +2057,7 @@ public class konamigx
 		PORT_DIPSETTING(    0x02, "High" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_puzldama = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( puzldama )
+	static InputPortHandlerPtr input_ports_puzldama = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( puzldama )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -2157,7 +2157,7 @@ public class konamigx
 		PORT_DIPSETTING(    0x02, "High" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dragoonj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dragoonj )
+	static InputPortHandlerPtr input_ports_dragoonj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dragoonj )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -2257,7 +2257,7 @@ public class konamigx
 		PORT_DIPSETTING(    0x02, "High" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_type3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( type3 )
+	static InputPortHandlerPtr input_ports_type3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( type3 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -2363,7 +2363,7 @@ public class konamigx
 	
 	#define GX_BIOS ROM_LOAD("300a01.34k", 0x000000, 128*1024, CRC(d5fa95f5) SHA1(c483aa98ff8ef40cdac359c19ad23fea5ecc1906) )
 	
-	static RomLoadPtr rom_konamigx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_konamigx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0)
 		GX_BIOS
 	ROM_END(); }}; 
@@ -2385,7 +2385,7 @@ public class konamigx
 	
 	
 	/* Gokujou Parodius */
-	static RomLoadPtr rom_gokuparo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gokuparo = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2415,7 +2415,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Fantastic Journey (US version) */
-	static RomLoadPtr rom_fantjour = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fantjour = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2445,7 +2445,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Salamander 2 */
-	static RomLoadPtr rom_salmndr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_salmndr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2476,7 +2476,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Twinbee Yahoo! */
-	static RomLoadPtr rom_tbyahhoo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tbyahhoo = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2506,7 +2506,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Daisu-Kiss */
-	static RomLoadPtr rom_daiskiss = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_daiskiss = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2535,7 +2535,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Sexy Parodius */
-	static RomLoadPtr rom_sexyparo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sexyparo = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2565,7 +2565,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Run and Gun 2 */
-	static RomLoadPtr rom_rungun2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rungun2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x600000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2612,7 +2612,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Slam Dunk 2 */
-	static RomLoadPtr rom_slamdnk2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slamdnk2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x600000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2659,7 +2659,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Rushing Heroes */
-	static RomLoadPtr rom_rushhero = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rushhero = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x600000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2705,7 +2705,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Taisen Tokkae-dama */
-	static RomLoadPtr rom_tokkae = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokkae = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2738,7 +2738,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Tokimeki Memorial Taisen Puzzle-dama */
-	static RomLoadPtr rom_tkmmpzdm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tkmmpzdm = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2770,7 +2770,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Winning Spike */
-	static RomLoadPtr rom_winspike = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_winspike = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2800,7 +2800,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Taisen Puzzle-dama */
-	static RomLoadPtr rom_puzldama = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_puzldama = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2830,7 +2830,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Dragoon Might */
-	static RomLoadPtr rom_dragoonj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dragoonj = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x600000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2867,7 +2867,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Soccer Superstars */
-	static RomLoadPtr rom_soccerss = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_soccerss = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x600000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2911,7 +2911,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Vs. Net Soccer */
-	static RomLoadPtr rom_vsnetscr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vsnetscr = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x600000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2952,7 +2952,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Lethal Enforcers II */
-	static RomLoadPtr rom_le2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_le2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -2987,7 +2987,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Lethal Enforcers II (US Version) */
-	static RomLoadPtr rom_le2u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_le2u = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -3022,7 +3022,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Racin' Force */
-	static RomLoadPtr rom_racinfrc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_racinfrc = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -3069,7 +3069,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Konami Open Golf Championship */
-	static RomLoadPtr rom_opengolf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_opengolf = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )
 		GX_BIOS
@@ -3119,7 +3119,7 @@ public class konamigx
 	ROM_END(); }}; 
 	
 	/* Golfing Greats 2 */
-	static RomLoadPtr rom_ggreats2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ggreats2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )
 		GX_BIOS

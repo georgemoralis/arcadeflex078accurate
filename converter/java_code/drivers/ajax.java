@@ -102,7 +102,7 @@ public class ajax
 	};
 	
 	
-	static InputPortPtr input_ports_ajax = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ajax )
+	static InputPortHandlerPtr input_ports_ajax = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ajax )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -310,7 +310,7 @@ public class ajax
 	
 	
 	
-	static RomLoadPtr rom_ajax = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ajax = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 052001 code */
 		ROM_LOAD( "770_m01.n11",	0x10000, 0x08000, CRC(4a64e53a) SHA1(acd249bfcb5f248c41b3e40c7c1bce1b8c645d3a) )	/* banked ROM */
 		ROM_CONTINUE(				0x08000, 0x08000 )				/* fixed ROM */
@@ -346,7 +346,7 @@ public class ajax
 		ROM_LOAD( "770c11",		0x000000, 0x080000, CRC(299a615a) SHA1(29cdcc21998c72f4cf311792b904b79bde236bab) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_typhoon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_typhoon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 052001 code */
 		ROM_LOAD( "770_k01.n11",	0x10000, 0x08000, CRC(5ba74a22) SHA1(897d3309f2efb3bfa56e86581ee4a492e656788c) )	/* banked ROM */
 		ROM_CONTINUE(				0x08000, 0x08000 )				/* fixed ROM */
@@ -382,7 +382,7 @@ public class ajax
 		ROM_LOAD( "770c11",		0x000000, 0x080000, CRC(299a615a) SHA1(29cdcc21998c72f4cf311792b904b79bde236bab) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ajaxj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ajaxj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 052001 code */
 		ROM_LOAD( "770_l01.n11",	0x10000, 0x08000, CRC(7cea5274) SHA1(8e3b2b11a8189e3a1703b3b4b453fbb386f5537f) )	/* banked ROM */
 		ROM_CONTINUE(				0x08000, 0x08000 )				/* fixed ROM */

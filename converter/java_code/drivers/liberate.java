@@ -191,7 +191,7 @@ public class liberate
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_boomrang = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( boomrang )
+	static InputPortHandlerPtr input_ports_boomrang = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( boomrang )
 		PORT_START(); 
 		PORT_BIT( 0xff, IP_ACTIVE_HIGH, IPT_VBLANK );
 	
@@ -272,7 +272,7 @@ public class liberate
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kamikcab = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kamikcab )
+	static InputPortHandlerPtr input_ports_kamikcab = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kamikcab )
 		PORT_START(); 
 		PORT_BIT( 0xff, IP_ACTIVE_HIGH, IPT_VBLANK );
 	
@@ -355,7 +355,7 @@ public class liberate
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_liberate = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( liberate )
+	static InputPortHandlerPtr input_ports_liberate = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( liberate )
 		PORT_START(); 
 		PORT_BIT( 0xff, IP_ACTIVE_HIGH, IPT_VBLANK );
 	
@@ -711,7 +711,7 @@ public class liberate
 	
 	/***************************************************************************/
 	
-	static RomLoadPtr rom_prosoccr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_prosoccr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x10000, REGION_CPU1, 0)
 		ROM_LOAD( "am07.7e",  0x8000, 0x2000, CRC(55415fb5) SHA1(676feb07d4fbd76aae8349b46f7edc8f357f2ddf) )
 		ROM_LOAD( "am08.9e",  0xa000, 0x2000, CRC(73d45d0d) SHA1(07736286087478af404bd9c6b279d631a01cf4e2) )
@@ -738,7 +738,7 @@ public class liberate
 		ROM_LOAD( "e13",  32, 32,  CRC(6909a061) SHA1(b9b2c1a7fec46027bfcc2c744946e27681c82b40) ) /* Timing? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_prosport = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_prosport = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x10000, REGION_CPU1, 0)
 		ROM_LOAD( "ic21ar09.bin", 0x4000, 0x2000,  CRC(4faa8d12) SHA1(326216eb67d54ecd01701e4677f62b5c11b6763e) )
 		ROM_LOAD( "ic22ar10.bin", 0x6000, 0x2000,  CRC(389e405b) SHA1(263088e49ab14a0017b2ad130bd78afcd0f13a4b) )
@@ -769,7 +769,7 @@ public class liberate
 		ROM_LOAD( "ic45ar17.bin",   0x01000, 0x1000, CRC(5f1c621e) SHA1(29ce85d3d5da5ee16bb67644b0555ab9bce52d05) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_boomrang = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_boomrang = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x10000, REGION_CPU1, 0)
 		ROM_LOAD( "bp13.9k",  0x8000, 0x4000,  CRC(b70439b1) SHA1(a020e9f6a71f72dfa72b8b202b4a08cca5e26ee0) )
 		ROM_RELOAD(           0x0000, 0x4000 )
@@ -794,7 +794,7 @@ public class liberate
 		ROM_LOAD( "82s123.5l",  0, 32,  CRC(a71e19ff) SHA1(fc7bf69f7971bf763aeeb1d9eb0861470acbf5d8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kamikcab = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kamikcab = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x10000, REGION_CPU1, 0)
 		ROM_LOAD( "bp11", 0x0c000, 0x4000, CRC(a69e5580) SHA1(554e45a3f5a91864b62a2439c2277cd18dbe45a7) )
 		ROM_RELOAD(       0x00000, 0x4000 )
@@ -818,7 +818,7 @@ public class liberate
 		ROM_LOAD( "bp15", 0, 32,  CRC(30d3acce) SHA1(be88d74250edc2920fc0f95cfdd93468ac9c640e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_liberate = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_liberate = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000*2, REGION_CPU1, 0 )
 	 	ROM_LOAD( "bt12-2.bin", 0x8000, 0x4000, CRC(a0079ffd) SHA1(340398352500a33f01dca07dd9c86ad3a78f227e) )
 		ROM_RELOAD(             0x0000, 0x4000 )
@@ -847,7 +847,7 @@ public class liberate
 		ROM_LOAD( "bt14.bin", 0x0000, 32,  CRC(20281d61) SHA1(905dd2744c148d50332fcad34a57dc573d41bb0a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_liberatb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_liberatb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "liber6.c17", 0x8000, 0x2000, CRC(c1811fe0) SHA1(1f857042ce00e489c2e73bb459b81a2461ea0b25) )
 		ROM_RELOAD(             0x0000, 0x2000)

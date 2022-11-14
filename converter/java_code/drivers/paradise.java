@@ -115,7 +115,7 @@ public class paradise
 									Paradise
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_paradise = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( paradise )
+	static InputPortHandlerPtr input_ports_paradise = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( paradise )
 		PORT_START(); 	// IN0 - port $2020 - DSW 1
 		PORT_DIPNAME( 0x03, 0x02, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "Easy" );
@@ -308,7 +308,7 @@ public class paradise
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_paradise = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_paradise = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x44000, REGION_CPU1, 0 )		/* Z80 Code */
 		ROM_LOAD( "u128", 0x00000, 0x0c000, CRC(8e5b5a24) SHA1(a4e559d9329f8a7a9d12cd90d98d0525958085d8) )
 		ROM_CONTINUE(     0x10000, 0x34000    )
@@ -347,7 +347,7 @@ public class paradise
 		install_port_read_handler(0, 0x2000, 0x2fff, tgt_ball_unk);
 	} };
 	
-	static RomLoadPtr rom_tgtball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tgtball = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x44000, REGION_CPU1, 0 )		/* Z80 Code */
 		ROM_LOAD( "rom7.bin", 0x00000, 0x0c000, CRC(8dbeab12) SHA1(7181c23459990aecbe2d13377aaf19f65108eac6) )
 		ROM_CONTINUE(     0x10000, 0x34000    )

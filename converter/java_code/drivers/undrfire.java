@@ -444,7 +444,7 @@ public class undrfire
 				 INPUT PORTS (dips in eprom)
 	***********************************************************/
 	
-	static InputPortPtr input_ports_undrfire = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( undrfire )
+	static InputPortHandlerPtr input_ports_undrfire = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( undrfire )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW,  IPT_UNKNOWN );
@@ -629,7 +629,7 @@ public class undrfire
 						DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_undrfire = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_undrfire = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 2048K for 68020 code (CPU A) */
 		ROM_LOAD32_BYTE( "d67-19", 0x00000, 0x80000, CRC(1d88fa5a) SHA1(5e498efb9535a8f4e82b5525390b8bde7c45c07e) )
 		ROM_LOAD32_BYTE( "d67-18", 0x00001, 0x80000, CRC(f41ae7fd) SHA1(bdd0df01b11205c263d2fa280746826b831d58bc) )
@@ -666,7 +666,7 @@ public class undrfire
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_undrfiru = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_undrfiru = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 2048K for 68020 code (CPU A) */
 		ROM_LOAD32_BYTE( "d67-19", 0x00000, 0x80000, CRC(1d88fa5a) SHA1(5e498efb9535a8f4e82b5525390b8bde7c45c07e) )
 		ROM_LOAD32_BYTE( "d67-18", 0x00001, 0x80000, CRC(f41ae7fd) SHA1(bdd0df01b11205c263d2fa280746826b831d58bc) )
@@ -702,7 +702,7 @@ public class undrfire
 		ROM_LOAD16_BYTE( "d67-02", 0xc00000, 0x200000, CRC(fceb715e) SHA1(9326513acb0696669d4f2345649ab37c8c6ed171) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_undrfirj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_undrfirj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 2048K for 68020 code (CPU A) */
 		ROM_LOAD32_BYTE( "d67-19", 0x00000, 0x80000, CRC(1d88fa5a) SHA1(5e498efb9535a8f4e82b5525390b8bde7c45c07e) )
 		ROM_LOAD32_BYTE( "d67-18", 0x00001, 0x80000, CRC(f41ae7fd) SHA1(bdd0df01b11205c263d2fa280746826b831d58bc) )

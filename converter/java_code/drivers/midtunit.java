@@ -76,7 +76,7 @@ public class midtunit
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_mk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mk )
+	static InputPortHandlerPtr input_ports_mk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mk )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 | IPF_8WAY );
@@ -174,7 +174,7 @@ public class midtunit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mk2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mk2 )
+	static InputPortHandlerPtr input_ports_mk2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mk2 )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 | IPF_8WAY );
@@ -281,7 +281,7 @@ public class midtunit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_jdreddp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jdreddp )
+	static InputPortHandlerPtr input_ports_jdreddp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jdreddp )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 | IPF_8WAY );
@@ -377,7 +377,7 @@ public class midtunit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_nbajam = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nbajam )
+	static InputPortHandlerPtr input_ports_nbajam = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nbajam )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 | IPF_8WAY );
@@ -480,7 +480,7 @@ public class midtunit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_nbajamte = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nbajamte )
+	static InputPortHandlerPtr input_ports_nbajamte = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nbajamte )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 | IPF_8WAY );
@@ -664,7 +664,7 @@ public class midtunit
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_mk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) 	/* sound CPU */
@@ -697,7 +697,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mkr4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mkr4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) 	/* sound CPU */
@@ -730,7 +730,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mk2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mk2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -771,7 +771,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mk2r32 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mk2r32 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -812,7 +812,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mk2r21 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mk2r21 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -853,7 +853,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mk2r14 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mk2r14 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -894,7 +894,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mk2r42 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mk2r42 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -935,7 +935,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mk2r91 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mk2r91 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -976,7 +976,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mk2chal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mk2chal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -1050,7 +1050,7 @@ public class midtunit
 	*/
 	
 	
-	static RomLoadPtr rom_nbajam = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nbajam = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) /* sound CPU */
@@ -1088,7 +1088,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_nbajamr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nbajamr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) /* sound CPU */
@@ -1126,7 +1126,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_nbajamte = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nbajamte = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) /* sound CPU */
@@ -1164,7 +1164,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_nbajamt1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nbajamt1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) /* sound CPU */
@@ -1202,7 +1202,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_nbajamt2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nbajamt2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) /* sound CPU */
@@ -1240,7 +1240,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_nbajamt3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nbajamt3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) /* sound CPU */
@@ -1278,7 +1278,7 @@ public class midtunit
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_jdreddp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jdreddp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10, REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION( 0x50000, REGION_CPU2, 0 ) /* sound CPU */

@@ -220,7 +220,7 @@ public class sprint4
 	};
 	
 	
-	static InputPortPtr input_ports_sprint4 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sprint4 )
+	static InputPortHandlerPtr input_ports_sprint4 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sprint4 )
 	
 		PORT_START(); 
 		PORT_BITX( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1, "Player 1 Gas", IP_KEY_DEFAULT, IP_JOY_DEFAULT );
@@ -376,7 +376,7 @@ public class sprint4
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_sprint4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprint4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD         ( "30031.c1",    0x2800, 0x0800, CRC(017ee7c4) SHA1(9386cacc619669c18af31f66691a45af6dafef64) ) 
 		ROM_RELOAD       (                0xe800, 0x0800 )
@@ -400,7 +400,7 @@ public class sprint4
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sprint4a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprint4a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD         ( "30031.c1",    0x2800, 0x0800, CRC(017ee7c4) SHA1(9386cacc619669c18af31f66691a45af6dafef64) ) 
 		ROM_RELOAD       (                0xe800, 0x0800 )

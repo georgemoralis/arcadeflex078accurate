@@ -88,7 +88,7 @@ public class travrusa
 	
 	
 	
-	static InputPortPtr input_ports_travrusa = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( travrusa )
+	static InputPortHandlerPtr input_ports_travrusa = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( travrusa )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -176,7 +176,7 @@ public class travrusa
 	INPUT_PORTS_END(); }}; 
 	
 	/* same as travrusa, no "Title" switch */
-	static InputPortPtr input_ports_motorace = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( motorace )
+	static InputPortHandlerPtr input_ports_motorace = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( motorace )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -263,7 +263,7 @@ public class travrusa
 		PORT_SERVICE( 0x80, IP_ACTIVE_LOW );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_shtrider = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shtrider )
+	static InputPortHandlerPtr input_ports_shtrider = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shtrider )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -450,7 +450,7 @@ public class travrusa
 	***************************************************************************/
 	
 	
-	static RomLoadPtr rom_travrusa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_travrusa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "zippyrac.000", 0x0000, 0x2000, CRC(be066c0a) SHA1(fed0ef114b08519b99d77485b73768a838d2f06e) )
 		ROM_LOAD( "zippyrac.005", 0x2000, 0x2000, CRC(145d6b34) SHA1(c9e2bd1d3e62c496e4c5057c4012b069dfcf592d) )
@@ -476,7 +476,7 @@ public class travrusa
 		ROM_LOAD( "tbp24s10.3",   0x0120, 0x0100, CRC(76062638) SHA1(7378a26cf455d9d3df90929dc665870514c34b54) ) /* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_motorace = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_motorace = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x12000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "mr.cpu",       0x0000, 0x2000, CRC(89030b0c) SHA1(dec4209385bbccff4a3c0d93d6507110ef841331) )	/* encrypted */
 		ROM_LOAD( "mr1.3l",       0x2000, 0x2000, CRC(0904ed58) SHA1(2776e031cb58f99103bc35299bffd7612d954608) )
@@ -502,7 +502,7 @@ public class travrusa
 		ROM_LOAD( "tbp24s10.3",   0x0120, 0x0100, CRC(76062638) SHA1(7378a26cf455d9d3df90929dc665870514c34b54) ) /* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shtrider = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shtrider = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "1.bin",   0x0000, 0x2000, CRC(eb51315c) SHA1(0101c008b6731cd8ec796fee645113e2be79bd08) ) /* was inside epoxy block with cpu, encrypted */
 		ROM_LOAD( "2.bin",   0x2000, 0x2000, CRC(97675d19) SHA1(774ce4d370fcbbd8a4109df023bf21db92d2e839) )

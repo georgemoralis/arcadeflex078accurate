@@ -171,7 +171,7 @@ public class mosaic
 	
 	
 	
-	static InputPortPtr input_ports_mosaic = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mosaic )
+	static InputPortHandlerPtr input_ports_mosaic = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mosaic )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -216,7 +216,7 @@ public class mosaic
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gfire2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gfire2 )
+	static InputPortHandlerPtr input_ports_gfire2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gfire2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -335,7 +335,7 @@ public class mosaic
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mosaic = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mosaic = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1024k for Z180 address space */
 		ROM_LOAD( "mosaic.9", 0x00000, 0x10000, CRC(5794dd39) SHA1(28784371f4ca561e3c0fb74d1f0a204f58ccdd3a) )
 	
@@ -352,7 +352,7 @@ public class mosaic
 		ROM_LOAD( "mosaic.8", 0x30000, 0x10000, CRC(6299c376) SHA1(eb64b20268c06c97c4201c8004a759b6de42fab6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mosaica = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mosaica = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1024k for Z180 address space */
 		ROM_LOAD( "mosaic_9.a02", 0x00000, 0x10000, CRC(ecb4f8aa) SHA1(e45c074bac92d1d079cf1bcc0a6a081beb3dbb8e) )
 	
@@ -369,7 +369,7 @@ public class mosaic
 		ROM_LOAD( "mosaic.8", 0x30000, 0x10000, CRC(6299c376) SHA1(eb64b20268c06c97c4201c8004a759b6de42fab6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gfire2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gfire2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 1024k for Z180 address space */
 		ROM_LOAD( "goldf2_i.7e",         0x00000, 0x10000, CRC(a102f7d0) SHA1(cfde51d0e9e69e9653fdfd70d4e4f4649b662005) )
 	

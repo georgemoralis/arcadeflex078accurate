@@ -221,7 +221,7 @@ public class spacefb
 	};
 	
 	
-	static InputPortPtr input_ports_spacefb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacefb )
+	static InputPortHandlerPtr input_ports_spacefb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacefb )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_2WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_2WAY );
@@ -274,7 +274,7 @@ public class spacefb
 	
 	
 	/* Same as Space Firebird, except for the difficulty switch */
-	static InputPortPtr input_ports_spacedem = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacedem )
+	static InputPortHandlerPtr input_ports_spacedem = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacedem )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_2WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_2WAY );
@@ -404,7 +404,7 @@ public class spacefb
 	
 	
 	
-	static RomLoadPtr rom_spacefb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacefb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "5e.cpu",       0x0000, 0x0800, CRC(2d406678) SHA1(9dff1980fc5267313f99f9f67d2d83eda8aae00e) )         /* Code */
 		ROM_LOAD( "5f.cpu",       0x0800, 0x0800, CRC(89f0c34a) SHA1(4d8652fb7c4f22ddbac8c2d7ca7df675eaa2a447) )
@@ -429,7 +429,7 @@ public class spacefb
 		ROM_LOAD( "mb7051.3n",    0x0000, 0x0020, CRC(465d07af) SHA1(25e246f7674c25d05e5f6e68db88c15aaa10cee1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacefbg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacefbg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "tst-c.5e",     0x0000, 0x0800, CRC(07949110) SHA1(b090e629203c54fc0937d82b0cfe355153a65d6b) )         /* Code */
 		ROM_LOAD( "tst-c.5f",     0x0800, 0x0800, CRC(ce591929) SHA1(c9cf7b8a77c108e004e8863b6a08392204e9d434) )
@@ -454,7 +454,7 @@ public class spacefb
 		ROM_LOAD( "mb7051.3n",    0x0000, 0x0020, CRC(465d07af) SHA1(25e246f7674c25d05e5f6e68db88c15aaa10cee1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacebrd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacebrd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sb5e.cpu",     0x0000, 0x0800, CRC(232d66b8) SHA1(d443651819007828a40cea05b6936b762375c48f) )         /* Code */
 		ROM_LOAD( "sb5f.cpu",     0x0800, 0x0800, CRC(99504327) SHA1(043182097680b5d6164157055a1a5b95759ca64d) )
@@ -480,7 +480,7 @@ public class spacefb
 	ROM_END(); }}; 
 	
 	/* only a few bytes are different between this and spacebrd above */
-	static RomLoadPtr rom_spacefbb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacefbb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "fc51",         0x0000, 0x0800, CRC(5657bd2f) SHA1(0e615a7dd5efbbf6f543480bc150f45089c41d32) )         /* Code */
 		ROM_LOAD( "fc52",         0x0800, 0x0800, CRC(303b0294) SHA1(a2f5637e201739b440e7ea0868d2d5745fbb4f5b) )
@@ -505,7 +505,7 @@ public class spacefb
 		ROM_LOAD( "mb7051.3n",    0x0000, 0x0020, CRC(465d07af) SHA1(25e246f7674c25d05e5f6e68db88c15aaa10cee1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacedem = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacedem = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sdm-c-5e",     0x0000, 0x0800, CRC(be4b9cbb) SHA1(345ea1e56754e0c8300148b53346dbec50b3608e) )         /* Code */
 		ROM_LOAD( "sdm-c-5f",     0x0800, 0x0800, CRC(0814f964) SHA1(0186d11ca98f4b2e4c2572db9d440456370275e7) )

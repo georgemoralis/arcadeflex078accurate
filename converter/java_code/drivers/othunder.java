@@ -337,7 +337,7 @@ public class othunder
 		PORT_DIPSETTING(    0x01, "Hard" );\
 		PORT_DIPSETTING(    0x00, "Hardest" );
 	
-	static InputPortPtr input_ports_othunder = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( othunder )
+	static InputPortHandlerPtr input_ports_othunder = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( othunder )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -409,7 +409,7 @@ public class othunder
 		PORT_ANALOG( 0xff, 0x80, IPT_LIGHTGUN_Y | IPF_PLAYER2, 25, 13, 0, 0xff);
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_othundu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( othundu )
+	static InputPortHandlerPtr input_ports_othundu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( othundu )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -582,7 +582,7 @@ public class othunder
 						DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_othunder = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_othunder = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 512K for 68000 code */
 		ROM_LOAD16_BYTE( "b67-20",    0x00000, 0x20000, CRC(21439ea2) SHA1(d5b5a194e9698cf43513c0d56146772e8132ab07) )
 		ROM_LOAD16_BYTE( "b67-23",    0x00001, 0x20000, CRC(789e9daa) SHA1(15bb0eec68aeea0b9f55889566338c9ce0ac9b5e) )
@@ -618,7 +618,7 @@ public class othunder
 	//	ROM_LOAD( "b67-12", 0x00000, 0xcd5, CRC(653d86bb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_othundu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_othundu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 512K for 68000 code */
 		ROM_LOAD16_BYTE( "b67-20-1.63", 0x00000, 0x20000, CRC(851a453b) SHA1(48b8c379e78cd79463f1e24dc23816a97cf819b8) )
 		ROM_LOAD16_BYTE( "b67-22-1.64", 0x00001, 0x20000, CRC(19480dc0) SHA1(8bbc982c89f0878e7639330970df5aa93ecbb083) )

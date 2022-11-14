@@ -172,7 +172,7 @@ public class safarir
 	};
 	
 	
-	static InputPortPtr input_ports_safarir = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( safarir )
+	static InputPortHandlerPtr input_ports_safarir = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( safarir )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START1 );
@@ -280,7 +280,7 @@ public class safarir
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_safarir = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_safarir = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "rl01",		0x0000, 0x0400, CRC(cf7703c9) SHA1(b4182df9332b355edaa518462217a6e31e1c07b2) )
 		ROM_LOAD( "rl02",		0x0400, 0x0400, CRC(1013ecd3) SHA1(2fe367db8ca367b36c5378cb7d5ff918db243c78) )

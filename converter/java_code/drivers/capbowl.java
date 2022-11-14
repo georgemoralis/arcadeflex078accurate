@@ -270,7 +270,7 @@ public class capbowl
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_capbowl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( capbowl )
+	static InputPortHandlerPtr input_ports_capbowl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( capbowl )
 		PORT_START(); 	/* IN0 */
 		/* low 4 bits are for the trackball */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_COCKTAIL );
@@ -386,7 +386,7 @@ public class capbowl
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_capbowl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_capbowl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )
 		ROM_LOAD( "u6",           0x08000, 0x8000, CRC(14924c96) SHA1(d436c5115873c9c2bc7657acff1cf7d99c0c5d6d) )
 		ROM_LOAD( "gr0",          0x10000, 0x8000, CRC(ef53ca7a) SHA1(219dc342595bfd23c1336f3e167e40ff0c5e7994) )
@@ -398,7 +398,7 @@ public class capbowl
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_capbowl2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_capbowl2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )
 		ROM_LOAD( "progrev3.u6",  0x08000, 0x8000, CRC(9162934a) SHA1(7542dd68a2aa55ad4f03b23ae2313ed6a34ae145) )
 		ROM_LOAD( "gr0",          0x10000, 0x8000, CRC(ef53ca7a) SHA1(219dc342595bfd23c1336f3e167e40ff0c5e7994) )
@@ -410,7 +410,7 @@ public class capbowl
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_clbowl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_clbowl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )
 		ROM_LOAD( "u6.cl",        0x08000, 0x8000, CRC(91e06bc4) SHA1(efa54328417f971cc482a4529d05331a3baffc1a) )
 		ROM_LOAD( "gr0.cl",       0x10000, 0x8000, CRC(899c8f15) SHA1(dbb4a9c015b5e64c62140f0c99b87da2793ae5c1) )
@@ -422,7 +422,7 @@ public class capbowl
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bowlrama = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bowlrama = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "u6",           0x08000, 0x08000, CRC(7103ad55) SHA1(92dccc5e6df3e18fc8cdcb67ef14d50ce5eb8b2c) )
 	

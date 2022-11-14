@@ -201,7 +201,7 @@ public class ddragon3
 	
 	/* Input Ports */
 	
-	static InputPortPtr input_ports_ddragon3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ddragon3 )
+	static InputPortHandlerPtr input_ports_ddragon3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ddragon3 )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -280,7 +280,7 @@ public class ddragon3
 		PORT_BIT( 0xff00, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ddrago3b = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ddrago3b )
+	static InputPortHandlerPtr input_ports_ddrago3b = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ddrago3b )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -361,7 +361,7 @@ public class ddragon3
 		PORT_BIT( 0xfc00, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ctribe = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ctribe )
+	static InputPortHandlerPtr input_ports_ctribe = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ctribe )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -581,7 +581,7 @@ public class ddragon3
 	
 	/* ROMs */
 	
-	static RomLoadPtr rom_ddragon3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddragon3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for cpu code */
 		ROM_LOAD16_BYTE( "30a14",   0x00001, 0x40000, CRC(f42fe016) SHA1(11511aa43caa12b36a795bfaefee824821282523) )
 		ROM_LOAD16_BYTE( "30a15",   0x00000, 0x20000, CRC(ad50e92c) SHA1(facac5bbe11716d076a40eacbb67f7caab7a4a27) )
@@ -629,7 +629,7 @@ public class ddragon3
 		ROM_LOAD( "mb7114h.38", 0x0000, 0x0100, CRC(113c7443) SHA1(7b0b13e9f0c219f6d436aeec06494734d1f4a599) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ddrago3b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddrago3b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for cpu code */
 		ROM_LOAD16_BYTE( "dd3.01",   0x00001, 0x20000, CRC(68321d8b) SHA1(bd34d361e8ef18ef2b7e8bfe438b1b098c3151b5) )
 		ROM_LOAD16_BYTE( "dd3.03",   0x00000, 0x20000, CRC(bc05763b) SHA1(49f661fdc98bd43a6622945e9aa8d8e7a7dc1ce6) )
@@ -680,7 +680,7 @@ public class ddragon3
 		ROM_LOAD( "mb7114h.38", 0x0000, 0x0100, CRC(113c7443) SHA1(7b0b13e9f0c219f6d436aeec06494734d1f4a599) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ctribe = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ctribe = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for cpu code */
 		ROM_LOAD16_BYTE( "ic-26",      0x00001, 0x20000, CRC(c46b2e63) SHA1(86ace715dca48c78a46da1d102de47e5f948a86c) )
 		ROM_LOAD16_BYTE( "ic-25",      0x00000, 0x20000, CRC(3221c755) SHA1(0f6fe5cd6947f6547585eedb7fc5e6af8544b1f7) )
@@ -711,7 +711,7 @@ public class ddragon3
 		ROM_CONTINUE(			  0x000000, 0x20000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ctribeb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ctribeb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for cpu code */
 		ROM_LOAD16_BYTE( "ct_ep1.rom", 0x00001, 0x20000, CRC(9cfa997f) SHA1(ee49b4b9e9cd29616f244fdf3912ef743e2404ce) )
 		ROM_LOAD16_BYTE( "ct_ep3.rom", 0x00000, 0x20000, CRC(2ece8681) SHA1(17ee2ceb893e2eb08fa4cabcdebcec02bee16cda) )

@@ -90,7 +90,7 @@ public class quizpani
 		{ 0x200000, 0x33ffff, MWA16_ROM },
 	MEMORY_END
 	
-	static InputPortPtr input_ports_quizpani = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( quizpani )
+	static InputPortHandlerPtr input_ports_quizpani = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( quizpani )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -287,7 +287,7 @@ public class quizpani
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_quizpani = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quizpani = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x340000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_WORD_SWAP( "93094-51.127", 0x000000, 0x080000, CRC(2b7a29d4) SHA1(f87b875e69410745ee46d5d94b6c28e5417afb0d) )
 		/* No EVEN rom */

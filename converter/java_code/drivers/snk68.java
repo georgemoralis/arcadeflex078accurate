@@ -227,7 +227,7 @@ public class snk68
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_pow = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pow )
+	static InputPortHandlerPtr input_ports_pow = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pow )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP	  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -305,7 +305,7 @@ public class snk68
 	INPUT_PORTS_END(); }}; 
 	
 	/* Identical to pow, but the Language dip switch has no effect */
-	static InputPortPtr input_ports_powj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( powj )
+	static InputPortHandlerPtr input_ports_powj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( powj )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP	  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -382,7 +382,7 @@ public class snk68
 		PORT_DIPSETTING(	0xc0, "Hardest" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_searchar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( searchar )
+	static InputPortHandlerPtr input_ports_searchar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( searchar )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP	  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -465,7 +465,7 @@ public class snk68
 		PORT_ANALOGX( 0xff, 0x00, IPT_DIAL | IPF_REVERSE | IPF_PLAYER2, 25, 10, 0, 0, KEYCODE_N, KEYCODE_M, IP_JOY_NONE, IP_JOY_NONE );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_streetsm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( streetsm )
+	static InputPortHandlerPtr input_ports_streetsm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( streetsm )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP	  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -549,7 +549,7 @@ public class snk68
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as streetsm, but Coinage is different */
-	static InputPortPtr input_ports_streetsj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( streetsj )
+	static InputPortHandlerPtr input_ports_streetsj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( streetsj )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP	  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -632,7 +632,7 @@ public class snk68
 		PORT_BIT( 0xff, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ikari3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ikari3 )
+	static InputPortHandlerPtr input_ports_ikari3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ikari3 )
 		PORT_START(); 	/* Player 1 controls, maybe all are active_high? */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP	  | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -941,7 +941,7 @@ public class snk68
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_pow = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pow = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "dg1",   0x000000, 0x20000, CRC(8e71a8af) SHA1(72c2eb2316c2684491331e8adabcb2be084aa6a2) )
 		ROM_LOAD16_BYTE( "dg2",   0x000001, 0x20000, CRC(4287affc) SHA1(59dfb37296edd3b42231319a9f4df819d384db38) )
@@ -975,7 +975,7 @@ public class snk68
 		ROM_LOAD( "dg7",        0x000000, 0x10000, CRC(aba9a9d3) SHA1(5098cd3a064b8ede24797de8879a277d79e79d75) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_powj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_powj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "1-2",   0x000000, 0x20000, CRC(2f17bfb0) SHA1(8be18990829eb2586c00b9e8b35e8779bc48296a) )
 		ROM_LOAD16_BYTE( "2-2",   0x000001, 0x20000, CRC(baa32354) SHA1(a235b82527dc025e699ba2e8e9797dac15ea9440) )
@@ -1009,7 +1009,7 @@ public class snk68
 		ROM_LOAD( "dg7",        0x000000, 0x10000, CRC(aba9a9d3) SHA1(5098cd3a064b8ede24797de8879a277d79e79d75) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_searchar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_searchar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "bhw.2", 0x000000, 0x20000, CRC(e1430138) SHA1(eddc192524a13b2c09bd2bddcd5f8e8b771ceb21) )
 		ROM_LOAD16_BYTE( "bhw.3", 0x000001, 0x20000, CRC(ee1f9374) SHA1(fd41c74fd69d65713d8e1a9b8078328381119379) )
@@ -1037,7 +1037,7 @@ public class snk68
 		ROM_LOAD16_BYTE( "bhw.4", 0x000001, 0x20000, CRC(16d8525c) SHA1(0098b0a7fcb23de2661bbec9a05254aa46579bb2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sercharu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sercharu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "bh.2",  0x000000, 0x20000, CRC(c852e2e2) SHA1(c4b1b366f452122549046a3dec9b6b375bc273af) )
 		ROM_LOAD16_BYTE( "bh.3",  0x000001, 0x20000, CRC(bc04a4a1) SHA1(aa91583b987248a3e99813ab5e8ee03c02dac9b9) )
@@ -1065,7 +1065,7 @@ public class snk68
 		ROM_LOAD16_BYTE( "bh.4",  0x000001, 0x20000, CRC(eabc5ddf) SHA1(08a2a8fcdf6a08a2694e00f4232a5bfbec98fd27) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_streetsm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_streetsm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "s2-1ver2.14h", 0x00000, 0x20000, CRC(655f4773) SHA1(5374a6cf0b895c5ff839b0f52402df4cc53241cf) )
 		ROM_LOAD16_BYTE( "s2-2ver2.14k", 0x00001, 0x20000, CRC(efae4823) SHA1(f3be25b76cf13feeaaaf0e9640c30a6a7371f108) )
@@ -1089,7 +1089,7 @@ public class snk68
 		ROM_LOAD( "s2-6.18d",    0x000000, 0x20000, CRC(47db1605) SHA1(ae00e633eb98567f04ff97e3d63e04e049d955ec) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_streets1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_streets1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "s2-1ver1.9c",  0x00000, 0x20000, CRC(b59354c5) SHA1(086c87541d422f90bdaad8d63b14d0d520c12564) )
 		ROM_LOAD16_BYTE( "s2-2ver1.10c", 0x00001, 0x20000, CRC(e448b68b) SHA1(08d674ab3d9bd3d3b1d50967a56fa6a002ce0b8d) )
@@ -1113,7 +1113,7 @@ public class snk68
 		ROM_LOAD( "s2-6.18d",    0x000000, 0x20000, CRC(47db1605) SHA1(ae00e633eb98567f04ff97e3d63e04e049d955ec) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_streetsw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_streetsw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "s-smart1.bin", 0x00000, 0x20000, CRC(a1f5ceab) SHA1(74f5a4288618fbce6ed3dc75b6ccfa695396193c) )
 		ROM_LOAD16_BYTE( "s-smart2.bin", 0x00001, 0x20000, CRC(263f615d) SHA1(4576f9d2abb31ecf747a5075716579e75613d57c) )
@@ -1137,7 +1137,7 @@ public class snk68
 		ROM_LOAD( "s2-6.18d",    0x000000, 0x20000, CRC(47db1605) SHA1(ae00e633eb98567f04ff97e3d63e04e049d955ec) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_streetsj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_streetsj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "s2v1j_01.bin", 0x00000, 0x20000, CRC(f031413c) SHA1(5d7dfeac03f786736914f047c28a7a0488175176) )
 		ROM_LOAD16_BYTE( "s2v1j_02.bin", 0x00001, 0x20000, CRC(e403a40b) SHA1(e740848d716586737eff6e3c201fb3e3da048a09) )
@@ -1161,7 +1161,7 @@ public class snk68
 		ROM_LOAD( "s2-6.18d",    0x000000, 0x20000, CRC(47db1605) SHA1(ae00e633eb98567f04ff97e3d63e04e049d955ec) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ikari3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ikari3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "ik3-2.bin", 0x000000, 0x20000, CRC(a7b34dcd) SHA1(7c2f20ae4f7dbebd3dfa3ec5408ed714e6535b6a) )
 		ROM_LOAD16_BYTE( "ik3-3.bin", 0x000001, 0x20000, CRC(50f2b83d) SHA1(b1f0c554b262614dd2cff7a3857cb974d361937f) )

@@ -142,7 +142,7 @@ public class mogura
 	};
 	
 	
-	static InputPortPtr input_ports_mogura = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mogura )
+	static InputPortHandlerPtr input_ports_mogura = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mogura )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -250,7 +250,7 @@ public class mogura
 		MDRV_SOUND_ADD(DAC, dac_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_mogura = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mogura = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "gx141.5n", 0x00000, 0x08000, CRC(98e6120d) SHA1(45cdb2d78224a7c44fff8cd3487f33c57669a06c)  )
 	

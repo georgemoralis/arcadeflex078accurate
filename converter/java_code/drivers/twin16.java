@@ -404,7 +404,7 @@ public class twin16
 		PORT_DIPSETTING(    0x90, DEF_STR( "1C_7C") ); \
 		PORT_DIPSETTING(    0x00, "Disabled" );
 	
-	static InputPortPtr input_ports_devilw = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( devilw )
+	static InputPortHandlerPtr input_ports_devilw = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( devilw )
 		PORT_START();       /* 0xa0001 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -465,7 +465,7 @@ public class twin16
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_darkadv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( darkadv )
+	static InputPortHandlerPtr input_ports_darkadv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( darkadv )
 		PORT_START();       /* 0xa0001 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -551,7 +551,7 @@ public class twin16
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_UNUSED);
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_vulcan = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vulcan )
+	static InputPortHandlerPtr input_ports_vulcan = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vulcan )
 		PORT_START();       /* 0xa0001 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -622,7 +622,7 @@ public class twin16
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_gradius2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gradius2 )	// same as vulcan, different bonus
+	static InputPortHandlerPtr input_ports_gradius2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gradius2 )	// same as vulcan, different bonus
 		PORT_START();       /* 0xa0001 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -692,7 +692,7 @@ public class twin16
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_UNUSED);
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fround = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fround )
+	static InputPortHandlerPtr input_ports_fround = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fround )
 		PORT_START();       /* 0xa0001 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -753,7 +753,7 @@ public class twin16
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_miaj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( miaj )
+	static InputPortHandlerPtr input_ports_miaj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( miaj )
 		PORT_START();       /* 0xa0001 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -821,7 +821,7 @@ public class twin16
 		PORT_BIT( 0x08, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cuebrick = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cuebrick )
+	static InputPortHandlerPtr input_ports_cuebrick = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cuebrick )
 		PORT_START();       /* 0xa0001 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1053,7 +1053,7 @@ public class twin16
 	
 	/* ROMs */
 	
-	static RomLoadPtr rom_devilw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_devilw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "687_l03.10a",		0x00000,  0x8000, CRC(7201983c) SHA1(06d089406d2f702e8d51ffdfbf34e4727a28d506) )
 	
@@ -1089,7 +1089,7 @@ public class twin16
 		ROM_LOAD( "687_i02.7c",			0x00000, 0x20000, CRC(e5947501) SHA1(9ec7319bd97711981db60af6f477c2ba2ec7e6b8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_majuu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_majuu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "687_l03.10a",		0x00000,  0x8000, CRC(7201983c) SHA1(06d089406d2f702e8d51ffdfbf34e4727a28d506) )
 	
@@ -1125,7 +1125,7 @@ public class twin16
 		ROM_LOAD( "687_i02.7c",			0x00000, 0x20000, CRC(e5947501) SHA1(9ec7319bd97711981db60af6f477c2ba2ec7e6b8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_darkadv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_darkadv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "687_n03.10a",		0x00000,  0x8000, CRC(a24c682f) SHA1(cf053270d3f77448ff802db832598ae3cf7dae6c) )
 	
@@ -1161,7 +1161,7 @@ public class twin16
 		ROM_LOAD( "687_i02.7c",			0x00000, 0x20000, CRC(e5947501) SHA1(9ec7319bd97711981db60af6f477c2ba2ec7e6b8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vulcan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vulcan = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "785_g03.10a",		0x00000,  0x8000, CRC(67a3b50d) SHA1(3c83f3b0df73d9361ec3cda26a6c4c603a088419) )
 	
@@ -1195,7 +1195,7 @@ public class twin16
 		ROM_LOAD( "785_f02.7c",			0x00000, 0x20000, CRC(c39f5ca4) SHA1(92ebea11b7d3a72d0f58c456f16a6ff36d6b3062) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gradius2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gradius2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "785_g03.10a",		0x00000,  0x8000, CRC(67a3b50d) SHA1(3c83f3b0df73d9361ec3cda26a6c4c603a088419) )
 	
@@ -1229,7 +1229,7 @@ public class twin16
 		ROM_LOAD( "785_f02.7c",			0x00000, 0x20000, CRC(c39f5ca4) SHA1(92ebea11b7d3a72d0f58c456f16a6ff36d6b3062) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_grdius2a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grdius2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "785_g03.10a",		0x00000,  0x8000, CRC(67a3b50d) SHA1(3c83f3b0df73d9361ec3cda26a6c4c603a088419) )
 	
@@ -1263,7 +1263,7 @@ public class twin16
 		ROM_LOAD( "785_f02.7c",			0x00000, 0x20000, CRC(c39f5ca4) SHA1(92ebea11b7d3a72d0f58c456f16a6ff36d6b3062) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_grdius2b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_grdius2b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // Z80 code (sound CPU)
 		ROM_LOAD( "785_g03.10a",		0x00000,  0x8000, CRC(67a3b50d) SHA1(3c83f3b0df73d9361ec3cda26a6c4c603a088419) )
 	
@@ -1297,7 +1297,7 @@ public class twin16
 		ROM_LOAD( "785_f02.7c",			0x00000, 0x20000, CRC(c39f5ca4) SHA1(92ebea11b7d3a72d0f58c456f16a6ff36d6b3062) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fround = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fround = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "870_f03.10a",		0x00000,  0x8000, CRC(a645c727) SHA1(e173e79130f187d090766664f1c478d47062749c) )
 	
@@ -1321,7 +1321,7 @@ public class twin16
 		ROM_LOAD( "870_c02.7c",			0x00000, 0x20000, CRC(54e12c6d) SHA1(8171441aeb1a1dc4d65fae59c7c217f992f70cbc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_froundl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_froundl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "870_f03.10a",		0x00000,  0x8000, CRC(a645c727) SHA1(e173e79130f187d090766664f1c478d47062749c) )
 	
@@ -1345,7 +1345,7 @@ public class twin16
 		ROM_LOAD( "870_c02.7c",			0x00000, 0x20000, CRC(54e12c6d) SHA1(8171441aeb1a1dc4d65fae59c7c217f992f70cbc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hpuncher = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hpuncher = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Z80 code (sound CPU)
 		ROM_LOAD( "870_g03.10a",		0x00000,  0x8000, CRC(db9c10c8) SHA1(b2ec4d6800a4ab00dfcc8d3cd4abf9b9d7c5544a) )
 	
@@ -1375,7 +1375,7 @@ public class twin16
 		ROM_LOAD( "870_c02.7c",			0x00000, 0x20000, CRC(54e12c6d) SHA1(8171441aeb1a1dc4d65fae59c7c217f992f70cbc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_miaj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_miaj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // Z80 code (sound CPU)
 		ROM_LOAD( "808_e03.10a",		0x00000,  0x8000, CRC(3d93a7cd) SHA1(dcdd327e78f32436b276d0666f62a5b733b296e8) )
 	
@@ -1406,7 +1406,7 @@ public class twin16
 		ROM_REGION( 0x20000, REGION_SOUND2, 0 ) // samples
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cuebrick = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cuebrick = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // Z80 code (sound CPU)
 		ROM_LOAD( "903_d03.10a",		0x00000,  0x8000, CRC(455e855a) SHA1(cfdd54a5071862653ee94c0455301f4a7245fbd8) )
 	

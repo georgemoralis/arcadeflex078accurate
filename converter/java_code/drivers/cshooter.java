@@ -229,7 +229,7 @@ public class cshooter
 	};
 	
 	
-	static InputPortPtr input_ports_cshooter = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cshooter )
+	static InputPortHandlerPtr input_ports_cshooter = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cshooter )
 		PORT_START(); 	/* IN0	(0xc200) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -432,7 +432,7 @@ public class cshooter
 	*/
 	
 	
-	static RomLoadPtr rom_cshooter = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cshooter = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	// Main CPU?
 		ROM_LOAD( "r1",  0x00000, 0x08000, CRC(fbe8c518) SHA1(bff8319f4892e6d06f1c7a679f67dc8407279cfa) )
 	
@@ -485,7 +485,7 @@ public class cshooter
 	
 	*/
 	
-	static RomLoadPtr rom_cshootre = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cshootre = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	// Main CPU?
 		ROM_LOAD( "1.k19",  0x00000, 0x08000, CRC(71418952) SHA1(9745ca006576381c9e9595d8e42ab276bab80a41) )
 	
@@ -524,7 +524,7 @@ public class cshooter
 	
 	*/
 	
-	static RomLoadPtr rom_airraid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_airraid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	// Main CPU?
 		ROM_LOAD( "1.16j",  0x00000, 0x08000, CRC(7ac2cedf) SHA1(272831f51a2731e067b5aec6dba6bddd3c5350c9) )
 	

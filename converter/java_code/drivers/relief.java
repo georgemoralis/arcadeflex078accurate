@@ -219,7 +219,7 @@ public class relief
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_relief = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( relief )
+	static InputPortHandlerPtr input_ports_relief = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( relief )
 		PORT_START(); 	/* 260000 */
 		PORT_BITX(0x0001, IP_ACTIVE_LOW, IPT_SERVICE, "Button D0", KEYCODE_Z, JOYCODE_NONE );
 		PORT_BITX(0x0002, IP_ACTIVE_LOW, IPT_SERVICE, "Button D1", KEYCODE_X, JOYCODE_NONE );
@@ -395,7 +395,7 @@ public class relief
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_relief = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_relief = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "0011d.19e", 0x00000, 0x20000, CRC(cb3f73ad) SHA1(533a96095e678b4a414d6d9b861b1d4010ced30f) )
 		ROM_LOAD16_BYTE( "0012d.19j", 0x00001, 0x20000, CRC(90655721) SHA1(f50a2f317215a864d09e33a4acd927b873350425) )
@@ -417,7 +417,7 @@ public class relief
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_relief2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_relief2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "093-0011.19e", 0x00000, 0x20000, CRC(794cea33) SHA1(6e9830ce04a505746dea5aafaf37c629c28b061d) )
 		ROM_LOAD16_BYTE( "093-0012.19j", 0x00001, 0x20000, CRC(577495f8) SHA1(f45b0928b13db7f49b7688620008fc03fca08cde) )

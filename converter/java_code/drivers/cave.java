@@ -1405,7 +1405,7 @@ public class cave
 	*/
 	
 	/* Most games use this */
-	static InputPortPtr input_ports_cave = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cave )
+	static InputPortHandlerPtr input_ports_cave = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cave )
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN	 | IPF_PLAYER1 );
@@ -1446,7 +1446,7 @@ public class cave
 	INPUT_PORTS_END(); }}; 
 	
 	/* Gaia Crusaders, no EEPROM. Has DIPS */
-	static InputPortPtr input_ports_gaia = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gaia )
+	static InputPortHandlerPtr input_ports_gaia = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gaia )
 		PORT_START(); 	// IN0 - Player 1 + 2
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN	 | IPF_PLAYER1 );
@@ -1533,7 +1533,7 @@ public class cave
 	INPUT_PORTS_END(); }}; 
 	
 	/* Mazinger Z (has region stored in Eeprom) */
-	static InputPortPtr input_ports_mazinger = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mazinger )
+	static InputPortHandlerPtr input_ports_mazinger = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mazinger )
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN	 | IPF_PLAYER1 );
@@ -1579,7 +1579,7 @@ public class cave
 	INPUT_PORTS_END(); }}; 
 	
 	/* Sailor Moon / Air Gallet (has region stored in Eeprom) */
-	static InputPortPtr input_ports_sailormn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sailormn )
+	static InputPortHandlerPtr input_ports_sailormn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sailormn )
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN	 | IPF_PLAYER1 );
@@ -1629,7 +1629,7 @@ public class cave
 	INPUT_PORTS_END(); }}; 
 	
 	/* Different layout */
-	static InputPortPtr input_ports_guwange = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( guwange )
+	static InputPortHandlerPtr input_ports_guwange = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( guwange )
 		PORT_START(); 	// IN0 - Player 1 & 2
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_START1  );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_UP	 | IPF_PLAYER1 );
@@ -1670,7 +1670,7 @@ public class cave
 	INPUT_PORTS_END(); }}; 
 	
 	/* "normal" layout but with 4 buttons */
-	static InputPortPtr input_ports_metmqstr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( metmqstr )
+	static InputPortHandlerPtr input_ports_metmqstr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( metmqstr )
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN	 | IPF_PLAYER1 );
@@ -2600,7 +2600,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_agallet = new RomLoadPtr(){ public void handler(){ 	// Shows "Taiwan Only" on the copyright notice screen.
+	static RomLoadHandlerPtr rom_agallet = new RomLoadHandlerPtr(){ public void handler(){ 	// Shows "Taiwan Only" on the copyright notice screen.
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "bp962a.u45", 0x000000, 0x080000, CRC(24815046) SHA1(f5eeae60b923ae850b335e7898a2760407631d8b) )
 		//empty
@@ -2646,7 +2646,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_dfeveron = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dfeveron = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "cv01-u34.bin", 0x000000, 0x080000, CRC(be87f19d) SHA1(595239245df3835cdf5a99a6c62480465558d8d3) )
 		ROM_LOAD16_BYTE( "cv01-u33.bin", 0x000001, 0x080000, CRC(e53a7db3) SHA1(ddced29f78dc3cc89038757b6577ba2ba0d8b041) )
@@ -2679,7 +2679,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ddonpach = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddonpach = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "b1.u27", 0x000000, 0x080000, CRC(b5cdc8d3) SHA1(58757b50e21a27e500a82c03f62cf02a85389926) )
 		ROM_LOAD16_BYTE( "b2.u26", 0x000001, 0x080000, CRC(6bbb063a) SHA1(e5de64b9c3efc0a38a2e0e16b78ee393bff63558) )
@@ -2705,7 +2705,7 @@ public class cave
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ddonpchj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddonpchj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "u27.bin", 0x000000, 0x080000, CRC(2432ff9b) SHA1(fbc826c30553f6553ead40b312b73c049e8f4bf6) )
 		ROM_LOAD16_BYTE( "u26.bin", 0x000001, 0x080000, CRC(4f3a914a) SHA1(ae98eba049f1462aa1145f6959b9f9a32c97278f) )
@@ -2769,7 +2769,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_donpachi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_donpachi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "prgu.u29",     0x00000, 0x80000, CRC(89c36802) SHA1(7857c726cecca5a4fce282e0d2b873774d2c1b1d) )
 	
@@ -2796,7 +2796,7 @@ public class cave
 		ROM_LOAD( "atdp.u33", 0x140000, 0x200000, CRC(d749de00) SHA1(64a0acc23eb2515e7d0459f0289919e083c63afc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_donpachj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_donpachj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "prg.u29",     0x00000, 0x80000, CRC(6be14af6) SHA1(5b1158071f160efeded816ae4c4edca1d00d6e05) )
 	
@@ -2823,7 +2823,7 @@ public class cave
 		ROM_LOAD( "atdp.u33", 0x140000, 0x200000, CRC(d749de00) SHA1(64a0acc23eb2515e7d0459f0289919e083c63afc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_donpachk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_donpachk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "prgk.u26",    0x00000, 0x80000, CRC(bbaf4c8b) SHA1(0f9d42c8c4c5b69e3d39bf768bc4b663f66b4f36) )
 	
@@ -2860,7 +2860,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_esprade = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_esprade = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "u42_i.bin", 0x000000, 0x080000, CRC(3b510a73) SHA1(ab1666eb826cb4a71588d86831dd18a2ef1c2a33) )
 		ROM_LOAD16_BYTE( "u41_i.bin", 0x000001, 0x080000, CRC(97c1b649) SHA1(37a56b7b9662219a356aee3f4b5cbb774ac4950e) )
@@ -2886,7 +2886,7 @@ public class cave
 		ROM_LOAD( "u19.bin", 0x000000, 0x400000, CRC(f54b1cab) SHA1(34d70bb5798de85d892c062001d9ac1d6604fd9f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_espradej = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_espradej = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "u42_ver2.bin", 0x000000, 0x080000, CRC(75d03c42) SHA1(1c176185b6f1531752b633a97f705ffa0cfeb5ad) )
 		ROM_LOAD16_BYTE( "u41_ver2.bin", 0x000001, 0x080000, CRC(734b3ef0) SHA1(f584227b85c347d62d5f179445011ce0f607bcfd) )
@@ -2912,7 +2912,7 @@ public class cave
 		ROM_LOAD( "u19.bin", 0x000000, 0x400000, CRC(f54b1cab) SHA1(34d70bb5798de85d892c062001d9ac1d6604fd9f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_espradeo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_espradeo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "u42.bin", 0x000000, 0x080000, CRC(0718c7e5) SHA1(c7d1f30bd2ef363cad15b6918f9980312a15809a) )
 		ROM_LOAD16_BYTE( "u41.bin", 0x000001, 0x080000, CRC(def30539) SHA1(957ad0b06f06689ae71393572592f6b8f818603a) )
@@ -2979,7 +2979,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gaia = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gaia = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "prg1.127", 0x000000, 0x080000, CRC(47b904b2) SHA1(58b9b55f59cf00f70b690a0371096e86f4d723c2) )
 		ROM_LOAD16_BYTE( "prg2.128", 0x000001, 0x080000, CRC(469b7794) SHA1(502f855c51005a866900b19c3a0a170d9ea02392) )
@@ -3017,7 +3017,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_guwange = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_guwange = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "gu-u0127.bin", 0x000000, 0x080000, CRC(f86b5293) SHA1(f8b1cd77cc25328d5010889850e4b86c27d9e396) )
 		ROM_LOAD16_BYTE( "gu-u0129.bin", 0x000001, 0x080000, CRC(6c0e3b93) SHA1(aaad6569b9a7b6f9a315062f9fedfc95851c1bc6) )
@@ -3067,7 +3067,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hotdogst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hotdogst = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "mp3u29", 0x00000, 0x80000, CRC(1f4e5479) SHA1(5c3d7b36b1eda4c87c53e4f7cf89951cc5bcc871) )
 		ROM_LOAD16_BYTE( "mp4u28", 0x00001, 0x80000, CRC(6f1c3c4b) SHA1(ab4e4d9b2ef74a2eefda718e120bef05fd0346ff) )
@@ -3120,7 +3120,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_mazinger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mazinger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "mzp-0.u24", 0x00000, 0x80000, CRC(43a4279f) SHA1(2c17eb31040bb7f1554bc1c9a968eec5e72af097) )
 	
@@ -3194,7 +3194,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_metmqstr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_metmqstr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x280000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "bp947a.u25", 0x000000, 0x80000, CRC(0a5c3442) SHA1(684b79912dedc103f45c42fdebf9983e091b1308) )
 		ROM_LOAD16_WORD_SWAP( "bp947a.u28", 0x100000, 0x80000, CRC(8c55decf) SHA1(76c6ce4c8e621273258d31ceb9ec4442fcf1a393) )
@@ -3233,7 +3233,7 @@ public class cave
 		ROM_CONTINUE(           0x040000, 0x100000             )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nmaster = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nmaster = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x280000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "bp947a_n.u25",0x000000, 0x80000, CRC(748cc514) SHA1(11d882e77a539407c314f087386e50d691a6bc0b) )
 		ROM_LOAD16_WORD_SWAP( "bp947a.u28" , 0x100000, 0x80000, CRC(8c55decf) SHA1(76c6ce4c8e621273258d31ceb9ec4442fcf1a393) )
@@ -3287,7 +3287,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_pwrinst2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pwrinst2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_BYTE( "g02.u45", 0x000000, 0x80000, CRC(7b33bc43) SHA1(a68eb94e679f03c354932b8c5cd1bb2922fec0aa) )
 		ROM_LOAD16_BYTE( "g02.u44", 0x000001, 0x80000, CRC(8f6f6637) SHA1(024b12c0fe40e27c79e38bd7601a9183a62d75fd) )
@@ -3379,7 +3379,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_sailormn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sailormn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "bpsm945a.u45", 0x000000, 0x080000, CRC(898c9515) SHA1(0fe8d7f13f5cfe2f6e79a0a21b2e8e7e70e65c4b) )
 		ROM_LOAD16_WORD_SWAP( "bpsm.u46",     0x200000, 0x200000, CRC(32084e80) SHA1(0ac503190d95009620b5ad7e7e0e63324f6fa4eb) )
@@ -3423,7 +3423,7 @@ public class cave
 		ROM_RELOAD(           0x1c0000, 0x080000             )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sailormo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sailormo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )		/* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "smprg.u45",    0x000000, 0x080000, CRC(234f1152) SHA1(8fc6d4a8995d550862d328011d3357c09334f0fa) )
 		ROM_LOAD16_WORD_SWAP( "bpsm.u46",     0x200000, 0x200000, CRC(32084e80) SHA1(0ac503190d95009620b5ad7e7e0e63324f6fa4eb) )
@@ -3476,7 +3476,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_uopoko = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_uopoko = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "u26j.bin", 0x000000, 0x080000, CRC(e7eec050) SHA1(cf3a77741029f96dbbec5ca7217a1723e4233cff) )
 		ROM_LOAD16_BYTE( "u25j.bin", 0x000001, 0x080000, CRC(68cb6211) SHA1(a6db0bc2e3e54b6992a44b7d52395917e66db49b) )

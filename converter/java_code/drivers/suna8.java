@@ -1520,7 +1520,7 @@ public class suna8
 									Hard Head
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_hardhead = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hardhead )
+	static InputPortHandlerPtr input_ports_hardhead = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hardhead )
 	
 		PORT_START(); 	// IN0 - Player 1 - $da00 (ip = 0)
 		JOY(1)
@@ -1584,7 +1584,7 @@ public class suna8
 									Rough Ranger
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_rranger = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rranger )
+	static InputPortHandlerPtr input_ports_rranger = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rranger )
 	
 		PORT_START(); 	// IN0 - Player 1 - $c002
 		JOY(1)
@@ -1649,7 +1649,7 @@ public class suna8
 									Brick Zone
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_brickzn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( brickzn )
+	static InputPortHandlerPtr input_ports_brickzn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( brickzn )
 	
 		PORT_START(); 	// IN0 - Player 1 - $c100
 		JOY(1)
@@ -1722,7 +1722,7 @@ public class suna8
 							Hard Head 2 / Star Fighter
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_hardhea2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hardhea2 )
+	static InputPortHandlerPtr input_ports_hardhea2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hardhea2 )
 	
 		PORT_START(); 	// IN0 - Player 1 - $c000
 		JOY(1)
@@ -1786,7 +1786,7 @@ public class suna8
 									Spark Man
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_sparkman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sparkman )
+	static InputPortHandlerPtr input_ports_sparkman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sparkman )
 	
 		PORT_START(); 	// IN0 - Player 1 - $c000
 		JOY(1)
@@ -2289,7 +2289,7 @@ public class suna8
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hardhead = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hardhead = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 ) /* Main Z80 Code */
 		ROM_LOAD( "p1",  0x00000, 0x8000, CRC(c6147926) SHA1(8d1609aaeac344c6aec102e92d34caab22a8ec64) )	// 1988,9,14
 		ROM_LOAD( "p2",  0x10000, 0x8000, CRC(faa2cf9a) SHA1(5987f146b58fcbc3aaa9c010d86022b5172bcfb4) )
@@ -2317,7 +2317,7 @@ public class suna8
 		ROM_LOAD( "p14", 0x0000, 0x8000, CRC(41314ac1) SHA1(1ac9213b0ac4ce9fe6256e93875672e128a5d069) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hardhedb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hardhedb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 ) /* Main Z80 Code */
 		ROM_LOAD( "9_1_6l.rom", 0x00000, 0x8000, CRC(750e6aee) SHA1(ec8f61a1a3d95ef0e3748968f6da73e972763493) )	// 1988,9,14 (already decrypted)
 		ROM_LOAD( "p2",  0x10000, 0x8000, CRC(faa2cf9a) SHA1(5987f146b58fcbc3aaa9c010d86022b5172bcfb4) )
@@ -2404,7 +2404,7 @@ public class suna8
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_rranger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rranger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "1",  0x00000, 0x8000, CRC(4fb4f096) SHA1(c5ac3e04080cdcf570769918587e8cf8d455fc30) )	// V 2.0 1988,4,15
 		ROM_LOAD( "2",  0x10000, 0x8000, CRC(ff65af29) SHA1(90f9a0c862e2a9da0343446a325961ab29d26b4b) )
@@ -2431,7 +2431,7 @@ public class suna8
 		ROM_LOAD( "13", 0x38000, 0x8000, CRC(9809fee8) SHA1(b7e0664702d0c1f77247d7c76a381b24687a09ea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sranger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sranger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "r1", 0x00000, 0x8000, CRC(4eef1ede) SHA1(713074400e27f6983f97ce73e522a1d687961317) )	// V 2.0 1988,4,15
 		ROM_LOAD( "2",  0x10000, 0x8000, CRC(ff65af29) SHA1(90f9a0c862e2a9da0343446a325961ab29d26b4b) )
@@ -2458,7 +2458,7 @@ public class suna8
 		ROM_LOAD( "13",  0x38000, 0x8000, CRC(9809fee8) SHA1(b7e0664702d0c1f77247d7c76a381b24687a09ea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_srangerb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srangerb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "r1bt", 0x00000, 0x8000, CRC(40635e7c) SHA1(741290ad640e941774d496a329cd29198ab83463) )	// NYWACORPORATION LTD 88-1-07
 		ROM_LOAD( "2",    0x10000, 0x8000, CRC(ff65af29) SHA1(90f9a0c862e2a9da0343446a325961ab29d26b4b) )
@@ -2486,7 +2486,7 @@ public class suna8
 		ROM_LOAD( "13",  0x38000, 0x8000, CRC(9809fee8) SHA1(b7e0664702d0c1f77247d7c76a381b24687a09ea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_srangerw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_srangerw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "w1", 0x00000, 0x8000, CRC(2287d3fc) SHA1(cc2dab587ca50fc4371d2861ac842cd81370f868) )	// 88,2,28
 		ROM_LOAD( "2",  0x10000, 0x8000, CRC(ff65af29) SHA1(90f9a0c862e2a9da0343446a325961ab29d26b4b) )
@@ -2543,7 +2543,7 @@ public class suna8
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_brickzn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_brickzn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000 * 2, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "brickzon.009", 0x00000, 0x08000, CRC(1ea68dea) SHA1(427152a26b062c5e77089de49c1da69369d4d557) )	// V5.0 1992,3,3
 		ROM_RELOAD(               0x50000, 0x08000             )
@@ -2570,7 +2570,7 @@ public class suna8
 		ROM_REGION( 0x2000 * 2, REGION_USER2, 0 )	/* Sprite  RAM Banks */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_brickzn3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_brickzn3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000 * 2, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "39",           0x00000, 0x08000, CRC(043380bd) SHA1(7eea7cc7d754815df233879b4a9d3d88eac5b28d) )	// V3.0 1992,1,23
 		ROM_RELOAD(               0x50000, 0x08000             )
@@ -2635,7 +2635,7 @@ public class suna8
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_hardhea2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hardhea2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000 * 2, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "hrd-hd9",  0x00000, 0x08000, CRC(69c4c307) SHA1(0dfde1dcda51b5b1740aff9e96cb877a428a3e04) )	// V 2.0 1991,2,12
 		ROM_RELOAD(           0x50000, 0x08000             )
@@ -2675,7 +2675,7 @@ public class suna8
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_starfigh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starfigh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000 * 2, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "starfgtr.l1", 0x00000, 0x08000, CRC(f93802c6) SHA1(4005b06b69dd440dfb6385766386a1168e73288f) )	// V.1
 		ROM_RELOAD(              0x50000, 0x08000             )
@@ -2725,7 +2725,7 @@ public class suna8
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_sparkman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sparkman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000 * 2, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "sparkman.e7", 0x00000, 0x08000, CRC(d89c5780) SHA1(177f0ae21c00575a7eb078e86f3a790fc95211e4) )	/* "SPARK MAN MAIN PROGRAM 1989,8,12 K.H.T (SUNA ELECTRPNICS) V 2.0 SOULE KOREA" */
 		ROM_RELOAD(              0x50000, 0x08000 )

@@ -153,7 +153,7 @@ public class baraduke
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_baraduke = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( baraduke )
+	static InputPortHandlerPtr input_ports_baraduke = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( baraduke )
 		PORT_START(); 	/* DSW A */
 		PORT_SERVICE( 0x01, IP_ACTIVE_HIGH );
 		PORT_DIPNAME( 0x06, 0x00, DEF_STR( "Lives") );
@@ -243,7 +243,7 @@ public class baraduke
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_metrocrs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( metrocrs )
+	static InputPortHandlerPtr input_ports_metrocrs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( metrocrs )
 		PORT_START(); 	/* DSW A */
 		PORT_SERVICE( 0x01, IP_ACTIVE_HIGH );
 		PORT_DIPNAME( 0x06, 0x00, DEF_STR( "Coin_A") );
@@ -490,7 +490,7 @@ public class baraduke
 		MDRV_SOUND_ADD(NAMCO, namco_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_baraduke = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_baraduke = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 6809 code */
 		ROM_LOAD( "prg1.9c",	0x6000, 0x02000, CRC(ea2ea790) SHA1(ab6f523803b2b0ea04b78f2f252de6c2d344a26c) )
 		ROM_LOAD( "prg2.9a",	0x8000, 0x04000, CRC(9a0a9a87) SHA1(6d88fb5b443c822ede4884d4452e333834b16aca) )
@@ -519,7 +519,7 @@ public class baraduke
 		ROM_LOAD( "prmcolr.2m",	0x0800, 0x0800, CRC(03f7241f) SHA1(16ae059f084ba0ac4ddaa95dbeed113295f106ea) )	/* Red palette */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_baraduka = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_baraduka = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 6809 code */
 		ROM_LOAD( "prg1.9c",	0x6000, 0x02000, CRC(ea2ea790) SHA1(ab6f523803b2b0ea04b78f2f252de6c2d344a26c) )
 		ROM_LOAD( "bd1_1.9a",	0x8000, 0x04000, CRC(4e9f2bdc) SHA1(bc6e71d4d3b2064e662a105c1a77d2731070d58e) )
@@ -548,7 +548,7 @@ public class baraduke
 		ROM_LOAD( "prmcolr.2m",	0x0800, 0x0800, CRC(03f7241f) SHA1(16ae059f084ba0ac4ddaa95dbeed113295f106ea) )	/* Red palette */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_metrocrs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_metrocrs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 6809 code */
 		ROM_LOAD( "mc1-3.9c",	0x6000, 0x02000, CRC(3390b33c) SHA1(0733aece368acc913e2ff32e8817194cb4b630fb) )
 		ROM_LOAD( "mc1-1.9a",	0x8000, 0x04000, CRC(10b0977e) SHA1(6266d173b55075da1f252092bf38185880bc4969) )
@@ -576,7 +576,7 @@ public class baraduke
 		ROM_LOAD( "mc1-2.2m",	0x0800, 0x0800, CRC(6f4dca7b) SHA1(781134c02853aded2cba63719c0e4c78b227da1c) )	/* Red palette */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_metrocra = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_metrocra = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 6809 code */
 		ROM_LOAD( "mc2-3.9b",	0x6000, 0x02000, CRC(ffe08075) SHA1(4e1341d5a9a58f171e1e6f9aa18092d5557a6947) )
 		ROM_LOAD( "mc2-1.9a",	0x8000, 0x04000, CRC(05a239ea) SHA1(3e7c7d305d0f48e2431d60b176a0cb451ddc4637) )

@@ -95,7 +95,7 @@ public class ikki
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_ikki = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ikki )
+	static InputPortHandlerPtr input_ports_ikki = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ikki )
 		PORT_START();   /* dsw1 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "3" );
@@ -259,7 +259,7 @@ public class ikki
 	
 	/****************************************************************************/
 	
-	static RomLoadPtr rom_ikki = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ikki = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "tvg17_1",  0x0000,  0x2000, CRC(cb28167c) SHA1(6843553faee0d3bbe432689fdf5f5454470e2b09) )
 		ROM_CONTINUE(         0x8000,  0x2000 )

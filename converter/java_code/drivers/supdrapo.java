@@ -93,7 +93,7 @@ public class supdrapo
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_supdrapo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( supdrapo )
+	static InputPortHandlerPtr input_ports_supdrapo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( supdrapo )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_BUTTON1 | IPF_PLAYER1 );//win
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON2 | IPF_PLAYER1 );//cancel
@@ -310,7 +310,7 @@ public class supdrapo
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_supdrapo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_supdrapo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 		ROM_LOAD( "a2-1c",        0x0000, 0x1000, CRC(b65af689) SHA1(b45cd15ca8f9c931d83a90f3cdbebf218070b195) )
 		ROM_LOAD( "a2-1d",        0x1000, 0x1000, CRC(9ccc4347) SHA1(ea8f4d17aaacc7091ca0a66247b55eb12155c9d7) )

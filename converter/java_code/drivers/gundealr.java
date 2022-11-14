@@ -191,7 +191,7 @@ public class gundealr
 	
 	
 	
-	static InputPortPtr input_ports_gundealr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gundealr )
+	static InputPortHandlerPtr input_ports_gundealr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gundealr )
 		PORT_START(); 	/* DSW0 */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -273,7 +273,7 @@ public class gundealr
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );/* probably unused */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gundealt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gundealt )
+	static InputPortHandlerPtr input_ports_gundealt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gundealt )
 		PORT_START(); 	/* DSW0 */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -355,7 +355,7 @@ public class gundealr
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_yamyam = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( yamyam )
+	static InputPortHandlerPtr input_ports_yamyam = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( yamyam )
 		PORT_START(); 	/* DSW0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "3" );
@@ -516,7 +516,7 @@ public class gundealr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gundealr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gundealr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "gundealr.1",   0x00000, 0x10000, CRC(5797e830) SHA1(54bd9fbcafdf3fff55d73ecfe26d8e8df0dd55d9) )
 		ROM_RELOAD(               0x10000, 0x10000 )	/* banked at 0x8000-0xbfff */
@@ -528,7 +528,7 @@ public class gundealr
 		ROM_LOAD( "gundealr.2",   0x00000, 0x20000, CRC(7874ec41) SHA1(2d2ff013cc37ce5966aa4b6c6724234655196102) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gundeala = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gundeala = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "gundeala.1",   0x00000, 0x10000, CRC(d87e24f1) SHA1(5ac3e20e5848b9cab2a23e083d2566bfd54502d4) )
 		ROM_RELOAD(               0x10000, 0x10000 )	/* banked at 0x8000-0xbfff */
@@ -540,7 +540,7 @@ public class gundealr
 		ROM_LOAD( "gundeala.2",   0x00000, 0x20000, CRC(4b5fb53c) SHA1(3b73d9aeed334aece75f551f5b7f3cec0aedbfaa) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gundealt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gundealt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "1.3j",         0x00000, 0x10000, CRC(1d951292) SHA1(a8bd34dfaf31c7dc4f9e0ec1fd7d4e10c5b29a85) )
 		ROM_RELOAD(               0x10000, 0x10000 )	/* banked at 0x8000-0xbfff */
@@ -552,7 +552,7 @@ public class gundealr
 		ROM_LOAD( "2.6b",         0x00000, 0x20000, CRC(508ed0d0) SHA1(ea6b2d07e2e3d4f6c2a622a73b150ee7709b28de) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_yamyam = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yamyam = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "b3.f10",       0x00000, 0x20000, CRC(96ae9088) SHA1(a605882dcdcf1e8cf8b0112f614e696d59acfd97) )
 		ROM_RELOAD(               0x10000, 0x20000 )	/* banked at 0x8000-0xbfff */
@@ -565,7 +565,7 @@ public class gundealr
 	ROM_END(); }}; 
 	
 	/* only gfx are different, code is the same */
-	static RomLoadPtr rom_wiseguy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wiseguy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */
 		ROM_LOAD( "b3.f10",       0x00000, 0x20000, CRC(96ae9088) SHA1(a605882dcdcf1e8cf8b0112f614e696d59acfd97) )
 		ROM_RELOAD(               0x10000, 0x20000 )	/* banked at 0x8000-0xbfff */

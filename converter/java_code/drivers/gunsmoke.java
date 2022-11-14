@@ -164,7 +164,7 @@ public class gunsmoke
 	
 	
 	
-	static InputPortPtr input_ports_gunsmoke = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gunsmoke )
+	static InputPortHandlerPtr input_ports_gunsmoke = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gunsmoke )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -271,7 +271,7 @@ public class gunsmoke
 	
 	/* Same as 'gunsmoke', but "Lives" Dip Switch instead of "Demonstration" Dip Switch */
 	/* And swapped starting levels 3 and 6 in the fake Dip Switch */
-	static InputPortPtr input_ports_gunsmoka = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gunsmoka )
+	static InputPortHandlerPtr input_ports_gunsmoka = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gunsmoka )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -480,7 +480,7 @@ public class gunsmoke
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gunsmoke = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunsmoke = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 2*64k for code */
 		ROM_LOAD( "09n_gs03.bin", 0x00000, 0x8000, CRC(40a06cef) SHA1(3e2a52d476298b7252f0adaefdb42090351e921c) ) /* Code 0000-7fff */
 		ROM_LOAD( "10n_gs04.bin", 0x10000, 0x8000, CRC(8d4b423f) SHA1(149274c2ed1526ca1f419fdf8a24059ff138f7f2) ) /* Paged code */
@@ -528,7 +528,7 @@ public class gunsmoke
 		ROM_LOAD( "01f_g-05.bin", 0x0900, 0x0100, CRC(25c90c2a) SHA1(42893572bab757ec01e181fc418cb911638d37e0) )	/* priority? (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gunsmokj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunsmokj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 2*64k for code */
 		ROM_LOAD( "gs03_9n.rom",  0x00000, 0x8000, CRC(b56b5df6) SHA1(0295a3ef491b6b8ee9c198fd08dddc29d88bbef6) ) /* Code 0000-7fff */
 		ROM_LOAD( "10n_gs04.bin", 0x10000, 0x8000, CRC(8d4b423f) SHA1(149274c2ed1526ca1f419fdf8a24059ff138f7f2) ) /* Paged code */
@@ -576,7 +576,7 @@ public class gunsmoke
 		ROM_LOAD( "01f_g-05.bin", 0x0900, 0x0100, CRC(25c90c2a) SHA1(42893572bab757ec01e181fc418cb911638d37e0) )	/* priority? (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gunsmoku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunsmoku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 2*64k for code */
 		ROM_LOAD( "9n_gs03.bin",  0x00000, 0x8000, CRC(592f211b) SHA1(8de44b3cafa3d2ce9aba515cf3ec4bac0bcdeb5b) ) /* Code 0000-7fff */
 		ROM_LOAD( "10n_gs04.bin", 0x10000, 0x8000, CRC(8d4b423f) SHA1(149274c2ed1526ca1f419fdf8a24059ff138f7f2) ) /* Paged code */
@@ -624,7 +624,7 @@ public class gunsmoke
 		ROM_LOAD( "01f_g-05.bin", 0x0900, 0x0100, CRC(25c90c2a) SHA1(42893572bab757ec01e181fc418cb911638d37e0) )	/* priority? (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gunsmoka = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunsmoka = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 2*64k for code */
 		ROM_LOAD( "gs03.9n",      0x00000, 0x8000, CRC(51dc3f76) SHA1(2a188fee73c3662b665b56a825eb908b7b42dcd0) ) /* Code 0000-7fff */
 		ROM_LOAD( "gs04.10n",     0x10000, 0x8000, CRC(5ecf31b8) SHA1(34ec9727330821a45b497c78c970a1a4f14ff4ee) ) /* Paged code */

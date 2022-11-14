@@ -79,7 +79,7 @@ public class leprechn
 	};
 	
 	
-	static InputPortPtr input_ports_leprechn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( leprechn )
+	static InputPortHandlerPtr input_ports_leprechn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( leprechn )
 	    // All of these ports are read indirectly through a VIA mapped at 0x2800
 	    PORT_START();       /* Input Port 0 */
 	    PORT_BIT( 0x04, IP_ACTIVE_LOW, IPT_TILT );// This is called "Slam" in the game
@@ -210,7 +210,7 @@ public class leprechn
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_leprechn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_leprechn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 64k for the main CPU */
 		ROM_LOAD( "lep1",         0x8000, 0x1000, CRC(2c4a46ca) SHA1(28a157c1514bc9f27cc27baddb83cf1a1887f3d1) )
 		ROM_LOAD( "lep2",         0x9000, 0x1000, CRC(6ed26b3e) SHA1(4ee5d09200d9e8f94ae29751c8ee838faa268f15) )
@@ -225,7 +225,7 @@ public class leprechn
 		ROM_LOAD( "lepsound",     0xf000, 0x1000, CRC(6651e294) SHA1(ce2875fc4df61a30d51d3bf2153864b562601151) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_potogold = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_potogold = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* 64k for the main CPU */
 		ROM_LOAD( "pog.pg1",      0x8000, 0x1000, CRC(9f1dbda6) SHA1(baf20e9a0793c0f1529396f95a820bd1f9431465) )
 		ROM_LOAD( "pog.pg2",      0x9000, 0x1000, CRC(a70e3811) SHA1(7ee306dc7d75a7d3fd497870ec92bef9d86535e9) )

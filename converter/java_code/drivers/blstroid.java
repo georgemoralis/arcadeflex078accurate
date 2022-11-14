@@ -120,7 +120,7 @@ public class blstroid
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_blstroid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blstroid )
+	static InputPortHandlerPtr input_ports_blstroid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blstroid )
 		PORT_START();       /* ff9800 */
 		PORT_ANALOG( 0x00ff, 0, IPT_DIAL | IPF_PLAYER1, 60, 10, 0, 0 );
 		PORT_BIT( 0xff00, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -237,7 +237,7 @@ public class blstroid
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_blstroid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blstroid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "4123-6c.057",  0x000000, 0x010000, CRC(d14badc4) SHA1(ccba30e1eb6b3351cbc7ea18951debb7f7aa4520) )
 		ROM_LOAD16_BYTE( "4121-6b.057",  0x000001, 0x010000, CRC(ae3e93e8) SHA1(66ccff68e9b0f7e97abf126f977775e29ce4eee5) )
@@ -274,7 +274,7 @@ public class blstroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blstroi3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blstroi3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "3123-6c.057",  0x000000, 0x010000, CRC(8fb050f5) SHA1(4944ffb0843262afe41fc6b876ab6858dcefc95f) )
 		ROM_LOAD16_BYTE( "3121-6b.057",  0x000001, 0x010000, CRC(21fae262) SHA1(2516a75d76bcfdea5ab41a4898d47ed166bd1996) )
@@ -311,7 +311,7 @@ public class blstroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blstroi2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blstroi2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "2123-6c.057",  0x000000, 0x010000, CRC(5a092513) SHA1(11396125842ea3a43d61b4ce266bb8053fdefd73) )
 		ROM_LOAD16_BYTE( "2121-6b.057",  0x000001, 0x010000, CRC(486aac51) SHA1(5e7fe7eb225d1c2701c21658ba2bad14ef7b64b1) )
@@ -348,7 +348,7 @@ public class blstroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blstroig = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blstroig = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "2223-6c.057",  0x000000, 0x010000, CRC(cc82108b) SHA1(487a80cac2a196e9b17c64c5d0b884d1ed8da401) )
 		ROM_LOAD16_BYTE( "2221-6b.057",  0x000001, 0x010000, CRC(84822e68) SHA1(763edc9b3605e583506ca1d9befab66411fc720a) )
@@ -385,7 +385,7 @@ public class blstroid
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blsthead = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blsthead = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "eheadh0.c6",  0x00000, 0x10000, CRC(061f0898) SHA1(a277399aa8af665b1fb40c2bb4cf5d36d333db8d) )
 		ROM_LOAD16_BYTE( "eheadl0.b6",  0x00001, 0x10000, CRC(ae8df7cb) SHA1(9eaf377bbfa09e2d3ae77764dbf09ff79b65b34f) )

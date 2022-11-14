@@ -73,7 +73,7 @@ public class superqix
 	
 	
 	
-	static InputPortPtr input_ports_superqix = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( superqix )
+	static InputPortHandlerPtr input_ports_superqix = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( superqix )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_4WAY );
@@ -250,7 +250,7 @@ public class superqix
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_superqix = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_superqix = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sq01.97",      0x00000, 0x08000, CRC(0888b7de) SHA1(de3e4637436de185f43d2ad4186d4cfdcd4d33d9) )
 		ROM_LOAD( "sq02.96",      0x10000, 0x10000, CRC(9c23cb64) SHA1(7e04cb18cabdc0031621162cbc228cd95875a022) )
@@ -269,7 +269,7 @@ public class superqix
 		ROM_LOAD( "sq07.108",     0x00000, 0x1000, CRC(071a598c) SHA1(2726705c3b82f5703e856261cdec5e86d7e1994e) )	// FIXED BITS (xxxx1xxx)
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sqixbl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sqixbl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cpu.2",        0x00000, 0x08000, CRC(682e28e3) SHA1(fe9221d26d7397be5a0fc8fdc51672b5924f3cf2) )
 		ROM_LOAD( "sq02.96",      0x10000, 0x10000, CRC(9c23cb64) SHA1(7e04cb18cabdc0031621162cbc228cd95875a022) )
@@ -285,7 +285,7 @@ public class superqix
 		ROM_LOAD( "sq05.1",       0x00000, 0x10000, CRC(df326540) SHA1(1fe025edcd38202e24c4e1005f478b6a88533453) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_perestro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_perestro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code */
 		/* 0x8000 - 0x10000 in the rom is empty anyway */
 		ROM_LOAD( "rom1.bin",        0x00000, 0x20000, CRC(0cbf96c1) SHA1(cf2b1367887d1b8812a56aa55593e742578f220c) )

@@ -173,7 +173,7 @@ public class tankbatt
 		else if (tankbatt_nmi_enable) cpu_set_irq_line(0,IRQ_LINE_NMI,PULSE_LINE);
 	} };
 	
-	static InputPortPtr input_ports_tankbatt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tankbatt )
+	static InputPortHandlerPtr input_ports_tankbatt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tankbatt )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_4WAY );
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_4WAY );
@@ -305,7 +305,7 @@ public class tankbatt
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tankbatt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tankbatt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "tb1-1.bin",    0x6000, 0x0800, CRC(278a0b8c) SHA1(11ea8fe8401b3cd986616a30a759c0ac1a5ce73b) )
 		ROM_LOAD( "tb1-2.bin",    0x6800, 0x0800, CRC(e0923370) SHA1(8d3dbea877bed9f9c267d8002dc180f6eb1e5a8f) )

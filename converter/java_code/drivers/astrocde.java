@@ -221,7 +221,7 @@ public class astrocde
 	
 	
 	
-	static InputPortPtr input_ports_seawolf2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( seawolf2 )
+	static InputPortHandlerPtr input_ports_seawolf2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( seawolf2 )
 		PORT_START();  /* IN0 */
 		PORT_ANALOG( 0x3f, 0x20, IPT_PADDLE | IPF_REVERSE | IPF_PLAYER1, 20, 5, 0, 0x3f);
 		PORT_DIPNAME( 0x40, 0x00, "Language 1" );
@@ -269,7 +269,7 @@ public class astrocde
 		PORT_SERVICE( 0x80, IP_ACTIVE_LOW );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_spacezap = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spacezap )
+	static InputPortHandlerPtr input_ports_spacezap = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spacezap )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -324,7 +324,7 @@ public class astrocde
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ebases = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ebases )
+	static InputPortHandlerPtr input_ports_ebases = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ebases )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -392,7 +392,7 @@ public class astrocde
 		PORT_ANALOGX( 0xff, 0x00, IPT_TRACKBALL_Y | IPF_CENTER, 50, 10, 0, 0, IP_KEY_NONE, IP_KEY_NONE, IP_JOY_NONE, IP_JOY_NONE );\
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_wow = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wow )
+	static InputPortHandlerPtr input_ports_wow = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wow )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -451,7 +451,7 @@ public class astrocde
 		PORT_DIPSETTING(    0x80, "Always On"  );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_gorf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gorf )
+	static InputPortHandlerPtr input_ports_gorf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gorf )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -510,7 +510,7 @@ public class astrocde
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_robby = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( robby )
+	static InputPortHandlerPtr input_ports_robby = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( robby )
 		PORT_START();  /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -796,7 +796,7 @@ public class astrocde
 	
 	
 	
-	static RomLoadPtr rom_seawolf2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_seawolf2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "sw2x1.bin",    0x0000, 0x0800, CRC(ad0103f6) SHA1(c6e411444a824ce54b0eee10f7dc15e4229ec070) )
 		ROM_LOAD( "sw2x2.bin",    0x0800, 0x0800, CRC(e0430f0a) SHA1(63d8c6b77e0aa536b4f5bb774bc9285f736d4265) )
@@ -804,7 +804,7 @@ public class astrocde
 		ROM_LOAD( "sw2x4.bin",    0x1800, 0x0800, CRC(1a1a14a2) SHA1(57d0ddea9f8bf082f50d0468a726fd91aaabf4e4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spacezap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spacezap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "0662.01",      0x0000, 0x1000, CRC(a92de312) SHA1(784ac67c75c7c101f97ebfd39b2b3f7bf7fa470a) )
 		ROM_LOAD( "0663.xx",      0x1000, 0x1000, CRC(4836ebf1) SHA1(ad0e8c34a209c827c1336f0250cc61fee667fb03) )
@@ -812,7 +812,7 @@ public class astrocde
 		ROM_LOAD( "0665.xx",      0x3000, 0x1000, CRC(3784228d) SHA1(5aabd720a106158a892368c4920d9cd0f5235e34) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ebases = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ebases = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "m761a",        0x0000, 0x1000, CRC(34422147) SHA1(6483ca1359b675b0dd739605db2a1dbd4b7fb8cb) )
 		ROM_LOAD( "m761b",        0x1000, 0x1000, CRC(4f28dfd6) SHA1(52e571e671fa61b0f9ab397a5947094c24f6c388) )
@@ -820,7 +820,7 @@ public class astrocde
 		ROM_LOAD( "m761d",        0x3000, 0x1000, CRC(5173781a) SHA1(e60c3f4b075f8b811ff6a8637c4aa0b089847a82) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wow = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wow = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "wow.x1",       0x0000, 0x1000, CRC(c1295786) SHA1(1e4f30cc15537aed6603b4e664e6e60f4bccb5c5) )
 		ROM_LOAD( "wow.x2",       0x1000, 0x1000, CRC(9be93215) SHA1(0bc8ee6d8391104eb217b612f32856b105946682) )
@@ -832,7 +832,7 @@ public class astrocde
 	/*	ROM_LOAD( "wow.x8",       0xc000, CRC(00001000) , ? )	here would go the foreign language ROM */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gorf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gorf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "gorf-a.bin",   0x0000, 0x1000, CRC(5b348321) SHA1(76e2e3ad1a66755f1a369167fdb157690fd44a52) )
 		ROM_LOAD( "gorf-b.bin",   0x1000, 0x1000, CRC(62d6de77) SHA1(2601faf12d0ab4972c5535ffd722b03ecd8c097c) )
@@ -844,7 +844,7 @@ public class astrocde
 		ROM_LOAD( "gorf-h.bin",   0xb000, 0x1000, CRC(fe7b863d) SHA1(5aa8d824814ee1c30eaf0044da78d3aa8220dcaa) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gorfpgm1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gorfpgm1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "873a",         0x0000, 0x1000, CRC(97cb4a6a) SHA1(efdae9a437c665fb861665a38c6cb13fd848ad91) )
 		ROM_LOAD( "873b",         0x1000, 0x1000, CRC(257236f8) SHA1(d1e8555fe5e6705ef88535bcd6071d1072b01386) )
@@ -856,7 +856,7 @@ public class astrocde
 		ROM_LOAD( "873h",         0xb000, 0x1000, CRC(56d40c7c) SHA1(c7c9a618d9438a76121972ac029ad7036bcf8c6f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_robby = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_robby = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "rotox1.bin",   0x0000, 0x1000, CRC(a431b85a) SHA1(3478da56addba1cdd98cbef7a15b17fca9aed2cd) )
 		ROM_LOAD( "rotox2.bin",   0x1000, 0x1000, CRC(33cdda83) SHA1(ccbc741a2fc0b7385ca42afe5b377432249b44cb) )
@@ -870,7 +870,7 @@ public class astrocde
 		ROM_LOAD( "rotox10.bin",  0xd000, 0x1000, CRC(e762cbda) SHA1(48c274a859963097a90f80c48366250301eddb5f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_profpac = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_profpac = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "pps1",         0x0000, 0x2000, CRC(a244a62d) SHA1(f7a9606ce6d66c3e6d210cc25572904aeab2b6c8) )
 		ROM_LOAD( "pps2",         0x2000, 0x2000, CRC(8a9a6653) SHA1(b730b24088dcfddbe954670ff9212b7383c923f6) )

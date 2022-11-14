@@ -188,7 +188,7 @@ public class speedatk
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_speedatk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( speedatk )
+	static InputPortHandlerPtr input_ports_speedatk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( speedatk )
 		PORT_START(); 
 		PORT_SERVICE( 0x01, IP_ACTIVE_HIGH );
 		PORT_DIPNAME( 0x02, 0x00, DEF_STR( "Flip_Screen") );
@@ -308,7 +308,7 @@ public class speedatk
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_speedatk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_speedatk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "cb1-1",        0x0000, 0x2000, CRC(df988e05) SHA1(0ec91c5f2e1adf952a4fe7aede591e763773a75b) )
 		ROM_LOAD( "cb0-2",        0x2000, 0x2000, CRC(be949154) SHA1(8a594a7ebdc8456290919163f7ea4ccb0d1f4edb) )

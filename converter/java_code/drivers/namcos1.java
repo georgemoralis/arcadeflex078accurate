@@ -494,7 +494,7 @@ public class namcos1
 	
 	
 	/* Standard Namco System 1 input port definition */
-	static InputPortPtr input_ports_ns1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ns1 )
+	static InputPortHandlerPtr input_ports_ns1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ns1 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -539,7 +539,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Bakutotsu Kijyutei input port definition - dip switches are different */
-	static InputPortPtr input_ports_bakutotu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bakutotu )
+	static InputPortHandlerPtr input_ports_bakutotu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bakutotu )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -586,7 +586,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Dragon Spirit input port definition - dip switches are different */
-	static InputPortPtr input_ports_dspirit = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dspirit )
+	static InputPortHandlerPtr input_ports_dspirit = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dspirit )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -625,7 +625,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Galaga '88 input port definition - dip switches are different */
-	static InputPortPtr input_ports_galaga88 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( galaga88 )
+	static InputPortHandlerPtr input_ports_galaga88 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galaga88 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -669,7 +669,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Marchen Maze input port definition - dip switches are different */
-	static InputPortPtr input_ports_mmaze = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mmaze )
+	static InputPortHandlerPtr input_ports_mmaze = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mmaze )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -714,7 +714,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Pac-Mania input port definition - dip switches are different */
-	static InputPortPtr input_ports_pacmania = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pacmania )
+	static InputPortHandlerPtr input_ports_pacmania = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pacmania )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -761,7 +761,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Puzzle Club input port definition - dip switches are different */
-	static InputPortPtr input_ports_puzlclub = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( puzlclub )
+	static InputPortHandlerPtr input_ports_puzlclub = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( puzlclub )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -807,7 +807,7 @@ public class namcos1
 	
 	
 	/* Splatter House input port definition - dip switches are different */
-	static InputPortPtr input_ports_splatter = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( splatter )
+	static InputPortHandlerPtr input_ports_splatter = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( splatter )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -850,7 +850,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* World Court input port definition - dip switches are different */
-	static InputPortPtr input_ports_wldcourt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wldcourt )
+	static InputPortHandlerPtr input_ports_wldcourt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wldcourt )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -895,7 +895,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Quester input port definition - paddle controls */
-	static InputPortPtr input_ports_quester = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( quester )
+	static InputPortHandlerPtr input_ports_quester = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( quester )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNUSED );    /* paddle */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -940,7 +940,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Face Off input port definition - 4 player controls */
-	static InputPortPtr input_ports_faceoff = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( faceoff )
+	static InputPortHandlerPtr input_ports_faceoff = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( faceoff )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x7f, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START1 );
@@ -1003,7 +1003,7 @@ public class namcos1
 	INPUT_PORTS_END(); }}; 
 	
 	/* Beraboh Man input port definition - controls are different */
-	static InputPortPtr input_ports_berabohm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( berabohm )
+	static InputPortHandlerPtr input_ports_berabohm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( berabohm )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -1234,7 +1234,7 @@ public class namcos1
 		ROM_RELOAD(start+length,length)
 	
 	/* Shadowland */
-	static RomLoadPtr rom_shadowld = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shadowld = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1289,7 +1289,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Youkai Douchuuki (Shadowland Japan) */
-	static RomLoadPtr rom_youkaidk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_youkaidk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1340,7 +1340,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Youkai Douchuuki (Shadowland Japan old version) */
-	static RomLoadPtr rom_yokaidko = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yokaidko = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1391,7 +1391,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Dragon Spirit */
-	static RomLoadPtr rom_dspirit = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dspirit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1444,7 +1444,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Dragon Spirit (old version) */
-	static RomLoadPtr rom_dspirito = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dspirito = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1497,7 +1497,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Blazer */
-	static RomLoadPtr rom_blazer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blazer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1549,7 +1549,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Quester */
-	static RomLoadPtr rom_quester = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quester = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1583,7 +1583,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Pac-Mania */
-	static RomLoadPtr rom_pacmania = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacmania = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1619,7 +1619,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Pac-Mania (Japan) diff o1,s0,s1,p7,v0 */
-	static RomLoadPtr rom_pacmanij = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pacmanij = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1655,7 +1655,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Galaga '88 */
-	static RomLoadPtr rom_galaga88 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galaga88 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1702,7 +1702,7 @@ public class namcos1
 		ROM_LOAD( "g8_obj-5.bin",       0xa0000, 0x20000, CRC(b0645169) SHA1(e55dc9bd532b6bd821b7bf6994c35175600c317c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galag88b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galag88b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1750,7 +1750,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Galaga '88 (Japan) */
-	static RomLoadPtr rom_galag88j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galag88j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1798,7 +1798,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* World Stadium */
-	static RomLoadPtr rom_ws = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ws = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1841,7 +1841,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Beraboh Man */
-	static RomLoadPtr rom_berabohm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_berabohm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1889,7 +1889,7 @@ public class namcos1
 		ROM_LOAD( "bm_obj-7.bin",       0xe0000, 0x20000, CRC(377c81ed) SHA1(85f4682c6079863793f5575d261a33309c221ba7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_beraboho = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_beraboho = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1938,7 +1938,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Marchen Maze */
-	static RomLoadPtr rom_mmaze = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mmaze = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1983,7 +1983,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Bakutotsu Kijuutei */
-	static RomLoadPtr rom_bakutotu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bakutotu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2034,7 +2034,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* World Court */
-	static RomLoadPtr rom_wldcourt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wldcourt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2072,7 +2072,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Splatter House */
-	static RomLoadPtr rom_splatter = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_splatter = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2126,7 +2126,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Face Off */
-	static RomLoadPtr rom_faceoff = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_faceoff = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2165,7 +2165,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Rompers */
-	static RomLoadPtr rom_rompers = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rompers = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2208,7 +2208,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Rompers (old version) */
-	static RomLoadPtr rom_romperso = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_romperso = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2251,7 +2251,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Blast Off */
-	static RomLoadPtr rom_blastoff = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blastoff = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2297,7 +2297,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* World Stadium '89 */
-	static RomLoadPtr rom_ws89 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ws89 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2340,7 +2340,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Dangerous Seed */
-	static RomLoadPtr rom_dangseed = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dangseed = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2382,7 +2382,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* World Stadium '90 */
-	static RomLoadPtr rom_ws90 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ws90 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2425,7 +2425,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Pistol Daimyo no Bouken */
-	static RomLoadPtr rom_pistoldm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pistoldm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2471,7 +2471,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Souko Ban Deluxe */
-	static RomLoadPtr rom_boxyboy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_boxyboy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2505,7 +2505,7 @@ public class namcos1
 		ROM_LOAD( "sb1_obj0.bin",       0x00000, 0x10000, CRC(ed810da4) SHA1(b3172b50b15d0e2fd40d38d32abf4de22b6f7a85) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_soukobdx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_soukobdx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2540,7 +2540,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Puzzle Club */
-	static RomLoadPtr rom_puzlclub = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_puzlclub = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2578,7 +2578,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Tank Force */
-	static RomLoadPtr rom_tankfrce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tankfrce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2619,7 +2619,7 @@ public class namcos1
 	ROM_END(); }}; 
 	
 	/* Tank Force (Japan) */
-	static RomLoadPtr rom_tankfrcj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tankfrcj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	

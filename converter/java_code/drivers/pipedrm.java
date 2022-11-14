@@ -337,7 +337,7 @@ public class pipedrm
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_pipedrm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pipedrm )
+	static InputPortHandlerPtr input_ports_pipedrm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pipedrm )
 		PORT_START(); 	/* $20 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -428,7 +428,7 @@ public class pipedrm
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hatris = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hatris )
+	static InputPortHandlerPtr input_ports_hatris = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hatris )
 		PORT_START(); 	/* $20 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -690,7 +690,7 @@ public class pipedrm
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_pipedrm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pipedrm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD( "01.u12",	0x00000, 0x08000, CRC(9fe261fb) SHA1(57beeeade8809be0a71086f55b14b1676c0b3759) )
 		ROM_LOAD( "02.u11",	0x10000, 0x10000, CRC(c8209b67) SHA1(cca7356d75e8091b07e3328aef523ff452abbcd8) )
@@ -719,7 +719,7 @@ public class pipedrm
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pipedrmj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pipedrmj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD( "1",	0x00000, 0x08000, CRC(dbfac46b) SHA1(98ddfaed61de28b238964445572eb398b9dd03c7) )
 		ROM_LOAD( "2",	0x10000, 0x10000, CRC(b7adb99a) SHA1(fdab2b99e86aa0b6b17ec95556222e5211ba55e9) )
@@ -748,7 +748,7 @@ public class pipedrm
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hatris = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hatris = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "2-ic79.bin",	0x00000, 0x08000, CRC(bbcaddbf) SHA1(7f01493dadfed87112644a8ef77ae58fa273980d) )
 	

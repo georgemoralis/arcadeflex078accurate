@@ -292,7 +292,7 @@ public class tempest
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_tempest = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tempest )
+	static InputPortHandlerPtr input_ports_tempest = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tempest )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN3 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -452,7 +452,7 @@ public class tempest
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_tempest = new RomLoadPtr(){ public void handler(){  /* rev 3 */
+	static RomLoadHandlerPtr rom_tempest = new RomLoadHandlerPtr(){ public void handler(){  /* rev 3 */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "136002.113",   0x9000, 0x0800, CRC(65d61fe7) SHA1(38a1e8a8f65b7887cf3e190269fe4ce2c6f818aa) )
 		ROM_LOAD( "136002.114",   0x9800, 0x0800, CRC(11077375) SHA1(ed8ff0ca969da6672a7683b93d4fcf2935a0d903) )
@@ -471,7 +471,7 @@ public class tempest
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tempest1 = new RomLoadPtr(){ public void handler(){  /* rev 1 */
+	static RomLoadHandlerPtr rom_tempest1 = new RomLoadHandlerPtr(){ public void handler(){  /* rev 1 */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "136002.113",   0x9000, 0x0800, CRC(65d61fe7) SHA1(38a1e8a8f65b7887cf3e190269fe4ce2c6f818aa) )
 		ROM_LOAD( "136002.114",   0x9800, 0x0800, CRC(11077375) SHA1(ed8ff0ca969da6672a7683b93d4fcf2935a0d903) )
@@ -490,7 +490,7 @@ public class tempest
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tempest2 = new RomLoadPtr(){ public void handler(){  /* rev 2 */
+	static RomLoadHandlerPtr rom_tempest2 = new RomLoadHandlerPtr(){ public void handler(){  /* rev 2 */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "136002.113",   0x9000, 0x0800, CRC(65d61fe7) SHA1(38a1e8a8f65b7887cf3e190269fe4ce2c6f818aa) )
 		ROM_LOAD( "136002.114",   0x9800, 0x0800, CRC(11077375) SHA1(ed8ff0ca969da6672a7683b93d4fcf2935a0d903) )
@@ -509,7 +509,7 @@ public class tempest
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_tempest3 = new RomLoadPtr(){ public void handler(){  /* rev ? */
+	static RomLoadHandlerPtr rom_tempest3 = new RomLoadHandlerPtr(){ public void handler(){  /* rev ? */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "237.002",      0x9000, 0x1000, CRC(1d0cc503) SHA1(7bef95db9b1102d6b1166bda0ccb276ef4cc3764) )
 		ROM_LOAD( "136.002",      0xa000, 0x1000, CRC(c88e3524) SHA1(89144baf1efc703b2336774793ce345b37829ee7) )
@@ -522,7 +522,7 @@ public class tempest
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_temptube = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_temptube = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "136002.113",   0x9000, 0x0800, CRC(65d61fe7) SHA1(38a1e8a8f65b7887cf3e190269fe4ce2c6f818aa) )
 		ROM_LOAD( "136002.114",   0x9800, 0x0800, CRC(11077375) SHA1(ed8ff0ca969da6672a7683b93d4fcf2935a0d903) )
@@ -542,7 +542,7 @@ public class tempest
 	
 	
 	#if 0 /* identical to rom_tempest, only different rom sizes */
-	static RomLoadPtr rom_tempest3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tempest3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "tempest.x",    0x9000, 0x1000, NO_DUMP )
 		ROM_LOAD( "tempest.1",    0xa000, 0x1000, NO_DUMP )

@@ -376,7 +376,7 @@ public class badlands
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_badlands = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( badlands )
+	static InputPortHandlerPtr input_ports_badlands = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( badlands )
 		PORT_START(); 		/* fe4000 */
 		PORT_BIT( 0x000f, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0010, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -512,7 +512,7 @@ public class badlands
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_badlands = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_badlands = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1008.20f",  0x00000, 0x10000, CRC(a3da5774) SHA1(5ab1eb61d25594b2d7c40400cb57e7f47a717598) )
 		ROM_LOAD16_BYTE( "1006.27f",  0x00001, 0x10000, CRC(aa03b4f3) SHA1(5eda60c715ffcefd4ad34bdb90579e8671dc384a) )

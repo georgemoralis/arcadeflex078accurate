@@ -216,7 +216,7 @@ public class shangha3
 	
 	
 	
-	static InputPortPtr input_ports_shangha3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shangha3 )
+	static InputPortHandlerPtr input_ports_shangha3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shangha3 )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -295,7 +295,7 @@ public class shangha3
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_heberpop = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( heberpop )
+	static InputPortHandlerPtr input_ports_heberpop = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( heberpop )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -374,7 +374,7 @@ public class shangha3
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_blocken = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blocken )
+	static InputPortHandlerPtr input_ports_blocken = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blocken )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -614,7 +614,7 @@ public class shangha3
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_shangha3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shangha3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "s3j_ic3.v11",  0x0000, 0x40000, CRC(e98ce9c8) SHA1(359e117aebb644d7b235add7e71ed6891243d451) )
 		ROM_LOAD16_BYTE( "s3j_ic2.v11",  0x0001, 0x40000, CRC(09174620) SHA1(1d1639c07895f715facfe153fbdb6ae0f3cdd876) )
@@ -626,7 +626,7 @@ public class shangha3
 		ROM_LOAD( "s3j_ic75.v10", 0x0000, 0x40000, CRC(f0cdc86a) SHA1(b1017a9841a56e0f5d2714f550f64ed1f4e238e6) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_heberpop = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_heberpop = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "hbpic31.bin",  0x0000, 0x80000, CRC(c430d264) SHA1(4be12b1fa90da09047db3a31171ffda8ab8bd851) )
 		ROM_LOAD16_BYTE( "hbpic32.bin",  0x0001, 0x80000, CRC(bfa555a8) SHA1(754f581554022b98ba8e78ee96f846faa2cedc69) )
@@ -647,7 +647,7 @@ public class shangha3
 		ROM_LOAD( "hbpic53.bin",  0x0000, 0x80000, CRC(a4483aa0) SHA1(be301d8ac6d69f5c3fdbcb85bd557090e46da1ff) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blocken = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blocken = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "ic31j.bin",    0x0000, 0x20000, CRC(ec8de2a3) SHA1(09a6b8c1b656b17ab3d1fc057902487e4f94cf02) )
 		ROM_LOAD16_BYTE( "ic32j.bin",    0x0001, 0x20000, CRC(79b96240) SHA1(c1246bd4b91fa45c581a8fdf90cc6beb85adf8ec) )

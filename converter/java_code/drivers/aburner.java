@@ -57,7 +57,7 @@ public class aburner
 	1835008          721864  61%                                       16
 	*/
 	
-	static RomLoadPtr rom_aburner = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aburner = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr10940.bin",0,0x20000, CRC(4d132c4e) SHA1(007af52167c369177b86fc0f8b007ebceba2a30c) )
 		ROM_LOAD16_BYTE( "epr10941.bin",1,0x20000, CRC(136ea264) SHA1(606ac67db53a6002ed1bd71287aed2e3e720cdf4) )
@@ -103,7 +103,7 @@ public class aburner
 	
 	/*****************************************************************************/
 	// After Burner II
-	static RomLoadPtr rom_aburner2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aburner2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "11107.58",  0x00000, 0x20000, CRC(6d87bab7) SHA1(ab34fe78f1f216037b3e3dca3e61f1b31c05cedf) )
 		ROM_LOAD16_BYTE( "11108.104", 0x00001, 0x20000, CRC(202a3e1d) SHA1(cf2018bbad366de4b222eae35942636ca68aa581) )
@@ -149,7 +149,7 @@ public class aburner
 	
 	/*****************************************************************************/
 	/* Line of Fire */
-	static RomLoadPtr rom_loffire = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_loffire = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "epr12850.rom", 0x000000, 0x20000, CRC(14598f2a) SHA1(13a51529ed32acefd733d9f638621c3e023dbd6d) )
 		ROM_LOAD16_BYTE( "epr12849.rom", 0x000001, 0x20000, CRC(61cfd2fe) SHA1(b47ae9cdf741574ab9128dd3556b1ef35e81a149) )
@@ -192,7 +192,7 @@ public class aburner
 	
 	/*****************************************************************************/
 	// Thunder Blade
-	static RomLoadPtr rom_thndrbld = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thndrbld = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "thnbld.58", 0x000000, 0x20000, CRC(e057dd5a) SHA1(4c032db4752dfb44dba3def5ee5377fffd94b79c) )
 		ROM_LOAD16_BYTE( "thnbld.63", 0x000001, 0x20000, CRC(c6b994b8) SHA1(098b2ae30c4aafea35222369d60f8e89f87639eb) )
@@ -242,7 +242,7 @@ public class aburner
 	ROM_END(); }}; 
 	
 	// Thunder Blade Japan
-	static RomLoadPtr rom_thndrbdj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thndrbdj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "11304.epr", 0x00000, 0x20000, CRC(a90630ef) SHA1(8f29e020119b2243b1c95e15546af1773327ae85) ) // patched
 		ROM_LOAD16_BYTE( "11306.epr", 0x40000, 0x20000, CRC(4b95f2b4) SHA1(9e0ff898a2af05c35db3551e52c7485748698c28) ) // patched
@@ -308,7 +308,7 @@ public class aburner
 	}
 	#endif
 	
-	static InputPortPtr input_ports_aburner = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( aburner )
+	static InputPortHandlerPtr input_ports_aburner = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( aburner )
 		PORT_START();  /* player 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON3 );/* unknown */
 		PORT_BITX(0x02, IP_ACTIVE_LOW, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE )
@@ -355,7 +355,7 @@ public class aburner
 		PORT_ANALOG( 0xff, 0x80, IPT_AD_STICK_Z | IPF_CENTER, 100, 79, 0x00, 0xff );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_aburner2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( aburner2 )
+	static InputPortHandlerPtr input_ports_aburner2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( aburner2 )
 		PORT_START();  /* player 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON3 );/* unknown */
 		PORT_BITX(0x02, IP_ACTIVE_LOW, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE )
@@ -438,7 +438,7 @@ public class aburner
 		PORT_ANALOG( 0xff, 0x80, IPT_AD_STICK_Z | IPF_CENTER, 100, 79, 0x00, 0xff );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_thndrbld = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( thndrbld )
+	static InputPortHandlerPtr input_ports_thndrbld = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( thndrbld )
 		PORT_START();  /* player 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON3 );/* unknown */
 		PORT_BITX(0x02, IP_ACTIVE_LOW, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE )

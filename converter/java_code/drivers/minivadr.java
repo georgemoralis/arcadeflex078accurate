@@ -39,7 +39,7 @@ public class minivadr
 	};
 	
 	
-	static InputPortPtr input_ports_minivadr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( minivadr )
+	static InputPortHandlerPtr input_ports_minivadr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( minivadr )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT );
@@ -82,7 +82,7 @@ public class minivadr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_minivadr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_minivadr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "d26-01.bin",	0x0000, 0x2000, CRC(a96c823d) SHA1(aa9969ff80e94b0fff0f3530863f6b300510162e) )
 	ROM_END(); }}; 

@@ -403,7 +403,7 @@ public class slapfght
 	
 	
 	
-	static InputPortPtr input_ports_perfrman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( perfrman )
+	static InputPortHandlerPtr input_ports_perfrman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( perfrman )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -478,7 +478,7 @@ public class slapfght
 		PORT_DIPSETTING(    0x02, "5" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tigerh = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tigerh )
+	static InputPortHandlerPtr input_ports_tigerh = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tigerh )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -550,7 +550,7 @@ public class slapfght
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_slapfigh = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( slapfigh )
+	static InputPortHandlerPtr input_ports_slapfigh = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( slapfigh )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -620,7 +620,7 @@ public class slapfght
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_getstar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( getstar )
+	static InputPortHandlerPtr input_ports_getstar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( getstar )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -948,7 +948,7 @@ public class slapfght
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_perfrman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_perfrman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )				 /* Main CPU code */
 		ROM_LOAD( "ci07.0",    0x00000, 0x4000, CRC(7ad32eea) SHA1(e5b29793e9c8c5c9322ca2af468a9810a598c0ae) )
 		ROM_LOAD( "ci08.1",    0x04000, 0x4000, CRC(90a02d5f) SHA1(9f2d2ce70a5bc96fc9d268e2b24533f73361225c) )
@@ -977,7 +977,7 @@ public class slapfght
 		ROM_LOAD( "ci09.13",    0x200, 0x0020, CRC(aa0ca5a5) SHA1(4c45be71658f40ebb05634febba5822f1a8a7f79) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_perfrmau = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_perfrmau = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )				 /* Main CPU code */
 		ROM_LOAD( "ci07.0",    0x00000, 0x4000, CRC(7ad32eea) SHA1(e5b29793e9c8c5c9322ca2af468a9810a598c0ae) )
 		ROM_LOAD( "ci108r5.1", 0x04000, 0x4000, CRC(9d373efa) SHA1(b1d87e033ee3c50cfc56db05891b00b7bc236733) )
@@ -1006,7 +1006,7 @@ public class slapfght
 		ROM_LOAD( "ci09r1.13",  0x200, 0x0020, CRC(d9e92f6f) SHA1(7dc2939267b7d2b1eeeca906cc6151fab2cf1cc4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tigerh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tigerh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "0.4",          0x00000, 0x4000, CRC(4be73246) SHA1(a6f6a36fa7e3d269b87b777c0975b210d8b53483) )
 		ROM_LOAD( "1.4",          0x04000, 0x4000, CRC(aad04867) SHA1(5e9ff3c982afe104428e936ef417de2d238dc033) )
@@ -1040,7 +1040,7 @@ public class slapfght
 		ROM_LOAD( "82s129.12n",   0x0200,  0x0100, CRC(25f273f2) SHA1(2c696745f42fa09b64295a39536aeba08ab58d67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tigerh2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tigerh2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "b0.5",         0x00000, 0x4000, CRC(6ae7e13c) SHA1(47ef34635f8648e883a850293d92a46e95976a50) )
 		ROM_LOAD( "a47_01.bin",   0x04000, 0x4000, CRC(65df2152) SHA1(8e1516905a4af379cb0d0b9d42ff1cc3179c3589) )
@@ -1076,7 +1076,7 @@ public class slapfght
 		ROM_LOAD( "82s129.12n",   0x0200,  0x0100, CRC(25f273f2) SHA1(2c696745f42fa09b64295a39536aeba08ab58d67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tigerhj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tigerhj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "a47_00.bin",   0x00000, 0x4000, CRC(cbdbe3cc) SHA1(5badf76cdf4a7f0ae9e85ee602420ba5c128efef) )
 		ROM_LOAD( "a47_01.bin",   0x04000, 0x4000, CRC(65df2152) SHA1(8e1516905a4af379cb0d0b9d42ff1cc3179c3589) )
@@ -1110,7 +1110,7 @@ public class slapfght
 		ROM_LOAD( "82s129.12n",   0x0200,  0x0100, CRC(25f273f2) SHA1(2c696745f42fa09b64295a39536aeba08ab58d67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tigerhb1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tigerhb1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "14",           0x00000, 0x4000, CRC(ca59dd73) SHA1(c07961fcc209ec10ace3830d79c8ccc1cfda9765) )
 		ROM_LOAD( "13",           0x04000, 0x4000, CRC(38bd54db) SHA1(75e999f606c410d7481bc4d29c4b523d45847649) )
@@ -1141,7 +1141,7 @@ public class slapfght
 		ROM_LOAD( "82s129.12n",   0x0200,  0x0100, CRC(25f273f2) SHA1(2c696745f42fa09b64295a39536aeba08ab58d67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tigerhb2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tigerhb2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "rom00_09.bin", 0x00000, 0x4000, CRC(ef738c68) SHA1(c78c802d885b7f7c5e312ec079d52b8817590735) )
 		ROM_LOAD( "a47_01.bin",   0x04000, 0x4000, CRC(65df2152) SHA1(8e1516905a4af379cb0d0b9d42ff1cc3179c3589) )
@@ -1172,7 +1172,7 @@ public class slapfght
 		ROM_LOAD( "82s129.12n",   0x0200,  0x0100, CRC(25f273f2) SHA1(2c696745f42fa09b64295a39536aeba08ab58d67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_slapfigh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slapfigh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "sf_r19.bin",   0x00000, 0x8000, CRC(674c0e0f) SHA1(69fc17881c89cc5e82b0fefec49c4116054f9e3b) )
 		ROM_LOAD( "sf_rh.bin",    0x10000, 0x8000, CRC(3c42e4a7) SHA1(8e4da1e6e73603e484ba4f5609ac9ea92999a526) )	/* banked at 8000 */
@@ -1205,7 +1205,7 @@ public class slapfght
 		ROM_LOAD( "sf_col19.bin", 0x0200,  0x0100, CRC(5cbf9fbf) SHA1(abfa58fa4e44ebc56f2e0fac9bcc36164c845fa3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_slapbtjp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slapbtjp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "sf_r19jb.bin", 0x00000, 0x8000, CRC(9a7ac8b3) SHA1(01fbad9b4fc80f2406eff18db20e196e212d0c17) )
 		ROM_LOAD( "sf_rh.bin",    0x10000, 0x8000, CRC(3c42e4a7) SHA1(8e4da1e6e73603e484ba4f5609ac9ea92999a526) )	/* banked at 8000 */
@@ -1235,7 +1235,7 @@ public class slapfght
 		ROM_LOAD( "sf_col19.bin", 0x0200,  0x0100, CRC(5cbf9fbf) SHA1(abfa58fa4e44ebc56f2e0fac9bcc36164c845fa3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_slapbtuk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slapbtuk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "sf_r19eb.bin", 0x00000, 0x4000, CRC(2efe47af) SHA1(69ce3e83a0d8fa5ee4737c741d31cf32db6b9919) )
 		ROM_LOAD( "sf_r20eb.bin", 0x04000, 0x4000, CRC(f42c7951) SHA1(d76e7a72f6ced67b550ba68cd42987f7111f5468) )
@@ -1266,7 +1266,7 @@ public class slapfght
 		ROM_LOAD( "sf_col19.bin", 0x0200,  0x0100, CRC(5cbf9fbf) SHA1(abfa58fa4e44ebc56f2e0fac9bcc36164c845fa3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_alcon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_alcon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )
 		ROM_LOAD( "00",           0x00000, 0x8000, CRC(2ba82d60) SHA1(b37659aa18a3f96a3cc7fa93db2439f36487b8c8) )
 		ROM_LOAD( "01",           0x10000, 0x8000, CRC(18bb2f12) SHA1(7c16d4bbb8b5e22f227aff170e5e6326c5968968) )	/* banked at 8000 */
@@ -1299,7 +1299,7 @@ public class slapfght
 		ROM_LOAD( "sf_col19.bin", 0x0200,  0x0100, CRC(5cbf9fbf) SHA1(abfa58fa4e44ebc56f2e0fac9bcc36164c845fa3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_getstar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_getstar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )		/* Region 0 - main cpu code */
 		ROM_LOAD( "rom0",         0x00000, 0x4000, CRC(6a8bdc6c) SHA1(c923bca539bd2eb9a34cb9c7a67a199e28bc081a) )
 		ROM_LOAD( "rom1",         0x04000, 0x4000, CRC(ebe8db3c) SHA1(9046d6e63c33fc9cbd48b90dcbcc0badf1d3b9ba) )
@@ -1333,7 +1333,7 @@ public class slapfght
 		ROM_LOAD( "rom19",        0x0200,  0x0100, CRC(513224f0) SHA1(15b34612206138f6fc5f7478925b1fff2ed56aa8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_getstarj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_getstarj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )		/* Region 0 - main cpu code */
 		ROM_LOAD( "a68_00.bin",   0x00000, 0x4000, CRC(ad1a0143) SHA1(0d9adeb12bd4d5ad11e5bada0cd7498bc565c1db) )
 		ROM_LOAD( "a68_01.bin",   0x04000, 0x4000, CRC(3426eb7c) SHA1(e91db45a650a1bfefd7c12c7553b647bc916c7c8) )
@@ -1367,7 +1367,7 @@ public class slapfght
 		ROM_LOAD( "rom19",        0x0200, 0x0100, CRC(513224f0) SHA1(15b34612206138f6fc5f7478925b1fff2ed56aa8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_getstarb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_getstarb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x18000, REGION_CPU1, 0 )		/* Region 0 - main cpu code */
 		ROM_LOAD( "gs_14.rom",    0x00000, 0x4000, CRC(1a57a920) SHA1(b1e9d5b29c0e3632eec3ad1ee51bf3392e4b816d) )
 		ROM_LOAD( "gs_13.rom",    0x04000, 0x4000, CRC(805f8e77) SHA1(c3ad6eae842d2d10f716998d5a803038fa7b338f) )

@@ -223,7 +223,7 @@ public class pushman
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_pushman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pushman )
+	static InputPortHandlerPtr input_ports_pushman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pushman )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -302,7 +302,7 @@ public class pushman
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_bballs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bballs )
+	static InputPortHandlerPtr input_ports_bballs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bballs )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -525,7 +525,7 @@ public class pushman
 	/***************************************************************************/
 	
 	
-	static RomLoadPtr rom_pushman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pushman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "pman-12.212", 0x000000, 0x10000, CRC(4251109d) SHA1(d4b020e4ecc2005b3a4c1b34d88de82b09bf5a6b) )
 		ROM_LOAD16_BYTE( "pman-11.197", 0x000001, 0x10000, CRC(1167ed9f) SHA1(ca0296950a75ef15ff6f9d3a776b02180b941d61) )
@@ -555,7 +555,7 @@ public class pushman
 		ROM_LOAD( "pman-10.189", 0x00000, 0x08000, CRC(5f9ae9a1) SHA1(87619918c28c942780f6dbd3818d4cc69932eefc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bballs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bballs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "bb12.m17", 0x000000, 0x10000, CRC(4501c245) SHA1(b03ace135b077e8c226dd3be04fa8e86ad096770) )
 		ROM_LOAD16_BYTE( "bb11.l17", 0x000001, 0x10000, CRC(55e45b60) SHA1(103d848ae74b59ac2f5a5c5300323bbf8b109752) )

@@ -197,7 +197,7 @@ public class ladyfrog
 	};
 	
 	
-	static InputPortPtr input_ports_ladyfrog = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ladyfrog )
+	static InputPortHandlerPtr input_ports_ladyfrog = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ladyfrog )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x02, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "4" );
@@ -311,7 +311,7 @@ public class ladyfrog
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_ladyfrog = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ladyfrog = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "2.107",   0x0000, 0x10000, CRC(fa4466e6) SHA1(08e5cc8e1d3c845bc9c253267f2683671bffa9f2) )
 	

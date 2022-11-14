@@ -271,7 +271,7 @@ public class inufuku
 	
 	******************************************************************************/
 	
-	static InputPortPtr input_ports_inufuku = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( inufuku )
+	static InputPortHandlerPtr input_ports_inufuku = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( inufuku )
 		PORT_START(); 	// 0
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -447,7 +447,7 @@ public class inufuku
 	
 	******************************************************************************/
 	
-	static RomLoadPtr rom_inufuku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_inufuku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1000000, REGION_CPU1, 0 )	// main cpu + data
 		ROM_LOAD16_WORD_SWAP( "u147.bin",     0x0000000, 0x080000, CRC(ab72398c) SHA1(f5dc266ffa936ea6528b46a34113f5e2f8141d71) )
 		ROM_LOAD16_WORD_SWAP( "u146.bin",     0x0080000, 0x080000, CRC(e05e9bd4) SHA1(af0fdf31c2bdf851bf15c9de725dcbbb58464d54) )

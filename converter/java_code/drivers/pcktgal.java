@@ -124,7 +124,7 @@ public class pcktgal
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_pcktgal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pcktgal )
+	static InputPortHandlerPtr input_ports_pcktgal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pcktgal )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -302,7 +302,7 @@ public class pcktgal
 	
 	/***************************************************************************/
 	
-	static RomLoadPtr rom_pcktgal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pcktgal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )	 /* 64k for code + 16k for banks */
 		ROM_LOAD( "eb04.rom",	   0x10000, 0x4000, CRC(8215d60d) SHA1(ac26dfce7e215be21f2a17f864c5e966b8b8322e) )
 		ROM_CONTINUE(			   0x04000, 0xc000)
@@ -325,7 +325,7 @@ public class pcktgal
 		ROM_LOAD( "eb06.rom",     0x0200, 0x0200, CRC(1fbd4b59) SHA1(84e20329003cf09b849b49e1d83edc330d49f404) ) /* 82s131.101 */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pcktgalb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pcktgalb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )	 /* 64k for code + 16k for banks */
 		ROM_LOAD( "sexybill.001", 0x10000, 0x4000, CRC(4acb3e84) SHA1(c83d03969587c6be80fb8fc84afe250907674a44) )
 		ROM_CONTINUE(			  0x04000, 0xc000)
@@ -349,7 +349,7 @@ public class pcktgal
 		ROM_LOAD( "eb06.rom",     0x0200, 0x0200, CRC(1fbd4b59) SHA1(84e20329003cf09b849b49e1d83edc330d49f404) ) /* 82s131.101 */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pcktgal2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pcktgal2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )	 /* 64k for code + 16k for banks */
 		ROM_LOAD( "eb04-2.rom",   0x10000, 0x4000, CRC(0c7f2905) SHA1(882dbc1888a0149486c1fac5568dc3d297c2dadd) )
 		ROM_CONTINUE(			  0x04000, 0xc000)
@@ -372,7 +372,7 @@ public class pcktgal
 		ROM_LOAD( "eb06.rom",     0x0200, 0x0200, CRC(1fbd4b59) SHA1(84e20329003cf09b849b49e1d83edc330d49f404) ) /* 82s131.101 */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spool3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spool3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )	 /* 64k for code + 16k for banks */
 		ROM_LOAD( "eb04-2.rom",   0x10000, 0x4000, CRC(0c7f2905) SHA1(882dbc1888a0149486c1fac5568dc3d297c2dadd) )
 		ROM_CONTINUE(			  0x04000, 0xc000)
@@ -395,7 +395,7 @@ public class pcktgal
 		ROM_LOAD( "eb06.rom",     0x0200, 0x0200, CRC(1fbd4b59) SHA1(84e20329003cf09b849b49e1d83edc330d49f404) ) /* 82s131.101 */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spool3i = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spool3i = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )	 /* 64k for code + 16k for banks */
 		ROM_LOAD( "de1.bin",	  0x10000, 0x4000, CRC(a59980fe) SHA1(64b55af4d0b314d14184784e9f817b56be0f24f2) )
 		ROM_CONTINUE(			  0x04000, 0xc000)

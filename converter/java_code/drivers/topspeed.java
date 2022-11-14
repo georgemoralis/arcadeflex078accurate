@@ -490,7 +490,7 @@ public class topspeed
 		PORT_DIPSETTING(    0x01, "Hard" );\
 		PORT_DIPSETTING(    0x00, "Hardest" );
 	
-	static InputPortPtr input_ports_topspeed = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( topspeed )
+	static InputPortHandlerPtr input_ports_topspeed = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( topspeed )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x03, "Deluxe Motorized Cockpit" );
@@ -563,7 +563,7 @@ public class topspeed
 		PORT_DIPSETTING(    0x00, "Analogue" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_topspedu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( topspedu )
+	static InputPortHandlerPtr input_ports_topspedu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( topspedu )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x03, "Deluxe Motorized Cockpit" );
@@ -636,7 +636,7 @@ public class topspeed
 		PORT_DIPSETTING(    0x00, "Analogue" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fullthrl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fullthrl )
+	static InputPortHandlerPtr input_ports_fullthrl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fullthrl )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x03, "Deluxe Motorized Cockpit" );
@@ -819,7 +819,7 @@ public class topspeed
 	Note: driver does NOT make use of the zoom sprite tables rom.
 	***************************************************************************/
 	
-	static RomLoadPtr rom_topspeed = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_topspeed = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 128K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "b14-67-1.11", 0x00000, 0x10000, CRC(23f17616) SHA1(653ab6537f2e5898a77060c82b776852ab1f2b51) )
 		ROM_LOAD16_BYTE( "b14-68-1.9",  0x00001, 0x10000, CRC(835659d9) SHA1(e99967f795c3c6e14bad7a66315640ca5db43c72) )
@@ -873,7 +873,7 @@ public class topspeed
 		ROM_LOAD( "b14-29.109",  0x10000, 0x10000, CRC(7ad983e7) SHA1(a3515caf93d6dab86de06ee52d6a13a456507dbe) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_topspedu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_topspedu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 128K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE     ( "b14-23", 0x00000, 0x10000, CRC(dd0307fd) SHA1(63218a707c78b3c785d1741dabdc511a76f12af1) )
 		ROM_LOAD16_BYTE     ( "b14-24", 0x00001, 0x10000, CRC(acdf08d4) SHA1(506d48d27fc26684a3f884919665cf65a1b3062f) )
@@ -908,7 +908,7 @@ public class topspeed
 		ROM_LOAD( "b14-29.109", 0x10000, 0x10000, CRC(7ad983e7) SHA1(a3515caf93d6dab86de06ee52d6a13a456507dbe) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fullthrl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fullthrl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 128K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE     ( "b14-67", 0x00000, 0x10000, CRC(284c943f) SHA1(e4720b138052d9cbf1290aeca8f9dd7fe2cffcc5) )	// Later rev?
 		ROM_LOAD16_BYTE     ( "b14-68", 0x00001, 0x10000, CRC(54cf6196) SHA1(0e86a7bf7d43526222160f4cd09f8d29fa9abdc4) )

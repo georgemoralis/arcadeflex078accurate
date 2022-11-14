@@ -236,7 +236,7 @@ public class pbillian
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_pbillian = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pbillian )
+	static InputPortHandlerPtr input_ports_pbillian = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pbillian )
 	
 		PORT_START(); 	
 		PORT_DIPNAME( 0x07, 0x07, DEF_STR( "Coin_A") );
@@ -310,7 +310,7 @@ public class pbillian
 	
 	
 	
-	static InputPortPtr input_ports_hotsmash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hotsmash )
+	static InputPortHandlerPtr input_ports_hotsmash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hotsmash )
 	
 		PORT_START(); 	
 		PORT_DIPNAME( 0x02, 0x02, DEF_STR( "Flip_Screen") );
@@ -402,7 +402,7 @@ public class pbillian
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_pbillian = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbillian = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x018000, REGION_CPU1, 0 )
 		ROM_LOAD( "1.6c",  0x00000, 0x08000, CRC(d379fe23) SHA1(e147a9151b1cdeacb126d9713687bd0aa92980ac) ) 
 		ROM_LOAD( "2.6d",  0x08000, 0x04000, CRC(1af522bc) SHA1(83e002dc831bfcedbd7096b350c9b34418b79674) ) 
@@ -420,7 +420,7 @@ public class pbillian
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hotsmash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hotsmash = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x018000, REGION_CPU1, 0 )
 		ROM_LOAD( "b18-04",  0x00000, 0x08000, CRC(981bde2c) SHA1(ebcc901a036cde16b33d534d423500d74523b781) )
 		

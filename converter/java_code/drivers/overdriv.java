@@ -340,7 +340,7 @@ public class overdriv
 	
 	
 	
-	static InputPortPtr input_ports_overdriv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( overdriv )
+	static InputPortHandlerPtr input_ports_overdriv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( overdriv )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON3 | IPF_TOGGLE );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -454,7 +454,7 @@ public class overdriv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_overdriv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_overdriv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "789.2",        0x00000, 0x20000, CRC(77f18f3f) SHA1(a8c91435573c7851a7864d07eeacfb2f142abbe2) )
 		ROM_LOAD16_BYTE( "789.1",        0x00001, 0x20000, CRC(4f44e6ad) SHA1(9fa871f55e6b2ec353dd979ded568cd9da83f5d6) )

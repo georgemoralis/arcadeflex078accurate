@@ -456,7 +456,7 @@ public class psikyo4
 		PORT_BIT(  0x40, IP_ACTIVE_LOW, IPT_UNKNOWN );\
 		PORT_BIT(  0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	
-	static InputPortPtr input_ports_hotgmck = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hotgmck )
+	static InputPortHandlerPtr input_ports_hotgmck = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hotgmck )
 		PORT_START(); 	/* IN0 fake player 1 controls 1st bank */
 		PORT_BITX( 0x01, IP_ACTIVE_LOW, 0, "P1 A",     KEYCODE_A,        IP_JOY_NONE );
 		PORT_BITX( 0x02, IP_ACTIVE_LOW, 0, "P1 E",     KEYCODE_E,        IP_JOY_NONE );
@@ -561,7 +561,7 @@ public class psikyo4
 	#endif
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_loderndf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( loderndf )
+	static InputPortHandlerPtr input_ports_loderndf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( loderndf )
 		PORT_START(); 	/* IN0 player 1 controls */
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -634,7 +634,7 @@ public class psikyo4
 	INPUT_PORTS_END(); }}; 
 	
 	/* unused inputs also act as duplicate buttons */
-	static InputPortPtr input_ports_hotdebut = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hotdebut )
+	static InputPortHandlerPtr input_ports_hotdebut = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hotdebut )
 		PORT_START(); 	/* IN0 player 1 controls */
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -712,7 +712,7 @@ public class psikyo4
 	#define ROMTEST_GFX ROMREGION_DISPOSE
 	#endif
 	
-	static RomLoadPtr rom_hotgmck = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hotgmck = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "2-u23.bin", 0x000002, 0x080000, CRC(23ed4aa5) SHA1(bb4f57a6adffc6336fc572a4ff1f5dfc284ee4fb) )
@@ -734,7 +734,7 @@ public class psikyo4
 		ROM_LOAD( "snd1.bin", 0x400000, 0x400000, CRC(c24243b5) SHA1(2100d5d7d2e4b9ed90bde38cb61a5da09f00ce21) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hgkairak = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hgkairak = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x300000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "2.u23",   0x000002, 0x080000, CRC(1c1a034d) SHA1(1be7793b1f9a0a738519b4b4f663b247011870db) )
 		ROM_LOAD32_WORD_SWAP( "1.u22",   0x000000, 0x080000, CRC(24b04aa2) SHA1(b63d02fc15f03b93a74f5549fad236939905e382) )
@@ -759,7 +759,7 @@ public class psikyo4
 		ROM_LOAD( "snd1.u19", 0x400000, 0x400000, CRC(d8057d2f) SHA1(51d96cc4e9da81cbd1e815c652707407e6c7c3ae) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hotgmck3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hotgmck3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */
 		ROM_REGION( 0x300000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "2.u22",   0x000000, 0x080000, CRC(3b06a4a3) SHA1(7363c2867367ca92a20fcb5ee1a5f1afbd785c63) )
@@ -789,7 +789,7 @@ public class psikyo4
 		ROM_LOAD( "snd1.u19", 0x400000, 0x400000, CRC(1df91fb4) SHA1(f0f2d2d717fbd16a67da9f0e21f288ceedef839f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_loderndf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_loderndf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "1b.u23", 0x000002, 0x080000, CRC(fae92286) SHA1(c3d3a50514fb9c0bbd3ffb5c4bfcc853dc1893d2) )
 		ROM_LOAD32_WORD_SWAP( "2b.u22", 0x000000, 0x080000, CRC(fe2424c0) SHA1(48a329cfdf98da1a8701b430c159d470c0f5eca1) )
@@ -804,7 +804,7 @@ public class psikyo4
 		ROM_LOAD( "snd0.u10", 0x000000, 0x800000, CRC(2da3788f) SHA1(199d4d750a107cbdf8c16cd5b097171743769d9c) ) // Fails hidden rom test
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_loderdfa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_loderdfa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "12.u23", 0x000002, 0x080000, CRC(661d372e) SHA1(c509c3ad9ca01e0f58bfc319b2738ecc36865ffd) )
 		ROM_LOAD32_WORD_SWAP( "3.u22", 0x000000, 0x080000, CRC(0a63529f) SHA1(05dd7877041b69d46e41c5bddb877c083620294b) )
@@ -819,7 +819,7 @@ public class psikyo4
 		ROM_LOAD( "snd0.u10", 0x000000, 0x800000, CRC(2da3788f) SHA1(199d4d750a107cbdf8c16cd5b097171743769d9c) ) // Fails hidden rom test
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hotdebut = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hotdebut = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0)
 		ROM_LOAD32_WORD_SWAP( "1.u23",   0x000002, 0x080000, CRC(0b0d0027) SHA1(f62c487a725439af035d2904d453d3c2f7a5649b) )
 		ROM_LOAD32_WORD_SWAP( "2.u22",   0x000000, 0x080000, CRC(c3b5180b) SHA1(615cc1fd99a1e4634b04bb92a3c41f914644e903) )

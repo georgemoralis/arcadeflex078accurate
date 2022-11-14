@@ -202,7 +202,7 @@ public class wolfpack
 	};
 	
 	
-	static InputPortPtr input_ports_wolfpack = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wolfpack )
+	static InputPortHandlerPtr input_ports_wolfpack = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wolfpack )
 	
 		PORT_START(); 
 		PORT_BIT ( 0x03, IP_ACTIVE_HIGH, IPT_UNUSED );/* dial connects here */
@@ -361,7 +361,7 @@ public class wolfpack
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_wolfpack = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wolfpack = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_LOW ( "30285.e3", 0x7000, 0x0800, CRC(b4d30b33) SHA1(46645c227828632b57244bdccad455e1831b5273) )
 		ROM_RELOAD       (             0xF000, 0x0800 )

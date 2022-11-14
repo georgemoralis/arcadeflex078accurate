@@ -120,7 +120,7 @@ public class fastlane
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_fastlane = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fastlane )
+	static InputPortHandlerPtr input_ports_fastlane = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fastlane )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(	0x02, DEF_STR( "4C_1C") );
@@ -302,7 +302,7 @@ public class fastlane
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_fastlane = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fastlane = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x21000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "752_m02.9h",  0x08000, 0x08000, CRC(e1004489) SHA1(615b608d22abc3611f1620503cd6a8c9a6218db8) )  /* fixed ROM */
 		ROM_LOAD( "752_e01.10h", 0x10000, 0x10000, CRC(ff4d6029) SHA1(b5c5d8654ce728300d268628bd3dd878570ba7b8) )  /* banked ROM */

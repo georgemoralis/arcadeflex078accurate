@@ -199,7 +199,7 @@ public class yunsung8
 										Magix
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_magix = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( magix )
+	static InputPortHandlerPtr input_ports_magix = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( magix )
 	
 		PORT_START(); 	// IN0 - Coins
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_UNKNOWN  );
@@ -287,7 +287,7 @@ public class yunsung8
 									Cannon Ball
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_cannball = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cannball )
+	static InputPortHandlerPtr input_ports_cannball = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cannball )
 	
 		PORT_START(); 	// IN0 - Coins
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_UNKNOWN  );
@@ -506,7 +506,7 @@ public class yunsung8
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_magix = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_magix = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x24000+0x4000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "yunsung8.07", 0x00000, 0x0c000, CRC(d4d0b68b) SHA1(d7e1fb57a14f8b822791b98cecc6d5a053a89e0f) )
@@ -546,7 +546,7 @@ public class yunsung8
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_cannball = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cannball = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x24000+0x4000, REGION_CPU1, 0 )		/* Main Z80 Code */
 		ROM_LOAD( "cannball.07", 0x00000, 0x0c000, CRC(17db56b4) SHA1(032e3dbde0b0e315dcb5f2b31f57e75e78818f2d) )

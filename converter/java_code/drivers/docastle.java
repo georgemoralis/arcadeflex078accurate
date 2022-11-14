@@ -342,7 +342,7 @@ public class docastle
 		/* 0x10, 0x20, 0x30, 0x40, 0x50 all give 1 Coin/1 Credit */
 	
 	
-	static InputPortPtr input_ports_docastle = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( docastle )
+	static InputPortHandlerPtr input_ports_docastle = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( docastle )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_4WAY );
@@ -402,7 +402,7 @@ public class docastle
 		COINAGE_PORT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dorunrun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dorunrun )
+	static InputPortHandlerPtr input_ports_dorunrun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dorunrun )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_4WAY );
@@ -463,7 +463,7 @@ public class docastle
 		COINAGE_PORT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dowild = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dowild )
+	static InputPortHandlerPtr input_ports_dowild = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dowild )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_4WAY );
@@ -525,7 +525,7 @@ public class docastle
 		COINAGE_PORT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_jjack = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jjack )
+	static InputPortHandlerPtr input_ports_jjack = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jjack )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_4WAY );
@@ -585,7 +585,7 @@ public class docastle
 		COINAGE_PORT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kickridr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kickridr )
+	static InputPortHandlerPtr input_ports_kickridr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kickridr )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
@@ -646,7 +646,7 @@ public class docastle
 		COINAGE_PORT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_idsoccer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( idsoccer )
+	static InputPortHandlerPtr input_ports_idsoccer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( idsoccer )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_UP | IPF_8WAY );
@@ -871,7 +871,7 @@ public class docastle
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_docastle = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_docastle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "01p_a1.bin",   0x0000, 0x2000, CRC(17c6fc24) SHA1(e397d283e8b8e1c512495b777c0fe16f66bb1862) )
 		ROM_LOAD( "01n_a2.bin",   0x2000, 0x2000, CRC(1d2fc7f4) SHA1(f7b0c7466cd6a3854eda818c63663e3559dc7bc2) )
@@ -897,7 +897,7 @@ public class docastle
 		ROM_LOAD( "09c.bin",      0x0000, 0x0200, CRC(066f52bc) SHA1(99f4f2d0181bcaf389c16f127cc3e632d62ee417) ) /* color prom */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_docastl2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_docastl2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "a1",           0x0000, 0x2000, CRC(0d81fafc) SHA1(938c4470b022063ae66b607ca086fad98174248f) )
 		ROM_LOAD( "a2",           0x2000, 0x2000, CRC(a13dc4ac) SHA1(f096d5ac8e26444ebdb4c3fb5c71592058fb6c79) )
@@ -923,7 +923,7 @@ public class docastle
 		ROM_LOAD( "09c.bin",      0x0000, 0x0200, CRC(066f52bc) SHA1(99f4f2d0181bcaf389c16f127cc3e632d62ee417) ) /* color prom */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_docastlo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_docastlo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "c1.bin", 	0x0000, 0x2000, CRC(c9ce96ab) SHA1(3166aef4556ce334ecef27dceb285f51de371c35) )
 		ROM_LOAD( "c2.bin",     0x2000, 0x2000, CRC(42b28369) SHA1(8c9a618984db52cdc4ec3a6bcfa7659866d2709c) )
@@ -951,7 +951,7 @@ public class docastle
 		ROM_LOAD( "dorevc9.bin",  0x0000, 0x0200, CRC(96624ebe) SHA1(74ff21dc85dcb013c941ec6c06cafdb5bcc16960) ) /* color prom */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_douni = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_douni = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "dorev1.bin",   0x0000, 0x2000, CRC(1e2cbb3c) SHA1(f3c6eab7f7f43a067d432d47f3403ab1d07575fe) )
 		ROM_LOAD( "dorev2.bin",   0x2000, 0x2000, CRC(18418f83) SHA1(1be77b0b53e6d243484d942108e84b950f1a4901) )
@@ -977,7 +977,7 @@ public class docastle
 		ROM_LOAD( "dorevc9.bin",  0x0000, 0x0200, CRC(96624ebe) SHA1(74ff21dc85dcb013c941ec6c06cafdb5bcc16960) ) /* color prom */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dorunruc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dorunruc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "rev-0-1.p1",   0x0000, 0x2000, CRC(49906ebd) SHA1(03afb7e3107038d5a052e497b8a206334514536f) )
 		ROM_LOAD( "rev-0-2.n1",   0x2000, 0x2000, CRC(dbe3e7db) SHA1(168026aacce73941329a72e78423f83f7c4f0f04) )
@@ -1003,7 +1003,7 @@ public class docastle
 		ROM_LOAD( "dorunrun.clr", 0x0000, 0x0100, CRC(d5bab5d5) SHA1(7a465fe30b6008793d33f6e07086c89111e1e407) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dorunrun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dorunrun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "2764.p1",      0x0000, 0x2000, CRC(95c86f8e) SHA1(9fe44911e0aa8d4c7299472a31c401e064d63d17) )
 		ROM_LOAD( "2764.l1",      0x4000, 0x2000, CRC(e9a65ba7) SHA1(fbee57d68352fd4062aac55cd1070f001714d0a3) )
@@ -1029,7 +1029,7 @@ public class docastle
 		ROM_LOAD( "dorunrun.clr", 0x0000, 0x0100, CRC(d5bab5d5) SHA1(7a465fe30b6008793d33f6e07086c89111e1e407) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dorunru2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dorunru2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "p1",           0x0000, 0x2000, CRC(12a99365) SHA1(12a1ab76182faa4f76cc5020913ca5706313fe72) )
 		ROM_LOAD( "l1",           0x4000, 0x2000, CRC(38609287) SHA1(85f5cd707d620780436e4bed00753acef08f83cd) )
@@ -1055,7 +1055,7 @@ public class docastle
 		ROM_LOAD( "dorunrun.clr", 0x0000, 0x0100, CRC(d5bab5d5) SHA1(7a465fe30b6008793d33f6e07086c89111e1e407) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spiero = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spiero = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "sp1.bin",      0x0000, 0x2000, CRC(08d23e38) SHA1(0810b0ecaa1bd7f16f78ce08054f5d24a57b1266) )
 		ROM_LOAD( "sp3.bin",      0x4000, 0x2000, CRC(faa0c18c) SHA1(0dadea03b529bb889f45bd710bca0b4333cbbba8) )
@@ -1081,7 +1081,7 @@ public class docastle
 		ROM_LOAD( "bprom1.bin",   0x0000, 0x0200, CRC(fc1b66ff) SHA1(0a73f7e00501c638f017473b1e0786d7bcbbe82a) ) /* color prom */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dowild = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dowild = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "w1",           0x0000, 0x2000, CRC(097de78b) SHA1(8d0cedde09a893ff67db0cb8e239babeb2cb3701) )
 		ROM_LOAD( "w3",           0x4000, 0x2000, CRC(fc6a1cbb) SHA1(4cf59459d521c725e41bbd9363fb58bffdad13a2) )
@@ -1107,7 +1107,7 @@ public class docastle
 		ROM_LOAD( "dowild.clr",   0x0000, 0x0100, CRC(a703dea5) SHA1(159abdb62cb8bf3167d9fdc26038fb485219af7c) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jjack = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jjack = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "j1.bin",       0x0000, 0x2000, CRC(87f29bd2) SHA1(12b0a6f84439b84dd09fe54436c765fc58f928e1) )
 		ROM_LOAD( "j3.bin",       0x4000, 0x2000, CRC(35b0517e) SHA1(756d7627f4dc2e9b24be7b0c4c80a9043cb4c322) )
@@ -1133,7 +1133,7 @@ public class docastle
 		ROM_LOAD( "bprom1.bin",   0x0000, 0x0200, CRC(2f0955f2) SHA1(5eb417478669560f447a0a0e6fe93af27804590f) ) /* color prom */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kickridr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kickridr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "k1",           0x0000, 0x2000, CRC(dfdd1ab4) SHA1(2f1ad3a8b2c1cbca2dc4a9a0c9a5f79af8712999) )
 		ROM_LOAD( "k3",           0x4000, 0x2000, CRC(412244da) SHA1(2d4efad88c27db00c18626a667bd00531f4cc4fb) )
@@ -1159,7 +1159,7 @@ public class docastle
 		ROM_LOAD( "kickridr.clr", 0x0000, 0x0100, CRC(73ec281c) SHA1(1af32653e03c1e0aadef47b91bdc3f3c56ef7b23) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_idsoccer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_idsoccer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "id01",           0x0000, 0x2000, CRC(f1c3bf09) SHA1(446d373671f122d8131d2ec2d80c2110ec68a19b) )
 		ROM_LOAD( "id02",           0x2000, 0x2000, CRC(184e6af0) SHA1(1664ca6fa0efae8496d051ac5f19596239e7cbcb) )

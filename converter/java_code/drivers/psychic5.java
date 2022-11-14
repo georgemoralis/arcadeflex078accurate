@@ -423,7 +423,7 @@ public class psychic5
 	};
 	
 	
-	static InputPortPtr input_ports_psychic5 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( psychic5 )
+	static InputPortHandlerPtr input_ports_psychic5 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( psychic5 )
 	    PORT_START(); 
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -596,7 +596,7 @@ public class psychic5
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_psychic5 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_psychic5 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) 				/* 2*64K for main CPU, Z80 */
 		ROM_LOAD( "p5d",          0x00000, 0x08000, CRC(90259249) SHA1(ac2d8dd95f6c04b6ad726136931e37dcd537e977) )
 		ROM_LOAD( "p5e",          0x10000, 0x10000, CRC(72298f34) SHA1(725be2fbf5f3622f646c0fb8e6677cbddf0b1fc2) )

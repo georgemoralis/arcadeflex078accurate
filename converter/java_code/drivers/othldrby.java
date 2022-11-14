@@ -131,7 +131,7 @@ public class othldrby
 	
 	
 	
-	static InputPortPtr input_ports_othldrby = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( othldrby )
+	static InputPortHandlerPtr input_ports_othldrby = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( othldrby )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -287,7 +287,7 @@ public class othldrby
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_othldrby = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_othldrby = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )
 		ROM_LOAD16_WORD_SWAP( "db0.1",        0x00000, 0x80000, CRC(6b4008d3) SHA1(4cf838c47563ba482be8364b2e115569a4a06c83) )
 	

@@ -369,7 +369,7 @@ public class macrossp
 	
 	/*** INPUT PORTS *************************************************************/
 	
-	static InputPortPtr input_ports_macrossp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( macrossp )
+	static InputPortHandlerPtr input_ports_macrossp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( macrossp )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -537,7 +537,7 @@ public class macrossp
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_quizmoon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( quizmoon )
+	static InputPortHandlerPtr input_ports_quizmoon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( quizmoon )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -805,7 +805,7 @@ public class macrossp
 	
 	/*** ROM LOADING *************************************************************/
 	
-	static RomLoadPtr rom_macrossp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_macrossp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )
 		ROM_LOAD32_BYTE( "bp964a-c.u1", 0x000003, 0x080000, CRC(e37904e4) SHA1(e51e446f3699632c53c40e4c16d0ffb76ed1123f) )
 		ROM_LOAD32_BYTE( "bp964a-c.u2", 0x000002, 0x080000, CRC(86d0ca6a) SHA1(8cc1b4a83cbba8b07e1343c5c20e2590d3ce471a) )
@@ -847,7 +847,7 @@ public class macrossp
 		/* Filled in below in init routine */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_quizmoon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quizmoon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )
 		ROM_LOAD32_BYTE( "u1.bin",  0x000003, 0x020000, CRC(ea404553) SHA1(123bb8e399a5b54c43f4eb41d3e5f52c6947900f) )
 		ROM_LOAD32_BYTE( "u2.bin",  0x000002, 0x020000, CRC(024eedff) SHA1(cbaa2b71980a2686e582331616dc36e34ecd9e67) )

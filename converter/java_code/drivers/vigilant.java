@@ -167,7 +167,7 @@ public class vigilant
 	};
 	
 	
-	static InputPortPtr input_ports_vigilant = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vigilant )
+	static InputPortHandlerPtr input_ports_vigilant = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vigilant )
 		PORT_START(); 
 		PORT_BIT(0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT(0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -255,7 +255,7 @@ public class vigilant
 		PORT_DIPSETTING(	0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kikcubic = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kikcubic )
+	static InputPortHandlerPtr input_ports_kikcubic = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kikcubic )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -502,7 +502,7 @@ public class vigilant
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_vigilant = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vigilant = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 ) /* 64k for code + 128k for bankswitching */
 		ROM_LOAD( "g07_c03.bin",  0x00000, 0x08000, CRC(9dcca081) SHA1(6d086b70e6bf1fbafa746ef5c82334645f199be9) )
 		ROM_LOAD( "j07_c04.bin",  0x10000, 0x10000, CRC(e0159105) SHA1(da6d74ec075863c67c0ce21b07a54029d138f688) )
@@ -534,7 +534,7 @@ public class vigilant
 		ROM_LOAD( "d04_c01.bin",  0x00000, 0x10000, CRC(9b85101d) SHA1(6b8a0f33b9b66bb968f7b61e49d19a6afad8db95) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vigilntu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vigilntu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 ) /* 64k for code + 128k for bankswitching */
 		ROM_LOAD( "a-8h",  0x00000, 0x08000, CRC(8d15109e) SHA1(9ef57047a0b53cd0143a260193b33e3d5680ca71) )
 		ROM_LOAD( "a-8l",  0x10000, 0x10000, CRC(7f95799b) SHA1(a371671c3c26976314aaac4e410bff0f13a8a085) )
@@ -566,7 +566,7 @@ public class vigilant
 		ROM_LOAD( "d04_c01.bin",  0x00000, 0x10000, CRC(9b85101d) SHA1(6b8a0f33b9b66bb968f7b61e49d19a6afad8db95) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vigilntj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vigilntj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 ) /* 64k for code + 128k for bankswitching */
 		ROM_LOAD( "vg_a-8h.rom",  0x00000, 0x08000, CRC(ba848713) SHA1(b357cbf404fb1874d555797ed9fb37f946cc4340) )
 		ROM_LOAD( "vg_a-8l.rom",  0x10000, 0x10000, CRC(3b12b1d8) SHA1(2f9207f8d8ec41ea1b8f5bf3c69a97d1d09f6c3f) )
@@ -598,7 +598,7 @@ public class vigilant
 		ROM_LOAD( "d04_c01.bin",  0x00000, 0x10000, CRC(9b85101d) SHA1(6b8a0f33b9b66bb968f7b61e49d19a6afad8db95) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kikcubic = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kikcubic = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 ) /* 64k for code + 128k for bankswitching */
 		ROM_LOAD( "mqj-p0",       0x00000, 0x08000, CRC(9cef394a) SHA1(be9cc78420b4c35f8f9523b529bd56315749762c) )
 		ROM_LOAD( "mqj-b0",       0x10000, 0x10000, CRC(d9bcf4cd) SHA1(f1f1cb8609343dae8637f115e5c96fd88a00f5eb) )

@@ -560,7 +560,7 @@ public class airbustr
 		[2] Service
 		[3] Dsw 1			[4] Dsw 2	*/
 	
-	static InputPortPtr input_ports_airbustr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( airbustr )
+	static InputPortHandlerPtr input_ports_airbustr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( airbustr )
 	
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
@@ -653,7 +653,7 @@ public class airbustr
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_airbustj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( airbustj )
+	static InputPortHandlerPtr input_ports_airbustj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( airbustj )
 	
 		PORT_START(); 	// IN0 - Player 1
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
@@ -838,7 +838,7 @@ public class airbustr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_airbustr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_airbustr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x24000, REGION_CPU1, 0 )
 		ROM_LOAD( "pr12.h19", 0x00000, 0x0c000, CRC(91362eb2) SHA1(cd85acfa6542af68dd1cad46f9426a95cfc9432e) )
 		ROM_CONTINUE(           0x10000, 0x14000 )
@@ -862,7 +862,7 @@ public class airbustr
 		ROM_LOAD( "pr-200.bin", 0x00000, 0x40000, CRC(a4dd3390) SHA1(2d72b46b4979857f6b66489bebda9f48799f59cf) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_airbustj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_airbustj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x24000, REGION_CPU1, 0 )
 		ROM_LOAD( "pr-14j.bin", 0x00000, 0x0c000, CRC(6b9805bd) SHA1(db6df33cf17316a4b81d7731dca9fe8bbf81f014) )
 		ROM_CONTINUE(           0x10000, 0x14000 )

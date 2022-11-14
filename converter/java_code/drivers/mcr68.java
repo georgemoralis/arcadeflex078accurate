@@ -445,7 +445,7 @@ public class mcr68
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_zwackery = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zwackery )
+	static InputPortHandlerPtr input_ports_zwackery = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zwackery )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -502,7 +502,7 @@ public class mcr68
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_xenophob = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( xenophob )
+	static InputPortHandlerPtr input_ports_xenophob = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( xenophob )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -561,7 +561,7 @@ public class mcr68
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_spyhunt2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spyhunt2 )
+	static InputPortHandlerPtr input_ports_spyhunt2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spyhunt2 )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -629,7 +629,7 @@ public class mcr68
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_blasted = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blasted )
+	static InputPortHandlerPtr input_ports_blasted = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blasted )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -682,7 +682,7 @@ public class mcr68
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_archrivl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( archrivl )
+	static InputPortHandlerPtr input_ports_archrivl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( archrivl )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -740,7 +740,7 @@ public class mcr68
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pigskin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pigskin )
+	static InputPortHandlerPtr input_ports_pigskin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pigskin )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -804,7 +804,7 @@ public class mcr68
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_trisport = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( trisport )
+	static InputPortHandlerPtr input_ports_trisport = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( trisport )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1035,7 +1035,7 @@ public class mcr68
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_zwackery = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zwackery = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "pro0.bin",   0x00000, 0x4000, CRC(6fb9731c) SHA1(ee5b297ef2b4cf20df5e776f1c585b51f174bfa7) )
 		ROM_LOAD16_BYTE( "pro1.bin",   0x00001, 0x4000, CRC(84b92555) SHA1(9b4af81374828c1742c1e13fc425eea2973b0867) )
@@ -1078,7 +1078,7 @@ public class mcr68
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_xenophob = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xenophob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "xeno_pro.3c",  0x00000, 0x10000, CRC(f44c2e60) SHA1(9130b26eb1e0e0a75f9fdec898e1f0976de8a766) )
 		ROM_LOAD16_BYTE( "xeno_pro.3b",  0x00001, 0x10000, CRC(01609a3b) SHA1(9e065bc72f56439a885bfdfc8eb60df666df7c37) )
@@ -1103,7 +1103,7 @@ public class mcr68
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_spyhunt2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spyhunt2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "sh23c.bin",  0x00000, 0x10000, CRC(30b91c90) SHA1(5b76f4e512b17ee80de2694807aa4e2499c2ef8b) )
 		ROM_LOAD16_BYTE( "sh23b.bin",  0x00001, 0x10000, CRC(f64513c6) SHA1(e42cab599e489a0ba422b28c5cfda0f9c3a60601) )
@@ -1130,7 +1130,7 @@ public class mcr68
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_spyhnt2a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spyhnt2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "3c",  0x00000, 0x10000, CRC(5b92aadf) SHA1(0d0e2606fc5346e396f0a7b8ceb190ee42e485c3) )
 		ROM_LOAD16_BYTE( "3b",  0x00001, 0x10000, CRC(6ed0a25f) SHA1(542f77889b0cfdfeeff47e5beaef97c7516b77e1) )
@@ -1157,7 +1157,7 @@ public class mcr68
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blasted = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blasted = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "3c",  0x00000, 0x10000, CRC(b243b7df) SHA1(b44179c30e5286362b0be4e2e9b0742e7e27f7c9) )
 		ROM_LOAD16_BYTE( "3b",  0x00001, 0x10000, CRC(627e30d3) SHA1(c430191dd539a22603e49df4c4cb697747a0cd02) )
@@ -1182,7 +1182,7 @@ public class mcr68
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_archrivl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_archrivl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "3c-rev2",  0x00000, 0x10000, CRC(60d4b760) SHA1(9c24c72f62310475b0dade85299cb661904f8f41) )
 		ROM_LOAD16_BYTE( "3b-rev2",  0x00001, 0x10000, CRC(e0c07a8d) SHA1(ace5b480d4c2cd3d78dff0e284cf13a8d28c40b7) )
@@ -1206,7 +1206,7 @@ public class mcr68
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_archriv2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_archriv2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "archrivl.4",  0x00000, 0x10000, CRC(3c545740) SHA1(84a467756c959385a3ec3b97026823470bbab7ab) )
 		ROM_LOAD16_BYTE( "archrivl.2",  0x00001, 0x10000, CRC(bc4df2b9) SHA1(7314d03d4cf7e8a83135fa67969dda3088e212fb) )
@@ -1230,7 +1230,7 @@ public class mcr68
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pigskin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pigskin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "pigskin.a5",  0x00000, 0x10000, CRC(ab61c29b) SHA1(01cf2d9b3f41442280e614541d5651c6e46b4a4b) )
 		ROM_LOAD16_BYTE( "pigskin.b5",  0x00001, 0x10000, CRC(55a802aa) SHA1(a75f54bce5aad3f7375ab15ad204744e2f6fdc92) )
@@ -1254,7 +1254,7 @@ public class mcr68
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_trisport = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_trisport = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "la3.a5",  0x00000, 0x10000, CRC(fe1e9e37) SHA1(583f18531583e038ca57a592b6a6c305896bf2c5) )
 		ROM_LOAD16_BYTE( "la3.b5",  0x00001, 0x10000, CRC(f352ec81) SHA1(446a68f231ca57540a295742d67ce9f1a8364b15) )

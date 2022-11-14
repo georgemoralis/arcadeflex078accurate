@@ -100,7 +100,7 @@ public class goal92
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_goal92 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( goal92 )
+	static InputPortHandlerPtr input_ports_goal92 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( goal92 )
 	
 		PORT_START(); 
 		PORT_DIPNAME( 0x0007, 0x0007, "Coin A / Coin C" );
@@ -394,7 +394,7 @@ public class goal92
 	
 	*/
 	
-	static RomLoadPtr rom_goal92 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_goal92 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "2.bin", 0x00000, 0x80000, CRC(db0a6c7c) SHA1(b609db7806b99bc921806d8b3e5e515b4651c375) )
 		ROM_LOAD16_BYTE( "3.bin", 0x00001, 0x80000, CRC(e4c45dee) SHA1(542749bd1ff51220a151fe66acdadac83df8f0ee) )
@@ -445,7 +445,7 @@ public class goal92
 	
 	*/
 	
-	static RomLoadPtr rom_cupsocbl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cupsocbl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "sc_04.bin", 0x00001, 0x80000, CRC(22566087) SHA1(4392f46ca50cc9947823a5190aa25f5e9654aa0d) )
 		ROM_LOAD16_BYTE( "sc_05.bin", 0x00000, 0x80000, CRC(2f977dff) SHA1(4d8d6e7d06ce17bb7292072965911f8b1f1067e2) )

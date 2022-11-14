@@ -438,7 +438,7 @@ public class argus
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_argus = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( argus )
+	static InputPortHandlerPtr input_ports_argus = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( argus )
 		PORT_START();       /* System control (0) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -520,7 +520,7 @@ public class argus
 		PORT_DIPSETTING(    0x80, DEF_STR( "1C_4C") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_valtric = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( valtric )
+	static InputPortHandlerPtr input_ports_valtric = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( valtric )
 		PORT_START();       /* System control (0) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -602,7 +602,7 @@ public class argus
 		PORT_DIPSETTING(    0x80, DEF_STR( "1C_4C") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_butasan = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( butasan )
+	static InputPortHandlerPtr input_ports_butasan = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( butasan )
 		PORT_START();       /* System control (0) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -890,7 +890,7 @@ public class argus
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_argus = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_argus = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) 					/* Main CPU */
 		ROM_LOAD( "ag_02.bin", 0x00000, 0x08000, CRC(278a3f3d) SHA1(c5ac5a004ebf0194c33f71dab4020fa636cefbc2) )
 		ROM_LOAD( "ag_03.bin", 0x10000, 0x08000, CRC(3a7f3bfa) SHA1(b11e134c084fc3c982dfe31836c1cf3fc0d481fd) )
@@ -925,7 +925,7 @@ public class argus
 		ROM_LOAD( "ag_16.bin", 0x00000, 0x08000, CRC(39a51714) SHA1(ad89a630f1352eb4d8beeeebf909d5e2b5d7cc12) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_valtric = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_valtric = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 ) 					/* Main CPU */
 		ROM_LOAD( "vt_04.bin",    0x00000, 0x08000, CRC(709c705f) SHA1(b82e2209a0371dcbc2708c485b02985cea04353f) )
 		ROM_LOAD( "vt_06.bin",    0x10000, 0x10000, CRC(c9cbb4e4) SHA1(3c84cda778263a9bb2031e29f6f29f29878d2070) )
@@ -948,7 +948,7 @@ public class argus
 		ROM_LOAD( "vt_07.bin",    0x00000, 0x08000, CRC(d5f9bfb9) SHA1(6b3f11f9b8f76c0144a109f1506d8cbb01876237) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_butasan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_butasan = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 ) 					/* Main CPU */
 		ROM_LOAD( "buta-04.bin",  0x00000, 0x08000, CRC(47ff4ca9) SHA1(d89a41f6987c91d20b010f0cbda332cf54b21f8c) )
 		ROM_LOAD( "buta-03.bin",  0x10000, 0x10000, CRC(69fd88c7) SHA1(fd827d7926a2de5ffe2982b3a59ea43de00ee46b) )

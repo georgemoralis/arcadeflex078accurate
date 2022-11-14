@@ -144,7 +144,7 @@ public class funybubl
 	
 	
 	
-	static InputPortPtr input_ports_funybubl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( funybubl )
+	static InputPortHandlerPtr input_ports_funybubl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( funybubl )
 		PORT_START(); 	/* DSW 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -398,7 +398,7 @@ public class funybubl
 	
 	
 	
-	static RomLoadPtr rom_funybubl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_funybubl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 ) /* main z80, lots of banked data */
 		ROM_LOAD( "2.bin", 0x00000, 0x40000, CRC(d684c13f) SHA1(6a58b44dd775f374d6fd476a8fd175c28a83a495)  )
 		ROM_RELOAD ( 0x10000, 0x40000 )

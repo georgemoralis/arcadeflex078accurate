@@ -633,7 +633,7 @@ public class exidy440
 		PORT_DIPSETTING(    0x0c, DEF_STR( "1C_4C") );
 	
 	
-	static InputPortPtr input_ports_crossbow = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crossbow )
+	static InputPortHandlerPtr input_ports_crossbow = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crossbow )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -673,7 +673,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_cheyenne = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cheyenne )
+	static InputPortHandlerPtr input_ports_cheyenne = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cheyenne )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -713,7 +713,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_combat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( combat )
+	static InputPortHandlerPtr input_ports_combat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( combat )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -753,7 +753,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_catch22 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( catch22 )
+	static InputPortHandlerPtr input_ports_catch22 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( catch22 )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -793,7 +793,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_cracksht = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cracksht )
+	static InputPortHandlerPtr input_ports_cracksht = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cracksht )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -833,7 +833,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_claypign = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( claypign )
+	static InputPortHandlerPtr input_ports_claypign = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( claypign )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -869,7 +869,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_chiller = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( chiller )
+	static InputPortHandlerPtr input_ports_chiller = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chiller )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -906,7 +906,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_topsecex = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( topsecex )
+	static InputPortHandlerPtr input_ports_topsecex = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( topsecex )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -953,7 +953,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hitnmiss = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hitnmiss )
+	static InputPortHandlerPtr input_ports_hitnmiss = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hitnmiss )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -993,7 +993,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_whodunit = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( whodunit )
+	static InputPortHandlerPtr input_ports_whodunit = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( whodunit )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -1030,7 +1030,7 @@ public class exidy440
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_showdown = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( showdown )
+	static InputPortHandlerPtr input_ports_showdown = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( showdown )
 		PORT_START(); 				/* player inputs and logic board dips */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -1130,7 +1130,7 @@ public class exidy440
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_crossbow = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crossbow = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "xbl-2.1a",   0x08000, 0x2000, CRC(bd53ac46) SHA1(0f16ff2d5d08b20c8388d9334995b21c455bf155) )
 		ROM_LOAD( "xbl-2.3a",   0x0a000, 0x2000, CRC(703e1376) SHA1(602fc4d9c8fdf3a56ff83112f1e4e8aa5879da8c) )
@@ -1187,7 +1187,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cheyenne = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cheyenne = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "cyl-1.1a",   0x08000, 0x2000, CRC(504c3fa6) SHA1(e3b8b3cfb0884c8bc7871382c3a2bf7dcd70641d) )
 		ROM_LOAD( "cyl-1.3a",   0x0a000, 0x2000, CRC(09b7903b) SHA1(24676bf3f01a451b502281321828c80f875b5427) )
@@ -1241,7 +1241,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_combat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_combat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "1a",   0x08000, 0x2000, CRC(159a573b) SHA1(751614f0c9518f6f55e647daa4a7bbf795bc6e6d) )
 		ROM_LOAD( "3a",   0x0a000, 0x2000, CRC(59ae51a7) SHA1(c964aefb0705af0966386bae20fd5f885d1677b7) )
@@ -1289,7 +1289,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_catch22 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_catch22 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "22l-8_0.1a",   0x08000, 0x2000, CRC(232e8723) SHA1(10da33e94026dc856ea4fcdd11945527321383d1) )
 		ROM_LOAD( "22l-8_0.3a",   0x0a000, 0x2000, CRC(a94afce6) SHA1(bbc349240460c001e8eda78d80b36bb2c40b090e) )
@@ -1337,7 +1337,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cracksht = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cracksht = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "csl2.1a",   0x08000, 0x2000, CRC(16fd0171) SHA1(3c39d8e3483e0d6b82ec2e0d3cdd61250015b165) )
 		ROM_LOAD( "csl2.3a",   0x0a000, 0x2000, CRC(906f3209) SHA1(2c479e525a3ed31969c168ddf5a72dc909c2c494) )
@@ -1383,7 +1383,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_claypign = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_claypign = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "claypige.1a",   0x08000, 0x2000, CRC(446d7004) SHA1(c2bbfbfdfd144ff61178dbacd244e2f9d1c3ffc3) )
 		ROM_LOAD( "claypige.3a",   0x0a000, 0x2000, CRC(df39701b) SHA1(416f586441e87f7e2b36dee4731249a75b82c897) )
@@ -1416,7 +1416,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_chiller = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chiller = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "chl3.1a",   0x08000, 0x2000, CRC(996ad02e) SHA1(0c242614f28b8ee1a65a4d336fb645c814a50293) )
 		ROM_LOAD( "chl3.3a",   0x0a000, 0x2000, CRC(17e6f904) SHA1(e43adea5f3106bc97ac4762213478a02656300fe) )
@@ -1469,7 +1469,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_topsecex = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_topsecex = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "tsl1.a1",   0x08000, 0x2000, CRC(30ff2142) SHA1(28dad2a785101229b3de1859f8fb068b49d6037c) )
 		ROM_LOAD( "tsl1.a3",   0x0a000, 0x2000, CRC(9295e5b7) SHA1(cc73e6d111f922ca7ecd10ba576df3119cd4d328) )
@@ -1529,7 +1529,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hitnmiss = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hitnmiss = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "hml3.a1",   0x08000, 0x2000, CRC(d79ae18e) SHA1(bec0b583e7667390a0f97efeb031d97f5027a827) )
 		ROM_LOAD( "hml3.a3",   0x0a000, 0x2000, CRC(61baf38b) SHA1(ac92baea5f235204e06ece2c1b7d674bcad0d265) )
@@ -1576,7 +1576,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hitnmis2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hitnmis2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "hml2.a1",   0x08000, 0x2000, CRC(322f7e83) SHA1(e80e51c943402d0b644b1788e6a278130610d0e6) )
 		ROM_LOAD( "hml2.a3",   0x0a000, 0x2000, CRC(0e12a721) SHA1(22ee013d68c1afc218672cbb40c99fc9de607328) )
@@ -1624,7 +1624,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_whodunit = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_whodunit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "wdl8.1a",   0x08000, 0x2000, CRC(50658904) SHA1(5d1b44a0e20c4ec599c339235f42ca881f8a5bfc) )
 		ROM_LOAD( "wdl8.3a",   0x0a000, 0x2000, CRC(5d1530f8) SHA1(258d19c14a757497e0ce95a3ab8332168d97e67c) )
@@ -1682,7 +1682,7 @@ public class exidy440
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_showdown = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_showdown = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )     /* 64k for code for the first CPU, plus lots of banked ROMs */
 		ROM_LOAD( "showda1.bin",   0x08000, 0x2000, CRC(e4031507) SHA1(3d5183cd049be843fd38e3d1bd2d0a305df723bd) )
 		ROM_LOAD( "showd3a.bin",   0x0a000, 0x2000, CRC(e7de171e) SHA1(881a2b596949de3b4bb1263e2aa08faeb3051a6e) )

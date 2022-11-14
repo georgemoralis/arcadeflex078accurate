@@ -213,7 +213,7 @@ public class wallc
 	};
 	
 	
-	static InputPortPtr input_ports_wallc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wallc )
+	static InputPortHandlerPtr input_ports_wallc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wallc )
 		PORT_START(); 	/* DSW - read from b000 */
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Lives") );
 		PORT_DIPSETTING(	0x03, "5" );
@@ -347,7 +347,7 @@ public class wallc
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_wallc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wallc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "wac05.h7",   0x0000, 0x2000, CRC(ab6e472e) SHA1(a387fec24fb899df349a35d1d3a91e897b074712) )
 		ROM_LOAD( "wac1-52.h6", 0x2000, 0x2000, CRC(988eaa6d) SHA1(d5e5dbee6e7e0488fdecfb864198c686cbd5d59c) )

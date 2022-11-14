@@ -224,7 +224,7 @@ public class magmax
 	};
 	
 	
-	static InputPortPtr input_ports_magmax = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( magmax )
+	static InputPortHandlerPtr input_ports_magmax = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( magmax )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_8WAY );
@@ -382,7 +382,7 @@ public class magmax
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_magmax = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_magmax = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 ) /* 68000 (main) cpu code */
 		ROM_LOAD16_BYTE( "1.3b", 0x00001, 0x4000, CRC(33793cbb) SHA1(a0bc0e4be434d9fc8115de8d63c92e942334bc85) )
 		ROM_LOAD16_BYTE( "6.3d", 0x00000, 0x4000, CRC(677ef450) SHA1(9003ff1c1c455970c1bd036b0b5e44dae2e379a5) )

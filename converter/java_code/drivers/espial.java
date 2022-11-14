@@ -139,7 +139,7 @@ public class espial
 	};
 	
 	
-	static InputPortPtr input_ports_espial = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( espial )
+	static InputPortHandlerPtr input_ports_espial = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( espial )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x01, 0x00, "Number of Buttons" );
 		PORT_DIPSETTING(    0x01, "1" );
@@ -201,7 +201,7 @@ public class espial
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_netwars = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( netwars )
+	static InputPortHandlerPtr input_ports_netwars = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( netwars )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Unknown") );	/* probably unused */
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -366,7 +366,7 @@ public class espial
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_espial = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_espial = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "espial.3",     0x0000, 0x2000, CRC(10f1da30) SHA1(8954ca3c7fccb8dd8433015ee303bb75a98f3474) )
 		ROM_LOAD( "espial.4",     0x2000, 0x2000, CRC(d2adbe39) SHA1(13c6041fd0e7c49988af89e3bab1b20999336928) )
@@ -390,7 +390,7 @@ public class espial
 		ROM_LOAD( "espial.1h",    0x0100, 0x0100, CRC(4c84fe70) SHA1(7ac52bd5b19663b9526ecb678e61db9939d2285d) ) /* palette high 4 bits */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_espiale = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_espiale = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "2764.3",       0x0000, 0x2000, CRC(0973c8a4) SHA1(d1fc6775870710b3dfea4e58a937ab996021adb1) )
 		ROM_LOAD( "2764.4",       0x2000, 0x2000, CRC(6034d7e5) SHA1(62c9699088f4ee1c69ec10a2f82feddd4083efef) )
@@ -414,7 +414,7 @@ public class espial
 		ROM_LOAD( "espial.1h",    0x0100, 0x0100, CRC(4c84fe70) SHA1(7ac52bd5b19663b9526ecb678e61db9939d2285d) ) /* palette high 4 bits */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_netwars = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_netwars = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "netw3.4f",     0x0000, 0x2000, CRC(8e782991) SHA1(4fd533035b61b7006ef94300bb63474fb9e1c9f0) )
 		ROM_LOAD( "netw4.4h",     0x2000, 0x2000, CRC(6e219f61) SHA1(a27304017251777be501861e106a670fff078d54) )

@@ -395,7 +395,7 @@ public class looping
 	
 	
 	
-	static InputPortPtr input_ports_looping = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( looping )
+	static InputPortHandlerPtr input_ports_looping = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( looping )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN );
@@ -440,7 +440,7 @@ public class looping
 	INPUT_PORTS_END(); }}; 
 	
 	/* Same as 'looping' but additional "Infinite Lives" Dip Switch */
-	static InputPortPtr input_ports_skybump = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skybump )
+	static InputPortHandlerPtr input_ports_skybump = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skybump )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN );
@@ -485,7 +485,7 @@ public class looping
 		PORT_DIPSETTING(    0x00, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static RomLoadPtr rom_loopinga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_loopinga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for TMS9995 code */
 		ROM_LOAD( "vli3.5a",		0x0000, 0x2000, CRC(1ac3ccdf) SHA1(9d1cde8bd4d0f12eaf06225b3ecc4a5c3e4f0c11) )
 		ROM_LOAD( "vli-4-3",		0x2000, 0x1000, CRC(f32cae2b) SHA1(2c6ef82af438e588b56fd58b95cf969c97bb9a66) )
@@ -509,7 +509,7 @@ public class looping
 		ROM_LOAD( "18s030.11b",		0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_looping = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_looping = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for TMS9995 code */
 		ROM_LOAD( "vli3.5a",		0x0000, 0x2000, CRC(1ac3ccdf) SHA1(9d1cde8bd4d0f12eaf06225b3ecc4a5c3e4f0c11) )
 		ROM_LOAD( "vli1.2a",		0x2000, 0x2000, CRC(97755fd4) SHA1(4a6ef02b0128cd516ff95083a7caaad8f3756f09) )
@@ -532,7 +532,7 @@ public class looping
 		ROM_LOAD( "18s030.11b",		0x0000, 0x0020, CRC(6a0c7d87) SHA1(140335d85c67c75b65689d4e76d29863c209cf32) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_skybump = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skybump = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for TMS9995 code */
 		ROM_LOAD( "cpu.5a",			0x0000, 0x2000, CRC(dca38df0) SHA1(86abe04cbabf81399f842f53668fe7a3f7ed3757) )
 		ROM_LOAD( "cpu.2a",			0x2000, 0x2000, CRC(6bcc211a) SHA1(245ebae3934df9c3920743a941546d96bb2e7c03) )

@@ -123,7 +123,7 @@ public class strnskil
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_strnskil = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( strnskil )
+	static InputPortHandlerPtr input_ports_strnskil = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( strnskil )
 		PORT_START();   /* dsw1 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -212,7 +212,7 @@ public class strnskil
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_pettanp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pettanp )
+	static InputPortHandlerPtr input_ports_pettanp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pettanp )
 		PORT_START();   /* dsw1 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "3" );
@@ -375,7 +375,7 @@ public class strnskil
 	
 	/****************************************************************************/
 	
-	static RomLoadPtr rom_strnskil = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_strnskil = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "tvg3.7",  0x0000,  0x2000, CRC(31fd793a) SHA1(b86efe8ea60edf414a23fb6abc09db691c085fe9) )
 		ROM_CONTINUE(        0x8000,  0x2000 )
@@ -408,7 +408,7 @@ public class strnskil
 		ROM_LOAD( "15-6.prm", 0x0000,  0x0100, CRC(ec4faf5b) SHA1(7ebbf50807d04105ebadec91bded069408e399ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_guiness = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_guiness = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "tvg3.15", 0x0000,  0x2000, CRC(3a605ad8) SHA1(f6e2dd4989fdb68bc55857f5a8f06601416139d5) )
 		ROM_CONTINUE(        0x8000,  0x2000 )
@@ -441,7 +441,7 @@ public class strnskil
 		ROM_LOAD( "15-6.prm", 0x0000,  0x0100, CRC(ec4faf5b) SHA1(7ebbf50807d04105ebadec91bded069408e399ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pettanp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pettanp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "tvg2-16a.7",  0x0000,  0x2000, CRC(4cbbbd01) SHA1(3905cf9e9d324bb23688ab29c98d71529d3dbf0c) )
 		ROM_CONTINUE(            0x8000,  0x2000 )

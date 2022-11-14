@@ -352,7 +352,7 @@ public class statriv2
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_statriv2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( statriv2 )
+	static InputPortHandlerPtr input_ports_statriv2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( statriv2 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BITX(0x02, IP_ACTIVE_LOW, IPT_SERVICE3, "Play All",   IP_KEY_DEFAULT, IP_JOY_DEFAULT );
@@ -376,7 +376,7 @@ public class statriv2
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_supertr2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( supertr2 )
+	static InputPortHandlerPtr input_ports_supertr2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( supertr2 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BITX(0x02, IP_ACTIVE_LOW, IPT_SERVICE3, "Play All",   IP_KEY_DEFAULT, IP_JOY_DEFAULT );
@@ -516,7 +516,7 @@ public class statriv2
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_statriv2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_statriv2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "trivii1c.u7", 0x00000, 0x01000, CRC(89326d7b) SHA1(4878a3aabe51a4de5ff5927a0707b2d121ff87fa) )
 		ROM_LOAD( "trivii2c.u8", 0x01000, 0x01000, CRC(6fd255f6) SHA1(13c75effda1db8eb3635d955ae11f37388f159aa) )
@@ -536,7 +536,7 @@ public class statriv2
 		ROM_LOAD( "statuspb.u8", 0x0e000, 0x02000, CRC(5080df10) SHA1(b5cb0868d844bbb598159177fd5ce65ff3f18eda) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_trivquiz = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_trivquiz = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "triv1-1f.u8",  0x00000, 0x01000, CRC(da9a763a) SHA1(d7a60718a1aeadb247330c939e0ac487015b55b2) )
 		ROM_LOAD( "triv1-2f.u9",  0x01000, 0x01000, CRC(270459fe) SHA1(1507a477fe7170d24788c880d43b0a3b08f35748) )
@@ -556,7 +556,7 @@ public class statriv2
 		ROM_LOAD( "qmt18.rom",    0x0e000, 0x02000, CRC(004a9480) SHA1(7adff194a1549fa42577f969706aab6bb6a58851) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_supertr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_supertr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "ast2-1d.rom", 0x00000, 0x01000, CRC(e9f0e271) SHA1(c2bae7d5ef04aed3ce14c403c70d2acc1831b763) )
 		ROM_LOAD( "ast2-2d.rom", 0x01000, 0x01000, CRC(542ba813) SHA1(1ac063f3678d1295aa728ab7ac43165284b66836) )

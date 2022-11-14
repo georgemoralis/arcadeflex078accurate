@@ -403,7 +403,7 @@ public class gsword
 	
 	
 	
-	static InputPortPtr input_ports_gsword = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gsword )
+	static InputPortHandlerPtr input_ports_gsword = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gsword )
 		PORT_START(); 	/* IN0 (8741-2 port1?) */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_START2 );
@@ -667,7 +667,7 @@ public class gsword
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_josvolly = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_josvolly = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64K for main CPU */
 		ROM_LOAD( "aa2-1.2c",     0x0000, 0x2000, CRC(27f740a5) SHA1(3e038386e743fdf718e795a944ff4b631a492958) )
 		ROM_LOAD( "aa1-2.2d",     0x2000, 0x2000, CRC(3e02e3e1) SHA1(cc0aee321cf5232438cd6e38635c9060056ad361) )
@@ -702,7 +702,7 @@ public class gsword
 		ROM_LOAD( "005.3h",       0x0440, 0x0020, CRC(e8d6dec0) SHA1(d15cba9a4b24255d41046b15c2409391ab13ce95) )	/* address decoder? not used */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gsword = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gsword = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64K for main CPU */
 		ROM_LOAD( "gs1",          0x0000, 0x2000, CRC(565c4d9e) SHA1(17b86e86ab95aeb458b8368c8c04666a1ccd9eee) )
 		ROM_LOAD( "gs2",          0x2000, 0x2000, CRC(d772accf) SHA1(08028c6f026c118cc375ecff5c24dcb549475633) )

@@ -140,7 +140,7 @@ public class cloud9
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_cloud9 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cloud9 )
+	static InputPortHandlerPtr input_ports_cloud9 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cloud9 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT ( 0x07, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_SERVICE( 0x08, IP_ACTIVE_LOW );
@@ -294,7 +294,7 @@ public class cloud9
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_cloud9 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cloud9 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "c9_6000.bin", 0x6000, 0x2000, CRC(b5d95d98) SHA1(9a347e5fc6e9e753e5c6972341725b5f4412e451) )
 		ROM_LOAD( "c9_8000.bin", 0x8000, 0x2000, CRC(49af8f22) SHA1(c118372bec0c428c2b60d29df95f358b302d5e66) )

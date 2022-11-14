@@ -180,7 +180,7 @@ public class sidepckt
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_sidepckt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sidepckt )
+	static InputPortHandlerPtr input_ports_sidepckt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sidepckt )
 	    PORT_START();  /* 0x3000 */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
@@ -375,7 +375,7 @@ public class sidepckt
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_sidepckt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sidepckt = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 	    ROM_LOAD( "dh00",         0x00000, 0x10000, CRC(251b316e) SHA1(c777d87621b8fefe0e33156be03da8aed733db9a) )
 	
@@ -397,7 +397,7 @@ public class sidepckt
 	    ROM_LOAD( "dh-08.bpr",    0x0100, 0x0100, CRC(cdf2180f) SHA1(123215d096f88b66396d40d7a579380d0b5b2b89) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sidepctj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sidepctj = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 	    ROM_LOAD( "dh00.bin",     0x00000, 0x10000, CRC(a66bc28d) SHA1(cd62ce1dce6fe42d9745eec50d11e86b076d28e1) )
 	
@@ -419,7 +419,7 @@ public class sidepckt
 	    ROM_LOAD( "dh-08.bpr",    0x0100, 0x0100, CRC(cdf2180f) SHA1(123215d096f88b66396d40d7a579380d0b5b2b89) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sidepctb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sidepctb = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 	    ROM_LOAD( "sp_09.bin",    0x04000, 0x4000, CRC(3c6fe54b) SHA1(4025ac48d75f171f4c979d3fcd6a2f8da18cef4f) )
 	    ROM_LOAD( "sp_08.bin",    0x08000, 0x8000, CRC(347f81cd) SHA1(5ab06130f35788e51a881cc0f387649532145bd6) )

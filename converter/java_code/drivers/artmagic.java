@@ -523,7 +523,7 @@ public class artmagic
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_cheesech = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cheesech )
+	static InputPortHandlerPtr input_ports_cheesech = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cheesech )
 		PORT_START(); 	/* 300000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -611,7 +611,7 @@ public class artmagic
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_ultennis = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ultennis )
+	static InputPortHandlerPtr input_ports_ultennis = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ultennis )
 		PORT_START(); 	/* 300000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -700,7 +700,7 @@ public class artmagic
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_stonebal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stonebal )
+	static InputPortHandlerPtr input_ports_stonebal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stonebal )
 		PORT_START(); 	/* 300000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -891,7 +891,7 @@ public class artmagic
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_cheesech = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cheesech = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for 68000 code */
 		ROM_LOAD16_BYTE( "u102",     0x00000, 0x40000, CRC(1d6e07c5) SHA1(8650868cce47f685d22131aa28aad45033cb0a52) )
 		ROM_LOAD16_BYTE( "u101",     0x00001, 0x40000, CRC(30ae9f95) SHA1(fede5d271aabb654c1efc077253d81ba23786f22) )
@@ -907,7 +907,7 @@ public class artmagic
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ultennis = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ultennis = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for 68000 code */
 		ROM_LOAD16_BYTE( "utu102.bin", 0x00000, 0x40000, CRC(ec31385e) SHA1(244e78619c549712d5541fb252656afeba639bb7) )
 		ROM_LOAD16_BYTE( "utu101.bin", 0x00001, 0x40000, CRC(08a7f655) SHA1(b8a4265472360b68bed71d6c175fc54dff088c1d) )
@@ -922,7 +922,7 @@ public class artmagic
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stonebal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stonebal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for 68000 code */
 		ROM_LOAD16_BYTE( "u102",     0x00000, 0x40000, CRC(712feda1) SHA1(c5b385f425786566fa274fe166a7116615a8ce86) )
 		ROM_LOAD16_BYTE( "u101",     0x00001, 0x40000, CRC(4f1656a9) SHA1(720717ae4166b3ec50bb572197a8c6c96b284648) )
@@ -938,7 +938,7 @@ public class artmagic
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_stoneba2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stoneba2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for 68000 code */
 		ROM_LOAD16_BYTE( "u102.bin", 0x00000, 0x40000, CRC(b3c4f64f) SHA1(6327e9f3cd9deb871a6910cf1f006c8ee143e859) )
 		ROM_LOAD16_BYTE( "u101.bin", 0x00001, 0x40000, CRC(fe373f74) SHA1(bafac4bbd1aae4ccc4ae16205309483f1bbdd464) )

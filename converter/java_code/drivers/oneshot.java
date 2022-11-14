@@ -164,7 +164,7 @@ public class oneshot
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_oneshot = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( oneshot )
+	static InputPortHandlerPtr input_ports_oneshot = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( oneshot )
 		PORT_START(); 	/* DSW 1	(0x19c020.l -> 0x08006c.l) */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );		// 0x080084.l : credits (00-09)
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -255,7 +255,7 @@ public class oneshot
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_maddonna = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( maddonna )
+	static InputPortHandlerPtr input_ports_maddonna = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( maddonna )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "3C_1C") );
@@ -425,7 +425,7 @@ public class oneshot
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_oneshot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_oneshot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "1shot-u.a24", 0x00000, 0x20000, CRC(0ecd33da) SHA1(d050e9a1900cd9f629818034b1445e034b6cf81c) )
 		ROM_LOAD16_BYTE( "1shot-u.a22", 0x00001, 0x20000, CRC(26c3ae2d) SHA1(47e479abe06d508a9d9fe677d34d6a485bde5533) )
@@ -451,7 +451,7 @@ public class oneshot
 		ROM_LOAD( "1shot.mb", 0x00000, 0x10000, CRC(6b213183) SHA1(599c59d155d11edb151bfaed1d24ef964462a447) ) // motherboard rom, zooming?
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_maddonna = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maddonna = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "maddonna.b16", 0x00000, 0x20000, CRC(643f9054) SHA1(77907ecdb02a525f9beed7fee203431eda16c831) )
 		ROM_LOAD16_BYTE( "maddonna.b15", 0x00001, 0x20000, CRC(e36c0e26) SHA1(f261b2c74eeca05df302aa4956f5d02121d42054) )
@@ -476,7 +476,7 @@ public class oneshot
 		ROM_LOAD( "x1", 0x00000, 0x10000, CRC(6b213183) SHA1(599c59d155d11edb151bfaed1d24ef964462a447) ) // motherboard rom, zooming?
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_maddonnb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maddonnb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 Code */
 		/* program roms missing in this dump, gfx don't seem 100% correct for other ones */
 		ROM_LOAD16_BYTE( "maddonnb.b16", 0x00000, 0x20000, NO_DUMP )

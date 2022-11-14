@@ -107,7 +107,7 @@ public class crospang
 		new IO_WritePort( 0x02, 0x02, OKIM6295_data_0_w ),
 	MEMORY_END
 	
-	static InputPortPtr input_ports_crospang = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crospang )
+	static InputPortHandlerPtr input_ports_crospang = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crospang )
 		PORT_START(); 	/* DSW */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP	 | IPF_4WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN	 | IPF_4WAY | IPF_PLAYER1 );
@@ -455,7 +455,7 @@ public class crospang
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_crospang = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crospang = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68k */
 		ROM_LOAD16_BYTE( "p1.bin", 0x00001, 0x20000, CRC(0bcbbaad) SHA1(807f07be340d7af0aad8d49461b5a7f0221ea3b7) )
 		ROM_LOAD16_BYTE( "p2.bin", 0x00000, 0x20000, CRC(0947d204) SHA1(35e7e277c51888a66d305994bf05c3f6bfc3c29e) )

@@ -118,7 +118,7 @@ public class crimfght
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_crimfght = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crimfght )
+	static InputPortHandlerPtr input_ports_crimfght = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crimfght )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -244,7 +244,7 @@ public class crimfght
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_SERVICE4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_crimfgtj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crimfgtj )
+	static InputPortHandlerPtr input_ports_crimfgtj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crimfgtj )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -426,7 +426,7 @@ public class crimfght
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_crimfght = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crimfght = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "821l02.f24", 0x10000, 0x18000, CRC(588e7da6) SHA1(285febb3bcca31f82b34af3695a59eafae01cd30) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -449,7 +449,7 @@ public class crimfght
 		ROM_LOAD( "821k03.e5",  0x00000, 0x40000, CRC(fef8505a) SHA1(5c5121609f69001838963e961cb227d6b64e4f5f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crimfgtj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crimfgtj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "821p02.bin", 0x10000, 0x18000, CRC(f33fa2e1) SHA1(00fc9e8250fa51386f3af2fca0f137bec9e1c220) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -472,7 +472,7 @@ public class crimfght
 		ROM_LOAD( "821k03.e5",  0x00000, 0x40000, CRC(fef8505a) SHA1(5c5121609f69001838963e961cb227d6b64e4f5f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crimfgt2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crimfgt2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "crimefb.r02", 0x10000, 0x18000, CRC(4ecdd923) SHA1(78e5260c4bb9b18d7818fb6300d7e1d3a577fb63) )
 		ROM_CONTINUE(           0x08000, 0x08000 )

@@ -64,7 +64,7 @@ public class pingpong
 	
 	
 	
-	static InputPortPtr input_ports_pingpong = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pingpong )
+	static InputPortHandlerPtr input_ports_pingpong = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pingpong )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -216,7 +216,7 @@ public class pingpong
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_pingpong = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pingpong = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pp_e04.rom",   0x0000, 0x4000, CRC(18552f8f) SHA1(cb03659b5e8a68003e72182a20979384d829280f) )
 		ROM_LOAD( "pp_e03.rom",   0x4000, 0x4000, CRC(ae5f01e8) SHA1(f0d6a2c64822f2662fed3f601e279db18246f894) )

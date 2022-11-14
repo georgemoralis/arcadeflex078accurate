@@ -105,7 +105,7 @@ public class circusc
 	
 	
 	
-	static InputPortPtr input_ports_circusc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( circusc )
+	static InputPortHandlerPtr input_ports_circusc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( circusc )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -286,7 +286,7 @@ public class circusc
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_circusc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_circusc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "s05",          0x6000, 0x2000, CRC(48feafcf) SHA1(0e5bd350fa5fee42569eb0c4accf7512d645b792) )
 		ROM_LOAD( "q04",          0x8000, 0x2000, CRC(c283b887) SHA1(458c398911453d558003f49c298b0d593c941c11) )
@@ -316,7 +316,7 @@ public class circusc
 		ROM_LOAD( "b07_j17.bin",  0x0120, 0x100, CRC(13989357) SHA1(0d61d468f6d3e1570fd18d236ec8cab92db4ed5c) ) /* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_circusc2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_circusc2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "h03_r05.bin",  0x6000, 0x2000, CRC(ed52c60f) SHA1(aa9dc6a57e29895be521ac6a146de56a7beef957) )
 		ROM_LOAD( "h04_n04.bin",  0x8000, 0x2000, CRC(fcc99e33) SHA1(da140a849ac22419e8890414b8984aa264f7e3c7) )
@@ -346,7 +346,7 @@ public class circusc
 		ROM_LOAD( "b07_j17.bin",  0x0120, 0x100, CRC(13989357) SHA1(0d61d468f6d3e1570fd18d236ec8cab92db4ed5c) ) /* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_circuscc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_circuscc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "cc_u05.h3",    0x6000, 0x2000, CRC(964c035a) SHA1(bd69bb755be327d04fc95cd33115663b33b33ed3) )
 		ROM_LOAD( "p04",          0x8000, 0x2000, CRC(dd0c0ee7) SHA1(e56e48f6f251430b7ce0e2cc59cfd00b5c760b9c) )
@@ -376,7 +376,7 @@ public class circusc
 		ROM_LOAD( "b07_j17.bin",  0x0120, 0x100, CRC(13989357) SHA1(0d61d468f6d3e1570fd18d236ec8cab92db4ed5c) ) /* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_circusce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_circusce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "p05",          0x6000, 0x2000, CRC(7ca74494) SHA1(326e081490e413b0638ec77de184b128fb2afd14) )
 		ROM_LOAD( "p04",          0x8000, 0x2000, CRC(dd0c0ee7) SHA1(e56e48f6f251430b7ce0e2cc59cfd00b5c760b9c) )

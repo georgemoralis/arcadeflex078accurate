@@ -61,7 +61,7 @@ public class cheekyms
 	} };
 	
 	
-	static InputPortPtr input_ports_cheekyms = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cheekyms )
+	static InputPortHandlerPtr input_ports_cheekyms = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cheekyms )
 		PORT_START();       /* IN0 */
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "2" );
@@ -182,7 +182,7 @@ public class cheekyms
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_cheekyms = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cheekyms = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cm03.c5",       0x0000, 0x0800, CRC(1ad0cb40) SHA1(2a751395ac19a3218c22cfd3597f9a17b8e31527) )
 		ROM_LOAD( "cm04.c6",       0x0800, 0x0800, CRC(2238f607) SHA1(35df9eb49f6e3c6351fae220d773442cf8536f90) )

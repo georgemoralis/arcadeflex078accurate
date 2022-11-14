@@ -238,7 +238,7 @@ public class sgladiat
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_sgladiat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sgladiat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for cpuA code */
 		ROM_LOAD( "glad.005",	0x0000, 0x4000, CRC(4bc60f0b) SHA1(19baf7533b8fc6bab372f1d35603068a6b93627c) )
 		ROM_LOAD( "glad.004",	0x4000, 0x4000, CRC(db557f46) SHA1(dc3565096c95a20d2c64dd4f5d0b465fbd85e041) )
@@ -269,7 +269,7 @@ public class sgladiat
 		ROM_LOAD( "82s137.003",  0x800, 0x400, CRC(c0e70308) SHA1(d7dbc500bc9991c2d1b95850f3723a2a224fbfbb) )
 	ROM_END(); }}; 
 	
-	static InputPortPtr input_ports_sgladiat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sgladiat )
+	static InputPortHandlerPtr input_ports_sgladiat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sgladiat )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );

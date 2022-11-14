@@ -209,7 +209,7 @@ public class skydiver
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_skydiver = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skydiver )
+	static InputPortHandlerPtr input_ports_skydiver = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skydiver )
 		PORT_START();  /* IN0 */
 		PORT_BIT (0x3f, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT (0x40, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT );
@@ -375,7 +375,7 @@ public class skydiver
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_skydiver = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skydiver = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "33167-02.f1", 0x2800, 0x0800, CRC(25a5c976) SHA1(50fbf5dceab5d78292dc14bf25f2076e8139a594) )
 		ROM_LOAD( "33164-02.e1", 0x3000, 0x0800, CRC(a348ac39) SHA1(7401cbd2f7236bd1d6ad0e39eb3de2b7d75e8f45) )

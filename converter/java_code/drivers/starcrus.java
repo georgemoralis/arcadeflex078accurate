@@ -62,7 +62,7 @@ public class starcrus
 	
 	
 	
-	static InputPortPtr input_ports_starcrus = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( starcrus )
+	static InputPortHandlerPtr input_ports_starcrus = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( starcrus )
 			PORT_START(); 	/* player 1 */
 			PORT_BIT (0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_2WAY );/* ccw */
 			PORT_BIT (0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );/* engine */
@@ -207,7 +207,7 @@ public class starcrus
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_starcrus = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_starcrus = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* code */
 		ROM_LOAD( "starcrus.j1",   0x0000, 0x0200, CRC(0ee60a50) SHA1(7419e7cb4c589da53d4a10ad129373502682464e) )
 		ROM_LOAD( "starcrus.k1",   0x0200, 0x0200, CRC(a7bc3bc4) SHA1(0e38076e921856608b1dd712687bef1c2522b4b8) )

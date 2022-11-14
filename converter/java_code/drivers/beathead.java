@@ -388,7 +388,7 @@ public class beathead
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_beathead = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( beathead )
+	static InputPortHandlerPtr input_ports_beathead = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( beathead )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER2 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER2 );
@@ -470,7 +470,7 @@ public class beathead
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_beathead = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_beathead = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )			/* dummy ASAP region */
 	
 		ROM_REGION( 0x14000, REGION_CPU2, 0 )			/* 64k + 16k for 6502 code */

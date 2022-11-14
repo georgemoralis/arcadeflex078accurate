@@ -138,7 +138,7 @@ public class speedbal
 	
 	
 	
-	static InputPortPtr input_ports_speedbal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( speedbal )
+	static InputPortHandlerPtr input_ports_speedbal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( speedbal )
 		PORT_START();       /* DSW2 */
 		PORT_DIPNAME( 0x07, 0x07, DEF_STR( "Bonus_Life") );
 		PORT_DIPSETTING(    0x06, "70000 200000 1M" );
@@ -303,7 +303,7 @@ public class speedbal
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_speedbal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_speedbal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64K for code: main */
 		ROM_LOAD( "sb1.bin",  0x0000,  0x8000, CRC(1c242e34) SHA1(8b2e8983e0834c99761ce2b5ea765dba56e77964) )
 		ROM_LOAD( "sb3.bin",  0x8000,  0x8000, CRC(7682326a) SHA1(15a72bf088a9adfaa50c11202b4970e07c309a21) )

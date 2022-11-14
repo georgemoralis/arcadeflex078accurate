@@ -239,7 +239,7 @@ public class sengokmj
 	
 	/***************************************************************************************/
 	
-	static InputPortPtr input_ports_sengokmj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sengokmj )
+	static InputPortHandlerPtr input_ports_sengokmj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sengokmj )
 		/* Must be port 0: coin inputs read through sound cpu */
 		SEIBU_COIN_INPUTS
 	
@@ -358,7 +358,7 @@ public class sengokmj
 	/***************************************************************************************/
 	
 	
-	static RomLoadPtr rom_sengokmj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sengokmj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* V30 code */
 		ROM_LOAD16_BYTE( "mm01-1-1.21",  0xc0000, 0x20000, CRC(74076b46) SHA1(64b0ed5a8c32e21157ae12fe40519e4c605b329c))
 		ROM_LOAD16_BYTE( "mm01-2-1.24",  0xc0001, 0x20000, CRC(f1a7c131) SHA1(d0fbbdedbff8f05da0e0296baa41369bc41a67e4))

@@ -268,7 +268,7 @@ public class sprint2
 	};
 	
 	
-	static InputPortPtr input_ports_sprint2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sprint2 )
+	static InputPortHandlerPtr input_ports_sprint2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sprint2 )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x00, "Tracks on Demo" );
 		PORT_DIPSETTING(    0x00, "Easy Track Only" );
@@ -334,7 +334,7 @@ public class sprint2
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sprint1 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sprint1 )
+	static InputPortHandlerPtr input_ports_sprint1 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sprint1 )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x00, "Change Track" );
 		PORT_DIPSETTING(    0x01, "Every Lap" );
@@ -389,7 +389,7 @@ public class sprint2
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_dominos = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dominos )
+	static InputPortHandlerPtr input_ports_dominos = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dominos )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x01, "Points to Win" );
 		PORT_DIPSETTING(	0x03, "6" );
@@ -879,7 +879,7 @@ public class sprint2
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_sprint1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprint1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "6290-01.b1", 0x2000, 0x0800, CRC(41fc985e) SHA1(7178846480cbf8d15955ccd987d0b0e902ab9f90) )
 		ROM_RELOAD(             0xe000, 0x0800 )
@@ -904,7 +904,7 @@ public class sprint2
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sprint2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprint2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "6290-01.b1", 0x2000, 0x0800, CRC(41fc985e) SHA1(7178846480cbf8d15955ccd987d0b0e902ab9f90) )
 		ROM_RELOAD(             0xe000, 0x0800 )
@@ -929,7 +929,7 @@ public class sprint2
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sprint2a = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprint2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "6290-01.b1", 0x2000, 0x0800, CRC(41fc985e) SHA1(7178846480cbf8d15955ccd987d0b0e902ab9f90) )
 		ROM_RELOAD(             0xe000, 0x0800 )
@@ -954,7 +954,7 @@ public class sprint2
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_dominos = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dominos = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "7352-02.d1",   0x3000, 0x0800, CRC(738b4413) SHA1(3a90ab25bb5f65504692f97da43f03e21392dcd8) )
 		ROM_RELOAD(               0xf000, 0x0800 )

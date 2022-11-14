@@ -201,7 +201,7 @@ public class gyruss
 	
 	
 	
-	static InputPortPtr input_ports_gyruss = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gyruss )
+	static InputPortHandlerPtr input_ports_gyruss = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gyruss )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -299,7 +299,7 @@ public class gyruss
 	
 	/* This is identical to gyruss except for the bonus that has different
 	   values */
-	static InputPortPtr input_ports_gyrussce = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( gyrussce )
+	static InputPortHandlerPtr input_ports_gyrussce = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gyrussce )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -502,7 +502,7 @@ public class gyruss
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_gyruss = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gyruss = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "gyrussk.1",    0x0000, 0x2000, CRC(c673b43d) SHA1(7c464fb154bac35dd6e2f547e157addeb8798194) )
 		ROM_LOAD( "gyrussk.2",    0x2000, 0x2000, CRC(a4ec03e4) SHA1(08c33ad7fcc2ad5e5787a1050284e3f8164f4618) )
@@ -535,7 +535,7 @@ public class gyruss
 		ROM_LOAD( "gyrussk.pr2",  0x0120, 0x0100, CRC(de823a81) SHA1(1af94b2a6a319a89b238a5076a2867f1cfd279b0) )	/* character lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gyrussce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gyrussce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "gya-1.bin",    0x0000, 0x2000, CRC(85f8b7c2) SHA1(5dde696b53efedee671d500feae1d314e95b1c96) )
 		ROM_LOAD( "gya-2.bin",    0x2000, 0x2000, CRC(1e1a970f) SHA1(5a2e391489608f7571bbb4f85549a79795e2177e) )
@@ -568,7 +568,7 @@ public class gyruss
 		ROM_LOAD( "gyrussk.pr2",  0x0120, 0x0100, CRC(de823a81) SHA1(1af94b2a6a319a89b238a5076a2867f1cfd279b0) )	/* character lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_venus = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_venus = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "r1",           0x0000, 0x2000, CRC(d030abb1) SHA1(14a70e15f5df9ef957779771d8915203d3828532) )
 		ROM_LOAD( "r2",           0x2000, 0x2000, CRC(dbf65d4d) SHA1(a0ad0dc3420442f06691bda2115fadd961ce86a7) )

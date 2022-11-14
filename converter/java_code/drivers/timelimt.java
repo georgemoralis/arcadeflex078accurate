@@ -113,7 +113,7 @@ public class timelimt
 	
 	/***************************************************************************/
 	
-	static InputPortPtr input_ports_timelimt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( timelimt )
+	static InputPortHandlerPtr input_ports_timelimt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( timelimt )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
@@ -158,7 +158,7 @@ public class timelimt
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_progress = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( progress )
+	static InputPortHandlerPtr input_ports_progress = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( progress )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT );
@@ -317,7 +317,7 @@ public class timelimt
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_timelimt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_timelimt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* ROMs */
 		ROM_LOAD( "t8",     0x0000, 0x2000, CRC(006767ca) SHA1(a5d528c58cd73c0101ffa9ab783ec870668256db) )
 		ROM_LOAD( "t7",     0x2000, 0x2000, CRC(cbe7cd86) SHA1(502a78c14c9717a466ea24cdc63da4c0f3bec1f9) )
@@ -347,7 +347,7 @@ public class timelimt
 		/* missing a prom? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_progress = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_progress = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* ROMs */
 		ROM_LOAD( "pg8.bin",     0x0000, 0x2000, CRC(e8779658) SHA1(3eca574d7328d54e544e663f58be789dbf151e77) )
 		ROM_LOAD( "pg7.bin",     0x2000, 0x2000, CRC(5dcf6b6f) SHA1(550f02ff5ed2935f4c3c9055c5742fea46f42351) )

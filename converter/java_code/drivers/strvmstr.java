@@ -140,7 +140,7 @@ public class strvmstr
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_strvmstr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( strvmstr )
+	static InputPortHandlerPtr input_ports_strvmstr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( strvmstr )
 		PORT_START(); 
 		PORT_SERVICE( 0x01, IP_ACTIVE_LOW );
 		PORT_DIPNAME( 0x02, 0x02, DEF_STR( "Unknown") );
@@ -293,7 +293,7 @@ public class strvmstr
 		MDRV_SOUND_ADD(AY8910, ay8912_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_strvmstr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_strvmstr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "stm16.u16",    0x0000, 0x8000, CRC(ae734db9) SHA1(1bacdfdebaa1f250bfbd49053c3910f1396afe11) ) 
 		

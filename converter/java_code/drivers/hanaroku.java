@@ -153,7 +153,7 @@ public class hanaroku
 	};
 	
 	
-	static InputPortPtr input_ports_hanaroku = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hanaroku )
+	static InputPortHandlerPtr input_ports_hanaroku = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hanaroku )
 		PORT_START(); 	// IN0	(0xe000)
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_COIN1 );	// adds n credits depending on "Coinage" Dip Switch
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_COIN2 );	// adds 5 credits
@@ -270,7 +270,7 @@ public class hanaroku
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_hanaroku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hanaroku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* z80 code */
 		ROM_LOAD( "zc5_1a.u02",  0x00000, 0x08000, CRC(9e3b62ce) SHA1(81aee570b67950c21ab3c8f9235dd383529b34d5) )
 	

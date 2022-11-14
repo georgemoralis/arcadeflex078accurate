@@ -171,7 +171,7 @@ public class ultraman
 	};
 	
 	
-	static InputPortPtr input_ports_ultraman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ultraman )
+	static InputPortHandlerPtr input_ports_ultraman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ultraman )
 	
 		PORT_START(); 	/* Coins + Service */
 		PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -316,7 +316,7 @@ public class ultraman
 	
 	
 	
-	static RomLoadPtr rom_ultraman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ultraman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"910-b01.c11",	0x000000, 0x020000, CRC(3d9e4323) SHA1(54ee218c9be1ac029836624839d0845b39e6e30f) )
 		ROM_LOAD16_BYTE(	"910-b02.d11",	0x000001, 0x020000, CRC(d24c82e9) SHA1(e792e2601e235939546fe98d52bfafe5a95b3491) )

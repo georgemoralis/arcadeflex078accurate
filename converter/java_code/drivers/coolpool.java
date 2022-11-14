@@ -433,7 +433,7 @@ public class coolpool
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_amerdart = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( amerdart )
+	static InputPortHandlerPtr input_ports_amerdart = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( amerdart )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_START1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_START2 );
@@ -512,7 +512,7 @@ public class coolpool
 		PORT_SERVICE( 0x8000, IP_ACTIVE_LOW );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_9ballsht = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 9ballsht )
+	static InputPortHandlerPtr input_ports_9ballsht = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 9ballsht )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_HIGH, IPT_SERVICE1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_HIGH, IPT_SERVICE2 );
@@ -687,7 +687,7 @@ public class coolpool
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_amerdart = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_amerdart = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( TOBYTE(0x100000), REGION_CPU1, 0 )		/* 34010 dummy region */
 	
 		ROM_REGION16_LE( 0x0a0000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */
@@ -725,7 +725,7 @@ public class coolpool
 		ROM_LOAD16_WORD( "u23",  0x0f0000, 0x10000, CRC(d7c2b13b) SHA1(3561e08011f649e4d0c47792745b2a014167e816) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_coolpool = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_coolpool = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* dummy region for TMS34010 */
 	
 		ROM_REGION16_LE( 0x40000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */
@@ -765,7 +765,7 @@ public class coolpool
 		ROM_LOAD( "u10c",         0x1c0000, 0x40000, CRC(a3dbcae3) SHA1(af997f3f56f406d5eb9fa415e1672b2d129815b8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_9ballsht = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_9ballsht = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* dummy region for TMS34010 */
 	
 		ROM_REGION16_LE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */
@@ -789,7 +789,7 @@ public class coolpool
 	  all ROMs for this set were missing except for the main program,
 	  I assume the others are the same.
 	 */
-	static RomLoadPtr rom_9ballsh2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_9ballsh2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* dummy region for TMS34010 */
 	
 		ROM_REGION16_LE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */
@@ -809,7 +809,7 @@ public class coolpool
 		ROM_LOAD( "u53",          0x80000, 0x80000, CRC(d401805d) SHA1(f4bcb2bdc45c3bc5ca423e518cdea8b3a7e8d60e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_9ballsh3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_9ballsh3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* dummy region for TMS34010 */
 	
 		ROM_REGION16_LE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )	/* 34010 code */

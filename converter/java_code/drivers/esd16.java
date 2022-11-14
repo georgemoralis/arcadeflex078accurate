@@ -258,7 +258,7 @@ public class esd16
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_multchmp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( multchmp )
+	static InputPortHandlerPtr input_ports_multchmp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( multchmp )
 		PORT_START(); 	// IN0 - $600002.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -337,7 +337,7 @@ public class esd16
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hedpanic = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hedpanic )
+	static InputPortHandlerPtr input_ports_hedpanic = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hedpanic )
 		PORT_START(); 	// IN0 - $600002.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER1 );
@@ -575,7 +575,7 @@ public class esd16
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_multchmp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_multchmp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "multchmp.u02", 0x000000, 0x040000, CRC(7da8c0df) SHA1(763a3240554a02d8a9a0b13b6bfcd384825a6c57) )
 		ROM_LOAD16_BYTE( "multchmp.u03", 0x000001, 0x040000, CRC(5dc62799) SHA1(ff7882985efc20309c3f901a622f1beffa0c47be) )
@@ -641,7 +641,7 @@ public class esd16
 	***************************************************************************/
 	
 	
-	static RomLoadPtr rom_hedpanic = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hedpanic = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "esd2", 0x000000, 0x040000, CRC(8cccc691) SHA1(d6a5dd6c21a67638b9023182f77780282b9b04e5) )
 		ROM_LOAD16_BYTE( "esd1", 0x000001, 0x040000, CRC(d8574925) SHA1(bd4990778b90a49aa6b10f8cf6709ce2424f546a) )

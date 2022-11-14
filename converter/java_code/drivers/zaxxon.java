@@ -412,7 +412,7 @@ public class zaxxon
 	
 	/* Input Ports */
 	
-	static InputPortPtr input_ports_zaxxon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zaxxon )
+	static InputPortHandlerPtr input_ports_zaxxon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zaxxon )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -497,7 +497,7 @@ public class zaxxon
 		PORT_BITX(0x01, IP_ACTIVE_HIGH, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, JOYCODE_NONE )
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_szaxxon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( szaxxon )
+	static InputPortHandlerPtr input_ports_szaxxon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( szaxxon )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -585,7 +585,7 @@ public class zaxxon
 		PORT_BITX(0x01, IP_ACTIVE_HIGH, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE )
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_razmataz = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( razmataz )
+	static InputPortHandlerPtr input_ports_razmataz = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( razmataz )
 		PORT_START(); 	/* IN0 */
 		PORT_ANALOG( 0xff, 0x00, IPT_DIAL | IPF_CENTER | IPF_PLAYER1, 30, 15, 0, 0 );
 	
@@ -661,7 +661,7 @@ public class zaxxon
 		PORT_BIT( 0xc0, IP_ACTIVE_HIGH, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ixion = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ixion )
+	static InputPortHandlerPtr input_ports_ixion = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ixion )
 		PORT_START(); 	/* IN0 */
 		PORT_ANALOGX( 0xff, 0x00, IPT_DIAL | IPF_CENTER, 30, 15, 0, 0, KEYCODE_Z, KEYCODE_X, 0, 0 );
 	
@@ -734,7 +734,7 @@ public class zaxxon
 		PORT_BITX(0x01, IP_ACTIVE_HIGH, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE )
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_congo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( congo )
+	static InputPortHandlerPtr input_ports_congo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( congo )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -829,7 +829,7 @@ public class zaxxon
 		PORT_BITX(0x01, IP_ACTIVE_HIGH, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE )
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tiptop = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tiptop )
+	static InputPortHandlerPtr input_ports_tiptop = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tiptop )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -924,7 +924,7 @@ public class zaxxon
 		PORT_BITX(0x01, IP_ACTIVE_HIGH, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE )
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_futspy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( futspy )
+	static InputPortHandlerPtr input_ports_futspy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( futspy )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -1260,7 +1260,7 @@ public class zaxxon
 	
 	/* ROMs */
 	
-	static RomLoadPtr rom_zaxxon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zaxxon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "zaxxon.3",     0x0000, 0x2000, CRC(6e2b4a30) SHA1(80ac53c554c84226b119cbe3cf3470bcdbcd5762) )
 		ROM_LOAD( "zaxxon.2",     0x2000, 0x2000, CRC(1c9ea398) SHA1(0cd259be3fa80f3d53dfa76d5ca06773cdfe5945) )
@@ -1292,7 +1292,7 @@ public class zaxxon
 		ROM_LOAD( "zaxxon.u72",   0x0100, 0x0100, CRC(deaa21f7) SHA1(0cf08fb62f77d93ff7cb883c633e0db35906e11d) ) /* char lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_zaxxon2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zaxxon2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "3a",           0x0000, 0x2000, CRC(b18e428a) SHA1(d3ff077e37a3ed8a9cc32cba19e1694b79df6b30) )
 		ROM_LOAD( "zaxxon.2",     0x2000, 0x2000, CRC(1c9ea398) SHA1(0cd259be3fa80f3d53dfa76d5ca06773cdfe5945) )
@@ -1324,7 +1324,7 @@ public class zaxxon
 		ROM_LOAD( "j214a2.72",    0x0100, 0x0100, CRC(a9e1fb43) SHA1(57dbcfe2438fd090c08594818549aeea6339eab2) ) /* char lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_zaxxonb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zaxxonb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "zaxxonb.3",    0x0000, 0x2000, CRC(125bca1c) SHA1(f4160966d42e5282736cde8a276204ba8910ca61) )
 		ROM_LOAD( "zaxxonb.2",    0x2000, 0x2000, CRC(c088df92) SHA1(c0c6cd8dcf6db65129980331fa9ecc3800b63436) )
@@ -1356,7 +1356,7 @@ public class zaxxon
 		ROM_LOAD( "zaxxon.u72",   0x0100, 0x0100, CRC(deaa21f7) SHA1(0cf08fb62f77d93ff7cb883c633e0db35906e11d) ) /* char lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_szaxxon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_szaxxon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "suzaxxon.3",   0x0000, 0x2000, CRC(af7221da) SHA1(b5d3beb296d52ed69b4ceacf329c20a72e3a1dce) )
 		ROM_LOAD( "suzaxxon.2",   0x2000, 0x2000, CRC(1b90fb2a) SHA1(afb2bd2ffee3f5e589064f59b6ac21ed915094df) )
@@ -1388,7 +1388,7 @@ public class zaxxon
 		ROM_LOAD( "suzaxxon.u72", 0x0100, 0x0100, CRC(deaa21f7) SHA1(0cf08fb62f77d93ff7cb883c633e0db35906e11d) ) /* char lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_razmataz = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_razmataz = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "u27",           0x0000, 0x2000, CRC(254f350f) SHA1(f8e84778b7ffc4da76e97992f01c742c212480cf) )
 		ROM_LOAD( "u28",           0x2000, 0x2000, CRC(3a1eaa99) SHA1(d1f2a61a8548135c9754097aa468672616244710) )
@@ -1424,7 +1424,7 @@ public class zaxxon
 		ROM_LOAD( "1924.u51",      0x0800, 0x0800, CRC(a75e0011) SHA1(7d67ce2e8a2de471221b3b565a937ae1a35e1560) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ixion = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ixion = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "1937d.u27",           0x0000, 0x2000, CRC(f447aac5) SHA1(f6ec02f20482649ba1765254e0e67a8593075092) )
 		ROM_LOAD( "1938b.u28",           0x2000, 0x2000, CRC(17f48640) SHA1(d661e8ae0747c2c526360cb72e403deba7a98e71) )
@@ -1460,7 +1460,7 @@ public class zaxxon
 		ROM_LOAD( "1944a.u51",      0x0800, 0x0800, CRC(88215098) SHA1(54bd1c71e7f10f20623e47f4e791f54ce698bc08) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_congo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_congo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "congo1.bin",   0x0000, 0x2000, CRC(09355b5b) SHA1(0085ac7eb0035a88cb54cdd3dd6b2643141d39db) )
 		ROM_LOAD( "congo2.bin",   0x2000, 0x2000, CRC(1c5e30ae) SHA1(7cc5420e0e7a2793a671b938c121ae4079f5b1b8) )
@@ -1497,7 +1497,7 @@ public class zaxxon
 		ROM_LOAD( "congo.u68",    0x0000, 0x100, CRC(b788d8ae) SHA1(9765180f3087140c75e5953409df841787558160) ) /* palette */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tiptop = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tiptop = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "tiptop1.bin",  0x0000, 0x2000, CRC(e19dc77b) SHA1(d3782dd55701e0f5cd426ad2771c1bd0264c366a) )
 		ROM_LOAD( "tiptop2.bin",  0x2000, 0x2000, CRC(3fcd3b6e) SHA1(2898807ee36fca7fbc06616c9a070604beb782b9) )
@@ -1534,7 +1534,7 @@ public class zaxxon
 		ROM_LOAD( "congo.u68",    0x0000, 0x100, CRC(b788d8ae) SHA1(9765180f3087140c75e5953409df841787558160) ) /* palette */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_futspy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_futspy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "fs_snd.u27",   0x0000, 0x2000, CRC(7578fe7f) SHA1(ab42bdf74b07c1ba5337c3d34647d3ee16f9db05) )
 		ROM_LOAD( "fs_snd.u28",   0x2000, 0x2000, CRC(8ade203c) SHA1(f095f4019befff7af4203c886ef42357f79592a1) )

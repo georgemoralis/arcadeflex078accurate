@@ -375,7 +375,7 @@ public class zaccaria
 	
 	
 	
-	static InputPortPtr input_ports_monymony = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( monymony )
+	static InputPortHandlerPtr input_ports_monymony = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( monymony )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "2" );
@@ -484,7 +484,7 @@ public class zaccaria
 		/* other bits come from a protection device */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_jackrabt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jackrabt )
+	static InputPortHandlerPtr input_ports_jackrabt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jackrabt )
 		PORT_START(); 
 		PORT_DIPNAME( 0x03, 0x01, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "2" );
@@ -701,7 +701,7 @@ public class zaccaria
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_monymony = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_monymony = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1a",           0x0000, 0x1000, CRC(13c227ca) SHA1(be305d112917904dd130b08f6b5186e3fbcb858a) )
 		ROM_CONTINUE(             0x8000, 0x1000 )
@@ -736,7 +736,7 @@ public class zaccaria
 		ROM_LOAD( "monymony.9f",  0x0200, 0x0200, CRC(93106704) SHA1(d3b8281c87d253a2ed40ff400438e879ca40c2b7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jackrabt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jackrabt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cpu-01.1a",    0x0000, 0x1000, CRC(499efe97) SHA1(f0efc910a5343001b27637779e1d4de218d44a4e) )
 		ROM_CONTINUE(             0x8000, 0x1000 )
@@ -771,7 +771,7 @@ public class zaccaria
 		ROM_LOAD( "jr-ic9f",      0x0200, 0x0200, CRC(085914d1) SHA1(3d6f9318f5a9f08ce89e4184e3efb9881f671fa7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jackrab2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jackrab2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1cpu2.1a",     0x0000, 0x1000, CRC(f9374113) SHA1(521f293f1894bcaf21e44bc7841a20ae29232da3) )
 		ROM_CONTINUE(             0x8000, 0x1000 )
@@ -806,7 +806,7 @@ public class zaccaria
 		ROM_LOAD( "jr-ic9f",      0x0200, 0x0200, CRC(085914d1) SHA1(3d6f9318f5a9f08ce89e4184e3efb9881f671fa7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jackrabs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jackrabs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1cpu.1a",      0x0000, 0x1000, CRC(6698dc65) SHA1(33e3518846e88dc34f4b6c4e9ca9f8999c0460c8) )
 		ROM_CONTINUE(             0x8000, 0x1000 )

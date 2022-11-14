@@ -255,7 +255,7 @@ public class kinst
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_kinst = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kinst )
+	static InputPortHandlerPtr input_ports_kinst = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kinst )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER1 );
@@ -400,7 +400,7 @@ public class kinst
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_kinst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kinst = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy region for R3000 */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x800000, REGION_CPU2, 0 )	/* ADSP-2105 data */
@@ -423,7 +423,7 @@ public class kinst
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_kinst2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kinst2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* dummy region for R3000 */
 	
 		ROM_REGION32_LE( 0x80000, REGION_USER1, 0 )	/* 512k for R4600 code */

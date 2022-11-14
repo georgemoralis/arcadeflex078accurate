@@ -425,7 +425,7 @@ public class qix
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_TILT );
 	
 	
-	static InputPortPtr input_ports_qix = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( qix )
+	static InputPortHandlerPtr input_ports_qix = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( qix )
 		PORT_START(); 	/* PIA 0 Port A (PLAYER 1) */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_4WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
@@ -456,7 +456,7 @@ public class qix
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sdungeon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sdungeon )
+	static InputPortHandlerPtr input_ports_sdungeon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sdungeon )
 		PORT_START(); 	/* PIA 0 Port A (PLAYER 1) */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_UP     | IPF_8WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_RIGHT  | IPF_8WAY );
@@ -490,7 +490,7 @@ public class qix
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_elecyoyo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( elecyoyo )
+	static InputPortHandlerPtr input_ports_elecyoyo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( elecyoyo )
 		PORT_START(); 	/* PIA 0 Port A (PLAYER 1) */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_4WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
@@ -519,7 +519,7 @@ public class qix
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_kram = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kram )
+	static InputPortHandlerPtr input_ports_kram = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kram )
 		PORT_START(); 	/* PIA 0 Port A (PLAYER 1) */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -550,7 +550,7 @@ public class qix
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_zookeep = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( zookeep )
+	static InputPortHandlerPtr input_ports_zookeep = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( zookeep )
 		PORT_START(); 	/* PIA 0 Port A (PLAYER 1) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
@@ -581,7 +581,7 @@ public class qix
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_slither = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( slither )
+	static InputPortHandlerPtr input_ports_slither = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( slither )
 		PORT_START(); 	/* PIA 0 Port A (PLAYER 1) */
 	    PORT_BIT( 0x0f, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -618,7 +618,7 @@ public class qix
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_complexx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( complexx )
+	static InputPortHandlerPtr input_ports_complexx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( complexx )
 		PORT_START(); 	/* PIA 0 Port A (Left Stick) */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_UP     | IPF_8WAY );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICKLEFT_RIGHT  | IPF_8WAY );
@@ -774,7 +774,7 @@ public class qix
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_qix = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qix = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "u12", 0xc000, 0x0800, CRC(aad35508) SHA1(5fa72e00b4373de21e27a86b49a44a9769f769f4) )
 		ROM_LOAD( "u13", 0xc800, 0x0800, CRC(46c13504) SHA1(19c084c38b75f14bf5094b317afeecaca6870f7a) )
@@ -799,7 +799,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_qixa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qixa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "qu12", 0xc000, 0x0800, CRC(1c55b44d) SHA1(6385e5e484e24cf396c14de86344170639c3cc65) )
 		ROM_LOAD( "qu13", 0xc800, 0x0800, CRC(20279e8c) SHA1(722da239636de3fe40318768ddbe687b19afcdb6) )
@@ -825,7 +825,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_qixb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qixb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "lk14.bin", 0xc000, 0x1000, CRC(6d164986) SHA1(c805abe1a441e10080ceca8ba547835bafb61bcc) )
 		ROM_LOAD( "lk15.bin", 0xd000, 0x1000, CRC(16c6ce0f) SHA1(b8091d2db476d2acb4b3f0789e1f155336be9b39) )
@@ -843,7 +843,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_qix2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qix2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "u12.rmb", 0xc000, 0x0800, CRC(484280fd) SHA1(a60c1a278e519721294b2486dc817d248d19c3be) )
 		ROM_LOAD( "u13.rmb", 0xc800, 0x0800, CRC(3d089fcb) SHA1(f4f31134c9c15160d2d15cb41296dfec6f2dfe37) )
@@ -869,7 +869,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sdungeon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sdungeon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "sd14.u14", 0xa000, 0x1000, CRC(7024b55a) SHA1(1e21cb2a9cba8c0a3684e137ff78d4b331d86922) )
 		ROM_LOAD( "sd15.u15", 0xb000, 0x1000, CRC(a3ac9040) SHA1(f033c21983e87688884180c2336d766a0fa49765) )
@@ -895,7 +895,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_elecyoyo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elecyoyo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	    ROM_LOAD( "yy14",   0xa000, 0x1000, CRC(0d2edcb9) SHA1(36e1a1aa81111f38e1c06a8174e7de406478cc67) )
 	    ROM_LOAD( "yy15",   0xb000, 0x1000, CRC(a91f01e3) SHA1(7818299d25a0816b856e83fae02d8019e5e8b4a3) )
@@ -920,7 +920,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_elecyoy2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elecyoy2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	    ROM_LOAD( "yy14",  0xa000, 0x1000, CRC(0d2edcb9) SHA1(36e1a1aa81111f38e1c06a8174e7de406478cc67) )
 	    ROM_LOAD( "yy15",  0xb000, 0x1000, CRC(a91f01e3) SHA1(7818299d25a0816b856e83fae02d8019e5e8b4a3) )
@@ -945,7 +945,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_kram = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kram = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	    ROM_LOAD( "ks14-1", 0xa000, 0x1000, CRC(fe69ac79) SHA1(6df0f98e6c0901c058123988bf22a6dd9f0a1fac) )
 	    ROM_LOAD( "ks15",   0xb000, 0x1000, CRC(4b2c175e) SHA1(4f9d4dcc78a12e994d499b182c8229d5fa63b805) )
@@ -970,7 +970,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_kram2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kram2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	    ROM_LOAD( "ks14", 0xa000, 0x1000, CRC(a2eac1ff) SHA1(128f83b1760492cbb272828ad8c67ea9a5db862a) )
 	    ROM_LOAD( "ks15", 0xb000, 0x1000, CRC(4b2c175e) SHA1(4f9d4dcc78a12e994d499b182c8229d5fa63b805) )
@@ -995,7 +995,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_kram3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kram3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	    ROM_LOAD( "kr-u14", 0xa000, 0x1000, CRC(02c1bd1e) SHA1(5f13f32ca2da0e93ed43b052c8c33af9ac67cb6c) )
 	    ROM_LOAD( "kr-u15", 0xb000, 0x1000, CRC(46b3ff33) SHA1(7db45971972df144a21fee4cc015b0190b502e12) )
@@ -1017,7 +1017,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_zookeep = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zookeep = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "za12", 0x8000, 0x1000, CRC(4e40d8dc) SHA1(dd7923dcb55a2a1ae0f2029caf5a8904a9ebe8b1) )
 		ROM_LOAD( "za13", 0x9000, 0x1000, CRC(eebd5248) SHA1(ebe7f8c436bfefa4236f603fbcbd38d2f4cfd2bd) )
@@ -1049,7 +1049,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_zookeep2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zookeep2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "za12",     0x8000, 0x1000, CRC(4e40d8dc) SHA1(dd7923dcb55a2a1ae0f2029caf5a8904a9ebe8b1) )
 		ROM_LOAD( "za13",     0x9000, 0x1000, CRC(eebd5248) SHA1(ebe7f8c436bfefa4236f603fbcbd38d2f4cfd2bd) )
@@ -1081,7 +1081,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_zookeep3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zookeep3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "za12",    0x8000, 0x1000, CRC(4e40d8dc) SHA1(dd7923dcb55a2a1ae0f2029caf5a8904a9ebe8b1) )
 		ROM_LOAD( "za13",    0x9000, 0x1000, CRC(eebd5248) SHA1(ebe7f8c436bfefa4236f603fbcbd38d2f4cfd2bd) )
@@ -1113,7 +1113,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_slither = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slither = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "u31.cpu", 0xd800, 0x0800, CRC(3dfff970) SHA1(ee50840e26aa7be226dbe9a32a8344bb75b8de07) )
 		ROM_LOAD( "u30.cpu", 0xe000, 0x0800, CRC(8cbc5af8) SHA1(3d563d0bbbce007bd6db6d620e1b0996c67029f6) )
@@ -1131,7 +1131,7 @@ public class qix
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_slithera = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_slithera = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "u31.cpu", 0xd800, 0x0800, CRC(3dfff970) SHA1(ee50840e26aa7be226dbe9a32a8344bb75b8de07) )
 		ROM_LOAD( "u30.cpu", 0xe000, 0x0800, CRC(8cbc5af8) SHA1(3d563d0bbbce007bd6db6d620e1b0996c67029f6) )
@@ -1148,7 +1148,7 @@ public class qix
 		ROM_LOAD( "u36a.cpu",0xf800, 0x0800, CRC(5ac4e244) SHA1(077bf6f3cb98c3f7845393fb57a080d5bdfc2920) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_complexx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_complexx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "cx14.bin", 0xa000, 0x1000, CRC(f123a0de) SHA1(fbb64c33d01031e9da78e725dbdaf87d6e33e23c) )
 		ROM_LOAD( "cx15.bin", 0xb000, 0x1000, CRC(0fcb966f) SHA1(f7ea6f0ce356629b8133214c7b2e5ede41c54e6c) )

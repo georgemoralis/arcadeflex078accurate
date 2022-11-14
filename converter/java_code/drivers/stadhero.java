@@ -137,7 +137,7 @@ public class stadhero
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_stadhero = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stadhero )
+	static InputPortHandlerPtr input_ports_stadhero = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stadhero )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_8WAY );
@@ -334,7 +334,7 @@ public class stadhero
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_stadhero = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stadhero = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "ef15.bin",  0x00000, 0x10000, CRC(bbba364e) SHA1(552096102f402085596635f02096462c6b8e13a7) )
 		ROM_LOAD16_BYTE( "ef13.bin",  0x00001, 0x10000, CRC(97c6717a) SHA1(6c81260f49a59f70c71f520e51330a6833828684) )

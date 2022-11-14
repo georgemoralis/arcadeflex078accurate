@@ -106,7 +106,7 @@ public class funkybee
 	};
 	
 	
-	static InputPortPtr input_ports_funkybee = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( funkybee )
+	static InputPortHandlerPtr input_ports_funkybee = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( funkybee )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -156,7 +156,7 @@ public class funkybee
 		PORT_DIPSETTING(	0x80, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_skylancr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skylancr )
+	static InputPortHandlerPtr input_ports_skylancr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skylancr )
 		PORT_START(); 		/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -288,7 +288,7 @@ public class funkybee
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_funkybee = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_funkybee = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "funkybee.1",    0x0000, 0x1000, CRC(3372cb33) SHA1(09f2673cdeaadba8211d86a19e727aebb4d8be9d) )
 		ROM_LOAD( "funkybee.3",    0x1000, 0x1000, CRC(7bf7c62f) SHA1(f8e5514c17fddb8ed95e5e18aab81ad0ebcc41af) )
@@ -305,7 +305,7 @@ public class funkybee
 		ROM_LOAD( "funkybee.clr",  0x0000, 0x0020, CRC(e2cf5fe2) SHA1(50b293f48f078cbcebccb045aa779ced2fb298c8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_skylancr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skylancr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1.5a",          0x0000, 0x2000, CRC(82d55824) SHA1(5c457e720ac8611bea4bc7e63ba4ee1c11200471) )
 		ROM_LOAD( "2.5c",          0x2000, 0x2000, CRC(dff3a682) SHA1(e3197e106c2c6d198d2769b63701222d48a196d1) )

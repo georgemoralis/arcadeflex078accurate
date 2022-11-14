@@ -252,7 +252,7 @@ public class tbowl
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START##_n_ );
 	
 	
-	static InputPortPtr input_ports_tbowl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tbowl )
+	static InputPortHandlerPtr input_ports_tbowl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tbowl )
 		PORT_START(); 	/* player 1 inputs (0xfc00) */
 		TBOWL_PLAYER_INPUT(1)
 	
@@ -358,7 +358,7 @@ public class tbowl
 	
 	/* same as 'tbowl', but different "Quarter Time" Dip Switch
 	   ("3:00" and "4:00" are inverted) */
-	static InputPortPtr input_ports_tbowlj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tbowlj )
+	static InputPortHandlerPtr input_ports_tbowlj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tbowlj )
 		PORT_START(); 	/* player 1 inputs (0xfc00) */
 		TBOWL_PLAYER_INPUT(1)
 	
@@ -652,7 +652,7 @@ public class tbowl
 	***/
 	
 	
-	static RomLoadPtr rom_tbowl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tbowl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* NEC D70008AC-8 (Z80 Clone) */
 		ROM_LOAD( "4.11b",	    0x00000, 0x08000, CRC(db8a4f5d) SHA1(730dee040c18ed8736c07a7de0b986f667b0f2f5) )
 		ROM_LOAD( "6206b.5",	0x10000, 0x10000, CRC(133c5c11) SHA1(7d4e76db3505ccf033d0d9b8d21feaf09b76dcc4) )
@@ -693,7 +693,7 @@ public class tbowl
 		ROM_LOAD( "6206a.3",	0x10000, 0x10000, CRC(3aa24744) SHA1(06de3f9a2431777218cc67f59230fddbfa01cf2d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tbowlj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tbowlj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* NEC D70008AC-8 (Z80 Clone) */
 		ROM_LOAD( "6206b.4",	0x00000, 0x08000, CRC(7ed3eff7) SHA1(4a17f2838e9bbed8b1638783c62d07d1074e2b35) )
 		ROM_LOAD( "6206b.5",	0x10000, 0x10000, CRC(133c5c11) SHA1(7d4e76db3505ccf033d0d9b8d21feaf09b76dcc4) )

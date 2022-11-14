@@ -167,7 +167,7 @@ public class irobot
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_irobot = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( irobot )
+	static InputPortHandlerPtr input_ports_irobot = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( irobot )
 		PORT_START(); 	/* IN0 */
 	    PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	    PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -349,7 +349,7 @@ public class irobot
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_irobot = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_irobot = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 64k for code + 48K Banked ROM*/
 		ROM_LOAD( "136029.208",     0x06000, 0x2000, CRC(b4d0be59) SHA1(5b476dbee8b171a96301b2204420161333d4ca97) )
 		ROM_LOAD( "136029.209",     0x08000, 0x4000, CRC(f6be3cd0) SHA1(a88ae0cc9ee22aa5dd3db0173f24313189f894f8) )

@@ -121,7 +121,7 @@ public class namcos10
 		MDRV_SOUND_ATTRIBUTES( SOUND_SUPPORTS_STEREO )
 	MACHINE_DRIVER_END
 	
-	static InputPortPtr input_ports_namcos10 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( namcos10 )
+	static InputPortHandlerPtr input_ports_namcos10 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( namcos10 )
 		/* IN 0 */
 		PORT_START(); 
 		PORT_BITX( 0x8000, IP_ACTIVE_HIGH, 0, "Test Switch", KEYCODE_F2, IP_JOY_NONE );
@@ -173,7 +173,7 @@ public class namcos10
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static RomLoadPtr rom_mrdrilr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mrdrilr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0400000, REGION_CPU1, 0 ) /* main ram */
 		ROM_REGION( 0x0000400, REGION_USER1, 0 ) /* scratchpad */
 	

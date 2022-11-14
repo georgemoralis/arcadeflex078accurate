@@ -65,7 +65,7 @@ public class zac2650
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_tinvader = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tinvader )
+	static InputPortHandlerPtr input_ports_tinvader = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tinvader )
 	
 		PORT_START();  /* 1E80 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
@@ -117,7 +117,7 @@ public class zac2650
 	
 	/* Almost identical, no number of bases selection */
 	
-	static InputPortPtr input_ports_sinvader = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sinvader )
+	static InputPortHandlerPtr input_ports_sinvader = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sinvader )
 	
 		PORT_START();  /* 1E80 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
@@ -165,7 +165,7 @@ public class zac2650
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dodgem = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dodgem )
+	static InputPortHandlerPtr input_ports_dodgem = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dodgem )
 	
 		PORT_START();  /* 1E80 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
@@ -359,7 +359,7 @@ public class zac2650
 	    /* c4 = hit saucer */
 	} };
 	
-	static RomLoadPtr rom_sia2650 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sia2650 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x2000, REGION_CPU1, 0 )
 		ROM_LOAD( "42_1.bin",   0x0000, 0x0800, CRC(a85550a9) SHA1(3f1e6b8e61894ff997e31b9c5ff819aa4678394e) )
 		ROM_LOAD( "44_2.bin",   0x0800, 0x0800, CRC(48d5a3ed) SHA1(7f6421ba8225d49c1038595517f31b076d566586) )
@@ -369,7 +369,7 @@ public class zac2650
 		ROM_LOAD( "06_inv.bin", 0x0000, 0x0400, CRC(7bfed23e) SHA1(f754f0a4d6c8f9812bf333c30fa433b63d49a750) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tinv2650 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tinv2650 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x2000, REGION_CPU1, 0 )
 		ROM_LOAD( "42_1.bin",   0x0000, 0x0800, CRC(a85550a9) SHA1(3f1e6b8e61894ff997e31b9c5ff819aa4678394e) )
 		ROM_LOAD( "44_2t.bin",  0x0800, 0x0800, CRC(083c8621) SHA1(d9b33d532903b0e6dee2357b9e3b329856505a73) )
@@ -379,7 +379,7 @@ public class zac2650
 		ROM_LOAD( "06_inv.bin", 0x0000, 0x0400, CRC(7bfed23e) SHA1(f754f0a4d6c8f9812bf333c30fa433b63d49a750) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dodgem = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dodgem = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x2000, REGION_CPU1, 0 )
 		ROM_LOAD( "rom1.bin",     0x0000, 0x0400, CRC(a327b57d) SHA1(a9cb17e60ab7b4ed9d5a9e7f8451a8f29bb7d00d) )
 		ROM_LOAD( "rom2.bin",     0x0400, 0x0400, CRC(2a06ec74) SHA1(34fd3cbb1ddadb81abde54046bf245e2285bb740) )

@@ -806,7 +806,7 @@ public class itech32
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_timekill = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( timekill )
+	static InputPortHandlerPtr input_ports_timekill = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( timekill )
 		PORT_START(); 	/* 40000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_BUTTON1        | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON2        | IPF_PLAYER1 );
@@ -857,7 +857,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_bloodstm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bloodstm )
+	static InputPortHandlerPtr input_ports_bloodstm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bloodstm )
 		PORT_START(); 	/* 080000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_START1 );
@@ -913,7 +913,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_hardyard = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hardyard )
+	static InputPortHandlerPtr input_ports_hardyard = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hardyard )
 		PORT_START(); 	/* 080000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_START1 );
@@ -976,7 +976,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pairs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pairs )
+	static InputPortHandlerPtr input_ports_pairs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pairs )
 		PORT_START(); 	/* 080000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_START1 );
@@ -1026,7 +1026,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_wcbowl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wcbowl )
+	static InputPortHandlerPtr input_ports_wcbowl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wcbowl )
 		PORT_START(); 	/* 080000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_START1 );
@@ -1080,7 +1080,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_wcbowln = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wcbowln ) /* WCB version 1.66 supports cocktail mode */
+	static InputPortHandlerPtr input_ports_wcbowln = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wcbowln ) /* WCB version 1.66 supports cocktail mode */
 		PORT_START(); 	/* 080000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_START1 );
@@ -1137,7 +1137,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_drivedge = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( drivedge )
+	static InputPortHandlerPtr input_ports_drivedge = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( drivedge )
 		PORT_START(); 	/* 40000 */
 		PORT_BIT ( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT ( 0x0002, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -1198,7 +1198,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sftm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sftm )
+	static InputPortHandlerPtr input_ports_sftm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sftm )
 		PORT_START(); 	/* 080000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_START1 );
@@ -1255,7 +1255,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_shufshot = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shufshot ) /* ShuffleShot version 1.39 supports cocktail mode */
+	static InputPortHandlerPtr input_ports_shufshot = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shufshot ) /* ShuffleShot version 1.39 supports cocktail mode */
 		PORT_START(); 	/* 080000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_START1 );
@@ -1312,7 +1312,7 @@ public class itech32
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_shufbowl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shufbowl )
+	static InputPortHandlerPtr input_ports_shufbowl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shufbowl )
 		/*
 		Earlier versions of Shuffleshot & World Class Bowling share the same input
 		port set up. IE: "Freeze Screen" and no support for a cocktail mode
@@ -1502,7 +1502,7 @@ public class itech32
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_timekill = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_timekill = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x4000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1530,7 +1530,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_timek131 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_timek131 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x4000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1558,7 +1558,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bloodstm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bloodstm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1598,7 +1598,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bloods22 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bloods22 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1638,7 +1638,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bloods21 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bloods21 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1678,7 +1678,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_bloods11 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bloods11 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1718,7 +1718,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hardyard = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hardyard = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1752,7 +1752,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_hardyd10 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hardyd10 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1786,7 +1786,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_pairs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pairs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x40000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1814,7 +1814,7 @@ public class itech32
 		ROM_LOAD16_BYTE( "srom0.bin", 0x000000, 0x80000, CRC(19a857f9) SHA1(2515b4c127191d52d3b5a72477384847d8cabad3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pairsa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pairsa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x40000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1843,7 +1843,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wcbowl = new RomLoadPtr(){ public void handler(){ 		/* Version 1.66 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_wcbowl = new RomLoadHandlerPtr(){ public void handler(){ 		/* Version 1.66 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1877,7 +1877,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wcbwl165 = new RomLoadPtr(){ public void handler(){ 	/* Version 1.65 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_wcbwl165 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.65 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1911,7 +1911,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wcbwl161 = new RomLoadPtr(){ public void handler(){ 	/* Version 1.61 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_wcbwl161 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.61 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1945,7 +1945,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_wcbwl12 = new RomLoadPtr(){ public void handler(){ 	/* Version 1.2 (unique Hardware, 3-tier type board) */
+	static RomLoadHandlerPtr rom_wcbwl12 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.2 (unique Hardware, 3-tier type board) */
 		/* v1.3 & v1.5 for this platform has been confirmed, but not dumped */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
@@ -1977,7 +1977,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_drivedge = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drivedge = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x8000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2021,7 +2021,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sftm = new RomLoadPtr(){ public void handler(){ 	/* Version 1.12 */
+	static RomLoadHandlerPtr rom_sftm = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.12 */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2056,7 +2056,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sftm111 = new RomLoadPtr(){ public void handler(){ 	/* Version 1.11 */
+	static RomLoadHandlerPtr rom_sftm111 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.11 */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2091,7 +2091,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sftm110 = new RomLoadPtr(){ public void handler(){ 	/* Version 1.10 */
+	static RomLoadHandlerPtr rom_sftm110 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.10 */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2126,7 +2126,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sftmj = new RomLoadPtr(){ public void handler(){ 	/* Version 1.12N (Japan) */
+	static RomLoadHandlerPtr rom_sftmj = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.12N (Japan) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2161,7 +2161,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_shufshot = new RomLoadPtr(){ public void handler(){ 	/* Version 1.39 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_shufshot = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.39 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2198,7 +2198,7 @@ public class itech32
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sshot137 = new RomLoadPtr(){ public void handler(){ 	/* Version 1.37 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_sshot137 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.37 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )

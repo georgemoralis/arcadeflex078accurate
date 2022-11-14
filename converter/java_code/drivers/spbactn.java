@@ -222,7 +222,7 @@ public class spbactn
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_spbactn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spbactn )
+	static InputPortHandlerPtr input_ports_spbactn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spbactn )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNKNOWN );
@@ -399,7 +399,7 @@ public class spbactn
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_spbactn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spbactn = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Board 9002-A (CPU Board) */
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "rom1.bin", 0x00000, 0x20000, CRC(6741bd3f) SHA1(844eb6465a15d339043fd6d2b6ba20ba216de493) )
@@ -425,7 +425,7 @@ public class spbactn
 		ROM_LOAD( "b-u111",  0x40000, 0x40000, CRC(1cc1379a) SHA1(44fdab8cb5ab1488688f1ac52f005454e835efee) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spbactnj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spbactnj = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* Board 9002-A (CPU Board) */
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "a-u68.1", 0x00000, 0x20000, CRC(b5b2d824) SHA1(be04ca370a381d7396f39e31fb2680973193daee) )

@@ -204,7 +204,7 @@ public class sshangha
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_sshangha = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sshangha )
+	static InputPortHandlerPtr input_ports_sshangha = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sshangha )
 		PORT_START(); 	/* Player 1 controls (0xfec047.b) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -396,7 +396,7 @@ public class sshangha
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_sshangha = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sshangha = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "ss007-1.u28", 0x00000, 0x20000, CRC(bc466edf) SHA1(b96525b2c879d15b46a7753fa6ebf12a851cd019) )
 		ROM_LOAD16_BYTE( "ss006-1.u27", 0x00001, 0x20000, CRC(872a2a2d) SHA1(42d7a01465d5c403354aaf0f2dab8adb9afe61b0) )
@@ -416,7 +416,7 @@ public class sshangha
 		ROM_LOAD( "ss005.u86", 0x000000, 0x040000, CRC(c53a82ad) SHA1(756e453c8b5ce8e47f93fbda3a9e48bb73e93e2e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sshanghb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sshanghb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "sshanb_2.010", 0x00000, 0x20000, CRC(bc7ed254) SHA1(aeee4b8a8265902bb41575cc143738ecf3aff57d) )
 		ROM_LOAD16_BYTE( "sshanb_1.010", 0x00001, 0x20000, CRC(7b049f49) SHA1(2570077c67dbd35053d475a18c3f10813bf914f7) )

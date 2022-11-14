@@ -225,7 +225,7 @@ public class crbaloon
 	
 	
 	
-	static InputPortPtr input_ports_crbaloon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crbaloon )
+	static InputPortHandlerPtr input_ports_crbaloon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crbaloon )
 		PORT_START(); 
 		PORT_DIPNAME( 0x01, 0x01, "Test?" );
 		PORT_DIPSETTING(    0x01, "I/O Check?" );
@@ -388,7 +388,7 @@ public class crbaloon
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_crbaloon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crbaloon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cl01.bin",     0x0000, 0x0800, CRC(9d4eef0b) SHA1(a8dd814ac2612073982123c91fa62deaf5bee242) )
 		ROM_LOAD( "cl02.bin",     0x0800, 0x0800, CRC(10f7a6f7) SHA1(e672a7dcdaae08b202cfc2e19033846ebb267e1b) )
@@ -404,7 +404,7 @@ public class crbaloon
 		ROM_LOAD( "cl08.bin",     0x0000, 0x0800, CRC(ba898659) SHA1(4291059b113ff91896f1f61a4c14956716edfe1e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crbalon2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crbalon2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cl01.bin",     0x0000, 0x0800, CRC(9d4eef0b) SHA1(a8dd814ac2612073982123c91fa62deaf5bee242) )
 		ROM_LOAD( "crazybal.ep2", 0x0800, 0x0800, CRC(87572086) SHA1(dba842c7c4cb16154ae0da43d71f8f03a56441c3) )

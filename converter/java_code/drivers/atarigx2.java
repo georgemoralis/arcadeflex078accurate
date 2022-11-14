@@ -1229,7 +1229,7 @@ public class atarigx2
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_spclords = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spclords )
+	static InputPortHandlerPtr input_ports_spclords = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spclords )
 		PORT_START(); 		/* 68.SW (A1=0) */
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START1 );					/* BLUE button */
@@ -1290,7 +1290,7 @@ public class atarigx2
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_motofren = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( motofren )
+	static InputPortHandlerPtr input_ports_motofren = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( motofren )
 		PORT_START(); 		/* 68.SW (A1=0) */
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START1 );					/* Start/fire */
@@ -1336,7 +1336,7 @@ public class atarigx2
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_rrreveng = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rrreveng )
+	static InputPortHandlerPtr input_ports_rrreveng = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rrreveng )
 		PORT_START(); 		/* 68.SW (A1=0) */
 		PORT_BIT( 0x00ff, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x0100, IP_ACTIVE_LOW, IPT_START1 );
@@ -1480,7 +1480,7 @@ public class atarigx2
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_spclords = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spclords = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "136095.21b", 0x00000, 0x20000, CRC(2ba99ce2) SHA1(5d8d138698c29838a85da1721c3400c666a14e18) )
 		ROM_LOAD32_BYTE( "136095.22b", 0x00001, 0x20000, CRC(631c5009) SHA1(6b2ea907087e411579f55dff60724ba33afa8a06) )
@@ -1518,7 +1518,7 @@ public class atarigx2
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_spclorda = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spclorda = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "136095.21a", 0x00000, 0x20000, CRC(fe8edb0b) SHA1(ae50a637df476c62f8194577cdca2677f9b5cbd0) )
 		ROM_LOAD32_BYTE( "136095.22a", 0x00001, 0x20000, CRC(c2d2867b) SHA1(481fe54d6cd8698bfd2776e2af6f51332304b7ba) )
@@ -1561,7 +1561,7 @@ public class atarigx2
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_motofren = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_motofren = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "94-0221a.23e", 0x00000, 0x20000, CRC(134e9ff0) SHA1(801b817bf49b4317a7518192025a878b9cd13f7f) )
 		ROM_LOAD32_BYTE( "94-0222a.23j", 0x00001, 0x20000, CRC(f6df65c7) SHA1(0a2092a509ae8c61e3f55c30c47bf39c71e2aa6e) )
@@ -1606,7 +1606,7 @@ public class atarigx2
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rrreveng = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rrreveng = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "rrprghh.bin", 0x00000, 0x20000, CRC(d2903e9d) SHA1(8782cd6ee39e2159b9ebc68ecdc3ecefcdeb8623) )
 		ROM_LOAD32_BYTE( "rrprghl.bin", 0x00001, 0x20000, CRC(1afd500c) SHA1(6d24087a839e5e7d9c764026a9f3089e52785cdb) )
@@ -1648,7 +1648,7 @@ public class atarigx2
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rrrevenp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rrrevenp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD32_BYTE( "rrprghh.bin", 0x00000, 0x20000, CRC(d2903e9d) SHA1(8782cd6ee39e2159b9ebc68ecdc3ecefcdeb8623) )
 		ROM_LOAD32_BYTE( "rrprghl.bin", 0x00001, 0x20000, CRC(1afd500c) SHA1(6d24087a839e5e7d9c764026a9f3089e52785cdb) )

@@ -155,7 +155,7 @@ public class sspeedr
 	};
 	
 	
-	static InputPortPtr input_ports_sspeedr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sspeedr )
+	static InputPortHandlerPtr input_ports_sspeedr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sspeedr )
 	
 		PORT_START(); 
 		PORT_ANALOG( 0xff, 0x80, IPT_DIAL, 25, 10, 0x00, 0xff );
@@ -246,7 +246,7 @@ public class sspeedr
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_sspeedr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sspeedr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "ssr0000.pgm", 0x0000, 0x0800, CRC(bfc7069a) SHA1(2f7aa3d3c7cfd804ba4b625c6a8338534a204855) )
 		ROM_LOAD( "ssr0800.pgm", 0x0800, 0x0800, CRC(ec46b59a) SHA1(d5727efecb32ad3d034b885e4a57d7373368ca9e) )

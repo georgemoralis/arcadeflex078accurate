@@ -179,7 +179,7 @@ public class avengrgs
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_avengrgs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( avengrgs )
+	static InputPortHandlerPtr input_ports_avengrgs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( avengrgs )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -301,7 +301,7 @@ public class avengrgs
 	
 	/***************************************************************************/
 	
-	static RomLoadPtr rom_avengrgs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_avengrgs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD32_WORD_SWAP( "sd_00-2.7k", 0x000002, 0x80000, CRC(136be46a) SHA1(7679f5f78f7983d43ecdb9bdd04e45792a13d9f2) )
 		ROM_LOAD32_WORD_SWAP( "sd_01-2.7l", 0x000000, 0x80000, CRC(9d87f576) SHA1(dd20cd060d020d81f4e012be10d0211be7526641) )

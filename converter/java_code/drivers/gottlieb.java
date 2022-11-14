@@ -611,7 +611,7 @@ public class gottlieb
 	
 	
 	
-	static InputPortPtr input_ports_reactor = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( reactor )
+	static InputPortHandlerPtr input_ports_reactor = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( reactor )
 		PORT_START(); 	/* DSW */
 		PORT_DIPNAME( 0x01, 0x01, "Sound with Logos" );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -658,7 +658,7 @@ public class gottlieb
 		PORT_BIT ( 0xc0, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mplanets = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mplanets )
+	static InputPortHandlerPtr input_ports_mplanets = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mplanets )
 		PORT_START(); 	/* DSW */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -707,7 +707,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_BUTTON2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_qbert = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( qbert )
+	static InputPortHandlerPtr input_ports_qbert = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( qbert )
 		PORT_START();       /* DSW */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -763,7 +763,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_4WAY | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_qbertqub = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( qbertqub )
+	static InputPortHandlerPtr input_ports_qbertqub = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( qbertqub )
 		PORT_START();       /* DSW */
 		PORT_DIPNAME( 0x08, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x08, DEF_STR( "Off") );
@@ -822,7 +822,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_krull = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( krull )
+	static InputPortHandlerPtr input_ports_krull = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( krull )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -874,7 +874,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_JOYSTICKLEFT_LEFT   | IPF_8WAY );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mach3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mach3 )
+	static InputPortHandlerPtr input_ports_mach3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mach3 )
 		PORT_START();       /* DSW0 */
 		/* TODO: values are different for 5 lives */
 		PORT_DIPNAME( 0x09, 0x08, DEF_STR( "Coinage") );
@@ -927,7 +927,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_usvsthem = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( usvsthem )
+	static InputPortHandlerPtr input_ports_usvsthem = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( usvsthem )
 		PORT_START();       /* DSW0 */
 		/* TODO: values are different for 5 lives */
 		PORT_DIPNAME( 0x09, 0x00, DEF_STR( "Coinage") );
@@ -981,7 +981,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_3stooges = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 3stooges )
+	static InputPortHandlerPtr input_ports_3stooges = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 3stooges )
 		PORT_START(); 	/* DSW */
 		PORT_DIPNAME (0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING (   0x01, DEF_STR( "Off") );
@@ -1046,7 +1046,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_PLAYER1 | IPF_8WAY );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_curvebal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( curvebal )
+	static InputPortHandlerPtr input_ports_curvebal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( curvebal )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x08, 0x00, "2 Players Game" );
 		PORT_DIPSETTING(    0x08, "1 Credit" );
@@ -1109,7 +1109,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_screwloo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( screwloo )
+	static InputPortHandlerPtr input_ports_screwloo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( screwloo )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Demo_Sounds") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1162,7 +1162,7 @@ public class gottlieb
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_insector = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( insector )
+	static InputPortHandlerPtr input_ports_insector = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( insector )
 		PORT_START();       /* DSW0 */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Bonus_Life") );
 		PORT_DIPSETTING(    0x00, "25000" );
@@ -1541,7 +1541,7 @@ public class gottlieb
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_reactor = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_reactor = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "rom7",         0x8000, 0x1000, CRC(a62d86fd) SHA1(9ffce668c6f0155568ccb62a6f12a9513f3c513f) )
 		ROM_LOAD( "rom6",         0x9000, 0x1000, CRC(6ed841f3) SHA1(b94272457e6a2d0ec46b510d71d69b4ab92a44aa) )
@@ -1571,7 +1571,7 @@ public class gottlieb
 		ROM_LOAD( "fg0",          0x7000, 0x1000, CRC(d1f20e15) SHA1(dba9aa0fec8b720a33d78b3dd1d7f74040048f7e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mplanets = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mplanets = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "rom4",         0x6000, 0x2000, CRC(5402077f) SHA1(f4e8699ab3c6dfc0f86b6df86d2a5b35caf2ca73) )
 		ROM_LOAD( "rom3",         0x8000, 0x2000, CRC(5d18d740) SHA1(30307d98704c49dec5aecd0a1ec2f06f1869a5d2) )
@@ -1596,7 +1596,7 @@ public class gottlieb
 		ROM_LOAD( "fg0",          0x6000, 0x2000, CRC(a920e325) SHA1(60f15d5014a55d9c18b06c17c7587d45716619e4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mplanuk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mplanuk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "mpt_rom4.bin", 0x6000, 0x2000, CRC(cd88e23c) SHA1(03222e2600f7fb1c6844340d4a56eedfcdeaa3c8) )
 		ROM_LOAD( "mpt_rom3.bin", 0x8000, 0x2000, CRC(dc355b2d) SHA1(ae3e376afc7a8cb049d0dd28bf3959cb76780999) )
@@ -1621,7 +1621,7 @@ public class gottlieb
 		ROM_LOAD( "mpt_fg0.bin",  0x6000, 0x2000, CRC(a920e325) SHA1(60f15d5014a55d9c18b06c17c7587d45716619e4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qbert = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qbert = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "qb-rom2.bin",  0xa000, 0x2000, CRC(fe434526) SHA1(4cfc5d52dd6c82163e035af82d6112c0c93a3797) )
 		ROM_LOAD( "qb-rom1.bin",  0xc000, 0x2000, CRC(55635447) SHA1(ca6acdef1c9e06b33efe1f0a2df2dfb03723cfbe) )
@@ -1644,7 +1644,7 @@ public class gottlieb
 		ROM_LOAD( "qb-fg0.bin",   0x6000, 0x2000, CRC(2f695b85) SHA1(807d16459838f129e10b913890bbc95065d5dd40) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qbertjp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qbertjp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "qbj-rom2.bin", 0xa000, 0x2000, CRC(67bb1cb2) SHA1(23a7f8c86d6db9220a98b3f630c5d000e80f2d53) )
 		ROM_LOAD( "qbj-rom1.bin", 0xc000, 0x2000, CRC(c61216e7) SHA1(e727b85dddc2963e33af6c02b675243f6fbe2710) )
@@ -1667,7 +1667,7 @@ public class gottlieb
 		ROM_LOAD( "qb-fg0.bin",   0x6000, 0x2000, CRC(2f695b85) SHA1(807d16459838f129e10b913890bbc95065d5dd40) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_myqbert = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_myqbert = new RomLoadHandlerPtr(){ public void handler(){ 
 	 ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 	 ROM_LOAD( "mqb-rom2.bin",  0xa000, 0x2000, CRC(6860f957) SHA1(ebd68aeb6d54868295bd20cf64ee0187a52df0e3) )
 	 ROM_LOAD( "mqb-rom1.bin",  0xc000, 0x2000, CRC(11f0a4e4) SHA1(a805e51c40042fae209ace277abd9b35a990905b) )
@@ -1690,7 +1690,7 @@ public class gottlieb
 	 ROM_LOAD( "mqb-fg0.bin",   0x6000, 0x2000, CRC(abc71bdd) SHA1(b72c6867d8e342a6794a4bbab991761c01cfae44) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qberttst = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qberttst = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "qbtst2.bin",   0xa000, 0x2000, CRC(55307b02) SHA1(8a41820211093779d9010b4c9e7d667ad3a31f23) )
 		ROM_LOAD( "qbtst1.bin",   0xc000, 0x2000, CRC(e97fdd78) SHA1(98dd07043a72273240c593650aa9947199347870) )
@@ -1713,7 +1713,7 @@ public class gottlieb
 		ROM_LOAD( "qb-fg0.bin",   0x6000, 0x2000, CRC(2f695b85) SHA1(807d16459838f129e10b913890bbc95065d5dd40) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_insector = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_insector = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "rom3",         0x8000, 0x2000, CRC(640881fd) SHA1(2832183e41ae7e631b61e4845fa68ce1c49edf29) )
 		ROM_LOAD( "rom2",         0xa000, 0x2000, CRC(456bc3f4) SHA1(b61a56a65639f97399a8a3a4293ac2292edfd159) )
@@ -1735,7 +1735,7 @@ public class gottlieb
 		ROM_LOAD( "fg0",          0x6000, 0x2000, CRC(965f6b76) SHA1(faec9d43f39e730eefd08d4c3337ed4b230bf7e1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_screwloo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_screwloo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "rom4",         0x6000, 0x2000, CRC(744a2513) SHA1(d6e8e016d9af984fae9b6667bedeea069637bd3a) )
 		ROM_LOAD( "rom3",         0x8000, 0x2000, CRC(ffde5b5d) SHA1(50ac0e600935b8b1f8b68c40ad21a179b176e535) )
@@ -1760,7 +1760,7 @@ public class gottlieb
 		ROM_LOAD( "fg0",          0x6000, 0x2000, CRC(f23269fb) SHA1(9a418a372da18cf33bcfba07202cf2ac7a1dcd1d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sqbert = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sqbert = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "qb-rom2.bin",  0xa000, 0x2000, CRC(1e3d4038) SHA1(d4402c5d16c0aa55efbceb83f0b30082b8434df7) )
 		ROM_LOAD( "qb-rom1.bin",  0xc000, 0x2000, CRC(eaf3076c) SHA1(749a87b3c40ba0a2ecd2ca962786e066daf63e30) )
@@ -1783,7 +1783,7 @@ public class gottlieb
 		ROM_LOAD( "qb-fg0.bin",   0x6000, 0x2000, CRC(b11ad9d8) SHA1(5264598f33aa76455ae4107d0f265c2a372ed67a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qbertqub = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qbertqub = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "qq-rom3.bin",  0x8000, 0x2000, CRC(c4dbdcd7) SHA1(34aaa4762073680e2b4d024ce7106315ffc6bcf3) )
 		ROM_LOAD( "qq-rom2.bin",  0xa000, 0x2000, CRC(21a6c6cc) SHA1(6d4d81d9ad85be3792584e39dbeaf0dfeeda1503) )
@@ -1807,7 +1807,7 @@ public class gottlieb
 		ROM_LOAD( "qq-fg0.bin",   0xc000, 0x4000, CRC(6192853f) SHA1(907e62a3835bacda4104dcc1d7e946e4e8e821ef) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_krull = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_krull = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "ram2.bin",     0x1000, 0x1000, CRC(302feadf) SHA1(9d70de35e4f0490dc4e601070993ad146f250dea) )
 		ROM_LOAD( "ram4.bin",     0x2000, 0x1000, CRC(79355a60) SHA1(57ad5c904b9ac4bf7c7d828bf755bbcbba6a4fd7) )
@@ -1832,7 +1832,7 @@ public class gottlieb
 		ROM_LOAD( "fg0.bin",      0x6000, 0x2000, CRC(7402dc19) SHA1(d6d1b8aca8e9ee3bdc57f4474d22b405963909ec) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mach3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mach3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "m3rom4.bin",   0x6000, 0x2000, CRC(8bfd5a44) SHA1(61f5c6c39047c1d0296e2cacce2be9525cb47176) )
 		ROM_LOAD( "m3rom3.bin",   0x8000, 0x2000, CRC(b1b045af) SHA1(4e71ca4661bf5daaf9e2ffbb930ac3b13e2e57bd) )
@@ -1860,7 +1860,7 @@ public class gottlieb
 		ROM_LOAD( "m3target.bin", 0, 1024*1024, CRC(6e779a6f) SHA1(e556ad438e637a71f17ea04088de10b39b45f8df) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_usvsthem = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_usvsthem = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "usvs.rm4",     0x6000, 0x2000, CRC(0d7a4072) SHA1(84a7eec31037243185ab40ab269be0f83946ebd5) )
 		ROM_LOAD( "usvs.rm3",     0x8000, 0x2000, CRC(6f32a671) SHA1(d54c1e09988f78ea706b4b0da675b27d9d407696) )
@@ -1885,7 +1885,7 @@ public class gottlieb
 		ROM_LOAD( "usvs.fg0",     0xc000, 0x4000, CRC(7734e53f) SHA1(c1307596ba098c98e741f3c00686b514587e1d0a) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_3stooges = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_3stooges = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "gv113ram.4",   0x2000, 0x1000, CRC(533bff2a) SHA1(58d0be8add4b02dc3e27cf6b17a05baf4304f3ce) )
 		ROM_LOAD( "gv113rom.4",   0x6000, 0x2000, CRC(8b6e52b8) SHA1(6e17e11afce92a7fa1735a724f0c0faf9375ac89) )
@@ -1910,7 +1910,7 @@ public class gottlieb
 		ROM_LOAD( "gv113fg0",     0x6000, 0x2000, CRC(95762c53) SHA1(e486a232e6b62ab21b9c3be521606dea2a451889) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_curvebal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_curvebal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cb-rom-3.chp", 0x8000, 0x2000, CRC(72ad4d45) SHA1(9537eb360ed1d33d399cc2d8761c36b7d25fdae0) )
 		ROM_LOAD( "cb-rom-2.chp", 0xa000, 0x2000, CRC(d46c3db5) SHA1(d4f464a6ebc090d100e890303557f0d05214033b) )

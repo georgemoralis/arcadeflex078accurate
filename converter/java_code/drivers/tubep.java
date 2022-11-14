@@ -570,7 +570,7 @@ public class tubep
 	
 	
 	
-	static InputPortPtr input_ports_tubep = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tubep )
+	static InputPortHandlerPtr input_ports_tubep = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tubep )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_8WAY );
@@ -679,7 +679,7 @@ public class tubep
 	
 	
 	
-	static InputPortPtr input_ports_rjammer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rjammer )
+	static InputPortHandlerPtr input_ports_rjammer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rjammer )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -896,7 +896,7 @@ public class tubep
 	
 	
 	
-	static RomLoadPtr rom_tubep = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tubep = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000,REGION_CPU1, 0 ) /* Z80 (master) cpu code */
 		ROM_LOAD( "tp-p.5", 0x0000, 0x2000, CRC(d5e0cc2f) SHA1(db9b062b14af52bb5458fe71996da295a69148ac) )
 		ROM_LOAD( "tp-p.6", 0x2000, 0x2000, CRC(97b791a0) SHA1(20ef87b3d3bdfc8b983bcb8231252f81d98ad452) )
@@ -951,7 +951,7 @@ public class tubep
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_rjammer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rjammer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000,REGION_CPU1, 0 ) /* Z80 (master) cpu code */
 		ROM_LOAD( "tp-p.1", 0x0000, 0x2000, CRC(93eeed67) SHA1(9ccfc49f42c6b451ff1c541d6487276f4bf9338e) )
 		ROM_LOAD( "tp-p.2", 0x2000, 0x2000, CRC(ed2830c4) SHA1(078046e88604617342d29f0f4a0473fe6d484b19) )

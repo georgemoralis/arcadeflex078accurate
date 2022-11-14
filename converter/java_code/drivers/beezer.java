@@ -56,7 +56,7 @@ public class beezer
 	
 	
 	
-	static InputPortPtr input_ports_beezer = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( beezer )
+	static InputPortHandlerPtr input_ports_beezer = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( beezer )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_TILT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );
@@ -133,7 +133,7 @@ public class beezer
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_beezer = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_beezer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "g1",   0x0d000, 0x1000, CRC(3467a0ec) SHA1(0b094a9bf772b101acd26cf09009c67dd4785ed2) )
 		ROM_LOAD( "g3",   0x0e000, 0x1000, CRC(9950cdf2) SHA1(b2b59cc1080357de6ba297392881d626157df809) )
@@ -155,7 +155,7 @@ public class beezer
 		ROM_LOAD( "e1.cpu", 0x100, 0x0100, CRC(3c775c5e) SHA1(ac86f45938c0c9d5fec1245bf86718442baf445b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_beezer1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_beezer1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "g1.32",   0x0d000, 0x1000, CRC(3134cb93) SHA1(7d4a484378b66ccf2fded31885d6dfb2abae9317) )
 		ROM_LOAD( "g3.32",   0x0e000, 0x1000, CRC(a3cb2c2d) SHA1(1e17eb0eaf02f86865845a065a5f714fc51aa7d6) )

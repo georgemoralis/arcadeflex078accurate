@@ -120,7 +120,7 @@ public class realbrk
 							Billiard Academy Real Break
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_realbrk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( realbrk )
+	static InputPortHandlerPtr input_ports_realbrk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( realbrk )
 		PORT_START(); 	// IN0 - $c00000.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER2 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_PLAYER2 );
@@ -378,7 +378,7 @@ public class realbrk
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_realbrk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_realbrk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* TMP68301 Code */
 		ROM_LOAD16_BYTE( "52302.1r", 0x000000, 0x080000, CRC(ab0379b0) SHA1(67af6670f2b37a7d4d6e03508f291f8ffe64d4cb) )
 		ROM_LOAD16_BYTE( "52301.2r", 0x000001, 0x080000, CRC(9cc1596e) SHA1(a598f18eaac1ed6943069e9500b07b77e263f0d0) )

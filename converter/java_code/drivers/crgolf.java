@@ -223,7 +223,7 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_crgolf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crgolf )
+	static InputPortHandlerPtr input_ports_crgolf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crgolf )
 		PORT_START(); 	/* CREDIT */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_SERVICE1 );
@@ -357,7 +357,7 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_crgolf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crgolf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "epr-6143.1c",0x00000, 0x2000, CRC(4b301360) SHA1(2a7dd4876f4448b4b59b6dd02e55eb2d0126b777) )
 		ROM_LOAD( "epr-6142.1a",0x02000, 0x2000, CRC(8fc5e67f) SHA1(6563db94c55cfc7d2270daccaab57fc7b422b9f9) )
@@ -383,7 +383,7 @@ public class crgolf
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_crgolfa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crgolfa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "5879b",      0x00000, 0x2000, CRC(927be359) SHA1(d534f7e3ef4ced8eea882ae2b8425df4c5842833) )
 		ROM_LOAD( "5878",       0x02000, 0x2000, CRC(65fd0fa0) SHA1(de95ff95c9f981cd9eadf8b028ee5373bc69007b) )
@@ -409,7 +409,7 @@ public class crgolf
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_crgolfb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crgolfb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "5879b",      0x00000, 0x2000, CRC(927be359) SHA1(d534f7e3ef4ced8eea882ae2b8425df4c5842833) )
 		ROM_LOAD( "5878",       0x02000, 0x2000, CRC(65fd0fa0) SHA1(de95ff95c9f981cd9eadf8b028ee5373bc69007b) )
@@ -434,7 +434,7 @@ public class crgolf
 		ROM_LOAD( "golfprom", 0x0000, 0x0020, CRC(f880b95d) SHA1(5ad0ee39e2b9befaf3895ec635d5865b7b1e562b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crgolfc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crgolfc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "15.1a",      0x00000, 0x2000, CRC(e6194356) SHA1(78eec53a0658b552e6a8af109d9c9754e4ddadcb) )
 		ROM_LOAD( "16.1c",      0x02000, 0x2000, CRC(f50412e2) SHA1(5a50fb1edfc26072e921447bd157fe996f707e05) )

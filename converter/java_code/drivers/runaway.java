@@ -111,7 +111,7 @@ public class runaway
 	};
 	
 	
-	static InputPortPtr input_ports_qwak = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( qwak )
+	static InputPortHandlerPtr input_ports_qwak = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( qwak )
 		PORT_START(); 	/* 3000 D7 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_VBLANK );
@@ -163,7 +163,7 @@ public class runaway
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_runaway = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( runaway )
+	static InputPortHandlerPtr input_ports_runaway = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( runaway )
 		PORT_START();  /* 3000 D7 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT ( 0x02, IP_ACTIVE_HIGH, IPT_VBLANK );
@@ -395,7 +395,7 @@ public class runaway
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_runaway = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_runaway = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "choo8000.d1", 0x8000, 0x1000, CRC(35794abe) SHA1(5ce872bda8bb2ed4888ba8b47ecd1afbe24b22eb) )
 		ROM_LOAD( "choo9000.d1", 0x9000, 0x1000, CRC(0d63756d) SHA1(2549a57ca106635f5c53ea1b03f5a0d6e901ab47) )
@@ -411,7 +411,7 @@ public class runaway
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_qwak = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qwak = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "qwak8000.bin", 0x8000, 0x1000, CRC(4d002d8a) SHA1(8621e7ec1ab3cb8d003858227e858354cd79dbf1) )
 		ROM_LOAD( "qwak9000.bin", 0x9000, 0x1000, CRC(e0c78fd7) SHA1(f5f397950971d12a7ae47fc64aa8f5751463b8a5) )

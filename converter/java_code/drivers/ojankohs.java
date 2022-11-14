@@ -339,7 +339,7 @@ public class ojankohs
 	};
 	
 	
-	static InputPortPtr input_ports_ojankohs = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ojankohs )
+	static InputPortHandlerPtr input_ports_ojankohs = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ojankohs )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -448,7 +448,7 @@ public class ojankohs
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ojankoy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ojankoy )
+	static InputPortHandlerPtr input_ports_ojankoy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ojankoy )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -567,7 +567,7 @@ public class ojankohs
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ccasino = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ccasino )
+	static InputPortHandlerPtr input_ports_ccasino = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ccasino )
 		PORT_START(); 	/* (0) TEST SW */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_SERVICE3 );	// MEMORY RESET
@@ -743,7 +743,7 @@ public class ojankohs
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ojankoc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ojankoc )
+	static InputPortHandlerPtr input_ports_ojankoc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ojankoc )
 		PORT_START(); 	/* DSW1 (0) */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Flip_Screen") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1084,7 +1084,7 @@ public class ojankohs
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_ojankohs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ojankohs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x98000, REGION_CPU1, 0 )
 		ROM_LOAD( "3.3c", 0x00000, 0x08000, CRC(f652db23) SHA1(7fcb4227804301f0404af4b007eb4accb0787c98) )
 		ROM_LOAD( "5b",   0x10000, 0x80000, CRC(bd4fd0b6) SHA1(79e0937fdd34ec03b4b0a503efc1fa7c8f29e7cf) )
@@ -1094,7 +1094,7 @@ public class ojankohs
 		ROM_LOAD( "13b",  0x00000, 0x80000, CRC(bda30bfa) SHA1(c412e573c40816735f7e2d0600dd0d78ebce91dc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ojankoy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ojankoy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x70000, REGION_CPU1, 0 )
 		ROM_LOAD( "p-ic17.bin", 0x00000, 0x08000, CRC(9f149c30) SHA1(e3a8407844c0bb2d2fda83b01a187c87b3b7767a) )
 		ROM_LOAD( "ic30.bin",   0x10000, 0x20000, CRC(37be3f7c) SHA1(9ef19ef1e118d75ae719623b90188d68e6faa8f2) )
@@ -1118,7 +1118,7 @@ public class ojankohs
 		ROM_LOAD( "1-ic64.bin", 0x0400, 0x0400, CRC(36c305c5) SHA1(43be6346e421f03a55bddb58a1570905321cf914) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ojanko2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ojanko2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x70000, REGION_CPU1, 0 )
 		ROM_LOAD( "p-ic17.bin", 0x00000, 0x08000, CRC(4b33bd54) SHA1(be235492cf3824ea740f401201ad821bb71c6d89) )
 		ROM_LOAD( "ic30.bin",   0x10000, 0x20000, CRC(37be3f7c) SHA1(9ef19ef1e118d75ae719623b90188d68e6faa8f2) )
@@ -1141,7 +1141,7 @@ public class ojankohs
 		ROM_LOAD( "1-ic64.bin", 0x0400, 0x0400, CRC(e2f7093d) SHA1(428903e4fc9f05cf8dab01a5d4145a5b44faa311) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ccasino = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ccasino = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x68000, REGION_CPU1, 0 )
 		ROM_LOAD( "p5.bin", 0x00000, 0x08000, CRC(d6cf3387) SHA1(507a40a0ace0742a8fd205c641d27d22d80da948) )
 		ROM_LOAD( "l5.bin", 0x10000, 0x20000, CRC(49c9ecfb) SHA1(96005904cef9b9e4434034c9d68978ff9c431457) )
@@ -1158,7 +1158,7 @@ public class ojankohs
 		ROM_LOAD( "h1.bin", 0x58000, 0x08000, CRC(f0af2d38) SHA1(14f29404a10633f5c4b574fc1f34139f9fb8a8bf) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ojankoc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ojankoc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )   /* CPU */
 		ROM_LOAD( "c11.1p", 0x0000, 0x8000, CRC(cb3e900c) SHA1(95f0354f147e339a97368b5cc67200151cdfa0e9) )
 	

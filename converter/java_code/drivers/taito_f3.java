@@ -231,7 +231,7 @@ public class taito_f3
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_f3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( f3 )
+	static InputPortHandlerPtr input_ports_f3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( f3 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_8WAY );
@@ -297,7 +297,7 @@ public class taito_f3
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER4 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kn = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kn )
+	static InputPortHandlerPtr input_ports_kn = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kn )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_8WAY );
@@ -517,7 +517,7 @@ public class taito_f3
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_ringrage = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ringrage = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d21-23.40", 0x000000, 0x40000, CRC(14e9ed65) SHA1(956db484375a43bcdf5a6a104e3c7d7ef5baaa1b) )
 		ROM_LOAD32_BYTE("d21-22.38", 0x000001, 0x40000, CRC(6f8b65b0) SHA1(a4f786b72068c6c9c1b23df67029eb0e2a982789) )
@@ -545,7 +545,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d21-05.18", 0x400000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ringragu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ringragu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d21-23.40", 0x000000, 0x40000, CRC(14e9ed65) SHA1(956db484375a43bcdf5a6a104e3c7d7ef5baaa1b) )
 		ROM_LOAD32_BYTE("d21-22.38", 0x000001, 0x40000, CRC(6f8b65b0) SHA1(a4f786b72068c6c9c1b23df67029eb0e2a982789) )
@@ -573,7 +573,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d21-05.18", 0x400000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ringragj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ringragj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d21-23.40", 0x000000, 0x40000, CRC(14e9ed65) SHA1(956db484375a43bcdf5a6a104e3c7d7ef5baaa1b) )
 		ROM_LOAD32_BYTE("d21-22.38", 0x000001, 0x40000, CRC(6f8b65b0) SHA1(a4f786b72068c6c9c1b23df67029eb0e2a982789) )
@@ -601,7 +601,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d21-05.18", 0x400000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arabianm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arabianm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d29-23.rom", 0x000000, 0x40000, CRC(89a0c706) SHA1(d0df02be2b63566ec776bb13947f975062766a01) )
 		ROM_LOAD32_BYTE("d29-22.rom", 0x000001, 0x40000, CRC(4afc22a4) SHA1(9579d134a1e4b0c86af9b41d136acfe6cc7f6624) )
@@ -629,7 +629,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d29-02.rom", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arabiamj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arabiamj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d29-23.rom", 0x000000, 0x40000, CRC(89a0c706) SHA1(d0df02be2b63566ec776bb13947f975062766a01) )
 		ROM_LOAD32_BYTE("d29-22.rom", 0x000001, 0x40000, CRC(4afc22a4) SHA1(9579d134a1e4b0c86af9b41d136acfe6cc7f6624) )
@@ -657,7 +657,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d29-02.rom", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arabiamu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arabiamu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d29-23.rom", 0x000000, 0x40000, CRC(89a0c706) SHA1(d0df02be2b63566ec776bb13947f975062766a01) )
 		ROM_LOAD32_BYTE("d29-22.rom", 0x000001, 0x40000, CRC(4afc22a4) SHA1(9579d134a1e4b0c86af9b41d136acfe6cc7f6624) )
@@ -685,7 +685,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d29-02.rom", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ridingf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ridingf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d34-12.40", 0x000000, 0x40000, CRC(e67e69d4) SHA1(9960629a7576f6a1d8a0e17c1bfc202ceee9e824) )
 		ROM_LOAD32_BYTE("d34-11.38", 0x000001, 0x40000, CRC(7d240a88) SHA1(3410d3f66e868f2696dbd95adbbd393596d34351) )
@@ -711,7 +711,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d34-04.18", 0x400000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ridefgtj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ridefgtj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d34-12.40", 0x000000, 0x40000, CRC(e67e69d4) SHA1(9960629a7576f6a1d8a0e17c1bfc202ceee9e824) )
 		ROM_LOAD32_BYTE("d34-11.38", 0x000001, 0x40000, CRC(7d240a88) SHA1(3410d3f66e868f2696dbd95adbbd393596d34351) )
@@ -737,7 +737,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d34-04.18", 0x400000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ridefgtu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ridefgtu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d34-12.40", 0x000000, 0x40000, CRC(e67e69d4) SHA1(9960629a7576f6a1d8a0e17c1bfc202ceee9e824) )
 		ROM_LOAD32_BYTE("d34-11.38", 0x000001, 0x40000, CRC(7d240a88) SHA1(3410d3f66e868f2696dbd95adbbd393596d34351) )
@@ -763,7 +763,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d34-04.18", 0x400000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gseeker = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gseeker = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d40_12.rom", 0x000000, 0x40000, CRC(884055fb) SHA1(a91c3dcd635a3e22fbec94c9fc46d3c29fde5e71) )
 		ROM_LOAD32_BYTE("d40_11.rom", 0x000001, 0x40000, CRC(85e701d2) SHA1(da0bc34a2c64d2db2fe143ad5a77bf667de5b015) )
@@ -793,7 +793,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d40_02.rom", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gseekerj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gseekerj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d40_12.rom", 0x000000, 0x40000, CRC(884055fb) SHA1(a91c3dcd635a3e22fbec94c9fc46d3c29fde5e71) )
 		ROM_LOAD32_BYTE("d40_11.rom", 0x000001, 0x40000, CRC(85e701d2) SHA1(da0bc34a2c64d2db2fe143ad5a77bf667de5b015) )
@@ -823,7 +823,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d40_02.rom", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gseekeru = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gseekeru = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d40_12.rom", 0x000000, 0x40000, CRC(884055fb) SHA1(a91c3dcd635a3e22fbec94c9fc46d3c29fde5e71) )
 		ROM_LOAD32_BYTE("d40_11.rom", 0x000001, 0x40000, CRC(85e701d2) SHA1(da0bc34a2c64d2db2fe143ad5a77bf667de5b015) )
@@ -853,7 +853,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d40_02.rom", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cupfinal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cupfinal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d49-13.bin", 0x000000, 0x20000, CRC(ccee5e73) SHA1(5273e3b9bc6fc4fa0c63d9c62aa6b638e9780c24) )
 		ROM_LOAD32_BYTE("d49-14.bin", 0x000001, 0x20000, CRC(2323bf2e) SHA1(e43f9eac6887e39d5c0f39264aa914a5d5f84cca) )
@@ -884,7 +884,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d49-05", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hthero93 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hthero93 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d49-13.bin", 0x000000, 0x20000, CRC(ccee5e73) SHA1(5273e3b9bc6fc4fa0c63d9c62aa6b638e9780c24) )
 		ROM_LOAD32_BYTE("d49-14.bin", 0x000001, 0x20000, CRC(2323bf2e) SHA1(e43f9eac6887e39d5c0f39264aa914a5d5f84cca) )
@@ -915,7 +915,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d49-05", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_trstar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_trstar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d53-15-1.24", 0x000000, 0x40000, CRC(098bba94) SHA1(b77990213ac790d15bdc0dc1e8f7adf04fe5e952) )
 		ROM_LOAD32_BYTE("d53-16-1.26", 0x000001, 0x40000, CRC(4fa8b15c) SHA1(821c21e1b958614ba6636330583b3661f9e0cebb) )
@@ -946,7 +946,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d53-02.3", 0xc00000, 0x200000, CRC(8bd4367a) SHA1(9b274fe321c4faedb7d44f7998ae2e37c6899688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_trstarj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_trstarj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d53-15-1.24", 0x000000, 0x40000, CRC(098bba94) SHA1(b77990213ac790d15bdc0dc1e8f7adf04fe5e952) )
 		ROM_LOAD32_BYTE("d53-16-1.26", 0x000001, 0x40000, CRC(4fa8b15c) SHA1(821c21e1b958614ba6636330583b3661f9e0cebb) )
@@ -977,7 +977,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d53-02.3", 0xc00000, 0x200000, CRC(8bd4367a) SHA1(9b274fe321c4faedb7d44f7998ae2e37c6899688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_prmtmfgt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_prmtmfgt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d53-15-1.24", 0x000000, 0x40000, CRC(098bba94) SHA1(b77990213ac790d15bdc0dc1e8f7adf04fe5e952) )
 		ROM_LOAD32_BYTE("d53-16-1.26", 0x000001, 0x40000, CRC(4fa8b15c) SHA1(821c21e1b958614ba6636330583b3661f9e0cebb) )
@@ -1008,7 +1008,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d53-02.3", 0xc00000, 0x200000, CRC(8bd4367a) SHA1(9b274fe321c4faedb7d44f7998ae2e37c6899688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_trstaro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_trstaro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d53-15.24", 0x000000, 0x40000, CRC(f24de51b) SHA1(d45d1b60901995edf0721eae7eb8c6e829f47d8d) )
 		ROM_LOAD32_BYTE("d53-16.26", 0x000001, 0x40000, CRC(ffc84429) SHA1(23354c1a65853c06e5c959957a92b700b1418fd4) )
@@ -1039,7 +1039,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d53-02.3", 0xc00000, 0x200000, CRC(8bd4367a) SHA1(9b274fe321c4faedb7d44f7998ae2e37c6899688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_trstaroj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_trstaroj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d53-15.24", 0x000000, 0x40000, CRC(f24de51b) SHA1(d45d1b60901995edf0721eae7eb8c6e829f47d8d) )
 		ROM_LOAD32_BYTE("d53-16.26", 0x000001, 0x40000, CRC(ffc84429) SHA1(23354c1a65853c06e5c959957a92b700b1418fd4) )
@@ -1070,7 +1070,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d53-02.3", 0xc00000, 0x200000, CRC(8bd4367a) SHA1(9b274fe321c4faedb7d44f7998ae2e37c6899688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_prmtmfgo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_prmtmfgo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d53-15.24", 0x000000, 0x40000, CRC(f24de51b) SHA1(d45d1b60901995edf0721eae7eb8c6e829f47d8d) )
 		ROM_LOAD32_BYTE("d53-16.26", 0x000001, 0x40000, CRC(ffc84429) SHA1(23354c1a65853c06e5c959957a92b700b1418fd4) )
@@ -1101,7 +1101,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d53-02.3", 0xc00000, 0x200000, CRC(8bd4367a) SHA1(9b274fe321c4faedb7d44f7998ae2e37c6899688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gunlock = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gunlock = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d66-18.rom", 0x000000, 0x40000, CRC(8418513e) SHA1(a071647268fad08802b88fb6d795612218b7ddef) )
 		ROM_LOAD32_BYTE("d66-19.rom", 0x000001, 0x40000, CRC(95731473) SHA1(ab79821cd6098a4db84ebc9a499c29b1525510a5) )
@@ -1129,7 +1129,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d66-02.rom", 0xc00000, 0x200000, CRC(dcdafaab) SHA1(c981c7e54a2a9aaa85bb758691858495d623b029) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rayforce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rayforce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d66-18.rom", 0x000000, 0x40000, CRC(8418513e) SHA1(a071647268fad08802b88fb6d795612218b7ddef) )
 		ROM_LOAD32_BYTE("d66-19.rom", 0x000001, 0x40000, CRC(95731473) SHA1(ab79821cd6098a4db84ebc9a499c29b1525510a5) )
@@ -1157,7 +1157,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d66-02.rom", 0xc00000, 0x200000, CRC(dcdafaab) SHA1(c981c7e54a2a9aaa85bb758691858495d623b029) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rayforcj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rayforcj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d66-18.rom", 0x000000, 0x40000, CRC(8418513e) SHA1(a071647268fad08802b88fb6d795612218b7ddef) )
 		ROM_LOAD32_BYTE("d66-19.rom", 0x000001, 0x40000, CRC(95731473) SHA1(ab79821cd6098a4db84ebc9a499c29b1525510a5) )
@@ -1185,7 +1185,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d66-02.rom", 0xc00000, 0x200000, CRC(dcdafaab) SHA1(c981c7e54a2a9aaa85bb758691858495d623b029) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_scfinals = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_scfinals = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d68-01", 0x000000, 0x40000, CRC(cb951856) SHA1(c7b0418b957ed0feecc9dffe5a963bd22df0ac4e) )
 		ROM_LOAD32_BYTE("d68-02", 0x000001, 0x40000, CRC(4f94413a) SHA1(b46a35ab0150d5d5e53149c53f11978fbfa28159) )
@@ -1216,7 +1216,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d49-05", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dungeonm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dungeonm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d69-20.bin", 0x000000, 0x80000, CRC(33650fe4) SHA1(df8b775749b1f0f02d0df6141597cc49fb3ae227) )
 		ROM_LOAD32_BYTE("d69-13.bin", 0x000001, 0x80000, CRC(dec2ec17) SHA1(8472a5aaea9e4e4fb5f7f4b5eda356b590d1541d) )
@@ -1247,7 +1247,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d69-02.bin", 0xc00000, 0x200000, CRC(dce28dd7) SHA1(eacfc98349b0608fc1a944c11f0483fb6caa4445) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dungenmu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dungenmu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d69-20.bin", 0x000000, 0x80000, CRC(33650fe4) SHA1(df8b775749b1f0f02d0df6141597cc49fb3ae227) )
 		ROM_LOAD32_BYTE("d69-13.bin", 0x000001, 0x80000, CRC(dec2ec17) SHA1(8472a5aaea9e4e4fb5f7f4b5eda356b590d1541d) )
@@ -1278,7 +1278,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d69-02.bin", 0xc00000, 0x200000, CRC(dce28dd7) SHA1(eacfc98349b0608fc1a944c11f0483fb6caa4445) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_lightbr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lightbr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d69-20.bin", 0x000000, 0x80000, CRC(33650fe4) SHA1(df8b775749b1f0f02d0df6141597cc49fb3ae227) )
 		ROM_LOAD32_BYTE("d69-13.bin", 0x000001, 0x80000, CRC(dec2ec17) SHA1(8472a5aaea9e4e4fb5f7f4b5eda356b590d1541d) )
@@ -1309,7 +1309,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d69-02.bin", 0xc00000, 0x200000, CRC(dce28dd7) SHA1(eacfc98349b0608fc1a944c11f0483fb6caa4445) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_intcup94 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_intcup94 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d78-07", 0x000000, 0x20000, CRC(8525d990) SHA1(b28aeb8727d615cae9eafd7710bf833a612ef7d4) )
 		ROM_LOAD32_BYTE("d78-06", 0x000001, 0x20000, CRC(42db1d41) SHA1(daf617764b04cd24e76dfa95423213c2a3692068) )
@@ -1342,7 +1342,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d49-05", 0x600000, 0x100000, CRC(ed894fe1) SHA1(5bf2fb6abdcf25bc525a2c3b29dbf7aca0b18fea) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kaiserkn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kaiserkn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d84-25.rom", 0x000000, 0x80000, CRC(2840893f) SHA1(079dece4667b029189622476cc618b88e57243a6) )
 		ROM_LOAD32_BYTE("d84-24.rom", 0x000001, 0x80000, CRC(bf20c755) SHA1(9f6edfe9bb40051e8a93d06a391c993ed7288db6) )
@@ -1383,7 +1383,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d84-15.rom", 0x800000, 0x100000, CRC(31ceb152) SHA1(d9d0bc631a6a726376f566a49605b50485ac7bf4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kaiserkj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kaiserkj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d84-25.rom", 0x000000, 0x80000, CRC(2840893f) SHA1(079dece4667b029189622476cc618b88e57243a6) )
 		ROM_LOAD32_BYTE("d84-24.rom", 0x000001, 0x80000, CRC(bf20c755) SHA1(9f6edfe9bb40051e8a93d06a391c993ed7288db6) )
@@ -1424,7 +1424,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d84-15.rom", 0x800000, 0x100000, CRC(31ceb152) SHA1(d9d0bc631a6a726376f566a49605b50485ac7bf4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gblchmp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gblchmp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d84-25.rom", 0x000000, 0x80000, CRC(2840893f) SHA1(079dece4667b029189622476cc618b88e57243a6) )
 		ROM_LOAD32_BYTE("d84-24.rom", 0x000001, 0x80000, CRC(bf20c755) SHA1(9f6edfe9bb40051e8a93d06a391c993ed7288db6) )
@@ -1465,7 +1465,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d84-15.rom", 0x800000, 0x100000, CRC(31ceb152) SHA1(d9d0bc631a6a726376f566a49605b50485ac7bf4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dankuga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dankuga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("dkg_mpr3.bin", 0x000000, 0x80000, CRC(ee1531ca) SHA1(5a78f44906c77a3195cbb41d256292255275643f) )
 		ROM_LOAD32_BYTE("dkg_mpr2.bin", 0x000001, 0x80000, CRC(18a4748b) SHA1(31b912b532329d2cbd43df44f21e0923af7157d5) )
@@ -1506,7 +1506,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d84-15.rom", 0x800000, 0x100000, CRC(31ceb152) SHA1(d9d0bc631a6a726376f566a49605b50485ac7bf4) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dariusg = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dariusg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d87-12.bin", 0x000000, 0x80000, CRC(de78f328) SHA1(126464a826685f5bfab6cc099448ce4df207a407) )
 		ROM_LOAD32_BYTE("d87-11.bin", 0x000001, 0x80000, CRC(f7bed18e) SHA1(db7d92680f9f406a5295ee85ce110c1a56ed386f) )
@@ -1534,7 +1534,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d87-02.bin", 0xc00000, 0x200000, CRC(9250abae) SHA1(07cae8edbc3cca0a95022d9b40a5c18a55350b67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dariusgj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dariusgj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d87-12.bin", 0x000000, 0x80000, CRC(de78f328) SHA1(126464a826685f5bfab6cc099448ce4df207a407) )
 		ROM_LOAD32_BYTE("d87-11.bin", 0x000001, 0x80000, CRC(f7bed18e) SHA1(db7d92680f9f406a5295ee85ce110c1a56ed386f) )
@@ -1562,7 +1562,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d87-02.bin", 0xc00000, 0x200000, CRC(9250abae) SHA1(07cae8edbc3cca0a95022d9b40a5c18a55350b67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dariusgu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dariusgu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d87-12.bin", 0x000000, 0x80000, CRC(de78f328) SHA1(126464a826685f5bfab6cc099448ce4df207a407) )
 		ROM_LOAD32_BYTE("d87-11.bin", 0x000001, 0x80000, CRC(f7bed18e) SHA1(db7d92680f9f406a5295ee85ce110c1a56ed386f) )
@@ -1590,7 +1590,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d87-02.bin", 0xc00000, 0x200000, CRC(9250abae) SHA1(07cae8edbc3cca0a95022d9b40a5c18a55350b67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dariusgx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dariusgx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("dge_mpr3.bin", 0x000000, 0x80000, CRC(1c1e24a7) SHA1(eafde331c3be5be55d0d838a84017f357ff92634) )
 		ROM_LOAD32_BYTE("dge_mpr2.bin", 0x000001, 0x80000, CRC(7be23e23) SHA1(4764355f51e207f4538dd753aea59bf2689835de) )
@@ -1618,7 +1618,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d87-02.bin", 0xc00000, 0x200000, CRC(9250abae) SHA1(07cae8edbc3cca0a95022d9b40a5c18a55350b67) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bublbob2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bublbob2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d90.12", 0x000000, 0x40000, CRC(9e523996) SHA1(c49a426f9865f96e8021c8ed9a6ac094c5e586b1) )
 		ROM_LOAD32_BYTE("d90.11", 0x000001, 0x40000, CRC(edfdbb7f) SHA1(698ad631d5b13661645f2c5ccd3e4fbf0248053c) )
@@ -1646,7 +1646,7 @@ public class taito_f3
 	 	ROM_LOAD16_BYTE("d90.05", 0xc00000, 0x200000, CRC(c192331f) SHA1(ebab05b3681c70b373bc06c1826be1cc397d3af7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bubsympe = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubsympe = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d90.12", 0x000000, 0x40000, CRC(9e523996) SHA1(c49a426f9865f96e8021c8ed9a6ac094c5e586b1) )
 		ROM_LOAD32_BYTE("d90.11", 0x000001, 0x40000, CRC(edfdbb7f) SHA1(698ad631d5b13661645f2c5ccd3e4fbf0248053c) )
@@ -1674,7 +1674,7 @@ public class taito_f3
 	 	ROM_LOAD16_BYTE("d90.05", 0xc00000, 0x200000, CRC(c192331f) SHA1(ebab05b3681c70b373bc06c1826be1cc397d3af7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bubsymph = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubsymph = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d90.12", 0x000000, 0x40000, CRC(9e523996) SHA1(c49a426f9865f96e8021c8ed9a6ac094c5e586b1) )
 		ROM_LOAD32_BYTE("d90.11", 0x000001, 0x40000, CRC(edfdbb7f) SHA1(698ad631d5b13661645f2c5ccd3e4fbf0248053c) )
@@ -1702,7 +1702,7 @@ public class taito_f3
 	 	ROM_LOAD16_BYTE("d90.05", 0xc00000, 0x200000, CRC(c192331f) SHA1(ebab05b3681c70b373bc06c1826be1cc397d3af7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bubsympu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubsympu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d90.12", 0x000000, 0x40000, CRC(9e523996) SHA1(c49a426f9865f96e8021c8ed9a6ac094c5e586b1) )
 		ROM_LOAD32_BYTE("d90.11", 0x000001, 0x40000, CRC(edfdbb7f) SHA1(698ad631d5b13661645f2c5ccd3e4fbf0248053c) )
@@ -1730,7 +1730,7 @@ public class taito_f3
 	 	ROM_LOAD16_BYTE("d90.05", 0xc00000, 0x200000, CRC(c192331f) SHA1(ebab05b3681c70b373bc06c1826be1cc397d3af7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spcinvdj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spcinvdj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d93_04.bin", 0x000000, 0x20000, CRC(cd9a4e5c) SHA1(b163b8274570610af8697b1b38116dcf4c3593db) )
 		ROM_LOAD32_BYTE("d93_03.bin", 0x000001, 0x20000, CRC(0174bfc1) SHA1(133452f6a5bdf01b1b436077288a597734a8731a) )
@@ -1756,7 +1756,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d93-12.39", 0xe00000, 0x80000, CRC(b0f71d60) SHA1(35fc32764d9b82b1b40c5e9cc8e367cf842531a2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pwrgoal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pwrgoal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d94-18.bin", 0x000000, 0x40000, CRC(b92681c3) SHA1(0ca05a69d046668c878df3d2b7ae3172d748e290) )
 		ROM_LOAD32_BYTE("d94-17.bin", 0x000001, 0x40000, CRC(6009333e) SHA1(4ab28f2d9e2b75adc668f5d9390e06086bbd97dc) )
@@ -1790,7 +1790,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d94-11.bin", 0xc00000, 0x200000, CRC(61ed83fa) SHA1(f6ca60b7af61fd3ac01a987f949d7a7bc96e43ff) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hthero95 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hthero95 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d94-18.bin", 0x000000, 0x40000, CRC(b92681c3) SHA1(0ca05a69d046668c878df3d2b7ae3172d748e290) )
 		ROM_LOAD32_BYTE("d94-17.bin", 0x000001, 0x40000, CRC(6009333e) SHA1(4ab28f2d9e2b75adc668f5d9390e06086bbd97dc) )
@@ -1824,7 +1824,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d94-11.bin", 0xc00000, 0x200000, CRC(61ed83fa) SHA1(f6ca60b7af61fd3ac01a987f949d7a7bc96e43ff) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hthro95u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hthro95u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("d94-18.bin", 0x000000, 0x40000, CRC(b92681c3) SHA1(0ca05a69d046668c878df3d2b7ae3172d748e290) )
 		ROM_LOAD32_BYTE("d94-17.bin", 0x000001, 0x40000, CRC(6009333e) SHA1(4ab28f2d9e2b75adc668f5d9390e06086bbd97dc) )
@@ -1858,7 +1858,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d94-11.bin", 0xc00000, 0x200000, CRC(61ed83fa) SHA1(f6ca60b7af61fd3ac01a987f949d7a7bc96e43ff) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_qtheater = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_qtheater = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 		ROM_LOAD32_BYTE("d95-12.20", 0x000000, 0x80000, CRC(fcee76ee) SHA1(9ffeeda656368d1c065ba1cdb51a8665f7f7262a) )
 		ROM_LOAD32_BYTE("d95-11.19", 0x000001, 0x80000, CRC(b3c2b8d5) SHA1(536c13d71e858309f41e7c387cd988e8fe356bee) )
@@ -1884,7 +1884,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("d95-04.41", 0x400000, 0x200000, CRC(e9049d16) SHA1(ffa7dfc5d1cb82a601bad26b634c993aedda7803) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spcnv95u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spcnv95u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e06.14",     0x000000, 0x20000, CRC(71ba7f00) SHA1(6b1d994c8319778aad3bec7bf7b24dc4944a36f0) )
 		ROM_LOAD32_BYTE("e06.13",     0x000001, 0x20000, CRC(f506ba4b) SHA1(551f9e87d2bfd513998648b175b63677cd6bdd74) )
@@ -1912,7 +1912,7 @@ public class taito_f3
 	 	ROM_LOAD16_BYTE("e06.05", 0x400000, 0x200000, CRC(f370ff15) SHA1(4bc464d1c3a28326c8b1ae2036387954cb1dd813) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spcinv95 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spcinv95 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e06.14",     0x000000, 0x20000, CRC(71ba7f00) SHA1(6b1d994c8319778aad3bec7bf7b24dc4944a36f0) )
 		ROM_LOAD32_BYTE("e06.13",     0x000001, 0x20000, CRC(f506ba4b) SHA1(551f9e87d2bfd513998648b175b63677cd6bdd74) )
@@ -1940,7 +1940,7 @@ public class taito_f3
 	 	ROM_LOAD16_BYTE("e06.05", 0x400000, 0x200000, CRC(f370ff15) SHA1(4bc464d1c3a28326c8b1ae2036387954cb1dd813) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_akkanvdr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_akkanvdr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e06.14", 0x000000, 0x20000, CRC(71ba7f00) SHA1(6b1d994c8319778aad3bec7bf7b24dc4944a36f0) )
 		ROM_LOAD32_BYTE("e06.13", 0x000001, 0x20000, CRC(f506ba4b) SHA1(551f9e87d2bfd513998648b175b63677cd6bdd74) )
@@ -1968,7 +1968,7 @@ public class taito_f3
 	 	ROM_LOAD16_BYTE("e06.05", 0x400000, 0x200000, CRC(f370ff15) SHA1(4bc464d1c3a28326c8b1ae2036387954cb1dd813) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_elvactr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elvactr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e02-12.20", 0x000000, 0x80000, CRC(ea5f5a32) SHA1(4f30c56fbf068fee6d3afb2479043c7e89f6c055) )
 		ROM_LOAD32_BYTE("e02-11.19", 0x000001, 0x80000, CRC(bcced8ff) SHA1(09c38c78300ba9d710b4e46ca71014bbc5ac46b4) )
@@ -1997,7 +1997,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e02-05.39", 0xc00000, 0x200000, CRC(eb729855) SHA1(85253efe794e8b5ffaf16bcb1123bca831e776a5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_elvactrj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elvactrj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e02-12.20", 0x000000, 0x80000, CRC(ea5f5a32) SHA1(4f30c56fbf068fee6d3afb2479043c7e89f6c055) )
 		ROM_LOAD32_BYTE("e02-11.19", 0x000001, 0x80000, CRC(bcced8ff) SHA1(09c38c78300ba9d710b4e46ca71014bbc5ac46b4) )
@@ -2026,7 +2026,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e02-05.39", 0xc00000, 0x200000, CRC(eb729855) SHA1(85253efe794e8b5ffaf16bcb1123bca831e776a5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_elvact2u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_elvact2u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e02-12.20", 0x000000, 0x80000, CRC(ea5f5a32) SHA1(4f30c56fbf068fee6d3afb2479043c7e89f6c055) )
 		ROM_LOAD32_BYTE("e02-11.19", 0x000001, 0x80000, CRC(bcced8ff) SHA1(09c38c78300ba9d710b4e46ca71014bbc5ac46b4) )
@@ -2055,7 +2055,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e02-05.39", 0xc00000, 0x200000, CRC(eb729855) SHA1(85253efe794e8b5ffaf16bcb1123bca831e776a5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_twinqix = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_twinqix = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("mpr0-3.b60", 0x000000, 0x40000, CRC(1a63d0de) SHA1(7d8d8a6c9c7f9dfc0a8a528a905e33388b8fe13d) )
 		ROM_LOAD32_BYTE("mpr0-2.b61", 0x000001, 0x40000, CRC(45a70987) SHA1(8cca6845064d943fd28416143e60399188b023cd) )
@@ -2086,7 +2086,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("snd-15.b11", 0xf00000, 0x80000, CRC(2edaa9dc) SHA1(72fead505c4f44e5736ff7d545d72dfa37d613e2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_quizhuhu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_quizhuhu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 		ROM_LOAD32_BYTE("e08-16.20", 0x000000, 0x80000, CRC(faa8f373) SHA1(e263b058288fcacf9b15188ab78e8fb05a8971a7) )
 		ROM_LOAD32_BYTE("e08-15.19", 0x000001, 0x80000, CRC(23acf231) SHA1(a87933439b3d1d92f8b9d545b13f20cc47a7fd4e) )
@@ -2118,7 +2118,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e08-09.41", 0x800000, 0x200000, CRC(200b26ee) SHA1(c689d0a1c1f5d71e0af3d94073b29d3619187c5f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobble2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobble2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 		ROM_LOAD32_BYTE("e10-11.rom", 0x000000, 0x40000, CRC(b82f81da) SHA1(2cd0fb321c853497058545525f430b52c0788fb1) )
 		ROM_LOAD32_BYTE("e10-10.rom", 0x000001, 0x40000, CRC(f432267a) SHA1(f9778fc627773e4e254faa0ce10e68407251ce95) )
@@ -2145,7 +2145,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e10-04.rom", 0x400000, 0x200000, CRC(5c0862a6) SHA1(f916f63b8629239e3221e1e231e1b39962ef38ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobbl2j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobbl2j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 		ROM_LOAD32_BYTE("e10-11.rom", 0x000000, 0x40000, CRC(b82f81da) SHA1(2cd0fb321c853497058545525f430b52c0788fb1) )
 		ROM_LOAD32_BYTE("e10-10.rom", 0x000001, 0x40000, CRC(f432267a) SHA1(f9778fc627773e4e254faa0ce10e68407251ce95) )
@@ -2172,7 +2172,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e10-04.rom", 0x400000, 0x200000, CRC(5c0862a6) SHA1(f916f63b8629239e3221e1e231e1b39962ef38ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobbl2u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobbl2u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 		ROM_LOAD32_BYTE("e10-11.rom", 0x000000, 0x40000, CRC(b82f81da) SHA1(2cd0fb321c853497058545525f430b52c0788fb1) )
 		ROM_LOAD32_BYTE("e10-10.rom", 0x000001, 0x40000, CRC(f432267a) SHA1(f9778fc627773e4e254faa0ce10e68407251ce95) )
@@ -2199,7 +2199,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e10-04.rom", 0x400000, 0x200000, CRC(5c0862a6) SHA1(f916f63b8629239e3221e1e231e1b39962ef38ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobbl2x = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobbl2x = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e10.29", 0x000000, 0x40000, CRC(f1e9ad3f) SHA1(8689d85f30e075d21e4be01a2a097a850a921c47) )
 		ROM_LOAD32_BYTE("e10.28", 0x000001, 0x40000, CRC(412a3602) SHA1(d754e6ac886676d2c1eb52de3a727894f316e6b5) )
@@ -2226,7 +2226,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e10-04.rom", 0x400000, 0x200000, CRC(5c0862a6) SHA1(f916f63b8629239e3221e1e231e1b39962ef38ba) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_gekirido = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_gekirido = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e11-12.bin", 0x000000, 0x40000, CRC(6a7aaacf) SHA1(a8114c84e76c75c908a61d985d96aa4eb9a0ac5a) )
 		ROM_LOAD32_BYTE("e11-11.bin", 0x000001, 0x40000, CRC(2284a08e) SHA1(3dcb91be0d3491ad5e77efd30bacd506dad0f848) )
@@ -2254,7 +2254,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e11-05.bin", 0xc00000, 0x200000, CRC(a4d08cf1) SHA1(ae2cabef7b7bcb8a788988c73d7af6fa4bb2c444) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ktiger2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ktiger2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e15-14.bin", 0x000000, 0x40000, CRC(b527b733) SHA1(19efd647ea9c277b306714fe79ebf40d5f9d2187) )
 		ROM_LOAD32_BYTE("e15-13.bin", 0x000001, 0x40000, CRC(0f03daf7) SHA1(de5aee5a339224dfe5e03a02d3ef5ffd5a39211e) )
@@ -2284,7 +2284,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e15-06.bin", 0x400000, 0x200000, CRC(b182a3e1) SHA1(db8569b069911bb84900b2aa5168c45ba3e985c7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bubblem = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubblem = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e21-21.rom", 0x000000, 0x080000, CRC(cac4169c) SHA1(e1e5b9bbaecfd29ee764c8b29df8ffd08ef01866) )
 		ROM_LOAD32_BYTE("e21-20.rom", 0x000001, 0x080000, CRC(7727c673) SHA1(cda3dbcf8da06e81b899008462bcd6b2ea43db81) )
@@ -2311,7 +2311,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e21-04.rom", 0x400000, 0x200000, CRC(e5af2a2d) SHA1(62a49504decc7160b710260218920d2d6d2af8f0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bubblemj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bubblemj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e21-11.20", 0x000000, 0x080000, CRC(df0eeae4) SHA1(4cc8d350da881947c1b9c4e0b8fbe220494f6c38) )
 		ROM_LOAD32_BYTE("e21-10.19", 0x000001, 0x080000, CRC(cdfb58f6) SHA1(70d2b8228ab4ddd572fe2ee53c1b7205b66ef6a3) )
@@ -2338,7 +2338,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e21-04.rom", 0x400000, 0x200000, CRC(e5af2a2d) SHA1(62a49504decc7160b710260218920d2d6d2af8f0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cleopatr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cleopatr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e28-10.bin", 0x000000, 0x80000, CRC(013fbc39) SHA1(d36ac44609b88e1da35c98dda381042e0112ea00) )
 		ROM_LOAD32_BYTE("e28-09.bin", 0x000001, 0x80000, CRC(1c48a1f9) SHA1(791d321c03073cdd0269b970f926897446d2a6fb) )
@@ -2364,7 +2364,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e28-03.bin", 0x000000, 0x200000, CRC(15c7989d) SHA1(7cc63d93e5c1f9f52f889e973bbefd5e6f7ce807) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobble3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobble3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("pb3_12.rom", 0x000000, 0x80000, CRC(9eb19a00) SHA1(5a6417e4377070f9f01110dc6d513d0de01cff1e) )
 		ROM_LOAD32_BYTE("pb3_11.rom", 0x000001, 0x80000, CRC(e54ada97) SHA1(325e2bc7156656cc262989910dde07a1746cf790) )
@@ -2393,7 +2393,7 @@ public class taito_f3
 		ROM_RELOAD(                   0x800000, 0x200000 ) //fix sound
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobbl3u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobbl3u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("pb3_12.rom", 0x000000, 0x80000, CRC(9eb19a00) SHA1(5a6417e4377070f9f01110dc6d513d0de01cff1e) )
 		ROM_LOAD32_BYTE("pb3_11.rom", 0x000001, 0x80000, CRC(e54ada97) SHA1(325e2bc7156656cc262989910dde07a1746cf790) )
@@ -2422,7 +2422,7 @@ public class taito_f3
 		ROM_RELOAD(                   0x800000, 0x200000 ) //fix sound
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobbl3j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobbl3j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("pb3_12.rom", 0x000000, 0x80000, CRC(9eb19a00) SHA1(5a6417e4377070f9f01110dc6d513d0de01cff1e) )
 		ROM_LOAD32_BYTE("pb3_11.rom", 0x000001, 0x80000, CRC(e54ada97) SHA1(325e2bc7156656cc262989910dde07a1746cf790) )
@@ -2451,7 +2451,7 @@ public class taito_f3
 		ROM_RELOAD(                   0x800000, 0x200000 ) //fix sound
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arkretrn = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arkretrn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e36.11", 0x000000, 0x040000, CRC(b50cfb92) SHA1(dac69fc9ef03315b11bb94d19e3dfdc8867b08ed) )
 		ROM_LOAD32_BYTE("e36.10", 0x000001, 0x040000, CRC(c940dba1) SHA1(ec87c9e4250f8b2f15094681a4783bca8c68f576) )
@@ -2478,7 +2478,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e36.04", 0x000000, 0x200000, CRC(2250959b) SHA1(06943f1b72bdf325485356a01278d88aeae93d87) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_kirameki = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kirameki = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e44-19.20", 0x000000, 0x80000, CRC(2f3b239a) SHA1(fb79955eba377d429ece04553251146b406143b1) )
 		ROM_LOAD32_BYTE("e44-18.19", 0x000001, 0x80000, CRC(3137c8bc) SHA1(5f5cb47e214fe116cf985e847fa8340cf2ea5a64) )
@@ -2513,7 +2513,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e44-08.39", 0x800000, 0x400000, CRC(33ba3037) SHA1(b4bbc4198929938607c444edf159ff40f53235d7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_puchicar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_puchicar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e46.16", 0x000000, 0x80000, CRC(cf2accdf) SHA1(b1e9808299a3c68c939009275108ee76cd7f5749) )
 		ROM_LOAD32_BYTE("e46.15", 0x000001, 0x80000, CRC(c32c6ed8) SHA1(b0c4cca836e6957ecabdaddff23439f9d038a161) )
@@ -2546,7 +2546,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e46.09", 0x000000, 0x200000, CRC(824135f8) SHA1(13e9edeac38e63fa27d9fd7892d51c216f36ec30) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobble4 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobble4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e49.12", 0x000000, 0x80000, CRC(fffea203) SHA1(6351209c78099f270c8d8c8aa4a2dd9ce126c4ed) )
 		ROM_LOAD32_BYTE("e49.11", 0x000001, 0x80000, CRC(bf69a087) SHA1(2acbdb7faf5bdb1d9b5b9506c0b6f02fedcbd6a5) )
@@ -2575,7 +2575,7 @@ public class taito_f3
 		ROM_RELOAD(               0xc00000, 0x200000 ) //fix sound
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobbl4j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobbl4j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e49.12", 0x000000, 0x80000, CRC(fffea203) SHA1(6351209c78099f270c8d8c8aa4a2dd9ce126c4ed) )
 		ROM_LOAD32_BYTE("e49.11", 0x000001, 0x80000, CRC(bf69a087) SHA1(2acbdb7faf5bdb1d9b5b9506c0b6f02fedcbd6a5) )
@@ -2604,7 +2604,7 @@ public class taito_f3
 		ROM_RELOAD(               0xc00000, 0x200000 ) //fix sound
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pbobbl4u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pbobbl4u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e49.12", 0x000000, 0x80000, CRC(fffea203) SHA1(6351209c78099f270c8d8c8aa4a2dd9ce126c4ed) )
 		ROM_LOAD32_BYTE("e49.11", 0x000001, 0x80000, CRC(bf69a087) SHA1(2acbdb7faf5bdb1d9b5b9506c0b6f02fedcbd6a5) )
@@ -2633,7 +2633,7 @@ public class taito_f3
 		ROM_RELOAD(               0xc00000, 0x200000 ) //fix sound
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_popnpopj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_popnpopj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e51-12.20", 0x000000, 0x80000, CRC(86a237d5) SHA1(4b87a51705a4d831b21ee770af17310c6c091c2e) )
 		ROM_LOAD32_BYTE("e51-11.19", 0x000001, 0x80000, CRC(8a49f34f) SHA1(8691fbc1e96f0c9eb550dbb8ae8d7ef371397166) )
@@ -2661,7 +2661,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e51-05.41", 0xc00000, 0x200000, CRC(4d08b26d) SHA1(071a11a1b1ee8b8129d02b15ec0e533912c91b04) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_popnpop = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_popnpop = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e51-12.20", 0x000000, 0x80000, CRC(86a237d5) SHA1(4b87a51705a4d831b21ee770af17310c6c091c2e) )
 		ROM_LOAD32_BYTE("e51-11.19", 0x000001, 0x80000, CRC(8a49f34f) SHA1(8691fbc1e96f0c9eb550dbb8ae8d7ef371397166) )
@@ -2689,7 +2689,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e51-05.41", 0xc00000, 0x200000, CRC(4d08b26d) SHA1(071a11a1b1ee8b8129d02b15ec0e533912c91b04) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_popnpopu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_popnpopu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e51-12.20", 0x000000, 0x80000, CRC(86a237d5) SHA1(4b87a51705a4d831b21ee770af17310c6c091c2e) )
 		ROM_LOAD32_BYTE("e51-11.19", 0x000001, 0x80000, CRC(8a49f34f) SHA1(8691fbc1e96f0c9eb550dbb8ae8d7ef371397166) )
@@ -2717,7 +2717,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e51-05.41", 0xc00000, 0x200000, CRC(4d08b26d) SHA1(071a11a1b1ee8b8129d02b15ec0e533912c91b04) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_landmakr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_landmakr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("e61-13.20", 0x000000, 0x80000, CRC(0af756a2) SHA1(2dadac6873f2491ee77703f07f00dde2aa909355) )
 		ROM_LOAD32_BYTE("e61-12.19", 0x000001, 0x80000, CRC(636b3df9) SHA1(78a5bf4977bb90d710942188ce5016f3df499feb) )
@@ -2746,7 +2746,7 @@ public class taito_f3
 		ROM_LOAD16_BYTE("e61-05.39", 0xc00000, 0x200000, CRC(83920d9d) SHA1(019e39ae85d1129f6d3b8460c4b1bd925f868ee2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_landmkrp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_landmkrp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0) /* 68020 code */
 	 	ROM_LOAD32_BYTE("mpro-3.60", 0x000000, 0x80000, CRC(f92eccd0) SHA1(88e836390be1ca08c578080662d17007a9e0bcc3) )
 		ROM_LOAD32_BYTE("mpro-2.61", 0x000001, 0x80000, CRC(5a26c9e0) SHA1(e7f09722f6b7a459248c2c8ad0a2695365cc78dc) )

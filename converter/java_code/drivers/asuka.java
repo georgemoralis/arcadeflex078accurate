@@ -412,7 +412,7 @@ public class asuka
 		PORT_BIT( 0x80, IP_ACTIVE_LOW,  IPT_UNKNOWN );
 	
 	
-	static InputPortPtr input_ports_bonzeadv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bonzeadv )
+	static InputPortHandlerPtr input_ports_bonzeadv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bonzeadv )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -484,7 +484,7 @@ public class asuka
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_jigkmgri = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jigkmgri ) /* coinage DIPs differ from bonzeadv */
+	static InputPortHandlerPtr input_ports_jigkmgri = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jigkmgri ) /* coinage DIPs differ from bonzeadv */
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -547,7 +547,7 @@ public class asuka
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_asuka = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( asuka )
+	static InputPortHandlerPtr input_ports_asuka = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( asuka )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -596,7 +596,7 @@ public class asuka
 		ASUKA_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_mofflott = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mofflott )
+	static InputPortHandlerPtr input_ports_mofflott = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mofflott )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -639,7 +639,7 @@ public class asuka
 		ASUKA_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cadash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cadash )
+	static InputPortHandlerPtr input_ports_cadash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cadash )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );	// Manual says leave it off
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -687,7 +687,7 @@ public class asuka
 		CADASH_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cadashj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cadashj )
+	static InputPortHandlerPtr input_ports_cadashj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cadashj )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );	// Manual says leave it off
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -729,7 +729,7 @@ public class asuka
 		CADASH_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_cadashu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cadashu )
+	static InputPortHandlerPtr input_ports_cadashu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cadashu )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unused") );	// Manual says leave it off
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -771,7 +771,7 @@ public class asuka
 		CADASH_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_galmedes = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( galmedes )
+	static InputPortHandlerPtr input_ports_galmedes = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galmedes )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -814,7 +814,7 @@ public class asuka
 		ASUKA_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_earthjkr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( earthjkr )
+	static InputPortHandlerPtr input_ports_earthjkr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( earthjkr )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -858,7 +858,7 @@ public class asuka
 		ASUKA_SYSTEM_INPUT
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_eto = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( eto )
+	static InputPortHandlerPtr input_ports_eto = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( eto )
 		PORT_START(); 	/* DSWA */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -1148,7 +1148,7 @@ public class asuka
 						DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bonzeadv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bonzeadv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code */
 		ROM_LOAD16_BYTE( "b41-09-1.17", 0x00000, 0x10000, CRC(af821fbc) SHA1(55bc13742033a31c92d6268d6b8344062ca78633) )
 		ROM_LOAD16_BYTE( "b41-11-1.26", 0x00001, 0x10000, CRC(823fff00) SHA1(b8b8cafbe860136c202d8d9f3ed5a54e2f4df363) )
@@ -1171,7 +1171,7 @@ public class asuka
 		ROM_LOAD( "b41-04.48",  0x00000, 0x80000, CRC(c668638f) SHA1(07238a6cb4d93ffaf6351657163b5d80f0dbf688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_bonzeadu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bonzeadu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code */
 		ROM_LOAD16_BYTE( "b41-09-1.17", 0x00000, 0x10000, CRC(af821fbc) SHA1(55bc13742033a31c92d6268d6b8344062ca78633) )
 		ROM_LOAD16_BYTE( "b41-11-1.26", 0x00001, 0x10000, CRC(823fff00) SHA1(b8b8cafbe860136c202d8d9f3ed5a54e2f4df363) )
@@ -1194,7 +1194,7 @@ public class asuka
 		ROM_LOAD( "b41-04.48",  0x00000, 0x80000, CRC(c668638f) SHA1(07238a6cb4d93ffaf6351657163b5d80f0dbf688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jigkmgri = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jigkmgri = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code */
 		ROM_LOAD16_BYTE( "b41-09-1.17", 0x00000, 0x10000, CRC(af821fbc) SHA1(55bc13742033a31c92d6268d6b8344062ca78633) )
 		ROM_LOAD16_BYTE( "b41-11-1.26", 0x00001, 0x10000, CRC(823fff00) SHA1(b8b8cafbe860136c202d8d9f3ed5a54e2f4df363) )
@@ -1217,7 +1217,7 @@ public class asuka
 		ROM_LOAD( "b41-04.48",  0x00000, 0x80000, CRC(c668638f) SHA1(07238a6cb4d93ffaf6351657163b5d80f0dbf688) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_asuka = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_asuka = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 1024k for 68000 code */
 		ROM_LOAD16_BYTE( "asuka_13.rom",  0x00000, 0x20000, CRC(855efb3e) SHA1(644e02e207adeaec7839c824688d88ab8d046418) )
 		ROM_LOAD16_BYTE( "asuka_12.rom",  0x00001, 0x20000, CRC(271eeee9) SHA1(c08e347be4aae929c0ab95ff7618edaa1a7d6da9) )
@@ -1240,7 +1240,7 @@ public class asuka
 		ROM_LOAD( "asuka_10.rom", 0x00000, 0x10000, CRC(387aaf40) SHA1(47c583564ef1d49ece15f97221b2e073e8fb0544) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_mofflott = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mofflott = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 1024k for 68000 code */
 		ROM_LOAD16_BYTE( "c17-09.bin",  0x00000, 0x20000, CRC(05ee110f) SHA1(8cedd911d3fdcca1e409260d12dd03a2fb35ef86) )
 		ROM_LOAD16_BYTE( "c17-08.bin",  0x00001, 0x20000, CRC(d0aacffd) SHA1(2c5ec4020aad2c1cd3a004dc70a12e0d77eb6aa7) )
@@ -1263,7 +1263,7 @@ public class asuka
 		ROM_LOAD( "c17-06.bin", 0x00000, 0x10000, CRC(5c332125) SHA1(408f42df18b38347c8a4e177a9484162a66877e1) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cadash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cadash = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c21-14",  0x00000, 0x20000, CRC(5daf13fb) SHA1(c2be42b2cdc90b6463ce87211cf711c951b17fab) )
 		ROM_LOAD16_BYTE( "c21-16",  0x00001, 0x20000, CRC(cbaa2e75) SHA1(c41ea71f2b0e72bf993dfcfd30f1994cae9f52a0) )
@@ -1293,7 +1293,7 @@ public class asuka
 	//	ROM_LOAD( "c21-12",   0x00000, 0x00cd5, CRC(f02292bd) SHA1(0a5c06a048ad67f90e0d766b504582e9eef035f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cadashj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cadashj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c21-04.11",  0x00000, 0x20000, CRC(cc22ebe5) SHA1(170787e7ab2055af593f3f2596cab44feb53b060) )
 		ROM_LOAD16_BYTE( "c21-06.15",  0x00001, 0x20000, CRC(26e03304) SHA1(c8b271e455dde312c8871dc8dd4d3f0f063fa894) )
@@ -1317,7 +1317,7 @@ public class asuka
 		ROM_LOAD( "c21-07.57",   0x00000, 0x08000, CRC(f02292bd) SHA1(0a5c06a048ad67f90e0d766b504582e9eef035f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cadashu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cadashu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c21-14-2.11",  0x00000, 0x20000, CRC(f823d418) SHA1(5b4a0b42fb5a2e1ba1e25465762cdc24c41b33f8) )
 		ROM_LOAD16_BYTE( "c21-16-2.15",  0x00001, 0x20000, CRC(90165577) SHA1(b8e163cf60933aaaa53873fbc866d8d1750240ab) )
@@ -1343,7 +1343,7 @@ public class asuka
 		ROM_LOAD( "c21-07.57",   0x00000, 0x08000, CRC(f02292bd) SHA1(0a5c06a048ad67f90e0d766b504582e9eef035f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cadashi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cadashi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c21-14it",  0x00000, 0x20000, CRC(d1d9e613) SHA1(296c188daec962bdb4e78e20f1cc4c7d1f4dda09) )
 		ROM_LOAD16_BYTE( "c21-16it",  0x00001, 0x20000, CRC(142256ef) SHA1(9ffc64d7c900bfa0300de9e6d18c7458f4c76ed7) )
@@ -1367,7 +1367,7 @@ public class asuka
 		ROM_LOAD( "c21-07.57",   0x00000, 0x08000, CRC(f02292bd) SHA1(0a5c06a048ad67f90e0d766b504582e9eef035f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cadashf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cadashf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )     /* 512k for 68000 code */
 		ROM_LOAD16_BYTE( "c21-19",  0x00000, 0x20000, CRC(4d70543b) SHA1(4fc8d4a9f978232a484af3d91bf8eea2afc839a7) )
 		ROM_LOAD16_BYTE( "c21-21",  0x00001, 0x20000, CRC(0e5b9950) SHA1(872919bab057fc9e5baffe5dfe35b1b8c1ed0105) )
@@ -1391,7 +1391,7 @@ public class asuka
 		ROM_LOAD( "c21-07.57",   0x00000, 0x08000, CRC(f02292bd) SHA1(0a5c06a048ad67f90e0d766b504582e9eef035f7) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_galmedes = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_galmedes = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 1024k for 68000 code */
 		ROM_LOAD16_BYTE( "gm-prg1.bin",  0x00000, 0x20000, CRC(32a70753) SHA1(3bd094b7ae600dbc87ba74e8b2d6b86a68346f4f) )
 		ROM_LOAD16_BYTE( "gm-prg0.bin",  0x00001, 0x20000, CRC(fae546a4) SHA1(484cad5287daa495b347f6b5b065f3b3d02d8f0e) )
@@ -1412,7 +1412,7 @@ public class asuka
 		/* empty region */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_earthjkr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_earthjkr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 1024k for 68000 code */
 		ROM_LOAD16_BYTE( "ej_3b.rom",  0x00000, 0x20000, CRC(bdd86fc2) SHA1(96578860ed03718f8a68847b367eac6c81b79ca2) )
 		ROM_LOAD16_BYTE( "ej_3a.rom",  0x00001, 0x20000, CRC(9c8050c6) SHA1(076c882f75787e8120de66ff0dcd2cb820513c45) )
@@ -1435,7 +1435,7 @@ public class asuka
 		/* empty region */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_eto = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_eto = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 1024k for 68000 code */
 		ROM_LOAD16_BYTE( "eto-1.23",  0x00000, 0x20000, CRC(44286597) SHA1(ac37e5edbf9d187f60232adc5e9ebed45b3d2fe2) )
 		ROM_LOAD16_BYTE( "eto-0.8",   0x00001, 0x20000, CRC(57b79370) SHA1(25f83eada982ef654260fe92016d42a90005a05c) )

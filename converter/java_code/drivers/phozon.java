@@ -131,7 +131,7 @@ public class phozon
 	};
 	
 	/* The dipswitches and player inputs are not memory mapped, they are handled by an I/O chip. */
-	static InputPortPtr input_ports_phozon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( phozon )
+	static InputPortHandlerPtr input_ports_phozon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( phozon )
 		PORT_START();   /* DSW0 */
 		PORT_DIPNAME( 0x07, 0x00, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x07, DEF_STR( "3C_1C") );
@@ -289,7 +289,7 @@ public class phozon
 	
 	
 	
-	static RomLoadPtr rom_phozon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_phozon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code for the MAIN CPU  */
 		ROM_LOAD( "6e.rom", 0x8000, 0x2000, CRC(a6686af1) SHA1(87a948b289356675d0418c87c3c0ae36ceba3ee0) )
 		ROM_LOAD( "6h.rom", 0xa000, 0x2000, CRC(72a65ba0) SHA1(b1d5146c009469d4c6695f08ea2c6ad5d05b5b9b) )

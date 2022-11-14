@@ -132,7 +132,7 @@ public class appoooh
 	
 	
 	
-	static InputPortPtr input_ports_appoooh = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( appoooh )
+	static InputPortHandlerPtr input_ports_appoooh = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( appoooh )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -276,7 +276,7 @@ public class appoooh
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_appoooh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_appoooh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )	/* 64k for code + 16k bank */
 		ROM_LOAD( "epr-5906.bin", 0x00000, 0x2000, CRC(fffae7fe) SHA1(b4bb60eb6331e503759bd963eafefa69331d6b86) )
 		ROM_LOAD( "epr-5907.bin", 0x02000, 0x2000, CRC(57696cd6) SHA1(74a005d18d55fed9ece9b579d2e7e6619a47538b) )

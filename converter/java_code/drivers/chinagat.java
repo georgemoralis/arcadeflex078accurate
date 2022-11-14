@@ -398,7 +398,7 @@ public class chinagat
 	
 	
 	
-	static InputPortPtr input_ports_chinagat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( chinagat )
+	static InputPortHandlerPtr input_ports_chinagat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chinagat )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_VBLANK );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );
@@ -667,7 +667,7 @@ public class chinagat
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_chinagat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_chinagat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* Main CPU: 128KB for code (bankswitched using $3F01) */
 		ROM_LOAD( "cgate51.bin", 0x10000, 0x18000, CRC(439a3b19) SHA1(01393b4302ac7a66390270b01e2757582240f6b8) )	/* Banks 0x4000 long @ 0x4000 */
 		ROM_CONTINUE(            0x08000, 0x08000 )				/* Static code */
@@ -704,7 +704,7 @@ public class chinagat
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_saiyugou = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_saiyugou = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* Main CPU: 128KB for code (bankswitched using $3F01) */
 		ROM_LOAD( "23j3-0.51",  0x10000, 0x18000, CRC(aa8132a2) SHA1(87c3bd447767f263113c4865afc905a0e484a625) )	/* Banks 0x4000 long @ 0x4000 */
 		ROM_CONTINUE(           0x08000, 0x08000)				/* Static code */
@@ -740,7 +740,7 @@ public class chinagat
 		ROM_LOAD( "23j5-0.45", 0x200, 0x100, CRC(fdb130a9) SHA1(4c4f214229b9fab2b5d69c745ec5428787b89e1f) )	/* 82S129 on main board */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_saiyugb1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_saiyugb1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* Main CPU: 128KB for code (bankswitched using $3F01) */
 		ROM_LOAD( "23j3-0.51",  0x10000, 0x18000, CRC(aa8132a2) SHA1(87c3bd447767f263113c4865afc905a0e484a625) )	/* Banks 0x4000 long @ 0x4000 */
 		/* Orientation of bootleg ROMs which are split, but otherwise the same.
@@ -805,7 +805,7 @@ public class chinagat
 		ROM_LOAD( "23j5-0.45", 0x200, 0x100, CRC(fdb130a9) SHA1(4c4f214229b9fab2b5d69c745ec5428787b89e1f) )	/* 82S129 on main board */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_saiyugb2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_saiyugb2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* Main CPU: 128KB for code (bankswitched using $3F01) */
 		ROM_LOAD( "23j3-0.51",   0x10000, 0x18000, CRC(aa8132a2) SHA1(87c3bd447767f263113c4865afc905a0e484a625) )	/* Banks 0x4000 long @ 0x4000 */
 		/* Orientation of bootleg ROMs which are split, but otherwise the same.

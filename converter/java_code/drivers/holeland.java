@@ -84,7 +84,7 @@ public class holeland
 	
 	
 	
-	static InputPortPtr input_ports_holeland = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( holeland )
+	static InputPortHandlerPtr input_ports_holeland = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( holeland )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON2 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON1 );
@@ -153,7 +153,7 @@ public class holeland
 		PORT_DIPSETTING(    0x80, "Play" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_crzrally = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( crzrally )
+	static InputPortHandlerPtr input_ports_crzrally = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crzrally )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -364,7 +364,7 @@ public class holeland
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_holeland = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_holeland = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "holeland.0",  0x0000, 0x2000, CRC(b640e12b) SHA1(68d091a92747d2f4534386aff3ddb07c0d79384c) )
 		ROM_LOAD( "holeland.1",  0x2000, 0x2000, CRC(2f180851) SHA1(c21bcd3e9ff31a5cc415eb53d77a9cc9ebdd862d) )
@@ -388,7 +388,7 @@ public class holeland
 		ROM_LOAD( "3n",          0x0200, 0x0100, CRC(3d7b3af6) SHA1(0c4f95b26e9fe25a5d8c79f06e7ceab78a07d35c) )  /* Blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_crzrally = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_crzrally = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "1.7g",        0x0000, 0x4000, CRC(8fe01f86) SHA1(3e08f2cdcd08b25f2bb32d1c4d4caf4ac60c94d6) )
 		ROM_LOAD( "2.7f",        0x4000, 0x4000, CRC(67110f1d) SHA1(cc500017057e39cc8a6cb4e4ccae3c3cbab6c2ba) )

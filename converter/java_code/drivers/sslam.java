@@ -106,7 +106,7 @@ public class sslam
 	
 	/* Input Ports */
 	
-	static InputPortPtr input_ports_sslam = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sslam )
+	static InputPortHandlerPtr input_ports_sslam = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sslam )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_UNUSED );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -269,7 +269,7 @@ public class sslam
 	//	MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_sslam = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sslam = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xD00000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "it_21.bin", 0x00000, 0x80000, CRC(1ce52917) SHA1(b9b1d14ea44c248ce6e615c5c553c0d485c1302b) )
 		ROM_RELOAD ( 0xc00000, 0x80000 )

@@ -275,7 +275,7 @@ public class btoads
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_btoads = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( btoads )
+	static InputPortHandlerPtr input_ports_btoads = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( btoads )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_PLAYER1 );
@@ -426,7 +426,7 @@ public class btoads
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_btoads = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_btoads = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( TOBYTE(0x400000), REGION_CPU1, 0 )		/* 34020 dummy region */
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )	/* sound program */

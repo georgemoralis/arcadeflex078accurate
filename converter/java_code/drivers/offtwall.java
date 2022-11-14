@@ -303,7 +303,7 @@ public class offtwall
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_offtwall = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( offtwall )
+	static InputPortHandlerPtr input_ports_offtwall = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( offtwall )
 		PORT_START(); 	/* 260000 */
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_BUTTON4 | IPF_PLAYER2 );
 		PORT_BIT(  0x0002, IP_ACTIVE_LOW, IPT_START2 );
@@ -435,7 +435,7 @@ public class offtwall
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_offtwall = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_offtwall = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "otw2012.bin", 0x00000, 0x20000, CRC(d08d81eb) SHA1(5a72aa2e4fc6455b94aa59a7719d0ddc8bcc80f2) )
 		ROM_LOAD16_BYTE( "otw2013.bin", 0x00001, 0x20000, CRC(61c2553d) SHA1(343d39f9b75fd236e9769ec21ab65310f85e31ca) )
@@ -454,7 +454,7 @@ public class offtwall
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_offtwalc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_offtwalc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "090-2612.rom", 0x00000, 0x20000, CRC(fc891a3f) SHA1(027815a20fbc6c0c9242768581b97362b39941c2) )
 		ROM_LOAD16_BYTE( "090-2613.rom", 0x00001, 0x20000, CRC(805d79d4) SHA1(943ec9f408ba875bdf1794ce7d24803043480401) )

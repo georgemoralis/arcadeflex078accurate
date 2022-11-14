@@ -181,7 +181,7 @@ public class skyarmy
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_skyarmy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skyarmy )
+	static InputPortHandlerPtr input_ports_skyarmy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skyarmy )
 	        PORT_START(); 
 	        PORT_DIPNAME( 0x03, 0x02, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "2" );
@@ -302,7 +302,7 @@ public class skyarmy
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_skyarmy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skyarmy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "a1h.bin", 0x0000, 0x2000, CRC(e3fb9d70) SHA1(b8e3a6d7d6ef30c1397f9b741132c5257c16be2d) )
 		ROM_LOAD( "a2h.bin", 0x2000, 0x2000, CRC(0417653e) SHA1(4f6ad7335b5b7e85b4e16cce3c127488c02401b2) )

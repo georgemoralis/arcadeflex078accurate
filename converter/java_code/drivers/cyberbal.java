@@ -341,7 +341,7 @@ public class cyberbal
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_cyberbal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cyberbal )
+	static InputPortHandlerPtr input_ports_cyberbal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cyberbal )
 		PORT_START();       /* fe0000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_PLAYER4 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_PLAYER4 );
@@ -397,7 +397,7 @@ public class cyberbal
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_cyberb2p = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cyberb2p )
+	static InputPortHandlerPtr input_ports_cyberb2p = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cyberb2p )
 		PORT_START();       /* fc0000 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_PLAYER1 );
@@ -605,7 +605,7 @@ public class cyberbal
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_cyberbal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberbal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "4123-1m.064",  0x000000, 0x010000, CRC(fb872740) SHA1(15e6721d466fe56d7c97c6801e214b32803a0a0d) )
 		ROM_LOAD16_BYTE( "4124-1kl.064", 0x000001, 0x010000, CRC(87babad9) SHA1(acdc6b5976445e203de19eb03697e307fe6da77d) )
@@ -656,7 +656,7 @@ public class cyberbal
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cyberba2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberba2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "2123-1m.064",  0x000000, 0x010000, CRC(502676e8) SHA1(c0f1f1ce50d3df21cb81244268faef6c303cdfab) )
 		ROM_LOAD16_BYTE( "2124-1kl.064", 0x000001, 0x010000, CRC(30f55915) SHA1(ab93ec46f282ab9a0cd47c989537a7e036975e3f) )
@@ -707,7 +707,7 @@ public class cyberbal
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cyberbap = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberbap = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "0123-1m.064",  0x000000, 0x010000, CRC(59bac810) SHA1(d4742b2b554c2ad62a2ea7152db3f06a06cddd67) )
 		ROM_LOAD16_BYTE( "0124-1kl.064", 0x000001, 0x010000, CRC(e48e6dd3) SHA1(4d45bc66c0a3eb1174db7f19c5dee54dabad68f3) )
@@ -758,7 +758,7 @@ public class cyberbal
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cyberb2p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberb2p = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "4019-10c.071", 0x000000, 0x010000, CRC(20c6b09c) SHA1(b12f9247621fe0242171140256b7b92c996dcb19) )
 		ROM_LOAD16_BYTE( "4020-10d.071", 0x000001, 0x010000, CRC(eaa6c524) SHA1(0bc48dca1f10fbb3dec441d06f447637b6c70356) )
@@ -805,7 +805,7 @@ public class cyberbal
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cyberb23 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberb23 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "3019-10c.071", 0x000000, 0x010000, CRC(029f8cb6) SHA1(528ab6357592313b41964102c14b90862c05f248) )
 		ROM_LOAD16_BYTE( "3020-10d.071", 0x000001, 0x010000, CRC(1871b344) SHA1(2b6f2f4760af0f0e1e0b6cb34017dcdca7635e60) )
@@ -852,7 +852,7 @@ public class cyberbal
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cyberb22 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberb22 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "2019-10c.071", 0x000000, 0x010000, CRC(acb1e18b) SHA1(37a80f0c8d8b46ebb9660c7f038fc874d4817e93) )
 		ROM_LOAD16_BYTE( "2020-10d.071", 0x000001, 0x010000, CRC(fd6ec2fd) SHA1(8b871e5e66acd26b8301ac35e3f42fba5b9fce2c) )
@@ -899,7 +899,7 @@ public class cyberbal
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cyberb21 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberb21 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 8*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1019-10c.071", 0x000000, 0x010000, CRC(37f5f8ba) SHA1(80552b41d7d1c3044ccd1cbfbac6051447915d41) )
 		ROM_LOAD16_BYTE( "1020-10d.071", 0x000001, 0x010000, CRC(cae4faa2) SHA1(e3282416b1d0dccd52dd8763a02647470dd37114) )
@@ -946,7 +946,7 @@ public class cyberbal
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cyberbt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberbt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "2007-1m.073",  0x000000, 0x010000, CRC(adfa9e23) SHA1(5462030fa275ce7b261b7283e92df9f7f1383251) )
 		ROM_LOAD16_BYTE( "2008-1kl.073", 0x000001, 0x010000, CRC(c9191452) SHA1(583c1f916fbd54dbc188be7a181ccd60c7320cc8) )
@@ -995,7 +995,7 @@ public class cyberbal
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_cyberbt1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cyberbt1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )	/* 4*64k for 68000 code */
 		ROM_LOAD16_BYTE( "1007-1m.073",  0x000000, 0x010000, CRC(d434b2d7) SHA1(af6d51399ad4fca01ffbc7afa2bf73d7ee2f89b6) )
 		ROM_LOAD16_BYTE( "1008-1kl.073", 0x000001, 0x010000, CRC(7d6c4163) SHA1(f1fe9d758f30bd0ebc990d8604ba32cc0d780683) )

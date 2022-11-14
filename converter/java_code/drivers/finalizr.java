@@ -157,7 +157,7 @@ public class finalizr
 	
 	
 	
-	static InputPortPtr input_ports_finalizr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( finalizr )
+	static InputPortHandlerPtr input_ports_finalizr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( finalizr )
 		PORT_START(); 	/* IN2 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -264,7 +264,7 @@ public class finalizr
 		PORT_BIT( 0xf0, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_finalizb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( finalizb )
+	static InputPortHandlerPtr input_ports_finalizb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( finalizb )
 		PORT_START(); 	/* IN2 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -462,7 +462,7 @@ public class finalizr
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_finalizr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalizr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "523k01.9c",    0x4000, 0x4000, CRC(716633cb) SHA1(9c21e608b6a73967688fa6aeb5995c20c1b48c74) )
 		ROM_LOAD( "523k02.12c",   0x8000, 0x4000, CRC(1bccc696) SHA1(3c29f4a030e76660b5a25347e042e344b0653343) )
@@ -488,7 +488,7 @@ public class finalizr
 		ROM_LOAD( "523h13.11f",   0x0140, 0x0100, CRC(4e0647a0) SHA1(fb87f878456b8b76bb2c028cb890d2a5c1c3e388) ) /* characters */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_finalizb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_finalizb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "finalizr.5",   0x4000, 0x8000, CRC(a55e3f14) SHA1(47f6da214b36cc56be547fa4313afcc5572508a2) )
 		ROM_LOAD( "finalizr.6",   0xc000, 0x4000, CRC(ce177f6e) SHA1(034cbe0c1e2baf9577741b3c222a8b4a8ac8c919) )

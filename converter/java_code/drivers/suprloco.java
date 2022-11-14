@@ -79,7 +79,7 @@ public class suprloco
 	
 	
 	
-	static InputPortPtr input_ports_suprloco = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( suprloco )
+	static InputPortHandlerPtr input_ports_suprloco = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( suprloco )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -226,7 +226,7 @@ public class suprloco
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_suprloco = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suprloco = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "ic37.bin",     0x0000, 0x4000, CRC(57f514dd) SHA1(707800b90a22547a56b01d1e11775e9ee5555d23) )	/* encrypted */
 		ROM_LOAD( "ic15.bin",     0x4000, 0x4000, CRC(5a1d2fb0) SHA1(fdb9416e5530718245fd597073a63feddb233c3c) )	/* encrypted */

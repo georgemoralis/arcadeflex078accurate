@@ -138,7 +138,7 @@ public class wiping
 	
 	
 	
-	static InputPortPtr input_ports_wiping = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wiping )
+	static InputPortHandlerPtr input_ports_wiping = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wiping )
 		PORT_START(); 	/* 0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP    | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN  | IPF_4WAY );
@@ -203,7 +203,7 @@ public class wiping
 	INPUT_PORTS_END(); }}; 
 	
 	/* identical apart from bonus life */
-	static InputPortPtr input_ports_rugrats = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rugrats )
+	static InputPortHandlerPtr input_ports_rugrats = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rugrats )
 		PORT_START(); 	/* 0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN | IPF_4WAY );
@@ -350,7 +350,7 @@ public class wiping
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_wiping = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wiping = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* main cpu code */
 		ROM_LOAD( "1",            0x0000, 0x2000, CRC(b55d0d19) SHA1(dac6096d3ee9dd8b1b6da5c2c613b54ce303cb7b) )
 		ROM_LOAD( "2",            0x2000, 0x2000, CRC(b1f96e47) SHA1(8f3f882a3c366e6a2d2682603d425eb0491b5487) )
@@ -379,7 +379,7 @@ public class wiping
 		ROM_LOAD( "wip-e9.bin",   0x0100, 0x0100, CRC(4017a2a6) SHA1(dadef2de7a1119758c8e6d397aa42815b0218889) )	/* high 4 bits */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rugrats = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rugrats = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* main cpu code */
 		ROM_LOAD( "rugr1d1",      0x0000, 0x2000, CRC(e7e1bd6d) SHA1(985799b1bfd001c6304e6166180745cb019f834e) )
 		ROM_LOAD( "rugr2d2",      0x2000, 0x2000, CRC(5f47b9ad) SHA1(2d3eb737ea8e86691293e432e866d2623d6b6b1b) )

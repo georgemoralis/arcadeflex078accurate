@@ -858,7 +858,7 @@ public class _40love
 	};
 	
 	
-	static InputPortPtr input_ports_40love = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 40love )
+	static InputPortHandlerPtr input_ports_40love = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 40love )
 		PORT_START();  /* DSW1 */
 		PORT_DIPNAME( 0x01, 0x00, "DSW1 Unknown 0" );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -975,7 +975,7 @@ public class _40love
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_BUTTON4 | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_undoukai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( undoukai )
+	static InputPortHandlerPtr input_ports_undoukai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( undoukai )
 		PORT_START();  /* DSW1 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x00, "4 (Hard"));
@@ -1227,7 +1227,7 @@ public class _40love
 	
 	/*******************************************************************************/
 	
-	static RomLoadPtr rom_40love = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_40love = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 ) /* Z80 main CPU */
 		ROM_LOAD( "a30-19.ic1", 0x00000, 0x2000, CRC(7baca598) SHA1(b1767f5af9b3f484afb4423afe1f9c15db92c2ac) )
 		ROM_LOAD( "a30-20.ic2", 0x02000, 0x2000, CRC(a7b4f2cc) SHA1(67f570874fa0feb21f2a9a0712fadf78ebaad91c) )
@@ -1267,7 +1267,7 @@ public class _40love
 	
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fieldday = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fieldday = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 ) /* Z80 main CPU  */
 		ROM_LOAD( "a17_44.bin", 0x00000, 0x2000, CRC(d59812e1) SHA1(f3e7e2f09fba5964c92813cd652aa093fe3e4415) )
 		ROM_LOAD( "a17_45.bin", 0x02000, 0x2000, CRC(828bfb9a) SHA1(0be24ec076b715d65e9c8e01e3be76628e4f60ed) )
@@ -1308,7 +1308,7 @@ public class _40love
 		ROM_LOAD( "a17-18.23v", 0x0c00, 0x0400, CRC(3023a1da) SHA1(08ce4c6e99d04b358d66f0588852311d07183619) )	/* ??? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_undoukai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_undoukai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 ) /* Z80 main CPU  */
 		ROM_LOAD( "a17-01.70c", 0x00000, 0x4000, CRC(6ce324d9) SHA1(9c5207ac897eaae5a6aa1a05a918c9cb58544664) )
 		ROM_LOAD( "a17-02.71c", 0x04000, 0x4000, CRC(055c7ef1) SHA1(f974bd441b8e3621ac5f8d36104791c97051a97a) )

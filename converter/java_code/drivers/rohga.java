@@ -199,7 +199,7 @@ public class rohga
 	
 	/**********************************************************************************/
 	
-	static InputPortPtr input_ports_rohga = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rohga )
+	static InputPortHandlerPtr input_ports_rohga = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rohga )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -299,7 +299,7 @@ public class rohga
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_wizdfire = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wizdfire )
+	static InputPortHandlerPtr input_ports_wizdfire = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wizdfire )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -372,7 +372,7 @@ public class rohga
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_nitrobal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nitrobal )
+	static InputPortHandlerPtr input_ports_nitrobal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nitrobal )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -669,7 +669,7 @@ public class rohga
 	
 	/**********************************************************************************/
 	
-	static RomLoadPtr rom_rohgau = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rohgau = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "ha00.2a",  0x000000, 0x40000, CRC(d8d13052) SHA1(24113244200f15a16fed82c64de3e9e4e87d1257) )
 		ROM_LOAD16_BYTE( "ha03.2d",  0x000001, 0x40000, CRC(5f683bbf) SHA1(a367b833fd1f64bff9618ce06be22aed218d4225) )
@@ -709,7 +709,7 @@ public class rohga
 		ROM_LOAD( "hb-00.11p", 0x00000,  0x200,  CRC(b7a7baad) SHA1(39781c3412493b985d3616ac31142fc00bbcddf4) )	/* ? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rohgah = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rohgah = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "jd00-2.2a", 0x000000, 0x40000, CRC(ec70646a) SHA1(5e25fe8ce0dfebf8f5903ebe9aa5ef01ca7aa2f0) )
 		ROM_LOAD16_BYTE( "jd03-2.2d", 0x000001, 0x40000, CRC(11d4c9a2) SHA1(9afe684d749665f65e44a3665d5a1dc61458faa0) )
@@ -749,7 +749,7 @@ public class rohga
 		ROM_LOAD( "hb-00.11p", 0x00000,  0x200,  CRC(b7a7baad) SHA1(39781c3412493b985d3616ac31142fc00bbcddf4) )	/* ? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rohga = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rohga = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "jd00.bin",  0x000000, 0x40000, CRC(e046c77a) SHA1(bb4d987a579a1a1524bc150ebda9cd24ed77a733) )
 		ROM_LOAD16_BYTE( "jd03.bin",  0x000001, 0x40000, CRC(2c5120b8) SHA1(41b6618f0f086efd48486f72ada2fb6f184ad85b) )
@@ -789,7 +789,7 @@ public class rohga
 		ROM_LOAD( "hb-00.11p", 0x00000,  0x200,  CRC(b7a7baad) SHA1(39781c3412493b985d3616ac31142fc00bbcddf4) )	/* ? */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wizdfire = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wizdfire = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "jf-01.3d",   0x000000, 0x20000, CRC(bde42a41) SHA1(0379de9c4cdcce35554b5dc15241ed2c4f0d7611) )
 		ROM_LOAD16_BYTE( "jf-00.3a",   0x000001, 0x20000, CRC(bca3c995) SHA1(dbebc9e301c04ee82ca4b658d3ab870790d1605b) )
@@ -833,7 +833,7 @@ public class rohga
 		ROM_LOAD( "mb7122h.16l", 0x00000,  0x400,  CRC(2bee57cc) SHA1(bc48670aa7c39f6ff7fae4c819eab22ed2db875b) )	/* Priority (unused) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_darksel2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_darksel2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "jb01-3",  0x000000, 0x20000, CRC(82308c01) SHA1(aa0733e244f14f2c84b6929236771cbc99532bb2) )
 		ROM_LOAD16_BYTE( "jb00-3",  0x000001, 0x20000, CRC(1d38113a) SHA1(69dc5a4dbe9d9737df198240f3db6f2115e311a5) )
@@ -877,7 +877,7 @@ public class rohga
 		ROM_LOAD( "mb7122h.16l", 0x00000,  0x400,  CRC(2bee57cc) SHA1(bc48670aa7c39f6ff7fae4c819eab22ed2db875b) )	/* Priority (unused) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_nitrobal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nitrobal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION(0x200000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "jl01-4.d3",   0x000000, 0x20000, CRC(0414e409) SHA1(bc19e7d2d9e768ce4052511043867c0ef9b0b61b) )
 		ROM_LOAD16_BYTE( "jl00-4.b3",   0x000001, 0x20000, CRC(dd9e2bcc) SHA1(dede49a4fafcfa03f38ba6c1149c9f8b115fb306) )

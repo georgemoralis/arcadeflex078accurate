@@ -183,7 +183,7 @@ public class sprcros2
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_sprcros2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sprcros2 )
+	static InputPortHandlerPtr input_ports_sprcros2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sprcros2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_UP | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -339,7 +339,7 @@ public class sprcros2
 		state_save_register_int("main", 0, "s_cpu_port3", &sprcros2_s_port3);
 	} };
 	
-	static RomLoadPtr rom_sprcros2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sprcros2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x14000, REGION_CPU1, 0 )
 		ROM_LOAD( "scm-03.10g", 0x00000, 0x4000, CRC(b9757908) SHA1(d59cb2aac1b6268fc766306850f5711d4a12d897) )
 		ROM_LOAD( "scm-02.10j", 0x04000, 0x4000, CRC(849c5c87) SHA1(0e02c4990e371d6a290efa53301818e769648945) )

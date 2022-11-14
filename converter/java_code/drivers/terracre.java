@@ -280,7 +280,7 @@ public class terracre
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_terracre = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( terracre )
+	static InputPortHandlerPtr input_ports_terracre = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( terracre )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -358,7 +358,7 @@ public class terracre
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_amazon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( amazon )
+	static InputPortHandlerPtr input_ports_amazon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( amazon )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY );
@@ -436,7 +436,7 @@ public class terracre
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_horekid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( horekid )
+	static InputPortHandlerPtr input_ports_horekid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( horekid )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0003, 0x0003, DEF_STR( "Lives") );
 		PORT_DIPSETTING(      0x0003, "3" );
@@ -678,7 +678,7 @@ public class terracre
 		MDRV_SOUND_ADD(DAC, dac_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_terracre = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_terracre = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128K for 68000 code */
 		ROM_LOAD16_BYTE( "1a_4b.rom",    0x00001, 0x4000, CRC(76f17479) SHA1(e6be7f78fe7dc9d66feb3ada6ad08d461c66640d) )
 		ROM_LOAD16_BYTE( "1a_4d.rom",    0x00000, 0x4000, CRC(8119f06e) SHA1(314e2d8e75f66862cf6567ac05f417a3a66f1254) )
@@ -719,7 +719,7 @@ public class terracre
 	/* Notes: All the roms are the same except the SOUND ROMs */
 	/**********************************************************/
 	
-	static RomLoadPtr rom_terracrb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_terracrb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128K for 68000 code */
 		ROM_LOAD16_BYTE( "1a_4b.rom",    0x00001, 0x4000, CRC(76f17479) SHA1(e6be7f78fe7dc9d66feb3ada6ad08d461c66640d) )
 		ROM_LOAD16_BYTE( "1a_4d.rom",    0x00000, 0x4000, CRC(8119f06e) SHA1(314e2d8e75f66862cf6567ac05f417a3a66f1254) )
@@ -760,7 +760,7 @@ public class terracre
 	/* Notes: All the roms are the same except the SOUND ROMs */
 	/**********************************************************/
 	
-	static RomLoadPtr rom_terracra = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_terracra = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128K for 68000 code */
 		ROM_LOAD16_BYTE( "1a_4b.rom",    0x00001, 0x4000, CRC(76f17479) SHA1(e6be7f78fe7dc9d66feb3ada6ad08d461c66640d) )
 		ROM_LOAD16_BYTE( "1a_4d.rom",    0x00000, 0x4000, CRC(8119f06e) SHA1(314e2d8e75f66862cf6567ac05f417a3a66f1254) )
@@ -796,7 +796,7 @@ public class terracre
 		ROM_LOAD( "tc2a_4e.bin",  0x0400, 0x0100, CRC(2c43991f) SHA1(312112832bee511b0545524295aa9bc2e756db0f) )	/* sprite palette bank */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_amazon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_amazon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 68000 code (main CPU) */
 		ROM_LOAD16_BYTE( "11.4d",	0x00000, 0x8000,CRC(6c7f85c5) SHA1(7f78cf16a93ea1f7b8616122127327a7d337e565) )
 		ROM_LOAD16_BYTE( "9.4b",	0x00001, 0x8000,CRC(e1b7a989) SHA1(ae49cbc6fc4bc151990caed1f57cc7e10aba7901) )
@@ -833,7 +833,7 @@ public class terracre
 		ROM_LOAD( "4e",		 0x400, 0x100, CRC(035f2c7b) SHA1(36e32a50146631e763711b586936b2815600f52d) ) /* ctable */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_amatelas = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_amatelas = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 68000 code (main CPU) */
 		ROM_LOAD16_BYTE( "a11.4d",	0x00000, 0x8000,CRC(3d226d0b) SHA1(b3f36973117dcca7ec6f891503ada1055694059d) )
 		ROM_LOAD16_BYTE( "a9.4b",	0x00001, 0x8000,CRC(e2a0d21d) SHA1(abb65ea5a10719d27f711216b7e387f2e01bdd5d) )
@@ -870,7 +870,7 @@ public class terracre
 		ROM_LOAD( "4e",		 0x400, 0x100, CRC(035f2c7b) SHA1(36e32a50146631e763711b586936b2815600f52d) ) /* ctable */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_horekid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_horekid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 68000 code (main CPU) */
 		ROM_LOAD16_BYTE( "horekid.03",	0x00000, 0x8000, CRC(90ec840f) SHA1(7d04936c50c9ae02ea7dc24f8336997592def867) )
 		ROM_LOAD16_BYTE( "horekid.01",	0x00001, 0x8000, CRC(a282faf8) SHA1(4c1ff36cf324dff9ddfc1035db6c52838c7be975) )
@@ -908,7 +908,7 @@ public class terracre
 		ROM_LOAD( "kid_prom.4e",  0x400, 0x100, CRC(e4fb54ee) SHA1(aba89d347b24dc6680e6f25b4a6c0d6657bb6a83) ) /* ctable */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_horekidb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_horekidb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 68000 code (main CPU) */
 		ROM_LOAD16_BYTE( "knhhd5", 0x00000, 0x8000, CRC(786619c7) SHA1(6b4a659839a7c19370a81f9f9b26e4fe0d210d7b) )
 		ROM_LOAD16_BYTE( "knhhd7", 0x00001, 0x8000, CRC(3bbb475b) SHA1(575cdc4f902f15335579c0f860fa75e33a0ea539) )

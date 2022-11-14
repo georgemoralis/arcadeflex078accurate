@@ -102,7 +102,7 @@ public class kopunch
 	};
 	
 	
-	static InputPortPtr input_ports_kopunch = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kopunch )
+	static InputPortHandlerPtr input_ports_kopunch = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kopunch )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_4WAY );
@@ -210,7 +210,7 @@ public class kopunch
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_kopunch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kopunch = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr1105.x",    0x0000, 0x1000, CRC(34ef5e79) SHA1(2827c68f4c902f447a304d3ab0258c7819a0e4ca) )
 		ROM_LOAD( "epr1106.x",    0x1000, 0x1000, CRC(25a5c68b) SHA1(9761418c6f3903f8aaceece658739fe5bf5c0803) )

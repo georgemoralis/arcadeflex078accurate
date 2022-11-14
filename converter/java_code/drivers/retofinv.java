@@ -186,7 +186,7 @@ public class retofinv
 	
 	
 	
-	static InputPortPtr input_ports_retofinv = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( retofinv )
+	static InputPortHandlerPtr input_ports_retofinv = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( retofinv )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -441,7 +441,7 @@ public class retofinv
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_retofinv = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_retofinv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ic70.rom", 0x0000, 0x2000, CRC(eae7459d) SHA1(c105f6adbd4c09decaad68ed13163d8f9b55e646) )
 		ROM_LOAD( "ic71.rom", 0x2000, 0x2000, CRC(72895e37) SHA1(42fb904338e9f92a79d587eac401d456e7fb6e55) )
@@ -476,7 +476,7 @@ public class retofinv
 		ROM_LOAD( "82s191n",   0x0300, 0x0800, CRC(93c891e3) SHA1(643a0107717b6a434432dda73a0102e6e8adbca7) )	/* lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_retofin1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_retofin1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "roi.02",  0x0000, 0x2000, CRC(d98fd462) SHA1(fd35e13b7dee58639a01b040b8f84d42bb40b633) )
 		ROM_LOAD( "roi.01b", 0x2000, 0x2000, CRC(3379f930) SHA1(c67d687a10b6240bd6e2fbdb15e1b7d276e6fc07) )
@@ -508,7 +508,7 @@ public class retofinv
 		ROM_LOAD( "82s191n",   0x0300, 0x0800, CRC(93c891e3) SHA1(643a0107717b6a434432dda73a0102e6e8adbca7) )	/* lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_retofin2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_retofin2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ri-c.1e", 0x0000, 0x2000, CRC(e3c31260) SHA1(cc8774251c567da2e4a54091223927c95f497fe8) )
 		ROM_LOAD( "roi.01b", 0x2000, 0x2000, CRC(3379f930) SHA1(c67d687a10b6240bd6e2fbdb15e1b7d276e6fc07) )

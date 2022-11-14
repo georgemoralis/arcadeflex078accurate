@@ -182,7 +182,7 @@ public class findout
 	
 	
 	
-	static InputPortPtr input_ports_findout = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( findout )
+	static InputPortHandlerPtr input_ports_findout = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( findout )
 		PORT_START(); 
 		PORT_DIPNAME( 0x07, 0x01, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x07, DEF_STR( "7C_1C") );
@@ -274,7 +274,7 @@ public class findout
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_findout = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_findout = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x38000, REGION_CPU1, 0 )
 		ROM_LOAD( "12.bin",       0x00000, 0x4000, CRC(21132d4c) SHA1(e3562ee2f46b3f022a852a0e0b1c8fb8164f64a3) )
 		ROM_LOAD( "11.bin",       0x08000, 0x2000, CRC(0014282c) SHA1(c6792f2ff712ba3759ff009950d78750df844d01) )	/* banked */

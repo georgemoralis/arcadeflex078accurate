@@ -211,7 +211,7 @@ public class thedeep
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_thedeep = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( thedeep )
+	static InputPortHandlerPtr input_ports_thedeep = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( thedeep )
 		PORT_START(); 	// IN0 - e008
 		PORT_BIT(  0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    );// Up / down shown in service mode
 		PORT_BIT(  0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  );
@@ -436,7 +436,7 @@ public class thedeep
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_thedeep = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thedeep = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )		/* Z80 Code */
 		ROM_LOAD( "dp-10.rom", 0x00000, 0x08000, CRC(7480b7a5) SHA1(ac6f121873a70c8077576322c201b7089c7b8a91) )
 		ROM_LOAD( "dp-09.rom", 0x10000, 0x10000, CRC(c630aece) SHA1(809916a1ba1c8e0af4c228b0f26ac638e2abf81e) )
@@ -468,7 +468,7 @@ public class thedeep
 		ROM_LOAD( "fi-3", 0x400, 0x200, CRC(f61a9686) SHA1(24082f60b72268d240ceca6999bdf18872625cd2) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rundeep = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rundeep = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )		/* Z80 Code */
 		ROM_LOAD( "3", 0x00000, 0x08000, CRC(c9c9e194) SHA1(e9552c3321585f0902f29b55a7de8e2316885713) )
 		ROM_LOAD( "9", 0x10000, 0x10000, CRC(931f4e67) SHA1(f4942c5f0fdbcd6cdb96ddbbf2015f938b56b466) )

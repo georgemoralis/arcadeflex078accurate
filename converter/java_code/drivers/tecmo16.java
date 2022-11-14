@@ -150,7 +150,7 @@ public class tecmo16
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_fstarfrc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fstarfrc )
+	static InputPortHandlerPtr input_ports_fstarfrc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fstarfrc )
 		PORT_START(); 			/* DIP SW 1 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "1C_1C") );
@@ -216,7 +216,7 @@ public class tecmo16
 		PORT_BIT( 0x8000, IP_ACTIVE_HIGH, IPT_COIN2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ginkun = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ginkun )
+	static InputPortHandlerPtr input_ports_ginkun = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ginkun )
 		PORT_START(); 			/* DIP SW 1 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "1C_1C") );
@@ -419,7 +419,7 @@ public class tecmo16
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_fstarfrc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fstarfrc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "fstarf01.rom",      0x00000, 0x40000, CRC(94c71de6) SHA1(7637aee89034d60ef74d0015db6fcbcc8689b88b) )
 		ROM_LOAD16_BYTE( "fstarf02.rom",      0x00001, 0x40000, CRC(b1a07761) SHA1(efd580e06a134a8b6ed6e836eec3203c41ed03c5) )
@@ -442,7 +442,7 @@ public class tecmo16
 		ROM_LOAD( "fstarf08.rom",           0x00000, 0x20000, CRC(f0ad5693) SHA1(a0202801bb9f9c86175ca7989fbc9efa47183188) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ginkun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ginkun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "ginkun01.i01",      0x00000, 0x40000, CRC(98946fd5) SHA1(e0b496d1fa5201d94a2a22243fe4b37d9ff7bc90) )
 		ROM_LOAD16_BYTE( "ginkun02.i02",      0x00001, 0x40000, CRC(e98757f6) SHA1(2310b5f00b9522d5a983c8686f7d5bcf2d885964) )

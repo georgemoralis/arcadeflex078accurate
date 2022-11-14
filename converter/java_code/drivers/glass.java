@@ -122,7 +122,7 @@ public class glass
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_glass = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( glass )
+	static InputPortHandlerPtr input_ports_glass = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( glass )
 	PORT_START(); 	/* DSW #2 */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x02, "Easy" );
@@ -231,7 +231,7 @@ public class glass
 		MDRV_SOUND_ADD(OKIM6295, glass_okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_glass = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_glass = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "c23.bin",	0x000000, 0x040000, CRC(688cdf33) SHA1(b59dcc3fc15f72037692b745927b110e97d8282e) )
 		ROM_LOAD16_BYTE( "c22.bin",	0x000001, 0x040000, CRC(ab17c992) SHA1(1509b5b4bbfb4e022e0ab6fbbc0ffc070adfa531) )

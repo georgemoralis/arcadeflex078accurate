@@ -159,7 +159,7 @@ public class aquarium
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_aquarium = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( aquarium )
+	static InputPortHandlerPtr input_ports_aquarium = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( aquarium )
 		PORT_START(); 	/* DSW */
 		PORT_DIPNAME( 0x0003, 0x0003, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(      0x0002, "Easy" );
@@ -383,7 +383,7 @@ public class aquarium
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_aquarium = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aquarium = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )     /* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "aquar3",  0x000000, 0x080000, CRC(344509a1) SHA1(9deb610732dee5066b3225cd7b1929b767579235) )
 	

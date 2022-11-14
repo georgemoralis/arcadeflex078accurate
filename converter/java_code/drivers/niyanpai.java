@@ -425,7 +425,7 @@ public class niyanpai
 	};
 	
 	
-	static InputPortPtr input_ports_niyanpai = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( niyanpai )
+	static InputPortHandlerPtr input_ports_niyanpai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( niyanpai )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "1" );
@@ -551,7 +551,7 @@ public class niyanpai
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_niyanpai = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_niyanpai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 ) /* TMP68301 main program */
 		ROM_LOAD16_BYTE( "npai_01.bin", 0x00000, 0x20000, CRC(a904e8a1) SHA1(77865d7b48cac96af1e3cac4a702f7de4b5ee82b) )
 		ROM_LOAD16_BYTE( "npai_02.bin", 0x00001, 0x20000, CRC(244f9d6f) SHA1(afde18f32c4879a66c0707671d783c21c54cffa4) )

@@ -180,7 +180,7 @@ public class xorworld
 	};
 	
 	
-	static InputPortPtr input_ports_xorworld = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( xorworld )
+	static InputPortHandlerPtr input_ports_xorworld = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( xorworld )
 	
 	PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x07, 0x07, "Coin A & B" );
@@ -261,7 +261,7 @@ public class xorworld
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_xorworld = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_xorworld = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "c13.bin", 0x000000, 0x010000, CRC(615a864d) SHA1(db07eef19d26a4daa0bcc17ac24d237483f93bf6) )
 		ROM_LOAD16_BYTE( "b13.bin", 0x000001, 0x010000, CRC(632e8ee5) SHA1(ec53e632c762f72ad1fe3fab85111bdcc1e818ae) )

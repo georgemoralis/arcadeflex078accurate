@@ -109,7 +109,7 @@ public class mouser
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_mouser = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mouser )
+	static InputPortHandlerPtr input_ports_mouser = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mouser )
 	    PORT_START(); 
 	    PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNUSED );
 	    PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_UNUSED );
@@ -248,7 +248,7 @@ public class mouser
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_mouser = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mouser = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 64K for data, 64K for encrypted opcodes */
 		ROM_LOAD( "m0.5e",         0x0000, 0x2000, CRC(b56e00bc) SHA1(f3b23212590d91f1d19b1c7a98c560fbe5943185) )
 		ROM_LOAD( "m1.5f",         0x2000, 0x2000, CRC(ae375d49) SHA1(8422f5a4d8560425f0c8612cf6f76029fcfe267c) )
@@ -272,7 +272,7 @@ public class mouser
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mouserc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mouserc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* 64K for data, 64K for encrypted opcodes */
 		ROM_LOAD( "83001.0",       0x0000, 0x2000, CRC(e20f9601) SHA1(f559a470784bda0bee9cab257a548238365acaa6) )
 		ROM_LOAD( "m1.5f",         0x2000, 0x2000, CRC(ae375d49) SHA1(8422f5a4d8560425f0c8612cf6f76029fcfe267c) )	// 83001.1

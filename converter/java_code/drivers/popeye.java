@@ -166,7 +166,7 @@ public class popeye
 	
 	
 	
-	static InputPortPtr input_ports_skyskipr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skyskipr )
+	static InputPortHandlerPtr input_ports_skyskipr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skyskipr )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -251,7 +251,7 @@ public class popeye
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_popeye = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( popeye )
+	static InputPortHandlerPtr input_ports_popeye = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( popeye )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -335,7 +335,7 @@ public class popeye
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_popeyef = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( popeyef )
+	static InputPortHandlerPtr input_ports_popeyef = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( popeyef )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -539,7 +539,7 @@ public class popeye
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_skyskipr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skyskipr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "tnx1-c.2a",    0x0000, 0x1000, CRC(bdc7f218) SHA1(9a5f5959b9228912f810568ddad70daa81c4daac) )
 		ROM_LOAD( "tnx1-c.2b",    0x1000, 0x1000, CRC(cbe601a8) SHA1(78edc384b75b7958906f887d11eb7cf235d6dc44) )
@@ -567,7 +567,7 @@ public class popeye
 		ROM_LOAD( "tnx1-t.3j",    0x0240, 0x0100, CRC(1c5c8dea) SHA1(5738303b2a9c79b7d06bcf20fdb4d9b29f6e2d96) ) /* timing for the protection ALU */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_popeye = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_popeye = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "c-7a",         0x0000, 0x2000, CRC(9af7c821) SHA1(592acfe221b5c3bd9b920f639b141f37a56d6997) )
 		ROM_LOAD( "c-7b",         0x2000, 0x2000, CRC(c3704958) SHA1(af96d10fa9bdb86b00c89d10f67cb5ca5586f446) )
@@ -592,7 +592,7 @@ public class popeye
 		ROM_LOAD( "prom-vid.7j",  0x0240, 0x0100, CRC(a4655e2e) SHA1(2a620932fccb763c6c667278c0914f31b9f00ddf) ) /* timing for the protection ALU */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_popeyeu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_popeyeu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "7a",           0x0000, 0x2000, CRC(0bd04389) SHA1(3b08186c9b20dd4dfb92df98941b18999f23aece) )
 		ROM_LOAD( "7b",           0x2000, 0x2000, CRC(efdf02c3) SHA1(4fa616bdb4e21f752e46890d007c911fff9ceadc) )
@@ -617,7 +617,7 @@ public class popeye
 		ROM_LOAD( "prom-vid.7j",  0x0240, 0x0100, CRC(a4655e2e) SHA1(2a620932fccb763c6c667278c0914f31b9f00ddf) ) /* timing for the protection ALU */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_popeyef = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_popeyef = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "tpp2-c_f.7a",  0x0000, 0x2000, CRC(5fc5264d) SHA1(6c3d4df748c55293b6de58bd874a08f8164b878d) )
 		ROM_LOAD( "tpp2-c_f.7b",  0x2000, 0x2000, CRC(51de48e8) SHA1(7573931c6fcb53ee5ab9408906cd8eb2ba271c64) )
@@ -642,7 +642,7 @@ public class popeye
 		ROM_LOAD( "prom-vid.7j",  0x0240, 0x0100, CRC(a4655e2e) SHA1(2a620932fccb763c6c667278c0914f31b9f00ddf) ) /* timing for the protection ALU */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_popeyebl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_popeyebl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "po1",          0x0000, 0x2000, CRC(b14a07ca) SHA1(b8666a4c6b833f60905692774e30e73f0795df11) )
 		ROM_LOAD( "po2",          0x2000, 0x2000, CRC(995475ff) SHA1(5cd5ac23a73722e32c80cd6ffc435584750a46c9) )

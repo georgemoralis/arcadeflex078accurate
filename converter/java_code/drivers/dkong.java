@@ -689,7 +689,7 @@ public class dkong
 	
 	
 	
-	static InputPortPtr input_ports_dkong = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dkong )
+	static InputPortHandlerPtr input_ports_dkong = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dkong )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -749,7 +749,7 @@ public class dkong
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_dkong3 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dkong3 )
+	static InputPortHandlerPtr input_ports_dkong3 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dkong3 )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -817,7 +817,7 @@ public class dkong
 		PORT_DIPSETTING(    0xc0, "Hardest" );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dkong3b = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dkong3b )
+	static InputPortHandlerPtr input_ports_dkong3b = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dkong3b )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY );
@@ -883,7 +883,7 @@ public class dkong
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_hunchbkd = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hunchbkd )
+	static InputPortHandlerPtr input_ports_hunchbkd = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hunchbkd )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -945,7 +945,7 @@ public class dkong
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_VBLANK );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sbdk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sbdk )
+	static InputPortHandlerPtr input_ports_sbdk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sbdk )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -1008,7 +1008,7 @@ public class dkong
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_VBLANK );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_herbiedk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( herbiedk )
+	static InputPortHandlerPtr input_ports_herbiedk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( herbiedk )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -1075,7 +1075,7 @@ public class dkong
 	     - you ALWAYS get an extra life at 150000 points.
 	     - having more than 6 lives will reset the game.
 	*/
-	static InputPortPtr input_ports_herodk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( herodk )
+	static InputPortHandlerPtr input_ports_herodk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( herodk )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -1138,7 +1138,7 @@ public class dkong
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_pestplce = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pestplce )
+	static InputPortHandlerPtr input_ports_pestplce = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pestplce )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_4WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_4WAY | IPF_PLAYER1 );
@@ -1195,7 +1195,7 @@ public class dkong
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_spclforc = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( spclforc )
+	static InputPortHandlerPtr input_ports_spclforc = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spclforc )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -1256,7 +1256,7 @@ public class dkong
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_8ballact = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( 8ballact )
+	static InputPortHandlerPtr input_ports_8ballact = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( 8ballact )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -1319,7 +1319,7 @@ public class dkong
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_VBLANK );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_strtheat = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( strtheat )
+	static InputPortHandlerPtr input_ports_strtheat = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( strtheat )
 		PORT_START();       /* IN0 */
 		PORT_ANALOG ( 0x03, 0x03, IPT_DIAL | IPF_REVERSE, 60, 10, 0x00, 0xff );
 		PORT_BIT( 0x04, IP_ACTIVE_HIGH, IPT_BUTTON1 );
@@ -1764,7 +1764,7 @@ public class dkong
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_radarscp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_radarscp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "trs2c5fc",     0x0000, 0x1000, CRC(40949e0d) SHA1(94717b9d027600e25b863e89900df41325875961) )
 		ROM_LOAD( "trs2c5gc",     0x1000, 0x1000, CRC(afa8c49f) SHA1(25880e9dcf2dc8862f7f3c38687f01dfe2424293) )
@@ -1795,7 +1795,7 @@ public class dkong
 		ROM_LOAD( "rs2-v.1hc",    0x0200, 0x0100, CRC(1b828315) SHA1(00c9f8c5ae86b68d38c66f9071b5f1ef421c1005) ) /* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkong = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkong = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "c_5et_g.bin",  0x0000, 0x1000, CRC(ba70b88b) SHA1(d76ebecfea1af098d843ee7e578e480cd658ac1a) )
 		ROM_LOAD( "c_5ct_g.bin",  0x1000, 0x1000, CRC(5ec461ec) SHA1(acb11a8fbdbb3ab46068385fe465f681e3c824bd) )
@@ -1831,7 +1831,7 @@ public class dkong
 	*********************************************************/
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkongo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkongo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "c_5f_b.bin",   0x0000, 0x1000, CRC(424f2b11) SHA1(e4f096f2bbd37281f42a5f8e083738f55c07f3dd) )	// tkg3c.5f
 		ROM_LOAD( "c_5ct_g.bin",  0x1000, 0x1000, CRC(5ec461ec) SHA1(acb11a8fbdbb3ab46068385fe465f681e3c824bd) )	// tkg3c.5g
@@ -1867,7 +1867,7 @@ public class dkong
 	*********************************************************/
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkongjp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkongjp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "c_5f_b.bin",   0x0000, 0x1000, CRC(424f2b11) SHA1(e4f096f2bbd37281f42a5f8e083738f55c07f3dd) )
 		ROM_LOAD( "5g.cpu",       0x1000, 0x1000, CRC(d326599b) SHA1(94c7382604d0a123a442d53f9641f366dfbb7631) )
@@ -1902,7 +1902,7 @@ public class dkong
 	*********************************************************/
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkongjo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkongjo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "c_5f_b.bin",   0x0000, 0x1000, CRC(424f2b11) SHA1(e4f096f2bbd37281f42a5f8e083738f55c07f3dd) )
 		ROM_LOAD( "c_5g_b.bin",   0x1000, 0x1000, CRC(3b2a6635) SHA1(32c62e00863ab99c6f263587d9d5bb775a68f3de) )
@@ -1937,7 +1937,7 @@ public class dkong
 	*********************************************************/
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkongjo1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkongjo1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "c_5f_b.bin",   0x0000, 0x1000, CRC(424f2b11) SHA1(e4f096f2bbd37281f42a5f8e083738f55c07f3dd) )
 		ROM_LOAD( "5g.cpu",       0x1000, 0x1000, CRC(d326599b) SHA1(94c7382604d0a123a442d53f9641f366dfbb7631) )
@@ -1972,7 +1972,7 @@ public class dkong
 	*********************************************************/
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkongjr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkongjr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "dkj.5b",       0x0000, 0x1000, CRC(dea28158) SHA1(08baf84ae6f9b40a2c743fe1d8c158c74a40e95a) )
 		ROM_CONTINUE(             0x3000, 0x1000 )
@@ -2004,7 +2004,7 @@ public class dkong
 		ROM_LOAD( "v-2n.bpr",  0x0200, 0x0100, CRC(dbf185bf) SHA1(2697a991a4afdf079dd0b7e732f71c7618f43b70) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkongjrj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkongjrj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "c_5ba.bin",    0x0000, 0x1000, CRC(50a015ce) SHA1(edcafdf8f989dd25bb142817084d270a6942577a) )
 		ROM_CONTINUE(             0x3000, 0x1000 )
@@ -2036,7 +2036,7 @@ public class dkong
 		ROM_LOAD( "v-2n.bpr",  0x0200, 0x0100, CRC(dbf185bf) SHA1(2697a991a4afdf079dd0b7e732f71c7618f43b70) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkngjnrj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkngjnrj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "dkjp.5b",      0x0000, 0x1000, CRC(7b48870b) SHA1(4f737559e2bf5cc28824220417d7a2827361221f) )
 		ROM_CONTINUE(             0x3000, 0x1000 )
@@ -2068,7 +2068,7 @@ public class dkong
 		ROM_LOAD( "v-2n.bpr",  0x0200, 0x0100, CRC(dbf185bf) SHA1(2697a991a4afdf079dd0b7e732f71c7618f43b70) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkongjrb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkongjrb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "dkjr1",        0x0000, 0x1000, CRC(ec7e097f) SHA1(c10885d8724434030094a106c5b6de7fa6976d0f) )
 		ROM_CONTINUE(             0x3000, 0x1000 )
@@ -2100,7 +2100,7 @@ public class dkong
 		ROM_LOAD( "v-2n.bpr",  0x0200, 0x0100, CRC(dbf185bf) SHA1(2697a991a4afdf079dd0b7e732f71c7618f43b70) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkngjnrb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkngjnrb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "djr1-c.5b",    0x0000, 0x1000, CRC(ffe9e1a5) SHA1(715dc79d85169b4c1faf43458592e69b434afefd) )
 		ROM_CONTINUE(             0x3000, 0x1000 )
@@ -2133,7 +2133,7 @@ public class dkong
 		ROM_LOAD( "v-2n.bpr",  0x0200, 0x0100, CRC(dbf185bf) SHA1(2697a991a4afdf079dd0b7e732f71c7618f43b70) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_pestplce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pestplce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pest.1p",      0x0000, 0x1000, CRC(80d50721) SHA1(9c0e7571b1664dce741595a2d13dc9d7709b35a9) )
 		ROM_CONTINUE(			  0x3000, 0x1000 )
@@ -2170,7 +2170,7 @@ public class dkong
 		ROM_LOAD( "pest-2n.bpr",  0x0200, 0x0100, NO_DUMP/*BAD_DUMP CRC(dbf185bf) SHA1(2697a991a4afdf079dd0b7e732f71c7618f43b70)*/ )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkong3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkong3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "dk3c.7b",      0x0000, 0x2000, CRC(38d5f38e) SHA1(5a6bb0e5070211515e3d56bd7d4c2d1655ac1621) )
 		ROM_LOAD( "dk3c.7c",      0x2000, 0x2000, CRC(c9134379) SHA1(ecddb3694b93cb3dc98c3b1aeeee928e27529aba) )
@@ -2199,7 +2199,7 @@ public class dkong
 		ROM_LOAD( "dkc1-v.2n",    0x0200, 0x0100, CRC(50e33434) SHA1(b63da9bed9dc4c7da78e4c26d4ba14b65f2b7e72) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkong3j = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkong3j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "dk3c.7b",      0x0000, 0x2000, CRC(38d5f38e) SHA1(5a6bb0e5070211515e3d56bd7d4c2d1655ac1621) )
 		ROM_LOAD( "dk3c.7c",      0x2000, 0x2000, CRC(c9134379) SHA1(ecddb3694b93cb3dc98c3b1aeeee928e27529aba) )
@@ -2228,7 +2228,7 @@ public class dkong
 		ROM_LOAD( "dkc1-v.2n",    0x0200, 0x0100, CRC(50e33434) SHA1(b63da9bed9dc4c7da78e4c26d4ba14b65f2b7e72) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dkong3b = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dkong3b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "5b.bin",       0x0000, 0x1000, CRC(549979bc) SHA1(58532f39285db0b081089e54a23041d83bec49aa) )
 		ROM_CONTINUE(             0x3000, 0x1000 )
@@ -2262,7 +2262,7 @@ public class dkong
 		ROM_LOAD( "dk3b-v.2n",    0x0200, 0x0100, BAD_DUMP CRC(50e33434) SHA1(b63da9bed9dc4c7da78e4c26d4ba14b65f2b7e72) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hunchbkd = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hunchbkd = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )	/* 32k for code */
 		ROM_LOAD( "hb.5e",        0x0000, 0x1000, CRC(4c3ac070) SHA1(636843b33f1b7e994b112fa29e65038098528b8c) )
 		ROM_LOAD( "hbsc-1.5c",    0x2000, 0x1000, CRC(9b0e6234) SHA1(a7405451e5cd42bc276c659ec5a2136dbb7b6aba) )
@@ -2289,7 +2289,7 @@ public class dkong
 		ROM_LOAD( "82s147.prm",   0x0300, 0x0200, CRC(46e5bc92) SHA1(f4171f8650818c017d58ad7131a7aff100b1b99c) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sbdk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sbdk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )	/* 32k for code */
 		ROM_LOAD( "sb-dk.ap",     0x0000, 0x1000, CRC(fef0ef9c) SHA1(8d3de7f96354672d906b2e124f3fb355f3201ed2) )
 		ROM_LOAD( "sb-dk.ay",     0x2000, 0x1000, CRC(2e9dade2) SHA1(74e5770fd362fd0242b8174b0ea5383fdf893cb3) )
@@ -2315,7 +2315,7 @@ public class dkong
 		ROM_LOAD( "sb.2n",        0x0200, 0x0100, CRC(dff9070a) SHA1(307b95749343b5106247d842f773b2b445faa156) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_herbiedk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_herbiedk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )	/* 32k for code */
 		ROM_LOAD( "5f.cpu",        0x0000, 0x1000, CRC(c7ab3ac6) SHA1(5ef8c0ac1acd09a0f6c1536d0525cc27bb87b167) )
 		ROM_LOAD( "5g.cpu",        0x2000, 0x1000, CRC(d1031aa6) SHA1(6f5eadf43f1a59333833b3ee72d8d3043ac8c899) )
@@ -2342,7 +2342,7 @@ public class dkong
 		ROM_LOAD( "82s147.hh",     0x0300, 0x0200, CRC(46e5bc92) SHA1(f4171f8650818c017d58ad7131a7aff100b1b99c) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_herodk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_herodk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "red-dot.rgt",  0x0c00, 0x0400, CRC(9c4af229) SHA1(8b7330457acdd8d92f2853f3e5f8c18f8991c5c9) )	/* encrypted */
 		ROM_CONTINUE(             0x0800, 0x0400 )
@@ -2373,7 +2373,7 @@ public class dkong
 		ROM_LOAD( "82s126.2n",    0x0200, 0x0100, CRC(37aece4b) SHA1(08dbb470644278132b8126649fe41d70e7750bee) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_herodku = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_herodku = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "2764.8h",      0x0c00, 0x0400, CRC(989ce053) SHA1(852401856a2d91118d1bd0b3db892b57d0ac949c) )
 		ROM_CONTINUE(             0x0800, 0x0400 )
@@ -2402,7 +2402,7 @@ public class dkong
 		ROM_LOAD( "82s126.2n",    0x0200, 0x0100, CRC(37aece4b) SHA1(08dbb470644278132b8126649fe41d70e7750bee) )	/* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spclforc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spclforc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )	/* 32k for code */
 		ROM_LOAD( "27128.8f",     0x0000, 0x1000, CRC(1e9b8d26) SHA1(783e733cfb5d8fa560a6e6a7b49f782abc60bb58) )
 		ROM_CONTINUE(			  0x2000, 0x1000 )
@@ -2425,7 +2425,7 @@ public class dkong
 		ROM_LOAD( "82s126.2n",    0x0200, 0x0100, CRC(9735998d) SHA1(c3f50f97369547b1fd25da64507a5c8b725de6d0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_spcfrcii = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_spcfrcii = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )	/* 32k for code */
 		ROM_LOAD( "spfc2.8f",     0x0000, 0x1000, CRC(87f9bb6c) SHA1(f432ff205336280ae11ef4b3061be48e19e07d76) )
 		ROM_CONTINUE(			  0x2000, 0x1000 )
@@ -2448,7 +2448,7 @@ public class dkong
 		ROM_LOAD( "spfc2.2n",     0x0200, 0x0100, CRC(9735998d) SHA1(c3f50f97369547b1fd25da64507a5c8b725de6d0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_8ballact = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_8ballact = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )	/* 32k for code */
 		ROM_LOAD( "8b-dk.5e",     0x0400, 0x0400, CRC(166c1c9b) SHA1(fd5661dbb4617a1daff7949ef030b8572bdebb85) )
 		ROM_CONTINUE(			  0x0000, 0x0400 )
@@ -2477,7 +2477,7 @@ public class dkong
 		ROM_LOAD( "8b.2n",        0x0200, 0x0100, CRC(30586988) SHA1(a9c246fd01cb3ff371ad33b55d5b2fe4898c4d1b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_8ballat2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_8ballat2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )	/* 32k for code */
 		ROM_LOAD( "8b-jr.5b",     0x0400, 0x0400, CRC(579cd634) SHA1(93d81539459f7198d8cbf05b3e66a40466aee2d9) )
 		ROM_CONTINUE(			  0x0000, 0x0400 )
@@ -2506,7 +2506,7 @@ public class dkong
 		ROM_LOAD( "8b.2n",        0x0200, 0x0100, CRC(30586988) SHA1(a9c246fd01cb3ff371ad33b55d5b2fe4898c4d1b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_drakton = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drakton = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "2764.u2",      0x0000, 0x2000, NO_DUMP )
 		ROM_LOAD( "2764.u3",      0x2000, 0x2000, NO_DUMP )
@@ -2531,7 +2531,7 @@ public class dkong
 	ROM_END(); }}; 
 	
 	/* encrypted */
-	static RomLoadPtr rom_strtheat = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_strtheat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "2764.u2",   0x0000, 0x2000, CRC(8d3e82c3) SHA1(ec26fb1c6015721da1f61eca76a4b3390d8dcc76) )
 		ROM_LOAD( "2764.u3",   0x2000, 0x2000, CRC(f0759e76) SHA1(e086f02d1861269194c4cd2ada71696b48ed1a1d)  )
@@ -2559,7 +2559,7 @@ public class dkong
 		ROM_LOAD( "82s129.2n",    0x0200, 0x0100, CRC(a515d59b) SHA1(930616c4bcd819c2a4432a6619a8c6da74f3e8c5) ) /* character color codes on a per-column basis */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_shootgal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shootgal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 		ROM_LOAD( "sg-01-5b",    0x0000, 0x1000, CRC(1066ea33) SHA1(822d45cf4b5ef8f7a527e07063989caf623fab15) )
 		ROM_CONTINUE(			 0x6000, 0x1000 )

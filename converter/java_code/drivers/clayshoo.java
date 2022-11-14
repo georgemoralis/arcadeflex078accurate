@@ -72,7 +72,7 @@ public class clayshoo
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_clayshoo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( clayshoo )
+	static InputPortHandlerPtr input_ports_clayshoo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( clayshoo )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "1C_1C") );
@@ -168,7 +168,7 @@ public class clayshoo
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_clayshoo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_clayshoo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "0",      0x0000, 0x0800, CRC(9df9d9e3) SHA1(8ce71a6faf5df9c8c3dbb92a443b62c0f376491c) )
 		ROM_LOAD( "1",      0x0800, 0x0800, CRC(5134a631) SHA1(f0764a5161934564fd0416be26087cf812e0c422) )

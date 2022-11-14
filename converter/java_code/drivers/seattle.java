@@ -1041,7 +1041,7 @@ public class seattle
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_wg3dh = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wg3dh )
+	static InputPortHandlerPtr input_ports_wg3dh = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wg3dh )
 		PORT_START(); 	    /* DIPs */
 		PORT_DIPNAME( 0x0001, 0x0001, "Unknown0001" );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1145,7 +1145,7 @@ public class seattle
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_mace = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mace )
+	static InputPortHandlerPtr input_ports_mace = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mace )
 		PORT_START(); 	    /* DIPs */
 		PORT_DIPNAME( 0x0001, 0x0001, "Unknown0001" );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1249,7 +1249,7 @@ public class seattle
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_sfrush = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sfrush )
+	static InputPortHandlerPtr input_ports_sfrush = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sfrush )
 		PORT_START(); 	    /* DIPs */
 		PORT_BITX(0x0001, IP_ACTIVE_LOW, IPT_SERVICE, DEF_STR( "Service_Mode") ); KEYCODE_F2, IP_JOY_NONE ) /* Test switch */
 		PORT_DIPNAME( 0x0002, 0x0002, "Boot ROM Test" );
@@ -1361,7 +1361,7 @@ public class seattle
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_calspeed = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( calspeed )
+	static InputPortHandlerPtr input_ports_calspeed = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( calspeed )
 		PORT_START(); 	    /* DIPs */
 		PORT_DIPNAME( 0x0001, 0x0001, "Unknown0001" );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1468,7 +1468,7 @@ public class seattle
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_biofreak = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( biofreak )
+	static InputPortHandlerPtr input_ports_biofreak = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( biofreak )
 		PORT_START(); 	    /* DIPs */
 		PORT_DIPNAME( 0x0001, 0x0001, "Unknown0001" );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -1574,7 +1574,7 @@ public class seattle
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_blitz = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blitz )
+	static InputPortHandlerPtr input_ports_blitz = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blitz )
 		PORT_START(); 	    /* DIPs */
 		PORT_DIPNAME( 0x0001, 0x0000, "Coinage Source" );
 		PORT_DIPSETTING(      0x0001, "Dipswitch" );
@@ -1678,7 +1678,7 @@ public class seattle
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_blitz99 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blitz99 )
+	static InputPortHandlerPtr input_ports_blitz99 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blitz99 )
 		PORT_START(); 	    /* DIPs */
 		PORT_DIPNAME( 0x0001, 0x0000, "Coinage Source" );
 		PORT_DIPSETTING(      0x0001, "Dipswitch" );
@@ -1800,7 +1800,7 @@ public class seattle
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_carnevil = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( carnevil )
+	static InputPortHandlerPtr input_ports_carnevil = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( carnevil )
 		PORT_START(); 	    /* DIPs */
 		PORT_DIPNAME( 0x0001, 0x0000, "Coinage Source" );
 		PORT_DIPSETTING(      0x0001, "Dipswitch" );
@@ -1988,7 +1988,7 @@ public class seattle
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_wg3dh = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wg3dh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x408000, REGION_CPU2, 0 )	/* ADSP-2115 data Version L1.1 */
@@ -2002,7 +2002,7 @@ public class seattle
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_mace = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mace = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x408000, REGION_CPU2, 0 )	/* ADSP-2115 data Version L1.1 */
@@ -2016,7 +2016,7 @@ public class seattle
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_sfrush = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sfrush = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( 0x040000, REGION_CPU2, 0 )		/* RAM for TMS320C31 */
@@ -2038,7 +2038,7 @@ public class seattle
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_calspeed = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_calspeed = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x408000, REGION_CPU2, 0 )	/* ADSP-2115 data Version 1.02 */
@@ -2052,7 +2052,7 @@ public class seattle
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_biofreak = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_biofreak = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x408000, REGION_CPU2, 0 )	/* ADSP-2115 data Version 1.02 */
@@ -2066,7 +2066,7 @@ public class seattle
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blitz = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blitz = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x408000, REGION_CPU2, 0 )	/* ADSP-2115 data Version 1.02 */
@@ -2080,7 +2080,7 @@ public class seattle
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blitz99 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blitz99 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x408000, REGION_CPU2, 0 )	/* ADSP-2115 data Version 1.02 */
@@ -2094,7 +2094,7 @@ public class seattle
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_blitz2k = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blitz2k = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x408000, REGION_CPU2, 0 )	/* ADSP-2115 data Version 1.02 */
@@ -2108,7 +2108,7 @@ public class seattle
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_carnevil = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_carnevil = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x800000, REGION_CPU1, 0 )		/* dummy R5000 region */
 	
 		ROM_REGION( ADSP2100_SIZE + 0x408000, REGION_CPU2, 0 )	/* ADSP-2115 data Version 1.02 */

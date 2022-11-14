@@ -257,7 +257,7 @@ public class marinedt
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_marinedt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( marinedt )
+	static InputPortHandlerPtr input_ports_marinedt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( marinedt )
 		PORT_START(); 	/* IN0 */
 		PORT_DIPNAME( 0x0f, 0x00, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x0f, DEF_STR( "9C_1C") );
@@ -630,7 +630,7 @@ public class marinedt
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_marinedt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_marinedt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "mg01",     0x0000, 0x0800, CRC(ad09f04d) SHA1(932fc973b4a2fbbebd7e6437ed30c8444e3d4afb))
 		ROM_LOAD( "mg02",     0x0800, 0x0800, CRC(555a2b0f) SHA1(143a8953ce5070c31dc4c1f623833b2a5a2cf657))

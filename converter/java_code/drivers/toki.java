@@ -164,7 +164,7 @@ public class toki
 	
 	/*****************************************************************************/
 	
-	static InputPortPtr input_ports_toki = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( toki )
+	static InputPortHandlerPtr input_ports_toki = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( toki )
 		SEIBU_COIN_INPUTS	/* Must be port 0: coin inputs read through sound cpu */
 	
 		PORT_START(); 
@@ -249,7 +249,7 @@ public class toki
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_tokib = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tokib )
+	static InputPortHandlerPtr input_ports_tokib = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tokib )
 		PORT_START(); 
 		PORT_DIPNAME( 0x001f, 0x001f, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(      0x0015, DEF_STR( "6C_1C") );
@@ -520,7 +520,7 @@ public class toki
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_tokij = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokij = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "tokijp.006",   0x00000, 0x20000, CRC(03d726b1) SHA1(bbe3a1ea1943cd73b821b3de4d5bf3dfbffd2168) )
 		ROM_LOAD16_BYTE( "tokijp.004",   0x00001, 0x20000, CRC(54a45e12) SHA1(240538c8b010bb6e1e7fea2ed2fb1d5f9bc64b2b) )
@@ -549,7 +549,7 @@ public class toki
 		ROM_LOAD( "tokijp.009",   0x00000, 0x20000, CRC(ae7a6b8b) SHA1(1d410f91354ffd1774896b2e64f20a2043607805) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tokia = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokia = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "tokijp.006",   0x00000, 0x20000, CRC(03d726b1) SHA1(bbe3a1ea1943cd73b821b3de4d5bf3dfbffd2168) )
 		ROM_LOAD16_BYTE( "4c.10k",       0x00001, 0x20000, CRC(b2c345c5) SHA1(ff8ff31551e835e29192d7ddd3e1601968b3e2c5) )
@@ -578,7 +578,7 @@ public class toki
 		ROM_LOAD( "tokijp.009",   0x00000, 0x20000, CRC(ae7a6b8b) SHA1(1d410f91354ffd1774896b2e64f20a2043607805) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_toki = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_toki = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "l10_6.bin",    0x00000, 0x20000, CRC(94015d91) SHA1(8b8d7c589eff038467f55e81ffd450f726c5a8b5) )
 		ROM_LOAD16_BYTE( "k10_4e.bin",   0x00001, 0x20000, CRC(531bd3ef) SHA1(2e561f92f5c5f2da16c4791274ccbd421b9b0a05) )
@@ -607,7 +607,7 @@ public class toki
 		ROM_LOAD( "tokijp.009",   0x00000, 0x20000, CRC(ae7a6b8b) SHA1(1d410f91354ffd1774896b2e64f20a2043607805) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tokiu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokiu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "6b.10m",       0x00000, 0x20000, CRC(3674d9fe) SHA1(7c610bee23b0f7e6a9e3d5d72d6084e025eb89ec) )
 		ROM_LOAD16_BYTE( "14.10k",       0x00001, 0x20000, CRC(bfdd48af) SHA1(3e48375019471a51f0c00d3444b0c1d37d2f8e92) )
@@ -636,7 +636,7 @@ public class toki
 		ROM_LOAD( "tokijp.009",   0x00000, 0x20000, CRC(ae7a6b8b) SHA1(1d410f91354ffd1774896b2e64f20a2043607805) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tokib = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tokib = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 6*64k for 68000 code */
 		ROM_LOAD16_BYTE( "toki.e3",      0x00000, 0x20000, CRC(ae9b3da4) SHA1(14eabbd0b3596528e96e4399dde03f5817eddbaa) )
 		ROM_LOAD16_BYTE( "toki.e5",      0x00001, 0x20000, CRC(66a5a1d6) SHA1(9a8330d19234863952b0a5dce3f5ad28fcabaa31) )

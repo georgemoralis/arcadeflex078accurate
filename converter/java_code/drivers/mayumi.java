@@ -102,7 +102,7 @@ public class mayumi
 	
 	/****************************************************************************/
 	
-	static InputPortPtr input_ports_mayumi = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mayumi )
+	static InputPortHandlerPtr input_ports_mayumi = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mayumi )
 	
 	    PORT_START();   /* dsw1 */
 		PORT_DIPNAME( 0x80, 0x80, DEF_STR( "Flip_Screen") );
@@ -309,7 +309,7 @@ public class mayumi
 	
 	/****************************************************************************/
 	
-	static RomLoadPtr rom_mayumi = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mayumi = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* CPU */
 		ROM_LOAD( "my00.bin",  0x00000, 0x08000, CRC(33189e37) SHA1(cbf75f56360ef7da5b7b1207b58cd0d72bcaf207) )
 		ROM_LOAD( "my01.bin",  0x10000, 0x10000, CRC(5280fb39) SHA1(cee7653f4353031701ec1608881b37073b178d9f) ) // Banked

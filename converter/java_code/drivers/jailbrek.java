@@ -106,7 +106,7 @@ public class jailbrek
 	
 	
 	
-	static InputPortPtr input_ports_jailbrek = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jailbrek )
+	static InputPortHandlerPtr input_ports_jailbrek = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jailbrek )
 		PORT_START(); 	/* IN0 - $3300 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -285,7 +285,7 @@ public class jailbrek
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_jailbrek = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jailbrek = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "jailb11d.bin", 0x8000, 0x4000, CRC(a0b88dfd) SHA1(f999e382b9d3b812fca41f4d0da3ea692fef6b19) )
 		ROM_LOAD( "jailb9d.bin",  0xc000, 0x4000, CRC(444b7d8e) SHA1(c708b67c2d249448dae9a3d10c24d13ba6849597) )
@@ -310,7 +310,7 @@ public class jailbrek
 		ROM_LOAD( "jailb8c.bin",  0x0000, 0x2000, CRC(d91d15e3) SHA1(475fe50aafbf8f2fb79880ef0e2c25158eda5270) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_manhatan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_manhatan = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "507n03.9d",    0x8000, 0x4000, CRC(e5039f7e) SHA1(0f12484ed40444d978e0405c27bdd027ae2e2a0b) )
 		ROM_LOAD( "507n02.11d",   0xc000, 0x4000, CRC(143cc62c) SHA1(9520dbb1b6f1fa439e03d4caa9bed96ef8f805f2) )

@@ -142,7 +142,7 @@ public class battlane
 	} };
 	
 	
-	static InputPortPtr input_ports_battlane = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battlane )
+	static InputPortHandlerPtr input_ports_battlane = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battlane )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_BUTTON2 );
@@ -318,7 +318,7 @@ public class battlane
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_battlane = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlane = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		/* first half of da00-5 will be copied at 0x4000-0x7fff */
 		ROM_LOAD( "da00-5",    0x4000, 0x8000, CRC(85b4ed73) SHA1(b8e61eedf8fb75bb07f1df91a7465cee2b6ff372) )
@@ -342,7 +342,7 @@ public class battlane
 		ROM_LOAD( "82s123.9n", 0x00020, 0x0020, CRC(06491e53) SHA1(d6cf5003798f9a9d555bca97844dcb2966cbac9d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_battlan2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlan2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		/* first half of da00-3 will be copied at 0x4000-0x7fff */
 		ROM_LOAD( "da00-3",    0x4000, 0x8000, CRC(7a0a5d58) SHA1(ef97e5a64a668c437c18cda931c52bf39b580b4a) )
@@ -366,7 +366,7 @@ public class battlane
 		ROM_LOAD( "82s123.9n", 0x00020, 0x0020, CRC(06491e53) SHA1(d6cf5003798f9a9d555bca97844dcb2966cbac9d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_battlan3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlan3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		/* first half of bl_04.rom will be copied at 0x4000-0x7fff */
 		ROM_LOAD( "bl_04.rom", 0x4000, 0x8000, CRC(5681564c) SHA1(25b3a715e91976830d87c7c45b93b473df709241) )

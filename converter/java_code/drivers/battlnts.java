@@ -102,7 +102,7 @@ public class battlnts
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_battlnts = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( battlnts )
+	static InputPortHandlerPtr input_ports_battlnts = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battlnts )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(	0x02, DEF_STR( "4C_1C") );
@@ -199,7 +199,7 @@ public class battlnts
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_thehustj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( thehustj )
+	static InputPortHandlerPtr input_ports_thehustj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( thehustj )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(	0x02, DEF_STR( "4C_1C") );
@@ -377,7 +377,7 @@ public class battlnts
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_battlnts = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlnts = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "g02.7e",      0x08000, 0x08000, CRC(dbd8e17e) SHA1(586a22b714011c67a915c4a350ceca19ff875635) ) /* fixed ROM */
 		ROM_LOAD( "g03.8e",      0x10000, 0x10000, CRC(7bd44fef) SHA1(308ec5246f5537b34e368535672ac687f456750a) ) /* banked ROM */
@@ -392,7 +392,7 @@ public class battlnts
 		ROM_LOAD( "777c05.bin",  0x00000, 0x40000, CRC(aeee778c) SHA1(fc58ada9c97361d13439b7b0918c947d48402445) ) /* sprites */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_battlntj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_battlntj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "777e02.bin",  0x08000, 0x08000, CRC(d631cfcb) SHA1(7787da0dd8cd218abc27204e517e04d7a1913a3b) ) /* fixed ROM */
 		ROM_LOAD( "777e03.bin",  0x10000, 0x10000, CRC(5ef1f4ef) SHA1(e3e6e1fc5a65328d94c23e2e76eef3504b70e58b) ) /* banked ROM */
@@ -407,7 +407,7 @@ public class battlnts
 		ROM_LOAD( "777c05.bin",  0x00000, 0x40000, CRC(aeee778c) SHA1(fc58ada9c97361d13439b7b0918c947d48402445) ) /* sprites */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_thehustl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thehustl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "765-m02.7e",  0x08000, 0x08000, CRC(934807b9) SHA1(84e13a5c1587ee28330f369f9a1180219edbda9d) ) /* fixed ROM */
 		ROM_LOAD( "765-j03.8e",  0x10000, 0x10000, CRC(a13fd751) SHA1(27ec66835c85b7ac0221a813d38e9cca0d9be3b8) ) /* banked ROM */
@@ -422,7 +422,7 @@ public class battlnts
 		ROM_LOAD( "765-e05.13e", 0x00000, 0x40000, CRC(ef044655) SHA1(c8272283eab8fc2899979da398819cb72c92a299) ) /* sprites */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_thehustj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thehustj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "765-j02.7e",  0x08000, 0x08000, CRC(2ac14c75) SHA1(b88f6279ab88719f4207e28486a0022554668382) ) /* fixed ROM */
 		ROM_LOAD( "765-j03.8e",  0x10000, 0x10000, CRC(a13fd751) SHA1(27ec66835c85b7ac0221a813d38e9cca0d9be3b8) ) /* banked ROM */
@@ -437,7 +437,7 @@ public class battlnts
 		ROM_LOAD( "765-e05.13e", 0x00000, 0x40000, CRC(ef044655) SHA1(c8272283eab8fc2899979da398819cb72c92a299) ) /* sprites */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rackemup = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rackemup = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "765l02",      0x08000, 0x08000, CRC(3dfc48bd) SHA1(9ba98e9f27dd0a6efec145bea2a5ae7df8567437) ) /* fixed ROM */
 		ROM_LOAD( "765-j03.8e",  0x10000, 0x10000, CRC(a13fd751) SHA1(27ec66835c85b7ac0221a813d38e9cca0d9be3b8) ) /* banked ROM */

@@ -110,7 +110,7 @@ public class funkyjet
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_funkyjet = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( funkyjet )
+	static InputPortHandlerPtr input_ports_funkyjet = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( funkyjet )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -188,7 +188,7 @@ public class funkyjet
 		PORT_DIPSETTING(    0x01, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_sotsugyo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( sotsugyo )
+	static InputPortHandlerPtr input_ports_sotsugyo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sotsugyo )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -355,7 +355,7 @@ public class funkyjet
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_funkyjet = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_funkyjet = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "jk00.12f", 0x00000, 0x40000, CRC(712089c1) SHA1(84167c90303a228107f55596e2ff8b9f111d1bc2) )
 		ROM_LOAD16_BYTE( "jk01.13f", 0x00001, 0x40000, CRC(be3920d7) SHA1(6627956d148681bc49991c544a09b07271ea4c7f) )
@@ -374,7 +374,7 @@ public class funkyjet
 	  	ROM_LOAD( "jk03.15h",    0x00000, 0x20000, CRC(69a0eaf7) SHA1(05038e82ee03106625f05082fe9912e16be181ee) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_sotsugyo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_sotsugyo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "03.12f", 0x00000, 0x40000, CRC(d175dfd1) SHA1(61c91d5e20b0492e6ac3b19fe9639eb4f169ae77) )
 		ROM_LOAD16_BYTE( "04.13f", 0x00001, 0x40000, CRC(2072477c) SHA1(23820a519e4503854e63ab3ad7eec58178c8d822) )

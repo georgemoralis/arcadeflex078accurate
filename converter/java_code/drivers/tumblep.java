@@ -396,7 +396,7 @@ public class tumblep
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_tumblep = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( tumblep )
+	static InputPortHandlerPtr input_ports_tumblep = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( tumblep )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -486,7 +486,7 @@ public class tumblep
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_fncywld = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fncywld )
+	static InputPortHandlerPtr input_ports_fncywld = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fncywld )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -576,7 +576,7 @@ public class tumblep
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_htchctch = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( htchctch )
+	static InputPortHandlerPtr input_ports_htchctch = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( htchctch )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -908,7 +908,7 @@ public class tumblep
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_tumblep = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tumblep = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE("hl00-1.f12", 0x00000, 0x40000, CRC(fd697c1b) SHA1(1a3dee4c7383f2bc2d73037e80f8f5d8297e7433) )
 		ROM_LOAD16_BYTE("hl01-1.f13", 0x00001, 0x40000, CRC(d5a62a3f) SHA1(7249563993fa8e1f19ddae51306d4a576b5cb206) )
@@ -927,7 +927,7 @@ public class tumblep
 		ROM_LOAD( "hl03-.j15",    0x00000, 0x20000, CRC(01b81da0) SHA1(914802f3206dc59a720af9d57eb2285bc8ba822b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tumblepj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tumblepj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE("hk00-1.f12", 0x00000, 0x40000, CRC(2d3e4d3d) SHA1(0acc8b93bd49395904dff11c582bdbaccdbd3eef) )
 		ROM_LOAD16_BYTE("hk01-1.f13", 0x00001, 0x40000, CRC(56912a00) SHA1(0545f6bff2a0aa2f36adda0f9d73b165387abc3a) )
@@ -946,7 +946,7 @@ public class tumblep
 		ROM_LOAD( "hl03-.j15",    0x00000, 0x20000, CRC(01b81da0) SHA1(914802f3206dc59a720af9d57eb2285bc8ba822b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tumblepb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tumblepb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE ("thumbpop.12", 0x00000, 0x40000, CRC(0c984703) SHA1(588d2b2464e0027c8d0703a2b62ebda225ba4276) )
 		ROM_LOAD16_BYTE( "thumbpop.13", 0x00001, 0x40000, CRC(864c4053) SHA1(013eb35e79aa7a7cd1a8061c4b75b37a8bfb10c6) )
@@ -963,7 +963,7 @@ public class tumblep
 		ROM_LOAD( "thumbpop.snd", 0x00000, 0x80000, CRC(fabbf15d) SHA1(de60be43a5cd1d4b93c142bde6cbfc48a25545a3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tumblep2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tumblep2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE ("thumbpop.2", 0x00000, 0x40000, CRC(34b016e1) SHA1(b4c496358d48469d170a69e8bba58e0ea919b418) )
 		ROM_LOAD16_BYTE( "thumbpop.3", 0x00001, 0x40000, CRC(89501c71) SHA1(2c202218934b845fdf7c99eaf280dccad90767f2) )
@@ -980,7 +980,7 @@ public class tumblep
 		ROM_LOAD( "thumbpop.snd", 0x00000, 0x80000, CRC(fabbf15d) SHA1(de60be43a5cd1d4b93c142bde6cbfc48a25545a3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jumpkids = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jumpkids = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "23.15c", 0x00000, 0x40000, CRC(6ba11e91) SHA1(9f83ef79beb97af1625e7b46858d6f0681dafb23) )
 		ROM_LOAD16_BYTE( "24.16c", 0x00001, 0x40000, CRC(5795d98b) SHA1(d1435f0b79a4fa45770c56b91f078c1885fbd048) )
@@ -1005,7 +1005,7 @@ public class tumblep
 		ROM_LOAD( "22.2c", 0x00000, 0x20000, CRC(fae44fbf) SHA1(142215ccca9e405232afbfc95527e13cc5b8296e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fncywld = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fncywld = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "01_fw02.bin", 0x000000, 0x080000, CRC(ecb978c1) SHA1(68fbf93a81875f744c6f9820dc4c7d88e912e0a0) )
 		ROM_LOAD16_BYTE( "02_fw03.bin", 0x000001, 0x080000, CRC(2d233b42) SHA1(aebeb5d3e06e73d14f713f201b25466bcac97a68) )
@@ -1038,7 +1038,7 @@ public class tumblep
 	
 	*/
 	
-	static RomLoadPtr rom_htchctch = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_htchctch = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "p03.b16",  0x00001, 0x20000, CRC(eff14c40) SHA1(8fdda1fb859546c16f940e51f7e126768205154c) )
 		ROM_LOAD16_BYTE( "p04.b17",  0x00000, 0x20000, CRC(6991483a) SHA1(c8d868ef1f87655c37f0b1efdbb71cd26918f270) )
@@ -1073,7 +1073,7 @@ public class tumblep
 	protected like hatch catch .. but different code .. we don't have it
 	also might be bad dumps, rom data is in a strange order */
 	
-	static RomLoadPtr rom_bcstry = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bcstry = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "bcstry_u.35",  0x20001, 0x20000, BAD_DUMP CRC(d25b80a4) SHA1(6ea1c28cf508b856e93a06063e634a09291cb32c) )
 		ROM_CONTINUE ( 0x00001, 0x20000)

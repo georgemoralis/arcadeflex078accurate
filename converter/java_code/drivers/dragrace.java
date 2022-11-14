@@ -191,7 +191,7 @@ public class dragrace
 	};
 	
 	
-	static InputPortPtr input_ports_dragrace = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dragrace )
+	static InputPortHandlerPtr input_ports_dragrace = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dragrace )
 		PORT_START();  /* IN0 */
 		PORT_BITX( 0x01, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1, "Player 1 Gas",  IP_KEY_DEFAULT, IP_JOY_DEFAULT );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_UNUSED );/* player 1 gear 1 */
@@ -544,7 +544,7 @@ public class dragrace
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_dragrace = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dragrace = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "8513.c1", 0x1000, 0x0800, CRC(543bbb30) SHA1(646a41d1124c8365f07a93de38af007895d7d263) )
 		ROM_LOAD( "8514.a1", 0x1800, 0x0800, CRC(ad218690) SHA1(08ba5f4fa4c75d8dad1a7162888d44b3349cbbe4) )

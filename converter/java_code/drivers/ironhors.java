@@ -128,7 +128,7 @@ public class ironhors
 	
 	
 	
-	static InputPortPtr input_ports_ironhors = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ironhors )
+	static InputPortHandlerPtr input_ports_ironhors = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ironhors )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -232,7 +232,7 @@ public class ironhors
 		PORT_BIT( 0xf8, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_dairesya = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dairesya )
+	static InputPortHandlerPtr input_ports_dairesya = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dairesya )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -475,7 +475,7 @@ public class ironhors
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ironhors = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ironhors = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "13c_h03.bin",  0x4000, 0x8000, CRC(24539af1) SHA1(1eb96a2cb03007665587d6ec114894ab4cafdb23) )
 		ROM_LOAD( "12c_h02.bin",  0xc000, 0x4000, CRC(fab07f86) SHA1(9f599d32d473d873113b89f2b24a54a435dbcbe5) )
@@ -497,7 +497,7 @@ public class ironhors
 		ROM_LOAD( "10f_h11.bin",  0x0400, 0x0100, CRC(a63e37d8) SHA1(1a0a76ecd14310125bdf41a8431d562ed498eb27) ) /* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dairesya = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dairesya = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "560-k03.13c",  0x4000, 0x8000, CRC(2ac6103b) SHA1(331e1be3f29df85d65081831c215743354d76778) )
 		ROM_LOAD( "560-k02.12c",  0xc000, 0x4000, CRC(07bc13a9) SHA1(1d3a44ad41799f89bfa84cc05fbe0792e57305af) )
@@ -519,7 +519,7 @@ public class ironhors
 		ROM_LOAD( "10f_h11.bin",  0x0400, 0x0100, CRC(a63e37d8) SHA1(1a0a76ecd14310125bdf41a8431d562ed498eb27) ) /* sprite lookup table */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_farwest = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_farwest = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x12000, REGION_CPU1, 0 )	/* 64k for code + 8k for extra ROM */
 		ROM_LOAD( "ironhors.008", 0x04000, 0x4000, CRC(b1c8246c) SHA1(4ceb098bb0b4efcbe50bb4b23bd27a60dabf2b3e) )
 		ROM_LOAD( "ironhors.009", 0x08000, 0x8000, CRC(ea34ecfc) SHA1(8c7f12e76d2b9eb592ebf1bfd3e16a6b130da8e5) )

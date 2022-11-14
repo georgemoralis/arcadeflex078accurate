@@ -125,7 +125,7 @@ public class simpsons
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_simpsons = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( simpsons )
+	static InputPortHandlerPtr input_ports_simpsons = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( simpsons )
 		PORT_START();  /* IN0 - Player 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
@@ -181,7 +181,7 @@ public class simpsons
 		PORT_BIT( 0xfe, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_simpsn2p = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( simpsn2p )
+	static InputPortHandlerPtr input_ports_simpsn2p = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( simpsn2p )
 		PORT_START();  /* IN0 - Player 1 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
@@ -343,7 +343,7 @@ public class simpsons
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_simpsons = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_simpsons = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8b000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "g02.16c",      0x10000, 0x20000, CRC(580ce1d6) SHA1(5b07fb8e8041e1663980aa35d853fdc13b22dac5) )
 		ROM_LOAD( "g01.17c",      0x30000, 0x20000, CRC(9f843def) SHA1(858432b59101b0577c5cec6ac0c7c20ab0780c9a) )
@@ -370,7 +370,7 @@ public class simpsons
 		ROM_LOAD( "simp_1d.rom", 0x100000, 0x040000, CRC(78778013) SHA1(edbd6d83b0d1a20df39bb160b92395586fa3c32d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_simpsn2p = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_simpsn2p = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8b000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "g02.16c",      0x10000, 0x20000, CRC(580ce1d6) SHA1(5b07fb8e8041e1663980aa35d853fdc13b22dac5) )
 		ROM_LOAD( "simp_p01.rom", 0x30000, 0x20000, CRC(07ceeaea) SHA1(c18255ae1d578c2d53de80d6323cdf41cbe47b57) )
@@ -397,7 +397,7 @@ public class simpsons
 		ROM_LOAD( "simp_1d.rom", 0x100000, 0x040000, CRC(78778013) SHA1(edbd6d83b0d1a20df39bb160b92395586fa3c32d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_simps2pa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_simps2pa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8b000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 	        ROM_LOAD( "simp2.16c",    0x010000, 0x020000, CRC(580ce1d6) SHA1(5b07fb8e8041e1663980aa35d853fdc13b22dac5) )
 	        ROM_LOAD( "simp1.17c",    0x030000, 0x020000, CRC(07ceeaea) SHA1(c18255ae1d578c2d53de80d6323cdf41cbe47b57) )
@@ -424,7 +424,7 @@ public class simpsons
 		ROM_LOAD( "simp_1d.rom", 0x100000, 0x040000, CRC(78778013) SHA1(edbd6d83b0d1a20df39bb160b92395586fa3c32d) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_simps2pj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_simps2pj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8b000, REGION_CPU1, 0 ) /* code + banked roms + banked ram */
 		ROM_LOAD( "072-s02.16c",  0x10000, 0x20000, CRC(265f7a47) SHA1(d39c19a5e303f822313409343b209947f4c47ae4) )
 		ROM_LOAD( "072-t01.17c",  0x30000, 0x20000, CRC(91de5c2d) SHA1(1e18a5585ed821ec7cda69bdcdbfa4e6c71455c6) )

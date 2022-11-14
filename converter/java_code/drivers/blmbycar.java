@@ -158,7 +158,7 @@ public class blmbycar
 	
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_blmbycar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( blmbycar )
+	static InputPortHandlerPtr input_ports_blmbycar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( blmbycar )
 	
 		PORT_START(); 	// IN0 - $700000.w
 		PORT_DIPNAME( 0x0003, 0x0003, DEF_STR( "Difficulty") );
@@ -330,7 +330,7 @@ public class blmbycar
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_blmbycar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blmbycar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "bcrom4.bin", 0x000000, 0x080000, CRC(06d490ba) SHA1(6d113561b474bf613c6b91c9525a52025ae65ab7) )
 		ROM_LOAD16_BYTE( "bcrom6.bin", 0x000001, 0x080000, CRC(33aca664) SHA1(04fff492654d3edac62e9d35808e5946bcc78cbb) )
@@ -347,7 +347,7 @@ public class blmbycar
 		ROM_COPY( REGION_SOUND1, 0x040000, 0x000000,   0x040000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_blmbycau = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_blmbycau = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "bc_rom4", 0x000000, 0x080000, CRC(76f054a2) SHA1(198efd152b13033e5249119ca48b9e0f6351b0b9) )
 		ROM_LOAD16_BYTE( "bc_rom6", 0x000001, 0x080000, CRC(2570b4c5) SHA1(706465950023a6ef7c85ceb9c76246d7556b3859) )

@@ -111,7 +111,7 @@ public class splash
 	};
 	
 	
-	static InputPortPtr input_ports_splash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( splash )
+	static InputPortHandlerPtr input_ports_splash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( splash )
 		PORT_START(); 	/* DSW #1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x06, DEF_STR( "5C_1C") );
@@ -262,7 +262,7 @@ public class splash
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_splash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_splash = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x400000, REGION_CPU1, 0 )	/* 68000 code + gfx */
 		ROM_LOAD16_BYTE(	"4g",	0x000000, 0x020000, CRC(b38fda40) SHA1(37ddf4b6f9f2f6cc58efefc277bc3ae9dc71e6d0) )
 		ROM_LOAD16_BYTE(	"4i",	0x000001, 0x020000, CRC(02359c47) SHA1(6817424b2b1afffa99cec5b8fae4fb8436db2bb5) )

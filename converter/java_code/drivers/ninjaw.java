@@ -514,7 +514,7 @@ public class ninjaw
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER2 );\
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER2 );
 	
-	static InputPortPtr input_ports_ninjaw = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ninjaw )
+	static InputPortHandlerPtr input_ports_ninjaw = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ninjaw )
 		NINJAW_DSWA
 		TAITO_COINAGE_WORLD_8
 	
@@ -527,7 +527,7 @@ public class ninjaw
 		NINJAW_IN4
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ninjawj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ninjawj )
+	static InputPortHandlerPtr input_ports_ninjawj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ninjawj )
 		NINJAW_DSWA
 		TAITO_COINAGE_JAPAN_8
 	
@@ -540,7 +540,7 @@ public class ninjaw
 		NINJAW_IN4
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_darius2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( darius2 )
+	static InputPortHandlerPtr input_ports_darius2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( darius2 )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -765,7 +765,7 @@ public class ninjaw
 						DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ninjaw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ninjaw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xc0000, REGION_CPU1, 0 )	/* 256K for 68000 CPUA code */
 		ROM_LOAD16_BYTE( "b31-45",    0x00000, 0x10000, CRC(107902c3) SHA1(026f71a918059e3374ae262304a2ee1270f5c5bd) )
 		ROM_LOAD16_BYTE( "b31-47",    0x00001, 0x10000, CRC(bd536b1e) SHA1(39c86cbb3a33fc77a0141b5648a1aca862e0a5fd) )
@@ -821,7 +821,7 @@ public class ninjaw
 		ROM_LOAD( "b31-26.58", 0x00000, 0x200, CRC(13e5fe15) SHA1(c973c7965954a2a0b427908f099592ed89cf0ff0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ninjawj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ninjawj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xc0000, REGION_CPU1, 0 )	/* 256K for 68000 CPUA code */
 		ROM_LOAD16_BYTE( "b31_30.35", 0x00000, 0x10000, CRC(056edd9f) SHA1(8922cede80b31ce0f7a00c8cab13d835464c6058) )
 		ROM_LOAD16_BYTE( "b31_28.32", 0x00001, 0x10000, CRC(cfa7661c) SHA1(a7a6abb33a514d910e3198d5acbd4c31b2434b6c) )
@@ -877,7 +877,7 @@ public class ninjaw
 		ROM_LOAD( "b31-26.58", 0x00000, 0x200, CRC(13e5fe15) SHA1(c973c7965954a2a0b427908f099592ed89cf0ff0) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_darius2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_darius2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xc0000, REGION_CPU1, 0 )	/* 256K for 68000 CPUA code */
 		ROM_LOAD16_BYTE( "c07-32-1", 0x00000, 0x10000, CRC(216c8f6a) SHA1(493b0779b99a228911f56ef9d2d4a3945683bec0) )
 		ROM_LOAD16_BYTE( "c07-29-1", 0x00001, 0x10000, CRC(48de567f) SHA1(cdf50052933cd2603fd4374e8bae8b30a6c690b5) )

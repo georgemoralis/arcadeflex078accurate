@@ -97,7 +97,7 @@ public class cchasm
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_cchasm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( cchasm )
+	static InputPortHandlerPtr input_ports_cchasm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cchasm )
 		PORT_START();  /* DSW */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x01, "3" );
@@ -227,7 +227,7 @@ public class cchasm
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_cchasm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cchasm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 	    ROM_LOAD16_BYTE( "chasm.u4",  0x000000, 0x001000, CRC(19244f25) SHA1(79deaae82da8d1b16d05bbac43ba900c4b1d9f26) )
 	    ROM_LOAD16_BYTE( "chasm.u12", 0x000001, 0x001000, CRC(5d702c7d) SHA1(cbdceed45a1112594fbcbeb6976edc932b32d518) )
@@ -250,7 +250,7 @@ public class cchasm
 		ROM_LOAD( "2732.bin", 0x0000, 0x1000, CRC(715adc4a) SHA1(426be4f3334ef7f2e8eb4d533e64276c30812aa3) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_cchasm1 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_cchasm1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x010000, REGION_CPU1, 0 )
 	    ROM_LOAD16_BYTE( "chasm.u4",  0x000000, 0x001000, CRC(19244f25) SHA1(79deaae82da8d1b16d05bbac43ba900c4b1d9f26) )
 	    ROM_LOAD16_BYTE( "chasm.u12", 0x000001, 0x001000, CRC(5d702c7d) SHA1(cbdceed45a1112594fbcbeb6976edc932b32d518) )

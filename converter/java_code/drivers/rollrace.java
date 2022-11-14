@@ -84,7 +84,7 @@ public class rollrace
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_rollrace = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rollrace )
+	static InputPortHandlerPtr input_ports_rollrace = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rollrace )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT| IPF_8WAY );
@@ -285,7 +285,7 @@ public class rollrace
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_fightrol = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fightrol = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1,0 )	/* 64k for code */
 		ROM_LOAD( "4.8k", 0x0000, 0x2000, CRC(efa2f430) SHA1(6aeb2a41e4fba97a0ac1b24fe5437e25b6c6b6c5) )
 		ROM_LOAD( "5.8h", 0x2000, 0x2000, CRC(2497d9f6) SHA1(4f4cfed47efc603bf057dd24b761beecf5b929f4) )
@@ -332,7 +332,7 @@ public class rollrace
 		ROM_LOAD( "8.6f", 0x0000, 0x1000, CRC(6ec3c545) SHA1(1a2477b9e1563734195b0743f5dbbb005e06022e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rollace = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rollace = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1,0 )	/* 64k for code */
 		ROM_LOAD( "w1.8k", 0x0000, 0x2000, CRC(c0bd3cf3) SHA1(a44d69b8c3249b5093261a32d0e0404992fa7f7a) )
 		ROM_LOAD( "w2.8h", 0x2000, 0x2000, CRC(c1900a75) SHA1(f7ec968b6bcb6ee6db98628cdf566ae0a501edba) )
@@ -379,7 +379,7 @@ public class rollrace
 		ROM_LOAD( "8.6f", 0x0000, 0x1000, CRC(6ec3c545) SHA1(1a2477b9e1563734195b0743f5dbbb005e06022e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rollace2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rollace2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1,0 )	/* 64k for code */
 		ROM_LOAD( "8k.764", 0x0000, 0x2000, CRC(a7abff82) SHA1(d49635f98b28b2b5e2833d25b0961addac2c3e6f) )
 		ROM_LOAD( "8h.764", 0x2000, 0x2000, CRC(9716ba03) SHA1(8a7bfc1dce3b1b0c634690e0637e0a30776c0334) )

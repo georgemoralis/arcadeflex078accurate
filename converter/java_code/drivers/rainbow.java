@@ -373,7 +373,7 @@ public class rainbow
 				 INPUT PORTS, DIPs
 	***********************************************************/
 	
-	static InputPortPtr input_ports_rainbow = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( rainbow )
+	static InputPortHandlerPtr input_ports_rainbow = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rainbow )
 		PORT_START(); 	/* DIP SWITCH A */
 		PORT_DIPNAME( 0x01, 0x00, DEF_STR( "Cabinet") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Upright") );
@@ -447,7 +447,7 @@ public class rainbow
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_BUTTON2 | IPF_PLAYER2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_jumping = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jumping )
+	static InputPortHandlerPtr input_ports_jumping = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jumping )
 		PORT_START(); 	/* DIP SWITCH A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -674,7 +674,7 @@ public class rainbow
 	                                  DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_rainbow = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rainbow = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "b22-10-1.19",   0x00000, 0x10000, CRC(e34a50ca) SHA1(17a92cd7182db1e18000b1ae689758fcfd70fe16) )
 		ROM_LOAD16_BYTE( "b22-11-1.20",   0x00001, 0x10000, CRC(6a31a093) SHA1(1e99ae47811c0d3774d138dab02ac50bc1b92173) )
@@ -696,7 +696,7 @@ public class rainbow
 		ROM_LOAD16_BYTE( "b22-13.6",      0x80001, 0x10000, CRC(2fda099f) SHA1(a1e27a4497f6733608be924d69d965b19f725b99) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rainbowo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rainbowo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "b22-10.19",     0x00000, 0x10000, CRC(3b013495) SHA1(fc89f401a80b9bde174df8a257bb7fad4937c838) )
 		ROM_LOAD16_BYTE( "b22-11.20",     0x00001, 0x10000, CRC(80041a3d) SHA1(619d71a2bef5fd898a15d37d8016850f832428c3) )
@@ -718,7 +718,7 @@ public class rainbow
 		ROM_LOAD16_BYTE( "b22-13.6",      0x80001, 0x10000, CRC(2fda099f) SHA1(a1e27a4497f6733608be924d69d965b19f725b99) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_rainbowe = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_rainbowe = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "b39-01.19",     0x00000, 0x10000, CRC(50690880) SHA1(88cd8739eaa6e4e5988be225c31d2a6605173d39) )
 		ROM_LOAD16_BYTE( "b39-02.20",     0x00001, 0x10000, CRC(4dead71f) SHA1(03e9df33fc8fc64d6eeb1c3a763acac00b10c071) )
@@ -740,7 +740,7 @@ public class rainbow
 		ROM_LOAD16_BYTE( "b22-13.6",      0x80001, 0x10000, CRC(2fda099f) SHA1(a1e27a4497f6733608be924d69d965b19f725b99) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jumping = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jumping = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xa0000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "jb1_h4",        0x00000, 0x10000, CRC(3fab6b31) SHA1(57803478949cb62f7eab2ef9be08b13aa2237dbc) )
 		ROM_LOAD16_BYTE( "jb1_h8",        0x00001, 0x10000, CRC(8c878827) SHA1(4a54a217b7c442305c3ce9298aa36ae225382444) )

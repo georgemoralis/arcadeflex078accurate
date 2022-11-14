@@ -272,7 +272,7 @@ public class wiz
 	
 	
 	
-	static InputPortPtr input_ports_stinger = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stinger )
+	static InputPortHandlerPtr input_ports_stinger = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stinger )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON2 | IPF_COCKTAIL );
@@ -344,7 +344,7 @@ public class wiz
 		PORT_DIPSETTING(    0x00, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_stinger2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stinger2 )
+	static InputPortHandlerPtr input_ports_stinger2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stinger2 )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON2 | IPF_COCKTAIL );
@@ -417,7 +417,7 @@ public class wiz
 		PORT_DIPSETTING(    0x00, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_scion = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( scion )
+	static InputPortHandlerPtr input_ports_scion = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( scion )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON2 | IPF_COCKTAIL );
@@ -488,7 +488,7 @@ public class wiz
 	//	PORT_DIPSETTING(    0x80, DEF_STR( "On") );		/* See notes */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_kungfut = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kungfut )
+	static InputPortHandlerPtr input_ports_kungfut = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kungfut )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON2 | IPF_PLAYER2 );
@@ -559,7 +559,7 @@ public class wiz
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_wiz = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wiz )
+	static InputPortHandlerPtr input_ports_wiz = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wiz )
 		PORT_START(); 	/* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_BUTTON1 | IPF_COCKTAIL );
@@ -856,7 +856,7 @@ public class wiz
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_kungfut = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kungfut = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "p1.bin",  0x0000, 0x4000, CRC(b1e56960) SHA1(993388bbb663412110d1012be9ffc00b06fce4d0) )
 		ROM_LOAD( "p3.bin",  0x4000, 0x4000, CRC(6fc346f8) SHA1(bd1663fa780e41eafd668bf502b40c9750270e55) )
@@ -880,7 +880,7 @@ public class wiz
 		ROM_LOAD( "82s129.2", 0x0200, 0x0100, CRC(c31eb3e6) SHA1(94fb8c6d83432c5f456510d628971147d373faf5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wiz = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wiz = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ic07_01.bin",  0x0000, 0x4000, CRC(c05f2c78) SHA1(98b93234684a3a228552ef41a08512fef1befedd) )
 		ROM_LOAD( "ic05_03.bin",  0x4000, 0x4000, CRC(7978d879) SHA1(866efdff3c111793d5a3cc2fa0b03a2b4e371c49) )
@@ -908,7 +908,7 @@ public class wiz
 		ROM_LOAD( "ic23_3-3.bin", 0x0200, 0x0100, CRC(a488d761) SHA1(6dade1dd16905b4751778d49f374936795c3fb6e) )	/* palette blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_wizt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wizt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "wiz1.bin",  	  0x0000, 0x4000, CRC(5a6d3c60) SHA1(faeb7e7ddeee9638ec046655e87f866d81fdbee0) )
 		ROM_LOAD( "ic05_03.bin",  0x4000, 0x4000, CRC(7978d879) SHA1(866efdff3c111793d5a3cc2fa0b03a2b4e371c49) )
@@ -936,7 +936,7 @@ public class wiz
 		ROM_LOAD( "ic23_3-3.bin", 0x0200, 0x0100, CRC(a488d761) SHA1(6dade1dd16905b4751778d49f374936795c3fb6e) )	/* palette blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_stinger = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stinger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "1-5j.bin",     0x0000, 0x2000, CRC(1a2ca600) SHA1(473e89f2c49f6e6f38df5d6fc2267ffecf84c6c8) )	/* encrypted */
 		ROM_LOAD( "2-6j.bin",     0x2000, 0x2000, CRC(957cd39c) SHA1(38bb589b3bfd962415b31d1151adf4bdb661122f) )	/* encrypted */
@@ -963,7 +963,7 @@ public class wiz
 		ROM_LOAD( "stinger.a8",   0x0200, 0x0100, CRC(76b57629) SHA1(836763948753b7fed97c9e5d90a16dc4ba68f42a) )	/* blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_stinger2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stinger2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "n1.bin",       0x0000, 0x2000, CRC(f2d2790c) SHA1(0e5e92ef45b5bc27b0818f83c89b3bda0e701403) )	/* encrypted */
 		ROM_LOAD( "n2.bin",       0x2000, 0x2000, CRC(8fd2d8d8) SHA1(d3318a81fddeb3fa50d01569c1e1145e26ce7277) )	/* encrypted */
@@ -990,7 +990,7 @@ public class wiz
 		ROM_LOAD( "stinger.a8",   0x0200, 0x0100, CRC(76b57629) SHA1(836763948753b7fed97c9e5d90a16dc4ba68f42a) )	/* blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_scion = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_scion = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sc1",          0x0000, 0x2000, CRC(8dcad575) SHA1(3f194ece25e730b1cbbf3f332bbdebc3a6a72b0f) )
 		ROM_LOAD( "sc2",          0x2000, 0x2000, CRC(f608e0ba) SHA1(e55b0ad4dc117339d45a999e13760f4ab3ca4ce0) )
@@ -1018,7 +1018,7 @@ public class wiz
 		ROM_LOAD( "82s129.8a",    0x0200, 0x0100, CRC(f681ce59) SHA1(4ac74c1d04e6b3f14a0f4530a41ba188f5a8f6be) )	/* blue component */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_scionc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_scionc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "1.5j",         0x0000, 0x2000, CRC(5aaf571e) SHA1(53becfad13e95012dce6597625c64dcba9ac4433) )
 		ROM_LOAD( "2.6j",         0x2000, 0x2000, CRC(d5a66ac9) SHA1(3192da12b2d6a07e203999ed97cdba16d4917a98) )

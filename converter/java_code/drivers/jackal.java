@@ -114,7 +114,7 @@ public class jackal
 	
 	
 	
-	static InputPortPtr input_ports_jackal = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jackal )
+	static InputPortHandlerPtr input_ports_jackal = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jackal )
 		PORT_START(); 	/* DSW1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -209,7 +209,7 @@ public class jackal
 	INPUT_PORTS_END(); }}; 
 	
 	/* identical, plus additional rotary controls */
-	static InputPortPtr input_ports_topgunbl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( topgunbl )
+	static InputPortHandlerPtr input_ports_topgunbl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( topgunbl )
 		PORT_START(); 	/* DSW1 */
 		PORT_DIPNAME( 0x0f, 0x0f, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x02, DEF_STR( "4C_1C") );
@@ -408,7 +408,7 @@ public class jackal
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_jackal = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jackal = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* Banked 64k for 1st CPU */
 		ROM_LOAD( "j-v02.rom",    0x04000, 0x8000, CRC(0b7e0584) SHA1(e4019463345a4c020d5a004c9a400aca4bdae07b) )
 		ROM_CONTINUE(             0x14000, 0x8000 )
@@ -428,7 +428,7 @@ public class jackal
 		ROM_LOAD( "631r09.bpr",   0x0100, 0x0100, CRC(a74dd86c) SHA1(571f606f8fc0fd3d98d26761de79ccb4cc9ab044) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_topgunr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_topgunr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* Banked 64k for 1st CPU */
 		ROM_LOAD( "tgnr15d.bin",  0x04000, 0x8000, CRC(f7e28426) SHA1(db2d5f252a574b8aa4d8406a8e93b423fd2a7fef) )
 		ROM_CONTINUE(             0x14000, 0x8000 )
@@ -448,7 +448,7 @@ public class jackal
 		ROM_LOAD( "631r09.bpr",   0x0100, 0x0100, CRC(a74dd86c) SHA1(571f606f8fc0fd3d98d26761de79ccb4cc9ab044) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jackalj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jackalj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* Banked 64k for 1st CPU */
 		ROM_LOAD( "631t02.bin",   0x04000, 0x8000, CRC(14db6b1a) SHA1(b469ea50aa94a2bda3bd0442300aa1272e5f30c4) )
 		ROM_CONTINUE(             0x14000, 0x8000 )
@@ -468,7 +468,7 @@ public class jackal
 		ROM_LOAD( "631r09.bpr",   0x0100, 0x0100, CRC(a74dd86c) SHA1(571f606f8fc0fd3d98d26761de79ccb4cc9ab044) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_topgunbl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_topgunbl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* Banked 64k for 1st CPU */
 		ROM_LOAD( "t-3.c5",       0x04000, 0x8000, CRC(7826ad38) SHA1(875e87867924905b9b83bc203eb7ffe81cf72233) )
 		ROM_LOAD( "t-4.c4",       0x14000, 0x8000, CRC(976c8431) SHA1(c199f57c25380d741aec85b0e0bfb6acf383e6a6) )

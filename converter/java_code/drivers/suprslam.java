@@ -201,7 +201,7 @@ public class suprslam
 	
 	/*** INPUT PORTS *************************************************************/
 	
-	static InputPortPtr input_ports_suprslam = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( suprslam )
+	static InputPortHandlerPtr input_ports_suprslam = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( suprslam )
 	
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
@@ -370,7 +370,7 @@ public class suprslam
 	
 	/*** ROM LOADING *************************************************************/
 	
-	static RomLoadPtr rom_suprslam = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suprslam = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_WORD_SWAP( "eb26ic47.bin", 0x000000, 0x080000, CRC(8d051fd8) SHA1(1820209306116e5b09cc10a8b3661d232c688b24) )
 		ROM_LOAD16_WORD_SWAP( "eb26ic73.bin", 0x080000, 0x080000, CRC(ca4ad383) SHA1(143ee475761fa54d5b3a9f4e3fb3acc8408972fd) )

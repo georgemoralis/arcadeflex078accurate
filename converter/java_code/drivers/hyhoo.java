@@ -141,7 +141,7 @@ public class hyhoo
 	};
 	
 	
-	static InputPortPtr input_ports_hyhoo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hyhoo )
+	static InputPortHandlerPtr input_ports_hyhoo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hyhoo )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x00, "4 (Easy"));
@@ -227,7 +227,7 @@ public class hyhoo
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_hyhoo2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hyhoo2 )
+	static InputPortHandlerPtr input_ports_hyhoo2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hyhoo2 )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x00, "4 (Easy"));
@@ -353,7 +353,7 @@ public class hyhoo
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_hyhoo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hyhoo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "hyhoo.1",  0x00000, 0x08000, CRC(c2852861) SHA1(ad23d8f5b196f15f863862010c8fb0dc4c072172) )
 	
@@ -368,7 +368,7 @@ public class hyhoo
 		ROM_LOAD( "hyhoo.3",     0x280000, 0x10000, CRC(b641c5a6) SHA1(25fecdf68cb0665b37f98da8e604e0127e939aac) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_hyhoo2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hyhoo2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "hyhoo2.2",  0x00000, 0x08000, CRC(d8733cdc) SHA1(e683e3a799ed06fb5d4149e1ba76ebd6828b6369) )
 		ROM_LOAD( "hyhoo2.1",  0x08000, 0x08000, CRC(4a1d9493) SHA1(ee9288e9cb1f681216a98fb31539cb75b4548935) )

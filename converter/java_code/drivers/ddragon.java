@@ -622,7 +622,7 @@ public class ddragon
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_COIN2 );
 	
 	
-	static InputPortPtr input_ports_darktowr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( darktowr )
+	static InputPortHandlerPtr input_ports_darktowr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( darktowr )
 		COMMON_INPUT_PORTS
 	
 		COMMON_INPUT_DIP2
@@ -656,7 +656,7 @@ public class ddragon
 		COMMON_PORT4
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ddragon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ddragon )
+	static InputPortHandlerPtr input_ports_ddragon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ddragon )
 		COMMON_INPUT_PORTS
 	
 		COMMON_INPUT_DIP1
@@ -687,7 +687,7 @@ public class ddragon
 		COMMON_PORT4
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ddragon2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ddragon2 )
+	static InputPortHandlerPtr input_ports_ddragon2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ddragon2 )
 		COMMON_INPUT_PORTS
 	
 		COMMON_INPUT_DIP1
@@ -718,7 +718,7 @@ public class ddragon
 		COMMON_PORT4
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ddungeon = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ddungeon )
+	static InputPortHandlerPtr input_ports_ddungeon = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ddungeon )
 		COMMON_INPUT_PORTS
 	
 		COMMON_INPUT_DIP2
@@ -744,7 +744,7 @@ public class ddragon
 		COMMON_PORT4
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_toffy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( toffy )
+	static InputPortHandlerPtr input_ports_toffy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( toffy )
 		COMMON_INPUT_PORTS
 	
 		PORT_START(); 
@@ -1079,7 +1079,7 @@ public class ddragon
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ddragon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddragon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code + bankswitched memory */
 		ROM_LOAD( "21j-1-5",      0x08000, 0x08000, CRC(42045dfd) SHA1(0983705ea3bb87c4c239692f400e02f15c243479) )
 		ROM_LOAD( "21j-2-3",      0x10000, 0x08000, CRC(5779705e) SHA1(4b8f22225d10f5414253ce0383bbebd6f720f3af) ) /* banked at 0x4000-0x8000 */
@@ -1120,7 +1120,7 @@ public class ddragon
 		ROM_LOAD( "21j-l-0",      0x0100, 0x0200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ddragonw = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddragonw = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code + bankswitched memory */
 		ROM_LOAD( "21j-1",        0x08000, 0x08000, CRC(ae714964) SHA1(072522b97ca4edd099c6b48d7634354dc7088c53) )
 		ROM_LOAD( "21j-2-3",      0x10000, 0x08000, CRC(5779705e) SHA1(4b8f22225d10f5414253ce0383bbebd6f720f3af) ) /* banked at 0x4000-0x8000 */
@@ -1161,7 +1161,7 @@ public class ddragon
 		ROM_LOAD( "21j-l-0",      0x0100, 0x0200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ddragonu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddragonu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code + bankswitched memory */
 		ROM_LOAD( "21a-1-5",      0x08000, 0x08000, CRC(e24a6e11) SHA1(9dd97dd712d5c896f91fd80df58be9b8a2b198ee) )
 		ROM_LOAD( "21j-2-3",      0x10000, 0x08000, CRC(5779705e) SHA1(4b8f22225d10f5414253ce0383bbebd6f720f3af) ) /* banked at 0x4000-0x8000 */
@@ -1202,7 +1202,7 @@ public class ddragon
 		ROM_LOAD( "21j-l-0",      0x0100, 0x0200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ddragonb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddragonb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code + bankswitched memory */
 		ROM_LOAD( "ic26",         0x08000, 0x08000, CRC(ae714964) SHA1(072522b97ca4edd099c6b48d7634354dc7088c53) )
 		ROM_LOAD( "21j-2-3",      0x10000, 0x08000, CRC(5779705e) SHA1(4b8f22225d10f5414253ce0383bbebd6f720f3af) ) /* banked at 0x4000-0x8000 */
@@ -1243,7 +1243,7 @@ public class ddragon
 		ROM_LOAD( "21j-l-0",      0x0100, 0x0200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ddragon2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddragon2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "26a9-04.bin",  0x08000, 0x8000, CRC(f2cfc649) SHA1(d3f1e0bae02472914a940222e4f600170a91736d) )
 		ROM_LOAD( "26aa-03.bin",  0x10000, 0x8000, CRC(44dd5d4b) SHA1(427c4e419668b41545928cfc96435c010ecdc88b) )
@@ -1279,7 +1279,7 @@ public class ddragon
 		ROM_LOAD( "prom.16",      0x0000, 0x0200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* unknown (same as ddragon) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ddragn2u = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddragn2u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "26a9-04.bin",  0x08000, 0x8000, CRC(f2cfc649) SHA1(d3f1e0bae02472914a940222e4f600170a91736d) )
 		ROM_LOAD( "26aa-03.bin",  0x10000, 0x8000, CRC(44dd5d4b) SHA1(427c4e419668b41545928cfc96435c010ecdc88b) )
@@ -1315,7 +1315,7 @@ public class ddragon
 		ROM_LOAD( "prom.16",      0x0000, 0x0200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* unknown (same as ddragon) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_toffy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_toffy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* Main CPU? */
 		ROM_LOAD( "2-27512.rom", 0x00000, 0x10000, CRC(244709dd) SHA1(b2db51b910f1a031b94fb50e684351f657a465dc) )
 		ROM_RELOAD( 0x10000, 0x10000 )
@@ -1336,7 +1336,7 @@ public class ddragon
 		ROM_LOAD( "5-27512.rom", 0x10000, 0x10000, CRC(4f91eec6) SHA1(18a5f98dfba33837b73d032a6153eeb03263684b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_stoffy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stoffy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* Main CPU? */
 		ROM_LOAD( "u70.2", 0x00000, 0x10000, CRC(3c156610) SHA1(d7fdbc595bdc77c452da39da8b20774db0952e33) )
 		ROM_RELOAD( 0x10000, 0x10000 )
@@ -1356,7 +1356,7 @@ public class ddragon
 		ROM_LOAD( "u79.5", 0x10000, 0x10000, CRC(333d5b8a) SHA1(d3573db87e2318c144ee9ace6c975a70fc96f4c4) ) // 1
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ddungeon = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddungeon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* Main CPU? */
 		ROM_LOAD( "dd3.bin", 0x10000, 0x8000, CRC(922e719c) SHA1(d1c73f56913cd368158abc613d7bbab669509742) )
 		ROM_LOAD( "dd2.bin", 0x08000, 0x8000, CRC(a6e7f608) SHA1(83b9301c39bfdc1e50a37f2bdc4d4f65a1111bee) )
@@ -1391,7 +1391,7 @@ public class ddragon
 		ROM_LOAD( "21j-l-0",      0x0100, 0x0200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* unknown */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_darktowr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_darktowr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code + bankswitched memory */
 		ROM_LOAD( "dt.26",         0x08000, 0x08000, CRC(8134a472) SHA1(7d42d2ed8d09855241d98ed94bce140a314c2f66) )
 		ROM_LOAD( "21j-2-3.25",    0x10000, 0x08000, CRC(5779705e) SHA1(4b8f22225d10f5414253ce0383bbebd6f720f3af) ) /* from ddragon */
@@ -1435,7 +1435,7 @@ public class ddragon
 		ROM_LOAD( "21j-l-0",      0x0100, 0x0200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* unknown */ /* from ddragon */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_tstrike = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_tstrike = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* 64k for code + bankswitched memory */
 		ROM_LOAD( "tstrike.26",      0x08000, 0x08000, CRC(871b10bc) SHA1(c824775cf72c039612fda76c4a518cd89e4c8657) )
 		ROM_LOAD( "tstrike.25",      0x10000, 0x08000, CRC(b6a0c2f3) SHA1(3434689ca217f5af268058ad34c277db672d389c) ) /* banked at 0x4000-0x8000 */

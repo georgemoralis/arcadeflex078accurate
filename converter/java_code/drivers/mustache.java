@@ -117,7 +117,7 @@ public class mustache
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_mustache = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mustache )
+	static InputPortHandlerPtr input_ports_mustache = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mustache )
 		PORT_START(); 	/* IN 1 */
 	
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP  );
@@ -247,7 +247,7 @@ public class mustache
 		MDRV_VIDEO_UPDATE(mustache)
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_mustache = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mustache = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )
 		ROM_LOAD( "mustache.h18", 0x0000, 0x8000, CRC(123bd9b8) SHA1(33a7cba5c3a54b0b1a15dd1e24d298b6f7274321) )
 		ROM_LOAD( "mustache.h16", 0x8000, 0x4000, CRC(62552beb) SHA1(ee10991d7de0596608fa1db48805781cbfbbdb9f) )

@@ -51,7 +51,7 @@ public class news
 	};
 	
 	
-	static InputPortPtr input_ports_news = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( news )
+	static InputPortHandlerPtr input_ports_news = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( news )
 		PORT_START(); 	/* DSW */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(    0x00, DEF_STR( "3C_1C") );
@@ -143,7 +143,7 @@ public class news
 	
 	
 	
-	static RomLoadPtr rom_news = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_news = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "virus.4", 0x00000, 0x08000, BAD_DUMP CRC(aa005dfb) SHA1(52f4dd399a30568851d43d052b83cfaa6682665d)  ) /* The Original was too short, I padded it with 0xFF */
 	

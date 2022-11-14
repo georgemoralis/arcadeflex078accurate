@@ -200,7 +200,7 @@ public class fastfred
 	};
 	
 	
-	static InputPortPtr input_ports_fastfred = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fastfred )
+	static InputPortHandlerPtr input_ports_fastfred = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fastfred )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -252,7 +252,7 @@ public class fastfred
 		PORT_DIPSETTING(    0x80, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_flyboy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( flyboy )
+	static InputPortHandlerPtr input_ports_flyboy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( flyboy )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -297,7 +297,7 @@ public class fastfred
 		PORT_DIPSETTING(    0x80, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_jumpcoas = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jumpcoas )
+	static InputPortHandlerPtr input_ports_jumpcoas = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jumpcoas )
 		PORT_START();       /* DSW 0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "6C_1C") );
@@ -344,7 +344,7 @@ public class fastfred
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_JOYSTICK_DOWN | IPF_8WAY | IPF_COCKTAIL );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_boggy84 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( boggy84 )
+	static InputPortHandlerPtr input_ports_boggy84 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( boggy84 )
 		PORT_START();       /* DSW 0 */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Coin_A") );
 		PORT_DIPSETTING(    0x03, DEF_STR( "6C_1C") );
@@ -415,7 +415,7 @@ public class fastfred
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_redrobin = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( redrobin )
+	static InputPortHandlerPtr input_ports_redrobin = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( redrobin )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -455,7 +455,7 @@ public class fastfred
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );		/* monsters */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_imago = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( imago )
+	static InputPortHandlerPtr input_ports_imago = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( imago )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_COIN1 );
@@ -642,7 +642,7 @@ public class fastfred
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_fastfred = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fastfred = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "ffr.01",       0x0000, 0x1000, CRC(15032c13) SHA1(18ae84e87ac430e3f1cbc388ad16fb1d20aaba2f) )
 		ROM_LOAD( "ffr.02",       0x1000, 0x1000, CRC(f9642744) SHA1(b086ad284593b7f2ad314ad5002c9a2b293b8103) )
@@ -676,7 +676,7 @@ public class fastfred
 		ROM_LOAD( "blue.7h",      0x0200, 0x0100, CRC(85c05c18) SHA1(a609a45c593fc6c491624076f7d65da55b5e603f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_flyboy = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_flyboy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "flyboy01.cpu", 0x0000, 0x1000, CRC(b05aa900) SHA1(1ad394a438ddf96974b0b841d916766e45e8f3ba) )
 		ROM_LOAD( "flyboy02.cpu", 0x1000, 0x1000, CRC(474867f5) SHA1(b352318eee71218155046bba9f032364e1213c02) )
@@ -710,7 +710,7 @@ public class fastfred
 		ROM_LOAD( "blue.7h",      0x0200, 0x0100, CRC(85c05c18) SHA1(a609a45c593fc6c491624076f7d65da55b5e603f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_flyboyb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_flyboyb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "rom1.cpu",     0x0000, 0x1000, CRC(e9e1f527) SHA1(999b8054751ddaa1b5bad48eaa12fc11a915c74c) )
 		ROM_LOAD( "rom2.cpu",     0x1000, 0x1000, CRC(07fbe78c) SHA1(875e29e6ed7525678b52276248f0cf4c885bd521) )
@@ -744,7 +744,7 @@ public class fastfred
 		ROM_LOAD( "blue.7h",      0x0200, 0x0100, CRC(85c05c18) SHA1(a609a45c593fc6c491624076f7d65da55b5e603f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_jumpcoas = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jumpcoas = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "jumpcoas.001", 0x0000, 0x2000, CRC(0778c953) SHA1(7def6656532332e56d76700431e4c3199e407e50) )
 		ROM_LOAD( "jumpcoas.002", 0x2000, 0x2000, CRC(57f59ce1) SHA1(1508afb34f77c829ed62b16be10b0ebf8e91a62c) )
@@ -762,7 +762,7 @@ public class fastfred
 		ROM_LOAD( "jumpcoas.blu", 0x0200, 0x0100, CRC(f4662db7) SHA1(638ac15b15ae908581561ff77f446d81ec64c086) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_boggy84 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_boggy84 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "cpurom1.bin", 0x0000, 0x2000, CRC(665266c0) SHA1(7785a7d710948718236f9be4b3e2a3fdc00662a5) )
 		ROM_LOAD( "cpurom2.bin", 0x2000, 0x2000, CRC(6c096798) SHA1(74ea860ef10cb566bcb07d67e6c79f542a66de91) )
@@ -780,7 +780,7 @@ public class fastfred
 		ROM_LOAD( "b12e", 0x0200, 0x0100, CRC(52b7f445) SHA1(6395ac705a35e602a355cbf700025ff917e89b37) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_redrobin = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_redrobin = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "redro01f.16d", 0x0000, 0x1000, CRC(0788ce10) SHA1(32084714fe005d0489ab1a7e6684a49bd103ce5e) )
 		ROM_LOAD( "redrob02.17d", 0x1000, 0x1000, CRC(bf9b95b4) SHA1(55de12c36e193525159ecca6cff883b69709f5ba) )
@@ -815,7 +815,7 @@ public class fastfred
 		ROM_LOAD( "blue.7h",      0x0200, 0x0100, CRC(85c05c18) SHA1(a609a45c593fc6c491624076f7d65da55b5e603f) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_imago = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_imago = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "11",    0x0000, 0x1000, CRC(3cce69b4) SHA1(e7d52e388e09e86abb597493f5807ee088cf7a40) ) 
 		ROM_CONTINUE(	   0x2000, 0x1000 )

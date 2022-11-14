@@ -246,7 +246,7 @@ public class jchan
 	
 	/* input ports */
 	
-	static InputPortPtr input_ports_jchan = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( jchan )
+	static InputPortHandlerPtr input_ports_jchan = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jchan )
 		PORT_START(); 	/* 16-bit */
 		PORT_DIPNAME( 0x0001, 0x0001, DEF_STR( "Unknown") );
 		PORT_DIPSETTING(      0x0001, DEF_STR( "Off") );
@@ -352,7 +352,7 @@ public class jchan
 	
 	/* rom loading */
 	
-	static RomLoadPtr rom_jchan = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_jchan = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_BYTE( "jm01x3.u67", 0x000001, 0x080000, CRC(c0adb141) SHA1(de265e1da06e723492e0c2465cd04e25ce1c237f) )
 		ROM_LOAD16_BYTE( "jm00x3.u68", 0x000000, 0x080000, CRC(b1aadc5a) SHA1(0a93693088c0a4b8a79159fb0ebac47d5556d800) )

@@ -210,7 +210,7 @@ public class inptportH
 	#define IP_JOY_NONE CODE_NONE
 	
 	/* start of table */
-	#define static InputPortPtr input_ports_name = new InputPortPtr(){ public void handler() { INPUT_PORTS_START(name) \
+	#define static InputPortHandlerPtr input_ports_name = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START(name) \
 		static const struct InputPortTiny input_ports_##name[] = {
 	
 	/* end of table */

@@ -76,7 +76,7 @@ public class carpolo
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_carpolo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( carpolo )
+	static InputPortHandlerPtr input_ports_carpolo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( carpolo )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT (0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
 		PORT_BIT (0x02, IP_ACTIVE_HIGH, IPT_COIN2 );
@@ -279,7 +279,7 @@ public class carpolo
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_carpolo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_carpolo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "4000.6c",   0xf000, 0x0200, CRC(9d2e75a5) SHA1(c249d0b31de452738516f04a7bc3fb472d54f79d) )
 		ROM_LOAD( "4001.6d",   0xf200, 0x0200, CRC(69fb3768) SHA1(5fcc0807e560de0d73f8bab6943f3cad5ee324c9) )

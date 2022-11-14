@@ -89,7 +89,7 @@ public class bankp
 	
 	
 	
-	static InputPortPtr input_ports_bankp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bankp )
+	static InputPortHandlerPtr input_ports_bankp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bankp )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_UNKNOWN );/* probably unused */
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_2WAY );
@@ -218,7 +218,7 @@ public class bankp
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_bankp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bankp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr6175.bin",  0x0000, 0x4000, CRC(044552b8) SHA1(8d50ba062483d4789cfd3ed86cea53dff0ff6968) )
 		ROM_LOAD( "epr6174.bin",  0x4000, 0x4000, CRC(d29b1598) SHA1(8c1ee4d23d8d6f93af3e22f2cba189b0055994fb) )

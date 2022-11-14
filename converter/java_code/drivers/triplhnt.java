@@ -159,7 +159,7 @@ public class triplhnt
 	};
 	
 	
-	static InputPortPtr input_ports_triplhnt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( triplhnt )
+	static InputPortHandlerPtr input_ports_triplhnt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( triplhnt )
 		PORT_START();  /* 0C00 */
 		PORT_BIT( 0x40, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_COIN1 );
@@ -329,7 +329,7 @@ public class triplhnt
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_triplhnt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_triplhnt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_HIGH( "8404.f1", 0x7000, 0x400, CRC(abc8acd5) SHA1(bcef2abc5829829a01aa21776c3deb2e1bf1d4ac) )
 		ROM_LOAD_NIB_LOW ( "8408.f2", 0x7000, 0x400, CRC(77fcdd3f) SHA1(ce0196abb8d6510aa9a5308f8efd6442e94272c4) )

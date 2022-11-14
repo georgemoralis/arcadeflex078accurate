@@ -168,7 +168,7 @@ public class ddrible
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_ddribble = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ddribble )
+	static InputPortHandlerPtr input_ports_ddribble = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ddribble )
 		PORT_START(); 	/* PLAYER 1 INPUTS */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -369,7 +369,7 @@ public class ddrible
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_ddribble = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ddribble = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x1a000, REGION_CPU1, 0 ) /* 64K CPU #0 + 40K for Banked ROMS */
 		ROM_LOAD( "690c03.bin",	0x10000, 0x0a000, CRC(07975a58) SHA1(96fd1b2348bbdf560067d8ee3cd4c0514e263d7a) )
 		ROM_CONTINUE(			0x0a000, 0x06000 )

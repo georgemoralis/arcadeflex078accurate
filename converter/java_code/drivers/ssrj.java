@@ -89,7 +89,7 @@ public class ssrj
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_ssrj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ssrj )
+	static InputPortHandlerPtr input_ports_ssrj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ssrj )
 	
 	PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_COIN1 );
@@ -207,7 +207,7 @@ public class ssrj
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_ssrj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ssrj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "a40-01.bin",   0x0000, 0x4000, CRC(1ff7dbff) SHA1(a9e676ee087141d62f880cd98e7748db1e6e9461) )
 		ROM_LOAD( "a40-02.bin",   0x4000, 0x4000, CRC(bbb36f9f) SHA1(9f85bac639d18ee932273a6c00b36ac969e69bb8) )

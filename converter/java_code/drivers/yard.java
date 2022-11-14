@@ -55,7 +55,7 @@ public class yard
 	
 	
 	
-	static InputPortPtr input_ports_yard = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( yard )
+	static InputPortHandlerPtr input_ports_yard = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( yard )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -157,7 +157,7 @@ public class yard
 	
 	/* exactly the same as yard, only difference is the Allow Continue dip switch */
 	/* Also, the Cabinet dip switch doesn't seem to work. */
-	static InputPortPtr input_ports_vsyard = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( vsyard )
+	static InputPortHandlerPtr input_ports_vsyard = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( vsyard )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_START2 );
@@ -327,7 +327,7 @@ public class yard
 	  Game driver(s)
 	
 	***************************************************************************/
-	static RomLoadPtr rom_yard = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_yard = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "yf-a-3p",      0x0000, 0x2000, CRC(4586114f) SHA1(a31c68770e7a7eed805c5ba46af302c2895e3cee) )
 		ROM_LOAD( "yf-a-3n",      0x2000, 0x2000, CRC(947fa760) SHA1(bd6c2ee6e6800b063b81dbdd9fc929120019439d) )
@@ -361,7 +361,7 @@ public class yard
 		ROM_LOAD( "yard.2m",      0x0420, 0x0100, CRC(45384397) SHA1(e4c662ee81aef63efd8b4a45f85c4a78dc2d419e) ) /* radar palette high 4 bits */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vsyard = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vsyard = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "a-3p",         0x0000, 0x2000, CRC(1edac08f) SHA1(c6a3290e9dba663dccf0613853abfab8e912477d) )
 		ROM_LOAD( "vyf-a-3m",     0x2000, 0x2000, CRC(3b9330f8) SHA1(b35fe72cf724cfb887906060bbcf40b0c896ccf0) )
@@ -395,7 +395,7 @@ public class yard
 		ROM_LOAD( "yard.2m",      0x0420, 0x0100, CRC(45384397) SHA1(e4c662ee81aef63efd8b4a45f85c4a78dc2d419e) ) /* radar palette high 4 bits */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_vsyard2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_vsyard2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "vyf-a-3n",     0x0000, 0x2000, CRC(418e01fc) SHA1(56a6515735cd88ec803e24574a28aef823a5d36b) )
 		ROM_LOAD( "vyf-a-3m",     0x2000, 0x2000, CRC(3b9330f8) SHA1(b35fe72cf724cfb887906060bbcf40b0c896ccf0) )

@@ -177,7 +177,7 @@ public class yunsun16
 									Magic Bubble
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_magicbub = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( magicbub )
+	static InputPortHandlerPtr input_ports_magicbub = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( magicbub )
 	
 		PORT_START(); 	// IN0 - $800000.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_PLAYER1 );
@@ -263,7 +263,7 @@ public class yunsun16
 									Shocking
 	***************************************************************************/
 	
-	static InputPortPtr input_ports_shocking = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( shocking )
+	static InputPortHandlerPtr input_ports_shocking = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( shocking )
 	
 		PORT_START(); 	// IN0 - $800000.w
 		PORT_BIT(  0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_PLAYER1 );
@@ -529,7 +529,7 @@ public class yunsun16
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_magicbub = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_magicbub = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "magbuble.u33", 0x000000, 0x040000, CRC(18fdd582) SHA1(89f4c52ec0e213285a04743da88f6e39408b573d) )
@@ -562,7 +562,7 @@ public class yunsun16
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_shocking = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_shocking = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "yunsun16.u33", 0x000000, 0x040000, CRC(8a155521) SHA1(000c9095558e6cae30ce43a885c3fbcf55713f40) )

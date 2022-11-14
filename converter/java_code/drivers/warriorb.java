@@ -336,7 +336,7 @@ public class warriorb
 		PORT_BIT( 0x80, IP_ACTIVE_LOW,  IPT_BUTTON2 | IPF_PLAYER2 );
 	
 	
-	static InputPortPtr input_ports_darius2d = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( darius2d )
+	static InputPortHandlerPtr input_ports_darius2d = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( darius2d )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x01, 0x01, DEF_STR( "Unknown") );  // used, but manual in japanese
 		PORT_DIPSETTING(    0x01, DEF_STR( "Off") );
@@ -381,7 +381,7 @@ public class warriorb
 		WARRIORB_PLAYERS_INPUT_2( IPT_BUTTON3 )
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_warriorb = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( warriorb )
+	static InputPortHandlerPtr input_ports_warriorb = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( warriorb )
 		PORT_START();  /* DSW A */
 		PORT_DIPNAME( 0x03, 0x03, "Vitality Recovery" );//after finishing a level
 		PORT_DIPSETTING(    0x02, "Less" );
@@ -587,7 +587,7 @@ public class warriorb
 	                                 DRIVERS
 	***************************************************************************/
 	
-	static RomLoadPtr rom_darius2d = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_darius2d = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 512K for 68000 code */
 		ROM_LOAD16_BYTE( "c07_20-2.74", 0x00000, 0x20000, CRC(a0f345b8) SHA1(1ce46e9707ec9ad51b26acf613eedc0536d227ae) )
 		ROM_LOAD16_BYTE( "c07_19-2.73", 0x00001, 0x20000, CRC(925412c6) SHA1(7f1f62b7b2261c440dccd512ebd3faea141b7c83) )
@@ -633,7 +633,7 @@ public class warriorb
 	//	ROM_LOAD( "C07-16.79", 0x00000, 0x00?00, NO_DUMP )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_drius2do = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_drius2do = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 512K for 68000 code */
 		ROM_LOAD16_BYTE( "c07_20-1.74", 0x00000, 0x20000, CRC(48b0804a) SHA1(932fb2cd55e6bfef84cf3cfaf3e75b4297a92b34) )
 		ROM_LOAD16_BYTE( "c07_19-1.73", 0x00001, 0x20000, CRC(1f9a4f83) SHA1(d02caef350bdcac0ff771b5c92bb4e7435e0c9fa) )
@@ -675,7 +675,7 @@ public class warriorb
 		ROM_LOAD( "c07-14.38", 0x00000, 0x00400, CRC(baf2a193) SHA1(b7f103b5f5aab0702dd21fd7e3a82261ae1760e9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_warriorb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_warriorb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )	/* 1024K for 68000 code */
 		ROM_LOAD16_BYTE( "d24_20-1.74", 0x000000, 0x40000, CRC(4452dc25) SHA1(bbb4fbc25a3f263ce2716698cacaca201cb9591b) )
 		ROM_LOAD16_BYTE( "d24_19-1.73", 0x000001, 0x40000, CRC(15c16016) SHA1(5b28834d8d5296c562c90a861c6ccdd46cc3c204) )

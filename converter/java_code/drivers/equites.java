@@ -387,7 +387,7 @@ public class equites
 	/******************************************************************************/
 	// Equites Port Map
 	
-	static InputPortPtr input_ports_equites = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( equites )
+	static InputPortHandlerPtr input_ports_equites = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( equites )
 		PORT_START(); 
 		EQUITES_PLAYER_INPUT_LSB( IPT_BUTTON1, IPT_BUTTON2, IPT_BUTTON3, IPT_START1 )
 		EQUITES_PLAYER_INPUT_MSB( IPT_BUTTON1, IPT_BUTTON2, IPT_BUTTON3, IPT_START2 )
@@ -420,7 +420,7 @@ public class equites
 	/******************************************************************************/
 	// Bull Fighter Port Map
 	
-	static InputPortPtr input_ports_bullfgtr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bullfgtr )
+	static InputPortHandlerPtr input_ports_bullfgtr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bullfgtr )
 		PORT_START(); 
 		EQUITES_PLAYER_INPUT_LSB( IPT_BUTTON1, IPT_BUTTON2, IPT_BUTTON3, IPT_START1 )
 		EQUITES_PLAYER_INPUT_MSB( IPT_BUTTON1, IPT_BUTTON2, IPT_BUTTON3, IPT_START2 )
@@ -452,7 +452,7 @@ public class equites
 	/******************************************************************************/
 	// Koukouyakyuh Port Map
 	
-	static InputPortPtr input_ports_kouyakyu = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( kouyakyu )
+	static InputPortHandlerPtr input_ports_kouyakyu = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kouyakyu )
 		PORT_START(); 
 		EQUITES_PLAYER_INPUT_LSB( IPT_BUTTON1, IPT_BUTTON2, IPT_BUTTON3, IPT_START1 )
 		EQUITES_PLAYER_INPUT_MSB( IPT_BUTTON1, IPT_BUTTON2, IPT_BUTTON3, IPT_START2 )
@@ -485,7 +485,7 @@ public class equites
 	/******************************************************************************/
 	// Splendor Blast Port Map
 	
-	static InputPortPtr input_ports_splndrbt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( splndrbt )
+	static InputPortHandlerPtr input_ports_splndrbt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( splndrbt )
 		PORT_START(); 
 		EQUITES_PLAYER_INPUT_LSB( IPT_BUTTON1, IPT_BUTTON2, IPT_UNKNOWN, IPT_START1 )
 		EQUITES_PLAYER_INPUT_MSB( IPT_BUTTON1, IPT_BUTTON2, IPT_UNKNOWN, IPT_START2 )
@@ -517,7 +517,7 @@ public class equites
 	/******************************************************************************/
 	// High Voltage Port Map
 	
-	static InputPortPtr input_ports_hvoltage = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hvoltage )
+	static InputPortHandlerPtr input_ports_hvoltage = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hvoltage )
 		PORT_START(); 
 		EQUITES_PLAYER_INPUT_LSB( IPT_BUTTON1, IPT_BUTTON2, IPT_UNKNOWN, IPT_START1 )
 		EQUITES_PLAYER_INPUT_MSB( IPT_BUTTON1, IPT_BUTTON2, IPT_UNKNOWN, IPT_START2 )
@@ -739,7 +739,7 @@ public class equites
 	/******************************************************************************/
 	// Equites ROM Map
 	
-	static RomLoadPtr rom_equites = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_equites = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // 68000 ROMs
 		ROM_LOAD16_BYTE( "ep1", 0x00001, 0x2000, CRC(6a4fe5f7) SHA1(5ff1594a2cee28cc7d59448eb57473088ac6f14b) )
 		ROM_LOAD16_BYTE( "ep5", 0x00000, 0x2000, CRC(00faa3eb) SHA1(6b31d041ad4ca81eda36487f659997cc4030f23c) )
@@ -798,7 +798,7 @@ public class equites
 		ROM_LOAD( "bprom.3h",  0x00000, 0x020, CRC(33b98466) SHA1(017c73cf8c17dc5047c89316ae5b45f8d22092e8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_equitess = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_equitess = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // 68000 ROMs
 		ROM_LOAD16_BYTE( "epr-ep1.13d", 0x00001, 0x2000, CRC(c6edf1cd) SHA1(21dba62e692f4fdc79155ce169a48ae827bd5994) )
 		ROM_LOAD16_BYTE( "epr-ep5.13b", 0x00000, 0x2000, CRC(c11f0759) SHA1(5caf2b6b777b2fdabc26ea232225be2d789e87f3) )
@@ -860,7 +860,7 @@ public class equites
 	/******************************************************************************/
 	// Koukouyakyuh ROM Map
 	
-	static RomLoadPtr rom_kouyakyu = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_kouyakyu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )  // 68000 ROMs
 		ROM_LOAD16_BYTE( "epr-6704.bin", 0x00001, 0x2000, CRC(c7ac2292) SHA1(614bfb0949620d4c260768f14a116b076dd38438) )
 		ROM_LOAD16_BYTE( "epr-6707.bin", 0x00000, 0x2000, CRC(9cb2962e) SHA1(bd1bcbc53a3346e22789f24a35ab3aa681317d02) )
@@ -923,7 +923,7 @@ public class equites
 	/******************************************************************************/
 	// Bull Fighter ROM Map
 	
-	static RomLoadPtr rom_bullfgtr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bullfgtr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // 68000 ROMs
 		ROM_LOAD16_BYTE( "m_d13.bin",  0x00001, 0x2000, CRC(7c35dd4b) SHA1(6bd604ee32c0c5db17f90e24aa254ec7072d27dd) )
 		ROM_LOAD16_BYTE( "m_b13.bin",  0x00000, 0x2000, CRC(c4adddce) SHA1(48b6ddbad52a3941d3e651642b26d9adf70f71f5) )
@@ -985,7 +985,7 @@ public class equites
 	/******************************************************************************/
 	// Splendor Blast ROM Map
 	
-	static RomLoadPtr rom_splndrbt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_splndrbt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // 68000 ROMs(16k x 4)
 		ROM_LOAD16_BYTE( "1.16a", 0x00001, 0x4000, CRC(4bf4b047) SHA1(ef0efffa2f49905e17e4ed3a03cac419793b26d1) )
 		ROM_LOAD16_BYTE( "2.16c", 0x00000, 0x4000, CRC(27acb656) SHA1(5f2f8d05f2f1c6c92c8364e9e6831ca525cbacd0) )
@@ -1037,7 +1037,7 @@ public class equites
 	/******************************************************************************/
 	// High Voltage ROM Map
 	
-	static RomLoadPtr rom_hvoltage = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hvoltage = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) // 68000 ROMs(16k x 4)
 		ROM_LOAD16_BYTE( "1.16a", 0x00001, 0x4000, CRC(82606e3b) SHA1(25c3172928d8f1eda2c4c757d505fdfd91f21ea1) )
 		ROM_LOAD16_BYTE( "2.16c", 0x00000, 0x4000, CRC(1d74fef2) SHA1(3df3dc98a78a137da8c5cddf6a8519b477824fb9) )

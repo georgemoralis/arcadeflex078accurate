@@ -282,7 +282,7 @@ public class victory
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_victory = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( victory )
+	static InputPortHandlerPtr input_ports_victory = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( victory )
 		PORT_START(); 	/* $00-$03 = SW2 */
 		PORT_DIPNAME( 0x07, 0x00, "????" );
 		PORT_DIPSETTING(    0x00, "0" );
@@ -395,7 +395,7 @@ public class victory
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_victory = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_victory = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "vic3.j2",  0x0000, 0x1000, CRC(4b614440) SHA1(3a91d273c0c936af955c491e1faadf17e4469ed5) )
 		ROM_LOAD( "vic3.k2",  0x1000, 0x1000, CRC(9f9eb12b) SHA1(8833cc6b862ccecdac65c6f2f7e56c74a83c7d58) )
@@ -428,7 +428,7 @@ public class victory
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_victorba = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_victorba = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "j2.rom",  0x0000, 0x1000, CRC(dd788e93) SHA1(5912488a3631afd522f5336c297752bad2e0f7b6) )
 		ROM_LOAD( "k2.rom",  0x1000, 0x1000, CRC(f47bf046) SHA1(9e15eeee2729a8466e2c70d61cfa7c86e0ceeaf8) )

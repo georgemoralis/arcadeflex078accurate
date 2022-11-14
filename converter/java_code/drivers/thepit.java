@@ -177,7 +177,7 @@ public class thepit
 	};
 	
 	
-	static InputPortPtr input_ports_thepit = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( thepit )
+	static InputPortHandlerPtr input_ports_thepit = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( thepit )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -237,7 +237,7 @@ public class thepit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_roundup = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( roundup )
+	static InputPortHandlerPtr input_ports_roundup = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( roundup )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -294,7 +294,7 @@ public class thepit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_fitter = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( fitter )
+	static InputPortHandlerPtr input_ports_fitter = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( fitter )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -353,7 +353,7 @@ public class thepit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_intrepid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( intrepid )
+	static InputPortHandlerPtr input_ports_intrepid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( intrepid )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -413,7 +413,7 @@ public class thepit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_dockman = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dockman )
+	static InputPortHandlerPtr input_ports_dockman = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dockman )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -472,7 +472,7 @@ public class thepit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_suprmous = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( suprmous )
+	static InputPortHandlerPtr input_ports_suprmous = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( suprmous )
 		PORT_START();       /* IN1 */
 		PORT_BIT( 0x01, IP_ACTIVE_HIGH, IPT_JOYSTICK_LEFT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_HIGH, IPT_JOYSTICK_RIGHT | IPF_8WAY );
@@ -684,7 +684,7 @@ public class thepit
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_thepit = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_thepit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "p38b",         0x0000, 0x1000, CRC(7315e1bc) SHA1(a07f252efcc81b40ef273007e9ce74db140b1bee) )
 		ROM_LOAD( "p39b",         0x1000, 0x1000, CRC(c9cc30fe) SHA1(27938ebc27480e8cf40bfdd930a4899984cfeb83) )
@@ -703,7 +703,7 @@ public class thepit
 		ROM_LOAD( "pitclr.ic4",   0x0000, 0x0020, CRC(a758b567) SHA1(d188c90dba10fe3abaae92488786b555b35218c5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_roundup = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_roundup = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "roundup.u38",  0x0000, 0x1000, CRC(d62c3b7a) SHA1(b6dc7fa001b79706583a40250c8a1e07a639c77a) )
 		ROM_LOAD( "roundup.u39",  0x1000, 0x1000, CRC(37bf554b) SHA1(773279fb21c56221d5f29fd31c2149e68dcf3909) )
@@ -723,7 +723,7 @@ public class thepit
 		ROM_LOAD( "roundup.clr",  0x0000, 0x0020, CRC(a758b567) SHA1(d188c90dba10fe3abaae92488786b555b35218c5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fitter = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fitter = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "ic38.bin",     0x0000, 0x1000, CRC(6bf6cca4) SHA1(230864155c323c3e40aed0beaece8ff6d6005bb4) )
 		ROM_LOAD( "roundup.u39",  0x1000, 0x1000, CRC(37bf554b) SHA1(773279fb21c56221d5f29fd31c2149e68dcf3909) )
@@ -743,7 +743,7 @@ public class thepit
 		ROM_LOAD( "roundup.clr",  0x0000, 0x0020, CRC(a758b567) SHA1(d188c90dba10fe3abaae92488786b555b35218c5) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_intrepid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_intrepid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "ic19.1",       0x0000, 0x1000, CRC(7d927b23) SHA1(5a8f5a3bd5df423f0e61f96ebdf4adbea534f9ba) )
 		ROM_LOAD( "ic18.2",       0x1000, 0x1000, CRC(dcc22542) SHA1(1acddb6a4cb7623ee63f661e9ef14bba7f25b22c) )
@@ -763,7 +763,7 @@ public class thepit
 		ROM_LOAD( "ic3.prm",      0x0000, 0x0020, CRC(927ff40a) SHA1(3d699d981851989e9190505b0dede5202d688f2b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_intrepi2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_intrepi2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "intrepid.001", 0x0000, 0x1000, CRC(9505df1e) SHA1(83ad91e92038231c9351d11e5471e6ef6bb4b743) )
 		ROM_LOAD( "intrepid.002", 0x1000, 0x1000, CRC(27e9f53f) SHA1(06efd4482971b00632dae2d528f96371e98e5e2a) )
@@ -783,7 +783,7 @@ public class thepit
 		ROM_LOAD( "ic3.prm",      0x0000, 0x0020, CRC(927ff40a) SHA1(3d699d981851989e9190505b0dede5202d688f2b) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_zaryavos = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_zaryavos = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "zv1.rom",      0x0000, 0x1000, CRC(b7eec75d) SHA1(cf7ab3a411cf126f01b8ed96c3bd4dfb3d76886a) )
 		ROM_LOAD( "zv2.rom",      0x1000, 0x1000, CRC(000aa722) SHA1(037e9b946a8abf559a4fa2ac960bd32d3c40e865) )
@@ -806,7 +806,7 @@ public class thepit
 		ROM_LOAD( "zvprom.rom",   0x0000, 0x0020, CRC(364e5700) SHA1(d47f7acf2bbb348dec3e26528d6c56f962e08c09) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_dockman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dockman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "pe1.19",          0x0000, 0x1000, CRC(eef2ec54) SHA1(509e39141fc2dbb707873d4f88dca3510f66e829) )
 		ROM_LOAD( "pe2.18",          0x1000, 0x1000, CRC(bc48d16b) SHA1(0e0cb8ab47cbd06371d15e5ac5d7b5a5a3bd3af0) )
@@ -826,7 +826,7 @@ public class thepit
 		ROM_LOAD( "mb7051.3",          0x0000, 0x0020, CRC(6440dc61) SHA1(cf0e794626ad7d9d58095485b782f007436fd446) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_portman = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_portman = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		ROM_LOAD( "pe1",          0x0000, 0x1000, CRC(a5cf6083) SHA1(0daa5ff2931c56241fdeb4c48511b9508440554f) )
 		ROM_LOAD( "pe2",          0x1000, 0x1000, CRC(0b53d48a) SHA1(2be59e0c40e6c60dce6b45bff325fdbbe0bec069) )
@@ -846,7 +846,7 @@ public class thepit
 		ROM_LOAD( "mb7051.3",          0x0000, 0x0020, CRC(6440dc61) SHA1(cf0e794626ad7d9d58095485b782f007436fd446) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_funnymou = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_funnymou = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	    /* 64k for main CPU */
 		ROM_LOAD( "suprmous.x1",  0x0000, 0x1000, CRC(ad72b467) SHA1(98c79424bc98f2f1af79a04dabdd3985a71d761c) )
 		ROM_LOAD( "suprmous.x2",  0x1000, 0x1000, CRC(53f5be5e) SHA1(9ed0a04fb19f93336fa3a9882c6842062d841201) )
@@ -867,7 +867,7 @@ public class thepit
 		ROM_LOAD( "smouse1.clr",  0x0020, 0x0020, CRC(d815504b) SHA1(5d11a650a885c7035e303c6758702baa8f0e7615) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_suprmous = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_suprmous = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	    /* 64k for main CPU */
 		ROM_LOAD( "sm.1",         0x0000, 0x1000, CRC(9db2b786) SHA1(ece6c267e45e0bfd430b94539737a7f8498273ea) )
 		ROM_LOAD( "sm.2",         0x1000, 0x1000, CRC(0a3d91d3) SHA1(be32e49a6002e91b4d49b568d7c2b78fb10df2be) )
@@ -888,7 +888,7 @@ public class thepit
 		ROM_LOAD( "smouse1.clr",  0x0020, 0x0020, CRC(d815504b) SHA1(5d11a650a885c7035e303c6758702baa8f0e7615) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_machomou = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_machomou = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	    /* 64k for main CPU */
 		ROM_LOAD( "mm1.2g",       0x0000, 0x1000, CRC(91f116be) SHA1(3e838c009ad8f29703d7b72ece18be7b81dfcf4e) )
 		ROM_LOAD( "mm2.2h",       0x1000, 0x1000, CRC(3aa88c9b) SHA1(6f626bf94012ab2366612cafacec3142722e72ee) )

@@ -118,7 +118,7 @@ public class mnight
 	
 	
 	
-	static InputPortPtr input_ports_mnight = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( mnight )
+	static InputPortHandlerPtr input_ports_mnight = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mnight )
 		PORT_START();  /* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -199,7 +199,7 @@ public class mnight
 		PORT_DIPSETTING(    0x80, DEF_STR( "1C_4C") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_arkarea = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( arkarea )
+	static InputPortHandlerPtr input_ports_arkarea = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( arkarea )
 		PORT_START();  /* Player 1 controls */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY | IPF_PLAYER1 );
@@ -383,7 +383,7 @@ public class mnight
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_mnight = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_mnight = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "mn6-j19.bin",  0x00000, 0x8000, CRC(56678d14) SHA1(acf3a97ca29db8ab9cad69599c5567464af3ae44) )
 		ROM_LOAD( "mn5-j17.bin",  0x10000, 0x8000, CRC(2a73f88e) SHA1(0a7b769174f2b976650453d808cb23668dff0260) )
@@ -429,7 +429,7 @@ public class mnight
 		ROM_CONTINUE(             0x06000, 0x2000 )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_arkarea = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_arkarea = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "arkarea.008",  0x00000, 0x8000, CRC(1ce1b5b9) SHA1(ab7755523d58736b124deb59779dedee870fd7d2) )
 		ROM_LOAD( "arkarea.009",  0x10000, 0x8000, CRC(db1c81d1) SHA1(64a2f51c218d84c4eaeb8c5a5a3f0f4cdf5d174c) )

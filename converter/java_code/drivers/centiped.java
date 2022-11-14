@@ -612,7 +612,7 @@ public class centiped
 	
 	#define PORTS(GAMENAME, FOURTH_LANGUAGE)										\
 																					\
-	static InputPortPtr input_ports_GAMENAME = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( GAMENAME )													\
+	static InputPortHandlerPtr input_ports_GAMENAME = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( GAMENAME )													\
 		PORT_START(); 	/* IN0 */														\
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_SPECIAL );/* trackball data */		\
 		PORT_DIPNAME( 0x10, 0x00, DEF_STR( "Cabinet") );								\
@@ -709,7 +709,7 @@ public class centiped
 	PORTS(centipdb, "Italian")
 	
 	
-	static InputPortPtr input_ports_centtime = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( centtime )
+	static InputPortHandlerPtr input_ports_centtime = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( centtime )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_SPECIAL );/* trackball data */
 		PORT_BIT( 0x10, IP_ACTIVE_LOW, IPT_UNUSED );
@@ -799,7 +799,7 @@ public class centiped
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_magworm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( magworm )
+	static InputPortHandlerPtr input_ports_magworm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( magworm )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_SPECIAL );/* trackball data */
 		PORT_DIPNAME( 0x10, 0x00, DEF_STR( "Cabinet") );
@@ -886,7 +886,7 @@ public class centiped
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_milliped = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( milliped )
+	static InputPortHandlerPtr input_ports_milliped = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( milliped )
 		PORT_START(); 	/* IN0 $2000 */ /* see port 6 for x trackball */
 		PORT_DIPNAME(0x03, 0x00, "Language" );
 		PORT_DIPSETTING(   0x00, "English" );
@@ -996,7 +996,7 @@ public class centiped
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_warlords = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( warlords )
+	static InputPortHandlerPtr input_ports_warlords = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( warlords )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT( 0x0f, IP_ACTIVE_HIGH, IPT_UNUSED );
 		PORT_DIPNAME( 0x10, 0x00, "Diag Step" ); /* Not referenced */
@@ -1341,7 +1341,7 @@ public class centiped
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_centiped = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_centiped = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "centiped.307", 0x2000, 0x0800, CRC(5ab0d9de) SHA1(8ea6e3304202831aabaf31dbd0f970a7b3bfe421) )
 		ROM_LOAD( "centiped.308", 0x2800, 0x0800, CRC(4c07fd3e) SHA1(af4fdbf32c23b1864819d620a874e7f205da3cdb) )
@@ -1354,7 +1354,7 @@ public class centiped
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_centipd2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_centipd2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "centiped.207", 0x2000, 0x0800, CRC(b2909e2f) SHA1(90ec90bd1e262861730afd5b113ec8dddd958ed8) )
 		ROM_LOAD( "centiped.208", 0x2800, 0x0800, CRC(110e04ff) SHA1(4cb481792411b6aefac561744cfbe107aba8bab3) )
@@ -1367,7 +1367,7 @@ public class centiped
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_centtime = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_centtime = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cent_d1.bin",  0x2000, 0x0800, CRC(c4d995eb) SHA1(d0b2f0461cfa35842045d40ffb65e777703b773e) )
 		ROM_LOAD( "cent_e1.bin",  0x2800, 0x0800, CRC(bcdebe1b) SHA1(53f3bf88a79ce40661c0a9381928e55d8c61777a) )
@@ -1380,7 +1380,7 @@ public class centiped
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_centipdb = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_centipdb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "olympia.c28",  0x2000, 0x0800, CRC(8a744e57) SHA1(0bc83fe01d929af4e5c7f2a8d1236560df41f9ce) )
 		ROM_LOAD( "olympia.c29",  0x2800, 0x0800, CRC(bb897b10) SHA1(bb1039fe64774277870f675eb72dd9f3f596f865) )
@@ -1393,7 +1393,7 @@ public class centiped
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_centipb2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_centipb2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "d1",  		  0x2000, 0x0800, CRC(b17b8e0b) SHA1(01944cf040cf23aeb4c50d4f2e63181e08a07310) )
 		ROM_LOAD( "e1",  		  0x2800, 0x0800, CRC(7684398e) SHA1(eea8e05506a7af2fec55c2689e3caafc62ea524f) )
@@ -1407,7 +1407,7 @@ public class centiped
 		ROM_LOAD( "centiped.212", 0x0800, 0x0800, CRC(b1397029) SHA1(974c03d29aeca672fffa4dfc00a06be6a851aacb) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_millpac = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_millpac = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "millpac1.1d",  0x2000, 0x0800, CRC(4dd6913d) SHA1(9eca634e1a827f9bbcf3c532d44e175ac4751755) )
 		ROM_LOAD( "millpac2.1e",  0x2800, 0x0800, CRC(411c81f1) SHA1(15184642522f0b7eab81301295d435c10ce2d78d) )
@@ -1422,7 +1422,7 @@ public class centiped
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_magworm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_magworm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "magworm.0",	  0x2000, 0x0800, CRC(a88e970a) SHA1(f0cc6fdcdecf05f11cef7ebae4e11783a8bbc5ba) )
 		ROM_LOAD( "magworm.1",	  0x2800, 0x0800, CRC(7a04047e) SHA1(3c00756c8ffbc5e78d4a7409802cc2ed8f668264) )
@@ -1435,7 +1435,7 @@ public class centiped
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_milliped = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_milliped = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "milliped.104", 0x4000, 0x1000, CRC(40711675) SHA1(b595d6a0f5d3c611ade1b83a94c3b909d2124dc4) )
 		ROM_LOAD( "milliped.103", 0x5000, 0x1000, CRC(fb01baf2) SHA1(9c1d0bbc20bf25dd21761a311fd1ed80aa029241) )
@@ -1448,7 +1448,7 @@ public class centiped
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_warlords = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_warlords = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "037154.1m",    0x5000, 0x0800, CRC(18006c87) SHA1(6b4aab1b1710819d29f4bbc29269eb9c915626c0) )
 		ROM_LOAD( "037153.1k",    0x5800, 0x0800, CRC(67758f4c) SHA1(b65ca677b54de7a8202838207d9a7bb0aed3e0f2) )

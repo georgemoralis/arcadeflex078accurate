@@ -183,7 +183,7 @@ public class bloodbro
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_bloodbro = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bloodbro )
+	static InputPortHandlerPtr input_ports_bloodbro = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bloodbro )
 		SEIBU_COIN_INPUTS	/* Must be port 0: coin inputs read through sound cpu */
 	
 		PORT_START(); 
@@ -281,7 +281,7 @@ public class bloodbro
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_weststry = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( weststry )
+	static InputPortHandlerPtr input_ports_weststry = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( weststry )
 		PORT_START(); 
 		PORT_DIPNAME( 0x0001, 0x0001, "Coin Mode" );
 		PORT_DIPSETTING(      0x0001, "Mode 1" );
@@ -375,7 +375,7 @@ public class bloodbro
 		PORT_BIT( 0xff00, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_skysmash = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( skysmash )
+	static InputPortHandlerPtr input_ports_skysmash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skysmash )
 		SEIBU_COIN_INPUTS	/* Must be port 0: coin inputs read through sound cpu */
 	
 		PORT_START(); 
@@ -657,7 +657,7 @@ public class bloodbro
 	
 	
 	
-	static RomLoadPtr rom_bloodbro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bloodbro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "bb_02.bin",    0x00001, 0x20000, CRC(c0fdc3e4) SHA1(31968f693de2054a0c8ba50a8d44a371dd9c2848) )
 		ROM_LOAD16_BYTE( "bb_01.bin",    0x00000, 0x20000, CRC(2d7e0fdf) SHA1(8fe22d8a1ef7d562a475a5b6c98303b0cb1af561) )
@@ -683,7 +683,7 @@ public class bloodbro
 		ROM_LOAD( "bb_08.bin",    0x00000, 0x20000, CRC(deb1b975) SHA1(08f2e9a0a23171201b71d381d091edcd3787c287) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_weststry = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_weststry = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 64k for cpu code */
 		ROM_LOAD16_BYTE( "ws13.bin",    0x00001, 0x20000, CRC(158e302a) SHA1(52cc1bf526424ff025a6b79f3fc7bba4b9bbfcbb) )
 		ROM_LOAD16_BYTE( "ws15.bin",    0x00000, 0x20000, CRC(672e9027) SHA1(71cb9fcef04edb972ba88de45d605dcff539ea2d) )
@@ -729,7 +729,7 @@ public class bloodbro
 		ROM_LOAD( "bb_08.bin",    0x00000, 0x20000, CRC(deb1b975) SHA1(08f2e9a0a23171201b71d381d091edcd3787c287) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_skysmash = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_skysmash = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "rom5",    0x00000, 0x20000, CRC(867f9897) SHA1(7751f9d03d71bd5db0b82bda6e4d5231a30c1ad0) )
 		ROM_LOAD16_BYTE( "rom6",    0x00001, 0x20000, CRC(e9c1d308) SHA1(d7032345b91f87de64ad09ffea49e39b755cac44) )

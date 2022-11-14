@@ -154,7 +154,7 @@ public class redalert
 	};
 	
 	
-	static InputPortPtr input_ports_redalert = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( redalert )
+	static InputPortHandlerPtr input_ports_redalert = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( redalert )
 		PORT_START(); 			   /* DIP Switches */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "3" );
@@ -202,7 +202,7 @@ public class redalert
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_demoneye = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( demoneye )
+	static InputPortHandlerPtr input_ports_demoneye = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( demoneye )
 		PORT_START(); 			   /* DIP Switches */
 		PORT_DIPNAME( 0x03, 0x00, DEF_STR( "Lives") );
 		PORT_DIPSETTING(    0x00, "3" );
@@ -457,7 +457,7 @@ public class redalert
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_redalert = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_redalert = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "rag5",         	0x5000, 0x1000, CRC(d7c9cdd6) SHA1(5ff5cdceaa00083b745cf5c74b096f7edfadf737) )
 		ROM_LOAD( "rag6",         	0x6000, 0x1000, CRC(cb2a308c) SHA1(9f3bc22bad31165e080e81d4a3fb0ec2aad235fe) )
@@ -530,7 +530,7 @@ public class redalert
 	
 	*********************************************************************/
 	
-	static RomLoadPtr rom_demoneye = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_demoneye = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "demoneye.6",  0x6000, 0x1000, CRC(b03ee3a9) SHA1(66b6115fbb4e8097152702022c59c464e8211e5a) )
 		ROM_LOAD( "demoneye.7",  0x7000, 0x1000, CRC(667a5de7) SHA1(c3ce7fbbc6c98250e9d5f85854e6887017ca5ff9) )

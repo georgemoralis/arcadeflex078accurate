@@ -476,10 +476,10 @@ public class segasyse
 		PORT_DIPSETTING(    0xb0, DEF_STR( "1C_5C") ); \
 		PORT_DIPSETTING(    0xa0, DEF_STR( "1C_6C") );
 	
-	static InputPortPtr input_ports_dummy = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dummy ) /* Used by the Totally Non-Working Games */
+	static InputPortHandlerPtr input_ports_dummy = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dummy ) /* Used by the Totally Non-Working Games */
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_transfrm = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( transfrm ) /* Used By Transformer */
+	static InputPortHandlerPtr input_ports_transfrm = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( transfrm ) /* Used By Transformer */
 		PORT_START(); 	/* DSW0 Read from Port 0xf2 */
 		SEGA_COIN_A
 		SEGA_COIN_B
@@ -528,7 +528,7 @@ public class segasyse
 		PORT_BIT( 0x80, IP_ACTIVE_LOW,  IPT_UNUSED );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_hangonjr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( hangonjr ) /* Used By Hang On Jr */
+	static InputPortHandlerPtr input_ports_hangonjr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hangonjr ) /* Used By Hang On Jr */
 		PORT_START(); 	/* DSW0 Read from Port 0xf2 */
 		SEGA_COIN_A
 		SEGA_COIN_B
@@ -584,7 +584,7 @@ public class segasyse
 		PORT_ANALOG( 0xff, 0x00, IPT_AD_STICK_Y | IPF_REVERSE | IPF_PLAYER1, 20, 10, 0, 0xff);
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_ridleofp = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ridleofp ) /* Used By Riddle Of Pythagoras */
+	static InputPortHandlerPtr input_ports_ridleofp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ridleofp ) /* Used By Riddle Of Pythagoras */
 		PORT_START(); 	/* DSW0 Read from Port 0xf2 */
 		SEGA_COIN_A
 		PORT_DIPSETTING(    0x00, DEF_STR( "Free_Play") );
@@ -798,7 +798,7 @@ public class segasyse
 	 opaopa	  - Opa Opa				   *Roms Encrypted/Bad?*
 	*******************************************************************************/
 	
-	static RomLoadPtr rom_hangonjr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_hangonjr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "rom5.ic7",	0x00000, 0x08000, CRC(d63925a7) SHA1(699f222d9712fa42651c753fe75d7b60e016d3ad) ) /* Fixed Code */
 	
@@ -809,7 +809,7 @@ public class segasyse
 		ROM_LOAD( "rom1.ic2",	0x28000, 0x08000, CRC(3810cbf5) SHA1(c8d5032522c0c903ab3d138f62406a66e14a5c69) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_ridleofp = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ridleofp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "epr10426.bin",	0x00000, 0x08000, CRC(4404c7e7) SHA1(555f44786976a009d96a6395c9173929ad6138a7) ) /* Fixed Code */
 	
@@ -820,7 +820,7 @@ public class segasyse
 		ROM_LOAD( "epr10422.bin",	0x28000, 0x08000, CRC(14781e56) SHA1(f15d9d89e1ebff36c3867cfc8f0bdf7f6b3c96bc) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_transfrm = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_transfrm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "ic7.top",	0x00000, 0x08000, CRC(ccf1d123) SHA1(5ade9b00e2a36d034fafdf1902d47a9a00e96fc4) ) /* Fixed Code */
 	
@@ -831,7 +831,7 @@ public class segasyse
 		ROM_LOAD( "epr-7350.ic2",	0x28000, 0x08000, CRC(0052165d) SHA1(cf4b5dffa54238e513515b3fc90faa7ce0b65d34) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_astrofl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_astrofl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "epr-7723.ic7",	0x00000, 0x08000, CRC(66061137) SHA1(cb6a2c7864f9f87bbedfd4b1448ad6c2de65d6ca) ) /* encrypted */
 	
@@ -842,7 +842,7 @@ public class segasyse
 		ROM_LOAD( "epr-7350.ic2",	0x28000, 0x08000, CRC(0052165d) SHA1(cf4b5dffa54238e513515b3fc90faa7ce0b65d34) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_fantzn2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_fantzn2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 )
 		ROM_LOAD( "fz2_ic7.rom",	0x00000, 0x08000, CRC(76db7b7b) SHA1(d60e2961fc893dcb4445aed5f67515cbd25b610f) )
 		ROM_LOAD( "fz2_ic5.rom",	0x10000, 0x10000, CRC(57b45681) SHA1(1ae6d0d58352e246a4ec4e1ce02b0417257d5d20) )
@@ -851,7 +851,7 @@ public class segasyse
 		ROM_LOAD( "fz2_ic2.rom",	0x40000, 0x10000, CRC(b14db5af) SHA1(04c7fb659385438b3d8f9fb66800eb7b6373bda9) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_opaopa = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_opaopa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_USER1, 0 )
 		ROM_LOAD( "epr11224.ic7",	0x00000, 0x08000, CRC(024b1244) SHA1(59a522ac3d98982cc4ddb1c81f9584d3da453649) ) /* Fixed Code */
 	

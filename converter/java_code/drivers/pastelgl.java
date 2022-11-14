@@ -153,7 +153,7 @@ public class pastelgl
 	};
 	
 	
-	static InputPortPtr input_ports_pastelgl = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( pastelgl )
+	static InputPortHandlerPtr input_ports_pastelgl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pastelgl )
 		PORT_START(); 	/* (0) DIPSW-A */
 		PORT_DIPNAME( 0x03, 0x03, DEF_STR( "Difficulty") );
 		PORT_DIPSETTING(    0x03, "1 (Easy"));
@@ -294,7 +294,7 @@ public class pastelgl
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_pastelgl = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_pastelgl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* program */
 		ROM_LOAD( "pgal_09.bin",  0x00000, 0x04000, CRC(1e494af3) SHA1(1597a7da22ecfbb1df83cf9d0acc7a8be461bc2c) )
 		ROM_LOAD( "pgal_10.bin",  0x04000, 0x04000, CRC(677cccea) SHA1(a294bf4e3c5e74291160a0858371961868afc1d1) )

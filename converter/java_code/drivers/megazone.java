@@ -191,7 +191,7 @@ public class megazone
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static InputPortPtr input_ports_megazone = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( megazone )
+	static InputPortHandlerPtr input_ports_megazone = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( megazone )
 		PORT_START();       /* IN0 */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -382,7 +382,7 @@ public class megazone
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_megazone = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_megazone = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "319i07.bin",    0x6000, 0x2000, CRC(94b22ea8) SHA1(dc3ed2a0d1a12df51e46561324d78b7d655be313) )
 		ROM_LOAD( "319i06.bin",    0x8000, 0x2000, CRC(0468b619) SHA1(a6755728fab37674749f9b77cb53f6f228102f2f) )
@@ -414,7 +414,7 @@ public class megazone
 		ROM_LOAD( "319b15.e8",   0x0240, 0x020, CRC(31fd7ab9) SHA1(04d6e51b4930619c8ee12fb0d7b5f981e4d6d8d3) ) /* timing (not used) */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_megaznik = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_megaznik = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "ic59_cpu.bin",  0x6000, 0x2000, CRC(f41922a0) SHA1(9f54509da18721a76593921c6e52085e62e6ea6b) )
 		ROM_LOAD( "ic58_cpu.bin",  0x8000, 0x2000, CRC(7fd7277b) SHA1(e773247e0c9419cae49e04962ea362a2976c2db2) )

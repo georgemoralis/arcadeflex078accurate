@@ -109,7 +109,7 @@ public class omegaf
 	  Inputs
 	**************************************************************************/
 	
-	static InputPortPtr input_ports_omegaf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( omegaf )
+	static InputPortHandlerPtr input_ports_omegaf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( omegaf )
 		PORT_START(); 			/* Player 1 inputs */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -185,7 +185,7 @@ public class omegaf
 		PORT_DIPSETTING(    0x20, DEF_STR( "1C_4C") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_robokid = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( robokid )
+	static InputPortHandlerPtr input_ports_robokid = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( robokid )
 		PORT_START(); 			/* Player 1 inputs */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -254,7 +254,7 @@ public class omegaf
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static InputPortPtr input_ports_robokidj = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( robokidj )
+	static InputPortHandlerPtr input_ports_robokidj = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( robokidj )
 		PORT_START(); 			/* Player 1 inputs */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_RIGHT | IPF_8WAY );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_LEFT  | IPF_8WAY );
@@ -666,7 +666,7 @@ public class omegaf
 	  ROM loaders
 	**************************************************************************/
 	
-	static RomLoadPtr rom_omegaf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_omegaf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )						/* main CPU */
 		ROM_LOAD( "1.5",          0x00000, 0x08000, CRC(57a7fd96) SHA1(65ca290b48f8579fcce00db5b3b3f8694667a136) )
 		ROM_CONTINUE(             0x10000, 0x18000 )
@@ -691,7 +691,7 @@ public class omegaf
 		ROM_LOAD( "4.18h",        0x00000, 0x08000, CRC(9e2d8152) SHA1(4b50557d171d1b03a870db5891ae67d70858ad37) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_omegafs = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_omegafs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )						/* main CPU */
 		ROM_LOAD( "5.3l",         0x00000, 0x08000, CRC(503a3e63) SHA1(73420aecb653cd4fd3b6afe67d6f5726f01411dd) )
 		ROM_CONTINUE(             0x10000, 0x18000 )
@@ -716,7 +716,7 @@ public class omegaf
 		ROM_LOAD( "4.18h",        0x00000, 0x08000, CRC(9e2d8152) SHA1(4b50557d171d1b03a870db5891ae67d70858ad37) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_robokid = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_robokid = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )						/* main CPU */
 		ROM_LOAD( "robokid1.18j", 0x00000, 0x08000, CRC(378c21fc) SHA1(58163bd6fbfa8385b1bd648cfde3d75bf81ac07d) )
 		ROM_CONTINUE(             0x10000, 0x08000 )
@@ -765,7 +765,7 @@ public class omegaf
 		ROM_LOAD( "robokid.b9",   0x00000, 0x08000, CRC(fac59c3f) SHA1(1b202ad5c12982512129d9e097267dd31b984ae8) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_robokidj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_robokidj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )						/* main CPU */
 		ROM_LOAD( "1.29",         0x00000, 0x08000, CRC(59a1e2ec) SHA1(71f9d28dd8d2cf77a27fab163ce9562e3e75a540) )
 		ROM_CONTINUE(             0x10000, 0x08000 )

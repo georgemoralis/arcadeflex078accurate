@@ -313,7 +313,7 @@ public class supertnk
 	
 	
 	
-	static InputPortPtr input_ports_supertnk = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( supertnk )
+	static InputPortHandlerPtr input_ports_supertnk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( supertnk )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICK_UP | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN | IPF_PLAYER1 );
@@ -389,7 +389,7 @@ public class supertnk
 	
 	
 	
-	static RomLoadPtr rom_supertnk = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_supertnk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for TMS9980 code - normal and banked ROM */
 		ROM_LOAD( "supertan.2d",	0x0000, 0x0800, CRC(1656a2c1) SHA1(1d49945aed105003a051cfbf646af7a4be1b7e86) )
 		ROM_LOAD( "supertnk.3d",	0x4800, 0x0800, CRC(8b023a9a) SHA1(1afdc8d75f2ca04153bac20c0e3e123e2a7acdb7) )

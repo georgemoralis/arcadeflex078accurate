@@ -99,7 +99,7 @@ public class gaelco2
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_maniacsq = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( maniacsq )
+	static InputPortHandlerPtr input_ports_maniacsq = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( maniacsq )
 	PORT_START(); 	/* DSW #1 + 1P INPUTS */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -210,7 +210,7 @@ public class gaelco2
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_maniacsq = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_maniacsq = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x040000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "d8-d15.1m",	0x000000, 0x020000, CRC(9121d1b6) SHA1(ad8f0d996b6d42fc0c6645466608e82ca96e0b66) )
 		ROM_LOAD16_BYTE( "d0-d7.1m",	0x000001, 0x020000, CRC(a95cfd2a) SHA1(b5bad76f12d2a1f6bf6b35482f2f933ceb00e552) )
@@ -293,7 +293,7 @@ public class gaelco2
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_bang = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( bang )
+	static InputPortHandlerPtr input_ports_bang = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bang )
 	PORT_START(); 	/* 1P INPUTS */
 		PORT_BIT_IMPULSE( 0x0080, IP_ACTIVE_LOW, IPT_BUTTON1 | IPF_PLAYER1, 1 );
 	
@@ -357,7 +357,7 @@ public class gaelco2
 	MACHINE_DRIVER_END
 	
 	
-	static RomLoadPtr rom_bang = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bang = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "bang.u53",	0x000000, 0x080000, CRC(014bb939) SHA1(bb245acf7a3bd4a56b3559518bcb8d0ae39dbaf4) )
 		ROM_LOAD16_BYTE( "bang.u55",	0x000001, 0x080000, CRC(582f8b1e) SHA1(c9b0d4c1dee71cdb2c01d49f20ffde32eddc9583) )
@@ -386,7 +386,7 @@ public class gaelco2
 	
 	
 	
-	static RomLoadPtr rom_bangj = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_bangj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "bang-a.u53",	0x000000, 0x080000, CRC(5ee514e9) SHA1(b78b507d18de41be58049f5c597acd107ec1273f) )
 		ROM_LOAD16_BYTE( "bang-a.u55",	0x000001, 0x080000, CRC(b90223ab) SHA1(7c097754a710169f41c574c3cc1a6346824853c4) )
@@ -443,7 +443,7 @@ public class gaelco2
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_alighunt = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( alighunt )
+	static InputPortHandlerPtr input_ports_alighunt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( alighunt )
 	
 	PORT_START(); 	/* DSW #1 */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
@@ -590,7 +590,7 @@ public class gaelco2
 	*/
 	
 	
-	static RomLoadPtr rom_aligator = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aligator = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"u45",	0x000000, 0x080000, CRC(61c47c56) SHA1(6dd3fc6fdab252e0fb43c0793eef70203c888d7f) )
 		ROM_LOAD16_BYTE(	"u44",	0x000001, 0x080000, CRC(f0be007a) SHA1(2112b2e5f020028b50c8f2c72c83c9fee7a78224) )
@@ -606,7 +606,7 @@ public class gaelco2
 		ROM_LOAD( "u49",		0x0c00000, 0x0400000, CRC(70a4ee0b) SHA1(07b09916f0366d0c6eed94a905ec0b9d6ac9e7e1) )	/* GFX + Sound */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_aligatun = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_aligatun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"ahntu45n.040",	0x000000, 0x080000, CRC(fc02cb2d) SHA1(700aa60ec0d2bb705b1335de63daae678dcb8570) )
 		ROM_LOAD16_BYTE(	"ahntu44n.040",	0x000001, 0x080000, CRC(7fbea3a3) SHA1(89efa5b7908c2f010a3097954dbccd9cb7adc50c) )
@@ -670,7 +670,7 @@ public class gaelco2
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_touchgo = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( touchgo )
+	static InputPortHandlerPtr input_ports_touchgo = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( touchgo )
 	
 	PORT_START(); 	/* DSW #2 + 1P INPUTS */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
@@ -869,7 +869,7 @@ public class gaelco2
 	*/
 	
 	
-	static RomLoadPtr rom_touchgo = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_touchgo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"tg56",	0x000000, 0x080000, CRC(6d0f5c65) SHA1(00db7a7da3ec1676169aa78fe4f08a7746c3accf) )
 		ROM_LOAD16_BYTE(	"tg57",	0x000001, 0x080000, CRC(845787b5) SHA1(27c9910cd9f38328326ecb5cd093dfeb6d4f6244) )
@@ -925,7 +925,7 @@ public class gaelco2
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_snowboar = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( snowboar )
+	static InputPortHandlerPtr input_ports_snowboar = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( snowboar )
 	PORT_START(); 	/* 1P INPUTS */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -1026,7 +1026,7 @@ public class gaelco2
 	-----------------------------------------------------------------------------|
 	*/
 	
-	static RomLoadPtr rom_snowboar = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_snowboar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"sb53",	0x000000, 0x080000, CRC(e4eaefd4) SHA1(c7de2ae3a4a919fbe16d4997e3f9e2303b8c96b1) )
 		ROM_LOAD16_BYTE(	"sb55",	0x000001, 0x080000, CRC(e2476994) SHA1(2ad18652a1fc6ac058c8399373fb77e7a81d5bbd) )
@@ -1042,7 +1042,7 @@ public class gaelco2
 		ROM_LOAD( "sb46",		0x0800000, 0x0400000, CRC(22e7c648) SHA1(baddb9bc13accd83bea61533d7286cf61cd89279) )	/* GFX only */
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_snowbalt = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_snowbalt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE(	"sb.53",	0x000000, 0x080000, CRC(4742749e) SHA1(933e39893ab74895ae4a99a932f8245a03ea0b5d) )
 		ROM_LOAD16_BYTE(	"sb.55",	0x000001, 0x080000, CRC(6ddc431f) SHA1(8801c0cf1711bb956447ba1e631db28bd075caea) )
@@ -1112,7 +1112,7 @@ public class gaelco2
 	MEMORY_END
 	
 	
-	static InputPortPtr input_ports_wrally2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( wrally2 )
+	static InputPortHandlerPtr input_ports_wrally2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( wrally2 )
 	PORT_START(); 	/* DIPSW #2 + 1P INPUTS */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -1295,7 +1295,7 @@ public class gaelco2
 	POT1/2: Volume adjust of left/right channel
 	*/
 	
-	static RomLoadPtr rom_wrally2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_wrally2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "wr2.64",	0x000000, 0x080000, CRC(4cdf4e1e) SHA1(a3b3ff4a70336b61c7bba5d518527bf4bd901867) )
 		ROM_LOAD16_BYTE( "wr2.63",	0x000001, 0x080000, CRC(94887c9f) SHA1(ad09f1fbeff4c3ba47f72346d261b22fa6a51457) )

@@ -140,7 +140,7 @@ public class lemmings
 	
 	/******************************************************************************/
 	
-	static InputPortPtr input_ports_lemmings = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( lemmings )
+	static InputPortHandlerPtr input_ports_lemmings = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( lemmings )
 		PORT_START(); 	/* Player 1 controls */
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_START1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_BUTTON1 );/* Select 1 */
@@ -323,7 +323,7 @@ public class lemmings
 	
 	/******************************************************************************/
 	
-	static RomLoadPtr rom_lemmings = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_lemmings = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "lemmings.5", 0x00000, 0x20000, CRC(e9a2b439) SHA1(873723a06d71bb41772951f451a75578b30267d5) )
 		ROM_LOAD16_BYTE( "lemmings.1", 0x00001, 0x20000, CRC(bf52293b) SHA1(47a1ed64bf02776db086fdce80997b8a0c068791) )

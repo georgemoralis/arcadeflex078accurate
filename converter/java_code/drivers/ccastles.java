@@ -187,7 +187,7 @@ public class ccastles
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_ccastles = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( ccastles )
+	static InputPortHandlerPtr input_ports_ccastles = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ccastles )
 		PORT_START(); 	/* IN0 */
 		PORT_BIT ( 0x01, IP_ACTIVE_LOW, IPT_COIN2 );
 		PORT_BIT ( 0x02, IP_ACTIVE_LOW, IPT_COIN1 );
@@ -309,7 +309,7 @@ public class ccastles
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_ccastles = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ccastles = new RomLoadHandlerPtr(){ public void handler(){ 
 	     ROM_REGION( 0x14000, REGION_CPU1, 0 )	/* 64k for code */
 	     ROM_LOAD( "022-403.bin",  0x0a000, 0x2000, CRC(81471ae5) SHA1(8ec13b48119ecf8fe85207403c0a0de5240cded4) )
 	     ROM_LOAD( "022-404.bin",  0x0c000, 0x2000, CRC(820daf29) SHA1(a2cff00e9ddce201344692b75038431e4241fedd) )
@@ -323,7 +323,7 @@ public class ccastles
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ccastle3 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ccastle3 = new RomLoadHandlerPtr(){ public void handler(){ 
 	     ROM_REGION( 0x14000, REGION_CPU1, 0 )	/* 64k for code */
 	     ROM_LOAD( "ccastles.303", 0x0a000, 0x2000, CRC(10e39fce) SHA1(5247f52e14ccf39f0ec699a39c8ebe35e61e07d2) )
 	     ROM_LOAD( "ccastles.304", 0x0c000, 0x2000, CRC(74510f72) SHA1(d22550f308ff395d51869b52449bc0669a4e35e4) )
@@ -337,7 +337,7 @@ public class ccastles
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_ccastle2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_ccastle2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	     ROM_REGION( 0x14000, REGION_CPU1, 0 )	/* 64k for code */
 	     ROM_LOAD( "ccastles.203", 0x0a000, 0x2000, CRC(348a96f0) SHA1(76de7bf6a01ccb15a4fe7333c1209f623a2e0d1b) )
 	     ROM_LOAD( "ccastles.204", 0x0c000, 0x2000, CRC(d48d8c1f) SHA1(8744182a3e2096419de63e341feb77dd8a8bcb34) )

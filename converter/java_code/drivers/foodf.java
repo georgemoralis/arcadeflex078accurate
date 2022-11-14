@@ -248,7 +248,7 @@ public class foodf
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_foodf = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( foodf )
+	static InputPortHandlerPtr input_ports_foodf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( foodf )
 		PORT_START(); 	/* IN0 */
 		PORT_ANALOG( 0xff, 0x7f, IPT_AD_STICK_X | IPF_PLAYER1 | IPF_REVERSE, 100, 10, 0, 255 );
 	
@@ -405,7 +405,7 @@ public class foodf
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_foodf = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_foodf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for 68000 code */
 		ROM_LOAD16_BYTE( "301-8c.020",   0x000001, 0x002000, CRC(dfc3d5a8) SHA1(7abe5e9c27098bd8c93cc06f1b9e3db0744019e9) )
 		ROM_LOAD16_BYTE( "302-9c.020",   0x000000, 0x002000, CRC(ef92dc5c) SHA1(eb41291615165f549a68ebc6d4664edef1a04ac5) )
@@ -425,7 +425,7 @@ public class foodf
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_foodf2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_foodf2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for 68000 code */
 		ROM_LOAD16_BYTE( "201-8c.020",   0x000001, 0x002000, CRC(4ee52d73) SHA1(ff4ab8169a9b260bbd1f49023a30064e2f0b6686) )
 		ROM_LOAD16_BYTE( "202-9c.020",   0x000000, 0x002000, CRC(f8c4b977) SHA1(824d33baa413b2ee898c75157624ea007c92032f) )
@@ -445,7 +445,7 @@ public class foodf
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_foodfc = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_foodfc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for 68000 code */
 		ROM_LOAD16_BYTE( "113-8c.020",   0x000001, 0x002000, CRC(193a299f) SHA1(58bbf714eff22d8a47b174e4b121f14a8dcb4ef9) )
 		ROM_LOAD16_BYTE( "114-9c.020",   0x000000, 0x002000, CRC(33ed6bbe) SHA1(5d80fb092d2964b851e6c5982572d4ffc5078c55) )

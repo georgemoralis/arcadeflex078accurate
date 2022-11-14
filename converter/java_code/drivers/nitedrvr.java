@@ -127,7 +127,7 @@ public class nitedrvr
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_nitedrvr = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( nitedrvr )
+	static InputPortHandlerPtr input_ports_nitedrvr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( nitedrvr )
 		PORT_START(); 		/* fake port, gets mapped to Night Driver ports */
 		PORT_DIPNAME( 0x30, 0x10, DEF_STR( "Coinage") );
 		PORT_DIPSETTING(	0x30, DEF_STR( "2C_1C") );
@@ -395,7 +395,7 @@ public class nitedrvr
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_nitedrvr = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_nitedrvr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "6569-01.d2",   0x9000, 0x0800, CRC(7afa7542) SHA1(81018e25ebdeae1daf1308676661063b6fd7fd22) )
 		ROM_LOAD( "6570-01.f2",   0x9800, 0x0800, CRC(bf5d77b1) SHA1(6f603f8b0973bd89e0e721b66944aac8e9f904d9) )

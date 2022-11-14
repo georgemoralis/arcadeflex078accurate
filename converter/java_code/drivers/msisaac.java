@@ -338,7 +338,7 @@ public class msisaac
 	};
 	
 	
-	static InputPortPtr input_ports_msisaac = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( msisaac )
+	static InputPortHandlerPtr input_ports_msisaac = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( msisaac )
 		PORT_START();  /* DSW1 */
 		PORT_DIPNAME( 0x01, 0x00, "DSW1 Unknown 0" );
 		PORT_DIPSETTING(    0x00, DEF_STR( "Off") );
@@ -551,7 +551,7 @@ public class msisaac
 	
 	/*******************************************************************************/
 	
-	static RomLoadPtr rom_msisaac = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_msisaac = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* Z80 main CPU */
 		ROM_LOAD( "a34_11.bin", 0x0000, 0x4000, CRC(40819334) SHA1(65352607165043909a09e96c07f7060f6ce087e6) )
 		ROM_LOAD( "a34_12.bin", 0x4000, 0x4000, CRC(4c50b298) SHA1(5962882ad37ba6990ba2a6312b570f214cd4c103) )

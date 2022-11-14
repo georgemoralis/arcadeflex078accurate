@@ -244,7 +244,7 @@ public class dribling
 	 *
 	 *************************************/
 	
-	static InputPortPtr input_ports_dribling = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( dribling )
+	static InputPortHandlerPtr input_ports_dribling = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dribling )
 		PORT_START(); 	/* IN0 (mux 0) */
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_JOYSTICKRIGHT_LEFT  | IPF_PLAYER1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_JOYSTICKRIGHT_RIGHT | IPF_PLAYER1 );
@@ -326,7 +326,7 @@ public class dribling
 	 *
 	 *************************************/
 	
-	static RomLoadPtr rom_dribling = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_dribling = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "5p.bin",  0x0000, 0x1000, CRC(0e791947) SHA1(57bc4f4e9e1fe3fbac1017601c9c75029b2601a4) )
 		ROM_LOAD( "5n.bin",  0x1000, 0x1000, CRC(bd0f223a) SHA1(f9fbc5670a8723c091d61012e545774d315eb18f) ) //
@@ -345,7 +345,7 @@ public class dribling
 	ROM_END(); }}; 
 	
 	
-	static RomLoadPtr rom_driblino = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_driblino = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "5p.bin",       0x0000, 0x1000, CRC(0e791947) SHA1(57bc4f4e9e1fe3fbac1017601c9c75029b2601a4) )
 		ROM_LOAD( "dribblng.5n",  0x1000, 0x1000, CRC(5271e620) SHA1(ebed8e31057bb8492840a6e3b8bc453f7cb67243) )

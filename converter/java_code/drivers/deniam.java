@@ -177,7 +177,7 @@ public class deniam
 	
 	
 	
-	static InputPortPtr input_ports_karianx = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( karianx )
+	static InputPortHandlerPtr input_ports_karianx = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( karianx )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -234,7 +234,7 @@ public class deniam
 		PORT_DIPSETTING(    0x00, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static InputPortPtr input_ports_logicpr2 = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( logicpr2 )
+	static InputPortHandlerPtr input_ports_logicpr2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( logicpr2 )
 		PORT_START(); 
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_COIN1 );
 		PORT_BIT( 0x02, IP_ACTIVE_LOW, IPT_COIN2 );
@@ -403,7 +403,7 @@ public class deniam
 	
 	***************************************************************************/
 	
-	static RomLoadPtr rom_logicpro = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_logicpro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "logicpro.r4", 0x00000, 0x40000, CRC(c506d484) SHA1(5d662b109e1d2e09556bc4ecbc11bbf5ccb639d3) )
 		ROM_LOAD16_BYTE( "logicpro.r3", 0x00001, 0x40000, CRC(d5a4cf62) SHA1(138ea4f1629e453c1a00410eda7086d3633240e3) )
@@ -424,7 +424,7 @@ public class deniam
 		ROM_LOAD( "logicpro.r1", 0x0000, 0x080000, CRC(a1fec4d4) SHA1(4390cd18b4a7de2d8cb68270180ea3de42fd2282) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_croquis = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_croquis = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "r4.bin", 0x00000, 0x40000, CRC(03c9055e) SHA1(b1fa8e7a272887decca30eefe73ac782f296f0dd) )
 		ROM_LOAD16_BYTE( "r3.bin", 0x00001, 0x40000, CRC(a98ae4f6) SHA1(80fcedb4ee0f35eb2d0b4a248c15f872af2e08f2) )
@@ -445,7 +445,7 @@ public class deniam
 		ROM_LOAD( "logicpro.r1", 0x0000, 0x080000, CRC(a1fec4d4) SHA1(4390cd18b4a7de2d8cb68270180ea3de42fd2282) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_karianx = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_karianx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "even",        0x00000, 0x80000, CRC(fd0ce238) SHA1(4b727366c942c62187d8700666b42a85c059c060) )
 		ROM_LOAD16_BYTE( "odd",         0x00001, 0x80000, CRC(be173cdc) SHA1(13230b6129fd1910257624a69a3a4b74696e982e) )
@@ -470,7 +470,7 @@ public class deniam
 		ROM_LOAD( "voi",         0x0000, 0x080000, CRC(c6506a80) SHA1(121229c501bd5678e55c7342619743c773a01a7e) )
 	ROM_END(); }}; 
 	
-	static RomLoadPtr rom_logicpr2 = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_logicpr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD16_BYTE( "lp2-2",       0x00000, 0x80000, CRC(cc1880bf) SHA1(5ea542b63947a570aaf924f7ab739e060e359af8) )
 		ROM_LOAD16_BYTE( "lp2-1",       0x00001, 0x80000, CRC(46d5e954) SHA1(7bf5ae19caeecd2123754698276bbc78d68984d9) )

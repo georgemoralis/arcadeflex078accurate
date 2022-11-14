@@ -122,7 +122,7 @@ public class stlforce
 		{ 0x410000, 0x410001, OKIM6295_data_0_lsb_w },
 	MEMORY_END
 	
-	static InputPortPtr input_ports_stlforce = new InputPortPtr(){ public void handler() { INPUT_PORTS_START( stlforce )
+	static InputPortHandlerPtr input_ports_stlforce = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( stlforce )
 		PORT_START(); 
 		PORT_BIT( 0x0001, IP_ACTIVE_LOW, IPT_JOYSTICK_UP    | IPF_8WAY | IPF_PLAYER1 );
 		PORT_BIT( 0x0002, IP_ACTIVE_LOW, IPT_JOYSTICK_DOWN  | IPF_8WAY | IPF_PLAYER1 );
@@ -225,7 +225,7 @@ public class stlforce
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface) // guess
 	MACHINE_DRIVER_END
 	
-	static RomLoadPtr rom_stlforce = new RomLoadPtr(){ public void handler(){ 
+	static RomLoadHandlerPtr rom_stlforce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 ) /* 68000 code */
 		ROM_LOAD16_BYTE( "stlforce.105", 0x00000, 0x20000, CRC(3ec804ca) SHA1(4efcf3321b7111644ac3ee0a83ad95d0571a4021) )
 		ROM_LOAD16_BYTE( "stlforce.104", 0x00001, 0x20000, CRC(69b5f429) SHA1(5bd20fad91a22f4d62f85a5190d72dd824ee26a5) )
