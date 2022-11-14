@@ -428,14 +428,14 @@ public class driverH {
         public RomModule[] rom;
         public int flags;/* orientation and other flags; see defines below */
     }
-    /*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	Game driver flags
-/*TODO*///
-/*TODO*///***************************************************************************/
+
+    /**
+     * *************************************************************************
+     *
+     * Game driver flags
+     *
+     **************************************************************************
+     */
 
     /* ----- values for the flags field ----- */
     public static final int ORIENTATION_MASK = 0x0007;
@@ -443,24 +443,17 @@ public class driverH {
     public static final int ORIENTATION_FLIP_Y = 0x0002;/* mirror everything in the Y direction */
     public static final int ORIENTATION_SWAP_XY = 0x0004;/* mirror along the top-left/bottom-right diagonal */
 
- /*TODO*///#define GAME_NOT_WORKING			0x0008
-/*TODO*///#define GAME_UNEMULATED_PROTECTION	0x0010	/* game's protection not fully emulated */
-/*TODO*///#define GAME_WRONG_COLORS			0x0020	/* colors are totally wrong */
-/*TODO*///#define GAME_IMPERFECT_COLORS		0x0040	/* colors are not 100% accurate, but close */
-/*TODO*///#define GAME_IMPERFECT_GRAPHICS		0x0080	/* graphics are wrong/incomplete */
-/*TODO*///#define GAME_NO_COCKTAIL			0x0100	/* screen flip support is missing */
-/*TODO*///#define GAME_NO_SOUND				0x0200	/* sound is missing */
-/*TODO*///#define GAME_IMPERFECT_SOUND		0x0400	/* sound is known to be wrong */
-/*TODO*///#define NOT_A_DRIVER				0x4000	/* set by the fake "root" driver_0 and by "containers" */
-/*TODO*///											/* e.g. driver_neogeo. */
-/*TODO*///#ifdef MESS
-/*TODO*///#define GAME_COMPUTER               0x8000  /* Driver is a computer (needs full keyboard) */
-/*TODO*///#define GAME_COMPUTER_MODIFIED      0x0800	/* Official? Hack */
-/*TODO*///#endif
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
+    public static final int GAME_NOT_WORKING = 0x0008;
+    public static final int GAME_UNEMULATED_PROTECTION = 0x0010;/* game's protection not fully emulated */
+    public static final int GAME_WRONG_COLORS = 0x0020;/* colors are totally wrong */
+    public static final int GAME_IMPERFECT_COLORS = 0x0040;/* colors are not 100% accurate, but close */
+    public static final int GAME_IMPERFECT_GRAPHICS = 0x0080;/* graphics are wrong/incomplete */
+    public static final int GAME_NO_COCKTAIL = 0x0100;/* screen flip support is missing */
+    public static final int GAME_NO_SOUND = 0x0200;/* sound is missing */
+    public static final int GAME_IMPERFECT_SOUND = 0x0400;/* sound is known to be wrong */
+    public static final int NOT_A_DRIVER = 0x4000;/* set by the fake "root" driver_0 and by "containers" */
+
+ /*TODO*////***************************************************************************
 /*TODO*///
 /*TODO*///	Macros for building game drivers
 /*TODO*///

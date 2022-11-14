@@ -4,7 +4,9 @@
 package arcadeflex.v078.platform;
 
 //mame imports
+import static arcadeflex.v078.AAdummy.driver.drivers;
 import static arcadeflex.v078.mame.common.*;
+import static arcadeflex.v078.mame.driverH.NOT_A_DRIVER;
 import static arcadeflex.v078.mame.version.*;
 //platform imports
 import static arcadeflex.v078.platform.rcH.*;
@@ -539,61 +541,32 @@ public class fronthlp {
 /*TODO*///			qsort(drivers, count, sizeof(drivers[0]), compare_driver_names);
 /*TODO*///	}
 /*TODO*///
-/*TODO*///	switch (list)  /* front-end utilities ;) */
-/*TODO*///	{
-/*TODO*///
-/*TODO*///        #ifdef MESS
-/*TODO*///		case LIST_MESSTEXT: /* all mess specific calls here */
-/*TODO*///		{
-/*TODO*///			/* send the gamename and arg to mess.c */
-/*TODO*///			list_mess_info(gamename, "-listtext", listclones);
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///		}
-/*TODO*///		case LIST_MESSDEVICES:
-/*TODO*///		{
-/*TODO*///			/* send the gamename and arg to mess.c */
-/*TODO*///			list_mess_info(gamename, "-listdevices", listclones);
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///		}
-/*TODO*///		case LIST_MESSCREATEDIR:
-/*TODO*///		{
-/*TODO*///			/* send the gamename and arg to mess.c */
-/*TODO*///			list_mess_info(gamename, "-createdir", listclones);
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///		}
-/*TODO*///		#endif
-/*TODO*///
-/*TODO*///		case LIST_SHORT: /* simple games list */
-/*TODO*///			#ifndef MESS
-/*TODO*///			printf("\nMAME currently supports the following games:\n\n");
-/*TODO*///			#else
-/*TODO*///			printf("\nMESS currently supports the following systems:\n\n");
-/*TODO*///			#endif
-/*TODO*///			for (i = j = 0; drivers[i]; i++)
-/*TODO*///				if ((listclones || drivers[i]->clone_of == 0
-/*TODO*///						|| (drivers[i]->clone_of->flags & NOT_A_DRIVER)
-/*TODO*///						) && !strwildcmp(gamename, drivers[i]->name))
-/*TODO*///				{
-/*TODO*///					printf("%-8s",drivers[i]->name);
-/*TODO*///					j++;
-/*TODO*///					if (!(j % 8)) printf("\n");
-/*TODO*///					else printf("  ");
-/*TODO*///				}
-/*TODO*///			if (j % 8) printf("\n");
-/*TODO*///			printf("\n");
-/*TODO*///			if (j != i) printf("Total ROM sets displayed: %4d - ", j);
-/*TODO*///			#ifndef MESS
-/*TODO*///			printf("Total ROM sets supported: %4d\n", i);
-/*TODO*///			#else
-/*TODO*///			printf("Total Systems supported: %4d\n", i);
-/*TODO*///			#endif
-/*TODO*///            return 0;
-/*TODO*///			break;
-/*TODO*///
-/*TODO*///		case LIST_FULL: /* games list with descriptions */
+        switch (list) /* front-end utilities ;) */ {
+            case LIST_SHORT:
+                /* simple games list */
+                printf("\nMAME currently supports the following games:\n\n");
+                for (i = j = 0; drivers[i] != null; i++) {
+                    if ((listclones != 0 || drivers[i].clone_of == null
+                            || (drivers[i].clone_of.flags & NOT_A_DRIVER) != 0) /*&& !strwildcmp(gamename, drivers[i]->name)*/) {
+                        printf("%-8s", drivers[i].name);
+                        j++;
+                        if ((j % 8) == 0) {
+                            printf("\n");
+                        } else {
+                            printf("  ");
+                        }
+                    }
+                }
+                if ((j % 8) != 0) {
+                    printf("\n");
+                }
+                printf("\n");
+                if (j != i) {
+                    printf("Total ROM sets displayed: %4d - ", j);
+                }
+                printf("Total ROM sets supported: %4d\n", i);
+                return 0;
+            /*TODO*///		case LIST_FULL: /* games list with descriptions */
 /*TODO*///			printf("Name:     Description:\n");
 /*TODO*///			for (i = 0; drivers[i]; i++)
 /*TODO*///				if ((listclones || drivers[i]->clone_of == 0
@@ -1648,8 +1621,8 @@ public class fronthlp {
 /*TODO*///		case LIST_XML: /* list all info */
 /*TODO*///			print_mame_xml( stdout, drivers );
 /*TODO*///			return 0;
-/*TODO*///	}
-/*TODO*///
+        }
+        /*TODO*///
 /*TODO*///	if (verify)  /* "verify" utilities */
 /*TODO*///	{
 /*TODO*///		int err = 0;
@@ -1787,6 +1760,7 @@ public class fronthlp {
 /*TODO*///	}
 /*TODO*///
         /* FIXME: horrible hack to tell that no frontend option was used */
+
         return 1234;
     }
 }
