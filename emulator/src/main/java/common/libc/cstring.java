@@ -35,4 +35,17 @@ public class cstring {
         return str1.compareTo(str2);
     }
 
+    /**
+     * Compares string1 and string2 without sensitivity to case
+     *
+     * @param string1
+     * @param string2
+     * @return a negative integer, zero, or a positive integer as the specified
+     * String is greater than, equal to, or less than this String, ignoring case
+     * considerations.
+     */
+    public static int stricmp(String str1, String str2) {
+        return str1.compareToIgnoreCase(str2);
+    }
+
 }

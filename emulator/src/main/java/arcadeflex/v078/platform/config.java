@@ -11,6 +11,9 @@ import static arcadeflex.v078.platform.rcH.*;
 import static common.libc.cstdio.*;
 import static common.libc.cstring.*;
 
+//just for testing!!!! remove it
+import static arcadeflex.v078.AAdummy.driver.*;
+
 public class config {
 
     /*TODO*///static FILE *logfile;
@@ -482,43 +485,24 @@ public class config {
 /*TODO*///	}
 /*TODO*///
 /*TODO*///	/* check for frontend options, horrible 1234 hack */
-	if (frontend_help(gamename) != 1234)
-		System.exit(0);
-/*TODO*///
+        if (frontend_help(gamename) != 1234) {
+            System.exit(0);
+        }
+        /*TODO*///
 /*TODO*///	gamename = win_basename(gamename);
 /*TODO*///	gamename = win_strip_extension(gamename);
-/*TODO*///
-/*TODO*///	/* if not given by .inp file yet */
-/*TODO*///	if (game_index == -1)
-/*TODO*///	{
-/*TODO*///		/* do we have a driver for this? */
-/*TODO*///		for (i = 0; drivers[i]; i++)
-/*TODO*///			if (stricmp(gamename,drivers[i]->name) == 0)
-/*TODO*///			{
-/*TODO*///				game_index = i;
-/*TODO*///				break;
-/*TODO*///			}
-/*TODO*///	}
-/*TODO*///
-/*TODO*///#ifdef MAME_DEBUG
-/*TODO*///	if (game_index == -1)
-/*TODO*///	{
-/*TODO*///		/* pick a random game */
-/*TODO*///		if (strcmp(gamename,"random") == 0)
-/*TODO*///		{
-/*TODO*///			i = 0;
-/*TODO*///			while (drivers[i]) i++;	/* count available drivers */
-/*TODO*///
-/*TODO*///			srand(time(0));
-/*TODO*///			/* call rand() once to get away from the seed */
-/*TODO*///			rand();
-/*TODO*///			game_index = rand() % i;
-/*TODO*///
-/*TODO*///			fprintf(stderr, "running %s (%s) [press return]",drivers[game_index]->name,drivers[game_index]->description);
-/*TODO*///			getchar();
-/*TODO*///		}
-/*TODO*///	}
-/*TODO*///#endif
+
+        /* if not given by .inp file yet */
+        if (game_index == -1) {
+            /* do we have a driver for this? */
+            for (i = 0; drivers[i] != null; i++) {
+                if (stricmp(gamename, drivers[i].name) == 0) {
+                    game_index = i;
+                    break;
+                }
+            }
+        }
+        /*TODO*///
 /*TODO*///
 /*TODO*///	/* we give up. print a few approximate matches */
 /*TODO*///	if (game_index == -1)
