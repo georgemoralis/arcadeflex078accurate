@@ -436,15 +436,14 @@ public class driverH {
 /*TODO*///	Game driver flags
 /*TODO*///
 /*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*////* ----- values for the flags field ----- */
-/*TODO*///
-/*TODO*///#define ORIENTATION_MASK        	0x0007
-/*TODO*///#define	ORIENTATION_FLIP_X			0x0001	/* mirror everything in the X direction */
-/*TODO*///#define	ORIENTATION_FLIP_Y			0x0002	/* mirror everything in the Y direction */
-/*TODO*///#define ORIENTATION_SWAP_XY			0x0004	/* mirror along the top-left/bottom-right diagonal */
-/*TODO*///
-/*TODO*///#define GAME_NOT_WORKING			0x0008
+
+    /* ----- values for the flags field ----- */
+    public static final int ORIENTATION_MASK = 0x0007;
+    public static final int ORIENTATION_FLIP_X = 0x0001;/* mirror everything in the X direction */
+    public static final int ORIENTATION_FLIP_Y = 0x0002;/* mirror everything in the Y direction */
+    public static final int ORIENTATION_SWAP_XY = 0x0004;/* mirror along the top-left/bottom-right diagonal */
+
+ /*TODO*///#define GAME_NOT_WORKING			0x0008
 /*TODO*///#define GAME_UNEMULATED_PROTECTION	0x0010	/* game's protection not fully emulated */
 /*TODO*///#define GAME_WRONG_COLORS			0x0020	/* colors are totally wrong */
 /*TODO*///#define GAME_IMPERFECT_COLORS		0x0040	/* colors are not 100% accurate, but close */
@@ -521,20 +520,14 @@ public class driverH {
 /*TODO*///	rom_##NAME,								\
 /*TODO*///	(MONITOR)|(FLAGS)						\
 /*TODO*///};
-/*TODO*///
-/*TODO*////* monitor parameters to be used with the GAME() macro */
-/*TODO*///#define	ROT0	0
-/*TODO*///#define	ROT90	(ORIENTATION_SWAP_XY|ORIENTATION_FLIP_X)	/* rotate clockwise 90 degrees */
-/*TODO*///#define	ROT180	(ORIENTATION_FLIP_X|ORIENTATION_FLIP_Y)		/* rotate 180 degrees */
-/*TODO*///#define	ROT270	(ORIENTATION_SWAP_XY|ORIENTATION_FLIP_Y)	/* rotate counter-clockwise 90 degrees */
-/*TODO*///
-/*TODO*////* this allows to leave the INIT field empty in the GAME() macro call */
-/*TODO*///#define init_0 0
-/*TODO*///
-/*TODO*////* this allows to leave the BIOS field empty in the GAMEB() macro call */
-/*TODO*///#define system_bios_0 0
-/*TODO*///
-/*TODO*///
+
+    /* monitor parameters to be used with the GAME() macro */
+    public static final int ROT0 = 0;
+    public static final int ROT90 = (ORIENTATION_SWAP_XY | ORIENTATION_FLIP_X);/* rotate clockwise 90 degrees */
+    public static final int ROT180 = (ORIENTATION_FLIP_X | ORIENTATION_FLIP_Y);/* rotate 180 degrees */
+    public static final int ROT270 = (ORIENTATION_SWAP_XY | ORIENTATION_FLIP_Y);/* rotate counter-clockwise 90 degrees */
+
+ /*TODO*///
 /*TODO*////***************************************************************************
 /*TODO*///
 /*TODO*///	Global variables
