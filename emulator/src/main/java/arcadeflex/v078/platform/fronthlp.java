@@ -934,40 +934,41 @@ public class fronthlp {
 /*TODO*///			return 0;
 /*TODO*///			break;
 /*TODO*///
-/*TODO*///		case LIST_GAMES: /* list games, production year, manufacturer */
-/*TODO*///			for (i = 0; drivers[i]; i++)
-/*TODO*///				if ((listclones || drivers[i]->clone_of == 0
-/*TODO*///						|| (drivers[i]->clone_of->flags & NOT_A_DRIVER)
-/*TODO*///						) && !strwildcmp(gamename, drivers[i]->description))
-/*TODO*///				{
-/*TODO*///					char name[200];
-/*TODO*///
-/*TODO*///					printf("%-5s%-36s ",drivers[i]->year,drivers[i]->manufacturer);
-/*TODO*///
-/*TODO*///					namecopy(name,drivers[i]->description);
-/*TODO*///					printf("%s",name);
-/*TODO*///
-/*TODO*///					/* print the additional description only if we are listing clones */
-/*TODO*///					if (listclones)
-/*TODO*///					{
-/*TODO*///						if (strchr(drivers[i]->description,'('))
-/*TODO*///							printf(" %s",strchr(drivers[i]->description,'('));
-/*TODO*///					}
-/*TODO*///					printf("\n");
-/*TODO*///				}
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///
-/*TODO*///		case LIST_CLONES: /* list clones */
-/*TODO*///			printf("Name:    Clone of:\n");
-/*TODO*///			for (i = 0; drivers[i]; i++)
-/*TODO*///				if (drivers[i]->clone_of && !(drivers[i]->clone_of->flags & NOT_A_DRIVER) &&
-/*TODO*///						(!strwildcmp(gamename,drivers[i]->name)
-/*TODO*///								|| !strwildcmp(gamename,drivers[i]->clone_of->name)))
-/*TODO*///					printf("%-8s %-8s\n",drivers[i]->name,drivers[i]->clone_of->name);
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///
+            case LIST_GAMES:
+                /* list games, production year, manufacturer */
+                for (i = 0; drivers[i] != null; i++) {
+                    if ((listclones != 0 || drivers[i].clone_of == null
+                            || (drivers[i].clone_of.flags & NOT_A_DRIVER) != 0) && strwildcmp(gamename, drivers[i].description) == 0) {
+                        String name = "";
+
+                        printf("%-5s%-36s ", drivers[i].year, drivers[i].manufacturer);
+
+                        name = namecopy(name, drivers[i].description);
+                        printf("%s", name);
+
+                        /* print the additional description only if we are listing clones */
+                        if (listclones != 0) {
+                            if (strchr(drivers[i].description, '(') != null) {
+                                printf(" %s", strchr(drivers[i].description, '('));
+                            }
+                        }
+                        printf("\n");
+                    }
+                }
+                return 0;
+
+            case LIST_CLONES:
+                /* list clones */
+                printf("Name:    Clone of:\n");
+                for (i = 0; drivers[i] != null; i++) {
+                    if (drivers[i].clone_of != null && (drivers[i].clone_of.flags & NOT_A_DRIVER) == 0
+                            && (strwildcmp(gamename, drivers[i].name) == 0
+                            || strwildcmp(gamename, drivers[i].clone_of.name) == 0)) {
+                        printf("%-8s %-8s\n", drivers[i].name, drivers[i].clone_of.name);
+                    }
+                }
+                return 0;
+            /*TODO*///
 /*TODO*///		case LIST_WRONGORIENTATION: /* list drivers which incorrectly use the orientation and visible area fields */
 /*TODO*///			for (i = 0; drivers[i]; i++)
 /*TODO*///			{
@@ -1056,69 +1057,81 @@ public class fronthlp {
 /*TODO*///			return 0;
 /*TODO*///			break;
 /*TODO*///
-/*TODO*///		case LIST_SOURCEFILE:
-/*TODO*///			for (i = 0; drivers[i]; i++)
-/*TODO*///				if (!strwildcmp(gamename,drivers[i]->name))
-/*TODO*///					printf("%-8s %s\n",drivers[i]->name,drivers[i]->source_file);
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///
-/*TODO*///		case LIST_GAMESPERSOURCEFILE:
-/*TODO*///			{
-/*TODO*///				#define MAXCOUNT 8
-/*TODO*///
-/*TODO*///				int numcount[MAXCOUNT],gamescount[MAXCOUNT];
-/*TODO*///
-/*TODO*///				for (i = 0;i < MAXCOUNT;i++) numcount[i] = gamescount[i] = 0;
-/*TODO*///
-/*TODO*///				for (i = 0; drivers[i]; i++)
-/*TODO*///				{
-/*TODO*///					if (drivers[i]->clone_of == 0 ||
-/*TODO*///							(drivers[i]->clone_of->flags & NOT_A_DRIVER))
-/*TODO*///					{
-/*TODO*///						const char *sf = drivers[i]->source_file;
-/*TODO*///						int total = 0;
-/*TODO*///
-/*TODO*///						for (j = 0; drivers[j]; j++)
-/*TODO*///						{
-/*TODO*///							if (drivers[j]->clone_of == 0 ||
-/*TODO*///									(drivers[j]->clone_of->flags & NOT_A_DRIVER))
-/*TODO*///							{
-/*TODO*///								if (drivers[j]->source_file == sf)
-/*TODO*///								{
-/*TODO*///									if (j < i) break;
-/*TODO*///
-/*TODO*///									total++;
-/*TODO*///								}
-/*TODO*///							}
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						if (total)
-/*TODO*///						{
-/*TODO*///							if (total == 1)							{ numcount[0]++; gamescount[0] += total; }
-/*TODO*///							else if (total >= 2 && total <= 3)		{ numcount[1]++; gamescount[1] += total; }
-/*TODO*///							else if (total >= 4 && total <= 7)		{ numcount[2]++; gamescount[2] += total; }
-/*TODO*///							else if (total >= 8 && total <= 15)		{ numcount[3]++; gamescount[3] += total; }
-/*TODO*///							else if (total >= 16 && total <= 31)	{ numcount[4]++; gamescount[4] += total; }
-/*TODO*///							else if (total >= 32 && total <= 63)	{ numcount[5]++; gamescount[5] += total; }
-/*TODO*///							else if (total >= 64)					{ numcount[6]++; gamescount[6] += total; }
-/*TODO*///						}
-/*TODO*///					}
-/*TODO*///				}
-/*TODO*///
-/*TODO*///				printf("1\t%d\t%d\n",		numcount[0],gamescount[0]);
-/*TODO*///				printf("2-3\t%d\t%d\n",		numcount[1],gamescount[1]);
-/*TODO*///				printf("4-7\t%d\t%d\n",		numcount[2],gamescount[2]);
-/*TODO*///				printf("8-15\t%d\t%d\n",	numcount[3],gamescount[3]);
-/*TODO*///				printf("16-31\t%d\t%d\n",	numcount[4],gamescount[4]);
-/*TODO*///				printf("32-63\t%d\t%d\n",	numcount[5],gamescount[5]);
-/*TODO*///				printf("64+\t%d\t%d\n",		numcount[6],gamescount[6]);
-/*TODO*///
-/*TODO*///				#undef MAXCOUNT
-/*TODO*///			}
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///
+            case LIST_SOURCEFILE:
+                for (i = 0; drivers[i] != null; i++) {
+                    if (strwildcmp(gamename, drivers[i].name) == 0) {
+                        printf("%-8s %s\n", drivers[i].name, drivers[i].source_file);
+                    }
+                }
+                return 0;
+
+            case LIST_GAMESPERSOURCEFILE: {
+                int MAXCOUNT = 8;
+
+                int[] numcount = new int[MAXCOUNT];
+                int[] gamescount = new int[MAXCOUNT];
+
+                for (i = 0; i < MAXCOUNT; i++) {
+                    numcount[i] = gamescount[i] = 0;
+                }
+
+                for (i = 0; drivers[i] != null; i++) {
+                    if (drivers[i].clone_of == null
+                            || ((drivers[i].clone_of.flags & NOT_A_DRIVER) != 0)) {
+                        String sf = drivers[i].source_file;
+                        int total = 0;
+
+                        for (j = 0; drivers[j] != null; j++) {
+                            if (drivers[j].clone_of == null
+                                    || ((drivers[j].clone_of.flags & NOT_A_DRIVER) != 0)) {
+                                if (drivers[j].source_file == sf) {
+                                    if (j < i) {
+                                        break;
+                                    }
+
+                                    total++;
+                                }
+                            }
+                        }
+
+                        if (total != 0) {
+                            if (total == 1) {
+                                numcount[0]++;
+                                gamescount[0] += total;
+                            } else if (total >= 2 && total <= 3) {
+                                numcount[1]++;
+                                gamescount[1] += total;
+                            } else if (total >= 4 && total <= 7) {
+                                numcount[2]++;
+                                gamescount[2] += total;
+                            } else if (total >= 8 && total <= 15) {
+                                numcount[3]++;
+                                gamescount[3] += total;
+                            } else if (total >= 16 && total <= 31) {
+                                numcount[4]++;
+                                gamescount[4] += total;
+                            } else if (total >= 32 && total <= 63) {
+                                numcount[5]++;
+                                gamescount[5] += total;
+                            } else if (total >= 64) {
+                                numcount[6]++;
+                                gamescount[6] += total;
+                            }
+                        }
+                    }
+                }
+
+                printf("1\t%d\t%d\n", numcount[0], gamescount[0]);
+                printf("2-3\t%d\t%d\n", numcount[1], gamescount[1]);
+                printf("4-7\t%d\t%d\n", numcount[2], gamescount[2]);
+                printf("8-15\t%d\t%d\n", numcount[3], gamescount[3]);
+                printf("16-31\t%d\t%d\n", numcount[4], gamescount[4]);
+                printf("32-63\t%d\t%d\n", numcount[5], gamescount[5]);
+                printf("64+\t%d\t%d\n", numcount[6], gamescount[6]);
+
+            }
+            return 0;
+            /*TODO*///
 /*TODO*///		case LIST_CRC: /* list all crc-32 */
 /*TODO*///		case LIST_SHA1: /* list all sha-1 */
 /*TODO*///		case LIST_MD5:  /* list all md5 */
