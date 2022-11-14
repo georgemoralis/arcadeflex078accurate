@@ -12,6 +12,9 @@ import static arcadeflex.v078.mame.version.*;
 import static arcadeflex.v078.platform.rcH.*;
 //common imports
 import static common.libc.cstdio.*;
+import static common.libc.cstring.strchr;
+import static common.libc.cstring.strncmp;
+import static common.libc.cstring.strstr;
 
 public class fronthlp {
 
@@ -164,9 +167,9 @@ public class fronthlp {
 /*TODO*////* for this to work correctly, the shells internal wildcard expansion */
 /*TODO*////* mechanism has to be disabled. Look into msdos.c */
 /*TODO*///
-/*TODO*///int strwildcmp(const char *sp1, const char *sp2)
-/*TODO*///{
-/*TODO*///	char s1[9], s2[9];
+    static int strwildcmp(String sp1, String sp2) {
+        return 0; //TODO FIX ME 
+        /*TODO*///	char s1[9], s2[9];
 /*TODO*///	int i, l1, l2;
 /*TODO*///	char *p;
 /*TODO*///
@@ -209,27 +212,29 @@ public class fronthlp {
 /*TODO*///	}
 /*TODO*///
 /*TODO*///	return stricmp(s1, s2);
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///static void namecopy(char *name_ref,const char *desc)
-/*TODO*///{
-/*TODO*///	char name[200];
-/*TODO*///
-/*TODO*///	strcpy(name,desc);
-/*TODO*///
-/*TODO*///	/* remove details in parenthesis */
-/*TODO*///	if (strstr(name," (")) *strstr(name," (") = 0;
-/*TODO*///
-/*TODO*///	/* Move leading "The" to the end */
-/*TODO*///	if (strncmp(name,"The ",4) == 0)
-/*TODO*///	{
-/*TODO*///		sprintf(name_ref,"%s, The",name+4);
-/*TODO*///	}
-/*TODO*///	else
-/*TODO*///		sprintf(name_ref,"%s",name);
-/*TODO*///}
-/*TODO*///
+    }
+
+    static String namecopy(String name_ref, String desc) {
+        String name = "";
+
+        name = desc;
+
+        /* remove details in parenthesis */
+        if (strstr(name, " (") != -1) {
+            name = name.substring(0, strstr(name, " ("));
+        }
+
+        /* Move leading "The" to the end */
+        if (strncmp(name.toCharArray(), "The ", 4) == false) {
+            name_ref = sprintf("%s, The", name + 4);
+        } else {
+            name_ref = sprintf("%s", name);
+        }
+
+        return name_ref;
+    }
+
+    /*TODO*///
 /*TODO*///
 /*TODO*////* Identifies a rom from from this checksum */
 /*TODO*///static void match_roms(const struct GameDriver *driver,const char* hash,int *found)
@@ -547,7 +552,7 @@ public class fronthlp {
                 printf("\nMAME currently supports the following games:\n\n");
                 for (i = j = 0; drivers[i] != null; i++) {
                     if ((listclones != 0 || drivers[i].clone_of == null
-                            || (drivers[i].clone_of.flags & NOT_A_DRIVER) != 0) /*&& !strwildcmp(gamename, drivers[i]->name)*/) {
+                            || (drivers[i].clone_of.flags & NOT_A_DRIVER) != 0) && strwildcmp(gamename, drivers[i].name) == 0) {
                         printf("%-8s", drivers[i].name);
                         j++;
                         if ((j % 8) == 0) {
@@ -566,30 +571,30 @@ public class fronthlp {
                 }
                 printf("Total ROM sets supported: %4d\n", i);
                 return 0;
-            /*TODO*///		case LIST_FULL: /* games list with descriptions */
-/*TODO*///			printf("Name:     Description:\n");
-/*TODO*///			for (i = 0; drivers[i]; i++)
-/*TODO*///				if ((listclones || drivers[i]->clone_of == 0
-/*TODO*///						|| (drivers[i]->clone_of->flags & NOT_A_DRIVER)
-/*TODO*///						) && !strwildcmp(gamename, drivers[i]->name))
-/*TODO*///				{
-/*TODO*///					char name[200];
-/*TODO*///
-/*TODO*///					printf("%-10s",drivers[i]->name);
-/*TODO*///
-/*TODO*///					namecopy(name,drivers[i]->description);
-/*TODO*///					printf("\"%s",name);
-/*TODO*///
-/*TODO*///					/* print the additional description only if we are listing clones */
-/*TODO*///					if (listclones)
-/*TODO*///					{
-/*TODO*///						if (strchr(drivers[i]->description,'('))
-/*TODO*///							printf(" %s",strchr(drivers[i]->description,'('));
-/*TODO*///					}
-/*TODO*///					printf("\"\n");
-/*TODO*///				}
-/*TODO*///			return 0;
-/*TODO*///			break;
+            case LIST_FULL:
+                /* games list with descriptions */
+                printf("Name:     Description:\n");
+                for (i = j = 0; drivers[i] != null; i++) {
+                    if ((listclones != 0 || drivers[i].clone_of == null
+                            || (drivers[i].clone_of.flags & NOT_A_DRIVER) != 0) && strwildcmp(gamename, drivers[i].name) == 0) {
+                        String name = "";
+
+                        printf("%-10s", drivers[i].name);
+
+                        name = namecopy(name, drivers[i].description);
+                        printf("\"%s", name);
+
+                        /* print the additional description only if we are listing clones */
+                        if (listclones != 0) {
+                            if (strchr(drivers[i].description, '(') != null) {
+                                printf(" %s", strchr(drivers[i].description, '('));
+                            }
+                        }
+                        printf("\"\n");
+                    }
+                }
+                return 0;
+            /*TODO*///			break;
 /*TODO*///
 /*TODO*///		case LIST_SAMDIR: /* games list with samples directories */
 /*TODO*///			printf("Name:     Samples dir:\n");
