@@ -420,12 +420,12 @@ public class thief
 		0	/* end of array */
 	};
 	
-	static struct Samplesinterface sharkatt_samples_interface =
-	{
+	static Samplesinterface sharkatt_samples_interface = new Samplesinterface
+	(
 		2,	/* number of channels */
 		50,	/* volume */
 		sharkatt_sample_names
-	};
+	);
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	
@@ -437,12 +437,12 @@ public class thief
 		0	/* end of array */
 	};
 	
-	static struct Samplesinterface thief_samples_interface =
-	{
+	static Samplesinterface thief_samples_interface = new Samplesinterface
+	(
 		2,	/* number of channels */
 		50,	/* volume */
 		thief_sample_names
-	};
+	);
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	
@@ -454,12 +454,12 @@ public class thief
 		0	/* end of array */
 	};
 	
-	static struct Samplesinterface natodef_samples_interface =
-	{
+	static Samplesinterface natodef_samples_interface = new Samplesinterface
+	(
 		2,	/* number of channels */
 		50,	/* volume */
 		natodef_sample_names
-	};
+	);
 	
 	
 	

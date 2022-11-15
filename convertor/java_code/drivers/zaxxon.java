@@ -1111,12 +1111,12 @@ public class zaxxon
 		0
 	};
 	
-	static struct Samplesinterface zaxxon_samples_interface =
-	{
+	static Samplesinterface zaxxon_samples_interface = new Samplesinterface
+	(
 		12, /* 12 channels */
 		25, /* volume */
 		zaxxon_sample_names
-	};
+	);
 	
 	static const char *congo_sample_names[] =
 	{
@@ -1129,12 +1129,12 @@ public class zaxxon
 		0
 	};
 	
-	static struct Samplesinterface congo_samples_interface =
-	{
+	static Samplesinterface congo_samples_interface = new Samplesinterface
+	(
 		5,	/* 5 channels */
 		25, /* volume */
 		congo_sample_names
-	};
+	);
 	
 	/* Sound Interfaces */
 	

@@ -166,12 +166,12 @@ public class starcrus
 	    0   /* end of array */
 	};
 	
-	static struct Samplesinterface samples_interface =
-	{
+	static Samplesinterface samples_interface = new Samplesinterface
+	(
 	    4,	/* 4 channels */
 		100,	/* volume */
 		starcrus_sample_names
-	};
+	);
 	
 	
 	static MACHINE_DRIVER_START( starcrus )

@@ -653,12 +653,12 @@ public class sega
 	};
 	
 	
-	static struct Samplesinterface spacfury_samples_interface =
-	{
+	static Samplesinterface spacfury_samples_interface = new Samplesinterface
+	(
 		8,	/* 8 channels */
 		10, /* volume */
 		spacfury_sample_names
-	};
+	);
 	
 	
 	/*************************************
@@ -690,12 +690,12 @@ public class sega
 	};
 	
 	
-	static struct Samplesinterface zektor_samples_interface =
-	{
+	static Samplesinterface zektor_samples_interface = new Samplesinterface
+	(
 		8,
 		10, /* volume */
 		zektor_sample_names
-	};
+	);
 	
 	
 	
@@ -736,12 +736,12 @@ public class sega
 	};
 	
 	
-	static struct Samplesinterface tacscan_samples_interface =
-	{
+	static Samplesinterface tacscan_samples_interface = new Samplesinterface
+	(
 		12, /* 12 channels */
 		100, /* volume */
 		tacscan_sample_names
-	};
+	);
 	
 	
 	static struct CustomSound_interface tacscan_custom_interface =
@@ -777,12 +777,12 @@ public class sega
 		0	/* end of array */
 	};
 	
-	static struct Samplesinterface elim2_samples_interface =
-	{
+	static Samplesinterface elim2_samples_interface = new Samplesinterface
+	(
 		8,	/* 8 channels */
 		100, /* volume */
 		elim_sample_names
-	};
+	);
 	
 	
 	
@@ -828,12 +828,12 @@ public class sega
 	};
 	
 	
-	static struct Samplesinterface startrek_samples_interface =
-	{
+	static Samplesinterface startrek_samples_interface = new Samplesinterface
+	(
 		5, /* 5 channels */
 		10, /* volume */
 		startrek_sample_names
-	};
+	);
 	
 	
 	

@@ -40,6 +40,7 @@ public class convertMame {
     static final int GFXLAYOUT = 18;
     static final int GFXDECODE = 19;
     static final int AY8910INTF = 20;
+    static final int SAMPLESINTF = 21;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -779,6 +780,20 @@ public class convertMame {
                                 continue;
                             }
                         }
+                        if (sUtil.getToken("Samplesinterface")) {
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '=') {
+                                Convertor.inpos = i;
+                            } else {
+                                sUtil.skipSpace();
+                                sUtil.putString("static Samplesinterface " + Convertor.token[0] + " = new Samplesinterface");
+                                type = SAMPLESINTF;
+                                i3 = -1;
+                                continue;
+                            }
+                        }
                     }
                 }
                 Convertor.inpos = i;
@@ -1040,6 +1055,15 @@ public class convertMame {
                             continue;
                         }
                     }
+                    if (type == SAMPLESINTF) {
+                        i3++;
+                        insideagk[i3] = 0;
+                        if (i3 == 0) {
+                            Convertor.outbuf[(Convertor.outpos++)] = '(';
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -1086,6 +1110,15 @@ public class convertMame {
                         }
                     }
                     if (type == AY8910INTF) {
+                        i3--;
+                        if (i3 == -1) {
+                            Convertor.outbuf[(Convertor.outpos++)] = 41;
+                            Convertor.inpos += 1;
+                            type = -1;
+                            continue;
+                        }
+                    }
+                    if (type == SAMPLESINTF) {
                         i3--;
                         if (i3 == -1) {
                             Convertor.outbuf[(Convertor.outpos++)] = 41;

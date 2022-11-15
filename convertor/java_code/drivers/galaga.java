@@ -376,12 +376,12 @@ public class galaga
 		0       /* end of array */
 	};
 	
-	static struct Samplesinterface samples_interface =
-	{
+	static Samplesinterface samples_interface = new Samplesinterface
+	(
 		1,	/* one channel */
 		80,	/* volume */
 		galaga_sample_names
-	};
+	);
 	
 	
 	static MACHINE_DRIVER_START( galaga )

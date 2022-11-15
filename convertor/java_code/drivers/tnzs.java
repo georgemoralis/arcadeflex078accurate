@@ -1673,11 +1673,11 @@ public class tnzs
 		{ kageki_csport_w },
 	};
 	
-	static struct Samplesinterface samples_interface =
-	{
+	static Samplesinterface samples_interface = new Samplesinterface
+	(
 		1,					/* 1 channel */
 		100					/* volume */
-	};
+	);
 	
 	static struct CustomSound_interface custom_interface =
 	{

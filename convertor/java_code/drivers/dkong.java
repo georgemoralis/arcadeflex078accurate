@@ -1457,19 +1457,19 @@ public class dkong
 		0	/* end of array */
 	};
 	
-	static struct Samplesinterface dkong_samples_interface =
-	{
+	static Samplesinterface dkong_samples_interface = new Samplesinterface
+	(
 		8,	/* 8 channels */
 		25,	/* volume */
 		dkong_sample_names
-	};
+	);
 	
-	static struct Samplesinterface dkongjr_samples_interface =
-	{
+	static Samplesinterface dkongjr_samples_interface = new Samplesinterface
+	(
 		8,	/* 8 channels */
 		25,	/* volume */
 		dkongjr_sample_names
-	};
+	);
 	
 	static MACHINE_DRIVER_START( radarscp )
 	
