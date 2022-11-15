@@ -105,7 +105,7 @@ public class sbasketb
 	} };
 	
 	public static WriteHandlerPtr sbasketb_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != data)
+		if (flip_screen() != data)
 		{
 			flip_screen_set(data);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -159,7 +159,7 @@ public class sbasketb
 				int flipx =  spriteram[offs + 1] & 0x40;
 				int flipy =  spriteram[offs + 1] & 0x80;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;

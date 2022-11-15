@@ -85,7 +85,7 @@ public class grobda
 			int flipy = spriteram[offs+0x1780] & 2;
 			int width,height;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				flipy = !flipy;
@@ -166,7 +166,7 @@ public class grobda
 					sy = my - 2;
 				}
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 35 - sx;
 					sy = 27 - sy;
@@ -175,7 +175,7 @@ public class grobda
 				drawgfx(tmpbitmap,Machine->gfx[0],
 						videoram[offs],
 						colorram.read(offs)& 0x3f,
-						flip_screen,flip_screen,
+						flip_screen(),flip_screen(),
 						sx*8,sy*8,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
 	        }

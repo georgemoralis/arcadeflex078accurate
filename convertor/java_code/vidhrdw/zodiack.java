@@ -55,7 +55,7 @@ public class zodiack
 	} };
 	
 	public static WriteHandlerPtr zodiack_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (~data & 0x01))
+		if (flip_screen() != (~data & 0x01))
 		{
 			flip_screen_set(~data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -154,7 +154,7 @@ public class zodiack
 		tilemap_set_transparent_pen(fg_tilemap, 0);
 		tilemap_set_scroll_cols(fg_tilemap, 32);
 	
-		flip_screen = 0;
+		flip_screen() = 0;
 	
 		return 0;
 	} };
@@ -170,7 +170,7 @@ public class zodiack
 			x = zodiack_bulletsram[offs + 3] + Machine->drv->gfxdecodeinfo[2].gfxlayout->width;
 			y = 255 - zodiack_bulletsram[offs + 1];
 	
-			if (flip_screen && percuss_hardware)
+			if (flip_screen() && percuss_hardware)
 			{
 				y = 255 - y;
 			}
@@ -200,7 +200,7 @@ public class zodiack
 			flipy = spriteram[offs + 1] & 0x80;
 			spritecode = spriteram[offs + 1] & 0x3f;
 	
-			if (flip_screen && percuss_hardware)
+			if (flip_screen() && percuss_hardware)
 			{
 				sy = 240 - sy;
 				flipy = !flipy;
@@ -211,7 +211,7 @@ public class zodiack
 				spriteram[offs + 2] & 0x07,
 				flipx, flipy,
 				sx, sy,
-				//flip_screen[0] ? &spritevisibleareaflipx : &spritevisiblearea,TRANSPARENCY_PEN,0);
+				//flip_screen()[0] ? &spritevisibleareaflipx : &spritevisiblearea,TRANSPARENCY_PEN,0);
 				//&spritevisiblearea,TRANSPARENCY_PEN,0);
 				&Machine->visible_area, TRANSPARENCY_PEN, 0);
 		}

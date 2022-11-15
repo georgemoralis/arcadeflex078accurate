@@ -208,7 +208,7 @@ public class appoooh
 	
 			if(sx>=248) sx -= 256;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 239 - sx;
 				sy = 239 - sy;
@@ -217,7 +217,7 @@ public class appoooh
 			drawgfx( dest_bmp, gfx,
 					code,
 					color,
-					flipx,flip_screen,
+					flipx,flip_screen(),
 					sx, sy,
 					cliprect,
 					TRANSPARENCY_PEN , 0);

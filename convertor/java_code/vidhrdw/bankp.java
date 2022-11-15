@@ -139,7 +139,7 @@ public class bankp
 		interrupt_enable_w(0,(data & 0x10)>>4);
 	
 		/* bit 5 controls screen flip */
-		if (flip_screen != (data & 0x20))
+		if (flip_screen() != (data & 0x20))
 		{
 			flip_screen_set(data & 0x20);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -189,7 +189,7 @@ public class bankp
 		/* The tilemap has to be shifted to the left in flip screen mode
 			because the visible tilemap data is not centered in video memory */
 	
-		if (flip_screen)
+		if (flip_screen())
 		{
 			tilemap_set_scrollx(fg_tilemap, 0, -scroll_x - 16);
 			tilemap_set_scrollx(bg_tilemap, 0, -16);

@@ -125,7 +125,7 @@ public class wilytowr
 	} };
 	
 	public static WriteHandlerPtr wilytwr_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (~data & 0x01))
+		if (flip_screen() != (~data & 0x01))
 		{
 			flip_screen_set(~data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -180,7 +180,7 @@ public class wilytowr
 			int sx = spriteram[offs + 3];
 			int sy = 238 - spriteram[offs];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 238 - sy;

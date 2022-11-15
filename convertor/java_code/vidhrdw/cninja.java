@@ -210,7 +210,7 @@ public class cninja
 				inc = 1;
 			}
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				y=240-y;
 				x=240-x;
 				if (fx) fx=0; else fx=1;
@@ -278,7 +278,7 @@ public class cninja
 				inc = 1;
 			}
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				y=240-y;
 				x=304-x;
 				if (fx) fx=0; else fx=1;
@@ -368,7 +368,7 @@ public class cninja
 			fx = (spriteptr[offs+0]&0x4000);
 			fy = (spriteptr[offs+0]&0x8000);
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				if (fx) fx=0; else fx=1;
 				if (fy) fy=0; else fy=1;
 	

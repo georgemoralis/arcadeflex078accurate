@@ -234,7 +234,7 @@ public class pacland
 			int flipy = spriteram_3[offs] & 2;
 			int flipx = spriteram_3[offs] & 1;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				x += 8;
 				flipx = !flipx;

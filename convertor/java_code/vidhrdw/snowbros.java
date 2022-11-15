@@ -78,7 +78,7 @@ public class snowbros
 			if (x > 511) x &= 0x1ff;
 			if (y > 511) y &= 0x1ff;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - x;
 				sy = 240 - y;
@@ -120,7 +120,7 @@ public class snowbros
 	
 			if (wrapr == 8) xpos -= 256;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				xpos = 240 - xpos;
 				ypos = 240 - ypos;

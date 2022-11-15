@@ -50,7 +50,7 @@ public class spcforce
 			code = videoram[offs] + ((colorram.read(offs)& 0x01) << 8);
 			col  = (~colorram.read(offs)>> 4) & 0x07;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 248 - sx;
 				sy = 248 - sy;
@@ -58,7 +58,7 @@ public class spcforce
 	
 			drawgfx(bitmap,Machine->gfx[0],
 					code, col,
-					flip_screen, flip_screen,
+					flip_screen(), flip_screen(),
 					sx, sy,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}

@@ -164,7 +164,7 @@ public class othldrby
 			sizex = (buf_spriteram[offs+2] & 0x000f) + 1;
 			sizey = (buf_spriteram[offs+3] & 0x000f) + 1;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				flipy = !flipy;
@@ -195,7 +195,7 @@ public class othldrby
 	
 		for (layer = 0;layer < 3;layer++)
 		{
-			if (flip_screen)
+			if (flip_screen())
 			{
 				tilemap_set_scrollx(tilemap[layer],0,vreg[2*layer]+59);
 				tilemap_set_scrolly(tilemap[layer],0,vreg[2*layer+1]+248);

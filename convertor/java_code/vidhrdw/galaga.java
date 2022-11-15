@@ -231,7 +231,7 @@ public class galaga
 					sy = my - 2;
 				}
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 35 - sx;
 					sy = 27 - sy;
@@ -240,7 +240,7 @@ public class galaga
 				drawgfx(tmpbitmap,Machine->gfx[0],
 						videoram[offs]+galaga_gfxbank*0x100,
 						colorram.read(offs),
-						flip_screen,flip_screen,
+						flip_screen(),flip_screen(),
 						8*sx,8*sy,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
@@ -272,7 +272,7 @@ public class galaga
 				if (sy <= -16)
 					continue;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;

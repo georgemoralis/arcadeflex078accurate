@@ -89,7 +89,7 @@ public class superpac
 	public static ReadHandlerPtr superpac_flipscreen_r  = new ReadHandlerPtr() { public int handler(int offset){
 		flip_screen_set(1);
 	
-		return flip_screen;	/* return value not used */
+		return flip_screen();	/* return value not used */
 	} };
 	
 	
@@ -112,7 +112,7 @@ public class superpac
 				int flipy = spriteram_3[offs] & 2;
 				int pens;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;
@@ -239,14 +239,14 @@ public class superpac
 					sy = my - 2;
 				}
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 35 - sx;
 					sy = 27 - sy;
 				}
 	
 				drawgfx(tmpbitmap, Machine->gfx[0], videoram[offs], colorram.read(offs),
-						flip_screen, flip_screen, 8 * sx, 8 * sy,
+						flip_screen(), flip_screen(), 8 * sx, 8 * sy,
 						&Machine->visible_area, TRANSPARENCY_NONE, 0);
 			}
 	
@@ -281,14 +281,14 @@ public class superpac
 					sy = my - 2;
 				}
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 35 - sx;
 					sy = 27 - sy;
 				}
 	
 				drawgfx(bitmap, Machine->gfx[0], videoram[offs], colorram.read(offs),
-						flip_screen, flip_screen, 8 * sx, 8 * sy,
+						flip_screen(), flip_screen(), 8 * sx, 8 * sy,
 						&Machine->visible_area, TRANSPARENCY_COLOR, 31);
 			}
 	

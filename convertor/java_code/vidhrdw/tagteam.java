@@ -116,7 +116,7 @@ public class tagteam
 	} };
 	
 	public static WriteHandlerPtr tagteam_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data &0x01))
+		if (flip_screen() != (data &0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -157,7 +157,7 @@ public class tagteam
 	
 			if (!(videoram[offs] & 0x01)) continue;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;
@@ -176,7 +176,7 @@ public class tagteam
 	
 			code = videoram[offs + 0x20] + 256 * spritebank;
 			color = palettebank;
-			sy += (flip_screen ? -256 : 256);
+			sy += (flip_screen() ? -256 : 256);
 	
 			drawgfx(bitmap, Machine->gfx[1],
 				code, color,

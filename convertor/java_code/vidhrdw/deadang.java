@@ -114,7 +114,7 @@ public class deadang
 			color = (spriteram[offs+3]>>4)&0xf;
 			sprite = (spriteram[offs+2]+(spriteram[offs+3]<<8))&0xfff;
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				x=240-x;
 				y=240-y;
 				if (fx) fx=0; else fx=1;

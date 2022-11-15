@@ -138,7 +138,7 @@ public class citycon
 			sx = spriteram[offs + 3];
 			sy = 239 - spriteram[offs];
 			flipx = ~spriteram[offs + 2] & 0x10;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 238 - sy;
@@ -148,7 +148,7 @@ public class citycon
 			drawgfx(bitmap,Machine->gfx[spriteram[offs + 1] & 0x80 ? 2 : 1],
 					spriteram[offs + 1] & 0x7f,
 					spriteram[offs + 2] & 0x0f,
-					flipx,flip_screen,
+					flipx,flip_screen(),
 					sx,sy,
 					cliprect,TRANSPARENCY_PEN,0);
 		}

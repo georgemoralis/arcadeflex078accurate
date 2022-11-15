@@ -115,7 +115,7 @@ public class mjkjidai
 	
 			sx += (spriteram_2[offs] & 0x20) >> 5;	// not sure about this
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 496 - sx;
 				sy = 240 - sy;

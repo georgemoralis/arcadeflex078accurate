@@ -64,7 +64,7 @@ public class strnskil
 	public static WriteHandlerPtr strnskil_scrl_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		strnskil_scrl_ctrl = data >> 5;
 	
-		if (flip_screen != (data & 0x08))
+		if (flip_screen() != (data & 0x08))
 		{
 			flip_screen_set(data & 0x08);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -107,7 +107,7 @@ public class strnskil
 			int sy = spriteram[offs];
 			int px, py;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				px = 240 - sx + 0; /* +2 or +0 ? */
 				py = sy;

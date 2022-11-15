@@ -283,6 +283,14 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case 'f':
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("flip_screen")) {
+                        sUtil.putString((new StringBuilder()).append("flip_screen()").toString());
+                        continue;
+                    }
+                    Convertor.inpos = i;
+                    break;
                 case 'G': {
                     i = Convertor.inpos;
                     if (sUtil.getToken("GAME") || sUtil.getToken("GAMEX")) {

@@ -95,7 +95,7 @@ public class dooyong
 			sy = (32 * ((offs/2) % 8) - scrolly) & 0xff;
 			flipx = attr & 0x02;
 			flipy = attr & 0x04;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 512-32 - sx;
 				sy = 256-32 - sy;
@@ -143,7 +143,7 @@ public class dooyong
 			sy = (32 * ((offs/2) % 8) - scrolly) & 0xff;
 			flipx = attr & 0x40;
 			flipy = attr & 0x80;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 512-32 - sx;
 				sy = 256-32 - sy;
@@ -191,7 +191,7 @@ public class dooyong
 			sy = (32 * ((offs/2) % 8) - scrolly) & 0xff;
 			flipx = 0;
 			flipy = attr & 0x04;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 512-32 - sx;
 				sy = 256-32 - sy;
@@ -241,7 +241,7 @@ public class dooyong
 			if (sy > 256) sy -= 512;
 			flipx = attr & 0x40;
 			flipy = attr & 0x80;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 512-16 - sx;
 				sy = 256-16 - sy;
@@ -269,7 +269,7 @@ public class dooyong
 			attr = lastday_txvideoram[offs+0x800];
 			sx = offs / 32;
 			sy = offs % 32;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 63 - sx;
 				sy = 31 - sy;
@@ -278,7 +278,7 @@ public class dooyong
 			drawgfx(bitmap,Machine->gfx[0],
 					lastday_txvideoram[offs] | ((attr & 0x0f) << 8),
 					(attr & 0xf0) >> 4,
-					flip_screen,flip_screen,
+					flip_screen(),flip_screen(),
 					8*sx,8*(sy + yoffset),
 					&Machine->visible_area,TRANSPARENCY_PEN,15);
 		}
@@ -295,7 +295,7 @@ public class dooyong
 			attr = lastday_txvideoram[offs+1];
 			sx = (offs/2) / 32;
 			sy = (offs/2) % 32;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 63 - sx;
 				sy = 31 - sy;
@@ -304,7 +304,7 @@ public class dooyong
 			drawgfx(bitmap,Machine->gfx[0],
 					lastday_txvideoram[offs] | ((attr & 0x0f) << 8),
 					(attr & 0xf0) >> 4,
-					flip_screen,flip_screen,
+					flip_screen(),flip_screen(),
 					8*sx,8*sy,
 					&Machine->visible_area,TRANSPARENCY_PEN,15);
 		}
@@ -344,7 +344,7 @@ public class dooyong
 				}
 			}
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 498 - sx;
 				sy = 240-16*height - sy;
@@ -382,7 +382,7 @@ public class dooyong
 				width = buffered_spriteram16[offs+1] & 0x000f;
 				height = (buffered_spriteram16[offs+1] & 0x00f0) >> 4;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 498-16*width - sx;
 					sy = 240-16*height - sy;

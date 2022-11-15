@@ -138,7 +138,7 @@ public class bogeyman
 	
 				if (multi) sy -= 16;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;
@@ -158,7 +158,7 @@ public class bogeyman
 					drawgfx(bitmap,Machine->gfx[2],
 						code + 1, color,
 						flipx, flipy,
-						sx, sy + (flip_screen ? -16 : 16),
+						sx, sy + (flip_screen() ? -16 : 16),
 						&Machine->visible_area,
 						TRANSPARENCY_PEN, 0);
 				}

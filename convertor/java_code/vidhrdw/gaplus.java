@@ -289,7 +289,7 @@ public class gaplus
 	
 				if (number >= 128*3) continue;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;
@@ -383,7 +383,7 @@ public class gaplus
 				sy = my + 2;
 			}
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 27 - sx;
 				sy = 35 - sy;
@@ -396,7 +396,7 @@ public class gaplus
 	        drawgfx(bitmap,Machine->gfx[bank],
 	                videoram[offs],
 	                colorram.read(offs)& 0x3f,
-	                flip_screen,flip_screen,8*sy,8*sx,
+	                flip_screen(),flip_screen(),8*sy,8*sx,
 	                &Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	

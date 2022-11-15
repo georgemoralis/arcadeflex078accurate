@@ -296,7 +296,7 @@ public class travrusa
 			8*8, 32*8-1
 		};
 		struct rectangle clip = *cliprect;
-		if (flip_screen)
+		if (flip_screen())
 			sect_rect(&clip, &spritevisibleareaflip);
 		else
 			sect_rect(&clip, &spritevisiblearea);
@@ -311,7 +311,7 @@ public class travrusa
 			int flipx = attr & 0x40;
 			int flipy = attr & 0x80;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;

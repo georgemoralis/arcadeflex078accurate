@@ -651,7 +651,7 @@ public class metro
 	
 			gfxdata		=	base_gfx + (8*8*4/8) * (((attr & 0x000f) << 16) + code);
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;		x = max_x - x - width;
 				flipy = !flipy;		y = max_y - y - height;

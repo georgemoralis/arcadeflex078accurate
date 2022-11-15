@@ -136,7 +136,7 @@ public class exzisus
 					x = (sx + (xc << 3)) & 0xff;
 					y = (sy + (yc << 3)) & 0xff;
 	
-					if (flip_screen)
+					if (flip_screen())
 					{
 						x = 248 - x;
 						y = 248 - y;
@@ -145,7 +145,7 @@ public class exzisus
 					drawgfx(bitmap, Machine->gfx[0],
 							code & 0x3fff,
 							color,
-							flip_screen, flip_screen,
+							flip_screen(), flip_screen(),
 							x, y,
 							&Machine->visible_area, TRANSPARENCY_PEN, 15);
 					goffs += 2;
@@ -206,7 +206,7 @@ public class exzisus
 					x = (sx + (xc << 3)) & 0xff;
 					y = (sy + (yc << 3)) & 0xff;
 	
-					if (flip_screen)
+					if (flip_screen())
 					{
 						x = 248 - x;
 						y = 248 - y;
@@ -215,7 +215,7 @@ public class exzisus
 					drawgfx(bitmap, Machine->gfx[1],
 							code & 0x3fff,
 							color,
-							flip_screen, flip_screen,
+							flip_screen(), flip_screen(),
 							x, y,
 							&Machine->visible_area, TRANSPARENCY_PEN, 15);
 					goffs += 2;

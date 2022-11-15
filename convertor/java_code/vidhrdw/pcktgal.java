@@ -45,7 +45,7 @@ public class pcktgal
 	} };
 	
 	public static WriteHandlerPtr pcktgal_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data & 0x80))
+		if (flip_screen() != (data & 0x80))
 		{
 			flip_screen_set(data & 0x80);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -86,7 +86,7 @@ public class pcktgal
 	
 				flipx = spriteram[offs+1] & 0x04;
 				flipy = spriteram[offs+1] & 0x02;
-				if (flip_screen) {
+				if (flip_screen()) {
 					sx=240-sx;
 					sy=240-sy;
 					if (flipx) flipx=0; else flipx=1;

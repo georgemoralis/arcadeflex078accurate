@@ -354,7 +354,7 @@ public class psychic5
 			if (attr & 0x01) sx -= 256;
 			if (attr & 0x04) sy -= 256;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 224 - sx;
 				sy = 224 - sy;
@@ -390,7 +390,7 @@ public class psychic5
 			}
 			else
 			{
-				if (flip_screen)
+				if (flip_screen())
 					DRAW_SPRITE(code, sx + 16, sy + 16)
 				else
 					DRAW_SPRITE(code, sx, sy)

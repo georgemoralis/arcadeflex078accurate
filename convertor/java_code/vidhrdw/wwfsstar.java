@@ -162,7 +162,7 @@ public class wwfsstar
 				number = (source [3] & 0x00ff) | ((source [2] & 0x003f) << 8);
 				colourbank = (source [1] & 0x00f0) >> 4;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipy = !flipy;
 					flipx = !flipx;
@@ -172,7 +172,7 @@ public class wwfsstar
 	
 				for (count=0;count<chain;count++)
 				{
-					if (flip_screen)
+					if (flip_screen())
 					{
 						if (!flipy)
 						{

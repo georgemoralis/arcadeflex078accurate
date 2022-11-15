@@ -116,7 +116,7 @@ public class astrof
 		x = (offset >> 8) << 3;
 		y = 255 - (offset & 0xff);
 	
-		if (flip_screen)
+		if (flip_screen())
 		{
 			x = 255 - x;
 			y = 255 - y;

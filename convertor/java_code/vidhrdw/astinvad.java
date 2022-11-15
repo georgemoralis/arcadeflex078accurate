@@ -35,7 +35,7 @@ public class astinvad
 	
 		for (i = 0; i < 8; i++)
 		{
-			if (flip_screen)
+			if (flip_screen())
 			{
 				plot_pixel(tmpbitmap, 255 - (x + i), 255 - y, (data & 1) ? col : 0);
 			}
@@ -69,7 +69,7 @@ public class astinvad
 	
 		int col;
 	
-		if (!flip_screen)
+		if (!flip_screen())
 		{
 			col = memory_region(REGION_PROMS)[(~n + astinvad_adjust) & 0x3ff];
 		}

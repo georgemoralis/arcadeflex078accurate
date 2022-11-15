@@ -182,7 +182,7 @@ public class snk68
 			my=0x200 - my;
 			my-=0x200;
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				mx=240-mx;
 				my=240-my;
 			}
@@ -196,7 +196,7 @@ public class snk68
 					fx=tile&0x4000;
 					tile&=0x3fff;
 	
-					if (flip_screen) {
+					if (flip_screen()) {
 						if (fx) fx=0; else fx=1;
 						if (fy) fy=0; else fy=1;
 					}
@@ -209,7 +209,7 @@ public class snk68
 						cliprect,TRANSPARENCY_PEN,0);
 				}
 	
-				if (flip_screen) {
+				if (flip_screen()) {
 					my-=16;
 					if (my < -0x100) my+=0x200;
 				}
@@ -257,7 +257,7 @@ public class snk68
 			my=0x200 - my;
 			my-=0x200;
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				mx=240-mx;
 				my=240-my;
 			}
@@ -274,7 +274,7 @@ public class snk68
 						fx=tile&0x8000;
 					}
 	
-					if (flip_screen) {
+					if (flip_screen()) {
 						if (fx) fx=0; else fx=1;
 						if (fy) fy=0; else fy=1;
 					}
@@ -289,7 +289,7 @@ public class snk68
 						mx,my,
 						cliprect,TRANSPARENCY_PEN,0);
 				}
-				if (flip_screen) {
+				if (flip_screen()) {
 					my-=16;
 					if (my < -0x100) my+=0x200;
 				}

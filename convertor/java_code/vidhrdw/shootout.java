@@ -119,7 +119,7 @@ public class shootout
 					int flipx = (attributes & 0x04);
 					int flipy = 0;
 	
-					if (flip_screen) {
+					if (flip_screen()) {
 						flipx = !flipx;
 						flipy = !flipy;
 					}
@@ -130,7 +130,7 @@ public class shootout
 	
 						vx = sx;
 						vy = sy;
-						if (flip_screen) {
+						if (flip_screen()) {
 							vx = 240 - vx;
 							vy = 240 - vy;
 						}
@@ -149,7 +149,7 @@ public class shootout
 	
 					vx = sx;
 					vy = sy;
-					if (flip_screen) {
+					if (flip_screen()) {
 						vx = 240 - vx;
 						vy = 240 - vy;
 					}

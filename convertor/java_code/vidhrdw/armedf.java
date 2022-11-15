@@ -238,7 +238,7 @@ public class armedf
 			int sx = buffered_spriteram16[offs+3];
 			int sy = sprite_offy+240-(buffered_spriteram16[offs+0]&0x1ff);
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				sx = 320 - sx + 176;	/* don't ask where 176 comes from, just tried it out */
 				sy = 240 - sy + 1;		/* don't ask where 1 comes from, just tried it out */
 				flipx = !flipx;			/* the values seem to result in pixel-correct placement */

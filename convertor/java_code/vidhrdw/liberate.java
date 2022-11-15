@@ -228,7 +228,7 @@ public class liberate
 	
 			if (multi) sy-=16;
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				sy=240-sy;
 				sx=240-sx;
 				if (fx) fx=0; else fx=1;
@@ -280,7 +280,7 @@ public class liberate
 	//		if (multi) sy-=16;
 			if (fy && multi) { code2=code; code++; }
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				sy=240-sy;
 				sx=240-sx;
 				if (fx) fx=0; else fx=1;
@@ -336,7 +336,7 @@ public class liberate
 	//		if (multi) sy-=16;
 			if (fy && multi) { code2=code; code++; }
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				sy=240-sy;
 				sx=240-sx;
 				if (fx) fx=0; else fx=1;

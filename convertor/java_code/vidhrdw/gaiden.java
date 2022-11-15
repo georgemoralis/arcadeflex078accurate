@@ -407,7 +407,7 @@ public class gaiden
 				if (ypos >= 256)
 					ypos -= 512;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;

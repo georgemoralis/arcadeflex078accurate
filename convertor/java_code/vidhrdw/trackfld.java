@@ -99,7 +99,7 @@ public class trackfld
 	} };
 	
 	public static WriteHandlerPtr trackfld_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != data)
+		if (flip_screen() != data)
 		{
 			flip_screen_set(data);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -142,7 +142,7 @@ public class trackfld
 			int sx = spriteram[offs] - 1;
 			int sy = 240 - spriteram_2[offs + 1];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sy = 240 - sy;
 				flipy = !flipy;
@@ -175,7 +175,7 @@ public class trackfld
 		for (row = 0; row < 32; row++)
 		{
 			scrollx = trackfld_scroll[row] + 256 * (trackfld_scroll2[row] & 0x01);
-			if (flip_screen) scrollx = -scrollx;
+			if (flip_screen()) scrollx = -scrollx;
 			tilemap_set_scrollx(bg_tilemap, row, scrollx);
 		}
 	

@@ -77,7 +77,7 @@ public class dassault
 					inc = 1;
 				}
 	
-				if (flip_screen) {
+				if (flip_screen()) {
 					y=240-y;
 					x=304-x;
 					if (fx) fx=0; else fx=1;

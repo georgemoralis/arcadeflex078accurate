@@ -262,7 +262,7 @@ public class dec8
 			y=(y+16)%0x200;
 			x=256 - x;
 			y=256 - y;
-			if (flip_screen) {
+			if (flip_screen()) {
 				y=240-y;
 				x=240-x;
 				if (fx) fx=0; else fx=1;
@@ -334,7 +334,7 @@ public class dec8
 				inc = 1;
 			}
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				y=240-y;
 				x=240-x;
 				if (fx) fx=0; else fx=1;
@@ -380,7 +380,7 @@ public class dec8
 			fx = buffered_spriteram[offs+1] & 0x04;
 			multi = buffered_spriteram[offs+1] & 0x10;
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				sy=240-sy;
 				sx=240-sx;
 				if (fx) fx=0; else fx=1;
@@ -391,14 +391,14 @@ public class dec8
 	    	drawgfx(bitmap,Machine->gfx[1],
 	        		code,
 					color,
-					fx,flip_screen,
+					fx,flip_screen(),
 					sx,sy,
 					cliprect,TRANSPARENCY_PEN,0);
 	        if (multi)
 	    		drawgfx(bitmap,Machine->gfx[1],
 					code+1,
 					color,
-					fx,flip_screen,
+					fx,flip_screen(),
 					sx,sy2,
 					cliprect,TRANSPARENCY_PEN,0);
 		}

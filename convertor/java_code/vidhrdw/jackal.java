@@ -94,7 +94,7 @@ public class jackal
 			flipy = sp & 0x40;
 			color = ((sn2 & 0xf0)>>4);
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				flipy = !flipy;

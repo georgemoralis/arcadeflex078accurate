@@ -204,7 +204,7 @@ public class cop01
 			sx = (spriteram[offs+3] - 0x80) + 256 * (attr & 0x01);
 			sy = 240 - spriteram[offs];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;

@@ -154,7 +154,7 @@ public class srumbler
 			sx = buffered_spriteram[offs + 3] + 0x100 * ( attr & 0x01);
 			flipy = attr & 0x02;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 496 - sx;
 				sy = 240 - sy;
@@ -164,7 +164,7 @@ public class srumbler
 			drawgfx(bitmap,Machine->gfx[2],
 					code,
 					colour,
-					flip_screen,flipy,
+					flip_screen(),flipy,
 					sx, sy,
 					cliprect,TRANSPARENCY_PEN,15);
 		}

@@ -28,7 +28,7 @@ public class exprraid
 	} };
 	
 	public static WriteHandlerPtr exprraid_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data & 0x01))
+		if (flip_screen() != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -120,7 +120,7 @@ public class exprraid
 			int sx = ((248 - spriteram[offs + 2]) & 0xff) - 8;
 			int sy = spriteram[offs];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;
@@ -141,7 +141,7 @@ public class exprraid
 				drawgfx(bitmap,Machine->gfx[1],
 					code + 1, color,
 					flipx, flipy,
-					sx, sy + (flip_screen ? -16 : 16),
+					sx, sy + (flip_screen() ? -16 : 16),
 					0, TRANSPARENCY_PEN, 0);
 			}
 		}

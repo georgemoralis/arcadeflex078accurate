@@ -386,7 +386,7 @@ public class m92
 				break;
 			case 6:
 			case 7:
-	//			if (flip_screen)
+	//			if (flip_screen())
 	//				m92_raster_irq_position=256-(((pf4_control[7]<<8) | pf4_control[6])-128);
 	//			else
 					m92_raster_irq_position=((pf4_control[7]<<8) | pf4_control[6])-128;
@@ -553,7 +553,7 @@ public class m92
 	
 				for (i=0; i<y_multi; i++)
 				{
-					if (flip_screen) {
+					if (flip_screen()) {
 						int ffx=fx,ffy=fy;
 						if (ffx) ffx=0; else ffx=1;
 						if (ffy) ffy=0; else ffy=1;
@@ -614,7 +614,7 @@ public class m92
 	
 		*/
 	
-		if (flip_screen) {
+		if (flip_screen()) {
 			pf1_off=-25;
 			pf2_off=-27;
 			pf3_off=-29;

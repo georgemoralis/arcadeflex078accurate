@@ -253,7 +253,7 @@ public class zaxxon
 			if (Machine->orientation & ORIENTATION_SWAP_XY)
 			{
 				/* standard rotation - skew background horizontally */
-				if (!flip_screen)
+				if (!flip_screen())
 				{
 					if (zaxxon_vid_type == CONGO_VID)
 						scroll = 1023+63 - (zaxxon_background_position[0] + 256*zaxxon_background_position[1]);
@@ -280,9 +280,9 @@ public class zaxxon
 	
 					if ((zaxxon_vid_type == ZAXXON_VID || zaxxon_vid_type == FUTSPY_VID)
 						 && (*zaxxon_background_color_bank & 1))
-						copybitmap(bitmap,backgroundbitmap2,flip_screen,flip_screen,-scroll,skew,&clip,TRANSPARENCY_NONE,0);
+						copybitmap(bitmap,backgroundbitmap2,flip_screen(),flip_screen(),-scroll,skew,&clip,TRANSPARENCY_NONE,0);
 					else
-						copybitmap(bitmap,backgroundbitmap1,flip_screen,flip_screen,-scroll,skew,&clip,TRANSPARENCY_NONE,0);
+						copybitmap(bitmap,backgroundbitmap1,flip_screen(),flip_screen(),-scroll,skew,&clip,TRANSPARENCY_NONE,0);
 	
 					skew += 2;
 				}
@@ -319,9 +319,9 @@ public class zaxxon
 	
 					if ((zaxxon_vid_type == ZAXXON_VID || zaxxon_vid_type == FUTSPY_VID)
 						 && (*zaxxon_background_color_bank & 1))
-						copybitmap(bitmap,backgroundbitmap2,flip_screen,flip_screen,skew,scroll,&clip,TRANSPARENCY_NONE,0);
+						copybitmap(bitmap,backgroundbitmap2,flip_screen(),flip_screen(),skew,scroll,&clip,TRANSPARENCY_NONE,0);
 					else
-						copybitmap(bitmap,backgroundbitmap1,flip_screen,flip_screen,skew,scroll,&clip,TRANSPARENCY_NONE,0);
+						copybitmap(bitmap,backgroundbitmap1,flip_screen(),flip_screen(),skew,scroll,&clip,TRANSPARENCY_NONE,0);
 	
 					skew--;
 				}
@@ -348,7 +348,7 @@ public class zaxxon
 				int sx = ((spriteram[offs + 3] + 16) & 0xff) - 32;
 				int sy = 255 - spriteram[offs] - 16;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;
@@ -499,7 +499,7 @@ public class zaxxon
 				int sx = ((spriteram[offs + 2 + 3] + 16) & 0xff) - 31;
 				int sy = 255 - spriteram[offs + 2] - 15;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;
@@ -536,7 +536,7 @@ public class zaxxon
 				int sx = ((spriteram[offs + 3] + 16) & 0xff) - 32;
 				int sy = 255 - spriteram[offs] - 16;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;

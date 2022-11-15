@@ -131,7 +131,7 @@ public class suprloco
 	static int suprloco_scrollram[32];
 	
 	public static WriteHandlerPtr suprloco_scrollram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		int adj = flip_screen ? -8 : 8;
+		int adj = flip_screen() ? -8 : 8;
 	
 		suprloco_scrollram[offset] = data;
 		tilemap_set_scrollx(bg_tilemap,offset, data - adj);
@@ -161,7 +161,7 @@ public class suprloco
 		coin_counter_w(1, data & 0x02);
 	
 		flip_screen_set(data & 0x80);
-		tilemap_set_scrolly(bg_tilemap,0,flip_screen ? -32 : 0);
+		tilemap_set_scrolly(bg_tilemap,0,flip_screen() ? -32 : 0);
 	
 		control = data;
 	} };
@@ -183,7 +183,7 @@ public class suprloco
 	
 	INLINE void draw_pixel(struct mame_bitmap *bitmap,const struct rectangle *cliprect,int x,int y,int color)
 	{
-		if (flip_screen)
+		if (flip_screen())
 		{
 			x = bitmap->width - x - 1;
 			y = bitmap->height - y - 1;
@@ -217,7 +217,7 @@ public class suprloco
 		sx = spr_reg[SPR_X];
 		sy = spr_reg[SPR_Y_TOP] + 1;
 	
-		if (!flip_screen)
+		if (!flip_screen())
 		{
 			adjy = sy;
 			dy = 1;

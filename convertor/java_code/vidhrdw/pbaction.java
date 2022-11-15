@@ -55,7 +55,7 @@ public class pbaction
 	
 	public static WriteHandlerPtr pbaction_scroll_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		scroll = data - 3;
-		if (flip_screen) scroll = -scroll;
+		if (flip_screen()) scroll = -scroll;
 		tilemap_set_scrollx(bg_tilemap, 0, scroll);
 		tilemap_set_scrollx(fg_tilemap, 0, scroll);
 	} };
@@ -120,7 +120,7 @@ public class pbaction
 				sy = 241-spriteram[offs+2];
 			flipx = spriteram[offs+1] & 0x40;
 			flipy =	spriteram[offs+1] & 0x80;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				if (spriteram[offs] & 0x80)
 				{
@@ -140,7 +140,7 @@ public class pbaction
 					spriteram[offs],
 					spriteram[offs + 1] & 0x0f,
 					flipx,flipy,
-					sx + (flip_screen ? scroll : -scroll), sy,
+					sx + (flip_screen() ? scroll : -scroll), sy,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	}

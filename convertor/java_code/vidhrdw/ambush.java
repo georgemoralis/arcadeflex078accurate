@@ -87,7 +87,7 @@ public class ambush
 	
 			code = videoram[offs] | ((col & 0x60) << 3);
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 31 - sx;
 				sy = 31 - sy;
@@ -97,7 +97,7 @@ public class ambush
 			drawgfx(bitmap,Machine->gfx[0],
 					code,
 					(col & 0x0f) | ((*ambush_colorbank & 0x03) << 4),
-					flip_screen,flip_screen,
+					flip_screen(),flip_screen(),
 					8*sx, (8*sy + scroll) & 0xff,
 					&Machine->visible_area,transparency,0);
 		}
@@ -137,7 +137,7 @@ public class ambush
 				/* 16x16 sprites */
 				gfx = 1;
 	
-				if (!flip_screen)
+				if (!flip_screen())
 				{
 					sy = 240 - sy;
 				}
@@ -152,7 +152,7 @@ public class ambush
 				gfx = 0;
 				code <<= 2;
 	
-				if (!flip_screen)
+				if (!flip_screen())
 				{
 					sy = 248 - sy;
 				}
@@ -166,7 +166,7 @@ public class ambush
 			flipx = spriteram[offs + 1] & 0x40;
 			flipy = spriteram[offs + 1] & 0x80;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				flipy = !flipy;

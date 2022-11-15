@@ -205,7 +205,7 @@ public class gunsmoke
 						flipx = p[offset+1] & 0x40;
 						flipy = p[offset+1] & 0x80;
 	
-						if (flip_screen)
+						if (flip_screen())
 						{
 							tx = 8 - tx;
 							ty = 8 - ty;
@@ -229,7 +229,7 @@ public class gunsmoke
 				xscroll = (top*32-bg_scrolly);
 				yscroll = -(left*32+bg_scrollx);
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					xscroll = 256 - xscroll;
 					yscroll = 256 - yscroll;
@@ -258,7 +258,7 @@ public class gunsmoke
 	 			sy = spriteram[offs + 2];
 				flipx = 0;
 				flipy = spriteram[offs + 1] & 0x10;
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;
@@ -283,7 +283,7 @@ public class gunsmoke
 			{
 				sx = offs % 32;
 				sy = offs / 32;
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 31 - sx;
 					sy = 31 - sy;
@@ -292,7 +292,7 @@ public class gunsmoke
 				drawgfx(bitmap,Machine->gfx[0],
 						videoram[offs] + ((colorram.read(offs)& 0xc0) << 2),
 						colorram.read(offs)& 0x1f,
-						!flip_screen,!flip_screen,
+						!flip_screen(),!flip_screen(),
 						8*sx,8*sy,
 						&Machine->visible_area,TRANSPARENCY_COLOR,79);
 			}

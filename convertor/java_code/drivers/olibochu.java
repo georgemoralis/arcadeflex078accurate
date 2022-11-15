@@ -80,7 +80,7 @@ public class olibochu
 	} };
 	
 	public static WriteHandlerPtr olibochu_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data & 0x80))
+		if (flip_screen() != (data & 0x80))
 		{
 			flip_screen_set(data & 0x80);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -125,7 +125,7 @@ public class olibochu
 			int sx = spriteram[offs+3];
 			int sy = ((spriteram[offs+2] + 8) & 0xff) - 8;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;
@@ -153,7 +153,7 @@ public class olibochu
 			int sx = spriteram_2[offs+3];
 			int sy = spriteram_2[offs+2];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 248 - sx;
 				sy = 248 - sy;

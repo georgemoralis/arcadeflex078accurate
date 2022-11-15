@@ -200,7 +200,7 @@ public class dec0
 				inc = 1;
 			}
 	
-			if (flip_screen) {
+			if (flip_screen()) {
 				y=240-y;
 				x=240-x;
 				if (fx) fx=0; else fx=1;

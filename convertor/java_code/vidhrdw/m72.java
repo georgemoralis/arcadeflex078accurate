@@ -522,7 +522,7 @@ public class m72
 			h = 1 << ((m72_spriteram[offs+5] & 0x30) >> 4);
 			sy -= 16 * h;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 512 - 16*w - sx;
 				sy = 512 - 16*h - sy;
@@ -574,7 +574,7 @@ public class m72
 			h = 1 << ((spriteram_2[offs+5] & 0x30) >> 4);
 			sy -= 16 * h;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 512 - 16*w - sx;
 				sy = 512 - 16*h - sy;

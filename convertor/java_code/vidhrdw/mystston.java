@@ -164,7 +164,7 @@ public class mystston
 				int sx = 240 - spriteram[offs + 3];
 				int sy = (240 - spriteram[offs + 2]) & 0xff;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;

@@ -167,7 +167,7 @@ public class ccastles
 			j = 2*addr;
 			x = j%256;
 			y = j/256;
-			if (!flip_screen)
+			if (!flip_screen())
 			{
 				plot_pixel(tmpbitmap, x  , y, Machine->pens[16 + ((videoram[addr] & 0xf0) >> 4)]);
 				plot_pixel(tmpbitmap, x+1, y, Machine->pens[16 +  (videoram[addr] & 0x0f)      ]);
@@ -277,7 +277,7 @@ public class ccastles
 		scrollx = 255 - *ccastles_scrollx;
 		scrolly = 255 - *ccastles_scrolly;
 	
-		if (flip_screen)
+		if (flip_screen())
 		{
 			scrollx = 254 - scrollx;
 			scrolly = 231 - scrolly;
@@ -309,7 +309,7 @@ public class ccastles
 				drawgfx(sprite_bm,Machine->gfx[0],
 						spriteaddr[offs],
 						0,
-						flip_screen,flip_screen,
+						flip_screen(),flip_screen(),
 						0,0,
 						0,TRANSPARENCY_NONE,0);
 	
@@ -339,7 +339,7 @@ public class ccastles
 				drawgfx(bitmap,Machine->gfx[0],
 						spriteaddr[offs],
 						0,
-						flip_screen,flip_screen,
+						flip_screen(),flip_screen(),
 						x,y,
 						cliprect,TRANSPARENCY_PEN,7);
 			}

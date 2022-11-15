@@ -57,7 +57,7 @@ public class missile
 			bottom = 0;
 	
 		/* cocktail mode */
-		if (flip_screen)
+		if (flip_screen())
 		{
 			y = tmpbitmap->height - 1 - y;
 		}

@@ -210,7 +210,7 @@ public class lwings
 				flipx = buffered_spriteram[offs + 1] & 0x02;
 				flipy = buffered_spriteram[offs + 1] & 0x04;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;
@@ -259,7 +259,7 @@ public class lwings
 					flipy = 1;
 				}
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;

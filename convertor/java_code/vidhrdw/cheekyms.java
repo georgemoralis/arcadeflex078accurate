@@ -150,7 +150,7 @@ public class cheekyms
 	
 			if (v1 & 0x80)
 			{
-				if (!flip_screen)
+				if (!flip_screen())
 				{
 					code++;
 				}
@@ -188,7 +188,7 @@ public class cheekyms
 			sx = offs % 32;
 			sy = offs / 32;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				man_area = ((sy >=  5) && (sy <= 25) && (sx >=  8) && (sx <= 12));
 			}
@@ -202,7 +202,7 @@ public class cheekyms
 			{
 				dirtybuffer[offs] = 0;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 31 - sx;
 					sy = 31 - sy;
@@ -211,7 +211,7 @@ public class cheekyms
 				drawgfx(tmpbitmap,Machine->gfx[0],
 						videoram[offs],
 						0 + char_palette,
-						flip_screen,flip_screen,
+						flip_screen(),flip_screen(),
 						8*sx, 8*sy - (man_area ? man_scroll : 0),
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
 			}

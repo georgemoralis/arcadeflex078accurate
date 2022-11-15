@@ -45,7 +45,7 @@ public class solomon
 	} };
 	
 	public static WriteHandlerPtr solomon_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data & 0x01))
+		if (flip_screen() != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -102,7 +102,7 @@ public class solomon
 			int sx = spriteram[offs + 3];
 			int sy = 241 - spriteram[offs + 2];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 242 - sy;

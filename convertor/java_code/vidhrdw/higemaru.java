@@ -81,7 +81,7 @@ public class higemaru
 		coin_counter_w(1,data & 1);
 	
 		/* bit 7 flips screen */
-		if (flip_screen != (data & 0x80))
+		if (flip_screen() != (data & 0x80))
 		{
 			flip_screen_set(data & 0x80);
 			tilemap_mark_all_tiles_dirty(bg_tilemap);
@@ -120,7 +120,7 @@ public class higemaru
 			sy = spriteram[offs + 8];
 			flipx = spriteram[offs + 4] & 0x10;
 			flipy = spriteram[offs + 4] & 0x20;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;

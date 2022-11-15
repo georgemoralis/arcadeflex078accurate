@@ -68,7 +68,7 @@ public class battlex
 	
 		/* bit 7 is flip screen */
 	
-		if (flip_screen != (data & 0x80))
+		if (flip_screen() != (data & 0x80))
 		{
 			flip_screen_set(data & 0x80);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -108,7 +108,7 @@ public class battlex
 			int flipy = source[1] & 0x80;
 			int flipx = source[1] & 0x40;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;

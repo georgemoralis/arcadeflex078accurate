@@ -265,7 +265,7 @@ public class yard
 					sx += 32;
 				}
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 63 - sx;
 					sy = 31 - sy;
@@ -275,7 +275,7 @@ public class yard
 				drawgfx(tmpbitmap,Machine->gfx[0],
 						videoram[offs] + ((videoram[offs+1] & 0xc0) << 2),
 						videoram[offs+1] & 0x1f,
-						flipx,flip_screen,
+						flipx,flip_screen(),
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);
 			}
@@ -287,7 +287,7 @@ public class yard
 	
 			scroll_x = (*yard_scroll_x_high * 0x100) + *yard_scroll_x_low;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				scroll_x += 256;
 				scroll_y = *yard_scroll_y_low ;
@@ -324,7 +324,7 @@ public class yard
 				code2 = code1 + 0x40;
 			}
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				flipy = !flipy;
@@ -358,12 +358,12 @@ public class yard
 		{
 			int xpos;
 	
-			xpos = flip_screen ? Machine->visible_area.min_x - 8 :
+			xpos = flip_screen() ? Machine->visible_area.min_x - 8 :
 			                     Machine->visible_area.max_x + 1 - SCROLL_PANEL_WIDTH;
 	
-			copybitmap(bitmap,scroll_panel_bitmap,flip_screen,flip_screen,
+			copybitmap(bitmap,scroll_panel_bitmap,flip_screen(),flip_screen(),
 			           xpos,0,
-					   flip_screen ? &panelvisibleareaflip : &panelvisiblearea,TRANSPARENCY_NONE,0);
+					   flip_screen() ? &panelvisibleareaflip : &panelvisiblearea,TRANSPARENCY_NONE,0);
 		}
 	} };
 }

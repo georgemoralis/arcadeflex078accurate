@@ -128,7 +128,7 @@ public class amspdwy
 			int flipx	=	attr & 0x80;
 			int flipy	=	attr & 0x40;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				x = max_x - x - 8;	y = max_y - y - 8;
 				flipx = !flipx;	flipy = !flipy;

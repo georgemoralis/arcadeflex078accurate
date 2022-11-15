@@ -200,7 +200,7 @@ public class wwfwfest
 				number = (source[2] & 0x00ff) | (source[3] & 0x00ff) << 8;
 				colourbank = (source[4] & 0x000f);
 	
-				if (flip_screen) {
+				if (flip_screen()) {
 					if (flipy) flipy=0; else flipy=1;
 					if (flipx) flipx=0; else flipx=1;
 					ypos=240-ypos;
@@ -208,7 +208,7 @@ public class wwfwfest
 				}
 	
 				for (count=0;count<chain;count++) {
-					if (flip_screen) {
+					if (flip_screen()) {
 						if (!flipy) {
 							drawgfx(bitmap,gfx,number+count,colourbank,flipx,flipy,xpos,ypos+(16*(chain-1))-(16*count),cliprect,TRANSPARENCY_PEN,0);
 						} else {

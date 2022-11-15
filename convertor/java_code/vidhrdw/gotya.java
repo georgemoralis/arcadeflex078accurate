@@ -95,7 +95,7 @@ public class gotya
 	
 		scroll_bit_8 = data & 0x01;
 	
-		if (flip_screen != (data & 0x02))
+		if (flip_screen() != (data & 0x02))
 		{
 			flip_screen_set(data & 0x02);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -124,7 +124,7 @@ public class gotya
 	{
 		int row;
 	
-		if (flip_screen)
+		if (flip_screen())
 		{
 			sx = 35 - sx;
 		}
@@ -133,7 +133,7 @@ public class gotya
 		{
 			int sy;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sy = row;
 			}
@@ -163,7 +163,7 @@ public class gotya
 			int sx = 256 - spriteram[offs + 0x10] + (spriteram[offs + 0x01] & 0x01) * 256;
 			int sy = spriteram[offs + 0x00];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sy = 240 - sy;
 			}

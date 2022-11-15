@@ -59,7 +59,7 @@ public class mustache
 	} };
 	
 	public static WriteHandlerPtr mustache_video_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data & 0x01))
+		if (flip_screen() != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -120,12 +120,12 @@ public class mustache
 			if ((control_byte & 0xa))
 				clip.max_y = Machine->visible_area.max_y;
 			else
-				if (flip_screen)
+				if (flip_screen())
 					clip.min_y = Machine->visible_area.min_y + 56;
 				else
 					clip.max_y = Machine->visible_area.max_y - 56;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;
@@ -134,7 +134,7 @@ public class mustache
 			drawgfx(bitmap,gfx,
 					code,
 					color,
-					flip_screen,flip_screen,
+					flip_screen(),flip_screen(),
 					sx,sy,
 					&clip,TRANSPARENCY_PEN,0);
 		}

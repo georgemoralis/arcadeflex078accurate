@@ -44,7 +44,7 @@ public class bombjack
 	} };
 	
 	public static WriteHandlerPtr bombjack_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data & 0x01))
+		if (flip_screen() != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -120,7 +120,7 @@ public class bombjack
 				sy = 241-spriteram[offs+2];
 			flipx = spriteram[offs+1] & 0x40;
 			flipy =	spriteram[offs+1] & 0x80;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				if (spriteram[offs+1] & 0x20)
 				{

@@ -126,7 +126,7 @@ public class nova2001
 	} };
 	
 	public static WriteHandlerPtr nova2001_scroll_x_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		tilemap_set_scrollx(bg_tilemap, 0, data - (flip_screen ? 0 : 7));
+		tilemap_set_scrollx(bg_tilemap, 0, data - (flip_screen() ? 0 : 7));
 	} };
 	
 	public static WriteHandlerPtr nova2001_scroll_y_w = new WriteHandlerPtr() {public void handler(int offset, int data){
@@ -134,7 +134,7 @@ public class nova2001
 	} };
 	
 	public static WriteHandlerPtr nova2001_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (~data & 0x01))
+		if (flip_screen() != (~data & 0x01))
 		{
 			flip_screen_set(~data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -186,7 +186,7 @@ public class nova2001
 			int sx = spriteram[offs+1];
 			int sy = spriteram[offs+2];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;

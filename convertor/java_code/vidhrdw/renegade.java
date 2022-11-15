@@ -101,7 +101,7 @@ public class renegade
 	
 			    if( sx>248 ) sx -= 256;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;
@@ -112,18 +112,18 @@ public class renegade
 			        drawgfx(bitmap,Machine->gfx[sprite_bank],
 			            sprite_number+1,
 			            color,
-			            xflip,flip_screen,
-			            sx,sy + (flip_screen ? -16 : 16),
+			            xflip,flip_screen(),
+			            sx,sy + (flip_screen() ? -16 : 16),
 			            cliprect,TRANSPARENCY_PEN,0);
 			    }
 			    else
 				{
-					sy += (flip_screen ? -16 : 16);
+					sy += (flip_screen() ? -16 : 16);
 			    }
 			    drawgfx(bitmap,Machine->gfx[sprite_bank],
 			        sprite_number,
 			        color,
-			        xflip,flip_screen,
+			        xflip,flip_screen(),
 			        sx,sy,
 			        cliprect,TRANSPARENCY_PEN,0);
 			}

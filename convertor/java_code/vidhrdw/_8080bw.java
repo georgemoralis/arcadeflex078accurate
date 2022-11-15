@@ -285,7 +285,7 @@ public class _8080bw
 	
 	static void plot_pixel_8080(int x, int y, int col)
 	{
-		if (flip_screen)
+		if (flip_screen())
 		{
 			x = 255-x;
 			y = 255-y;
@@ -793,7 +793,7 @@ public class _8080bw
 	
 		x = sight_xc;
 		y = sight_yc;
-		if (flip_screen)
+		if (flip_screen())
 		{
 			x = 255-x;
 			y = 255-y;

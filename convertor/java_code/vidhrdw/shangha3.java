@@ -142,7 +142,7 @@ public class shangha3
 			zoomx = shangha3_ram[offs+10];
 			zoomy = shangha3_ram[offs+13];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 383 - sx - sizex;
 				sy = 255 - sy - sizey;

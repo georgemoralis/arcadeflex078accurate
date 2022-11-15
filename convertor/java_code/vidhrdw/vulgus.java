@@ -194,7 +194,7 @@ public class vulgus
 			sx = spriteram[offs + 3];
 			sy = spriteram[offs + 2];
 			dir = 1;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;
@@ -209,7 +209,7 @@ public class vulgus
 				drawgfx(bitmap,Machine->gfx[2],
 						code + i,
 						col,
-						flip_screen,flip_screen,
+						flip_screen(),flip_screen(),
 						sx, sy + 16 * i * dir,
 						cliprect,TRANSPARENCY_PEN,15);
 	
@@ -217,7 +217,7 @@ public class vulgus
 				drawgfx(bitmap,Machine->gfx[2],
 						code + i,
 						col,
-						flip_screen,flip_screen,
+						flip_screen(),flip_screen(),
 						sx, sy + 16 * i * dir -  dir * 256,
 						cliprect,TRANSPARENCY_PEN,15);
 				i--;

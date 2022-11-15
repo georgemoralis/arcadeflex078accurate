@@ -194,7 +194,7 @@ public class thedeep
 			if (color & 1)	sx -= 256;
 			if (attr  & 1)	sy -= 256;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				flipy = !flipy;

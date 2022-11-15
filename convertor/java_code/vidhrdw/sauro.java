@@ -88,7 +88,7 @@ public class sauro
 	static int scroll2_map_flip[8] = {0, 7, 2, 1, 4, 3, 6, 5};
 	
 	public static WriteHandlerPtr sauro_scroll_fg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		int *map = (flip_screen ? scroll2_map_flip : scroll2_map);
+		int *map = (flip_screen() ? scroll2_map_flip : scroll2_map);
 		int scroll = (data & 0xf8) | map[data & 7];
 	
 		tilemap_set_scrollx(fg_tilemap, 0, scroll);
@@ -142,7 +142,7 @@ public class sauro
 	
 			flipx = spriteram[offs+3] & 0x04;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				sx = (235 - sx) & 0xff;  // The &0xff is not 100% percent correct
@@ -152,7 +152,7 @@ public class sauro
 			drawgfx(bitmap, Machine->gfx[2],
 					code,
 					color,
-					flipx,flip_screen,
+					flipx,flip_screen(),
 					sx,sy,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
@@ -218,7 +218,7 @@ public class sauro
 	
 			flipx = spriteram[offs+3] & 0x04;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				sx = (235 - sx) & 0xff;  /* The &0xff is not 100% percent correct */
@@ -228,7 +228,7 @@ public class sauro
 			drawgfx(bitmap, Machine->gfx[1],
 					code,
 					color,
-					flipx,flip_screen,
+					flipx,flip_screen(),
 					sx,sy,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}

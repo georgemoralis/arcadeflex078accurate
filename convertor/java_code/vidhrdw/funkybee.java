@@ -73,11 +73,11 @@ public class funkybee
 	} };
 	
 	public static WriteHandlerPtr funkybee_scroll_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		tilemap_set_scrollx(bg_tilemap, 0, flip_screen ? -data : data);
+		tilemap_set_scrollx(bg_tilemap, 0, flip_screen() ? -data : data);
 	} };
 	
 	public static WriteHandlerPtr funkybee_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data & 0x01))
+		if (flip_screen() != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -123,7 +123,7 @@ public class funkybee
 			int sx = videoram[offs2 + 0x10];
 			int sy = 224 - colorram.read(offs2);
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sy += 32;
 				flipx = !flipx;
@@ -149,7 +149,7 @@ public class funkybee
 			int sx = videoram[0x1f10];
 			int sy = offs * 8;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 248 - sx;
 				sy = 248 - sy;
@@ -157,7 +157,7 @@ public class funkybee
 	
 			drawgfx(bitmap,Machine->gfx[gfx_bank],
 					code, color,
-					flip_screen, flip_screen,
+					flip_screen(), flip_screen(),
 					sx, sy,
 					0,TRANSPARENCY_PEN,0);
 	
@@ -166,7 +166,7 @@ public class funkybee
 			sx = videoram[0x1f11];
 			sy = offs * 8;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 248 - sx;
 				sy = 248 - sy;
@@ -174,7 +174,7 @@ public class funkybee
 	
 			drawgfx(bitmap,Machine->gfx[gfx_bank],
 					code, color,
-					flip_screen, flip_screen,
+					flip_screen(), flip_screen(),
 					sx, sy,
 					0,TRANSPARENCY_PEN,0);
 		}

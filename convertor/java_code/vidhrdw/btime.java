@@ -361,7 +361,7 @@ public class btime
 	        sx = 31 - (offs / 32);
 	        sy = offs % 32;
 	
-	        if (flip_screen)
+	        if (flip_screen())
 	        {
 	            sx = 31 - sx;
 	            sy = 31 - sy;
@@ -370,7 +370,7 @@ public class btime
 	        drawgfx(bitmap,Machine->gfx[0],
 	                code,
 	                color,
-	                flip_screen,flip_screen,
+	                flip_screen(),flip_screen(),
 	                8*sx,8*sy,
 	                &Machine->visible_area,transparency,0);
 	    }
@@ -395,7 +395,7 @@ public class btime
 	        flipx = sprite_ram[offs + 0] & 0x04;
 	        flipy = sprite_ram[offs + 0] & 0x02;
 	
-	        if (flip_screen)
+	        if (flip_screen())
 	        {
 	            sx = 240 - sx;
 	            sy = 240 - sy + sprite_y_adjust_flip_screen;
@@ -413,7 +413,7 @@ public class btime
 	                sx,sy,
 	                &Machine->visible_area,TRANSPARENCY_PEN,0);
 	
-	        sy += (flip_screen ? -256 : 256);
+	        sy += (flip_screen() ? -256 : 256);
 	
 	        // Wrap around
 	        drawgfx(bitmap,Machine->gfx[1],
@@ -448,7 +448,7 @@ public class btime
 	            sx = 240 - (16 * (offs / 16) + scroll);
 	            sy = 16 * (offs % 16);
 	
-	            if (flip_screen)
+	            if (flip_screen())
 	            {
 	                sx = 240 - sx;
 	                sy = 240 - sy;
@@ -457,7 +457,7 @@ public class btime
 	            drawgfx(bitmap, Machine->gfx[2],
 	                    memory_region(REGION_GFX3)[tileoffset + offs],
 	                    btime_palette,
-	                    flip_screen,flip_screen,
+	                    flip_screen(),flip_screen(),
 	                    sx,sy,
 	                    0,TRANSPARENCY_NONE,0);
 	        }
@@ -523,7 +523,7 @@ public class btime
 	        // Generate tile map
 	        static unsigned char btime_tilemap[4];
 	
-	        if (flip_screen)
+	        if (flip_screen())
 	            start = 0;
 	        else
 	            start = 1;
@@ -627,7 +627,7 @@ public class btime
 	            sy = 16 * (((offs % 0x100) < 0x80) ? offs % 8 : (offs % 8) + 8);
 	            sx = 496 - sx;
 	
-	            if (flip_screen)
+	            if (flip_screen())
 	            {
 	                sx = 496 - sx;
 	                sy = 240 - sy;
@@ -636,14 +636,14 @@ public class btime
 	            drawgfx(background_bitmap, Machine->gfx[2],
 	                    (bnj_backgroundram[offs] >> 4) + ((offs & 0x80) >> 3) + 32,
 	                    0,
-	                    flip_screen, flip_screen,
+	                    flip_screen(), flip_screen(),
 	                    sx, sy,
 	                    0, TRANSPARENCY_NONE, 0);
 	        }
 	
 	        /* copy the background bitmap to the screen */
 	        scroll = (bnj_scroll1 & 0x02) * 128 + 511 - bnj_scroll2;
-	        if (!flip_screen)
+	        if (!flip_screen())
 	            scroll = 767-scroll;
 	        copyscrollbitmap (bitmap, background_bitmap, 1, &scroll, 0, 0, &Machine->visible_area,TRANSPARENCY_NONE, 0);
 	
@@ -683,7 +683,7 @@ public class btime
 	        sx = 31 - (offs / 32);
 	        sy = offs % 32;
 	
-	        if (flip_screen)
+	        if (flip_screen())
 	        {
 	            sx = 31 - sx;
 	            sy = 31 - sy;
@@ -692,7 +692,7 @@ public class btime
 	        drawgfx(bitmap, Machine->gfx[2],
 	                bnj_backgroundram[offs],
 	                0,
-	                flip_screen, flip_screen,
+	                flip_screen(), flip_screen(),
 	                8*sx,8*sy,
 	                0, TRANSPARENCY_NONE, 0);
 	    }

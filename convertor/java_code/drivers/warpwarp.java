@@ -74,7 +74,7 @@ public class warpwarp
 	public static ReadHandlerPtr bombbee_sys_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset == 4)	// to return BUTTON1 status
 		{
-			return (readinputport(4) >> (flip_screen & 1)) & 1;
+			return (readinputport(4) >> (flip_screen() & 1)) & 1;
 		}
 		else
 			return (readinputport(0) >> offset) & 1;
@@ -91,13 +91,13 @@ public class warpwarp
 	
 	/* Read mux Controller Inputs */
 	public static ReadHandlerPtr bombbee_mux_r  = new ReadHandlerPtr() { public int handler(int offset){
-		return readinputport(2 + (flip_screen & 1));
+		return readinputport(2 + (flip_screen() & 1));
 	} };
 	
 	public static ReadHandlerPtr warpwarp_mux_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
-		res = readinputport(2 + (flip_screen & 1));
+		res = readinputport(2 + (flip_screen() & 1));
 		if (res & 1) return 23;
 		if (res & 2) return 63;
 		if (res & 4) return 111;

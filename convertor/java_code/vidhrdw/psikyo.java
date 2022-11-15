@@ -375,7 +375,7 @@ public class psikyo
 			zoomy = 32 - zoomy;
 	
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				x = width  - x - (nx * zoomx)/2;
 				y = height - y - (ny * zoomy)/2;

@@ -186,7 +186,7 @@ public class kingobox
 			tilemap_mark_all_tiles_dirty(bg_tilemap);
 		}
 	
-		if (flip_screen != (data & 0x80))
+		if (flip_screen() != (data & 0x80))
 		{
 			flip_screen_set(data & 0x80);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -245,7 +245,7 @@ public class kingobox
 			int sx = spriteram[offs+1];
 			int sy = spriteram[offs];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;
@@ -310,7 +310,7 @@ public class kingobox
 			int sx = spriteram[offs+2];
 			int sy = spriteram[offs];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;

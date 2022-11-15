@@ -185,7 +185,7 @@ public class suna16
 	
 					if (flipx)	tile_flipx = !tile_flipx;
 	
-					if (flip_screen)
+					if (flip_screen())
 					{
 						sx = max_x - sx;
 						sy = max_y - sy;

@@ -133,7 +133,7 @@ public class cabal
 	
 				if ( sx>256 )   sx -= 512;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;

@@ -124,7 +124,7 @@ public class spacefb
 				{
 					/* Draw bullets */
 	
-					if (flip_screen)
+					if (flip_screen())
 					{
 						sx = 260 - sx;
 						sy = 252 - sy;
@@ -133,7 +133,7 @@ public class spacefb
 					drawgfx(bitmap,Machine->gfx[1],
 							code & 0x3f,
 							col,
-							flip_screen,flip_screen,
+							flip_screen(),flip_screen(),
 							sx,sy,
 							&Machine->visible_area,TRANSPARENCY_PEN,0);
 	
@@ -142,7 +142,7 @@ public class spacefb
 				{
 					sy -= 5;	/* aligns the spaceship and the bullet */
 	
-					if (flip_screen)
+					if (flip_screen())
 					{
 						sx = 256 - sx;
 						sy = 248 - sy;
@@ -151,7 +151,7 @@ public class spacefb
 					drawgfx(bitmap,Machine->gfx[0],
 							255 - code,
 							col,
-							flip_screen,flip_screen,
+							flip_screen(),flip_screen(),
 							sx,sy,
 							&Machine->visible_area,TRANSPARENCY_NONE,0);
 				}

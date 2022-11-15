@@ -435,7 +435,7 @@ public class decocass
 			flipx = sprite_ram[offs + 0] & 0x04;
 			flipy = sprite_ram[offs + 0] & 0x02;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy + sprite_y_adjust_flip_screen;
@@ -453,7 +453,7 @@ public class decocass
 					sx,sy,
 					cliprect, TRANSPARENCY_PEN, 0);
 	
-			sy += (flip_screen ? -256 : 256);
+			sy += (flip_screen() ? -256 : 256);
 	
 			// Wrap around
 			drawgfx(bitmap,Machine->gfx[1],
@@ -480,7 +480,7 @@ public class decocass
 	
 			sy = 255 - missile_ram[offs + 0*interleave];
 			sx = 255 - missile_ram[offs + 2*interleave];
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy + missile_y_adjust_flip_screen;
@@ -492,7 +492,7 @@ public class decocass
 	
 			sy = 255 - missile_ram[offs + 1*interleave];
 			sx = 255 - missile_ram[offs + 3*interleave];
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy + missile_y_adjust_flip_screen;

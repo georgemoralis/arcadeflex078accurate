@@ -227,11 +227,11 @@ public class senjyo
 			count = 0;
 			strwid = senjyo_bgstripes;
 			if (strwid == 0) strwid = 0x100;
-			if (flip_screen) strwid ^= 0xff;
+			if (flip_screen()) strwid ^= 0xff;
 	
 			for (x = 0;x < 256;x++)
 			{
-				if (flip_screen)
+				if (flip_screen())
 				{
 					for (y = 0;y < 256;y++)
 					{
@@ -275,7 +275,7 @@ public class senjyo
 						sx = (8 * (offs % 8) + x) + 256-64;
 						sy = ((offs & 0x1ff) / 8) + 96;
 	
-						if (flip_screen)
+						if (flip_screen())
 						{
 							sx = 255 - sx;
 							sy = 255 - sy;
@@ -315,7 +315,7 @@ public class senjyo
 				flipx = spriteram[offs+1] & 0x40;
 				flipy = spriteram[offs+1] & 0x80;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;
@@ -359,7 +359,7 @@ public class senjyo
 	
 			scrollx = senjyo_scrollx1[0];
 			scrolly = senjyo_scrolly1[0] + 256 * senjyo_scrolly1[1];
-			if (flip_screen)
+			if (flip_screen())
 				scrollx = -scrollx;
 			tilemap_set_scrollx(bg1_tilemap,0,scrollx);
 			tilemap_set_scrolly(bg1_tilemap,0,scrolly);
@@ -371,14 +371,14 @@ public class senjyo
 				scrollx = senjyo_scrollx1[0];
 				scrolly = senjyo_scrolly1[0] + 256 * senjyo_scrolly1[1];
 			}
-			if (flip_screen)
+			if (flip_screen())
 				scrollx = -scrollx;
 			tilemap_set_scrollx(bg2_tilemap,0,scrollx);
 			tilemap_set_scrolly(bg2_tilemap,0,scrolly);
 	
 			scrollx = senjyo_scrollx3[0];
 			scrolly = senjyo_scrolly3[0] + 256 * senjyo_scrolly3[1];
-			if (flip_screen)
+			if (flip_screen())
 				scrollx = -scrollx;
 			tilemap_set_scrollx(bg3_tilemap,0,scrollx);
 			tilemap_set_scrolly(bg3_tilemap,0,scrolly);

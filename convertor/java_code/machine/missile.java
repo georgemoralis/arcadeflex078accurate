@@ -23,7 +23,7 @@ public class missile
 	public static ReadHandlerPtr missile_IN0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (ctrld)	/* trackball */
 		{
-			if (!flip_screen)
+			if (!flip_screen())
 		  	    return ((readinputport(5) << 4) & 0xf0) | (readinputport(4) & 0x0f);
 			else
 		  	    return ((readinputport(7) << 4) & 0xf0) | (readinputport(6) & 0x0f);

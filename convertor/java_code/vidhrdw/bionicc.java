@@ -211,7 +211,7 @@ public class bionicc
 				int sx = (INT16)buffered_spriteram16[offs+3];	/* signed */
 				int sy = (INT16)buffered_spriteram16[offs+2];	/* signed */
 				if(sy>512-16) sy-=512;
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;

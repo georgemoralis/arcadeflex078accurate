@@ -216,7 +216,7 @@ public class _1942
 			sx = spriteram[offs + 3] - 0x10 * (spriteram[offs + 1] & 0x10);
 			sy = spriteram[offs + 2];
 			dir = 1;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;
@@ -231,7 +231,7 @@ public class _1942
 			{
 				drawgfx(bitmap,Machine->gfx[2],
 						code + i,col,
-						flip_screen,flip_screen,
+						flip_screen(),flip_screen(),
 						sx,sy + 16 * i * dir,
 						cliprect,TRANSPARENCY_PEN,15);
 	

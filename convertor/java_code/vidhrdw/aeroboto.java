@@ -85,7 +85,7 @@ public class aeroboto
 	***************************************************************************/
 	
 	public static ReadHandlerPtr aeroboto_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
-		return readinputport(flip_screen ? 1 : 0);
+		return readinputport(flip_screen() ? 1 : 0);
 	} };
 	
 	public static WriteHandlerPtr aeroboto_3000_w = new WriteHandlerPtr() {public void handler(int offset, int data){
@@ -136,7 +136,7 @@ public class aeroboto
 			int x = spriteram[offs+3];
 			int y = 240 - spriteram[offs];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				x = 248 - x;
 				y = 240 - y;
@@ -145,7 +145,7 @@ public class aeroboto
 			drawgfx(bitmap, Machine->gfx[1],
 					spriteram[offs+1],
 					spriteram[offs+2] & 0x07,
-					flip_screen, flip_screen,
+					flip_screen(), flip_screen(),
 					((x + 8) & 0xff) - 8, y,
 					cliprect, TRANSPARENCY_PEN, 0);
 		}

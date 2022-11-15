@@ -215,7 +215,7 @@ public class tecmo
 				flipx = bank & 1;
 				flipy = bank & 2;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					xpos = 256 - (8 * size) - xpos;
 					ypos = 256 - (8 * size) - ypos;

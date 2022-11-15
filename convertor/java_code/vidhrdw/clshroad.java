@@ -332,7 +332,7 @@ public class clshroad
 			int flipy	=	0;
 	
 			x -= 0x4a/2;
-			if (flip_screen)
+			if (flip_screen())
 			{
 				y = 240 - y;
 				flipx = !flipx;

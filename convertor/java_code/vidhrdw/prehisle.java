@@ -146,7 +146,7 @@ public class prehisle
 	
 			if (sx & 0x200) sx = -(0xff - (sx & 0xff));	// wraparound
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;

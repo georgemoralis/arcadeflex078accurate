@@ -152,7 +152,7 @@ public class vastar
 			flipx = spriteram_3[offs] & 0x02;
 			flipy = spriteram_3[offs] & 0x01;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				flipy = !flipy;
@@ -160,7 +160,7 @@ public class vastar
 	
 			if (spriteram_2[offs] & 0x08)	/* double width */
 			{
-				if (!flip_screen)
+				if (!flip_screen())
 					sy = 224 - sy;
 	
 				drawgfx(bitmap,Machine->gfx[2],
@@ -179,7 +179,7 @@ public class vastar
 			}
 			else
 			{
-				if (!flip_screen)
+				if (!flip_screen())
 					sy = 240 - sy;
 	
 				drawgfx(bitmap,Machine->gfx[1],

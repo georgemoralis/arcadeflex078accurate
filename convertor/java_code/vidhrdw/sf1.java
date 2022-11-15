@@ -161,7 +161,7 @@ public class sf1
 			{
 				int c1,c2,c3,c4,t;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 480 - sx;
 					sy = 224 - sy;
@@ -216,7 +216,7 @@ public class sf1
 			}
 			else
 			{
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 496 - sx;
 					sy = 240 - sy;

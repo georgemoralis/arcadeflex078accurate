@@ -191,7 +191,7 @@ public class battlane
 				flipx = attr & 0x04;
 				flipy = attr & 0x02;
 	
-				if (!flip_screen)
+				if (!flip_screen())
 	            {
 					sx = 240 - sx;
 					sy = 240 - sy;
@@ -235,7 +235,7 @@ public class battlane
 	
 				if (data)
 				{
-					if (flip_screen)
+					if (flip_screen())
 					{
 						plot_pixel(bitmap, 255 - x, 255 - y, Machine->pens[data]);
 					}

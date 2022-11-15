@@ -437,7 +437,7 @@ public class nmk16
 	
 				if ((pri&pri_mask)!=priority) continue;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 368 - sx;
 					sy = 240 - sy;
@@ -454,7 +454,7 @@ public class nmk16
 						drawgfx(bitmap,Machine->gfx[2],
 								code,
 								color,
-								flip_screen, flip_screen,
+								flip_screen(), flip_screen(),
 								((x + 16) & 0x1ff) - 16,sy & 0x1ff,
 								cliprect,TRANSPARENCY_PEN,15);
 	
@@ -491,12 +491,12 @@ public class nmk16
 				int xx,yy,x;
 				int delta = 16;
 	
-				flipx ^= flip_screen;
-				flipy ^= flip_screen;
+				flipx ^= flip_screen();
+				flipy ^= flip_screen();
 	
 				if ((pri&pri_mask)!=priority) continue;
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 368 - sx;
 					sy = 240 - sy;

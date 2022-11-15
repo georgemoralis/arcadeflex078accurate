@@ -120,7 +120,7 @@ public class mikie
 	} };
 	
 	public static WriteHandlerPtr mikie_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (flip_screen != (data & 0x01))
+		if (flip_screen() != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -160,7 +160,7 @@ public class mikie
 			int flipx = ~spriteram[offs] & 0x10;
 			int flipy = spriteram[offs] & 0x20;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sy = 242 - sy;
 				flipy = !flipy;

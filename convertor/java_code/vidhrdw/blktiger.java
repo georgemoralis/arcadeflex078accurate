@@ -208,7 +208,7 @@ public class blktiger
 			int color = attr & 0x07;
 			int flipx = attr & 0x08;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sx = 240 - sx;
 				sy = 240 - sy;
@@ -218,7 +218,7 @@ public class blktiger
 			drawgfx(bitmap,Machine->gfx[2],
 					code,
 					color,
-					flipx,flip_screen,
+					flipx,flip_screen(),
 					sx,sy,
 					cliprect,TRANSPARENCY_PEN,15);
 		}

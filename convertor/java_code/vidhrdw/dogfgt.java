@@ -134,7 +134,7 @@ public class dogfgt
 	
 			for (i = 0;i < 3;i++)
 				color |= ((bitmapram[offset + BITMAPRAM_SIZE/3 * i] >> subx) & 1) << i;
-			if (flip_screen)
+			if (flip_screen())
 				plot_pixel(pixbitmap,(x+subx)^0xff,y^0xff,PIXMAP_COLOR_BASE + 8*pixcolor + color);
 			else
 				plot_pixel(pixbitmap,x+subx,y,PIXMAP_COLOR_BASE + 8*pixcolor + color);
@@ -201,7 +201,7 @@ public class dogfgt
 				sy = (240 - spriteram[offs+2]) & 0xff;
 				flipx = spriteram[offs] & 0x04;
 				flipy = spriteram[offs] & 0x02;
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 240 - sy;
@@ -225,9 +225,9 @@ public class dogfgt
 		int offs;
 	
 	
-		if (lastflip != flip_screen || lastpixcolor != pixcolor)
+		if (lastflip != flip_screen() || lastpixcolor != pixcolor)
 		{
-			lastflip = flip_screen;
+			lastflip = flip_screen();
 			lastpixcolor = pixcolor;
 	
 			for (offs = 0;offs < BITMAPRAM_SIZE;offs++)

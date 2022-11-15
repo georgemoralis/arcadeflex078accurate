@@ -280,7 +280,7 @@ public class xevious
 		switch (reg)
 		{
 		case 0:
-			if (flip_screen)
+			if (flip_screen())
 				tilemap_set_scrollx(bg_tilemap,0,scroll-312);
 			else
 				tilemap_set_scrollx(bg_tilemap,0,scroll+20);
@@ -387,7 +387,7 @@ public class xevious
 				color = spriteram[offs + 1] & 0x7f;
 				flipx = spriteram_3[offs] & 4;
 				flipy = spriteram_3[offs] & 8;
-				if (flip_screen)
+				if (flip_screen())
 				{
 					flipx = !flipx;
 					flipy = !flipy;

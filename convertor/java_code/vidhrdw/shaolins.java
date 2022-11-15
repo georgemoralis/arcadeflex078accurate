@@ -134,7 +134,7 @@ public class shaolins
 	public static WriteHandlerPtr shaolins_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		shaolins_nmi_enable = data;
 	
-		if (flip_screen != (data & 0x01))
+		if (flip_screen() != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -178,7 +178,7 @@ public class shaolins
 				int sx = 240 - spriteram[offs + 6];
 				int sy = 248 - spriteram[offs + 4];
 	
-				if (flip_screen)
+				if (flip_screen())
 				{
 					sx = 240 - sx;
 					sy = 248 - sy;

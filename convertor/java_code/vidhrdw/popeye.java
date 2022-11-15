@@ -219,7 +219,7 @@ public class popeye
 			sx = 8 * (offset % 128);
 			sy = 8 * (offset / 128);
 	
-			if (flip_screen)
+			if (flip_screen())
 				sy = 512-8 - sy;
 	
 			colour = Machine->pens[data & 0x0f];
@@ -236,7 +236,7 @@ public class popeye
 			sx = 8 * (offset % 64);
 			sy = 4 * (offset / 64);
 	
-			if (flip_screen)
+			if (flip_screen())
 				sy = 512-4 - sy;
 	
 			colour = Machine->pens[data & 0x0f];
@@ -311,12 +311,12 @@ public class popeye
 		int offs;
 		static int lastflip = 0;
 	
-		if (lastflip != flip_screen)
+		if (lastflip != flip_screen())
 		{
 			for (offs = 0;offs < popeye_bitmapram_size;offs++)
 				popeye_bitmap_w(offs,popeye_bitmapram[offs]);
 	
-			lastflip = flip_screen;
+			lastflip = flip_screen();
 		}
 	
 		set_background_palette((*popeye_palettebank & 0x08) >> 3);
@@ -334,7 +334,7 @@ public class popeye
 			if (bitmap_type == TYPE_SKYSKIPR)
 				scrollx = 2*scrollx - 512;
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				if (bitmap_type == TYPE_POPEYE)
 					scrollx = -scrollx;
@@ -380,7 +380,7 @@ public class popeye
 			sx = 2*(spriteram[offs])-8;
 			sy = 2*(256-spriteram[offs + 1]);
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				flipx = !flipx;
 				flipy = !flipy;

@@ -1313,7 +1313,7 @@ public class cps1
 	{
 	#define DRAWSPRITE(CODE,COLOR,FLIPX,FLIPY,SX,SY)					\
 	{																	\
-		if (flip_screen)												\
+		if (flip_screen())												\
 			pdrawgfx(bitmap,Machine->gfx[1],							\
 					CODE,												\
 					COLOR,												\
@@ -1556,7 +1556,7 @@ public class cps1
 	{
 	#define DRAWSPRITE(CODE,COLOR,FLIPX,FLIPY,SX,SY)									\
 	{																					\
-		if (flip_screen)																\
+		if (flip_screen())																\
 			pdrawgfx(bitmap,Machine->gfx[1],											\
 					CODE,																\
 					COLOR,																\
@@ -1723,7 +1723,7 @@ public class cps1
 					int sy = (offs % 256);
 					sx = (sx - stars2x + (col & 0x1f)) & 0x1ff;
 					sy = (sy - stars2y) & 0xff;
-					if (flip_screen)
+					if (flip_screen())
 					{
 						sx = 511 - sx;
 						sy = 255 - sy;
@@ -1749,7 +1749,7 @@ public class cps1
 					int sy = (offs % 256);
 					sx = (sx - stars1x + (col & 0x1f)) & 0x1ff;
 					sy = (sy - stars1y) & 0xff;
-					if (flip_screen)
+					if (flip_screen())
 					{
 						sx = 511 - sx;
 						sy = 255 - sy;

@@ -62,7 +62,7 @@ public class funkyjet
 				inc = 1;
 			}
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				y=240-y;
 				x=304-x;

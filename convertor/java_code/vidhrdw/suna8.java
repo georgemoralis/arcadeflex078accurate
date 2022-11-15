@@ -308,7 +308,7 @@ public class suna8
 					if (flipx)	tile_flipx = !tile_flipx;
 					if (flipy)	tile_flipy = !tile_flipy;
 	
-					if (flip_screen)
+					if (flip_screen())
 					{	sx = max_x - sx;	tile_flipx = !tile_flipx;
 						sy = max_y - sy;	tile_flipy = !tile_flipy;	}
 	
@@ -373,7 +373,7 @@ public class suna8
 					int sx		=	 x + tx * 8;
 					int sy		=	(y + real_ty * 8) & 0xff;
 	
-					if (flip_screen)
+					if (flip_screen())
 					{	sx = max_x - sx;	flipx = !flipx;
 						sy = max_y - sy;	flipy = !flipy;	}
 	

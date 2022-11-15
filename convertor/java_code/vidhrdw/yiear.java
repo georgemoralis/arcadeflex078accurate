@@ -78,7 +78,7 @@ public class yiear
 	public static WriteHandlerPtr yiear_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 flips screen */
 	
-		if (flip_screen != (data & 0x01))
+		if (flip_screen() != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
@@ -133,7 +133,7 @@ public class yiear
 			int sy = 240 - spriteram[offs + 1];
 			int sx = spriteram_2[offs];
 	
-			if (flip_screen)
+			if (flip_screen())
 			{
 				sy = 240 - sy;
 				flipy = !flipy;

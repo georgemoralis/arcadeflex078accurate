@@ -65,7 +65,7 @@ public class sbowling
 	
 	static void plot_pixel_sbw(int x, int y, int col)
 	{
-		if (flip_screen)
+		if (flip_screen())
 		{
 			y = 255-y;
 			x = 247-x;

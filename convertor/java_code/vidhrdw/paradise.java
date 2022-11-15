@@ -205,7 +205,7 @@ public class paradise
 			int flipx	=	0;	// ?
 			int flipy	=	0;
 	
-			if (flip_screen)	{	x = 0xf0 - x;	flipx = !flipx;
+			if (flip_screen())	{	x = 0xf0 - x;	flipx = !flipx;
 									y = 0xf0 - y;	flipy = !flipy;	}
 	
 			drawgfx(bitmap,Machine->gfx[0],
@@ -250,7 +250,7 @@ public class paradise
 	
 		if (layers_ctrl&1)	tilemap_draw(bitmap,cliprect, tilemap_0, 0,0);
 		if (layers_ctrl&2)	tilemap_draw(bitmap,cliprect, tilemap_1, 0,0);
-		if (layers_ctrl&4)	copybitmap(bitmap,tmpbitmap,flip_screen,flip_screen,0,0,cliprect,TRANSPARENCY_PEN, 0x80f);
+		if (layers_ctrl&4)	copybitmap(bitmap,tmpbitmap,flip_screen(),flip_screen(),0,0,cliprect,TRANSPARENCY_PEN, 0x80f);
 	
 		if (paradise_priority & 2)
 		{
