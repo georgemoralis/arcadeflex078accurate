@@ -22,6 +22,7 @@ public class convertMame {
     static final int GAMEDRIVER = 0;
     static final int INPUTPORTS = 1;
     static final int INTERRUPT = 2;
+    static final int VIDEO_START = 3;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -305,9 +306,38 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case 'V': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("VIDEO_START")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static VideoStartHandlerPtr video_start_" + Convertor.token[0] + "  = new VideoStartHandlerPtr() { public int handler()");
+                            type = VIDEO_START;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                }
+                Convertor.inpos = i;
+                break;
                 case '{': {
                     i = Convertor.inpos;
-                    if (type == INTERRUPT) {
+                    if (type == INTERRUPT || type == VIDEO_START) {
                         i3++;
                     }
                 }
@@ -315,7 +345,7 @@ public class convertMame {
                 break;
                 case '}': {
                     i = Convertor.inpos;
-                    if (type == INTERRUPT) {
+                    if (type == INTERRUPT || type == VIDEO_START) {
                         i3--;
                         if (i3 == -1) {
                             sUtil.putString("} };");

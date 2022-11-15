@@ -64,7 +64,6 @@ package drivers;
 public class bigevglf
 {
 	
-	VIDEO_START( bigevglf );
 	VIDEO_UPDATE( bigevglf );
 	
 	READ_HANDLER( bigevglf_vidram_r );

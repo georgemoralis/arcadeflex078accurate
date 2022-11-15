@@ -73,8 +73,7 @@ public class tankbatt
 	extern WRITE_HANDLER( tankbatt_videoram_w );
 	
 	extern PALETTE_INIT( tankbatt );
-	extern VIDEO_START( tankbatt );
-	extern VIDEO_UPDATE( tankbatt );
+	extern extern VIDEO_UPDATE( tankbatt );
 	
 	WRITE_HANDLER( tankbatt_led_w )
 	{

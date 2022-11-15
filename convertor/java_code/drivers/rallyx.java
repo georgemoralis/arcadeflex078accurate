@@ -76,7 +76,6 @@ public class rallyx
 	WRITE_HANDLER( rallyx_spriteram_w );
 	WRITE_HANDLER( rallyx_flipscreen_w );
 	PALETTE_INIT( rallyx );
-	VIDEO_START( rallyx );
 	VIDEO_UPDATE( rallyx );
 	
 	

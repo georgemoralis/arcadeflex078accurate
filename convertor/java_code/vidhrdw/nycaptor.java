@@ -67,8 +67,7 @@ public class nycaptor
 	}
 	
 	
-	VIDEO_START( nycaptor )
-	{
+	public static VideoStartHandlerPtr video_start_nycaptor  = new VideoStartHandlerPtr() { public int handler(){
 	  nycaptor_spriteram = auto_malloc (160);
 	  tilemap = tilemap_create( get_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,32,32 );
 	
@@ -81,7 +80,7 @@ public class nycaptor
 		paletteram_2 = auto_malloc(0x200);
 		tilemap_set_scroll_cols(tilemap,32);
 		return video_start_generic();
-	}
+	} };
 	
 	WRITE_HANDLER( nycaptor_videoram_w )
 	{

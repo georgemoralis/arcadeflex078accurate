@@ -360,8 +360,7 @@ public class crospang
 		}
 	}
 	
-	VIDEO_START(crospang)
-	{
+	public static VideoStartHandlerPtr video_start_crospang  = new VideoStartHandlerPtr() { public int handler(){
 		bg_layer = tilemap_create(get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,16,16,32,32);
 		fg_layer = tilemap_create(get_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,32);
 	
@@ -371,7 +370,7 @@ public class crospang
 		tilemap_set_transparent_pen(fg_layer,0);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(crospang)
 	{

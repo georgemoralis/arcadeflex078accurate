@@ -26,8 +26,7 @@ public class strnskil
 	extern WRITE_HANDLER( strnskil_scrl_ctrl_w );
 	
 	extern PALETTE_INIT( strnskil );
-	extern VIDEO_START( strnskil );
-	extern VIDEO_UPDATE( strnskil );
+	extern extern VIDEO_UPDATE( strnskil );
 	
 	WRITE_HANDLER( strnskil_sharedram_w )
 	{

@@ -116,12 +116,11 @@ public class cshooter
 		tilemap_mark_tile_dirty(cshooter_txtilemap,offset/2);
 	}
 	
-	VIDEO_START(cshooter)
-	{
+	public static VideoStartHandlerPtr video_start_cshooter  = new VideoStartHandlerPtr() { public int handler(){
 		cshooter_txtilemap = tilemap_create(get_cstx_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32, 32);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(cshooter)
 	{

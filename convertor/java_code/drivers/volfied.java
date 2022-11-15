@@ -38,7 +38,6 @@ public class volfied
 	
 	VIDEO_UPDATE( volfied );
 	
-	VIDEO_START( volfied );
 	
 	void volfied_cchip_init(void);
 	

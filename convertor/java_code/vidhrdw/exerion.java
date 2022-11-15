@@ -114,8 +114,7 @@ public class exerion
 	 *
 	 *************************************/
 	
-	VIDEO_START( exerion )
-	{
+	public static VideoStartHandlerPtr video_start_exerion  = new VideoStartHandlerPtr() { public int handler(){
 		UINT16 *dst;
 		UINT8 *src;
 		int i, x, y;
@@ -189,7 +188,7 @@ public class exerion
 		}
 	
 		return video_start_generic();
-	}
+	} };
 	
 	
 	

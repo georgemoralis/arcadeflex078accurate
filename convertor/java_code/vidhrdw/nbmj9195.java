@@ -692,8 +692,7 @@ public class nbmj9195
 	
 	
 	******************************************************************************/
-	VIDEO_START( sailorws )
-	{
+	public static VideoStartHandlerPtr video_start_sailorws  = new VideoStartHandlerPtr() { public int handler(){
 		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((sailorws_tmpbitmap1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((sailorws_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
@@ -708,10 +707,9 @@ public class nbmj9195
 	#endif
 		gfxdraw_mode = 1;
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( mjkoiura )
-	{
+	public static VideoStartHandlerPtr video_start_mjkoiura  = new VideoStartHandlerPtr() { public int handler(){
 		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((sailorws_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
 		if ((sailorws_palette = auto_malloc(0x200 * sizeof(char))) == 0) return 1;
@@ -722,10 +720,9 @@ public class nbmj9195
 	#endif
 		gfxdraw_mode = 0;
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( mscoutm )
-	{
+	public static VideoStartHandlerPtr video_start_mscoutm  = new VideoStartHandlerPtr() { public int handler(){
 		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((sailorws_tmpbitmap1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((sailorws_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
@@ -741,7 +738,7 @@ public class nbmj9195
 		memset(sailorws_videoworkram1, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
 		gfxdraw_mode = 2;
 		return 0;
-	}
+	} };
 	
 	/******************************************************************************
 	

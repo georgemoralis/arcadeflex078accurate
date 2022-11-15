@@ -78,7 +78,6 @@ public class firetrap
 	WRITE_HANDLER( firetrap_bg1_scrolly_w );
 	WRITE_HANDLER( firetrap_bg2_scrollx_w );
 	WRITE_HANDLER( firetrap_bg2_scrolly_w );
-	VIDEO_START( firetrap );
 	PALETTE_INIT( firetrap );
 	VIDEO_UPDATE( firetrap );
 	

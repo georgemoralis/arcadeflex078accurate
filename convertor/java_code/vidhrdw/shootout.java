@@ -82,13 +82,13 @@ public class shootout
 		}
 	}
 	
-	VIDEO_START( shootout ){
+	public static VideoStartHandlerPtr video_start_shootout  = new VideoStartHandlerPtr() { public int handler()
 		background = tilemap_create(get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32,32);
 		foreground = tilemap_create(get_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32);
 		if( background && foreground ){
 			tilemap_set_transparent_pen( foreground, 0 );
 			return 0;
-		}
+		} };
 		return 1; /* error */
 	}
 	

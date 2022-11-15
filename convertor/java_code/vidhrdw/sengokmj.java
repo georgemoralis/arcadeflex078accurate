@@ -158,8 +158,7 @@ public class sengokmj
 		}
 	}
 	
-	VIDEO_START( sengokmj )
-	{
+	public static VideoStartHandlerPtr video_start_sengokmj  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(sengoku_bg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,16);
 		md_tilemap = tilemap_create(sengoku_md_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,16);
 		fg_tilemap = tilemap_create(sengoku_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,16);
@@ -173,7 +172,7 @@ public class sengokmj
 		tilemap_set_transparent_pen(tx_tilemap,15);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( sengokmj )
 	{

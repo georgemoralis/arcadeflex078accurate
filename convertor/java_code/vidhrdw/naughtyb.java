@@ -155,8 +155,7 @@ public class naughtyb
 	  Start the video hardware emulation.
 	
 	***************************************************************************/
-	VIDEO_START( naughtyb )
-	{
+	public static VideoStartHandlerPtr video_start_naughtyb  = new VideoStartHandlerPtr() { public int handler(){
 		videoreg = palreg = bankreg = 0;
 	
 		/* Naughty Boy has a virtual screen twice as large as the visible screen */
@@ -168,7 +167,7 @@ public class naughtyb
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

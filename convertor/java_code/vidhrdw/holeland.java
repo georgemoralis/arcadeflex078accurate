@@ -59,8 +59,7 @@ public class holeland
 	
 	***************************************************************************/
 	
-	VIDEO_START( holeland )
-	{
+	public static VideoStartHandlerPtr video_start_holeland  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(holeland_get_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,16,16,32,32);
 	
 		if (!bg_tilemap)
@@ -69,17 +68,16 @@ public class holeland
 		tilemap_set_transmask(bg_tilemap,0,0xff,0x00); /* split type 0 is totally transparent in front half */
 		tilemap_set_transmask(bg_tilemap,1,0x01,0xfe); /* split type 1 has pen 0? transparent in front half */
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( crzrally )
-	{
+	public static VideoStartHandlerPtr video_start_crzrally  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(crzrally_get_tile_info,tilemap_scan_cols,TILEMAP_SPLIT,8,8,32,32);
 	
 		if (!bg_tilemap)
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( holeland_videoram_w )
 	{

@@ -254,8 +254,7 @@ public class megasys1
 	extern struct GameDriver driver_soldamj;
 	
 	
-	VIDEO_START( megasys1 )
-	{
+	public static VideoStartHandlerPtr video_start_megasys1  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		spriteram16 = &megasys1_ram[0x8000/2];
@@ -303,7 +302,7 @@ public class megasys1
 			hardware_type_z = 1;
 	
 	 	return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	

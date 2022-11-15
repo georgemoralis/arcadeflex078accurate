@@ -205,8 +205,7 @@ public class powerins
 	
 	***************************************************************************/
 	
-	VIDEO_START( powerins )
-	{
+	public static VideoStartHandlerPtr video_start_powerins  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap_0 = tilemap_create(	get_tile_info_0,
 									powerins_get_memory_offset_0,
 									TILEMAP_OPAQUE,
@@ -232,7 +231,7 @@ public class powerins
 			return 0;
 		}
 		else return 1;
-	}
+	} };
 	
 	
 	

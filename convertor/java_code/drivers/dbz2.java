@@ -74,8 +74,6 @@ public class dbz2
 	
 	static int dbz2_control;
 	
-	VIDEO_START(dbz);
-	VIDEO_START(dbz2);
 	VIDEO_UPDATE(dbz);
 	VIDEO_UPDATE(dbz2);
 	

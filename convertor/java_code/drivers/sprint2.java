@@ -34,8 +34,7 @@ public class sprint2
 	extern WRITE_HANDLER( sprint2_video_ram_w );
 	
 	extern VIDEO_UPDATE( sprint2 );
-	extern VIDEO_START( sprint2 );
-	extern VIDEO_EOF( sprint2 );
+	extern extern VIDEO_EOF( sprint2 );
 	
 	extern UINT8* sprint2_video_ram;
 	

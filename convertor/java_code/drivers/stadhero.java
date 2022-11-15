@@ -16,7 +16,6 @@ public class stadhero
 {
 	
 	/* Video emulation definitions */
-	VIDEO_START( stadhero );
 	VIDEO_UPDATE( stadhero );
 	
 	extern data16_t *stadhero_pf1_data,*stadhero_pf2_data;

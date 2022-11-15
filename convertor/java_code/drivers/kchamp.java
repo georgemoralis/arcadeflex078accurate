@@ -77,8 +77,7 @@ public class kchamp
 	extern WRITE_HANDLER( kchamp_flipscreen_w );
 	
 	extern PALETTE_INIT( kchamp );
-	extern VIDEO_START( kchamp );
-	extern VIDEO_UPDATE( kchamp );
+	extern extern VIDEO_UPDATE( kchamp );
 	extern VIDEO_UPDATE( kchampvs );
 	
 	

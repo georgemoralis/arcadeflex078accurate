@@ -68,11 +68,10 @@ public class homerun
 	
 	
 	
-	VIDEO_START(homerun)
-	{
+	public static VideoStartHandlerPtr video_start_homerun  = new VideoStartHandlerPtr() { public int handler(){
 		homerun_tilemap = tilemap_create(get_homerun_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE, 8, 8,64,64);
 		return 0;
-	}
+	} };
 	
 	static void draw_sprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )
 	{

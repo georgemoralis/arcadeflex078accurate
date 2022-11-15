@@ -201,8 +201,7 @@ public class taotaido
 		return row*0x40 + (col&0x3f) + ((col&0x40)<<6);
 	}
 	
-	VIDEO_START(taotaido)
-	{
+	public static VideoStartHandlerPtr video_start_taotaido  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(taotaido_bg_tile_info,taotaido_tilemap_scan_rows,TILEMAP_OPAQUE,     16,16,128,64);
 	
 		taotaido_spriteram_old = auto_malloc(0x2000);
@@ -212,7 +211,7 @@ public class taotaido
 		taotaido_spriteram2_older = auto_malloc(0x10000);
 	
 		return 0;
-	}
+	} };
 	
 	
 	VIDEO_UPDATE(taotaido)

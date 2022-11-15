@@ -80,8 +80,7 @@ public class shadfrce
 	
 	
 	
-	VIDEO_START( shadfrce )
-	{
+	public static VideoStartHandlerPtr video_start_shadfrce  = new VideoStartHandlerPtr() { public int handler(){
 		shadfrce_fgtilemap = tilemap_create(get_shadfrce_fgtile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,64,32);
 			tilemap_set_transparent_pen(shadfrce_fgtilemap,0);
 	
@@ -93,7 +92,7 @@ public class shadfrce
 		shadfrce_spvideoram_old = auto_malloc(spriteram_size);
 	
 		return 0;
-	}
+	} };
 	
 	WRITE16_HANDLER ( shadfrce_bg0scrollx_w )
 	{

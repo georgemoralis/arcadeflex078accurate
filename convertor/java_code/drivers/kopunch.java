@@ -16,8 +16,7 @@ public class kopunch
 	extern WRITE_HANDLER( kopunch_gfxbank_w );
 	
 	extern PALETTE_INIT( kopunch );
-	extern VIDEO_START( kopunch );
-	extern VIDEO_UPDATE( kopunch );
+	extern extern VIDEO_UPDATE( kopunch );
 	
 	
 	public static InterruptHandlerPtr kopunch_interrupt = new InterruptHandlerPtr() {public void handler(){

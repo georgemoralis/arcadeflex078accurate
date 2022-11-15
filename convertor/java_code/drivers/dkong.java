@@ -186,8 +186,7 @@ public class dkong
 	
 	extern PALETTE_INIT( dkong );
 	extern PALETTE_INIT( dkong3 );
-	extern VIDEO_START( dkong );
-	extern VIDEO_UPDATE( radarscp );
+	extern extern VIDEO_UPDATE( radarscp );
 	extern VIDEO_UPDATE( dkong );
 	extern VIDEO_UPDATE( pestplce );
 	extern VIDEO_UPDATE( spclforc );

@@ -38,8 +38,7 @@ public class zodiack
 	extern WRITE_HANDLER( zodiack_flipscreen_w );
 	
 	extern PALETTE_INIT( zodiack );
-	extern VIDEO_START( zodiack );
-	extern VIDEO_UPDATE( zodiack );
+	extern extern VIDEO_UPDATE( zodiack );
 	
 	int percuss_hardware;
 	

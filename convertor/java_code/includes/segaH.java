@@ -41,5 +41,4 @@ WRITE_HANDLER( startrek_sh_w );
 
 /*----------- defined in vidhrdw/sega.c -----------*/
 
-VIDEO_START( sega );
 VIDEO_UPDATE( sega );

@@ -71,7 +71,6 @@ package drivers;
 public class groundfx
 {
 	
-	VIDEO_START( groundfx );
 	VIDEO_UPDATE( groundfx );
 	
 	/* F3 sound */

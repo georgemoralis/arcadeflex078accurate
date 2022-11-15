@@ -8,7 +8,6 @@
 
 MACHINE_INIT( capbowl );
 
-VIDEO_START( capbowl );
 VIDEO_UPDATE( capbowl );
 
 extern unsigned char *capbowl_rowaddress;

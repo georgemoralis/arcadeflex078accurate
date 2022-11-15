@@ -38,8 +38,7 @@ public class trackfld
 	extern WRITE_HANDLER( trackfld_flipscreen_w );
 	
 	extern PALETTE_INIT( trackfld );
-	extern VIDEO_START( trackfld );
-	extern VIDEO_UPDATE( trackfld );
+	extern extern VIDEO_UPDATE( trackfld );
 	
 	extern WRITE_HANDLER( konami_sh_irqtrigger_w );
 	extern READ_HANDLER( trackfld_sh_timer_r );

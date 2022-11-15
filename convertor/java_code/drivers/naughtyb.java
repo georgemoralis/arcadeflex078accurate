@@ -121,7 +121,6 @@ public class naughtyb
 	WRITE_HANDLER( naughtyb_scrollreg_w );
 	WRITE_HANDLER( naughtyb_videoreg_w );
 	WRITE_HANDLER( popflame_videoreg_w );
-	VIDEO_START( naughtyb );
 	PALETTE_INIT( naughtyb );
 	VIDEO_UPDATE( naughtyb );
 	

@@ -23,8 +23,7 @@ public class rastan
 	
 	/***************************************************************************/
 	
-	VIDEO_START( rastan )
-	{
+	public static VideoStartHandlerPtr video_start_rastan  = new VideoStartHandlerPtr() { public int handler(){
 		/* (chips, gfxnum, x_offs, y_offs, y_invert, opaque, dblwidth) */
 		if (PC080SN_vh_start(1,1,0,0,0,0,0))
 			return 1;
@@ -33,10 +32,9 @@ public class rastan
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( opwolf )
-	{
+	public static VideoStartHandlerPtr video_start_opwolf  = new VideoStartHandlerPtr() { public int handler(){
 		if (PC080SN_vh_start(1,1,0,0,0,0,0))
 			return 1;
 	
@@ -44,10 +42,9 @@ public class rastan
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( rainbow )
-	{
+	public static VideoStartHandlerPtr video_start_rainbow  = new VideoStartHandlerPtr() { public int handler(){
 		/* (chips, gfxnum, x_offs, y_offs, y_invert, opaque, dblwidth) */
 		if (PC080SN_vh_start(1,1,0,0,0,0,0))
 			return 1;
@@ -56,10 +53,9 @@ public class rastan
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( jumping )
-	{
+	public static VideoStartHandlerPtr video_start_jumping  = new VideoStartHandlerPtr() { public int handler(){
 		if (PC080SN_vh_start(1,1,0,0,1,0,0))
 			return 1;
 	
@@ -69,7 +65,7 @@ public class rastan
 		state_save_register_UINT16("sprite_ctrl", 0, "sprites", &sprite_ctrl, 1);
 		state_save_register_UINT16("sprite_flip", 0, "sprites", &sprites_flipscreen, 1);
 		return 0;
-	}
+	} };
 	
 	
 	WRITE16_HANDLER( rastan_spritectrl_w )

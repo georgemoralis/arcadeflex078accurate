@@ -209,8 +209,6 @@ package drivers;
 public class rainbow
 {
 	
-	VIDEO_START( rainbow );
-	VIDEO_START( jumping );
 	
 	VIDEO_UPDATE( rainbow );
 	VIDEO_UPDATE( jumping );

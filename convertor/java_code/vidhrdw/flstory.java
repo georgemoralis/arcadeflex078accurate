@@ -36,8 +36,7 @@ public class flstory
 	}
 	
 	
-	VIDEO_START( flstory )
-	{
+	public static VideoStartHandlerPtr video_start_flstory  = new VideoStartHandlerPtr() { public int handler(){
 	    tilemap = tilemap_create( get_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,32,32 );
 	//	tilemap_set_transparent_pen( tilemap,15 );
 		tilemap_set_transmask(tilemap,0,0x3fff,0xc000);
@@ -46,7 +45,7 @@ public class flstory
 		paletteram = auto_malloc(0x200);
 		paletteram_2 = auto_malloc(0x200);
 		return video_start_generic();
-	}
+	} };
 	
 	WRITE_HANDLER( flstory_videoram_w )
 	{

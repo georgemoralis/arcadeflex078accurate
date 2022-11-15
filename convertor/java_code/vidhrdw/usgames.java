@@ -51,15 +51,14 @@ public class usgames
 		SET_TILE_INFO(0,tileno,colour,0)
 	}
 	
-	VIDEO_START(usg)
-	{
+	public static VideoStartHandlerPtr video_start_usg  = new VideoStartHandlerPtr() { public int handler(){
 		usg_tilemap = tilemap_create(get_usg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE, 8, 8,64,32);
 	
 		if (!usg_tilemap)
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( usg_videoram_w )

@@ -60,8 +60,7 @@ public class plygonet
 		tilemap_mark_tile_dirty(ttl_tilemap, offset*2+1);
 	}
 	
-	VIDEO_START(polygonet_vh_start)
-	{
+	public static VideoStartHandlerPtr video_start_polygonet_vh_start  = new VideoStartHandlerPtr() { public int handler(){
 		static struct GfxLayout charlayout =
 		{
 			8, 8,		// 8x8
@@ -103,7 +102,7 @@ public class plygonet
 		state_save_register_UINT16("PolygonetTTL", 0, "VRAM", ttl_vram, 0x800);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(polygonet_vh_screenrefresh)
 	{

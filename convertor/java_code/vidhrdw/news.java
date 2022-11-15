@@ -55,8 +55,7 @@ public class news
 	
 	***************************************************************************/
 	
-	VIDEO_START( news )
-	{
+	public static VideoStartHandlerPtr video_start_news  = new VideoStartHandlerPtr() { public int handler(){
 	
 		fg_tilemap = tilemap_create(get_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32, 32);
 		tilemap_set_transparent_pen(fg_tilemap,0);
@@ -64,7 +63,7 @@ public class news
 		bg_tilemap = tilemap_create(get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32, 32);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

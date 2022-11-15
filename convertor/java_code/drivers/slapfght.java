@@ -200,8 +200,6 @@ public class slapfght
 	extern unsigned char *slapfight_scrollx_lo,*slapfight_scrollx_hi,*slapfight_scrolly;
 	VIDEO_UPDATE( slapfight );
 	VIDEO_UPDATE( perfrman );
-	VIDEO_START( slapfight );
-	VIDEO_START( perfrman );
 	WRITE_HANDLER( slapfight_flipscreen_w );
 	WRITE_HANDLER( slapfight_fixram_w );
 	WRITE_HANDLER( slapfight_fixcol_w );

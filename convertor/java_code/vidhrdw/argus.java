@@ -297,8 +297,7 @@ public class argus
 	  Initialize and destroy video hardware emulation
 	***************************************************************************/
 	
-	VIDEO_START( argus )
-	{
+	public static VideoStartHandlerPtr video_start_argus  = new VideoStartHandlerPtr() { public int handler(){
 		lowbitscroll = 0;
 		/*                           info                      offset             type                  w   h  col  row */
 		bg0_tilemap = tilemap_create(argus_get_bg0_tile_info,  tilemap_scan_cols, TILEMAP_OPAQUE,      16, 16, 32, 32);
@@ -321,10 +320,9 @@ public class argus
 		tilemap_set_transparent_pen( tx_tilemap,  15 );
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( valtric )
-	{
+	public static VideoStartHandlerPtr video_start_valtric  = new VideoStartHandlerPtr() { public int handler(){
 		/*                           info                       offset             type                 w   h  col  row */
 		bg1_tilemap = tilemap_create(valtric_get_bg_tile_info,  tilemap_scan_cols, TILEMAP_OPAQUE,      16, 16, 32, 32);
 		tx_tilemap  = tilemap_create(valtric_get_tx_tile_info,  tilemap_scan_cols, TILEMAP_TRANSPARENT,  8,  8, 32, 32);
@@ -335,10 +333,9 @@ public class argus
 		tilemap_set_transparent_pen( bg1_tilemap, 15 );
 		tilemap_set_transparent_pen( tx_tilemap,  15 );
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( butasan )
-	{
+	public static VideoStartHandlerPtr video_start_butasan  = new VideoStartHandlerPtr() { public int handler(){
 		/*                           info                       offset             type                 w   h  col  row */
 		bg0_tilemap = tilemap_create(butasan_get_bg0_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE,      16, 16, 32, 32);
 		bg1_tilemap = tilemap_create(butasan_get_bg1_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE,      16, 16, 32, 32);
@@ -371,7 +368,7 @@ public class argus
 		tilemap_set_transparent_pen( tx_tilemap,  15 );
 	
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

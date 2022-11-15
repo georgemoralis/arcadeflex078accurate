@@ -36,7 +36,6 @@ public class hyhoo
 	
 	PALETTE_INIT( hyhoo );
 	VIDEO_UPDATE( hyhoo );
-	VIDEO_START( hyhoo );
 	
 	WRITE_HANDLER( hyhoo_palette_w );
 	void hyhoo_radrx_w(int data);

@@ -91,9 +91,7 @@ public class omegaf
 	extern WRITE_HANDLER( omegaf_sprite_overdraw_w );
 	extern WRITE_HANDLER( omegaf_flipscreen_w );
 	
-	extern VIDEO_START( omegaf );
-	extern VIDEO_START( robokid );
-	extern VIDEO_UPDATE( omegaf );
+	extern extern extern VIDEO_UPDATE( omegaf );
 	
 	static int omegaf_bank_latch = 2;
 	

@@ -577,8 +577,7 @@ public class suprnova
 	}
 	
 	
-	VIDEO_START(skns)
-	{
+	public static VideoStartHandlerPtr video_start_skns  = new VideoStartHandlerPtr() { public int handler(){
 		skns_tilemap_A = tilemap_create(get_tilemap_A_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64, 64);
 			tilemap_set_transparent_pen(skns_tilemap_A,0);
 	
@@ -589,7 +588,7 @@ public class suprnova
 		Machine->gfx[3]->color_granularity=256;
 	
 		return 0;
-	}
+	} };
 	
 	static void supernova_draw_a( struct mame_bitmap *bitmap, const struct rectangle *cliprect, int tran )
 	{

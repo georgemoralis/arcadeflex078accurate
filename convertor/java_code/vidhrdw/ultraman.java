@@ -62,8 +62,7 @@ public class ultraman
 	
 	***************************************************************************/
 	
-	VIDEO_START( ultraman )
-	{
+	public static VideoStartHandlerPtr video_start_ultraman  = new VideoStartHandlerPtr() { public int handler(){
 		sprite_colorbase = 192;
 		zoom_colorbase[0] = 0;
 		zoom_colorbase[1] = 64;
@@ -86,7 +85,7 @@ public class ultraman
 		K051316_set_offset(2, 8, 0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

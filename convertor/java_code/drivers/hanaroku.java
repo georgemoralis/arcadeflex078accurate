@@ -42,10 +42,9 @@ public class hanaroku
 	}
 	
 	
-	VIDEO_START(hanaroku)
-	{
+	public static VideoStartHandlerPtr video_start_hanaroku  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;
-	}
+	} };
 	
 	static void hanaroku_draw_sprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )
 	{

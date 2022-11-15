@@ -161,10 +161,9 @@ public class jchan
 	/* vidhrdw */
 	
 	
-	VIDEO_START(jchan)
-	{
+	public static VideoStartHandlerPtr video_start_jchan  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(jchan)
 	{

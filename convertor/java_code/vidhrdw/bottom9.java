@@ -62,8 +62,7 @@ public class bottom9
 	
 	***************************************************************************/
 	
-	VIDEO_START( bottom9 )
-	{
+	public static VideoStartHandlerPtr video_start_bottom9  = new VideoStartHandlerPtr() { public int handler(){
 		layer_colorbase[0] = 0;	/* not used */
 		layer_colorbase[1] = 0;
 		layer_colorbase[2] = 16;
@@ -79,7 +78,7 @@ public class bottom9
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

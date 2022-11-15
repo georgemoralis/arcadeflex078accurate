@@ -45,8 +45,7 @@ public class pirates
 	
 	/* video start / update */
 	
-	VIDEO_START(pirates)
-	{
+	public static VideoStartHandlerPtr video_start_pirates  = new VideoStartHandlerPtr() { public int handler(){
 		tx_tilemap = tilemap_create(get_tx_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,36,32);
 	
 		/* Not sure how big they can be, Pirates uses only 32 columns, Genix 44 */
@@ -60,7 +59,7 @@ public class pirates
 		tilemap_set_transparent_pen(fg_tilemap,0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

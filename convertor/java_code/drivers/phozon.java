@@ -70,8 +70,7 @@ public class phozon
 	extern MACHINE_INIT( phozon );
 	
 	/* video functions */
-	extern VIDEO_START( phozon );
-	extern PALETTE_INIT( phozon );
+	extern extern PALETTE_INIT( phozon );
 	extern VIDEO_UPDATE( phozon );
 	
 		/* CPU 1 (MAIN CPU) read addresses */

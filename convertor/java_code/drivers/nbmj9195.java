@@ -107,10 +107,7 @@ public class nbmj9195
 	
 	
 	VIDEO_UPDATE( sailorws );
-	VIDEO_START( sailorws );
-	VIDEO_START( mjkoiura );
 	VIDEO_UPDATE( mscoutm );
-	VIDEO_START( mscoutm );
 	
 	READ_HANDLER( sailorws_palette_r );
 	WRITE_HANDLER( sailorws_palette_w );

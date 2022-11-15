@@ -65,8 +65,7 @@ public class sf1
 	
 	***************************************************************************/
 	
-	VIDEO_START( sf1 )
-	{
+	public static VideoStartHandlerPtr video_start_sf1  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(get_bg_tile_info,tilemap_scan_cols,TILEMAP_OPAQUE,     16,16,2048,16);
 		fg_tilemap = tilemap_create(get_fg_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,16,16,2048,16);
 		tx_tilemap = tilemap_create(get_tx_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,  64,32);
@@ -78,7 +77,7 @@ public class sf1
 		tilemap_set_transparent_pen(tx_tilemap,3);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

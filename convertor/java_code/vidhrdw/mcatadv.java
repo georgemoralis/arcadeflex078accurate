@@ -230,8 +230,7 @@ public class mcatadv
 		profiler_mark(PROFILER_END);
 	}
 	
-	VIDEO_START( mcatadv )
-	{
+	public static VideoStartHandlerPtr video_start_mcatadv  = new VideoStartHandlerPtr() { public int handler(){
 		mcatadv_tilemap1 = tilemap_create(get_mcatadv_tile_info1,tilemap_scan_rows,TILEMAP_TRANSPARENT, 16, 16,32,32);
 		tilemap_set_transparent_pen(mcatadv_tilemap1,0);
 	
@@ -250,7 +249,7 @@ public class mcatadv
 		palette_bank2 = 0;
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_EOF( mcatadv )
 	{

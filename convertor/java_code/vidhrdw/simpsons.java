@@ -49,8 +49,7 @@ public class simpsons
 	
 	***************************************************************************/
 	
-	VIDEO_START( simpsons )
-	{
+	public static VideoStartHandlerPtr video_start_simpsons  = new VideoStartHandlerPtr() { public int handler(){
 		K053251_vh_start();
 	
 		if (K052109_vh_start(REGION_GFX1,NORMAL_PLANE_ORDER,tile_callback))
@@ -59,7 +58,7 @@ public class simpsons
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	

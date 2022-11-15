@@ -32,8 +32,7 @@ public class battlane
 	extern WRITE_HANDLER( battlane_video_ctrl_w );
 	
 	extern PALETTE_INIT( battlane );
-	extern VIDEO_START( battlane );
-	extern VIDEO_UPDATE( battlane );
+	extern extern VIDEO_UPDATE( battlane );
 	
 	
 	/* CPU interrupt control register */

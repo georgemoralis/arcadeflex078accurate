@@ -17,7 +17,6 @@ public class mayumi
 	
 	#define MCLK 10000000
 	
-	VIDEO_START( mayumi );
 	VIDEO_UPDATE( mayumi );
 	
 	WRITE_HANDLER( mayumi_videoram_w );

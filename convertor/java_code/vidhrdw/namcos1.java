@@ -573,8 +573,7 @@ public class namcos1
 	}
 	
 	
-	VIDEO_START( namcos1 )
-	{
+	public static VideoStartHandlerPtr video_start_namcos1  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		mpMaskData = (UINT8 *)memory_region( REGION_GFX1 );
@@ -689,7 +688,7 @@ public class namcos1
 	#endif
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( namcos1_main_update_w )
 	{

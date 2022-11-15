@@ -85,11 +85,7 @@ public class geebee
 	extern PALETTE_INIT( geebee );
 	extern PALETTE_INIT( navalone );
 	
-	extern VIDEO_START( geebee );
-	extern VIDEO_START( navalone );
-	extern VIDEO_START( kaitei );
-	extern VIDEO_START( sos );
-	extern VIDEO_UPDATE( geebee );
+	extern extern extern extern extern VIDEO_UPDATE( geebee );
 	
 	/* from sndhrdw/geebee.c */
 	WRITE_HANDLER( geebee_sound_w );

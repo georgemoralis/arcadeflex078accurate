@@ -22,7 +22,6 @@ public class _1943
 	WRITE_HANDLER( c1943_d806_w );	/* in vidhrdw/c1943.c */
 	PALETTE_INIT( 1943 );
 	VIDEO_UPDATE( 1943 );
-	VIDEO_START( 1943 );
 	
 	
 	

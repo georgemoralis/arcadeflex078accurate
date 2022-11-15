@@ -53,9 +53,7 @@ public class gaelco2
 	WRITE16_HANDLER( gaelco2_palette_w );
 	VIDEO_UPDATE( gaelco2 );
 	VIDEO_EOF( gaelco2 );
-	VIDEO_START( gaelco2 );
 	VIDEO_UPDATE( gaelco2_dual );
-	VIDEO_START( gaelco2_dual );
 	VIDEO_UPDATE( bang );
 	
 	

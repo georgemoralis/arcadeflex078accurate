@@ -29,7 +29,6 @@ public class megazone
 	
 	static int i8039_status;
 	
-	VIDEO_START( megazone );
 	
 	WRITE_HANDLER( megazone_flipscreen_w );
 	PALETTE_INIT( megazone );

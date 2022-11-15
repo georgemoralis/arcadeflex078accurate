@@ -643,8 +643,7 @@ public class namcos2
 	
 	/**************************************************************************/
 	
-	VIDEO_START( namcos2 )
-	{
+	public static VideoStartHandlerPtr video_start_namcos2  = new VideoStartHandlerPtr() { public int handler(){
 		if( CreateTilemaps()==0 )
 		{
 			tilemap_roz = tilemap_create(get_tile_info_roz,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,256,256);
@@ -656,7 +655,7 @@ public class namcos2
 			}
 		}
 		return -1;
-	}
+	} };
 	
 	VIDEO_UPDATE( namcos2_default )
 	{
@@ -683,8 +682,7 @@ public class namcos2
 	
 	/**************************************************************************/
 	
-	VIDEO_START( finallap )
-	{
+	public static VideoStartHandlerPtr video_start_finallap  = new VideoStartHandlerPtr() { public int handler(){
 		if( CreateTilemaps()==0 )
 		{
 			DrawSpriteInit();
@@ -692,7 +690,7 @@ public class namcos2
 			return 0;
 		}
 		return -1;
-	}
+	} };
 	
 	VIDEO_UPDATE( finallap )
 	{
@@ -712,8 +710,7 @@ public class namcos2
 	
 	/**************************************************************************/
 	
-	VIDEO_START( luckywld )
-	{
+	public static VideoStartHandlerPtr video_start_luckywld  = new VideoStartHandlerPtr() { public int handler(){
 		if( CreateTilemaps()==0 )
 		{
 			namco_obj_init( 0, 0x0, NULL );
@@ -728,7 +725,7 @@ public class namcos2
 			return 0;
 		}
 		return -1;
-	}
+	} };
 	
 	VIDEO_UPDATE( luckywld )
 	{
@@ -753,15 +750,14 @@ public class namcos2
 	
 	/**************************************************************************/
 	
-	VIDEO_START( sgunner )
-	{
+	public static VideoStartHandlerPtr video_start_sgunner  = new VideoStartHandlerPtr() { public int handler(){
 		if( CreateTilemaps()==0 )
 		{
 			namco_obj_init( 0, 0x0, NULL );
 			return 0;
 		}
 		return -1;
-	}
+	} };
 	
 	VIDEO_UPDATE( sgunner )
 	{
@@ -781,15 +777,14 @@ public class namcos2
 	
 	/**************************************************************************/
 	
-	VIDEO_START( metlhawk )
-	{
+	public static VideoStartHandlerPtr video_start_metlhawk  = new VideoStartHandlerPtr() { public int handler(){
 		if( CreateTilemaps()==0 )
 		{
 			namco_roz_init( 1, REGION_GFX5 );
 			return 0;
 		}
 		return -1;
-	}
+	} };
 	
 	VIDEO_UPDATE( metlhawk )
 	{

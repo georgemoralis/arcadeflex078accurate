@@ -125,8 +125,7 @@ public class cchasm
 		}
 	}
 	
-	VIDEO_START( cchasm )
-	{
+	public static VideoStartHandlerPtr video_start_cchasm  = new VideoStartHandlerPtr() { public int handler(){
 		int xmin, xmax, ymin, ymax;
 	
 		xmin=Machine->visible_area.min_x;
@@ -138,5 +137,5 @@ public class cchasm
 		ycenter=((ymax+ymin)/2) << 16;
 	
 		return video_start_vector();
-	}
+	} };
 }

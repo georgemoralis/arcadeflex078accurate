@@ -49,6 +49,5 @@ public class namcos22H
 	
 	VIDEO_UPDATE( namcos22 );
 	
-	VIDEO_START( namcos22s );
 	VIDEO_UPDATE( namcos22s );
 }

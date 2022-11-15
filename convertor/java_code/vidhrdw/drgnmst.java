@@ -138,8 +138,7 @@ public class drgnmst
 		return (col*8)+(row&0x07)+((row&0xf8)>>3)*512;
 	}
 	
-	VIDEO_START(drgnmst)
-	{
+	public static VideoStartHandlerPtr video_start_drgnmst  = new VideoStartHandlerPtr() { public int handler(){
 		drgnmst_fg_tilemap = tilemap_create(get_drgnmst_fg_tile_info,drgnmst_fg_tilemap_scan_cols,TILEMAP_TRANSPARENT,      8, 8, 64,64);
 		tilemap_set_transparent_pen(drgnmst_fg_tilemap,15);
 	
@@ -153,7 +152,7 @@ public class drgnmst
 		tilemap_set_scroll_rows(drgnmst_md_tilemap,1024);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(drgnmst)
 	{

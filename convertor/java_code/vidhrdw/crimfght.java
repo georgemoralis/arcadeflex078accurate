@@ -58,8 +58,7 @@ public class crimfght
 	
 	***************************************************************************/
 	
-	VIDEO_START( crimfght )
-	{
+	public static VideoStartHandlerPtr video_start_crimfght  = new VideoStartHandlerPtr() { public int handler(){
 		paletteram = auto_malloc(0x400);
 		if (!paletteram) return 1;
 	
@@ -73,7 +72,7 @@ public class crimfght
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

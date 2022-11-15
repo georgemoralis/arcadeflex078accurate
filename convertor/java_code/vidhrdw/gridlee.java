@@ -68,8 +68,7 @@ public class gridlee
 	 *
 	 *************************************/
 	
-	VIDEO_START( gridlee )
-	{
+	public static VideoStartHandlerPtr video_start_gridlee  = new VideoStartHandlerPtr() { public int handler(){
 		/* allocate a local copy of video RAM */
 		local_videoram = auto_malloc(256 * 256);
 		if (!local_videoram)
@@ -78,7 +77,7 @@ public class gridlee
 		/* reset the palette */
 		palettebank_vis = 0;
 		return 0;
-	}
+	} };
 	
 	
 	

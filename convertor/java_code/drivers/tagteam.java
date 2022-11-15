@@ -44,8 +44,7 @@ public class tagteam
 	extern WRITE_HANDLER( tagteam_flipscreen_w );
 	
 	extern PALETTE_INIT( tagteam );
-	extern VIDEO_START( tagteam );
-	extern VIDEO_UPDATE( tagteam );
+	extern extern VIDEO_UPDATE( tagteam );
 	
 	static WRITE_HANDLER( sound_command_w )
 	{

@@ -51,7 +51,6 @@ public class metlclsh
 	WRITE_HANDLER( metlclsh_gfxbank_w );
 	WRITE_HANDLER( metlclsh_rambank_w );
 	
-	VIDEO_START( metlclsh );
 	VIDEO_UPDATE( metlclsh );
 	
 	/***************************************************************************

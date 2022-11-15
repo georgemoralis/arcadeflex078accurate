@@ -69,8 +69,7 @@ public class sidepckt
 	
 	***************************************************************************/
 	
-	VIDEO_START( sidepckt )
-	{
+	public static VideoStartHandlerPtr video_start_sidepckt  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(get_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,32,32);
 	
 		if (!bg_tilemap)
@@ -82,7 +81,7 @@ public class sidepckt
 		tilemap_set_flip(ALL_TILEMAPS,TILEMAP_FLIPX);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

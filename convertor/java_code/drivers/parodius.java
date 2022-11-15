@@ -18,7 +18,6 @@ public class parodius
 	/* prototypes */
 	static MACHINE_INIT( parodius );
 	static void parodius_banking( int lines );
-	VIDEO_START( parodius );
 	VIDEO_UPDATE( parodius );
 	
 	static int videobank;

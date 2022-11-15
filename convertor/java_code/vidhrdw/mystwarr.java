@@ -115,8 +115,7 @@ public class mystwarr
 		SET_TILE_INFO(0, tileno, colour, 0)
 	}
 	
-	VIDEO_START(gaiapols)
-	{
+	public static VideoStartHandlerPtr video_start_gaiapols  = new VideoStartHandlerPtr() { public int handler(){
 		K055555_vh_start();
 		K054338_vh_start();
 	
@@ -146,7 +145,7 @@ public class mystwarr
 		tilemap_set_transparent_pen(ult_936_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
 	static void get_ult_936_tile_info(int tile_index)
 	{
@@ -161,8 +160,7 @@ public class mystwarr
 		SET_TILE_INFO(0, tileno, colour, (dat1[tile_index]&0x40) ? TILE_FLIPX : 0)
 	}
 	
-	VIDEO_START(dadandrn)
-	{
+	public static VideoStartHandlerPtr video_start_dadandrn  = new VideoStartHandlerPtr() { public int handler(){
 		K055555_vh_start();
 		K054338_vh_start();
 	
@@ -194,10 +192,9 @@ public class mystwarr
 		tilemap_set_transparent_pen(ult_936_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(mystwarr)
-	{
+	public static VideoStartHandlerPtr video_start_mystwarr  = new VideoStartHandlerPtr() { public int handler(){
 		K055555_vh_start();
 		K054338_vh_start();
 	
@@ -223,10 +220,9 @@ public class mystwarr
 		cbparam = 0;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(metamrph)
-	{
+	public static VideoStartHandlerPtr video_start_metamrph  = new VideoStartHandlerPtr() { public int handler(){
 		int rgn_250 = REGION_GFX3;
 	
 		gametype = 0;
@@ -256,10 +252,9 @@ public class mystwarr
 		K053250_set_LayerOffset(0, -7, 0);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(viostorm)
-	{
+	public static VideoStartHandlerPtr video_start_viostorm  = new VideoStartHandlerPtr() { public int handler(){
 		gametype = 0;
 	
 		K055555_vh_start();
@@ -283,10 +278,9 @@ public class mystwarr
 		K056832_set_LayerOffset(3,  3+1, 0);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(martchmp)
-	{
+	public static VideoStartHandlerPtr video_start_martchmp  = new VideoStartHandlerPtr() { public int handler(){
 		gametype = 0;
 	
 		K055555_vh_start();
@@ -312,7 +306,7 @@ public class mystwarr
 		K054338_invert_alpha(0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

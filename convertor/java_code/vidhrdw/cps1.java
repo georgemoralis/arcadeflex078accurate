@@ -1123,8 +1123,7 @@ public class cps1
 		}
 	}
 	
-	VIDEO_START( cps )
-	{
+	public static VideoStartHandlerPtr video_start_cps  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 	    machine_init_cps();
@@ -1198,22 +1197,20 @@ public class cps1
 		palette_basecolor[5] = 5*32;	/* stars2 */
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( cps1 )
-	{
+	public static VideoStartHandlerPtr video_start_cps1  = new VideoStartHandlerPtr() { public int handler(){
 	    cps_version=1;
 	    return video_start_cps();
-	}
+	} };
 	
-	VIDEO_START( cps2 )
-	{
+	public static VideoStartHandlerPtr video_start_cps2  = new VideoStartHandlerPtr() { public int handler(){
 	    if (cps_version != 99)
 	    {
 	        cps_version=2;
 	    }
 	    return video_start_cps();
-	}
+	} };
 	
 	/***************************************************************************
 	

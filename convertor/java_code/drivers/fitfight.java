@@ -105,7 +105,6 @@ public class fitfight
 	WRITE16_HANDLER( fof_bak_tileram_w );
 	WRITE16_HANDLER( fof_mid_tileram_w );
 	WRITE16_HANDLER( fof_txt_tileram_w );
-	VIDEO_START(fitfight);
 	VIDEO_UPDATE(fitfight);
 	
 	static READ16_HANDLER(fitfight_700000_r)

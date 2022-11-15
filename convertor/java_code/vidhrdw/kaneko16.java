@@ -126,8 +126,7 @@ public class kaneko16
 	KANEKO16_LAYER(2)
 	KANEKO16_LAYER(3)
 	
-	VIDEO_START( kaneko16_sprites )
-	{
+	public static VideoStartHandlerPtr video_start_kaneko16_sprites  = new VideoStartHandlerPtr() { public int handler(){
 		/* 0x400 sprites max */
 		spritelist.first_sprite = (struct tempsprite *)auto_malloc(0x400 * sizeof(spritelist.first_sprite[0]));
 	
@@ -135,10 +134,9 @@ public class kaneko16
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( kaneko16_1xVIEW2 )
-	{
+	public static VideoStartHandlerPtr video_start_kaneko16_1xVIEW2  = new VideoStartHandlerPtr() { public int handler(){
 		if (	video_start_kaneko16_sprites()	)
 			return 1;
 	
@@ -185,10 +183,9 @@ public class kaneko16
 	
 			return 0;
 		}
-	}
+	} };
 	
-	VIDEO_START( kaneko16_2xVIEW2 )
-	{
+	public static VideoStartHandlerPtr video_start_kaneko16_2xVIEW2  = new VideoStartHandlerPtr() { public int handler(){
 		if (	video_start_kaneko16_1xVIEW2()	)
 			return 1;
 	
@@ -230,17 +227,16 @@ public class kaneko16
 	
 			return 0;
 		}
-	}
+	} };
 	
-	VIDEO_START( sandscrp_1xVIEW2 )
-	{
+	public static VideoStartHandlerPtr video_start_sandscrp_1xVIEW2  = new VideoStartHandlerPtr() { public int handler(){
 		if (	video_start_kaneko16_1xVIEW2()	)
 			return 1;
 	
 		tilemap_set_scrolldy( kaneko16_tmap_0, 0, 256 - 1 );
 		tilemap_set_scrolldy( kaneko16_tmap_1, 0, 256 - 1 );
 		return 0;
-	}
+	} };
 	
 	
 	/* Berlwall has an additional hi-color background */
@@ -268,8 +264,7 @@ public class kaneko16
 		}
 	}
 	
-	VIDEO_START( berlwall )
-	{
+	public static VideoStartHandlerPtr video_start_berlwall  = new VideoStartHandlerPtr() { public int handler(){
 		int sx, x,y;
 		unsigned char *RAM	=	memory_region(REGION_GFX3);
 	
@@ -315,7 +310,7 @@ public class kaneko16
 		  }
 	
 		return video_start_kaneko16_1xVIEW2();
-	}
+	} };
 	
 	
 	/***************************************************************************

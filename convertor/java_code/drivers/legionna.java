@@ -75,9 +75,7 @@ public class legionna
 	extern WRITE16_HANDLER( legionna_text_w );
 	extern WRITE16_HANDLER( legionna_control_w );
 	
-	extern VIDEO_START( legionna );
-	extern VIDEO_START( cupsoc );
-	extern VIDEO_UPDATE( legionna );
+	extern extern extern VIDEO_UPDATE( legionna );
 	extern VIDEO_UPDATE( godzilla );
 	extern VIDEO_UPDATE( sdgndmrb );
 	void heatbrl_setgfxbank(UINT16 data);

@@ -277,10 +277,9 @@ public class funybubl
 	}
 	
 	
-	VIDEO_START(funybubl)
-	{
+	public static VideoStartHandlerPtr video_start_funybubl  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;
-	}
+	} };
 	
 	/* note, we're not using half the sprite data .. maybe one copy is a buffer, we could be using the wrong one .. */
 	static void funybubl_drawsprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )

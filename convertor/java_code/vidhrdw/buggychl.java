@@ -32,8 +32,7 @@ public class buggychl
 	
 	
 	
-	VIDEO_START( buggychl )
-	{
+	public static VideoStartHandlerPtr video_start_buggychl  = new VideoStartHandlerPtr() { public int handler(){
 		dirtybuffer = auto_malloc(videoram_size);
 		dirtychar = auto_malloc(256 * sizeof(*dirtychar));
 		tmpbitmap1 = auto_bitmap_alloc(256,256);
@@ -46,7 +45,7 @@ public class buggychl
 		memset(dirtychar,0xff,256 * sizeof(*dirtychar));
 	
 		return 0;
-	}
+	} };
 	
 	
 	

@@ -99,7 +99,6 @@ public class galaga
 	
 	
 	extern unsigned char *galaga_starcontrol;
-	VIDEO_START( galaga );
 	VIDEO_UPDATE( galaga );
 	PALETTE_INIT( galaga );
 	

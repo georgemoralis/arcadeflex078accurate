@@ -29,8 +29,7 @@ public class exedexes
 	extern WRITE_HANDLER( exedexes_gfxctrl_w );
 	
 	extern PALETTE_INIT( exedexes );
-	extern VIDEO_START( exedexes );
-	extern VIDEO_UPDATE( exedexes );
+	extern extern VIDEO_UPDATE( exedexes );
 	extern VIDEO_EOF( exedexes );
 	
 	

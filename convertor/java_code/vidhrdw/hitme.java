@@ -67,19 +67,17 @@ public class hitme
 	
 	/* Video Start / Update */
 	
-	VIDEO_START (hitme)
-	{
+	public static VideoStartHandlerPtr video_start_hitme  = new VideoStartHandlerPtr() { public int handler(){
 		hitme_tilemap = tilemap_create(get_hitme_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,40, 19);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START (brickyrd)
-	{
+	public static VideoStartHandlerPtr video_start_brickyrd  = new VideoStartHandlerPtr() { public int handler(){
 		hitme_tilemap = tilemap_create(get_hitme_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32, 24);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE (hitme)
 	{

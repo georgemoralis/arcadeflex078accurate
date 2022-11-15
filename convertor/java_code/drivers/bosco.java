@@ -94,7 +94,6 @@ public class bosco
 	MACHINE_INIT( bosco );
 	
 	WRITE_HANDLER( bosco_cpu_reset_w );
-	VIDEO_START( bosco );
 	VIDEO_UPDATE( bosco );
 	PALETTE_INIT( bosco );
 	
@@ -109,7 +108,6 @@ public class bosco
 	WRITE_HANDLER( bosco_scrollx_w );
 	WRITE_HANDLER( bosco_scrolly_w );
 	WRITE_HANDLER( bosco_starcontrol_w );
-	VIDEO_START( bosco );
 	VIDEO_UPDATE( bosco );
 	
 	WRITE_HANDLER( pengo_sound_w );

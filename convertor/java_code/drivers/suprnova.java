@@ -202,7 +202,6 @@ public class suprnova
 	WRITE32_HANDLER ( skns_tilemapA_w );
 	WRITE32_HANDLER ( skns_tilemapB_w );
 	WRITE32_HANDLER ( skns_v3_regs_w );
-	VIDEO_START(skns);
 	VIDEO_EOF(skns);
 	VIDEO_UPDATE(skns);
 	

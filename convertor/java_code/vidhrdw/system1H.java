@@ -33,7 +33,6 @@ public class system1H
 	extern size_t system1_backgroundram_size;
 	
 	
-	VIDEO_START( system1 );
 	void system1_define_background_memory(int Mode);
 	
 	READ_HANDLER( wbml_videoram_bank_latch_r );

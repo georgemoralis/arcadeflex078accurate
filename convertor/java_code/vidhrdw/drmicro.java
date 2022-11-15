@@ -106,8 +106,7 @@ public class drmicro
 			colortable[i] = color_prom[i] & 0x0f;
 	}
 	
-	VIDEO_START( drmicro)
-	{
+	public static VideoStartHandlerPtr video_start_drmicro  = new VideoStartHandlerPtr() { public int handler(){
 		drmicro_videoram = auto_malloc(0x1000);
 	
 		drmicro_bg1 = tilemap_create(get_bg1_tile_info, tilemap_scan_rows,TILEMAP_OPAQUE, 8,8,32,32);
@@ -119,7 +118,7 @@ public class drmicro
 		tilemap_set_transparent_pen(drmicro_bg2,0);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( drmicro )
 	{

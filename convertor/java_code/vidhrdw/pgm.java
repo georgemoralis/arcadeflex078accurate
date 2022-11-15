@@ -282,8 +282,7 @@ public class pgm
 	
 	/*** Video - Start / Update ****************************************************/
 	
-	VIDEO_START( pgm )
-	{
+	public static VideoStartHandlerPtr video_start_pgm  = new VideoStartHandlerPtr() { public int handler(){
 		pgm_tx_tilemap= tilemap_create(get_pgm_tx_tilemap_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,64,32);
 		tilemap_set_transparent_pen(pgm_tx_tilemap,15);
 	
@@ -300,7 +299,7 @@ public class pgm
 	
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( pgm )
 	{

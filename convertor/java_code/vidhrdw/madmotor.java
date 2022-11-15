@@ -118,8 +118,7 @@ public class madmotor
 	
 	/******************************************************************************/
 	
-	VIDEO_START( madmotor )
-	{
+	public static VideoStartHandlerPtr video_start_madmotor  = new VideoStartHandlerPtr() { public int handler(){
 		madmotor_pf1_tilemap = tilemap_create(get_pf1_tile_info, pf1_scan, TILEMAP_TRANSPARENT, 8, 8, 64,64);
 		madmotor_pf2_tilemap = tilemap_create(get_pf2_tile_info, pf2_scan, TILEMAP_TRANSPARENT,16,16, 32,32);
 		madmotor_pf3_tilemap = tilemap_create(get_pf3_tile_info, pf3_scan, TILEMAP_OPAQUE,     16,16, 32,64);
@@ -133,7 +132,7 @@ public class madmotor
 		tilemap_set_scroll_rows(madmotor_pf1_tilemap,512);
 	
 		return 0;
-	}
+	} };
 	
 	/******************************************************************************/
 	

@@ -101,8 +101,7 @@ extern WRITE_HANDLER( decocass_part_v_shift_w );
 extern WRITE_HANDLER( decocass_center_h_shift_space_w );
 extern WRITE_HANDLER( decocass_center_v_shift_w );
 
-extern VIDEO_START( decocass );
-extern VIDEO_UPDATE( decocass );
+extern extern VIDEO_UPDATE( decocass );
 
 extern unsigned char *decocass_charram;
 extern unsigned char *decocass_fgvideoram;

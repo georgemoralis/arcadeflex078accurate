@@ -47,8 +47,7 @@ public class battlnts
 	
 	***************************************************************************/
 	
-	VIDEO_START( battlnts )
-	{
+	public static VideoStartHandlerPtr video_start_battlnts  = new VideoStartHandlerPtr() { public int handler(){
 		layer_colorbase[0] = 0;
 		layer_colorbase[1] = 0;
 	
@@ -59,7 +58,7 @@ public class battlnts
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	

@@ -192,8 +192,7 @@ public class taitosj
 	  Start the video hardware emulation.
 	
 	***************************************************************************/
-	VIDEO_START( taitosj )
-	{
+	public static VideoStartHandlerPtr video_start_taitosj  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 	
@@ -236,7 +235,7 @@ public class taitosj
 		flipscreen[0] = flipscreen[1] = 0;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

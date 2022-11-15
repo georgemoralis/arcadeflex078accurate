@@ -26,8 +26,7 @@ public class ironhors
 	extern WRITE_HANDLER( ironhors_flipscreen_w );
 	
 	extern PALETTE_INIT( ironhors );
-	extern VIDEO_START( ironhors );
-	extern VIDEO_UPDATE( ironhors );
+	extern extern VIDEO_UPDATE( ironhors );
 	
 	
 	public static InterruptHandlerPtr ironhors_interrupt = new InterruptHandlerPtr() {public void handler(){

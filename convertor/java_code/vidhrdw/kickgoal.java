@@ -60,15 +60,14 @@ public class kickgoal
 	}
 	
 	
-	VIDEO_START( kickgoal )
-	{
+	public static VideoStartHandlerPtr video_start_kickgoal  = new VideoStartHandlerPtr() { public int handler(){
 		kickgoal_fgtm = tilemap_create(get_kickgoal_fg_tile_info,tilemap_scan_kicksfg,TILEMAP_TRANSPARENT, 8, 16,64,64);
 			tilemap_set_transparent_pen(kickgoal_fgtm,15);
 		kickgoal_bgtm = tilemap_create(get_kickgoal_bg_tile_info,tilemap_scan_kicksbg,TILEMAP_TRANSPARENT, 16, 32,64,64);
 			tilemap_set_transparent_pen(kickgoal_bgtm,15);
 		kickgoal_bg2tm = tilemap_create(get_kickgoal_bg2_tile_info,tilemap_scan_kicksbg2,TILEMAP_OPAQUE, 32, 64,64,64);
 		return 0;
-	}
+	} };
 	
 	
 	

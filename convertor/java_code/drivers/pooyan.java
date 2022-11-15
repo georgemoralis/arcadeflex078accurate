@@ -77,8 +77,7 @@ public class pooyan
 	extern WRITE_HANDLER( pooyan_flipscreen_w );
 	
 	extern PALETTE_INIT( pooyan );
-	extern VIDEO_START( pooyan );
-	extern VIDEO_UPDATE( pooyan );
+	extern extern VIDEO_UPDATE( pooyan );
 	
 	
 	static MEMORY_READ_START( readmem )

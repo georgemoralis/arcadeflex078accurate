@@ -1243,7 +1243,7 @@ public class system32
 		get_system32_tile_info(tile_index,3);
 	}
 	
-	VIDEO_START( system32 ) {
+	public static VideoStartHandlerPtr video_start_system32  = new VideoStartHandlerPtr() { public int handler()
 		int i;
 	
 		system32_layer_tilemap[0] = tilemap_create(get_system32_layer0_tile_info,sys32_bg_map,TILEMAP_TRANSPARENT, 16, 16,64,32);
@@ -1265,7 +1265,7 @@ public class system32
 			sys32_brightness[i][0] = 0xff;
 			sys32_brightness[i][1] = 0xff;
 			sys32_brightness[i][2] = 0xff;
-		}
+		} };
 	
 		for (i = 0; i < 0x100; i++)
 			system32_dirty_window[i] = 1;

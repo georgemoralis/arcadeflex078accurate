@@ -22,8 +22,7 @@ public class tceptor
 	
 	
 	extern PALETTE_INIT( tceptor );
-	extern VIDEO_START( tceptor );
-	extern VIDEO_UPDATE( tceptor );
+	extern extern VIDEO_UPDATE( tceptor );
 	
 	extern READ_HANDLER( tceptor_tile_ram_r );
 	extern WRITE_HANDLER( tceptor_tile_ram_w );

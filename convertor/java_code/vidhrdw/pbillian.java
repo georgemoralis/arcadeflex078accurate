@@ -33,12 +33,11 @@ public class pbillian
 		SET_TILE_INFO(0,tileno,pal+0x10,0)
 	}
 	
-	VIDEO_START(pbillian)
-	{
+	public static VideoStartHandlerPtr video_start_pbillian  = new VideoStartHandlerPtr() { public int handler(){
 		pb_tilemap = tilemap_create(get_pb_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE, 8, 8,32,32);
 		paletteram = auto_malloc(0x200);
 		return 0;
-	}
+	} };
 	
 	
 	static void draw_sprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )

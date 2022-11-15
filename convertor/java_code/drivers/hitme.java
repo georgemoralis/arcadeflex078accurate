@@ -33,8 +33,6 @@ public class hitme
 	data8_t *hitme_vidram;
 	
 	WRITE_HANDLER( hitme_vidram_w );
-	VIDEO_START (hitme);
-	VIDEO_START (brickyrd);
 	VIDEO_UPDATE (hitme);
 	PALETTE_INIT( hitme );
 	

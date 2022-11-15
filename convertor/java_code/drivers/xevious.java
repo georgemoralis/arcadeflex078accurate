@@ -232,7 +232,6 @@ public class xevious
 	WRITE_HANDLER( xevious_fg_colorram_w );
 	WRITE_HANDLER( xevious_bg_videoram_w );
 	WRITE_HANDLER( xevious_bg_colorram_w );
-	VIDEO_START( xevious );
 	PALETTE_INIT( xevious );
 	VIDEO_UPDATE( xevious );
 	

@@ -76,8 +76,7 @@ public class fromance
 	 *
 	 *************************************/
 	
-	VIDEO_START( fromance )
-	{
+	public static VideoStartHandlerPtr video_start_fromance  = new VideoStartHandlerPtr() { public int handler(){
 		/* allocate tilemaps */
 		bg_tilemap = tilemap_create(get_fromance_bg_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE,      8,4, 64,64);
 		fg_tilemap = tilemap_create(get_fromance_fg_tile_info, tilemap_scan_rows, TILEMAP_TRANSPARENT, 8,4, 64,64);
@@ -99,10 +98,9 @@ public class fromance
 		/* reset the timer */
 		crtc_timer = timer_alloc(crtc_interrupt_gen);
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( nekkyoku )
-	{
+	public static VideoStartHandlerPtr video_start_nekkyoku  = new VideoStartHandlerPtr() { public int handler(){
 		/* allocate tilemaps */
 		bg_tilemap = tilemap_create(get_nekkyoku_bg_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE,      8,4, 64,64);
 		fg_tilemap = tilemap_create(get_nekkyoku_fg_tile_info, tilemap_scan_rows, TILEMAP_TRANSPARENT, 8,4, 64,64);
@@ -124,7 +122,7 @@ public class fromance
 		/* reset the timer */
 		crtc_timer = timer_alloc(crtc_interrupt_gen);
 		return 0;
-	}
+	} };
 	
 	
 	

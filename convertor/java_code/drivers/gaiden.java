@@ -138,8 +138,6 @@ public class gaiden
 	
 	extern int raiga_alpha;
 	
-	VIDEO_START( gaiden );
-	VIDEO_START( raiga );
 	
 	VIDEO_UPDATE( gaiden );
 	VIDEO_UPDATE( raiga );

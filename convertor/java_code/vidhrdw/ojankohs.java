@@ -296,8 +296,7 @@ public class ojankohs
 	
 	******************************************************************************/
 	
-	VIDEO_START( ojankohs )
-	{
+	public static VideoStartHandlerPtr video_start_ojankohs  = new VideoStartHandlerPtr() { public int handler(){
 		ojankohs_tilemap = tilemap_create(ojankohs_get_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE, 8, 4, 64, 64);
 		ojankohs_videoram = auto_malloc(0x2000);
 		ojankohs_colorram = auto_malloc(0x1000);
@@ -306,10 +305,9 @@ public class ojankohs
 		if (!ojankohs_tilemap || !ojankohs_videoram || !ojankohs_colorram || !ojankohs_paletteram) return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( ojankoy )
-	{
+	public static VideoStartHandlerPtr video_start_ojankoy  = new VideoStartHandlerPtr() { public int handler(){
 		ojankohs_tilemap = tilemap_create(ojankoy_get_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE, 8, 4, 64, 64);
 		ojankohs_videoram = auto_malloc(0x2000);
 		ojankohs_colorram = auto_malloc(0x1000);
@@ -318,10 +316,9 @@ public class ojankohs
 		if (!ojankohs_tilemap || !ojankohs_videoram || !ojankohs_colorram || !ojankohs_paletteram) return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( ojankoc )
-	{
+	public static VideoStartHandlerPtr video_start_ojankoc  = new VideoStartHandlerPtr() { public int handler(){
 		ojankoc_tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
 		ojankohs_videoram = auto_malloc(0x8000);
 		ojankohs_paletteram = auto_malloc(0x20);
@@ -329,7 +326,7 @@ public class ojankohs
 		if (!ojankoc_tmpbitmap || !ojankohs_videoram || !ojankohs_paletteram) return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	/******************************************************************************

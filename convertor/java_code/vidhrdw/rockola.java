@@ -194,8 +194,7 @@ public class rockola
 		SET_TILE_INFO(0, code, color, 0)
 	}
 	
-	VIDEO_START( rockola )
-	{
+	public static VideoStartHandlerPtr video_start_rockola  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(get_bg_tile_info, tilemap_scan_rows, 
 			TILEMAP_OPAQUE, 8, 8, 32, 32);
 	
@@ -211,7 +210,7 @@ public class rockola
 		tilemap_set_transparent_pen(fg_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( rockola )
 	{
@@ -330,8 +329,7 @@ public class rockola
 		SET_TILE_INFO(0, code, color, 0)
 	}
 	
-	VIDEO_START( satansat )
-	{
+	public static VideoStartHandlerPtr video_start_satansat  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(satansat_get_bg_tile_info, tilemap_scan_rows, 
 			TILEMAP_OPAQUE, 8, 8, 32, 32);
 	
@@ -347,5 +345,5 @@ public class rockola
 		tilemap_set_transparent_pen(fg_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 }

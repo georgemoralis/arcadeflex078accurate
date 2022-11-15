@@ -38,7 +38,6 @@ public class m107
 	void m107_screenrefresh(struct mame_bitmap *bitmap,const struct rectangle *clip);
 	VIDEO_UPDATE( m107 );
 	VIDEO_UPDATE( dsoccr );
-	VIDEO_START( m107 );
 	WRITE_HANDLER( m107_control_w );
 	WRITE_HANDLER( m107_vram_w );
 	READ_HANDLER( m107_vram_r );

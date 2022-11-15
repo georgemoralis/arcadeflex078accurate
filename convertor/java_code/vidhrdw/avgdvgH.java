@@ -40,14 +40,5 @@ WRITE_HANDLER( tempest_colorram_w );
 WRITE_HANDLER( mhavoc_colorram_w );
 WRITE16_HANDLER( quantum_colorram_w );
 
-VIDEO_START( dvg );
-VIDEO_START( avg );
-VIDEO_START( avg_tempest );
-VIDEO_START( avg_mhavoc );
-VIDEO_START( avg_alphaone );
-VIDEO_START( avg_starwars );
-VIDEO_START( avg_quantum );
-VIDEO_START( avg_bzone );
-VIDEO_START( avg_redbaron );
 
 #endif

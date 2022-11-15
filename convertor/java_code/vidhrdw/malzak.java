@@ -65,8 +65,7 @@ public class malzak
 	unsigned char s2636_1_dirty[4];
 	unsigned char s2636_2_dirty[4];
 	
-	VIDEO_START( malzak )
-	{
+	public static VideoStartHandlerPtr video_start_malzak  = new VideoStartHandlerPtr() { public int handler(){
 		video_start_generic();
 	
 		if ((collision_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
@@ -77,7 +76,7 @@ public class malzak
 		s2636_2_ram = auto_malloc(0x100);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( malzak )
 	{

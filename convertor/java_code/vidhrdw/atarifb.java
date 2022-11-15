@@ -51,15 +51,14 @@ public class atarifb
 	/***************************************************************************
 	***************************************************************************/
 	
-	VIDEO_START( atarifb )
-	{
+	public static VideoStartHandlerPtr video_start_atarifb  = new VideoStartHandlerPtr() { public int handler(){
 		if (video_start_generic())
 			return 1;
 	
 		memset(dirtybuffer, 1, videoram_size);
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	

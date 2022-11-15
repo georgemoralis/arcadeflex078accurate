@@ -110,8 +110,6 @@ public class nbmj8891
 	
 	
 	VIDEO_UPDATE( gionbana );
-	VIDEO_START( gionbana );
-	VIDEO_START( hanamomo );
 	
 	READ_HANDLER( gionbana_palette_r );
 	WRITE_HANDLER( gionbana_palette_w );

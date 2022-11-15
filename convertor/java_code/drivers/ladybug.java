@@ -56,8 +56,7 @@ public class ladybug
 	extern WRITE_HANDLER( ladybug_flipscreen_w );
 	
 	extern PALETTE_INIT( ladybug );
-	extern VIDEO_START( ladybug );
-	extern VIDEO_UPDATE( ladybug );
+	extern extern VIDEO_UPDATE( ladybug );
 	
 	
 	static MEMORY_READ_START( readmem )

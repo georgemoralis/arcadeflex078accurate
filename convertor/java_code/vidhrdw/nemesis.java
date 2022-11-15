@@ -261,8 +261,7 @@ public class nemesis
 	
 	
 	/* claim a palette dirty array */
-	VIDEO_START( nemesis )
-	{
+	public static VideoStartHandlerPtr video_start_nemesis  = new VideoStartHandlerPtr() { public int handler(){
 	#ifdef LSB_FIRST
 		nemesis_lsbify_gfx();
 	#endif
@@ -337,7 +336,7 @@ public class nemesis
 		tilemap_flip = 0;
 	
 		return 0;
-	}
+	} };
 	
 	static void draw_sprites(struct mame_bitmap *bitmap, const struct rectangle *cliprect)
 	{

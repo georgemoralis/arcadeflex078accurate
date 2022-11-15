@@ -88,8 +88,7 @@ public class gladiatr
 	}
 	
 	
-	VIDEO_START( gladiatr );
-	VIDEO_START( gladiatr ){
+	public static VideoStartHandlerPtr video_start_gladiatr  = new VideoStartHandlerPtr() { public int handler()
 		sprite_bank = 2;
 	
 		dirtybuffer = auto_malloc(64*32);
@@ -116,7 +115,7 @@ public class gladiatr
 			if( video_attributes&0x04 ){
 				scrollx += 256;
 			}
-		}
+		} };
 		else {
 			if( video_attributes&0x04 ){
 				scrollx += base_scroll;

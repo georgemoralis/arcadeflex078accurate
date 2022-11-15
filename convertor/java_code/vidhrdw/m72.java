@@ -177,8 +177,7 @@ public class m72
 	}
 	
 	
-	VIDEO_START( m72 )
-	{
+	public static VideoStartHandlerPtr video_start_m72  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(m72_get_bg_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,64,64);
 		fg_tilemap = tilemap_create(m72_get_fg_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,64,64);
 	
@@ -202,10 +201,9 @@ public class m72
 		register_savestate();
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( rtype2 )
-	{
+	public static VideoStartHandlerPtr video_start_rtype2  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(rtype2_get_bg_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,64,64);
 		fg_tilemap = tilemap_create(rtype2_get_fg_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,64,64);
 	
@@ -229,10 +227,9 @@ public class m72
 		register_savestate();
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( poundfor )
-	{
+	public static VideoStartHandlerPtr video_start_poundfor  = new VideoStartHandlerPtr() { public int handler(){
 		int res = video_start_rtype2();
 	
 		xadjust = -6;
@@ -240,12 +237,11 @@ public class m72
 		register_savestate();
 	
 		return res;
-	}
+	} };
 	
 	
 	/* Major Title has a larger background RAM, and rowscroll */
-	VIDEO_START( majtitle )
-	{
+	public static VideoStartHandlerPtr video_start_majtitle  = new VideoStartHandlerPtr() { public int handler(){
 	// The tilemap can be 256x64, but seems to be used at 128x64 (scroll wraparound).
 	// The layout ramains 256x64, the right half is just not displayed.
 	//	bg_tilemap = tilemap_create(rtype2_get_bg_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,256,64);
@@ -272,10 +268,9 @@ public class m72
 		register_savestate();
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( hharry )
-	{
+	public static VideoStartHandlerPtr video_start_hharry  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(hharry_get_bg_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,64,64);
 		fg_tilemap = tilemap_create(hharry_get_fg_tile_info,tilemap_scan_rows,TILEMAP_SPLIT,8,8,64,64);
 	
@@ -299,7 +294,7 @@ public class m72
 		register_savestate();
 	
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

@@ -99,7 +99,6 @@ public class popper
 	WRITE_HANDLER( popper_gfx_bank_w );
 	
 	PALETTE_INIT( popper );
-	VIDEO_START( popper );
 	VIDEO_UPDATE( popper );
 	static data8_t *popper_sharedram;
 	

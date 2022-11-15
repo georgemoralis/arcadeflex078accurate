@@ -23,8 +23,7 @@ public class solomon
 	extern WRITE_HANDLER( solomon_colorram2_w );
 	extern WRITE_HANDLER( solomon_flipscreen_w );
 	
-	extern VIDEO_START( solomon );
-	extern VIDEO_UPDATE( solomon );
+	extern extern VIDEO_UPDATE( solomon );
 	
 	static WRITE_HANDLER( solomon_sh_command_w )
 	{

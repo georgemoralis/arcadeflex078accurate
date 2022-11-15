@@ -48,8 +48,7 @@ public class skullxbo
 	 *
 	 *************************************/
 	
-	VIDEO_START( skullxbo )
-	{
+	public static VideoStartHandlerPtr video_start_skullxbo  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarimo_desc modesc =
 		{
 			0,					/* index to which gfx system */
@@ -103,7 +102,7 @@ public class skullxbo
 		tilemap_set_transparent_pen(atarigen_alpha_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

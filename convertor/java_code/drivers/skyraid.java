@@ -19,8 +19,7 @@ public class skyraid
 	
 	extern int skyraid_scroll;
 	
-	extern VIDEO_START(skyraid);
-	extern VIDEO_UPDATE(skyraid);
+	extern extern VIDEO_UPDATE(skyraid);
 	
 	static int analog_range;
 	static int analog_offset;

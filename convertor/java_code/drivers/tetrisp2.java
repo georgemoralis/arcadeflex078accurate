@@ -69,9 +69,7 @@ public class tetrisp2
 	WRITE16_HANDLER( tetrisp2_vram_fg_w );
 	WRITE16_HANDLER( tetrisp2_vram_rot_w );
 	
-	VIDEO_START( tetrisp2 );
 	VIDEO_UPDATE( tetrisp2 );
-	VIDEO_START( rockntread );
 	VIDEO_UPDATE( rockntread );
 	
 	/***************************************************************************

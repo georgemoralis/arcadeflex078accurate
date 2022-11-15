@@ -133,8 +133,7 @@ public class bosco
 		}
 	}
 	
-	VIDEO_START( bosco )
-	{
+	public static VideoStartHandlerPtr video_start_bosco  = new VideoStartHandlerPtr() { public int handler(){
 		int generator;
 		int x,y;
 		int set = 0;
@@ -194,7 +193,7 @@ public class bosco
 		displacement = 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( bosco_videoram2_w )

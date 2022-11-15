@@ -182,10 +182,6 @@ public class taito_b
 	extern data16_t *taitob_pixelram;
 	
 	
-	VIDEO_START( taitob_color_order0 );
-	VIDEO_START( taitob_color_order1 );
-	VIDEO_START( taitob_color_order2 );
-	VIDEO_START( hitice );
 	VIDEO_EOF( taitob );
 	
 	VIDEO_UPDATE( taitob );

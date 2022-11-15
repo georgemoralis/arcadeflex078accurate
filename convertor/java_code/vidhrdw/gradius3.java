@@ -66,8 +66,7 @@ public class gradius3
 	
 	***************************************************************************/
 	
-	VIDEO_START( gradius3 )
-	{
+	public static VideoStartHandlerPtr video_start_gradius3  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 		static struct GfxLayout spritelayout =
 		{
@@ -103,7 +102,7 @@ public class gradius3
 		memset(dirtychar,1,TOTAL_CHARS);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

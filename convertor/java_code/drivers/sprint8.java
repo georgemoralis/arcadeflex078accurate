@@ -14,8 +14,7 @@ public class sprint8
 {
 	
 	extern VIDEO_EOF( sprint8 );
-	extern VIDEO_START( sprint8 );
-	extern VIDEO_UPDATE( sprint8 );
+	extern extern VIDEO_UPDATE( sprint8 );
 	
 	extern WRITE_HANDLER( sprint8_video_ram_w );
 	

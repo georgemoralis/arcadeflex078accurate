@@ -48,8 +48,7 @@ public class relief
 	 *
 	 *************************************/
 	
-	VIDEO_START( relief )
-	{
+	public static VideoStartHandlerPtr video_start_relief  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarimo_desc modesc =
 		{
 			1,					/* index to which gfx system */
@@ -106,7 +105,7 @@ public class relief
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

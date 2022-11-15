@@ -138,8 +138,7 @@ public class ladyfrog
 	
 	}
 	
-	VIDEO_START( ladyfrog )
-	{
+	public static VideoStartHandlerPtr video_start_ladyfrog  = new VideoStartHandlerPtr() { public int handler(){
 	  ladyfrog_spriteram = auto_malloc (160);
 	  tilemap = tilemap_create( get_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32,32 );
 	
@@ -149,7 +148,7 @@ public class ladyfrog
 	  tilemap_set_scrolldy( tilemap,   15, 15 );
 	  return 0;
 	
-	}
+	} };
 	
 	
 	VIDEO_UPDATE( ladyfrog )

@@ -4,7 +4,6 @@
 extern data32_t *psikyosh_bgram, *psikyosh_zoomram, *psikyosh_vidregs, *psh_ram;
 
 /* defined in vidhrdw/psiykosh.c */
-VIDEO_START( psikyosh );
 VIDEO_UPDATE( psikyosh );
 VIDEO_EOF( psikyosh );
 

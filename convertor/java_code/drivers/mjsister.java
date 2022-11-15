@@ -24,7 +24,6 @@ public class mjsister
 	extern int vrambank;
 	extern int colorbank;
 	
-	VIDEO_START( mjsister );
 	VIDEO_UPDATE( mjsister );
 	WRITE_HANDLER( mjsister_videoram_w );
 	

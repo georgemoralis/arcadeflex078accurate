@@ -93,8 +93,7 @@ public class dbz2
 		SET_TILE_INFO(1,tileno,colour,TILE_FLIPYX(flipx))
 	}
 	
-	VIDEO_START(dbz2)
-	{
+	public static VideoStartHandlerPtr video_start_dbz2  = new VideoStartHandlerPtr() { public int handler(){
 		K053251_vh_start();
 	
 		if (K054157_vh_start(REGION_GFX1, 0, scrolld, NORMAL_PLANE_ORDER, dbz2_tile_callback))
@@ -122,10 +121,9 @@ public class dbz2
 		if (!dbz2_bg2_tilemap) return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(dbz)
-	{
+	public static VideoStartHandlerPtr video_start_dbz  = new VideoStartHandlerPtr() { public int handler(){
 		K053251_vh_start();
 	
 		if (K054157_vh_start(REGION_GFX1, 0, scrolld, NORMAL_PLANE_ORDER, dbz2_tile_callback))
@@ -153,7 +151,7 @@ public class dbz2
 		if (!dbz2_bg2_tilemap) return 1;
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(dbz2)
 	{

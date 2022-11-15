@@ -55,7 +55,6 @@ package drivers;
 public class ladyfrog
 {
 	
-	VIDEO_START( ladyfrog );
 	VIDEO_UPDATE( ladyfrog );
 	
 	extern UINT8 *ladyfrog_scrlram;

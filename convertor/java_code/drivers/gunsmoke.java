@@ -77,7 +77,6 @@ public class gunsmoke
 	WRITE_HANDLER( gunsmoke_d806_w );	/* in vidhrdw/c1943.c */
 	PALETTE_INIT( gunsmoke );
 	VIDEO_UPDATE( gunsmoke );
-	VIDEO_START( gunsmoke );
 	
 	
 	#if GUNSMOKE_HACK

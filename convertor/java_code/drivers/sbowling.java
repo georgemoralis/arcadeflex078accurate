@@ -102,12 +102,11 @@ public class sbowling
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,cliprect, TRANSPARENCY_PEN, color_prom_address);
 	}
 	
-	VIDEO_START(sbowling)
-	{
+	public static VideoStartHandlerPtr video_start_sbowling  = new VideoStartHandlerPtr() { public int handler(){
 		tmpbitmap = auto_bitmap_alloc(32*8,32*8);
 		sb_tilemap = tilemap_create(get_sb_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE, 8, 8, 32, 32);
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( pix_shift_w )
 	{

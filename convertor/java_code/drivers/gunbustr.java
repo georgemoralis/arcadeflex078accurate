@@ -53,7 +53,6 @@ package drivers;
 public class gunbustr
 {
 	
-	VIDEO_START( gunbustr );
 	VIDEO_UPDATE( gunbustr );
 	
 	static UINT16 coin_word;

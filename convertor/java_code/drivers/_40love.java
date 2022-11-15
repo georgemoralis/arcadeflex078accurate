@@ -240,8 +240,7 @@ public class _40love
 	READ_HANDLER( buggychl_mcu_status_r );
 	
 	
-	extern VIDEO_START( fortyl );
-	extern VIDEO_UPDATE( fortyl );
+	extern extern VIDEO_UPDATE( fortyl );
 	extern PALETTE_INIT( fortyl );
 	
 	extern WRITE_HANDLER( fortyl_bg_videoram_w );

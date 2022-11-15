@@ -37,7 +37,6 @@ public class pandoras
 	WRITE_HANDLER( pandoras_cram_w );
 	WRITE_HANDLER( pandoras_flipscreen_w );
 	WRITE_HANDLER( pandoras_scrolly_w );
-	VIDEO_START( pandoras );
 	VIDEO_UPDATE( pandoras );
 	
 	public static InterruptHandlerPtr pandoras_interrupt_a = new InterruptHandlerPtr() {public void handler()

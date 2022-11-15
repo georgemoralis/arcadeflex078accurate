@@ -24,7 +24,6 @@ public class sidepckt
 	
 	/* from vidhrdw */
 	PALETTE_INIT( sidepckt );
-	VIDEO_START( sidepckt );
 	VIDEO_UPDATE( sidepckt );
 	
 	WRITE_HANDLER( sidepckt_flipscreen_w );

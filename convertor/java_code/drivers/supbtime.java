@@ -31,7 +31,6 @@ package drivers;
 public class supbtime
 {
 	
-	VIDEO_START( supbtime );
 	VIDEO_UPDATE( supbtime );
 	VIDEO_UPDATE( chinatwn );
 	

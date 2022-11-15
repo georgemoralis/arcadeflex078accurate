@@ -21,7 +21,6 @@ package drivers;
 public class madmotor
 {
 	
-	VIDEO_START( madmotor );
 	VIDEO_UPDATE( madmotor );
 	
 	READ16_HANDLER( madmotor_pf1_rowscroll_r );

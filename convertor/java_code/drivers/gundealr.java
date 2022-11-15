@@ -65,7 +65,6 @@ public class gundealr
 	WRITE_HANDLER( yamyam_fg_scroll_w );
 	WRITE_HANDLER( gundealr_flipscreen_w );
 	VIDEO_UPDATE( gundealr );
-	VIDEO_START( gundealr );
 	
 	
 	static int input_ports_hack;

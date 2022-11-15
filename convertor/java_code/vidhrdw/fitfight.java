@@ -105,8 +105,7 @@ public class fitfight
 	
 	/* video start / update */
 	
-	VIDEO_START(fitfight)
-	{
+	public static VideoStartHandlerPtr video_start_fitfight  = new VideoStartHandlerPtr() { public int handler(){
 		fof_bak_tilemap = tilemap_create(get_fof_bak_tile_info,tilemap_scan_cols,TILEMAP_OPAQUE,8,8,128, 32);
 		/* opaque */
 	
@@ -118,7 +117,7 @@ public class fitfight
 	
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(fitfight)
 	{

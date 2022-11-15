@@ -39,15 +39,14 @@ public class ltcasino
 		SET_TILE_INFO(0,tileno,colour,0)
 	}
 	
-	VIDEO_START(ltcasino)
-	{
+	public static VideoStartHandlerPtr video_start_ltcasino  = new VideoStartHandlerPtr() { public int handler(){
 		ltcasino_tilemap = tilemap_create(get_ltcasino_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE, 8, 8,64,32);
 		
 		if( !ltcasino_tilemap )
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( ltcasino_tile_num_w )

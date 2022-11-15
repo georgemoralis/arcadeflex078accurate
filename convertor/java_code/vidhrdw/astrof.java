@@ -84,8 +84,7 @@ public class astrof
 	  Start the video hardware emulation.
 	
 	***************************************************************************/
-	VIDEO_START( astrof )
-	{
+	public static VideoStartHandlerPtr video_start_astrof  = new VideoStartHandlerPtr() { public int handler(){
 		if ((colorram = auto_malloc(videoram_size)) == 0)
 			return 1;
 		if (video_start_generic())
@@ -96,7 +95,7 @@ public class astrof
 		red_on = -1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

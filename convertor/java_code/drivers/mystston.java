@@ -31,8 +31,7 @@ public class mystston
 	extern WRITE_HANDLER( mystston_control_w );
 	
 	extern PALETTE_INIT( mystston );
-	extern VIDEO_START( mystston );
-	extern VIDEO_UPDATE( mystston );
+	extern extern VIDEO_UPDATE( mystston );
 	
 	
 	static int VBLK = 0x80;

@@ -76,8 +76,7 @@ public class snk
 		gfx_drawmode_table[15] = DRAWMODE_NONE;
 	}
 	
-	VIDEO_START( snk )
-	{
+	public static VideoStartHandlerPtr video_start_snk  = new VideoStartHandlerPtr() { public int handler(){
 		snk_blink_parity = 0;
 	
 		dirtybuffer = auto_malloc( MAX_VRAM_SIZE );
@@ -89,7 +88,7 @@ public class snk
 		memset( dirtybuffer, 0xff, MAX_VRAM_SIZE );
 	
 		return 0;
-	}
+	} };
 	
 	/**************************************************************************************/
 	
@@ -272,15 +271,14 @@ public class snk
 	
 	/************************************************************************************/
 	
-	VIDEO_START( sgladiat )
-	{
+	public static VideoStartHandlerPtr video_start_sgladiat  = new VideoStartHandlerPtr() { public int handler(){
 		dirtybuffer = auto_malloc( MAX_VRAM_SIZE );
 		if(!dirtybuffer) return 1;
 		tmpbitmap = auto_bitmap_alloc( 512, 256 );
 		if(!tmpbitmap) return 1;
 		memset( dirtybuffer, 0xff, MAX_VRAM_SIZE );
 		return 0;
-	}
+	} };
 	
 	static void sgladiat_draw_background( struct mame_bitmap *bitmap, int scrollx, int scrolly )
 	{

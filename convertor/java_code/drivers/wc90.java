@@ -72,8 +72,6 @@ public class wc90
 	extern data8_t *wc90_scroll1ylo, *wc90_scroll1yhi;
 	extern data8_t *wc90_scroll2ylo, *wc90_scroll2yhi;
 	
-	VIDEO_START( wc90 );
-	VIDEO_START( wc90t );
 	WRITE_HANDLER( wc90_fgvideoram_w );
 	WRITE_HANDLER( wc90_bgvideoram_w );
 	WRITE_HANDLER( wc90_txvideoram_w );

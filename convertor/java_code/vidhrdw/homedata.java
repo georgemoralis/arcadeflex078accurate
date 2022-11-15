@@ -517,8 +517,7 @@ public class homedata
 	
 	***************************************************************************/
 	
-	VIDEO_START( mrokumei )
-	{
+	public static VideoStartHandlerPtr video_start_mrokumei  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap[0][0] = tilemap_create( mrokumei_get_info0_0, tilemap_scan_rows, TILEMAP_OPAQUE,      8, 8, 64,32 );
 		tilemap[0][1] = tilemap_create( mrokumei_get_info0_1, tilemap_scan_rows, TILEMAP_TRANSPARENT, 8, 8, 64,32 );
 		tilemap[1][0] = tilemap_create( mrokumei_get_info1_0, tilemap_scan_rows, TILEMAP_OPAQUE,      8, 8, 64,32 );
@@ -531,10 +530,9 @@ public class homedata
 		tilemap_set_transparent_pen(tilemap[1][1],0);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( reikaids )
-	{
+	public static VideoStartHandlerPtr video_start_reikaids  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap[0][0] = tilemap_create( reikaids_get_info0_0, tilemap_scan_rows, TILEMAP_TRANSPARENT, 8, 8, 32, 32 );
 		tilemap[0][1] = tilemap_create( reikaids_get_info0_1, tilemap_scan_rows, TILEMAP_TRANSPARENT, 8, 8, 32, 32 );
 		tilemap[0][2] = tilemap_create( reikaids_get_info0_2, tilemap_scan_rows, TILEMAP_TRANSPARENT, 8, 8, 32, 32 );
@@ -558,10 +556,9 @@ public class homedata
 		tilemap_set_transparent_pen(tilemap[1][3],0xff);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( pteacher )
-	{
+	public static VideoStartHandlerPtr video_start_pteacher  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap[0][0] = tilemap_create( pteacher_get_info0_0, tilemap_scan_rows, TILEMAP_OPAQUE,      8, 8, 64,32 );
 		tilemap[0][1] = tilemap_create( pteacher_get_info0_1, tilemap_scan_rows, TILEMAP_TRANSPARENT, 8, 8, 64,32 );
 		tilemap[1][0] = tilemap_create( pteacher_get_info1_0, tilemap_scan_rows, TILEMAP_OPAQUE,      8, 8, 64,32 );
@@ -574,10 +571,9 @@ public class homedata
 		tilemap_set_transparent_pen(tilemap[1][1],0xff);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( lemnangl )
-	{
+	public static VideoStartHandlerPtr video_start_lemnangl  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap[0][0] = tilemap_create( lemnangl_get_info0_0, tilemap_scan_rows, TILEMAP_OPAQUE,      8, 8, 64,32 );
 		tilemap[0][1] = tilemap_create( lemnangl_get_info0_1, tilemap_scan_rows, TILEMAP_TRANSPARENT, 8, 8, 64,32 );
 		tilemap[1][0] = tilemap_create( lemnangl_get_info1_0, tilemap_scan_rows, TILEMAP_OPAQUE,      8, 8, 64,32 );
@@ -590,7 +586,7 @@ public class homedata
 		tilemap_set_transparent_pen(tilemap[1][1],0x0f);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

@@ -103,14 +103,13 @@ public class skyarmy
 		}
 	}
 	
-	VIDEO_START( skyarmy )
-	{
+	public static VideoStartHandlerPtr video_start_skyarmy  = new VideoStartHandlerPtr() { public int handler(){
 	        skyarmy_tilemap = tilemap_create(get_skyarmy_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32,32);
 	        tilemap_set_scroll_cols(skyarmy_tilemap,32);
 	        if(!skyarmy_tilemap)
 			return 1;
 		return 0;
-	}
+	} };
 	
 	
 	VIDEO_UPDATE( skyarmy )

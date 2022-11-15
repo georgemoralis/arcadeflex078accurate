@@ -65,8 +65,7 @@ public class crbaloon
 	extern WRITE_HANDLER( crbaloon_flipscreen_w );
 	
 	extern PALETTE_INIT( crbaloon );
-	extern VIDEO_START( crbaloon );
-	extern VIDEO_UPDATE( crbaloon );
+	extern extern VIDEO_UPDATE( crbaloon );
 	
 	
 	int val06,val08,val0a;

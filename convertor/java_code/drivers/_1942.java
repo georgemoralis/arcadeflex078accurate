@@ -72,7 +72,6 @@ public class _1942
 	extern unsigned char *c1942_bgvideoram;
 	
 	
-	VIDEO_START( 1942 );
 	PALETTE_INIT( 1942 );
 	WRITE_HANDLER( c1942_fgvideoram_w );
 	WRITE_HANDLER( c1942_bgvideoram_w );

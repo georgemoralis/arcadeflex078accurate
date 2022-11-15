@@ -96,9 +96,7 @@ public class sauro
 	extern WRITE_HANDLER( sauro_scroll_fg_w );
 	extern WRITE_HANDLER( trckydoc_spriteram_mirror_w );
 	
-	extern VIDEO_START( sauro );
-	extern VIDEO_START( trckydoc );
-	
+	extern extern 
 	extern VIDEO_UPDATE( sauro );
 	extern VIDEO_UPDATE( trckydoc );
 	

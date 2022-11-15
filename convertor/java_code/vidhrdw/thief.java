@@ -119,7 +119,7 @@ public class thief
 	
 	/***************************************************************************/
 	
-	VIDEO_START( thief ){
+	public static VideoStartHandlerPtr video_start_thief  = new VideoStartHandlerPtr() { public int handler()
 		memset( &thief_coprocessor, 0x00, sizeof(thief_coprocessor) );
 	
 		thief_page0	= auto_bitmap_alloc( 256,256 );
@@ -138,7 +138,7 @@ public class thief
 			memset( dirtybuffer, 1, 0x2000*2 );
 			memset( videoram, 0, 0x2000*4*2 );
 			return 0;
-		}
+		} };
 		return 1;
 	}
 	

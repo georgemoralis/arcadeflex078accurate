@@ -80,8 +80,7 @@ public class rungun
 	}
 	
 	
-	VIDEO_START(rng)
-	{
+	public static VideoStartHandlerPtr video_start_rng  = new VideoStartHandlerPtr() { public int handler(){
 		static struct GfxLayout charlayout =
 		{
 			8, 8,	// 8x8
@@ -136,7 +135,7 @@ public class rungun
 		sprite_colorbase = 0x20;
 	
 		return(0);
-	}
+	} };
 	
 	VIDEO_UPDATE(rng)
 	{

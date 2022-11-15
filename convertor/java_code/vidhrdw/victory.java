@@ -75,8 +75,7 @@ public class victory
 	 *
 	 *************************************/
 	
-	VIDEO_START( victory )
-	{
+	public static VideoStartHandlerPtr video_start_victory  = new VideoStartHandlerPtr() { public int handler(){
 		/* allocate bitmapram */
 		rram = auto_malloc(0x4000);
 		gram = auto_malloc(0x4000);
@@ -111,7 +110,7 @@ public class victory
 		micro.timer = timer_alloc(NULL);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

@@ -118,8 +118,7 @@ public class equites
 		SET_TILE_INFO(0, tile, color, 0);
 	}
 	
-	VIDEO_START( equites )
-	{
+	public static VideoStartHandlerPtr video_start_equites  = new VideoStartHandlerPtr() { public int handler(){
 		charmap0 = tilemap_create(equites_charinfo, tilemap_scan_cols, TILEMAP_TRANSPARENT, 8, 8, 32, 32);
 		tilemap_set_transparent_pen(charmap0, 0);
 		tilemap_set_scrolldx(charmap0, BMPAD, BMPAD);
@@ -128,7 +127,7 @@ public class equites
 		video_init_common();
 	
 		return (0);
-	}
+	} };
 	
 	// Splendor Blast Hardware
 	PALETTE_INIT( splndrbt )
@@ -232,8 +231,7 @@ public class equites
 		}
 	}
 	
-	VIDEO_START( splndrbt )
-	{
+	public static VideoStartHandlerPtr video_start_splndrbt  = new VideoStartHandlerPtr() { public int handler(){
 	#define BMW (1<<BMW_l2)
 	
 		unsigned char *buf8ptr;
@@ -273,7 +271,7 @@ public class equites
 		splndrbt_video_reset();
 	
 		return (0);
-	}
+	} };
 	
 	MACHINE_INIT( splndrbt )
 	{

@@ -53,7 +53,6 @@ public class mpatrol
 	WRITE_HANDLER( mpatrol_bg2ypos_w );
 	WRITE_HANDLER( mpatrol_bgcontrol_w );
 	WRITE_HANDLER( mpatrol_flipscreen_w );
-	VIDEO_START( mpatrol );
 	PALETTE_INIT( mpatrol );
 	VIDEO_UPDATE( mpatrol );
 	

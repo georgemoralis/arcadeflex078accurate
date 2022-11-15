@@ -109,8 +109,7 @@ public class renegade
 {
 	
 	extern VIDEO_UPDATE( renegade );
-	extern VIDEO_START( renegade );
-	WRITE_HANDLER( renegade_scroll0_w );
+	extern WRITE_HANDLER( renegade_scroll0_w );
 	WRITE_HANDLER( renegade_scroll1_w );
 	WRITE_HANDLER( renegade_videoram_w );
 	WRITE_HANDLER( renegade_videoram2_w );

@@ -55,8 +55,7 @@ public class arkanoid
 {
 	
 	extern WRITE_HANDLER( arkanoid_videoram_w );
-	extern VIDEO_START( arkanoid );
-	extern VIDEO_UPDATE( arkanoid );
+	extern extern VIDEO_UPDATE( arkanoid );
 	
 	extern MACHINE_INIT( arkanoid );
 	

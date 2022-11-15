@@ -60,7 +60,6 @@ public class multi32
 	READ16_HANDLER ( sys32_videoram_r );
 	WRITE32_HANDLER( sys32_videoram_long_w );
 	READ32_HANDLER ( sys32_videoram_long_r );
-	VIDEO_START( system32 );
 	VIDEO_UPDATE( system32 );
 	
 	extern int system32_use_default_eeprom;

@@ -356,15 +356,14 @@ public class hyhoo
 	
 	
 	******************************************************************************/
-	VIDEO_START( hyhoo )
-	{
+	public static VideoStartHandlerPtr video_start_hyhoo  = new VideoStartHandlerPtr() { public int handler(){
 		if ((hyhoo_tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((hyhoo_videoram = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
 		if ((hyhoo_videoworkram = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
 		if ((hyhoo_palette = auto_malloc(0x10 * sizeof(char))) == 0) return 1;
 		memset(hyhoo_videoram, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
 		return 0;
-	}
+	} };
 	
 	/******************************************************************************
 	

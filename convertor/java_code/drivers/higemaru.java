@@ -21,8 +21,7 @@ public class higemaru
 	extern WRITE_HANDLER( higemaru_c800_w );
 	
 	extern PALETTE_INIT( higemaru );
-	extern VIDEO_START( higemaru );
-	extern VIDEO_UPDATE( higemaru );
+	extern extern VIDEO_UPDATE( higemaru );
 	
 	
 	public static InterruptHandlerPtr higemaru_interrupt = new InterruptHandlerPtr() {public void handler(){

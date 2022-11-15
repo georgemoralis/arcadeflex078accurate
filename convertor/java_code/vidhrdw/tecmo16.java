@@ -63,8 +63,7 @@ public class tecmo16
 	
 	/******************************************************************************/
 	
-	VIDEO_START( fstarfrc )
-	{
+	public static VideoStartHandlerPtr video_start_fstarfrc  = new VideoStartHandlerPtr() { public int handler(){
 		fg_tilemap = tilemap_create(fg_get_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,32);
 		bg_tilemap = tilemap_create(bg_get_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,32);
 		tx_tilemap = tilemap_create(tx_get_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,64,32);
@@ -79,10 +78,9 @@ public class tecmo16
 		tilemap_set_scrolly(tx_tilemap,0,-16);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( ginkun )
-	{
+	public static VideoStartHandlerPtr video_start_ginkun  = new VideoStartHandlerPtr() { public int handler(){
 		fg_tilemap = tilemap_create(fg_get_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64,32);
 		bg_tilemap = tilemap_create(bg_get_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64,32);
 		tx_tilemap = tilemap_create(tx_get_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,64,32);
@@ -95,7 +93,7 @@ public class tecmo16
 		tilemap_set_transparent_pen(tx_tilemap,0);
 	
 		return 0;
-	}
+	} };
 	
 	/******************************************************************************/
 	

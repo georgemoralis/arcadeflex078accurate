@@ -37,9 +37,7 @@ public class popeye
 	
 	extern PALETTE_INIT( popeye );
 	extern PALETTE_INIT( popeyebl );
-	extern VIDEO_START( skyskipr );
-	extern VIDEO_START( popeye );
-	extern VIDEO_UPDATE( popeye );
+	extern extern extern VIDEO_UPDATE( popeye );
 	
 	
 	

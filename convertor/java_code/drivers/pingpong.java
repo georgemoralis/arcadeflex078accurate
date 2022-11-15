@@ -11,8 +11,7 @@ public class pingpong
 	extern WRITE_HANDLER( pingpong_colorram_w );
 	
 	extern PALETTE_INIT( pingpong );
-	extern VIDEO_START( pingpong );
-	extern VIDEO_UPDATE( pingpong );
+	extern extern VIDEO_UPDATE( pingpong );
 	
 	static int intenable;
 	

@@ -13,8 +13,7 @@ package drivers;
 public class poolshrk
 {
 	
-	extern VIDEO_START( poolshrk );
-	extern VIDEO_UPDATE( poolshrk );
+	extern extern VIDEO_UPDATE( poolshrk );
 	
 	extern UINT8* poolshrk_playfield_ram;
 	extern UINT8* poolshrk_hpos_ram;

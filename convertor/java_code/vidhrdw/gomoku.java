@@ -115,8 +115,7 @@ public class gomoku
 	
 	******************************************************************************/
 	
-	VIDEO_START( gomoku )
-	{
+	public static VideoStartHandlerPtr video_start_gomoku  = new VideoStartHandlerPtr() { public int handler(){
 		unsigned char *GOMOKU_BG_X = memory_region( REGION_USER1 );
 		unsigned char *GOMOKU_BG_Y = memory_region( REGION_USER2 );
 		unsigned char *GOMOKU_BG_D = memory_region( REGION_USER3 );
@@ -159,7 +158,7 @@ public class gomoku
 		}
 	
 		return 0;
-	}
+	} };
 	
 	/******************************************************************************
 	

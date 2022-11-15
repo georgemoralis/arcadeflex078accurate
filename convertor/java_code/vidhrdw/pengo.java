@@ -157,23 +157,21 @@ public class pengo
 	  Start the video hardware emulation.
 	
 	***************************************************************************/
-	VIDEO_START( pengo )
-	{
+	public static VideoStartHandlerPtr video_start_pengo  = new VideoStartHandlerPtr() { public int handler(){
 		gfx_bank = 0;
 		xoffsethack = 0;
 	
 	    return video_start_generic();
-	}
+	} };
 	
-	VIDEO_START( pacman )
-	{
+	public static VideoStartHandlerPtr video_start_pacman  = new VideoStartHandlerPtr() { public int handler(){
 		gfx_bank = 0;
 		/* In the Pac Man based games (NOT Pengo) the first two sprites must be offset */
 		/* one pixel to the left to get a more correct placement */
 		xoffsethack = 1;
 	
 		return video_start_generic();
-	}
+	} };
 	
 	
 	
@@ -451,8 +449,7 @@ public class pengo
 		flip_screen_set(data);
 	}
 	
-	VIDEO_START( s2650games )
-	{
+	public static VideoStartHandlerPtr video_start_s2650games  = new VideoStartHandlerPtr() { public int handler(){
 		xoffsethack = 1;
 	
 		tilemap = tilemap_create( get_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32,32 );
@@ -465,7 +462,7 @@ public class pengo
 		tilemap_set_scroll_cols(tilemap, 32);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( s2650games )
 	{

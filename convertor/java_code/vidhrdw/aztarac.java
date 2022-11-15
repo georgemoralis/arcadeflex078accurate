@@ -86,8 +86,7 @@ public class aztarac
 	}
 	
 	
-	VIDEO_START( aztarac )
-	{
+	public static VideoStartHandlerPtr video_start_aztarac  = new VideoStartHandlerPtr() { public int handler(){
 		int xmin = Machine->visible_area.min_x;
 		int ymin = Machine->visible_area.min_y;
 		int xmax = Machine->visible_area.max_x;
@@ -97,5 +96,5 @@ public class aztarac
 		ycenter=((ymax + ymin) / 2) << 16;
 	
 		return video_start_vector();
-	}
+	} };
 }

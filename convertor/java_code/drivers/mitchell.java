@@ -47,7 +47,6 @@ public class mitchell
 	void block_decode(void);
 	
 	
-	VIDEO_START( pang );
 	VIDEO_UPDATE( pang );
 	
 	WRITE_HANDLER( mgakuen_paletteram_w );

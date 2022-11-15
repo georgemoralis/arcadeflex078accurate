@@ -34,8 +34,7 @@ public class jailbrek
 	extern WRITE_HANDLER( jailbrek_colorram_w );
 	
 	extern PALETTE_INIT( jailbrek );
-	extern VIDEO_START( jailbrek );
-	extern VIDEO_UPDATE( jailbrek );
+	extern extern VIDEO_UPDATE( jailbrek );
 	
 	
 	static int irq_enable,nmi_enable;

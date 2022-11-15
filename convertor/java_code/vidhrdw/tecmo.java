@@ -88,8 +88,7 @@ public class tecmo
 	
 	***************************************************************************/
 	
-	VIDEO_START( tecmo )
-	{
+	public static VideoStartHandlerPtr video_start_tecmo  = new VideoStartHandlerPtr() { public int handler(){
 		if (tecmo_video_type == 2)	/* gemini */
 		{
 			bg_tilemap = tilemap_create(gemini_get_bg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,16);
@@ -113,7 +112,7 @@ public class tecmo
 		tilemap_set_scrolldx(fg_tilemap,-48,256+48);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

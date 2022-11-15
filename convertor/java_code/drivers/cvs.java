@@ -93,7 +93,6 @@ public class cvs
 	
 	PALETTE_INIT( cvs );
 	VIDEO_UPDATE( cvs );
-	VIDEO_START( cvs );
 	int  s2650_get_flag(void);
 	
 	extern unsigned char *dirty_character;

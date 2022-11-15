@@ -30,7 +30,6 @@ public class spdodgeb
 	extern unsigned char *spdodgeb_videoram;
 	
 	PALETTE_INIT( spdodgeb );
-	VIDEO_START( spdodgeb );
 	VIDEO_UPDATE( spdodgeb );
 	WRITE_HANDLER( spdodgeb_scrollx_lo_w );
 	WRITE_HANDLER( spdodgeb_ctrl_w );

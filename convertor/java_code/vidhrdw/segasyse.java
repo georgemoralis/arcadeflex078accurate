@@ -69,8 +69,7 @@ public class segasyse
 	 vhstart, vhstop and vhrefresh functions
 	*******************************************************************************/
 	
-	VIDEO_START( segae )
-	{
+	public static VideoStartHandlerPtr video_start_segae  = new VideoStartHandlerPtr() { public int handler(){
 		UINT8 temp;
 	
 		segasyse_palettebase = 0;
@@ -83,7 +82,7 @@ public class segasyse
 		if (!cache_bitmap) return 1;
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( segae )
 	{

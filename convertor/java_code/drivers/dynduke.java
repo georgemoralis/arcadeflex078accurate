@@ -36,7 +36,6 @@ public class dynduke
 	WRITE_HANDLER( dynduke_foreground_w );
 	WRITE_HANDLER( dynduke_text_w );
 	WRITE_HANDLER( dynduke_gfxbank_w );
-	VIDEO_START( dynduke );
 	WRITE_HANDLER( dynduke_control_w );
 	VIDEO_UPDATE( dynduke );
 	WRITE_HANDLER( dynduke_paletteram_w );

@@ -25,7 +25,6 @@ public class chqflag
 	static WRITE_HANDLER( k007232_extvolume_w );
 	
 	/* from vidhrdw/chqflag.c */
-	VIDEO_START( chqflag );
 	VIDEO_UPDATE( chqflag );
 	
 	

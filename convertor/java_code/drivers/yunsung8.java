@@ -51,7 +51,6 @@ public class yunsung8
 	
 	WRITE_HANDLER( yunsung8_flipscreen_w );
 	
-	VIDEO_START( yunsung8 );
 	VIDEO_UPDATE( yunsung8 );
 	
 	

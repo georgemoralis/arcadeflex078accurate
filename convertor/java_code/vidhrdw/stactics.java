@@ -232,8 +232,7 @@ public class stactics
 	
 	***************************************************************************/
 	
-	VIDEO_START( stactics )
-	{
+	public static VideoStartHandlerPtr video_start_stactics  = new VideoStartHandlerPtr() { public int handler(){
 	    int i,j;
 	    const unsigned char *firebeam_data;
 	    unsigned char firechar[256*8*9];
@@ -334,7 +333,7 @@ public class stactics
 	    *stactics_motor_on = 0;
 	
 	    return 0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( stactics_palette_w )

@@ -122,8 +122,7 @@ public class cps2
 	extern data16_t *cps2_objram1,*cps2_objram2;
 	extern data16_t *cps2_output;
 	extern size_t cps2_output_size;
-	extern VIDEO_START( cps2 );
-	
+	extern 
 	extern int scanline1;
 	extern int scanline2;
 	extern int scancalls;

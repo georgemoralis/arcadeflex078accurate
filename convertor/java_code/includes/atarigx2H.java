@@ -10,7 +10,6 @@ extern UINT16 atarigx2_playfield_base;
 extern UINT16 atarigx2_motion_object_base;
 extern UINT16 atarigx2_motion_object_mask;
 
-VIDEO_START( atarigx2 );
 VIDEO_UPDATE( atarigx2 );
 
 WRITE16_HANDLER( atarigx2_mo_control_w );

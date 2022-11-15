@@ -22,7 +22,6 @@ public class thunderx
 	static void thunderx_banking(int lines);
 	
 	extern int scontra_priority;
-	VIDEO_START( scontra );
 	VIDEO_UPDATE( scontra );
 	
 	static int unknown_enable = 0;

@@ -90,8 +90,7 @@ public class gaelco
 	
 	***************************************************************************/
 	
-	VIDEO_START( bigkarnk )
-	{
+	public static VideoStartHandlerPtr video_start_bigkarnk  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		pant[0] = tilemap_create(get_tile_info_gaelco_screen0,tilemap_scan_rows,TILEMAP_SPLIT,16,16,32,32);
@@ -111,10 +110,9 @@ public class gaelco
 		}
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( maniacsq )
-	{
+	public static VideoStartHandlerPtr video_start_maniacsq  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		pant[0] = tilemap_create(get_tile_info_gaelco_screen0,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,32);
@@ -134,7 +132,7 @@ public class gaelco
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

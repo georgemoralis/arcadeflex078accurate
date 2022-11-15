@@ -66,7 +66,6 @@ public class locomotn
 	WRITE_HANDLER( rallyx_colorram2_w );
 	WRITE_HANDLER( rallyx_flipscreen_w );
 	PALETTE_INIT( locomotn );
-	VIDEO_START( rallyx );
 	VIDEO_UPDATE( locomotn );
 	VIDEO_UPDATE( jungler );
 	VIDEO_UPDATE( commsega );

@@ -44,7 +44,6 @@ public class malzak
 	extern unsigned char s2636_2_dirty[4];
 	
 	// in vidhrdw/malzak.c
-	VIDEO_START( malzak );
 	VIDEO_UPDATE( malzak );
 	WRITE_HANDLER( playfield_w );
 	

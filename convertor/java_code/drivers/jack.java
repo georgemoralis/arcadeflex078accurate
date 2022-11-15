@@ -52,8 +52,7 @@ public class jack
 	extern READ_HANDLER( jack_flipscreen_r );
 	extern WRITE_HANDLER( jack_flipscreen_w );
 	
-	extern VIDEO_START( jack );
-	extern VIDEO_UPDATE( jack );
+	extern extern VIDEO_UPDATE( jack );
 	
 	static int timer_rate;
 	

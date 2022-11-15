@@ -72,7 +72,6 @@ public class sprcros2
 	WRITE_HANDLER( sprcros2_bgscrolly_w );
 	
 	PALETTE_INIT( sprcros2 );
-	VIDEO_START( sprcros2 );
 	VIDEO_UPDATE( sprcros2 );
 	static data8_t *sprcros2_sharedram;
 	int sprcros2_m_port7 = 0;

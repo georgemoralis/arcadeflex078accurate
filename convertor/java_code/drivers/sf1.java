@@ -28,7 +28,6 @@ public class sf1
 	WRITE16_HANDLER( sf1_fg_scroll_w );
 	WRITE16_HANDLER( sf1_videoram_w );
 	WRITE16_HANDLER( sf1_gfxctrl_w );
-	VIDEO_START( sf1 );
 	VIDEO_UPDATE( sf1 );
 	
 	

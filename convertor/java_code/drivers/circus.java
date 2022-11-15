@@ -42,8 +42,7 @@ public class circus
 	
 	extern WRITE_HANDLER( circus_videoram_w );
 	
-	extern VIDEO_START( circus );
-	extern VIDEO_UPDATE( crash );
+	extern extern VIDEO_UPDATE( crash );
 	extern VIDEO_UPDATE( circus );
 	extern VIDEO_UPDATE( robotbwl );
 	extern VIDEO_UPDATE( ripcord ); //AT

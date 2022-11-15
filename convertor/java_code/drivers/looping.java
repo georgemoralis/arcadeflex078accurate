@@ -142,8 +142,7 @@ public class looping
 		}
 	}
 	
-	VIDEO_START( looping )
-	{
+	public static VideoStartHandlerPtr video_start_looping  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap = tilemap_create( get_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32,32 );
 		if( tilemap )
 		{
@@ -151,7 +150,7 @@ public class looping
 			return 0;
 		}
 		return -1;
-	}
+	} };
 	
 	WRITE_HANDLER( looping_videoram_w )
 	{

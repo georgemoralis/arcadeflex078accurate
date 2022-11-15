@@ -127,7 +127,6 @@ public class victory
 	/* video driver data & functions */
 	extern UINT8 *victory_charram;
 	
-	VIDEO_START( victory );
 	VIDEO_EOF( victory );
 	VIDEO_UPDATE( victory );
 	

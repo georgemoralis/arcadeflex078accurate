@@ -692,8 +692,7 @@ public class astrocde
 	
 	/****************************************************************************/
 	
-	VIDEO_START( astrocde )
-	{
+	public static VideoStartHandlerPtr video_start_astrocde  = new VideoStartHandlerPtr() { public int handler(){
 		rng = auto_malloc(RNG_PERIOD * sizeof(rng[0]));
 		star = auto_malloc(SCREEN_WIDTH * MAX_LINES * sizeof(star[0]));
 	
@@ -704,10 +703,9 @@ public class astrocde
 		CurrentScan = 0;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( astrocde_stars )
-	{
+	public static VideoStartHandlerPtr video_start_astrocde_stars  = new VideoStartHandlerPtr() { public int handler(){
 		int res;
 	
 		res = video_start_astrocde();
@@ -716,7 +714,7 @@ public class astrocde
 		init_star_field();
 	
 		return res;
-	}
+	} };
 	
 	
 	

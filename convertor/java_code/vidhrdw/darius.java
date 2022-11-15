@@ -54,8 +54,7 @@ public class darius
 	
 	/***************************************************************************/
 	
-	VIDEO_START( darius )
-	{
+	public static VideoStartHandlerPtr video_start_darius  = new VideoStartHandlerPtr() { public int handler(){
 		fg_tilemap = tilemap_create(darius_fg_get_tile_info[0],tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,128,64);
 		if (!fg_tilemap)
 			return 1;
@@ -74,7 +73,7 @@ public class darius
 		state_save_register_func_postload(dirty_fg_tilemap);
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************/
 	

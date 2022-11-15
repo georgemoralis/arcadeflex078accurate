@@ -79,7 +79,6 @@ public class suna8
 	WRITE_HANDLER( suna8_spriteram_w );			// for debug
 	WRITE_HANDLER( suna8_banked_spriteram_w );	// for debug
 	
-	VIDEO_START( suna8 );
 	VIDEO_UPDATE( suna8 );
 	
 	
@@ -192,9 +191,9 @@ public class suna8
 		return 0;
 	}
 	
-	VIDEO_START( suna8_textdim0 )	{ return suna8_vh_start_common(0);  }
-	VIDEO_START( suna8_textdim8 )	{ return suna8_vh_start_common(8);  }
-	VIDEO_START( suna8_textdim12 )	{ return suna8_vh_start_common(12); }
+	public static VideoStartHandlerPtr video_start_suna8_textdim0  = new VideoStartHandlerPtr() { public int handler() return suna8_vh_start_common(0);  }
+	public static VideoStartHandlerPtr video_start_suna8_textdim8  = new VideoStartHandlerPtr() { public int handler() return suna8_vh_start_common(8);  }
+	public static VideoStartHandlerPtr video_start_suna8_textdim12  = new VideoStartHandlerPtr() { public int handler() return suna8_vh_start_common(12); }
 	
 	/***************************************************************************
 	
@@ -330,7 +329,7 @@ public class suna8
 				}
 			}
 	
-		}
+		} };
 	}
 	
 	void suna8_draw_text_sprites(struct mame_bitmap *bitmap,const struct rectangle *cliprect)

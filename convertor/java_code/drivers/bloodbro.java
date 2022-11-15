@@ -103,8 +103,7 @@ public class bloodbro
 	extern VIDEO_UPDATE( bloodbro );
 	extern VIDEO_UPDATE( weststry );
 	extern VIDEO_UPDATE( skysmash );
-	extern VIDEO_START( bloodbro );
-	
+	extern 
 	WRITE16_HANDLER( bloodbro_bgvideoram_w );
 	WRITE16_HANDLER( bloodbro_fgvideoram_w );
 	WRITE16_HANDLER( bloodbro_txvideoram_w );

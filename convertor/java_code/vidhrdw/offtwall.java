@@ -38,8 +38,7 @@ public class offtwall
 	 *
 	 *************************************/
 	
-	VIDEO_START( offtwall )
-	{
+	public static VideoStartHandlerPtr video_start_offtwall  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarimo_desc modesc =
 		{
 			0,					/* index to which gfx system */
@@ -86,7 +85,7 @@ public class offtwall
 		if (!atarimo_init(0, &modesc))
 			return 1;
 		return 0;
-	}
+	} };
 	
 	
 	

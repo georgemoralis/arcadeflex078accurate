@@ -409,8 +409,7 @@ public class m92
 	
 	/*****************************************************************************/
 	
-	VIDEO_START( m92 )
-	{
+	public static VideoStartHandlerPtr video_start_m92  = new VideoStartHandlerPtr() { public int handler(){
 		if (RYPELEO_SPEEDUP) {
 			pf1_hlayer = tilemap_create(
 				get_pf1_htile_info,tilemap_scan_rows,
@@ -527,7 +526,7 @@ public class m92
 		state_save_register_UINT8("video", 0, "paletteram",              paletteram, 0x1000);
 	
 		return 0;
-	}
+	} };
 	
 	/*****************************************************************************/
 	

@@ -19,7 +19,6 @@ public class magmax
 	
 	PALETTE_INIT( magmax );
 	VIDEO_UPDATE( magmax );
-	VIDEO_START( magmax );
 	
 	extern unsigned short magmax_vreg;
 	extern data16_t *magmax_scroll_x;

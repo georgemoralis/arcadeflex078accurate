@@ -31,11 +31,6 @@ PALETTE_INIT( jjsquawk );
 PALETTE_INIT( usclssic );
 PALETTE_INIT( zingzip );
 
-VIDEO_START( seta_no_layers);
-VIDEO_START( twineagl_1_layer);
-VIDEO_START( seta_1_layer);
-VIDEO_START( seta_2_layers);
-VIDEO_START( oisipuzl_2_layers );
 
 VIDEO_UPDATE( seta );
 VIDEO_UPDATE( seta_no_layers );
@@ -47,8 +42,6 @@ extern data16_t *seta2_vregs;
 
 WRITE16_HANDLER( seta2_vregs_w );
 
-VIDEO_START( seta2 );
-VIDEO_START( seta2_offset );
 VIDEO_UPDATE( seta2 );
 VIDEO_EOF( seta2 );
 
@@ -73,5 +66,4 @@ WRITE16_HANDLER( ssv_scroll_w );
 WRITE16_HANDLER( paletteram16_xrgb_swap_word_w );
 void ssv_enable_video(int enable);
 
-VIDEO_START( ssv );
 VIDEO_UPDATE( ssv );

@@ -1,4 +1,3 @@
-VIDEO_START( gcpinbal );
 VIDEO_EOF( gcpinbal );
 VIDEO_UPDATE( gcpinbal );
 

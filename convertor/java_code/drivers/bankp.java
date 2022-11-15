@@ -54,8 +54,7 @@ public class bankp
 	extern WRITE_HANDLER( bankp_out_w );
 	
 	extern PALETTE_INIT( bankp );
-	extern VIDEO_START( bankp );
-	extern VIDEO_UPDATE( bankp );
+	extern extern VIDEO_UPDATE( bankp );
 	
 	
 	

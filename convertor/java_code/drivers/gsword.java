@@ -151,8 +151,7 @@ public class gsword
 	
 	extern PALETTE_INIT( josvolly );
 	extern PALETTE_INIT( gsword );
-	extern VIDEO_START( gsword );
-	extern VIDEO_UPDATE( gsword );
+	extern extern VIDEO_UPDATE( gsword );
 	
 	extern size_t gsword_spritexy_size;
 	

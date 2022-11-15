@@ -19,8 +19,7 @@ public class tourtabl
 	extern PALETTE_INIT( tia_NTSC );
 	extern PALETTE_INIT( tia_PAL );
 	
-	extern VIDEO_START( tia );
-	extern VIDEO_UPDATE( tia );
+	extern extern VIDEO_UPDATE( tia );
 	
 	extern READ_HANDLER( tia_r );
 	extern WRITE_HANDLER( tia_w );

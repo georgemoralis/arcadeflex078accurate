@@ -32,8 +32,7 @@ public class tigeroad
 	extern WRITE16_HANDLER( tigeroad_videoram_w );
 	extern WRITE16_HANDLER( tigeroad_videoctrl_w );
 	extern WRITE16_HANDLER( tigeroad_scroll_w );
-	extern VIDEO_START( tigeroad );
-	extern VIDEO_UPDATE( tigeroad );
+	extern extern VIDEO_UPDATE( tigeroad );
 	extern VIDEO_EOF( tigeroad );
 	
 	

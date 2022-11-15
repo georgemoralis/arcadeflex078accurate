@@ -72,10 +72,9 @@ public class jalmah
 		respcount = 0;
 	}
 	
-	VIDEO_START(jalmah)
-	{
+	public static VideoStartHandlerPtr video_start_jalmah  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;
-	}
+	} };
 	
 	
 	VIDEO_UPDATE(jalmah)

@@ -64,7 +64,6 @@ public class dday
 	extern unsigned char *dday_colorram;
 	
 	PALETTE_INIT( dday );
-	VIDEO_START( dday );
 	VIDEO_UPDATE( dday );
 	WRITE_HANDLER( dday_bgvideoram_w );
 	WRITE_HANDLER( dday_fgvideoram_w );

@@ -23,9 +23,6 @@ WRITE_HANDLER( wwjgtin_lastcolor_w );
 PALETTE_INIT( lasso );
 PALETTE_INIT( wwjgtin );
 
-VIDEO_START( lasso );
-VIDEO_START( wwjgtin );
-VIDEO_START( pinbo );
 
 VIDEO_UPDATE( lasso );
 VIDEO_UPDATE( chameleo );

@@ -11,10 +11,9 @@ package drivers;
 public class grtwall
 {
 	
-	VIDEO_START(grtwall)
-	{
+	public static VideoStartHandlerPtr video_start_grtwall  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(grtwall)
 	{

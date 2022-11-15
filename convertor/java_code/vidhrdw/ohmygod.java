@@ -40,15 +40,14 @@ public class ohmygod
 	
 	***************************************************************************/
 	
-	VIDEO_START( ohmygod )
-	{
+	public static VideoStartHandlerPtr video_start_ohmygod  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(get_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,64,64);
 	
 		if (!bg_tilemap)
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

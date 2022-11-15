@@ -17,7 +17,6 @@ public class hcastle
 	
 	PALETTE_INIT( hcastle );
 	VIDEO_UPDATE( hcastle );
-	VIDEO_START( hcastle );
 	
 	extern data8_t *hcastle_pf1_videoram,*hcastle_pf2_videoram;
 	

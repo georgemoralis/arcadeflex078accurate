@@ -59,7 +59,6 @@ public class sbugger
 	
 	PALETTE_INIT(sbugger);
 	VIDEO_UPDATE(sbugger);
-	VIDEO_START(sbugger);
 	WRITE_HANDLER( sbugger_videoram_attr_w );
 	WRITE_HANDLER( sbugger_videoram_w );
 	

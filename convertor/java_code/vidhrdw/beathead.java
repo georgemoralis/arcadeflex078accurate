@@ -51,13 +51,12 @@ public class beathead
 	 *
 	 *************************************/
 	
-	VIDEO_START( beathead )
-	{
+	public static VideoStartHandlerPtr video_start_beathead  = new VideoStartHandlerPtr() { public int handler(){
 		hsyncram = auto_malloc(0x800);
 		if (!hsyncram)
 			return 1;
 		return 0;
-	}
+	} };
 	
 	
 	

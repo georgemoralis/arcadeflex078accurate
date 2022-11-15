@@ -13,7 +13,6 @@ extern UINT8 *liberatr_x;
 extern UINT8 *liberatr_y;
 extern UINT8 *liberatr_bitmapram;
 
-VIDEO_START( liberatr );
 VIDEO_UPDATE( liberatr );
 
 WRITE_HANDLER( liberatr_colorram_w ) ;

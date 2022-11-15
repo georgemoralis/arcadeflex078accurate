@@ -503,8 +503,7 @@ public class gstriker
 	#endif
 	}
 	
-	VIDEO_START(gstriker)
-	{
+	public static VideoStartHandlerPtr video_start_gstriker  = new VideoStartHandlerPtr() { public int handler(){
 		// Palette bases are hardcoded, but should be probably extracted from the mixer registers
 	
 		// Initalize the chip for the score plane
@@ -525,5 +524,5 @@ public class gstriker
 		CG10103_set_pal_base(0, 0x10);
 	
 		return 0;
-	}
+	} };
 }

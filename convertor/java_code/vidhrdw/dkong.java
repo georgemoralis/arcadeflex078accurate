@@ -165,8 +165,7 @@ public class dkong
 		SET_TILE_INFO(0, code, color, 0)
 	}
 	
-	VIDEO_START( dkong )
-	{
+	public static VideoStartHandlerPtr video_start_dkong  = new VideoStartHandlerPtr() { public int handler(){
 		gfx_bank = 0;
 		palette_bank = 0;
 	
@@ -177,7 +176,7 @@ public class dkong
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( dkongjr_gfxbank_w )

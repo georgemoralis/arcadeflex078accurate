@@ -29,8 +29,7 @@ public class sprint2
 	}
 	
 	
-	VIDEO_START( sprint2 )
-	{
+	public static VideoStartHandlerPtr video_start_sprint2  = new VideoStartHandlerPtr() { public int handler(){
 		helper = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
 	
 		if (helper == NULL)
@@ -46,7 +45,7 @@ public class sprint2
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	READ_HANDLER( sprint2_collision1_r )

@@ -85,8 +85,7 @@ public class lkage
 				0)
 	}
 	
-	VIDEO_START( lkage )
-	{
+	public static VideoStartHandlerPtr video_start_lkage  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tile_bank = fg_tile_bank = 0;
 	
 		bg_tilemap = tilemap_create(get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,     8,8,32,32);
@@ -104,7 +103,7 @@ public class lkage
 		tilemap_set_scrolldx(bg_tilemap,-13,19);
 	
 		return 0;
-	}
+	} };
 	
 	static void draw_sprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect, int priority )
 	{

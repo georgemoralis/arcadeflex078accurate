@@ -58,12 +58,11 @@ public class xyonix
 		tilemap_mark_tile_dirty(xyonix_tilemap,(offset-1)&0x0fff);
 	}
 	
-	VIDEO_START(xyonix)
-	{
+	public static VideoStartHandlerPtr video_start_xyonix  = new VideoStartHandlerPtr() { public int handler(){
 		xyonix_tilemap = tilemap_create(get_xyonix_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE, 4, 8,80,32);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(xyonix)
 	{

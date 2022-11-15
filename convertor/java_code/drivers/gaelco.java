@@ -56,7 +56,6 @@ public class gaelco
 								BIG KARNAK
 	  ============================================================================*/
 	
-	VIDEO_START( bigkarnk );
 	VIDEO_UPDATE( bigkarnk );
 	
 	
@@ -289,7 +288,6 @@ public class gaelco
 						BIOMECHANICAL TOY & MANIAC SQUARE
 	  ============================================================================*/
 	
-	VIDEO_START( maniacsq );
 	VIDEO_UPDATE( maniacsq );
 	
 	

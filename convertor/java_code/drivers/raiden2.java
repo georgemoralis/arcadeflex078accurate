@@ -136,8 +136,7 @@ public class raiden2
 	
 	/* VIDEO START (move to vidhrdw file) */
 	
-	VIDEO_START(raiden2)
-	{
+	public static VideoStartHandlerPtr video_start_raiden2  = new VideoStartHandlerPtr() { public int handler(){
 		text_layer       = tilemap_create( get_text_tile_info,tilemap_scan_rows, TILEMAP_TRANSPARENT, 8,8,  64,64 );
 		background_layer = tilemap_create( get_back_tile_info,tilemap_scan_rows, TILEMAP_OPAQUE,      16,16,32,32 );
 		midground_layer  = tilemap_create( get_mid_tile_info, tilemap_scan_rows, TILEMAP_TRANSPARENT, 16,16,32,32 );
@@ -148,7 +147,7 @@ public class raiden2
 		tilemap_set_transparent_pen(text_layer,15);
 	
 		return 0;
-	}
+	} };
 	
 	/* VIDEO UPDATE (move to vidhrdw file) */
 	

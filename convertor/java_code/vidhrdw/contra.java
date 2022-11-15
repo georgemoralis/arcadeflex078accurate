@@ -141,8 +141,7 @@ public class contra
 	
 	***************************************************************************/
 	
-	VIDEO_START( contra )
-	{
+	public static VideoStartHandlerPtr video_start_contra  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,     8,8,32,32);
 		fg_tilemap = tilemap_create(get_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32);
 		tx_tilemap = tilemap_create(get_tx_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,     8,8,32,32);
@@ -164,7 +163,7 @@ public class contra
 		
 		tilemap_set_transparent_pen(fg_tilemap,0);
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

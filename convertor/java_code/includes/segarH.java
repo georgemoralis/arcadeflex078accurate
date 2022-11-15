@@ -57,12 +57,10 @@ WRITE_HANDLER( segar_bcolortable_w );
 WRITE_HANDLER( segar_video_port_w );
 
 PALETTE_INIT( segar );
-VIDEO_START( segar );
 VIDEO_UPDATE( segar );
 
 WRITE_HANDLER( monsterb_back_port_w );
 
-VIDEO_START( monsterb );
 VIDEO_UPDATE( monsterb );
 
 WRITE_HANDLER( spaceod_back_port_w );
@@ -71,7 +69,6 @@ WRITE_HANDLER( spaceod_backshift_clear_w );
 WRITE_HANDLER( spaceod_backfill_w );
 WRITE_HANDLER( spaceod_nobackfill_w );
 
-VIDEO_START( spaceod );
 VIDEO_UPDATE( spaceod );
 
 WRITE_HANDLER( pignewt_back_color_w );

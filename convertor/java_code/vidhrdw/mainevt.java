@@ -73,8 +73,7 @@ public class mainevt
 	
 	/*****************************************************************************/
 	
-	VIDEO_START( mainevt )
-	{
+	public static VideoStartHandlerPtr video_start_mainevt  = new VideoStartHandlerPtr() { public int handler(){
 		layer_colorbase[0] = 0;
 		layer_colorbase[1] = 8;
 		layer_colorbase[2] = 4;
@@ -86,10 +85,9 @@ public class mainevt
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( dv )
-	{
+	public static VideoStartHandlerPtr video_start_dv  = new VideoStartHandlerPtr() { public int handler(){
 		layer_colorbase[0] = 0;
 		layer_colorbase[1] = 0;
 		layer_colorbase[2] = 4;
@@ -101,7 +99,7 @@ public class mainevt
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	/*****************************************************************************/
 	

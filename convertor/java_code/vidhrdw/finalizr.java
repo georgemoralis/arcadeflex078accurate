@@ -73,8 +73,7 @@ public class finalizr
 		}
 	}
 	
-	VIDEO_START( finalizr )
-	{
+	public static VideoStartHandlerPtr video_start_finalizr  = new VideoStartHandlerPtr() { public int handler(){
 		dirtybuffer = 0;
 		tmpbitmap = 0;
 	
@@ -86,7 +85,7 @@ public class finalizr
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

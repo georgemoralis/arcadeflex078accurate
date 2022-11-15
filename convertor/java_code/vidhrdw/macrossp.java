@@ -151,8 +151,7 @@ public class macrossp
 	
 	/*** VIDEO START / UPDATE ***/
 	
-	VIDEO_START(macrossp)
-	{
+	public static VideoStartHandlerPtr video_start_macrossp  = new VideoStartHandlerPtr() { public int handler(){
 		spriteram_old = auto_malloc(spriteram_size);
 		spriteram_old2 = auto_malloc(spriteram_size);
 	
@@ -183,7 +182,7 @@ public class macrossp
 		alpha_set_level(0x80); /* guess */
 	
 		return 0;
-	}
+	} };
 	
 	
 	

@@ -23,7 +23,6 @@ public class gomoku
 	
 	
 	PALETTE_INIT(gomoku);
-	VIDEO_START(gomoku);
 	VIDEO_UPDATE(gomoku);
 	
 	WRITE_HANDLER( gomoku_videoram_w );

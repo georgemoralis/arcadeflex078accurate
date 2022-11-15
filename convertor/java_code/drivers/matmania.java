@@ -42,7 +42,6 @@ public class matmania
 	VIDEO_UPDATE( maniach );
 	WRITE_HANDLER( matmania_videoram3_w );
 	WRITE_HANDLER( matmania_colorram3_w );
-	VIDEO_START( matmania );
 	VIDEO_UPDATE( matmania );
 	
 	READ_HANDLER( maniach_68705_portA_r );

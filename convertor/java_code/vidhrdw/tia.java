@@ -205,8 +205,7 @@ public class tia
 	}
 	
 	
-	VIDEO_START( tia )
-	{
+	public static VideoStartHandlerPtr video_start_tia  = new VideoStartHandlerPtr() { public int handler(){
 		int cx = Machine->drv->screen_width;
 		int cy = Machine->drv->screen_height;
 	
@@ -219,7 +218,7 @@ public class tia
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	VIDEO_UPDATE( tia )

@@ -55,19 +55,17 @@ public class centiped
 	 *
 	 *************************************/
 	
-	VIDEO_START( centiped )
-	{
+	public static VideoStartHandlerPtr video_start_centiped  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap = tilemap_create(centiped_get_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE, 8,8, 32,32);
 		if (!tilemap)
 			return 1;
 	
 		centiped_flipscreen = 0;
 		return 0;
-	}
+	} };
 	
 	
-	VIDEO_START( warlords )
-	{
+	public static VideoStartHandlerPtr video_start_warlords  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap = tilemap_create(warlords_get_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE, 8,8, 32,32);
 		if (!tilemap)
 			return 1;
@@ -75,18 +73,17 @@ public class centiped
 		/* we overload centiped_flipscreen here to track the cocktail/upright state */
 		centiped_flipscreen = readinputport(0) & 0x80;
 		return 0;
-	}
+	} };
 	
 	
-	VIDEO_START( milliped )
-	{
+	public static VideoStartHandlerPtr video_start_milliped  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap = tilemap_create(milliped_get_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE, 8,8, 32,32);
 		if (!tilemap)
 			return 1;
 	
 		centiped_flipscreen = 0;
 		return 0;
-	}
+	} };
 	
 	
 	

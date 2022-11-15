@@ -315,8 +315,7 @@ public class turbo
 	
 	***************************************************************************/
 	
-	VIDEO_START( turbo )
-	{
+	public static VideoStartHandlerPtr video_start_turbo  = new VideoStartHandlerPtr() { public int handler(){
 		UINT32 sprite_expand[16];
 		UINT8 sprite_enable[16];
 		UINT16 *dst;
@@ -375,11 +374,10 @@ public class turbo
 	
 		/* return success */
 		return 0;
-	}
+	} };
 	
 	
-	VIDEO_START( subroc3d )
-	{
+	public static VideoStartHandlerPtr video_start_subroc3d  = new VideoStartHandlerPtr() { public int handler(){
 		UINT32 sprite_expand[16];
 		UINT8 sprite_enable[16];
 		int i;
@@ -423,11 +421,10 @@ public class turbo
 	
 		/* return success */
 		return 0;
-	}
+	} };
 	
 	
-	VIDEO_START( buckrog )
-	{
+	public static VideoStartHandlerPtr video_start_buckrog  = new VideoStartHandlerPtr() { public int handler(){
 		UINT32 sprite_expand[16];
 		UINT8 sprite_enable[16];
 		int i;
@@ -481,7 +478,7 @@ public class turbo
 	
 		/* return success */
 		return 0;
-	}
+	} };
 	
 	
 	

@@ -600,8 +600,7 @@ public class decocass
 		}
 	}
 	
-	VIDEO_START( decocass )
-	{
+	public static VideoStartHandlerPtr video_start_decocass  = new VideoStartHandlerPtr() { public int handler(){
 		if (NULL == (sprite_dirty = auto_malloc(256)) ||
 			NULL == (char_dirty = auto_malloc(1024)) ||
 			NULL == (tile_dirty = auto_malloc(16)))
@@ -642,7 +641,7 @@ public class decocass
 		state_save_register_int("decocass", 0, "center_v_shift", &center_v_shift);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( decocass )
 	{

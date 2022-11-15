@@ -24,7 +24,6 @@ public class srumbler
 	WRITE_HANDLER( srumbler_scroll_w );
 	WRITE_HANDLER( srumbler_4009_w );
 	
-	VIDEO_START( srumbler );
 	VIDEO_UPDATE( srumbler );
 	VIDEO_EOF( srumbler );
 	

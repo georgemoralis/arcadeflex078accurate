@@ -65,7 +65,6 @@ package drivers;
 public class avengrgs
 {
 	
-	VIDEO_START( avengrgs );
 	VIDEO_UPDATE( avengrgs );
 	VIDEO_STOP(avengrgs);
 	

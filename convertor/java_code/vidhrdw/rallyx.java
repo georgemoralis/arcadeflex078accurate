@@ -160,8 +160,7 @@ public class rallyx
 	  Start the video hardware emulation.
 	
 	***************************************************************************/
-	VIDEO_START( rallyx )
-	{
+	public static VideoStartHandlerPtr video_start_rallyx  = new VideoStartHandlerPtr() { public int handler(){
 		if (video_start_generic() != 0)
 			return 1;
 	
@@ -173,7 +172,7 @@ public class rallyx
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

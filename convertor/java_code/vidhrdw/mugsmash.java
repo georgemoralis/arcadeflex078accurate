@@ -151,8 +151,7 @@ public class mugsmash
 		}
 	}
 	
-	VIDEO_START( mugsmash )
-	{
+	public static VideoStartHandlerPtr video_start_mugsmash  = new VideoStartHandlerPtr() { public int handler(){
 	
 		mugsmash_tilemap1 = tilemap_create(get_mugsmash_tile_info1,tilemap_scan_rows,TILEMAP_TRANSPARENT, 16, 16,32,32);
 		tilemap_set_transparent_pen(mugsmash_tilemap1,0);
@@ -160,7 +159,7 @@ public class mugsmash
 		mugsmash_tilemap2 = tilemap_create(get_mugsmash_tile_info2,tilemap_scan_rows,TILEMAP_OPAQUE, 16, 16,32,32);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( mugsmash )
 	{

@@ -21,8 +21,7 @@ public class rocnrope
 	extern WRITE_HANDLER( rocnrope_flipscreen_w );
 	
 	extern PALETTE_INIT( rocnrope );
-	extern VIDEO_START( rocnrope );
-	extern VIDEO_UPDATE( rocnrope );
+	extern extern VIDEO_UPDATE( rocnrope );
 	
 	
 	/* Roc'n'Rope has the IRQ vectors in RAM. The rom contains $FFFF at this address! */

@@ -47,8 +47,7 @@ public class gaplus
 	extern WRITE_HANDLER( gaplus_interrupt_ctrl_3a_w );
 	WRITE_HANDLER( gaplus_interrupt_ctrl_3b_w );
 	
-	extern VIDEO_START( gaplus );
-	extern PALETTE_INIT( gaplus );
+	extern extern PALETTE_INIT( gaplus );
 	extern VIDEO_UPDATE( gaplus );
 	extern MACHINE_INIT( gaplus );
 	WRITE_HANDLER( gaplus_starfield_control_w );

@@ -22,8 +22,7 @@ public class missile
 	
 	***************************************************************************/
 	
-	VIDEO_START( missile )
-	{
+	public static VideoStartHandlerPtr video_start_missile  = new VideoStartHandlerPtr() { public int handler(){
 		/* force video ram to be $0000-$FFFF even though only $1900-$FFFF is used */
 		if ((missile_videoram = auto_malloc (256 * 256)) == 0)
 			return 1;
@@ -33,7 +32,7 @@ public class missile
 	
 		memset (missile_videoram, 0, 256 * 256);
 		return 0;
-	}
+	} };
 	
 	
 	

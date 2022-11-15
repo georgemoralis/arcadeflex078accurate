@@ -128,8 +128,7 @@ public class supertnk
 	
 	
 	
-	VIDEO_START( supertnk )
-	{
+	public static VideoStartHandlerPtr video_start_supertnk  = new VideoStartHandlerPtr() { public int handler(){
 		supertnk_videoram = auto_malloc(0x6000);	/* allocate physical video RAM */
 	
 		if (supertnk_videoram  == NULL)
@@ -140,7 +139,7 @@ public class supertnk
 		memset(supertnk_videoram, 0, 0x6000);
 	
 		return video_start_generic_bitmapped();
-	}
+	} };
 	
 	
 	

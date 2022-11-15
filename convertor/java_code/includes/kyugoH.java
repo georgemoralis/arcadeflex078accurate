@@ -31,6 +31,5 @@ WRITE_HANDLER( kyugo_gfxctrl_w );
 WRITE_HANDLER( kyugo_scroll_y_w );
 WRITE_HANDLER( kyugo_flipscreen_w );
 
-VIDEO_START( kyugo );
 
 VIDEO_UPDATE( kyugo );

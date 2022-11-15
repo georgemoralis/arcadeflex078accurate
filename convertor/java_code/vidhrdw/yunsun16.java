@@ -108,8 +108,7 @@ public class yunsun16
 	
 	static int sprites_scrolldx, sprites_scrolldy;
 	
-	VIDEO_START( yunsun16 )
-	{
+	public static VideoStartHandlerPtr video_start_yunsun16  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap_0 = tilemap_create(	get_tile_info_0,yunsun16_tilemap_scan_pages,
 									TILEMAP_TRANSPARENT,
 									16,16,
@@ -133,7 +132,7 @@ public class yunsun16
 		tilemap_set_transparent_pen(tilemap_0,0xff);
 		tilemap_set_transparent_pen(tilemap_1,0xff);
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

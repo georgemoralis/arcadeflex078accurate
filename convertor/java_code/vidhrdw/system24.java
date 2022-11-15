@@ -7,8 +7,7 @@ package vidhrdw;
 public class system24
 {
 	
-	VIDEO_START(system24)
-	{
+	public static VideoStartHandlerPtr video_start_system24  = new VideoStartHandlerPtr() { public int handler(){
 		if(sys24_tile_vh_start(0xfff))
 			return 1;
 	
@@ -19,7 +18,7 @@ public class system24
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	static int layer_cmp(const void *pl1, const void *pl2)
 	{

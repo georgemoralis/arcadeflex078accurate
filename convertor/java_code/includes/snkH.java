@@ -23,9 +23,7 @@ extern int snk_irq_delay;
 extern PALETTE_INIT( snk_3bpp_shadow );
 extern PALETTE_INIT( snk_4bpp_shadow );
 
-extern VIDEO_START( snk );
-extern VIDEO_START( sgladiat );
-
+extern extern 
 extern VIDEO_UPDATE( tnk3 );
 extern VIDEO_UPDATE( ikari );
 extern VIDEO_UPDATE( tdfever );

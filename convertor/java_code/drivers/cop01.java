@@ -64,7 +64,6 @@ public class cop01
 	extern data8_t *cop01_bgvideoram,*cop01_fgvideoram;
 	
 	PALETTE_INIT( cop01 );
-	VIDEO_START( cop01 );
 	VIDEO_UPDATE( cop01 );
 	WRITE_HANDLER( cop01_background_w );
 	WRITE_HANDLER( cop01_foreground_w );

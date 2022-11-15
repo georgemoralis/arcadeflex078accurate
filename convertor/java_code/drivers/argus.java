@@ -110,9 +110,6 @@ public class argus
 	extern data8_t *argus_bg1_scrolly;
 	extern data8_t *butasan_bg1ram;
 	
-	VIDEO_START( argus );
-	VIDEO_START( valtric );
-	VIDEO_START( butasan );
 	VIDEO_UPDATE( argus );
 	VIDEO_UPDATE( valtric );
 	VIDEO_UPDATE( butasan );

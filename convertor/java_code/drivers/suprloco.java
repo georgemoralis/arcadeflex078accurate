@@ -23,7 +23,6 @@ public class suprloco
 	extern unsigned char *suprloco_videoram;
 	
 	PALETTE_INIT( suprloco );
-	VIDEO_START( suprloco );
 	VIDEO_UPDATE( suprloco );
 	WRITE_HANDLER( suprloco_videoram_w );
 	WRITE_HANDLER( suprloco_scrollram_w );

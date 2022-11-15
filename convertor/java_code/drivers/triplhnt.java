@@ -15,8 +15,7 @@ package drivers;
 public class triplhnt
 {
 	
-	extern VIDEO_START( triplhnt );
-	extern VIDEO_UPDATE( triplhnt );
+	extern extern VIDEO_UPDATE( triplhnt );
 	
 	extern UINT8* triplhnt_playfield_ram;
 	extern UINT8* triplhnt_vpos_ram;

@@ -351,8 +351,6 @@ package drivers;
 public class wgp
 {
 	
-	VIDEO_START( wgp );
-	VIDEO_START( wgp2 );
 	VIDEO_UPDATE( wgp );
 	
 	extern data16_t *wgp_spritemap;

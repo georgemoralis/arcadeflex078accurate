@@ -61,8 +61,7 @@ public class quizdna
 	}
 	
 	
-	VIDEO_START( quizdna )
-	{
+	public static VideoStartHandlerPtr video_start_quizdna  = new VideoStartHandlerPtr() { public int handler(){
 		quizdna_bg_ram = auto_malloc(0x2000);
 		quizdna_fg_ram = auto_malloc(0x1000);
 	
@@ -75,7 +74,7 @@ public class quizdna
 		tilemap_set_transparent_pen( quizdna_fg_tilemap,0 );
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( quizdna_bg_ram_w )
 	{

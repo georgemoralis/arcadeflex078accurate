@@ -89,8 +89,7 @@ public class speedatk
 	extern WRITE_HANDLER( speedatk_colorram_w );
 	extern WRITE_HANDLER( speedatk_flip_screen_w );
 	extern PALETTE_INIT( speedatk );
-	extern VIDEO_START( speedatk );
-	extern VIDEO_UPDATE( speedatk );
+	extern extern VIDEO_UPDATE( speedatk );
 	
 	/* This "key matrix" device maps some buttons with multiple bit activations,for        *
 	 * example pressing button A + button B it causes an output of button C.               *

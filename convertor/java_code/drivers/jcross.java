@@ -35,8 +35,7 @@ public class jcross
 	READ_HANDLER( jcross_text_ram_r );
 	WRITE_HANDLER( jcross_text_ram_w );
 	
-	extern VIDEO_START( jcross );
-	extern VIDEO_UPDATE( jcross );
+	extern extern VIDEO_UPDATE( jcross );
 	extern int jcross_vregs[5];
 	WRITE_HANDLER( jcross_palettebank_w );
 	

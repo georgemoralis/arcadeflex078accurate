@@ -118,8 +118,7 @@ public class flower
 				0)
 	}
 	
-	VIDEO_START(flower)
-	{
+	public static VideoStartHandlerPtr video_start_flower  = new VideoStartHandlerPtr() { public int handler(){
 		flower_bg0_tilemap = tilemap_create(get_bg0_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,16, 16);
 		flower_bg1_tilemap = tilemap_create(get_bg1_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,16, 16);
 	
@@ -128,7 +127,7 @@ public class flower
 	
 		return 0;
 	
-	}
+	} };
 	
 	VIDEO_UPDATE( flower )
 	{

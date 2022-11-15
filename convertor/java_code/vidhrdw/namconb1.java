@@ -261,8 +261,7 @@ public class namconb1
 		return (code&0x7ff) + bank*0x800;
 	}
 	
-	VIDEO_START( namconb1 )
-	{
+	public static VideoStartHandlerPtr video_start_namconb1  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 		static void (*get_info[6])(int tile_index) =
 		{
@@ -294,7 +293,7 @@ public class namconb1
 			tilemap_palette_bank[i] = -1;
 		}
 		return 0; /* no error */
-	}
+	} };
 	
 	/****************************************************************************************************/
 	
@@ -357,8 +356,7 @@ public class namconb1
 		return code;
 	}
 	
-	VIDEO_START( namconb2 )
-	{
+	public static VideoStartHandlerPtr video_start_namconb2  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 		static void (*get_info[6])(int tile_index) =
 			{ tilemapNB2_get_info0, tilemapNB2_get_info1, tilemapNB2_get_info2,
@@ -390,5 +388,5 @@ public class namconb1
 		}
 	
 		return 0;
-	} /* namconb2_vh_start */
+	} }; /* namconb2_vh_start */
 }

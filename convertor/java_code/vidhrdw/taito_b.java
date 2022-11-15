@@ -182,8 +182,7 @@ public class taito_b
 	}
 	
 	
-	static VIDEO_START( taitob_core )
-	{
+	static public static VideoStartHandlerPtr video_start_taitob_core  = new VideoStartHandlerPtr() { public int handler(){
 		framebuffer[0] = auto_bitmap_alloc(512,256);
 		framebuffer[1] = auto_bitmap_alloc(512,256);
 		pixel_bitmap = NULL;  /* only hitice needs this */
@@ -203,10 +202,9 @@ public class taito_b
 		tilemap_set_scrolldx(tx_tilemap,0,24*8);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( taitob_color_order0 )
-	{
+	public static VideoStartHandlerPtr video_start_taitob_color_order0  = new VideoStartHandlerPtr() { public int handler(){
 	  /*graphics are shared, only that they use different palette*/
 	  /*this is the basic layout used in: Nastar, Ashura Blaster, Hit the Ice, Rambo3, Tetris*/
 	
@@ -220,10 +218,9 @@ public class taito_b
 	  b_tx_color_base = 0x00;		/*text      */
 	
 	  return video_start_taitob_core();
-	}
+	} };
 	
-	VIDEO_START( taitob_color_order1 )
-	{
+	public static VideoStartHandlerPtr video_start_taitob_color_order1  = new VideoStartHandlerPtr() { public int handler(){
 	  /*and this is the reversed layout used in: Crime City, Puzzle Bobble*/
 	  b_bg_color_base = 0x00;
 	  b_fg_color_base = 0x40;
@@ -231,10 +228,9 @@ public class taito_b
 	  b_tx_color_base = 0xc0;
 	
 	  return video_start_taitob_core();
-	}
+	} };
 	
-	VIDEO_START( taitob_color_order2 )
-	{
+	public static VideoStartHandlerPtr video_start_taitob_color_order2  = new VideoStartHandlerPtr() { public int handler(){
 	  /*this is used in: rambo3a, masterw, silentd, selfeena, ryujin */
 	  b_bg_color_base = 0x30;
 	  b_fg_color_base = 0x20;
@@ -242,11 +238,10 @@ public class taito_b
 	  b_tx_color_base = 0x00;
 	
 	  return video_start_taitob_core();
-	}
+	} };
 	
 	
-	VIDEO_START( hitice )
-	{
+	public static VideoStartHandlerPtr video_start_hitice  = new VideoStartHandlerPtr() { public int handler(){
 	  if (video_start_taitob_color_order0())
 	    return 1;
 	
@@ -258,7 +253,7 @@ public class taito_b
 	  pixel_init = 1;
 	
 	  return 0;
-	}
+	} };
 	
 	
 	

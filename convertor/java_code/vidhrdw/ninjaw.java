@@ -26,8 +26,7 @@ public class ninjaw
 	
 	/**********************************************************/
 	
-	static VIDEO_START( ninjaw_core )
-	{
+	static public static VideoStartHandlerPtr video_start_ninjaw_core  = new VideoStartHandlerPtr() { public int handler(){
 		int chips;
 	
 		spritelist = auto_malloc(0x1000 * sizeof(*spritelist));
@@ -58,13 +57,12 @@ public class ninjaw
 		TC0100SCN_set_chip_colbanks(0x0,0x100,0x200);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( ninjaw )
-	{
+	public static VideoStartHandlerPtr video_start_ninjaw  = new VideoStartHandlerPtr() { public int handler(){
 		taito_hide_pixels = 22;
 		return video_start_ninjaw_core();
-	}
+	} };
 	
 	/************************************************************
 				SPRITE DRAW ROUTINE

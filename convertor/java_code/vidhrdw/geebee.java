@@ -63,8 +63,7 @@ public class geebee
 	};
 	
 	
-	VIDEO_START( geebee )
-	{
+	public static VideoStartHandlerPtr video_start_geebee  = new VideoStartHandlerPtr() { public int handler(){
 		if( video_start_generic() )
 			return 1;
 	
@@ -72,37 +71,34 @@ public class geebee
 		artwork_show(OVERLAY_TAG, (readinputport(2) & 0x01) == 0);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( navalone )
-	{
+	public static VideoStartHandlerPtr video_start_navalone  = new VideoStartHandlerPtr() { public int handler(){
 		if( video_start_generic() )
 			return 1;
 	
 	    /* overlay? */
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( sos )
-	{
+	public static VideoStartHandlerPtr video_start_sos  = new VideoStartHandlerPtr() { public int handler(){
 		if( video_start_generic() )
 			return 1;
 	
 	    /* overlay? */
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( kaitei )
-	{
+	public static VideoStartHandlerPtr video_start_kaitei  = new VideoStartHandlerPtr() { public int handler(){
 		if( video_start_generic() )
 		return 1;
 	
 	    /* overlay? */
 	
 		return 0;
-	}
+	} };
 	
 	/* Initialise the palette */
 	PALETTE_INIT( geebee )

@@ -48,8 +48,7 @@ public class eprom
 	 *
 	 *************************************/
 	
-	VIDEO_START( eprom )
-	{
+	public static VideoStartHandlerPtr video_start_eprom  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarimo_desc modesc =
 		{
 			0,					/* index to which gfx system */
@@ -103,7 +102,7 @@ public class eprom
 		tilemap_set_transparent_pen(atarigen_alpha_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

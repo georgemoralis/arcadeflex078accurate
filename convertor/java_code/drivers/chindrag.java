@@ -9,10 +9,9 @@ package drivers;
 public class chindrag
 {
 	
-	VIDEO_START(chindrag)
-	{
+	public static VideoStartHandlerPtr video_start_chindrag  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(chindrag)
 	{

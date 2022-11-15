@@ -13,7 +13,6 @@ extern data16_t *btoads_vram_bg0, *btoads_vram_bg1;
 extern data16_t *btoads_sprite_scale;
 extern data16_t *btoads_sprite_control;
 
-VIDEO_START( btoads );
 VIDEO_UPDATE( btoads );
 
 WRITE16_HANDLER( btoads_misc_control_w );

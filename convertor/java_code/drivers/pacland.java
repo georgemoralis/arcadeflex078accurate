@@ -49,8 +49,7 @@ public class pacland
 	extern WRITE_HANDLER( pacland_flipscreen_w );
 	
 	extern PALETTE_INIT( pacland );
-	extern VIDEO_START( pacland );
-	extern VIDEO_UPDATE( pacland );
+	extern extern VIDEO_UPDATE( pacland );
 	
 	
 	static READ_HANDLER( sharedram1_r )

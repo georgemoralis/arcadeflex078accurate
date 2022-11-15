@@ -72,8 +72,7 @@ public class munchmo
 	READ_HANDLER( mnchmobl_sprite_tile_r ){ return mnchmobl_sprite_tile[offset]; }
 	WRITE_HANDLER( mnchmobl_sprite_tile_w ){ mnchmobl_sprite_tile[offset] = data; }
 	
-	VIDEO_START( mnchmobl )
-	{
+	public static VideoStartHandlerPtr video_start_mnchmobl  = new VideoStartHandlerPtr() { public int handler(){
 		dirtybuffer = auto_malloc(0x100);
 		tmpbitmap = auto_bitmap_alloc(512,512);
 		if( dirtybuffer && tmpbitmap )
@@ -82,7 +81,7 @@ public class munchmo
 			return 0;
 		}
 		return 1;
-	}
+	} };
 	
 	READ_HANDLER( mnchmobl_videoram_r )
 	{

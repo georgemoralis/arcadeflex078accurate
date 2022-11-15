@@ -49,11 +49,6 @@ WRITE_HANDLER( dynax_flipscreen_w );
 WRITE_HANDLER( dynax_extra_scrollx_w );
 WRITE_HANDLER( dynax_extra_scrolly_w );
 
-VIDEO_START( hanamai );
-VIDEO_START( hnoridur );
-VIDEO_START( mcnpshnt );
-VIDEO_START( sprtmtch );
-VIDEO_START( mjdialq2 );
 
 VIDEO_UPDATE( hanamai );
 VIDEO_UPDATE( hnoridur );

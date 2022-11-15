@@ -114,8 +114,7 @@ public class jcross
 				0)
 	}
 	
-	VIDEO_START( jcross )
-	{
+	public static VideoStartHandlerPtr video_start_jcross  = new VideoStartHandlerPtr() { public int handler(){
 		flipscreen = -1;  old_fg_color = -1;
 	
 		stuff_palette( 0, 0, 16*8 );
@@ -132,7 +131,7 @@ public class jcross
 		tilemap_set_scrolldx( bg_tilemap,   16, 22 );
 		return 0;
 	
-	}
+	} };
 	
 	/***************************************************************************
 	**

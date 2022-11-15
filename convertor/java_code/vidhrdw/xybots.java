@@ -47,8 +47,7 @@ public class xybots
 	 *
 	 *************************************/
 	
-	VIDEO_START( xybots )
-	{
+	public static VideoStartHandlerPtr video_start_xybots  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarimo_desc modesc =
 		{
 			1,					/* index to which gfx system */
@@ -102,7 +101,7 @@ public class xybots
 		tilemap_set_transparent_pen(atarigen_alpha_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

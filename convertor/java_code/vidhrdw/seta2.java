@@ -359,8 +359,7 @@ public class seta2
 	
 	***************************************************************************/
 	
-	VIDEO_START( seta2 )
-	{
+	public static VideoStartHandlerPtr video_start_seta2  = new VideoStartHandlerPtr() { public int handler(){
 		Machine->gfx[2]->color_granularity = 16;
 		Machine->gfx[3]->color_granularity = 16;
 		Machine->gfx[4]->color_granularity = 16;
@@ -370,15 +369,14 @@ public class seta2
 	
 		yoffset = 0;
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( seta2_offset )
-	{
+	public static VideoStartHandlerPtr video_start_seta2_offset  = new VideoStartHandlerPtr() { public int handler(){
 		video_start_seta2();
 	
 		yoffset = 0x10;
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( seta2 )
 	{

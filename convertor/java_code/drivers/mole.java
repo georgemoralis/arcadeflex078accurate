@@ -51,8 +51,7 @@ public class mole
 {
 	
 	extern PALETTE_INIT( moleattack );
-	extern VIDEO_START( moleattack );
-	extern VIDEO_UPDATE( moleattack );
+	extern extern VIDEO_UPDATE( moleattack );
 	
 	WRITE_HANDLER( moleattack_videoram_w );
 	WRITE_HANDLER( moleattack_tilesetselector_w );

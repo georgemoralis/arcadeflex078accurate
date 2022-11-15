@@ -31,7 +31,6 @@ public class munchmo
 	extern UINT8 *mnchmobl_sprite_tile;
 	
 	PALETTE_INIT( mnchmobl );
-	VIDEO_START( mnchmobl );
 	WRITE_HANDLER( mnchmobl_palette_bank_w );
 	WRITE_HANDLER( mnchmobl_flipscreen_w );
 	READ_HANDLER( mnchmobl_sprite_xpos_r );

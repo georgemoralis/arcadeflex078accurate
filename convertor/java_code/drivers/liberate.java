@@ -28,10 +28,6 @@ public class liberate
 	VIDEO_UPDATE( prosport );
 	VIDEO_UPDATE( liberate );
 	VIDEO_UPDATE( boomrang );
-	VIDEO_START( prosoccr );
-	VIDEO_START( prosport );
-	VIDEO_START( boomrang );
-	VIDEO_START( liberate );
 	
 	static int deco16_bank;
 	static data8_t *scratchram;

@@ -59,8 +59,7 @@ public class generic
 	  Start the video hardware emulation.
 	
 	***************************************************************************/
-	VIDEO_START( generic )
-	{
+	public static VideoStartHandlerPtr video_start_generic  = new VideoStartHandlerPtr() { public int handler(){
 		dirtybuffer = 0;
 		tmpbitmap = 0;
 	
@@ -80,16 +79,15 @@ public class generic
 		state_save_register_func_postload(video_generic_postload);
 	
 		return 0;
-	}
+	} };
 	
 	
-	VIDEO_START( generic_bitmapped )
-	{
+	public static VideoStartHandlerPtr video_start_generic_bitmapped  = new VideoStartHandlerPtr() { public int handler(){
 		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

@@ -208,8 +208,7 @@ public class namcos1
 {
 	
 	/* from vidhrdw */
-	extern VIDEO_START( namcos1 );
-	extern VIDEO_UPDATE( namcos1 );
+	extern extern VIDEO_UPDATE( namcos1 );
 	
 	/* from machine */
 	WRITE_HANDLER( namcos1_bankswitch_w );

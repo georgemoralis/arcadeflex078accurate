@@ -37,12 +37,10 @@ public class kingobox
 	extern WRITE_HANDLER( kingofb_f800_w );
 	
 	extern PALETTE_INIT( kingofb );
-	extern VIDEO_START( kingofb );
-	extern VIDEO_UPDATE( kingofb );
+	extern extern VIDEO_UPDATE( kingofb );
 	
 	extern PALETTE_INIT( ringking );
-	extern VIDEO_START( ringking );
-	extern VIDEO_UPDATE( ringking );
+	extern extern VIDEO_UPDATE( ringking );
 	
 	static UINT8 *video_shared;
 	static UINT8 *sprite_shared;

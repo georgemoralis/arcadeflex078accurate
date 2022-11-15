@@ -57,8 +57,7 @@ public class aliens
 	
 	***************************************************************************/
 	
-	VIDEO_START( aliens )
-	{
+	public static VideoStartHandlerPtr video_start_aliens  = new VideoStartHandlerPtr() { public int handler(){
 		paletteram = auto_malloc(0x400);
 		if (!paletteram)
 			return 1;
@@ -73,7 +72,7 @@ public class aliens
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

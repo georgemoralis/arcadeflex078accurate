@@ -39,5 +39,4 @@ WRITE_HANDLER( atarifb_scroll_w );
 WRITE_HANDLER( atarifb_alphap1_vram_w );
 WRITE_HANDLER( atarifb_alphap2_vram_w );
 
-VIDEO_START( atarifb );
 VIDEO_UPDATE( atarifb );

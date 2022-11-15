@@ -71,8 +71,7 @@ public class shisen
 		SET_TILE_INFO(0, code, color, 0)
 	}
 	
-	VIDEO_START( sichuan2 )
-	{
+	public static VideoStartHandlerPtr video_start_sichuan2  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(get_bg_tile_info, tilemap_scan_rows, 
 			TILEMAP_OPAQUE, 8, 8, 64, 32);
 	
@@ -80,7 +79,7 @@ public class shisen
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( sichuan2 )
 	{

@@ -90,8 +90,7 @@ public class rpunch
 	}
 	
 	
-	VIDEO_START( rpunch )
-	{
+	public static VideoStartHandlerPtr video_start_rpunch  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		/* allocate tilemaps for the backgrounds and a bitmap for the direct-mapped bitmap */
@@ -117,7 +116,7 @@ public class rpunch
 		/* reset the timer */
 		crtc_timer = timer_alloc(crtc_interrupt_gen);
 		return 0;
-	}
+	} };
 	
 	
 	

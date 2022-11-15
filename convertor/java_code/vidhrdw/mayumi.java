@@ -27,8 +27,7 @@ public class mayumi
 		SET_TILE_INFO(0, code, col, 0)
 	}
 	
-	VIDEO_START( mayumi )
-	{
+	public static VideoStartHandlerPtr video_start_mayumi  = new VideoStartHandlerPtr() { public int handler(){
 		mayumi_videoram = auto_malloc(0x1800);
 	
 		mayumi_tilemap = tilemap_create( get_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,64,32 );
@@ -37,7 +36,7 @@ public class mayumi
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( mayumi_videoram_w )
 	{

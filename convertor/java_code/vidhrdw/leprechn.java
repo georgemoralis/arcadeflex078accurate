@@ -39,8 +39,7 @@ public class leprechn
 	
 	
 	
-	VIDEO_START( leprechn )
-	{
+	public static VideoStartHandlerPtr video_start_leprechn  = new VideoStartHandlerPtr() { public int handler(){
 		videoram_size = Machine->drv->screen_width * Machine->drv->screen_height;
 	
 		/* allocate our own dirty buffer */
@@ -49,7 +48,7 @@ public class leprechn
 			return 1;
 	
 		return video_start_generic_bitmapped();
-	}
+	} };
 	
 	
 	WRITE_HANDLER( leprechn_graphics_command_w )

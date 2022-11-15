@@ -186,8 +186,7 @@ public class konamigx
 	}
 	
 	
-	VIDEO_START(konamigx_5bpp)
-	{
+	public static VideoStartHandlerPtr video_start_konamigx_5bpp  = new VideoStartHandlerPtr() { public int handler(){
 		if (!strcmp(Machine->gamedrv->name,"sexyparo"))
 			game_tile_callback = konamigx_alpha_tile_callback;
 		else
@@ -231,10 +230,9 @@ public class konamigx
 		}
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(winspike)
-	{
+	public static VideoStartHandlerPtr video_start_winspike  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_8, 0, NULL, konamigx_alpha_tile_callback))
 		{
 			return 1;
@@ -248,10 +246,9 @@ public class konamigx
 		if (_gxcommoninitnosprites()) return 1;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(dragoonj)
-	{
+	public static VideoStartHandlerPtr video_start_dragoonj  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_5, 1, NULL, konamigx_type2_tile_callback))
 		{
 			return 1;
@@ -270,10 +267,9 @@ public class konamigx
 		K056832_set_LayerOffset(3,  3+1, 0);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(le2)
-	{
+	public static VideoStartHandlerPtr video_start_le2  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_8, 1, NULL, konamigx_type2_tile_callback))
 		{
 			return 1;
@@ -290,10 +286,9 @@ public class konamigx
 		konamigx_mixer_primode(-1); // swapped layer B and C priorities?
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(konamigx_6bpp)
-	{
+	public static VideoStartHandlerPtr video_start_konamigx_6bpp  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_6, 0, NULL, konamigx_type2_tile_callback))
 		{
 			return 1;
@@ -308,10 +303,9 @@ public class konamigx
 		}
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(konamigx_type3)
-	{
+	public static VideoStartHandlerPtr video_start_konamigx_type3  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_6, 0, NULL, konamigx_type2_tile_callback))
 		{
 			return 1;
@@ -326,10 +320,9 @@ public class konamigx
 		K053936GP_set_offset(0, 0, 0);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(konamigx_type4)
-	{
+	public static VideoStartHandlerPtr video_start_konamigx_type4  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_8, 0, NULL, konamigx_type2_tile_callback))
 		{
 			return 1;
@@ -344,10 +337,9 @@ public class konamigx
 		K053936GP_set_offset(0, 0, 0);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(konamigx_6bpp_2)
-	{
+	public static VideoStartHandlerPtr video_start_konamigx_6bpp_2  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_6, 1, NULL, konamigx_type2_tile_callback))
 		{
 			return 1;
@@ -368,10 +360,9 @@ public class konamigx
 		}
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(opengolf)
-	{
+	public static VideoStartHandlerPtr video_start_opengolf  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_5, 0, NULL, konamigx_type2_tile_callback))
 		{
 			return 1;
@@ -397,10 +388,9 @@ public class konamigx
 		gx_rozenable = 0;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(racinfrc)
-	{
+	public static VideoStartHandlerPtr video_start_racinfrc  = new VideoStartHandlerPtr() { public int handler(){
 		if (K056832_vh_start(REGION_GFX1, K056832_BPP_6, 0, NULL, konamigx_type2_tile_callback))
 		{
 			return 1;
@@ -426,7 +416,7 @@ public class konamigx
 		gx_rozenable = 0;
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(konamigx)
 	{

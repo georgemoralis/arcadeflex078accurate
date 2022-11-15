@@ -242,8 +242,7 @@ public class dday
 	
 	***************************************************************************/
 	
-	VIDEO_START( dday )
-	{
+	public static VideoStartHandlerPtr video_start_dday  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap   = tilemap_create(get_bg_tile_info,  tilemap_scan_rows,TILEMAP_SPLIT,8,8,32,32);
 		fg_tilemap   = tilemap_create(get_fg_tile_info,  tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32);
 		text_tilemap = tilemap_create(get_text_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32);
@@ -267,7 +266,7 @@ public class dday
 		start_countdown_timer();
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( dday_bgvideoram_w )
 	{

@@ -46,7 +46,6 @@ public class esd16
 	WRITE16_HANDLER( esd16_vram_0_w );
 	WRITE16_HANDLER( esd16_vram_1_w );
 	
-	VIDEO_START( esd16 );
 	VIDEO_UPDATE( esd16 );
 	VIDEO_UPDATE( hedpanic );
 	

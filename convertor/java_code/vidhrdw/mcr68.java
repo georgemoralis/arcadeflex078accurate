@@ -66,19 +66,17 @@ public class mcr68
 	 *
 	 *************************************/
 	
-	VIDEO_START( mcr68 )
-	{
+	public static VideoStartHandlerPtr video_start_mcr68  = new VideoStartHandlerPtr() { public int handler(){
 		/* initialize the background tilemap */
 		bg_tilemap = tilemap_create(get_bg_tile_info, tilemap_scan_rows, TILEMAP_TRANSPARENT, 16,16, 32,32);
 		if (!bg_tilemap)
 			return 1;
 		tilemap_set_transparent_pen(bg_tilemap, 0);
 		return 0;
-	}
+	} };
 	
 	
-	VIDEO_START( zwackery )
-	{
+	public static VideoStartHandlerPtr video_start_zwackery  = new VideoStartHandlerPtr() { public int handler(){
 		/* initialize the background tilemap */
 		bg_tilemap = tilemap_create(zwackery_get_bg_tile_info, tilemap_scan_rows, TILEMAP_OPAQUE, 16,16, 32,32);
 		if (!bg_tilemap)
@@ -91,7 +89,7 @@ public class mcr68
 		tilemap_set_transparent_pen(fg_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

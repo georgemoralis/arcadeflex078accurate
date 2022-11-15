@@ -169,7 +169,6 @@ public class taitosj
 	WRITE_HANDLER( junglhbr_characterram_w );
 	READ_HANDLER( taitosj_collision_reg_r );
 	WRITE_HANDLER( taitosj_collision_reg_clear_w );
-	VIDEO_START( taitosj );
 	VIDEO_UPDATE( taitosj );
 	
 	

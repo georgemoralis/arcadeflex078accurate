@@ -257,7 +257,6 @@ public class stfight
 	WRITE_HANDLER( stfight_text_attr_w );
 	WRITE_HANDLER( stfight_vh_latch_w );
 	WRITE_HANDLER( stfight_sprite_bank_w );
-	VIDEO_START( stfight );
 	VIDEO_UPDATE( stfight );
 	
 	// vidhrdw

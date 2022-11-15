@@ -24,11 +24,10 @@ public class freekick
 	
 	
 	
-	VIDEO_START(freekick)
-	{
+	public static VideoStartHandlerPtr video_start_freekick  = new VideoStartHandlerPtr() { public int handler(){
 		freek_tilemap = tilemap_create(get_freek_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE, 8, 8,32,32);
 		return 0;
-	}
+	} };
 	
 	
 	

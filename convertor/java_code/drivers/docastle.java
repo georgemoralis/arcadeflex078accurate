@@ -142,8 +142,7 @@ public class docastle
 	
 	extern PALETTE_INIT( docastle );
 	extern PALETTE_INIT( dorunrun );
-	extern VIDEO_START( docastle );
-	extern VIDEO_UPDATE( docastle );
+	extern extern VIDEO_UPDATE( docastle );
 	
 	static MEMORY_READ_START( docastle_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

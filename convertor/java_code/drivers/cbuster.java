@@ -22,7 +22,6 @@ package drivers;
 public class cbuster
 {
 	
-	VIDEO_START( twocrude );
 	VIDEO_UPDATE( twocrude );
 	
 	WRITE16_HANDLER( twocrude_pf1_data_w );

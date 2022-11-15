@@ -28,8 +28,7 @@ public class bishi
 		*color = layer_colorbase[layer] + ((*color & 0xf0));
 	}
 	
-	VIDEO_START(bishi)
-	{
+	public static VideoStartHandlerPtr video_start_bishi  = new VideoStartHandlerPtr() { public int handler(){
 		if (Machine->color_depth != 32) return 1; // ensure correct bpp to avoid crashing in-game
 	
 		K055555_vh_start();
@@ -50,7 +49,7 @@ public class bishi
 		layer_colorbase[2] = 0x80;
 		layer_colorbase[3] = 0xc0;
 		return 0;
-	}
+	} };
 	
 	/* useful function to sort the three tile layers by priority order */
 	static void sortlayers(int *layer,int *pri)

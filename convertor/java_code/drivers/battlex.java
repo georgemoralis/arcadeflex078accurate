@@ -57,8 +57,7 @@ public class battlex
 	extern WRITE_HANDLER( battlex_flipscreen_w );
 	
 	extern PALETTE_INIT( battlex );
-	extern VIDEO_START( battlex );
-	extern VIDEO_UPDATE( battlex );
+	extern extern VIDEO_UPDATE( battlex );
 	
 	
 	/*** MEMORY & PORT READ / WRITE **********************************************/

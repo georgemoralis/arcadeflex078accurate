@@ -38,7 +38,6 @@ public class contra
 	WRITE_HANDLER( contra_K007121_ctrl_0_w );
 	WRITE_HANDLER( contra_K007121_ctrl_1_w );
 	VIDEO_UPDATE( contra );
-	VIDEO_START( contra );
 	
 	
 	WRITE_HANDLER( contra_bankswitch_w )

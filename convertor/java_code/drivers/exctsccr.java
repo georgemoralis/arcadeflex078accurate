@@ -38,8 +38,7 @@ public class exctsccr
 	extern WRITE_HANDLER( exctsccr_flipscreen_w );
 	
 	extern PALETTE_INIT( exctsccr );
-	extern VIDEO_START( exctsccr );
-	extern VIDEO_UPDATE( exctsccr );
+	extern extern VIDEO_UPDATE( exctsccr );
 	
 	/* from machine */
 	extern UINT8 *exctsccr_mcu_ram;

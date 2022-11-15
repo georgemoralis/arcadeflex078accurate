@@ -86,8 +86,7 @@ public class mario
 	extern WRITE_HANDLER( mario_scroll_w );
 	
 	extern PALETTE_INIT( mario );
-	extern VIDEO_START( mario );
-	extern VIDEO_UPDATE( mario );
+	extern extern VIDEO_UPDATE( mario );
 	
 	/*
 	 *  from sndhrdw/mario.c

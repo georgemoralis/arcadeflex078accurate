@@ -9,7 +9,6 @@
 
 WRITE16_HANDLER( rampart_bitmap_w );
 
-VIDEO_START( rampart );
 VIDEO_UPDATE( rampart );
 
 int rampart_bitmap_init(int _xdim, int _ydim);

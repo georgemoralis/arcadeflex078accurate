@@ -119,8 +119,7 @@ public class kncljoe
 	
 	***************************************************************************/
 	
-	VIDEO_START( kncljoe )
-	{
+	public static VideoStartHandlerPtr video_start_kncljoe  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,64,32);
 	
 		if (!bg_tilemap)
@@ -131,7 +130,7 @@ public class kncljoe
 		tile_bank = sprite_bank = flipscreen = 0;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

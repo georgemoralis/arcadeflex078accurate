@@ -31,7 +31,6 @@ public class homerun
 	WRITE_HANDLER( homerun_videoram_w );
 	WRITE_HANDLER( homerun_color_w );
 	WRITE_HANDLER( homerun_banking_w );
-	VIDEO_START(homerun);
 	VIDEO_UPDATE(homerun);
 	
 	static WRITE_HANDLER(pa_w){homerun_xpa=data;}

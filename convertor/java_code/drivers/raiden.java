@@ -52,8 +52,6 @@ public class raiden
 	WRITE_HANDLER( raiden_foreground_w );
 	WRITE_HANDLER( raiden_text_w );
 	WRITE_HANDLER( raidena_text_w );
-	VIDEO_START( raiden );
-	VIDEO_START( raidena );
 	WRITE_HANDLER( raiden_control_w );
 	VIDEO_UPDATE( raiden );
 	

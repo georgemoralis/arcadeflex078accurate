@@ -192,7 +192,6 @@ public class topspeed
 	WRITE16_HANDLER( rainbow_spritectrl_w );
 	WRITE16_HANDLER( rastan_spriteflip_w );
 	
-	VIDEO_START( topspeed );
 	VIDEO_UPDATE( topspeed );
 	
 	WRITE_HANDLER( rastan_adpcm_trigger_w );

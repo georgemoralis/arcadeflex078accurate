@@ -23,7 +23,6 @@ public class gbusters
 	
 	extern int gbusters_priority;
 	
-	VIDEO_START( gbusters );
 	VIDEO_UPDATE( gbusters );
 	
 	static int palette_selected;

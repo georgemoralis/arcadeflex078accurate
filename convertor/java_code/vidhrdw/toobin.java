@@ -58,8 +58,7 @@ public class toobin
 	 *
 	 *************************************/
 	
-	VIDEO_START( toobin )
-	{
+	public static VideoStartHandlerPtr video_start_toobin  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarimo_desc modesc =
 		{
 			1,					/* index to which gfx system */
@@ -113,7 +112,7 @@ public class toobin
 		tilemap_set_transparent_pen(atarigen_alpha_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

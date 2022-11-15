@@ -37,7 +37,6 @@ public class niyanpai
 	
 	
 	VIDEO_UPDATE( niyanpai );
-	VIDEO_START( niyanpai );
 	
 	READ16_HANDLER( niyanpai_palette_r );
 	WRITE16_HANDLER( niyanpai_palette_w );

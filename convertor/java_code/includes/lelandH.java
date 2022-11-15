@@ -129,8 +129,6 @@ extern const struct IO_WritePort ataxx_i86_writeport[];
 extern UINT8 *ataxx_qram;
 extern UINT8 leland_last_scanline_int;
 
-VIDEO_START( leland );
-VIDEO_START( ataxx );
 
 WRITE_HANDLER( leland_gfx_port_w );
 

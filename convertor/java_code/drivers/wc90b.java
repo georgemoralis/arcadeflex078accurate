@@ -90,7 +90,6 @@ public class wc90b
 	extern data8_t *wc90b_scroll1y;
 	extern data8_t *wc90b_scroll2y;
 	
-	VIDEO_START( wc90b );
 	WRITE_HANDLER( wc90b_bgvideoram_w );
 	WRITE_HANDLER( wc90b_fgvideoram_w );
 	WRITE_HANDLER( wc90b_txvideoram_w );

@@ -63,8 +63,7 @@ public class twincobr
 	
 	***************************************************************************/
 	
-	VIDEO_START( toaplan0 )
-	{
+	public static VideoStartHandlerPtr video_start_toaplan0  = new VideoStartHandlerPtr() { public int handler(){
 		/* the video RAM is accessed via ports, it's not memory mapped */
 		videoram_size = 0x800;
 		twincobr_bgvideoram_size = 0x2000;	/* banked two times 0x1000 */
@@ -113,7 +112,7 @@ public class twincobr
 		state_save_register_func_postload(twincobr_restore_screen);	/* Restore the background */
 	
 		return 0;
-	}
+	} };
 	
 	
 	static void twincobr_restore_screen(void)

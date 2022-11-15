@@ -78,7 +78,6 @@ public class inufuku
 	
 	
 	VIDEO_UPDATE( inufuku );
-	VIDEO_START( inufuku );
 	
 	data16_t *inufuku_bg_videoram;
 	data16_t *inufuku_bg_rasterram;

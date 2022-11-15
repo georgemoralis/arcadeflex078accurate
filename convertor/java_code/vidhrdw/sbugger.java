@@ -35,8 +35,7 @@ public class sbugger
 		tilemap_mark_tile_dirty(sbugger_tilemap,offset);
 	}
 	
-	VIDEO_START(sbugger)
-	{
+	public static VideoStartHandlerPtr video_start_sbugger  = new VideoStartHandlerPtr() { public int handler(){
 	
 		sbugger_tilemap = tilemap_create(get_sbugger_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE, 8, 16,64,16);
 	
@@ -44,7 +43,7 @@ public class sbugger
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(sbugger)
 	{

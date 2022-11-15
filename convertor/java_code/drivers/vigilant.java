@@ -17,7 +17,6 @@ public class vigilant
 {
 	
 	/* vidhrdw/vigilant.c */
-	VIDEO_START( vigilant );
 	WRITE_HANDLER( vigilant_paletteram_w );
 	WRITE_HANDLER( vigilant_sprite_paletteram_w );
 	WRITE_HANDLER( vigilant_horiz_scroll_w );

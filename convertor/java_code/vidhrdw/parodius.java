@@ -48,8 +48,7 @@ public class parodius
 	
 	***************************************************************************/
 	
-	VIDEO_START( parodius )
-	{
+	public static VideoStartHandlerPtr video_start_parodius  = new VideoStartHandlerPtr() { public int handler(){
 		K053251_vh_start();
 	
 		if (K052109_vh_start(REGION_GFX1,NORMAL_PLANE_ORDER,tile_callback))
@@ -59,7 +58,7 @@ public class parodius
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	/* useful function to sort the three tile layers by priority order */
 	static void sortlayers(int *layer,int *pri)

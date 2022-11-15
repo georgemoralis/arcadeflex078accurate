@@ -41,16 +41,13 @@ extern UINT8 *sega_sprite_position;
 extern UINT8 turbo_collision;
 
 PALETTE_INIT( turbo );
-VIDEO_START( turbo );
 VIDEO_EOF( turbo );
 VIDEO_UPDATE( turbo );
 
 PALETTE_INIT( subroc3d );
-VIDEO_START( subroc3d );
 VIDEO_UPDATE( subroc3d );
 
 PALETTE_INIT( buckrog );
-VIDEO_START( buckrog );
 VIDEO_UPDATE( buckrog );
 
 WRITE_HANDLER( buckrog_led_display_w );

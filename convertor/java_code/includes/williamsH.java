@@ -103,12 +103,9 @@ WRITE_HANDLER( blaster_remap_select_w );
 WRITE_HANDLER( blaster_palette_0_w );
 READ_HANDLER( williams_video_counter_r );
 
-VIDEO_START( williams );
 VIDEO_UPDATE( williams );
 VIDEO_UPDATE( williams2 );
 
-VIDEO_START( blaster );
-VIDEO_START( williams2 );
 
 WRITE_HANDLER( williams2_fg_select_w );
 WRITE_HANDLER( williams2_bg_select_w );

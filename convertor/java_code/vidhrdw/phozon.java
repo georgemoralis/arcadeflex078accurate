@@ -71,7 +71,7 @@ public class phozon
 			COLOR(2,i) = (*(color_prom++) & 0x0f) + 0x10;
 	}
 	
-	VIDEO_START( phozon ) {
+	public static VideoStartHandlerPtr video_start_phozon  = new VideoStartHandlerPtr() { public int handler()
 		/* set up spriteram area */
 		spriteram_size = 0x80;
 		spriteram = &phozon_spriteram[0x780];
@@ -150,7 +150,7 @@ public class phozon
 						8*sx,8*sy,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
 				}
-		}
+		} };
 	
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
 	

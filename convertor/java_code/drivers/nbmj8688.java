@@ -45,12 +45,6 @@ public class nbmj8688
 	PALETTE_INIT( mbmj8688_16bit );
 	VIDEO_UPDATE( mbmj8688 );
 	VIDEO_UPDATE( mbmj8688_LCD );
-	VIDEO_START( mbmj8688_8bit );
-	VIDEO_START( mbmj8688_hybrid_12bit );
-	VIDEO_START( mbmj8688_pure_12bit );
-	VIDEO_START( mbmj8688_hybrid_16bit );
-	VIDEO_START( mbmj8688_pure_16bit );
-	VIDEO_START( mbmj8688_pure_16bit_LCD );
 	
 	WRITE_HANDLER( nbmj8688_color_lookup_w );
 	WRITE_HANDLER( nbmj8688_blitter_w );

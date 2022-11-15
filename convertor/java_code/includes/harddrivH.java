@@ -216,7 +216,6 @@ extern data16_t *hdgsp_paletteram_lo;
 extern data16_t *hdgsp_paletteram_hi;
 extern size_t hdgsp_vram_size;
 
-VIDEO_START( harddriv );
 void hdgsp_write_to_shiftreg(UINT32 address, UINT16 *shiftreg);
 void hdgsp_read_from_shiftreg(UINT32 address, UINT16 *shiftreg);
 void hdgsp_display_update(UINT32 offs, int rowbytes, int scanline);

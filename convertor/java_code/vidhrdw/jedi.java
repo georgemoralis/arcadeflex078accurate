@@ -36,8 +36,7 @@ public class jedi
 	 *
 	 *************************************/
 	
-	VIDEO_START( jedi )
-	{
+	public static VideoStartHandlerPtr video_start_jedi  = new VideoStartHandlerPtr() { public int handler(){
 		/* allocate dirty buffer for the foreground characters */
 		fgdirty = dirtybuffer = auto_malloc(videoram_size);
 		if (!fgdirty)
@@ -74,7 +73,7 @@ public class jedi
 		/* reserve color 1024 for black (disabled display) */
 		palette_set_color(1024, 0, 0, 0);
 		return 0;
-	}
+	} };
 	
 	
 	

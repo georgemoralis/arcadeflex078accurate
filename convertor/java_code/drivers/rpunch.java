@@ -119,7 +119,6 @@ public class rpunch
 	
 	
 	/* video driver data & functions */
-	VIDEO_START( rpunch );
 	VIDEO_UPDATE( rpunch );
 	
 	extern data16_t *rpunch_bitmapram;

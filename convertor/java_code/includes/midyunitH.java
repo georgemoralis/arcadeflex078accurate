@@ -77,9 +77,6 @@ WRITE16_HANDLER( midyunit_sound_w );
 extern UINT8 *	midyunit_gfx_rom;
 extern size_t	midyunit_gfx_rom_size;
 
-VIDEO_START( midyunit_4bit );
-VIDEO_START( midyunit_6bit );
-VIDEO_START( midzunit );
 
 READ16_HANDLER( midyunit_gfxrom_r );
 

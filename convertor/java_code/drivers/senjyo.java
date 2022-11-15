@@ -98,7 +98,6 @@ public class senjyo
 	DRIVER_INIT( starfore );
 	DRIVER_INIT( senjyo );
 	
-	VIDEO_START( senjyo );
 	VIDEO_UPDATE( senjyo );
 	
 	int senjyo_sh_start(const struct MachineSound *msound);

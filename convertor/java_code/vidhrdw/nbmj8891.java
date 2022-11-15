@@ -396,8 +396,7 @@ public class nbmj8891
 	
 	
 	******************************************************************************/
-	VIDEO_START( gionbana )
-	{
+	public static VideoStartHandlerPtr video_start_gionbana  = new VideoStartHandlerPtr() { public int handler(){
 		if ((gionbana_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((gionbana_tmpbitmap1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((gionbana_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char))) == 0) return 1;
@@ -408,10 +407,9 @@ public class nbmj8891
 		memset(gionbana_videoram1, 0x00, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char)));
 		gfxdraw_mode = 1;
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( hanamomo )
-	{
+	public static VideoStartHandlerPtr video_start_hanamomo  = new VideoStartHandlerPtr() { public int handler(){
 		if ((gionbana_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
 		if ((gionbana_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char))) == 0) return 1;
 		if ((gionbana_palette = auto_malloc(0x200 * sizeof(char))) == 0) return 1;
@@ -419,7 +417,7 @@ public class nbmj8891
 		memset(gionbana_videoram0, 0x00, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char)));
 		gfxdraw_mode = 0;
 		return 0;
-	}
+	} };
 	
 	/******************************************************************************
 	

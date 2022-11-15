@@ -133,8 +133,6 @@ public class combatsc
 	PALETTE_INIT( combascb );
 	READ_HANDLER( combasc_video_r );
 	WRITE_HANDLER( combasc_video_w );
-	VIDEO_START( combasc );
-	VIDEO_START( combascb );
 	
 	WRITE_HANDLER( combascb_bankselect_w );
 	WRITE_HANDLER( combasc_bankselect_w );

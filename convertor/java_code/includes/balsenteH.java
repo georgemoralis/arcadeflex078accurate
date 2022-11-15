@@ -68,7 +68,6 @@ public class balsenteH
 	
 	/*----------- defined in vidhrdw/balsente.c -----------*/
 	
-	VIDEO_START( balsente );
 	VIDEO_UPDATE( balsente );
 	
 	WRITE_HANDLER( balsente_videoram_w );

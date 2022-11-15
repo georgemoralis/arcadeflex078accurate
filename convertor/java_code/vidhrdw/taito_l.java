@@ -78,8 +78,7 @@ public class taito_l
 	
 	***************************************************************************/
 	
-	VIDEO_START( taitol )
-	{
+	public static VideoStartHandlerPtr video_start_taitol  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		bg18_tilemap = tilemap_create(get_bg18_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,64,32);
@@ -104,7 +103,7 @@ public class taito_l
 		tilemap_set_scrolldx(bg19_tilemap,38,-21);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

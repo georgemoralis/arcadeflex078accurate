@@ -34,4 +34,4 @@ extern READ16_HANDLER( namcona1_paletteram_r );
 extern WRITE16_HANDLER( namcona1_paletteram_w );
 
 extern VIDEO_UPDATE( namcona1 );
-extern VIDEO_START( namcona1 );
+extern 

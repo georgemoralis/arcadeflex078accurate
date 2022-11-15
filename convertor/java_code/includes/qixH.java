@@ -58,7 +58,6 @@ public class qixH
 	extern UINT8 *qix_videoaddress;
 	extern UINT8 qix_cocktail_flip;
 	
-	VIDEO_START( qix );
 	VIDEO_UPDATE( qix );
 	
 	void qix_scanline_callback(int scanline);

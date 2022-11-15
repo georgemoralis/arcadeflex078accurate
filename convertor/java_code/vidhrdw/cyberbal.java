@@ -224,8 +224,7 @@ public class cyberbal
 	}
 	
 	
-	VIDEO_START( cyberbal )
-	{
+	public static VideoStartHandlerPtr video_start_cyberbal  = new VideoStartHandlerPtr() { public int handler(){
 		int result = video_start_cyberbal_common(2);
 		if (!result)
 		{
@@ -234,11 +233,10 @@ public class cyberbal
 			atarimo_set_xscroll(1, 4);
 		}
 		return result;
-	}
+	} };
 	
 	
-	VIDEO_START( cyberb2p )
-	{
+	public static VideoStartHandlerPtr video_start_cyberb2p  = new VideoStartHandlerPtr() { public int handler(){
 		int result = video_start_cyberbal_common(1);
 		if (!result)
 		{
@@ -246,7 +244,7 @@ public class cyberbal
 			atarimo_set_xscroll(0, 5);
 		}
 		return result;
-	}
+	} };
 	
 	
 	

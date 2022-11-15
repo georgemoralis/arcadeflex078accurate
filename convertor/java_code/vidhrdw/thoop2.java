@@ -94,8 +94,7 @@ public class thoop2
 	
 	***************************************************************************/
 	
-	VIDEO_START( thoop2 )
-	{
+	public static VideoStartHandlerPtr video_start_thoop2  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		pant[0] = tilemap_create(get_tile_info_thoop2_screen0,tilemap_scan_rows,TILEMAP_SPLIT,16,16,32,32);
@@ -115,7 +114,7 @@ public class thoop2
 		}
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	

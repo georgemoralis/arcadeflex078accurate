@@ -55,8 +55,7 @@ public class sidearms
 	extern WRITE_HANDLER( sidearms_gfxctrl_w );
 	
 	extern PALETTE_INIT( sidearms );
-	extern VIDEO_START( sidearms );
-	extern VIDEO_UPDATE( sidearms );
+	extern extern VIDEO_UPDATE( sidearms );
 	extern VIDEO_EOF( sidearms );
 	
 	int sidearms_gameid;

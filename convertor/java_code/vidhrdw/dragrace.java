@@ -59,13 +59,12 @@ public class dragrace
 	}
 	
 	
-	VIDEO_START( dragrace )
-	{
+	public static VideoStartHandlerPtr video_start_dragrace  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap = tilemap_create(
 			get_tile_info, get_memory_offset, TILEMAP_OPAQUE, 16, 16, 16, 16);
 	
 		return (tilemap == NULL) ? 1 : 0;
-	}
+	} };
 	
 	
 	VIDEO_UPDATE( dragrace )

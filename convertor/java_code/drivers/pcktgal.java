@@ -25,8 +25,7 @@ public class pcktgal
 	extern WRITE_HANDLER( pcktgal_flipscreen_w );
 	
 	extern PALETTE_INIT( pcktgal );
-	extern VIDEO_START( pcktgal );
-	extern VIDEO_UPDATE( pcktgal );
+	extern extern VIDEO_UPDATE( pcktgal );
 	
 	/***************************************************************************/
 	

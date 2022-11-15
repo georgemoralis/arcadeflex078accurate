@@ -62,11 +62,9 @@ public class tsamurai
 	WRITE_HANDLER( tsamurai_bg_videoram_w );
 	WRITE_HANDLER( tsamurai_fg_videoram_w );
 	WRITE_HANDLER( tsamurai_fg_colorram_w );
-	extern VIDEO_START( tsamurai );
-	extern unsigned char *tsamurai_videoram;
+	extern extern unsigned char *tsamurai_videoram;
 	
-	extern VIDEO_START( vsgongf );
-	extern VIDEO_UPDATE( vsgongf );
+	extern extern VIDEO_UPDATE( vsgongf );
 	
 	static struct AY8910interface ay8910_interface =
 	{

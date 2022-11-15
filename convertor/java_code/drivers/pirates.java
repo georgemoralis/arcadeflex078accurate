@@ -100,7 +100,6 @@ public class pirates
 	extern data16_t *pirates_fg_tileram,  *pirates_bg_tileram;
 	extern data16_t *pirates_scroll;
 	
-	VIDEO_START(pirates);
 	WRITE16_HANDLER( pirates_tx_tileram_w );
 	WRITE16_HANDLER( pirates_fg_tileram_w );
 	WRITE16_HANDLER( pirates_bg_tileram_w );

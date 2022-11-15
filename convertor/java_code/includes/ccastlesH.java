@@ -15,7 +15,6 @@ extern unsigned char *ccastles_scrolly;
 
 WRITE_HANDLER( ccastles_paletteram_w );
 
-VIDEO_START( ccastles );
 VIDEO_UPDATE( ccastles );
 
 READ_HANDLER( ccastles_bitmode_r );

@@ -61,8 +61,7 @@ public class mrflea
 	extern WRITE_HANDLER( mrflea_gfx_bank_w );
 	extern WRITE_HANDLER( mrflea_videoram_w );
 	extern WRITE_HANDLER( mrflea_spriteram_w );
-	extern VIDEO_START( mrflea );
-	extern VIDEO_UPDATE( mrflea );
+	extern extern VIDEO_UPDATE( mrflea );
 	
 	static struct AY8910interface ay8910_interface = {
 		3,	/* 3 chips */

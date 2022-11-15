@@ -93,7 +93,6 @@ public class nbmj8991
 	
 	VIDEO_UPDATE( pstadium );
 	VIDEO_UPDATE( galkoku );
-	VIDEO_START( pstadium );
 	
 	WRITE_HANDLER( pstadium_palette_w );
 	WRITE_HANDLER( galkoku_palette_w );

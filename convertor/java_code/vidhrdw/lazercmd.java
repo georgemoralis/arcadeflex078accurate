@@ -83,8 +83,7 @@ public class lazercmd
 	}
 	
 	
-	VIDEO_START( lazercmd )
-	{
+	public static VideoStartHandlerPtr video_start_lazercmd  = new VideoStartHandlerPtr() { public int handler(){
 		if( video_start_generic() )
 			return 1;
 	
@@ -92,7 +91,7 @@ public class lazercmd
 		artwork_show(OVERLAY_TAG, (input_port_2_r(0) & 0x80) >> 7);
 	
 		return 0;
-	}
+	} };
 	
 	
 	VIDEO_UPDATE( lazercmd )

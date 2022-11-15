@@ -101,8 +101,7 @@ public class skykid
 	
 	***************************************************************************/
 	
-	VIDEO_START( skykid )
-	{
+	public static VideoStartHandlerPtr video_start_skykid  = new VideoStartHandlerPtr() { public int handler(){
 		background = tilemap_create(get_tile_info_bg,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,64,32);
 	
 		if (!background)
@@ -118,7 +117,7 @@ public class skykid
 	
 			return 0;
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	

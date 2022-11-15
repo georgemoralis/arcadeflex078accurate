@@ -49,8 +49,7 @@ public class jackal
 	
 	
 	
-	VIDEO_START( jackal )
-	{
+	public static VideoStartHandlerPtr video_start_jackal  = new VideoStartHandlerPtr() { public int handler(){
 		videoram_size = 0x400;
 	
 		dirtybuffer = 0;
@@ -64,7 +63,7 @@ public class jackal
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

@@ -159,8 +159,7 @@ public class aquarium
 		}
 	}
 	
-	VIDEO_START(aquarium)
-	{
+	public static VideoStartHandlerPtr video_start_aquarium  = new VideoStartHandlerPtr() { public int handler(){
 		aquarium_txt_tilemap = tilemap_create(get_aquarium_txt_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,64,64);
 		if (!aquarium_txt_tilemap) return 1;
 		tilemap_set_transparent_pen(aquarium_txt_tilemap,0);
@@ -174,7 +173,7 @@ public class aquarium
 		tilemap_set_transparent_pen(aquarium_mid_tilemap,0);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(aquarium)
 	{

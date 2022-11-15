@@ -25,8 +25,7 @@ public class shaolins
 	extern WRITE_HANDLER( shaolins_nmi_w );
 	
 	extern PALETTE_INIT( shaolins );
-	extern VIDEO_START( shaolins );
-	extern VIDEO_UPDATE( shaolins );
+	extern extern VIDEO_UPDATE( shaolins );
 	
 	
 	public static InterruptHandlerPtr shaolins_interrupt = new InterruptHandlerPtr() {public void handler(){

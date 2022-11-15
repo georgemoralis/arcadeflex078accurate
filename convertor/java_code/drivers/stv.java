@@ -3048,8 +3048,7 @@ public class stv
 	extern WRITE32_HANDLER ( stv_vdp2_regs_w );
 	extern READ32_HANDLER ( stv_vdp2_regs_r );
 	
-	extern VIDEO_START ( stv_vdp2 );
-	extern VIDEO_UPDATE( stv_vdp2 );
+	extern extern VIDEO_UPDATE( stv_vdp2 );
 	
 	extern READ32_HANDLER( stv_vdp1_regs_r );
 	extern WRITE32_HANDLER( stv_vdp1_regs_w );

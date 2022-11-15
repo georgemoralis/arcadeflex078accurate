@@ -71,8 +71,7 @@ public class atarig1
 	 *
 	 *************************************/
 	
-	VIDEO_START( atarig1 )
-	{
+	public static VideoStartHandlerPtr video_start_atarig1  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarirle_desc modesc_hydra =
 		{
 			REGION_GFX3,/* region where the GFX data lives */
@@ -140,7 +139,7 @@ public class atarig1
 		playfield_xscroll = 0;
 		playfield_yscroll = 0;
 		return 0;
-	}
+	} };
 	
 	
 	

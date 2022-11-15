@@ -13,8 +13,7 @@ package drivers;
 public class flyball
 {
 	
-	extern VIDEO_START( flyball );
-	extern VIDEO_UPDATE( flyball );
+	extern extern VIDEO_UPDATE( flyball );
 	
 	extern UINT8 flyball_pitcher_pic;
 	extern UINT8 flyball_pitcher_vert;

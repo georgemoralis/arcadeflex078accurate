@@ -19,7 +19,6 @@ package drivers;
 public class gameplan
 {
 	
-	VIDEO_START( gameplan );
 	READ_HANDLER( gameplan_video_r );
 	WRITE_HANDLER( gameplan_video_w );
 	READ_HANDLER( gameplan_sound_r );

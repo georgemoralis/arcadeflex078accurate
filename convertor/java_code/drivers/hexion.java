@@ -88,7 +88,6 @@ public class hexion
 {
 	
 	
-	VIDEO_START( hexion );
 	VIDEO_UPDATE( hexion );
 	
 	WRITE_HANDLER( hexion_bankswitch_w );

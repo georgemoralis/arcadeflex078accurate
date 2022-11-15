@@ -26,7 +26,6 @@ public class cbasebal
 	void pang_decode(void);
 	
 	
-	VIDEO_START( cbasebal );
 	WRITE_HANDLER( cbasebal_textram_w );
 	READ_HANDLER( cbasebal_textram_r );
 	WRITE_HANDLER( cbasebal_scrollram_w );

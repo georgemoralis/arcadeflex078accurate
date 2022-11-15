@@ -129,8 +129,7 @@ public class sslam
 		tilemap_mark_tile_dirty(sslam_bg_tilemap,offset);
 	}
 	
-	VIDEO_START(sslam)
-	{
+	public static VideoStartHandlerPtr video_start_sslam  = new VideoStartHandlerPtr() { public int handler(){
 		sslam_tx_tilemap = tilemap_create(get_sslam_tx_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,64,64);
 		if (!sslam_tx_tilemap) return 1;
 		tilemap_set_transparent_pen(sslam_tx_tilemap,0);
@@ -143,7 +142,7 @@ public class sslam
 		if (!sslam_bg_tilemap) return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	VIDEO_UPDATE(sslam)

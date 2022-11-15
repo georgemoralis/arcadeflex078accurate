@@ -21,7 +21,6 @@ public class citycon
 	WRITE_HANDLER( citycon_background_w );
 	
 	VIDEO_UPDATE( citycon );
-	VIDEO_START( citycon );
 	
 	
 	READ_HANDLER( citycon_in_r )

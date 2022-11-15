@@ -57,8 +57,7 @@ public class mrjong
 	extern WRITE_HANDLER( mrjong_flipscreen_w );
 	
 	extern PALETTE_INIT( mrjong );
-	extern VIDEO_START( mrjong );
-	extern VIDEO_UPDATE( mrjong );
+	extern extern VIDEO_UPDATE( mrjong );
 	
 	
 	static MEMORY_READ_START( readmem )

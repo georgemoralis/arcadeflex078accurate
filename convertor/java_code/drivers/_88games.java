@@ -21,7 +21,6 @@ public class _88games
 	static int videobank;
 	
 	extern int k88games_priority;
-	VIDEO_START( 88games );
 	VIDEO_UPDATE( 88games );
 	
 	

@@ -62,8 +62,7 @@ public class yiear
 	extern WRITE_HANDLER( yiear_control_w );
 	
 	extern PALETTE_INIT( yiear );
-	extern VIDEO_START( yiear );
-	extern VIDEO_UPDATE( yiear );
+	extern extern VIDEO_UPDATE( yiear );
 	
 	/* in sndhrdw/trackfld.c */
 	extern WRITE_HANDLER( konami_SN76496_latch_w );

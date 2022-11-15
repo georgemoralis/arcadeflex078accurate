@@ -31,8 +31,7 @@ public class deadang
 	extern WRITE_HANDLER( deadang_text_w );
 	extern WRITE_HANDLER( deadang_bank_w );
 	
-	extern VIDEO_START( deadang );
-	extern VIDEO_UPDATE( deadang );
+	extern extern VIDEO_UPDATE( deadang );
 	
 	/* Read/Write Handlers */
 	

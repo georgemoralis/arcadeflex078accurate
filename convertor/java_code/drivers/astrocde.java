@@ -97,8 +97,6 @@ public class astrocde
 	READ_HANDLER( gorf_timer_r );
 	READ_HANDLER( gorf_io_r );
 	
-	VIDEO_START( astrocde );
-	VIDEO_START( astrocde_stars );
 	
 	int  wow_sh_start(const struct MachineSound *msound);
 	void wow_sh_update(void);

@@ -55,8 +55,7 @@ public class msisaac
 	WRITE_HANDLER( msisaac_fg_videoram_w );
 	
 	extern VIDEO_UPDATE( msisaac );
-	extern VIDEO_START( msisaac );
-	extern unsigned char *msisaac_videoram;
+	extern extern unsigned char *msisaac_videoram;
 	extern unsigned char *msisaac_videoram2;
 	
 	

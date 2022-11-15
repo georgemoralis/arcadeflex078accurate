@@ -26,7 +26,6 @@ public class splash
 	READ16_HANDLER( splash_pixelram_r );
 	WRITE16_HANDLER( splash_vram_w );
 	WRITE16_HANDLER( splash_pixelram_w );
-	VIDEO_START( splash );
 	VIDEO_UPDATE( splash );
 	
 	

@@ -111,16 +111,14 @@ public class rockola
 	extern WRITE_HANDLER( rockola_scrolly_w );
 	
 	extern PALETTE_INIT( rockola );
-	extern VIDEO_START( rockola );
-	extern VIDEO_UPDATE( rockola );
+	extern extern VIDEO_UPDATE( rockola );
 	
 	extern WRITE_HANDLER( satansat_charram_w );
 	extern WRITE_HANDLER( satansat_b002_w );
 	extern WRITE_HANDLER( satansat_backcolor_w );
 	
 	extern PALETTE_INIT( satansat );
-	extern VIDEO_START( satansat );
-	
+	extern 
 	extern WRITE_HANDLER( satansat_sound0_w );
 	extern WRITE_HANDLER( satansat_sound1_w );
 	extern WRITE_HANDLER( vanguard_sound0_w );

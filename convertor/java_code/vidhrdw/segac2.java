@@ -198,8 +198,7 @@ public class segac2
 	};
 	#endif
 	
-	VIDEO_START( segac2 )
-	{
+	public static VideoStartHandlerPtr video_start_segac2  = new VideoStartHandlerPtr() { public int handler(){
 		static const UINT8 vdp_init[24] =
 		{
 			0x04, 0x44, 0x30, 0x3C, 0x07, 0x6C, 0x00, 0x00,
@@ -307,10 +306,9 @@ public class segac2
 	
 		return 0;
 	
-	}
+	} };
 	
-	VIDEO_START( puckpkmn )
-	{
+	public static VideoStartHandlerPtr video_start_puckpkmn  = new VideoStartHandlerPtr() { public int handler(){
 		paletteram16 = auto_malloc(0x800 * sizeof(data16_t));
 	
 		if (video_start_segac2())
@@ -322,12 +320,11 @@ public class segac2
 		scanbase = 0;
 	
 		return 0;
-	}
+	} };
 	
 	
 	
-	VIDEO_START( megatech )
-	{
+	public static VideoStartHandlerPtr video_start_megatech  = new VideoStartHandlerPtr() { public int handler(){
 		paletteram16 = auto_malloc(0x800 * sizeof(data16_t));
 	
 		if (video_start_segac2())
@@ -342,10 +339,9 @@ public class segac2
 		scanbase = 192;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( megaplay )
-	{
+	public static VideoStartHandlerPtr video_start_megaplay  = new VideoStartHandlerPtr() { public int handler(){
 		paletteram16 = auto_malloc(0x800 * sizeof(data16_t));
 	
 		if (video_start_segac2())
@@ -360,7 +356,7 @@ public class segac2
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	/******************************************************************************
 		VBLANK routines

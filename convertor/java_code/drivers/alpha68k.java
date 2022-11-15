@@ -177,7 +177,6 @@ public class alpha68k
 	
 	#define SBASEBAL_HACK	0
 	
-	VIDEO_START( alpha68k );
 	VIDEO_UPDATE( kyros );
 	VIDEO_UPDATE( sstingry );
 	VIDEO_UPDATE( alpha68k_I );

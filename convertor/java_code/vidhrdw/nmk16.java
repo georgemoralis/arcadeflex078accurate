@@ -90,8 +90,7 @@ public class nmk16
 	
 	***************************************************************************/
 	
-	VIDEO_START( bioship )
-	{
+	public static VideoStartHandlerPtr video_start_bioship  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(macross_get_bg_tile_info,bg_scan,TILEMAP_TRANSPARENT,16,16,256,32);
 		tx_tilemap = tilemap_create(macross_get_tx_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,32,32);
 		spriteram_old = auto_malloc(spriteram_size);
@@ -112,10 +111,9 @@ public class nmk16
 		videoshift =  0;	/* 256x224 screen, no shift */
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( strahl )
-	{
+	public static VideoStartHandlerPtr video_start_strahl  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(macross_get_bg_tile_info,bg_scan,TILEMAP_OPAQUE,16,16,256,32);
 		fg_tilemap = tilemap_create(strahl_get_fg_tile_info, bg_scan,TILEMAP_TRANSPARENT,16,16,256,32);
 		tx_tilemap = tilemap_create(macross_get_tx_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,32,32);
@@ -134,10 +132,9 @@ public class nmk16
 		videoshift =  0;	/* 256x224 screen, no shift */
 		background_bitmap = NULL;
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( macross )
-	{
+	public static VideoStartHandlerPtr video_start_macross  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(macross_get_bg_tile_info,bg_scan,TILEMAP_OPAQUE,16,16,256,32);
 		tx_tilemap = tilemap_create(macross_get_tx_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,32,32);
 		spriteram_old = auto_malloc(spriteram_size);
@@ -155,10 +152,9 @@ public class nmk16
 		background_bitmap = NULL;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( gunnail )
-	{
+	public static VideoStartHandlerPtr video_start_gunnail  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(macross_get_bg_tile_info,bg_scan,TILEMAP_OPAQUE,16,16,256,32);
 		tx_tilemap = tilemap_create(macross_get_tx_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,64,32);
 		spriteram_old = auto_malloc(spriteram_size);
@@ -178,10 +174,9 @@ public class nmk16
 		background_bitmap = NULL;
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( macross2 )
-	{
+	public static VideoStartHandlerPtr video_start_macross2  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(macross_get_bg_tile_info,bg_scan,TILEMAP_OPAQUE,16,16,256,128);
 		tx_tilemap = tilemap_create(macross_get_tx_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,64,32);
 		spriteram_old = auto_malloc(spriteram_size);
@@ -199,10 +194,9 @@ public class nmk16
 							/* from the other side of the tilemap (!) */
 		background_bitmap = NULL;
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( tdragon2 )
-	{
+	public static VideoStartHandlerPtr video_start_tdragon2  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(macross_get_bg_tile_info,bg_scan_td2,TILEMAP_OPAQUE,16,16,1024,32);
 		tx_tilemap = tilemap_create(macross_get_tx_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,64,32);
 		spriteram_old = auto_malloc(spriteram_size);
@@ -220,10 +214,9 @@ public class nmk16
 							/* from the other side of the tilemap (!) */
 		background_bitmap = NULL;
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( bjtwin )
-	{
+	public static VideoStartHandlerPtr video_start_bjtwin  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(bjtwin_get_bg_tile_info,tilemap_scan_cols,TILEMAP_OPAQUE,8,8,64,32);
 		spriteram_old = auto_malloc(spriteram_size);
 		spriteram_old2 = auto_malloc(spriteram_size);
@@ -238,7 +231,7 @@ public class nmk16
 							/* from the other side of the tilemap (!) */
 		background_bitmap = NULL;
 		return 0;
-	}
+	} };
 	
 	
 	

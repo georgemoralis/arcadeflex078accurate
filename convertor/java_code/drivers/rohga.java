@@ -24,9 +24,6 @@ package drivers;
 public class rohga
 {
 	
-	VIDEO_START( rohga );
-	VIDEO_START( wizdfire );
-	VIDEO_START( nitrobal );
 	VIDEO_UPDATE( rohga );
 	VIDEO_UPDATE( wizdfire );
 	VIDEO_UPDATE( nitrobal );

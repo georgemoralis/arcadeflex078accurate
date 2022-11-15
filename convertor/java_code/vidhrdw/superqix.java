@@ -131,8 +131,7 @@ public class superqix
 		SET_TILE_INFO(bank, code, color, 0)
 	}
 	
-	VIDEO_START( superqix )
-	{
+	public static VideoStartHandlerPtr video_start_superqix  = new VideoStartHandlerPtr() { public int handler(){
 		/* palette RAM is accessed thorough I/O ports, so we have to */
 		/* allocate it ourselves */
 		if ((paletteram = auto_malloc(256 * sizeof(UINT8))) == 0)
@@ -169,7 +168,7 @@ public class superqix
 		tilemap_set_transparent_pen(bg_tilemap, 0);
 	
 		return 0;
-	}
+	} };
 	
 	static void superqix_draw_bitmap( struct mame_bitmap *bitmap )
 	{

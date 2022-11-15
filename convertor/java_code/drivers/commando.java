@@ -60,7 +60,6 @@ public class commando
 	WRITE_HANDLER( commando_scrollx_w );
 	WRITE_HANDLER( commando_scrolly_w );
 	WRITE_HANDLER( commando_c804_w );
-	VIDEO_START( commando );
 	VIDEO_UPDATE( commando );
 	VIDEO_EOF( commando );
 	

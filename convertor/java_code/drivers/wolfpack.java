@@ -18,8 +18,7 @@ public class wolfpack
 	extern UINT8* wolfpack_alpha_num_ram;
 	
 	extern VIDEO_UPDATE( wolfpack );
-	extern VIDEO_START( wolfpack );
-	extern VIDEO_EOF( wolfpack );
+	extern extern VIDEO_EOF( wolfpack );
 	
 	extern WRITE_HANDLER( wolfpack_video_invert_w );
 	extern WRITE_HANDLER( wolfpack_ship_reflect_w );

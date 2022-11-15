@@ -178,7 +178,6 @@ public class wiz
 	WRITE_HANDLER( wiz_bgcolor_w );
 	WRITE_HANDLER( wiz_flipx_w );
 	WRITE_HANDLER( wiz_flipy_w );
-	VIDEO_START( wiz );
 	PALETTE_INIT( wiz );
 	VIDEO_UPDATE( wiz );
 	VIDEO_UPDATE( stinger );

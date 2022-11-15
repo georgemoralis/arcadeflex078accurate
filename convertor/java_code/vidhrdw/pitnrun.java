@@ -182,8 +182,7 @@ public class pitnrun
 		}
 	}
 	
-	VIDEO_START(pitnrun)
-	{
+	public static VideoStartHandlerPtr video_start_pitnrun  = new VideoStartHandlerPtr() { public int handler(){
 		fg = tilemap_create( get_tile_info1,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32 );
 		bg = tilemap_create( get_tile_info2,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32*4,32 );
 		tilemap_set_transparent_pen( fg, 0 );
@@ -193,7 +192,7 @@ public class pitnrun
 		tmp_bitmap[3] = auto_bitmap_alloc(128,128);
 		pitnrun_spotlights();
 		return video_start_generic();
-	}
+	} };
 	
 	static void pitnrun_draw_sprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )
 	{

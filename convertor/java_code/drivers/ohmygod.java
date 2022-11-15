@@ -27,7 +27,6 @@ public class ohmygod
 	WRITE16_HANDLER( ohmygod_spritebank_w );
 	WRITE16_HANDLER( ohmygod_scrollx_w );
 	WRITE16_HANDLER( ohmygod_scrolly_w );
-	VIDEO_START( ohmygod );
 	VIDEO_UPDATE( ohmygod );
 	
 	

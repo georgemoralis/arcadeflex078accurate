@@ -227,8 +227,7 @@ public class combatsc
 	
 	***************************************************************************/
 	
-	VIDEO_START( combasc )
-	{
+	public static VideoStartHandlerPtr video_start_combasc  = new VideoStartHandlerPtr() { public int handler(){
 		combasc_vreg = -1;
 	
 		tilemap[0] = tilemap_create(get_tile_info0,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32);
@@ -252,10 +251,9 @@ public class combatsc
 		}
 	
 		return 1;
-	}
+	} };
 	
-	VIDEO_START( combascb )
-	{
+	public static VideoStartHandlerPtr video_start_combascb  = new VideoStartHandlerPtr() { public int handler(){
 		combasc_vreg = -1;
 	
 		tilemap[0] = tilemap_create(get_tile_info0_bootleg,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32);
@@ -280,7 +278,7 @@ public class combatsc
 		}
 	
 		return 1;
-	}
+	} };
 	
 	/***************************************************************************
 	

@@ -692,8 +692,6 @@ package drivers;
 public class taito_z
 {
 	
-	VIDEO_START( taitoz );
-	VIDEO_START( spacegun );
 	
 	VIDEO_UPDATE( contcirc );
 	VIDEO_UPDATE( chasehq );

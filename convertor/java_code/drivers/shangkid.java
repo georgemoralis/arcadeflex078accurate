@@ -61,7 +61,6 @@ public class shangkid
 	extern UINT8 *shangkid_videoreg;
 	extern int shangkid_gfx_type;
 	
-	VIDEO_START( shangkid );
 	VIDEO_UPDATE( shangkid );
 	WRITE_HANDLER( shangkid_videoram_w );
 	

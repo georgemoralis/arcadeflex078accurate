@@ -42,8 +42,6 @@ public class genericH
 	extern struct mame_bitmap *tmpbitmap;
 	
 	
-	VIDEO_START( generic );
-	VIDEO_START( generic_bitmapped );
 	void video_stop_generic(void);
 	void video_stop_generic_bitmapped(void);
 	VIDEO_UPDATE( generic_bitmapped );

@@ -89,15 +89,14 @@ public class gyruss
 	
 	
 	
-	VIDEO_START( gyruss )
-	{
+	public static VideoStartHandlerPtr video_start_gyruss  = new VideoStartHandlerPtr() { public int handler(){
 		sprite_mux_buffer = auto_malloc(256 * spriteram_size);
 	
 		if (!sprite_mux_buffer)
 			return 1;
 	
 		return video_start_generic();
-	}
+	} };
 	
 	
 	

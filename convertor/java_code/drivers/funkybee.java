@@ -60,8 +60,7 @@ public class funkybee
 	extern WRITE_HANDLER( funkybee_flipscreen_w );
 	
 	extern PALETTE_INIT( funkybee );
-	extern VIDEO_START( funkybee );
-	extern VIDEO_UPDATE( funkybee );
+	extern extern VIDEO_UPDATE( funkybee );
 	
 	
 	static READ_HANDLER( funkybee_input_port_0_r )

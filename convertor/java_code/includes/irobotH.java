@@ -27,7 +27,6 @@ WRITE_HANDLER( irobot_sharedmem_w );
 /*----------- defined in vidhrdw/irobot.c -----------*/
 
 PALETTE_INIT( irobot );
-VIDEO_START( irobot );
 VIDEO_UPDATE( irobot );
 
 WRITE_HANDLER( irobot_paletteram_w );

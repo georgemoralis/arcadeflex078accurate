@@ -42,8 +42,7 @@ public class redclash
 	extern WRITE_HANDLER( redclash_star_reset_w );
 	
 	extern PALETTE_INIT( redclash );
-	extern VIDEO_START( redclash );
-	extern VIDEO_UPDATE( redclash );
+	extern extern VIDEO_UPDATE( redclash );
 	
 	/*
 	  This game doesn't have VBlank interrupts.

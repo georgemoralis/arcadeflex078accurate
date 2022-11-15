@@ -105,8 +105,7 @@ public class tp84
 	extern READ_HANDLER( tp84_scanline_r );
 	
 	extern PALETTE_INIT( tp84 );
-	extern VIDEO_START( tp84 );
-	extern VIDEO_UPDATE( tp84 );
+	extern extern VIDEO_UPDATE( tp84 );
 	
 	extern 
 	

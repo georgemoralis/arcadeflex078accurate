@@ -4,8 +4,6 @@ extern data16_t *f1gp2_sprcgram,*f1gp2_spritelist;
 extern size_t f1gp_spr1cgram_size,f1gp_spr2cgram_size;
 
 
-VIDEO_START( f1gp );
-VIDEO_START( f1gp2 );
 VIDEO_UPDATE( f1gp );
 VIDEO_UPDATE( f1gp2 );
 

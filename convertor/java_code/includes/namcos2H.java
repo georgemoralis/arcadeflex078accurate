@@ -90,22 +90,16 @@ extern data16_t *namcos21_dspram16;
 
 /*********************************************/
 
-VIDEO_START( namcos21 );
 VIDEO_UPDATE( namcos21_default );
 
-VIDEO_START( namcos2 );
 VIDEO_UPDATE( namcos2_default );
 
-VIDEO_START( finallap );
 VIDEO_UPDATE( finallap );
 
-VIDEO_START( luckywld );
 VIDEO_UPDATE( luckywld );
 
-VIDEO_START( metlhawk );
 VIDEO_UPDATE( metlhawk );
 
-VIDEO_START( sgunner );
 VIDEO_UPDATE( sgunner );
 
 /* MACHINE */

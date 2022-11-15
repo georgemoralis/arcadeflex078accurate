@@ -99,8 +99,7 @@ public class megazone
 		}
 	}
 	
-	VIDEO_START( megazone )
-	{
+	public static VideoStartHandlerPtr video_start_megazone  = new VideoStartHandlerPtr() { public int handler(){
 		dirtybuffer = 0;
 		tmpbitmap = 0;
 	
@@ -112,7 +111,7 @@ public class megazone
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

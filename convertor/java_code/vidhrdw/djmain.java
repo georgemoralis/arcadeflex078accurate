@@ -140,8 +140,7 @@ public class djmain
 	{
 	}
 	
-	VIDEO_START( djmain )
-	{
+	public static VideoStartHandlerPtr video_start_djmain  = new VideoStartHandlerPtr() { public int handler(){
 		static int scrolld[NUM_LAYERS][4][2] = {
 		 	{{ 0, 0}, {0, 0}, {0, 0}, {0, 0}},
 		 	{{ 0, 0}, {0, 0}, {0, 0}, {0, 0}}
@@ -157,7 +156,7 @@ public class djmain
 		K056832_set_LayerOffset(1, -88, -27);
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE( djmain )
 	{

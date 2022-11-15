@@ -174,10 +174,7 @@ public class zaxxon
 	
 	extern PALETTE_INIT( zaxxon );
 	
-	extern VIDEO_START( zaxxon );
-	extern VIDEO_START( razmataz );
-	extern VIDEO_START( congo );
-	
+	extern extern extern 
 	extern VIDEO_UPDATE( zaxxon );
 	extern VIDEO_UPDATE( razmataz );
 	extern VIDEO_UPDATE( congo );

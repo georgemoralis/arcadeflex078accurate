@@ -42,9 +42,6 @@ public class midtunitH
 	
 	extern UINT8 midtunit_gfx_rom_large;
 	
-	VIDEO_START( midtunit );
-	VIDEO_START( midwunit );
-	VIDEO_START( midxunit );
 	
 	READ16_HANDLER( midtunit_gfxrom_r );
 	READ16_HANDLER( midwunit_gfxrom_r );

@@ -74,36 +74,6 @@ WRITE_HANDLER( scramble_background_blue_w );
 WRITE_HANDLER( hotshock_flip_screen_w );
 WRITE_HANDLER( darkplnt_bullet_color_w );
 
-VIDEO_START( galaxian_plain );
-VIDEO_START( galaxian );
-VIDEO_START( gmgalax );
-VIDEO_START( mooncrst );
-VIDEO_START( mooncrgx );
-VIDEO_START( moonqsr );
-VIDEO_START( mshuttle );
-VIDEO_START( pisces );
-VIDEO_START( gteikob2 );
-VIDEO_START( batman2 );
-VIDEO_START( jumpbug );
-VIDEO_START( dkongjrm );
-VIDEO_START( scramble );
-VIDEO_START( theend );
-VIDEO_START( darkplnt );
-VIDEO_START( rescue );
-VIDEO_START( minefld );
-VIDEO_START( calipso );
-VIDEO_START( stratgyx );
-VIDEO_START( mimonkey );
-VIDEO_START( turtles );
-VIDEO_START( frogger );
-VIDEO_START( froggrmc );
-VIDEO_START( mariner );
-VIDEO_START( ckongs );
-VIDEO_START( froggers );
-VIDEO_START( newsin7 );
-VIDEO_START( sfx );
-VIDEO_START( rockclim );
-VIDEO_START( drivfrcg );
 
 VIDEO_UPDATE( galaxian );
 

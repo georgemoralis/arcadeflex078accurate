@@ -224,24 +224,19 @@ extern WRITE16_HANDLER( sys16_textram_w );
 extern WRITE16_HANDLER( sys16_paletteram_w );
 
 /* "normal" video hardware */
-extern VIDEO_START( system16 );
-extern VIDEO_UPDATE( system16 );
+extern extern VIDEO_UPDATE( system16 );
 
 /* hang-on video hardware */
-extern VIDEO_START( hangon );
-extern VIDEO_UPDATE( hangon );
+extern extern VIDEO_UPDATE( hangon );
 
 /* outrun video hardware */
-extern VIDEO_START( outrun );
-extern VIDEO_UPDATE( outrun );
+extern extern VIDEO_UPDATE( outrun );
 
 /* aburner video hardware */
-extern VIDEO_START( aburner );
-extern VIDEO_UPDATE( aburner );
+extern extern VIDEO_UPDATE( aburner );
 
 /* system18 video hardware */
-extern VIDEO_START( system18 );
-extern VIDEO_UPDATE( system18 );
+extern extern VIDEO_UPDATE( system18 );
 
 /* video driver constants (vary with game) */
 extern int sys16_gr_bitmap_width;

@@ -90,8 +90,7 @@ public class ddenlovr
 	static struct mame_bitmap *framebuffer;
 	static int extra_layers;
 	
-	VIDEO_START(ddenlovr)
-	{
+	public static VideoStartHandlerPtr video_start_ddenlovr  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 		for (i = 0; i < 8; i++)
 			if (!(pixmap[i] = auto_malloc(512*512)))	return 1;
@@ -100,16 +99,15 @@ public class ddenlovr
 	
 		extra_layers = 0;
 		return 0;
-	}
+	} };
 	
-	VIDEO_START(mmpanic)
-	{
+	public static VideoStartHandlerPtr video_start_mmpanic  = new VideoStartHandlerPtr() { public int handler(){
 		if (video_start_ddenlovr())
 			return 1;
 	
 		extra_layers = 1;
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

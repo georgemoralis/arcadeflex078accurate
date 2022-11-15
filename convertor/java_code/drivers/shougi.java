@@ -99,10 +99,9 @@ package drivers;
 public class shougi
 {
 	
-	//VIDEO_START( shougi )
-	//{
+	//public static VideoStartHandlerPtr video_start_shougi  = new VideoStartHandlerPtr() { public int handler()//{
 	//	generic_vh_start();
-	//}
+	//} };
 	
 	/***************************************************************************
 	

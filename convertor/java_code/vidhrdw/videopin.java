@@ -35,8 +35,7 @@ public class videopin
 	}
 	
 	
-	VIDEO_START( videopin )
-	{
+	public static VideoStartHandlerPtr video_start_videopin  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap = tilemap_create(get_tile_info, get_memory_offset, TILEMAP_OPAQUE, 8, 8, 48, 32);
 	
 		if (tilemap == NULL)
@@ -45,7 +44,7 @@ public class videopin
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	VIDEO_UPDATE( videopin )

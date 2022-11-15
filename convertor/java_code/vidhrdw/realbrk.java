@@ -151,8 +151,7 @@ public class realbrk
 	
 	***************************************************************************/
 	
-	VIDEO_START(realbrk)
-	{
+	public static VideoStartHandlerPtr video_start_realbrk  = new VideoStartHandlerPtr() { public int handler(){
 		/* Backgrounds */
 		tilemap_0 = tilemap_create(	get_tile_info_0, tilemap_scan_rows,
 									TILEMAP_TRANSPARENT,
@@ -178,7 +177,7 @@ public class realbrk
 		tilemap_set_transparent_pen(tilemap_2,0);
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	

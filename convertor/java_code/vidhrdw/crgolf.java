@@ -195,8 +195,7 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	VIDEO_START( crgolf )
-	{
+	public static VideoStartHandlerPtr video_start_crgolf  = new VideoStartHandlerPtr() { public int handler(){
 		/* allocate temporary bitmaps */
 		screena = auto_bitmap_alloc(256, 256);
 		screenb = auto_bitmap_alloc(256, 256);
@@ -210,7 +209,7 @@ public class crgolf
 		fillbitmap(highbit, 16, NULL);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

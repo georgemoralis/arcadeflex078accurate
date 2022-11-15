@@ -43,8 +43,7 @@ public class moo
 		*color = layer_colorbase[layer] | (*color>>2 & 0x0f);
 	}
 	
-	VIDEO_START(moo)
-	{
+	public static VideoStartHandlerPtr video_start_moo  = new VideoStartHandlerPtr() { public int handler(){
 		int offsx, offsy;
 	
 		if (Machine->color_depth != 32) return 1; // ensure correct bpp to avoid crashing in-game
@@ -86,7 +85,7 @@ public class moo
 		K054338_invert_alpha(0);
 	
 		return 0;
-	}
+	} };
 	
 	/* useful function to sort the three tile layers by priority order */
 	static void sortlayers(int *layer,int *pri)

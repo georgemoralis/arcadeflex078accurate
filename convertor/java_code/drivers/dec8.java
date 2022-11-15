@@ -54,14 +54,6 @@ public class dec8
 	VIDEO_UPDATE( lastmiss );
 	VIDEO_UPDATE( shackled );
 	VIDEO_UPDATE( oscar );
-	VIDEO_START( cobracom );
-	VIDEO_START( oscar );
-	VIDEO_START( ghostb );
-	VIDEO_START( lastmiss );
-	VIDEO_START( shackled );
-	VIDEO_START( srdarwin );
-	VIDEO_START( gondo );
-	VIDEO_START( garyoret );
 	
 	WRITE_HANDLER( dec8_bac06_0_w );
 	WRITE_HANDLER( dec8_bac06_1_w );

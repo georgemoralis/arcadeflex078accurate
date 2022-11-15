@@ -205,8 +205,7 @@ public class terracre
 		tilemap_set_scrollx(background,0,xscroll);
 	}
 	
-	VIDEO_START( amazon )
-	{
+	public static VideoStartHandlerPtr video_start_amazon  = new VideoStartHandlerPtr() { public int handler(){
 		background = tilemap_create(get_bg_tile_info,tilemap_scan_cols,TILEMAP_OPAQUE,16,16,64,32);
 		foreground = tilemap_create(get_fg_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,64,32);
 		if( background && foreground )
@@ -215,7 +214,7 @@ public class terracre
 			return 0;
 		}
 		return 1;
-	}
+	} };
 	
 	VIDEO_UPDATE( amazon )
 	{

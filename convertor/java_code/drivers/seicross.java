@@ -57,8 +57,7 @@ public class seicross
 	extern WRITE_HANDLER( seicross_colorram_w );
 	
 	extern PALETTE_INIT( seicross );
-	extern VIDEO_START( seicross );
-	extern VIDEO_UPDATE( seicross );
+	extern extern VIDEO_UPDATE( seicross );
 	
 	static UINT8 *nvram;
 	static size_t nvram_size;

@@ -21,7 +21,6 @@ public class mnight
 	WRITE_HANDLER( mnight_fgvideoram_w );
 	WRITE_HANDLER( mnight_sprite_overdraw_w );
 	WRITE_HANDLER( mnight_background_enable_w );
-	VIDEO_START( mnight );
 	VIDEO_UPDATE( mnight );
 	
 	extern unsigned char    *mnight_scrolly_ram;

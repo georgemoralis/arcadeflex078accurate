@@ -120,8 +120,7 @@ public class system1
 	
 	
 	
-	VIDEO_START( system1 )
-	{
+	public static VideoStartHandlerPtr video_start_system1  = new VideoStartHandlerPtr() { public int handler(){
 		if ((sprite_onscreen_map = auto_malloc(256*256)) == 0)
 			return 1;
 		memset(sprite_onscreen_map,255,256*256);
@@ -136,7 +135,7 @@ public class system1
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( system1_videomode_w )
 	{

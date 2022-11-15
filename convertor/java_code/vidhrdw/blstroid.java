@@ -47,8 +47,7 @@ public class blstroid
 	 *
 	 *************************************/
 	
-	VIDEO_START( blstroid )
-	{
+	public static VideoStartHandlerPtr video_start_blstroid  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarimo_desc modesc =
 		{
 			1,					/* index to which gfx system */
@@ -95,7 +94,7 @@ public class blstroid
 		if (!atarimo_init(0, &modesc))
 			return 1;
 		return 0;
-	}
+	} };
 	
 	
 	

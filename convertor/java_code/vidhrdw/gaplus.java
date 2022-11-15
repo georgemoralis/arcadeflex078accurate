@@ -257,7 +257,7 @@ public class gaplus
 	
 	extern unsigned char *gaplus_sharedram;
 	
-	VIDEO_START( gaplus ) {
+	public static VideoStartHandlerPtr video_start_gaplus  = new VideoStartHandlerPtr() { public int handler()
 	
 		/* set up spriteram area */
 		spriteram_size = 0x80;
@@ -338,7 +338,7 @@ public class gaplus
 					}
 				}
 			}
-		}
+		} };
 	}
 	
 	VIDEO_UPDATE( gaplus )

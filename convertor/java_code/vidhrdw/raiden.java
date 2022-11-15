@@ -89,8 +89,7 @@ public class raiden
 				0)
 	}
 	
-	VIDEO_START( raiden )
-	{
+	public static VideoStartHandlerPtr video_start_raiden  = new VideoStartHandlerPtr() { public int handler(){
 		bg_layer = tilemap_create(get_back_tile_info,tilemap_scan_cols,TILEMAP_OPAQUE,     16,16,32,32);
 		fg_layer = tilemap_create(get_fore_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,16,16,32,32);
 		tx_layer = tilemap_create(get_text_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,32,32);
@@ -103,10 +102,9 @@ public class raiden
 		tilemap_set_transparent_pen(tx_layer,15);
 	
 		return 0;
-	}
+	} };
 	
-	VIDEO_START( raidena )
-	{
+	public static VideoStartHandlerPtr video_start_raidena  = new VideoStartHandlerPtr() { public int handler(){
 		bg_layer = tilemap_create(get_back_tile_info,tilemap_scan_cols,TILEMAP_OPAQUE,     16,16,32,32);
 		fg_layer = tilemap_create(get_fore_tile_info,tilemap_scan_cols,TILEMAP_TRANSPARENT,16,16,32,32);
 		tx_layer = tilemap_create(get_text_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32);
@@ -119,7 +117,7 @@ public class raiden
 		tilemap_set_transparent_pen(tx_layer,15);
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( raiden_control_w )
 	{

@@ -95,15 +95,14 @@ public class pandoras
 	
 	***************************************************************************/
 	
-	VIDEO_START( pandoras )
-	{
+	public static VideoStartHandlerPtr video_start_pandoras  = new VideoStartHandlerPtr() { public int handler(){
 		layer0 = tilemap_create(get_tile_info0,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32,32);
 	
 		if (!layer0)
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	

@@ -55,8 +55,7 @@ public class overdriv
 	
 	***************************************************************************/
 	
-	VIDEO_START( overdriv )
-	{
+	public static VideoStartHandlerPtr video_start_overdriv  = new VideoStartHandlerPtr() { public int handler(){
 		K053251_vh_start();
 	
 		if (K051316_vh_start_0(REGION_GFX2,4,TILEMAP_OPAQUE,0,zoom_callback_0))
@@ -73,7 +72,7 @@ public class overdriv
 		K051316_set_offset(1,15,0);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

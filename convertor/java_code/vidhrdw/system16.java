@@ -814,13 +814,13 @@ public class system16
 	
 	/***************************************************************************/
 	
-	VIDEO_START( system16 ){
+	public static VideoStartHandlerPtr video_start_system16  = new VideoStartHandlerPtr() { public int handler()
 		static int bank_default[16] = {
 			0x0,0x1,0x2,0x3,
 			0x4,0x5,0x6,0x7,
 			0x8,0x9,0xa,0xb,
 			0xc,0xd,0xe,0xf
-		};
+		} };;
 		sys16_obj_bank = bank_default;
 	
 		if( !sys16_bg1_trans )
@@ -924,7 +924,7 @@ public class system16
 		return 1;
 	}
 	
-	VIDEO_START( hangon ){
+	public static VideoStartHandlerPtr video_start_hangon  = new VideoStartHandlerPtr() { public int handler()
 		int ret;
 		sys16_bg1_trans=1;
 		ret = video_start_system16();
@@ -941,7 +941,7 @@ public class system16
 		return 0;
 	}
 	
-	VIDEO_START( system18 ){
+	public static VideoStartHandlerPtr video_start_system18  = new VideoStartHandlerPtr() { public int handler()
 		sys16_bg1_trans=1;
 	
 		background2 = tilemap_create(
@@ -984,7 +984,7 @@ public class system16
 	
 				return 0;
 			}
-		}
+		} };
 		return 1;
 	}
 	
@@ -1560,7 +1560,7 @@ public class system16
 	}
 	
 	
-	VIDEO_START( outrun ){
+	public static VideoStartHandlerPtr video_start_outrun  = new VideoStartHandlerPtr() { public int handler()
 		int ret;
 		sys16_bg1_trans=1;
 		ret = video_start_system16();
@@ -1596,7 +1596,7 @@ public class system16
 			draw_sprites( bitmap,cliprect, 1 );
 	
 			tilemap_draw( bitmap,cliprect, text_layer, 0, 0 );
-		}
+		} };
 	}
 	
 	/***************************************************************************/
@@ -1642,7 +1642,7 @@ public class system16
 		return result;
 	}
 	
-	VIDEO_START( aburner ){
+	public static VideoStartHandlerPtr video_start_aburner  = new VideoStartHandlerPtr() { public int handler()
 		int ret;
 	
 		aburner_backdrop = aburner_unpack_backdrop( memory_region(REGION_GFX3) );
@@ -1677,7 +1677,7 @@ public class system16
 			tilemap_set_scroll_rows( background2 , 64 );
 	
 			return 0;
-		}
+		} };
 		return 1;
 	}
 	

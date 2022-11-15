@@ -177,8 +177,7 @@ public class yard
 	  Start the video hardware emulation.
 	
 	***************************************************************************/
-	VIDEO_START( yard )
-	{
+	public static VideoStartHandlerPtr video_start_yard  = new VideoStartHandlerPtr() { public int handler(){
 		if ((dirtybuffer = auto_malloc(videoram_size)) == 0)
 			return 1;
 		memset(dirtybuffer,1,videoram_size);
@@ -190,7 +189,7 @@ public class yard
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

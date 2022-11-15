@@ -24,7 +24,6 @@ public class labyrunr
 	PALETTE_INIT( labyrunr );
 	WRITE_HANDLER( labyrunr_vram1_w );
 	WRITE_HANDLER( labyrunr_vram2_w );
-	VIDEO_START( labyrunr );
 	VIDEO_UPDATE( labyrunr );
 	
 	public static InterruptHandlerPtr labyrunr_interrupt = new InterruptHandlerPtr() {public void handler(){

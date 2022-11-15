@@ -91,8 +91,7 @@ public class ashnojoe
 	extern WRITE16_HANDLER( joe_tilemaps_xscroll_w );
 	extern WRITE16_HANDLER( joe_tilemaps_yscroll_w );
 	
-	extern VIDEO_START( ashnojoe );
-	extern VIDEO_UPDATE( ashnojoe );
+	extern extern VIDEO_UPDATE( ashnojoe );
 	
 	static READ16_HANDLER(fake_4a00a_r)
 	{

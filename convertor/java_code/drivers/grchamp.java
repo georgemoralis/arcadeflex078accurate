@@ -52,8 +52,7 @@ public class grchamp
 	
 	/* from vidhrdw */
 	extern PALETTE_INIT( grchamp );
-	extern VIDEO_START( grchamp );
-	extern VIDEO_UPDATE( grchamp );
+	extern extern VIDEO_UPDATE( grchamp );
 	extern WRITE_HANDLER( grchamp_videoram_w );
 	extern UINT8 *grchamp_videoram;
 	extern UINT8 *grchamp_radar;

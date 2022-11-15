@@ -609,8 +609,7 @@ public class taito_f3
 	#endif	//DEBUG_F3
 	}
 	
-	VIDEO_START( f3 )
-	{
+	public static VideoStartHandlerPtr video_start_f3  = new VideoStartHandlerPtr() { public int handler(){
 		const struct F3config *pCFG=&f3_config_table[0];
 		int tile;
 	
@@ -792,7 +791,7 @@ public class taito_f3
 		}
 	
 		return 0;
-	}
+	} };
 	
 	/******************************************************************************/
 	

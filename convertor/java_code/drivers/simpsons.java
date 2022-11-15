@@ -18,7 +18,6 @@ public class simpsons
 {
 	
 	/* from vidhrdw */
-	VIDEO_START( simpsons );
 	WRITE_HANDLER( simpsons_priority_w );
 	VIDEO_UPDATE( simpsons );
 	

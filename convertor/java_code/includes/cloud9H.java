@@ -12,7 +12,6 @@ WRITE_HANDLER( cloud9_bitmap_regs_w );
 WRITE_HANDLER( cloud9_bitmap_w );
 
 VIDEO_UPDATE( cloud9 );
-VIDEO_START( cloud9 );
 
 
 extern unsigned char *cloud9_vram2;

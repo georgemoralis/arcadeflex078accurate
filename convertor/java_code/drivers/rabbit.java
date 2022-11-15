@@ -87,10 +87,9 @@ public class rabbit
 	INPUT_PORTS_END(); }}; 
 	
 	
-	VIDEO_START(rabbit)
-	{
+	public static VideoStartHandlerPtr video_start_rabbit  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;
-	}
+	} };
 	
 	VIDEO_UPDATE(rabbit)
 	{

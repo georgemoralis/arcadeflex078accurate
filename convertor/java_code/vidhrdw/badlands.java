@@ -47,8 +47,7 @@ public class badlands
 	 *
 	 *************************************/
 	
-	VIDEO_START( badlands )
-	{
+	public static VideoStartHandlerPtr video_start_badlands  = new VideoStartHandlerPtr() { public int handler(){
 		static const struct atarimo_desc modesc =
 		{
 			1,					/* index to which gfx system */
@@ -96,7 +95,7 @@ public class badlands
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

@@ -59,8 +59,7 @@ public class starshp1
 	}
 	
 	
-	VIDEO_START( starshp1 )
-	{
+	public static VideoStartHandlerPtr video_start_starshp1  = new VideoStartHandlerPtr() { public int handler(){
 		UINT16 val = 0;
 	
 		int i;
@@ -98,7 +97,7 @@ public class starshp1
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	READ_HANDLER( starshp1_rng_r )

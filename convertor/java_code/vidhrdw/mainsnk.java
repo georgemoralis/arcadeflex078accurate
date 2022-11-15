@@ -116,8 +116,7 @@ public class mainsnk
 	}
 	
 	
-	VIDEO_START(mainsnk)
-	{
+	public static VideoStartHandlerPtr video_start_mainsnk  = new VideoStartHandlerPtr() { public int handler(){
 		old_bg_color = -1;
 		stuff_palette( 0, 0, 16*8 );
 		stuff_palette( 16*8*3, 16*8, 16*8 );
@@ -127,7 +126,7 @@ public class mainsnk
 		tilemap_set_scrollx( me_fg_tilemap, 0, -mainsnk_offset );
 		tilemap_set_scrollx( me_bg_tilemap, 0, -mainsnk_offset );
 		return 0;
-	}
+	} };
 	
 	static void draw_sprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect, int scrollx, int scrolly )
 	{

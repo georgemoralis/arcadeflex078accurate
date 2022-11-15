@@ -193,8 +193,7 @@ public class itech32
 	 *
 	 *************************************/
 	
-	VIDEO_START( itech32 )
-	{
+	public static VideoStartHandlerPtr video_start_itech32  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		/* allocate memory */
@@ -232,7 +231,7 @@ public class itech32
 		enable_latch[1] = (itech32_planes > 1) ? 1 : 0;
 	
 		return 0;
-	}
+	} };
 	
 	
 	

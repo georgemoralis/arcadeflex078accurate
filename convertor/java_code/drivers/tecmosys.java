@@ -322,10 +322,9 @@ public class tecmosys
 	
 	
 	
-	VIDEO_START(deroon)
-	{
+	public static VideoStartHandlerPtr video_start_deroon  = new VideoStartHandlerPtr() { public int handler(){
 	return 0;
-	}
+	} };
 	
 	
 	static int command_data=0;

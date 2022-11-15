@@ -50,7 +50,6 @@ public class thief
 	READ_HANDLER( thief_coprocessor_r );
 	WRITE_HANDLER( thief_coprocessor_w );
 	
-	VIDEO_START( thief );
 	VIDEO_UPDATE( thief );
 	
 	

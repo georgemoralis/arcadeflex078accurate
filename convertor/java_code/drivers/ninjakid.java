@@ -35,8 +35,7 @@ public class ninjakid
 	extern READ_HANDLER( ninjakun_io_8000_r );
 	extern WRITE_HANDLER( ninjakun_io_8000_w );
 	
-	extern VIDEO_START( ninjakid );
-	extern VIDEO_UPDATE( ninjakid );
+	extern extern VIDEO_UPDATE( ninjakid );
 	extern WRITE_HANDLER( ninjakun_flipscreen_w );
 	
 	extern WRITE_HANDLER( ninjakun_paletteram_w );

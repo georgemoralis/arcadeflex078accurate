@@ -20,7 +20,6 @@ public class bottom9
 	
 	extern int bottom9_video_enable;
 	
-	VIDEO_START( bottom9 );
 	VIDEO_UPDATE( bottom9 );
 	
 	

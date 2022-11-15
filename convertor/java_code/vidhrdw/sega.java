@@ -121,8 +121,7 @@ public class sega
 	
 	***************************************************************************/
 	
-	VIDEO_START( sega )
-	{
+	public static VideoStartHandlerPtr video_start_sega  = new VideoStartHandlerPtr() { public int handler(){
 		int i;
 	
 		if (vectorram_size == 0)
@@ -164,7 +163,7 @@ public class sega
 		}
 	
 		return video_start_vector();
-	}
+	} };
 	
 	
 	

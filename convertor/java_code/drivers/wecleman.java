@@ -302,9 +302,7 @@ public class wecleman
 	READ16_HANDLER( wecleman_txtram_r );
 	WRITE16_HANDLER( wecleman_txtram_w );
 	VIDEO_UPDATE( wecleman );
-	VIDEO_START( wecleman );
 	VIDEO_UPDATE( hotchase );
-	VIDEO_START( hotchase );
 	
 	
 	/***************************************************************************

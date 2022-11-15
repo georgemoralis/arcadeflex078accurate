@@ -13,10 +13,9 @@ public class diverboy
 	size_t diverboy_spriteram_size;
 	
 	
-	VIDEO_START(diverboy)
-	{
+	public static VideoStartHandlerPtr video_start_diverboy  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;
-	}
+	} };
 	
 	static void diverboy_drawsprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )
 	{

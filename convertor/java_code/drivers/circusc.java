@@ -25,7 +25,6 @@ public class circusc
 	WRITE_HANDLER( circusc_videoram_w );
 	WRITE_HANDLER( circusc_colorram_w );
 	
-	VIDEO_START( circusc );
 	WRITE_HANDLER( circusc_flipscreen_w );
 	PALETTE_INIT( circusc );
 	WRITE_HANDLER( circusc_sprite_bank_select_w );

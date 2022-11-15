@@ -440,8 +440,7 @@ public class ygv608
 		}
 	}
 	
-	VIDEO_START( ygv608 )
-	{
+	public static VideoStartHandlerPtr video_start_ygv608  = new VideoStartHandlerPtr() { public int handler(){
 		memset( &ygv608, 0, sizeof(ygv608) );
 	
 		// flag rebuild of the tilemaps
@@ -450,7 +449,7 @@ public class ygv608
 		namcond1_gfxbank = 0;
 	
 		return 0;
-	}
+	} };
 	
 	VIDEO_STOP( ygv608 )
 	{

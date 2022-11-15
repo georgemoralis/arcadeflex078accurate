@@ -52,8 +52,7 @@ public class mitchell
 	
 	***************************************************************************/
 	
-	VIDEO_START( pang )
-	{
+	public static VideoStartHandlerPtr video_start_pang  = new VideoStartHandlerPtr() { public int handler(){
 		pang_objram=NULL;
 		paletteram=NULL;
 	
@@ -82,7 +81,7 @@ public class mitchell
 		memset(paletteram, 0, 2*Machine->drv->total_colors);
 	
 		return 0;
-	}
+	} };
 	
 	
 	

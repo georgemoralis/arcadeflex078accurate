@@ -50,7 +50,6 @@ package drivers;
 public class moo
 {
 	
-	VIDEO_START(moo);
 	VIDEO_UPDATE(moo);
 	void moo_set_alpha(int on);
 	

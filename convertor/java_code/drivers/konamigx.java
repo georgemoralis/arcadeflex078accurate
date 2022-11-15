@@ -107,16 +107,6 @@ public class konamigx
 {
 	
 	
-	VIDEO_START(konamigx_5bpp);
-	VIDEO_START(konamigx_6bpp);
-	VIDEO_START(konamigx_6bpp_2);
-	VIDEO_START(konamigx_type3);
-	VIDEO_START(konamigx_type4);
-	VIDEO_START(le2);
-	VIDEO_START(dragoonj);
-	VIDEO_START(winspike);
-	VIDEO_START(opengolf);
-	VIDEO_START(racinfrc);
 	VIDEO_UPDATE(konamigx);
 	
 	MACHINE_INIT(konamigx);

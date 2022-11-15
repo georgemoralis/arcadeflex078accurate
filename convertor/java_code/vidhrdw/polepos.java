@@ -155,8 +155,7 @@ public class polepos
 	
 	***************************************************************************/
 	
-	VIDEO_START( polepos )
-	{
+	public static VideoStartHandlerPtr video_start_polepos  = new VideoStartHandlerPtr() { public int handler(){
 		/* allocate view bitmap */
 		view_bitmap = auto_bitmap_alloc(64*8, 16*8);
 		if (!view_bitmap)
@@ -168,7 +167,7 @@ public class polepos
 			return 1;
 	
 		return 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

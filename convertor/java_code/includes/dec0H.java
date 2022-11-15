@@ -1,6 +1,4 @@
 /* Video emulation definitions */
-VIDEO_START( dec0 );
-VIDEO_START( dec0_nodma );
 VIDEO_UPDATE( hbarrel );
 VIDEO_UPDATE( baddudes );
 VIDEO_UPDATE( birdtry );

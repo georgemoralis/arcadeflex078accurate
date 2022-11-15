@@ -26,8 +26,7 @@ package drivers;
 public class orbit
 {
 	
-	extern VIDEO_START( orbit );
-	extern VIDEO_UPDATE( orbit );
+	extern extern VIDEO_UPDATE( orbit );
 	
 	extern UINT8* orbit_playfield_ram;
 	extern UINT8* orbit_sprite_ram;

@@ -48,8 +48,7 @@ public class quizpani
 	extern WRITE16_HANDLER( quizpani_txt_videoram_w );
 	extern WRITE16_HANDLER( quizpani_tilesbank_w );
 	
-	extern VIDEO_START( quizpani );
-	extern VIDEO_UPDATE( quizpani );
+	extern extern VIDEO_UPDATE( quizpani );
 	
 	static WRITE16_HANDLER( quizpani_oki6295_bankswitch_w )
 	{

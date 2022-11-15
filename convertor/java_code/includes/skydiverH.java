@@ -24,5 +24,4 @@ WRITE_HANDLER( skydiver_lamp_e_w );
 WRITE_HANDLER( skydiver_lamp_r_w );
 WRITE_HANDLER( skydiver_width_w );
 WRITE_HANDLER( skydiver_coin_lockout_w );
-VIDEO_START( skydiver );
 VIDEO_UPDATE( skydiver );

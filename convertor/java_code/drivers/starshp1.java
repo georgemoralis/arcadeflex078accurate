@@ -48,8 +48,7 @@ public class starshp1
 	
 	extern VIDEO_UPDATE( starshp1 );
 	extern VIDEO_EOF( starshp1 );
-	extern VIDEO_START( starshp1 );
-	
+	extern 
 	static int starshp1_analog_in_select;
 	
 	

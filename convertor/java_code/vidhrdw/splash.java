@@ -125,8 +125,7 @@ public class splash
 	
 	***************************************************************************/
 	
-	VIDEO_START( splash )
-	{
+	public static VideoStartHandlerPtr video_start_splash  = new VideoStartHandlerPtr() { public int handler(){
 		screen[0] = tilemap_create(get_tile_info_splash_screen0,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,64,32);
 		screen[1] = tilemap_create(get_tile_info_splash_screen1,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,32,32);
 		screen2 = auto_bitmap_alloc (512, 256);
@@ -140,7 +139,7 @@ public class splash
 		tilemap_set_scrollx(screen[0], 0, 4);
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	
