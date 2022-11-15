@@ -76,27 +76,31 @@ public class kopunch
 		return rand();
 	} };
 	
-	static PORT_READ_START( readport )
-		{ 0x30, 0x30, input_port_0_r },
-		{ 0x31, 0x32, kopunch_in_r },
-		{ 0x3a, 0x3a, input_port_2_r },
-		{ 0x3e, 0x3e, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x30, 0x30, input_port_0_r ),
+		new IO_ReadPort( 0x31, 0x32, kopunch_in_r ),
+		new IO_ReadPort( 0x3a, 0x3a, input_port_2_r ),
+		new IO_ReadPort( 0x3e, 0x3e, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x33, 0x33, IOWP_NOP },	// ???
-		{ 0x34, 0x34, kopunch_coin_w },
-		{ 0x35, 0x35, IOWP_NOP },	// ???
-		{ 0x36, 0x36, IOWP_NOP },	// ???
-		{ 0x37, 0x37, IOWP_NOP },	// ???
-		{ 0x38, 0x38, kopunch_lamp_w },
-		{ 0x39, 0x39, IOWP_NOP },	// ???
-		{ 0x3b, 0x3b, IOWP_NOP },	// ???
-		{ 0x3c, 0x3c, kopunch_scroll_x_w },
-		{ 0x3d, 0x3d, kopunch_scroll_y_w },
-		{ 0x3e, 0x3e, kopunch_gfxbank_w },
-		{ 0x3f, 0x3f, IOWP_NOP },	// ???
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x33, 0x33, IOWP_NOP ),	// ???
+		new IO_WritePort( 0x34, 0x34, kopunch_coin_w ),
+		new IO_WritePort( 0x35, 0x35, IOWP_NOP ),	// ???
+		new IO_WritePort( 0x36, 0x36, IOWP_NOP ),	// ???
+		new IO_WritePort( 0x37, 0x37, IOWP_NOP ),	// ???
+		new IO_WritePort( 0x38, 0x38, kopunch_lamp_w ),
+		new IO_WritePort( 0x39, 0x39, IOWP_NOP ),	// ???
+		new IO_WritePort( 0x3b, 0x3b, IOWP_NOP ),	// ???
+		new IO_WritePort( 0x3c, 0x3c, kopunch_scroll_x_w ),
+		new IO_WritePort( 0x3d, 0x3d, kopunch_scroll_y_w ),
+		new IO_WritePort( 0x3e, 0x3e, kopunch_gfxbank_w ),
+		new IO_WritePort( 0x3f, 0x3f, IOWP_NOP ),	// ???
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static InputPortHandlerPtr input_ports_kopunch = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( kopunch )

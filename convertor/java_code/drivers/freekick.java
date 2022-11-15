@@ -154,14 +154,18 @@ public class freekick
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( gigas_readport )
-		{ 0x00, 0x00, gigas_spinner_r },
-		{ 0x01, 0x01, MRA_NOP }, //unused dip 3
-	PORT_END
+	public static IO_ReadPort gigas_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, gigas_spinner_r ),
+		new IO_ReadPort( 0x01, 0x01, MRA_NOP ), //unused dip 3
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( gigas_writeport )
-		{ 0x00, 0x00 ,spinner_select_w },
-	PORT_END
+	public static IO_WritePort gigas_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00 ,spinner_select_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -213,17 +217,21 @@ public class freekick
 		return 1;
 	} };
 	
-	static PORT_READ_START( oigas_readport )
-		{ 0x00, 0x00, gigas_spinner_r },
-		{ 0x01, 0x01, IORP_NOP }, //unused dip 3
-		{ 0x02, 0x02, oigas_2_r },
-		{ 0x03, 0x03, oigas_3_r },
-	PORT_END
+	public static IO_ReadPort oigas_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, gigas_spinner_r ),
+		new IO_ReadPort( 0x01, 0x01, IORP_NOP ), //unused dip 3
+		new IO_ReadPort( 0x02, 0x02, oigas_2_r ),
+		new IO_ReadPort( 0x03, 0x03, oigas_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( oigas_writeport )
-		{ 0x00, 0x00, spinner_select_w },
-		{ 0x05, 0x05, oigas_5_w },
-	PORT_END
+	public static IO_WritePort oigas_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, spinner_select_w ),
+		new IO_WritePort( 0x05, 0x05, oigas_5_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -303,13 +311,17 @@ public class freekick
 		ff_data = data;
 	} };
 	
-	static PORT_READ_START( freekckb_readport )
-		{ 0xff, 0xff, freekick_ff_r },
-	PORT_END
+	public static IO_ReadPort freekckb_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0xff, 0xff, freekick_ff_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( freekckb_writeport )
-		{ 0xff, 0xff, freekick_ff_w },
-	PORT_END
+	public static IO_WritePort freekckb_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0xff, 0xff, freekick_ff_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_gigas = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( gigas )
 	

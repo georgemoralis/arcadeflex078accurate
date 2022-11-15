@@ -131,37 +131,45 @@ public class mosaic
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0x30, 0x30, IORP_NOP },	/* Z180 internal registers */
-		{ 0x70, 0x70, YM2203_status_port_0_r },
-		{ 0x71, 0x71, YM2203_read_port_0_r },
-		{ 0x72, 0x72, protection_r },
-		{ 0x74, 0x74, input_port_0_r },
-		{ 0x76, 0x76, input_port_1_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x30, 0x30, IORP_NOP ),	/* Z180 internal registers */
+		new IO_ReadPort( 0x70, 0x70, YM2203_status_port_0_r ),
+		new IO_ReadPort( 0x71, 0x71, YM2203_read_port_0_r ),
+		new IO_ReadPort( 0x72, 0x72, protection_r ),
+		new IO_ReadPort( 0x74, 0x74, input_port_0_r ),
+		new IO_ReadPort( 0x76, 0x76, input_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x00, 0x3f, IOWP_NOP },	/* Z180 internal registers */
-		{ 0x70, 0x70, YM2203_control_port_0_w },
-		{ 0x71, 0x71, YM2203_write_port_0_w },
-		{ 0x72, 0x72, protection_w },
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x3f, IOWP_NOP ),	/* Z180 internal registers */
+		new IO_WritePort( 0x70, 0x70, YM2203_control_port_0_w ),
+		new IO_WritePort( 0x71, 0x71, YM2203_write_port_0_w ),
+		new IO_WritePort( 0x72, 0x72, protection_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( gfire2_readport )
-		{ 0x30, 0x30, IORP_NOP },	/* Z180 internal registers */
-		{ 0x70, 0x70, YM2203_status_port_0_r },
-		{ 0x71, 0x71, YM2203_read_port_0_r },
-		{ 0x72, 0x72, gfire2_protection_r },
-		{ 0x74, 0x74, input_port_0_r },
-		{ 0x76, 0x76, input_port_1_r },
-	PORT_END
+	public static IO_ReadPort gfire2_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x30, 0x30, IORP_NOP ),	/* Z180 internal registers */
+		new IO_ReadPort( 0x70, 0x70, YM2203_status_port_0_r ),
+		new IO_ReadPort( 0x71, 0x71, YM2203_read_port_0_r ),
+		new IO_ReadPort( 0x72, 0x72, gfire2_protection_r ),
+		new IO_ReadPort( 0x74, 0x74, input_port_0_r ),
+		new IO_ReadPort( 0x76, 0x76, input_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( gfire2_writeport )
-		{ 0x00, 0x3f, IOWP_NOP },	/* Z180 internal registers */
-		{ 0x70, 0x70, YM2203_control_port_0_w },
-		{ 0x71, 0x71, YM2203_write_port_0_w },
-		{ 0x72, 0x72, gfire2_protection_w },
-	PORT_END
+	public static IO_WritePort gfire2_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x3f, IOWP_NOP ),	/* Z180 internal registers */
+		new IO_WritePort( 0x70, 0x70, YM2203_control_port_0_w ),
+		new IO_WritePort( 0x71, 0x71, YM2203_write_port_0_w ),
+		new IO_WritePort( 0x72, 0x72, gfire2_protection_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

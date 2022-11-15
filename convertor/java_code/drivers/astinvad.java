@@ -75,28 +75,36 @@ public class astinvad
 	};
 	
 	
-	static PORT_READ_START( astinvad_readport )
-		{ 0x08, 0x08, input_port_0_r },
-		{ 0x09, 0x09, input_port_1_r },
-		{ 0x0a, 0x0a, input_port_2_r },
-	PORT_END
+	public static IO_ReadPort astinvad_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x08, 0x08, input_port_0_r ),
+		new IO_ReadPort( 0x09, 0x09, input_port_1_r ),
+		new IO_ReadPort( 0x0a, 0x0a, input_port_2_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( astinvad_writeport )
-		{ 0x04, 0x04, astinvad_sound1_w },
-		{ 0x05, 0x05, astinvad_sound2_w },
-	PORT_END
+	public static IO_WritePort astinvad_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x04, 0x04, astinvad_sound1_w ),
+		new IO_WritePort( 0x05, 0x05, astinvad_sound2_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static PORT_READ_START( spaceint_readport )
-		{ 0x00, 0x00, input_port_0_r },
-		{ 0x01, 0x01, input_port_1_r },
-	PORT_END
+	public static IO_ReadPort spaceint_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_0_r ),
+		new IO_ReadPort( 0x01, 0x01, input_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( spaceint_writeport )
-		{ 0x02, 0x02, spaceint_sound1_w },
-		{ 0x03, 0x03, spaceint_color_w },
-		{ 0x04, 0x04, spaceint_sound2_w },
-	PORT_END
+	public static IO_WritePort spaceint_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x02, 0x02, spaceint_sound1_w ),
+		new IO_WritePort( 0x03, 0x03, spaceint_color_w ),
+		new IO_WritePort( 0x04, 0x04, spaceint_sound2_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	#define COMMON_INPUT_BITS \

@@ -162,18 +162,20 @@ public class xyonix
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( port_readmem )
-		{ 0x20, 0x21, IORP_NOP },	/* SN76496 ready signal */
-		{ 0xe0, 0xe0, xyonix_io_r },
+	public static IO_ReadPort port_readmem[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x20, 0x21, IORP_NOP ),	/* SN76496 ready signal */
+		new IO_ReadPort( 0xe0, 0xe0, xyonix_io_r ),
 	MEMORY_END
 	
-	static PORT_WRITE_START( port_writemem )
-		{ 0x20, 0x20, SN76496_0_w },
-		{ 0x21, 0x21, SN76496_1_w },
-		{ 0xe0, 0xe0, xyonix_io_w },
-		{ 0x40, 0x40, IOWP_NOP },	// NMI ack?
-		{ 0x50, 0x50, xyonix_irqack_w },
-		{ 0x60, 0x61, IOWP_NOP },	// crtc6845
+	public static IO_WritePort port_writemem[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x20, 0x20, SN76496_0_w ),
+		new IO_WritePort( 0x21, 0x21, SN76496_1_w ),
+		new IO_WritePort( 0xe0, 0xe0, xyonix_io_w ),
+		new IO_WritePort( 0x40, 0x40, IOWP_NOP ),	// NMI ack?
+		new IO_WritePort( 0x50, 0x50, xyonix_irqack_w ),
+		new IO_WritePort( 0x60, 0x61, IOWP_NOP ),	// crtc6845
 	MEMORY_END
 	
 	/* Inputs Ports **************************************************************/

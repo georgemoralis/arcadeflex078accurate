@@ -921,12 +921,16 @@ public class suna8
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( hardhead_readport )
-		{ 0x00, 0x00, IORP_NOP	},	// ? IRQ Ack
-	PORT_END
+	public static IO_ReadPort hardhead_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, IORP_NOP	),	// ? IRQ Ack
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hardhead_writeport )
-	PORT_END
+	public static IO_WritePort hardhead_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -999,12 +1003,16 @@ public class suna8
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( rranger_readport )
-		{ 0x00, 0x00, IORP_NOP	},	// ? IRQ Ack
-	PORT_END
+	public static IO_ReadPort rranger_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, IORP_NOP	),	// ? IRQ Ack
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( rranger_writeport )
-	PORT_END
+	public static IO_WritePort rranger_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1090,11 +1098,15 @@ public class suna8
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( brickzn_readport )
-	PORT_END
+	public static IO_ReadPort brickzn_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( brickzn_writeport )
-	PORT_END
+	public static IO_WritePort brickzn_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1187,11 +1199,15 @@ public class suna8
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( hardhea2_readport )
-	PORT_END
+	public static IO_ReadPort hardhea2_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hardhea2_writeport )
-	PORT_END
+	public static IO_WritePort hardhea2_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1238,11 +1254,15 @@ public class suna8
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( starfigh_readport )
-	PORT_END
+	public static IO_ReadPort starfigh_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( starfigh_writeport )
-	PORT_END
+	public static IO_WritePort starfigh_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1367,12 +1387,16 @@ public class suna8
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( hardhead_sound_readport )
-		{ 0x01, 0x01, IORP_NOP	},	// ? IRQ Ack
-	PORT_END
+	public static IO_ReadPort hardhead_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x01, 0x01, IORP_NOP	),	// ? IRQ Ack
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hardhead_sound_writeport )
-	PORT_END
+	public static IO_WritePort hardhead_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -1400,11 +1424,15 @@ public class suna8
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( rranger_sound_readport )
-	PORT_END
+	public static IO_ReadPort rranger_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( rranger_sound_writeport )
-	PORT_END
+	public static IO_WritePort rranger_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1431,11 +1459,15 @@ public class suna8
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( brickzn_sound_readport )
-	PORT_END
+	public static IO_ReadPort brickzn_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( brickzn_sound_writeport )
-	PORT_END
+	public static IO_WritePort brickzn_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/* PCM Z80 , 4 DACs (4 bits per sample), NO RAM !! */
@@ -1456,12 +1488,16 @@ public class suna8
 		DAC_data_w( offset & 3, (data & 0xf) * 0x11 );
 	} };
 	
-	static PORT_READ_START( brickzn_pcm_readport )
-		{ 0x00, 0x00, soundlatch2_r		},	// From Sound CPU
-	PORT_END
-	static PORT_WRITE_START( brickzn_pcm_writeport )
-		{ 0x00, 0x03, brickzn_pcm_w			},	// 4 x DAC
-	PORT_END
+	public static IO_ReadPort brickzn_pcm_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, soundlatch2_r		),	// From Sound CPU
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
+	public static IO_WritePort brickzn_pcm_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x03, brickzn_pcm_w			),	// 4 x DAC
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

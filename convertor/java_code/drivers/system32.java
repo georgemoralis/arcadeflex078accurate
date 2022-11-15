@@ -1017,26 +1017,30 @@ public class system32
 		s32_recomp_bank();
 	} };
 	
-	static PORT_READ_START( sound_readport_32 )
-		{ 0x80, 0x80, YM2612_status_port_0_A_r },
-		{ 0x90, 0x90, YM2612_status_port_1_A_r },
-		{ 0xf1, 0xf1, sys32_sound_prot_r },
-	PORT_END
+	public static IO_ReadPort sound_readport_32[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x80, 0x80, YM2612_status_port_0_A_r ),
+		new IO_ReadPort( 0x90, 0x90, YM2612_status_port_1_A_r ),
+		new IO_ReadPort( 0xf1, 0xf1, sys32_sound_prot_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( sound_writeport_32 )
-		{ 0x80, 0x80, YM2612_control_port_0_A_w },
-		{ 0x81, 0x81, YM2612_data_port_0_A_w },
-		{ 0x82, 0x82, YM2612_control_port_0_B_w },
-		{ 0x83, 0x83, YM2612_data_port_0_B_w },
-		{ 0x90, 0x90, YM2612_control_port_1_A_w },
-		{ 0x91, 0x91, YM2612_data_port_1_A_w },
-		{ 0x92, 0x92, YM2612_control_port_1_B_w },
-		{ 0x93, 0x93, YM2612_data_port_1_B_w },
-		{ 0xa0, 0xa0, sys32_soundbank_lo_w },
-		{ 0xb0, 0xb0, sys32_soundbank_hi_w },
-		{ 0xc1, 0xc1, IOWP_NOP },
-		{ 0xf1, 0xf1, sys32_sound_prot_w },
-	PORT_END
+	public static IO_WritePort sound_writeport_32[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x80, 0x80, YM2612_control_port_0_A_w ),
+		new IO_WritePort( 0x81, 0x81, YM2612_data_port_0_A_w ),
+		new IO_WritePort( 0x82, 0x82, YM2612_control_port_0_B_w ),
+		new IO_WritePort( 0x83, 0x83, YM2612_data_port_0_B_w ),
+		new IO_WritePort( 0x90, 0x90, YM2612_control_port_1_A_w ),
+		new IO_WritePort( 0x91, 0x91, YM2612_data_port_1_A_w ),
+		new IO_WritePort( 0x92, 0x92, YM2612_control_port_1_B_w ),
+		new IO_WritePort( 0x93, 0x93, YM2612_data_port_1_B_w ),
+		new IO_WritePort( 0xa0, 0xa0, sys32_soundbank_lo_w ),
+		new IO_WritePort( 0xb0, 0xb0, sys32_soundbank_hi_w ),
+		new IO_WritePort( 0xc1, 0xc1, IOWP_NOP ),
+		new IO_WritePort( 0xf1, 0xf1, sys32_sound_prot_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	public static MachineInitHandlerPtr machine_init_system32  = new MachineInitHandlerPtr() { public void handler(){
 		cpu_setbank(1, memory_region(REGION_CPU1));
@@ -1090,23 +1094,27 @@ public class system32
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( jpcab_readport )
-		{ 0x04, 0x04, IORP_NOP },		// interrupt control
-		{ 0x80, 0x83, IORP_NOP },
-		{ 0x90, 0x93, IORP_NOP },
-		{ 0xc0, 0xc1, IORP_NOP },
-		{ 0xd0, 0xd3, IORP_NOP },
-		{ 0xd8, 0xd8, IORP_NOP },
-	PORT_END
+	public static IO_ReadPort jpcab_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x04, 0x04, IORP_NOP ),		// interrupt control
+		new IO_ReadPort( 0x80, 0x83, IORP_NOP ),
+		new IO_ReadPort( 0x90, 0x93, IORP_NOP ),
+		new IO_ReadPort( 0xc0, 0xc1, IORP_NOP ),
+		new IO_ReadPort( 0xd0, 0xd3, IORP_NOP ),
+		new IO_ReadPort( 0xd8, 0xd8, IORP_NOP ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( jpcab_writeport )
-		{ 0x04, 0x04, IOWP_NOP },
-		{ 0x80, 0x83, IOWP_NOP },
-		{ 0x90, 0x93, IOWP_NOP },
-		{ 0xc0, 0xc1, IOWP_NOP },
-		{ 0xd0, 0xd3, IOWP_NOP },
-		{ 0xd8, 0xd8, IOWP_NOP },
-	PORT_END
+	public static IO_WritePort jpcab_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x04, 0x04, IOWP_NOP ),
+		new IO_WritePort( 0x80, 0x83, IOWP_NOP ),
+		new IO_WritePort( 0x90, 0x93, IOWP_NOP ),
+		new IO_WritePort( 0xc0, 0xc1, IOWP_NOP ),
+		new IO_WritePort( 0xd0, 0xd3, IOWP_NOP ),
+		new IO_WritePort( 0xd8, 0xd8, IOWP_NOP ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/* Analog Input Handlers */
 	/* analog controls for sonic */

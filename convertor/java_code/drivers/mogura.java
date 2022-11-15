@@ -88,14 +88,16 @@ public class mogura
 	} };
 	
 	
-	static PORT_READ_START( readport )
-		{ 0x08, 0x08, input_port_0_r },
-		{ 0x0c, 0x0c, input_port_1_r },
-		{ 0x0d, 0x0d, input_port_2_r },
-		{ 0x0e, 0x0e, input_port_3_r },
-		{ 0x0f, 0x0f, input_port_4_r },
-		{ 0x10, 0x10, input_port_5_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x08, 0x08, input_port_0_r ),
+		new IO_ReadPort( 0x0c, 0x0c, input_port_1_r ),
+		new IO_ReadPort( 0x0d, 0x0d, input_port_2_r ),
+		new IO_ReadPort( 0x0e, 0x0e, input_port_3_r ),
+		new IO_ReadPort( 0x0f, 0x0f, input_port_4_r ),
+		new IO_ReadPort( 0x10, 0x10, input_port_5_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static WriteHandlerPtr dac_w = new WriteHandlerPtr() {public void handler(int offset, int data){
@@ -104,10 +106,12 @@ public class mogura
 	} };
 	
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x00, 0x00, MWA_NOP }, // ??
-		{ 0x14, 0x14, dac_w },	/* 4 bit DAC x 2. MSB = left, LSB = right */
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, MWA_NOP ), // ??
+		new IO_WritePort( 0x14, 0x14, dac_w ),	/* 4 bit DAC x 2. MSB = left, LSB = right */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static WriteHandlerPtr mogura_gfxram_w = new WriteHandlerPtr() {public void handler(int offset, int data){

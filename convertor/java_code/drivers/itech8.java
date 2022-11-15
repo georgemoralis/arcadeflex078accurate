@@ -815,13 +815,15 @@ public class itech8
 	};
 	
 	
-	static PORT_READ_START( slikz80_readport )
-		{ 0x00, 0x00, slikz80_port_r },
+	public static IO_ReadPort slikz80_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, slikz80_port_r ),
 	MEMORY_END
 	
 	
-	static PORT_WRITE_START( slikz80_writeport )
-		{ 0x00, 0x00, slikz80_port_w },
+	public static IO_WritePort slikz80_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, slikz80_port_w ),
 	MEMORY_END
 	
 	

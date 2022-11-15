@@ -178,16 +178,18 @@ public class marinedt
 		return cyq | (cyqh<<4);
 	} };
 	
-	static PORT_READ_START( marinedt_readport )
-		{ 0x00, 0x00, input_port_0_r },		//dips coinage
-		{ 0x01, 0x01, marinedt_port1_r },	//trackball xy muxed
-		{ 0x02, 0x02, marinedt_obj1_x_r },
-		{ 0x03, 0x03, input_port_1_r },		//buttons
-		{ 0x04, 0x04, input_port_2_r },		//dips
-		{ 0x06, 0x06, marinedt_obj1_yr_r },
-		{ 0x0a, 0x0a, marinedt_obj1_yq_r },
-		{ 0x0e, 0x0e, marinedt_coll_r },
-	PORT_END
+	public static IO_ReadPort marinedt_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_0_r ),		//dips coinage
+		new IO_ReadPort( 0x01, 0x01, marinedt_port1_r ),	//trackball xy muxed
+		new IO_ReadPort( 0x02, 0x02, marinedt_obj1_x_r ),
+		new IO_ReadPort( 0x03, 0x03, input_port_1_r ),		//buttons
+		new IO_ReadPort( 0x04, 0x04, input_port_2_r ),		//dips
+		new IO_ReadPort( 0x06, 0x06, marinedt_obj1_yr_r ),
+		new IO_ReadPort( 0x0a, 0x0a, marinedt_obj1_yq_r ),
+		new IO_ReadPort( 0x0e, 0x0e, marinedt_coll_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	public static WriteHandlerPtr marinedt_obj1_a_w = new WriteHandlerPtr() {public void handler(int offset, int data)	marinedt_obj1_a = data; }
 	public static WriteHandlerPtr marinedt_obj1_x_w = new WriteHandlerPtr() {public void handler(int offset, int data)	marinedt_obj1_x = data; }
@@ -239,19 +241,21 @@ public class marinedt
 	
 	} };
 	
-	static PORT_WRITE_START( marinedt_writeport )
-		{ 0x02, 0x02, marinedt_obj1_a_w },
-		{ 0x03, 0x03, marinedt_obj1_x_w },
-		{ 0x04, 0x04, marinedt_obj1_y_w },
-		{ 0x05, 0x05, marinedt_music_w },
-		{ 0x06, 0x06, marinedt_sound_w },
-		{ 0x08, 0x08, marinedt_obj2_a_w },
-		{ 0x09, 0x09, marinedt_obj2_x_w },
-		{ 0x0a, 0x0a, marinedt_obj2_y_w },
-		{ 0x0d, 0x0d, marinedt_pd_w },
-		{ 0x0e, 0x0e, watchdog_reset_w },
-		{ 0x0f, 0x0f, marinedt_pf_w },
-	PORT_END
+	public static IO_WritePort marinedt_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x02, 0x02, marinedt_obj1_a_w ),
+		new IO_WritePort( 0x03, 0x03, marinedt_obj1_x_w ),
+		new IO_WritePort( 0x04, 0x04, marinedt_obj1_y_w ),
+		new IO_WritePort( 0x05, 0x05, marinedt_music_w ),
+		new IO_WritePort( 0x06, 0x06, marinedt_sound_w ),
+		new IO_WritePort( 0x08, 0x08, marinedt_obj2_a_w ),
+		new IO_WritePort( 0x09, 0x09, marinedt_obj2_x_w ),
+		new IO_WritePort( 0x0a, 0x0a, marinedt_obj2_y_w ),
+		new IO_WritePort( 0x0d, 0x0d, marinedt_pd_w ),
+		new IO_WritePort( 0x0e, 0x0e, watchdog_reset_w ),
+		new IO_WritePort( 0x0f, 0x0f, marinedt_pf_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_marinedt = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( marinedt )
 		PORT_START(); 	/* IN0 */

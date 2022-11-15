@@ -156,19 +156,23 @@ public class malzak
 		return 0xd0 + counter;
 	} };
 	
-	static PORT_READ_START( readport )
-		{ 0x00, 0x00, collision_r }, // returns where a collision can occur.
-	    { 0x80, 0x80, input_port_0_r },  //controls
-		{ S2650_DATA_PORT, S2650_DATA_PORT, s2650_data_r },  // read upon death
-	    { S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, collision_r ), // returns where a collision can occur.
+	    new IO_ReadPort( 0x80, 0x80, input_port_0_r ),  //controls
+		new IO_ReadPort( S2650_DATA_PORT, S2650_DATA_PORT, s2650_data_r ),  // read upon death
+	    new IO_ReadPort( S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x40, 0x40, port40_w },  // possibly sound codes for dual SN76477s
-		{ 0x60, 0x60, port60_w },  // possibly playfield scroll X offset
-		{ 0xa0, 0xa0, MWA_NOP },  // echoes I/O port read from port 0x80
-		{ 0xc0, 0xc0, portc0_w },  // possibly playfield scroll Y offset
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x40, 0x40, port40_w ),  // possibly sound codes for dual SN76477s
+		new IO_WritePort( 0x60, 0x60, port60_w ),  // possibly playfield scroll X offset
+		new IO_WritePort( 0xa0, 0xa0, MWA_NOP ),  // echoes I/O port read from port 0x80
+		new IO_WritePort( 0xc0, 0xc0, portc0_w ),  // possibly playfield scroll Y offset
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_malzak = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( malzak )
 	

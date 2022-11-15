@@ -655,13 +655,17 @@ public class hal21
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( hal21_readport_sound )
-		{ 0x0000, 0x0000, MRA_NOP }, // external sound ROM detection?
-	PORT_END
+	public static IO_ReadPort hal21_readport_sound[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0000, 0x0000, MRA_NOP ), // external sound ROM detection?
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hal21_writeport_sound )
-		{ 0x0000, 0x0000, MWA_NOP }, // external sound ROM switch?
-	PORT_END
+	public static IO_WritePort hal21_writeport_sound[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x0000, 0x0000, MWA_NOP ), // external sound ROM switch?
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/**************************** ASO/Alpha Mission *************************/
 	

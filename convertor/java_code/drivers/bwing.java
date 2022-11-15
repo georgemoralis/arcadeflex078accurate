@@ -238,13 +238,17 @@ public class bwing
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( bwp3_readport )
-		{ 0x00, 0x00, input_port_6_r },
-	PORT_END
+	public static IO_ReadPort bwp3_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_6_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( bwp3_writeport )
-		{ 0x00, 0x00, bwp3_u8F_w },
-	PORT_END
+	public static IO_WritePort bwp3_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, bwp3_u8F_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	//****************************************************************************
 	// I/O Port Maps

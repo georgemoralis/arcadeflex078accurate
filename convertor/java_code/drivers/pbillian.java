@@ -213,24 +213,28 @@ public class pbillian
 	
 	
 	
-	static PORT_READ_START( readport )
-		{ 0x0000, 0x01ff, paletteram_r },
-		{ 0x0401, 0x0401, AY8910_read_port_0_r },
-		{ 0x0408, 0x0408, data_408_r},
-		{ 0x0418, 0x0418, MRA_NOP },  //?
-		{ 0x041b, 0x041b, MRA_NOP },  //?
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0000, 0x01ff, paletteram_r ),
+		new IO_ReadPort( 0x0401, 0x0401, AY8910_read_port_0_r ),
+		new IO_ReadPort( 0x0408, 0x0408, data_408_r),
+		new IO_ReadPort( 0x0418, 0x0418, MRA_NOP ),  //?
+		new IO_ReadPort( 0x041b, 0x041b, MRA_NOP ),  //?
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x0000, 0x01ff, paletteram_BBGGRRII_w },
-		{	0x0200, 0x03ff, MWA_NOP},
-		{ 0x0402, 0x0402, AY8910_write_port_0_w },
-		{ 0x0403, 0x0403, AY8910_control_port_0_w },
-		{ 0x408, 0x408, select_408_w},
-		{ 0x410, 0x410, data_410_w },
-		{ 0x41a, 0x41a, data_41a_w},
-		{ 0x419, 0x419, MWA_NOP },  //? watchdog ?
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x0000, 0x01ff, paletteram_BBGGRRII_w ),
+		new IO_WritePort(	0x0200, 0x03ff, MWA_NOP),
+		new IO_WritePort( 0x0402, 0x0402, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x0403, 0x0403, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x408, 0x408, select_408_w),
+		new IO_WritePort( 0x410, 0x410, data_410_w ),
+		new IO_WritePort( 0x41a, 0x41a, data_41a_w),
+		new IO_WritePort( 0x419, 0x419, MWA_NOP ),  //? watchdog ?
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_pbillian = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pbillian )
 	

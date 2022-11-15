@@ -87,11 +87,13 @@ public class sbugger
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0xe1, 0xe1, input_port_0_r },
-		{ 0xe2, 0xe2, input_port_1_r },
-		{ 0xe3, 0xe3, input_port_2_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0xe1, 0xe1, input_port_0_r ),
+		new IO_ReadPort( 0xe2, 0xe2, input_port_1_r ),
+		new IO_ReadPort( 0xe3, 0xe3, input_port_2_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	/* there are some port writes */
 	

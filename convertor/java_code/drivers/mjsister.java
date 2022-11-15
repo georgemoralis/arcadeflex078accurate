@@ -158,23 +158,27 @@ public class mjsister
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( mjsister_readport )
-		{ 0x11, 0x11, AY8910_read_port_0_r },
-		{ 0x20, 0x20, mjsister_keys_r },
-		{ 0x21, 0x21, input_port_2_r },
-	PORT_END
+	public static IO_ReadPort mjsister_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x11, 0x11, AY8910_read_port_0_r ),
+		new IO_ReadPort( 0x20, 0x20, mjsister_keys_r ),
+		new IO_ReadPort( 0x21, 0x21, input_port_2_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( mjsister_writeport )
-		{ 0x00, 0x01, IOWP_NOP }, /* HD46505? */
-		{ 0x10, 0x10, AY8910_control_port_0_w },
-		{ 0x12, 0x12, AY8910_write_port_0_w },
-		{ 0x30, 0x30, mjsister_banksel1_w },
-		{ 0x31, 0x31, mjsister_banksel2_w },
-		{ 0x32, 0x32, mjsister_input_sel1_w },
-		{ 0x33, 0x33, mjsister_input_sel2_w },
-		{ 0x34, 0x34, mjsister_dac_adr_s_w },
-		{ 0x35, 0x35, mjsister_dac_adr_e_w },
-	PORT_END
+	public static IO_WritePort mjsister_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x01, IOWP_NOP ), /* HD46505? */
+		new IO_WritePort( 0x10, 0x10, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x12, 0x12, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x30, 0x30, mjsister_banksel1_w ),
+		new IO_WritePort( 0x31, 0x31, mjsister_banksel2_w ),
+		new IO_WritePort( 0x32, 0x32, mjsister_input_sel1_w ),
+		new IO_WritePort( 0x33, 0x33, mjsister_input_sel2_w ),
+		new IO_WritePort( 0x34, 0x34, mjsister_dac_adr_s_w ),
+		new IO_WritePort( 0x35, 0x35, mjsister_dac_adr_e_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/****************************************************************************/
 	

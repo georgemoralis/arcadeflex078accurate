@@ -104,9 +104,11 @@ public class pastelgl
 		}
 	} };
 	
-	static PORT_READ_START( readport_pastelgl )
-		{ 0x0000, 0xffff, io_pastelgl_r },
-	PORT_END
+	public static IO_ReadPort readport_pastelgl[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0000, 0xffff, io_pastelgl_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	public static WriteHandlerPtr io_pastelgl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
@@ -144,9 +146,11 @@ public class pastelgl
 		}
 	} };
 	
-	static PORT_WRITE_START( writeport_pastelgl )
-		{ 0x0000, 0xffff, io_pastelgl_w },
-	PORT_END
+	public static IO_WritePort writeport_pastelgl[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x0000, 0xffff, io_pastelgl_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static InputPortHandlerPtr input_ports_pastelgl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( pastelgl )

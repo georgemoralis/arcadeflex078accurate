@@ -136,20 +136,24 @@ public class sprcros2
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( sprcros2_m_readport )
-		{ 0x00, 0x00, input_port_0_r },
-		{ 0x01, 0x01, input_port_1_r },
-		{ 0x02, 0x02, input_port_2_r },
-		{ 0x04, 0x04, input_port_3_r },
-		{ 0x05, 0x05, input_port_4_r },
-	PORT_END
+	public static IO_ReadPort sprcros2_m_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_0_r ),
+		new IO_ReadPort( 0x01, 0x01, input_port_1_r ),
+		new IO_ReadPort( 0x02, 0x02, input_port_2_r ),
+		new IO_ReadPort( 0x04, 0x04, input_port_3_r ),
+		new IO_ReadPort( 0x05, 0x05, input_port_4_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( sprcros2_m_writeport )
-		{ 0x00, 0x00, SN76496_0_w },
-		{ 0x01, 0x01, SN76496_1_w },
-		{ 0x02, 0x02, SN76496_2_w },
-		{ 0x07, 0x07, sprcros2_m_port7_w },
-	PORT_END
+	public static IO_WritePort sprcros2_m_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, SN76496_0_w ),
+		new IO_WritePort( 0x01, 0x01, SN76496_1_w ),
+		new IO_WritePort( 0x02, 0x02, SN76496_2_w ),
+		new IO_WritePort( 0x07, 0x07, sprcros2_m_port7_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	public static Memory_ReadAddress sprcros2_s_readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
@@ -173,11 +177,13 @@ public class sprcros2
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_WRITE_START( sprcros2_s_writeport )
-		{ 0x00, 0x00, sprcros2_bgscrollx_w },
-		{ 0x01, 0x01, sprcros2_bgscrolly_w },
-		{ 0x03, 0x03, sprcros2_s_port3_w },
-	PORT_END
+	public static IO_WritePort sprcros2_s_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, sprcros2_bgscrollx_w ),
+		new IO_WritePort( 0x01, 0x01, sprcros2_bgscrolly_w ),
+		new IO_WritePort( 0x03, 0x03, sprcros2_s_port3_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_sprcros2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sprcros2 )
 		PORT_START(); 	/* IN0 */

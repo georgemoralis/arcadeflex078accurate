@@ -92,9 +92,11 @@ public class raiders5
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START ( readport1 )
-		{ 0x00, 0x00, IORP_NOP }, /* watchdog? */
-	PORT_END
+	public static IO_ReadPort readport1[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, IORP_NOP ), /* watchdog? */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	public static Memory_ReadAddress readmem2[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),

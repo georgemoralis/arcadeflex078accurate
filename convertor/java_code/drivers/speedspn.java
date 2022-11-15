@@ -132,21 +132,25 @@ public class speedspn
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x07, 0x07, speedspn_global_display_w },
-		{ 0x12, 0x12, speedspn_banked_rom_change },
-		{ 0x13, 0x13, speedspn_sound_w },
-		{ 0x17, 0x17, speedspn_banked_vidram_change },
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x07, 0x07, speedspn_global_display_w ),
+		new IO_WritePort( 0x12, 0x12, speedspn_banked_rom_change ),
+		new IO_WritePort( 0x13, 0x13, speedspn_sound_w ),
+		new IO_WritePort( 0x17, 0x17, speedspn_banked_vidram_change ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( readport )
-		{ 0x10, 0x10, input_port_0_r }, // inputs
-		{ 0x11, 0x11, input_port_1_r }, // inputs
-		{ 0x12, 0x12, input_port_2_r }, // inputs
-		{ 0x13, 0x13, input_port_3_r },
-		{ 0x14, 0x14, input_port_4_r }, // inputs
-		{ 0x16, 0x16, speedspn_irq_ack_r }, // @@@ could be watchdog, value is discarded
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x10, 0x10, input_port_0_r ), // inputs
+		new IO_ReadPort( 0x11, 0x11, input_port_1_r ), // inputs
+		new IO_ReadPort( 0x12, 0x12, input_port_2_r ), // inputs
+		new IO_ReadPort( 0x13, 0x13, input_port_3_r ),
+		new IO_ReadPort( 0x14, 0x14, input_port_4_r ), // inputs
+		new IO_ReadPort( 0x16, 0x16, speedspn_irq_ack_r ), // @@@ could be watchdog, value is discarded
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	/* sound cpu */
 	

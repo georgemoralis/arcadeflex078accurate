@@ -339,15 +339,19 @@ public class tceptor
 	};
 	
 	
-	static PORT_READ_START( mcu_readport )
-		{ HD63701_PORT1, HD63701_PORT1, readFF },
-		{ HD63701_PORT2, HD63701_PORT2, readFF },
-	PORT_END
+	public static IO_ReadPort mcu_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( HD63701_PORT1, HD63701_PORT1, readFF ),
+		new IO_ReadPort( HD63701_PORT2, HD63701_PORT2, readFF ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( mcu_writeport )
-		{ HD63701_PORT1, HD63701_PORT1, MWA_NOP },
-		{ HD63701_PORT2, HD63701_PORT2, MWA_NOP },
-	PORT_END
+	public static IO_WritePort mcu_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( HD63701_PORT1, HD63701_PORT1, MWA_NOP ),
+		new IO_WritePort( HD63701_PORT2, HD63701_PORT2, MWA_NOP ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*******************************************************************/

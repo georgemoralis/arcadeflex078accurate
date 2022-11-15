@@ -170,19 +170,23 @@ public class speedatk
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0x40, 0x40, input_port_0_r },
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x40, 0x40, input_port_0_r ),
 		/* are these not used? after they're read it sets bit 7 */
-		{ 0x60, 0x60, MRA_NOP },
-		{ 0x61, 0x61, MRA_NOP },
-		{ 0x68, 0x68, MRA_NOP },
-	PORT_END
+		new IO_ReadPort( 0x60, 0x60, MRA_NOP ),
+		new IO_ReadPort( 0x61, 0x61, MRA_NOP ),
+		new IO_ReadPort( 0x68, 0x68, MRA_NOP ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x01, 0x01, speedatk_flip_screen_w },
-		{ 0x40, 0x40, AY8910_control_port_0_w },
-		{ 0x41, 0x41, AY8910_write_port_0_w },
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x01, 0x01, speedatk_flip_screen_w ),
+		new IO_WritePort( 0x40, 0x40, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x41, 0x41, AY8910_write_port_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_speedatk = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( speedatk )
 		PORT_START(); 

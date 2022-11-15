@@ -484,17 +484,21 @@ public class fromanc2
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( fromanc2_readport_sub )
-		{ 0x02, 0x02, fromanc2_maincpu_r_l },			// to MAIN CPU
-		{ 0x04, 0x04, fromanc2_maincpu_r_h },			// to MAIN CPU
-	PORT_END
+	public static IO_ReadPort fromanc2_readport_sub[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x02, 0x02, fromanc2_maincpu_r_l ),			// to MAIN CPU
+		new IO_ReadPort( 0x04, 0x04, fromanc2_maincpu_r_h ),			// to MAIN CPU
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( fromanc2_writeport_sub )
-		{ 0x00, 0x00, fromanc2_subcpu_rombank_w },
-		{ 0x02, 0x02, fromanc2_maincpu_w_l },			// from MAIN CPU
-		{ 0x04, 0x04, fromanc2_maincpu_w_h },			// from MAIN CPU
-		{ 0x06, 0x06, fromanc2_subcpu_nmi_clr },
-	PORT_END
+	public static IO_WritePort fromanc2_writeport_sub[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, fromanc2_subcpu_rombank_w ),
+		new IO_WritePort( 0x02, 0x02, fromanc2_maincpu_w_l ),			// from MAIN CPU
+		new IO_WritePort( 0x04, 0x04, fromanc2_maincpu_w_h ),			// from MAIN CPU
+		new IO_WritePort( 0x06, 0x06, fromanc2_subcpu_nmi_clr ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	// ----------------------------------------------------------------------------
@@ -515,22 +519,26 @@ public class fromanc2
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( fromanc2_readport_sound )
-		{ 0x00, 0x00, soundlatch_r },					// snd cmd (1P)
-		{ 0x04, 0x04, soundlatch2_r },					// snd cmd (2P)
-		{ 0x09, 0x09, IORP_NOP },						// ?
-		{ 0x08, 0x08, YM2610_status_port_0_A_r },
-		{ 0x0a, 0x0a, YM2610_status_port_0_B_r },
-		{ 0x0c, 0x0c, fromanc2_sndcpu_nmi_clr },
-	PORT_END
+	public static IO_ReadPort fromanc2_readport_sound[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, soundlatch_r ),					// snd cmd (1P)
+		new IO_ReadPort( 0x04, 0x04, soundlatch2_r ),					// snd cmd (2P)
+		new IO_ReadPort( 0x09, 0x09, IORP_NOP ),						// ?
+		new IO_ReadPort( 0x08, 0x08, YM2610_status_port_0_A_r ),
+		new IO_ReadPort( 0x0a, 0x0a, YM2610_status_port_0_B_r ),
+		new IO_ReadPort( 0x0c, 0x0c, fromanc2_sndcpu_nmi_clr ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( fromanc2_writeport_sound )
-		{ 0x00, 0x00, IOWP_NOP },						// ?
-		{ 0x08, 0x08, YM2610_control_port_0_A_w },
-		{ 0x09, 0x09, YM2610_data_port_0_A_w },
-		{ 0x0a, 0x0a, YM2610_control_port_0_B_w },
-		{ 0x0b, 0x0b, YM2610_data_port_0_B_w },
-	PORT_END
+	public static IO_WritePort fromanc2_writeport_sound[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, IOWP_NOP ),						// ?
+		new IO_WritePort( 0x08, 0x08, YM2610_control_port_0_A_w ),
+		new IO_WritePort( 0x09, 0x09, YM2610_data_port_0_A_w ),
+		new IO_WritePort( 0x0a, 0x0a, YM2610_control_port_0_B_w ),
+		new IO_WritePort( 0x0b, 0x0b, YM2610_data_port_0_B_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	// ----------------------------------------------------------------------------

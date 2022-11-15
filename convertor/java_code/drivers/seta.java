@@ -2805,17 +2805,21 @@ public class seta
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( utoukond_sound_readport )
-		{ 0x00, 0x00, YM2612_status_port_0_A_r },
-		{ 0xc0, 0xc0, soundlatch_r },
-	PORT_END
-	static PORT_WRITE_START( utoukond_sound_writeport )
-		{ 0x00, 0x00, YM2612_control_port_0_A_w },
-		{ 0x01, 0x01, YM2612_data_port_0_A_w },
-		{ 0x02, 0x02, YM2612_control_port_0_B_w },
-		{ 0x03, 0x03, YM2612_data_port_0_B_w },
-		{ 0x80, 0x80, IOWP_NOP }, //?
-	PORT_END
+	public static IO_ReadPort utoukond_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, YM2612_status_port_0_A_r ),
+		new IO_ReadPort( 0xc0, 0xc0, soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
+	public static IO_WritePort utoukond_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, YM2612_control_port_0_A_w ),
+		new IO_WritePort( 0x01, 0x01, YM2612_data_port_0_A_w ),
+		new IO_WritePort( 0x02, 0x02, YM2612_control_port_0_B_w ),
+		new IO_WritePort( 0x03, 0x03, YM2612_data_port_0_B_w ),
+		new IO_WritePort( 0x80, 0x80, IOWP_NOP ), //?
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

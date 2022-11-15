@@ -66,8 +66,10 @@ public class beaminv
 	 *
 	 *************************************/
 	
-	static PORT_WRITE_START( writeport )
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*************************************

@@ -225,13 +225,15 @@ public class dribling
 	};
 	
 	
-	static PORT_READ_START( readport )
-		{ 0x00, 0xff, ioread },
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0xff, ioread ),
 	MEMORY_END
 	
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x00, 0xff, iowrite },
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0xff, iowrite ),
 	MEMORY_END
 	
 	

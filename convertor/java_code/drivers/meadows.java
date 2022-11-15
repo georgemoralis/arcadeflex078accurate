@@ -424,9 +424,11 @@ public class meadows
 	};
 	
 	
-	static PORT_READ_START( minferno_readport )
-		{ S2650_DATA_PORT, S2650_DATA_PORT, input_port_4_r },
-	PORT_END
+	public static IO_ReadPort minferno_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( S2650_DATA_PORT, S2650_DATA_PORT, input_port_4_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

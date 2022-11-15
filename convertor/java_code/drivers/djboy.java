@@ -369,9 +369,11 @@ public class djboy
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_WRITE_START( cpu1_writeport )
-		{ 0x00, 0x00, cpu1_bankswitch_w },
-	PORT_END
+	public static IO_WritePort cpu1_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, cpu1_bankswitch_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/******************************************************************************/
 	
@@ -398,19 +400,23 @@ public class djboy
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport2 )
-		{ 0x04, 0x04, cpu2_data_r },
-		{ 0x0c, 0x0c, cpu2_status_r },
-	PORT_END
+	public static IO_ReadPort readport2[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x04, 0x04, cpu2_data_r ),
+		new IO_ReadPort( 0x0c, 0x0c, cpu2_status_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport2 )
-		{ 0x00, 0x00, cpu2_bankswitch_w },
-		{ 0x02, 0x02, cpu3_nmi_soundcommand_w },
-		{ 0x04, 0x04, cpu2_data_w },
-		{ 0x0a, 0x0a, cpu1_cause_nmi_w },
-		{ 0x06, 0x06, djboy_scrolly_w },
-		{ 0x08, 0x08, djboy_scrollx_w },
-	PORT_END
+	public static IO_WritePort writeport2[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, cpu2_bankswitch_w ),
+		new IO_WritePort( 0x02, 0x02, cpu3_nmi_soundcommand_w ),
+		new IO_WritePort( 0x04, 0x04, cpu2_data_w ),
+		new IO_WritePort( 0x0a, 0x0a, cpu1_cause_nmi_w ),
+		new IO_WritePort( 0x06, 0x06, djboy_scrolly_w ),
+		new IO_WritePort( 0x08, 0x08, djboy_scrollx_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/******************************************************************************/
 	
@@ -430,21 +436,25 @@ public class djboy
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( cpu3_readport )
-		{ 0x02, 0x02, YM2203_status_port_0_r },
-		{ 0x03, 0x03, YM2203_read_port_0_r },
-		{ 0x04, 0x04, soundlatch_r },
-		{ 0x06, 0x06, OKIM6295_status_0_r },
-		{ 0x07, 0x07, OKIM6295_status_1_r },
-	PORT_END
+	public static IO_ReadPort cpu3_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x02, 0x02, YM2203_status_port_0_r ),
+		new IO_ReadPort( 0x03, 0x03, YM2203_read_port_0_r ),
+		new IO_ReadPort( 0x04, 0x04, soundlatch_r ),
+		new IO_ReadPort( 0x06, 0x06, OKIM6295_status_0_r ),
+		new IO_ReadPort( 0x07, 0x07, OKIM6295_status_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( cpu3_writeport )
-		{ 0x00, 0x00, cpu3_bankswitch_w },
-		{ 0x02, 0x02, YM2203_control_port_0_w },
-		{ 0x03, 0x03, YM2203_write_port_0_w },
-		{ 0x06, 0x06, OKIM6295_data_0_w },
-		{ 0x07, 0x07, OKIM6295_data_1_w },
-	PORT_END
+	public static IO_WritePort cpu3_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, cpu3_bankswitch_w ),
+		new IO_WritePort( 0x02, 0x02, YM2203_control_port_0_w ),
+		new IO_WritePort( 0x03, 0x03, YM2203_write_port_0_w ),
+		new IO_WritePort( 0x06, 0x06, OKIM6295_data_0_w ),
+		new IO_WritePort( 0x07, 0x07, OKIM6295_data_1_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/******************************************************************************/
 	

@@ -134,9 +134,11 @@ public class strvmstr
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0x0000, 0xffff, strvmstr_question_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0000, 0xffff, strvmstr_question_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_strvmstr = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( strvmstr )
 		PORT_START(); 

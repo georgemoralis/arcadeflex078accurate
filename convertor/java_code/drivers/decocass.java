@@ -212,14 +212,16 @@ public class decocass
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( decocass_mcu_readport )
-		{ 0x01, 0x01, i8041_p1_r },
-		{ 0x02, 0x02, i8041_p2_r },
+	public static IO_ReadPort decocass_mcu_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x01, 0x01, i8041_p1_r ),
+		new IO_ReadPort( 0x02, 0x02, i8041_p2_r ),
 	MEMORY_END
 	
-	static PORT_WRITE_START( decocass_mcu_writeport )
-		{ 0x01, 0x01, i8041_p1_w },
-		{ 0x02, 0x02, i8041_p2_w },
+	public static IO_WritePort decocass_mcu_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x01, 0x01, i8041_p1_w ),
+		new IO_WritePort( 0x02, 0x02, i8041_p2_w ),
 	MEMORY_END
 	
 	static InputPortHandlerPtr input_ports_decocass = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( decocass )

@@ -469,18 +469,22 @@ public class mazerbla
 		coin_counter_w(offset, (data&0x40)>>6 );
 	} };
 	
-	static PORT_READ_START( readport )
-		{ 0x4c, 0x4f, ls670_1_r },
-		{ 0x62, 0x62, zpu_inputs_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x4c, 0x4f, ls670_1_r ),
+		new IO_ReadPort( 0x62, 0x62, zpu_inputs_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x4c, 0x4f, ls670_0_w },
-		{ 0x60, 0x60, zpu_bcd_decoder_w },
-		{ 0x68, 0x68, zpu_coin_counter_w },
-		{ 0x6a, 0x6a, zpu_lamps_w },
-		{ 0x6e, 0x6f, zpu_led_w },
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x4c, 0x4f, ls670_0_w ),
+		new IO_WritePort( 0x60, 0x60, zpu_bcd_decoder_w ),
+		new IO_WritePort( 0x68, 0x68, zpu_coin_counter_w ),
+		new IO_WritePort( 0x6a, 0x6a, zpu_lamps_w ),
+		new IO_WritePort( 0x6e, 0x6f, zpu_led_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	public static Memory_ReadAddress readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
@@ -512,14 +516,18 @@ public class mazerbla
 	} };
 	
 	
-	static PORT_READ_START( readport_cpu2 )
-		{ 0x80, 0x83, ls670_0_r },
-	PORT_END
+	public static IO_ReadPort readport_cpu2[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x80, 0x83, ls670_0_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport_cpu2 )
-		{ 0x00, 0x00, vsb_ls273_audio_control_w },
-		{ 0x80, 0x83, ls670_1_w },
-	PORT_END
+	public static IO_WritePort writeport_cpu2[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, vsb_ls273_audio_control_w ),
+		new IO_WritePort( 0x80, 0x83, ls670_1_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	public static Memory_ReadAddress readmem_cpu2[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
@@ -619,27 +627,33 @@ public class mazerbla
 		return (port02_status);
 	} };
 	
-	static PORT_READ_START( readport_cpu3 )
-		{ 0x02, 0x02, cfb_port_02_r },	/* VCU status ? */
-	PORT_END
+	public static IO_ReadPort readport_cpu3[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x02, 0x02, cfb_port_02_r ),	/* VCU status ? */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport_cpu3_mb )
-		{ 0x01, 0x01, cfb_backgnd_color_w },
-		{ 0x02, 0x02, cfb_led_w },
-		{ 0x03, 0x03, cfb_zpu_int_req_set_w },
-		{ 0x04, 0x04, cfb_rom_bank_sel_w },
-		{ 0x05, 0x05, cfb_vbank_w },	//visible/writable videopage select?
-	PORT_END
+	public static IO_WritePort writeport_cpu3_mb[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x01, 0x01, cfb_backgnd_color_w ),
+		new IO_WritePort( 0x02, 0x02, cfb_led_w ),
+		new IO_WritePort( 0x03, 0x03, cfb_zpu_int_req_set_w ),
+		new IO_WritePort( 0x04, 0x04, cfb_rom_bank_sel_w ),
+		new IO_WritePort( 0x05, 0x05, cfb_vbank_w ),	//visible/writable videopage select?
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/* Great Guns has a little different banking layout */
-	static PORT_WRITE_START( writeport_cpu3_gg )
-		{ 0x00, 0x00, IOWP_NOP },
-		{ 0x01, 0x01, cfb_backgnd_color_w },
-		{ 0x02, 0x02, cfb_led_w },
-		{ 0x03, 0x03, cfb_zpu_int_req_set_w },
-		{ 0x04, 0x04, cfb_rom_bank_sel_w_gg },
-		{ 0x05, 0x05, cfb_vbank_w },	//visible/writable videopage select?
-	PORT_END
+	public static IO_WritePort writeport_cpu3_gg[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, IOWP_NOP ),
+		new IO_WritePort( 0x01, 0x01, cfb_backgnd_color_w ),
+		new IO_WritePort( 0x02, 0x02, cfb_led_w ),
+		new IO_WritePort( 0x03, 0x03, cfb_zpu_int_req_set_w ),
+		new IO_WritePort( 0x04, 0x04, cfb_rom_bank_sel_w_gg ),
+		new IO_WritePort( 0x05, 0x05, cfb_vbank_w ),	//visible/writable videopage select?
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -1080,17 +1094,21 @@ public class mazerbla
 	} };
 	
 	
-	static PORT_READ_START( gg_readport )
-		{ 0x62, 0x62, zpu_inputs_r },
-	PORT_END
-	static PORT_WRITE_START( gg_writeport )
-		{ 0x4c, 0x4c, main_sound_w },
-		{ 0x60, 0x60, zpu_bcd_decoder_w },
-		{ 0x66, 0x66, IOWP_NOP },
-		{ 0x68, 0x68, IOWP_NOP },
+	public static IO_ReadPort gg_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x62, 0x62, zpu_inputs_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
+	public static IO_WritePort gg_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x4c, 0x4c, main_sound_w ),
+		new IO_WritePort( 0x60, 0x60, zpu_bcd_decoder_w ),
+		new IO_WritePort( 0x66, 0x66, IOWP_NOP ),
+		new IO_WritePort( 0x68, 0x68, IOWP_NOP ),
 	
-		{ 0x6e, 0x6f, zpu_led_w },
-	PORT_END
+		new IO_WritePort( 0x6e, 0x6f, zpu_led_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

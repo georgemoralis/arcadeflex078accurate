@@ -132,25 +132,29 @@ public class sauro
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( sauro_readport )
-		{ 0x00, 0x00, input_port_2_r },
-		{ 0x20, 0x20, input_port_3_r },
-		{ 0x40, 0x40, input_port_0_r },
-		{ 0x60, 0x60, input_port_1_r },
-	PORT_END
+	public static IO_ReadPort sauro_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_2_r ),
+		new IO_ReadPort( 0x20, 0x20, input_port_3_r ),
+		new IO_ReadPort( 0x40, 0x40, input_port_0_r ),
+		new IO_ReadPort( 0x60, 0x60, input_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( sauro_writeport )
-		{ 0xa0, 0xa0, tecfri_scroll_bg_w, },
-		{ 0xa1, 0xa1, sauro_scroll_fg_w, },
-		{ 0x80, 0x80, sauro_sound_command_w, },
-		{ 0xc0, 0xc0, flip_screen_w, },
-		{ 0xc1, 0xc2, MWA_NOP },
-		{ 0xc3, 0xc3, sauro_coin1_w },
-		{ 0xc4, 0xc4, MWA_NOP },
-		{ 0xc5, 0xc5, sauro_coin2_w },
-		{ 0xc6, 0xce, MWA_NOP },
-		{ 0xe0, 0xe0, watchdog_reset_w },
-	PORT_END
+	public static IO_WritePort sauro_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0xa0, 0xa0, tecfri_scroll_bg_w, ),
+		new IO_WritePort( 0xa1, 0xa1, sauro_scroll_fg_w, ),
+		new IO_WritePort( 0x80, 0x80, sauro_sound_command_w, ),
+		new IO_WritePort( 0xc0, 0xc0, flip_screen_w, ),
+		new IO_WritePort( 0xc1, 0xc2, MWA_NOP ),
+		new IO_WritePort( 0xc3, 0xc3, sauro_coin1_w ),
+		new IO_WritePort( 0xc4, 0xc4, MWA_NOP ),
+		new IO_WritePort( 0xc5, 0xc5, sauro_coin2_w ),
+		new IO_WritePort( 0xc6, 0xce, MWA_NOP ),
+		new IO_WritePort( 0xe0, 0xe0, watchdog_reset_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	public static Memory_ReadAddress sauro_sound_readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),

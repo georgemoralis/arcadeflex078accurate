@@ -1896,28 +1896,32 @@ public class toaplan2
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( batrider_sound_readport )
-		{ 0x48, 0x48, raizing_command_r },
-		{ 0x4a, 0x4a, raizing_request_r },
-		{ 0x81, 0x81, YM2151_status_port_0_r },
-		{ 0x82, 0x82, OKIM6295_status_0_r },
-		{ 0x84, 0x84, OKIM6295_status_1_r },
-	PORT_END
+	public static IO_ReadPort batrider_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x48, 0x48, raizing_command_r ),
+		new IO_ReadPort( 0x4a, 0x4a, raizing_request_r ),
+		new IO_ReadPort( 0x81, 0x81, YM2151_status_port_0_r ),
+		new IO_ReadPort( 0x82, 0x82, OKIM6295_status_0_r ),
+		new IO_ReadPort( 0x84, 0x84, OKIM6295_status_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( batrider_sound_writeport )
-		{ 0x40, 0x40, raizing_command_ack_w },		/* Tune control */
-		{ 0x42, 0x42, raizing_request_ack_w },		/* Tune to play */
-		{ 0x46, 0x46, raizing_clear_nmi_w },		/* Clear the NMI state */
-		{ 0x80, 0x80, YM2151_register_port_0_w },
-		{ 0x81, 0x81, YM2151_data_port_0_w },
-		{ 0x82, 0x82, OKIM6295_data_0_w },
-		{ 0x84, 0x84, OKIM6295_data_1_w },
-		{ 0x88, 0x88, batrider_bankswitch_w },
-		{ 0xc0, 0xc0, raizing_okim6295_bankselect_0 },
-		{ 0xc2, 0xc2, raizing_okim6295_bankselect_1 },
-		{ 0xc4, 0xc4, raizing_okim6295_bankselect_2 },
-		{ 0xc6, 0xc6, raizing_okim6295_bankselect_3 },
-	PORT_END
+	public static IO_WritePort batrider_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x40, 0x40, raizing_command_ack_w ),		/* Tune control */
+		new IO_WritePort( 0x42, 0x42, raizing_request_ack_w ),		/* Tune to play */
+		new IO_WritePort( 0x46, 0x46, raizing_clear_nmi_w ),		/* Clear the NMI state */
+		new IO_WritePort( 0x80, 0x80, YM2151_register_port_0_w ),
+		new IO_WritePort( 0x81, 0x81, YM2151_data_port_0_w ),
+		new IO_WritePort( 0x82, 0x82, OKIM6295_data_0_w ),
+		new IO_WritePort( 0x84, 0x84, OKIM6295_data_1_w ),
+		new IO_WritePort( 0x88, 0x88, batrider_bankswitch_w ),
+		new IO_WritePort( 0xc0, 0xc0, raizing_okim6295_bankselect_0 ),
+		new IO_WritePort( 0xc2, 0xc2, raizing_okim6295_bankselect_1 ),
+		new IO_WritePort( 0xc4, 0xc4, raizing_okim6295_bankselect_2 ),
+		new IO_WritePort( 0xc6, 0xc6, raizing_okim6295_bankselect_3 ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	public static Memory_ReadAddress bbakraid_sound_readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
@@ -1934,19 +1938,23 @@ public class toaplan2
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( bbakraid_sound_readport )
-		{ 0x48, 0x48, raizing_command_r },
-		{ 0x4a, 0x4a, raizing_request_r },
-		{ 0x81, 0x81, YMZ280B_status_0_r },
-	PORT_END
+	public static IO_ReadPort bbakraid_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x48, 0x48, raizing_command_r ),
+		new IO_ReadPort( 0x4a, 0x4a, raizing_request_r ),
+		new IO_ReadPort( 0x81, 0x81, YMZ280B_status_0_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( bbakraid_sound_writeport )
-		{ 0x40, 0x40, raizing_command_ack_w },		/* Tune control */
-		{ 0x42, 0x42, raizing_request_ack_w },		/* Tune to play */
-		{ 0x46, 0x46, raizing_clear_nmi_w },		/* Clear the NMI state */
-		{ 0x80, 0x80, YMZ280B_register_0_w },
-		{ 0x81, 0x81, YMZ280B_data_0_w },
-	PORT_END
+	public static IO_WritePort bbakraid_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x40, 0x40, raizing_command_ack_w ),		/* Tune control */
+		new IO_WritePort( 0x42, 0x42, raizing_request_ack_w ),		/* Tune to play */
+		new IO_WritePort( 0x46, 0x46, raizing_clear_nmi_w ),		/* Clear the NMI state */
+		new IO_WritePort( 0x80, 0x80, YMZ280B_register_0_w ),
+		new IO_WritePort( 0x81, 0x81, YMZ280B_data_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	#if HD64x180
@@ -1995,11 +2003,13 @@ public class toaplan2
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( Zx80_readport )
-		{ 0x0060, 0x0060, input_port_4_r },		/* Directly mapped I/O ports */
-		{ 0x0061, 0x0061, input_port_5_r },		/* Directly mapped I/O ports */
-		{ 0x0062, 0x0062, input_port_6_r },		/* Directly mapped I/O ports */
-	PORT_END
+	public static IO_ReadPort Zx80_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0060, 0x0060, input_port_4_r ),		/* Directly mapped I/O ports */
+		new IO_ReadPort( 0x0061, 0x0061, input_port_5_r ),		/* Directly mapped I/O ports */
+		new IO_ReadPort( 0x0062, 0x0062, input_port_6_r ),		/* Directly mapped I/O ports */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	#endif
 	
 	

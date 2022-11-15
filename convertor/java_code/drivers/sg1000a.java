@@ -53,20 +53,24 @@ public class sg1000a
 	};
 	
 	
-	static PORT_READ_START ( readport )
-	    { 0xBE, 0xBE, TMS9928A_vram_r },
-	    { 0xBF, 0xBF, TMS9928A_register_r },
-	    { 0xDC, 0xDC, input_port_0_r},
-	    { 0xDD, 0xDD, input_port_1_r},
-	    { 0xDE, 0xDE, input_port_2_r},
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+	    new IO_ReadPort( 0xBE, 0xBE, TMS9928A_vram_r ),
+	    new IO_ReadPort( 0xBF, 0xBF, TMS9928A_register_r ),
+	    new IO_ReadPort( 0xDC, 0xDC, input_port_0_r),
+	    new IO_ReadPort( 0xDD, 0xDD, input_port_1_r),
+	    new IO_ReadPort( 0xDE, 0xDE, input_port_2_r),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START ( writeport )
-	    { 0xBE, 0xBE, TMS9928A_vram_w },
-	    { 0xBF, 0xBF, TMS9928A_register_w },
-	    { 0xDF, 0xDF, MWA_NOP },  //? 8255 ?
-	    { 0x7f, 0x7F, SN76496_0_w },
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+	    new IO_WritePort( 0xBE, 0xBE, TMS9928A_vram_w ),
+	    new IO_WritePort( 0xBF, 0xBF, TMS9928A_register_w ),
+	    new IO_WritePort( 0xDF, 0xDF, MWA_NOP ),  //? 8255 ?
+	    new IO_WritePort( 0x7f, 0x7F, SN76496_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_chwrestl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chwrestl )
 	    PORT_START(); 

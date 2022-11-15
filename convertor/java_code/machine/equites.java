@@ -69,9 +69,11 @@ public class equites
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_WRITE_START( equites_s_writeport )
-		{ 0x00e0, 0x00e5, MWA_NOP }, // soundboard I/O, ignored
-	PORT_END
+	public static IO_WritePort equites_s_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00e0, 0x00e5, MWA_NOP ), // soundboard I/O, ignored
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	// Common Hardware End
 	
 	#endif

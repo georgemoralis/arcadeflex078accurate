@@ -242,80 +242,98 @@ public class system1
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0x00, 0x00, input_port_0_r }, /* joy1 */
-		{ 0x04, 0x04, input_port_1_r }, /* joy2 */
-		{ 0x08, 0x08, input_port_2_r }, /* coin,start */
-		{ 0x0c, 0x0c, input_port_3_r }, /* DIP2 */
-		{ 0x0e, 0x0e, input_port_3_r }, /* DIP2 blckgalb reads it from here */
-		{ 0x0d, 0x0d, input_port_4_r }, /* DIP1 some games read it from here... */
-		{ 0x10, 0x10, input_port_4_r }, /* DIP1 ... and some others from here */
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_0_r ), /* joy1 */
+		new IO_ReadPort( 0x04, 0x04, input_port_1_r ), /* joy2 */
+		new IO_ReadPort( 0x08, 0x08, input_port_2_r ), /* coin,start */
+		new IO_ReadPort( 0x0c, 0x0c, input_port_3_r ), /* DIP2 */
+		new IO_ReadPort( 0x0e, 0x0e, input_port_3_r ), /* DIP2 blckgalb reads it from here */
+		new IO_ReadPort( 0x0d, 0x0d, input_port_4_r ), /* DIP1 some games read it from here... */
+		new IO_ReadPort( 0x10, 0x10, input_port_4_r ), /* DIP1 ... and some others from here */
 										/* but there are games which check BOTH! */
-		{ 0x15, 0x15, system1_videomode_r },
-		{ 0x19, 0x19, system1_videomode_r },    /* mirror address */
-	PORT_END
+		new IO_ReadPort( 0x15, 0x15, system1_videomode_r ),
+		new IO_ReadPort( 0x19, 0x19, system1_videomode_r ),    /* mirror address */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x14, 0x14, system1_soundport_w },    /* sound commands */
-		{ 0x15, 0x15, system1_videomode_w },    /* video control and (in some games) bank switching */
-		{ 0x18, 0x18, system1_soundport_w },    /* mirror address */
-		{ 0x19, 0x19, system1_videomode_w },    /* mirror address */
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x14, 0x14, system1_soundport_w ),    /* sound commands */
+		new IO_WritePort( 0x15, 0x15, system1_videomode_w ),    /* video control and (in some games) bank switching */
+		new IO_WritePort( 0x18, 0x18, system1_soundport_w ),    /* mirror address */
+		new IO_WritePort( 0x19, 0x19, system1_videomode_w ),    /* mirror address */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( wbml_readport )
-		{ 0x00, 0x00, input_port_0_r }, /* joy1 */
-		{ 0x04, 0x04, input_port_1_r }, /* joy2 */
-		{ 0x08, 0x08, input_port_2_r }, /* coin,start */
-		{ 0x0c, 0x0c, input_port_3_r }, /* DIP2 */
-		{ 0x0d, 0x0d, input_port_4_r }, /* DIP1 some games read it from here... */
-		{ 0x10, 0x10, input_port_4_r }, /* DIP1 ... and some others from here */
+	public static IO_ReadPort wbml_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_0_r ), /* joy1 */
+		new IO_ReadPort( 0x04, 0x04, input_port_1_r ), /* joy2 */
+		new IO_ReadPort( 0x08, 0x08, input_port_2_r ), /* coin,start */
+		new IO_ReadPort( 0x0c, 0x0c, input_port_3_r ), /* DIP2 */
+		new IO_ReadPort( 0x0d, 0x0d, input_port_4_r ), /* DIP1 some games read it from here... */
+		new IO_ReadPort( 0x10, 0x10, input_port_4_r ), /* DIP1 ... and some others from here */
 										/* but there are games which check BOTH! */
-		{ 0x15, 0x15, system1_videomode_r },
-		{ 0x16, 0x16, wbml_videoram_bank_latch_r },
-		{ 0x19, 0x19, system1_videomode_r },  /* mirror address */
-	PORT_END
+		new IO_ReadPort( 0x15, 0x15, system1_videomode_r ),
+		new IO_ReadPort( 0x16, 0x16, wbml_videoram_bank_latch_r ),
+		new IO_ReadPort( 0x19, 0x19, system1_videomode_r ),  /* mirror address */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( nobo_readport )
-		{ 0x00, 0x00, input_port_0_r },	/* Player 1 inputs */
-		{ 0x04, 0x04, input_port_1_r },	/* Player 2 inputs */
-		{ 0x08, 0x08, input_port_2_r },	/* System inputs */
-		{ 0x0c, 0x0c, input_port_3_r },	/* DSW1 */
-		{ 0x0d, 0x0d, input_port_4_r },	/* DSW0 */
-		{ 0x15, 0x15, system1_videomode_r },
-		{ 0x16, 0x16, inport16_r },			/* Used - check code at 0x05cb */
-		{ 0x1c, 0x1c, inport1c_r },			/* Shouldn't be called ! */
-		{ 0x22, 0x22, inport22_r },			/* Used - check code at 0xb253 */
-		{ 0x23, 0x23, inport23_r },			/* Used - check code at 0xb275 and 0xb283 */
-	PORT_END
+	public static IO_ReadPort nobo_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_0_r ),	/* Player 1 inputs */
+		new IO_ReadPort( 0x04, 0x04, input_port_1_r ),	/* Player 2 inputs */
+		new IO_ReadPort( 0x08, 0x08, input_port_2_r ),	/* System inputs */
+		new IO_ReadPort( 0x0c, 0x0c, input_port_3_r ),	/* DSW1 */
+		new IO_ReadPort( 0x0d, 0x0d, input_port_4_r ),	/* DSW0 */
+		new IO_ReadPort( 0x15, 0x15, system1_videomode_r ),
+		new IO_ReadPort( 0x16, 0x16, inport16_r ),			/* Used - check code at 0x05cb */
+		new IO_ReadPort( 0x1c, 0x1c, inport1c_r ),			/* Shouldn't be called ! */
+		new IO_ReadPort( 0x22, 0x22, inport22_r ),			/* Used - check code at 0xb253 */
+		new IO_ReadPort( 0x23, 0x23, inport23_r ),			/* Used - check code at 0xb275 and 0xb283 */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( wbml_writeport )
-		{ 0x14, 0x14, system1_soundport_w },    /* sound commands */
-		{ 0x15, 0x15, chplft_videomode_w },
-		{ 0x16, 0x16, wbml_videoram_bank_latch_w },
-	PORT_END
+	public static IO_WritePort wbml_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x14, 0x14, system1_soundport_w ),    /* sound commands */
+		new IO_WritePort( 0x15, 0x15, chplft_videomode_w ),
+		new IO_WritePort( 0x16, 0x16, wbml_videoram_bank_latch_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hvymetal_writeport )
-		{ 0x18, 0x18, system1_soundport_w },    /* sound commands */
-		{ 0x19, 0x19, hvymetal_videomode_w },
-	PORT_END
+	public static IO_WritePort hvymetal_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x18, 0x18, system1_soundport_w ),    /* sound commands */
+		new IO_WritePort( 0x19, 0x19, hvymetal_videomode_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( brain_writeport )
-		{ 0x18, 0x18, system1_soundport_w },    /* sound commands */
-		{ 0x19, 0x19, brain_videomode_w },
-	PORT_END
+	public static IO_WritePort brain_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x18, 0x18, system1_soundport_w ),    /* sound commands */
+		new IO_WritePort( 0x19, 0x19, brain_videomode_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( chplft_writeport )
-		{ 0x14, 0x14, system1_soundport_w },    /* sound commands */
-		{ 0x15, 0x15, chplft_videomode_w },
-	PORT_END
+	public static IO_WritePort chplft_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x14, 0x14, system1_soundport_w ),    /* sound commands */
+		new IO_WritePort( 0x15, 0x15, chplft_videomode_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( nobo_writeport )
-		{ 0x14, 0x14, system1_soundport_w },	/* sound commands ? */
-		{ 0x15, 0x15, brain_videomode_w },	/* video control + bank switching */
-		{ 0x16, 0x16, outport16_w },			/* Used - check code at 0x05cb */
-		{ 0x17, 0x17, outport17_w },			/* Not handled in emul. of other SS1/2 games */
-		{ 0x24, 0x24, outport24_w },			/* Used - check code at 0xb24e and 0xb307 */
-	PORT_END
+	public static IO_WritePort nobo_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x14, 0x14, system1_soundport_w ),	/* sound commands ? */
+		new IO_WritePort( 0x15, 0x15, brain_videomode_w ),	/* video control + bank switching */
+		new IO_WritePort( 0x16, 0x16, outport16_w ),			/* Used - check code at 0x05cb */
+		new IO_WritePort( 0x17, 0x17, outport17_w ),			/* Not handled in emul. of other SS1/2 games */
+		new IO_WritePort( 0x24, 0x24, outport24_w ),			/* Used - check code at 0xb24e and 0xb307 */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static unsigned char *work_ram;

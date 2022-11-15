@@ -288,16 +288,20 @@ public class wilytowr
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( i8039_readport )
-	//	{ 0x00, 0xff, },
-	//	{ I8039_t1, I8039_t1,  },
-	PORT_END
+	public static IO_ReadPort i8039_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+	//	new IO_ReadPort( 0x00, 0xff, ),
+	//	new IO_ReadPort( I8039_t1, I8039_t1,  ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( i8039_writeport )
-		{ 0x00, 0xff, snddata_w },
-		{ I8039_p1, I8039_p1, p1_w },
-		{ I8039_p2, I8039_p2, p2_w },
-	PORT_END
+	public static IO_WritePort i8039_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0xff, snddata_w ),
+		new IO_WritePort( I8039_p1, I8039_p1, p1_w ),
+		new IO_WritePort( I8039_p2, I8039_p2, p2_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

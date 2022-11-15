@@ -587,12 +587,14 @@ public class homedata
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( mrokumei_sound_readport )
-		{ 0x0000, 0xffff, mrokumei_sound_io_r },
+	public static IO_ReadPort mrokumei_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0000, 0xffff, mrokumei_sound_io_r ),
 	MEMORY_END
 	
-	static PORT_WRITE_START( mrokumei_sound_writeport )
-		{ 0x0000, 0xffff, mrokumei_sound_io_w },	/* read address is 16-bit, write address is only 8-bit */
+	public static IO_WritePort mrokumei_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x0000, 0xffff, mrokumei_sound_io_w ),	/* read address is 16-bit, write address is only 8-bit */
 	MEMORY_END
 	
 	/********************************************************************************/
@@ -642,16 +644,20 @@ public class homedata
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( reikaids_upd7807_readport )
-		{ UPD7807_PORTA, UPD7807_PORTA, reikaids_upd7807_porta_r },
-		{ UPD7807_PORTT, UPD7807_PORTT, reikaids_snd_command_r },
-	PORT_END
+	public static IO_ReadPort reikaids_upd7807_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( UPD7807_PORTA, UPD7807_PORTA, reikaids_upd7807_porta_r ),
+		new IO_ReadPort( UPD7807_PORTT, UPD7807_PORTT, reikaids_snd_command_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( reikaids_upd7807_writeport )
-		{ UPD7807_PORTA, UPD7807_PORTA, reikaids_upd7807_porta_w },
-		{ UPD7807_PORTB, UPD7807_PORTB, DAC_0_signed_data_w },
-		{ UPD7807_PORTC, UPD7807_PORTC, reikaids_upd7807_portc_w },
-	PORT_END
+	public static IO_WritePort reikaids_upd7807_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( UPD7807_PORTA, UPD7807_PORTA, reikaids_upd7807_porta_w ),
+		new IO_WritePort( UPD7807_PORTB, UPD7807_PORTB, DAC_0_signed_data_w ),
+		new IO_WritePort( UPD7807_PORTC, UPD7807_PORTC, reikaids_upd7807_portc_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/**************************************************************************/
@@ -703,17 +709,21 @@ public class homedata
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( pteacher_upd7807_readport )
-		{ UPD7807_PORTA, UPD7807_PORTA, pteacher_upd7807_porta_r },
-		{ UPD7807_PORTT, UPD7807_PORTT, pteacher_keyboard_r },
-		{ UPD7807_PORTC, UPD7807_PORTC, input_port_1_r },
-	PORT_END
+	public static IO_ReadPort pteacher_upd7807_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( UPD7807_PORTA, UPD7807_PORTA, pteacher_upd7807_porta_r ),
+		new IO_ReadPort( UPD7807_PORTT, UPD7807_PORTT, pteacher_keyboard_r ),
+		new IO_ReadPort( UPD7807_PORTC, UPD7807_PORTC, input_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( pteacher_upd7807_writeport )
-		{ UPD7807_PORTA, UPD7807_PORTA, pteacher_upd7807_porta_w },
-		{ UPD7807_PORTB, UPD7807_PORTB, DAC_0_signed_data_w },
-		{ UPD7807_PORTC, UPD7807_PORTC, pteacher_upd7807_portc_w },
-	PORT_END
+	public static IO_WritePort pteacher_upd7807_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( UPD7807_PORTA, UPD7807_PORTA, pteacher_upd7807_porta_w ),
+		new IO_WritePort( UPD7807_PORTB, UPD7807_PORTB, DAC_0_signed_data_w ),
+		new IO_WritePort( UPD7807_PORTC, UPD7807_PORTC, pteacher_upd7807_portc_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/**************************************************************************/

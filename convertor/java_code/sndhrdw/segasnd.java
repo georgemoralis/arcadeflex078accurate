@@ -68,18 +68,22 @@ public class segasnd
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	PORT_READ_START( sega_speechboard_readport )
-		{ 0x00,     0xff,     speechboard_rom_r },
-		{ I8039_p1, I8039_p1, speechboard_p1_r },
-		{ I8039_t0, I8039_t0, speechboard_t0_r },
-		{ I8039_t1, I8039_t1, speechboard_t1_r },
-	PORT_END
+	public static IO_ReadPort sega_speechboard_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00,     0xff,     speechboard_rom_r ),
+		new IO_ReadPort( I8039_p1, I8039_p1, speechboard_p1_r ),
+		new IO_ReadPort( I8039_t0, I8039_t0, speechboard_t0_r ),
+		new IO_ReadPort( I8039_t1, I8039_t1, speechboard_t1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	PORT_WRITE_START( sega_speechboard_writeport )
-		{ 0x00,     0xff,     sp0250_w },
-		{ I8039_p1, I8039_p1, speechboard_p1_w },
-		{ I8039_p2, I8039_p2, speechboard_p2_w },
-	PORT_END
+	public static IO_WritePort sega_speechboard_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00,     0xff,     sp0250_w ),
+		new IO_WritePort( I8039_p1, I8039_p1, speechboard_p1_w ),
+		new IO_WritePort( I8039_p2, I8039_p2, speechboard_p2_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	struct sp0250_interface sega_sp0250_interface =
 	{

@@ -224,21 +224,25 @@ public class angelkds
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport_main )
-		{ 0x40, 0x40, input_port_0_r },	/* "Coinage" Dip Switches */
-		{ 0x41, 0x41, input_port_1_r },	/* Other Dip Switches */
-		{ 0x42, 0x42, input_port_2_r },	/* Players inputs (not needed ?) */
-		{ 0x80, 0x80, input_port_3_r },	/* System inputs */
-		{ 0x81, 0x82, angelkds_input_r },	/* Players inputs */
-	PORT_END
+	public static IO_ReadPort readport_main[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x40, 0x40, input_port_0_r ),	/* "Coinage" Dip Switches */
+		new IO_ReadPort( 0x41, 0x41, input_port_1_r ),	/* Other Dip Switches */
+		new IO_ReadPort( 0x42, 0x42, input_port_2_r ),	/* Players inputs (not needed ?) */
+		new IO_ReadPort( 0x80, 0x80, input_port_3_r ),	/* System inputs */
+		new IO_ReadPort( 0x81, 0x82, angelkds_input_r ),	/* Players inputs */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport_main )
-		{ 0x00, 0x00, MWA_NOP }, // 00 on start-up, not again
-		{ 0x42, 0x42, angelkds_cpu_bank_write },
-		{ 0x43, 0x43, MWA_NOP }, // 9a on start-up, not again
-		{ 0x83, 0x83, MWA_NOP }, // 9b on start-up, not again
-		{ 0xc0, 0xc3, angelkds_sound_w }, // 02 various points
-	PORT_END
+	public static IO_WritePort writeport_main[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, MWA_NOP ), // 00 on start-up, not again
+		new IO_WritePort( 0x42, 0x42, angelkds_cpu_bank_write ),
+		new IO_WritePort( 0x43, 0x43, MWA_NOP ), // 9a on start-up, not again
+		new IO_WritePort( 0x83, 0x83, MWA_NOP ), // 9b on start-up, not again
+		new IO_WritePort( 0xc0, 0xc3, angelkds_sound_w ), // 02 various points
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/* sub cpu */
 	
@@ -259,11 +263,13 @@ public class angelkds
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport_sub )
-		{ 0x00, 0x00, YM2203_status_port_0_r },
-		{ 0x40, 0x40, YM2203_status_port_1_r },
-		{ 0x80, 0x83, angelkds_sound_r },
-	PORT_END
+	public static IO_ReadPort readport_sub[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, YM2203_status_port_0_r ),
+		new IO_ReadPort( 0x40, 0x40, YM2203_status_port_1_r ),
+		new IO_ReadPort( 0x80, 0x83, angelkds_sound_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( writeport_sub)
 		{ 0x00, 0x00, YM2203_control_port_0_w },

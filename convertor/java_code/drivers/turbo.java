@@ -278,9 +278,11 @@ public class turbo
 	};
 	
 	
-	static PORT_READ_START( buckrog_readport2 )
-		{ 0x00, 0x00, buckrog_cpu2_command_r },
-	PORT_END
+	public static IO_ReadPort buckrog_readport2[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, buckrog_cpu2_command_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_WriteAddress buckrog_writemem2[]={

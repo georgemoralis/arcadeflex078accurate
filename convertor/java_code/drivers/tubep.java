@@ -193,15 +193,17 @@ public class tubep
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( tubep_readport )
-		{ 0x80, 0x80, input_port_3_r },
-		{ 0x90, 0x90, input_port_4_r },
-		{ 0xa0, 0xa0, input_port_5_r },
+	public static IO_ReadPort tubep_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x80, 0x80, input_port_3_r ),
+		new IO_ReadPort( 0x90, 0x90, input_port_4_r ),
+		new IO_ReadPort( 0xa0, 0xa0, input_port_5_r ),
 	
-		{ 0xb0, 0xb0, input_port_2_r },
-		{ 0xc0, 0xc0, input_port_1_r },
-		{ 0xd0, 0xd0, input_port_0_r },
-	PORT_END
+		new IO_ReadPort( 0xb0, 0xb0, input_port_2_r ),
+		new IO_ReadPort( 0xc0, 0xc0, input_port_1_r ),
+		new IO_ReadPort( 0xd0, 0xd0, input_port_0_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -215,11 +217,13 @@ public class tubep
 		sound_latch = (data&0x7f) | 0x80;
 	} };
 	
-	static PORT_WRITE_START( tubep_writeport )
-		{ 0x80, 0x80, main_cpu_irq_line_clear_w },
-		{ 0xb0, 0xb7, tubep_LS259_w },
-		{ 0xd0, 0xd0, tubep_soundlatch_w },
-	PORT_END
+	public static IO_WritePort tubep_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x80, 0x80, main_cpu_irq_line_clear_w ),
+		new IO_WritePort( 0xb0, 0xb7, tubep_LS259_w ),
+		new IO_WritePort( 0xd0, 0xd0, tubep_soundlatch_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -284,19 +288,23 @@ public class tubep
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( tubep_sound_readport )
-		{ 0x06, 0x06, tubep_soundlatch_r },
-	PORT_END
+	public static IO_ReadPort tubep_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x06, 0x06, tubep_soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( tubep_sound_writeport )
-		{ 0x00, 0x00, AY8910_control_port_0_w },
-		{ 0x01, 0x01, AY8910_write_port_0_w },
-		{ 0x02, 0x02, AY8910_control_port_1_w },
-		{ 0x03, 0x03, AY8910_write_port_1_w },
-		{ 0x04, 0x04, AY8910_control_port_2_w },
-		{ 0x05, 0x05, AY8910_write_port_2_w },
-		{ 0x07, 0x07, tubep_sound_unknown },
-	PORT_END
+	public static IO_WritePort tubep_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x01, 0x01, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x02, 0x02, AY8910_control_port_1_w ),
+		new IO_WritePort( 0x03, 0x03, AY8910_write_port_1_w ),
+		new IO_WritePort( 0x04, 0x04, AY8910_control_port_2_w ),
+		new IO_WritePort( 0x05, 0x05, AY8910_write_port_2_w ),
+		new IO_WritePort( 0x07, 0x07, tubep_sound_unknown ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static void scanline_callback(int scanline)
 	{
@@ -347,20 +355,24 @@ public class tubep
 		cpu_set_nmi_line(2, PULSE_LINE);
 	} };
 	
-	static PORT_READ_START( rjammer_readport )
-		{ 0x00, 0x00, input_port_2_r },	/* a bug in game code (during attract mode) */
-		{ 0x80, 0x80, input_port_2_r },
-		{ 0x90, 0x90, input_port_3_r },
-		{ 0xa0, 0xa0, input_port_4_r },
-		{ 0xb0, 0xb0, input_port_0_r },
-		{ 0xc0, 0xc0, input_port_1_r },
-	PORT_END
+	public static IO_ReadPort rjammer_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_2_r ),	/* a bug in game code (during attract mode) */
+		new IO_ReadPort( 0x80, 0x80, input_port_2_r ),
+		new IO_ReadPort( 0x90, 0x90, input_port_3_r ),
+		new IO_ReadPort( 0xa0, 0xa0, input_port_4_r ),
+		new IO_ReadPort( 0xb0, 0xb0, input_port_0_r ),
+		new IO_ReadPort( 0xc0, 0xc0, input_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( rjammer_writeport )
-		{ 0xd0, 0xd7, rjammer_LS259_w },
-		{ 0xe0, 0xe0, main_cpu_irq_line_clear_w },	/* clear IRQ interrupt */
-		{ 0xf0, 0xf0, rjammer_soundlatch_w },
-	PORT_END
+	public static IO_WritePort rjammer_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0xd0, 0xd7, rjammer_LS259_w ),
+		new IO_WritePort( 0xe0, 0xe0, main_cpu_irq_line_clear_w ),	/* clear IRQ interrupt */
+		new IO_WritePort( 0xf0, 0xf0, rjammer_soundlatch_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress rjammer_readmem[]={
@@ -382,10 +394,12 @@ public class tubep
 	
 	
 	
-	static PORT_WRITE_START( rjammer_slave_writeport )
-		{ 0xb0, 0xb0, rjammer_background_page_w },
-		{ 0xd0, 0xd0, rjammer_background_LS377_w },
-	PORT_END
+	public static IO_WritePort rjammer_slave_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0xb0, 0xb0, rjammer_background_page_w ),
+		new IO_WritePort( 0xd0, 0xd0, rjammer_background_LS377_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	public static Memory_ReadAddress rjammer_slave_readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
@@ -513,22 +527,26 @@ public class tubep
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( rjammer_sound_readport )
-		{ 0x00, 0x00, rjammer_soundlatch_r },
-	PORT_END
+	public static IO_ReadPort rjammer_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, rjammer_soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( rjammer_sound_writeport )
-		{ 0x10, 0x10, rjammer_voice_startstop_w },
-		{ 0x18, 0x18, rjammer_voice_frequency_select_w },
-		{ 0x80, 0x80, rjammer_voice_input_w },
-		{ 0x90, 0x90, AY8910_control_port_0_w },
-		{ 0x91, 0x91, AY8910_write_port_0_w },
-		{ 0x92, 0x92, AY8910_control_port_1_w },
-		{ 0x93, 0x93, AY8910_write_port_1_w },
-		{ 0x94, 0x94, AY8910_control_port_2_w },
-		{ 0x95, 0x95, AY8910_write_port_2_w },
-		{ 0x96, 0x96, rjammer_voice_intensity_control_w },
-	PORT_END
+	public static IO_WritePort rjammer_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x10, 0x10, rjammer_voice_startstop_w ),
+		new IO_WritePort( 0x18, 0x18, rjammer_voice_frequency_select_w ),
+		new IO_WritePort( 0x80, 0x80, rjammer_voice_input_w ),
+		new IO_WritePort( 0x90, 0x90, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x91, 0x91, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x92, 0x92, AY8910_control_port_1_w ),
+		new IO_WritePort( 0x93, 0x93, AY8910_write_port_1_w ),
+		new IO_WritePort( 0x94, 0x94, AY8910_control_port_2_w ),
+		new IO_WritePort( 0x95, 0x95, AY8910_write_port_2_w ),
+		new IO_WritePort( 0x96, 0x96, rjammer_voice_intensity_control_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static WriteHandlerPtr ay8910_portA_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){

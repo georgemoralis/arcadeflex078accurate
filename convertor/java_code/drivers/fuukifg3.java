@@ -286,20 +286,24 @@ public class fuukifg3
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( fuuki32_sound_readport )
-		{ 0x40, 0x40, MRA_NOP }, // Status?
-	PORT_END
+	public static IO_ReadPort fuuki32_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x40, 0x40, MRA_NOP ), // Status?
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( fuuki32_sound_writeport )
-		{ 0x00, 0x00, fuuki32_sound_bw_w },
-		{ 0x30, 0x30, MWA_NOP },
-		{ 0x40, 0x40, MWA_NOP },
-		{ 0x41, 0x41, MWA_NOP },
-		{ 0x42, 0x42, MWA_NOP },
-		{ 0x43, 0x43, MWA_NOP },
-		{ 0x44, 0x44, MWA_NOP },
-		{ 0x45, 0x45, MWA_NOP },
-	PORT_END
+	public static IO_WritePort fuuki32_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, fuuki32_sound_bw_w ),
+		new IO_WritePort( 0x30, 0x30, MWA_NOP ),
+		new IO_WritePort( 0x40, 0x40, MWA_NOP ),
+		new IO_WritePort( 0x41, 0x41, MWA_NOP ),
+		new IO_WritePort( 0x42, 0x42, MWA_NOP ),
+		new IO_WritePort( 0x43, 0x43, MWA_NOP ),
+		new IO_WritePort( 0x44, 0x44, MWA_NOP ),
+		new IO_WritePort( 0x45, 0x45, MWA_NOP ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************

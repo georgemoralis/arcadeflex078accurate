@@ -107,16 +107,20 @@ public class enigma2
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0x01, 0x01, input_port_0_r },
-		{ 0x02, 0x02, input_port_1_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x01, 0x01, input_port_0_r ),
+		new IO_ReadPort( 0x02, 0x02, input_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x03, 0x03, MWA_NOP },
-		{ 0x05, 0x05, MWA_NOP },
-		{ 0x06, 0x06, MWA_NOP },
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x03, 0x03, MWA_NOP ),
+		new IO_WritePort( 0x05, 0x05, MWA_NOP ),
+		new IO_WritePort( 0x06, 0x06, MWA_NOP ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_enigma2a = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( enigma2a )
 		PORT_START(); 

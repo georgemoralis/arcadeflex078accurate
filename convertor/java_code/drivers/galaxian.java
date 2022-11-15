@@ -306,14 +306,18 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( mshuttle_readport )
-		{ 0x0c, 0x0c, AY8910_read_port_0_r },
-	PORT_END
+	public static IO_ReadPort mshuttle_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0c, 0x0c, AY8910_read_port_0_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( mshuttle_writeport )
-		{ 0x08, 0x08, AY8910_control_port_0_w },
-		{ 0x09, 0x09, AY8910_write_port_0_w },
-	PORT_END
+	public static IO_WritePort mshuttle_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x08, 0x08, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x09, 0x09, AY8910_write_port_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_WriteAddress skybase_writemem[]={
@@ -457,9 +461,11 @@ public class galaxian
 	};
 	
 	
-	static PORT_WRITE_START( checkman_writeport )
-		{ 0, 0, checkman_sound_command_w },
-	PORT_END
+	public static IO_WritePort checkman_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0, 0, checkman_sound_command_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress checkman_sound_readmem[]={
@@ -477,15 +483,19 @@ public class galaxian
 	};
 	
 	
-	static PORT_READ_START( checkman_sound_readport )
-		{ 0x03, 0x03, soundlatch_r },
-		{ 0x06, 0x06, AY8910_read_port_0_r },
-	PORT_END
+	public static IO_ReadPort checkman_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x03, 0x03, soundlatch_r ),
+		new IO_ReadPort( 0x06, 0x06, AY8910_read_port_0_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( checkman_sound_writeport )
-		{ 0x04, 0x04, AY8910_control_port_0_w },
-		{ 0x05, 0x05, AY8910_write_port_0_w },
-	PORT_END
+	public static IO_WritePort checkman_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x04, 0x04, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x05, 0x05, AY8910_write_port_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress checkmaj_sound_readmem[]={
@@ -546,13 +556,17 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( kingball_sound_readport )
-		{ 0x00, 0x00, soundlatch_r },
-	PORT_END
+	public static IO_ReadPort kingball_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( kingball_sound_writeport )
-		{ 0x00, 0x00, DAC_0_data_w },
-	PORT_END
+	public static IO_WritePort kingball_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, DAC_0_data_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress _4in1_readmem[]={
@@ -797,10 +811,12 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_WRITE_START( ozon1_writeport )
-		{ 0x00, 0x00, AY8910_write_port_0_w },
-		{ 0x01, 0x01, AY8910_control_port_0_w },
-	PORT_END
+	public static IO_WritePort ozon1_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x01, 0x01, AY8910_control_port_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress drivfrcg_readmem[]={
@@ -845,14 +861,18 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( drivfrcg_readport )
-		{ 0x00, 0x00, drivfrcg_port0_r },
-		{ S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_4_r },
-	PORT_END
+	public static IO_ReadPort drivfrcg_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, drivfrcg_port0_r ),
+		new IO_ReadPort( S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_4_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( drivfrcg_writeport )
-		{ S2650_DATA_PORT, S2650_DATA_PORT, MWA_NOP },
-	PORT_END
+	public static IO_WritePort drivfrcg_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( S2650_DATA_PORT, S2650_DATA_PORT, MWA_NOP ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static InputPortHandlerPtr input_ports_galaxian = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( galaxian )

@@ -99,20 +99,24 @@ public class carjmbre
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( carjmbre_sound_readport )
-		{ 0x00, 0x00, soundlatch_r },
-		{ 0x24, 0x24, IORP_NOP },				//??
-	PORT_END
+	public static IO_ReadPort carjmbre_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, soundlatch_r ),
+		new IO_ReadPort( 0x24, 0x24, IORP_NOP ),				//??
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( carjmbre_sound_writeport )
-		{ 0x10, 0x10, IOWP_NOP },				//?? written on init/0xff sound command reset
-		{ 0x20, 0x20, AY8910_control_port_0_w },
-		{ 0x21, 0x21, AY8910_write_port_0_w },
-		{ 0x22, 0x22, IOWP_NOP },				//?? written before and after 0x21 with same value
-		{ 0x30, 0x30, AY8910_control_port_1_w },
-		{ 0x31, 0x31, AY8910_write_port_1_w },
-		{ 0x32, 0x32, IOWP_NOP },				//?? written before and after 0x31 with same value
-	PORT_END
+	public static IO_WritePort carjmbre_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x10, 0x10, IOWP_NOP ),				//?? written on init/0xff sound command reset
+		new IO_WritePort( 0x20, 0x20, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x21, 0x21, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x22, 0x22, IOWP_NOP ),				//?? written before and after 0x21 with same value
+		new IO_WritePort( 0x30, 0x30, AY8910_control_port_1_w ),
+		new IO_WritePort( 0x31, 0x31, AY8910_write_port_1_w ),
+		new IO_WritePort( 0x32, 0x32, IOWP_NOP ),				//?? written before and after 0x31 with same value
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_carjmbre = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( carjmbre )
 		PORT_START(); 	/* IN0 */

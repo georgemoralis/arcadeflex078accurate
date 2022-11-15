@@ -290,18 +290,22 @@ public class twincobr
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( sound_readport )
-		{ 0x00, 0x00, YM3812_status_port_0_r },
-		{ 0x10, 0x10, input_port_5_r },		/* Twin Cobra - Coin/Start */
-		{ 0x40, 0x40, input_port_3_r },		/* Twin Cobra - DSW A */
-		{ 0x50, 0x50, input_port_4_r },		/* Twin Cobra - DSW B */
-	PORT_END
+	public static IO_ReadPort sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, YM3812_status_port_0_r ),
+		new IO_ReadPort( 0x10, 0x10, input_port_5_r ),		/* Twin Cobra - Coin/Start */
+		new IO_ReadPort( 0x40, 0x40, input_port_3_r ),		/* Twin Cobra - DSW A */
+		new IO_ReadPort( 0x50, 0x50, input_port_4_r ),		/* Twin Cobra - DSW B */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( sound_writeport )
-		{ 0x00, 0x00, YM3812_control_port_0_w },
-		{ 0x01, 0x01, YM3812_write_port_0_w },
-		{ 0x20, 0x20, twincobr_coin_w },	/* Twin Cobra coin count-lockout */
-	PORT_END
+	public static IO_WritePort sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, YM3812_control_port_0_w ),
+		new IO_WritePort( 0x01, 0x01, YM3812_write_port_0_w ),
+		new IO_WritePort( 0x20, 0x20, twincobr_coin_w ),	/* Twin Cobra coin count-lockout */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/* TMS32010 memory/port maps */

@@ -135,15 +135,19 @@ public class irem
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	PORT_READ_START( irem_sound_readport )
-		{ M6803_PORT1, M6803_PORT1, irem_port1_r },
-		{ M6803_PORT2, M6803_PORT2, irem_port2_r },
-	PORT_END
+	public static IO_ReadPort irem_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( M6803_PORT1, M6803_PORT1, irem_port1_r ),
+		new IO_ReadPort( M6803_PORT2, M6803_PORT2, irem_port2_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	PORT_WRITE_START( irem_sound_writeport )
-		{ M6803_PORT1, M6803_PORT1, irem_port1_w },
-		{ M6803_PORT2, M6803_PORT2, irem_port2_w },
-	PORT_END
+	public static IO_WritePort irem_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( M6803_PORT1, M6803_PORT1, irem_port1_w ),
+		new IO_WritePort( M6803_PORT2, M6803_PORT2, irem_port2_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	MACHINE_DRIVER_START( irem_audio )

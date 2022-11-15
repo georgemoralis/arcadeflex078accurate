@@ -49,16 +49,20 @@ public class clayshoo
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0x20, 0x23, ppi8255_0_r },
-		{ 0x30, 0x33, ppi8255_1_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x20, 0x23, ppi8255_0_r ),
+		new IO_ReadPort( 0x30, 0x33, ppi8255_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x00, 0x00, watchdog_reset_w },
-		{ 0x20, 0x23, ppi8255_0_w },
-		{ 0x30, 0x33, ppi8255_1_w },
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, watchdog_reset_w ),
+		new IO_WritePort( 0x20, 0x23, ppi8255_0_w ),
+		new IO_WritePort( 0x30, 0x33, ppi8255_1_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

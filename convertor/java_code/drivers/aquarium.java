@@ -141,19 +141,23 @@ public class aquarium
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( snd_readport )
-		{ 0x01, 0x01, YM2151_status_port_0_r },
-		{ 0x02, 0x02, OKIM6295_status_0_r },
-		{ 0x04, 0x04, soundlatch_r },
-	PORT_END
+	public static IO_ReadPort snd_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x01, 0x01, YM2151_status_port_0_r ),
+		new IO_ReadPort( 0x02, 0x02, OKIM6295_status_0_r ),
+		new IO_ReadPort( 0x04, 0x04, soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( snd_writeport )
-		{ 0x00, 0x00, YM2151_register_port_0_w },
-		{ 0x01, 0x01, YM2151_data_port_0_w },
-		{ 0x02, 0x02, OKIM6295_data_0_w },
-		{ 0x06, 0x06, IOWP_NOP },	/* zero is always written here, command ack? */
-		{ 0x08, 0x08, aquarium_z80_bank_w },
-	PORT_END
+	public static IO_WritePort snd_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, YM2151_register_port_0_w ),
+		new IO_WritePort( 0x01, 0x01, YM2151_data_port_0_w ),
+		new IO_WritePort( 0x02, 0x02, OKIM6295_data_0_w ),
+		new IO_WritePort( 0x06, 0x06, IOWP_NOP ),	/* zero is always written here, command ack? */
+		new IO_WritePort( 0x08, 0x08, aquarium_z80_bank_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_aquarium = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( aquarium )
 		PORT_START(); 	/* DSW */

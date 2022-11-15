@@ -251,38 +251,42 @@ public class grchamp
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0x00, 0x00, input_port_3_r },		/* accel */
-		{ 0x01, 0x01, PC3259_0_r },
-		{ 0x02, 0x02, grchamp_port_0_r },	/* comm */
-		{ 0x03, 0x03, input_port_4_r },		/* wheel */
-		{ 0x00, 0x03, grchamp_port_0_r },	/* scanline read, cpu2 read, etc */
-		{ 0x04, 0x04, input_port_0_r },		/* DSWA */
-		{ 0x05, 0x05, input_port_1_r },		/* DSWB */
-		{ 0x06, 0x06, input_port_2_r },		/* tilt, coin, reset HS, etc */
-		{ 0x09, 0x09, PC3259_1_r },
-		{ 0x11, 0x11, PC3259_2_r },
-		{ 0x19, 0x19, PC3259_3_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_3_r ),		/* accel */
+		new IO_ReadPort( 0x01, 0x01, PC3259_0_r ),
+		new IO_ReadPort( 0x02, 0x02, grchamp_port_0_r ),	/* comm */
+		new IO_ReadPort( 0x03, 0x03, input_port_4_r ),		/* wheel */
+		new IO_ReadPort( 0x00, 0x03, grchamp_port_0_r ),	/* scanline read, cpu2 read, etc */
+		new IO_ReadPort( 0x04, 0x04, input_port_0_r ),		/* DSWA */
+		new IO_ReadPort( 0x05, 0x05, input_port_1_r ),		/* DSWB */
+		new IO_ReadPort( 0x06, 0x06, input_port_2_r ),		/* tilt, coin, reset HS, etc */
+		new IO_ReadPort( 0x09, 0x09, PC3259_1_r ),
+		new IO_ReadPort( 0x11, 0x11, PC3259_2_r ),
+		new IO_ReadPort( 0x19, 0x19, PC3259_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x00, 0x00, grchamp_control0_w },
-		{ 0x01, 0x01, PC3259_control_w }, // ?
-		{ 0x02, 0x02, grchamp_player_xpos_w },
-		{ 0x03, 0x03, grchamp_player_ypos_w },
-		{ 0x04, 0x04, grchamp_tile_select_w },
-		{ 0x07, 0x07, grchamp_rain_xpos_w },
-		{ 0x08, 0x08, grchamp_rain_ypos_w },
-		{ 0x09, 0x09, grchamp_coinled_w },
-		{ 0x0a, 0x0a, MWA_NOP }, // ?
-		{ 0x0d, 0x0d, MWA_NOP }, // watchdog?
-		{ 0x0e, 0x0e, grchamp_sound_w },
-		{ 0x10, 0x13, grchamp_comm_w },
-		{ 0x20, 0x20, grchamp_led_data0_w },
-		{ 0x24, 0x24, grchamp_led_data1_w },
-		{ 0x28, 0x28, grchamp_led_data2_w },
-		{ 0x2c, 0x2c, grchamp_led_data3_w },
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, grchamp_control0_w ),
+		new IO_WritePort( 0x01, 0x01, PC3259_control_w ), // ?
+		new IO_WritePort( 0x02, 0x02, grchamp_player_xpos_w ),
+		new IO_WritePort( 0x03, 0x03, grchamp_player_ypos_w ),
+		new IO_WritePort( 0x04, 0x04, grchamp_tile_select_w ),
+		new IO_WritePort( 0x07, 0x07, grchamp_rain_xpos_w ),
+		new IO_WritePort( 0x08, 0x08, grchamp_rain_ypos_w ),
+		new IO_WritePort( 0x09, 0x09, grchamp_coinled_w ),
+		new IO_WritePort( 0x0a, 0x0a, MWA_NOP ), // ?
+		new IO_WritePort( 0x0d, 0x0d, MWA_NOP ), // watchdog?
+		new IO_WritePort( 0x0e, 0x0e, grchamp_sound_w ),
+		new IO_WritePort( 0x10, 0x13, grchamp_comm_w ),
+		new IO_WritePort( 0x20, 0x20, grchamp_led_data0_w ),
+		new IO_WritePort( 0x24, 0x24, grchamp_led_data1_w ),
+		new IO_WritePort( 0x28, 0x28, grchamp_led_data2_w ),
+		new IO_WritePort( 0x2c, 0x2c, grchamp_led_data3_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/***************************************************************************/
 	
@@ -307,13 +311,17 @@ public class grchamp
 	};
 	
 	
-	static PORT_READ_START( readport2 )
-		{ 0x00, 0x03, grchamp_port_1_r },
-	PORT_END
+	public static IO_ReadPort readport2[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x03, grchamp_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport2 )
-		{ 0x00, 0x0f, grchamp_port_1_w },
-	PORT_END
+	public static IO_WritePort writeport2[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x0f, grchamp_port_1_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/***************************************************************************/
 	

@@ -222,23 +222,27 @@ public class segasyse
 	
 	/*-- Ports --*/
 	
-	static PORT_READ_START( segae_readport )
-		{ 0x7e, 0x7f, segae_port_7e_7f_r },			/* Vertical / Horizontal Beam Position Read */
-		{ 0xba, 0xbb, segae_port_ba_bb_r },			/* Back Layer VDP */
-		{ 0xbe, 0xbf, segae_port_be_bf_r },			/* Front Layer VDP */
-		{ 0xe0, 0xe0, input_port_2_r }, /* Coins + Starts */
-		{ 0xe1, 0xe1, input_port_3_r }, /* Controls */
-		{ 0xf2, 0xf2, input_port_0_r }, /* DSW0 */
-		{ 0xf3, 0xf3, input_port_1_r }, /* DSW1 */
-	PORT_END
+	public static IO_ReadPort segae_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x7e, 0x7f, segae_port_7e_7f_r ),			/* Vertical / Horizontal Beam Position Read */
+		new IO_ReadPort( 0xba, 0xbb, segae_port_ba_bb_r ),			/* Back Layer VDP */
+		new IO_ReadPort( 0xbe, 0xbf, segae_port_be_bf_r ),			/* Front Layer VDP */
+		new IO_ReadPort( 0xe0, 0xe0, input_port_2_r ), /* Coins + Starts */
+		new IO_ReadPort( 0xe1, 0xe1, input_port_3_r ), /* Controls */
+		new IO_ReadPort( 0xf2, 0xf2, input_port_0_r ), /* DSW0 */
+		new IO_ReadPort( 0xf3, 0xf3, input_port_1_r ), /* DSW1 */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( segae_writeport )
-		{ 0x7b, 0x7b, SN76496_0_w }, /* Not sure which chip each is on */
-		{ 0x7f, 0x7f, SN76496_1_w }, /* Not sure which chip each is on */
-		{ 0xba, 0xbb, segae_port_ba_bb_w },			/* Back Layer VDP */
-		{ 0xbe, 0xbf, segae_port_be_bf_w },			/* Front Layer VDP */
-		{ 0xf7, 0xf7, segae_port_f7_w },			/* Banking Control */
-	PORT_END
+	public static IO_WritePort segae_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x7b, 0x7b, SN76496_0_w ), /* Not sure which chip each is on */
+		new IO_WritePort( 0x7f, 0x7f, SN76496_1_w ), /* Not sure which chip each is on */
+		new IO_WritePort( 0xba, 0xbb, segae_port_ba_bb_w ),			/* Back Layer VDP */
+		new IO_WritePort( 0xbe, 0xbf, segae_port_be_bf_w ),			/* Front Layer VDP */
+		new IO_WritePort( 0xf7, 0xf7, segae_port_f7_w ),			/* Banking Control */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/*******************************************************************************
 	 Read / Write Handlers

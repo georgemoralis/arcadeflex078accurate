@@ -559,17 +559,21 @@ public class darius
 		MSM5205_reset_w(0, !(data & 0x20) );	/* my best guess, but it could be output enable as well */
 	} };
 	
-	static PORT_READ_START( darius_sound2_readport )
-		{ 0x00, 0x00, adpcm_command_read },
-		{ 0x02, 0x02, readport2 },	/* ??? */
-		{ 0x03, 0x03, readport3 },	/* ??? */
-	PORT_END
+	public static IO_ReadPort darius_sound2_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, adpcm_command_read ),
+		new IO_ReadPort( 0x02, 0x02, readport2 ),	/* ??? */
+		new IO_ReadPort( 0x03, 0x03, readport3 ),	/* ??? */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( darius_sound2_writeport )
-		{ 0x00, 0x00, adpcm_nmi_disable },
-		{ 0x01, 0x01, adpcm_nmi_enable },
-		{ 0x02, 0x02, adpcm_data_w },
-	PORT_END
+	public static IO_WritePort darius_sound2_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, adpcm_nmi_disable ),
+		new IO_WritePort( 0x01, 0x01, adpcm_nmi_enable ),
+		new IO_WritePort( 0x02, 0x02, adpcm_data_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***********************************************************

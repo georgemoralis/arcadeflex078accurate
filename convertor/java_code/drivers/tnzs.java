@@ -430,15 +430,19 @@ public class tnzs
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( tnzsb_readport )
-		{ 0x00, 0x00, YM2203_status_port_0_r  },
-		{ 0x02, 0x02, soundlatch_r  },
-	PORT_END
+	public static IO_ReadPort tnzsb_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, YM2203_status_port_0_r  ),
+		new IO_ReadPort( 0x02, 0x02, soundlatch_r  ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( tnzsb_writeport )
-		{ 0x00, 0x00, YM2203_control_port_0_w  },
-		{ 0x01, 0x01, YM2203_write_port_0_w  },
-	PORT_END
+	public static IO_WritePort tnzsb_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, YM2203_control_port_0_w  ),
+		new IO_WritePort( 0x01, 0x01, YM2203_write_port_0_w  ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress i8742_readmem[]={
@@ -455,16 +459,20 @@ public class tnzs
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( i8742_readport )
-		{ 0x01, 0x01, tnzs_port1_r },
-		{ 0x02, 0x02, tnzs_port2_r },
-		{ I8X41_t0, I8X41_t0, input_port_5_r },
-		{ I8X41_t1, I8X41_t1, input_port_6_r },
-	PORT_END
+	public static IO_ReadPort i8742_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x01, 0x01, tnzs_port1_r ),
+		new IO_ReadPort( 0x02, 0x02, tnzs_port2_r ),
+		new IO_ReadPort( I8X41_t0, I8X41_t0, input_port_5_r ),
+		new IO_ReadPort( I8X41_t1, I8X41_t1, input_port_6_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( i8742_writeport )
-		{ 0x02, 0x02, tnzs_port2_w },
-	PORT_END
+	public static IO_WritePort i8742_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x02, 0x02, tnzs_port2_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

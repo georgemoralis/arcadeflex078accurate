@@ -56,18 +56,22 @@ public class rotaryf
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( rotaryf_readport )
-	//	{ 0x00, 0x00, input_port_0_r },
-		{ 0x21, 0x21, input_port_1_r },
-		{ 0x29, 0x29, input_port_2_r },
-		{ 0x26, 0x26, input_port_3_r },
-	//	{ 0x28, 0x28, c8080bw_shift_data_r },
-	PORT_END
+	public static IO_ReadPort rotaryf_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+	//	new IO_ReadPort( 0x00, 0x00, input_port_0_r ),
+		new IO_ReadPort( 0x21, 0x21, input_port_1_r ),
+		new IO_ReadPort( 0x29, 0x29, input_port_2_r ),
+		new IO_ReadPort( 0x26, 0x26, input_port_3_r ),
+	//	new IO_ReadPort( 0x28, 0x28, c8080bw_shift_data_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( rotaryf_writeport )
-	//	{ 0x21, 0x21, c8080bw_shift_amount_w },
-	//	{ 0x28, 0x28, c8080bw_shift_data_w },
-	PORT_END
+	public static IO_WritePort rotaryf_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+	//	new IO_WritePort( 0x21, 0x21, c8080bw_shift_amount_w ),
+	//	new IO_WritePort( 0x28, 0x28, c8080bw_shift_data_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_rotaryf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rotaryf )
 		PORT_START();       /* IN0 */

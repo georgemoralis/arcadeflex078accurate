@@ -108,29 +108,33 @@ public class hnayayoi
 	};
 	
 	
-	static PORT_READ_START( hnayayoi_readport )
-		{ 0x02, 0x02, YM2203_status_port_0_r },
-		{ 0x03, 0x03, YM2203_read_port_0_r },
-		{ 0x04, 0x04, input_port_2_r },
-		{ 0x41, 0x41, keyboard_0_r },
-		{ 0x42, 0x42, keyboard_1_r },
-		{ 0x43, 0x43, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort hnayayoi_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x02, 0x02, YM2203_status_port_0_r ),
+		new IO_ReadPort( 0x03, 0x03, YM2203_read_port_0_r ),
+		new IO_ReadPort( 0x04, 0x04, input_port_2_r ),
+		new IO_ReadPort( 0x41, 0x41, keyboard_0_r ),
+		new IO_ReadPort( 0x42, 0x42, keyboard_1_r ),
+		new IO_ReadPort( 0x43, 0x43, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hnayayoi_writeport )
-		{ 0x00, 0x00, YM2203_control_port_0_w },
-		{ 0x01, 0x01, YM2203_write_port_0_w },
-		{ 0x06, 0x06, adpcm_data_w },
-	//	{ 0x08, 0x08, IOWP_NOP },	// CRT Controller
-	//	{ 0x09, 0x09, IOWP_NOP },	// CRT Controller
-		{ 0x0a, 0x0a, dynax_blitter_rev1_start_w },
-		{ 0x0c, 0x0c, dynax_blitter_rev1_clear_w },
-		{ 0x23, 0x23, adpcm_vclk_w },
-		{ 0x24, 0x24, adpcm_reset_w },
-		{ 0x40, 0x40, keyboard_w },
-		{ 0x60, 0x61, hnayayoi_palbank_w },
-		{ 0x62, 0x67, dynax_blitter_rev1_param_w },
-	PORT_END
+	public static IO_WritePort hnayayoi_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, YM2203_control_port_0_w ),
+		new IO_WritePort( 0x01, 0x01, YM2203_write_port_0_w ),
+		new IO_WritePort( 0x06, 0x06, adpcm_data_w ),
+	//	new IO_WritePort( 0x08, 0x08, IOWP_NOP ),	// CRT Controller
+	//	new IO_WritePort( 0x09, 0x09, IOWP_NOP ),	// CRT Controller
+		new IO_WritePort( 0x0a, 0x0a, dynax_blitter_rev1_start_w ),
+		new IO_WritePort( 0x0c, 0x0c, dynax_blitter_rev1_clear_w ),
+		new IO_WritePort( 0x23, 0x23, adpcm_vclk_w ),
+		new IO_WritePort( 0x24, 0x24, adpcm_reset_w ),
+		new IO_WritePort( 0x40, 0x40, keyboard_w ),
+		new IO_WritePort( 0x60, 0x61, hnayayoi_palbank_w ),
+		new IO_WritePort( 0x62, 0x67, dynax_blitter_rev1_param_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress hnfubuki_readmem[]={
@@ -168,11 +172,15 @@ public class hnayayoi
 	};
 	
 	
-	static PORT_READ_START( hnfubuki_readport )
-	PORT_END
+	public static IO_ReadPort hnfubuki_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hnfubuki_writeport )
-	PORT_END
+	public static IO_WritePort hnfubuki_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress untoucha_readmem[]={
@@ -192,28 +200,32 @@ public class hnayayoi
 	};
 	
 	
-	static PORT_READ_START( untoucha_readport )
-		{ 0x11, 0x11, YM2203_status_port_0_r },
-		{ 0x51, 0x51, YM2203_read_port_0_r },
-		{ 0x16, 0x16, keyboard_0_r },	// bit 7 = blitter busy flag
-		{ 0x15, 0x15, keyboard_1_r },
-		{ 0x14, 0x14, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort untoucha_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x11, 0x11, YM2203_status_port_0_r ),
+		new IO_ReadPort( 0x51, 0x51, YM2203_read_port_0_r ),
+		new IO_ReadPort( 0x16, 0x16, keyboard_0_r ),	// bit 7 = blitter busy flag
+		new IO_ReadPort( 0x15, 0x15, keyboard_1_r ),
+		new IO_ReadPort( 0x14, 0x14, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( untoucha_writeport )
-		{ 0x10, 0x10, YM2203_control_port_0_w },
-		{ 0x50, 0x50, YM2203_write_port_0_w },
-		{ 0x13, 0x13, adpcm_data_w },
-	//	{ 0x12, 0x12, IOWP_NOP },	// CRT Controller
-	//	{ 0x52, 0x52, IOWP_NOP },	// CRT Controller
-		{ 0x28, 0x28, dynax_blitter_rev1_start_w },
-		{ 0x20, 0x20, dynax_blitter_rev1_clear_w },
-		{ 0x31, 0x31, adpcm_vclk_w },
-		{ 0x32, 0x32, adpcm_reset_inv_w },
-		{ 0x17, 0x17, keyboard_w },
-		{ 0x18, 0x19, hnayayoi_palbank_w },
-		{ 0x1a, 0x1f, dynax_blitter_rev1_param_w },
-	PORT_END
+	public static IO_WritePort untoucha_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x10, 0x10, YM2203_control_port_0_w ),
+		new IO_WritePort( 0x50, 0x50, YM2203_write_port_0_w ),
+		new IO_WritePort( 0x13, 0x13, adpcm_data_w ),
+	//	new IO_WritePort( 0x12, 0x12, IOWP_NOP ),	// CRT Controller
+	//	new IO_WritePort( 0x52, 0x52, IOWP_NOP ),	// CRT Controller
+		new IO_WritePort( 0x28, 0x28, dynax_blitter_rev1_start_w ),
+		new IO_WritePort( 0x20, 0x20, dynax_blitter_rev1_clear_w ),
+		new IO_WritePort( 0x31, 0x31, adpcm_vclk_w ),
+		new IO_WritePort( 0x32, 0x32, adpcm_reset_inv_w ),
+		new IO_WritePort( 0x17, 0x17, keyboard_w ),
+		new IO_WritePort( 0x18, 0x19, hnayayoi_palbank_w ),
+		new IO_WritePort( 0x1a, 0x1f, dynax_blitter_rev1_param_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

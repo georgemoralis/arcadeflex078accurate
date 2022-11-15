@@ -159,17 +159,19 @@ public class pass
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( pass_sound_readport )
-		{ 0x00, 0x00, soundlatch_r },
-		{ 0x70, 0x70, YM2203_status_port_0_r },
-		{ 0x71, 0x71, YM2203_read_port_0_r },
+	public static IO_ReadPort pass_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, soundlatch_r ),
+		new IO_ReadPort( 0x70, 0x70, YM2203_status_port_0_r ),
+		new IO_ReadPort( 0x71, 0x71, YM2203_read_port_0_r ),
 	MEMORY_END
 	
-	static PORT_WRITE_START( pass_sound_writeport )
-		{ 0x70, 0x70, YM2203_control_port_0_w },
-		{ 0x71, 0x71, YM2203_write_port_0_w },
-		{ 0x80, 0x80, OKIM6295_data_0_w },
-		{ 0xc0, 0xc0, soundlatch_clear_w },
+	public static IO_WritePort pass_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x70, 0x70, YM2203_control_port_0_w ),
+		new IO_WritePort( 0x71, 0x71, YM2203_write_port_0_w ),
+		new IO_WritePort( 0x80, 0x80, OKIM6295_data_0_w ),
+		new IO_WritePort( 0xc0, 0xc0, soundlatch_clear_w ),
 	MEMORY_END
 	
 	

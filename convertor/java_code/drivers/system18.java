@@ -115,25 +115,29 @@ public class system18
 		sys18_SoundMemBank = &RAM[Bank+0x10000];
 	}
 	
-	static PORT_READ_START( sound_readport_18 )
-		{ 0x80, 0x80, YM2612_status_port_0_A_r },
-	//	{ 0x82, 0x82, YM2612_status_port_0_B_r },
-	//	{ 0x90, 0x90, YM2612_status_port_1_A_r },
-	//	{ 0x92, 0x92, YM2612_status_port_1_B_r },
-		{ 0xc0, 0xc0, soundlatch_r },
-	PORT_END
+	public static IO_ReadPort sound_readport_18[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x80, 0x80, YM2612_status_port_0_A_r ),
+	//	new IO_ReadPort( 0x82, 0x82, YM2612_status_port_0_B_r ),
+	//	new IO_ReadPort( 0x90, 0x90, YM2612_status_port_1_A_r ),
+	//	new IO_ReadPort( 0x92, 0x92, YM2612_status_port_1_B_r ),
+		new IO_ReadPort( 0xc0, 0xc0, soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( sound_writeport_18 )
-		{ 0x80, 0x80, YM2612_control_port_0_A_w },
-		{ 0x81, 0x81, YM2612_data_port_0_A_w },
-		{ 0x82, 0x82, YM2612_control_port_0_B_w },
-		{ 0x83, 0x83, YM2612_data_port_0_B_w },
-		{ 0x90, 0x90, YM2612_control_port_1_A_w },
-		{ 0x91, 0x91, YM2612_data_port_1_A_w },
-		{ 0x92, 0x92, YM2612_control_port_1_B_w },
-		{ 0x93, 0x93, YM2612_data_port_1_B_w },
-		{ 0xa0, 0xa0, sys18_soundbank_w },
-	PORT_END
+	public static IO_WritePort sound_writeport_18[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x80, 0x80, YM2612_control_port_0_A_w ),
+		new IO_WritePort( 0x81, 0x81, YM2612_data_port_0_A_w ),
+		new IO_WritePort( 0x82, 0x82, YM2612_control_port_0_B_w ),
+		new IO_WritePort( 0x83, 0x83, YM2612_data_port_0_B_w ),
+		new IO_WritePort( 0x90, 0x90, YM2612_control_port_1_A_w ),
+		new IO_WritePort( 0x91, 0x91, YM2612_data_port_1_A_w ),
+		new IO_WritePort( 0x92, 0x92, YM2612_control_port_1_B_w ),
+		new IO_WritePort( 0x93, 0x93, YM2612_data_port_1_B_w ),
+		new IO_WritePort( 0xa0, 0xa0, sys18_soundbank_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static WRITE16_HANDLER( sound_command_nmi_w ){
 		if( ACCESSING_LSB ){

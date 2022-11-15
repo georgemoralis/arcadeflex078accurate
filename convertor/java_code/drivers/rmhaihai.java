@@ -206,37 +206,40 @@ public class rmhaihai
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{ 0x0000, 0x7fff, samples_r },
-		{ 0x8000, 0x8000, keyboard_r },
-		{ 0x8001, 0x8001, IORP_NOP },	// ??
-		{ 0x8020, 0x8020, AY8910_read_port_0_r },
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0000, 0x7fff, samples_r ),
+		new IO_ReadPort( 0x8000, 0x8000, keyboard_r ),
+		new IO_ReadPort( 0x8001, 0x8001, IORP_NOP ),	// ??
+		new IO_ReadPort( 0x8020, 0x8020, AY8910_read_port_0_r ),
 	MEMORY_END
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x8000, 0x8000, IOWP_NOP },	// ??
-		{ 0x8001, 0x8001, keyboard_w },
-		{ 0x8020, 0x8020, AY8910_control_port_0_w },
-		{ 0x8021, 0x8021, AY8910_write_port_0_w },
-		{ 0x8040, 0x8040, adpcm_w },
-		{ 0x8060, 0x8060, ctrl_w },
-		{ 0x8080, 0x8080, IOWP_NOP },	// ??
-		{ 0xbc04, 0xbc04, IOWP_NOP },	// ??
-		{ 0xbc0c, 0xbc0c, IOWP_NOP },	// ??
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x8000, 0x8000, IOWP_NOP ),	// ??
+		new IO_WritePort( 0x8001, 0x8001, keyboard_w ),
+		new IO_WritePort( 0x8020, 0x8020, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x8021, 0x8021, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x8040, 0x8040, adpcm_w ),
+		new IO_WritePort( 0x8060, 0x8060, ctrl_w ),
+		new IO_WritePort( 0x8080, 0x8080, IOWP_NOP ),	// ??
+		new IO_WritePort( 0xbc04, 0xbc04, IOWP_NOP ),	// ??
+		new IO_WritePort( 0xbc0c, 0xbc0c, IOWP_NOP ),	// ??
 	MEMORY_END
 	
 	
-	static PORT_WRITE_START( themj_writeport )
-		{ 0x8000, 0x8000, IOWP_NOP },	// ??
-		{ 0x8001, 0x8001, keyboard_w },
-		{ 0x8020, 0x8020, AY8910_control_port_0_w },
-		{ 0x8021, 0x8021, AY8910_write_port_0_w },
-		{ 0x8040, 0x8040, adpcm_w },
-		{ 0x8060, 0x8060, ctrl_w },
-		{ 0x8080, 0x8080, IOWP_NOP },	// ??
-		{ 0x80a0, 0x80a0, themj_rombank_w },
-		{ 0xbc04, 0xbc04, IOWP_NOP },	// ??
-		{ 0xbc0c, 0xbc0c, IOWP_NOP },	// ??
+	public static IO_WritePort themj_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x8000, 0x8000, IOWP_NOP ),	// ??
+		new IO_WritePort( 0x8001, 0x8001, keyboard_w ),
+		new IO_WritePort( 0x8020, 0x8020, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x8021, 0x8021, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x8040, 0x8040, adpcm_w ),
+		new IO_WritePort( 0x8060, 0x8060, ctrl_w ),
+		new IO_WritePort( 0x8080, 0x8080, IOWP_NOP ),	// ??
+		new IO_WritePort( 0x80a0, 0x80a0, themj_rombank_w ),
+		new IO_WritePort( 0xbc04, 0xbc04, IOWP_NOP ),	// ??
+		new IO_WritePort( 0xbc0c, 0xbc0c, IOWP_NOP ),	// ??
 	MEMORY_END
 	
 	static InputPortHandlerPtr input_ports_rmhaihai = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rmhaihai )

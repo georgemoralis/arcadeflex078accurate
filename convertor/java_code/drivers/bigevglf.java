@@ -287,18 +287,22 @@ public class bigevglf
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_WRITE_START( bigevglf_writeport )
-		{ 0x00, 0x00, IOWP_NOP }, 	/* video ram enable ???*/
-		{ 0x01, 0x01, beg_gfxcontrol_w },  /* plane select */
-		{ 0x02, 0x02, beg_banking_w },
-		{ 0x03, 0x03, beg13A_set_w },
-		{ 0x04, 0x04, beg13B_clr_w },
-		{ 0x05, 0x05, bigevglf_vidram_addr_w },	/* video banking (256 banks) for f000-f0ff area */
-	PORT_END
+	public static IO_WritePort bigevglf_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, IOWP_NOP ), 	/* video ram enable ???*/
+		new IO_WritePort( 0x01, 0x01, beg_gfxcontrol_w ),  /* plane select */
+		new IO_WritePort( 0x02, 0x02, beg_banking_w ),
+		new IO_WritePort( 0x03, 0x03, beg13A_set_w ),
+		new IO_WritePort( 0x04, 0x04, beg13B_clr_w ),
+		new IO_WritePort( 0x05, 0x05, bigevglf_vidram_addr_w ),	/* video banking (256 banks) for f000-f0ff area */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( bigevglf_readport )
-		{ 0x06,0x06, beg_status_r },
-	PORT_END
+	public static IO_ReadPort bigevglf_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x06,0x06, beg_status_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*********************************************************************************/
@@ -321,14 +325,16 @@ public class bigevglf
 	};
 	
 	
-	static PORT_WRITE_START( bigevglf_sub_writeport )
-		{ 0x08, 0x08, IOWP_NOP }, /*coinlockout_w ???? watchdog ???? */
-		{ 0x0c, 0x0c, bigevglf_mcu_w },
-		{ 0x0e, 0x0e, IOWP_NOP }, /* 0-enable MCU, 1-keep reset line ASSERTED; D0 goes to the input of ls74 and the /Q of this ls74 goes to reset line on 68705 */
-		{ 0x10, 0x17, beg13A_clr_w },
-		{ 0x18, 0x1f, beg13B_set_w },
-		{ 0x20, 0x20, sound_command_w },
-	PORT_END
+	public static IO_WritePort bigevglf_sub_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x08, 0x08, IOWP_NOP ), /*coinlockout_w ???? watchdog ???? */
+		new IO_WritePort( 0x0c, 0x0c, bigevglf_mcu_w ),
+		new IO_WritePort( 0x0e, 0x0e, IOWP_NOP ), /* 0-enable MCU, 1-keep reset line ASSERTED; D0 goes to the input of ls74 and the /Q of this ls74 goes to reset line on 68705 */
+		new IO_WritePort( 0x10, 0x17, beg13A_clr_w ),
+		new IO_WritePort( 0x18, 0x1f, beg13B_set_w ),
+		new IO_WritePort( 0x20, 0x20, sound_command_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -344,19 +350,21 @@ public class bigevglf
 		return bigevglf_mcu_status_r(0) | (readinputport(1) & 3) | bit5; /* bit 0 and bit 1 - coin inputs */
 	} };
 	
-	static PORT_READ_START( bigevglf_sub_readport )
-		{ 0x00, 0x00, input_port_0_r },
-		{ 0x01, 0x01, IORP_NOP },
-		{ 0x02, 0x02, input_port_4_r },
-		{ 0x03, 0x03, input_port_5_r },
-		{ 0x04, 0x04, sub_cpu_mcu_coin_port_r },
-		{ 0x05, 0x05, input_port_2_r },
-		{ 0x06, 0x06, input_port_3_r },
-		{ 0x07, 0x07, IORP_NOP },
-		{ 0x0b, 0x0b, bigevglf_mcu_r },
-		{ 0x20, 0x20, beg_fromsound_r },
-		{ 0x21, 0x21, beg_soundstate_r },
-	PORT_END
+	public static IO_ReadPort bigevglf_sub_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_0_r ),
+		new IO_ReadPort( 0x01, 0x01, IORP_NOP ),
+		new IO_ReadPort( 0x02, 0x02, input_port_4_r ),
+		new IO_ReadPort( 0x03, 0x03, input_port_5_r ),
+		new IO_ReadPort( 0x04, 0x04, sub_cpu_mcu_coin_port_r ),
+		new IO_ReadPort( 0x05, 0x05, input_port_2_r ),
+		new IO_ReadPort( 0x06, 0x06, input_port_3_r ),
+		new IO_ReadPort( 0x07, 0x07, IORP_NOP ),
+		new IO_ReadPort( 0x0b, 0x0b, bigevglf_mcu_r ),
+		new IO_ReadPort( 0x20, 0x20, beg_fromsound_r ),
+		new IO_ReadPort( 0x21, 0x21, beg_soundstate_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*********************************************************************************/

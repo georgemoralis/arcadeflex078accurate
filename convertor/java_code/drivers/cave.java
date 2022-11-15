@@ -1081,21 +1081,25 @@ public class cave
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( hotdogst_sound_readport )
-		{ 0x30, 0x30, soundlatch_lo_r			},	// From Main CPU
-		{ 0x40, 0x40, soundlatch_hi_r			},	//
-		{ 0x50, 0x50, YM2203_status_port_0_r	},	// YM2203
-		{ 0x51, 0x51, YM2203_read_port_0_r		},	//
-		{ 0x60, 0x60, OKIM6295_status_0_r		},	// M6295
-	PORT_END
+	public static IO_ReadPort hotdogst_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x30, 0x30, soundlatch_lo_r			),	// From Main CPU
+		new IO_ReadPort( 0x40, 0x40, soundlatch_hi_r			),	//
+		new IO_ReadPort( 0x50, 0x50, YM2203_status_port_0_r	),	// YM2203
+		new IO_ReadPort( 0x51, 0x51, YM2203_read_port_0_r		),	//
+		new IO_ReadPort( 0x60, 0x60, OKIM6295_status_0_r		),	// M6295
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hotdogst_sound_writeport )
-		{ 0x00, 0x00, hotdogst_rombank_w		},	// ROM bank
-		{ 0x50, 0x50, YM2203_control_port_0_w	},	// YM2203
-		{ 0x51, 0x51, YM2203_write_port_0_w		},	//
-		{ 0x60, 0x60, OKIM6295_data_0_w			},	// M6295
-		{ 0x70, 0x70, hotdogst_okibank_w		},	// Samples bank
-	PORT_END
+	public static IO_WritePort hotdogst_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, hotdogst_rombank_w		),	// ROM bank
+		new IO_WritePort( 0x50, 0x50, YM2203_control_port_0_w	),	// YM2203
+		new IO_WritePort( 0x51, 0x51, YM2203_write_port_0_w		),	//
+		new IO_WritePort( 0x60, 0x60, OKIM6295_data_0_w			),	// M6295
+		new IO_WritePort( 0x70, 0x70, hotdogst_okibank_w		),	// Samples bank
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1128,19 +1132,23 @@ public class cave
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( mazinger_sound_readport )
-		{ 0x30, 0x30, soundlatch_lo_r			},	// From Main CPU
-		{ 0x52, 0x52, YM2203_status_port_0_r	},	// YM2203
-	PORT_END
+	public static IO_ReadPort mazinger_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x30, 0x30, soundlatch_lo_r			),	// From Main CPU
+		new IO_ReadPort( 0x52, 0x52, YM2203_status_port_0_r	),	// YM2203
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( mazinger_sound_writeport )
-		{ 0x00, 0x00, mazinger_rombank_w		},	// ROM bank
-		{ 0x10, 0x10, soundlatch_ack_w			},	// To Main CPU
-		{ 0x50, 0x50, YM2203_control_port_0_w	},	// YM2203
-		{ 0x51, 0x51, YM2203_write_port_0_w		},	//
-		{ 0x70, 0x70, OKIM6295_data_0_w			},	// M6295
-		{ 0x74, 0x74, hotdogst_okibank_w		},	// Samples bank
-	PORT_END
+	public static IO_WritePort mazinger_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, mazinger_rombank_w		),	// ROM bank
+		new IO_WritePort( 0x10, 0x10, soundlatch_ack_w			),	// To Main CPU
+		new IO_WritePort( 0x50, 0x50, YM2203_control_port_0_w	),	// YM2203
+		new IO_WritePort( 0x51, 0x51, YM2203_write_port_0_w		),	//
+		new IO_WritePort( 0x70, 0x70, OKIM6295_data_0_w			),	// M6295
+		new IO_WritePort( 0x74, 0x74, hotdogst_okibank_w		),	// Samples bank
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1189,22 +1197,26 @@ public class cave
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( metmqstr_sound_readport )
-		{ 0x20, 0x20, soundflags_r				},	// Communication
-		{ 0x30, 0x30, soundlatch_lo_r			},	// From Main CPU
-		{ 0x40, 0x40, soundlatch_hi_r			},	//
-		{ 0x51, 0x51, YM2151_status_port_0_r	},	// YM2151
-	PORT_END
+	public static IO_ReadPort metmqstr_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x20, 0x20, soundflags_r				),	// Communication
+		new IO_ReadPort( 0x30, 0x30, soundlatch_lo_r			),	// From Main CPU
+		new IO_ReadPort( 0x40, 0x40, soundlatch_hi_r			),	//
+		new IO_ReadPort( 0x51, 0x51, YM2151_status_port_0_r	),	// YM2151
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( metmqstr_sound_writeport )
-		{ 0x00, 0x00, metmqstr_rombank_w		},	// Rom Bank
-		{ 0x50, 0x50, YM2151_register_port_0_w	},	// YM2151
-		{ 0x51, 0x51, YM2151_data_port_0_w		},	//
-		{ 0x60, 0x60, OKIM6295_data_0_w			},	// M6295 #0
-		{ 0x70, 0x70, metmqstr_okibank0_w		},	// Samples Bank #0
-		{ 0x80, 0x80, OKIM6295_data_1_w			},	// M6295 #1
-		{ 0x90, 0x90, metmqstr_okibank1_w		},	// Samples Bank #1
-	PORT_END
+	public static IO_WritePort metmqstr_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, metmqstr_rombank_w		),	// Rom Bank
+		new IO_WritePort( 0x50, 0x50, YM2151_register_port_0_w	),	// YM2151
+		new IO_WritePort( 0x51, 0x51, YM2151_data_port_0_w		),	//
+		new IO_WritePort( 0x60, 0x60, OKIM6295_data_0_w			),	// M6295 #0
+		new IO_WritePort( 0x70, 0x70, metmqstr_okibank0_w		),	// Samples Bank #0
+		new IO_WritePort( 0x80, 0x80, OKIM6295_data_1_w			),	// M6295 #1
+		new IO_WritePort( 0x90, 0x90, metmqstr_okibank1_w		),	// Samples Bank #1
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1271,25 +1283,29 @@ public class cave
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( pwrinst2_sound_readport )
-		{ 0x00, 0x00, OKIM6295_status_0_r		},	// M6295
-		{ 0x08, 0x08, OKIM6295_status_1_r		},	//
-		{ 0x40, 0x40, YM2203_status_port_0_r	},	// YM2203
-		{ 0x41, 0x41, YM2203_read_port_0_r		},	//
-		{ 0x60, 0x60, soundlatch_hi_r			},	// From Main CPU
-		{ 0x70, 0x70, soundlatch_lo_r			},	//
-	PORT_END
+	public static IO_ReadPort pwrinst2_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, OKIM6295_status_0_r		),	// M6295
+		new IO_ReadPort( 0x08, 0x08, OKIM6295_status_1_r		),	//
+		new IO_ReadPort( 0x40, 0x40, YM2203_status_port_0_r	),	// YM2203
+		new IO_ReadPort( 0x41, 0x41, YM2203_read_port_0_r		),	//
+		new IO_ReadPort( 0x60, 0x60, soundlatch_hi_r			),	// From Main CPU
+		new IO_ReadPort( 0x70, 0x70, soundlatch_lo_r			),	//
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( pwrinst2_sound_writeport )
-		{ 0x00, 0x00, OKIM6295_data_0_w			},	// M6295
-		{ 0x08, 0x08, OKIM6295_data_1_w			},	//
-		{ 0x10, 0x17, pwrinst2_okibank_w		},	// Samples bank
-		{ 0x40, 0x40, YM2203_control_port_0_w	},	// YM2203
-		{ 0x41, 0x41, YM2203_write_port_0_w		},	//
-	//	{ 0x50, 0x50, IOWP_NOP		},	// ?? volume
-	//	{ 0x51, 0x51, IOWP_NOP		},	// ?? volume
-		{ 0x80, 0x80, pwrinst2_rombank_w		},	// ROM bank
-	PORT_END
+	public static IO_WritePort pwrinst2_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, OKIM6295_data_0_w			),	// M6295
+		new IO_WritePort( 0x08, 0x08, OKIM6295_data_1_w			),	//
+		new IO_WritePort( 0x10, 0x17, pwrinst2_okibank_w		),	// Samples bank
+		new IO_WritePort( 0x40, 0x40, YM2203_control_port_0_w	),	// YM2203
+		new IO_WritePort( 0x41, 0x41, YM2203_write_port_0_w		),	//
+	//	new IO_WritePort( 0x50, 0x50, IOWP_NOP		),	// ?? volume
+	//	new IO_WritePort( 0x51, 0x51, IOWP_NOP		),	// ?? volume
+		new IO_WritePort( 0x80, 0x80, pwrinst2_rombank_w		),	// ROM bank
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/***************************************************************************
@@ -1348,25 +1364,29 @@ public class cave
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( sailormn_sound_readport )
-		{ 0x20, 0x20, soundflags_r				},	// Communication
-		{ 0x30, 0x30, soundlatch_lo_r			},	// From Main CPU
-		{ 0x40, 0x40, soundlatch_hi_r			},	//
-		{ 0x51, 0x51, YM2151_status_port_0_r	},	// YM2151
-		{ 0x60, 0x60, OKIM6295_status_0_r		},	// M6295 #0
-		{ 0x80, 0x80, OKIM6295_status_1_r		},	// M6295 #1
-	PORT_END
+	public static IO_ReadPort sailormn_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x20, 0x20, soundflags_r				),	// Communication
+		new IO_ReadPort( 0x30, 0x30, soundlatch_lo_r			),	// From Main CPU
+		new IO_ReadPort( 0x40, 0x40, soundlatch_hi_r			),	//
+		new IO_ReadPort( 0x51, 0x51, YM2151_status_port_0_r	),	// YM2151
+		new IO_ReadPort( 0x60, 0x60, OKIM6295_status_0_r		),	// M6295 #0
+		new IO_ReadPort( 0x80, 0x80, OKIM6295_status_1_r		),	// M6295 #1
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( sailormn_sound_writeport )
-		{ 0x00, 0x00, sailormn_rombank_w		},	// Rom Bank
-		{ 0x10, 0x10, soundlatch_ack_w			},	// To Main CPU
-		{ 0x50, 0x50, YM2151_register_port_0_w	},	// YM2151
-		{ 0x51, 0x51, YM2151_data_port_0_w		},	//
-		{ 0x60, 0x60, OKIM6295_data_0_w			},	// M6295 #0
-		{ 0x70, 0x70, sailormn_okibank0_w		},	// Samples Bank #0
-		{ 0x80, 0x80, OKIM6295_data_1_w			},	// M6295 #1
-		{ 0xc0, 0xc0, sailormn_okibank1_w		},	// Samples Bank #1
-	PORT_END
+	public static IO_WritePort sailormn_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, sailormn_rombank_w		),	// Rom Bank
+		new IO_WritePort( 0x10, 0x10, soundlatch_ack_w			),	// To Main CPU
+		new IO_WritePort( 0x50, 0x50, YM2151_register_port_0_w	),	// YM2151
+		new IO_WritePort( 0x51, 0x51, YM2151_data_port_0_w		),	//
+		new IO_WritePort( 0x60, 0x60, OKIM6295_data_0_w			),	// M6295 #0
+		new IO_WritePort( 0x70, 0x70, sailormn_okibank0_w		),	// Samples Bank #0
+		new IO_WritePort( 0x80, 0x80, OKIM6295_data_1_w			),	// M6295 #1
+		new IO_WritePort( 0xc0, 0xc0, sailormn_okibank1_w		),	// Samples Bank #1
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

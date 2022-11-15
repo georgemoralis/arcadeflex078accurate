@@ -252,17 +252,19 @@ public class btoads
 	};
 	
 	
-	static PORT_READ_START( sound_readport )
-		{ 0x8000, 0x8000, sound_data_r },
-		{ 0x8004, 0x8004, sound_data_ready_r },
-		{ 0x8005, 0x8005, sound_ready_to_send_r },
-		{ 0x8006, 0x8006, bsmt_ready_r },
+	public static IO_ReadPort sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x8000, 0x8000, sound_data_r ),
+		new IO_ReadPort( 0x8004, 0x8004, sound_data_ready_r ),
+		new IO_ReadPort( 0x8005, 0x8005, sound_ready_to_send_r ),
+		new IO_ReadPort( 0x8006, 0x8006, bsmt_ready_r ),
 	MEMORY_END
 	
-	static PORT_WRITE_START( sound_writeport )
-		{ 0x0000, 0x7fff, bsmt2000_port_w },
-		{ 0x8000, 0x8000, sound_data_w },
-		{ 0x8002, 0x8002, sound_int_state_w },
+	public static IO_WritePort sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x0000, 0x7fff, bsmt2000_port_w ),
+		new IO_WritePort( 0x8000, 0x8000, sound_data_w ),
+		new IO_WritePort( 0x8002, 0x8002, sound_int_state_w ),
 	MEMORY_END
 	
 	

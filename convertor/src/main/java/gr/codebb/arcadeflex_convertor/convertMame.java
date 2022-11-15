@@ -35,6 +35,8 @@ public class convertMame {
     static final int WRITE_HANDLER8 = 13;
     static final int MEMORY_READ8 = 14;
     static final int MEMORY_WRITE8 = 15;
+    static final int PORT_READ8 = 16;
+    static final int PORT_WRITE8 = 17;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -398,6 +400,44 @@ public class convertMame {
                             continue;
                         }
                     }
+                    if (sUtil.getToken("PORT_READ_START(") || sUtil.getToken("PORT_READ_START (")) {
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.getToken(")")) {
+                            sUtil.putString("public static IO_ReadPort " + Convertor.token[0] + "[]={\n\t\tnew IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),");
+                            type = PORT_READ8;
+                            i3 = 1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("PORT_WRITE_START(") || sUtil.getToken("PORT_WRITE_START (")) {
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.getToken(")")) {
+                            sUtil.putString("public static IO_WritePort " + Convertor.token[0] + "[]={\n\t\tnew IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),");
+                            type = PORT_WRITE8;
+                            i3 = 1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("PORT_END")) {
+                        if (type == PORT_READ8) {
+                            sUtil.putString("\tnew IO_ReadPort(MEMPORT_MARKER, 0)\n\t};");
+                            type = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                        if (type == PORT_WRITE8) {
+                            sUtil.putString("\tnew IO_WritePort(MEMPORT_MARKER, 0)\n\t};");
+                            type = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -648,6 +688,30 @@ public class convertMame {
                                 continue;
                             }
                         }
+                        if (sUtil.getToken("PORT_READ_START(") || sUtil.getToken("PORT_READ_START (")) {
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.getToken(")")) {
+                                sUtil.putString("public static IO_ReadPort " + Convertor.token[0] + "[]={\n\t\tnew IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),");
+                                type = PORT_READ8;
+                                i3 = 1;
+                                Convertor.inpos += 1;
+                                continue;
+                            }
+                        }
+                        if (sUtil.getToken("PORT_WRITE_START(") || sUtil.getToken("PORT_WRITE_START (")) {
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.getToken(")")) {
+                                sUtil.putString("public static IO_WritePort " + Convertor.token[0] + "[]={\n\t\tnew IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),");
+                                type = PORT_WRITE8;
+                                i3 = 1;
+                                Convertor.inpos += 1;
+                                continue;
+                            }
+                        }
                     } // end of static but not static struct
                 }
                 Convertor.inpos = i;
@@ -834,6 +898,24 @@ public class convertMame {
                             continue;
                         }
                     }
+                    if (type == PORT_READ8) {
+                        i3++;
+                        insideagk[i3] = 0;
+                        if (i3 == 2) {
+                            sUtil.putString("new IO_ReadPort(");
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                    if (type == PORT_WRITE8) {
+                        i3++;
+                        insideagk[i3] = 0;
+                        if (i3 == 2) {
+                            sUtil.putString("new IO_WritePort(");
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -850,7 +932,7 @@ public class convertMame {
                             continue;
                         }
                     }
-                    if ((type == MEMORY_READ8) || type == MEMORY_WRITE8) {
+                    if ((type == MEMORY_READ8) || type == MEMORY_WRITE8 || type == PORT_READ8 || type == PORT_WRITE8) {
                         i3--;
                         if (i3 == 0) {
                             type = -1;

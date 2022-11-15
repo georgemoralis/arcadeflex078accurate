@@ -898,65 +898,91 @@ public class pacman
 	 *
 	 *************************************/
 	
-	static PORT_WRITE_START( writeport )
-		{ 0x00, 0x00, interrupt_vector_w },	/* Pac-Man only */
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, interrupt_vector_w ),	/* Pac-Man only */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( vanvan_writeport )
-		{ 0x01, 0x01, SN76496_0_w },
-		{ 0x02, 0x02, SN76496_1_w },
-	PORT_END
+	public static IO_WritePort vanvan_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x01, 0x01, SN76496_0_w ),
+		new IO_WritePort( 0x02, 0x02, SN76496_1_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( dremshpr_writeport )
-		{ 0x06, 0x06, AY8910_write_port_0_w },
-		{ 0x07, 0x07, AY8910_control_port_0_w },
-	PORT_END
+	public static IO_WritePort dremshpr_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x06, 0x06, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x07, 0x07, AY8910_control_port_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( piranha_writeport )
-		{ 0x00, 0x00, piranha_interrupt_vector_w },
-	PORT_END
+	public static IO_WritePort piranha_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, piranha_interrupt_vector_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( nmouse_writeport )
-		{ 0x00, 0x00, nmouse_interrupt_vector_w },
-	PORT_END
+	public static IO_WritePort nmouse_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, nmouse_interrupt_vector_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( theglobp_readport )
-		{ 0x00, 0xff, theglobp_decrypt_rom },	/* Switch protection logic */
-	PORT_END
+	public static IO_ReadPort theglobp_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0xff, theglobp_decrypt_rom ),	/* Switch protection logic */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( acitya_readport )
-		{ 0x00, 0xff, acitya_decrypt_rom }, /* Switch protection logic */
-	PORT_END
+	public static IO_ReadPort acitya_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0xff, acitya_decrypt_rom ), /* Switch protection logic */
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( mschamp_readport )
-		{ 0x00,0x00, mschamp_kludge_r },
-	PORT_END
+	public static IO_ReadPort mschamp_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00,0x00, mschamp_kludge_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( bigbucks_readport )
-		{ 0x0000, 0xffff, bigbucks_question_r },
-	PORT_END
+	public static IO_ReadPort bigbucks_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x0000, 0xffff, bigbucks_question_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( drivfrcp_readport )
-		{ 0x00, 0x00, MRA_NOP },
-		{ 0x01, 0x01, drivfrcp_port1_r },
-		{ S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort drivfrcp_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, MRA_NOP ),
+		new IO_ReadPort( 0x01, 0x01, drivfrcp_port1_r ),
+		new IO_ReadPort( S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( _8bpm_readport )
-		{ 0x00, 0x00, MRA_NOP },
-		{ 0x01, 0x01, _8bpm_port1_r },
-		{ 0xe0, 0xe0, MRA_NOP },
-		{ S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort _8bpm_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, MRA_NOP ),
+		new IO_ReadPort( 0x01, 0x01, _8bpm_port1_r ),
+		new IO_ReadPort( 0xe0, 0xe0, MRA_NOP ),
+		new IO_ReadPort( S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_READ_START( porky_readport )
-		{ 0x01, 0x01, porky_port1_r },
-		{ S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort porky_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x01, 0x01, porky_port1_r ),
+		new IO_ReadPort( S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( s2650games_writeport )
-		{ S2650_DATA_PORT, S2650_DATA_PORT, SN76496_0_w },
-	PORT_END
+	public static IO_WritePort s2650games_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( S2650_DATA_PORT, S2650_DATA_PORT, SN76496_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*************************************

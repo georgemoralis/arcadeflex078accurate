@@ -76,18 +76,22 @@ public class leland
 	};
 	
 	
-	static PORT_READ_START( master_readport )
-	    { 0xf2, 0xf2, leland_i86_response_r },
-	    { 0xfd, 0xff, leland_master_analog_key_r },
-	PORT_END
+	public static IO_ReadPort master_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+	    new IO_ReadPort( 0xf2, 0xf2, leland_i86_response_r ),
+	    new IO_ReadPort( 0xfd, 0xff, leland_master_analog_key_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static PORT_WRITE_START( master_writeport )
-		{ 0xf0, 0xf0, leland_master_alt_bankswitch_w },
-		{ 0xf2, 0xf2, leland_i86_command_lo_w },
-		{ 0xf4, 0xf4, leland_i86_command_hi_w },
-	    { 0xfd, 0xff, leland_master_analog_key_w },
-	PORT_END
+	public static IO_WritePort master_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0xf0, 0xf0, leland_master_alt_bankswitch_w ),
+		new IO_WritePort( 0xf2, 0xf2, leland_i86_command_lo_w ),
+		new IO_WritePort( 0xf4, 0xf4, leland_i86_command_hi_w ),
+	    new IO_WritePort( 0xfd, 0xff, leland_master_analog_key_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -137,16 +141,20 @@ public class leland
 	};
 	
 	
-	static PORT_READ_START( slave_readport )
-		{ 0x00, 0x1f, leland_svram_port_r },
-		{ 0x40, 0x5f, leland_svram_port_r },
-	PORT_END
+	public static IO_ReadPort slave_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x1f, leland_svram_port_r ),
+		new IO_ReadPort( 0x40, 0x5f, leland_svram_port_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static PORT_WRITE_START( slave_writeport )
-		{ 0x00, 0x1f, leland_svram_port_w },
-		{ 0x40, 0x5f, leland_svram_port_w },
-	PORT_END
+	public static IO_WritePort slave_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x1f, leland_svram_port_w ),
+		new IO_WritePort( 0x40, 0x5f, leland_svram_port_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*************************************

@@ -833,10 +833,12 @@ public class cinemat
 	};
 	
 	
-	PORT_WRITE_START( demon_sound_writeport )
-		{ 0x00, 0x03, z80ctc_0_w },
-		{ 0x1c, 0x1f, z80ctc_0_w },
-	PORT_END
+	public static IO_WritePort demon_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x03, z80ctc_0_w ),
+		new IO_WritePort( 0x1c, 0x1f, z80ctc_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static Z80_DaisyChain daisy_chain[] =

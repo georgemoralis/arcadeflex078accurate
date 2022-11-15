@@ -164,17 +164,21 @@ public class yumefuda
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
-		{	0x00, 0x00, AY8910_read_port_0_r },
-		{   0x81, 0x81, input_port_2_r },
-		{   0x82, 0x82, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort(	0x00, 0x00, AY8910_read_port_0_r ),
+		new IO_ReadPort(   0x81, 0x81, input_port_2_r ),
+		new IO_ReadPort(   0x82, 0x82, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{ 	0x00, 0x00, AY8910_control_port_0_w },
-		{ 	0x01, 0x01, AY8910_write_port_0_w },
-		{	0xc0, 0xc0,	port_c0_w }, //watchdog write?
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 	0x00, 0x00, AY8910_control_port_0_w ),
+		new IO_WritePort( 	0x01, 0x01, AY8910_write_port_0_w ),
+		new IO_WritePort(	0xc0, 0xc0,	port_c0_w ), //watchdog write?
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static struct AY8910interface ay8910_interface =
 	{

@@ -2200,28 +2200,36 @@ public class leland
 	};
 	
 	
-	PORT_READ_START( leland_i86_readport )
-		{ 0xff00, 0xffff, i186_internal_port_r },
-	PORT_END
+	public static IO_ReadPort leland_i86_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0xff00, 0xffff, i186_internal_port_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	PORT_WRITE_START( redline_i86_writeport )
-		{ 0x6000, 0x6fff, redline_dac_w },
-		{ 0xff00, 0xffff, i186_internal_port_w },
-	PORT_END
+	public static IO_WritePort redline_i86_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x6000, 0x6fff, redline_dac_w ),
+		new IO_WritePort( 0xff00, 0xffff, i186_internal_port_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	PORT_WRITE_START( leland_i86_writeport )
-		{ 0x0000, 0x000b, dac_w },
-		{ 0x0080, 0x008b, dac_w },
-		{ 0x00c0, 0x00cb, dac_w },
-		{ 0xff00, 0xffff, i186_internal_port_w },
-	PORT_END
+	public static IO_WritePort leland_i86_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x0000, 0x000b, dac_w ),
+		new IO_WritePort( 0x0080, 0x008b, dac_w ),
+		new IO_WritePort( 0x00c0, 0x00cb, dac_w ),
+		new IO_WritePort( 0xff00, 0xffff, i186_internal_port_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	PORT_WRITE_START( ataxx_i86_writeport )
-		{ 0xff00, 0xffff, i186_internal_port_w },
-	PORT_END
+	public static IO_WritePort ataxx_i86_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0xff00, 0xffff, i186_internal_port_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/************************************************************************

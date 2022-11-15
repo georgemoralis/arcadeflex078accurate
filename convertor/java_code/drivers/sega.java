@@ -174,19 +174,23 @@ public class sega
 		return 0x80;
 	} };
 	
-	static PORT_READ_START( readport )
-		{ 0x3f, 0x3f, sega_sh_r },
-		{ 0xbe, 0xbe, sega_mult_r },
-		{ 0xf8, 0xfb, sega_ports_r },
-	PORT_END
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x3f, 0x3f, sega_sh_r ),
+		new IO_ReadPort( 0xbe, 0xbe, sega_mult_r ),
+		new IO_ReadPort( 0xf8, 0xfb, sega_ports_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static PORT_WRITE_START( writeport )
-		{ 0xbd, 0xbd, sega_mult1_w },
-		{ 0xbe, 0xbe, sega_mult2_w },
-		{ 0xf8, 0xf8, sega_switch_w },
-		{ 0xf9, 0xf9, sega_coin_counter_w }, /* 0x80 = enable, 0x00 = disable */
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0xbd, 0xbd, sega_mult1_w ),
+		new IO_WritePort( 0xbe, 0xbe, sega_mult2_w ),
+		new IO_WritePort( 0xf8, 0xf8, sega_switch_w ),
+		new IO_WritePort( 0xf9, 0xf9, sega_coin_counter_w ), /* 0x80 = enable, 0x00 = disable */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

@@ -65,15 +65,19 @@ public class dorachan
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( readport )
+	public static IO_ReadPort readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
 	
-	PORT_END
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport )
-		{0x01, 0x01, IOWP_NOP},
-		{0x02, 0x02, IOWP_NOP},
-		{0x03, 0x03, dorachan_ctrl_w},
-	PORT_END
+	public static IO_WritePort writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(0x01, 0x01, IOWP_NOP),
+		new IO_WritePort(0x02, 0x02, IOWP_NOP),
+		new IO_WritePort(0x03, 0x03, dorachan_ctrl_w),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_dorachan = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dorachan )
 		PORT_START(); 

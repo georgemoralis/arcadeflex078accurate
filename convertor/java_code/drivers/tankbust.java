@@ -226,17 +226,21 @@ public class tankbust
 	};
 	
 	
-	static PORT_READ_START( readport2 )
-		{ 0xc0, 0xc0, AY8910_read_port_0_r },
-		{ 0x30, 0x30, AY8910_read_port_1_r },
-	PORT_END
+	public static IO_ReadPort readport2[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0xc0, 0xc0, AY8910_read_port_0_r ),
+		new IO_ReadPort( 0x30, 0x30, AY8910_read_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( writeport2 )
-		{ 0xc0, 0xc0, AY8910_control_port_0_w },
-		{ 0x40, 0x40, AY8910_write_port_0_w },
-		{ 0x30, 0x30, AY8910_control_port_1_w },
-		{ 0x10, 0x10, AY8910_write_port_1_w },
-	PORT_END
+	public static IO_WritePort writeport2[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0xc0, 0xc0, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x40, 0x40, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x30, 0x30, AY8910_control_port_1_w ),
+		new IO_WritePort( 0x10, 0x10, AY8910_write_port_1_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static Memory_ReadAddress readmem2[]={

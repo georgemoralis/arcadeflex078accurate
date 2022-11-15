@@ -93,16 +93,18 @@ public class crospang
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( crospang_sound_readport )
-		{ 0x00, 0x00, soundlatch_r },
-		{ 0x02, 0x02, OKIM6295_status_0_r },
-		{ 0x06, 0x06, MRA_NOP  },
+	public static IO_ReadPort crospang_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, soundlatch_r ),
+		new IO_ReadPort( 0x02, 0x02, OKIM6295_status_0_r ),
+		new IO_ReadPort( 0x06, 0x06, MRA_NOP  ),
 	MEMORY_END
 	
-	static PORT_WRITE_START( crospang_sound_writeport )
-		{ 0x00, 0x00, MWA_NOP },
-		{ 0x01, 0x01, MWA_NOP },
-		{ 0x02, 0x02, OKIM6295_data_0_w },
+	public static IO_WritePort crospang_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, MWA_NOP ),
+		new IO_WritePort( 0x01, 0x01, MWA_NOP ),
+		new IO_WritePort( 0x02, 0x02, OKIM6295_data_0_w ),
 	MEMORY_END
 	
 	static InputPortHandlerPtr input_ports_crospang = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( crospang )

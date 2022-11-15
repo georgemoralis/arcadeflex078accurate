@@ -111,21 +111,25 @@ public class yunsung8
 	};
 	
 	
-	static PORT_READ_START( yunsung8_readport )
-		{ 0x00, 0x00, input_port_0_r		},	// Coins
-		{ 0x01, 0x01, input_port_1_r		},	// P1
-		{ 0x02, 0x02, input_port_2_r		},	// P2
-		{ 0x03, 0x03, input_port_3_r		},	// DSW 1
-		{ 0x04, 0x04, input_port_4_r		},	// DSW 2
-	PORT_END
+	public static IO_ReadPort yunsung8_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, input_port_0_r		),	// Coins
+		new IO_ReadPort( 0x01, 0x01, input_port_1_r		),	// P1
+		new IO_ReadPort( 0x02, 0x02, input_port_2_r		),	// P2
+		new IO_ReadPort( 0x03, 0x03, input_port_3_r		),	// DSW 1
+		new IO_ReadPort( 0x04, 0x04, input_port_4_r		),	// DSW 2
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( yunsung8_writeport )
-		{ 0x00, 0x00, yunsung8_videobank_w	},	// Video RAM Bank
-		{ 0x01, 0x01, yunsung8_bankswitch_w	},	// ROM Bank + Layers Enable
-		{ 0x02, 0x02, soundlatch_w			},	// To Sound CPU
-		{ 0x06, 0x06, yunsung8_flipscreen_w	},	// Flip Screen
-		{ 0x07, 0x07, IOWP_NOP				},	// ? (end of IRQ, random value)
-	PORT_END
+	public static IO_WritePort yunsung8_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, yunsung8_videobank_w	),	// Video RAM Bank
+		new IO_WritePort( 0x01, 0x01, yunsung8_bankswitch_w	),	// ROM Bank + Layers Enable
+		new IO_WritePort( 0x02, 0x02, soundlatch_w			),	// To Sound CPU
+		new IO_WritePort( 0x06, 0x06, yunsung8_flipscreen_w	),	// Flip Screen
+		new IO_WritePort( 0x07, 0x07, IOWP_NOP				),	// ? (end of IRQ, random value)
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

@@ -266,12 +266,16 @@ public class sharrier
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( hangon_sound_readport )
-		{ 0x40, 0x40, soundlatch_r },
-	PORT_END
+	public static IO_ReadPort hangon_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x40, 0x40, soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hangon_sound_writeport )
-	PORT_END
+	public static IO_WritePort hangon_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/***************************************************************************/
 	
@@ -438,13 +442,17 @@ public class sharrier
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( harrier_sound_readport )
-		{ 0x40, 0x40, soundlatch_r },
-	PORT_END
+	public static IO_ReadPort harrier_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x40, 0x40, soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static PORT_WRITE_START( harrier_sound_writeport )
-	PORT_END
+	public static IO_WritePort harrier_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/***************************************************************************/
 	
@@ -668,12 +676,16 @@ public class sharrier
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( enduror_sound_readport )
-		{ 0x40, 0x40, soundlatch_r },
-	PORT_END
+	public static IO_ReadPort enduror_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x40, 0x40, soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( enduror_sound_writeport )
-	PORT_END
+	public static IO_WritePort enduror_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	public static Memory_ReadAddress enduror_b2_sound_readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
@@ -693,21 +705,25 @@ public class sharrier
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( enduror_b2_sound_readport )
-		{ 0x00, 0x00, YM2203_status_port_0_r },
-		{ 0x80, 0x80, YM2203_status_port_1_r },
-		{ 0xc0, 0xc0, YM2203_status_port_2_r },
-		{ 0x40, 0x40, soundlatch_r },
-	PORT_END
+	public static IO_ReadPort enduror_b2_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x00, 0x00, YM2203_status_port_0_r ),
+		new IO_ReadPort( 0x80, 0x80, YM2203_status_port_1_r ),
+		new IO_ReadPort( 0xc0, 0xc0, YM2203_status_port_2_r ),
+		new IO_ReadPort( 0x40, 0x40, soundlatch_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( enduror_b2_sound_writeport )
-		{ 0x00, 0x00, YM2203_control_port_0_w },
-		{ 0x01, 0x01, YM2203_write_port_0_w },
-		{ 0x80, 0x80, YM2203_control_port_1_w },
-		{ 0x81, 0x81, YM2203_write_port_1_w },
-		{ 0xc0, 0xc0, YM2203_control_port_2_w },
-		{ 0xc1, 0xc1, YM2203_write_port_2_w },
-	PORT_END
+	public static IO_WritePort enduror_b2_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, YM2203_control_port_0_w ),
+		new IO_WritePort( 0x01, 0x01, YM2203_write_port_0_w ),
+		new IO_WritePort( 0x80, 0x80, YM2203_control_port_1_w ),
+		new IO_WritePort( 0x81, 0x81, YM2203_write_port_1_w ),
+		new IO_WritePort( 0xc0, 0xc0, YM2203_control_port_2_w ),
+		new IO_WritePort( 0xc1, 0xc1, YM2203_write_port_2_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	/***************************************************************************/
 	

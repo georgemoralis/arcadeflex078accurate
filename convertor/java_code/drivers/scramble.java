@@ -356,13 +356,15 @@ public class scramble
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( sfx_sample_readport )
-		{ 0x04, 0x07, ppi8255_2_r },
+	public static IO_ReadPort sfx_sample_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x04, 0x07, ppi8255_2_r ),
 	MEMORY_END
 	
-	static PORT_WRITE_START( sfx_sample_writeport )
-		{ 0x04, 0x07, ppi8255_2_w },
-		{ 0x10, 0x10, DAC_0_signed_data_w },
+	public static IO_WritePort sfx_sample_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x04, 0x07, ppi8255_2_w ),
+		new IO_WritePort( 0x10, 0x10, DAC_0_signed_data_w ),
 	MEMORY_END
 	
 	
@@ -400,34 +402,44 @@ public class scramble
 	};
 	
 	
-	static PORT_READ_START( triplep_readport )
-		{ 0x01, 0x01, AY8910_read_port_0_r },
-		{ 0x02, 0x02, triplep_pip_r },
-		{ 0x03, 0x03, triplep_pap_r },
-	PORT_END
+	public static IO_ReadPort triplep_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x01, 0x01, AY8910_read_port_0_r ),
+		new IO_ReadPort( 0x02, 0x02, triplep_pip_r ),
+		new IO_ReadPort( 0x03, 0x03, triplep_pap_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( triplep_writeport )
-		{ 0x00, 0x00, AY8910_write_port_0_w },
-		{ 0x01, 0x01, AY8910_control_port_0_w },
-	PORT_END
-	
-	
-	static PORT_READ_START( hotshock_sound_readport )
-		{ 0x20, 0x20, AY8910_read_port_0_r },
-		{ 0x40, 0x40, AY8910_read_port_1_r },
-	PORT_END
-	
-	static PORT_WRITE_START( hotshock_sound_writeport )
-		{ 0x10, 0x10, AY8910_control_port_0_w },
-		{ 0x20, 0x20, AY8910_write_port_0_w },
-		{ 0x40, 0x40, AY8910_write_port_1_w },
-		{ 0x80, 0x80, AY8910_control_port_1_w },
-	PORT_END
+	public static IO_WritePort triplep_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x00, 0x00, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x01, 0x01, AY8910_control_port_0_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static PORT_READ_START( hunchbks_readport )
-	    { S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r },
-	PORT_END
+	public static IO_ReadPort hotshock_sound_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x20, 0x20, AY8910_read_port_0_r ),
+		new IO_ReadPort( 0x40, 0x40, AY8910_read_port_1_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
+	
+	public static IO_WritePort hotshock_sound_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x10, 0x10, AY8910_control_port_0_w ),
+		new IO_WritePort( 0x20, 0x20, AY8910_write_port_0_w ),
+		new IO_WritePort( 0x40, 0x40, AY8910_write_port_1_w ),
+		new IO_WritePort( 0x80, 0x80, AY8910_control_port_1_w ),
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
+	
+	
+	public static IO_ReadPort hunchbks_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+	    new IO_ReadPort( S2650_SENSE_PORT, S2650_SENSE_PORT, input_port_3_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

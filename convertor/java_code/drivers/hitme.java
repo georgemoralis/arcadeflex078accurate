@@ -256,19 +256,23 @@ public class hitme
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static PORT_READ_START( hitme_readport )
-		{ 0x14, 0x14, hitme_port_0_r },
-		{ 0x15, 0x15, hitme_port_1_r },
-		{ 0x16, 0x16, hitme_port_2_r },
-		{ 0x17, 0x17, hitme_port_3_r },
-		{ 0x18, 0x18, input_port_4_r },
-		{ 0x19, 0x19, input_port_5_r },
-	PORT_END
+	public static IO_ReadPort hitme_readport[]={
+		new IO_ReadPort(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_ReadPort( 0x14, 0x14, hitme_port_0_r ),
+		new IO_ReadPort( 0x15, 0x15, hitme_port_1_r ),
+		new IO_ReadPort( 0x16, 0x16, hitme_port_2_r ),
+		new IO_ReadPort( 0x17, 0x17, hitme_port_3_r ),
+		new IO_ReadPort( 0x18, 0x18, input_port_4_r ),
+		new IO_ReadPort( 0x19, 0x19, input_port_5_r ),
+		new IO_ReadPort(MEMPORT_MARKER, 0)
+	};
 	
-	static PORT_WRITE_START( hitme_writeport )
-		{ 0x1d, 0x1d, output_port_0_w }, /* OUT0 */
-	//	{ 0x1e, 0x1e, output_port_1_r }, /* OUT1 */
-	PORT_END
+	public static IO_WritePort hitme_writeport[]={
+		new IO_WritePort(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_IO | MEMPORT_WIDTH_8),
+		new IO_WritePort( 0x1d, 0x1d, output_port_0_w ), /* OUT0 */
+	//	new IO_WritePort( 0x1e, 0x1e, output_port_1_r ), /* OUT1 */
+		new IO_WritePort(MEMPORT_MARKER, 0)
+	};
 	
 	static MACHINE_DRIVER_START( hitme )
 	
