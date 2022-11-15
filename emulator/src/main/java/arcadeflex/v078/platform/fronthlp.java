@@ -6,6 +6,8 @@ package arcadeflex.v078.platform;
 //mame imports
 import static arcadeflex.v078.AAdummy.driver.drivers;
 import static arcadeflex.v078.mame.common.*;
+import arcadeflex.v078.mame.driverH.GameDriver;
+import arcadeflex.v078.mame.driverH.InternalMachineDriver;
 import static arcadeflex.v078.mame.driverH.NOT_A_DRIVER;
 import static arcadeflex.v078.mame.version.*;
 //platform imports
@@ -13,6 +15,7 @@ import static arcadeflex.v078.platform.rcH.*;
 //common imports
 import static common.libc.cstdio.*;
 import static common.libc.cstring.strchr;
+import static common.libc.cstring.stricmp;
 import static common.libc.cstring.strncmp;
 import static common.libc.cstring.strstr;
 
@@ -115,8 +118,7 @@ public class fronthlp {
         new rc_option("Frontend Related", null, rc_seperator, null, null, 0, 0, null, null),
         new rc_option("help", "h", rc_set_int, assign_help, null, 1, 0, null, "show help message"),
         new rc_option("?", null, rc_set_int, assign_help, null, 1, 0, null, "show help message"),
-        /*TODO*///
-        /*TODO*///	/* list options follow */
+        /* list options follow */
         new rc_option("list", "ls", rc_set_int, assign_list, null, LIST_SHORT, 0, null, "List supported games matching gamename, or all, gamename may contain * and ? wildcards"),
         new rc_option("listfull", "ll", rc_set_int, assign_list, null, LIST_FULL, 0, null, "short name, full name"),
         new rc_option("listgames", null, rc_set_int, assign_list, null, LIST_GAMES, 0, null, "year, manufacturer and full name"),
@@ -161,12 +163,11 @@ public class fronthlp {
 
     static int silentident, knownstatus;
 
-    /*TODO*///static const struct GameDriver *gamedrv;
-/*TODO*///
-/*TODO*////* compare string[8] using standard(?) DOS wildchars ('?' & '*')      */
-/*TODO*////* for this to work correctly, the shells internal wildcard expansion */
-/*TODO*////* mechanism has to be disabled. Look into msdos.c */
-/*TODO*///
+    static GameDriver gamedrv;
+
+    /* compare string[8] using standard(?) DOS wildchars ('?' & '*')      */
+ /* for this to work correctly, the shells internal wildcard expansion */
+ /* mechanism has to be disabled. Look into msdos.c */
     static int strwildcmp(String sp1, String sp2) {
         return 0; //TODO FIX ME 
         /*TODO*///	char s1[9], s2[9];
@@ -502,10 +503,10 @@ public class fronthlp {
 /*TODO*///
 /*TODO*///
     public static int frontend_help(String gamename) {
-        /*TODO*///	struct InternalMachineDriver drv;
+        InternalMachineDriver drv;
         int i, j;
-        /*TODO*///	const char *all_games = "*";
-/*TODO*///
+        String all_games = "*";
+
         /* display help unless a game or an utility are specified */
         if (gamename == null && help == 0 && list == 0 && ident == 0 && verify == 0) {
             help = 1;
@@ -626,31 +627,29 @@ public class fronthlp {
 /*TODO*///			return 0;
 /*TODO*///			break;
 /*TODO*///
-/*TODO*///		case LIST_ROMS: /* game roms list or */
-/*TODO*///		case LIST_SAMPLES: /* game samples list */
-/*TODO*///			j = 0;
-/*TODO*///			while (drivers[j] && (stricmp(gamename,drivers[j]->name) != 0))
-/*TODO*///				j++;
-/*TODO*///			if (drivers[j] == 0)
-/*TODO*///			{
-/*TODO*///				printf("Game \"%s\" not supported!\n",gamename);
-/*TODO*///				return 1;
-/*TODO*///			}
-/*TODO*///			gamedrv = drivers[j];
-/*TODO*///			if (list == LIST_ROMS)
-/*TODO*///				printromlist(gamedrv->rom,gamename);
-/*TODO*///			else
-/*TODO*///			{
-/*TODO*///#if (HAS_SAMPLES || HAS_VLM5030)
-/*TODO*///				int k;
+            case LIST_ROMS:
+            /* game roms list or */
+            case LIST_SAMPLES:
+                /* game samples list */
+                j = 0;
+                while (drivers[j] != null && (stricmp(gamename, drivers[j].name) != 0)) {
+                    j++;
+                }
+                if (drivers[j] == null) {
+                    printf("Game \"%s\" not supported!\n", gamename);
+                    return 1;
+                }
+                gamedrv = drivers[j];
+                if (list == LIST_ROMS) {
+                    printromlist(gamedrv.rom, gamename);
+                } else {
+                    /*TODO*///				int k;
 /*TODO*///				expand_machine_driver(gamedrv->drv, &drv);
 /*TODO*///				for( k = 0; drv.sound[k].sound_type && k < MAX_SOUND; k++ )
 /*TODO*///				{
 /*TODO*///					const char **samplenames = NULL;
-/*TODO*///#if (HAS_SAMPLES)
 /*TODO*///					if( drv.sound[k].sound_type == SOUND_SAMPLES )
 /*TODO*///							samplenames = ((struct Samplesinterface *)drv.sound[k].sound_interface)->samplenames;
-/*TODO*///#endif
 /*TODO*///					if (samplenames != 0 && samplenames[0] != 0)
 /*TODO*///					{
 /*TODO*///						i = 0;
@@ -661,12 +660,9 @@ public class fronthlp {
 /*TODO*///						}
 /*TODO*///					}
 /*TODO*///                }
-/*TODO*///#endif
-/*TODO*///			}
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///
-/*TODO*///		case LIST_LMR:
+                }
+                return 0;
+            /*TODO*///		case LIST_LMR:
 /*TODO*///			{
 /*TODO*///				int total;
 /*TODO*///

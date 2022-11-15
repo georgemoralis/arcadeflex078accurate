@@ -3,6 +3,8 @@
  */
 package arcadeflex.v078.mame;
 
+//mame imports
+import static arcadeflex.v078.mame.commonH.*;
 //common imports
 import static common.libc.cstdio.*;
 
@@ -88,7 +90,6 @@ public class common {
 /*TODO*////* system BIOS */
 /*TODO*///static int system_bios;
 /*TODO*///
-
     /**
      * *************************************************************************
      *
@@ -106,6 +107,7 @@ public class common {
                 + "images is a violation of copyright law and should be promptly reported to the\n"
                 + "authors so that appropriate legal action can be taken.\n\n");
     }
+
     /* MAURY_END: dichiarazione */
 
  /*TODO*///
@@ -1900,21 +1902,17 @@ public class common {
 /*TODO*///	return display_rom_load_results(&romdata);
 /*TODO*///}
 /*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	printromlist - print list of ROMs
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///void printromlist(const struct RomModule *romp,const char *basename)
-/*TODO*///{
-/*TODO*///	const struct RomModule *region, *rom, *chunk;
+
+    /*-------------------------------------------------
+	printromlist - print list of ROMs
+    -------------------------------------------------*/
+    public static void printromlist(RomModule[] romp, String basename) {
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///	const struct RomModule *region, *rom, *chunk;
 /*TODO*///	char buf[512];
 /*TODO*///
 /*TODO*///	if (!romp) return;
 /*TODO*///
-/*TODO*///#ifdef MESS
-/*TODO*///	if (!strcmp(basename,"nes")) return;
-/*TODO*///#endif
 /*TODO*///
 /*TODO*///	printf("This is the list of the ROMs required for driver \"%s\".\n"
 /*TODO*///			"Name              Size       Checksum\n",basename);
@@ -1954,6 +1952,5 @@ public class common {
 /*TODO*///			printf("\n");
 /*TODO*///		}
 /*TODO*///	}
-/*TODO*///}
-/*TODO*///    
+    }
 }

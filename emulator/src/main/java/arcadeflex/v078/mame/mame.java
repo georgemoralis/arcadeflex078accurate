@@ -3,6 +3,8 @@
  */
 package arcadeflex.v078.mame;
 
+import static common.libc.cstdio.printf;
+
 public class mame {
 
     /*TODO*////***************************************************************************
@@ -112,42 +114,28 @@ public class mame {
 /*TODO*///		- exits the program
 /*TODO*///
 /*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*///#include "driver.h"
-/*TODO*///#include <ctype.h>
-/*TODO*///#include <stdarg.h>
-/*TODO*///#include "ui_text.h"
-/*TODO*///#include "mamedbg.h"
-/*TODO*///#include "artwork.h"
-/*TODO*///#include "state.h"
-/*TODO*///#include "vidhrdw/generic.h"
-/*TODO*///#include "vidhrdw/vector.h"
-/*TODO*///#include "palette.h"
-/*TODO*///#include "harddisk.h"
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	Constants
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*///#define FRAMES_PER_FPS_UPDATE		12
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	Global variables
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*////* handy globals for other parts of the system */
+    /**
+     * *************************************************************************
+     *
+     * Constants
+     *
+     **************************************************************************
+     */
+    public static final int FRAMES_PER_FPS_UPDATE = 12;
+
+    /**
+     * *************************************************************************
+     *
+     * Global variables
+     *
+     **************************************************************************
+     */
+
+    /*TODO*////* handy globals for other parts of the system */
 /*TODO*///void *record;	/* for -record */
 /*TODO*///void *playback; /* for -playback */
-/*TODO*///int mame_debug; /* !0 when -debug option is specified */
-/*TODO*///int bailing;	/* set to 1 if the startup is aborted to prevent multiple error messages */
-/*TODO*///
+    static int bailing;/* set to 1 if the startup is aborted to prevent multiple error messages */
+ /*TODO*///
 /*TODO*////* the active machine */
 /*TODO*///static struct RunningMachine active_machine;
 /*TODO*///struct RunningMachine *Machine = &active_machine;
@@ -196,12 +184,6 @@ public class mame {
 /*TODO*///
 /*TODO*///***************************************************************************/
 /*TODO*///
-/*TODO*///static struct chd_interface_file *mame_chd_open(const char *filename, const char *mode);
-/*TODO*///static void mame_chd_close(struct chd_interface_file *file);
-/*TODO*///static UINT32 mame_chd_read(struct chd_interface_file *file, UINT64 offset, UINT32 count, void *buffer);
-/*TODO*///static UINT32 mame_chd_write(struct chd_interface_file *file, UINT64 offset, UINT32 count, const void *buffer);
-/*TODO*///static UINT64 mame_chd_length(struct chd_interface_file *file);
-/*TODO*///
 /*TODO*///static struct chd_interface mame_chd_interface =
 /*TODO*///{
 /*TODO*///	mame_chd_open,
@@ -210,62 +192,27 @@ public class mame {
 /*TODO*///	mame_chd_write,
 /*TODO*///	mame_chd_length
 /*TODO*///};
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	Other function prototypes
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*///static int init_machine(void);
-/*TODO*///static void shutdown_machine(void);
-/*TODO*///static int run_machine(void);
-/*TODO*///static void run_machine_core(void);
-/*TODO*///
-/*TODO*///#ifdef MAME_DEBUG
-/*TODO*///static int validitychecks(void);
-/*TODO*///#endif
-/*TODO*///
-/*TODO*///static void recompute_fps(int skipped_it);
-/*TODO*///static int vh_open(void);
-/*TODO*///static void vh_close(void);
-/*TODO*///static int init_game_options(void);
-/*TODO*///static int decode_graphics(const struct GfxDecodeInfo *gfxdecodeinfo);
-/*TODO*///static void compute_aspect_ratio(const struct InternalMachineDriver *drv, int *aspect_x, int *aspect_y);
-/*TODO*///static void scale_vectorgames(int gfx_width, int gfx_height, int *width, int *height);
-/*TODO*///static int init_buffered_spriteram(void);
-/*TODO*///
-/*TODO*///#ifdef MESS
-/*TODO*///#include "mesintrf.h"
-/*TODO*///#define handle_user_interface	handle_mess_user_interface
-/*TODO*///#endif
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	Inline functions
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	bail_and_print - set the bailing flag and
-/*TODO*///	print a message if one hasn't already been
-/*TODO*///	printed
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///INLINE void bail_and_print(const char *message)
-/*TODO*///{
-/*TODO*///	if (!bailing)
-/*TODO*///	{
-/*TODO*///		bailing = 1;
-/*TODO*///		printf("%s\n", message);
-/*TODO*///	}
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///
+
+    /**
+     * *************************************************************************
+     *
+     * Inline functions
+     *
+     **************************************************************************
+     */
+
+    /*-------------------------------------------------
+	bail_and_print - set the bailing flag and
+	print a message if one hasn't already been
+	printed
+    -------------------------------------------------*/
+    public static void bail_and_print(String message) {
+        if (bailing == 0) {
+            bailing = 1;
+            printf("%s\n", message);
+        }
+    }
+
     /**
      * *************************************************************************
      *
@@ -396,15 +343,6 @@ public class mame {
 /*TODO*///	/* now set up all the CPUs */
 /*TODO*///	cpu_init();
 /*TODO*///
-/*TODO*///#ifdef MESS
-/*TODO*///	/* initialize the devices */
-/*TODO*///	if (devices_init(gamedrv) || devices_initialload(gamedrv, TRUE))
-/*TODO*///	{
-/*TODO*///		logerror("devices_init failed\n");
-/*TODO*///		goto cant_load_roms;
-/*TODO*///	}
-/*TODO*///#endif
-/*TODO*///
 /*TODO*///	/* load input ports settings (keys, dip switches, and so on) */
 /*TODO*///	settingsloaded = load_input_port_settings();
 /*TODO*///
@@ -422,14 +360,6 @@ public class mame {
 /*TODO*///	if (gamedrv->driver_init)
 /*TODO*///		(*gamedrv->driver_init)();
 /*TODO*///
-/*TODO*///#ifdef MESS
-/*TODO*///	/* initialize the devices */
-/*TODO*///	if (devices_initialload(gamedrv, FALSE))
-/*TODO*///	{
-/*TODO*///		logerror("devices_initialload failed\n");
-/*TODO*///		goto cant_load_roms;
-/*TODO*///	}
-/*TODO*///#endif
 /*TODO*///
 /*TODO*///	return 0;
 /*TODO*///
@@ -695,11 +625,7 @@ public class mame {
 /*TODO*///	params.video_attributes = Machine->drv->video_attributes;
 /*TODO*///	params.orientation = Machine->orientation;
 /*TODO*///
-/*TODO*///#ifdef MESS
-/*TODO*///	artcallbacks = &mess_artwork_callbacks;
-/*TODO*///#else
 /*TODO*///	artcallbacks = &mame_artwork_callbacks;
-/*TODO*///#endif
 /*TODO*///
 /*TODO*///	/* initialize the display through the artwork (and eventually the OSD) layer */
 /*TODO*///	if (artwork_create_display(&params, direct_rgb_components, artcallbacks))
@@ -736,24 +662,6 @@ public class mame {
 /*TODO*///	if (Machine->uifont == NULL)
 /*TODO*///		goto cant_build_uifont;
 /*TODO*///
-/*TODO*///#ifdef MAME_DEBUG
-/*TODO*///	/* if the debugger is enabled, initialize its bitmap and font */
-/*TODO*///	if (mame_debug)
-/*TODO*///	{
-/*TODO*///		int depth = options.debug_depth ? options.debug_depth : Machine->color_depth;
-/*TODO*///
-/*TODO*///		/* first allocate the debugger bitmap */
-/*TODO*///		Machine->debug_bitmap = auto_bitmap_alloc_depth(options.debug_width, options.debug_height, depth);
-/*TODO*///		if (!Machine->debug_bitmap)
-/*TODO*///			goto cant_create_debug_bitmap;
-/*TODO*///
-/*TODO*///		/* then create the debugger font */
-/*TODO*///		Machine->debugger_font = build_debugger_font();
-/*TODO*///		if (Machine->debugger_font == NULL)
-/*TODO*///			goto cant_build_debugger_font;
-/*TODO*///	}
-/*TODO*///#endif
-/*TODO*///
 /*TODO*///	/* initialize the palette - must be done after osd_create_display() */
 /*TODO*///	if (palette_init())
 /*TODO*///		goto cant_init_palette;
@@ -775,12 +683,6 @@ public class mame {
 /*TODO*///	return 0;
 /*TODO*///
 /*TODO*///cant_init_palette:
-/*TODO*///
-/*TODO*///#ifdef MAME_DEBUG
-/*TODO*///cant_build_debugger_font:
-/*TODO*///cant_create_debug_bitmap:
-/*TODO*///#endif
-/*TODO*///
 /*TODO*///cant_build_uifont:
 /*TODO*///cant_init_buffered_spriteram:
 /*TODO*///cant_create_scrbitmap:
@@ -860,7 +762,6 @@ public class mame {
 /*TODO*///	/* copy some settings into easier-to-handle variables */
 /*TODO*///	record	   = options.record;
 /*TODO*///	playback   = options.playback;
-/*TODO*///	mame_debug = options.mame_debug;
 /*TODO*///
 /*TODO*///	/* determine the color depth */
 /*TODO*///	Machine->color_depth = 16;
@@ -1192,10 +1093,6 @@ public class mame {
 /*TODO*///{
 /*TODO*///	int skipped_it = osd_skip_this_frame();
 /*TODO*///
-/*TODO*///#ifdef MAME_DEBUG
-/*TODO*///	debug_trace_delay = 0;
-/*TODO*///#endif
-/*TODO*///
 /*TODO*///	/* fill in our portion of the display */
 /*TODO*///	current_display.changed_flags = 0;
 /*TODO*///
@@ -1217,22 +1114,6 @@ public class mame {
 /*TODO*///			current_display.vector_dirty_pixels = vector_dirty_list;
 /*TODO*///			current_display.changed_flags |= VECTOR_PIXELS_CHANGED;
 /*TODO*///		}
-/*TODO*///
-/*TODO*///#ifdef MAME_DEBUG
-/*TODO*///	/* set the debugger bitmap */
-/*TODO*///	current_display.debug_bitmap = Machine->debug_bitmap;
-/*TODO*///	if (debugger_bitmap_changed)
-/*TODO*///		current_display.changed_flags |= DEBUG_BITMAP_CHANGED;
-/*TODO*///	debugger_bitmap_changed = 0;
-/*TODO*///
-/*TODO*///	/* adjust the debugger focus */
-/*TODO*///	if (debugger_focus != current_display.debug_focus)
-/*TODO*///	{
-/*TODO*///		current_display.debug_focus = debugger_focus;
-/*TODO*///		current_display.changed_flags |= DEBUG_FOCUS_CHANGED;
-/*TODO*///	}
-/*TODO*///#endif
-/*TODO*///
 /*TODO*///	/* set the LED status */
 /*TODO*///	if (leds_status != current_display.led_state)
 /*TODO*///	{
@@ -1632,555 +1513,4 @@ public class mame {
 /*TODO*///	return mame_fsize((mame_file *)file);
 /*TODO*///}
 /*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	Huge bunch of validity checks for the debug build
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*///#ifdef MAME_DEBUG
-/*TODO*///
-/*TODO*///INLINE int my_stricmp(const char *dst, const char *src)
-/*TODO*///{
-/*TODO*///	while (*src && *dst)
-/*TODO*///	{
-/*TODO*///		if (tolower(*src) != tolower(*dst))
-/*TODO*///			return *dst - *src;
-/*TODO*///		src++;
-/*TODO*///		dst++;
-/*TODO*///	}
-/*TODO*///	return *dst - *src;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///static int validitychecks(void)
-/*TODO*///{
-/*TODO*///	int i,j,cpu;
-/*TODO*///	UINT8 a,b;
-/*TODO*///	int error = 0;
-/*TODO*///
-/*TODO*///
-/*TODO*///	a = 0xff;
-/*TODO*///	b = a + 1;
-/*TODO*///	if (b > a)	{ printf("UINT8 must be 8 bits\n"); error = 1; }
-/*TODO*///
-/*TODO*///	if (sizeof(INT8)   != 1)	{ printf("INT8 must be 8 bits\n"); error = 1; }
-/*TODO*///	if (sizeof(UINT8)  != 1)	{ printf("UINT8 must be 8 bits\n"); error = 1; }
-/*TODO*///	if (sizeof(INT16)  != 2)	{ printf("INT16 must be 16 bits\n"); error = 1; }
-/*TODO*///	if (sizeof(UINT16) != 2)	{ printf("UINT16 must be 16 bits\n"); error = 1; }
-/*TODO*///	if (sizeof(INT32)  != 4)	{ printf("INT32 must be 32 bits\n"); error = 1; }
-/*TODO*///	if (sizeof(UINT32) != 4)	{ printf("UINT32 must be 32 bits\n"); error = 1; }
-/*TODO*///	if (sizeof(INT64)  != 8)	{ printf("INT64 must be 64 bits\n"); error = 1; }
-/*TODO*///	if (sizeof(UINT64) != 8)	{ printf("UINT64 must be 64 bits\n"); error = 1; }
-/*TODO*///
-/*TODO*///	for (i = 0;drivers[i];i++)
-/*TODO*///	{
-/*TODO*///		struct InternalMachineDriver drv;
-/*TODO*///		const struct RomModule *romp;
-/*TODO*///		const struct InputPortTiny *inp;
-/*TODO*///
-/*TODO*///		expand_machine_driver(drivers[i]->drv, &drv);
-/*TODO*///
-/*TODO*///		if (drivers[i]->clone_of == drivers[i])
-/*TODO*///		{
-/*TODO*///			printf("%s: %s is set as a clone of itself\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///			error = 1;
-/*TODO*///		}
-/*TODO*///
-/*TODO*///		if (drivers[i]->clone_of && drivers[i]->clone_of->clone_of)
-/*TODO*///		{
-/*TODO*///			if ((drivers[i]->clone_of->clone_of->flags & NOT_A_DRIVER) == 0)
-/*TODO*///			{
-/*TODO*///				printf("%s: %s is a clone of a clone\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///				error = 1;
-/*TODO*///			}
-/*TODO*///		}
-/*TODO*///
-/*TODO*///#if 0
-/*TODO*/////		if (drivers[i]->drv->color_table_len == drivers[i]->drv->total_colors &&
-/*TODO*///		if (drivers[i]->drv->color_table_len && drivers[i]->drv->total_colors &&
-/*TODO*///				drivers[i]->drv->vh_init_palette == 0)
-/*TODO*///		{
-/*TODO*///			printf("%s: %s could use color_table_len = 0\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///			error = 1;
-/*TODO*///		}
-/*TODO*///#endif
-/*TODO*///
-/*TODO*///		for (j = i+1;drivers[j];j++)
-/*TODO*///		{
-/*TODO*///			if (!strcmp(drivers[i]->name,drivers[j]->name))
-/*TODO*///			{
-/*TODO*///				printf("%s: %s is a duplicate name (%s, %s)\n",drivers[i]->source_file,drivers[i]->name,drivers[i]->source_file,drivers[j]->source_file);
-/*TODO*///				error = 1;
-/*TODO*///			}
-/*TODO*///			if (!strcmp(drivers[i]->description,drivers[j]->description))
-/*TODO*///			{
-/*TODO*///				printf("%s: %s is a duplicate description (%s, %s)\n",drivers[i]->description,drivers[i]->source_file,drivers[i]->name,drivers[j]->name);
-/*TODO*///				error = 1;
-/*TODO*///			}
-/*TODO*///#ifndef MESS
-/*TODO*///			if (drivers[i]->rom && drivers[i]->rom == drivers[j]->rom
-/*TODO*///					&& (drivers[i]->flags & NOT_A_DRIVER) == 0
-/*TODO*///					&& (drivers[j]->flags & NOT_A_DRIVER) == 0)
-/*TODO*///			{
-/*TODO*///				printf("%s: %s and %s use the same ROM set\n",drivers[i]->source_file,drivers[i]->name,drivers[j]->name);
-/*TODO*///				error = 1;
-/*TODO*///			}
-/*TODO*///#endif
-/*TODO*///		}
-/*TODO*///
-/*TODO*///#ifndef MESS
-/*TODO*///		if ((drivers[i]->flags & NOT_A_DRIVER) == 0)
-/*TODO*///		{
-/*TODO*///			if (drv.sound[0].sound_type == 0 && (drivers[i]->flags & GAME_NO_SOUND) == 0 &&
-/*TODO*///					strcmp(drivers[i]->name,"minivadr"))
-/*TODO*///			{
-/*TODO*///				printf("%s: %s missing GAME_NO_SOUND flag\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///				error = 1;
-/*TODO*///			}
-/*TODO*///		}
-/*TODO*///#endif
-/*TODO*///
-/*TODO*///		romp = drivers[i]->rom;
-/*TODO*///
-/*TODO*///		if (romp)
-/*TODO*///		{
-/*TODO*///			int region_type_used[REGION_MAX];
-/*TODO*///			int region_length[REGION_MAX];
-/*TODO*///			const char *last_name = 0;
-/*TODO*///			int count = -1;
-/*TODO*///
-/*TODO*///			for (j = 0;j < REGION_MAX;j++)
-/*TODO*///			{
-/*TODO*///				region_type_used[j] = 0;
-/*TODO*///				region_length[j] = 0;
-/*TODO*///			}
-/*TODO*///
-/*TODO*///			while (!ROMENTRY_ISEND(romp))
-/*TODO*///			{
-/*TODO*///				const char *c;
-/*TODO*///
-/*TODO*///				if (ROMENTRY_ISREGION(romp))
-/*TODO*///				{
-/*TODO*///					int type = ROMREGION_GETTYPE(romp);
-/*TODO*///
-/*TODO*///					count++;
-/*TODO*///					if (type && (type >= REGION_MAX || type <= REGION_INVALID))
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has invalid ROM_REGION type %x\n",drivers[i]->source_file,drivers[i]->name,type);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					region_type_used[type]++;
-/*TODO*///					region_length[type] = region_length[count] = ROMREGION_GETLENGTH(romp);
-/*TODO*///				}
-/*TODO*///				if (ROMENTRY_ISFILE(romp))
-/*TODO*///				{
-/*TODO*///					const char *hash;
-/*TODO*///
-/*TODO*///					last_name = c = ROM_GETNAME(romp);
-/*TODO*///					while (*c)
-/*TODO*///					{
-/*TODO*///						if (tolower(*c) != *c)
-/*TODO*///						{
-/*TODO*///							printf("%s: %s has upper case ROM name %s\n",drivers[i]->source_file,drivers[i]->name,ROM_GETNAME(romp));
-/*TODO*///							error = 1;
-/*TODO*///						}
-/*TODO*///						c++;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					hash = ROM_GETHASHDATA(romp);
-/*TODO*///					if (!hash_verify_string(hash))
-/*TODO*///					{
-/*TODO*///						printf("%s: rom '%s' has an invalid hash string '%s'\n", drivers[i]->name, ROM_GETNAME(romp), hash);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///				}
-/*TODO*///				if (!ROMENTRY_ISREGIONEND(romp))						/* ROM_LOAD_XXX() */
-/*TODO*///				{
-/*TODO*///					if (ROM_GETOFFSET(romp) + ROM_GETLENGTH(romp) > region_length[count])
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has ROM %s extending past the defined memory region\n",drivers[i]->source_file,drivers[i]->name,last_name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///				}
-/*TODO*///				romp++;
-/*TODO*///			}
-/*TODO*///
-/*TODO*///			for (j = 1;j < REGION_MAX;j++)
-/*TODO*///			{
-/*TODO*///				if (region_type_used[j] > 1)
-/*TODO*///				{
-/*TODO*///					printf("%s: %s has duplicated ROM_REGION type %x\n",drivers[i]->source_file,drivers[i]->name,j);
-/*TODO*///					error = 1;
-/*TODO*///				}
-/*TODO*///			}
-/*TODO*///
-/*TODO*///
-/*TODO*///			for (cpu = 0;cpu < MAX_CPU;cpu++)
-/*TODO*///			{
-/*TODO*///				if (drv.cpu[cpu].cpu_type)
-/*TODO*///				{
-/*TODO*///					int alignunit,databus_width;
-/*TODO*///
-/*TODO*///
-/*TODO*///					alignunit = cputype_align_unit(drv.cpu[cpu].cpu_type);
-/*TODO*///					databus_width = cputype_databus_width(drv.cpu[cpu].cpu_type);
-/*TODO*///
-/*TODO*///					if (drv.cpu[cpu].memory_read)
-/*TODO*///					{
-/*TODO*///						const struct Memory_ReadAddress *mra = drv.cpu[cpu].memory_read;
-/*TODO*///
-/*TODO*///						if (!IS_MEMPORT_MARKER(mra) || (mra->end & MEMPORT_DIRECTION_MASK) != MEMPORT_DIRECTION_READ)
-/*TODO*///						{
-/*TODO*///							printf("%s: %s wrong MEMPORT_READ_START\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///							error = 1;
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						switch (databus_width)
-/*TODO*///						{
-/*TODO*///							case 8:
-/*TODO*///								if ((mra->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_8)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width memory handlers! (width = %d, memory = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,mra->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///							case 16:
-/*TODO*///								if ((mra->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_16)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width memory handlers! (width = %d, memory = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,mra->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///							case 32:
-/*TODO*///								if ((mra->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_32)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width memory handlers! (width = %d, memory = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,mra->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						while (!IS_MEMPORT_END(mra))
-/*TODO*///						{
-/*TODO*///							if (!IS_MEMPORT_MARKER(mra))
-/*TODO*///							{
-/*TODO*///								if (mra->end < mra->start)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s wrong memory read handler start = %08x > end = %08x\n",drivers[i]->source_file,drivers[i]->name,mra->start,mra->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								if ((mra->start & (alignunit-1)) != 0 || (mra->end & (alignunit-1)) != (alignunit-1))
-/*TODO*///								{
-/*TODO*///									printf("%s: %s wrong memory read handler start = %08x, end = %08x ALIGN = %d\n",drivers[i]->source_file,drivers[i]->name,mra->start,mra->end,alignunit);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///							}
-/*TODO*///							mra++;
-/*TODO*///						}
-/*TODO*///					}
-/*TODO*///					if (drv.cpu[cpu].memory_write)
-/*TODO*///					{
-/*TODO*///						const struct Memory_WriteAddress *mwa = drv.cpu[cpu].memory_write;
-/*TODO*///
-/*TODO*///						if (mwa->start != MEMPORT_MARKER ||
-/*TODO*///								(mwa->end & MEMPORT_DIRECTION_MASK) != MEMPORT_DIRECTION_WRITE)
-/*TODO*///						{
-/*TODO*///							printf("%s: %s wrong MEMPORT_WRITE_START\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///							error = 1;
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						switch (databus_width)
-/*TODO*///						{
-/*TODO*///							case 8:
-/*TODO*///								if ((mwa->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_8)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width memory handlers! (width = %d, memory = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,mwa->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///							case 16:
-/*TODO*///								if ((mwa->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_16)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width memory handlers! (width = %d, memory = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,mwa->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///							case 32:
-/*TODO*///								if ((mwa->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_32)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width memory handlers! (width = %d, memory = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,mwa->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						while (!IS_MEMPORT_END(mwa))
-/*TODO*///						{
-/*TODO*///							if (!IS_MEMPORT_MARKER(mwa))
-/*TODO*///							{
-/*TODO*///								if (mwa->end < mwa->start)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s wrong memory write handler start = %08x > end = %08x\n",drivers[i]->source_file,drivers[i]->name,mwa->start,mwa->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								if ((mwa->start & (alignunit-1)) != 0 || (mwa->end & (alignunit-1)) != (alignunit-1))
-/*TODO*///								{
-/*TODO*///									printf("%s: %s wrong memory write handler start = %08x, end = %08x ALIGN = %d\n",drivers[i]->source_file,drivers[i]->name,mwa->start,mwa->end,alignunit);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///							}
-/*TODO*///							mwa++;
-/*TODO*///						}
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (drv.cpu[cpu].port_read)
-/*TODO*///					{
-/*TODO*///						const struct IO_ReadPort *pra = drv.cpu[cpu].port_read;
-/*TODO*///
-/*TODO*///						if (!IS_MEMPORT_MARKER(pra) || (pra->end & MEMPORT_DIRECTION_MASK) != MEMPORT_DIRECTION_READ)
-/*TODO*///						{
-/*TODO*///							printf("%s: %s wrong PORT_READ_START\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///							error = 1;
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						switch (databus_width)
-/*TODO*///						{
-/*TODO*///							case 8:
-/*TODO*///								if ((pra->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_8)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width port handlers! (width = %d, port = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,pra->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///							case 16:
-/*TODO*///								if ((pra->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_16)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width port handlers! (width = %d, port = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,pra->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///							case 32:
-/*TODO*///								if ((pra->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_32)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width port handlers! (width = %d, port = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,pra->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						while (!IS_MEMPORT_END(pra))
-/*TODO*///						{
-/*TODO*///							if (!IS_MEMPORT_MARKER(pra))
-/*TODO*///							{
-/*TODO*///								if (pra->end < pra->start)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s wrong port read handler start = %08x > end = %08x\n",drivers[i]->source_file,drivers[i]->name,pra->start,pra->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								if ((pra->start & (alignunit-1)) != 0 || (pra->end & (alignunit-1)) != (alignunit-1))
-/*TODO*///								{
-/*TODO*///									printf("%s: %s wrong port read handler start = %08x, end = %08x ALIGN = %d\n",drivers[i]->source_file,drivers[i]->name,pra->start,pra->end,alignunit);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///
-/*TODO*///							}
-/*TODO*///							pra++;
-/*TODO*///						}
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (drv.cpu[cpu].port_write)
-/*TODO*///					{
-/*TODO*///						const struct IO_WritePort *pwa = drv.cpu[cpu].port_write;
-/*TODO*///
-/*TODO*///						if (pwa->start != MEMPORT_MARKER ||
-/*TODO*///								(pwa->end & MEMPORT_DIRECTION_MASK) != MEMPORT_DIRECTION_WRITE)
-/*TODO*///						{
-/*TODO*///							printf("%s: %s wrong PORT_WRITE_START\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///							error = 1;
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						switch (databus_width)
-/*TODO*///						{
-/*TODO*///							case 8:
-/*TODO*///								if ((pwa->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_8)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width port handlers! (width = %d, port = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,pwa->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///							case 16:
-/*TODO*///								if ((pwa->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_16)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width port handlers! (width = %d, port = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,pwa->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///							case 32:
-/*TODO*///								if ((pwa->end & MEMPORT_WIDTH_MASK) != MEMPORT_WIDTH_32)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s cpu #%d uses wrong data width port handlers! (width = %d, port = %08x)\n",drivers[i]->source_file,drivers[i]->name,cpu,databus_width,pwa->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								break;
-/*TODO*///						}
-/*TODO*///
-/*TODO*///						while (!IS_MEMPORT_END(pwa))
-/*TODO*///						{
-/*TODO*///							if (!IS_MEMPORT_MARKER(pwa))
-/*TODO*///							{
-/*TODO*///								if (pwa->end < pwa->start)
-/*TODO*///								{
-/*TODO*///									printf("%s: %s wrong port write handler start = %08x > end = %08x\n",drivers[i]->source_file,drivers[i]->name,pwa->start,pwa->end);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///								if ((pwa->start & (alignunit-1)) != 0 || (pwa->end & (alignunit-1)) != (alignunit-1))
-/*TODO*///								{
-/*TODO*///									printf("%s: %s wrong port write handler start = %08x, end = %08x ALIGN = %d\n",drivers[i]->source_file,drivers[i]->name,pwa->start,pwa->end,alignunit);
-/*TODO*///									error = 1;
-/*TODO*///								}
-/*TODO*///
-/*TODO*///							}
-/*TODO*///							pwa++;
-/*TODO*///						}
-/*TODO*///					}
-/*TODO*///
-/*TODO*///				}
-/*TODO*///			}
-/*TODO*///
-/*TODO*///
-/*TODO*///			if (drv.gfxdecodeinfo)
-/*TODO*///			{
-/*TODO*///				for (j = 0;j < MAX_GFX_ELEMENTS && drv.gfxdecodeinfo[j].memory_region != -1;j++)
-/*TODO*///				{
-/*TODO*///					int len,avail,k,start;
-/*TODO*///					int type = drv.gfxdecodeinfo[j].memory_region;
-/*TODO*///
-/*TODO*///
-/*TODO*////*
-/*TODO*///					if (type && (type >= REGION_MAX || type <= REGION_INVALID))
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has invalid memory region for gfx[%d]\n",drivers[i]->source_file,drivers[i]->name,j);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///*/
-/*TODO*///
-/*TODO*///					if (!IS_FRAC(drv.gfxdecodeinfo[j].gfxlayout->total))
-/*TODO*///					{
-/*TODO*///						start = 0;
-/*TODO*///						for (k = 0;k < MAX_GFX_PLANES;k++)
-/*TODO*///						{
-/*TODO*///							if (drv.gfxdecodeinfo[j].gfxlayout->planeoffset[k] > start)
-/*TODO*///								start = drv.gfxdecodeinfo[j].gfxlayout->planeoffset[k];
-/*TODO*///						}
-/*TODO*///						start &= ~(drv.gfxdecodeinfo[j].gfxlayout->charincrement-1);
-/*TODO*///						len = drv.gfxdecodeinfo[j].gfxlayout->total *
-/*TODO*///								drv.gfxdecodeinfo[j].gfxlayout->charincrement;
-/*TODO*///						avail = region_length[type]
-/*TODO*///								- (drv.gfxdecodeinfo[j].start & ~(drv.gfxdecodeinfo[j].gfxlayout->charincrement/8-1));
-/*TODO*///						if ((start + len) / 8 > avail)
-/*TODO*///						{
-/*TODO*///							printf("%s: %s has gfx[%d] extending past allocated memory\n",drivers[i]->source_file,drivers[i]->name,j);
-/*TODO*///							error = 1;
-/*TODO*///						}
-/*TODO*///					}
-/*TODO*///				}
-/*TODO*///			}
-/*TODO*///		}
-/*TODO*///
-/*TODO*///
-/*TODO*///		inp = drivers[i]->input_ports;
-/*TODO*///
-/*TODO*///		if (inp)
-/*TODO*///		{
-/*TODO*///			while (inp->type != IPT_END)
-/*TODO*///			{
-/*TODO*///				if (inp->name && inp->name != IP_NAME_DEFAULT)
-/*TODO*///				{
-/*TODO*///					j = 0;
-/*TODO*///
-/*TODO*///					for (j = 0;j < STR_TOTAL;j++)
-/*TODO*///					{
-/*TODO*///						if (inp->name == ipdn_defaultstrings[j]) break;
-/*TODO*///						else if (!my_stricmp(inp->name,ipdn_defaultstrings[j]))
-/*TODO*///						{
-/*TODO*///							printf("%s: %s must use DEF_STR( %s )\n",drivers[i]->source_file,drivers[i]->name,inp->name);
-/*TODO*///							error = 1;
-/*TODO*///						}
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (inp->name == DEF_STR( On ) && (inp+1)->name == DEF_STR( Off ))
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has inverted Off/On dipswitch order\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (inp->name == DEF_STR( Yes ) && (inp+1)->name == DEF_STR( No ))
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has inverted No/Yes dipswitch order\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (!my_stricmp(inp->name,"table"))
-/*TODO*///					{
-/*TODO*///						printf("%s: %s must use DEF_STR( Cocktail ), not %s\n",drivers[i]->source_file,drivers[i]->name,inp->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (inp->name == DEF_STR( Cabinet ) && (inp+1)->name == DEF_STR( Upright )
-/*TODO*///							&& inp->default_value != (inp+1)->default_value)
-/*TODO*///					{
-/*TODO*///						printf("%s: %s Cabinet must default to Upright\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (inp->name == DEF_STR( Cocktail ) && (inp+1)->name == DEF_STR( Upright ))
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has inverted Upright/Cocktail dipswitch order\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (inp->name >= DEF_STR( 9C_1C ) && inp->name <= DEF_STR( Free_Play )
-/*TODO*///							&& (inp+1)->name >= DEF_STR( 9C_1C ) && (inp+1)->name <= DEF_STR( Free_Play )
-/*TODO*///							&& inp->name >= (inp+1)->name)
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has unsorted coinage %s > %s\n",drivers[i]->source_file,drivers[i]->name,inp->name,(inp+1)->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (inp->name == DEF_STR( Flip_Screen ) && (inp+1)->name != DEF_STR( Off ))
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has wrong Flip Screen option %s\n",drivers[i]->source_file,drivers[i]->name,(inp+1)->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (inp->name == DEF_STR( Demo_Sounds ) && (inp+2)->name == DEF_STR( On )
-/*TODO*///							&& inp->default_value != (inp+2)->default_value)
-/*TODO*///					{
-/*TODO*///						printf("%s: %s Demo Sounds must default to On\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///
-/*TODO*///					if (inp->name == DEF_STR( Demo_Sounds ) && (inp+1)->name == DEF_STR( No ))
-/*TODO*///					{
-/*TODO*///						printf("%s: %s has wrong Demo Sounds option No instead of Off\n",drivers[i]->source_file,drivers[i]->name);
-/*TODO*///						error = 1;
-/*TODO*///					}
-/*TODO*///				}
-/*TODO*///
-/*TODO*///				inp++;
-/*TODO*///			}
-/*TODO*///		}
-/*TODO*///	}
-/*TODO*///
-/*TODO*///	return error;
-/*TODO*///}
-/*TODO*///#endif
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///    
 }
