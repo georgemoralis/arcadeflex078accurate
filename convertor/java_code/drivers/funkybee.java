@@ -53,12 +53,7 @@ public class funkybee
 {
 	
 	
-	extern WRITE_HANDLER( funkybee_videoram_w );
-	extern WRITE_HANDLER( funkybee_colorram_w );
-	extern WRITE_HANDLER( funkybee_gfx_bank_w );
-	extern WRITE_HANDLER( funkybee_scroll_w );
-	extern WRITE_HANDLER( funkybee_flipscreen_w );
-	
+	extern extern extern extern extern 
 	extern extern extern 
 	
 	public static ReadHandlerPtr funkybee_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -66,10 +61,9 @@ public class funkybee
 		return input_port_0_r(offset);
 	} };
 	
-	static WRITE_HANDLER( funkybee_coin_counter_w )
-	{
+	public static WriteHandlerPtr funkybee_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x4fff, MRA_ROM },

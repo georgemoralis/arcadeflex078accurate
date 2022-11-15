@@ -70,20 +70,17 @@ public class skyraid
 	} };
 	
 	
-	static WRITE_HANDLER( skyraid_zeropage_w )
-	{
+	public static WriteHandlerPtr skyraid_zeropage_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		memory_region(REGION_CPU1)[offset & 0xff] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( skyraid_alpha_num_w )
-	{
+	public static WriteHandlerPtr skyraid_alpha_num_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		skyraid_alpha_num_ram[offset & 0x7f] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( skyraid_sound_w )
-	{
+	public static WriteHandlerPtr skyraid_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* BIT0 => PLANE SWEEP */
 		/* BIT1 => MISSILE     */
 		/* BIT2 => EXPLOSION   */
@@ -92,25 +89,22 @@ public class skyraid
 		/* BIT5 => ATTRACT     */
 	
 		set_led_status(0, !(data & 0x08));
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( skyraid_range_w )
-	{
+	public static WriteHandlerPtr skyraid_range_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		analog_range = data & 0x3f;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( skyraid_offset_w )
-	{
+	public static WriteHandlerPtr skyraid_offset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		analog_offset = data & 0x3f;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( skyraid_scroll_w )
-	{
+	public static WriteHandlerPtr skyraid_scroll_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		skyraid_scroll = data;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( skyraid_readmem )

@@ -9,8 +9,7 @@ public class gottlieb
 	
 	
 	
-	WRITE_HANDLER( gottlieb_sh_w )
-	{
+	public static WriteHandlerPtr gottlieb_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int score_sample=7;
 		static int random_offset=0;
 		data &= 0x3f;
@@ -86,7 +85,7 @@ public class gottlieb
 				break;
 			}
 		}
-	}
+	} };
 	
 	
 	void gottlieb_knocker(void)
@@ -121,8 +120,7 @@ public class gottlieb
 	};
 	
 	
-	WRITE_HANDLER( gottlieb_speech_w )
-	{
+	public static WriteHandlerPtr gottlieb_speech_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int queue[100],pos;
 	
 		data ^= 255;
@@ -155,10 +153,9 @@ public class gottlieb
 	
 		/* generate a NMI after a while to make the CPU continue to send data */
 		timer_set(TIME_IN_USEC(50),0,gottlieb_nmi_generate);
-	}
+	} };
 	
-	WRITE_HANDLER( gottlieb_speech_clock_DAC_w )
-	{}
+	public static WriteHandlerPtr gottlieb_speech_clock_DAC_w = new WriteHandlerPtr() {public void handler(int offset, int data){} };
 	
 	
 	
@@ -173,10 +170,9 @@ public class gottlieb
 	    return riot_ram[offset&0x7f];
 	} };
 	
-	WRITE_HANDLER( riot_ram_w )
-	{
+	public static WriteHandlerPtr riot_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		riot_ram[offset&0x7f]=data;
-	}
+	} };
 	
 	static unsigned char riot_regs[32];
 	    /* lazy handling of the 6532's I/O, and no handling of timers at all */
@@ -194,10 +190,9 @@ public class gottlieb
 	    }
 	} };
 	
-	WRITE_HANDLER( gottlieb_riot_w )
-	{
+	public static WriteHandlerPtr gottlieb_riot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    riot_regs[offset&0x1f]=data;
-	}
+	} };
 	
 	
 	
@@ -225,10 +220,9 @@ public class gottlieb
 		return 0xc0;
 	} };
 	
-	WRITE_HANDLER( stooges_8910_latch_w )
-	{
+	public static WriteHandlerPtr stooges_8910_latch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		psg_latch = data;
-	}
+	} };
 	
 	/* callback for the timer */
 	static void nmi_callback(int param)
@@ -236,8 +230,7 @@ public class gottlieb
 		cpu_set_irq_line(cpu_gettotalcpu()-1, IRQ_LINE_NMI, PULSE_LINE);
 	}
 	
-	static WRITE_HANDLER( common_sound_control_w )
-	{
+	public static WriteHandlerPtr common_sound_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Bit 0 enables and starts NMI timer */
 		if (data & 0x01)
 		{
@@ -249,10 +242,9 @@ public class gottlieb
 			timer_adjust(nmi_timer, TIME_NEVER, 0, 0);
 	
 		/* Bit 1 controls a LED on the sound board. I'm not emulating it */
-	}
+	} };
 	
-	WRITE_HANDLER( stooges_sound_control_w )
-	{
+	public static WriteHandlerPtr stooges_sound_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	
 		common_sound_control_w(offset, data);
@@ -289,33 +281,29 @@ public class gottlieb
 		/* bit 7 goes to the speech chip RESET pin */
 	
 		last = data & 0x44;
-	}
+	} };
 	
-	WRITE_HANDLER( exterm_sound_control_w )
-	{
+	public static WriteHandlerPtr exterm_sound_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		common_sound_control_w(offset, data);
 	
 		/* Bit 7 selects YM2151 register or data port */
 		ym2151_port = data & 0x80;
-	}
+	} };
 	
-	WRITE_HANDLER( gottlieb_nmi_rate_w )
-	{
+	public static WriteHandlerPtr gottlieb_nmi_rate_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nmi_rate = data;
-	}
+	} };
 	
-	WRITE_HANDLER( gottlieb_cause_dac_nmi_w )
-	{
+	public static WriteHandlerPtr gottlieb_cause_dac_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(cpu_gettotalcpu()-2, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr gottlieb_cause_dac_nmi_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    gottlieb_cause_dac_nmi_w(offset, 0);
 		return 0;
 	} };
 	
-	WRITE_HANDLER( exterm_ym2151_w )
-	{
+	public static WriteHandlerPtr exterm_ym2151_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (ym2151_port)
 		{
 			YM2151_data_port_0_w(offset, data);
@@ -324,22 +312,20 @@ public class gottlieb
 		{
 			YM2151_register_port_0_w(offset, data);
 		}
-	}
+	} };
 	
 	static UINT8 exterm_dac_volume;
 	static UINT8 exterm_dac_data;
 	
-	WRITE_HANDLER( exterm_dac_vol_w )
-	{
+	public static WriteHandlerPtr exterm_dac_vol_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		exterm_dac_volume = data ^ 0xff;
 		DAC_data_16_w(0, exterm_dac_volume * exterm_dac_data);
-	}
+	} };
 	
-	WRITE_HANDLER( exterm_dac_data_w )
-	{
+	public static WriteHandlerPtr exterm_dac_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		exterm_dac_data = data;
 		DAC_data_16_w(0, exterm_dac_volume * exterm_dac_data);
-	}
+	} };
 	
 	
 	WRITE16_HANDLER( gottlieb_sh_word_w )

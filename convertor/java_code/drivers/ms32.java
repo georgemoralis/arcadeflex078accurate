@@ -1505,17 +1505,15 @@ public class ms32
 		return soundlatch_r(0)^0xff;
 	} };
 	
-	static WRITE_HANDLER( ms32_snd_bank_w )
-	{
+	public static WriteHandlerPtr ms32_snd_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 			cpu_setbank(4, memory_region(REGION_CPU2) + 0x14000+0x4000*(data&0xf));
 			cpu_setbank(5, memory_region(REGION_CPU2) + 0x14000+0x4000*(data>>4));
-	}
+	} };
 	
-	static WRITE_HANDLER( to_main_w )
-	{
+	public static WriteHandlerPtr to_main_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 			to_main=data;
 			irq_raise(1);
-	}
+	} };
 	
 	static MEMORY_READ_START( ms32_snd_readmem )
 		{ 0x0000, 0x3eff, MRA_ROM },

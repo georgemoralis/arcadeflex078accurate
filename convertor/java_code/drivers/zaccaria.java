@@ -45,16 +45,11 @@ public class zaccaria
 	
 	extern data8_t *zaccaria_videoram,*zaccaria_attributesram;
 	
-	WRITE_HANDLER( zaccaria_videoram_w );
-	WRITE_HANDLER( zaccaria_attributes_w );
-	WRITE_HANDLER( zaccaria_flip_screen_x_w );
-	WRITE_HANDLER( zaccaria_flip_screen_y_w );
 	
 	
 	static int dsw;
 	
-	static WRITE_HANDLER( zaccaria_dsw_sel_w )
-	{
+	public static WriteHandlerPtr zaccaria_dsw_sel_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (data & 0xf0)
 		{
 			case 0xe0:
@@ -73,7 +68,7 @@ public class zaccaria
 	logerror("PC %04x: portsel = %02x\n",activecpu_get_pc(),data);
 				break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr zaccaria_dsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(dsw);
@@ -81,8 +76,7 @@ public class zaccaria
 	
 	
 	
-	static WRITE_HANDLER( ay8910_port0a_w )
-	{
+	public static WriteHandlerPtr ay8910_port0a_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		// bits 0-2 go to a weird kind of DAC ??
 		// bits 3-4 control the analog drum emulation on 8910 #0 ch. A
 	
@@ -94,7 +88,7 @@ public class zaccaria
 		}
 		else
 			DAC_signed_data_w(0,0x80);
-	}
+	} };
 	
 	
 	void zaccaria_irq0a(int state) { cpu_set_nmi_line(1,  state ? ASSERT_LINE : CLEAR_LINE); }
@@ -109,13 +103,11 @@ public class zaccaria
 			return AY8910_read_port_1_r(0);
 	} };
 	
-	static WRITE_HANDLER( zaccaria_port0a_w )
-	{
+	public static WriteHandlerPtr zaccaria_port0a_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		port0a = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( zaccaria_port0b_w )
-	{
+	public static WriteHandlerPtr zaccaria_port0b_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	
 	
@@ -151,7 +143,7 @@ public class zaccaria
 		}
 	
 		last = data;
-	}
+	} };
 	
 	public static InterruptHandlerPtr zaccaria_cb1_toggle = new InterruptHandlerPtr() {public void handler(){
 		static int toggle;
@@ -169,13 +161,11 @@ public class zaccaria
 		else return port1a;
 	} };
 	
-	static WRITE_HANDLER( zaccaria_port1a_w )
-	{
+	public static WriteHandlerPtr zaccaria_port1a_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		port1a = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( zaccaria_port1b_w )
-	{
+	public static WriteHandlerPtr zaccaria_port1b_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		port1b = data;
 	
 		// bit 0 = /RS
@@ -188,7 +178,7 @@ public class zaccaria
 	
 		// bit 4 = led (for testing?)
 		set_led_status(0,~data & 0x10);
-	}
+	} };
 	
 	public static ReadHandlerPtr zaccaria_ca2_r  = new ReadHandlerPtr() { public int handler(int offset){
 	// TODO: this doesn't work, why?
@@ -245,22 +235,19 @@ public class zaccaria
 	} };
 	
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		cpu_set_irq_line(2,0,(data & 0x80) ? CLEAR_LINE : ASSERT_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( sound1_command_w )
-	{
+	public static WriteHandlerPtr sound1_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pia_0_ca1_w(0,data & 0x80);
 		soundlatch2_w(0,data);
-	}
+	} };
 	
-	static WRITE_HANDLER( mc1408_data_w )
-	{
+	public static WriteHandlerPtr mc1408_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_data_w(1,data);
-	}
+	} };
 	
 	
 	struct GameDriver monymony_driver;
@@ -305,15 +292,13 @@ public class zaccaria
 	} };
 	
 	
-	static WRITE_HANDLER( coin_w )
-	{
+	public static WriteHandlerPtr coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0,data & 1);
-	}
+	} };
 	
-	static WRITE_HANDLER( nmienable_w )
-	{
+	public static WriteHandlerPtr nmienable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		interrupt_enable_w(0,data & 1);
-	}
+	} };
 	
 	
 	

@@ -157,8 +157,7 @@ public class vendetta
 	
 	static int irq_enabled;
 	
-	static WRITE_HANDLER( vendetta_eeprom_w )
-	{
+	public static WriteHandlerPtr vendetta_eeprom_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 - VOC0 - Video banking related */
 		/* bit 1 - VOC1 - Video banking related */
 		/* bit 2 - MSCHNG - Mono Sound select (Amp) */
@@ -179,13 +178,13 @@ public class vendetta
 		irq_enabled = ( data >> 6 ) & 1;
 	
 		vendetta_video_banking( data & 1 );
-	}
+	} };
 	
 	/********************************************/
 	
 	public static ReadHandlerPtr vendetta_K052109_r  = new ReadHandlerPtr() { public int handler(int offset) return K052109_r( offset + 0x2000 ); }
-	//static WRITE_HANDLER( vendetta_K052109_w ) { K052109_w( offset + 0x2000, data ); }
-	static WRITE_HANDLER( vendetta_K052109_w ) {
+	//public static WriteHandlerPtr vendetta_K052109_w = new WriteHandlerPtr() {public void handler(int offset, int data) K052109_w( offset + 0x2000, data ); }
+	public static WriteHandlerPtr vendetta_K052109_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		// *************************************************************************************
 		// *  Escape Kids uses 052109's mirrored Tilemap ROM bank selector, but only during    *
 		// *  Tilemap MASK-ROM Test       (0x1d80<->0x3d80, 0x1e00<->0x3e00, 0x1f00<->0x3f00)  *
@@ -212,8 +211,7 @@ public class vendetta
 		}
 	}
 	
-	static WRITE_HANDLER( vendetta_5fe0_w )
-	{
+	public static WriteHandlerPtr vendetta_5fe0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0,1 coin counters */
 		coin_counter_w(0,data & 0x01);
 		coin_counter_w(1,data & 0x02);
@@ -227,24 +225,22 @@ public class vendetta
 	
 		/* bit 5 = enable sprite ROM reading */
 		K053246_set_OBJCHA_line((data & 0x20) ? ASSERT_LINE : CLEAR_LINE);
-	}
+	} };
 	
 	static void z80_nmi_callback( int param )
 	{
 		cpu_set_nmi_line( 1, ASSERT_LINE );
 	}
 	
-	static WRITE_HANDLER( z80_arm_nmi_w )
-	{
+	public static WriteHandlerPtr z80_arm_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_nmi_line( 1, CLEAR_LINE );
 	
 		timer_set( TIME_IN_USEC( 50 ), 0, z80_nmi_callback );
-	}
+	} };
 	
-	static WRITE_HANDLER( z80_irq_w )
-	{
+	public static WriteHandlerPtr z80_irq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector( 1, 0, HOLD_LINE, 0xff );
-	}
+	} };
 	
 	public static ReadHandlerPtr vendetta_sound_interrupt_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line_and_vector( 1, 0, HOLD_LINE, 0xff );

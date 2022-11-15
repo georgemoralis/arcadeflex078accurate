@@ -173,8 +173,7 @@ public class pengo
 	
 	
 	
-	WRITE_HANDLER( pengo_gfxbank_w )
-	{
+	public static WriteHandlerPtr pengo_gfxbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* the Pengo hardware can set independently the palette bank, color lookup */
 		/* table, and chars/sprites. However the game always set them together (and */
 		/* the only place where this is used is the intro screen) so I don't bother */
@@ -184,16 +183,15 @@ public class pengo
 			gfx_bank = data & 1;
 			memset(dirtybuffer,1,videoram_size);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( pengo_flipscreen_w )
-	{
+	public static WriteHandlerPtr pengo_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (flipscreen != (data & 1))
 		{
 			flipscreen = data & 1;
 			memset(dirtybuffer,1,videoram_size);
 		}
-	}
+	} };
 	
 	
 	
@@ -311,11 +309,10 @@ public class pengo
 	} };
 	
 	
-	WRITE_HANDLER( vanvan_bgcolor_w )
-	{
+	public static WriteHandlerPtr vanvan_bgcolor_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 1) palette_set_color(0,0xaa,0xaa,0xaa);
 		else          palette_set_color(0,0x00,0x00,0x00);
-	}
+	} };
 	
 	
 	public static VideoUpdateHandlerPtr video_update_vanvan  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
@@ -415,35 +412,30 @@ public class pengo
 		SET_TILE_INFO(0,code,attr & 0x1f,0)
 	}
 	
-	WRITE_HANDLER( s2650games_videoram_w )
-	{
+	public static WriteHandlerPtr s2650games_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		videoram[offset] = data;
 		tilemap_mark_tile_dirty(tilemap,offset);
-	}
+	} };
 	
-	WRITE_HANDLER( s2650games_colorram_w )
-	{
+	public static WriteHandlerPtr s2650games_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i;
 		colorram[offset & 0x1f] = data;
 		for (i = offset; i < 0x0400; i += 32)
 			tilemap_mark_tile_dirty(tilemap, i);
-	}
+	} };
 	
-	WRITE_HANDLER( s2650games_scroll_w )
-	{
+	public static WriteHandlerPtr s2650games_scroll_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tilemap_set_scrolly(tilemap, offset, data);
-	}
+	} };
 	
-	WRITE_HANDLER( s2650games_tilesbank_w )
-	{
+	public static WriteHandlerPtr s2650games_tilesbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tiles_bankram[offset] = data;
 		tilemap_mark_all_tiles_dirty(tilemap);
-	}
+	} };
 	
-	WRITE_HANDLER( s2650games_flipscreen_w )
-	{
+	public static WriteHandlerPtr s2650games_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data);
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_s2650games  = new VideoStartHandlerPtr() { public int handler(){
 		xoffsethack = 1;

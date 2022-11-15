@@ -39,12 +39,7 @@ public class equites
 	extern void equites_8404rule(unsigned pc, int offset, int data);
 	
 	extern READ16_HANDLER(equites_8404_r);
-	extern WRITE_HANDLER(equites_5232_w);
-	extern WRITE_HANDLER(equites_8910control_w);
-	extern WRITE_HANDLER(equites_8910data_w);
-	extern WRITE_HANDLER(equites_dac0_w);
-	extern WRITE_HANDLER(equites_dac1_w);
-	
+	extern extern extern extern extern 
 	extern data16_t *equites_8404ram;
 	extern struct MSM5232interface equites_5232intf;
 	extern struct AY8910interface equites_8910intf;
@@ -382,41 +377,34 @@ public class equites
 		return (equites_8404ram[offset]);
 	}
 	
-	WRITE_HANDLER(equites_5232_w)
-	{
+	public static WriteHandlerPtr equites_5232_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset < 0x08 && data) data |= 0x80; // gets around a current 5232 emulation restriction
 		MSM5232_0_w(offset, data);
-	}
+	} };
 	
-	WRITE_HANDLER(equites_8910control_w)
-	{
+	public static WriteHandlerPtr equites_8910control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		AY8910Write(0, 0, data);
-	}
+	} };
 	
-	WRITE_HANDLER(equites_8910data_w)
-	{
+	public static WriteHandlerPtr equites_8910data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		AY8910Write(0, 1, data);
-	}
+	} };
 	
-	static WRITE_HANDLER(equites_8910porta_w)
-	{
+	public static WriteHandlerPtr equites_8910porta_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		// sync with one or more MSM5232 channels. MIDI out?
-	}
+	} };
 	
-	static WRITE_HANDLER(equites_8910portb_w)
-	{
+	public static WriteHandlerPtr equites_8910portb_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		// sync with one or more MSM5232 channels. MIDI out?
-	}
+	} };
 	
-	WRITE_HANDLER(equites_dac0_w)
-	{
+	public static WriteHandlerPtr equites_dac0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_signed_data_w(0, data<<2);
-	}
+	} };
 	
-	WRITE_HANDLER(equites_dac1_w)
-	{
+	public static WriteHandlerPtr equites_dac1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_signed_data_w(1, data<<2);
-	}
+	} };
 	
 	/******************************************************************************/
 	// Alpha "Soundboard 7" Chip Definitions

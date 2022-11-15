@@ -72,23 +72,12 @@ package drivers;
 public class pitnrun
 {
 	
-	WRITE_HANDLER (pitnrun_68705_portA_w);
-	WRITE_HANDLER (pitnrun_68705_portB_w);
 	
 	
 	
-	WRITE_HANDLER( pitnrun_mcu_data_w );
 	
 	extern UINT8* videoram2;
 	
-	WRITE_HANDLER( pitnrun_videoram_w );
-	WRITE_HANDLER( pitnrun_videoram2_w );
-	WRITE_HANDLER(pitnrun_ha_w);
-	WRITE_HANDLER(pitnrun_h_heed_w);
-	WRITE_HANDLER(pitnrun_v_heed_w);
-	WRITE_HANDLER(pitnrun_color_select_w);
-	WRITE_HANDLER( pitnrun_char_bank_select );
-	WRITE_HANDLER( pitnrun_scroll_w );
 	
 	
 	static int pitnrun_nmi;
@@ -97,20 +86,17 @@ public class pitnrun
 		 if(pitnrun_nmi) cpu_set_irq_line(0,IRQ_LINE_NMI, PULSE_LINE)	;
 	} };
 	
-	static WRITE_HANDLER( nmi_enable_w )
-	{
+	public static WriteHandlerPtr nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	        pitnrun_nmi=data&1;
-	}
+	} };
 	
-	static WRITE_HANDLER(pitnrun_hflip_w)
-	{
+	public static WriteHandlerPtr pitnrun_hflip_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_x_set(data);
-	}
+	} };
 	
-	static WRITE_HANDLER(pitnrun_vflip_w)
-	{
+	public static WriteHandlerPtr pitnrun_vflip_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_y_set(data);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

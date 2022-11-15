@@ -946,12 +946,11 @@ public class system32
 		return RAM[offset];
 	} };
 	
-	static WRITE_HANDLER( sys32_shared_snd_w )
-	{
+	public static WriteHandlerPtr sys32_shared_snd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = (data8_t *)system32_shared_ram;
 	
 		RAM[offset] = data;
-	}
+	} };
 	
 	// some games require that port f1 be a magic echo-back latch.
 	// thankfully, it's not required to do any math or anything on the values.
@@ -959,10 +958,9 @@ public class system32
 		return s32_f1_prot;
 	} };
 	
-	static WRITE_HANDLER( sys32_sound_prot_w )
-	{
+	public static WriteHandlerPtr sys32_sound_prot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		s32_f1_prot = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem_32 )
 		{ 0x0000, 0x9fff, MRA_ROM },
@@ -1005,17 +1003,15 @@ public class system32
 		sys32_SoundMemBank = &RAM[Bank+0x100000];
 	}
 	
-	static WRITE_HANDLER( sys32_soundbank_lo_w )
-	{
+	public static WriteHandlerPtr sys32_soundbank_lo_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		s32_blo = data;
 		s32_recomp_bank();
-	}
+	} };
 	
-	static WRITE_HANDLER( sys32_soundbank_hi_w )
-	{
+	public static WriteHandlerPtr sys32_soundbank_hi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		s32_bhi = data;
 		s32_recomp_bank();
-	}
+	} };
 	
 	static PORT_READ_START( sound_readport_32 )
 		{ 0x80, 0x80, YM2612_status_port_0_A_r },

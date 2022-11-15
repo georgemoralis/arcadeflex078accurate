@@ -38,16 +38,14 @@ public class aliens
 			return ram[offset];
 	} };
 	
-	static WRITE_HANDLER( bankedram_w )
-	{
+	public static WriteHandlerPtr bankedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (palette_selected)
 			paletteram_xBBBBBGGGGGRRRRR_swap_w(offset,data);
 		else
 			ram[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( aliens_coin_counter_w )
-	{
+	public static WriteHandlerPtr aliens_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0-1 = coin counters */
 		coin_counter_w(0,data & 0x01);
 		coin_counter_w(1,data & 0x02);
@@ -66,16 +64,14 @@ public class aliens
 		usrintf_showmessage(baf);
 	}
 	#endif
-	}
+	} };
 	
-	WRITE_HANDLER( aliens_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr aliens_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line_and_vector(1, 0, HOLD_LINE, 0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( aliens_snd_bankswitch_w )
-	{
+	public static WriteHandlerPtr aliens_snd_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* b1: bank for chanel A */
 		/* b0: bank for chanel B */
 	
@@ -83,7 +79,7 @@ public class aliens
 		int bank_B = ((data) & 0x01);
 	
 		K007232_set_bank( 0, bank_A, bank_B );
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( aliens_readmem )

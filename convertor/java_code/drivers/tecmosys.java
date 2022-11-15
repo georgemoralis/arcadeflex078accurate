@@ -278,10 +278,9 @@ public class tecmosys
 	
 	
 	
-	static WRITE_HANDLER( deroon_bankswitch_w )
-	{
+	public static WriteHandlerPtr deroon_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank( 1, memory_region(REGION_CPU2) + ((data-2) & 0x0f) * 0x4000 + 0x10000 );
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

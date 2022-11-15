@@ -175,13 +175,11 @@ public class playmark
 	} };
 	
 	
-	static WRITE_HANDLER( playmark_oki_w )
-	{
+	public static WriteHandlerPtr playmark_oki_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		playmark_oki_command = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( playmark_snd_control_w )
-	{
+	public static WriteHandlerPtr playmark_snd_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*	This port controls communications to and from the 68K, and the OKI
 			device.
 	
@@ -203,7 +201,7 @@ public class playmark
 	//		logerror("Writing %02x to OKI1, PortC=%02x, Code=%02x\n",playmark_oki_command,playmark_oki_control,playmark_snd_command);
 			OKIM6295_data_0_w(0, playmark_oki_command);
 		}
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr PIC16C5X_T0_clk_r  = new ReadHandlerPtr() { public int handler(int offset){

@@ -35,16 +35,7 @@ public class system1H
 	
 	void system1_define_background_memory(int Mode);
 	
-	WRITE_HANDLER( wbml_videoram_bank_latch_w );
-	WRITE_HANDLER( wbml_paged_videoram_w );
-	WRITE_HANDLER( system1_background_collisionram_w );
-	WRITE_HANDLER( system1_sprites_collisionram_w );
-	WRITE_HANDLER( system1_videoram_w );
-	WRITE_HANDLER( system1_paletteram_w );
-	WRITE_HANDLER( system1_backgroundram_w );
-	WRITE_HANDLER( system1_videomode_w );
 	
-	WRITE_HANDLER( choplifter_scroll_x_w );
 	
 	#endif
 }

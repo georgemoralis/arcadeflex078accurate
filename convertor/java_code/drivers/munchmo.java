@@ -30,22 +30,15 @@ public class munchmo
 	extern UINT8 *mnchmobl_sprite_attr;
 	extern UINT8 *mnchmobl_sprite_tile;
 	
-	WRITE_HANDLER( mnchmobl_palette_bank_w );
-	WRITE_HANDLER( mnchmobl_flipscreen_w );
-	WRITE_HANDLER( mnchmobl_sprite_xpos_w );
-	WRITE_HANDLER( mnchmobl_sprite_attr_w );
-	WRITE_HANDLER( mnchmobl_sprite_tile_w );
-	WRITE_HANDLER( mnchmobl_videoram_w );
 	
 	
 	/***************************************************************************/
 	
 	static int mnchmobl_nmi_enable = 0;
 	
-	static WRITE_HANDLER( mnchmobl_nmi_enable_w )
-	{
+	public static WriteHandlerPtr mnchmobl_nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mnchmobl_nmi_enable = data;
-	}
+	} };
 	
 	public static InterruptHandlerPtr mnchmobl_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int which;
@@ -54,16 +47,14 @@ public class munchmo
 		else if( mnchmobl_nmi_enable ) cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 	} };
 	
-	WRITE_HANDLER( mnchmobl_soundlatch_w )
-	{
+	public static WriteHandlerPtr mnchmobl_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w( offset, data );
 		cpu_set_irq_line( 1, 0, HOLD_LINE );
-	}
+	} };
 	
-	WRITE_HANDLER( sound_nmi_ack_w )
-	{
+	public static WriteHandlerPtr sound_nmi_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_nmi_line(1, CLEAR_LINE);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x3fff, MRA_ROM },

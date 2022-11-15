@@ -63,16 +63,12 @@ public class cop01
 	
 	extern data8_t *cop01_bgvideoram,*cop01_fgvideoram;
 	
-	WRITE_HANDLER( cop01_background_w );
-	WRITE_HANDLER( cop01_foreground_w );
-	WRITE_HANDLER( cop01_vreg_w );
 	
 	
-	static WRITE_HANDLER( cop01_sound_command_w )
-	{
+	public static WriteHandlerPtr cop01_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
 	public static ReadHandlerPtr cop01_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;

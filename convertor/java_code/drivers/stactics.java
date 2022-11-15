@@ -52,7 +52,6 @@ public class stactics
 {
 	
 	/* Defined in machine/stactics.c */
-	WRITE_HANDLER( stactics_coin_lockout_w );
 	extern unsigned char *stactics_motor_on;
 	
 	/* Defined in vidhrdw/stactics.c */
@@ -68,20 +67,7 @@ public class stactics
 	extern unsigned char *stactics_display_buffer;
 	
 	
-	WRITE_HANDLER( stactics_palette_w );
-	WRITE_HANDLER( stactics_scroll_ram_w );
-	WRITE_HANDLER( stactics_speed_latch_w );
-	WRITE_HANDLER( stactics_shot_trigger_w );
-	WRITE_HANDLER( stactics_shot_flag_clear_w );
 	
-	WRITE_HANDLER( stactics_videoram_b_w );
-	WRITE_HANDLER( stactics_chardata_b_w );
-	WRITE_HANDLER( stactics_videoram_d_w );
-	WRITE_HANDLER( stactics_chardata_d_w );
-	WRITE_HANDLER( stactics_videoram_e_w );
-	WRITE_HANDLER( stactics_chardata_e_w );
-	WRITE_HANDLER( stactics_videoram_f_w );
-	WRITE_HANDLER( stactics_chardata_f_w );
 	
 	static MEMORY_READ_START( readmem )
 	    { 0x0000, 0x2fff, MRA_ROM },

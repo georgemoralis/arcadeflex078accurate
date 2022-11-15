@@ -51,11 +51,10 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( rom_bank_select_w )
-	{
+	public static WriteHandlerPtr rom_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *region_base = memory_region(REGION_CPU1);
 		cpu_setbank(1, region_base + 0x10000 + (data & 15) * 0x2000);
-	}
+	} };
 	
 	
 	public static MachineInitHandlerPtr machine_init_crgolf  = new MachineInitHandlerPtr() { public void handler(){
@@ -80,8 +79,7 @@ public class crgolf
 	} };
 	
 	
-	static WRITE_HANDLER( switch_input_select_w )
-	{
+	public static WriteHandlerPtr switch_input_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (!(data & 0x40)) port_select = 6;
 		if (!(data & 0x20)) port_select = 5;
 		if (!(data & 0x10)) port_select = 4;
@@ -89,13 +87,12 @@ public class crgolf
 		if (!(data & 0x04)) port_select = 2;
 		if (!(data & 0x02)) port_select = 1;
 		if (!(data & 0x01)) port_select = 0;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( unknown_w )
-	{
+	public static WriteHandlerPtr unknown_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("%04X:unknown_w = %02X\n", activecpu_get_pc(), data);
-	}
+	} };
 	
 	
 	
@@ -112,10 +109,9 @@ public class crgolf
 	}
 	
 	
-	static WRITE_HANDLER( main_to_sound_w )
-	{
+	public static WriteHandlerPtr main_to_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, data, main_to_sound_callback);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr main_to_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -138,10 +134,9 @@ public class crgolf
 	}
 	
 	
-	static WRITE_HANDLER( sound_to_main_w )
-	{
+	public static WriteHandlerPtr sound_to_main_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, data, sound_to_main_callback);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr sound_to_main_r  = new ReadHandlerPtr() { public int handler(int offset){

@@ -73,8 +73,7 @@ public class sbowling
 		plot_pixel(tmpbitmap,x,y,Machine->pens[col]);
 	}
 	
-	static WRITE_HANDLER( sbw_videoram_w )
-	{
+	public static WriteHandlerPtr sbw_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int x,y,i,v1,v2;
 	
 		videoram[offset] = data;
@@ -93,7 +92,7 @@ public class sbowling
 			v1 >>= 1;
 			v2 >>= 1;
 		}
-	}
+	} };
 	
 	public static VideoUpdateHandlerPtr video_update_sbowling  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[0x18],cliprect);
@@ -107,15 +106,13 @@ public class sbowling
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( pix_shift_w )
-	{
+	public static WriteHandlerPtr pix_shift_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pix_sh = data;
-	}
-	static WRITE_HANDLER( pix_data_w )
-	{
+	} };
+	public static WriteHandlerPtr pix_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pix[0] = pix[1];
 		pix[1] = data;
-	}
+	} };
 	public static ReadHandlerPtr pix_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT32 p1, p0;
 		int res;
@@ -137,8 +134,7 @@ public class sbowling
 		cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, vector);
 	} };
 	
-	static WRITE_HANDLER (system_w)
-	{
+	public static WriteHandlerPtr system_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*
 			76543210
 			-------x flip screen/controls?
@@ -155,10 +151,9 @@ public class sbowling
 				sbw_videoram_w(offs, videoram[offs]);
 		}
 		sbw_system = data;
-	}
+	} };
 	
-	static WRITE_HANDLER(graph_control_w)
-	{
+	public static WriteHandlerPtr graph_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*
 			76543210
 			-----xxx color PROM address lines A9,A8,A7
@@ -171,7 +166,7 @@ public class sbowling
 		
 		bgmap = ((data>>4)^3) & 0x3;
 		tilemap_mark_all_tiles_dirty(sb_tilemap);
-	}
+	} };
 	
 	public static ReadHandlerPtr controls_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if(sbw_system&2)

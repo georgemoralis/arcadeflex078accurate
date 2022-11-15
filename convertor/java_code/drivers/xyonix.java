@@ -31,13 +31,11 @@ public class xyonix
 	data8_t *xyonix_vidram;
 	
 	/* in vidhrdw/xyonix.c */
-	WRITE_HANDLER( xyonix_vidram_w );
 	
 	
-	static WRITE_HANDLER( xyonix_irqack_w )
-	{
+	public static WriteHandlerPtr xyonix_irqack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
-	}
+	} };
 	
 	
 	/* Inputs ********************************************************************/
@@ -141,11 +139,10 @@ public class xyonix
 		return 0xff;
 	} };
 	
-	WRITE_HANDLER ( xyonix_io_w )
-	{
+	public static WriteHandlerPtr xyonix_io_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	logerror ("xyonix_port_e0_w %02x - PC = %04x\n", data, activecpu_get_pc());
 		e0_data = data;
-	}
+	} };
 	
 	/* Mem / Port Maps ***********************************************************/
 	

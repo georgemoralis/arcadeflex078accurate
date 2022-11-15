@@ -54,8 +54,6 @@ public class ddragon
 	extern int ddragon_scrollx_hi, ddragon_scrolly_hi;
 	extern unsigned char *ddragon_scrollx_lo;
 	extern unsigned char *ddragon_scrolly_lo;
-	WRITE_HANDLER( ddragon_bgvideoram_w );
-	WRITE_HANDLER( ddragon_fgvideoram_w );
 	extern unsigned char *ddragon_spriteram;
 	extern int technos_video_hw;
 	/* end of extern code & data */
@@ -108,8 +106,7 @@ public class ddragon
 	
 	/*****************************************************************************/
 	
-	static WRITE_HANDLER( ddragon_bankswitch_w )
-	{
+	public static WriteHandlerPtr ddragon_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		const data8_t *RAM = memory_region(REGION_CPU1);
 	
 		ddragon_scrolly_hi = ( ( data & 0x02 ) << 7 );
@@ -125,10 +122,9 @@ public class ddragon
 			cpu_set_irq_line( 1, sprite_irq, (sprite_irq == IRQ_LINE_NMI) ? PULSE_LINE : HOLD_LINE );
 	
 		cpu_setbank( 1,&RAM[ 0x10000 + ( 0x4000 * ( ( data & 0xe0) >> 5 ) ) ] );
-	}
+	} };
 	
-	static WRITE_HANDLER( toffy_bankswitch_w )
-	{
+	public static WriteHandlerPtr toffy_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		ddragon_scrolly_hi = ( ( data & 0x02 ) << 7 );
@@ -140,14 +136,13 @@ public class ddragon
 	
 		/* I don't know ... */
 		cpu_setbank( 1,&RAM[ 0x10000 + ( 0x4000 * ( ( data & 0x20) >> 5 ) ) ] );
-	}
+	} };
 	
 	/*****************************************************************************/
 	
 	static int darktowr_bank=0;
 	
-	static WRITE_HANDLER( darktowr_bankswitch_w )
-	{
+	public static WriteHandlerPtr darktowr_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ddragon_scrolly_hi = ( ( data & 0x02 ) << 7 );
 		ddragon_scrollx_hi = ( ( data & 0x01 ) << 8 );
 	
@@ -163,7 +158,7 @@ public class ddragon
 		darktowr_bank=(data & 0xe0) >> 5;
 	//	cpu_setbank( 1,&RAM[ 0x10000 + ( 0x4000 * ( ( data & 0xe0) >> 5 ) ) ] );
 	//	logerror("Bank %05x %02x %02x\n",activecpu_get_pc(),darktowr_bank,data);
-	}
+	} };
 	
 	public static ReadHandlerPtr darktowr_bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		const data8_t *RAM = memory_region(REGION_CPU1);
@@ -182,8 +177,7 @@ public class ddragon
 		return RAM[offset + 0x10000 + (0x4000*darktowr_bank)];
 	} };
 	
-	static WRITE_HANDLER( darktowr_bank_w )
-	{
+	public static WriteHandlerPtr darktowr_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (darktowr_bank==4) {
 			logerror("BankWrite %05x %08x %08x\n",activecpu_get_pc(),offset,data);
 	
@@ -199,22 +193,20 @@ public class ddragon
 		}
 	
 		logerror("ROM write! %04x %02x\n",offset,data);
-	}
+	} };
 	
 	public static ReadHandlerPtr darktowr_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return darktowr_mcu_ports[offset];
 	} };
 	
-	static WRITE_HANDLER( darktowr_mcu_w )
-	{
+	public static WriteHandlerPtr darktowr_mcu_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("McuWrite %05x %08x %08x\n",activecpu_get_pc(),offset,data);
 		darktowr_mcu_ports[offset]=data;
-	}
+	} };
 	
 	/**************************************************************************/
 	
-	static WRITE_HANDLER( ddragon_interrupt_w )
-	{
+	public static WriteHandlerPtr ddragon_interrupt_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset) {
 		case 0: /* 380b - NMI ack */
 			cpu_set_nmi_line(0,CLEAR_LINE);
@@ -233,15 +225,14 @@ public class ddragon
 			/* Not sure what this is - almost certainly related to the sprite mcu */
 			break;
 		};
-	}
+	} };
 	
 	public static ReadHandlerPtr ddragon_hd63701_internal_registers_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("%04x: read %d\n",activecpu_get_pc(),offset);
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( ddragon_hd63701_internal_registers_w )
-	{
+	public static WriteHandlerPtr ddragon_hd63701_internal_registers_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* I don't know why port 0x17 is used..  Doesn't seem to be a standard MCU port */
 		if (offset==0x17) {
 			/* This is a guess, but makes sense.. The mcu definitely interrupts the main cpu.
@@ -252,17 +243,15 @@ public class ddragon
 				cpu_set_irq_line(1,sprite_irq, CLEAR_LINE );
 			}
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( ddragon2_sub_irq_ack_w )
-	{
+	public static WriteHandlerPtr ddragon2_sub_irq_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1,sprite_irq, CLEAR_LINE );
-	}
+	} };
 	
-	static WRITE_HANDLER( ddragon2_sub_irq_w )
-	{
+	public static WriteHandlerPtr ddragon2_sub_irq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0,M6809_IRQ_LINE,ASSERT_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr port4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int port = readinputport( 4 );
@@ -274,24 +263,21 @@ public class ddragon
 		return ddragon_spriteram[offset];
 	} };
 	
-	static WRITE_HANDLER( ddragon_spriteram_w )
-	{
+	public static WriteHandlerPtr ddragon_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ( cpu_getactivecpu() == 1 && offset == 0 )
 			dd_sub_cpu_busy = 0x10;
 	
 		ddragon_spriteram[offset] = data;
-	}
+	} };
 	
 	/*****************************************************************************/
 	
-	static WRITE_HANDLER( cpu_sound_command_w )
-	{
+	public static WriteHandlerPtr cpu_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w( offset, data );
 		cpu_set_irq_line( snd_cpu, sound_irq, (sound_irq == IRQ_LINE_NMI) ? PULSE_LINE : HOLD_LINE );
-	}
+	} };
 	
-	static WRITE_HANDLER( dd_adpcm_w )
-	{
+	public static WriteHandlerPtr dd_adpcm_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int chip = offset & 1;
 	
 		switch (offset/2)
@@ -314,7 +300,7 @@ public class ddragon
 				MSM5205_reset_w(chip,0);
 				break;
 		}
-	}
+	} };
 	
 	static void dd_adpcm_int(int chip)
 	{

@@ -36,9 +36,6 @@ public class aeroboto
 	extern data8_t *aeroboto_starx, *aeroboto_stary, *aeroboto_bgcolor;
 	
 	
-	WRITE_HANDLER( aeroboto_3000_w );
-	WRITE_HANDLER( aeroboto_videoram_w );
-	WRITE_HANDLER( aeroboto_tilecolor_w );
 	
 	static data8_t *aeroboto_mainram;
 	static int disable_irq = 0;
@@ -66,11 +63,10 @@ public class aeroboto
 		return(0xff);
 	} };
 	
-	static WRITE_HANDLER ( aeroboto_1a2_w )
-	{
+	public static WriteHandlerPtr aeroboto_1a2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		aeroboto_mainram[0x01a2] = data;
 		if (data) disable_irq = 1;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x07ff, MRA_RAM }, // main RAM

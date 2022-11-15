@@ -36,7 +36,6 @@ public class bladestl
 	
 	/* from vidhrdw */
 	int bladestl_spritebank;
-	WRITE_HANDLER( bladestl_vreg_w );
 	
 	public static InterruptHandlerPtr bladestl_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0){
@@ -59,8 +58,7 @@ public class bladestl
 		return (delta & 0x80) | (curr >> 1);
 	} };
 	
-	static WRITE_HANDLER( bladestl_bankswitch_w )
-	{
+	public static WriteHandlerPtr bladestl_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
@@ -81,21 +79,20 @@ public class bladestl
 		/* bit 7 = select sprite bank */
 		bladestl_spritebank = (data & 0x80) << 3;
 	
-	}
+	} };
 	
-	static WRITE_HANDLER( bladestl_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr bladestl_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset, data);
 		cpu_set_irq_line(1, M6809_IRQ_LINE, HOLD_LINE);
 		//logerror("(sound) write %02x\n", data);
-	}
+	} };
 	
-	static WRITE_HANDLER( bladestl_port_B_w ){
+	public static WriteHandlerPtr bladestl_port_B_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		/* bit 1, 2 unknown */
 		UPD7759_set_bank_base(0, ((data & 0x38) >> 3)*0x20000);
 	}
 	
-	static WRITE_HANDLER( bladestl_speech_ctrl_w ){
+	public static WriteHandlerPtr bladestl_speech_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		UPD7759_reset_w(0, data & 1);
 		UPD7759_start_w(0, data & 2);
 	}
@@ -388,7 +385,7 @@ public class bladestl
 		{ 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4 },
 		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8			/* every character takes 32 consecutive bytes */
-	};
+	} };;
 	
 	static struct GfxLayout spritelayout =
 	{

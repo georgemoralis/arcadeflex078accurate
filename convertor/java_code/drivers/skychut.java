@@ -28,8 +28,6 @@ public class skychut
 	
 	extern UINT8* iremm15_chargen;
 	
-	WRITE_HANDLER( skychut_colorram_w );
-	WRITE_HANDLER( skychut_ctrl_w );
 	
 	static UINT8 *memory;
 	

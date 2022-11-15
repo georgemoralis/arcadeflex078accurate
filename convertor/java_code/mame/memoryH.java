@@ -134,7 +134,7 @@ public class memoryH
 	
 	/* ----- macros for declaring the various common memory/port handlers ----- */
 	#define public static ReadHandlerPtr name  = new ReadHandlerPtr() { public int handler(int offset)	data8_t  name(UNUSEDARG offs_t offset)
-	#define WRITE_HANDLER(name) 	void     name(UNUSEDARG offs_t offset, UNUSEDARG data8_t data)
+	#define public static WriteHandlerPtr name = new WriteHandlerPtr() {public void handler(int offset, int data)void     name(UNUSEDARG offs_t offset, UNUSEDARG data8_t data)
 	#define READ16_HANDLER(name)	data16_t name(UNUSEDARG offs_t offset, UNUSEDARG data16_t mem_mask)
 	#define WRITE16_HANDLER(name)	void     name(UNUSEDARG offs_t offset, UNUSEDARG data16_t data, UNUSEDARG data16_t mem_mask)
 	#define READ32_HANDLER(name)	data32_t name(UNUSEDARG offs_t offset, UNUSEDARG data32_t mem_mask)

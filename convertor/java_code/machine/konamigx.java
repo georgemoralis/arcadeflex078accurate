@@ -42,8 +42,7 @@ public class konamigx
 		ldw = 0;
 	}
 	
-	WRITE_HANDLER( tms57002_control_w )
-	{
+	public static WriteHandlerPtr tms57002_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		chk_ldw();
 	
 		switch(tms57002.control)
@@ -81,15 +80,14 @@ public class konamigx
 			default:
 			break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr tms57002_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		chk_ldw();
 		return 1;
 	} };
 	
-	WRITE_HANDLER( tms57002_data_w )
-	{
+	public static WriteHandlerPtr tms57002_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(tms57002.control)
 		{
 			case 0xf8:
@@ -126,7 +124,7 @@ public class konamigx
 				ldw++;
 			break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr tms57002_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char res;

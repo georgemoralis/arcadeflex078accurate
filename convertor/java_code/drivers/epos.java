@@ -41,8 +41,7 @@ public class epos
 	static int counter = 0;
 	
 	
-	WRITE_HANDLER( dealer_decrypt_rom )
-	{
+	public static WriteHandlerPtr dealer_decrypt_rom = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		if (offset & 0x04)
@@ -69,7 +68,7 @@ public class epos
 				logerror("Invalid counter = %02X\n",counter);
 				break;
 		}
-	}
+	} };
 	
 	
 	/*************************************

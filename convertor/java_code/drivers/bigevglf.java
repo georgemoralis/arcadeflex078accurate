@@ -65,21 +65,9 @@ public class bigevglf
 {
 	
 	
-	WRITE_HANDLER( bigevglf_vidram_w );
-	WRITE_HANDLER( bigevglf_vidram_addr_w );
 	
-	WRITE_HANDLER( bigevglf_68705_portA_w );
-	WRITE_HANDLER( bigevglf_68705_portB_w );
-	WRITE_HANDLER( bigevglf_68705_portC_w );
-	WRITE_HANDLER( bigevglf_68705_ddrA_w );
-	WRITE_HANDLER( bigevglf_68705_ddrB_w );
-	WRITE_HANDLER( bigevglf_68705_ddrC_w );
 	
-	WRITE_HANDLER( bigevglf_mcu_w );
-	WRITE_HANDLER( bigevglf_mcu_set_w );
 	
-	WRITE_HANDLER( beg_gfxcontrol_w );
-	WRITE_HANDLER( beg_palette_w );
 	
 	extern UINT8 *beg_spriteram1;
 	extern UINT8 *beg_spriteram2;
@@ -92,25 +80,24 @@ public class bigevglf
 	static UINT8 from_sound = 0;
 	static UINT8 sound_state = 0;
 	
-	static WRITE_HANDLER( beg_banking_w )
-	{
+	public static WriteHandlerPtr beg_banking_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		beg_bank = data;
 	
 	/* d0-d3 connect to A11-A14 of the ROMs (via ls273 latch)
 	   d4-d7 select one of ROMs (via ls273(above) and then ls154)
 	*/
 		cpu_setbank(1, memory_region(REGION_CPU1) + 0x10000 + 0x800*(beg_bank&0xff)); /* empty sockets for IC37-IC44 ROMS */
-	}
+	} };
 	
 	static void from_sound_latch_callback(int param)
 	{
 		from_sound = param&0xff;
 		sound_state |= 2;
 	}
-	static WRITE_HANDLER(beg_fromsound_w)	/* write to D800 sets bit 1 in status */
+	public static WriteHandlerPtr beg_fromsound_w = new WriteHandlerPtr() {public void handler(int offset, int data)* write to D800 sets bit 1 in status */
 	{
 		timer_set(TIME_NOW, (activecpu_get_pc()<<16)|data, from_sound_latch_callback);
-	}
+	} };
 	
 	public static ReadHandlerPtr beg_fromsound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* set a timer to force synchronization after the read */
@@ -138,11 +125,11 @@ public class bigevglf
 		else pending_nmi = 1;
 		sound_state &= ~1;
 	}
-	static WRITE_HANDLER( sound_command_w )	/* write to port 20 clears bit 0 in status */
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data)* write to port 20 clears bit 0 in status */
 	{
 		for_sound = data;
 		timer_set(TIME_NOW,data,nmi_callback);
-	}
+	} };
 	
 	public static ReadHandlerPtr sound_command_r  = new ReadHandlerPtr() { public int handler(int offset)* read from D800 sets bit 0 in status */
 	{
@@ -150,20 +137,18 @@ public class bigevglf
 		return for_sound;
 	} };
 	
-	static WRITE_HANDLER( nmi_disable_w )
-	{
+	public static WriteHandlerPtr nmi_disable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_nmi_enable = 0;
-	}
+	} };
 	
-	static WRITE_HANDLER( nmi_enable_w )
-	{
+	public static WriteHandlerPtr nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_nmi_enable = 1;
 		if (pending_nmi)
 		{
 			cpu_set_irq_line(2,IRQ_LINE_NMI,PULSE_LINE);
 			pending_nmi = 0;
 		}
-	}
+	} };
 	
 	static UINT8 beg13_ls74[2];
 	
@@ -175,22 +160,18 @@ public class bigevglf
 	}
 	
 	/* do this on a timer to let the CPUs synchronize */
-	static WRITE_HANDLER (beg13A_clr_w)
-	{
+	public static WriteHandlerPtr beg13A_clr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, (0<<8) | 0, deferred_ls74_w);
-	}
-	static WRITE_HANDLER (beg13B_clr_w)
-	{
+	} };
+	public static WriteHandlerPtr beg13B_clr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, (1<<8) | 0, deferred_ls74_w);
-	}
-	static WRITE_HANDLER (beg13A_set_w)
-	{
+	} };
+	public static WriteHandlerPtr beg13A_set_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, (0<<8) | 1, deferred_ls74_w);
-	}
-	static WRITE_HANDLER (beg13B_set_w)
-	{
+	} };
+	public static WriteHandlerPtr beg13B_set_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, (1<<8) | 1, deferred_ls74_w);
-	}
+	} };
 	
 	public static ReadHandlerPtr beg_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 	/* d0 = Q of 74ls74 IC13(partA)
@@ -211,10 +192,9 @@ public class bigevglf
 	public static ReadHandlerPtr beg_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return beg_sharedram[offset];
 	} };
-	static WRITE_HANDLER( beg_sharedram_w )
-	{
+	public static WriteHandlerPtr beg_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		beg_sharedram[offset] = data;
-	}
+	} };
 	
 	static InputPortHandlerPtr input_ports_bigevglf = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bigevglf )
 	

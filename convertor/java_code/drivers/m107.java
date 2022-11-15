@@ -33,34 +33,29 @@ public class m107
 	#define m107_IRQ_2 ((m107_irq_vectorbase+8)/4) /* Raster interrupt */
 	#define m107_IRQ_3 ((m107_irq_vectorbase+12)/4) /* ??? */
 	
-	WRITE_HANDLER( m107_spritebuffer_w );
 	void m107_vh_raster_partial_refresh(struct mame_bitmap *bitmap,int start_line,int end_line);
 	void m107_screenrefresh(struct mame_bitmap *bitmap,const struct rectangle *clip);
-	WRITE_HANDLER( m107_control_w );
-	WRITE_HANDLER( m107_vram_w );
 	
 	/*****************************************************************************/
 	
-	static WRITE_HANDLER( bankswitch_w )
-	{
+	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		if (offset==1) return; /* Unused top byte */
 		cpu_setbank(1,&RAM[0x100000 + ((data&0x7)*0x10000)]);
-	}
+	} };
 	
 	public static ReadHandlerPtr m107_port_4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (m107_vblank) return readinputport(4) | 0;
 		return readinputport(4) | 0x80;
 	} };
 	
-	static WRITE_HANDLER( m107_coincounter_w )
-	{
+	public static WriteHandlerPtr m107_coincounter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset==0) {
 			coin_counter_w(0,data & 0x01);
 			coin_counter_w(1,data & 0x02);
 		}
-	}
+	} };
 	
 	
 	
@@ -90,15 +85,14 @@ public class m107
 			cpu_set_irq_line(1,0,ASSERT_LINE);
 	}
 	
-	static WRITE_HANDLER( m92_soundlatch_w )
-	{
+	public static WriteHandlerPtr m92_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset==0)
 		{
 			timer_set(TIME_NOW,V30_ASSERT,setvector_callback);
 			soundlatch_w(0,data);
 	//		logerror("soundlatch_w %02x\n",data);
 		}
-	}
+	} };
 	
 	static int sound_status;
 	
@@ -116,22 +110,20 @@ public class m107
 		else return 0xff;
 	} };
 	
-	static WRITE_HANDLER( m92_sound_irq_ack_w )
-	{
+	public static WriteHandlerPtr m92_sound_irq_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 		{
 			timer_set(TIME_NOW,V30_CLEAR,setvector_callback);
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( m92_sound_status_w )
-	{
+	public static WriteHandlerPtr m92_sound_status_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 		{
 	//		usrintf_showmessage("sound answer %02x",data);
 			sound_status = data;
 		}
-	}
+	} };
 	
 	/*****************************************************************************/
 	

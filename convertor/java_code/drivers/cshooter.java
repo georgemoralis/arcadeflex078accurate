@@ -110,11 +110,10 @@ public class cshooter
 				0)
 	}
 	
-	WRITE_HANDLER(cshooter_txram_w)
-	{
+	public static WriteHandlerPtr cshooter_txram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cshooter_txram[offset] = data;
 		tilemap_mark_tile_dirty(cshooter_txtilemap,offset/2);
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_cshooter  = new VideoStartHandlerPtr() { public int handler(){
 		cshooter_txtilemap = tilemap_create(get_cstx_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32, 32);
@@ -148,13 +147,11 @@ public class cshooter
 		return ( (cshooter_counter++ & 1) ? 0xff : input_port_5_r(0) );
 	} };
 	
-	WRITE_HANDLER ( cshooter_c500_w )
-	{
-	}
+	public static WriteHandlerPtr cshooter_c500_w = new WriteHandlerPtr() {public void handler(int offset, int data){
+	} };
 	
-	WRITE_HANDLER ( cshooter_c700_w )
-	{
-	}
+	public static WriteHandlerPtr cshooter_c700_w = new WriteHandlerPtr() {public void handler(int offset, int data){
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

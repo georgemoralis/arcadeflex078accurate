@@ -103,8 +103,7 @@ public class chaknpop
 		return gfxmode;
 	} };
 	
-	WRITE_HANDLER( chaknpop_gfxmode_w )
-	{
+	public static WriteHandlerPtr chaknpop_gfxmode_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (gfxmode != data)
 		{
 			int all_dirty = 0;
@@ -127,19 +126,17 @@ public class chaknpop
 			if (all_dirty)
 				tx_tilemap_mark_all_dirty();
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( chaknpop_txram_w )
-	{
+	public static WriteHandlerPtr chaknpop_txram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (chaknpop_txram[offset] != data)
 		{
 			chaknpop_txram[offset] = data;
 			tilemap_mark_tile_dirty(tx_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( chaknpop_attrram_w )
-	{
+	public static WriteHandlerPtr chaknpop_attrram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (chaknpop_attrram[offset] != data)
 		{
 			chaknpop_attrram[offset] = data;
@@ -151,7 +148,7 @@ public class chaknpop
 			tx_tilemap_mark_all_dirty();
 		}
 	}
-	}
+	} };
 	
 	
 	/***************************************************************************

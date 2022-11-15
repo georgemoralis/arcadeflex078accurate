@@ -25,8 +25,6 @@ public class namcos1
 	#define SUB_COMPLETE 0x20
 	
 	//#define TRY_PDRAWGFX 1
-	WRITE_HANDLER( namcos1_main_update_w );
-	WRITE_HANDLER( namcos1_sub_update_w );
 	
 	struct playfield
 	{
@@ -116,8 +114,7 @@ public class namcos1
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? TILEMAP_FLIPX|TILEMAP_FLIPY : 0);
 	}
 	
-	static WRITE_HANDLER( namcos1_playfield_control_w )
-	{
+	public static WriteHandlerPtr namcos1_playfield_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		namcos1_playfield_control[offset] = data;
 	#if 0
 		/* 0-15 : scrolling */
@@ -144,14 +141,13 @@ public class namcos1
 				tilemap_palette_state[whichone] = 1;
 			}
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr namcos1_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return namcos1_videoram[offset];
 	} };
 	
-	WRITE_HANDLER( namcos1_videoram_w )
-	{
+	public static WriteHandlerPtr namcos1_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (namcos1_videoram[offset] != data)
 		{
 			namcos1_videoram[offset] = data;
@@ -169,14 +165,13 @@ public class namcos1
 					tilemap_mark_tile_dirty(tilemap[layer],num);
 			}
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr namcos1_paletteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return namcos1_paletteram[offset];
 	} };
 	
-	WRITE_HANDLER( namcos1_paletteram_w )
-	{
+	public static WriteHandlerPtr namcos1_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		namcos1_paletteram[offset] = data;
 		if ((offset&0x1fff) < 0x1800)
 		{
@@ -196,7 +191,7 @@ public class namcos1
 				}
 			}
 		}
-	}
+	} };
 	
 	static void namcos1_palette_refresh(int start,int offset,int num)
 	{
@@ -231,8 +226,7 @@ public class namcos1
 	7    sprite offset y
 	8-15 unknown
 	*/
-	static WRITE_HANDLER( namcos1_displaycontrol_w )
-	{
+	public static WriteHandlerPtr namcos1_displaycontrol_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *disp_reg = &namcos1_controlram[0xff0];
 		int newflip;
 	
@@ -281,10 +275,9 @@ public class namcos1
 			usrintf_showmessage(buf);
 		}
 	#endif
-	}
+	} };
 	
-	WRITE_HANDLER( namcos1_videocontrol_w )
-	{
+	public static WriteHandlerPtr namcos1_videocontrol_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int olddata = olddata = namcos1_controlram[offset];
 		namcos1_controlram[offset] = data;
 	
@@ -305,7 +298,7 @@ public class namcos1
 		/* 1000-1fff control ram */
 		else
 			namcos1_playfield_control_w(offset & 0xff, data);
-	}
+	} };
 	
 	/* tilemap callback */
 	INLINE void background_get_info(int tile_index,int info_color,data8_t *info_vram)
@@ -688,8 +681,7 @@ public class namcos1
 		return 0;
 	} };
 	
-	WRITE_HANDLER( namcos1_main_update_w )
-	{
+	public static WriteHandlerPtr namcos1_main_update_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		idle_counter = 0;
 	
 		if (update_status & MAIN_COMPLETE) return;
@@ -699,15 +691,14 @@ public class namcos1
 			memcpy(sp_backbuffer, &namcos1_controlram[0x800], 0x7f0); // take a snapshot of current sprite RAM
 	
 		namcos1_draw_screen(Machine->scrbitmap, &Machine->visible_area);
-	}
+	} };
 	
-	WRITE_HANDLER( namcos1_sub_update_w )
-	{
+	public static WriteHandlerPtr namcos1_sub_update_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (update_status & SUB_COMPLETE) return;
 		update_status |= SUB_COMPLETE;
 	
 		memcpy(sp_backbuffer, &namcos1_controlram[0x800], 0x7f0); // take a snapshot of current sprite RAM
-	}
+	} };
 	
 	public static VideoUpdateHandlerPtr video_update_namcos1  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		data8_t *temp;

@@ -86,8 +86,7 @@ public class rf5c68
 	{
 	}
 	
-	WRITE_HANDLER( RF5C68_reg_w )
-	{
+	public static WriteHandlerPtr RF5C68_reg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(offset) {
 		case 7:
 			rpcm.sel = data;
@@ -107,7 +106,7 @@ public class rf5c68
 			rpcm.regs[rpcm.sel & 7][offset] = data;
 			break;
 		}
-	}
+	} };
 	
 	static int RF5C68_pcm_bank(void)
 	{
@@ -121,8 +120,7 @@ public class rf5c68
 		return rpcm.ram[(RF5C68_pcm_bank() + offset) & 0xffff];
 	} };
 	
-	WRITE_HANDLER( RF5C68_w )
-	{
+	public static WriteHandlerPtr RF5C68_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		rpcm.ram[(RF5C68_pcm_bank() + offset) & 0xffff] = data;
-	}
+	} };
 }

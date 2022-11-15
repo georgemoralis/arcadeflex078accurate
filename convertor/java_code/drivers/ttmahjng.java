@@ -17,18 +17,12 @@ public class ttmahjng
 	extern unsigned char *ttmahjng_videoram2;
 	extern size_t ttmahjng_videoram_size;
 	
-	WRITE_HANDLER( ttmahjng_out0_w );
-	WRITE_HANDLER( ttmahjng_out1_w );
-	WRITE_HANDLER( ttmahjng_videoram1_w );
-	WRITE_HANDLER( ttmahjng_videoram2_w );
-	WRITE_HANDLER( ttmahjng_sharedram_w );
 	
 	
 	static int psel;
-	WRITE_HANDLER( input_port_matrix_w )
-	{
+	public static WriteHandlerPtr input_port_matrix_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		psel = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr input_port_matrix_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int	cdata;

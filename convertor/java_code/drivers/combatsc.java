@@ -129,28 +129,20 @@ public class combatsc
 	extern unsigned char* banked_area;
 	
 	/* from vidhrdw/combasc.c */
-	WRITE_HANDLER( combasc_video_w );
-	
-	WRITE_HANDLER( combascb_bankselect_w );
-	WRITE_HANDLER( combasc_bankselect_w );
-	WRITE_HANDLER( combasc_pf_control_w );
-	WRITE_HANDLER( combasc_scrollram_w );
-	
-	WRITE_HANDLER( combasc_io_w );
-	WRITE_HANDLER( combasc_vreg_w );
 	
 	
 	
 	
-	static WRITE_HANDLER( combasc_coin_counter_w )
-	{
+	
+	
+	public static WriteHandlerPtr combasc_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* b7-b3: unused? */
 		/* b1: coin counter 2 */
 		/* b0: coin counter 1 */
 	
 		coin_counter_w(0,data & 0x01);
 		coin_counter_w(1,data & 0x02);
-	}
+	} };
 	
 	public static ReadHandlerPtr trackball_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static UINT8 pos[4],sign[4];
@@ -190,40 +182,34 @@ public class combatsc
 	/* the protection is a simple multiply */
 	static int prot[2];
 	
-	static WRITE_HANDLER( protection_w )
-	{
+	public static WriteHandlerPtr protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		prot[offset] = data;
-	}
+	} };
 	public static ReadHandlerPtr protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ((prot[0] * prot[1]) >> (offset * 8)) & 0xff;
 	} };
-	static WRITE_HANDLER( protection_clock_w )
-	{
+	public static WriteHandlerPtr protection_clock_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* 0x3f is written here every time before accessing the other registers */
-	}
+	} };
 	
 	
 	/****************************************************************************/
 	
-	static WRITE_HANDLER( combasc_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr combasc_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( combasc_play_w )
-	{
+	public static WriteHandlerPtr combasc_play_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UPD7759_start_w(0, data & 2);
-	}
+	} };
 	
-	static WRITE_HANDLER( combasc_voice_reset_w )
-	{
+	public static WriteHandlerPtr combasc_voice_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    UPD7759_reset_w(0,data & 1);
-	}
+	} };
 	
-	static WRITE_HANDLER( combasc_portA_w )
-	{
+	public static WriteHandlerPtr combasc_portA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* unknown. always write 0 */
-	}
+	} };
 	
 	static mame_timer *combasc_interleave_timer;
 	

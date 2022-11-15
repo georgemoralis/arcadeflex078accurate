@@ -17,20 +17,17 @@ public class battlnts
 {
 	
 	/* from vidhrdw */
-	WRITE_HANDLER( battlnts_spritebank_w );
 	
 	public static InterruptHandlerPtr battlnts_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K007342_is_INT_enabled())
 			cpu_set_irq_line(0, HD6309_IRQ_LINE, HOLD_LINE);
 	} };
 	
-	WRITE_HANDLER( battlnts_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr battlnts_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(1, 0, HOLD_LINE, 0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( battlnts_bankswitch_w )
-	{
+	public static WriteHandlerPtr battlnts_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
@@ -43,7 +40,7 @@ public class battlnts
 		coin_counter_w(1,data & 0x20);
 	
 		/* other bits unknown */
-	}
+	} };
 	
 	static MEMORY_READ_START( battlnts_readmem )
 		{ 0x0000, 0x1fff, K007342_r },			/* Color RAM + Video RAM */

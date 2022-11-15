@@ -826,22 +826,20 @@ public class galaxian
 	} };
 	
 	
-	WRITE_HANDLER( galaxian_videoram_w )
-	{
+	public static WriteHandlerPtr galaxian_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (galaxian_videoram[offset] != data)
 		{
 			galaxian_videoram[offset] = data;
 			tilemap_mark_tile_dirty(tilemap, offset);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr galaxian_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return galaxian_videoram[offset];
 	} };
 	
 	
-	WRITE_HANDLER( galaxian_attributesram_w )
-	{
+	public static WriteHandlerPtr galaxian_attributesram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (galaxian_attributesram[offset] != data)
 		{
 			if (offset & 0x01)
@@ -864,111 +862,97 @@ public class galaxian
 	
 			galaxian_attributesram[offset] = data;
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( galaxian_flip_screen_x_w )
-	{
+	public static WriteHandlerPtr galaxian_flip_screen_x_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (flip_screen_x != (data & 0x01))
 		{
 			flip_screen_x = data & 0x01;
 	
 			tilemap_set_flip(tilemap, (flip_screen_x ? TILEMAP_FLIPX : 0) | (flip_screen_y ? TILEMAP_FLIPY : 0));
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( galaxian_flip_screen_y_w )
-	{
+	public static WriteHandlerPtr galaxian_flip_screen_y_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (flip_screen_y != (data & 0x01))
 		{
 			flip_screen_y = data & 0x01;
 	
 			tilemap_set_flip(tilemap, (flip_screen_x ? TILEMAP_FLIPX : 0) | (flip_screen_y ? TILEMAP_FLIPY : 0));
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( gteikob2_flip_screen_x_w )
-	{
+	public static WriteHandlerPtr gteikob2_flip_screen_x_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		galaxian_flip_screen_x_w(offset, ~data);
-	}
+	} };
 	
-	WRITE_HANDLER( gteikob2_flip_screen_y_w )
-	{
+	public static WriteHandlerPtr gteikob2_flip_screen_y_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		galaxian_flip_screen_y_w(offset, ~data);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( hotshock_flip_screen_w )
-	{
+	public static WriteHandlerPtr hotshock_flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		galaxian_flip_screen_x_w(offset, data);
 		galaxian_flip_screen_y_w(offset, data);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( scramble_background_enable_w )
-	{
+	public static WriteHandlerPtr scramble_background_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		background_enable = data & 0x01;
-	}
+	} };
 	
-	WRITE_HANDLER( scramble_background_red_w )
-	{
+	public static WriteHandlerPtr scramble_background_red_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		background_red = data & 0x01;
-	}
+	} };
 	
-	WRITE_HANDLER( scramble_background_green_w )
-	{
+	public static WriteHandlerPtr scramble_background_green_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		background_green = data & 0x01;
-	}
+	} };
 	
-	WRITE_HANDLER( scramble_background_blue_w )
-	{
+	public static WriteHandlerPtr scramble_background_blue_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		background_blue = data & 0x01;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( galaxian_stars_enable_w )
-	{
+	public static WriteHandlerPtr galaxian_stars_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		galaxian_stars_on = data & 0x01;
 	
 		if (!galaxian_stars_on)
 		{
 			stars_scrollpos = 0;
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( darkplnt_bullet_color_w )
-	{
+	public static WriteHandlerPtr darkplnt_bullet_color_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		darkplnt_bullet_color = data & 0x01;
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( galaxian_gfxbank_w )
-	{
+	public static WriteHandlerPtr galaxian_gfxbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (gfxbank[offset] != data)
 		{
 			gfxbank[offset] = data;
 	
 			tilemap_mark_all_tiles_dirty(tilemap);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( rockclim_videoram_w )
-	{
+	public static WriteHandlerPtr rockclim_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (rockclim_videoram[offset] != data)
 		{
 			rockclim_videoram[offset] = data;
 			tilemap_mark_tile_dirty(rockclim_tilemap, offset);
 		}
-	}
+	} };
 	
 	static int rockclim_v=0;
 	static int rockclim_h=0;
 	
-	WRITE_HANDLER( rockclim_scroll_w )
-	{
+	public static WriteHandlerPtr rockclim_scroll_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
 	
 		switch(offset&3)
@@ -979,7 +963,7 @@ public class galaxian
 			case 3:	rockclim_v=(rockclim_v&0xff)|(data<<8);tilemap_set_scrolly(rockclim_tilemap , 0, rockclim_v );break;
 		}
 	
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr rockclim_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){

@@ -40,23 +40,21 @@ public class rmhaihai
 	static int gfxbank;
 	static struct tilemap *bg_tilemap;
 	
-	WRITE_HANDLER( rmhaihai_videoram_w )
-	{
+	public static WriteHandlerPtr rmhaihai_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( rmhaihai_colorram_w )
-	{
+	public static WriteHandlerPtr rmhaihai_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (colorram[offset] != data)
 		{
 			colorram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{
@@ -132,25 +130,22 @@ public class rmhaihai
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( keyboard_w )
-	{
+	public static WriteHandlerPtr keyboard_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	logerror("%04x: keyboard_w %02x\n",activecpu_get_pc(),data);
 		keyboard_cmd = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr samples_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_SOUND1)[offset];
 	} };
 	
-	static WRITE_HANDLER( adpcm_w )
-	{
+	public static WriteHandlerPtr adpcm_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_data_w(0,data);         /* bit0..3  */
 		MSM5205_reset_w(0,(data>>5)&1); /* bit 5    */
 		MSM5205_vclk_w (0,(data>>4)&1); /* bit4     */
-	}
+	} };
 	
-	static WRITE_HANDLER( ctrl_w )
-	{
+	public static WriteHandlerPtr ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data & 0x01);
 	
 		// (data & 0x02) is switched on and off in service mode
@@ -161,16 +156,15 @@ public class rmhaihai
 		// (data & 0x10) is medal in service mode
 	
 		gfxbank = (data & 0x40) >> 6;	/* rmhaisei only */
-	}
+	} };
 	
-	static WRITE_HANDLER( themj_rombank_w )
-	{
+	public static WriteHandlerPtr themj_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU1) + 0x10000;
 		int bank = data & 0x03;
 	logerror("banksw %d\n",bank);
 		cpu_setbank(1, rom + bank*0x4000);
 		cpu_setbank(2, rom + bank*0x4000 + 0x2000);
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_themj  = new MachineInitHandlerPtr() { public void handler(){
 		themj_rombank_w(0,0);

@@ -155,10 +155,9 @@ public class asteroid
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( astdelux_coin_counter_w )
-	{
+	public static WriteHandlerPtr astdelux_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	
 	
@@ -168,8 +167,7 @@ public class asteroid
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( llander_led_w )
-	{
+	public static WriteHandlerPtr llander_led_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static const char *lampname[] =
 		{
 			"lamp0", "lamp1", "lamp2", "lamp3", "lamp4"
@@ -178,7 +176,7 @@ public class asteroid
 	
 	    for (i = 0; i < 5; i++)
 			artwork_show(lampname[i], (data >> (4 - i)) & 1);
-	}
+	} };
 	
 	
 	
@@ -196,10 +194,9 @@ public class asteroid
 	} };
 	
 	
-	static WRITE_HANDLER( llander_zeropage_w )
-	{
+	public static WriteHandlerPtr llander_zeropage_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		llander_zeropage[offset & 0xff] = data;
-	}
+	} };
 	
 	
 	

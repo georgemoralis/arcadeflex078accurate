@@ -16,8 +16,7 @@ public class homerun
 	
 	#define half_screen 116
 	
-	WRITE_HANDLER(homerun_banking_w)
-	{
+	public static WriteHandlerPtr homerun_banking_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if(cpu_getscanline()>half_screen)
 			homerun_gc_down=data&3;
 		else
@@ -30,17 +29,15 @@ public class homerun
 			cpu_setbank(1, memory_region(REGION_CPU1) );
 		else
 			cpu_setbank(1, memory_region(REGION_CPU1) + 0x10000 + (((data-1)&0x7)*0x4000 ));	
-	}
+	} };
 	
-	WRITE_HANDLER( homerun_videoram_w )
-	{
+	public static WriteHandlerPtr homerun_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
 		homerun_videoram[offset]=data;
 		tilemap_mark_tile_dirty(homerun_tilemap,offset&0xfff);
-	}
+	} };
 	
-	WRITE_HANDLER(homerun_color_w)
-	{
+	public static WriteHandlerPtr homerun_color_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r,g,b;
 		int bit0,bit1,bit2;
 		bit0 = (data >> 0) & 0x01;
@@ -56,7 +53,7 @@ public class homerun
 		bit2 = (data >> 7) & 0x01;
 		b = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 		palette_set_color(offset,r,g,b);
-	}
+	} };
 	
 	static void get_homerun_tile_info(int tile_index)
 	{

@@ -228,10 +228,9 @@ public class namcos21
 		return mpDualPortRAM[offset];
 	} };
 	
-	static WRITE_HANDLER( namcos2_dualportram_byte_w )
-	{
+	public static WriteHandlerPtr namcos2_dualportram_byte_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mpDualPortRAM[offset] = data;
-	}
+	} };
 	
 	/* shared RAM memory handlers */
 	

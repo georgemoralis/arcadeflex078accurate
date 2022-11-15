@@ -54,36 +54,32 @@ public class blueprnt
 	
 	extern unsigned char *blueprnt_scrollram;
 	
-	WRITE_HANDLER( blueprnt_flipscreen_w );
 	
 	
 	
 	static int dipsw;
 	
-	static WRITE_HANDLER( dipsw_w )
-	{
+	public static WriteHandlerPtr dipsw_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dipsw = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr blueprnt_sh_dipsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return dipsw;
 	} };
 	
-	static WRITE_HANDLER( blueprnt_sound_command_w )
-	{
+	public static WriteHandlerPtr blueprnt_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( blueprnt_coin_w )
-	{
+	public static WriteHandlerPtr blueprnt_coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int lastval;
 	
 		if (lastval == data) return;
 		coin_counter_w (0, data & 0x01);
 		coin_counter_w (1, data & 0x02);
 		lastval = data;
-	}
+	} };
 	
 	
 	

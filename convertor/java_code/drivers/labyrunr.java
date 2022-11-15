@@ -21,8 +21,6 @@ public class labyrunr
 	
 	/* from vidhrdw/labyrunr.c */
 	extern unsigned char *labyrunr_videoram1,*labyrunr_videoram2;
-	WRITE_HANDLER( labyrunr_vram1_w );
-	WRITE_HANDLER( labyrunr_vram2_w );
 	
 	public static InterruptHandlerPtr labyrunr_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
@@ -37,8 +35,7 @@ public class labyrunr
 		}
 	} };
 	
-	static WRITE_HANDLER( labyrunr_bankswitch_w )
-	{
+	public static WriteHandlerPtr labyrunr_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
@@ -51,7 +48,7 @@ public class labyrunr
 		/* bits 3 and 4 are coin counters */
 		coin_counter_w(0,data & 0x08);
 		coin_counter_w(1,data & 0x10);
-	}
+	} };
 	
 	static MEMORY_READ_START( labyrunr_readmem )
 		{ 0x0020, 0x005f, MRA_RAM },	/* scroll registers */

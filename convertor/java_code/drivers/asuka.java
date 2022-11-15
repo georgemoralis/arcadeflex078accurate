@@ -115,9 +115,6 @@ public class asuka
 	
 	
 	
-	WRITE_HANDLER( rastan_adpcm_trigger_w );
-	WRITE_HANDLER( rastan_c000_w );
-	WRITE_HANDLER( rastan_d000_w );
 	
 	WRITE16_HANDLER( bonzeadv_c_chip_w );
 	READ16_HANDLER( bonzeadv_c_chip_r );
@@ -144,10 +141,9 @@ public class asuka
 				SOUND
 	************************************************/
 	
-	static WRITE_HANDLER( sound_bankswitch_w )
-	{
+	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank( 1, memory_region(REGION_CPU2) + ((data-1) & 0x03) * 0x4000 + 0x10000 );
-	}
+	} };
 	
 	
 	/***********************************************************

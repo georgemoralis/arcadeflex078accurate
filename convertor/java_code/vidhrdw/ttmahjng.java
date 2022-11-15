@@ -66,8 +66,7 @@ public class ttmahjng
 	/***************************************************************************
 	  ttmahjng_out0_w
 	***************************************************************************/
-	WRITE_HANDLER( ttmahjng_out0_w )
-	{
+	public static WriteHandlerPtr ttmahjng_out0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last_write = 0;
 	
 		if (data == last_write) return;
@@ -79,13 +78,12 @@ public class ttmahjng
 	
 		video_remap_1 = 1;
 		last_write = data;
-	}
+	} };
 	
 	/***************************************************************************
 	  ttmahjng_out1_w
 	***************************************************************************/
-	WRITE_HANDLER( ttmahjng_out1_w )
-	{
+	public static WriteHandlerPtr ttmahjng_out1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last_write = 0;
 	
 		if (data == last_write) return;
@@ -99,7 +97,7 @@ public class ttmahjng
 	
 		video_remap_2 = 1;
 		last_write = data;
-	}
+	} };
 	
 	/***************************************************************************
 	  ttmahjng_sharedram_r
@@ -111,10 +109,9 @@ public class ttmahjng
 	/***************************************************************************
 	  ttmahjng_sharedram_w
 	***************************************************************************/
-	WRITE_HANDLER( ttmahjng_sharedram_w )
-	{
+	public static WriteHandlerPtr ttmahjng_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ttmahjng_sharedram[offset] = data;
-	}
+	} };
 	
 	/***************************************************************************
 	  ttmahjng_videoram1_r
@@ -133,22 +130,20 @@ public class ttmahjng
 	/***************************************************************************
 	  ttmahjng_videoram1_w
 	***************************************************************************/
-	WRITE_HANDLER( ttmahjng_videoram1_w )
-	{
+	public static WriteHandlerPtr ttmahjng_videoram1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ttmahjng_videoram1[offset] = data;
 	
 		common_videoram_w(offset, data, 0, tmpbitmap1);
-	}
+	} };
 	
 	/***************************************************************************
 	  ttmahjng_videoram2_w
 	***************************************************************************/
-	WRITE_HANDLER( ttmahjng_videoram2_w )
-	{
+	public static WriteHandlerPtr ttmahjng_videoram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ttmahjng_videoram2[offset] = data;
 	
 		common_videoram_w(offset, data, 4, tmpbitmap2);
-	}
+	} };
 	
 	/***************************************************************************
 	  common_videoram_w

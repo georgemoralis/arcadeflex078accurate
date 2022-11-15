@@ -174,8 +174,7 @@ public class meadows
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( meadows_sound_w )
-	{
+	public static WriteHandlerPtr meadows_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset)
 		{
 			case 0:
@@ -197,7 +196,7 @@ public class meadows
 	/*			S2650_Clear_Pending_Interrupts(); */
 				break;
 		}
-	}
+	} };
 	
 	
 	
@@ -251,8 +250,7 @@ public class meadows
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( sound_hardware_w )
-	{
+	public static WriteHandlerPtr sound_hardware_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset & 3)
 		{
 			case 0: /* DAC */
@@ -283,7 +281,7 @@ public class meadows
 				meadows_sh_update();
 	            break;
 		}
-	}
+	} };
 	
 	
 	

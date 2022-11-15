@@ -15,8 +15,7 @@ public class dooyong
 	static int tx_pri;
 	
 	
-	WRITE_HANDLER( lastday_ctrl_w )
-	{
+	public static WriteHandlerPtr lastday_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0 and 1 are coin counters */
 		coin_counter_w(0,data & 0x01);
 		coin_counter_w(1,data & 0x02);
@@ -27,10 +26,9 @@ public class dooyong
 	
 		/* bit 6 is flip screen */
 		flip_screen_set(data & 0x40);
-	}
+	} };
 	
-	WRITE_HANDLER( pollux_ctrl_w )
-	{
+	public static WriteHandlerPtr pollux_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 is flip screen */
 		flip_screen_set(data & 0x01);
 	
@@ -41,10 +39,9 @@ public class dooyong
 		/* bit 1 is used but unknown */
 	
 		/* bit 2 is continuously toggled (unknown) */
-	}
+	} };
 	
-	WRITE_HANDLER( primella_ctrl_w )
-	{
+	public static WriteHandlerPtr primella_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	 	int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
@@ -61,7 +58,7 @@ public class dooyong
 		/* bit 5 used but unknown */
 	
 	//	logerror("%04x: bankswitch = %02x\n",activecpu_get_pc(),data&0xe0);
-	}
+	} };
 	
 	WRITE16_HANDLER( rshark_ctrl_w )
 	{

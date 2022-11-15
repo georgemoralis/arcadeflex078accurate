@@ -204,13 +204,12 @@ public class esd16
 	
 	***************************************************************************/
 	
-	static WRITE_HANDLER( esd16_sound_rombank_w )
-	{
+	public static WriteHandlerPtr esd16_sound_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bank = data & 0xf;
 		if (data != bank)	logerror("CPU #1 - PC %04X: unknown bank bits: %02X\n",activecpu_get_pc(),data);
 		if (bank >= 3)	bank += 1;
 		cpu_setbank(1, memory_region(REGION_CPU2) + 0x4000 * bank);
-	}
+	} };
 	
 	static MEMORY_READ_START( multchmp_sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM		},	// ROM

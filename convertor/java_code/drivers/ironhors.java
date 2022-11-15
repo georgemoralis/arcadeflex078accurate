@@ -19,12 +19,7 @@ public class ironhors
 	extern UINT8 *ironhors_scroll;
 	static UINT8 *ironhors_interrupt_enable;
 	
-	extern WRITE_HANDLER( ironhors_videoram_w );
-	extern WRITE_HANDLER( ironhors_colorram_w );
-	extern WRITE_HANDLER( ironhors_palettebank_w );
-	extern WRITE_HANDLER( ironhors_charbank_w );
-	extern WRITE_HANDLER( ironhors_flipscreen_w );
-	
+	extern extern extern extern extern 
 	extern extern extern 
 	
 	public static InterruptHandlerPtr ironhors_interrupt = new InterruptHandlerPtr() {public void handler(){
@@ -40,17 +35,15 @@ public class ironhors
 		}
 	} };
 	
-	static WRITE_HANDLER( ironhors_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr ironhors_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( ironhors_filter_w )
-	{
+	public static WriteHandlerPtr ironhors_filter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_RC_filter(0,1000,2200,1000,data & 0x04 ? 220000 : 0); /* YM2203-SSG-A */
 		set_RC_filter(1,1000,2200,1000,data & 0x02 ? 220000 : 0); /* YM2203-SSG-B */
 		set_RC_filter(2,1000,2200,1000,data & 0x01 ? 220000 : 0); /* YM2203-SSG-C */
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( ironhors_readmem )

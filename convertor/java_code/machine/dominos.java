@@ -111,34 +111,30 @@ public class dominos
 	/***************************************************************************
 	Attract
 	***************************************************************************/
-	WRITE_HANDLER( dominos_attract_w )
-	{
+	public static WriteHandlerPtr dominos_attract_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dominos_attract = (offset & 0x01) << 4;
 		discrete_sound_w(3, !(offset & 0x01));
-	}
+	} };
 	
 	/***************************************************************************
 	Lamps
 	***************************************************************************/
-	WRITE_HANDLER( dominos_lamp1_w )
-	{
+	public static WriteHandlerPtr dominos_lamp1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Address Line 0 is the data passed to LAMP1 */
 		set_led_status(0,offset & 0x01);
-	}
+	} };
 	
-	WRITE_HANDLER( dominos_lamp2_w )
-	{
+	public static WriteHandlerPtr dominos_lamp2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Address Line 0 is the data passed to LAMP2 */
 		set_led_status(1,offset & 0x01);
-	}
+	} };
 	
 	/***************************************************************************
 	Sound function
 	***************************************************************************/
-	WRITE_HANDLER( dominos_tumble_w )
-	{
+	public static WriteHandlerPtr dominos_tumble_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(2, offset & 0x01);
-	}
+	} };
 	
 	
 }

@@ -21,9 +21,6 @@ extern struct GfxLayout mcr_sprite_layout;
 
 
 
-WRITE_HANDLER( mcr_control_port_w );
-WRITE_HANDLER( mcrmono_control_port_w );
-WRITE_HANDLER( mcr_scroll_value_w );
 
 WRITE16_HANDLER( mcr68_6840_upper_w );
 WRITE16_HANDLER( mcr68_6840_lower_w );
@@ -37,9 +34,6 @@ extern INT8 mcr12_sprite_xoffs;
 extern INT8 mcr12_sprite_xoffs_flip;
 
 
-WRITE_HANDLER( mcr1_videoram_w );
-WRITE_HANDLER( mcr2_videoram_w );
-WRITE_HANDLER( twotigra_videoram_w );
 
 
 
@@ -51,10 +45,6 @@ extern INT16 spyhunt_scroll_offset;
 
 extern UINT8 *spyhunt_alpharam;
 
-WRITE_HANDLER( mcr3_paletteram_w );
-WRITE_HANDLER( mcr3_videoram_w );
-WRITE_HANDLER( spyhunt_videoram_w );
-WRITE_HANDLER( spyhunt_alpharam_w );
 
 void mcr3_update_sprites(struct mame_bitmap *bitmap, const struct rectangle *cliprect, int color_mask, int code_xor, int dx, int dy);
 

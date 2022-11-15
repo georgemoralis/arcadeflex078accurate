@@ -40,8 +40,7 @@ public class ddrible
 			COLOR(3,i) = (*(color_prom++) & 0x0f);
 	} };
 	
-	WRITE_HANDLER( K005885_0_w )
-	{
+	public static WriteHandlerPtr K005885_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset){
 			case 0x03:	/* char bank selection for set 1 */
 				if ((data & 0x03) != charbank[0])
@@ -55,10 +54,9 @@ public class ddrible
 				break;
 		}
 		ddribble_vregs[0][offset] = data;
-	}
+	} };
 	
-	WRITE_HANDLER( K005885_1_w )
-	{
+	public static WriteHandlerPtr K005885_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset){
 			case 0x03:	/* char bank selection for set 2 */
 				if ((data & 0x03) != charbank[1])
@@ -72,7 +70,7 @@ public class ddrible
 				break;
 		}
 		ddribble_vregs[1][offset] = data;
-	}
+	} };
 	
 	/***************************************************************************
 	
@@ -134,23 +132,21 @@ public class ddrible
 	
 	***************************************************************************/
 	
-	WRITE_HANDLER( ddrible_fg_videoram_w )
-	{
+	public static WriteHandlerPtr ddrible_fg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (ddrible_fg_videoram[offset] != data)
 		{
 			ddrible_fg_videoram[offset] = data;
 			tilemap_mark_tile_dirty(fg_tilemap,offset & 0xbff);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( ddrible_bg_videoram_w )
-	{
+	public static WriteHandlerPtr ddrible_bg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (ddrible_bg_videoram[offset] != data)
 		{
 			ddrible_bg_videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap,offset & 0xbff);
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	

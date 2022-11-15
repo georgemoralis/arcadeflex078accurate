@@ -87,12 +87,6 @@ public class senjyo
 	extern UINT8 *senjyo_bg1videoram,*senjyo_bg2videoram,*senjyo_bg3videoram;
 	extern UINT8 *senjyo_radarram;
 	extern UINT8 *senjyo_bgstripesram;
-	WRITE_HANDLER( senjyo_fgvideoram_w );
-	WRITE_HANDLER( senjyo_fgcolorram_w );
-	WRITE_HANDLER( senjyo_bg1videoram_w );
-	WRITE_HANDLER( senjyo_bg2videoram_w );
-	WRITE_HANDLER( senjyo_bg3videoram_w );
-	WRITE_HANDLER( senjyo_bgstripes_w );
 	
 	
 	
@@ -100,14 +94,9 @@ public class senjyo
 	void senjyo_sh_stop(void);
 	void senjyo_sh_update(void);
 	
-	WRITE_HANDLER( senjyo_sh_0_w );
-	WRITE_HANDLER( senjyo_sh_1_w );
-	WRITE_HANDLER( senjyo_sh_2_w );
 	
-	WRITE_HANDLER( starforc_pio_w );
 	
 	#if 1
-	WRITE_HANDLER( senjyo_volume_w );
 	#endif
 	
 	
@@ -127,10 +116,9 @@ public class senjyo
 		else int_delay_kludge--;
 	} };
 	
-	static WRITE_HANDLER( flip_screen_w )
-	{
+	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data);
-	}
+	} };
 	
 	
 	

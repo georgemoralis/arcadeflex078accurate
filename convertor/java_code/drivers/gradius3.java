@@ -169,15 +169,14 @@ public class gradius3
 		cpu_set_irq_line_and_vector(2,0,HOLD_LINE,0xff);
 	}
 	
-	static WRITE_HANDLER( sound_bank_w )
-	{
+	public static WriteHandlerPtr sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bank_A, bank_B;
 	
 		/* banks # for the 007232 (chip 1) */
 		bank_A = ((data >> 0) & 0x03);
 		bank_B = ((data >> 2) & 0x03);
 		K007232_set_bank( 0, bank_A, bank_B );
-	}
+	} };
 	
 	
 	

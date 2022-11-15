@@ -175,42 +175,24 @@ public class dkong
 	static int t[2] = { 1,1 };
 	
 	
-	extern WRITE_HANDLER( radarscp_grid_enable_w );
-	extern WRITE_HANDLER( radarscp_grid_color_w );
-	extern WRITE_HANDLER( dkong_flipscreen_w );
-	extern WRITE_HANDLER( dkongjr_gfxbank_w );
-	extern WRITE_HANDLER( dkong3_gfxbank_w );
-	extern WRITE_HANDLER( dkong_palettebank_w );
-	
-	extern WRITE_HANDLER( dkong_videoram_w );
-	
+	extern extern extern extern extern extern 
+	extern 
 	extern extern extern extern extern extern extern 
-	extern WRITE_HANDLER( dkong_sh_w );
-	extern WRITE_HANDLER( dkongjr_sh_death_w );
-	extern WRITE_HANDLER( dkongjr_sh_drop_w );
-	extern WRITE_HANDLER( dkongjr_sh_roar_w );
-	extern WRITE_HANDLER( dkongjr_sh_jump_w );
-	extern WRITE_HANDLER( dkongjr_sh_walk_w );
-	extern WRITE_HANDLER( dkongjr_sh_climb_w );
-	extern WRITE_HANDLER( dkongjr_sh_land_w );
-	extern WRITE_HANDLER( dkongjr_sh_snapjaw_w );
-	
-	extern WRITE_HANDLER( dkong_sh1_w );
-	
+	extern extern extern extern extern extern extern extern extern 
+	extern 
 	#define ACTIVELOW_PORT_BIT(P,A,D)   ((P & (~(1 << A))) | ((D ^ 1) << A))
 	
 	
-	WRITE_HANDLER( dkong_sh_sound3_w )     { p[2] = ACTIVELOW_PORT_BIT(p[2],5,data); }
-	WRITE_HANDLER( dkong_sh_sound4_w )    { t[1] = ~data & 1; }
-	WRITE_HANDLER( dkong_sh_sound5_w )    { t[0] = ~data & 1; }
-	WRITE_HANDLER( dkong_sh_tuneselect_w ) { soundlatch_w(offset,data ^ 0x0f); }
+	public static WriteHandlerPtr dkong_sh_sound3_w = new WriteHandlerPtr() {public void handler(int offset, int data)   { p[2] = ACTIVELOW_PORT_BIT(p[2],5,data); } };
+	public static WriteHandlerPtr dkong_sh_sound4_w = new WriteHandlerPtr() {public void handler(int offset, int data)  { t[1] = ~data & 1; } };
+	public static WriteHandlerPtr dkong_sh_sound5_w = new WriteHandlerPtr() {public void handler(int offset, int data)  { t[0] = ~data & 1; } };
+	public static WriteHandlerPtr dkong_sh_tuneselect_w = new WriteHandlerPtr() {public void handler(int offset, int data) soundlatch_w(offset,data ^ 0x0f); }
 	
-	WRITE_HANDLER( dkongjr_sh_test6_w )      { p[2] = ACTIVELOW_PORT_BIT(p[2],6,data); }
-	WRITE_HANDLER( dkongjr_sh_test5_w )      { p[2] = ACTIVELOW_PORT_BIT(p[2],5,data); }
-	WRITE_HANDLER( dkongjr_sh_test4_w )      { p[2] = ACTIVELOW_PORT_BIT(p[2],4,data); }
-	WRITE_HANDLER( dkongjr_sh_tuneselect_w ) { soundlatch_w(offset,data); }
+	public static WriteHandlerPtr dkongjr_sh_test6_w = new WriteHandlerPtr() {public void handler(int offset, int data)    { p[2] = ACTIVELOW_PORT_BIT(p[2],6,data); } };
+	public static WriteHandlerPtr dkongjr_sh_test5_w = new WriteHandlerPtr() {public void handler(int offset, int data)    { p[2] = ACTIVELOW_PORT_BIT(p[2],5,data); } };
+	public static WriteHandlerPtr dkongjr_sh_test4_w = new WriteHandlerPtr() {public void handler(int offset, int data)    { p[2] = ACTIVELOW_PORT_BIT(p[2],4,data); } };
+	public static WriteHandlerPtr dkongjr_sh_tuneselect_w = new WriteHandlerPtr() {public void handler(int offset, int data) soundlatch_w(offset,data); }
 	
-	WRITE_HANDLER( hunchbks_mirror_w );
 	
 	public static ReadHandlerPtr dkong_sh_p1_r  = new ReadHandlerPtr() { public int handler(int offset) { return p[1]; } };
 	public static ReadHandlerPtr dkong_sh_p2_r  = new ReadHandlerPtr() { public int handler(int offset) { return p[2]; } };
@@ -228,8 +210,7 @@ public class dkong
 		return (SND[2048+(page & 7)*256+offset]);
 	} };
 	
-	//WRITE_HANDLER( strtheat_writeport );
-	
+	//
 	
 	
 	static double envelope,tt;
@@ -237,16 +218,14 @@ public class dkong
 	
 	#define TSTEP 0.001
 	
-	static WRITE_HANDLER( dkong_sh_p1_w )
-	{
+	public static WriteHandlerPtr dkong_sh_p1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		envelope=exp(-tt);
 		DAC_data_w(0,(int)(data*envelope));
 		if (decay) tt+=TSTEP;
 		else tt=0;
-	}
+	} };
 	
-	static WRITE_HANDLER( dkong_sh_p2_w )
-	{
+	public static WriteHandlerPtr dkong_sh_p2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*   If P2.Bit7 -> is apparently an external signal decay or other output control
 		 *   If P2.Bit6 -> activates the external compressed sample ROM
 		 *   If P2.Bit4 -> status code to main cpu
@@ -256,7 +235,7 @@ public class dkong
 		decay = !(data & 0x80);
 		page = (data & 0x47);
 		mcustatus = ((~data & 0x10) >> 4);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr dkong_in2_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -410,10 +389,9 @@ public class dkong
 	
 	int hunchloopback;
 	
-	WRITE_HANDLER( hunchbkd_data_w )
-	{
+	public static WriteHandlerPtr hunchbkd_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		hunchloopback=data;
-	}
+	} };
 	
 	public static ReadHandlerPtr hunchbkd_port0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("port 0 : pc = %4x\n",activecpu_get_pc());
@@ -591,8 +569,7 @@ public class dkong
 	MEMORY_END
 	
 	
-	WRITE_HANDLER( dkong3_2a03_reset_w )
-	{
+	public static WriteHandlerPtr dkong3_2a03_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 1)
 		{
 			cpu_set_reset_line(1,CLEAR_LINE);
@@ -603,7 +580,7 @@ public class dkong
 			cpu_set_reset_line(1,ASSERT_LINE);
 			cpu_set_reset_line(2,ASSERT_LINE);
 		}
-	}
+	} };
 	
 	static MEMORY_WRITE_START( dkong3_writemem )
 		{ 0x0000, 0x5fff, MWA_ROM },

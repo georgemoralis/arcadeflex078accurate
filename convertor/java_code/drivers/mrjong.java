@@ -52,10 +52,7 @@ public class mrjong
 {
 	
 	
-	extern WRITE_HANDLER( mrjong_videoram_w );
-	extern WRITE_HANDLER( mrjong_colorram_w );
-	extern WRITE_HANDLER( mrjong_flipscreen_w );
-	
+	extern extern extern 
 	extern extern extern 
 	
 	static MEMORY_READ_START( readmem )
@@ -76,10 +73,9 @@ public class mrjong
 	MEMORY_END
 	
 	
-	WRITE_HANDLER( io_0x00_w )
-	{
+	public static WriteHandlerPtr io_0x00_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mrjong_flipscreen_w(0, ((data & 0x04) > 2));
-	}
+	} };
 	
 	public static ReadHandlerPtr io_0x03_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x00;

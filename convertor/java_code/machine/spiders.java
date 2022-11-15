@@ -31,16 +31,13 @@ public class spiders
 	void spiders_irq3a(int state) { logerror("PIA3 irqA %d\n",state); }
 	void spiders_irq3b(int state) { logerror("PIA3 irqB %d\n",state); }
 	
-	static WRITE_HANDLER( soundcmd_w )
-	{
+	public static WriteHandlerPtr soundcmd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		cpu_set_irq_line(1,M6802_IRQ_LINE,(~data & 0x80) ? CLEAR_LINE : ASSERT_LINE);
-	}
+	} };
 	
 	/* Function prototypes */
 	
-	WRITE_HANDLER( spiders_flip_w );
-	WRITE_HANDLER( spiders_vrif_w );
 	
 	
 	/* Declare PIA structure */
@@ -141,17 +138,15 @@ public class spiders
 	
 	int spiders_video_flip=0;
 	
-	WRITE_HANDLER( spiders_flip_w )
-	{
+	public static WriteHandlerPtr spiders_flip_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		spiders_video_flip=data;
-	}
+	} };
 	
-	WRITE_HANDLER( spiders_vrif_w )
-	{
+	public static WriteHandlerPtr spiders_vrif_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		vrom_ctrl_mode=(data&0x80)>>7;
 		vrom_ctrl_latch=(data&0x30)>>4;
 		vrom_ctrl_data=15-(data&0x0f);
-	}
+	} };
 	
 	public static ReadHandlerPtr spiders_vrom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int retval;

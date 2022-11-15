@@ -13,8 +13,6 @@ int cyberbal_samples_start(const struct MachineSound *msound);
 void cyberbal_samples_stop(void);
 
 
-WRITE_HANDLER( cyberbal_sound_bank_select_w );
-WRITE_HANDLER( cyberbal_sound_68k_6502_w );
 
 READ16_HANDLER( cyberbal_sound_68k_r );
 WRITE16_HANDLER( cyberbal_io_68k_irq_ack_w );

@@ -218,8 +218,8 @@ public class _6532riot
 	}
 	
 	
-	WRITE_HANDLER( r6532_0_w ) { r6532_write(0, offset, data); }
-	WRITE_HANDLER( r6532_1_w ) { r6532_write(1, offset, data); }
+	public static WriteHandlerPtr r6532_0_w = new WriteHandlerPtr() {public void handler(int offset, int data) r6532_write(0, offset, data); }
+	public static WriteHandlerPtr r6532_1_w = new WriteHandlerPtr() {public void handler(int offset, int data) r6532_write(1, offset, data); }
 	
 	
 	public static ReadHandlerPtr r6532_0_r  = new ReadHandlerPtr() { public int handler(int offset) return r6532_read(0, offset); }

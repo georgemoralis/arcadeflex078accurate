@@ -23,23 +23,19 @@ public class mermaid
 	extern unsigned char* mermaid_foreground_scrollram;
 	
 	
-	WRITE_HANDLER( mermaid_flip_screen_x_w );
-	WRITE_HANDLER( mermaid_flip_screen_y_w );
 	
 	
 	static unsigned char *mermaid_AY8910_enable;
 	
-	static WRITE_HANDLER( mermaid_AY8910_write_port_w )
-	{
+	public static WriteHandlerPtr mermaid_AY8910_write_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (mermaid_AY8910_enable[0])  AY8910_write_port_0_w(offset, data);
 		if (mermaid_AY8910_enable[1])  AY8910_write_port_1_w(offset, data);
-	}
+	} };
 	
-	static WRITE_HANDLER( mermaid_AY8910_control_port_w )
-	{
+	public static WriteHandlerPtr mermaid_AY8910_control_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (mermaid_AY8910_enable[0])  AY8910_control_port_0_w(offset, data);
 		if (mermaid_AY8910_enable[1])  AY8910_control_port_1_w(offset, data);
-	}
+	} };
 	
 	#if 0
 	public static ReadHandlerPtr mermaid_f800_r  = new ReadHandlerPtr() { public int handler(int offset){

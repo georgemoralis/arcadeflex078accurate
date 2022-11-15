@@ -48,20 +48,17 @@ public class freekick
 	
 	extern data8_t *freek_videoram;
 	
-	WRITE_HANDLER( freek_videoram_w );
 	
 	static int oigas_inval,oigas_outval,oigas_cnt;//oigas
 	static int romaddr;
 	
-	static WRITE_HANDLER( snd_rom_addr_l_w )
-	{
+	public static WriteHandlerPtr snd_rom_addr_l_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		romaddr = (romaddr & 0xff00) | data;
-	}
+	} };
 	
-	static WRITE_HANDLER( snd_rom_addr_h_w )
-	{
+	public static WriteHandlerPtr snd_rom_addr_h_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		romaddr = (romaddr & 0x00ff) | (data << 8);
-	}
+	} };
 	
 	public static ReadHandlerPtr snd_rom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_USER1)[romaddr & 0x7fff];
@@ -83,27 +80,24 @@ public class freekick
 	} };
 	
 	
-	static WRITE_HANDLER( flipscreen_w )
-	{
+	public static WriteHandlerPtr flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* flip Y/X could be the other way round... */
 		if (offset)
 			flip_screen_y_set(~data & 1);
 		else
 			flip_screen_x_set(~data & 1);
-	}
+	} };
 	
-	static WRITE_HANDLER( coin_w )
-	{
+	public static WriteHandlerPtr coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,~data & 1);
-	}
+	} };
 	
 	
 	static int spinner;
 	
-	static WRITE_HANDLER( spinner_select_w )
-	{
+	public static WriteHandlerPtr spinner_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		spinner = data & 1;
-	}
+	} };
 	
 	public static ReadHandlerPtr spinner_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(5 + spinner);
@@ -115,18 +109,16 @@ public class freekick
 	
 	
 	
-	static WRITE_HANDLER( pbillrd_bankswitch_w )
-	{
+	public static WriteHandlerPtr pbillrd_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank(1,memory_region(REGION_CPU1) + 0x10000 + 0x4000 * (data & 1));
-	}
+	} };
 	
 	
 	static int nmi_en;
 	
-	static WRITE_HANDLER( nmi_enable_w )
-	{
+	public static WriteHandlerPtr nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nmi_en = data & 1;
-	}
+	} };
 	
 	public static InterruptHandlerPtr freekick_irqgen = new InterruptHandlerPtr() {public void handler(){
 		if (nmi_en) cpu_set_irq_line(0,IRQ_LINE_NMI,PULSE_LINE);
@@ -169,15 +161,14 @@ public class freekick
 	
 	
 	
-	static WRITE_HANDLER(oigas_5_w)
-	{
+	public static WriteHandlerPtr oigas_5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if(data>0xc0&&data<0xe0)oigas_cnt=1;
 		switch(oigas_cnt)
 		{
 		  case 1: oigas_inval=data<<8;break;
 		  case 2: oigas_inval|=data;break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr oigas_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch(++oigas_cnt)
@@ -296,10 +287,9 @@ public class freekick
 		return ff_data;
 	} };
 	
-	static WRITE_HANDLER (freekick_ff_w)
-	{
+	public static WriteHandlerPtr freekick_ff_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ff_data = data;
-	}
+	} };
 	
 	static PORT_READ_START( freekckb_readport )
 		{ 0xff, 0xff, freekick_ff_r },

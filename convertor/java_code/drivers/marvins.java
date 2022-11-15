@@ -42,14 +42,10 @@ public class marvins
 	**
 	***************************************************************************/
 	
-	extern extern WRITE_HANDLER( marvins_background_ram_w );
-	
-	extern extern WRITE_HANDLER( marvins_foreground_ram_w );
-	
-	extern extern WRITE_HANDLER( marvins_text_ram_w );
-	
-	extern extern WRITE_HANDLER( marvins_spriteram_w );
-	
+	extern extern 
+	extern extern 
+	extern extern 
+	extern extern 
 	
 	/***************************************************************************
 	**
@@ -58,8 +54,7 @@ public class marvins
 	***************************************************************************/
 	
 	extern extern extern 
-	extern WRITE_HANDLER( marvins_palette_bank_w );
-	
+	extern 
 	
 	/***************************************************************************
 	**
@@ -93,8 +88,7 @@ public class marvins
 	**
 	***************************************************************************/
 	
-	extern WRITE_HANDLER( snkwave_w );
-	
+	extern 
 	static int sound_cpu_busy;
 	
 	static struct namco_interface snkwave_interface =
@@ -122,12 +116,11 @@ public class marvins
 		sound_cpu_busy = 0;
 	}
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_cpu_busy = snk_sound_busy_bit;
 		soundlatch_w(0, data);
 		cpu_set_irq_line(2, 0, HOLD_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sound_cpu_busy = 0;

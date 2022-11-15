@@ -97,26 +97,23 @@ public class exedexes
 		}
 	} };
 	
-	WRITE_HANDLER( exedexes_videoram_w )
-	{
+	public static WriteHandlerPtr exedexes_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(tx_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( exedexes_colorram_w )
-	{
+	public static WriteHandlerPtr exedexes_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (colorram[offset] != data)
 		{
 			colorram[offset] = data;
 			tilemap_mark_tile_dirty(tx_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( exedexes_c804_w )
-	{
+	public static WriteHandlerPtr exedexes_c804_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0 and 1 are coin counters */
 		coin_counter_w(0, data & 0x01);
 		coin_counter_w(1, data & 0x02);
@@ -128,10 +125,9 @@ public class exedexes
 		chon = data & 0x80;
 	
 		/* other bits seem to be unused */
-	}
+	} };
 	
-	WRITE_HANDLER( exedexes_gfxctrl_w )
-	{
+	public static WriteHandlerPtr exedexes_gfxctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 4 is bg enable */
 		sc2on = data & 0x10;
 	
@@ -142,7 +138,7 @@ public class exedexes
 		objon = data & 0x40;
 	
 		/* other bits seem to be unused */
-	}
+	} };
 	
 	
 	static void get_bg_tile_info(int tile_index)

@@ -16,18 +16,6 @@ struct YMF278B_interface {
 int  YMF278B_sh_start( const struct MachineSound *msound );
 void YMF278B_sh_stop( void );
 
-WRITE_HANDLER( YMF278B_control_port_0_A_w );
-WRITE_HANDLER( YMF278B_data_port_0_A_w );
-WRITE_HANDLER( YMF278B_control_port_0_B_w );
-WRITE_HANDLER( YMF278B_data_port_0_B_w );
-WRITE_HANDLER( YMF278B_control_port_0_C_w );
-WRITE_HANDLER( YMF278B_data_port_0_C_w );
 
-WRITE_HANDLER( YMF278B_control_port_1_A_w );
-WRITE_HANDLER( YMF278B_data_port_1_A_w );
-WRITE_HANDLER( YMF278B_control_port_1_B_w );
-WRITE_HANDLER( YMF278B_data_port_1_B_w );
-WRITE_HANDLER( YMF278B_control_port_1_C_w );
-WRITE_HANDLER( YMF278B_data_port_1_C_w );
 
 #endif

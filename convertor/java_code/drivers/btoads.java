@@ -97,11 +97,10 @@ public class btoads
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( sound_data_w )
-	{
+	public static WriteHandlerPtr sound_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_to_main_data = data;
 		sound_to_main_ready = 1;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr sound_data_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -138,13 +137,12 @@ public class btoads
 	} };
 	
 	
-	static WRITE_HANDLER( sound_int_state_w )
-	{
+	public static WriteHandlerPtr sound_int_state_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (!(sound_int_state & 0x80) && (data & 0x80))
 			cpu_set_irq_line(1, 0, CLEAR_LINE);
 	
 		sound_int_state = data;
-	}
+	} };
 	
 	
 	
@@ -159,12 +157,11 @@ public class btoads
 	} };
 	
 	
-	static WRITE_HANDLER( bsmt2000_port_w )
-	{
+	public static WriteHandlerPtr bsmt2000_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT16 reg = offset >> 8;
 		UINT16 val = ((offset & 0xff) << 8) | data;
 		BSMT2000_data_0_w(reg, val, 0);
-	}
+	} };
 	
 	
 	

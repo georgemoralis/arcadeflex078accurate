@@ -9,30 +9,17 @@
 extern UINT8 *sega_mem;
 extern void sega_security(int chip);
 
-WRITE_HANDLER( sega_w );
 
 
-WRITE_HANDLER( sega_mult1_w );
-WRITE_HANDLER( sega_mult2_w );
-WRITE_HANDLER( sega_switch_w );
-WRITE_HANDLER( sega_coin_counter_w );
 
 
 
 /*----------- defined in sndhrdw/sega.c -----------*/
 
-WRITE_HANDLER( elim1_sh_w );
-WRITE_HANDLER( elim2_sh_w );
-WRITE_HANDLER( spacfury1_sh_w );
-WRITE_HANDLER( spacfury2_sh_w );
-WRITE_HANDLER( zektor1_sh_w );
-WRITE_HANDLER( zektor2_sh_w );
 
 int tacscan_sh_start(const struct MachineSound *msound);
 void tacscan_sh_update(void);
 
-WRITE_HANDLER( tacscan_sh_w );
-WRITE_HANDLER( startrek_sh_w );
 
 
 /*----------- defined in vidhrdw/sega.c -----------*/

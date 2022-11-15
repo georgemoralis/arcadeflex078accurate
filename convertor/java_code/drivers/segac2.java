@@ -1385,7 +1385,7 @@ public class segac2
 	
 	
 	
-	static WRITE_HANDLER ( genesis_bank_select_w ) /* note value will be meaningless unless all bits are correctly set in */
+	public static WriteHandlerPtr genesis_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data)* note value will be meaningless unless all bits are correctly set in */
 	{
 		if (offset !=0 ) return;
 	//	if (!z80running) logerror("undead Z80 latch write!\n");
@@ -1399,7 +1399,7 @@ public class segac2
 			z80_latch_bitcount = 0;
 			logerror("latch set, value %x\n", z80_68000_latch);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr genesis_z80_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset += 0x4000;
@@ -1437,8 +1437,7 @@ public class segac2
 		return 0x00;
 	} };
 	
-	static WRITE_HANDLER ( genesis_z80_w )
-	{
+	public static WriteHandlerPtr genesis_z80_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset += 0x4000;
 	
 		/* YM2610 */
@@ -1474,7 +1473,7 @@ public class segac2
 		{
 	
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr genesis_z80_bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int address = (z80_68000_latch) + (offset & 0x7fff);
@@ -1543,36 +1542,33 @@ public class segac2
 		return bios_ctrl[offset];
 	} };
 	
-	static WRITE_HANDLER( bios_ctrl_w )
-	{
+	public static WriteHandlerPtr bios_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if(offset == 1)
 		{
 			bios_ctrl_inputs = data & 0x04;  // Genesis/SMS input ports disable bit
 		}
 		bios_ctrl[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr megaplay_bios_banksel_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bios_bank;
 	} };
 	
-	static WRITE_HANDLER( megaplay_bios_banksel_w )
-	{
+	public static WriteHandlerPtr megaplay_bios_banksel_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bios_bank = data;
 		bios_mode = MP_ROM;
 		logerror("BIOS: ROM bank %i selected [0x%02x]\n",bios_bank >> 6, data);
-	}
+	} };
 	
 	public static ReadHandlerPtr megaplay_bios_gamesel_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bios_6403;
 	} };
 	
-	static WRITE_HANDLER( megaplay_bios_gamesel_w )
-	{
+	public static WriteHandlerPtr megaplay_bios_gamesel_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bios_6403 = data;
 		logerror("BIOS: 0x6403 write: 0x%02x\n",data);
 		bios_mode = data & 0x10;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr bank_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -1606,54 +1602,48 @@ public class segac2
 		}
 	} };
 	
-	static WRITE_HANDLER ( bank_w )
-	{
+	public static WriteHandlerPtr bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if(game_banksel == 0x142) // Genesis I/O
 			genesis_io_w((offset/2) & 0x1f, data, 0xffff);
 		else
 			logerror("Write to bank region %i\n",game_banksel);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr megaplay_bios_6402_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bios_6402;// & 0xfe;
 	} };
 	
-	static WRITE_HANDLER( megaplay_bios_6402_w )
-	{
+	public static WriteHandlerPtr megaplay_bios_6402_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bios_6402 = data;
 		logerror("BIOS: 0x6402 write: 0x%02x\n",data);
-	}
+	} };
 	
 	public static ReadHandlerPtr megaplay_bios_6404_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("BIOS: 0x6404 read: returned 0x%02x\n",bios_6404 | (bios_6403 & 0x10) >> 4);
 		return bios_6404 | (bios_6403 & 0x10) >> 4;
 	} };
 	
-	static WRITE_HANDLER( megaplay_bios_6404_w )
-	{
+	public static WriteHandlerPtr megaplay_bios_6404_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bios_6404 = data;
 		logerror("BIOS: 0x6404 write: 0x%02x\n",data);
-	}
+	} };
 	
-	static WRITE_HANDLER( megaplay_bios_width_w )
-	{
+	public static WriteHandlerPtr megaplay_bios_width_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bios_width = data;
 	//	usrintf_showmessage("Width write: %02x",data);
-	}
+	} };
 	
 	public static ReadHandlerPtr megaplay_bios_6600_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bios_6600;// & 0xfe;
 	} };
 	
-	static WRITE_HANDLER( megaplay_bios_6600_w )
-	{
+	public static WriteHandlerPtr megaplay_bios_6600_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bios_6600 = data;
 		logerror("BIOS: 0x6600 write: 0x%02x\n",data);
-	}
+	} };
 	
-	static WRITE_HANDLER( megaplay_game_w )
-	{
+	public static WriteHandlerPtr megaplay_game_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if(readpos == 1)
 			game_banksel = 0;
 		game_banksel |= (1 << (readpos-1)) * (data & 0x01);
@@ -1666,7 +1656,7 @@ public class segac2
 			usrintf_showmessage("Game bank selected: 0x%03x",game_banksel);
 			logerror("BIOS: 68K address space bank selected: 0x%03x\n",game_banksel);
 		}
-	}
+	} };
 	
 	
 	
@@ -1756,8 +1746,7 @@ public class segac2
 		}
 		return temp;
 	} };
-	static WRITE_HANDLER (megatech_bios_port_be_bf_w)
-	{
+	public static WriteHandlerPtr megatech_bios_port_be_bf_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset)
 		{
 			case 0: /* port 0xbe, VDP 1 DATA Write */
@@ -1765,12 +1754,11 @@ public class segac2
 			case 1: /* port 0xbf, VDP 1 CTRL Write */
 				segae_vdp_ctrl_w(0, data); break;
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER (megatech_bios_port_ctrl_w)
-	{
+	public static WriteHandlerPtr megatech_bios_port_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bios_port_ctrl = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr megatech_bios_port_dc_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if(bios_port_ctrl == 0x55)
@@ -1786,10 +1774,9 @@ public class segac2
 			return readinputport(8);
 	} };
 	
-	static WRITE_HANDLER (megatech_bios_port_7f_w)
-	{
+	public static WriteHandlerPtr megatech_bios_port_7f_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	usrintf_showmessage("CPU #3: I/O port 0x7F write, data %02x",data);
-	}
+	} };
 	
 	
 	static PORT_READ_START( megatech_bios_readport )

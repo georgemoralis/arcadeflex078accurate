@@ -144,11 +144,7 @@ public class gsword
 {
 	
 	
-	extern WRITE_HANDLER( gsword_charbank_w );
-	extern WRITE_HANDLER( gsword_videoctrl_w );
-	extern WRITE_HANDLER( gsword_videoram_w );
-	extern WRITE_HANDLER( gsword_scroll_w );
-	
+	extern extern extern extern 
 	extern extern extern extern 
 	extern size_t gsword_spritexy_size;
 	
@@ -233,8 +229,7 @@ public class gsword
 		}
 	} };
 	
-	static WRITE_HANDLER( gsword_nmi_set_w )
-	{
+	public static WriteHandlerPtr gsword_nmi_set_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(data)
 		{
 		case 0x02:
@@ -253,18 +248,16 @@ public class gsword
 		}
 		/* bit1= nmi disable , for ram check */
 		logerror("NMI controll %02x\n",data);
-	}
+	} };
 	
-	static WRITE_HANDLER( gsword_AY8910_control_port_0_w )
-	{
+	public static WriteHandlerPtr gsword_AY8910_control_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		AY8910_control_port_0_w(offset,data);
 		fake8910_0 = data;
-	}
-	static WRITE_HANDLER( gsword_AY8910_control_port_1_w )
-	{
+	} };
+	public static WriteHandlerPtr gsword_AY8910_control_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		AY8910_control_port_1_w(offset,data);
 		fake8910_1 = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr gsword_fake_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return fake8910_0+1;
@@ -273,18 +266,16 @@ public class gsword
 		return fake8910_1+1;
 	} };
 	
-	WRITE_HANDLER( gsword_adpcm_data_w )
-	{
+	public static WriteHandlerPtr gsword_adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_data_w (0,data & 0x0f); /* bit 0..3 */
 		MSM5205_reset_w(0,(data>>5)&1); /* bit 5    */
 		MSM5205_vclk_w(0,(data>>4)&1);  /* bit 4    */
-	}
+	} };
 	
-	WRITE_HANDLER( adpcm_soundcommand_w )
-	{
+	public static WriteHandlerPtr adpcm_soundcommand_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		cpu_set_nmi_line(2, PULSE_LINE);
-	}
+	} };
 	
 	static MEMORY_READ_START( gsword_readmem )
 		{ 0x0000, 0x8fff, MRA_ROM },

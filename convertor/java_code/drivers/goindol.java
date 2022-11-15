@@ -26,8 +26,6 @@ package drivers;
 public class goindol
 {
 	
-	WRITE_HANDLER( goindol_fg_videoram_w );
-	WRITE_HANDLER( goindol_bg_videoram_w );
 	
 	extern UINT8 *goindol_fg_scrollx;
 	extern UINT8 *goindol_fg_scrolly;
@@ -40,8 +38,7 @@ public class goindol
 	extern int goindol_char_bank;
 	
 	
-	WRITE_HANDLER( goindol_bankswitch_w )
-	{
+	public static WriteHandlerPtr goindol_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		UINT8 *RAM = memory_region(REGION_CPU1);
 	
@@ -55,7 +52,7 @@ public class goindol
 		}
 	
 		flip_screen_set(data & 0x20);
-	}
+	} };
 	
 	
 	
@@ -71,31 +68,27 @@ public class goindol
 	
 	static UINT8 *ram;
 	
-	static WRITE_HANDLER( prot_fc44_w )
-	{
+	public static WriteHandlerPtr prot_fc44_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	logerror("%04x: prot_fc44_w(%02x)\n",activecpu_get_pc(),data);
 		ram[0x0419] = 0x5b;
 		ram[0x041a] = 0x3f;
 		ram[0x041b] = 0x6d;
-	}
+	} };
 	
-	static WRITE_HANDLER( prot_fd99_w )
-	{
+	public static WriteHandlerPtr prot_fd99_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	logerror("%04x: prot_fd99_w(%02x)\n",activecpu_get_pc(),data);
 		ram[0x0421] = 0x3f;
-	}
+	} };
 	
-	static WRITE_HANDLER( prot_fc66_w )
-	{
+	public static WriteHandlerPtr prot_fc66_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	logerror("%04x: prot_fc66_w(%02x)\n",activecpu_get_pc(),data);
 		ram[0x0423] = 0x06;
-	}
+	} };
 	
-	static WRITE_HANDLER( prot_fcb0_w )
-	{
+	public static WriteHandlerPtr prot_fcb0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	logerror("%04x: prot_fcb0_w(%02x)\n",activecpu_get_pc(),data);
 		ram[0x0425] = 0x06;
-	}
+	} };
 	
 	
 	

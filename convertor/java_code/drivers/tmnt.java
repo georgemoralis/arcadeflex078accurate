@@ -261,12 +261,11 @@ public class tmnt
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
 	}
 	
-	static WRITE_HANDLER( prmrsocr_s_bankswitch_w )
-	{
+	public static WriteHandlerPtr prmrsocr_s_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU2) + 0x10000;
 	
 		cpu_setbank(1,rom + (data & 7) * 0x4000);
-	}
+	} };
 	
 	
 	static READ16_HANDLER( tmnt2_sound_r )
@@ -281,8 +280,7 @@ public class tmnt
 		return tmnt_soundlatch;
 	} };
 	
-	WRITE_HANDLER( tmnt_sres_w )
-	{
+	public static WriteHandlerPtr tmnt_sres_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 1 resets the UPD7795C sound chip */
 		UPD7759_reset_w(0, data & 2);
 	
@@ -293,7 +291,7 @@ public class tmnt
 		}
 		else sample_stop(0);
 		tmnt_soundlatch = data;
-	}
+	} };
 	
 	
 	static int tmnt_decode_sample(const struct MachineSound *msound)
@@ -361,12 +359,11 @@ public class tmnt
 		cpu_set_nmi_line(1,ASSERT_LINE);
 	}
 	
-	static WRITE_HANDLER( sound_arm_nmi_w )
-	{
+	public static WriteHandlerPtr sound_arm_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	sound_nmi_enabled = 1;
 		cpu_set_nmi_line(1,CLEAR_LINE);
 		timer_set(TIME_IN_USEC(50),0,nmi_callback);	/* kludge until the K053260 is emulated correctly */
-	}
+	} };
 	
 	
 	
@@ -1465,10 +1462,9 @@ public class tmnt
 	public static ReadHandlerPtr K054539_0_ctrl_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return K054539_0_r(0x200+offset);
 	} };
-	static WRITE_HANDLER( K054539_0_ctrl_w )
-	{
+	public static WriteHandlerPtr K054539_0_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K054539_0_w(0x200+offset,data);
-	}
+	} };
 	
 	static MEMORY_READ_START( prmrsocr_s_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

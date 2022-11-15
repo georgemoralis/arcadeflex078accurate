@@ -27,20 +27,16 @@ public class jcross
 	
 	data8_t *jcr_textram;
 	
-	WRITE_HANDLER( snkwave_w );
 	
-	WRITE_HANDLER( jcross_background_ram_w );
 	
-	WRITE_HANDLER( jcross_text_ram_w );
 	
 	extern extern extern int jcross_vregs[5];
-	WRITE_HANDLER( jcross_palettebank_w );
 	
 	static int sound_cpu_busy=0;
 	
 	data8_t *jcr_sharedram;
 	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)return jcr_sharedram[offset];}
-	static WRITE_HANDLER(sharedram_w){	jcr_sharedram[offset]=data;}
+	public static WriteHandlerPtr sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data)jcr_sharedram[offset]=data;}
 	
 	static struct namco_interface snkwave_interface =
 	{
@@ -61,12 +57,11 @@ public class jcross
 		{ 0 }
 	};
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_cpu_busy = 0x20;
 		soundlatch_w(0, data);
 		cpu_set_irq_line(2, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sound_cpu_busy = 0;
@@ -82,11 +77,11 @@ public class jcross
 		return(input_port_0_r(0) | sound_cpu_busy);
 	} };
 	
-	static WRITE_HANDLER(jcross_vregs0_w){jcross_vregs[0]=data;}
-	static WRITE_HANDLER(jcross_vregs1_w){jcross_vregs[1]=data;}
-	static WRITE_HANDLER(jcross_vregs2_w){jcross_vregs[2]=data;}
-	static WRITE_HANDLER(jcross_vregs3_w){jcross_vregs[3]=data;}
-	static WRITE_HANDLER(jcross_vregs4_w){jcross_vregs[4]=data;}
+	public static WriteHandlerPtr jcross_vregs0_w = new WriteHandlerPtr() {public void handler(int offset, int data)cross_vregs[0]=data;}
+	public static WriteHandlerPtr jcross_vregs1_w = new WriteHandlerPtr() {public void handler(int offset, int data)cross_vregs[1]=data;}
+	public static WriteHandlerPtr jcross_vregs2_w = new WriteHandlerPtr() {public void handler(int offset, int data)cross_vregs[2]=data;}
+	public static WriteHandlerPtr jcross_vregs3_w = new WriteHandlerPtr() {public void handler(int offset, int data)cross_vregs[3]=data;}
+	public static WriteHandlerPtr jcross_vregs4_w = new WriteHandlerPtr() {public void handler(int offset, int data)cross_vregs[4]=data;}
 	
 	
 	static MEMORY_READ_START( readmem_sound )
@@ -258,7 +253,7 @@ public class jcross
 			8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16
 		},
 		256
-	};
+	} };;
 	
 	static struct GfxLayout tile_layout =
 	{

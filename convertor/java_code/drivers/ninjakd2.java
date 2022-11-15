@@ -230,10 +230,6 @@ package drivers;
 public class ninjakd2
 {
 	
-	WRITE_HANDLER( ninjakd2_bgvideoram_w );
-	WRITE_HANDLER( ninjakd2_fgvideoram_w );
-	WRITE_HANDLER( ninjakd2_sprite_overdraw_w );
-	WRITE_HANDLER( ninjakd2_background_enable_w );
 	
 	extern unsigned char 	*ninjakd2_scrolly_ram;
 	extern unsigned char 	*ninjakd2_scrollx_ram;
@@ -288,8 +284,7 @@ public class ninjakd2
 		return ninjakd2_bank_latch;
 	} };
 	
-	WRITE_HANDLER( ninjakd2_bankselect_w )
-	{
+	public static WriteHandlerPtr ninjakd2_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
@@ -300,10 +295,9 @@ public class ninjakd2
 			bankaddress = 0x10000 + ((data & 0x7) * 0x4000);
 			cpu_setbank(1,&RAM[bankaddress]);	 /* Select 8 banks of 16k */
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( ninjakd2_pcm_play_w )
-	{
+	public static WriteHandlerPtr ninjakd2_pcm_play_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i;
 		int sample_no[9] = { 0x00,0x0A,0x27,0x3E,0x53,0x5E,0x68,0x76,0xF0 };
 	
@@ -314,7 +308,7 @@ public class ninjakd2
 			sample_stop(0);
 		else
 			sample_start(0,i,0);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

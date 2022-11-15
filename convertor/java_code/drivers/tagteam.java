@@ -33,20 +33,12 @@ package drivers;
 public class tagteam
 {
 	
-	extern WRITE_HANDLER( tagteam_videoram_w );
-	extern WRITE_HANDLER( tagteam_colorram_w );
-	extern extern WRITE_HANDLER( tagteam_mirrorvideoram_w );
-	extern extern WRITE_HANDLER( tagteam_mirrorcolorram_w );
-	extern WRITE_HANDLER( tagteam_video_control_w );
-	extern WRITE_HANDLER( tagteam_control_w );
-	extern WRITE_HANDLER( tagteam_flipscreen_w );
-	
+	extern extern extern extern extern extern extern extern extern 
 	extern extern extern 
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(1,M6502_IRQ_LINE,HOLD_LINE);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

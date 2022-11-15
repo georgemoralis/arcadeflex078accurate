@@ -39,14 +39,12 @@ public class dlair
 	
 	static int led0,led1;
 	
-	WRITE_HANDLER( dlair_led0_w )
-	{
+	public static WriteHandlerPtr dlair_led0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		led0 = data;
-	}
-	WRITE_HANDLER( dlair_led1_w )
-	{
+	} };
+	public static WriteHandlerPtr dlair_led1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		led1 = data;
-	}
+	} };
 	
 	public static VideoUpdateHandlerPtr video_update_dlair  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
@@ -164,12 +162,11 @@ public class dlair
 	logerror("PC %04x: read I/O port %02x\n",activecpu_get_pc(),offset);
 		return pip[offset];
 	} };
-	static WRITE_HANDLER( pip_w )
-	{
+	public static WriteHandlerPtr pip_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	logerror("PC %04x: write %02x to I/O port %02x\n",activecpu_get_pc(),data,offset);
 		pip[offset] = data;
 	z80ctc_0_w(offset,data);
-	}
+	} };
 	
 	static PORT_READ_START( readport )
 		{ 0x00, 0x03, pip_r },

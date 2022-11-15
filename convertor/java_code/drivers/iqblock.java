@@ -55,24 +55,22 @@ public class iqblock
 {
 	
 	
-	static WRITE_HANDLER( iqblock_prot_w )
-	{
+	public static WriteHandlerPtr iqblock_prot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    UINT8 *mem = memory_region( REGION_CPU1 );
 	
 	    mem[0xfe26] = data;
 	    mem[0xfe27] = data;
 	    mem[0xfe1c] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( grndtour_prot_w )
-	{
+	public static WriteHandlerPtr grndtour_prot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    UINT8 *mem = memory_region( REGION_CPU1 );
 	
 		mem[0xfe39] = data;
 	    mem[0xfe3a] = data;
 	    mem[0xfe2f] = data;
 	
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr iqblock_interrupt = new InterruptHandlerPtr() {public void handler(){
@@ -82,18 +80,16 @@ public class iqblock
 			cpu_set_irq_line(0, 0, ASSERT_LINE);			/* ???? */
 	} };
 	
-	static WRITE_HANDLER( iqblock_irqack_w )
-	{
+	public static WriteHandlerPtr iqblock_irqack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr extrarom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_USER1)[offset];
 	} };
 	
 	
-	static WRITE_HANDLER( port_C_w )
-	{
+	public static WriteHandlerPtr port_C_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 4 unknown; it is pulsed at the end of every NMI */
 	
 		/* bit 5 seems to be 0 during screen redraw */
@@ -103,7 +99,7 @@ public class iqblock
 		coin_counter_w(0,data & 0x40);
 	
 		/* bit 7 could be a second coin counter, but coin 2 doesn't seem to work... */
-	}
+	} };
 	
 	static ppi8255_interface ppi8255_intf =
 	{

@@ -91,10 +91,9 @@ public class irobot
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( irobot_nvram_w )
-	{
+	public static WriteHandlerPtr irobot_nvram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		generic_nvram[offset] = data & 0x0f;
-	}
+	} };
 	
 	
 	
@@ -104,16 +103,14 @@ public class irobot
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( irobot_clearirq_w )
-	{
+	public static WriteHandlerPtr irobot_clearirq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    cpu_set_irq_line(0, M6809_IRQ_LINE ,CLEAR_LINE);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( irobot_clearfirq_w )
-	{
+	public static WriteHandlerPtr irobot_clearfirq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    cpu_set_irq_line(0, M6809_FIRQ_LINE ,CLEAR_LINE);
-	}
+	} };
 	
 	
 	

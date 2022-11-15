@@ -313,12 +313,11 @@ public class plygonet
 		cpu_setbank(2, memory_region(REGION_CPU2) + 0x10000 + cur_sound_region*0x4000);
 	}
 	
-	static WRITE_HANDLER( sound_bankswitch_w )
-	{
+	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cur_sound_region = (data & 0x1f);
 	
 		reset_sound_region();
-	}
+	} };
 	
 	public static InterruptHandlerPtr audio_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_nmi_line(1, PULSE_LINE);

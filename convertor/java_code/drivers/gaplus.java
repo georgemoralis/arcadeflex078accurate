@@ -23,21 +23,11 @@ public class gaplus
 	extern unsigned char *mappy_soundregs;
 	
 	/* shared memory functions */
-	WRITE_HANDLER( gaplus_sharedram_w );
-	WRITE_HANDLER( gaplus_snd_sharedram_w );
 	
 	/* custom IO chips functions */
-	WRITE_HANDLER( gaplus_customio_1_w );
-	WRITE_HANDLER( gaplus_customio_2_w );
-	WRITE_HANDLER( gaplus_customio_3_w );
 	
-	extern WRITE_HANDLER( gaplus_reset_2_3_w );
-	extern WRITE_HANDLER( gaplus_interrupt_ctrl_2_w );
-	extern WRITE_HANDLER( gaplus_interrupt_ctrl_3a_w );
-	WRITE_HANDLER( gaplus_interrupt_ctrl_3b_w );
-	
-	extern extern extern extern WRITE_HANDLER( gaplus_starfield_control_w );
-	
+	extern extern extern 
+	extern extern extern extern 
 	static MEMORY_READ_START( readmem_cpu1 )
 		{ 0x0000, 0x03ff, videoram_r },				/* video RAM */
 		{ 0x0400, 0x07ff, colorram_r },				/* color RAM */

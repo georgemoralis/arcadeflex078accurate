@@ -66,28 +66,7 @@ public class omegaf
 	extern UINT8 *omegaf_bg1_scroll_y;
 	extern UINT8 *omegaf_bg2_scroll_y;
 	
-	extern WRITE_HANDLER( omegaf_bg0_bank_w );
-	extern WRITE_HANDLER( omegaf_bg1_bank_w );
-	extern WRITE_HANDLER( omegaf_bg2_bank_w );
-	extern extern extern extern WRITE_HANDLER( omegaf_bg0_videoram_w );
-	extern WRITE_HANDLER( omegaf_bg1_videoram_w );
-	extern WRITE_HANDLER( omegaf_bg2_videoram_w );
-	extern WRITE_HANDLER( robokid_bg0_videoram_w );
-	extern WRITE_HANDLER( robokid_bg1_videoram_w );
-	extern WRITE_HANDLER( robokid_bg2_videoram_w );
-	extern WRITE_HANDLER( omegaf_bg0_scrollx_w );
-	extern WRITE_HANDLER( omegaf_bg1_scrollx_w );
-	extern WRITE_HANDLER( omegaf_bg2_scrollx_w );
-	extern WRITE_HANDLER( omegaf_bg0_scrolly_w );
-	extern WRITE_HANDLER( omegaf_bg1_scrolly_w );
-	extern WRITE_HANDLER( omegaf_bg2_scrolly_w );
-	extern WRITE_HANDLER( omegaf_fgvideoram_w );
-	extern WRITE_HANDLER( omegaf_bg0_enabled_w );
-	extern WRITE_HANDLER( omegaf_bg1_enabled_w );
-	extern WRITE_HANDLER( omegaf_bg2_enabled_w );
-	extern WRITE_HANDLER( omegaf_sprite_overdraw_w );
-	extern WRITE_HANDLER( omegaf_flipscreen_w );
-	
+	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
 	extern extern extern 
 	static int omegaf_bank_latch = 2;
 	
@@ -355,8 +334,7 @@ public class omegaf
 	  Memory handlers
 	**************************************************************************/
 	
-	static WRITE_HANDLER( omegaf_bankselect_w )
-	{
+	public static WriteHandlerPtr omegaf_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
@@ -370,7 +348,7 @@ public class omegaf
 				bankaddress = 0x10000 + ( (omegaf_bank_latch - 2) * 0x4000);
 			cpu_setbank( 1, &RAM[bankaddress] );	 /* Select 16 banks of 16k */
 		}
-	}
+	} };
 	
 	
 	/**************************************************************************

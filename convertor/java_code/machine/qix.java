@@ -28,22 +28,13 @@ public class qix
 	
 	
 	/* Prototypes */
-	static WRITE_HANDLER( qixmcu_coinctrl_w );
-	static WRITE_HANDLER( qixmcu_coin_w );
 	
-	static WRITE_HANDLER( qix_dac_w );
-	static WRITE_HANDLER( sync_pia_4_porta_w );
 	
-	static WRITE_HANDLER( qix_inv_flag_w );
 	
-	static WRITE_HANDLER( qix_coinctl_w );
-	static WRITE_HANDLER( slither_coinctl_w );
 	
 	static void qix_pia_sint(int state);
 	static void qix_pia_dint(int state);
 	
-	static WRITE_HANDLER( slither_76489_0_w );
-	static WRITE_HANDLER( slither_76489_1_w );
 	
 	
 	
@@ -282,10 +273,9 @@ public class qix
 	} };
 	
 	
-	WRITE_HANDLER( qix_sharedram_w )
-	{
+	public static WriteHandlerPtr qix_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		qix_sharedram[offset] = data;
-	}
+	} };
 	
 	
 	
@@ -295,15 +285,14 @@ public class qix
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( zoo_bankswitch_w )
-	{
+	public static WriteHandlerPtr zoo_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU2);
 	
 		if (data & 0x04)
 			cpu_setbank(1, &RAM[0x10000]);
 		else
 			cpu_setbank(1, &RAM[0xa000]);
-	}
+	} };
 	
 	
 	
@@ -313,16 +302,14 @@ public class qix
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( qix_data_firq_w )
-	{
+	public static WriteHandlerPtr qix_data_firq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, M6809_FIRQ_LINE, ASSERT_LINE);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( qix_data_firq_ack_w )
-	{
+	public static WriteHandlerPtr qix_data_firq_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, M6809_FIRQ_LINE, CLEAR_LINE);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr qix_data_firq_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -344,16 +331,14 @@ public class qix
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( qix_video_firq_w )
-	{
+	public static WriteHandlerPtr qix_video_firq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1, M6809_FIRQ_LINE, ASSERT_LINE);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( qix_video_firq_ack_w )
-	{
+	public static WriteHandlerPtr qix_video_firq_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1, M6809_FIRQ_LINE, CLEAR_LINE);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr qix_video_firq_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -375,10 +360,9 @@ public class qix
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( qix_dac_w )
-	{
+	public static WriteHandlerPtr qix_dac_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_data_w(0, data);
-	}
+	} };
 	
 	
 	static void deferred_pia_4_porta_w(int data)
@@ -387,11 +371,10 @@ public class qix
 	}
 	
 	
-	static WRITE_HANDLER( sync_pia_4_porta_w )
-	{
+	public static WriteHandlerPtr sync_pia_4_porta_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* we need to synchronize this so the sound CPU doesn't drop anything important */
 		timer_set(TIME_NOW, data, deferred_pia_4_porta_w);
-	}
+	} };
 	
 	
 	
@@ -427,16 +410,14 @@ public class qix
 	} };
 	
 	
-	static WRITE_HANDLER( qixmcu_coin_w )
-	{
+	public static WriteHandlerPtr qixmcu_coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* this is a callback called by pia_0_w(), so I don't need to synchronize */
 		/* the CPUs - they have already been synchronized by qix_pia_0_w() */
 		qix_68705_port_in[0] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( qixmcu_coinctrl_w )
-	{
+	public static WriteHandlerPtr qixmcu_coinctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 0x04)
 		{
 			cpu_set_irq_line(3, M6809_IRQ_LINE, ASSERT_LINE);
@@ -449,7 +430,7 @@ public class qix
 		/* this is a callback called by pia_0_w(), so I don't need to synchronize */
 		/* the CPUs - they have already been synchronized by qix_pia_0_w() */
 		qix_coinctrl = data;
-	}
+	} };
 	
 	
 	
@@ -490,24 +471,21 @@ public class qix
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( qix_68705_portA_w )
-	{
+	public static WriteHandlerPtr qix_68705_portA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		qix_68705_port_out[0] = data;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( qix_68705_portB_w )
-	{
+	public static WriteHandlerPtr qix_68705_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		qix_68705_port_out[1] = data;
 		coin_lockout_w(0, (~data >> 6) & 1);
 		coin_counter_w(0, (data >> 7) & 1);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( qix_68705_portC_w )
-	{
+	public static WriteHandlerPtr qix_68705_portC_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		qix_68705_port_out[2] = data;
-	}
+	} };
 	
 	
 	
@@ -523,12 +501,11 @@ public class qix
 	}
 	
 	
-	WRITE_HANDLER( qix_pia_0_w )
-	{
+	public static WriteHandlerPtr qix_pia_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* make all the CPUs synchronize, and only AFTER that write the command to the PIA */
 		/* otherwise the 68705 will miss commands */
 		timer_set(TIME_NOW, data | (offset << 8), pia_0_w_callback);
-	}
+	} };
 	
 	
 	
@@ -538,26 +515,24 @@ public class qix
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( zookeep_pia_0_w )
-	{
+	public static WriteHandlerPtr zookeep_pia_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Hack: Kram and Zoo Keeper for some reason (protection?) leave the port A */
 		/* DDR set to 0xff, so they cannot read the player 1 controls. Here we force */
 		/* the DDR to 0, so the controls work correctly. */
 		if (offset == 0)
 			data = 0;
 		qix_pia_0_w(offset, data);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( zookeep_pia_2_w )
-	{
+	public static WriteHandlerPtr zookeep_pia_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Hack: Zoo Keeper for some reason (protection?) leaves the port A */
 		/* DDR set to 0xff, so they cannot read the player 2 controls. Here we force */
 		/* the DDR to 0, so the controls work correctly. */
 		if (offset == 0)
 			data = 0;
 		pia_2_w(offset, data);
-	}
+	} };
 	
 	
 	
@@ -567,10 +542,9 @@ public class qix
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( qix_inv_flag_w )
-	{
+	public static WriteHandlerPtr qix_inv_flag_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		qix_cocktail_flip = data;
-	}
+	} };
 	
 	
 	
@@ -580,18 +554,16 @@ public class qix
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( qix_coinctl_w )
-	{
+	public static WriteHandlerPtr qix_coinctl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_w(0, (~data >> 2) & 1);
 		coin_counter_w(0, (data >> 1) & 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( slither_coinctl_w )
-	{
+	public static WriteHandlerPtr slither_coinctl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_w(0, (~data >> 6) & 1);
 		coin_counter_w(0, (data >> 5) & 1);
-	}
+	} };
 	
 	
 	
@@ -601,26 +573,24 @@ public class qix
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( slither_76489_0_w )
-	{
+	public static WriteHandlerPtr slither_76489_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* write to the sound chip */
 		SN76496_0_w(0, data);
 	
 		/* clock the ready line going back into CB1 */
 		pia_1_cb1_w(0, 0);
 		pia_1_cb1_w(0, 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( slither_76489_1_w )
-	{
+	public static WriteHandlerPtr slither_76489_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* write to the sound chip */
 		SN76496_1_w(0, data);
 	
 		/* clock the ready line going back into CB1 */
 		pia_2_cb1_w(0, 0);
 		pia_2_cb1_w(0, 1);
-	}
+	} };
 	
 	
 	

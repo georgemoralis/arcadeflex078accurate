@@ -14,10 +14,7 @@ package drivers;
 public class shisen
 {
 	
-	extern WRITE_HANDLER( sichuan2_videoram_w );
-	extern WRITE_HANDLER( sichuan2_bankswitch_w );
-	extern WRITE_HANDLER( sichuan2_paletteram_w );
-	
+	extern extern extern 
 	extern extern 
 	public static ReadHandlerPtr sichuan2_dsw1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = input_port_3_r(0);
@@ -37,13 +34,12 @@ public class shisen
 		return ret;
 	} };
 	
-	static WRITE_HANDLER( sichuan2_coin_w )
-	{
+	public static WriteHandlerPtr sichuan2_coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((data & 0xf9) != 0x01) logerror("coin ctrl = %02x\n",data);
 	
 		coin_counter_w(0, data & 0x02);
 		coin_counter_w(1, data & 0x04);
-	}
+	} };
 	
 	
 	

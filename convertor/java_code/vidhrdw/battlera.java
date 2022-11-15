@@ -55,8 +55,7 @@ public class battlera
 	
 	/******************************************************************************/
 	
-	WRITE_HANDLER( battlera_palette_w )
-	{
+	public static WriteHandlerPtr battlera_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r,g,b,pal_word;
 	
 		paletteram[offset]=data;
@@ -68,7 +67,7 @@ public class battlera
 		g = ((pal_word >> 6) & 7) << 5;
 		b = ((pal_word >> 0) & 7) << 5;
 		palette_set_color(offset/2, r, g, b);
-	}
+	} };
 	
 	/******************************************************************************/
 	
@@ -76,10 +75,9 @@ public class battlera
 		return HuC6270_vram[offset];
 	} };
 	
-	WRITE_HANDLER( HuC6270_debug_w )
-	{
+	public static WriteHandlerPtr HuC6270_debug_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		HuC6270_vram[offset]=data;
-	}
+	} };
 	public static ReadHandlerPtr HuC6270_register_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int rr;
 	
@@ -95,8 +93,7 @@ public class battlera
 			| (0 << 7);	/* Always zero */
 	} };
 	
-	WRITE_HANDLER( HuC6270_register_w )
-	{
+	public static WriteHandlerPtr HuC6270_register_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset) {
 		case 0: /* Select data region */
 			VDC_register=data;
@@ -104,7 +101,7 @@ public class battlera
 		case 1: /* Unused */
 			break;
 		}
-	}
+	} };
 	
 	/******************************************************************************/
 	
@@ -124,8 +121,7 @@ public class battlera
 		return 0;
 	} };
 	
-	WRITE_HANDLER( HuC6270_data_w )
-	{
+	public static WriteHandlerPtr HuC6270_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset) {
 			case 0: /* LSB */
 				switch (VDC_register) {
@@ -247,7 +243,7 @@ public class battlera
 				break;
 		}
 		logerror("%04x: unknown write to  VDC_register %02x (%02x) at %02x\n",activecpu_get_pc(),VDC_register,data,offset);
-	}
+	} };
 	
 	/******************************************************************************/
 	

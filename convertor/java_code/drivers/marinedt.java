@@ -185,17 +185,16 @@ public class marinedt
 		{ 0x0e, 0x0e, marinedt_coll_r },
 	PORT_END
 	
-	static WRITE_HANDLER( marinedt_obj1_a_w ) {	marinedt_obj1_a = data; }
-	static WRITE_HANDLER( marinedt_obj1_x_w ) {	marinedt_obj1_x = data; }
-	static WRITE_HANDLER( marinedt_obj1_y_w ) {	marinedt_obj1_y = data; }
-	static WRITE_HANDLER( marinedt_obj2_a_w ) {	marinedt_obj2_a = data; }
-	static WRITE_HANDLER( marinedt_obj2_x_w ) {	marinedt_obj2_x = data; }
-	static WRITE_HANDLER( marinedt_obj2_y_w ) {	marinedt_obj2_y = data; }
+	public static WriteHandlerPtr marinedt_obj1_a_w = new WriteHandlerPtr() {public void handler(int offset, int data)	marinedt_obj1_a = data; }
+	public static WriteHandlerPtr marinedt_obj1_x_w = new WriteHandlerPtr() {public void handler(int offset, int data)	marinedt_obj1_x = data; }
+	public static WriteHandlerPtr marinedt_obj1_y_w = new WriteHandlerPtr() {public void handler(int offset, int data)	marinedt_obj1_y = data; }
+	public static WriteHandlerPtr marinedt_obj2_a_w = new WriteHandlerPtr() {public void handler(int offset, int data)	marinedt_obj2_a = data; }
+	public static WriteHandlerPtr marinedt_obj2_x_w = new WriteHandlerPtr() {public void handler(int offset, int data)	marinedt_obj2_x = data; }
+	public static WriteHandlerPtr marinedt_obj2_y_w = new WriteHandlerPtr() {public void handler(int offset, int data)	marinedt_obj2_y = data; }
 	
-	static WRITE_HANDLER( marinedt_music_w ){	marinedt_music = data; }
+	public static WriteHandlerPtr marinedt_music_w = new WriteHandlerPtr() {public void handler(int offset, int data)marinedt_music = data; }
 	
-	static WRITE_HANDLER( marinedt_sound_w )
-	{
+	public static WriteHandlerPtr marinedt_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		//76543210
 		//xx------ ??
 		//--x----- jet sound
@@ -206,10 +205,9 @@ public class marinedt
 		//-------x ??
 	
 		marinedt_sound = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( marinedt_pd_w )
-	{
+	public static WriteHandlerPtr marinedt_pd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		//76543210
 		//xxx----- ?? unused
 		//---x---- ?? the rest should be used based on the table
@@ -219,10 +217,9 @@ public class marinedt
 		//-------x obj1 enable
 	
 		marinedt_pd = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( marinedt_pf_w )
-	{
+	public static WriteHandlerPtr marinedt_pf_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		//76543210
 		//xxxx---- ?? unused (will need to understand table of written values)
 	    //----x--- xy trackball select
@@ -236,7 +233,7 @@ public class marinedt
 	//	logerror("pf:%02x %d\n",marinedt_pf);
 	//logerror("pd:%02x %d\n",marinedt_pd, cpu_getcurrentframe());
 	
-	}
+	} };
 	
 	static PORT_WRITE_START( marinedt_writeport )
 		{ 0x02, 0x02, marinedt_obj1_a_w },

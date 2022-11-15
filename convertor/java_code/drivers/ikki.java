@@ -22,13 +22,10 @@ public class ikki
 	
 	/****************************************************************************/
 	
-	WRITE_HANDLER( ikki_scroll_w );
-	WRITE_HANDLER( ikki_scrn_ctrl_w );
 	
-	WRITE_HANDLER( ikki_sharedram_w )
-	{
+	public static WriteHandlerPtr ikki_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ikki_sharedram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr ikki_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ikki_sharedram[offset];

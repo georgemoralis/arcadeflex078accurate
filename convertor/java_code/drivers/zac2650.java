@@ -19,10 +19,7 @@ public class zac2650
 	
 	extern UINT8 *s2636ram;
 	
-	extern WRITE_HANDLER( tinvader_videoram_w );
-	extern WRITE_HANDLER( zac_s2636_w );
-	extern WRITE_HANDLER( tinvader_sound_w );
-	extern extern 
+	extern extern extern extern extern 
 	extern extern 
 	#define WHITE           MAKE_ARGB(0x04,0xff,0xff,0xff)
 	#define GREEN 			MAKE_ARGB(0x04,0x20,0xff,0x20)
@@ -344,8 +341,7 @@ public class zac2650
 		/* sound hardware */
 	MACHINE_DRIVER_END
 	
-	WRITE_HANDLER( tinvader_sound_w )
-	{
+	public static WriteHandlerPtr tinvader_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    /* sounds are NOT the same as space invaders */
 	
 		logerror("Register %x = Data %d\n",data & 0xfe,data & 0x01);
@@ -356,7 +352,7 @@ public class zac2650
 		/* 84 = fire */
 	    /* 90 = die */
 	    /* c4 = hit saucer */
-	}
+	} };
 	
 	static RomLoadHandlerPtr rom_sia2650 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x2000, REGION_CPU1, 0 )

@@ -133,14 +133,7 @@ public class taitosj
 	
 	
 	
-	WRITE_HANDLER( taitosj_bankswitch_w );
-	WRITE_HANDLER( taitosj_fake_data_w );
-	WRITE_HANDLER( taitosj_mcu_data_w );
-	WRITE_HANDLER( taitosj_68705_portA_w );
-	WRITE_HANDLER( taitosj_68705_portB_w );
 	
-	WRITE_HANDLER( alpine_protection_w );
-	WRITE_HANDLER( alpinea_bankswitch_w );
 	
 	extern unsigned char *taitosj_videoram2,*taitosj_videoram3;
 	extern unsigned char *taitosj_characterram;
@@ -149,28 +142,18 @@ public class taitosj
 	extern unsigned char *taitosj_gfxpointer;
 	extern unsigned char *taitosj_colorbank,*taitosj_video_priority;
 	extern unsigned char *kikstart_scrollram;
-	WRITE_HANDLER( taitosj_videoram2_w );
-	WRITE_HANDLER( taitosj_videoram3_w );
-	WRITE_HANDLER( taitosj_paletteram_w );
-	WRITE_HANDLER( taitosj_colorbank_w );
-	WRITE_HANDLER( taitosj_videoenable_w );
-	WRITE_HANDLER( taitosj_characterram_w );
-	WRITE_HANDLER( junglhbr_characterram_w );
-	WRITE_HANDLER( taitosj_collision_reg_clear_w );
 	
 	
 	static int sndnmi_disable = 1;
 	
-	static WRITE_HANDLER( taitosj_sndnmi_msk_w )
-	{
+	public static WriteHandlerPtr taitosj_sndnmi_msk_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sndnmi_disable = data & 0x01;
-	}
+	} };
 	
-	static WRITE_HANDLER( taitosj_soundcommand_w )
-	{
+	public static WriteHandlerPtr taitosj_soundcommand_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		if (!sndnmi_disable) cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

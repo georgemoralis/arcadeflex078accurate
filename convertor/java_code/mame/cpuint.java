@@ -491,11 +491,10 @@ public class cpuint
 	}
 	
 	
-	WRITE_HANDLER( interrupt_enable_w )
-	{
+	public static WriteHandlerPtr interrupt_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		VERIFY_ACTIVECPU_VOID(interrupt_enable_w);
 		cpu_interrupt_enable(activecpu, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr interrupt_enable_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -504,8 +503,7 @@ public class cpuint
 	} };
 	
 	
-	WRITE_HANDLER( interrupt_vector_w )
-	{
+	public static WriteHandlerPtr interrupt_vector_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		VERIFY_ACTIVECPU_VOID(interrupt_vector_w);
 		if (interrupt_vector[activecpu][0] != data)
 		{
@@ -515,5 +513,5 @@ public class cpuint
 			/* make sure there are no queued interrupts */
 			timer_set(TIME_NOW, activecpu, cpu_clearintcallback);
 		}
-	}
+	} };
 }

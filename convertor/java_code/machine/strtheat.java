@@ -234,9 +234,8 @@ public class strtheat
 	} };
 	
 	/*
-	WRITE_HANDLER( strtheat_writeport)
-	{
+	public static WriteHandlerPtr strtheat_writeport = new WriteHandlerPtr() {public void handler(int offset, int data){
 	logerror("Port Write: pc = %4x ############## \n",activecpu_get_pc());
-	}
+	} };
 	*/
 }

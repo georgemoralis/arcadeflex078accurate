@@ -24,15 +24,10 @@ public class baraduke
 	extern unsigned char *baraduke_textram, *spriteram, *baraduke_videoram;
 	
 	/* from vidhrdw/baraduke.c */
-	WRITE_HANDLER( baraduke_textlayer_w );
-	WRITE_HANDLER( baraduke_videoram_w );
-	WRITE_HANDLER( baraduke_scroll0_w );
-	WRITE_HANDLER( baraduke_scroll1_w );
 	
 	static int inputport_selected;
 	
-	static WRITE_HANDLER( inputport_select_w )
-	{
+	public static WriteHandlerPtr inputport_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((data & 0xe0) == 0x60)
 			inputport_selected = data & 0x07;
 		else if ((data & 0xe0) == 0xc0)
@@ -41,7 +36,7 @@ public class baraduke
 			coin_counter_w(0,data & 2);
 			coin_counter_w(1,data & 4);
 		}
-	}
+	} };
 	
 	#define reverse_bitstrm(data) ((data & 0x01) << 4) | ((data & 0x02) << 2) | (data & 0x04) \
 								| ((data & 0x08) >> 2) | ((data & 0x10) >> 4)
@@ -71,19 +66,17 @@ public class baraduke
 		return data;
 	} };
 	
-	static WRITE_HANDLER( baraduke_lamps_w )
-	{
+	public static WriteHandlerPtr baraduke_lamps_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0,data & 0x08);
 		set_led_status(1,data & 0x10);
-	}
+	} };
 	
 	public static ReadHandlerPtr baraduke_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram[offset];
 	} };
-	WRITE_HANDLER( baraduke_sharedram_w )
-	{
+	public static WriteHandlerPtr baraduke_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sharedram[offset] = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( baraduke_readmem )
 		{ 0x0000, 0x17ff, MRA_RAM },				/* RAM */

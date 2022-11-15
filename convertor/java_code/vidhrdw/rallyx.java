@@ -174,38 +174,35 @@ public class rallyx
 	
 	
 	
-	WRITE_HANDLER( rallyx_videoram2_w )
-	{
+	public static WriteHandlerPtr rallyx_videoram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (rallyx_videoram2[offset] != data)
 		{
 			dirtybuffer2[offset] = 1;
 	
 			rallyx_videoram2[offset] = data;
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( rallyx_colorram2_w )
-	{
+	public static WriteHandlerPtr rallyx_colorram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (rallyx_colorram2[offset] != data)
 		{
 			dirtybuffer2[offset] = 1;
 	
 			rallyx_colorram2[offset] = data;
 		}
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( rallyx_flipscreen_w )
-	{
+	public static WriteHandlerPtr rallyx_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (flip_screen != (data & 1))
 		{
 			flip_screen_set(data & 1);
 			memset(dirtybuffer,1,videoram_size);
 			memset(dirtybuffer2,1,videoram_size);
 		}
-	}
+	} };
 	
 	
 	

@@ -27,7 +27,6 @@ public class ojankohs
 	static int ojankoc_screen_refresh;
 	static struct mame_bitmap *ojankoc_tmpbitmap;
 	
-	WRITE_HANDLER( ojankoc_videoram_w );
 	
 	
 	/******************************************************************************
@@ -69,8 +68,7 @@ public class ojankohs
 		return ojankohs_paletteram[offset];
 	} };
 	
-	WRITE_HANDLER( ojankohs_palette_w )
-	{
+	public static WriteHandlerPtr ojankohs_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
 		ojankohs_paletteram[offset] = data;
@@ -87,10 +85,9 @@ public class ojankohs
 		b = (b << 3) | (b >> 2);
 	
 		palette_set_color(offset >> 1, r, g, b);
-	}
+	} };
 	
-	WRITE_HANDLER( ccasino_palette_w )
-	{
+	public static WriteHandlerPtr ccasino_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
 		/* get top 8 bits of the I/O port address */
@@ -110,10 +107,9 @@ public class ojankohs
 		b = (b << 3) | (b >> 2);
 	
 		palette_set_color(offset >> 1, r, g, b);
-	}
+	} };
 	
-	WRITE_HANDLER( ojankoc_palette_w )
-	{
+	public static WriteHandlerPtr ojankoc_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b, color;
 	
 		if (ojankohs_paletteram[offset] == data) return;
@@ -132,7 +128,7 @@ public class ojankohs
 		b = (b << 3) | (b >> 2);
 	
 		palette_set_color(offset >> 1, r, g, b);
-	}
+	} };
 	
 	
 	/******************************************************************************
@@ -145,34 +141,30 @@ public class ojankohs
 		return ojankohs_videoram[offset];
 	} };
 	
-	WRITE_HANDLER( ojankohs_videoram_w )
-	{
+	public static WriteHandlerPtr ojankohs_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (ojankohs_videoram[offset] != data) {
 			ojankohs_videoram[offset] = data;
 			tilemap_mark_tile_dirty(ojankohs_tilemap, offset);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr ojankohs_colorram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ojankohs_colorram[offset];
 	} };
 	
-	WRITE_HANDLER( ojankohs_colorram_w )
-	{
+	public static WriteHandlerPtr ojankohs_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ojankohs_colorram[offset] = data;
 		tilemap_mark_tile_dirty(ojankohs_tilemap, offset);
-	}
+	} };
 	
-	WRITE_HANDLER( ojankohs_gfxreg_w )
-	{
+	public static WriteHandlerPtr ojankohs_gfxreg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (ojankohs_gfxreg != data) {
 			ojankohs_gfxreg = data;
 			tilemap_mark_all_tiles_dirty(ojankohs_tilemap);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( ojankohs_flipscreen_w )
-	{
+	public static WriteHandlerPtr ojankohs_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (ojankohs_flipscreen != (data & 0x01)) {
 	
 			ojankohs_flipscreen = data & 0x01;
@@ -188,7 +180,7 @@ public class ojankohs
 				ojankohs_scrolly = 0;
 			}
 		}
-	}
+	} };
 	
 	INLINE void ojankohs_get_tile_info(int tile_index)
 	{
@@ -251,8 +243,7 @@ public class ojankohs
 		ojankoc_flipscreen_old = ojankohs_flipscreen;
 	}
 	
-	WRITE_HANDLER( ojankoc_videoram_w )
-	{
+	public static WriteHandlerPtr ojankoc_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i;
 		UINT8 x, y, xx, px, py ;
 		UINT8 color, color1, color2;
@@ -283,7 +274,7 @@ public class ojankohs
 			color1 >>= 1;
 			color2 >>= 1;
 		}
-	}
+	} };
 	
 	
 	/******************************************************************************

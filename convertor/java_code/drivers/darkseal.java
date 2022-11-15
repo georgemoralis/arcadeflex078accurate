@@ -98,8 +98,7 @@ public class darkseal
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( YM2151_w )
-	{
+	public static WriteHandlerPtr YM2151_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset) {
 		case 0:
 			YM2151_register_port_0_w(0,data);
@@ -108,10 +107,9 @@ public class darkseal
 			YM2151_data_port_0_w(0,data);
 			break;
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( YM2203_w )
-	{
+	public static WriteHandlerPtr YM2203_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset) {
 		case 0:
 			YM2203_control_port_0_w(0,data);
@@ -120,7 +118,7 @@ public class darkseal
 			YM2203_write_port_0_w(0,data);
 			break;
 		}
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x000000, 0x00ffff, MRA_ROM },

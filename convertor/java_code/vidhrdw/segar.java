@@ -94,19 +94,17 @@ public class segar
 	mark the character as modified.
 	***************************************************************************/
 	
-	WRITE_HANDLER( segar_characterram_w )
-	{
+	public static WriteHandlerPtr segar_characterram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sv.dirtychar[offset / 8] = 1;
 	
 		segar_characterram[offset] = data;
-	}
+	} };
 	
-	WRITE_HANDLER( segar_characterram2_w )
-	{
+	public static WriteHandlerPtr segar_characterram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sv.dirtychar[offset / 8] = 1;
 	
 		segar_characterram2[offset] = data;
-	}
+	} };
 	
 	/***************************************************************************
 	The video port is not entirely understood.
@@ -117,8 +115,7 @@ public class segar
 	D4-D7 = unused?
 	***************************************************************************/
 	
-	WRITE_HANDLER( segar_video_port_w )
-	{
+	public static WriteHandlerPtr segar_video_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("VPort = %02X\n",data);
 	
 		if ((data & 0x01) != sv.flip)
@@ -134,14 +131,13 @@ public class segar
 	
 		if (data & 0x04)
 			sv.char_refresh=1;
-	}
+	} };
 	
 	/***************************************************************************
 	If a color changes, refresh the entire screen because it's possible that the
 	color change affected the transparency (switched either to or from black)
 	***************************************************************************/
-	WRITE_HANDLER( segar_colortable_w )
-	{
+	public static WriteHandlerPtr segar_colortable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static unsigned char red[] = {0x00, 0x24, 0x49, 0x6D, 0x92, 0xB6, 0xDB, 0xFF };
 		static unsigned char grn[] = {0x00, 0x24, 0x49, 0x6D, 0x92, 0xB6, 0xDB, 0xFF };
 		static unsigned char blu[] = {0x00, 0x55, 0xAA, 0xFF };
@@ -177,10 +173,9 @@ public class segar
 			logerror("color %02X:%02X (write=%d)\n",offset,data,sv.color_write_enable);
 			segar_mem_colortable[offset] = data;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( segar_bcolortable_w )
-	{
+	public static WriteHandlerPtr segar_bcolortable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static unsigned char red[] = {0x00, 0x24, 0x49, 0x6D, 0x92, 0xB6, 0xDB, 0xFF };
 		static unsigned char grn[] = {0x00, 0x24, 0x49, 0x6D, 0x92, 0xB6, 0xDB, 0xFF };
 		static unsigned char blu[] = {0x00, 0x55, 0xAA, 0xFF };
@@ -200,7 +195,7 @@ public class segar
 	
 		// Needed to pass the self-tests
 		segar_mem_bcolortable[offset] = data;
-	}
+	} };
 	
 	/***************************************************************************
 	
@@ -328,8 +323,7 @@ public class segar
 	If the background changed, refresh the screen.
 	***************************************************************************/
 	
-	WRITE_HANDLER( spaceod_back_port_w )
-	{
+	public static WriteHandlerPtr spaceod_back_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned int temp_scene, temp_charset;
 	
 		temp_scene   = (data & 0xC0) >> 6;
@@ -355,7 +349,7 @@ public class segar
 	
 		sv.background_enable=1;
 		sv.fill_background=0;
-	}
+	} };
 	
 	/***************************************************************************
 	This port controls the Space Odyssey background scrolling.	Each write to
@@ -364,12 +358,11 @@ public class segar
 	sent to this port also seems to indicate the speed, but the value itself
 	is never checked.
 	***************************************************************************/
-	WRITE_HANDLER( spaceod_backshift_w )
-	{
+	public static WriteHandlerPtr spaceod_backshift_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sv.backshift= (sv.backshift + 1) % 0x400;
 		sv.background_enable=1;
 		sv.fill_background=0;
-	}
+	} };
 	
 	/***************************************************************************
 	This port resets the Space Odyssey background to the "top".  This is only
@@ -377,29 +370,26 @@ public class segar
 	can line up the background's Black Hole with knowing when to spin the ship
 	is to force the background to restart every time you die.
 	***************************************************************************/
-	WRITE_HANDLER( spaceod_backshift_clear_w )
-	{
+	public static WriteHandlerPtr spaceod_backshift_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sv.backshift=0;
 		sv.background_enable=1;
 		sv.fill_background=0;
-	}
+	} };
 	
 	/***************************************************************************
 	Space Odyssey also lets you fill the background with a specific color.
 	***************************************************************************/
-	WRITE_HANDLER( spaceod_backfill_w )
-	{
+	public static WriteHandlerPtr spaceod_backfill_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sv.backfill=data + 0x40 + 1;
 		sv.fill_background=1;
-	}
+	} };
 	
 	/***************************************************************************
 	***************************************************************************/
-	WRITE_HANDLER( spaceod_nobackfill_w )
-	{
+	public static WriteHandlerPtr spaceod_nobackfill_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sv.backfill=0;
 		sv.fill_background=0;
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -532,8 +522,7 @@ public class segar
 	background ROMs.  If the background changed, refresh the screen.
 	***************************************************************************/
 	
-	WRITE_HANDLER( monsterb_back_port_w )
-	{
+	public static WriteHandlerPtr monsterb_back_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned int temp_scene, temp_charset;
 	
 		temp_scene   = 0x400 * ((data & 0x70) >> 4);
@@ -561,7 +550,7 @@ public class segar
 			sv.background_enable=0;
 			sv.refresh=1;
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	Special refresh for Monster Bash, this code refreshes the static background.
@@ -628,8 +617,7 @@ public class segar
 	This port seems to control the background colors for Pig Newton.
 	***************************************************************************/
 	
-	WRITE_HANDLER( pignewt_back_color_w )
-	{
+	public static WriteHandlerPtr pignewt_back_color_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 		{
 			sv.bcolor_offset = data;
@@ -638,7 +626,7 @@ public class segar
 		{
 			segar_bcolortable_w(sv.bcolor_offset,data);
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	These ports control which background to draw for Pig Newton.  They might
@@ -649,8 +637,7 @@ public class segar
 	If the background changed, refresh the screen.
 	***************************************************************************/
 	
-	WRITE_HANDLER( pignewt_back_ports_w )
-	{
+	public static WriteHandlerPtr pignewt_back_ports_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned int tempscene;
 	
 		logerror("Port %02X:%02X\n",offset + 0xb8,data);
@@ -695,7 +682,7 @@ public class segar
 				}
 				break;
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	 ---------------------------------------------------------------------------
@@ -707,8 +694,7 @@ public class segar
 	Controls the background image
 	***************************************************************************/
 	
-	WRITE_HANDLER( sindbadm_back_port_w )
-	{
+	public static WriteHandlerPtr sindbadm_back_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned int tempscene;
 	
 		/* Bit D7 turns the background off and on? */
@@ -735,7 +721,7 @@ public class segar
 			sv.back_charset = data & 0x03;
 			sv.refresh=1;
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	Special refresh for Sinbad Mystery, this code refreshes the static background.

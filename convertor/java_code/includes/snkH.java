@@ -7,10 +7,8 @@
 /*----------- defined in drivers/snk.c -----------*/
 
 extern extern 
-extern extern WRITE_HANDLER( snk_cpuA_nmi_ack_w );
-
-extern extern WRITE_HANDLER( snk_cpuB_nmi_ack_w );
-
+extern extern 
+extern extern 
 extern int snk_gamegroup;
 extern int snk_sound_busy_bit;
 extern int snk_irq_delay;

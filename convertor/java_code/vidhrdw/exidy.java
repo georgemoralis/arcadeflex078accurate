@@ -224,14 +224,13 @@ public class exidy
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( exidy_characterram_w )
-	{
+	public static WriteHandlerPtr exidy_characterram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (exidy_characterram[offset] != data)
 		{
 			exidy_characterram[offset] = data;
 			chardirty[offset / 8 % 256] = 1;
 		}
-	}
+	} };
 	
 	
 	
@@ -241,8 +240,7 @@ public class exidy
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( exidy_color_w )
-	{
+	public static WriteHandlerPtr exidy_color_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i;
 	
 		exidy_color_latch[offset] = data;
@@ -254,7 +252,7 @@ public class exidy
 			int r = ((exidy_color_latch[2] >> i) & 0x01) * 0xff;
 			palette_set_color(i, r, g, b);
 		}
-	}
+	} };
 	
 	
 	

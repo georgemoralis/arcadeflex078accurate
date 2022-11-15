@@ -32,17 +32,11 @@ public class zodiack
 	extern UINT8 *zodiack_bulletsram;
 	extern size_t zodiack_bulletsram_size;
 	
-	extern WRITE_HANDLER( zodiack_videoram_w );
-	extern WRITE_HANDLER( zodiack_videoram2_w );
-	extern WRITE_HANDLER( zodiack_attributes_w );
-	extern WRITE_HANDLER( zodiack_flipscreen_w );
-	
+	extern extern extern extern 
 	extern extern extern 
 	int percuss_hardware;
 	
-	extern extern WRITE_HANDLER( zodiac_master_interrupt_enable_w );
-	extern extern WRITE_HANDLER( zodiac_master_soundlatch_w );
-	
+	extern extern extern extern 
 	
 	public static MachineInitHandlerPtr machine_init_zodiack  = new MachineInitHandlerPtr() { public void handler(){
 		percuss_hardware = 0;
@@ -55,14 +49,13 @@ public class zodiack
 	} };
 	
 	
-	static WRITE_HANDLER( zodiack_control_w )
-	{
+	public static WriteHandlerPtr zodiack_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Bit 0-1 - coin counters */
 		coin_counter_w(0, data & 0x02);
 		coin_counter_w(1, data & 0x01);
 	
 		/* Bit 2 - ???? */
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x4fff, MRA_ROM },

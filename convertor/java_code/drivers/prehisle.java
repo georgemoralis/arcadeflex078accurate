@@ -60,12 +60,11 @@ public class prehisle
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( D7759_write_port_0_w )
-	{
+	public static WriteHandlerPtr D7759_write_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UPD7759_port_w(offset,data);
 		UPD7759_start_w (0,0);
 		UPD7759_start_w (0,1);
-	}
+	} };
 	
 	static MEMORY_READ_START( prehisle_sound_readmem )
 		{ 0x0000, 0xefff, MRA_ROM },

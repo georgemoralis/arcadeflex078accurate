@@ -23,10 +23,7 @@ public class runaway
 	extern UINT8* runaway_video_ram;
 	extern UINT8* runaway_sprite_ram;
 	
-	extern WRITE_HANDLER( runaway_paletteram_w );
-	extern WRITE_HANDLER( runaway_video_ram_w );
-	extern WRITE_HANDLER( runaway_tile_bank_w );
-	
+	extern extern extern 
 	
 	static void interrupt_callback(int scanline)
 	{
@@ -71,16 +68,14 @@ public class runaway
 	} };
 	
 	
-	static WRITE_HANDLER( runaway_led_w )
-	{
+	public static WriteHandlerPtr runaway_led_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(offset, ~data & 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( runaway_irq_ack_w )
-	{
+	public static WriteHandlerPtr runaway_irq_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

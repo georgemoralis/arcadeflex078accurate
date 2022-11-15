@@ -82,11 +82,10 @@ public class mogura
 	
 	} };
 	
-	WRITE_HANDLER( mogura_tileram_w )
-	{
+	public static WriteHandlerPtr mogura_tileram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mogura_tileram[offset] = data;
 		tilemap_mark_tile_dirty(mogura_tilemap,offset&0x7ff);
-	}
+	} };
 	
 	
 	static PORT_READ_START( readport )
@@ -99,11 +98,10 @@ public class mogura
 	PORT_END
 	
 	
-	static WRITE_HANDLER(dac_w)
-	{
+	public static WriteHandlerPtr dac_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_0_data_w(0, data & 0xf0 );	/* left */
 		DAC_1_data_w(0, (data & 0x0f)<<4 );	/* right */
-	}
+	} };
 	
 	
 	static PORT_WRITE_START( writeport )
@@ -112,14 +110,13 @@ public class mogura
 	PORT_END
 	
 	
-	WRITE_HANDLER ( mogura_gfxram_w )
-	{
+	public static WriteHandlerPtr mogura_gfxram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mogura_gfxram[offset] = data ;
 	
 		decodechar(Machine->gfx[0], offset/16, mogura_gfxram, Machine->drv->gfxdecodeinfo[0].gfxlayout);
 	
 		tilemap_mark_all_tiles_dirty(mogura_tilemap);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

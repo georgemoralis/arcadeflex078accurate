@@ -27,8 +27,7 @@ struct dss_adjustment_context
 
 
 
-WRITE_HANDLER(discrete_sound_w)
-{
+public static WriteHandlerPtr discrete_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	/* Bring the system upto now */
 	discrete_sh_update();
 	/* Mask the memory offset to stay in the space allowed */
@@ -38,7 +37,7 @@ WRITE_HANDLER(discrete_sound_w)
 	{
 		dss_input_map[offset]->input[0]=data;
 	}
-}
+} };
 
 public static ReadHandlerPtr discrete_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 	int data=0;

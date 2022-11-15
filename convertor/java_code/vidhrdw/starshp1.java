@@ -113,8 +113,7 @@ public class starshp1
 	} };
 	
 	
-	WRITE_HANDLER( starshp1_ssadd_w )
-	{
+	public static WriteHandlerPtr starshp1_ssadd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*
 		 * The range of sprite position values doesn't suffice to
 		 * move the zoomed spaceship sprite over the top and left
@@ -126,11 +125,10 @@ public class starshp1
 	
 		starshp1_ship_voffset = ((offset & 0xf0) >> 4);
 		starshp1_ship_hoffset = ((offset & 0x0f) << 2) | (data & 3);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( starshp1_sspic_w )
-	{
+	public static WriteHandlerPtr starshp1_sspic_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*
 		 * Some mysterious game code at address $2CCE is causing
 		 * erratic images in the target explosion sequence. The
@@ -141,11 +139,10 @@ public class starshp1
 		{
 			starshp1_ship_picture = data;
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( starshp1_playfield_w )
-	{
+	public static WriteHandlerPtr starshp1_playfield_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (starshp1_mux != 0)
 		{
 			offset ^= 0x1f;
@@ -157,7 +154,7 @@ public class starshp1
 	
 			starshp1_playfield_ram[offset] = data;
 		}
-	}
+	} };
 	
 	
 	static void draw_starfield(struct mame_bitmap* bitmap)

@@ -189,8 +189,7 @@ public class sega
 		return 0;
 	}
 	
-	WRITE_HANDLER( tacscan_sh_w )
-	{
+	public static WriteHandlerPtr tacscan_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int sound;   /* index into the sample name array in drivers/sega.c */
 		int voice=0; /* which voice to play the sound on */
 		int loop;    /* is this sound continuous? */
@@ -302,7 +301,7 @@ public class sega
 				sample_stop (kVoiceStinger);
 			sample_start (voice, sound, loop);
 		}
-	}
+	} };
 	
 	void tacscan_sh_update (void)
 	{
@@ -314,8 +313,7 @@ public class sega
 	}
 	
 	
-	WRITE_HANDLER( elim1_sh_w )
-	{
+	public static WriteHandlerPtr elim1_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data ^= 0xff;
 	
 		/* Play fireball sample */
@@ -345,10 +343,9 @@ public class sega
 				sample_stop (3);
 			sample_start (3, 5, 0);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( elim2_sh_w )
-	{
+	public static WriteHandlerPtr elim2_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data ^= 0xff;
 	
 		/* Play thrust sample */
@@ -370,11 +367,10 @@ public class sega
 			sample_start (7, 7, 0);
 		if (data & 0x80)
 			sample_start (7, 4, 0);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( zektor1_sh_w )
-	{
+	public static WriteHandlerPtr zektor1_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data ^= 0xff;
 	
 		/* Play fireball sample */
@@ -404,10 +400,9 @@ public class sega
 				sample_stop (3);
 	                sample_start (3, 5, 0);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( zektor2_sh_w )
-	{
+	public static WriteHandlerPtr zektor2_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data ^= 0xff;
 	
 		/* Play thrust sample */
@@ -429,12 +424,11 @@ public class sega
 	                sample_start (7, 40, 0);
 		if (data & 0x80)
 	                sample_start (7, 41, 0);
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( startrek_sh_w )
-	{
+	public static WriteHandlerPtr startrek_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (data)
 	   	{
 			case 0x08: /* phaser - trek1.wav */
@@ -522,10 +516,9 @@ public class sega
 				sample_start (1, 0x1b, 0);
 				break;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( spacfury1_sh_w )
-	{
+	public static WriteHandlerPtr spacfury1_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data ^= 0xff;
 	
 		/* craft growing */
@@ -558,10 +551,9 @@ public class sega
 		if (data & 0x80)
 			sample_start (4, 9, 0);
 	
-	}
+	} };
 	
-	WRITE_HANDLER( spacfury2_sh_w )
-	{
+	public static WriteHandlerPtr spacfury2_sh_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (Machine->samples == 0) return;
 	
 		data ^= 0xff;
@@ -594,6 +586,6 @@ public class sega
 		if (data & 0x20)
 			sample_start (0, 7, 0);
 	
-	}
+	} };
 	
 }

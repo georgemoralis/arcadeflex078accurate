@@ -82,16 +82,14 @@ public class mexico86
 		return (portA_out & ddrA) | (portA_in & ~ddrA);
 	} };
 	
-	WRITE_HANDLER( mexico86_68705_portA_w )
-	{
+	public static WriteHandlerPtr mexico86_68705_portA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: 68705 port A write %02x\n",activecpu_get_pc(),data);
 		portA_out = data;
-	}
+	} };
 	
-	WRITE_HANDLER( mexico86_68705_ddrA_w )
-	{
+	public static WriteHandlerPtr mexico86_68705_ddrA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ddrA = data;
-	}
+	} };
 	
 	
 	
@@ -119,8 +117,7 @@ public class mexico86
 	
 	static int address,latch;
 	
-	WRITE_HANDLER( mexico86_68705_portB_w )
-	{
+	public static WriteHandlerPtr mexico86_68705_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: 68705 port B write %02x\n",activecpu_get_pc(),data);
 	
 		if ((ddrB & 0x01) && (~data & 0x01) && (portB_out & 0x01))
@@ -170,10 +167,9 @@ public class mexico86
 		}
 	
 		portB_out = data;
-	}
+	} };
 	
-	WRITE_HANDLER( mexico86_68705_ddrB_w )
-	{
+	public static WriteHandlerPtr mexico86_68705_ddrB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ddrB = data;
-	}
+	} };
 }

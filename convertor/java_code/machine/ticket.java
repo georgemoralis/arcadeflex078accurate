@@ -91,13 +91,11 @@ public class ticket
 	/***************************************************************************
 	  ticket_dispenser_w
 	***************************************************************************/
-	WRITE_HANDLER( ticket_dispenser_w )
-	{
+	public static WriteHandlerPtr ticket_dispenser_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ticket_dispenser_0_w(offset, data);
-	}
+	} };
 	
-	WRITE_HANDLER( ticket_dispenser_0_w )
-	{
+	public static WriteHandlerPtr ticket_dispenser_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* On an activate signal, start dispensing! */
 		if ((data & active_bit) == motoron)
 		{
@@ -124,10 +122,9 @@ public class ticket
 				dispenser[0].power = 0;
 			}
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( ticket_dispenser_1_w )
-	{
+	public static WriteHandlerPtr ticket_dispenser_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* On an activate signal, start dispensing! */
 		if ((data & active_bit) == motoron)
 		{
@@ -154,7 +151,7 @@ public class ticket
 				dispenser[1].power = 0;
 			}
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************

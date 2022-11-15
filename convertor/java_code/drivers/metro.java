@@ -360,8 +360,7 @@ public class metro
 		return readinputport(0) | (metro_soundstatus ? 0x80 : 0);
 	}
 	
-	static WRITE_HANDLER( daitorid_sound_rombank_w )
-	{
+	public static WriteHandlerPtr daitorid_sound_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *rom = memory_region(REGION_CPU2);
 		int bank = (data >> 4) & 0x07;
 	
@@ -371,7 +370,7 @@ public class metro
 		else			rom = &rom[0x4000 * (bank-2) + 0x10000];
 	
 		cpu_setbank(1, rom);
-	}
+	} };
 	
 	static int porta,portb;
 	
@@ -379,13 +378,11 @@ public class metro
 		return porta;
 	} };
 	
-	static WRITE_HANDLER( daitorid_porta_w )
-	{
+	public static WriteHandlerPtr daitorid_porta_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		porta = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( daitorid_portb_w )
-	{
+	public static WriteHandlerPtr daitorid_portb_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* port B layout:
 		   7 !clock latch for message to main CPU
 		   6 !clock YM2151 I/O
@@ -448,7 +445,7 @@ public class metro
 		}
 	
 		portb = data;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( upd7810_readmem )
@@ -1814,14 +1811,13 @@ public class metro
 		cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
 	}
 	
-	static WRITE_HANDLER( blzntrnd_sh_bankswitch_w )
-	{
+	public static WriteHandlerPtr blzntrnd_sh_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU2);
 		int bankaddress;
 	
 		bankaddress = 0x10000 + (data & 0x03) * 0x4000;
 		cpu_setbank(1, &RAM[bankaddress]);
-	}
+	} };
 	
 	static void blzntrnd_irqhandler(int irq)
 	{

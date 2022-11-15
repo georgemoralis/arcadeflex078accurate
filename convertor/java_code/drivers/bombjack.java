@@ -76,11 +76,7 @@ public class bombjack
 {
 	
 	
-	extern WRITE_HANDLER( bombjack_videoram_w );
-	extern WRITE_HANDLER( bombjack_colorram_w );
-	extern WRITE_HANDLER( bombjack_background_w );
-	extern WRITE_HANDLER( bombjack_flipscreen_w );
-	
+	extern extern extern extern 
 	extern extern 
 	
 	static int latch;
@@ -90,11 +86,10 @@ public class bombjack
 		latch = param;
 	}
 	
-	WRITE_HANDLER( bombjack_soundlatch_w )
-	{
+	public static WriteHandlerPtr bombjack_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
 		timer_set(TIME_NOW,data,soundlatch_callback);
-	}
+	} };
 	
 	public static ReadHandlerPtr bombjack_soundlatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;

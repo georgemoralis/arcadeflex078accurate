@@ -76,8 +76,7 @@ public class pulsar
 	
 	static int port1State = 0;
 	
-	WRITE_HANDLER( pulsar_sh_port1_w )
-	{
+	public static WriteHandlerPtr pulsar_sh_port1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bitsChanged;
 		int bitsGoneHigh;
 		int bitsGoneLow;
@@ -123,11 +122,10 @@ public class pulsar
 		{
 			PLAY( SND_BONUS, 0 );
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( pulsar_sh_port2_w )
-	{
+	public static WriteHandlerPtr pulsar_sh_port2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int port2State = 0;
 		int bitsChanged;
 		int bitsGoneHigh;
@@ -176,5 +174,5 @@ public class pulsar
 		{
 			STOP( SND_MOVMAZE );
 		}
-	}
+	} };
 }

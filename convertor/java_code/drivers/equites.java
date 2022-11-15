@@ -163,12 +163,7 @@ public class equites
 	extern void equites_8404rule(unsigned pc, int offset, int data);
 	
 	extern READ16_HANDLER(equites_8404_r);
-	extern WRITE_HANDLER(equites_5232_w);
-	extern WRITE_HANDLER(equites_8910control_w);
-	extern WRITE_HANDLER(equites_8910data_w);
-	extern WRITE_HANDLER(equites_dac0_w);
-	extern WRITE_HANDLER(equites_dac1_w);
-	
+	extern extern extern extern extern 
 	extern data16_t *equites_8404ram;
 	extern struct MSM5232interface equites_5232intf;
 	extern struct AY8910interface equites_8910intf;

@@ -151,8 +151,7 @@ public class _40love
 		tilemap_set_scrollx(background, offset/2, x);
 	}
 	
-	WRITE_HANDLER( fortyl_pixram_sel_w )
-	{
+	public static WriteHandlerPtr fortyl_pixram_sel_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int offs;
 		int f = data & 0x01;
 	
@@ -167,7 +166,7 @@ public class _40love
 			for (offs=0;offs<32;offs++)
 				fortyl_set_scroll_x(offs*2);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr fortyl_pixram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (pixram_sel)
@@ -205,31 +204,28 @@ public class _40love
 		}
 	}
 	
-	WRITE_HANDLER( fortyl_pixram_w )
-	{
+	public static WriteHandlerPtr fortyl_pixram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (pixram_sel)
 			fortyl_pixram2[offset] = data;
 		else
 			fortyl_pixram1[offset] = data;
 	
 		fortyl_plot_pix(offset & 0x1fff);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( fortyl_bg_videoram_w )
-	{
+	public static WriteHandlerPtr fortyl_bg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if( videoram[offset]!=data )
 		{
 			videoram[offset]=data;
 			tilemap_mark_tile_dirty(background,offset);
 		}
-	}
+	} };
 	public static ReadHandlerPtr fortyl_bg_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
 	} };
 	
-	WRITE_HANDLER( fortyl_bg_colorram_w )
-	{
+	public static WriteHandlerPtr fortyl_bg_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if( colorram[offset]!=data )
 		{
 			int i;
@@ -240,7 +236,7 @@ public class _40love
 	
 			fortyl_set_scroll_x(offset);
 		}
-	}
+	} };
 	public static ReadHandlerPtr fortyl_bg_colorram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return colorram[offset];
 	} };

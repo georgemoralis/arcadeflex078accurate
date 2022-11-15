@@ -171,8 +171,7 @@ public class snes
 		return 0xff;
 	} };
 	
-	WRITE_HANDLER( snes_dsp_io_w )
-	{
+	public static WriteHandlerPtr snes_dsp_io_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch( offset )
 		{
 			case DSP_V0_VOLL:	/* Voice volume (left) */
@@ -370,7 +369,7 @@ public class snes
 				logerror( "DSP: write to unknown offset %X. Data = %X\n", offset, data );
 				break;
 		}
-	}
+	} };
 	
 	/***************************
 	 *     I/O for SPC700      *
@@ -403,8 +402,7 @@ public class snes
 		return 0xff;
 	} };
 	
-	WRITE_HANDLER( spc_io_w )
-	{
+	public static WriteHandlerPtr spc_io_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch( offset )	/* Offset is from 0x00f0 */
 		{
 			case 0x1:		/* Control */
@@ -461,7 +459,7 @@ public class snes
 				return;
 		}
 				spc_ram[0xf0 + offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr spc_bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if( spc_showrom )
@@ -474,10 +472,9 @@ public class snes
 		}
 	} };
 	
-	WRITE_HANDLER( spc_bank_w )
-	{
+	public static WriteHandlerPtr spc_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		spc_ram[0xffc0 + offset] = data;
-	}
+	} };
 	
 	/*******************************************************************
 	 *                       I/O for Fake APU                          *
@@ -485,8 +482,7 @@ public class snes
 	 * When sound is disabled the SPC700 is stopped so we need to      *
 	 * simulate the behaviour of the ROM in the SPC700 as best we can. *
 	 *******************************************************************/
-	WRITE_HANDLER( fakespc_port_w )
-	{
+	public static WriteHandlerPtr fakespc_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if( offset == 0 )
 		{
 			fakeapu_port[2]++;
@@ -494,7 +490,7 @@ public class snes
 		}
 	
 		fakeapu_port[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr fakespc_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 	/*  G65816_PC=1, G65816_S, G65816_P, G65816_A, G65816_X, G65816_Y,

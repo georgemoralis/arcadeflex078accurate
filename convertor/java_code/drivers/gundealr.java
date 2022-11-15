@@ -58,12 +58,6 @@ public class gundealr
 	
 	extern unsigned char *gundealr_bg_videoram,*gundealr_fg_videoram;
 	
-	WRITE_HANDLER( gundealr_paletteram_w );
-	WRITE_HANDLER( gundealr_bg_videoram_w );
-	WRITE_HANDLER( gundealr_fg_videoram_w );
-	WRITE_HANDLER( gundealr_fg_scroll_w );
-	WRITE_HANDLER( yamyam_fg_scroll_w );
-	WRITE_HANDLER( gundealr_flipscreen_w );
 	
 	
 	static int input_ports_hack;
@@ -84,17 +78,15 @@ public class gundealr
 			cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xcf);	/* RST 08h sound (hand tuned) */
 	} };
 	
-	static WRITE_HANDLER( yamyam_bankswitch_w )
-	{
+	public static WriteHandlerPtr yamyam_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	 	int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (data & 0x07) * 0x4000;
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
-	static WRITE_HANDLER( yamyam_protection_w )
-	{
+	public static WriteHandlerPtr yamyam_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 	logerror("e000 = %02x\n",RAM[0xe000]);
@@ -154,7 +146,7 @@ public class gundealr
 			RAM[0xe013] = 0x7e;
 			RAM[0xe014] = 0xc9;
 		}
-	}
+	} };
 	
 	
 	

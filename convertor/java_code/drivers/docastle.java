@@ -127,15 +127,8 @@ public class docastle
 	
 	
 	
-	extern extern extern WRITE_HANDLER( docastle_shared0_w );
-	extern WRITE_HANDLER( docastle_shared1_w );
-	extern WRITE_HANDLER( docastle_nmitrigger_w );
-	
-	extern WRITE_HANDLER( docastle_videoram_w );
-	extern WRITE_HANDLER( docastle_colorram_w );
-	extern extern extern WRITE_HANDLER( docastle_flipscreen_off_w );
-	extern WRITE_HANDLER( docastle_flipscreen_on_w );
-	
+	extern extern extern extern extern 
+	extern extern extern extern extern extern 
 	extern extern extern extern 
 	static MEMORY_READ_START( docastle_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

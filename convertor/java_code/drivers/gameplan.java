@@ -19,14 +19,10 @@ package drivers;
 public class gameplan
 {
 	
-	WRITE_HANDLER( gameplan_video_w );
-	WRITE_HANDLER( gameplan_sound_w );
-	WRITE_HANDLER( gameplan_via5_w );
 	
 	static int gameplan_current_port;
 	
-	static WRITE_HANDLER( gameplan_port_select_w )
-	{
+	public static WriteHandlerPtr gameplan_port_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	#ifdef VERY_VERBOSE
 		logerror("VIA 2: PC %04x: %x -> reg%X\n",activecpu_get_pc(), data, offset);
 	#endif /* VERY_VERBOSE */
@@ -83,7 +79,7 @@ public class gameplan
 							data, offset);
 				break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr gameplan_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(gameplan_current_port);

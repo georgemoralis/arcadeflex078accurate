@@ -151,11 +151,10 @@ public class ashnojoe
 		return rand();
 	} };
 	
-	static WRITE_HANDLER( adpcm_data_w )
-	{
+	public static WriteHandlerPtr adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_data_w(0, data & 0xf);
 		MSM5205_data_w(0, data>>4);
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x0000, 0x5fff, MRA_ROM },
@@ -308,17 +307,15 @@ public class ashnojoe
 		cpu_set_irq_line(1,0,irq ? ASSERT_LINE : CLEAR_LINE);
 	}
 	
-	static WRITE_HANDLER(writeA)
-	{
+	public static WriteHandlerPtr writeA = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data == 0xff) return;	// this gets called at 8910 startup with 0xff before the 5205 exists, causing a crash
 	
 		MSM5205_reset_w(0, !(data & 0x01));
-	}
+	} };
 	
-	static WRITE_HANDLER(writeB)
-	{
+	public static WriteHandlerPtr writeB = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank(4, memory_region(REGION_SOUND1) + ((data & 0xf) * 0x8000));
-	}
+	} };
 	
 	static void ashnojoe_adpcm_int (int data)
 	{

@@ -43,10 +43,9 @@ public class pitnrun
 		fromz80 = data;
 	}
 	
-	WRITE_HANDLER( pitnrun_mcu_data_w )
-	{
+	public static WriteHandlerPtr pitnrun_mcu_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW,data,pitnrun_mcu_real_data_w);
-	}
+	} };
 	
 	public static ReadHandlerPtr pitnrun_mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* mcu synchronization */
@@ -62,10 +61,9 @@ public class pitnrun
 		return portA_in;
 	} };
 	
-	WRITE_HANDLER( pitnrun_68705_portA_w )
-	{
+	public static WriteHandlerPtr pitnrun_68705_portA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		portA_out = data;
-	}
+	} };
 	
 	
 	
@@ -104,8 +102,7 @@ public class pitnrun
 		zaccept = 0;
 	}
 	
-	WRITE_HANDLER( pitnrun_68705_portB_w )
-	{
+	public static WriteHandlerPtr pitnrun_68705_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (~data & 0x02)
 		{
 			/* 68705 is going to read data from the Z80 */
@@ -138,7 +135,7 @@ public class pitnrun
 		{
 			address = (address & 0x00ff) | (portA_out << 8);
 		}
-	}
+	} };
 	
 	/*
 	 *  Port C connections:

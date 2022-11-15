@@ -29,12 +29,7 @@ public class tankbust
 	
 	extern data8_t * txt_ram;
 	
-	WRITE_HANDLER( tankbust_background_videoram_w );
-	WRITE_HANDLER( tankbust_background_colorram_w );
-	WRITE_HANDLER( tankbust_txtram_w );
 	
-	WRITE_HANDLER( tankbust_xscroll_w );
-	WRITE_HANDLER( tankbust_yscroll_w );
 	
 	
 	//port A of ay8910#0
@@ -45,10 +40,9 @@ public class tankbust
 		latch = data;
 	}
 	
-	static WRITE_HANDLER( tankbust_soundlatch_w )
-	{
+	public static WriteHandlerPtr tankbust_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW,data,soundlatch_callback);
-	}
+	} };
 	
 	public static ReadHandlerPtr tankbust_soundlatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return latch;
@@ -75,8 +69,7 @@ public class tankbust
 	
 	static int e0xx_data[8] = { 0,0,0,0, 0,0,0,0 };
 	
-	static WRITE_HANDLER( tankbust_e0xx_w )
-	{
+	public static WriteHandlerPtr tankbust_e0xx_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		e0xx_data[offset] = data;
 	
 	#if 0
@@ -116,7 +109,7 @@ public class tankbust
 			cpu_setbank( 2, memory_region(REGION_CPU1) + 0x18000 + ((data&1) * 0x2000) ); /* verified (the game will reset after the "game over" otherwise) */
 		break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr debug_output_area_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return e0xx_data[offset];

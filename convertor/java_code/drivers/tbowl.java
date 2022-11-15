@@ -26,14 +26,7 @@ public class tbowl
 	extern data8_t *tbowl_txvideoram, *tbowl_bgvideoram, *tbowl_bg2videoram;
 	extern data8_t *tbowl_spriteram;
 	
-	WRITE_HANDLER (tbowl_bg2videoram_w);
-	WRITE_HANDLER (tbowl_bgvideoram_w);
-	WRITE_HANDLER (tbowl_txvideoram_w);
 	
-	WRITE_HANDLER (tbowl_bg2xscroll_lo); WRITE_HANDLER (tbowl_bg2xscroll_hi);
-	WRITE_HANDLER (tbowl_bg2yscroll_lo); WRITE_HANDLER (tbowl_bg2yscroll_hi);
-	WRITE_HANDLER (tbowl_bgxscroll_lo);  WRITE_HANDLER (tbowl_bgxscroll_hi);
-	WRITE_HANDLER (tbowl_bgyscroll_lo);  WRITE_HANDLER (tbowl_bgyscroll_hi);
 	
 	
 	/*** Banking
@@ -42,18 +35,16 @@ public class tbowl
 	
 	***/
 	
-	static WRITE_HANDLER( tbowlb_bankswitch_w )
-	{
+	public static WriteHandlerPtr tbowlb_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + ((data & 0xf8) << 8);
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
-	static WRITE_HANDLER( tbowlc_bankswitch_w )
-	{
+	public static WriteHandlerPtr tbowlc_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU2);
 	
@@ -62,7 +53,7 @@ public class tbowl
 	
 	
 		cpu_setbank(2,&RAM[bankaddress]);
-	}
+	} };
 	
 	/*** Shared Ram Handlers
 	
@@ -74,16 +65,14 @@ public class tbowl
 		return shared_ram[offset];
 	} };
 	
-	static WRITE_HANDLER( shared_w )
-	{
+	public static WriteHandlerPtr shared_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		shared_ram[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( tbowl_sound_command_w )
-	{
+	public static WriteHandlerPtr tbowl_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(2,IRQ_LINE_NMI,PULSE_LINE);
-	}
+	} };
 	
 	
 	/*** Memory Structures
@@ -142,11 +131,10 @@ public class tbowl
 	MEMORY_END
 	
 	/* Board C */
-	static WRITE_HANDLER ( tbowl_trigger_nmi )
-	{
+	public static WriteHandlerPtr tbowl_trigger_nmi = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* trigger NMI on 6206B's Cpu? (guess but seems to work..) */
 		cpu_set_nmi_line(0, PULSE_LINE);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem_6206C )
 		{ 0x0000, 0xbfff, MRA_ROM },

@@ -119,14 +119,13 @@ public class lastduel
 		{ 0xf001, 0xf001, YM2203_write_port_1_w },
 	MEMORY_END
 	
-	static WRITE_HANDLER( mg_bankswitch_w )
-	{
+	public static WriteHandlerPtr mg_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU2);
 	
 		bankaddress = 0x10000 + (data & 0x01) * 0x4000;
 		cpu_setbank(3,&RAM[bankaddress]);
-	}
+	} };
 	
 	static MEMORY_READ_START( mg_sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

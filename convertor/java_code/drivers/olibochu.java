@@ -63,26 +63,23 @@ public class olibochu
 			COLOR(1,i) = (*(color_prom++) & 0x0f);
 	} };
 	
-	WRITE_HANDLER( olibochu_videoram_w )
-	{
+	public static WriteHandlerPtr olibochu_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( olibochu_colorram_w )
-	{
+	public static WriteHandlerPtr olibochu_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (colorram[offset] != data)
 		{
 			colorram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( olibochu_flipscreen_w )
-	{
+	public static WriteHandlerPtr olibochu_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (flip_screen != (data & 0x80))
 		{
 			flip_screen_set(data & 0x80);
@@ -90,7 +87,7 @@ public class olibochu
 		}
 	
 		/* other bits are used, but unknown */
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{
@@ -179,8 +176,7 @@ public class olibochu
 	} };
 	
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int cmd;
 		int c;
 	
@@ -192,7 +188,7 @@ public class olibochu
 			if (cmd & (1 << c)) break;
 	
 		if (c >= 0) soundlatch_w(0,15-c);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

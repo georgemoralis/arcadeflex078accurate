@@ -76,8 +76,7 @@ public class sprint8
 	}
 	
 	
-	WRITE_HANDLER( sprint8_video_ram_w )
-	{
+	public static WriteHandlerPtr sprint8_video_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data != sprint8_video_ram[offset])
 		{
 			tilemap_mark_tile_dirty(tilemap1, offset);
@@ -85,7 +84,7 @@ public class sprint8
 		}
 	
 		sprint8_video_ram[offset] = data;
-	}
+	} };
 	
 	
 	public static VideoStartHandlerPtr video_start_sprint8  = new VideoStartHandlerPtr() { public int handler(){

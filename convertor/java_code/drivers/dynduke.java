@@ -30,12 +30,6 @@ package drivers;
 public class dynduke
 {
 	
-	WRITE_HANDLER( dynduke_background_w );
-	WRITE_HANDLER( dynduke_foreground_w );
-	WRITE_HANDLER( dynduke_text_w );
-	WRITE_HANDLER( dynduke_gfxbank_w );
-	WRITE_HANDLER( dynduke_control_w );
-	WRITE_HANDLER( dynduke_paletteram_w );
 	
 	static unsigned char *dynduke_shared_ram;
 	extern unsigned char *dynduke_back_data,*dynduke_fore_data,*dynduke_scroll_ram,*dynduke_control_ram;
@@ -43,7 +37,7 @@ public class dynduke
 	/***************************************************************************/
 	
 	public static ReadHandlerPtr dynduke_shared_r  = new ReadHandlerPtr() { public int handler(int offset) return dynduke_shared_ram[offset]; }
-	static WRITE_HANDLER( dynduke_shared_w ) { dynduke_shared_ram[offset]=data; }
+	public static WriteHandlerPtr dynduke_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data) dynduke_shared_ram[offset]=data; }
 	
 	
 	/******************************************************************************/

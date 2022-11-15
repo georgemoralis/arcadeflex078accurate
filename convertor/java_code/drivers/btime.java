@@ -66,26 +66,10 @@ public class btime
 	
 	
 	
-	WRITE_HANDLER( btime_paletteram_w );
-	WRITE_HANDLER( bnj_background_w );
-	WRITE_HANDLER( bnj_scroll1_w );
-	WRITE_HANDLER( bnj_scroll2_w );
-	WRITE_HANDLER( btime_mirrorvideoram_w );
-	WRITE_HANDLER( btime_mirrorcolorram_w );
-	WRITE_HANDLER( lnc_videoram_w );
-	WRITE_HANDLER( lnc_mirrorvideoram_w );
-	WRITE_HANDLER( deco_charram_w );
-	
-	WRITE_HANDLER( zoar_video_control_w );
-	WRITE_HANDLER( btime_video_control_w );
-	WRITE_HANDLER( bnj_video_control_w );
-	WRITE_HANDLER( lnc_video_control_w );
-	WRITE_HANDLER( disco_video_control_w );
 	
 	
-	static WRITE_HANDLER( sound_command_w );
 	
-	WRITE_HANDLER( mmonkey_protection_w );
+	
 	
 	
 	INLINE int swap_bits_5_6(int data)
@@ -124,8 +108,7 @@ public class btime
 		}
 	}
 	
-	static WRITE_HANDLER( lnc_w )
-	{
+	public static WriteHandlerPtr lnc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
@@ -144,10 +127,9 @@ public class btime
 	
 		/* Swap bits 5 & 6 for opcodes */
 		rom[offset+diff] = swap_bits_5_6(data);
-	}
+	} };
 	
-	static WRITE_HANDLER( mmonkey_w )
-	{
+	public static WriteHandlerPtr mmonkey_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
@@ -165,10 +147,9 @@ public class btime
 	
 		/* Swap bits 5 & 6 for opcodes */
 		rom[offset+diff] = swap_bits_5_6(data);
-	}
+	} };
 	
-	static WRITE_HANDLER( btime_w )
-	{
+	public static WriteHandlerPtr btime_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		if      (offset <= 0x07ff)                     RAM[offset] = data;
@@ -183,10 +164,9 @@ public class btime
 		else logerror("CPU #%d PC %04x: warning - write %02x to unmapped memory address %04x\n",cpu_getactivecpu(),activecpu_get_pc(),data,offset);
 	
 		btime_decrypt();
-	}
+	} };
 	
-	static WRITE_HANDLER( zoar_w )
-	{
+	public static WriteHandlerPtr zoar_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		if      (offset <= 0x07ff) 					   RAM[offset] = data;
@@ -203,10 +183,9 @@ public class btime
 	
 		btime_decrypt();
 	
-	}
+	} };
 	
-	static WRITE_HANDLER( disco_w )
-	{
+	public static WriteHandlerPtr disco_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		if      (offset <= 0x04ff)                     RAM[offset] = data;
@@ -219,7 +198,7 @@ public class btime
 		else logerror("CPU #%d PC %04x: warning - write %02x to unmapped memory address %04x\n",cpu_getactivecpu(),activecpu_get_pc(),data,offset);
 	
 		btime_decrypt();
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( btime_readmem )
@@ -492,11 +471,10 @@ public class btime
 		btime_interrupt(IRQ_LINE_NMI, 0);
 	} };
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(1, 0, HOLD_LINE);
-	}
+	} };
 	
 	
 	static InputPortHandlerPtr input_ports_btime = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( btime )

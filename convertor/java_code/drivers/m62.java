@@ -63,32 +63,18 @@ public class m62
 	
 	
 	
-	WRITE_HANDLER( m62_tileram_w );
-	WRITE_HANDLER( m62_textram_w );
-	WRITE_HANDLER( m62_flipscreen_w );
-	WRITE_HANDLER( m62_hscroll_low_w );
-	WRITE_HANDLER( m62_hscroll_high_w );
-	WRITE_HANDLER( m62_vscroll_low_w );
-	WRITE_HANDLER( m62_vscroll_high_w );
 	extern data8_t *m62_tileram;
 	extern data8_t *m62_textram;
 	
-	WRITE_HANDLER( kungfum_tileram_w );
 	
 	
 	
 	
 	
-	WRITE_HANDLER( kidniki_text_vscroll_low_w );
-	WRITE_HANDLER( kidniki_text_vscroll_high_w );
-	WRITE_HANDLER( kidniki_background_bank_w );
-	
-	WRITE_HANDLER( spelunkr_palbank_w );
-	
-	WRITE_HANDLER( spelunk2_gfxport_w );
 	
 	
-	WRITE_HANDLER( horizon_scrollram_w );
+	
+	
 	extern data8_t *horizon_scrollram;
 	
 	static int bankaddress;
@@ -132,8 +118,7 @@ public class m62
 		return 0;
 	} };
 	
-	WRITE_HANDLER( ldrun2_bankswitch_w )
-	{
+	public static WriteHandlerPtr ldrun2_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int bankcontrol[2];
 		int banks[30] =
 		{
@@ -161,7 +146,7 @@ public class m62
 				ldrun2_bankswap = 2;
 			else ldrun2_bankswap = 0;
 		}
-	}
+	} };
 	
 	
 	/* Lode Runner 3 has, it seems, a poor man's protection consisting of a PAL */
@@ -176,38 +161,33 @@ public class m62
 	} };
 	
 	
-	WRITE_HANDLER( ldrun4_bankswitch_w )
-	{
+	public static WriteHandlerPtr ldrun4_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bankaddress = 0x10000 + ((data & 0x01) * 0x4000);
 		set_m64_bank();
-	}
+	} };
 	
-	static WRITE_HANDLER( kidniki_bankswitch_w )
-	{
+	public static WriteHandlerPtr kidniki_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bankaddress = 0x10000 + (data & 0x0f) * 0x2000;
 		set_m64_bank();
-	}
+	} };
 	
 	#define battroad_bankswitch_w kidniki_bankswitch_w
 	
-	static WRITE_HANDLER( spelunkr_bankswitch_w )
-	{
+	public static WriteHandlerPtr spelunkr_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bankaddress = 0x10000 + (data & 0x03) * 0x2000;
 		set_m64_bank();
-	}
+	} };
 	
-	WRITE_HANDLER( spelunk2_bankswitch_w )
-	{
+	public static WriteHandlerPtr spelunk2_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bankaddress = 0x20000 + 0x1000 * ((data & 0xc0)>>6);
 		bankaddress2 = 0x10000 + 0x0400 *  (data & 0x3c);
 		set_m64_bank2();
-	}
+	} };
 	
-	static WRITE_HANDLER( youjyudn_bankswitch_w )
-	{
+	public static WriteHandlerPtr youjyudn_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bankaddress = 0x10000 + (data & 0x01) * 0x4000;
 		set_m64_bank();
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( kungfum_readmem )

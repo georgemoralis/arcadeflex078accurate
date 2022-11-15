@@ -113,39 +113,32 @@ public class bking2
 	} };
 	
 	
-	WRITE_HANDLER( bking2_xld1_w )
-	{
+	public static WriteHandlerPtr bking2_xld1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		xld1 = -data;
-	}
+	} };
 	
-	WRITE_HANDLER( bking2_yld1_w )
-	{
+	public static WriteHandlerPtr bking2_yld1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		yld1 = -data;
-	}
+	} };
 	
-	WRITE_HANDLER( bking2_xld2_w )
-	{
+	public static WriteHandlerPtr bking2_xld2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		xld2 = -data;
-	}
+	} };
 	
-	WRITE_HANDLER( bking2_yld2_w )
-	{
+	public static WriteHandlerPtr bking2_yld2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		yld2 = -data;
-	}
+	} };
 	
-	WRITE_HANDLER( bking2_xld3_w )
-	{
+	public static WriteHandlerPtr bking2_xld3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		xld3 = -data;
-	}
+	} };
 	
-	WRITE_HANDLER( bking2_yld3_w )
-	{
+	public static WriteHandlerPtr bking2_yld3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		yld3 = -data;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( bking2_cont1_w )
-	{
+	public static WriteHandlerPtr bking2_cont1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* D0 = COIN LOCK */
 		/* D1 = BALL 5 (Controller selection) */
 		/* D2 = VINV (flip screen) */
@@ -161,10 +154,9 @@ public class bking2
 		controller = data & 0x02;
 	
 		crow_pic = (data >> 4) & 0x0f;
-	}
+	} };
 	
-	WRITE_HANDLER( bking2_cont2_w )
-	{
+	public static WriteHandlerPtr bking2_cont2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* D0-D2 = BALL10 - BALL12 (Selects player 1 ball picture) */
 		/* D3-D5 = BALL20 - BALL22 (Selects player 2 ball picture) */
 		/* D6 = HIT1 */
@@ -174,10 +166,9 @@ public class bking2
 		ball2_pic = (data >> 3) & 0x07;
 	
 		hit = data >> 6;
-	}
+	} };
 	
-	WRITE_HANDLER( bking2_cont3_w )
-	{
+	public static WriteHandlerPtr bking2_cont3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* D0 = CROW INV (inverts Crow picture and coordinates) */
 		/* D1-D2 = COLOR 0 - COLOR 1 (switches 4 color palettes, global across all graphics) */
 		/* D3 = SOUND STOP */
@@ -192,35 +183,32 @@ public class bking2
 		palette_bank = (data >> 1) & 0x03;
 	
 		mixer_sound_enable_global_w(~data & 0x08);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( bking2_msk_w )
-	{
+	public static WriteHandlerPtr bking2_msk_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pc3259_mask++;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( bking2_hitclr_w )
-	{
+	public static WriteHandlerPtr bking2_hitclr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pc3259_mask = 0;
 	
 		pc3259_output[0] = 0;
 		pc3259_output[1] = 0;
 		pc3259_output[2] = 0;
 		pc3259_output[3] = 0;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( bking2_playfield_w )
-	{
+	public static WriteHandlerPtr bking2_playfield_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (bking2_playfield_ram[offset] != data)
 		{
 			tilemap_mark_tile_dirty(tilemap, offset / 2);
 		}
 	
 		bking2_playfield_ram[offset] = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr bking2_input_port_5_r  = new ReadHandlerPtr() { public int handler(int offset){

@@ -203,11 +203,10 @@ public class ninjaw
 		cpu_setbank( 10, memory_region(REGION_CPU2) + (banknum * 0x4000) + 0x10000 );
 	}
 	
-	static WRITE_HANDLER( sound_bankswitch_w )
-	{
+	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		banknum = (data - 1) & 7;
 		reset_sound_region();
-	}
+	} };
 	
 	static WRITE16_HANDLER( ninjaw_sound_w )
 	{
@@ -232,8 +231,7 @@ public class ninjaw
 	
 	/**** sound pan control ****/
 	static int ninjaw_pandata[4];
-	WRITE_HANDLER( ninjaw_pancontrol )
-	{
+	public static WriteHandlerPtr ninjaw_pancontrol = new WriteHandlerPtr() {public void handler(int offset, int data){
 	  offset = offset&3;
 	  ninjaw_pandata[offset] = (float)data * (100.f / 255.0f);
 	  //usrintf_showmessage(" pan %02x %02x %02x %02x", ninjaw_pandata[0], ninjaw_pandata[1], ninjaw_pandata[2], ninjaw_pandata[3] );
@@ -243,7 +241,7 @@ public class ninjaw
 	  else{
 	    mixer_set_stereo_volume( 4, ninjaw_pandata[2], ninjaw_pandata[3] );
 	  }
-	}
+	} };
 	
 	
 	/***********************************************************

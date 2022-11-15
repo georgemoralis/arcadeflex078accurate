@@ -21,8 +21,7 @@ public class atarifb
 	static int sign_x_4, sign_y_4;
 	
 	
-	WRITE_HANDLER( atarifb_out1_w )
-	{
+	public static WriteHandlerPtr atarifb_out1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		CTRLD = data;
 	
 		discrete_sound_w(0,  data & 0x01);		// Whistle
@@ -61,11 +60,10 @@ public class atarifb
 				palette_set_color(2,0xff,0xff,0xff); /* white  */
 			}
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( atarifb_out2_w )
-	{
+	public static WriteHandlerPtr atarifb_out2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(1, data & 0x0f);	// Crowd
 	
 		coin_counter_w (0, data & 0x10);
@@ -75,7 +73,7 @@ public class atarifb
 			coin_counter_w (1, data & 0x20);
 			coin_counter_w (2, data & 0x40);
 		}
-	}
+	} };
 	
 	
 	/*************************************
@@ -84,8 +82,7 @@ public class atarifb
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( atarifb_out3_w )
-	{
+	public static WriteHandlerPtr atarifb_out3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int loop = cpu_getiloops();
 	
 		switch (loop)
@@ -112,7 +109,7 @@ public class atarifb
 				break;
 		}
 	//	logerror("out3_w, %02x:%02x\n", loop, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr atarifb_in0_r  = new ReadHandlerPtr() { public int handler(int offset){

@@ -47,18 +47,11 @@ public class sidearms
 	extern UINT8 *sidearms_bg_scrollx;
 	extern UINT8 *sidearms_bg_scrolly;
 	
-	extern WRITE_HANDLER( sidearms_videoram_w );
-	extern WRITE_HANDLER( sidearms_colorram_w );
-	extern WRITE_HANDLER( sidearms_star_scrollx_w );
-	extern WRITE_HANDLER( sidearms_star_scrolly_w );
-	extern WRITE_HANDLER( sidearms_c804_w );
-	extern WRITE_HANDLER( sidearms_gfxctrl_w );
-	
+	extern extern extern extern extern extern 
 	extern extern extern extern 
 	int sidearms_gameid;
 	
-	static WRITE_HANDLER( sidearms_bankswitch_w )
-	{
+	public static WriteHandlerPtr sidearms_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
@@ -66,7 +59,7 @@ public class sidearms
 		/* bits 0 and 1 select the ROM bank */
 		bankaddress = 0x10000 + (data & 0x0f) * 0x4000;
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
 	
 	
@@ -163,13 +156,12 @@ public class sidearms
 	
 	/* Whizz */
 	
-	static WRITE_HANDLER( whizz_bankswitch_w )
-	{
+	public static WriteHandlerPtr whizz_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		bankaddress = 0x10000 + (data & 0xc0) * 0x100;
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( whizz_readmem )

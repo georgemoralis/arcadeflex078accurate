@@ -104,8 +104,7 @@ public class pastelgl
 		{ 0x0000, 0xffff, io_pastelgl_r },
 	PORT_END
 	
-	static WRITE_HANDLER( io_pastelgl_w )
-	{
+	public static WriteHandlerPtr io_pastelgl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if ((0xc000 <= offset) && (0xd000 > offset))
@@ -139,7 +138,7 @@ public class pastelgl
 			case	0xd000:	DAC_0_data_w(0, data); break;
 	#endif
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_pastelgl )
 		{ 0x0000, 0xffff, io_pastelgl_w },

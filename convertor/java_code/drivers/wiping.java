@@ -43,12 +43,10 @@ public class wiping
 {
 	
 	
-	WRITE_HANDLER( wiping_flipscreen_w );
 	
 	extern unsigned char *wiping_soundregs;
 	int wiping_sh_start(const struct MachineSound *msound);
 	void wiping_sh_stop(void);
-	WRITE_HANDLER( wiping_sound_w );
 	
 	
 	static unsigned char *sharedram1,*sharedram2;
@@ -61,15 +59,13 @@ public class wiping
 		return sharedram2[offset];
 	} };
 	
-	static WRITE_HANDLER( shared1_w )
-	{
+	public static WriteHandlerPtr shared1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sharedram1[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( shared2_w )
-	{
+	public static WriteHandlerPtr shared2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sharedram2[offset] = data;
-	}
+	} };
 	
 	
 	/* input ports are rotated 90 degrees */
@@ -84,13 +80,12 @@ public class wiping
 		return res;
 	} };
 	
-	static WRITE_HANDLER( subcpu_reset_w )
-	{
+	public static WriteHandlerPtr subcpu_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 1)
 			cpu_set_reset_line(1,CLEAR_LINE);
 		else
 			cpu_set_reset_line(1,ASSERT_LINE);
-	}
+	} };
 	
 	
 	

@@ -32,8 +32,7 @@ public class avalnche
 	  avalnche_output_w
 	***************************************************************************/
 	
-	WRITE_HANDLER( avalnche_output_w )
-	{
+	public static WriteHandlerPtr avalnche_output_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset & 0x07)
 		{
 			case 0x00:		/* 1 CREDIT LAMP */
@@ -70,16 +69,15 @@ public class avalnche
 		        set_led_status(2,data & 0x01);
 				break;
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	  avalnche_noise_amplitude_w
 	***************************************************************************/
 	
-	WRITE_HANDLER( avalnche_noise_amplitude_w )
-	{
+	public static WriteHandlerPtr avalnche_noise_amplitude_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(3, data & 0x3f);
-	}
+	} };
 	
 	public static InterruptHandlerPtr avalnche_interrupt = new InterruptHandlerPtr() {public void handler(){
 			cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);

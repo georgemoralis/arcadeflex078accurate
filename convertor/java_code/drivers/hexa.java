@@ -42,8 +42,6 @@ public class hexa
 	
 	
 	
-	WRITE_HANDLER( hexa_videoram_w );
-	WRITE_HANDLER( hexa_d008_w );
 	
 	
 	

@@ -57,8 +57,6 @@ public class sbugger
 	
 	data8_t* sbugger_videoram, *sbugger_videoram_attr;
 	
-	WRITE_HANDLER( sbugger_videoram_attr_w );
-	WRITE_HANDLER( sbugger_videoram_w );
 	
 	/* memory maps */
 	

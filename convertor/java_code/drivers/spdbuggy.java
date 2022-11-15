@@ -51,10 +51,7 @@ public class spdbuggy
 	unsigned char *spdbuggy_ram, *spdbuggy_ram2;
 	
 	/* Functions defined in vidhrdw */
-	WRITE_HANDLER( spdbuggy_bgram_w );
-	WRITE_HANDLER( spdbuggy_fgram_w );
 	
-	WRITE_HANDLER( spdbuggy_scrollregs_w );
 	
 	
 	
@@ -68,7 +65,7 @@ public class spdbuggy
 	***************************************************************************/
 	#if 0
 	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset) return sharedram[offset]; }
-	static WRITE_HANDLER( sharedram_w )	{ sharedram[offset] = data; }
+	public static WriteHandlerPtr sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data) sharedram[offset] = data; }
 	#endif
 	
 	/*
@@ -574,14 +571,13 @@ public class spdbuggy
 		SET_TILE_INFO(BG_GFX, code & 0x0fff, code >> 12, 0 );	// $3000 tiles!
 	}
 	
-	WRITE_HANDLER( spdbuggy_bgram_w )
-	{
+	public static WriteHandlerPtr spdbuggy_bgram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data != spdbuggy_bgram[offset])
 		{
 			spdbuggy_bgram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset / 2);
 		}
-	}
+	} };
 	
 	
 	
@@ -599,14 +595,13 @@ public class spdbuggy
 		SET_TILE_INFO(FG_GFX, code & 0x07ff, code >> 12, 0 );
 	}
 	
-	WRITE_HANDLER( spdbuggy_fgram_w )
-	{
+	public static WriteHandlerPtr spdbuggy_fgram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data != spdbuggy_fgram[offset])
 		{
 			spdbuggy_fgram[offset] = data;
 			tilemap_mark_tile_dirty(fg_tilemap, offset / 2);
 		}
-	}
+	} };
 	
 	
 	

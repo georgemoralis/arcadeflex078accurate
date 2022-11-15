@@ -17,10 +17,8 @@ public class beezer
 	
 	/* from vidhrdw/beezer.c */
 	extern UINT8 *videoram;
-	WRITE_HANDLER( beezer_ram_w );
 	
 	/* from machine/beezer.c */
-	WRITE_HANDLER( beezer_bankswitch_w );
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0xbfff, MRA_RAM },

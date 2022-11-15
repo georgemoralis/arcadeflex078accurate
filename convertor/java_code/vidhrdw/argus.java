@@ -456,47 +456,43 @@ public class argus
 		return argus_txram[ offset ];
 	} };
 	
-	WRITE_HANDLER( argus_txram_w )
-	{
+	public static WriteHandlerPtr argus_txram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_txram[ offset ] != data)
 		{
 			argus_txram[ offset ] = data;
 			tilemap_mark_tile_dirty(tx_tilemap, offset >> 1);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr butasan_txram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return butasan_txram[ offset ];
 	} };
 	
-	WRITE_HANDLER( butasan_txram_w )
-	{
+	public static WriteHandlerPtr butasan_txram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (butasan_txram[ offset ] != data)
 		{
 			butasan_txram[ offset ] = data;
 			tilemap_mark_tile_dirty(tx_tilemap, (offset ^ 0x7c0) >> 1);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr argus_bg1ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return argus_bg1ram[ offset ];
 	} };
 	
-	WRITE_HANDLER( argus_bg1ram_w )
-	{
+	public static WriteHandlerPtr argus_bg1ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg1ram[ offset ] != data)
 		{
 			argus_bg1ram[ offset ] = data;
 			tilemap_mark_tile_dirty(bg1_tilemap, offset >> 1);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr butasan_bg0ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return butasan_bg0ram[ offset ];
 	} };
 	
-	WRITE_HANDLER( butasan_bg0ram_w )
-	{
+	public static WriteHandlerPtr butasan_bg0ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (butasan_bg0ram[ offset ] != data)
 		{
 			int idx;
@@ -508,14 +504,13 @@ public class argus
 	
 			tilemap_mark_tile_dirty(bg0_tilemap, idx);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr butasan_bg1ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return butasan_bg1ram[ offset ];
 	} };
 	
-	WRITE_HANDLER( butasan_bg1ram_w )
-	{
+	public static WriteHandlerPtr butasan_bg1ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (butasan_bg1ram[ offset ] != data)
 		{
 			int idx;
@@ -527,18 +522,16 @@ public class argus
 	
 			tilemap_mark_tile_dirty(bg1_tilemap, idx);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER ( argus_bg0_scrollx_w )
-	{
+	public static WriteHandlerPtr argus_bg0_scrollx_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg0_scrollx[ offset ] != data)
 		{
 			argus_bg0_scrollx[ offset ] = data;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( argus_bg0_scrolly_w )
-	{
+	public static WriteHandlerPtr argus_bg0_scrolly_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg0_scrolly[ offset ] != data)
 		{
 			int scrolly;
@@ -549,10 +542,9 @@ public class argus
 			else
 				tilemap_set_scrolly( bg0_tilemap, 0, (scrolly + 256) & 0x1ff );
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( butasan_bg0_scrollx_w )
-	{
+	public static WriteHandlerPtr butasan_bg0_scrollx_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg0_scrollx[ offset ] != data)
 		{
 			int scrollx;
@@ -563,10 +555,9 @@ public class argus
 			else
 				tilemap_set_scrollx( bg0_tilemap, 0, (scrollx + 256) & 0x1ff );
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( argus_bg1_scrollx_w )
-	{
+	public static WriteHandlerPtr argus_bg1_scrollx_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg1_scrollx[ offset ] != data)
 		{
 			int scrollx;
@@ -577,10 +568,9 @@ public class argus
 			else
 				tilemap_set_scrollx( bg1_tilemap, 0, (scrollx + 256) & 0x1ff );
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( argus_bg1_scrolly_w )
-	{
+	public static WriteHandlerPtr argus_bg1_scrolly_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg1_scrolly[ offset ] != data)
 		{
 			int scrolly;
@@ -591,10 +581,9 @@ public class argus
 			else
 				tilemap_set_scrolly( bg1_tilemap, 0, (scrolly + 256) & 0x1ff );
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( argus_bg_status_w )
-	{
+	public static WriteHandlerPtr argus_bg_status_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg_status != data)
 		{
 			argus_bg_status = data;
@@ -614,10 +603,9 @@ public class argus
 				}
 			}
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( valtric_bg_status_w )
-	{
+	public static WriteHandlerPtr valtric_bg_status_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg_status != data)
 		{
 			argus_bg_status = data;
@@ -637,10 +625,9 @@ public class argus
 				}
 			}
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( butasan_bg0_status_w )
-	{
+	public static WriteHandlerPtr butasan_bg0_status_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_bg_status != data)
 		{
 			argus_bg_status = data;
@@ -648,10 +635,9 @@ public class argus
 			/* Backgound enable */
 			tilemap_set_enable(bg0_tilemap, argus_bg_status & 1);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( argus_flipscreen_w )
-	{
+	public static WriteHandlerPtr argus_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (argus_flipscreen != (data >> 7))
 		{
 			argus_flipscreen = data >> 7;
@@ -693,14 +679,13 @@ public class argus
 				tilemap_set_scrolly(bg1_tilemap, 0, (scrolly + 256) & 0x1ff);
 			}
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr argus_paletteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return argus_paletteram[ offset ];
 	} };
 	
-	WRITE_HANDLER( argus_paletteram_w )
-	{
+	public static WriteHandlerPtr argus_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int offs;
 	
 		argus_paletteram[ offset ] = data;
@@ -758,10 +743,9 @@ public class argus
 	
 			argus_bg_purple = argus_paletteram[0x0ff] & 0x0f;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( valtric_paletteram_w )
-	{
+	public static WriteHandlerPtr valtric_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int offs;
 	
 		argus_paletteram[ offset ] = data;
@@ -796,10 +780,9 @@ public class argus
 	
 			argus_bg_purple = argus_paletteram[0x01ff] & 0x0f;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( butasan_paletteram_w )
-	{
+	public static WriteHandlerPtr butasan_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		argus_paletteram[ offset ] = data;
 	
 		if (offset < 0x0200 )							/* BG1 color */
@@ -830,34 +813,31 @@ public class argus
 			argus_change_palette( ((offset - 0x0600) >> 1) + 512,
 				argus_paletteram[offset | 1] | (argus_paletteram[offset & ~1] << 8));
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr butasan_txbackram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return butasan_txbackram[ offset ];
 	} };
 	
-	WRITE_HANDLER( butasan_txbackram_w )
-	{
+	public static WriteHandlerPtr butasan_txbackram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (butasan_txbackram[ offset ] != data)
 		{
 			butasan_txbackram[ offset ] = data;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr butasan_bg0backram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return butasan_bg0backram[ offset ];
 	} };
 	
-	WRITE_HANDLER( butasan_bg0backram_w )
-	{
+	public static WriteHandlerPtr butasan_bg0backram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (butasan_bg0backram[ offset ] != data)
 		{
 			butasan_bg0backram[ offset ] = data;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( butasan_bg1_status_w )
-	{
+	public static WriteHandlerPtr butasan_bg1_status_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (butasan_bg1_status != data)
 		{
 			butasan_bg1_status = data;
@@ -865,7 +845,7 @@ public class argus
 			tilemap_set_enable(bg1_tilemap, butasan_bg1_status & 0x01);	/* Set enable flag */
 			tilemap_mark_all_tiles_dirty( bg1_tilemap );				/* Bank changed */
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************

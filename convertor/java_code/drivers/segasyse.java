@@ -179,13 +179,9 @@ public class segasyse
 	
 	/*-- Prototypes --*/
 	
-	static WRITE_HANDLER (segae_mem_8000_w);
-	
-	static WRITE_HANDLER (segae_port_f7_w);
 	
 	
-	static WRITE_HANDLER (segae_port_ba_bb_w);
-	static WRITE_HANDLER (segae_port_be_bf_w);
+	
 	
 	/*- in (vidhrdw/segasyse.c) -*/
 	
@@ -255,17 +251,15 @@ public class segasyse
 	
 	/*-- Memory -- */
 	
-	static WRITE_HANDLER (segae_mem_8000_w)
-	{
+	public static WriteHandlerPtr segae_mem_8000_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* write the data the non-selected VRAM bank of the opposite number VDP chip stored in segae_8000bank */
 		segae_vdp_vram [1-segae_8000bank][offset + (0x4000-(segae_vdp_vrambank[1-segae_8000bank] * 0x4000))] = data;
-	}
+	} };
 	
 	/*-- Ports --*/
 	
 	/***************************************
-	 WRITE_HANDLER (segae_port_f7_w)
-	****************************************
+	 public static WriteHandlerPtr segae_port_f7_w = new WriteHandlerPtr() {public void handler(int offset, int data)****************************************
 	 writes here control the banking of
 	 ROM and RAM
 	
@@ -289,18 +283,17 @@ public class segasyse
 		data8_t *RAM = memory_region(REGION_CPU1);
 	
 		cpu_setbank( 1, &RAM[ 0x10000 + ( rombank * 0x4000 ) ] );
-	}
+	} };
 	
 	
-	static WRITE_HANDLER (segae_port_f7_w)
-	{
+	public static WriteHandlerPtr segae_port_f7_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		segae_vdp_vrambank[0] = (data & 0x80) >> 7; /* Back  Layer VDP (0) VRAM Bank */
 		segae_vdp_vrambank[1] = (data & 0x40) >> 6; /* Front Layer VDP (1) VRAM Bank */
 		segae_8000bank		  = (data & 0x20) >> 5; /* 0x8000 Write Select */
 		rombank				  =  data & 0x07;		/* Rom Banking */
 	
 		segae_bankswitch();
-	}
+	} };
 	
 	/*- Beam Position -*/
 	
@@ -352,8 +345,7 @@ public class segasyse
 		return temp;
 	} };
 	
-	static WRITE_HANDLER (segae_port_ba_bb_w)
-	{
+	public static WriteHandlerPtr segae_port_ba_bb_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* These Addresses access the Back Layer VDP (0) */
 		switch (offset)
 		{
@@ -362,10 +354,9 @@ public class segasyse
 			case 1: /* port 0xbb, VDP 0 CTRL Write */
 				segae_vdp_ctrl_w(0, data); break;
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER (segae_port_be_bf_w)
-	{
+	public static WriteHandlerPtr segae_port_be_bf_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* These Addresses access the Front Layer VDP (1) */
 		switch (offset)
 		{
@@ -374,7 +365,7 @@ public class segasyse
 			case 1: /* port 0xbf, VDP 1 CTRL Write */
 				segae_vdp_ctrl_w(1, data); break;
 		}
-	}
+	} };
 	
 	/*- Hang On Jr. Specific -*/
 	
@@ -392,11 +383,10 @@ public class segasyse
 		return temp;
 	} };
 	
-	static WRITE_HANDLER (segae_hangonjr_port_fa_w)
-	{
+	public static WriteHandlerPtr segae_hangonjr_port_fa_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Seems to write the same pattern again and again bits ---- xx-x used */
 		port_fa_last = data;
-	}
+	} };
 	
 	/*- Riddle of Pythagoras Specific -*/
 	
@@ -413,8 +403,7 @@ public class segasyse
 		}
 	} };
 	
-	static WRITE_HANDLER (segae_ridleofp_port_fa_w)
-	{
+	public static WriteHandlerPtr segae_ridleofp_port_fa_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* 0x10 is written before reading the dial (hold counters?) */
 		/* 0x03 is written after reading the dial (reset counters?) */
 	
@@ -432,7 +421,7 @@ public class segasyse
 			diff2 = ((curr - last2) & 0x0fff) | (curr & 0xf000);
 			last2 = curr;
 		}
-	}
+	} };
 	
 	
 	/*******************************************************************************

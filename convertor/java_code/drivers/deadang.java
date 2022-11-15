@@ -27,10 +27,7 @@ public class deadang
 	static UINT8 *deadang_shared_ram;
 	extern UINT8 *deadang_video_data, *deadang_scroll_ram;
 	
-	extern WRITE_HANDLER( deadang_foreground_w );
-	extern WRITE_HANDLER( deadang_text_w );
-	extern WRITE_HANDLER( deadang_bank_w );
-	
+	extern extern extern 
 	extern extern 
 	/* Read/Write Handlers */
 	
@@ -38,10 +35,9 @@ public class deadang
 		return deadang_shared_ram[offset];
 	} };
 	
-	static WRITE_HANDLER( deadang_shared_w )
-	{
+	public static WriteHandlerPtr deadang_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		deadang_shared_ram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr ghunter_trackball_low_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)

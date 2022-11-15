@@ -109,18 +109,13 @@ public class gladiatr
 	
 	/*Video functions*/
 	extern unsigned char *gladiator_text;
-	WRITE_HANDLER( gladiatr_video_registers_w );
-	WRITE_HANDLER( gladiatr_paletteram_rg_w );
-	WRITE_HANDLER( gladiatr_paletteram_b_w );
-	extern extern WRITE_HANDLER( gladiatr_spritebank_w );
-	
+	extern extern 
 	/*Rom bankswitching*/
 	static int banka;
-	WRITE_HANDLER( gladiatr_bankswitch_w );
 	
 	/*Rom bankswitching*/
-	WRITE_HANDLER( gladiatr_bankswitch_w ){
-		static int bank1[2] = { 0x10000, 0x12000 };
+	public static WriteHandlerPtr gladiatr_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
+		static int bank1[2] = { 0x10000, 0x12000 } };;
 		static int bank2[2] = { 0x14000, 0x18000 };
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		banka = data;
@@ -200,10 +195,9 @@ public class gladiatr
 	
 	#if 1
 	/* !!!!! patch to IRQ timming for 2nd CPU !!!!! */
-	WRITE_HANDLER( gladiatr_irq_patch_w )
-	{
+	public static WriteHandlerPtr gladiatr_irq_patch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1,0,HOLD_LINE);
-	}
+	} };
 	#endif
 	
 	/* YM2203 port A handler (input) */
@@ -211,12 +205,11 @@ public class gladiatr
 		return input_port_2_r(offset)^0xff;
 	} };
 	/* YM2203 port B handler (output) */
-	static WRITE_HANDLER( gladiator_int_control_w )
-	{
+	public static WriteHandlerPtr gladiator_int_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 7   : SSRST = sound reset ? */
 		/* bit 6-1 : N.C.                  */
 		/* bit 0   : ??                    */
-	}
+	} };
 	/* YM2203 IRQ */
 	static void gladiator_ym_irq(int irq)
 	{
@@ -225,8 +218,7 @@ public class gladiatr
 	}
 	
 	/*Sound Functions*/
-	static WRITE_HANDLER( glad_adpcm_w )
-	{
+	public static WriteHandlerPtr glad_adpcm_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU3);
 		/* bit6 = bank offset */
 		int bankoffset = data&0x40 ? 0x4000 : 0;
@@ -237,13 +229,12 @@ public class gladiatr
 		MSM5205_data_w(0,data);         /* bit0..3  */
 		MSM5205_reset_w(0,(data>>5)&1); /* bit 5    */
 		MSM5205_vclk_w (0,(data>>4)&1); /* bit4     */
-	}
+	} };
 	
-	static WRITE_HANDLER( glad_cpu_sound_command_w )
-	{
+	public static WriteHandlerPtr glad_cpu_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		cpu_set_nmi_line(2,ASSERT_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr glad_cpu_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_nmi_line(2,CLEAR_LINE);

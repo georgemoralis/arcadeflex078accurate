@@ -267,10 +267,9 @@ public class balsente
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( balsente_random_reset_w )
-	{
+	public static WriteHandlerPtr balsente_random_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* reset random number generator */
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr balsente_random_num_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -292,18 +291,16 @@ public class balsente
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( balsente_rombank_select_w )
-	{
+	public static WriteHandlerPtr balsente_rombank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bank_offset = 0x6000 * ((data >> 4) & 7);
 	
 		/* the bank number comes from bits 4-6 */
 		cpu_setbank(1, &memory_region(REGION_CPU1)[0x10000 + bank_offset]);
 		cpu_setbank(2, &memory_region(REGION_CPU1)[0x12000 + bank_offset]);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( balsente_rombank2_select_w )
-	{
+	public static WriteHandlerPtr balsente_rombank2_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Night Stocker and Name that Tune only so far.... */
 		int bank = data & 7;
 	
@@ -323,7 +320,7 @@ public class balsente
 			cpu_setbank(1, &memory_region(REGION_CPU1)[0x10000 + 0x6000 * bank]);
 			cpu_setbank(2, &memory_region(REGION_CPU1)[0x12000 + 0x6000 * bank]);
 		}
-	}
+	} };
 	
 	
 	
@@ -333,8 +330,7 @@ public class balsente
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( balsente_misc_output_w )
-	{
+	public static WriteHandlerPtr balsente_misc_output_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (offset / 4) % 8;
 		data >>= 7;
 	
@@ -348,7 +344,7 @@ public class balsente
 		{
 	//		set_led_status(offset, data);
 		}
-	}
+	} };
 	
 	
 	
@@ -494,8 +490,7 @@ public class balsente
 	}
 	
 	
-	WRITE_HANDLER( balsente_m6850_w )
-	{
+	public static WriteHandlerPtr balsente_m6850_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* control register is at offset 0 */
 		if (offset == 0)
 		{
@@ -508,7 +503,7 @@ public class balsente
 		/* output register is at offset 1; set a timer to synchronize the CPUs */
 		else
 			timer_set(TIME_NOW, data, m6850_w_callback);
-	}
+	} };
 	
 	
 	
@@ -541,8 +536,7 @@ public class balsente
 	} };
 	
 	
-	WRITE_HANDLER( balsente_m6850_sound_w )
-	{
+	public static WriteHandlerPtr balsente_m6850_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* control register is at offset 0 */
 		if (offset == 0)
 			m6850_sound_control = data;
@@ -556,7 +550,7 @@ public class balsente
 	
 		/* re-update since interrupt enables could have been modified */
 		m6850_update_io();
-	}
+	} };
 	
 	
 	
@@ -616,13 +610,12 @@ public class balsente
 	} };
 	
 	
-	WRITE_HANDLER( balsente_adc_select_w )
-	{
+	public static WriteHandlerPtr balsente_adc_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* set a timer to go off and read the value after 50us */
 		/* it's important that we do this for Mini Golf */
 	logerror("adc_select %d\n", offset & 7);
 		timer_set(TIME_IN_USEC(50), offset & 7, adc_finished);
-	}
+	} };
 	
 	
 	
@@ -784,8 +777,7 @@ public class balsente
 	} };
 	
 	
-	WRITE_HANDLER( balsente_counter_8253_w )
-	{
+	public static WriteHandlerPtr balsente_counter_8253_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int which;
 	
 		switch (offset & 3)
@@ -848,7 +840,7 @@ public class balsente
 					counter_set_out(which, 0);
 				break;
 		}
-	}
+	} };
 	
 	
 	
@@ -939,8 +931,7 @@ public class balsente
 	} };
 	
 	
-	WRITE_HANDLER( balsente_counter_control_w )
-	{
+	public static WriteHandlerPtr balsente_counter_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 diff_counter_control = counter_control ^ data;
 	
 		/* set the new global value */
@@ -981,7 +972,7 @@ public class balsente
 	
 		/* bit 5 clears the NMI interrupt; recompute the I/O state now */
 		m6850_update_io();
-	}
+	} };
 	
 	
 	
@@ -991,8 +982,7 @@ public class balsente
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( balsente_chip_select_w )
-	{
+	public static WriteHandlerPtr balsente_chip_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static const UINT8 register_map[8] =
 		{
 			CEM3394_VCO_FREQUENCY,
@@ -1047,12 +1037,11 @@ public class balsente
 		/* if a timer for counter 0 is running, recompute */
 		if (counter_0_timer_active)
 			update_counter_0_timer();
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( balsente_dac_data_w )
-	{
+	public static WriteHandlerPtr balsente_dac_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* LSB or MSB? */
 		if (offset & 1)
 			dac_value = (dac_value & 0xfc0) | ((data >> 2) & 0x03f);
@@ -1066,13 +1055,12 @@ public class balsente
 			balsente_chip_select_w(0, 0x3f);
 			balsente_chip_select_w(0, temp);
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( balsente_register_addr_w )
-	{
+	public static WriteHandlerPtr balsente_register_addr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dac_register = data & 7;
-	}
+	} };
 	
 	
 	
@@ -1087,8 +1075,7 @@ public class balsente
 	} };
 	
 	
-	WRITE_HANDLER( spiker_expand_w )
-	{
+	public static WriteHandlerPtr spiker_expand_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* offset 0 is the bit pattern */
 		if (offset == 0)
 			spiker_expand_bits = data;
@@ -1100,7 +1087,7 @@ public class balsente
 		/* offset 2 is the color */
 		else if (offset == 2)
 			spiker_expand_color = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr spiker_expand_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -1198,10 +1185,9 @@ public class balsente
 	} };
 	
 	
-	WRITE_HANDLER( shrike_shared_6809_w )
-	{
+	public static WriteHandlerPtr shrike_shared_6809_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	if (offset != 0x0a || data != 0x55)
 	logerror("6809 wrote %02x = %02x\n", offset, data);
 		shrike_shared[offset] = (shrike_shared[offset] & ~0xff) | data;
-	}
+	} };
 }

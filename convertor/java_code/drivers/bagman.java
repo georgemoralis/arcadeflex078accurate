@@ -66,15 +66,11 @@ public class bagman
 {
 	
 	
-	extern extern extern WRITE_HANDLER( bagman_pal16r6_w );
-	
+	extern extern extern 
 	
 	extern UINT8 *bagman_video_enable;
 	
-	extern WRITE_HANDLER( bagman_videoram_w );
-	extern WRITE_HANDLER( bagman_colorram_w );
-	extern WRITE_HANDLER( bagman_flipscreen_w );
-	
+	extern extern extern 
 	extern extern extern 
 	
 	static int speech_rom_address = 0;
@@ -160,8 +156,7 @@ public class bagman
 	} };
 	#endif
 	
-	static WRITE_HANDLER( bagman_ls259_w )
-	{
+	public static WriteHandlerPtr bagman_ls259_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bagman_pal16r6_w(offset,data); /*this is just a simulation*/
 	
 		if (ls259_buf[offset] != (data&1) )
@@ -180,12 +175,11 @@ public class bagman
 				}
 			}
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( bagman_coin_counter_w )
-	{
+	public static WriteHandlerPtr bagman_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x5fff, MRA_ROM },

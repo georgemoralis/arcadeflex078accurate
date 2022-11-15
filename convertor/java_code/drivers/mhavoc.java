@@ -204,8 +204,7 @@ public class mhavoc
 	} };
 	
 	
-	static WRITE_HANDLER( dual_pokey_w )
-	{
+	public static WriteHandlerPtr dual_pokey_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int pokey_num = (offset >> 3) & 0x01;
 		int control = (offset & 0x10) >> 1;
 		int pokey_reg = (offset % 8) | control;
@@ -214,7 +213,7 @@ public class mhavoc
 			pokey1_w(pokey_reg, data);
 		else
 			pokey2_w(pokey_reg, data);
-	}
+	} };
 	
 	
 	
@@ -230,10 +229,9 @@ public class mhavoc
 		return gammaram[offset & 0x7ff];
 	} };
 	
-	static WRITE_HANDLER( mhavoc_gammaram_w )
-	{
+	public static WriteHandlerPtr mhavoc_gammaram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		gammaram[offset & 0x7ff] = data;
-	}
+	} };
 	
 	
 	

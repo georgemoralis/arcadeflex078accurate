@@ -302,65 +302,55 @@ public class carpolo
 	} };
 	
 	
-	static WRITE_HANDLER( coin1_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr coin1_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL7474_clear_w(TTL7474_2S_1, data);
 		TTL7474_update(TTL7474_2S_1);
-	}
+	} };
 	
-	static WRITE_HANDLER( coin2_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr coin2_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL7474_clear_w(TTL7474_2S_2, data);
 		TTL7474_update(TTL7474_2S_2);
-	}
+	} };
 	
-	static WRITE_HANDLER( coin3_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr coin3_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL7474_clear_w(TTL7474_2U_1, data);
 		TTL7474_update(TTL7474_2U_1);
-	}
+	} };
 	
-	static WRITE_HANDLER( coin4_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr coin4_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL7474_clear_w(TTL7474_2U_2, data);
 		TTL7474_update(TTL7474_2U_2);
-	}
+	} };
 	
-	WRITE_HANDLER( carpolo_ball_screen_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr carpolo_ball_screen_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL74148_input_line_w(TTL74148_3S, BALL_SCREEN_PRIORITY_LINE, 1);
 		TTL74148_update(TTL74148_3S);
-	}
+	} };
 	
-	WRITE_HANDLER( carpolo_car_car_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr carpolo_car_car_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL74148_input_line_w(TTL74148_3S, CAR_CAR_PRIORITY_LINE, 1);
 		TTL74148_update(TTL74148_3S);
-	}
+	} };
 	
-	WRITE_HANDLER( carpolo_car_goal_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr carpolo_car_goal_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL74148_input_line_w(TTL74148_3S, CAR_GOAL_PRIORITY_LINE, 1);
 		TTL74148_update(TTL74148_3S);
-	}
+	} };
 	
-	WRITE_HANDLER( carpolo_car_ball_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr carpolo_car_ball_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL74148_input_line_w(TTL74148_3S, PRI0_PRIORTITY_LINE, 1);
 		TTL74148_update(TTL74148_3S);
-	}
+	} };
 	
-	WRITE_HANDLER( carpolo_car_border_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr carpolo_car_border_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL74148_input_line_w(TTL74148_3S, PRI0_PRIORTITY_LINE, 1);
 		TTL74148_update(TTL74148_3S);
-	}
+	} };
 	
-	WRITE_HANDLER( carpolo_timer_interrupt_clear_w )
-	{
+	public static WriteHandlerPtr carpolo_timer_interrupt_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL74148_input_line_w(TTL74148_3S, PRI0_PRIORTITY_LINE, 1);
 		TTL74148_update(TTL74148_3S);
-	}
+	} };
 	
 	
 	/*************************************
@@ -369,8 +359,7 @@ public class carpolo
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( pia_0_port_a_w )
-	{
+	public static WriteHandlerPtr pia_0_port_a_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 - Coin counter
 		   bit 1 - Player 4 crash sound
 		   bit 2 - Player 3 crash sound
@@ -392,11 +381,10 @@ public class carpolo
 		TTL7474_update(TTL7474_1D_1);
 		TTL7474_update(TTL7474_1C_1);
 		TTL7474_update(TTL7474_1A_1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( pia_0_port_b_w )
-	{
+	public static WriteHandlerPtr pia_0_port_b_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 - Strobe speed bits sound
 		   bit 1 - Speed bit 0 sound
 		   bit 2 - Speed bit 1 sound
@@ -408,7 +396,7 @@ public class carpolo
 		TTL74153_b_w(TTL74153_1K, data & 0x80);
 	
 		TTL74153_update(TTL74153_1K);
-	}
+	} };
 	
 	public static ReadHandlerPtr pia_0_port_b_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 4 - Pedal bit 0

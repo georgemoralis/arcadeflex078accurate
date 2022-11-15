@@ -51,9 +51,6 @@ public class mole
 {
 	
 	extern extern extern 
-	WRITE_HANDLER( moleattack_videoram_w );
-	WRITE_HANDLER( moleattack_tilesetselector_w );
-	WRITE_HANDLER( moleattack_flipscreen_w );
 	
 	static struct GfxLayout tile_layout =
 	{

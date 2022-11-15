@@ -31,9 +31,6 @@ public class mcrH
 	
 	
 	
-	WRITE_HANDLER( mcr_control_port_w );
-	WRITE_HANDLER( mcrmono_control_port_w );
-	WRITE_HANDLER( mcr_scroll_value_w );
 	
 	WRITE16_HANDLER( mcr68_6840_upper_w );
 	WRITE16_HANDLER( mcr68_6840_lower_w );

@@ -169,10 +169,9 @@ public class kangaroo
 	  return (kangaroo_clock & 0x0f);
 	} };
 	
-	static WRITE_HANDLER( kangaroo_sec_chip_w )
-	{
+	public static WriteHandlerPtr kangaroo_sec_chip_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	/*  kangaroo_clock = val & 0x0f; */
-	}
+	} };
 	
 	
 	
@@ -182,11 +181,10 @@ public class kangaroo
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( kangaroo_coin_counter_w )
-	{
+	public static WriteHandlerPtr kangaroo_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0, data & 1);
 		coin_counter_w(1, data & 2);
-	}
+	} };
 	
 	
 	

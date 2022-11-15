@@ -18,7 +18,6 @@ public class gridleeH
 	
 	/*----------- defined in sndhrdw/gridlee.c -----------*/
 	
-	WRITE_HANDLER( gridlee_sound_w );
 	int gridlee_sh_start(const struct MachineSound *msound);
 	
 	
@@ -28,7 +27,4 @@ public class gridleeH
 	extern UINT8 gridlee_cocktail_flip;
 	
 	
-	WRITE_HANDLER( gridlee_cocktail_flip_w );
-	WRITE_HANDLER( gridlee_videoram_w );
-	WRITE_HANDLER( gridlee_palette_select_w );
-}
+	}

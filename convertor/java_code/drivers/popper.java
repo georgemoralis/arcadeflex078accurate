@@ -90,13 +90,6 @@ public class popper
 	extern data8_t *popper_videoram, *popper_attribram, *popper_ol_videoram, *popper_ol_attribram, *popper_spriteram;
 	extern size_t popper_spriteram_size;
 	
-	WRITE_HANDLER( popper_videoram_w );
-	WRITE_HANDLER( popper_attribram_w );
-	WRITE_HANDLER( popper_ol_videoram_w );
-	WRITE_HANDLER( popper_ol_attribram_w );
-	WRITE_HANDLER( popper_flipscreen_w );
-	WRITE_HANDLER( popper_e002_w );
-	WRITE_HANDLER( popper_gfx_bank_w );
 	
 	static data8_t *popper_sharedram;
 	
@@ -153,10 +146,9 @@ public class popper
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( popper_sharedram_w )
-	{
+	public static WriteHandlerPtr popper_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		popper_sharedram[offset]=data;
-	}
+	} };
 	
 	static MEMORY_READ_START( popper_readmem )
 		{ 0x0000, 0x5fff, MRA_ROM },

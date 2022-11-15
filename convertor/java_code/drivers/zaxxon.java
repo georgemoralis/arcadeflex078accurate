@@ -169,35 +169,28 @@ public class zaxxon
 	extern UINT8 *zaxxon_background_color_bank;
 	extern UINT8 *zaxxon_background_enable;
 	
-	extern WRITE_HANDLER( zaxxon_videoram_w );
-	extern WRITE_HANDLER( congo_colorram_w );
-	
+	extern extern 
 	extern 
 	extern extern extern 
 	extern extern extern extern 
-	extern extern WRITE_HANDLER( zaxxon_sound_w );
-	
+	extern extern 
 	/* Read/Write Handlers */
 	
-	static WRITE_HANDLER( zaxxon_coin_counter_w )
-	{
+	public static WriteHandlerPtr zaxxon_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset, data & 0x01);
-	}
+	} };
 	
-	static WRITE_HANDLER( zaxxon_coin_lockout_w )
-	{
+	public static WriteHandlerPtr zaxxon_coin_lockout_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_w(offset, ~data & 0x01);
-	}
+	} };
 	
-	static WRITE_HANDLER( zaxxon_flipscreen_w )
-	{
+	public static WriteHandlerPtr zaxxon_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(~data & 0x01);
-	}
+	} };
 	
-	static WRITE_HANDLER( razmataz_flipscreen_w )
-	{
+	public static WriteHandlerPtr razmataz_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data & 0x01);
-	}
+	} };
 	
 	public static ReadHandlerPtr razmataz_unknown1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return rand() & 0xff;
@@ -238,8 +231,7 @@ public class zaxxon
 		return razmataz_dial_r(1);
 	} };
 	
-	static WRITE_HANDLER( congo_daio_w )
-	{
+	public static WriteHandlerPtr congo_daio_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 1)
 		{
 			if (data & 0x02) sample_start(0, 0, 0);
@@ -256,7 +248,7 @@ public class zaxxon
 				if (data & 0x01) sample_start(4, 4, 0);
 			}
 		}
-	}
+	} };
 	
 	/* Memory Maps */
 	

@@ -109,10 +109,10 @@ public class _3812intf
 			YM3812ResetChip(i);
 	}
 	
-	WRITE_HANDLER( YM3812_control_port_0_w ) {
+	public static WriteHandlerPtr YM3812_control_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM3812Write(0, 0, data);
 	}
-	WRITE_HANDLER( YM3812_write_port_0_w ) {
+	public static WriteHandlerPtr YM3812_write_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM3812Write(0, 1, data);
 	}
 	public static ReadHandlerPtr YM3812_status_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -123,10 +123,10 @@ public class _3812intf
 	}
 	
 	
-	WRITE_HANDLER( YM3812_control_port_1_w ) {
+	public static WriteHandlerPtr YM3812_control_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM3812Write(1, 0, data);
 	}
-	WRITE_HANDLER( YM3812_write_port_1_w ) {
+	public static WriteHandlerPtr YM3812_write_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM3812Write(1, 1, data);
 	}
 	public static ReadHandlerPtr YM3812_status_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -224,10 +224,10 @@ public class _3812intf
 			YM3526ResetChip(i);
 	}
 	
-	WRITE_HANDLER( YM3526_control_port_0_w ) {
+	public static WriteHandlerPtr YM3526_control_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM3526Write(0, 0, data);
 	}
-	WRITE_HANDLER( YM3526_write_port_0_w ) {
+	public static WriteHandlerPtr YM3526_write_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM3526Write(0, 1, data);
 	}
 	public static ReadHandlerPtr YM3526_status_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -238,10 +238,10 @@ public class _3812intf
 	}
 	
 	
-	WRITE_HANDLER( YM3526_control_port_1_w ) {
+	public static WriteHandlerPtr YM3526_control_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM3526Write(1, 0, data);
 	}
-	WRITE_HANDLER( YM3526_write_port_1_w ) {
+	public static WriteHandlerPtr YM3526_write_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM3526Write(1, 1, data);
 	}
 	public static ReadHandlerPtr YM3526_status_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -372,10 +372,10 @@ public class _3812intf
 			Y8950ResetChip(i);
 	}
 	
-	WRITE_HANDLER( Y8950_control_port_0_w ) {
+	public static WriteHandlerPtr Y8950_control_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		Y8950Write(0, 0, data);
 	}
-	WRITE_HANDLER( Y8950_write_port_0_w ) {
+	public static WriteHandlerPtr Y8950_write_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		Y8950Write(0, 1, data);
 	}
 	public static ReadHandlerPtr Y8950_status_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -386,10 +386,10 @@ public class _3812intf
 	}
 	
 	
-	WRITE_HANDLER( Y8950_control_port_1_w ) {
+	public static WriteHandlerPtr Y8950_control_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		Y8950Write(1, 0, data);
 	}
-	WRITE_HANDLER( Y8950_write_port_1_w ) {
+	public static WriteHandlerPtr Y8950_write_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		Y8950Write(1, 1, data);
 	}
 	public static ReadHandlerPtr Y8950_status_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)

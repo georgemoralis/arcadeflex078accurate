@@ -125,7 +125,6 @@ public class cpuexecH
 	 *************************************/
 	
 	/* 8-bit watchdog read/write handlers */
-	WRITE_HANDLER( watchdog_reset_w );
 	
 	/* 16-bit watchdog read/write handlers */
 	WRITE16_HANDLER( watchdog_reset16_w );

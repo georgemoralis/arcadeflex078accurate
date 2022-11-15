@@ -23,21 +23,13 @@ public class battlane
 	
 	extern struct tilemap *bg_tilemap;
 	
-	extern WRITE_HANDLER( battlane_palette_w );
-	extern WRITE_HANDLER( battlane_scrollx_w );
-	extern WRITE_HANDLER( battlane_scrolly_w );
-	extern WRITE_HANDLER( battlane_tileram_w );
-	extern WRITE_HANDLER( battlane_spriteram_w );
-	extern WRITE_HANDLER( battlane_bitmap_w );
-	extern WRITE_HANDLER( battlane_video_ctrl_w );
-	
+	extern extern extern extern extern extern extern 
 	extern extern extern 
 	
 	/* CPU interrupt control register */
 	int battlane_cpu_control;
 	
-	WRITE_HANDLER( battlane_cpu_command_w )
-	{
+	public static WriteHandlerPtr battlane_cpu_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		battlane_cpu_control = data;
 	
 		/*
@@ -94,15 +86,14 @@ public class battlane
 		*/
 	
 		cpu_set_irq_line(1, M6809_IRQ_LINE, data & 0x02 ? CLEAR_LINE : HOLD_LINE);
-	}
+	} };
 	
 	/* Both CPUs share the same memory */
 	
-	WRITE_HANDLER( battlane_shared_ram_w )
-	{
+	public static WriteHandlerPtr battlane_shared_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 		RAM[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr battlane_shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 *RAM = memory_region(REGION_CPU1);

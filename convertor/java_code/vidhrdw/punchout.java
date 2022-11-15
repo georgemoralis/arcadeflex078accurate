@@ -286,40 +286,36 @@ public class punchout
 	
 	
 	
-	WRITE_HANDLER( punchout_videoram2_w )
-	{
+	public static WriteHandlerPtr punchout_videoram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (punchout_videoram2[offset] != data)
 		{
 			dirtybuffer2[offset] = 1;
 	
 			punchout_videoram2[offset] = data;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( punchout_bigsprite1ram_w )
-	{
+	public static WriteHandlerPtr punchout_bigsprite1ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (punchout_bigsprite1ram[offset] != data)
 		{
 			bs1dirtybuffer[offset] = 1;
 	
 			punchout_bigsprite1ram[offset] = data;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( punchout_bigsprite2ram_w )
-	{
+	public static WriteHandlerPtr punchout_bigsprite2ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (punchout_bigsprite2ram[offset] != data)
 		{
 			bs2dirtybuffer[offset] = 1;
 	
 			punchout_bigsprite2ram[offset] = data;
 		}
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( punchout_palettebank_w )
-	{
+	public static WriteHandlerPtr punchout_palettebank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		*punchout_palettebank = data;
 	
 		if (top_palette_bank != ((data >> 1) & 0x01))
@@ -334,7 +330,7 @@ public class punchout
 			memset(bs1dirtybuffer,1,punchout_bigsprite1ram_size);
 			memset(bs2dirtybuffer,1,punchout_bigsprite2ram_size);
 		}
-	}
+	} };
 	
 	
 	

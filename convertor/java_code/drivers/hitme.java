@@ -32,7 +32,6 @@ public class hitme
 	static const float tock = .0189;
 	data8_t *hitme_vidram;
 	
-	WRITE_HANDLER( hitme_vidram_w );
 	
 	static InputPortHandlerPtr input_ports_hitme = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hitme )
 		PORT_START(); 
@@ -225,11 +224,10 @@ public class hitme
 			return input_port_3_r (offset);
 	} };
 	
-	static WRITE_HANDLER ( output_port_0_w )
-	{
+	public static WriteHandlerPtr output_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timeout_counter = (data);
 		timeout_time = timer_get_time();
-	}
+	} };
 	
 	#if 0
 	public static ReadHandlerPtr hitme_unknown_r  = new ReadHandlerPtr() { public int handler(int offset){

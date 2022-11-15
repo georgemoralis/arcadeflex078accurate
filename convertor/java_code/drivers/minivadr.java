@@ -20,7 +20,6 @@ public class minivadr
 {
 	
 	
-	WRITE_HANDLER( minivadr_videoram_w );
 	
 	
 	static MEMORY_READ_START( readmem )

@@ -41,31 +41,23 @@ public class pacland
 	
 	extern UINT8 *pacland_videoram2;
 	
-	extern WRITE_HANDLER( pacland_videoram_w );
-	extern WRITE_HANDLER( pacland_videoram2_w );
-	extern WRITE_HANDLER( pacland_scroll0_w );
-	extern WRITE_HANDLER( pacland_scroll1_w );
-	extern WRITE_HANDLER( pacland_bankswitch_w );
-	extern WRITE_HANDLER( pacland_flipscreen_w );
-	
+	extern extern extern extern extern extern 
 	extern extern extern 
 	
 	public static ReadHandlerPtr sharedram1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram1[offset];
 	} };
 	
-	static WRITE_HANDLER( sharedram1_w )
-	{
+	public static WriteHandlerPtr sharedram1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sharedram1[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( pacland_halt_mcu_w )
-	{
+	public static WriteHandlerPtr pacland_halt_mcu_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 			cpu_set_reset_line(1,CLEAR_LINE);
 		else
 			cpu_set_reset_line(1,ASSERT_LINE);
-	}
+	} };
 	
 	
 	/* Stubs to pass the correct Dip Switch setup to the MCU */
@@ -86,18 +78,16 @@ public class pacland
 		return ~r; /* Active Low */
 	} };
 	
-	static WRITE_HANDLER( pacland_coin_w )
-	{
+	public static WriteHandlerPtr pacland_coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_global_w(data & 1);
 		coin_counter_w(0,~data & 2);
 		coin_counter_w(1,~data & 4);
-	}
+	} };
 	
-	static WRITE_HANDLER( pacland_led_w )
-	{
+	public static WriteHandlerPtr pacland_led_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0,data & 0x08);
 		set_led_status(1,data & 0x10);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

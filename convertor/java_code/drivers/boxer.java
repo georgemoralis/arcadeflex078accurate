@@ -140,18 +140,15 @@ public class boxer
 	} };
 	
 	
-	static WRITE_HANDLER( boxer_bell_w )
-	{
-	}
+	public static WriteHandlerPtr boxer_bell_w = new WriteHandlerPtr() {public void handler(int offset, int data){
+	} };
 	
 	
-	static WRITE_HANDLER( boxer_sound_w )
-	{
-	}
+	public static WriteHandlerPtr boxer_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
+	} };
 	
 	
-	static WRITE_HANDLER( boxer_pot_w )
-	{
+	public static WriteHandlerPtr boxer_pot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* BIT0 => HPOT1 */
 		/* BIT1 => VPOT1 */
 		/* BIT2 => RPOT1 */
@@ -162,37 +159,33 @@ public class boxer
 		pot_latch = data & 0x3f;
 	
 		cpu_set_nmi_line(0, CLEAR_LINE);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( boxer_irq_reset_w )
-	{
+	public static WriteHandlerPtr boxer_irq_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( boxer_crowd_w )
-	{
+	public static WriteHandlerPtr boxer_crowd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* BIT0 => ATTRACT */
 		/* BIT1 => CROWD-1 */
 		/* BIT2 => CROWD-2 */
 		/* BIT3 => CROWD-3 */
 	
 		coin_lockout_global_w(data & 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( boxer_led_w )
-	{
+	public static WriteHandlerPtr boxer_led_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(1, !(data & 1));
 		set_led_status(0, !(data & 2));
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( boxer_bad_address_w )
-	{
+	public static WriteHandlerPtr boxer_bad_address_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_reset_line(0, PULSE_LINE);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( boxer_readmem )

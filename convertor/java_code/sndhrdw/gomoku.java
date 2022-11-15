@@ -213,8 +213,7 @@ public class gomoku
 	
 	/********************************************************************************/
 	
-	WRITE_HANDLER( gomoku_sound_w )
-	{
+	public static WriteHandlerPtr gomoku_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_channel *voice;
 		int base;
 	
@@ -256,5 +255,5 @@ public class gomoku
 				voice->oneshotplaying = 1;
 			}
 		}
-	}
+	} };
 }

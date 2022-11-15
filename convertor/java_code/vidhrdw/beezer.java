@@ -34,8 +34,7 @@ public class beezer
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
 	} };
 	
-	WRITE_HANDLER( beezer_map_w )
-	{
+	public static WriteHandlerPtr beezer_map_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*
 		  bit 7 -- 330  ohm resistor  -- BLUE
 		        -- 560  ohm resistor  -- BLUE
@@ -65,10 +64,9 @@ public class beezer
 		b = 0x5f * bit0 + 0xa0 * bit1;
 	
 		palette_set_color(offset, r, g, b);
-	}
+	} };
 	
-	WRITE_HANDLER( beezer_ram_w )
-	{
+	public static WriteHandlerPtr beezer_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int x, y;
 		x = offset % 0x100;
 		y = (offset / 0x100) * 2;
@@ -80,7 +78,7 @@ public class beezer
 		}
 	
 		videoram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr beezer_line_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (scanline & 0xfe) << 1;

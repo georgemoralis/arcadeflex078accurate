@@ -15,11 +15,10 @@ public class mainsnk
 	data8_t *me_bgram;
 	static int me_gfx_ctrl;
 	
-	WRITE_HANDLER(me_c600_w)
-	{
+	public static WriteHandlerPtr me_c600_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bg_color = data&0xf;
 		me_gfx_ctrl=data;
-	}
+	} };
 	
 	static void get_me_fg_tile_info(int tile_index)
 	{
@@ -83,11 +82,10 @@ public class mainsnk
 	} };
 	
 	
-	WRITE_HANDLER( me_fgram_w )
-	{
+	public static WriteHandlerPtr me_fgram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		me_fgram[offset] = data;
 		tilemap_mark_tile_dirty(me_fg_tilemap,offset);
-	}
+	} };
 	
 	
 	static void get_me_bg_tile_info(int tile_index)
@@ -107,11 +105,10 @@ public class mainsnk
 	
 	} };
 	
-	WRITE_HANDLER( me_bgram_w )
-	{
+	public static WriteHandlerPtr me_bgram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		me_bgram[offset] = data;
 		tilemap_mark_tile_dirty(me_bg_tilemap,offset);
-	}
+	} };
 	
 	
 	public static VideoStartHandlerPtr video_start_mainsnk  = new VideoStartHandlerPtr() { public int handler(){

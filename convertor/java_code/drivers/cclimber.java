@@ -140,26 +140,19 @@ public class cclimber
 	extern size_t cclimber_bsvideoram_size;
 	extern unsigned char *cclimber_bigspriteram;
 	extern unsigned char *cclimber_column_scroll;
-	WRITE_HANDLER( cclimber_colorram_w );
-	WRITE_HANDLER( cclimber_bigsprite_videoram_w );
 	
 	extern struct AY8910interface cclimber_ay8910_interface;
 	extern struct AY8910interface swimmer_ay8910_interface;
 	extern struct CustomSound_interface cclimber_custom_interface;
-	WRITE_HANDLER( cclimber_sample_trigger_w );
-	WRITE_HANDLER( cclimber_sample_rate_w );
-	WRITE_HANDLER( cclimber_sample_volume_w );
 	
 	
-	static WRITE_HANDLER( flip_screen_x_w )
-	{
+	public static WriteHandlerPtr flip_screen_x_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_x_set(data);
-	}
+	} };
 	
-	static WRITE_HANDLER( flip_screen_y_w )
-	{
+	public static WriteHandlerPtr flip_screen_y_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_y_set(data);
-	}
+	} };
 	
 	
 	public static MachineInitHandlerPtr machine_init_cclimber  = new MachineInitHandlerPtr() { public void handler(){
@@ -1073,17 +1066,13 @@ public class cclimber
 	
 	***************************************************************************/
 	
-	WRITE_HANDLER( swimmer_bgcolor_w );
-	WRITE_HANDLER( swimmer_palettebank_w );
-	WRITE_HANDLER( swimmer_sidepanel_enable_w );
 	
 	
 	
-	WRITE_HANDLER( swimmer_sh_soundlatch_w )
-	{
+	public static WriteHandlerPtr swimmer_sh_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
 	
 	

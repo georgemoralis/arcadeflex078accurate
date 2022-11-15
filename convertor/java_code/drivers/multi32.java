@@ -617,12 +617,11 @@ public class multi32
 		return RAM[offset];
 	} };
 	
-	static WRITE_HANDLER( sys32_shared_snd_w )
-	{
+	public static WriteHandlerPtr sys32_shared_snd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = (data8_t *)system32_shared_ram;
 	
 		RAM[offset] = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( multi32_sound_readmem )
 		{ 0x0000, 0x9fff, MRA_ROM },
@@ -637,15 +636,14 @@ public class multi32
 		{ 0xe000, 0xffff, sys32_shared_snd_w },
 	MEMORY_END
 	
-	static WRITE_HANDLER( sys32_soundbank_w )
-	{
+	public static WriteHandlerPtr sys32_soundbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU2);
 		int Bank;
 	
 		Bank = data * 0x2000;
 	
 		sys32_SoundMemBank = &RAM[Bank+0x10000];
-	}
+	} };
 	
 	static PORT_READ_START( multi32_sound_readport )
 		{ 0x80, 0x80, YM2612_status_port_0_A_r },

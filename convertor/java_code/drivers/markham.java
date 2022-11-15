@@ -17,20 +17,16 @@ package drivers;
 public class markham
 {
 	
-	extern WRITE_HANDLER( markham_videoram_w );
-	extern WRITE_HANDLER( markham_scroll_x_w );
-	extern WRITE_HANDLER( markham_flipscreen_w );
-	
+	extern extern extern 
 	extern extern extern 
 	static UINT8 *markham_sharedram;
 	
 	/****************************************************************************/
 	
 	
-	WRITE_HANDLER( markham_sharedram_w )
-	{
+	public static WriteHandlerPtr markham_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		markham_sharedram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr markham_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return markham_sharedram[offset];

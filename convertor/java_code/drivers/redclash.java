@@ -32,15 +32,8 @@ public class redclash
 {
 	
 	
-	extern WRITE_HANDLER( redclash_videoram_w );
-	extern WRITE_HANDLER( redclash_gfxbank_w );
-	extern WRITE_HANDLER( redclash_flipscreen_w );
-	
-	extern WRITE_HANDLER( redclash_star0_w );
-	extern WRITE_HANDLER( redclash_star1_w );
-	extern WRITE_HANDLER( redclash_star2_w );
-	extern WRITE_HANDLER( redclash_star_reset_w );
-	
+	extern extern extern 
+	extern extern extern extern 
 	extern extern extern 
 	/*
 	  This game doesn't have VBlank interrupts.
@@ -54,10 +47,9 @@ public class redclash
 			cpu_set_nmi_line(0,PULSE_LINE);
 	} };
 	
-	static WRITE_HANDLER( irqack_w )
-	{
+	public static WriteHandlerPtr irqack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0,0,CLEAR_LINE);
-	}
+	} };
 	
 	
 	

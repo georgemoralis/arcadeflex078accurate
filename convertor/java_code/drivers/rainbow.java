@@ -314,10 +314,9 @@ public class rainbow
 	              Jumping uses two YM2203's
 	***********************************************************/
 	
-	static WRITE_HANDLER( bankswitch_w )
-	{
+	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank(5, memory_region(REGION_CPU2) + ((data - 1) & 3) * 0x4000 + 0x10000);
-	}
+	} };
 	
 	public static ReadHandlerPtr jumping_latch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return jumping_latch;

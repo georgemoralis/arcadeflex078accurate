@@ -112,14 +112,13 @@ public class ultratnk
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( ultratnk_videoram_w )
-	{
+	public static WriteHandlerPtr ultratnk_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{
@@ -155,8 +154,7 @@ public class ultratnk
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( da_latch_w )
-	{
+	public static WriteHandlerPtr da_latch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int joybits = readinputport(4);
 		ultratnk_controls = readinputport(3); /* start and fire buttons */
 	
@@ -178,7 +176,7 @@ public class ultratnk
 			if( joybits&0x10 ) ultratnk_controls &= ~0x01;
 			break;
 		}
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr ultratnk_controls_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -228,20 +226,17 @@ public class ultratnk
 	 *	Sound handlers
 	 *
 	 *************************************/
-	WRITE_HANDLER( ultratnk_fire_w )
-	{
+	public static WriteHandlerPtr ultratnk_fire_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(offset/2, offset&1);
-	}
+	} };
 	
-	WRITE_HANDLER( ultratnk_attract_w )
-	{
+	public static WriteHandlerPtr ultratnk_attract_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(5, (data & 1));
-	}
+	} };
 	
-	WRITE_HANDLER( ultratnk_explosion_w )
-	{
+	public static WriteHandlerPtr ultratnk_explosion_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(4, data % 16);
-	}
+	} };
 	
 	
 	
@@ -281,10 +276,9 @@ public class ultratnk
 	} };
 	
 	
-	static WRITE_HANDLER( ultratnk_leds_w )
-	{
+	public static WriteHandlerPtr ultratnk_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(offset/2,offset&1);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr mirror_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -292,10 +286,9 @@ public class ultratnk
 	} };
 	
 	
-	static WRITE_HANDLER( mirror_w )
-	{
+	public static WriteHandlerPtr mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mirror_ram[offset] = data;
-	}
+	} };
 	
 	
 	

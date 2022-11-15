@@ -62,19 +62,14 @@ public class locomotn
 	extern unsigned char *rallyx_radarx,*rallyx_radary,*rallyx_radarattr;
 	extern size_t rallyx_radarram_size;
 	extern unsigned char *rallyx_scrollx,*rallyx_scrolly;
-	WRITE_HANDLER( rallyx_videoram2_w );
-	WRITE_HANDLER( rallyx_colorram2_w );
-	WRITE_HANDLER( rallyx_flipscreen_w );
 	
 	
-	static WRITE_HANDLER( coin_1_w )
-	{
+	public static WriteHandlerPtr coin_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0,data & 1);
-	}
-	static WRITE_HANDLER( coin_2_w )
-	{
+	} };
+	public static WriteHandlerPtr coin_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(1,data & 1);
-	}
+	} };
 	
 	
 	

@@ -82,26 +82,16 @@ public class galaga
 	
 	
 	extern unsigned char *galaga_sharedram;
-	WRITE_HANDLER( galaga_sharedram_w );
-	WRITE_HANDLER( galaga_interrupt_enable_1_w );
-	WRITE_HANDLER( galaga_interrupt_enable_2_w );
-	WRITE_HANDLER( galaga_interrupt_enable_3_w );
-	WRITE_HANDLER( galaga_customio_w );
-	WRITE_HANDLER( galaga_customio_data_w );
-	WRITE_HANDLER( galaga_halt_w );
-	WRITE_HANDLER ( gatsbee_bank_w );
 	
 	
 	extern unsigned char *galaga_starcontrol;
 	
-	WRITE_HANDLER( pengo_sound_w );
 	extern unsigned char *pengo_soundregs;
 	
 	
-	static WRITE_HANDLER( flip_screen_w )
-	{
+	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem_cpu1 )

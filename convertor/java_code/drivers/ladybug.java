@@ -49,10 +49,7 @@ public class ladybug
 	
 	
 	extern extern extern 
-	extern WRITE_HANDLER( ladybug_videoram_w );
-	extern WRITE_HANDLER( ladybug_colorram_w );
-	extern WRITE_HANDLER( ladybug_flipscreen_w );
-	
+	extern extern extern 
 	extern extern extern 
 	
 	static MEMORY_READ_START( readmem )

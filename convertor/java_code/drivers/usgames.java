@@ -33,26 +33,22 @@ public class usgames
 {
 	
 	/* vidhrdw */
-	WRITE_HANDLER( usg_videoram_w );
-	WRITE_HANDLER( usg_charram_w );
 	extern struct tilemap *usg_tilemap;
 	
 	
 	extern data8_t *usg_videoram,*usg_charram;
 	
 	
-	static WRITE_HANDLER( usg_rombank_w )
-	{
+	public static WriteHandlerPtr usg_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 	//	logerror ("BANK WRITE? -%02x-\n",data);
 	//usrintf_showmessage("%02x",data);
 	
 		cpu_setbank( 1,&RAM[ 0x10000 + 0x4000 * data] );
-	}
+	} };
 	
-	static WRITE_HANDLER( lamps1_w )
-	{
+	public static WriteHandlerPtr lamps1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* button lamps */
 		set_led_status(0,data & 0x01);
 		set_led_status(1,data & 0x02);
@@ -61,12 +57,11 @@ public class usgames
 		set_led_status(4,data & 0x10);
 	
 		/* bit 5 toggles all the time - extra lamp? */
-	}
+	} };
 	
-	static WRITE_HANDLER( lamps2_w )
-	{
+	public static WriteHandlerPtr lamps2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 5 toggles all the time - extra lamp? */
-	}
+	} };
 	
 	
 	

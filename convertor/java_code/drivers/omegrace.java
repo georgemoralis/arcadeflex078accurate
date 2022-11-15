@@ -301,8 +301,7 @@ public class omegrace
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( omegrace_leds_w )
-	{
+	public static WriteHandlerPtr omegrace_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0 and 1 are coin counters */
 		coin_counter_w(0,data & 0x01);
 		coin_counter_w(1,data & 0x02);
@@ -314,14 +313,13 @@ public class omegrace
 		set_led_status(3,~data & 0x20);
 	
 		/* bit 6 flips screen (not supported) */
-	}
+	} };
 	
 	
-	WRITE_HANDLER( omegrace_soundlatch_w )
-	{
+	public static WriteHandlerPtr omegrace_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w (offset, data);
 		cpu_set_irq_line(1, 0, HOLD_LINE);
-	}
+	} };
 	
 	
 	

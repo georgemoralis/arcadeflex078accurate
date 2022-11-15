@@ -68,12 +68,8 @@ public class warpwarp
 	
 	
 	extern unsigned char *warpwarp_bulletsram;
-	WRITE_HANDLER( warpwarp_flip_screen_w );
 	
 	/* from sndhrdw/warpwarp.c */
-	WRITE_HANDLER( warpwarp_sound_w );
-	WRITE_HANDLER( warpwarp_music1_w );
-	WRITE_HANDLER( warpwarp_music2_w );
 	extern int warpwarp_sh_start(const struct MachineSound *msound);
 	extern void warpwarp_sh_stop(void);
 	extern void warpwarp_sh_update(void);
@@ -113,15 +109,13 @@ public class warpwarp
 		return 255;
 	} };
 	
-	static WRITE_HANDLER( warpwarp_leds_w )
-	{
+	public static WriteHandlerPtr warpwarp_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(offset,data & 1);
-	}
+	} };
 	
-	static WRITE_HANDLER( warpwarp_coin_counter_w )
-	{
+	public static WriteHandlerPtr warpwarp_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	
 	

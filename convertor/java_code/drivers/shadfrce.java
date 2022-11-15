@@ -283,10 +283,9 @@ public class shadfrce
 	
 	/* and the sound cpu */
 	
-	static WRITE_HANDLER( oki_bankswitch_w )
-	{
+	public static WriteHandlerPtr oki_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		OKIM6295_set_bank_base(0, (data & 1) * 0x40000);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem_sound )
 		{ 0x0000, 0xbfff, MRA_ROM },

@@ -234,12 +234,11 @@ public class twin16
 		return twin16_soundlatch;
 	} };
 	
-	static WRITE_HANDLER( twin16_sres_w )
-	{
+	public static WriteHandlerPtr twin16_sres_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 1 resets the UPD7795C sound chip */
 		UPD7759_reset_w(0, data & 0x02);
 		twin16_soundlatch = data;
-	}
+	} };
 	
 	static READ16_HANDLER( cuebrick_nvram_r )
 	{

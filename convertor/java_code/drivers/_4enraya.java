@@ -58,17 +58,14 @@ public class _4enraya
 {
 	
 	
-	WRITE_HANDLER( fenraya_videoram_w );
 	
 	static int soundlatch;
 	
-	static WRITE_HANDLER( sound_data_w )
-	{
+	public static WriteHandlerPtr sound_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( sound_control_w )
-	{
+	public static WriteHandlerPtr sound_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 		if ((last & 0x04) == 0x04 && (data & 0x4) == 0x00)
 		{
@@ -78,7 +75,7 @@ public class _4enraya
 				AY8910_write_port_0_w(0,soundlatch);
 		}
 		last=data;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0xbfff, MRA_ROM },

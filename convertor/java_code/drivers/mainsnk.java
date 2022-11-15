@@ -19,13 +19,9 @@ package drivers;
 
 public class mainsnk
 {
-	WRITE_HANDLER( snkwave_w );
 	
 	extern data8_t *me_fgram;
 	extern data8_t *me_bgram;
-	WRITE_HANDLER(me_c600_w);
-	WRITE_HANDLER(me_fgram_w);
-	WRITE_HANDLER(me_bgram_w);
 	
 	static int sound_cpu_ready;
 	static int sound_command;
@@ -38,8 +34,7 @@ public class mainsnk
 		sound_fetched = 1;
 	}
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if( sound_fetched==0 ){
 			logerror("missed sound command: %02x\n", sound_command );
 		}
@@ -48,7 +43,7 @@ public class mainsnk
 		sound_command = data;
 		sound_cpu_ready = 0;
 		cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sound_fetched = 1;

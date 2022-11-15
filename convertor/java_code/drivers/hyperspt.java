@@ -18,26 +18,18 @@ public class hyperspt
 	
 	extern UINT8 *hyperspt_scroll;
 	
-	extern WRITE_HANDLER( hyperspt_videoram_w );
-	extern WRITE_HANDLER( hyperspt_colorram_w );
-	extern WRITE_HANDLER( hyperspt_flipscreen_w );
-	
+	extern extern extern 
 	extern extern extern extern extern 
-	extern WRITE_HANDLER( konami_sh_irqtrigger_w );
-	extern extern WRITE_HANDLER( hyperspt_sound_w );
-	
+	extern extern extern 
 	/* these routines lurk in sndhrdw/trackfld.c */
 	extern struct VLM5030interface konami_vlm5030_interface;
 	extern struct SN76496interface konami_sn76496_interface;
 	extern struct DACinterface konami_dac_interface;
-	extern WRITE_HANDLER( konami_SN76496_latch_w );
-	extern WRITE_HANDLER( konami_SN76496_0_w );
+	extern extern 
 	
-	
-	static WRITE_HANDLER( hyperspt_coin_counter_w )
-	{
+	public static WriteHandlerPtr hyperspt_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	/* handle fake button for speed cheat */
 	public static ReadHandlerPtr konami_IN1_r  = new ReadHandlerPtr() { public int handler(int offset){

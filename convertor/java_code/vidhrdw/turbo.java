@@ -1001,8 +1001,7 @@ public class turbo
 	
 	***************************************************************************/
 	
-	WRITE_HANDLER( buckrog_bitmap_w )
-	{
+	public static WriteHandlerPtr buckrog_bitmap_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		buckrog_bitmap_ram[offset] = data & 1;
-	}
+	} };
 }

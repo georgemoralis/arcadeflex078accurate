@@ -92,9 +92,6 @@ public class nbmj8991
 	
 	
 	
-	WRITE_HANDLER( pstadium_palette_w );
-	WRITE_HANDLER( galkoku_palette_w );
-	WRITE_HANDLER( galkaika_palette_w );
 	void pstadium_radrx_w(int data);
 	void pstadium_radry_w(int data);
 	void pstadium_sizex_w(int data);
@@ -107,21 +104,18 @@ public class nbmj8991
 	void pstadium_scrolly_w(int data);
 	void pstadium_romsel_w(int data);
 	void pstadium_paltblnum_w(int data);
-	WRITE_HANDLER( pstadium_paltbl_w );
 	
 	
-	static WRITE_HANDLER( pstadium_soundbank_w )
-	{
+	public static WriteHandlerPtr pstadium_soundbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU2);
 	
 		if (!(data & 0x80)) soundlatch_clear_w(0, 0);
 		cpu_setbank(1, &RAM[0x08000 + (0x8000 * (data & 0x03))]);
-	}
+	} };
 	
-	static WRITE_HANDLER( pstadium_sound_w )
-	{
+	public static WriteHandlerPtr pstadium_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0, data);
-	}
+	} };
 	
 	public static ReadHandlerPtr pstadium_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data;
@@ -368,8 +362,7 @@ public class nbmj8991
 		{ 0x0000, 0xffff, io_pstadium_r },
 	PORT_END
 	
-	static WRITE_HANDLER( io_pstadium_w )
-	{
+	public static WriteHandlerPtr io_pstadium_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -395,14 +388,13 @@ public class nbmj8991
 			case	0xd000:	break;
 			case	0xf000:	nb1413m3_outcoin_w(0,data); break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_pstadium )
 		{ 0x0000, 0xffff, io_pstadium_w },
 	PORT_END
 	
-	static WRITE_HANDLER( io_av2mj1bb_w )
-	{
+	public static WriteHandlerPtr io_av2mj1bb_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -428,7 +420,7 @@ public class nbmj8991
 			case	0xd000:	break;
 			case	0xf000:	break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_av2mj1bb )
 		{ 0x0000, 0xffff, io_av2mj1bb_w },
@@ -455,8 +447,7 @@ public class nbmj8991
 		{ 0x0000, 0xffff, io_galkoku_r },
 	PORT_END
 	
-	static WRITE_HANDLER( io_galkoku_w )
-	{
+	public static WriteHandlerPtr io_galkoku_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -489,7 +480,7 @@ public class nbmj8991
 			case	0xe000:	break;
 			case	0xf000:	nb1413m3_outcoin_w(0,data); break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_galkoku )
 		{ 0x0000, 0xffff, io_galkoku_w },
@@ -517,8 +508,7 @@ public class nbmj8991
 		{ 0x0000, 0xffff, io_hyouban_r },
 	PORT_END
 	
-	static WRITE_HANDLER( io_hyouban_w )
-	{
+	public static WriteHandlerPtr io_hyouban_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -551,7 +541,7 @@ public class nbmj8991
 			case	0xe000:	break;
 			case	0xf000:	nb1413m3_outcoin_w(0,data); break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_hyouban )
 		{ 0x0000, 0xffff, io_hyouban_w },

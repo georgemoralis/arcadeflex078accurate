@@ -67,17 +67,15 @@ public class lwings
 	static data8_t *avengers_soundlatch2, avengers_soundstate=0;
 	static data8_t avengers_adpcm;
 	
-	WRITE_HANDLER( avengers_adpcm_w )
-	{
+	public static WriteHandlerPtr avengers_adpcm_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		avengers_adpcm = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr avengers_adpcm_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return avengers_adpcm;
 	} };
 	
-	static WRITE_HANDLER( lwings_bankswitch_w )
-	{
+	public static WriteHandlerPtr lwings_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM;
 		int bank;
 	
@@ -95,7 +93,7 @@ public class lwings
 		/* bits 6 and 7 are coin counters */
 		coin_counter_w(1,data & 0x40);
 		coin_counter_w(0,data & 0x80);
-	}
+	} };
 	
 	public static InterruptHandlerPtr lwings_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (interrupt_enable_r(0))
@@ -109,8 +107,7 @@ public class lwings
 			nmi_line_pulse();
 	} };
 	
-	static WRITE_HANDLER( avengers_protection_w )
-	{
+	public static WriteHandlerPtr avengers_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int pc = activecpu_get_pc();
 	
 		if( pc == 0x2eeb )
@@ -134,12 +131,11 @@ public class lwings
 			avengers_soundstate = 0x80;
 			soundlatch_w( 0, data );
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( avengers_prot_bank_w )
-	{
+	public static WriteHandlerPtr avengers_prot_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		avengers_palette_pen = data*64;
-	}
+	} };
 	
 	static int avengers_fetch_paldata( void )
 	{
@@ -264,13 +260,12 @@ public class lwings
 		return(data);
 	} };
 	
-	static WRITE_HANDLER( msm5205_w )
-	{
+	public static WriteHandlerPtr msm5205_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_reset_w(offset,(data>>7)&1);
 		MSM5205_data_w(offset,data);
 		MSM5205_vclk_w(offset,1);
 		MSM5205_vclk_w(offset,0);
-	}
+	} };
 	
 	static MEMORY_READ_START( avengers_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

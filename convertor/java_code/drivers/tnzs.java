@@ -187,12 +187,6 @@ public class tnzs
 	/* prototypes for functions in ../machine/tnzs.c */
 	unsigned char *tnzs_objram, *tnzs_workram;
 	unsigned char *tnzs_vdcram, *tnzs_scrollram;
-	WRITE_HANDLER( tnzs_port2_w );
-	WRITE_HANDLER( tnzs_workram_w );
-	WRITE_HANDLER( tnzs_workram_sub_w );
-	WRITE_HANDLER( tnzs_mcu_w );
-	WRITE_HANDLER( tnzs_bankswitch_w );
-	WRITE_HANDLER( tnzs_bankswitch1_w );
 	
 	
 	/* prototypes for functions in ../vidhrdw/tnzs.c */
@@ -284,8 +278,7 @@ public class tnzs
 		return (dsw & 0xff);
 	} };
 	
-	static WRITE_HANDLER( kageki_csport_w )
-	{
+	public static WriteHandlerPtr kageki_csport_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		char mess[80];
 	
 		if (data > 0x3f)
@@ -305,7 +298,7 @@ public class tnzs
 			}
 		//	usrintf_showmessage(mess);
 		}
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )
@@ -380,11 +373,10 @@ public class tnzs
 	
 	/* the bootleg board is different, it has a third CPU (and of course no mcu) */
 	
-	static WRITE_HANDLER( tnzsb_sound_command_w )
-	{
+	public static WriteHandlerPtr tnzsb_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line_and_vector(2,0,HOLD_LINE,0xff);
-	}
+	} };
 	
 	static MEMORY_READ_START( tnzsb_readmem1 )
 		{ 0x0000, 0x7fff, MRA_ROM },

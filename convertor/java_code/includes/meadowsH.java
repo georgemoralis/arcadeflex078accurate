@@ -18,6 +18,4 @@ extern UINT8 meadows_0c03;
 
 /*----------- defined in vidhrdw/meadows.c -----------*/
 
-WRITE_HANDLER( meadows_videoram_w );
-WRITE_HANDLER( meadows_spriteram_w );
 

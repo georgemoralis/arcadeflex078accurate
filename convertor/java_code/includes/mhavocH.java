@@ -17,18 +17,9 @@
 
 /*----------- defined in machine/mhavoc.c -----------*/
 
-WRITE_HANDLER( mhavoc_alpha_irq_ack_w );
-WRITE_HANDLER( mhavoc_gamma_irq_ack_w );
 
 
-WRITE_HANDLER( mhavoc_gamma_w );
-
-WRITE_HANDLER( mhavoc_alpha_w );
-
-WRITE_HANDLER( mhavoc_ram_banksel_w );
-WRITE_HANDLER( mhavoc_rom_banksel_w );
 
 
-WRITE_HANDLER( mhavoc_out_0_w );
-WRITE_HANDLER( alphaone_out_0_w );
-WRITE_HANDLER( mhavoc_out_1_w );
+
+

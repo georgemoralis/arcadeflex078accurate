@@ -42,8 +42,7 @@ public class surpratk
 			return ram[offset];
 	} };
 	
-	static WRITE_HANDLER( bankedram_w )
-	{
+	public static WriteHandlerPtr bankedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videobank & 0x02)
 		{
 			if (videobank & 0x04)
@@ -55,19 +54,17 @@ public class surpratk
 			K053245_w(offset,data);
 		else
 			ram[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( surpratk_videobank_w )
-	{
+	public static WriteHandlerPtr surpratk_videobank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	logerror("%04x: videobank = %02x\n",activecpu_get_pc(),data);
 		/* bit 0 = select 053245 at 0000-07ff */
 		/* bit 1 = select palette at 0000-07ff */
 		/* bit 2 = select palette bank 0 or 1 */
 		videobank = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( surpratk_5fc0_w )
-	{
+	public static WriteHandlerPtr surpratk_5fc0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((data & 0xf4) != 0x10) logerror("%04x: 3fc0 = %02x\n",activecpu_get_pc(),data);
 	
 		/* bit 0/1 = coin counters */
@@ -78,7 +75,7 @@ public class surpratk
 		K052109_set_RMRD_line( ( data & 0x08 ) ? ASSERT_LINE : CLEAR_LINE );
 	
 		/* other bits unknown */
-	}
+	} };
 	
 	
 	/********************************************/

@@ -7,6 +7,4 @@
 /*----------- defined in vidhrdw/epos.c -----------*/
 
 
-WRITE_HANDLER( epos_videoram_w );
-WRITE_HANDLER( epos_port_1_w );
 

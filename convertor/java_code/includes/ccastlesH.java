@@ -13,7 +13,5 @@ extern unsigned char *ccastles_sprite_bank;
 extern unsigned char *ccastles_scrollx;
 extern unsigned char *ccastles_scrolly;
 
-WRITE_HANDLER( ccastles_paletteram_w );
 
 
-WRITE_HANDLER( ccastles_bitmode_w );

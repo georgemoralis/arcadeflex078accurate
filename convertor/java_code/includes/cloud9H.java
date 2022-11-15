@@ -6,9 +6,6 @@
 
 /*----------- defined in vidhrdw/cloud9.c -----------*/
 
-WRITE_HANDLER( cloud9_paletteram_w );
-WRITE_HANDLER( cloud9_bitmap_regs_w );
-WRITE_HANDLER( cloud9_bitmap_w );
 
 
 

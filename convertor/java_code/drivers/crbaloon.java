@@ -59,11 +59,7 @@ public class crbaloon
 {
 	
 	
-	extern WRITE_HANDLER( crbaloon_videoram_w );
-	extern WRITE_HANDLER( crbaloon_colorram_w );
-	extern WRITE_HANDLER( crbaloon_spritectrl_w );
-	extern WRITE_HANDLER( crbaloon_flipscreen_w );
-	
+	extern extern extern extern 
 	extern extern extern 
 	
 	int val06,val08,val0a;
@@ -79,8 +75,7 @@ public class crbaloon
 	    SN76477_enable_w(0, 0);
 	} };
 	
-	WRITE_HANDLER( crbaloon_06_w )
-	{
+	public static WriteHandlerPtr crbaloon_06_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		val06 = data;
 	
 		interrupt_enable_w(offset,data & 1);
@@ -123,19 +118,17 @@ public class crbaloon
 			/* constant: pin1 = hi, pin 28 = lo */
 			SN76477_envelope_w(0, 1);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( crbaloon_08_w )
-	{
+	public static WriteHandlerPtr crbaloon_08_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		val08 = data;
 	
 		crbaloon_flipscreen_w(offset,data & 1);
-	}
+	} };
 	
-	WRITE_HANDLER( crbaloon_0a_w )
-	{
+	public static WriteHandlerPtr crbaloon_0a_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		val0a = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr crbaloon_IN2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		extern int crbaloon_collision;

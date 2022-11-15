@@ -102,14 +102,13 @@ public class brkthru
 		SET_TILE_INFO(region, code & 0x7f,colour,0)
 	}
 	
-	WRITE_HANDLER( brkthru_bgram_w )
-	{
+	public static WriteHandlerPtr brkthru_bgram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap,offset/2);
 		}
-	}
+	} };
 	
 	
 	static void get_fg_tile_info(int tile_index)
@@ -118,14 +117,13 @@ public class brkthru
 		SET_TILE_INFO(0, code, 0, 0)
 	}
 	
-	WRITE_HANDLER( brkthru_fgram_w )
-	{
+	public static WriteHandlerPtr brkthru_fgram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (brkthru_videoram[offset] != data)
 		{
 			brkthru_videoram[offset] = data;
 			tilemap_mark_tile_dirty(fg_tilemap,offset);
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_brkthru  = new VideoStartHandlerPtr() { public int handler(){
 		fg_tilemap = tilemap_create(get_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32);
@@ -145,8 +143,7 @@ public class brkthru
 	
 	
 	
-	WRITE_HANDLER( brkthru_1800_w )
-	{
+	public static WriteHandlerPtr brkthru_1800_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)	/* low 8 bits of scroll */
 			bgscroll = (bgscroll & 0x100) | data;
 		else if (offset == 1)
@@ -178,7 +175,7 @@ public class brkthru
 			/* bit 7 = high bit of scroll */
 			bgscroll = (bgscroll & 0xff) | ((data & 0x80) << 1);
 		}
-	}
+	} };
 	
 	
 	#if 0

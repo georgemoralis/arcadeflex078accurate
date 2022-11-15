@@ -889,16 +889,14 @@ public class deco32
 	
 	static int bsmt_latch;
 	
-	static WRITE_HANDLER(deco32_bsmt0_w)
-	{
+	public static WriteHandlerPtr deco32_bsmt0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bsmt_latch = data;
-	}
+	} };
 	
-	static WRITE_HANDLER(deco32_bsmt1_w)
-	{
+	public static WriteHandlerPtr deco32_bsmt1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		BSMT2000_data_0_w(offset^ 0xff, ((bsmt_latch<<8)|data), 0);
 		cpu_set_irq_line(1, M6809_IRQ_LINE, HOLD_LINE); /* BSMT is ready */
-	}
+	} };
 	
 	public static ReadHandlerPtr deco32_bsmt_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x80;
@@ -1492,11 +1490,10 @@ public class deco32
 		cpu_set_irq_line(1,1,state); /* IRQ 2 */
 	}
 	
-	static WRITE_HANDLER( sound_bankswitch_w )
-	{
+	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		OKIM6295_set_bank_base(0, ((data >> 0)& 1) * 0x40000);
 		OKIM6295_set_bank_base(1, ((data >> 1)& 1) * 0x40000);
-	}
+	} };
 	
 	static struct YM2151interface ym2151_interface =
 	{

@@ -32,6 +32,7 @@ public class convertMame {
     static final int DRIVER_INIT = 10;
     static final int NVRAM_HANDLER = 11;
     static final int READ_HANDLER8 = 12;
+    static final int WRITE_HANDLER8 = 13;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -558,6 +559,30 @@ public class convertMame {
                                 continue;
                             }
                         }
+                        if (sUtil.getToken("WRITE_HANDLER")) {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '(') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != ')') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            if (sUtil.parseChar() == ';') {
+                                sUtil.skipLine();
+                                continue;
+                            } else {
+                                sUtil.putString("public static WriteHandlerPtr " + Convertor.token[0] + " = new WriteHandlerPtr() {public void handler(int offset, int data)");
+                                type = WRITE_HANDLER8;
+                                i3 = -1;
+                                Convertor.inpos += 1;
+                                continue;
+                            }
+                        }
                     } // end of static but not static struct
                 }
                 Convertor.inpos = i;
@@ -663,6 +688,35 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case 'W': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("WRITE_HANDLER")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static WriteHandlerPtr " + Convertor.token[0] + " = new WriteHandlerPtr() {public void handler(int offset, int data)");
+                            type = WRITE_HANDLER8;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                }
+                Convertor.inpos = i;
+                break;
                 case ')': {
                     i = Convertor.inpos;
                     if (type2 == INPUTPORTS) {
@@ -694,7 +748,7 @@ public class convertMame {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
                             || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP
-                            || type == DRIVER_INIT || type == NVRAM_HANDLER || type == READ_HANDLER8) {
+                            || type == DRIVER_INIT || type == NVRAM_HANDLER || type == READ_HANDLER8 || type == WRITE_HANDLER8) {
                         i3++;
                     }
                 }
@@ -704,7 +758,7 @@ public class convertMame {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
                             || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP
-                            || type == DRIVER_INIT || type == NVRAM_HANDLER || type == READ_HANDLER8) {
+                            || type == DRIVER_INIT || type == NVRAM_HANDLER || type == READ_HANDLER8 || type == WRITE_HANDLER8) {
                         i3--;
                         if (i3 == -1) {
                             sUtil.putString("} };");

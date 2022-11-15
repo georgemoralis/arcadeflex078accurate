@@ -415,48 +415,41 @@ public class firetrk
 	} };
 	
 	
-	static WRITE_HANDLER( firetrk_zeropage_w )
-	{
+	public static WriteHandlerPtr firetrk_zeropage_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		memory_region(REGION_CPU1)[offset & 0xff] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_arrow_off_w )
-	{
+	public static WriteHandlerPtr firetrk_arrow_off_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		firetrk_set_blink(1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_car_reset_w )
-	{
+	public static WriteHandlerPtr firetrk_car_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		firetrk_crash[0] = 0;
 		firetrk_skid[0] = 0;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_drone_reset_w )
-	{
+	public static WriteHandlerPtr firetrk_drone_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		firetrk_crash[1] = 0;
 		firetrk_skid[1] = 0;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_steer_reset_w )
-	{
+	public static WriteHandlerPtr firetrk_steer_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		steer_flag[0] = 0;
 		steer_flag[1] = 0;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_crash_reset_w )
-	{
+	public static WriteHandlerPtr firetrk_crash_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		firetrk_crash[0] = 0;
 		firetrk_crash[1] = 0;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_skid_reset_w )
-	{
+	public static WriteHandlerPtr firetrk_skid_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (GAME_IS_FIRETRUCK || GAME_IS_SUPERBUG)
 		{
 			firetrk_skid[0] = 0;
@@ -464,24 +457,21 @@ public class firetrk
 		}
 	
 		discrete_sound_w(4, 0);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_crash_snd_w )
-	{
+	public static WriteHandlerPtr firetrk_crash_snd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* invert data here to make life easier on the sound system */
 		discrete_sound_w(3, ((~data) >> 4)& 0x0f);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_skid_snd_w )
-	{
+	public static WriteHandlerPtr firetrk_skid_snd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(4, 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_motor_snd_w )
-	{
+	public static WriteHandlerPtr firetrk_motor_snd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (GAME_IS_FIRETRUCK || GAME_IS_MONTECARLO)
 		{
 			discrete_sound_w(2, data / 16);		/* Fire Truck - Siren frequency */
@@ -489,17 +479,15 @@ public class firetrk
 		}
 	
 		discrete_sound_w(0, data & 0x0f);    /* motor frequency */
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_xtndply_w )
-	{
+	public static WriteHandlerPtr firetrk_xtndply_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(7, !(data & 1));
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_out_w )
-	{
+	public static WriteHandlerPtr firetrk_out_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (GAME_IS_FIRETRUCK || GAME_IS_MONTECARLO)
 		{
 			write_output(data);
@@ -508,11 +496,10 @@ public class firetrk
 		{
 			write_output(offset);
 		}
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_out2_w )
-	{
+	public static WriteHandlerPtr firetrk_out2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		firetrk_set_flash(data & 0x80);
 	
 		if (GAME_IS_MONTECARLO)
@@ -520,16 +507,15 @@ public class firetrk
 			discrete_sound_w(7, !(data & 0x10));	/* Beep */
 			discrete_sound_w(5, data & 0x0f);	/* Drone Motor Volume */
 		}
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( firetrk_asr_w )
-	{
+	public static WriteHandlerPtr firetrk_asr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (GAME_IS_SUPERBUG)
 		{
 			discrete_sound_w(7, 1);	/* ASR */
 		}
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( firetrk_readmem )

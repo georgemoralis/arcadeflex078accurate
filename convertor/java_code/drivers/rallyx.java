@@ -64,36 +64,27 @@ public class rallyx
 	
 	
 	
-	WRITE_HANDLER( pengo_sound_w );
 	extern unsigned char *pengo_soundregs;
 	
 	extern unsigned char *rallyx_videoram2,*rallyx_colorram2;
 	extern unsigned char *rallyx_radarx,*rallyx_radary,*rallyx_radarattr;
 	extern size_t rallyx_radarram_size;
 	extern unsigned char *rallyx_scrollx,*rallyx_scrolly;
-	WRITE_HANDLER( rallyx_videoram2_w );
-	WRITE_HANDLER( rallyx_colorram2_w );
-	WRITE_HANDLER( rallyx_spriteram_w );
-	WRITE_HANDLER( rallyx_flipscreen_w );
 	
 	
-	static WRITE_HANDLER( rallyx_coin_lockout_w )
-	{
+	public static WriteHandlerPtr rallyx_coin_lockout_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_w(offset, data ^ 1);
-	}
+	} };
 	
-	static WRITE_HANDLER( rallyx_coin_counter_w )
-	{
+	public static WriteHandlerPtr rallyx_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset, data);
-	}
+	} };
 	
-	static WRITE_HANDLER( rallyx_leds_w )
-	{
+	public static WriteHandlerPtr rallyx_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(offset,data & 1);
-	}
+	} };
 	
-	static WRITE_HANDLER( rallyx_play_sound_w )
-	{
+	public static WriteHandlerPtr rallyx_play_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	
 	
@@ -101,7 +92,7 @@ public class rallyx
 			sample_start(0,0,0);
 	
 		last = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x3fff, MRA_ROM },

@@ -352,21 +352,19 @@ public class psikyo
 		cpu_set_irq_line(1,0,irq ? ASSERT_LINE : CLEAR_LINE);
 	}
 	
-	WRITE_HANDLER( psikyo_ack_latch_w )
-	{
+	public static WriteHandlerPtr psikyo_ack_latch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ack_latch = 0;
-	}
+	} };
 	
 	/***************************************************************************
 							Sengoku Ace / Samurai Aces
 	***************************************************************************/
 	
-	WRITE_HANDLER( sngkace_sound_bankswitch_w )
-	{
+	public static WriteHandlerPtr sngkace_sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU2);
 		int bank = data & 3;
 		cpu_setbank(1, &RAM[bank * 0x8000 + 0x10000]);
-	}
+	} };
 	
 	static MEMORY_READ_START( sngkace_sound_readmem )
 		{ 0x0000, 0x77ff, MRA_ROM		},	// ROM
@@ -401,8 +399,7 @@ public class psikyo
 									Gun Bird
 	***************************************************************************/
 	
-	WRITE_HANDLER( gunbird_sound_bankswitch_w )
-	{
+	public static WriteHandlerPtr gunbird_sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU2);
 		int bank = (data >> 4) & 3;
 	
@@ -410,7 +407,7 @@ public class psikyo
 		   of the rom not reachable. */
 	
 		cpu_setbank(1, &RAM[bank * 0x8000 + 0x10000 + 0x200]);
-	}
+	} };
 	
 	static MEMORY_READ_START( gunbird_sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM		},	// ROM

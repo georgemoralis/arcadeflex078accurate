@@ -32,18 +32,9 @@ public class bsktball
 	
 	extern UINT8 *bsktball_motion;
 	
-	extern WRITE_HANDLER( bsktball_videoram_w );
-	
+	extern 
 	extern extern 
-	extern WRITE_HANDLER( bsktball_nmion_w );
-	extern extern WRITE_HANDLER( bsktball_ld1_w );
-	extern WRITE_HANDLER( bsktball_ld2_w );
-	extern extern WRITE_HANDLER( bsktball_led1_w );
-	extern WRITE_HANDLER( bsktball_led2_w );
-	extern WRITE_HANDLER( bsktball_bounce_w );
-	extern WRITE_HANDLER( bsktball_note_w );
-	extern WRITE_HANDLER( bsktball_noise_reset_w );
-	
+	extern extern extern extern extern extern extern extern extern extern 
 	/*************************************
 	 *
 	 *	Palette generation

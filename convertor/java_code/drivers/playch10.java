@@ -306,22 +306,9 @@ public class playch10
 	#define N2A03_DEFAULTCLOCK (21477272.724 / 12)
 	
 	/* from vidhrdw */
-	extern WRITE_HANDLER( playch10_videoram_w );
-	extern extern extern 
+	extern extern extern extern 
 	/* from machine */
-	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern WRITE_HANDLER( pc10_SDCS_w );
-	extern WRITE_HANDLER( pc10_CNTRLMASK_w );
-	extern WRITE_HANDLER( pc10_DISPMASK_w );
-	extern WRITE_HANDLER( pc10_SOUNDMASK_w );
-	extern WRITE_HANDLER( pc10_NMIENABLE_w );
-	extern WRITE_HANDLER( pc10_DOGDI_w );
-	extern WRITE_HANDLER( pc10_GAMERES_w );
-	extern WRITE_HANDLER( pc10_GAMESTOP_w );
-	extern WRITE_HANDLER( pc10_PPURES_w );
-	extern WRITE_HANDLER( pc10_prot_w );
-	extern WRITE_HANDLER( pc10_CARTSEL_w );
-	extern WRITE_HANDLER( pc10_in0_w );
-	
+	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
 	extern int pc10_sdcs;
 	extern int pc10_nmi_enable;
 	extern int pc10_dog_di;
@@ -332,10 +319,9 @@ public class playch10
 	static UINT8 *work_ram, *ram_8w;
 	static int up_8w;
 	
-	static WRITE_HANDLER( up8w_w )
-	{
+	public static WriteHandlerPtr up8w_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		up_8w = data & 1;
-	}
+	} };
 	
 	public static ReadHandlerPtr ram_8w_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ( offset >= 0x400 && up_8w )
@@ -344,29 +330,26 @@ public class playch10
 		return ram_8w[offset & 0x3ff];
 	} };
 	
-	static WRITE_HANDLER( ram_8w_w )
-	{
+	public static WriteHandlerPtr ram_8w_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ( offset >= 0x400 && up_8w )
 			ram_8w[offset] = data;
 		else
 			ram_8w[offset & 0x3ff] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr mirror_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return work_ram[ offset & 0x7ff ];
 	} };
 	
-	static WRITE_HANDLER( mirror_ram_w )
-	{
+	public static WriteHandlerPtr mirror_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		work_ram[ offset & 0x7ff ] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( sprite_dma_w )
-	{
+	public static WriteHandlerPtr sprite_dma_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int source = ( data & 7 ) * 0x100;
 	
 		ppu2c03b_spriteram_dma( 0, &work_ram[source] );
-	}
+	} };
 	
 	public static NVRAMHandlerPtr nvram_handler_playch10  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		UINT8 *mem = memory_region( REGION_CPU2 ) + 0x6000;

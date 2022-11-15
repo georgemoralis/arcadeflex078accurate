@@ -375,21 +375,19 @@ public class pacman
 	to be the same as well.
 	*/
 	
-	static WRITE_HANDLER( piranha_interrupt_vector_w)
-	{
+	public static WriteHandlerPtr piranha_interrupt_vector_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data==0xfa) data=0x78;
 		if (data==0xfc) data=0xfc;
 		cpu_irq_line_vector_w( 0, 0, data );
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( nmouse_interrupt_vector_w)
-	{
+	public static WriteHandlerPtr nmouse_interrupt_vector_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data==0xbf) data=0x3c;
 		if (data==0xc6) data=0x40;
 		if (data==0xfc) data=0xfc;
 		cpu_irq_line_vector_w( 0, 0, data );
-	}
+	} };
 	
 	
 	/*************************************
@@ -398,22 +396,19 @@ public class pacman
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( pacman_leds_w )
-	{
+	public static WriteHandlerPtr pacman_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(offset,data & 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( pacman_coin_counter_w )
-	{
+	public static WriteHandlerPtr pacman_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data & 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( pacman_coin_lockout_global_w )
-	{
+	public static WriteHandlerPtr pacman_coin_lockout_global_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_global_w(~data & 0x01);
-	}
+	} };
 	
 	
 	
@@ -423,8 +418,7 @@ public class pacman
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( alibaba_sound_w )
-	{
+	public static WriteHandlerPtr alibaba_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* since the sound region in Ali Baba is not contiguous, translate the
 		   offset into the 0-0x1f range */
 	 	if (offset < 0x10)
@@ -433,7 +427,7 @@ public class pacman
 			spriteram_2[offset - 0x10] = data;
 		else
 			pengo_sound_w(offset - 0x10, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr alibaba_mystery_1_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -562,10 +556,9 @@ public class pacman
 	
 	static int bigbucks_bank = 0;
 	
-	static WRITE_HANDLER( bigbucks_bank_w )
-	{
+	public static WriteHandlerPtr bigbucks_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bigbucks_bank = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr bigbucks_question_r  = new ReadHandlerPtr() { public int handler(int offset){
 	
@@ -591,10 +584,9 @@ public class pacman
 		return cpu_readmem16(0x1000 + offset);
 	} };
 	
-	static WRITE_HANDLER( s2650_mirror_w )
-	{
+	public static WriteHandlerPtr s2650_mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_writemem16(0x1000 + offset, data);
-	}
+	} };
 	
 	public static ReadHandlerPtr drivfrcp_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())

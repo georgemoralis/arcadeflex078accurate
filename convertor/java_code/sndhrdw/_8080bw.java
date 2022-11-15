@@ -37,39 +37,18 @@ package sndhrdw;
 public class _8080bw
 {
 	
-	static WRITE_HANDLER( invad2ct_sh_port1_w );
-	static WRITE_HANDLER( invaders_sh_port3_w );
-	static WRITE_HANDLER( invaders_sh_port5_w );
-	static WRITE_HANDLER( invad2ct_sh_port7_w );
 	
-	static WRITE_HANDLER( sheriff_sh_port4_w );
-	static WRITE_HANDLER( sheriff_sh_port5_w );
-	static WRITE_HANDLER( sheriff_sh_port6_w );
 	
-	static WRITE_HANDLER( helifire_sh_port4_w );
-	static WRITE_HANDLER( helifire_sh_port5_w );
-	static WRITE_HANDLER( helifire_sh_port6_w );
 	
-	static WRITE_HANDLER( ballbomb_sh_port3_w );
-	static WRITE_HANDLER( ballbomb_sh_port5_w );
 	
-	static WRITE_HANDLER( boothill_sh_port3_w );
-	static WRITE_HANDLER( boothill_sh_port5_w );
 	
-	static WRITE_HANDLER( clowns_sh_port7_w );
 	extern struct Samplesinterface circus_samples_interface;
 	
-	static WRITE_HANDLER( seawolf_sh_port5_w );
 	
-	static WRITE_HANDLER( schaser_sh_port3_w );
-	static WRITE_HANDLER( schaser_sh_port5_w );
 	static int  schaser_sh_start(const struct MachineSound *msound);
 	static void schaser_sh_stop(void);
 	static void schaser_sh_update(void);
 	
-	static WRITE_HANDLER( polaris_sh_port2_w );
-	static WRITE_HANDLER( polaris_sh_port4_w );
-	static WRITE_HANDLER( polaris_sh_port6_w );
 	
 	
 	struct SN76477interface invaders_sn76477_interface =
@@ -273,33 +252,29 @@ public class _8080bw
 	}
 	
 	
-	static WRITE_HANDLER( invad2ct_sh_port1_w )
-	{
+	public static WriteHandlerPtr invad2ct_sh_port1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static unsigned char last = 0;
 	
 		invaders_sh_1_w(1, data, &last);
-	}
+	} };
 	
-	static WRITE_HANDLER( invaders_sh_port3_w )
-	{
+	public static WriteHandlerPtr invaders_sh_port3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static unsigned char last = 0;
 	
 		invaders_sh_1_w(0, data, &last);
-	}
+	} };
 	
-	static WRITE_HANDLER( invaders_sh_port5_w )
-	{
+	public static WriteHandlerPtr invaders_sh_port5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static unsigned char last = 0;
 	
 		invaders_sh_2_w(0, data, &last);
-	}
+	} };
 	
-	static WRITE_HANDLER( invad2ct_sh_port7_w )
-	{
+	public static WriteHandlerPtr invad2ct_sh_port7_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static unsigned char last = 0;
 	
 		invaders_sh_2_w(1, data, &last);
-	}
+	} };
 	
 	
 	/*******************************************************/
@@ -349,8 +324,7 @@ public class _8080bw
 		install_port_write_handler(0, 0x05, 0x05, boothill_sh_port5_w);
 	} };
 	
-	static WRITE_HANDLER( boothill_sh_port3_w )
-	{
+	public static WriteHandlerPtr boothill_sh_port3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (data)
 		{
 			case 0x0c:
@@ -367,18 +341,17 @@ public class _8080bw
 				sample_start (2, 3, 0);
 				break;
 		}
-	}
+	} };
 	
 	/* HC 4/14/98 */
-	static WRITE_HANDLER( boothill_sh_port5_w )
-	{
+	public static WriteHandlerPtr boothill_sh_port5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (data)
 		{
 			case 0x3b:
 				sample_start (2, 1, 0);
 				break;
 		}
-	}
+	} };
 	
 	
 	/*******************************************************/
@@ -395,15 +368,13 @@ public class _8080bw
 		install_port_write_handler(0, 0x05, 0x05, ballbomb_sh_port5_w);
 	} };
 	
-	static WRITE_HANDLER( ballbomb_sh_port3_w )
-	{
+	public static WriteHandlerPtr ballbomb_sh_port3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		c8080bw_screen_red_w(data & 0x04);
-	}
+	} };
 	
-	static WRITE_HANDLER( ballbomb_sh_port5_w )
-	{
+	public static WriteHandlerPtr ballbomb_sh_port5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		c8080bw_flip_screen_w(data & 0x20);
-	}
+	} };
 	
 	
 	/*******************************************************/
@@ -699,13 +670,11 @@ public class _8080bw
 		install_port_write_handler(0, 0x06, 0x06, polaris_sh_port6_w);
 	} };
 	
-	static WRITE_HANDLER( polaris_sh_port2_w )
-	{
+	public static WriteHandlerPtr polaris_sh_port2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(0, (~data) & 0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( polaris_sh_port4_w )
-	{
+	public static WriteHandlerPtr polaris_sh_port4_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* 0x01 - SX0 - Shot */
 		discrete_sound_w(1, data & 0x01);
 	
@@ -722,10 +691,9 @@ public class _8080bw
 	
 		/* 0x20 - SX5 - Sound Enable */
 		discrete_sound_w(5, (data & 0x20) >> 5);
-	}
+	} };
 	
-	static WRITE_HANDLER( polaris_sh_port6_w )
-	{
+	public static WriteHandlerPtr polaris_sh_port6_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_global_w(data & 0x04);  /* SX8 */
 	
 		c8080bw_flip_screen_w(data & 0x20);  /* SX11 */
@@ -741,7 +709,7 @@ public class _8080bw
 	
 		/* 0x10 - SX10 - Hit */
 		discrete_sound_w(9, (data & 0x10) >> 4);
-	}
+	} };
 	
 	
 	/*******************************************************/
@@ -836,8 +804,7 @@ public class _8080bw
 	static int sheriff_t0,sheriff_t1,sheriff_p1,sheriff_p2;
 	
 	
-	static WRITE_HANDLER( sheriff_sh_port4_w )
-	{
+	public static WriteHandlerPtr sheriff_sh_port4_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	static int last = -1;
 		// 0 - P2.7 - GAME
 		// 1 - P2.5 - EXCEL
@@ -866,10 +833,9 @@ public class _8080bw
 	
 		TTL74123_reset_comp_w(1, ~data & 0x04);
 		TTL74123_trigger_w   (1, data & 0x10);
-	}
+	} };
 	
-	static WRITE_HANDLER( sheriff_sh_port5_w )
-	{
+	public static WriteHandlerPtr sheriff_sh_port5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		// 0 - P2.8  - IMAN S0
 		// 1 - P2.9  - IMAN S1
 		// 2 - P2.10 - IMAN S2
@@ -889,12 +855,11 @@ public class _8080bw
 		soundlatch_w(0, sheriff_p1);
 	
 		cpu_set_irq_line(1, 0, ((sheriff_p1 & 0x70) == 0x70) ? ASSERT_LINE : CLEAR_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( sheriff_sh_port6_w )
-	{
+	public static WriteHandlerPtr sheriff_sh_port6_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data & 0x20);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr sheriff_sh_t0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -913,12 +878,11 @@ public class _8080bw
 		return sheriff_p2;
 	} };
 	
-	WRITE_HANDLER( sheriff_sh_p2_w )
-	{
+	public static WriteHandlerPtr sheriff_sh_p2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sheriff_p2 = data;
 	
 		DAC_data_w(0, sheriff_p2 & 0x80 ? 0xff : 0x00);
-	}
+	} };
 	
 	
 	/*******************************************************/
@@ -1008,8 +972,7 @@ public class _8080bw
 	static int helifire_t0, helifire_t1;//, helifire_p1, helifire_p2;
 	static int helifire_snd_latch;
 	
-	static WRITE_HANDLER( helifire_sh_port4_w )
-	{
+	public static WriteHandlerPtr helifire_sh_port4_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		// 0 - P2.7 -      ->D0
 		// 1 - NC
 		// 2 - P2.6 -      ->INT
@@ -1029,10 +992,9 @@ public class _8080bw
 		cpu_set_irq_line(1, 0, (data & 0x04) ? ASSERT_LINE : CLEAR_LINE);
 	
 	logerror("port04 write: %02x &4=%1x\n", data, data&4);
-	}
+	} };
 	
-	static WRITE_HANDLER( helifire_sh_port5_w )
-	{
+	public static WriteHandlerPtr helifire_sh_port5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		// 0 - P2.8  -     ->D1 (or D2 ?)
 		// 1 - P2.9  -     ->D2 (or D1 ?)
 		// 2 - P2.10 - 
@@ -1050,26 +1012,23 @@ public class _8080bw
 	
 	logerror("port05 write: %02x\n",data);
 	
-	}
+	} };
 	
-	static WRITE_HANDLER( helifire_sh_port6_w )
-	{
+	public static WriteHandlerPtr helifire_sh_port6_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data & 0x20);
-	}
+	} };
 	
-	WRITE_HANDLER( helifire_sh_p1_w )
-	{
+	public static WriteHandlerPtr helifire_sh_p1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		current_dac_data = data;
 	
 		DAC_data_16_w(0, (current_dac_data * Vref) >> 8);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( helifire_sh_p2_w )
-	{
+	public static WriteHandlerPtr helifire_sh_p2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		Vref_control = (data&0x80) >> 7;
 		/*logerror("dac_vref_charge=%1x\n", Vref_control);*/
-	}
+	} };
 	
 	public static ReadHandlerPtr helifire_sh_p1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return helifire_snd_latch;
@@ -1166,8 +1125,7 @@ public class _8080bw
 	
 	} };
 	
-	static WRITE_HANDLER( seawolf_sh_port5_w )
-	{
+	public static WriteHandlerPtr seawolf_sh_port5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 0x01)
 			sample_start (0, 0, 0);  /* Ship Hit */
 		if (data & 0x02)
@@ -1180,7 +1138,7 @@ public class _8080bw
 			sample_start (4, 4, 0);  /* Mine Hit */
 	
 		coin_counter_w(0, (data & 0x20) >> 5);    /* Coin Counter */
-	}
+	} };
 	
 	
 	/*******************************************************/
@@ -1273,8 +1231,7 @@ public class _8080bw
 		SN76477_envelope_2_w(0, 0);
 	} };
 	
-	static WRITE_HANDLER( schaser_sh_port3_w )
-	{
+	public static WriteHandlerPtr schaser_sh_port3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int explosion;
 	
 		/* bit 0 - Dot Sound Enable (SX0)
@@ -1308,10 +1265,9 @@ public class _8080bw
 		}
 		SN76477_enable_w(0, !explosion);
 		SN76477_mixer_b_w(0, explosion);
-	}
+	} };
 	
-	static WRITE_HANDLER( schaser_sh_port5_w )
-	{
+	public static WriteHandlerPtr schaser_sh_port5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 - Music (DAC) (SX6)
 		   bit 1 - Sound Enable (SX7)
 		   bit 2 - Coin Lockout (SX8)
@@ -1326,7 +1282,7 @@ public class _8080bw
 		coin_lockout_global_w(data & 0x04);
 	
 		c8080bw_flip_screen_w(data & 0x20);
-	}
+	} };
 	
 	static int schaser_sh_start(const struct MachineSound *msound)
 	{
@@ -1349,8 +1305,7 @@ public class _8080bw
 	}
 	
 	
-	static WRITE_HANDLER( clowns_sh_port7_w )
-	{
+	public static WriteHandlerPtr clowns_sh_port7_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	/* bit 0x08 seems to always be enabled.  Possibly sound enable? */
 	/* A new sample set needs to be made with 3 different balloon sounds,
 	   and the code modified to suit. */
@@ -1369,7 +1324,7 @@ public class _8080bw
 	
 		if (data & 0x20)
 			sample_start (1, 1, 0);  /* Splat */
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_clowns  = new MachineInitHandlerPtr() { public void handler(){
 		/* Ports 5 & 6 are probably the music channels. They change value when

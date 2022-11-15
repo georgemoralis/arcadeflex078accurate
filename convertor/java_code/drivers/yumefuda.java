@@ -101,14 +101,13 @@ public class yumefuda
 	};
 	
 	
-	static WRITE_HANDLER( yumefuda_vram_w )
-	{
+	public static WriteHandlerPtr yumefuda_vram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if(videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap,offset);
 		}
-	}
+	} };
 	
 	static UINT8 *cus_ram;
 	static UINT8 prot_lock,nvram_lock;
@@ -118,28 +117,24 @@ public class yumefuda
 		return cus_ram[offset];// ^ 0x55;
 	} };
 	
-	static WRITE_HANDLER( custom_ram_w )
-	{
+	public static WriteHandlerPtr custom_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	logerror("Custom RAM write at %02x : %02x PC = %x\n",offset+0xaf80,data,activecpu_get_pc());
 		if(prot_lock)	{ cus_ram[offset] = data; }
-	}
+	} };
 	
 	/*this might be used as NVRAM commands btw*/
-	static WRITE_HANDLER( prot_lock_w )
-	{
+	public static WriteHandlerPtr prot_lock_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	logerror("PC %04x Prot lock value written %02x\n",activecpu_get_pc(),data);
 		prot_lock = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( nvram_lock_w )
-	{
+	public static WriteHandlerPtr nvram_lock_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("PC %04x Nvram lock value written %02x\n",activecpu_get_pc(),data);
 		nvram_lock = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( port_c0_w )
-	{
-	}
+	public static WriteHandlerPtr port_c0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
+	} };
 	
 	/***************************************************************************************/
 	

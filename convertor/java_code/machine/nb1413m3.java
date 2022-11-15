@@ -59,10 +59,9 @@ public class nb1413m3
 		nb1413m3_outcoin_flag = 1;
 	} };
 	
-	WRITE_HANDLER( nb1413m3_nmi_clock_w )
-	{
+	public static WriteHandlerPtr nb1413m3_nmi_clock_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nb1413m3_nmi_clock = ((data & 0xf0) >> 4);
-	}
+	} };
 	
 	public static InterruptHandlerPtr nb1413m3_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
@@ -168,17 +167,15 @@ public class nb1413m3
 		}
 	}
 	
-	WRITE_HANDLER( nb1413m3_sndrombank1_w )
-	{
+	public static WriteHandlerPtr nb1413m3_sndrombank1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		// if (data & 0x02) coin counter ?
 		nb1413m3_nmi_enable = ((data & 0x20) >> 5);
 		nb1413m3_sndrombank1 = (((data & 0xc0) >> 5) | ((data & 0x10) >> 4));
-	}
+	} };
 	
-	WRITE_HANDLER( nb1413m3_sndrombank2_w )
-	{
+	public static WriteHandlerPtr nb1413m3_sndrombank2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nb1413m3_sndrombank2 = (data & 0x03);
-	}
+	} };
 	
 	int nb1413m3_gfxrom_r(int offset)
 	{
@@ -202,10 +199,9 @@ public class nb1413m3
 		nb1413m3_gfxradr_h = data;
 	}
 	
-	WRITE_HANDLER( nb1413m3_inputportsel_w )
-	{
+	public static WriteHandlerPtr nb1413m3_inputportsel_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nb1413m3_inputport = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr nb1413m3_inputport0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (nb1413m3_type)
@@ -453,8 +449,7 @@ public class nb1413m3
 		return ((readinputport(2) & 0x0f) >> 0);
 	}
 	
-	WRITE_HANDLER( nb1413m3_outcoin_w )
-	{
+	public static WriteHandlerPtr nb1413m3_outcoin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (nb1413m3_type)
 		{
 			case	NB1413M3_TAIWANMB:
@@ -478,7 +473,7 @@ public class nb1413m3
 	#if NB1413M3_DEBUG
 		set_led_status(2, (nb1413m3_outcoin_flag ^ 1));		// out coin
 	#endif
-	}
+	} };
 	
 	void nb1413m3_vcrctrl_w(int data)
 	{

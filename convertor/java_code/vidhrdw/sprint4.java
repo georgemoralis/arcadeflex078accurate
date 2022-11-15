@@ -55,15 +55,14 @@ public class sprint4
 	} };
 	
 	
-	WRITE_HANDLER( sprint4_video_ram_w )
-	{
+	public static WriteHandlerPtr sprint4_video_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data != sprint4_video_ram[offset])
 		{
 			tilemap_mark_tile_dirty(tilemap, offset);
 		}
 	
 		sprint4_video_ram[offset] = data;
-	}
+	} };
 	
 	
 	public static VideoUpdateHandlerPtr video_update_sprint4  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){

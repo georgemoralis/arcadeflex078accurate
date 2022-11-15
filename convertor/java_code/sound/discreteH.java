@@ -1435,7 +1435,6 @@ int  discrete_sh_adjuster_count(struct discrete_sound_block *dsintf);
 int  discrete_sh_adjuster_get(int arg,struct discrete_sh_adjuster *adjuster);
 int discrete_sh_adjuster_set(int arg,struct discrete_sh_adjuster *adjuster);
 
-WRITE_HANDLER(discrete_sound_w);
 
 
 #endif

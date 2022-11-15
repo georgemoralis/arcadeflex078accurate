@@ -122,14 +122,6 @@ public class m92
 	#define M92_SCANLINES	256
 	
 	/* From vidhrdw/m92.c */
-	WRITE_HANDLER( m92_spritecontrol_w );
-	WRITE_HANDLER( m92_videocontrol_w );
-	WRITE_HANDLER( m92_paletteram_w );
-	WRITE_HANDLER( m92_vram_w );
-	WRITE_HANDLER( m92_pf1_control_w );
-	WRITE_HANDLER( m92_pf2_control_w );
-	WRITE_HANDLER( m92_pf3_control_w );
-	WRITE_HANDLER( m92_master_control_w );
 	void m92_vh_raster_partial_refresh(struct mame_bitmap *bitmap,int start_line,int end_line);
 	
 	extern int m92_raster_irq_position,m92_raster_enable;
@@ -153,15 +145,13 @@ public class m92
 		return RAM[offset/2];
 	} };
 	
-	static WRITE_HANDLER( m92_eeprom_w )
-	{
+	public static WriteHandlerPtr m92_eeprom_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_USER1);
 	//	logerror("%05x: EEPROM WR %04x\n",activecpu_get_pc(),offset);
 		RAM[offset/2]=data;
-	}
+	} };
 	
-	static WRITE_HANDLER( m92_coincounter_w )
-	{
+	public static WriteHandlerPtr m92_coincounter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset==0) {
 			coin_counter_w(0,data & 0x01);
 			coin_counter_w(1,data & 0x02);
@@ -169,14 +159,13 @@ public class m92
 			/* Bit 0x8 is Memcard related in RTypeLeo */
 			/* Bit 0x40 set in Blade Master test mode input check */
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( m92_bankswitch_w )
-	{
+	public static WriteHandlerPtr m92_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset==1) return; /* Unused top byte */
 		bankaddress = 0x100000 + ((data&0x7)*0x10000);
 		set_m92_bank();
-	}
+	} };
 	
 	public static ReadHandlerPtr m92_port_4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(4) | m92_sprite_buffer_busy; /* Bit 7 low indicates busy */
@@ -208,15 +197,14 @@ public class m92
 			cpu_set_irq_line(1,0,ASSERT_LINE);
 	}
 	
-	static WRITE_HANDLER( m92_soundlatch_w )
-	{
+	public static WriteHandlerPtr m92_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset==0)
 		{
 			timer_set(TIME_NOW,V30_ASSERT,setvector_callback);
 			soundlatch_w(0,data);
 	//		logerror("soundlatch_w %02x\n",data);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr m92_sound_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//logerror("%06x: read sound status\n",activecpu_get_pc());
@@ -235,21 +223,19 @@ public class m92
 		else return 0xff;
 	} };
 	
-	static WRITE_HANDLER( m92_sound_irq_ack_w )
-	{
+	public static WriteHandlerPtr m92_sound_irq_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 			timer_set(TIME_NOW,V30_CLEAR,setvector_callback);
-	}
+	} };
 	
-	static WRITE_HANDLER( m92_sound_status_w )
-	{
+	public static WriteHandlerPtr m92_sound_status_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0) {
 			sound_status = data | (sound_status&0xff00);
 			cpu_set_irq_line_and_vector(0,0,HOLD_LINE,M92_IRQ_3);
 		}
 		else
 			sound_status = (data<<8) | (sound_status&0xff);
-	}
+	} };
 	
 	/*****************************************************************************/
 	

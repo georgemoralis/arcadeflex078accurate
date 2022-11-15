@@ -65,8 +65,7 @@ public class skyfox
 		return vreg[offset];
 	} };
 	
-	WRITE_HANDLER( skyfox_vregs_w )
-	{
+	public static WriteHandlerPtr skyfox_vregs_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		vreg[offset] = data;
 	
 		switch (offset)
@@ -80,7 +79,7 @@ public class skyfox
 			case 6:	break;
 			case 7:	break;
 		}
-	}
+	} };
 	
 	
 	

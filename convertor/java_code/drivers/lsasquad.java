@@ -38,22 +38,12 @@ public class lsasquad
 	
 	/* in machine/lsasquad.c */
 	extern int lsasquad_invertcoin;
-	WRITE_HANDLER( lsasquad_sh_nmi_disable_w );
-	WRITE_HANDLER( lsasquad_sh_nmi_enable_w );
-	WRITE_HANDLER( lsasquad_sound_command_w );
-	WRITE_HANDLER( lsasquad_sh_result_w );
-	
-	WRITE_HANDLER( lsasquad_68705_portA_w );
-	WRITE_HANDLER( lsasquad_68705_ddrA_w );
-	WRITE_HANDLER( lsasquad_68705_portB_w );
-	WRITE_HANDLER( lsasquad_68705_ddrB_w );
-	WRITE_HANDLER( lsasquad_mcu_w );
 	
 	
 	
 	
-	WRITE_HANDLER( lsasquad_bankswitch_w )
-	{
+	
+	public static WriteHandlerPtr lsasquad_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *ROM = memory_region(REGION_CPU1);
 	
 		/* bits 0-2 select ROM bank */
@@ -65,7 +55,7 @@ public class lsasquad
 		flip_screen_set(data & 0x10);
 	
 		/* other bits unknown */
-	}
+	} };
 	
 	
 	
@@ -303,10 +293,9 @@ public class lsasquad
 		cpu_set_irq_line(1,0,irq ? ASSERT_LINE : CLEAR_LINE);
 	}
 	
-	static WRITE_HANDLER( unk )
-	{
+	public static WriteHandlerPtr unk = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
-	}
+	} };
 	
 	/* actually there is one AY8910 and one YM2203, but the sound core doesn't */
 	/* support that so we use 2 YM2203 */

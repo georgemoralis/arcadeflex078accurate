@@ -27,9 +27,6 @@ public class liberate
 	static int deco16_bank;
 	static data8_t *scratchram;
 	
-	WRITE_HANDLER( deco16_io_w );
-	WRITE_HANDLER( prosport_paletteram_w );
-	WRITE_HANDLER( liberate_videoram_w );
 	
 	/***************************************************************************/
 	
@@ -50,10 +47,9 @@ public class liberate
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( deco16_bank_w )
-	{
+	public static WriteHandlerPtr deco16_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		deco16_bank=data;
-	}
+	} };
 	
 	public static ReadHandlerPtr deco16_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		const data8_t *ROM = memory_region(REGION_CPU1);

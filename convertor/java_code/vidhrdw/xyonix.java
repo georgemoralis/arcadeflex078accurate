@@ -51,11 +51,10 @@ public class xyonix
 		SET_TILE_INFO(0,tileno,attr >> 4,0)
 	}
 	
-	WRITE_HANDLER( xyonix_vidram_w )
-	{
+	public static WriteHandlerPtr xyonix_vidram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		xyonix_vidram[offset] = data;
 		tilemap_mark_tile_dirty(xyonix_tilemap,(offset-1)&0x0fff);
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_xyonix  = new VideoStartHandlerPtr() { public int handler(){
 		xyonix_tilemap = tilemap_create(get_xyonix_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE, 4, 8,80,32);

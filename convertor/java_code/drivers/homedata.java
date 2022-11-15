@@ -284,10 +284,9 @@ public class homedata
 		return res;
 	} };
 	
-	static WRITE_HANDLER( mrokumei_keyboard_select_w )
-	{
+	public static WriteHandlerPtr mrokumei_keyboard_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		keyb = data;
-	}
+	} };
 	
 	
 	
@@ -300,16 +299,14 @@ public class homedata
 			return memory_region(REGION_CPU2)[0x10000 + offset + (sndbank & 1) * 0x10000];
 	} };
 	
-	static WRITE_HANDLER( mrokumei_sound_bank_w )
-	{
+	public static WriteHandlerPtr mrokumei_sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 = ROM bank
 		   bit 2 = ROM or soundlatch
 		 */
 		sndbank = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( mrokumei_sound_io_w )
-	{
+	public static WriteHandlerPtr mrokumei_sound_io_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset & 0xff)
 		{
 			case 0x40:
@@ -319,13 +316,12 @@ public class homedata
 				logerror("%04x: I/O write to port %04x\n",activecpu_get_pc(),offset);
 				break;
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( mrokumei_sound_cmd_w )
-	{
+	public static WriteHandlerPtr mrokumei_sound_cmd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(1,0,HOLD_LINE);
-	}
+	} };
 	
 	
 	/********************************************************************************
@@ -342,13 +338,11 @@ public class homedata
 		return upd7807_porta;
 	} };
 	
-	static WRITE_HANDLER( reikaids_upd7807_porta_w )
-	{
+	public static WriteHandlerPtr reikaids_upd7807_porta_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		upd7807_porta = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( reikaids_upd7807_portc_w )
-	{
+	public static WriteHandlerPtr reikaids_upd7807_portc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* port C layout:
 		   7 coin counter
 		   6 to main CPU (data)
@@ -383,7 +377,7 @@ public class homedata
 		}
 	
 		upd7807_portc = data;
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_reikaids_upd7807  = new MachineInitHandlerPtr() { public void handler(){
 		/* on reset, ports are set as input (high impedance), therefore 0xff output */
@@ -413,11 +407,10 @@ public class homedata
 		return snd_command;
 	} };
 	
-	static WRITE_HANDLER( reikaids_snd_command_w )
-	{
+	public static WriteHandlerPtr reikaids_snd_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		snd_command = data;
 	//logerror("%04x: coprocessor_command_w %02x\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	
 	
@@ -431,11 +424,10 @@ public class homedata
 	
 	static int to_cpu,from_cpu;
 	
-	static WRITE_HANDLER( pteacher_snd_command_w )
-	{
+	public static WriteHandlerPtr pteacher_snd_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: snd_command_w %02x\n",activecpu_get_pc(),data);
 		from_cpu = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr pteacher_snd_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//logerror("%04x: pteacher_snd_r %02x\n",activecpu_get_pc(),to_cpu);
@@ -487,19 +479,16 @@ public class homedata
 		return upd7807_porta;
 	} };
 	
-	static WRITE_HANDLER( pteacher_snd_answer_w )
-	{
+	public static WriteHandlerPtr pteacher_snd_answer_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		to_cpu = data;
 	//logerror("%04x: to_cpu = %02x\n",activecpu_get_pc(),to_cpu);
-	}
+	} };
 	
-	static WRITE_HANDLER( pteacher_upd7807_porta_w )
-	{
+	public static WriteHandlerPtr pteacher_upd7807_porta_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		upd7807_porta = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( pteacher_upd7807_portc_w )
-	{
+	public static WriteHandlerPtr pteacher_upd7807_portc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* port C layout:
 		   7 coin counter
 		   6 enable message from main CPU on port A
@@ -521,7 +510,7 @@ public class homedata
 			SN76496_0_w(0,upd7807_porta);
 	
 		upd7807_portc = data;
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_pteacher_upd7807  = new MachineInitHandlerPtr() { public void handler(){
 		/* on reset, ports are set as input (high impedance), therefore 0xff output */
@@ -532,8 +521,7 @@ public class homedata
 	/********************************************************************************/
 	
 	
-	static WRITE_HANDLER( bankswitch_w )
-	{
+	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU1);
 		int len = memory_region_length(REGION_CPU1) - 0x10000+0x4000;
 		int offs = (data * 0x4000) & (len-1);
@@ -547,7 +535,7 @@ public class homedata
 		{
 			cpu_setbank(1, &rom[0xc000]);
 		}
-	}
+	} };
 	
 	
 	/********************************************************************************/

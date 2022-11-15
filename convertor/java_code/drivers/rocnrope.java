@@ -16,20 +16,16 @@ public class rocnrope
 	
 	extern void konami1_decode(void);
 	
-	extern WRITE_HANDLER( rocnrope_videoram_w );
-	extern WRITE_HANDLER( rocnrope_colorram_w );
-	extern WRITE_HANDLER( rocnrope_flipscreen_w );
-	
+	extern extern extern 
 	extern extern extern 
 	
 	/* Roc'n'Rope has the IRQ vectors in RAM. The rom contains $FFFF at this address! */
-	WRITE_HANDLER( rocnrope_interrupt_vector_w )
-	{
+	public static WriteHandlerPtr rocnrope_interrupt_vector_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 	
 	
 		RAM[0xFFF2+offset] = data;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

@@ -201,55 +201,48 @@ public class shougi
 	//to do:
 	// add separate sharedram/r/w() for both CPUs and use control value to verify access
 	
-	static WRITE_HANDLER ( cpu_sharedram_sub_w )
-	{
+	public static WriteHandlerPtr cpu_sharedram_sub_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (cpu_sharedram_control_val!=0) logerror("sub CPU access to shared RAM when access set for main cpu\n");
 		cpu_sharedram[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER ( cpu_sharedram_main_w )
-	{
+	public static WriteHandlerPtr cpu_sharedram_main_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (cpu_sharedram_control_val!=1) logerror("main CPU access to shared RAM when access set for sub cpu\n");
 		cpu_sharedram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr cpu_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu_sharedram[offset];
 	} };
 	
-	static WRITE_HANDLER ( cpu_shared_ctrl_sub_w )
-	{
+	public static WriteHandlerPtr cpu_shared_ctrl_sub_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_sharedram_control_val = 0;
 	logerror("cpu_sharedram_ctrl=SUB");
-	}
+	} };
 	
-	static WRITE_HANDLER ( cpu_shared_ctrl_main_w )
-	{
+	public static WriteHandlerPtr cpu_shared_ctrl_main_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_sharedram_control_val = 1;
 	logerror("cpu_sharedram_ctrl=MAIN");
-	}
+	} };
 	
-	static WRITE_HANDLER( shougi_watchdog_reset_w )
-	{
+	public static WriteHandlerPtr shougi_watchdog_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		watchdog_reset_w(0,data);
-	}
+	} };
 	
 	
 	static int nmi_enabled = 0;
 	
-	static WRITE_HANDLER( nmi_disable_and_clear_line_w )
-	{
+	public static WriteHandlerPtr nmi_disable_and_clear_line_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nmi_enabled = 0; /* disable NMIs */
 	
 		/* NMI lines are tied together on both CPUs and connected to the LS74 /Q output */
 		cpu_set_irq_line(0, IRQ_LINE_NMI, CLEAR_LINE);
 		cpu_set_irq_line(1, IRQ_LINE_NMI, CLEAR_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( nmi_enable_w )
-	{
+	public static WriteHandlerPtr nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nmi_enabled = 1; /* enable NMIs */
-	}
+	} };
 	
 	public static InterruptHandlerPtr shougi_vblank_nmi = new InterruptHandlerPtr() {public void handler(){
 		if ( nmi_enabled == 1 )

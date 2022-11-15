@@ -166,8 +166,7 @@ public class mcr3
 	} };
 	
 	
-	static WRITE_HANDLER( dotron_port_4_w )
-	{
+	public static WriteHandlerPtr dotron_port_4_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* light control is in the top 2 bits */
 		set_led_status(0, data & 0x40);		/* background light */
 		set_led_status(1, data & 0x80);		/* strobe */
@@ -175,7 +174,7 @@ public class mcr3
 	
 		/* low 5 bits go to control the Squawk & Talk */
 		squawkntalk_data_w(offset, data);
-	}
+	} };
 	
 	
 	
@@ -185,12 +184,11 @@ public class mcr3
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( demoderb_port_4_w )
-	{
+	public static WriteHandlerPtr demoderb_port_4_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 0x40) input_mux = 1;
 		if (data & 0x80) input_mux = 0;
 		turbocs_data_w(offset, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr demoderb_port12_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -222,11 +220,10 @@ public class mcr3
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( maxrpm_port_5_w )
-	{
+	public static WriteHandlerPtr maxrpm_port_5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		input_mux = (data >> 1) & 3;
 		mcrmono_control_port_w(offset, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr maxrpm_port_1_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -291,8 +288,7 @@ public class mcr3
 	} };
 	
 	
-	static WRITE_HANDLER( powerdrv_port_5_w )
-	{
+	public static WriteHandlerPtr powerdrv_port_5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 1 controls led 0 */
 		/* bit 2 controls led 1 */
 		/* bit 3 controls led 2 */
@@ -300,14 +296,13 @@ public class mcr3
 		set_led_status(1, (data >> 2) & 1);
 		set_led_status(2, (data >> 3) & 1);
 		mcrmono_control_port_w(offset, data);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( powerdrv_port_7_w )
-	{
+	public static WriteHandlerPtr powerdrv_port_7_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* use input_mux for scratch */
 		input_mux = ~input_mux & 0x80;
-	}
+	} };
 	
 	
 	
@@ -328,8 +323,7 @@ public class mcr3
 	} };
 	
 	
-	static WRITE_HANDLER( stargrds_port_5_w )
-	{
+	public static WriteHandlerPtr stargrds_port_5_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 1 controls input muxing on port 0 */
 		/* bit 2 controls led 0 */
 		/* bit 3 controls led 1 */
@@ -339,13 +333,12 @@ public class mcr3
 		set_led_status(1, (data >> 3) & 1);
 		set_led_status(2, (data >> 4) & 1);
 		mcrmono_control_port_w(offset, data);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( stargrds_soundsgood_data_w )
-	{
+	public static WriteHandlerPtr stargrds_soundsgood_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundsgood_data_w(offset, (data << 1) | (data >> 7));
-	}
+	} };
 	
 	
 	
@@ -361,8 +354,7 @@ public class mcr3
 	} };
 	
 	
-	static WRITE_HANDLER( spyhunt_port_4_w )
-	{
+	public static WriteHandlerPtr spyhunt_port_4_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static UINT8 lastport4;
 	
 		/* Spy Hunter uses port 4 for talking to the Chip Squeak Deluxe */
@@ -387,7 +379,7 @@ public class mcr3
 	
 		/* remember the last data */
 		lastport4 = data;
-	}
+	} };
 	
 	
 	

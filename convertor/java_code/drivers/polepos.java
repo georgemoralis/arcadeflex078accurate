@@ -75,22 +75,13 @@ public class polepos
 	
 	
 	/* from machine */
-	WRITE_HANDLER( polepos_z80_irq_enable_w );
 	WRITE16_HANDLER( polepos_z8002_nvi_enable_w );
-	WRITE_HANDLER( polepos_z8002_enable_w );
-	WRITE_HANDLER( polepos_adc_select_w );
-	WRITE_HANDLER( polepos_mcu_enable_w );
-	WRITE_HANDLER( polepos_mcu_control_w );
-	WRITE_HANDLER( polepos_mcu_data_w );
-	WRITE_HANDLER( polepos_start_w );
 	READ16_HANDLER( polepos2_ic25_r );
 	
 	/* from sndhrdw */
 	int polepos_sh_start(const struct MachineSound *msound);
 	void polepos_sh_stop(void);
 	void polepos_sh_update(void);
-	WRITE_HANDLER( polepos_engine_sound_lsb_w );
-	WRITE_HANDLER( polepos_engine_sound_msb_w );
 	
 	/* from vidhrdw */
 	extern data16_t *polepos_view16_memory;
@@ -103,10 +94,6 @@ public class polepos
 	WRITE16_HANDLER( polepos_road16_w );
 	WRITE16_HANDLER( polepos_alpha16_w );
 	WRITE16_HANDLER( polepos_sprite16_w );
-	WRITE_HANDLER( polepos_view_w );
-	WRITE_HANDLER( polepos_road_w );
-	WRITE_HANDLER( polepos_alpha_w );
-	WRITE_HANDLER( polepos_sprite_w );
 	
 	READ16_HANDLER( polepos_view16_r );
 	READ16_HANDLER( polepos_road16_r );

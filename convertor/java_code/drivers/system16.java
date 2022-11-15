@@ -126,14 +126,7 @@ public class system16
 	/***************************************************************************/
 	
 	// 7751 emulation
-	WRITE_HANDLER( sys16_7751_audio_8255_w );
-	    WRITE_HANDLER( sys16_7751_sh_dac_w );
-	WRITE_HANDLER( sys16_7751_sh_busy_w );
-	WRITE_HANDLER( sys16_7751_sh_offset_a0_a3_w );
-	WRITE_HANDLER( sys16_7751_sh_offset_a4_a7_w );
-	WRITE_HANDLER( sys16_7751_sh_offset_a8_a11_w );
-	WRITE_HANDLER( sys16_7751_sh_rom_select_w );
-	
+	    
 	/***************************************************************************/
 	
 	int sys16_wwfix=0, sys16_alienfix=0; //*
@@ -237,7 +230,7 @@ public class system16
 	MEMORY_END
 	
 	
-	static WRITE_HANDLER( UPD7759_bank_w ) //*
+	public static WriteHandlerPtr UPD7759_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)/*
 	{
 		int offs, size = memory_region_length(REGION_CPU2) - 0x10000;
 	
@@ -245,7 +238,7 @@ public class system16
 		if (sys16_alienfix && (data&0x30)==0x20) data-=2;
 		offs = 0x10000 + (data * 0x4000) % size;
 		cpu_setbank(1, memory_region(REGION_CPU2) + offs);
-	}
+	} };
 	
 	
 	static PORT_WRITE_START( sound_writeport_7759 )

@@ -24,19 +24,6 @@ public class missb2
 	
 	/* machine/bublbobl.c */
 	extern unsigned char *bublbobl_sharedram1,*bublbobl_sharedram2;
-	WRITE_HANDLER( bublbobl_sharedram1_w );
-	WRITE_HANDLER( bublbobl_sharedram2_w );
-	WRITE_HANDLER( bublbobl_68705_portA_w );
-	WRITE_HANDLER( bublbobl_68705_ddrA_w );
-	WRITE_HANDLER( bublbobl_68705_portB_w );
-	WRITE_HANDLER( bublbobl_68705_ddrB_w );
-	WRITE_HANDLER( bublbobl_bankswitch_w );
-	WRITE_HANDLER( tokio_bankswitch_w );
-	WRITE_HANDLER( tokio_videoctrl_w );
-	WRITE_HANDLER( bublbobl_nmitrigger_w );
-	WRITE_HANDLER( bublbobl_sound_command_w );
-	WRITE_HANDLER( bublbobl_sh_nmi_disable_w );
-	WRITE_HANDLER( bublbobl_sh_nmi_enable_w );
 	extern int bublbobl_video_enable;
 	
 	
@@ -149,21 +136,19 @@ public class missb2
 		palette_set_color(color+256,r,g,b);
 	}
 	
-	WRITE_HANDLER( bg_paletteram_RRRRGGGGBBBBxxxx_swap_w )
-	{
+	public static WriteHandlerPtr bg_paletteram_RRRRGGGGBBBBxxxx_swap_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bg_paletteram[offset] = data;
 		bg_changecolor_RRRRGGGGBBBBxxxx(offset / 2,bg_paletteram[offset | 1] | (bg_paletteram[offset & ~1] << 8));
-	}
+	} };
 	
-	WRITE_HANDLER( bg_bank_w )
-	{
+	public static WriteHandlerPtr bg_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU2);
 	
 		/*I don't know how this is really connected,bit 1 is always high afaik...*/
 		bankaddress = ((data & 2) ? 0x1000 : 0x0000) | ((data & 1) ? 0x4000 : 0x0000) | (0x8000);
 		cpu_setbank(2,&RAM[bankaddress]);
-	}
+	} };
 	
 	
 	

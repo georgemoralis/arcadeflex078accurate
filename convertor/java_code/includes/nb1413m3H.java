@@ -204,18 +204,13 @@ enum {
 	PORT_BIT ( 0x40, IP_ACTIVE_LOW, IPT_UNKNOWN );\
 	PORT_BIT ( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 
-WRITE_HANDLER( nb1413m3_nmi_clock_w );
 int nb1413m3_sndrom_r(int offset);
-WRITE_HANDLER( nb1413m3_sndrombank1_w );
-WRITE_HANDLER( nb1413m3_sndrombank2_w );
 int nb1413m3_gfxrom_r(int offset);
 void nb1413m3_gfxrombank_w(int data);
 void nb1413m3_gfxradr_l_w(int data);
 void nb1413m3_gfxradr_h_w(int data);
-WRITE_HANDLER( nb1413m3_inputportsel_w );
 int nb1413m3_dipsw3_l_r(void);
 int nb1413m3_dipsw3_h_r(void);
-WRITE_HANDLER( nb1413m3_outcoin_w );
 void nb1413m3_vcrctrl_w(int data);
 
 extern int nb1413m3_type;

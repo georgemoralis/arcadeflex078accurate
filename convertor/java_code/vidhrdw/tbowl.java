@@ -38,14 +38,13 @@ public class tbowl
 		SET_TILE_INFO(0,tileno,col,0)
 	}
 	
-	WRITE_HANDLER( tbowl_txvideoram_w )
-	{
+	public static WriteHandlerPtr tbowl_txvideoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (tbowl_txvideoram[offset] != data)
 		{
 			tbowl_txvideoram[offset] = data;
 			tilemap_mark_tile_dirty(tx_tilemap,offset & 0x7ff);
 		}
-	}
+	} };
 	
 	/* Bottom BG Layer (bg) Tilemap */
 	
@@ -60,38 +59,33 @@ public class tbowl
 		SET_TILE_INFO(1,tileno,col,0)
 	}
 	
-	WRITE_HANDLER( tbowl_bg2videoram_w )
-	{
+	public static WriteHandlerPtr tbowl_bg2videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (tbowl_bg2videoram[offset] != data)
 		{
 			tbowl_bg2videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg2_tilemap,offset & 0xfff);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER (tbowl_bgxscroll_lo)
-	{
+	public static WriteHandlerPtr tbowl_bgxscroll_lo = new WriteHandlerPtr() {public void handler(int offset, int data){
 	tbowl_xscroll = (tbowl_xscroll & 0xff00) | data;
 	tilemap_set_scrollx(bg_tilemap, 0, tbowl_xscroll );
-	}
+	} };
 	
-	WRITE_HANDLER (tbowl_bgxscroll_hi)
-	{
+	public static WriteHandlerPtr tbowl_bgxscroll_hi = new WriteHandlerPtr() {public void handler(int offset, int data){
 	tbowl_xscroll = (tbowl_xscroll & 0x00ff) | (data << 8);
 	tilemap_set_scrollx(bg_tilemap, 0, tbowl_xscroll );
-	}
+	} };
 	
-	WRITE_HANDLER (tbowl_bgyscroll_lo)
-	{
+	public static WriteHandlerPtr tbowl_bgyscroll_lo = new WriteHandlerPtr() {public void handler(int offset, int data){
 	tbowl_yscroll = (tbowl_yscroll & 0xff00) | data;
 	tilemap_set_scrolly(bg_tilemap, 0, tbowl_yscroll );
-	}
+	} };
 	
-	WRITE_HANDLER (tbowl_bgyscroll_hi)
-	{
+	public static WriteHandlerPtr tbowl_bgyscroll_hi = new WriteHandlerPtr() {public void handler(int offset, int data){
 	tbowl_yscroll = (tbowl_yscroll & 0x00ff) | (data << 8);
 	tilemap_set_scrolly(bg_tilemap, 0, tbowl_yscroll );
-	}
+	} };
 	
 	/* Middle BG Layer (bg2) Tilemaps */
 	
@@ -107,38 +101,33 @@ public class tbowl
 		SET_TILE_INFO(2,tileno,col,0)
 	}
 	
-	WRITE_HANDLER( tbowl_bgvideoram_w )
-	{
+	public static WriteHandlerPtr tbowl_bgvideoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (tbowl_bgvideoram[offset] != data)
 		{
 			tbowl_bgvideoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap,offset & 0xfff);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER (tbowl_bg2xscroll_lo)
-	{
+	public static WriteHandlerPtr tbowl_bg2xscroll_lo = new WriteHandlerPtr() {public void handler(int offset, int data){
 	tbowl_bg2xscroll = (tbowl_bg2xscroll & 0xff00) | data;
 	tilemap_set_scrollx(bg2_tilemap, 0, tbowl_bg2xscroll );
-	}
+	} };
 	
-	WRITE_HANDLER (tbowl_bg2xscroll_hi)
-	{
+	public static WriteHandlerPtr tbowl_bg2xscroll_hi = new WriteHandlerPtr() {public void handler(int offset, int data){
 	tbowl_bg2xscroll = (tbowl_bg2xscroll & 0x00ff) | (data << 8);
 	tilemap_set_scrollx(bg2_tilemap, 0, tbowl_bg2xscroll );
-	}
+	} };
 	
-	WRITE_HANDLER (tbowl_bg2yscroll_lo)
-	{
+	public static WriteHandlerPtr tbowl_bg2yscroll_lo = new WriteHandlerPtr() {public void handler(int offset, int data){
 	tbowl_bg2yscroll = (tbowl_bg2yscroll & 0xff00) | data;
 	tilemap_set_scrolly(bg2_tilemap, 0, tbowl_bg2yscroll );
-	}
+	} };
 	
-	WRITE_HANDLER (tbowl_bg2yscroll_hi)
-	{
+	public static WriteHandlerPtr tbowl_bg2yscroll_hi = new WriteHandlerPtr() {public void handler(int offset, int data){
 	tbowl_bg2yscroll = (tbowl_bg2yscroll & 0x00ff) | (data << 8);
 	tilemap_set_scrolly(bg2_tilemap, 0, tbowl_bg2yscroll );
-	}
+	} };
 	
 	static void draw_sprites(struct mame_bitmap *bitmap,const struct rectangle *cliprect)
 	{

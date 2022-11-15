@@ -22,9 +22,6 @@ int exidy440_sh_start(const struct MachineSound *msound);
 void exidy440_sh_stop(void);
 void exidy440_sh_update(void);
 
-WRITE_HANDLER( exidy440_m6844_w );
-WRITE_HANDLER( exidy440_sound_volume_w );
-WRITE_HANDLER( exidy440_sound_interrupt_clear_w );
 
 
 /*----------- defined in vidhrdw/exidy440.c -----------*/
@@ -38,8 +35,3 @@ extern UINT8 topsecex_yscroll;
 
 
 
-WRITE_HANDLER( exidy440_videoram_w );
-WRITE_HANDLER( exidy440_paletteram_w );
-WRITE_HANDLER( exidy440_spriteram_w );
-WRITE_HANDLER( exidy440_control_w );
-WRITE_HANDLER( exidy440_interrupt_clear_w );

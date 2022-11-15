@@ -150,7 +150,6 @@ public class atarigenH
 	
 	void atarigen_sound_io_reset(int cpu_num);
 	
-	WRITE_HANDLER( atarigen_6502_irq_ack_w );
 	
 	void atarigen_ym2151_irq_gen(int irq);
 	
@@ -164,7 +163,6 @@ public class atarigenH
 	
 	void atarigen_sound_reset(void);
 	WRITE16_HANDLER( atarigen_sound_reset_w );
-	WRITE_HANDLER( atarigen_6502_sound_w );
 	
 	
 	/*---------------------------------------------------------------

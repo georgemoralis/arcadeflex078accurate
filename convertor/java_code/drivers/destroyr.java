@@ -64,14 +64,12 @@ public class destroyr
 	} };
 	
 	
-	WRITE_HANDLER( destroyr_ram_w )
-	{
+	public static WriteHandlerPtr destroyr_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		destroyr_zero_page[offset & 0xff] = data;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( destroyr_misc_w )
-	{
+	public static WriteHandlerPtr destroyr_misc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0 to 2 connect to the sound circuits */
 	
 		destroyr_attract = data & 1;
@@ -83,25 +81,22 @@ public class destroyr
 	
 		coin_lockout_w(0, !destroyr_attract);
 		coin_lockout_w(1, !destroyr_attract);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( destroyr_cursor_load_w )
-	{
+	public static WriteHandlerPtr destroyr_cursor_load_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		destroyr_cursor = data;
 	
 		watchdog_reset_w(offset, data);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( destroyr_interrupt_ack_w )
-	{
+	public static WriteHandlerPtr destroyr_interrupt_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( destroyr_output_w )
-	{
+	public static WriteHandlerPtr destroyr_output_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset &= 15;
 	
 		switch (offset)
@@ -137,7 +132,7 @@ public class destroyr
 			logerror("unmapped output port %d\n", offset);
 			break;
 		}
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr destroyr_ram_r  = new ReadHandlerPtr() { public int handler(int offset){

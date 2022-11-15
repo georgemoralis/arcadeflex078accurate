@@ -61,8 +61,6 @@ public class speedbal
 	size_t speedbal_background_videoram_size;
 	size_t speedbal_sprites_dataram_size;
 	
-	WRITE_HANDLER( speedbal_foreground_videoram_w );
-	WRITE_HANDLER( speedbal_background_videoram_w );
 	
 	
 	unsigned char *speedbal_sharedram;
@@ -73,10 +71,9 @@ public class speedbal
 	} };
 	
 	
-	WRITE_HANDLER( speedbal_sharedram_w )
-	{
+	public static WriteHandlerPtr speedbal_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    speedbal_sharedram[offset] = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0xdbff, MRA_ROM },

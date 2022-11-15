@@ -7,7 +7,6 @@
 /*----------- defined in vidhrdw/atetris.c -----------*/
 
 
-WRITE_HANDLER( atetris_videoram_w );
 
 
 

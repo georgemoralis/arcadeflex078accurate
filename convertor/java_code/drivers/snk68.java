@@ -200,12 +200,11 @@ public class snk68
 		{ 0xf000, 0xf7ff, MWA_RAM },
 	MEMORY_END
 	
-	static WRITE_HANDLER( D7759_write_port_0_w )
-	{
+	public static WriteHandlerPtr D7759_write_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UPD7759_port_w(offset,data);
 		UPD7759_start_w (0,0);
 		UPD7759_start_w (0,1);
-	}
+	} };
 	
 	static PORT_READ_START( sound_readport )
 		{ 0x00, 0x00, YM3812_status_port_0_r },

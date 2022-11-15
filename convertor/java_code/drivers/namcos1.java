@@ -210,24 +210,17 @@ public class namcos1
 	/* from vidhrdw */
 	extern extern 
 	/* from machine */
-	WRITE_HANDLER( namcos1_bankswitch_w );
-	WRITE_HANDLER( namcos1_subcpu_bank_w );
 	
-	WRITE_HANDLER( namcos1_cpu_control_w );
-	WRITE_HANDLER( namcos1_sound_bankswitch_w );
 	
-	WRITE_HANDLER( namcos1_mcu_bankswitch_w );
-	WRITE_HANDLER( namcos1_mcu_patch_w );
 	
 	extern 
 	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
 	
 	/**********************************************************************/
 	
-	static WRITE_HANDLER( namcos1_sub_firq_w )
-	{
+	public static WriteHandlerPtr namcos1_sub_firq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1, 1, HOLD_LINE);
-	}
+	} };
 	
 	
 	
@@ -317,12 +310,11 @@ public class namcos1
 		return 0xf0 | ret;
 	} };
 	
-	static WRITE_HANDLER( namcos1_coin_w )
-	{
+	public static WriteHandlerPtr namcos1_coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_global_w(~data & 1);
 		coin_counter_w(0,data & 2);
 		coin_counter_w(1,data & 4);
-	}
+	} };
 	
 	static int dac0_value ,dac1_value, dac0_gain=0, dac1_gain=0;
 	
@@ -331,8 +323,7 @@ public class namcos1
 		DAC_signed_data_16_w(0,0x8000+(dac0_value * dac0_gain)+(dac1_value * dac1_gain));
 	}
 	
-	static WRITE_HANDLER( namcos1_dac_gain_w )
-	{
+	public static WriteHandlerPtr namcos1_dac_gain_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int value;
 		/* DAC0 */
 		value = (data&1)|((data>>1)&2); /* GAIN0,GAIN1 */
@@ -341,19 +332,17 @@ public class namcos1
 		value = (data>>3)&3; /* GAIN2,GAIN3 */
 		dac1_gain = 0x0101 * (value+1) / 4 /2;
 		namcos1_update_DACs();
-	}
+	} };
 	
-	static WRITE_HANDLER( namcos1_dac0_w )
-	{
+	public static WriteHandlerPtr namcos1_dac0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dac0_value = data-0x80; /* shift zero point */
 		namcos1_update_DACs();
-	}
+	} };
 	
-	static WRITE_HANDLER( namcos1_dac1_w )
-	{
+	public static WriteHandlerPtr namcos1_dac1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dac1_value = data-0x80; /* shift zero point */
 		namcos1_update_DACs();
-	}
+	} };
 	
 	static int num=0, strobe=0;
 	

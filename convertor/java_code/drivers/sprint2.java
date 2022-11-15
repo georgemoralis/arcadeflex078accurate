@@ -27,10 +27,7 @@ public class sprint2
 {
 	
 	extern extern 
-	extern WRITE_HANDLER( sprint2_collision_reset1_w );
-	extern WRITE_HANDLER( sprint2_collision_reset2_w );
-	extern WRITE_HANDLER( sprint2_video_ram_w );
-	
+	extern extern extern 
 	extern extern extern 
 	extern UINT8* sprint2_video_ram;
 	
@@ -189,54 +186,45 @@ public class sprint2
 	} };
 	
 	
-	static WRITE_HANDLER( sprint2_steering_reset1_w )
-	{
+	public static WriteHandlerPtr sprint2_steering_reset1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		steering[0] |= 0x80;
-	}
-	static WRITE_HANDLER( sprint2_steering_reset2_w )
-	{
+	} };
+	public static WriteHandlerPtr sprint2_steering_reset2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		steering[1] |= 0x80;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint2_wram_w )
-	{
+	public static WriteHandlerPtr sprint2_wram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sprint2_video_ram[0x380 + offset % 0x80] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint2_attract_w )
-	{
+	public static WriteHandlerPtr sprint2_attract_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		attract = offset & 1;
 	
 		discrete_sound_w(5, !attract);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint2_noise_reset_w )
-	{
+	public static WriteHandlerPtr sprint2_noise_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(6, 0);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint2_skid1_w )
-	{
+	public static WriteHandlerPtr sprint2_skid1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(0, offset & 1);
-	}
-	static WRITE_HANDLER( sprint2_skid2_w )
-	{
+	} };
+	public static WriteHandlerPtr sprint2_skid2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(1, offset & 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint2_lamp1_w )
-	{
+	public static WriteHandlerPtr sprint2_lamp1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0, offset & 1);
-	}
-	static WRITE_HANDLER( sprint2_lamp2_w )
-	{
+	} };
+	public static WriteHandlerPtr sprint2_lamp2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(1, offset & 1);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

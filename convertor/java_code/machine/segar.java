@@ -17,14 +17,9 @@ public class segar
 	
 	UINT8 *segar_mem;
 	
-	WRITE_HANDLER( segar_characterram_w );
-	WRITE_HANDLER( segar_characterram2_w );
-	WRITE_HANDLER( segar_colortable_w );
-	WRITE_HANDLER( segar_bcolortable_w );
 	
 	
-	WRITE_HANDLER( segar_w )
-	{
+	public static WriteHandlerPtr segar_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int pc,op,page,off;
 		unsigned int bad;
 	
@@ -89,7 +84,7 @@ public class segar
 		{
 			logerror("unmapped write at %04X:%02X\n",off,data);
 		}
-	}
+	} };
 	
 	
 	/****************************************************************************/

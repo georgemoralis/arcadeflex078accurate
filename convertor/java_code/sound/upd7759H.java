@@ -32,9 +32,6 @@ void UPD7759_port_w (int num, UINT8 data);
 void UPD7759_start_w (int num, UINT8 data);
 int UPD7759_busy_r (int num);
 
-WRITE_HANDLER( UPD7759_0_reset_w );
-WRITE_HANDLER( UPD7759_0_port_w );
-WRITE_HANDLER( UPD7759_0_start_w );
 
 #endif
 

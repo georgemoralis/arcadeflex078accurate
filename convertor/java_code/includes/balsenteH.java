@@ -27,38 +27,21 @@ public class balsenteH
 	
 	void balsente_noise_gen(int chip, int count, short *buffer);
 	
-	WRITE_HANDLER( balsente_random_reset_w );
 	
-	WRITE_HANDLER( balsente_rombank_select_w );
-	WRITE_HANDLER( balsente_rombank2_select_w );
 	
-	WRITE_HANDLER( balsente_misc_output_w );
 	
-	WRITE_HANDLER( balsente_m6850_w );
 	
-	WRITE_HANDLER( balsente_m6850_sound_w );
 	
-	WRITE_HANDLER( balsente_adc_select_w );
 	
-	WRITE_HANDLER( balsente_counter_8253_w );
 	
-	WRITE_HANDLER( balsente_counter_control_w );
 	
-	WRITE_HANDLER( balsente_chip_select_w );
-	WRITE_HANDLER( balsente_dac_data_w );
-	WRITE_HANDLER( balsente_register_addr_w );
 	
-	WRITE_HANDLER( spiker_expand_w );
 	
 	READ16_HANDLER( shrike_shared_68k_r );
 	WRITE16_HANDLER( shrike_shared_68k_w );
-	WRITE_HANDLER( shrike_shared_6809_w );
 	
 	
 	/*----------- defined in vidhrdw/balsente.c -----------*/
 	
 	
-	WRITE_HANDLER( balsente_videoram_w );
-	WRITE_HANDLER( balsente_paletteram_w );
-	WRITE_HANDLER( balsente_palette_select_w );
-}
+	}

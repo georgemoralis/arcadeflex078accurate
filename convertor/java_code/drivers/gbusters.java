@@ -38,16 +38,14 @@ public class gbusters
 			return ram[offset];
 	} };
 	
-	static WRITE_HANDLER( bankedram_w )
-	{
+	public static WriteHandlerPtr bankedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (palette_selected)
 			paletteram_xBBBBBGGGGGRRRRR_swap_w(offset,data);
 		else
 			ram[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( gbusters_1f98_w )
-	{
+	public static WriteHandlerPtr gbusters_1f98_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
 		/* bit 0 = enable char ROM reading through the video RAM */
 		K052109_set_RMRD_line((data & 0x01) ? ASSERT_LINE : CLEAR_LINE);
@@ -59,10 +57,9 @@ public class gbusters
 			//logerror("%04x: (1f98) write %02x\n",activecpu_get_pc(), data);
 			//usrintf_showmessage("$1f98 = %02x", data);
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( gbusters_coin_counter_w )
-	{
+	public static WriteHandlerPtr gbusters_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 select palette RAM  or work RAM at 5800-5fff */
 		palette_selected = ~data & 0x01;
 	
@@ -83,10 +80,9 @@ public class gbusters
 			sprintf(baf,"ccnt = %02x", data);
 	//		usrintf_showmessage(baf);
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( gbusters_unknown_w )
-	{
+	public static WriteHandlerPtr gbusters_unknown_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("%04x: write %02x to 0x1f9c\n",activecpu_get_pc(), data);
 	
 	{
@@ -94,15 +90,13 @@ public class gbusters
 		sprintf(baf,"??? = %02x", data);
 	//	usrintf_showmessage(baf);
 	}
-	}
+	} };
 	
-	WRITE_HANDLER( gbusters_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr gbusters_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( gbusters_snd_bankswitch_w )
-	{
+	public static WriteHandlerPtr gbusters_snd_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bank_B = ((data >> 2) & 0x01);	/* ?? */
 		int bank_A = ((data) & 0x01);		/* ?? */
 		K007232_set_bank( 0, bank_A, bank_B );
@@ -114,7 +108,7 @@ public class gbusters
 			usrintf_showmessage(baf);
 		}
 	#endif
-	}
+	} };
 	
 	static MEMORY_READ_START( gbusters_readmem )
 		{ 0x1f90, 0x1f90, input_port_3_r },		/* coinsw & startsw */

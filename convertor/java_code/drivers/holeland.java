@@ -21,11 +21,6 @@ public class holeland
 {
 	
 	
-	WRITE_HANDLER( holeland_videoram_w );
-	WRITE_HANDLER( holeland_colorram_w );
-	WRITE_HANDLER( holeland_flipscreen_w );
-	WRITE_HANDLER( holeland_pal_offs_w );
-	WRITE_HANDLER( holeland_scroll_w );
 	
 	
 	static MEMORY_READ_START( readmem )

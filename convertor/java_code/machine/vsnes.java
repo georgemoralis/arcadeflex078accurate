@@ -115,8 +115,7 @@ public class vsnes
 	 *	Input Ports
 	 *
 	 *************************************/
-	WRITE_HANDLER( vsnes_in0_w )
-	{
+	public static WriteHandlerPtr vsnes_in0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Toggling bit 0 high then low resets both controllers */
 		if ( data & 1 )
 		{
@@ -124,7 +123,7 @@ public class vsnes
 			input_latch[0] = readinputport( 0 );
 			input_latch[1] = readinputport( 1 );
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr gun_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = ( input_latch[0] ) & 1;
@@ -176,8 +175,7 @@ public class vsnes
 		return ret;
 	} };
 	
-	WRITE_HANDLER( vsnes_in0_1_w )
-	{
+	public static WriteHandlerPtr vsnes_in0_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Toggling bit 0 high then low resets both controllers */
 		if ( data & 1 )
 		{
@@ -185,7 +183,7 @@ public class vsnes
 			input_latch[2] = readinputport( 4 );
 			input_latch[3] = readinputport( 5 );
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr vsnes_in0_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = ( input_latch[2] ) & 1;
@@ -268,8 +266,7 @@ public class vsnes
 	 *
 	 **********************************************************************************/
 	
-	static WRITE_HANDLER( vsnormal_vrom_banking )
-	{
+	public static WriteHandlerPtr vsnormal_vrom_banking = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* switch vrom */
 		ppu2c03b_set_videorom_bank( 0, 0, 8, ( data & 4 ) ? 1 : 0, 512 );
 	
@@ -277,7 +274,7 @@ public class vsnes
 	
 		/* move along */
 		vsnes_in0_w( offset, data );
-	}
+	} };
 	
 	/* Most games switch VROM Banks in controller 0 write */
 	/* they dont do any other trickery */
@@ -286,8 +283,7 @@ public class vsnes
 		install_mem_write_handler( 0, 0x4016, 0x4016, vsnormal_vrom_banking );
 	} };
 	
-	static WRITE_HANDLER( ppuRC2C05_protection )
-	{
+	public static WriteHandlerPtr ppuRC2C05_protection = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* This PPU has registers mapped at $2000 and $2001 inverted */
 		/* and no remapped color */
 	
@@ -298,7 +294,7 @@ public class vsnes
 		}
 	
 		ppu2c03b_0_w( 0, data );
-	}
+	} };
 	
 	/**********************************************************************************/
 	
@@ -325,8 +321,7 @@ public class vsnes
 	
 	/* Gun Games - VROM Banking in controller 0 write */
 	
-	static WRITE_HANDLER( gun_in0_w )
-	{
+	public static WriteHandlerPtr gun_in0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int zapstore;
 	
 		if (vsnes_do_vrom_bank)
@@ -375,7 +370,7 @@ public class vsnes
 	
 	    zapstore = data;
 	
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_duckhunt  = new DriverInitHandlerPtr() { public void handler(){
 		install_mem_read_handler ( 0, 0x4016, 0x4016, gun_in0_r);
@@ -394,8 +389,7 @@ public class vsnes
 	
 	/* The Goonies, VS Gradius: ROMs bankings at $8000-$ffff */
 	
-	static WRITE_HANDLER( goonies_rom_banking )
-	{
+	public static WriteHandlerPtr goonies_rom_banking = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int reg = ( offset >> 12 ) & 0x07;
 		int bankoffset = ( data & 7 ) * 0x2000 + 0x10000;
 	
@@ -421,7 +415,7 @@ public class vsnes
 				ppu2c03b_set_videorom_bank( 0, 4, 4, data, 256 );
 			break;
 		}
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_goonies  = new DriverInitHandlerPtr() { public void handler(){
 		/* We do manual banking, in case the code falls through */
@@ -523,8 +517,7 @@ public class vsnes
 	static int drmario_shiftreg;
 	static int drmario_shiftcount;
 	
-	static WRITE_HANDLER( drmario_rom_banking )
-	{
+	public static WriteHandlerPtr drmario_rom_banking = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* basically, a MMC1 mapper from the nes */
 		static int size16k, switchlow, vrom4k;
 	
@@ -631,7 +624,7 @@ public class vsnes
 	
 			drmario_shiftreg = 0;
 		}
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_drmario  = new DriverInitHandlerPtr() { public void handler(){
 		/* We do manual banking, in case the code falls through */
@@ -718,12 +711,11 @@ public class vsnes
 	
 	/* Castelvania: ROMs bankings at $8000-$ffff */
 	
-	static WRITE_HANDLER( castlevania_rom_banking )
-	{
+	public static WriteHandlerPtr castlevania_rom_banking = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int rombank = 0x10000 + ( data & 7 ) * 0x4000;
 	
 		memcpy( &memory_region( REGION_CPU1 )[0x08000], &memory_region( REGION_CPU1 )[rombank], 0x4000 );
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_cstlevna  = new DriverInitHandlerPtr() { public void handler(){
 		/* when starting the game, the 1st 16k and the last 16k are loaded into the 2 banks */
@@ -821,8 +813,7 @@ public class vsnes
 		}
 	}
 	
-	static WRITE_HANDLER( mapper4_w )
-	{
+	public static WriteHandlerPtr mapper4_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static UINT8 last_bank = 0xff;
 	
 		switch (offset & 0x7001)
@@ -916,7 +907,7 @@ public class vsnes
 				logerror("mapper4_w uncaught: %04x value: %02x\n", offset + 0x8000, data);
 				break;
 		}
-	}
+	} };
 	
 	/* Common init for MMC3 games */
 	
@@ -1085,7 +1076,7 @@ public class vsnes
 	/**********************************************************************************/
 	/* Platoon rom banking */
 	
-	static WRITE_HANDLER( mapper68_rom_banking ){
+	public static WriteHandlerPtr mapper68_rom_banking = new WriteHandlerPtr() {public void handler(int offset, int data)
 	
 		switch (offset & 0x7000)
 		{
@@ -1110,7 +1101,7 @@ public class vsnes
 			memcpy( &memory_region( REGION_CPU1 )[0x08000], &memory_region( REGION_CPU1 )[0x10000 +data*0x4000], 0x4000 );
 			break;
 	
-		}
+		} };
 	
 	}
 	
@@ -1134,13 +1125,12 @@ public class vsnes
 	/* Vs. Raid on Bungeling Bay (Japan) */
 	
 	static int ret;
-	static WRITE_HANDLER ( set_bnglngby_irq_w )
-	{
+	public static WriteHandlerPtr set_bnglngby_irq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ret = data;
 		cpu_set_irq_line( 0, 0, ( data & 2 ) ? ASSERT_LINE : CLEAR_LINE );
 		/* other values ??? */
 		/* 0, 4, 84 */
-	}
+	} };
 	
 	public static ReadHandlerPtr set_bnglngby_irq_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ret;
@@ -1210,8 +1200,7 @@ public class vsnes
 	/**********************************************************************************/
 	/* VS Tennis */
 	
-	static WRITE_HANDLER( vstennis_vrom_banking )
-	{
+	public static WriteHandlerPtr vstennis_vrom_banking = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int other_cpu = cpu_getactivecpu() ^ 1;
 	
 		/* switch vrom */
@@ -1225,7 +1214,7 @@ public class vsnes
 			vsnes_in0_w( offset, data );
 		else
 			vsnes_in0_1_w( offset, data );
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_vstennis  = new DriverInitHandlerPtr() { public void handler(){
 		/* vrom switching is enabled with bit 2 of $4016 */

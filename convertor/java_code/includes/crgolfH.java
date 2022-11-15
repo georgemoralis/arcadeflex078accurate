@@ -12,8 +12,5 @@ extern data8_t *crgolf_screen_select;
 extern data8_t *crgolf_screenb_enable;
 extern data8_t *crgolf_screena_enable;
 
-WRITE_HANDLER( crgolf_videoram_bit0_w );
-WRITE_HANDLER( crgolf_videoram_bit1_w );
-WRITE_HANDLER( crgolf_videoram_bit2_w );
 
 

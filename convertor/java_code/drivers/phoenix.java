@@ -44,19 +44,11 @@ public class phoenix
 	
 	
 	
-	WRITE_HANDLER( phoenix_videoram_w );
-	WRITE_HANDLER( phoenix_videoreg_w );
-	WRITE_HANDLER( pleiads_videoreg_w );
-	WRITE_HANDLER( phoenix_scroll_w );
 	
-	WRITE_HANDLER( phoenix_sound_control_a_w );
-	WRITE_HANDLER( phoenix_sound_control_b_w );
 	int phoenix_sh_start(const struct MachineSound *msound);
 	void phoenix_sh_stop(void);
 	void phoenix_sh_update(void);
 	
-	WRITE_HANDLER( pleiads_sound_control_a_w );
-	WRITE_HANDLER( pleiads_sound_control_b_w );
 	int pleiads_sh_start(const struct MachineSound *msound);
 	void pleiads_sh_stop(void);
 	void pleiads_sh_update(void);

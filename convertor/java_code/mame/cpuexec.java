@@ -669,10 +669,9 @@ public class cpuexec
 	}
 	
 	
-	WRITE_HANDLER( watchdog_reset_w )
-	{
+	public static WriteHandlerPtr watchdog_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		watchdog_reset();
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr watchdog_reset_r  = new ReadHandlerPtr() { public int handler(int offset){

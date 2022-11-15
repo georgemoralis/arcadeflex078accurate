@@ -72,8 +72,7 @@ public class astrof
 	static int death_playing = 0;
 	static int bosskill_playing = 0;
 	
-	WRITE_HANDLER( astrof_sample1_w )
-	{
+	public static WriteHandlerPtr astrof_sample1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last = 0;
 	
 		if (death_playing)
@@ -131,11 +130,10 @@ public class astrof
 		/* Bit 7 - Don't know. Maybe a global sound enable bit? */
 	
 		last = data;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( astrof_sample2_w )
-	{
+	public static WriteHandlerPtr astrof_sample2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last = 0;
 	
 		/* Bit 0-2 Explosion select (triggered by Bit 2 of the other port */
@@ -179,6 +177,6 @@ public class astrof
 		}
 	
 		last = data;
-	}
+	} };
 	
 }

@@ -8,12 +8,7 @@
 
 int exidy_sh_start(const struct MachineSound *msound);
 
-WRITE_HANDLER( exidy_shriot_w );
-WRITE_HANDLER( exidy_sfxctrl_w );
-WRITE_HANDLER( exidy_sh8253_w );
-WRITE_HANDLER( exidy_sh6840_w );
 
-WRITE_HANDLER( mtrap_voiceio_w );
 
 
 /*----------- defined in sndhrdw/targ.c -----------*/
@@ -23,7 +18,6 @@ extern UINT8 targ_spec_flag;
 int targ_sh_start(const struct MachineSound *msound);
 void targ_sh_stop(void);
 
-WRITE_HANDLER( targ_sh_w );
 
 
 /*----------- defined in vidhrdw/exidy.c -----------*/
@@ -53,6 +47,4 @@ extern UINT8 exidy_collision_invert;
 
 
 
-WRITE_HANDLER( exidy_characterram_w );
-WRITE_HANDLER( exidy_color_w );
 

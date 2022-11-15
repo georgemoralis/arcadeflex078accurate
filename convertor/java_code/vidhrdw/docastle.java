@@ -144,25 +144,23 @@ public class docastle
 		convert_color_prom(colortable,color_prom,1);
 	} };
 	
-	WRITE_HANDLER( docastle_videoram_w )
-	{
+	public static WriteHandlerPtr docastle_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 			tilemap_mark_tile_dirty(fg_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( docastle_colorram_w )
-	{
+	public static WriteHandlerPtr docastle_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (colorram[offset] != data)
 		{
 			colorram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 			tilemap_mark_tile_dirty(fg_tilemap, offset);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr docastle_flipscreen_off_r  = new ReadHandlerPtr() { public int handler(int offset){
 		flip_screen_set(0);
@@ -176,17 +174,15 @@ public class docastle
 		return 1;
 	} };
 	
-	WRITE_HANDLER( docastle_flipscreen_off_w )
-	{
+	public static WriteHandlerPtr docastle_flipscreen_off_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(0);
 		tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
-	}
+	} };
 	
-	WRITE_HANDLER( docastle_flipscreen_on_w )
-	{
+	public static WriteHandlerPtr docastle_flipscreen_on_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(1);
 		tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{

@@ -15,8 +15,7 @@ public class playch10
 	
 	static struct tilemap *bg_tilemap;
 	
-	WRITE_HANDLER( playch10_videoram_w )
-	{
+	public static WriteHandlerPtr playch10_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (pc10_sdcs)
 		{
 			if (videoram[offset] != data)
@@ -25,7 +24,7 @@ public class playch10
 				tilemap_mark_tile_dirty(bg_tilemap, offset / 2);
 			}
 		}
-	}
+	} };
 	
 	public static PaletteInitHandlerPtr palette_init_playch10  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;

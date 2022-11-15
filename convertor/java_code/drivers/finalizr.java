@@ -24,7 +24,6 @@ public class finalizr
 	
 	int finalizr_T1_line;
 	
-	WRITE_HANDLER( finalizr_videoctrl_w );
 	
 	
 	
@@ -41,19 +40,16 @@ public class finalizr
 		}
 	} };
 	
-	static WRITE_HANDLER( finalizr_coin_w )
-	{
+	public static WriteHandlerPtr finalizr_coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0,data & 0x01);
 		coin_counter_w(1,data & 0x02);
-	}
+	} };
 	
-	WRITE_HANDLER( finalizr_i8039_irq_w )
-	{
+	public static WriteHandlerPtr finalizr_i8039_irq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1, 0, ASSERT_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( i8039_irqen_w )
-	{
+	public static WriteHandlerPtr i8039_irqen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*  bit 0x80 goes active low, indicating that the
 			external IRQ being serviced is complete
 			bit 0x40 goes active high to enable the DAC ?
@@ -61,7 +57,7 @@ public class finalizr
 	
 		if ((data & 0x80) == 0)
 			cpu_set_irq_line(1, 0, CLEAR_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr i8039_T1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/*  I suspect the clock-out from the I8039 T0 line should be connected
@@ -87,15 +83,14 @@ public class finalizr
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( i8039_T0_w )
-	{
+	public static WriteHandlerPtr i8039_T0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*	This becomes a clock output at a frequency of 3.072MHz (derived
 			by internally dividing the main xtal clock input by a factor of 3).
 			This output is divided by a factor of 16, then used as a 192KHz
 			input clock to the T1 input line.
 			The I8039 core currently doesn't support clock out on this pin.
 		*/
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0800, 0x0800, input_port_5_r },

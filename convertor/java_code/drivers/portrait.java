@@ -30,8 +30,6 @@ public class portrait
 	
 	int portrait_scrollx_hi, portrait_scrollx_lo;
 	
-	WRITE_HANDLER( portrait_bgvideo_write );
-	WRITE_HANDLER( portrait_fgvideo_write );
 	
 	static struct GfxLayout tile_layout =
 	{
@@ -108,8 +106,7 @@ public class portrait
 		}
 	} };
 	
-	static WRITE_HANDLER(a000_w)
-	{
+	public static WriteHandlerPtr a000_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch( offset )
 		{
 		case 0x00: /* sound command? */
@@ -133,7 +130,7 @@ public class portrait
 		default:
 			break;
 		}
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

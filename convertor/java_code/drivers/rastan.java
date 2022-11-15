@@ -20,9 +20,6 @@ public class rastan
 	WRITE16_HANDLER( rastan_spritectrl_w );
 	
 	
-	WRITE_HANDLER( rastan_adpcm_trigger_w );
-	WRITE_HANDLER( rastan_c000_w );
-	WRITE_HANDLER( rastan_d000_w );
 	
 	
 	static READ16_HANDLER( rastan_cycle_r )
@@ -66,10 +63,9 @@ public class rastan
 	MEMORY_END
 	
 	
-	static WRITE_HANDLER( rastan_bankswitch_w )
-	{
+	public static WriteHandlerPtr rastan_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank( 5, memory_region(REGION_CPU2) + ((data ^1) & 0x01) * 0x4000 + 0x10000 );
-	}
+	} };
 	
 	static MEMORY_READ_START( rastan_s_readmem )
 		{ 0x0000, 0x3fff, MRA_ROM },

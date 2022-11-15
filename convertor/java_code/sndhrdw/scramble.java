@@ -104,36 +104,32 @@ public class scramble
 	} };
 	
 	
-	WRITE_HANDLER( scramble_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr scramble_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* the complement of bit 3 is connected to the flip-flop's clock */
 		TTL7474_clock_w(2, ~data & 0x08);
 		TTL7474_update(2);
 	
 		/* bit 4 is sound disable */
 		mixer_sound_enable_global_w(~data & 0x10);
-	}
+	} };
 	
-	WRITE_HANDLER( sfx_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr sfx_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 1 is connected to the flip-flop's clock */
 		TTL7474_clock_w(3, data & 0x01);
 		TTL7474_update(3);
-	}
+	} };
 	
-	WRITE_HANDLER( mrkougar_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr mrkougar_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* the complement of bit 3 is connected to the flip-flop's clock */
 		TTL7474_clock_w(2, ~data & 0x08);
 		TTL7474_update(2);
-	}
+	} };
 	
-	WRITE_HANDLER( froggrmc_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr froggrmc_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* the complement of bit 0 is connected to the flip-flop's clock */
 		TTL7474_clock_w(2, ~data & 0x01);
 		TTL7474_update(2);
-	}
+	} };
 	
 	
 	static int scramble_sh_irq_callback(int irqline)
@@ -179,16 +175,14 @@ public class scramble
 		cpu_set_irq_line(2, 0, !TTL7474_output_comp_r(3) ? ASSERT_LINE : CLEAR_LINE);
 	}
 	
-	WRITE_HANDLER( hotshock_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr hotshock_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1, 0, PULSE_LINE);
-	}
+	} };
 	
-	WRITE_HANDLER( explorer_sh_irqtrigger_w  )
-	{
+	public static WriteHandlerPtr explorer_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1, 0, PULSE_LINE);
 		cpu_spinuntil_time(TIME_IN_USEC(100));
-	}
+	} };
 	
 	static void filter_w(int chip, int channel, int data)
 	{
@@ -201,22 +195,20 @@ public class scramble
 		set_RC_filter(3*chip + channel,1000,5100,0,C);
 	}
 	
-	WRITE_HANDLER( scramble_filter_w )
-	{
+	public static WriteHandlerPtr scramble_filter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		filter_w(1, 0, (offset >>  0) & 3);
 		filter_w(1, 1, (offset >>  2) & 3);
 		filter_w(1, 2, (offset >>  4) & 3);
 		filter_w(0, 0, (offset >>  6) & 3);
 		filter_w(0, 1, (offset >>  8) & 3);
 		filter_w(0, 2, (offset >> 10) & 3);
-	}
+	} };
 	
-	WRITE_HANDLER( frogger_filter_w )
-	{
+	public static WriteHandlerPtr frogger_filter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		filter_w(0, 0, (offset >>  6) & 3);
 		filter_w(0, 1, (offset >>  8) & 3);
 		filter_w(0, 2, (offset >> 10) & 3);
-	}
+	} };
 	
 	
 	static const struct TTL7474_interface scramble_sh_7474_intf =
@@ -255,19 +247,16 @@ public class scramble
 	
 	static int latch;
 	
-	WRITE_HANDLER( zigzag_8910_latch_w )
-	{
+	public static WriteHandlerPtr zigzag_8910_latch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		latch = offset;
-	}
+	} };
 	
-	WRITE_HANDLER( zigzag_8910_data_trigger_w )
-	{
+	public static WriteHandlerPtr zigzag_8910_data_trigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		AY8910_write_port_0_w(0,latch);
-	}
+	} };
 	
-	WRITE_HANDLER( zigzag_8910_control_trigger_w )
-	{
+	public static WriteHandlerPtr zigzag_8910_control_trigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		AY8910_control_port_0_w(0,latch);
-	}
+	} };
 	
 }

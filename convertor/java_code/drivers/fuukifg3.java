@@ -262,12 +262,11 @@ public class fuukifg3
 	
 	***************************************************************************/
 	
-	static WRITE_HANDLER ( fuuki32_sound_bw_w )
-	{
+	public static WriteHandlerPtr fuuki32_sound_bw_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU2);
 	
 		cpu_setbank(1,rom + data * 0x4000);
-	}
+	} };
 	
 	static MEMORY_READ_START( fuuki32_sound_readmem )
 		{ 0x0000, 0x3fff, MRA_ROM		},	// ROM

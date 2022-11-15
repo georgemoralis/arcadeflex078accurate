@@ -66,10 +66,6 @@ public class sprcros2
 	extern data8_t *sprcros2_fgvideoram, *sprcros2_spriteram, *sprcros2_bgvideoram;
 	extern size_t sprcros2_spriteram_size;
 	
-	WRITE_HANDLER( sprcros2_fgvideoram_w );
-	WRITE_HANDLER( sprcros2_bgvideoram_w );
-	WRITE_HANDLER( sprcros2_bgscrollx_w );
-	WRITE_HANDLER( sprcros2_bgscrolly_w );
 	
 	static data8_t *sprcros2_sharedram;
 	int sprcros2_m_port7 = 0;
@@ -79,13 +75,11 @@ public class sprcros2
 		return sprcros2_sharedram[offset];
 	} };
 	
-	static WRITE_HANDLER( sprcros2_sharedram_w )
-	{
+	public static WriteHandlerPtr sprcros2_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sprcros2_sharedram[offset]=data;
-	}
+	} };
 	
-	static WRITE_HANDLER( sprcros2_m_port7_w )
-	{
+	public static WriteHandlerPtr sprcros2_m_port7_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		//76543210
@@ -103,10 +97,9 @@ public class sprcros2
 		tilemap_set_flip( ALL_TILEMAPS,data&0x02?(TILEMAP_FLIPX|TILEMAP_FLIPY):0 );
 	
 		sprcros2_m_port7 = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( sprcros2_s_port3_w )
-	{
+	public static WriteHandlerPtr sprcros2_s_port3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU2);
 	
 		//76543210
@@ -119,7 +112,7 @@ public class sprcros2
 			cpu_setbank(2,&RAM[0x10000+((data&0x08)<<10)]);
 	
 		sprcros2_s_port3 = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( sprcros2_m_readmem )
 		{ 0x0000, 0xbfff, MRA_ROM },

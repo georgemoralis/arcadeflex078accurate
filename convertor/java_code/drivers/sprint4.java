@@ -17,8 +17,7 @@ public class sprint4
 {
 	
 	extern extern extern 
-	extern WRITE_HANDLER( sprint4_video_ram_w );
-	
+	extern 
 	extern UINT8* sprint4_video_ram;
 	
 	extern int sprint4_collision[4];
@@ -155,42 +154,35 @@ public class sprint4
 	} };
 	
 	
-	static WRITE_HANDLER( sprint4_wram_w )
-	{
+	public static WriteHandlerPtr sprint4_wram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sprint4_video_ram[0x380 + offset % 0x80] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint4_collision_reset_w )
-	{
+	public static WriteHandlerPtr sprint4_collision_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sprint4_collision[(offset >> 1) & 3] = 0;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint4_analog_w )
-	{
+	public static WriteHandlerPtr sprint4_analog_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		analog = data & 15;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint4_lamp_w )
-	{
+	public static WriteHandlerPtr sprint4_lamp_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status((offset >> 1) & 3, offset & 1);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint4_attract_w )
-	{
+	public static WriteHandlerPtr sprint4_attract_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* sound */
-	}
-	static WRITE_HANDLER( sprint4_crash_w )
-	{
+	} };
+	public static WriteHandlerPtr sprint4_crash_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* sound */
-	}
-	static WRITE_HANDLER( sprint4_skid_w )
-	{
+	} };
+	public static WriteHandlerPtr sprint4_skid_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* sound */
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

@@ -235,14 +235,13 @@ public class travrusa
 	
 	***************************************************************************/
 	
-	WRITE_HANDLER( travrusa_videoram_w )
-	{
+	public static WriteHandlerPtr travrusa_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (travrusa_videoram[offset] != data)
 		{
 			travrusa_videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap,offset/2);
 		}
-	}
+	} };
 	
 	
 	static int scrollx[2];
@@ -256,21 +255,18 @@ public class travrusa
 		tilemap_set_scrollx(bg_tilemap,3,0);
 	}
 	
-	WRITE_HANDLER( travrusa_scroll_x_low_w )
-	{
+	public static WriteHandlerPtr travrusa_scroll_x_low_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		scrollx[0] = data;
 		set_scroll();
-	}
+	} };
 	
-	WRITE_HANDLER( travrusa_scroll_x_high_w )
-	{
+	public static WriteHandlerPtr travrusa_scroll_x_high_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		scrollx[1] = data;
 		set_scroll();
-	}
+	} };
 	
 	
-	WRITE_HANDLER( travrusa_flipscreen_w )
-	{
+	public static WriteHandlerPtr travrusa_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* screen flip is handled both by software and hardware */
 		data ^= ~readinputport(4) & 1;
 	
@@ -278,7 +274,7 @@ public class travrusa
 	
 		coin_counter_w(0,data & 0x02);
 		coin_counter_w(1,data & 0x20);
-	}
+	} };
 	
 	
 	

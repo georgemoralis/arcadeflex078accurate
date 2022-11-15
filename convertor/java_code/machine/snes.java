@@ -263,8 +263,7 @@ public class snes
 	} };
 	
 	/* 0x000000 - 0x2fffff */
-	WRITE_HANDLER( snes_w_bank1 )
-	{
+	public static WriteHandlerPtr snes_w_bank1 = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT16 address = offset & 0xffff;
 	
 		if( address <= 0x1fff )								/* Mirror of Low RAM */
@@ -275,11 +274,10 @@ public class snes
 			logerror( "Attempt to write to reserved address: %X\n", offset );
 		else
 			logerror( "Attempt to write to ROM address: %X\n", offset );
-	}
+	} };
 	
 	/* 0x300000 - 0x3fffff */
-	WRITE_HANDLER( snes_w_bank2 )
-	{
+	public static WriteHandlerPtr snes_w_bank2 = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT16 address = offset & 0xffff;
 	
 		if( address <= 0x1fff )								/* Mirror of Low RAM */
@@ -295,11 +293,10 @@ public class snes
 		}
 		else
 			logerror( "Attempt to write to ROM address: %X\n", offset );
-	}
+	} };
 	
 	/* 0x800000 - 0xffffff */
-	WRITE_HANDLER( snes_w_bank4 )
-	{
+	public static WriteHandlerPtr snes_w_bank4 = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if( cart.mode == SNES_MODE_20 )
 		{
 			if( offset <= 0x2fffff )
@@ -316,7 +313,7 @@ public class snes
 			else
 				logerror( "Attempt to write to ROM address: %X\n", offset );
 		}
-	}
+	} };
 	
 	/*
 	 * DR   - Double read : address is read twice to return a 16bit value.
@@ -634,8 +631,7 @@ public class snes
 	 * mid  - This is the middle byte of a 24 bit value
 	 * high - This is the high byte of a 16 or 24 bit value
 	 */
-	WRITE_HANDLER( snes_w_io )
-	{
+	public static WriteHandlerPtr snes_w_io = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* offset is from 0x000000 */
 		switch( offset )
 		{
@@ -1118,7 +1114,7 @@ public class snes
 		}
 	
 		snes_ram[offset] = data;
-	}
+	} };
 	
 	/* This function checks everything is in a valid range and returns how
 	 * 'valid' this section is as an information block. */

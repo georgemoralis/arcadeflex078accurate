@@ -143,38 +143,34 @@ public class vulgus
 	
 	***************************************************************************/
 	
-	WRITE_HANDLER( vulgus_fgvideoram_w )
-	{
+	public static WriteHandlerPtr vulgus_fgvideoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		vulgus_fgvideoram[offset] = data;
 		tilemap_mark_tile_dirty(fg_tilemap,offset & 0x3ff);
-	}
+	} };
 	
-	WRITE_HANDLER( vulgus_bgvideoram_w )
-	{
+	public static WriteHandlerPtr vulgus_bgvideoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		vulgus_bgvideoram[offset] = data;
 		tilemap_mark_tile_dirty(bg_tilemap,offset & 0x3ff);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( vulgus_c804_w )
-	{
+	public static WriteHandlerPtr vulgus_c804_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0 and 1 are coin counters */
 		coin_counter_w(0, data & 0x01);
 		coin_counter_w(1, data & 0x02);
 	
 		/* bit 7 flips screen */
 		flip_screen_set(data & 0x80);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( vulgus_palette_bank_w )
-	{
+	public static WriteHandlerPtr vulgus_palette_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (vulgus_palette_bank != (data & 3))
 		{
 			vulgus_palette_bank = data & 3;
 			tilemap_mark_all_tiles_dirty(bg_tilemap);
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************

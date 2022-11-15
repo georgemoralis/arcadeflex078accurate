@@ -35,8 +35,7 @@ public class minivadr
 		Draw Pixel.
 	
 	*******************************************************************/
-	WRITE_HANDLER( minivadr_videoram_w )
-	{
+	public static WriteHandlerPtr minivadr_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i;
 		int x, y;
 		int color;
@@ -59,7 +58,7 @@ public class minivadr
 				plot_pixel(tmpbitmap, x + (7 - i), y, color);
 			}
 		}
-	}
+	} };
 	
 	
 	public static VideoUpdateHandlerPtr video_update_minivadr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){

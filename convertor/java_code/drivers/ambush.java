@@ -48,16 +48,14 @@ public class ambush
 	
 	
 	
-	static WRITE_HANDLER( ambush_coin_counter_w )
-	{
+	public static WriteHandlerPtr ambush_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0, data & 0x01);
 		coin_counter_w(1, data & 0x02);
-	}
+	} };
 	
-	static WRITE_HANDLER( flip_screen_w )
-	{
+	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

@@ -95,8 +95,7 @@ public class dribling
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( misc_w )
-	{
+	public static WriteHandlerPtr misc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 7 = di */
 		di = (data >> 7) & 1;
 		if (!di)
@@ -115,11 +114,10 @@ public class dribling
 		/* bit 0 = (32) = PC0 */
 		input_mux = data & 7;
 		logerror("%04X:misc_w(%02X)\n", activecpu_get_previouspc(), data);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sound_w )
-	{
+	public static WriteHandlerPtr sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 7 = stop palla */
 		/* bit 6 = contrasto */
 		/* bit 5 = calgio a */
@@ -129,25 +127,23 @@ public class dribling
 		/* bit 1 = folla m */
 		/* bit 0 = folla b */
 		logerror("%04X:sound_w(%02X)\n", activecpu_get_previouspc(), data);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( pb_w )
-	{
+	public static WriteHandlerPtr pb_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* write PB0-7 */
 		logerror("%04X:pb_w(%02X)\n", activecpu_get_previouspc(), data);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( shr_w )
-	{
+	public static WriteHandlerPtr shr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 3 = watchdog */
 		if (data & 0x08)
 			watchdog_reset_w(0, 0);
 	
 		/* bit 2-0 = SH0-2 */
 		sh = data & 0x07;
-	}
+	} };
 	
 	
 	
@@ -166,8 +162,7 @@ public class dribling
 	} };
 	
 	
-	static WRITE_HANDLER( iowrite )
-	{
+	public static WriteHandlerPtr iowrite = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset & 0x08)
 			ppi8255_0_w(offset & 3, data);
 		else if (offset & 0x10)
@@ -177,7 +172,7 @@ public class dribling
 			dr = ds;
 			ds = data;
 		}
-	}
+	} };
 	
 	
 	

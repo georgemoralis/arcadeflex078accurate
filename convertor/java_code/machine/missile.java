@@ -40,8 +40,7 @@ public class missile
 	
 	
 	/********************************************************************************************/
-	WRITE_HANDLER( missile_w )
-	{
+	public static WriteHandlerPtr missile_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int pc, opcode;
 		offset = offset + 0x640;
 	
@@ -110,7 +109,7 @@ public class missile
 		}
 	
 		logerror("possible unmapped write, offset: %04x, data: %02x\n", offset, data);
-	}
+	} };
 	
 	
 	/********************************************************************************************/

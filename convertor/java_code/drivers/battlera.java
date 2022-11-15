@@ -30,30 +30,24 @@ public class battlera
 {
 	
 	
-	WRITE_HANDLER( HuC6270_register_w );
-	WRITE_HANDLER( HuC6270_data_w );
-	WRITE_HANDLER( battlera_palette_w );
 	
-	WRITE_HANDLER( HuC6270_debug_w );
 	
 	static int control_port_select;
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( battlera_sound_w )
-	{
+	public static WriteHandlerPtr battlera_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset==0) {
 			soundlatch_w(0,data);
 			cpu_set_irq_line(1, 0, HOLD_LINE);
 		}
-	}
+	} };
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( control_data_w )
-	{
+	public static WriteHandlerPtr control_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		control_port_select=data;
-	}
+	} };
 	
 	public static ReadHandlerPtr control_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (control_port_select) {
@@ -96,13 +90,12 @@ public class battlera
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( YM2203_w )
-	{
+	public static WriteHandlerPtr YM2203_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset) {
 		case 0: YM2203_control_port_0_w(0,data); break;
 		case 1: YM2203_write_port_0_w(0,data); break;
 		}
-	}
+	} };
 	
 	static int msm5205next;
 	
@@ -118,15 +111,13 @@ public class battlera
 			cpu_set_irq_line(1, 1, HOLD_LINE);
 	}
 	
-	static WRITE_HANDLER( battlera_adpcm_data_w )
-	{
+	public static WriteHandlerPtr battlera_adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		msm5205next=data;
-	}
+	} };
 	
-	static WRITE_HANDLER( battlera_adpcm_reset_w )
-	{
+	public static WriteHandlerPtr battlera_adpcm_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_reset_w(0,0);
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x000000, 0x00ffff, MRA_ROM },

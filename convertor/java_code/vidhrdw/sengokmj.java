@@ -32,29 +32,25 @@ public class sengokmj
 		return fg_vram[offset];
 	} };
 	
-	WRITE_HANDLER( sengoku_bg_vram_w )
-	{
+	public static WriteHandlerPtr sengoku_bg_vram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bg_vram[offset] = data;
 		tilemap_mark_tile_dirty(bg_tilemap,offset/2);
-	}
+	} };
 	
-	WRITE_HANDLER( sengoku_md_vram_w )
-	{
+	public static WriteHandlerPtr sengoku_md_vram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		md_vram[offset] = data;
 		tilemap_mark_tile_dirty(md_tilemap,offset/2);
-	}
+	} };
 	
-	WRITE_HANDLER( sengoku_tx_vram_w )
-	{
+	public static WriteHandlerPtr sengoku_tx_vram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tx_vram[offset] = data;
 		tilemap_mark_tile_dirty(tx_tilemap,offset/2);
-	}
+	} };
 	
-	WRITE_HANDLER( sengoku_fg_vram_w )
-	{
+	public static WriteHandlerPtr sengoku_fg_vram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		fg_vram[offset] = data;
 		tilemap_mark_tile_dirty(fg_tilemap,offset/2);
-	}
+	} };
 	
 	static void sengoku_bg_tile_info(int tile_index)
 	{

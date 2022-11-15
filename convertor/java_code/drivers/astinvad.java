@@ -24,14 +24,7 @@ public class astinvad
 	
 	extern extern 
 	extern extern extern 
-	extern WRITE_HANDLER( astinvad_sound1_w );
-	extern WRITE_HANDLER( astinvad_sound2_w );
-	extern WRITE_HANDLER( astinvad_videoram_w );
-	extern WRITE_HANDLER( spaceint_sound1_w );
-	extern WRITE_HANDLER( spaceint_sound2_w );
-	extern WRITE_HANDLER( spaceint_videoram_w );
-	extern WRITE_HANDLER( spaceint_color_w);
-	
+	extern extern extern extern extern extern extern 
 	extern struct Samplesinterface astinvad_samples_interface;
 	
 	

@@ -106,18 +106,15 @@ public class looping
 				0)
 	}
 	
-	WRITE_HANDLER( looping_flip_screen_x_w )
-	{
+	public static WriteHandlerPtr looping_flip_screen_x_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_x_set(~data & 0x01);
-	}
+	} };
 	
-	WRITE_HANDLER( looping_flip_screen_y_w )
-	{
+	public static WriteHandlerPtr looping_flip_screen_y_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_y_set(~data & 0x01);
-	}
+	} };
 	
-	WRITE_HANDLER( looping_colorram_w )
-	{
+	public static WriteHandlerPtr looping_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i,offs;
 		if( colorram[offset]!=data )
 		{
@@ -139,7 +136,7 @@ public class looping
 				tilemap_set_scrolly( tilemap,offset/2,data );
 			}
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_looping  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap = tilemap_create( get_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32,32 );
@@ -151,14 +148,13 @@ public class looping
 		return -1;
 	} };
 	
-	WRITE_HANDLER( looping_videoram_w )
-	{
+	public static WriteHandlerPtr looping_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if( videoram[offset]!=data )
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty( tilemap, offset );
 		}
-	}
+	} };
 	
 	static void draw_sprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )
 	{
@@ -208,14 +204,13 @@ public class looping
 		draw_sprites( bitmap,cliprect );
 	} };
 	
-	WRITE_HANDLER( looping_intack )
-	{
+	public static WriteHandlerPtr looping_intack = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data==0)
 		{
 			cpu_irq_line_vector_w(0, 0, 4);
 			cpu_set_irq_line(0, 0, CLEAR_LINE);
 		}
-	}
+	} };
 	
 	public static InterruptHandlerPtr looping_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_irq_line_vector_w(0, 0, 4);
@@ -224,21 +219,19 @@ public class looping
 	
 	/****** sound *******/
 	
-	WRITE_HANDLER( looping_soundlatch_w )
-	{
+	public static WriteHandlerPtr looping_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset, data);
 		cpu_irq_line_vector_w(1, 0, 4);
 		cpu_set_irq_line(1, 0, ASSERT_LINE);
-	}
+	} };
 	
-	WRITE_HANDLER( looping_souint_clr )
-	{
+	public static WriteHandlerPtr looping_souint_clr = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data==0)
 		{
 			cpu_irq_line_vector_w(1, 0, 4);
 			cpu_set_irq_line(1, 0, CLEAR_LINE);
 		}
-	}
+	} };
 	
 	void looping_spcint(int state)
 	{
@@ -246,14 +239,13 @@ public class looping
 		cpu_set_irq_line(1, 0, state);
 	}
 	
-	WRITE_HANDLER( looping_sound_sw )
-	{
+	public static WriteHandlerPtr looping_sound_sw = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* this can be improved by adding the missing
 		   signals for decay etc. (see schematics) */
 		static int r[8];
 		r[offset]=data^1;
 		DAC_data_w(0, ((r[1]<<7) + (r[2]<<6))*r[6]);
-	}
+	} };
 	
 	static MEMORY_READ_START( looping_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

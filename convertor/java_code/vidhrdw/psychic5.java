@@ -44,19 +44,17 @@ public class psychic5
 		flip_screen_set(0);
 	} };
 	
-	WRITE_HANDLER( psychic5_vram_page_select_w )
-	{
+	public static WriteHandlerPtr psychic5_vram_page_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ps5_vram_page = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr psychic5_vram_page_select_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ps5_vram_page;
 	} };
 	
-	WRITE_HANDLER( psychic5_title_screen_w )
-	{
+	public static WriteHandlerPtr psychic5_title_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		title_screen = data & 0x01;
-	}
+	} };
 	
 	void psychic5_paletteram_w(int color_offs, int offset, int data)
 	{
@@ -163,23 +161,21 @@ public class psychic5
 	}
 	
 	
-	WRITE_HANDLER( psychic5_bg_videoram_w )
-	{
+	public static WriteHandlerPtr psychic5_bg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (psychic5_bg_videoram[offset] != data)
 		{
 			psychic5_bg_videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset / 2);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( psychic5_fg_videoram_w )
-	{
+	public static WriteHandlerPtr psychic5_fg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (psychic5_fg_videoram[offset] != data)
 		{
 			psychic5_fg_videoram[offset] = data;
 			tilemap_mark_tile_dirty(fg_tilemap, offset / 2);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr psychic5_paged_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val;
@@ -230,8 +226,7 @@ public class psychic5
 		return 0;
 	} };
 	
-	WRITE_HANDLER( psychic5_paged_ram_w )
-	{
+	public static WriteHandlerPtr psychic5_paged_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (!ps5_vram_page)
 		{
 			if (offset < 0x1000)
@@ -270,7 +265,7 @@ public class psychic5
 				psychic5_fg_videoram_w(offset & 0xfff, data);
 			}
 		}
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{

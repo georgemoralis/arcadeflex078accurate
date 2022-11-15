@@ -54,10 +54,9 @@ public class ace
 	
 	static int objpos[8];
 	
-	static WRITE_HANDLER( ace_objpos_w )
-	{
+	public static WriteHandlerPtr ace_objpos_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		objpos[offset]=data;
-	}
+	} };
 	
 	#if 0
 	public static ReadHandlerPtr ace_objpos_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -124,8 +123,7 @@ public class ace
 		return ace_characterram[offset];
 	} };
 	
-	static WRITE_HANDLER( ace_characterram_w )
-	{
+	public static WriteHandlerPtr ace_characterram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (ace_characterram[offset] != data)
 		{
 			if (data&(~0x07))
@@ -135,7 +133,7 @@ public class ace
 			}
 			ace_characterram[offset] = data;
 		}
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr unk_r  = new ReadHandlerPtr() { public int handler(int offset){

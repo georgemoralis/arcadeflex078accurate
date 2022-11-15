@@ -31,37 +31,33 @@ public class speedspn
 		return 0;
 	} };
 	
-	WRITE_HANDLER( speedspn_vidram_w )
-	{
+	public static WriteHandlerPtr speedspn_vidram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		speedspn_vidram[offset + speedspn_bank_vidram] = data;
 	
 		if (speedspn_bank_vidram == 0)
 			tilemap_mark_tile_dirty(speedspn_tilemap,offset/2);
-	}
+	} };
 	
-	WRITE_HANDLER( speedspn_attram_w )
-	{
+	public static WriteHandlerPtr speedspn_attram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		speedspn_attram[offset] = data;
 	
 		tilemap_mark_tile_dirty(speedspn_tilemap,offset^0x400);
-	}
+	} };
 	
 	public static ReadHandlerPtr speedspn_vidram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return speedspn_vidram[offset + speedspn_bank_vidram];
 	} };
 	
-	WRITE_HANDLER(speedspn_banked_vidram_change)
-	{
+	public static WriteHandlerPtr speedspn_banked_vidram_change = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	logerror("VidRam Bank: %04x\n", data);
 		speedspn_bank_vidram = data & 1;
 		speedspn_bank_vidram *= 0x1000;
-	}
+	} };
 	
-	WRITE_HANDLER(speedspn_global_display_w)
-	{
+	public static WriteHandlerPtr speedspn_global_display_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	logerror("Global display: %u\n", data);
 		speedspn_display_disable = data & 1;
-	}
+	} };
 	
 	
 	static void speedspn_drawsprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )

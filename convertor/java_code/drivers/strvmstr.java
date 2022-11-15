@@ -31,20 +31,17 @@ public class strvmstr
 	static UINT8 *bg_videoram, *fg_videoram;
 	static struct tilemap *bg_tilemap, *fg_tilemap;
 	
-	static WRITE_HANDLER( strvmstr_fg_w )
-	{
+	public static WriteHandlerPtr strvmstr_fg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		fg_videoram[offset] = data;
 		tilemap_mark_tile_dirty(fg_tilemap,offset);
-	}
+	} };
 	
-	static WRITE_HANDLER( strvmstr_bg_w )
-	{
+	public static WriteHandlerPtr strvmstr_bg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bg_videoram[offset] = data;
 		tilemap_mark_tile_dirty(bg_tilemap,offset);
-	}
+	} };
 	
-	static WRITE_HANDLER( strvmstr_control_w )
-	{
+	public static WriteHandlerPtr strvmstr_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
 	/*
 	
@@ -65,12 +62,11 @@ public class strvmstr
 		{
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( a000_w )
-	{
+	public static WriteHandlerPtr a000_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* ? */
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr strvmstr_question_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -80,17 +76,15 @@ public class strvmstr
 	
 	static int b800_prev,b000_val,b000_ret;
 	
-	static WRITE_HANDLER( b000_w )
-	{
+	public static WriteHandlerPtr b000_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		b000_val = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr b000_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return b000_ret;
 	} };
 	
-	static WRITE_HANDLER( b800_w )
-	{
+	public static WriteHandlerPtr b800_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(data)
 		{
 			case 0xc4:	b000_ret=AY8910_read_port_0_r(0);	break;
@@ -113,7 +107,7 @@ public class strvmstr
 		}	
 	
 		b800_prev = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

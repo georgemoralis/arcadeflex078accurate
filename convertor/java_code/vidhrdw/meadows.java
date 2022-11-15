@@ -55,11 +55,10 @@ public class meadows
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( meadows_videoram_w )
-	{
+	public static WriteHandlerPtr meadows_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		videoram[offset] = data;
 		tilemap_mark_tile_dirty(bg_tilemap, offset);
-	}
+	} };
 	
 	
 	
@@ -69,12 +68,11 @@ public class meadows
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( meadows_spriteram_w )
-	{
+	public static WriteHandlerPtr meadows_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (spriteram[offset] != data)
 			force_partial_update(cpu_getscanline());
 		spriteram[offset] = data;
-	}
+	} };
 	
 	
 	

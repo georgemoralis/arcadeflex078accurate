@@ -87,23 +87,14 @@ public class sauro
 	extern UINT8 *tecfri_videoram2;
 	extern UINT8 *tecfri_colorram2;
 	
-	extern WRITE_HANDLER( tecfri_videoram_w );
-	extern WRITE_HANDLER( tecfri_colorram_w );
-	extern WRITE_HANDLER( tecfri_videoram2_w );
-	extern WRITE_HANDLER( tecfri_colorram2_w );
-	extern WRITE_HANDLER( tecfri_scroll_bg_w );
-	extern WRITE_HANDLER( flip_screen_w );
-	extern WRITE_HANDLER( sauro_scroll_fg_w );
-	extern WRITE_HANDLER( trckydoc_spriteram_mirror_w );
-	
+	extern extern extern extern extern extern extern extern 
 	extern extern 
 	extern extern 
 	
-	static WRITE_HANDLER( sauro_sound_command_w )
-	{
+	public static WriteHandlerPtr sauro_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data |= 0x80;
 		soundlatch_w(offset, data);
-	}
+	} };
 	
 	public static ReadHandlerPtr sauro_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret	= soundlatch_r(offset);
@@ -111,17 +102,15 @@ public class sauro
 		return ret;
 	} };
 	
-	static WRITE_HANDLER( sauro_coin1_w )
-	{
+	public static WriteHandlerPtr sauro_coin1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0, data);
 		coin_counter_w(0, 0); // to get the coin counter working in sauro, as it doesn't write 0
-	}
+	} };
 	
-	static WRITE_HANDLER( sauro_coin2_w )
-	{
+	public static WriteHandlerPtr sauro_coin2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(1, data);
 		coin_counter_w(1, 0); // to get the coin counter working in sauro, as it doesn't write 0
-	}
+	} };
 	
 	static MEMORY_READ_START( sauro_readmem )
 		{ 0x0000, 0xdfff, MRA_ROM },

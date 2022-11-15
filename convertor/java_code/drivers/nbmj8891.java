@@ -110,8 +110,6 @@ public class nbmj8891
 	
 	
 	
-	WRITE_HANDLER( gionbana_palette_w );
-	WRITE_HANDLER( maiko_palette_w );
 	void gionbana_radrx_w(int data);
 	void gionbana_radry_w(int data);
 	void gionbana_sizex_w(int data);
@@ -123,7 +121,6 @@ public class nbmj8891
 	void gionbana_vramsel_w(int data);
 	void gionbana_romsel_w(int data);
 	void gionbana_paltblnum_w(int data);
-	WRITE_HANDLER( gionbana_paltbl_w );
 	
 	
 	public static DriverInitHandlerPtr init_gionbana  = new DriverInitHandlerPtr() { public void handler(){
@@ -422,8 +419,7 @@ public class nbmj8891
 		{ 0x0000, 0xffff, io_gionbana_r },
 	PORT_END
 	
-	static WRITE_HANDLER( io_gionbana_w )
-	{
+	public static WriteHandlerPtr io_gionbana_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -453,14 +449,13 @@ public class nbmj8891
 			case	0xe000:	gionbana_vramsel_w(data); break;
 			case	0xf000:	nb1413m3_outcoin_w(0,data); break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_gionbana )
 		{ 0x0000, 0xffff, io_gionbana_w },
 	PORT_END
 	
-	static WRITE_HANDLER( io_hanamomo_w )
-	{
+	public static WriteHandlerPtr io_hanamomo_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -490,14 +485,13 @@ public class nbmj8891
 			case	0xe000:	break;
 			case	0xf000:	break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_hanamomo )
 		{ 0x0000, 0xffff, io_hanamomo_w },
 	PORT_END
 	
-	static WRITE_HANDLER( io_msjiken_w )
-	{
+	public static WriteHandlerPtr io_msjiken_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -527,14 +521,13 @@ public class nbmj8891
 			case	0xe000:	break;
 			case	0xf000:	break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_msjiken )
 		{ 0x0000, 0xffff, io_msjiken_w },
 	PORT_END
 	
-	static WRITE_HANDLER( io_scandal_w )
-	{
+	public static WriteHandlerPtr io_scandal_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if ((0x4000 <= offset) && (0x5000 > offset))
@@ -569,7 +562,7 @@ public class nbmj8891
 			case	0xe000:	break;
 			case	0xf000:	break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_scandal )
 		{ 0x0000, 0xffff, io_scandal_w },
@@ -597,8 +590,7 @@ public class nbmj8891
 		{ 0x0000, 0xffff, io_scandalm_r },
 	PORT_END
 	
-	static WRITE_HANDLER( io_scandalm_w )
-	{
+	public static WriteHandlerPtr io_scandalm_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if ((0x4000 <= offset) && (0x5000 > offset))
@@ -633,14 +625,13 @@ public class nbmj8891
 			case	0xe000:	break;
 			case	0xf000:	nb1413m3_outcoin_w(0,data); break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_scandalm )
 		{ 0x0000, 0xffff, io_scandalm_w },
 	PORT_END
 	
-	static WRITE_HANDLER( io_bananadr_w )
-	{
+	public static WriteHandlerPtr io_bananadr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if ((0x4000 <= offset) && (0x5000 > offset))
@@ -676,7 +667,7 @@ public class nbmj8891
 			case	0xe000:	break;
 			case	0xf000:	nb1413m3_outcoin_w(0,data); break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_bananadr )
 		{ 0x0000, 0xffff, io_bananadr_w },
@@ -703,8 +694,7 @@ public class nbmj8891
 		{ 0x0000, 0xffff, io_maiko_r },
 	PORT_END
 	
-	static WRITE_HANDLER( io_maiko_w )
-	{
+	public static WriteHandlerPtr io_maiko_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -734,7 +724,7 @@ public class nbmj8891
 			case	0xe000:	gionbana_vramsel_w(data); break;
 			case	0xf000:	nb1413m3_outcoin_w(0,data); break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_maiko )
 		{ 0x0000, 0xffff, io_maiko_w },

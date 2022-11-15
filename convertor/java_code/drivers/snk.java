@@ -246,10 +246,10 @@ public class snk
 	
 	// NMI handshakes between CPUs are determined to be much simpler
 	public static ReadHandlerPtr snk_cpuA_nmi_trigger_r  = new ReadHandlerPtr() { public int handler(int offset) cpu_set_nmi_line(0, ASSERT_LINE); return 0; }
-	WRITE_HANDLER( snk_cpuA_nmi_ack_w ) { cpu_set_nmi_line(0, CLEAR_LINE); }
+	public static WriteHandlerPtr snk_cpuA_nmi_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data) cpu_set_nmi_line(0, CLEAR_LINE); }
 	
 	public static ReadHandlerPtr snk_cpuB_nmi_trigger_r  = new ReadHandlerPtr() { public int handler(int offset) cpu_set_nmi_line(1, ASSERT_LINE); return 0; }
-	WRITE_HANDLER( snk_cpuB_nmi_ack_w ) { cpu_set_nmi_line(1, CLEAR_LINE); }
+	public static WriteHandlerPtr snk_cpuB_nmi_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data) cpu_set_nmi_line(1, CLEAR_LINE); }
 	
 	/*********************************************************************/
 	
@@ -365,7 +365,7 @@ public class snk
 	
 	/*********************************************************************/
 	
-	static WRITE_HANDLER( snk_sound_register_w ){
+	public static WriteHandlerPtr snk_sound_register_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		snk_sound_register &= (data>>4);
 	}
 	
@@ -410,7 +410,7 @@ public class snk
 		{ snk_sound_callback0_w } /* ? */
 	};
 	
-	static WRITE_HANDLER( snk_soundlatch_w ){
+	public static WriteHandlerPtr snk_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		snk_sound_register |= 0x08 | 0x04;
 		soundlatch_w( offset, data );
 	}
@@ -516,14 +516,14 @@ public class snk
 	public static ReadHandlerPtr shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return shared_ram[offset];
 	}
-	static WRITE_HANDLER( shared_ram_w ){
+	public static WriteHandlerPtr shared_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		shared_ram[offset] = data;
 	}
 	
 	public static ReadHandlerPtr shared_ram2_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return shared_ram2[offset];
 	}
-	static WRITE_HANDLER( shared_ram2_w ){
+	public static WriteHandlerPtr shared_ram2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		shared_ram2[offset] = data;
 	}
 	
@@ -557,7 +557,7 @@ public class snk
 		return io_ram[offset];
 	}
 	
-	static WRITE_HANDLER( cpuA_io_w ){
+	public static WriteHandlerPtr cpuA_io_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		switch( offset ){
 			case 0x000:
 			break;
@@ -574,7 +574,7 @@ public class snk
 			default:
 			io_ram[offset] = data;
 			break;
-		}
+		} };
 	}
 	
 	public static ReadHandlerPtr cpuB_io_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -594,12 +594,11 @@ public class snk
 		return io_ram[offset];
 	}
 	
-	static WRITE_HANDLER( cpuB_io_w )
-	{
+	public static WriteHandlerPtr cpuB_io_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		io_ram[offset] = data;
 	
 		if (offset==0 || offset==0x700) snk_cpuB_nmi_ack_w(0, 0);
-	}
+	} };
 	
 	/**********************  Tnk3, Athena, Fighting Golf ********************/
 	

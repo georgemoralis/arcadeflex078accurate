@@ -22,11 +22,7 @@ public class tceptor
 	
 	
 	extern extern extern 
-	extern extern WRITE_HANDLER( tceptor_tile_ram_w );
-	extern extern WRITE_HANDLER( tceptor_tile_attr_w );
-	extern extern WRITE_HANDLER( tceptor_bg_ram_w );
-	extern WRITE_HANDLER( tceptor_bg_scroll_w );
-	
+	extern extern extern extern extern extern extern 
 	extern data8_t *tceptor_tile_ram;
 	extern data8_t *tceptor_tile_attr;
 	extern data8_t *tceptor_bg_ram;
@@ -51,29 +47,26 @@ public class tceptor
 		return m6502_a_shared_ram[offset];
 	} };
 	
-	static WRITE_HANDLER( m6502_a_shared_w )
-	{
+	public static WriteHandlerPtr m6502_a_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		m6502_a_shared_ram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr m6502_b_shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return m6502_b_shared_ram[offset];
 	} };
 	
-	static WRITE_HANDLER( m6502_b_shared_w )
-	{
+	public static WriteHandlerPtr m6502_b_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		m6502_b_shared_ram[offset] = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr m68k_shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return m68k_shared_ram[offset];
 	} };
 	
-	static WRITE_HANDLER( m68k_shared_w )
-	{
+	public static WriteHandlerPtr m68k_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		m68k_shared_ram[offset] = data;
-	}
+	} };
 	
 	static READ16_HANDLER( m68k_shared_word_r )
 	{
@@ -91,10 +84,9 @@ public class tceptor
 		return mcu_shared_ram[offset];
 	} };
 	
-	static WRITE_HANDLER( mcu_shared_w )
-	{
+	public static WriteHandlerPtr mcu_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mcu_shared_ram[offset] = data;
-	}
+	} };
 	
 	
 	/*******************************************************************/
@@ -106,15 +98,13 @@ public class tceptor
 			m6809_irq_enable = 1;
 	} };
 	
-	static WRITE_HANDLER( m6809_irq_enable_w )
-	{
+	public static WriteHandlerPtr m6809_irq_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		m6809_irq_enable = 1;
-	}
+	} };
 	
-	static WRITE_HANDLER( m6809_irq_disable_w )
-	{
+	public static WriteHandlerPtr m6809_irq_disable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		m6809_irq_enable = 0;
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr m68k_vb_interrupt = new InterruptHandlerPtr() {public void handler(){
@@ -135,21 +125,18 @@ public class tceptor
 			mcu_irq_enable = 1;
 	} };
 	
-	static WRITE_HANDLER( mcu_irq_enable_w )
-	{
+	public static WriteHandlerPtr mcu_irq_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mcu_irq_enable = 1;
-	}
+	} };
 	
-	static WRITE_HANDLER( mcu_irq_disable_w )
-	{
+	public static WriteHandlerPtr mcu_irq_disable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mcu_irq_enable = 0;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( voice_w )
-	{
+	public static WriteHandlerPtr voice_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_signed_data_16_w(0, data ? (data + 1) * 0x100 : 0x8000);
-	}
+	} };
 	
 	
 	/* fix dsw/input data to memory mapped data */

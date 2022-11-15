@@ -54,10 +54,9 @@ public class yunsung8
 	
 	***************************************************************************/
 	
-	WRITE_HANDLER( yunsung8_videobank_w )
-	{
+	public static WriteHandlerPtr yunsung8_videobank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		yunsung8_videobank = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr yunsung8_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -74,8 +73,7 @@ public class yunsung8
 	} };
 	
 	
-	WRITE_HANDLER( yunsung8_videoram_w )
-	{
+	public static WriteHandlerPtr yunsung8_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset < 0x0800)		// c000-c7ff	Banked Palette RAM
 		{
 			int bank = yunsung8_videobank & 2;
@@ -108,13 +106,12 @@ public class yunsung8
 			else		{	yunsung8_videoram_1[offset] = data;
 							tilemap_mark_tile_dirty(tilemap_1, tile);	}
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( yunsung8_flipscreen_w )
-	{
+	public static WriteHandlerPtr yunsung8_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tilemap_set_flip(ALL_TILEMAPS, (data & 1) ? (TILEMAP_FLIPX|TILEMAP_FLIPY) : 0);
-	}
+	} };
 	
 	
 	/***************************************************************************

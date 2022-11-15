@@ -292,12 +292,11 @@ public class mazerbla
 	
 	static UINT8 zpu_int_vector;
 	
-	static WRITE_HANDLER( cfb_zpu_int_req_set_w )
-	{
+	public static WriteHandlerPtr cfb_zpu_int_req_set_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		zpu_int_vector &= ~2;	/* clear D1 on INTA (interrupt acknowledge) */
 	
 		cpu_set_irq_line(0, 0, ASSERT_LINE);	/* main cpu interrupt (comes from CFB (generated at the start of INT routine on CFB) - vblank?) */
-	}
+	} };
 	
 	public static ReadHandlerPtr cfb_zpu_int_req_clr  = new ReadHandlerPtr() { public int handler(int offset){
 		zpu_int_vector |= 2;
@@ -330,10 +329,9 @@ public class mazerbla
 	
 	
 	static data8_t *cfb_zpu_sharedram;
-	static WRITE_HANDLER ( sharedram_CFB_ZPU_w )
-	{
+	public static WriteHandlerPtr sharedram_CFB_ZPU_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cfb_zpu_sharedram[offset] = data;
-	}
+	} };
 	public static ReadHandlerPtr sharedram_CFB_ZPU_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cfb_zpu_sharedram[offset];
 	} };
@@ -358,11 +356,10 @@ public class mazerbla
 		ls670_0[offset] = data;
 	}
 	
-	static WRITE_HANDLER( ls670_0_w )
-	{
+	public static WriteHandlerPtr ls670_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* do this on a timer to let the CPUs synchronize */
 		timer_set(TIME_NOW, (offset<<8) | data, deferred_ls670_0_w);
-	}
+	} };
 	
 	
 	
@@ -381,18 +378,16 @@ public class mazerbla
 		ls670_1[offset] = data;
 	}
 	
-	static WRITE_HANDLER( ls670_1_w )
-	{
+	public static WriteHandlerPtr ls670_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* do this on a timer to let the CPUs synchronize */
 		timer_set(TIME_NOW, (offset<<8) | data, deferred_ls670_1_w);
-	}
+	} };
 	
 	
 	/* bcd decoder used a input select (a mux) for reads from port 0x62 */
 	static UINT8 bcd_7445 = 0;
 	
-	static WRITE_HANDLER(zpu_bcd_decoder_w)
-	{
+	public static WriteHandlerPtr zpu_bcd_decoder_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
 	/*
 	name:			Strobe(bcd_value)	BIT
@@ -440,7 +435,7 @@ public class mazerbla
 	
 	*/
 		bcd_7445 = data & 15;
-	}
+	} };
 	
 	public static ReadHandlerPtr zpu_inputs_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 ret = 0;
@@ -456,26 +451,23 @@ public class mazerbla
 	
 	
 	
-	static WRITE_HANDLER(zpu_led_w)
-	{
+	public static WriteHandlerPtr zpu_led_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* 0x6e - reset (offset = 0)*/
 		/* 0x6f - set */
 		set_led_status(0, offset&1 );
-	}
-	static WRITE_HANDLER(zpu_lamps_w)
-	{
+	} };
+	public static WriteHandlerPtr zpu_lamps_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 4 = /LAMP0 */
 		/* bit 5 = /LAMP1 */
 	
 		/*set_led_status(0, (data&0x10)>>4 );*/
 		/*set_led_status(1, (data&0x20)>>4 );*/
-	}
+	} };
 	
-	static WRITE_HANDLER(zpu_coin_counter_w)
-	{
+	public static WriteHandlerPtr zpu_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 6 = coin counter */
 		coin_counter_w(offset, (data&0x40)>>6 );
-	}
+	} };
 	
 	static PORT_READ_START( readport )
 		{ 0x4c, 0x4f, ls670_1_r },
@@ -508,13 +500,12 @@ public class mazerbla
 	
 	
 	static UINT8 vsb_ls273;
-	static WRITE_HANDLER( vsb_ls273_audio_control_w )
-	{
+	public static WriteHandlerPtr vsb_ls273_audio_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		vsb_ls273 = data;
 	
 		/* bit 5 - led on */
 		set_led_status(1,(data&0x20)>>5);
-	}
+	} };
 	
 	
 	static PORT_READ_START( readport_cpu2 )
@@ -543,25 +534,22 @@ public class mazerbla
 	
 	
 	/* Color Frame Buffer PCB */
-	static WRITE_HANDLER ( cfb_ram_w )
-	{
+	public static WriteHandlerPtr cfb_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cfb_ram[offset] = data;
-	}
+	} };
 	public static ReadHandlerPtr cfb_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cfb_ram[offset];
 	} };
 	
 	
-	static WRITE_HANDLER(cfb_led_w)
-	{
+	public static WriteHandlerPtr cfb_led_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 7 - led on */
 		set_led_status(2,(data&0x80)>>7);
-	}
+	} };
 	
 	
 	static UINT8 bknd_col = 0xaa;
-	static WRITE_HANDLER(cfb_backgnd_color_w)
-	{
+	public static WriteHandlerPtr cfb_backgnd_color_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
 		if (bknd_col != data)
 		{
@@ -589,32 +577,31 @@ public class mazerbla
 			palette_set_color(255, r, g, b);
 			//logerror("background color (port 01) write=%02x\n",data);
 		}
-	}
+	} };
 	
 	
-	static WRITE_HANDLER(cfb_vbank_w)
-	{
+	public static WriteHandlerPtr cfb_vbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data = (data & 0x40)>>6;	/* only bit 6 connected */
 		if (vbank != data)
 		{
 			vbank = data;
 			//logerror("vbank=%1x\n",vbank);
 		}
-	}
+	} };
 	
 	
-	static WRITE_HANDLER(cfb_rom_bank_sel_w)	/* mazer blazer */
+	public static WriteHandlerPtr cfb_rom_bank_sel_w = new WriteHandlerPtr() {public void handler(int offset, int data)* mazer blazer */
 	{
 		gfx_rom_bank = data;
 	
 		cpu_setbank( 1, memory_region(REGION_CPU3) + (gfx_rom_bank * 0x2000) + 0x10000 );
-	}
-	static WRITE_HANDLER(cfb_rom_bank_sel_w_gg)	/* great guns */
+	} };
+	public static WriteHandlerPtr cfb_rom_bank_sel_w_gg = new WriteHandlerPtr() {public void handler(int offset, int data)* great guns */
 	{
 		gfx_rom_bank = data>>1;
 	
 		cpu_setbank( 1, memory_region(REGION_CPU3) + (gfx_rom_bank * 0x2000) + 0x10000 );
-	}
+	} };
 	
 	
 	/* ????????????? */
@@ -649,15 +636,14 @@ public class mazerbla
 	
 	
 	static UINT8 VCU_video_reg[4];
-	static WRITE_HANDLER( VCU_video_reg_w )
-	{
+	public static WriteHandlerPtr VCU_video_reg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (VCU_video_reg[offset] != data)
 		{
 			VCU_video_reg[offset] = data;
 			//usrintf_showmessage("video_reg= %02x %02x %02x %02x", VCU_video_reg[0], VCU_video_reg[1], VCU_video_reg[2], VCU_video_reg[3] );
 			//logerror("video_reg= %02x %02x %02x %02x\n", VCU_video_reg[0], VCU_video_reg[1], VCU_video_reg[2], VCU_video_reg[3] );
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr VCU_set_cmd_param_r  = new ReadHandlerPtr() { public int handler(int offset){
 		VCU_gfx_param_addr = offset;
@@ -1077,10 +1063,9 @@ public class mazerbla
 	}
 	
 	
-	static WRITE_HANDLER( main_sound_w )
-	{
+	public static WriteHandlerPtr main_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, data & 0xff, delayed_sound_w);
-	}
+	} };
 	
 	
 	static PORT_READ_START( gg_readport )
@@ -1103,20 +1088,17 @@ public class mazerbla
 		cpu_set_irq_line(1, 0, ASSERT_LINE);
 	} };
 	
-	static WRITE_HANDLER( sound_int_clear_w )
-	{
+	public static WriteHandlerPtr sound_int_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1, 0, CLEAR_LINE);
-	}
-	static WRITE_HANDLER( sound_nmi_clear_w )
-	{
+	} };
+	public static WriteHandlerPtr sound_nmi_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_nmi_line(1, CLEAR_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( gg_led_ctrl_w )
-	{
+	public static WriteHandlerPtr gg_led_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0, bit 1 - led on */
 		set_led_status(1,data&0x01);
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x0000, 0x1fff, MRA_ROM },

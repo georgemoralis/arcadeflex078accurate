@@ -31,30 +31,21 @@ public class sbasketb
 	extern UINT8 *sbasketb_palettebank;
 	extern UINT8 *sbasketb_spriteram_select;
 	
-	extern WRITE_HANDLER( sbasketb_videoram_w );
-	extern WRITE_HANDLER( sbasketb_colorram_w );
-	extern WRITE_HANDLER( sbasketb_flipscreen_w );
-	extern WRITE_HANDLER( sbasketb_scroll_w );
-	
+	extern extern extern extern 
 	extern extern extern 
 	extern struct VLM5030interface konami_vlm5030_interface;
 	extern struct SN76496interface konami_sn76496_interface;
 	extern struct DACinterface konami_dac_interface;
 	
-	extern WRITE_HANDLER( konami_SN76496_latch_w );
-	extern WRITE_HANDLER( konami_SN76496_0_w );
-	extern WRITE_HANDLER( hyperspt_sound_w );
-	extern 
+	extern extern extern extern 
 	
-	WRITE_HANDLER( sbasketb_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr sbasketb_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( sbasketb_coin_counter_w )
-	{
+	public static WriteHandlerPtr sbasketb_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

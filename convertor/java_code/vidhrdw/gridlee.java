@@ -86,14 +86,13 @@ public class gridlee
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( gridlee_cocktail_flip_w )
-	{
+	public static WriteHandlerPtr gridlee_cocktail_flip_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (gridlee_cocktail_flip != (data & 1))
 		{
 			force_partial_update(cpu_getscanline() - 1);
 			gridlee_cocktail_flip = data & 1;
 		}
-	}
+	} };
 	
 	
 	
@@ -103,14 +102,13 @@ public class gridlee
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( gridlee_videoram_w )
-	{
+	public static WriteHandlerPtr gridlee_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		videoram[offset] = data;
 	
 		/* expand the two pixel values into two bytes */
 		local_videoram[offset * 2 + 0] = data >> 4;
 		local_videoram[offset * 2 + 1] = data & 15;
-	}
+	} };
 	
 	
 	
@@ -120,15 +118,14 @@ public class gridlee
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( gridlee_palette_select_w )
-	{
+	public static WriteHandlerPtr gridlee_palette_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* update the scanline palette */
 		if (palettebank_vis != (data & 0x3f))
 		{
 			force_partial_update(cpu_getscanline() - 1);
 			palettebank_vis = data & 0x3f;
 		}
-	}
+	} };
 	
 	
 	

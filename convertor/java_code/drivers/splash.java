@@ -90,7 +90,7 @@ public class splash
 	
 	static int adpcm_data;
 	
-	static WRITE_HANDLER( splash_adpcm_data_w ){
+	public static WriteHandlerPtr splash_adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		adpcm_data = data;
 	}
 	
@@ -193,7 +193,7 @@ public class splash
 		{ 0,1,2,3,4,5,6,7 },
 		{ 0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8 },
 		8*8
-	};
+	} };;
 	
 	static struct GfxLayout tilelayout16 =
 	{

@@ -30,10 +30,6 @@ public class pandoras
 	static unsigned char *pandoras_sharedram2;
 	
 	/* from vidhrdw */
-	WRITE_HANDLER( pandoras_vram_w );
-	WRITE_HANDLER( pandoras_cram_w );
-	WRITE_HANDLER( pandoras_flipscreen_w );
-	WRITE_HANDLER( pandoras_scrolly_w );
 	
 	public static InterruptHandlerPtr pandoras_interrupt_a = new InterruptHandlerPtr() {public void handler()
 		if (irq_enable_a)
@@ -49,7 +45,7 @@ public class pandoras
 		return pandoras_sharedram[offset];
 	}
 	
-	static WRITE_HANDLER( pandoras_sharedram_w ){
+	public static WriteHandlerPtr pandoras_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		pandoras_sharedram[offset] = data;
 	}
 	
@@ -57,11 +53,11 @@ public class pandoras
 		return pandoras_sharedram2[offset];
 	}
 	
-	static WRITE_HANDLER( pandoras_sharedram2_w ){
+	public static WriteHandlerPtr pandoras_sharedram2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		pandoras_sharedram2[offset] = data;
 	}
 	
-	static WRITE_HANDLER( pandoras_int_control_w ){
+	public static WriteHandlerPtr pandoras_int_control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		/*	byte 0:	irq enable (CPU A)
 			byte 2:	coin counter 1
 			byte 3: coin counter 2
@@ -92,41 +88,38 @@ public class pandoras
 		} };
 	}
 	
-	WRITE_HANDLER( pandoras_cpua_irqtrigger_w ){
+	public static WriteHandlerPtr pandoras_cpua_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		if (!firq_old_data_a && data){
 			cpu_set_irq_line(0,M6809_FIRQ_LINE,HOLD_LINE);
-		}
+		} };
 	
 		firq_old_data_a = data;
 	}
 	
-	WRITE_HANDLER( pandoras_cpub_irqtrigger_w ){
+	public static WriteHandlerPtr pandoras_cpub_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		if (!firq_old_data_b && data){
 			cpu_set_irq_line(1,M6809_FIRQ_LINE,HOLD_LINE);
-		}
+		} };
 	
 		firq_old_data_b = data;
 	}
 	
-	WRITE_HANDLER( pandoras_i8039_irqtrigger_w )
-	{
+	public static WriteHandlerPtr pandoras_i8039_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(3, 0, ASSERT_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( i8039_irqen_and_status_w )
-	{
+	public static WriteHandlerPtr i8039_irqen_and_status_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 7 enables IRQ */
 		if ((data & 0x80) == 0)
 			cpu_set_irq_line(3, 0, CLEAR_LINE);
 	
 		/* bit 5 goes to 8910 port A */
 		i8039_status = (data & 0x20) >> 5;
-	}
+	} };
 	
-	WRITE_HANDLER( pandoras_z80_irqtrigger_w )
-	{
+	public static WriteHandlerPtr pandoras_z80_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(2,0,HOLD_LINE,0xff);
-	}
+	} };
 	
 	
 	

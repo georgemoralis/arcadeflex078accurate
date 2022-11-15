@@ -19,15 +19,12 @@ public class mosaic
 	
 	extern data8_t *mosaic_fgvideoram;
 	extern data8_t *mosaic_bgvideoram;
-	WRITE_HANDLER( mosaic_fgvideoram_w );
-	WRITE_HANDLER( mosaic_bgvideoram_w );
 	
 	
 	
 	static int prot_val;
 	
-	static WRITE_HANDLER( protection_w )
-	{
+	public static WriteHandlerPtr protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((data & 0x80) == 0)
 		{
 			/* simply increment given value */
@@ -48,7 +45,7 @@ public class mosaic
 	
 			prot_val = jumptable[data & 0x7f];
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = (prot_val >> 8) & 0xff;
@@ -60,8 +57,7 @@ public class mosaic
 		return res;
 	} };
 	
-	static WRITE_HANDLER( gfire2_protection_w )
-	{
+	public static WriteHandlerPtr gfire2_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("%06x: protection_w %02x\n",activecpu_get_pc(),data);
 	
 		switch(data)
@@ -85,7 +81,7 @@ public class mosaic
 				prot_val = 0x04b4;
 				break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr gfire2_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = prot_val & 0xff;

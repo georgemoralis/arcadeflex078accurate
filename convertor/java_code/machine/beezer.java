@@ -7,17 +7,11 @@ package machine;
 public class beezer
 {
 	
-	WRITE_HANDLER( beezer_map_w );
 	
 	static int pbus;
 	
-	static WRITE_HANDLER( b_via_0_pa_w );
-	static WRITE_HANDLER( b_via_0_pb_w );
-	static WRITE_HANDLER( b_via_0_ca2_w );
 	static void b_via_0_irq (int level);
 	
-	static WRITE_HANDLER( b_via_1_pa_w );
-	static WRITE_HANDLER( b_via_1_pb_w );
 	static void b_via_1_irq (int level);
 	
 	static struct via6522_interface b_via_0_interface =
@@ -40,9 +34,8 @@ public class beezer
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( b_via_0_ca2_w )
-	{
-	}
+	public static WriteHandlerPtr b_via_0_ca2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
+	} };
 	
 	static void b_via_0_irq (int level)
 	{
@@ -53,8 +46,7 @@ public class beezer
 		return pbus;
 	} };
 	
-	static WRITE_HANDLER( b_via_0_pa_w )
-	{
+	public static WriteHandlerPtr b_via_0_pa_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((data & 0x08) == 0)
 			cpu_set_reset_line(1, ASSERT_LINE);
 		else
@@ -78,12 +70,11 @@ public class beezer
 				break;
 			}
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( b_via_0_pb_w )
-	{
+	public static WriteHandlerPtr b_via_0_pb_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pbus = data;
-	}
+	} };
 	
 	static void b_via_1_irq (int level)
 	{
@@ -98,14 +89,12 @@ public class beezer
 		return 0xff;
 	} };
 	
-	static WRITE_HANDLER( b_via_1_pa_w )
-	{
+	public static WriteHandlerPtr b_via_1_pa_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pbus = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( b_via_1_pb_w )
-	{
-	}
+	public static WriteHandlerPtr b_via_1_pb_w = new WriteHandlerPtr() {public void handler(int offset, int data){
+	} };
 	
 	public static DriverInitHandlerPtr init_beezer  = new DriverInitHandlerPtr() { public void handler(){
 		via_config(0, &b_via_0_interface);
@@ -114,8 +103,7 @@ public class beezer
 		pbus = 0;
 	} };
 	
-	WRITE_HANDLER( beezer_bankswitch_w )
-	{
+	public static WriteHandlerPtr beezer_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((data & 0x07) == 0)
 		{
 			install_mem_write_handler(0, 0xc600, 0xc7ff, watchdog_reset_w);
@@ -131,7 +119,7 @@ public class beezer
 			install_mem_write_handler(0, 0xc000, 0xcfff, MWA_BANK1);
 			cpu_setbank(1, rom + (data & 0x07) * 0x2000 + ((data & 0x08) ? 0x1000: 0));
 		}
-	}
+	} };
 	
 	
 }

@@ -113,10 +113,9 @@ public class opwolf
 					SOUND
 	******************************************************/
 	
-	static WRITE_HANDLER( sound_bankswitch_w )
-	{
+	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank( 10, memory_region(REGION_CPU2) + ((data-1) & 0x03) * 0x4000 + 0x10000 );
-	}
+	} };
 	
 	/***********************************************************
 				 MEMORY STRUCTURES
@@ -198,8 +197,7 @@ public class opwolf
 	//5 - different values
 	//6 - different values
 	
-	static WRITE_HANDLER( opwolf_adpcm_b_w )
-	{
+	public static WriteHandlerPtr opwolf_adpcm_b_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int start;
 		int end;
 	
@@ -215,11 +213,10 @@ public class opwolf
 		}
 	
 		/*logerror("CPU #1     b00%i-data=%2x   pc=%4x\n",offset,data,activecpu_get_pc() );*/
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( opwolf_adpcm_c_w )
-	{
+	public static WriteHandlerPtr opwolf_adpcm_c_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int start;
 		int end;
 	
@@ -235,18 +232,16 @@ public class opwolf
 		}
 	
 		/*logerror("CPU #1     c00%i-data=%2x   pc=%4x\n",offset,data,activecpu_get_pc() );*/
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( opwolf_adpcm_d_w )
-	{
+	public static WriteHandlerPtr opwolf_adpcm_d_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*logerror("CPU #1         d00%i-data=%2x   pc=%4x\n",offset,data,activecpu_get_pc() );*/
-	}
+	} };
 	
-	static WRITE_HANDLER( opwolf_adpcm_e_w )
-	{
+	public static WriteHandlerPtr opwolf_adpcm_e_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*logerror("CPU #1         e00%i-data=%2x   pc=%4x\n",offset,data,activecpu_get_pc() );*/
-	}
+	} };
 	
 	
 	static MEMORY_WRITE_START( z80_writemem )

@@ -11,4 +11,3 @@ extern data8_t dribling_abca;
 
 /*----------- defined in vidhrdw/dribling.c -----------*/
 
-WRITE_HANDLER( dribling_colorram_w );

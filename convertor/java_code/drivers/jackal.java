@@ -34,12 +34,6 @@ public class jackal
 	
 	
 	
-	WRITE_HANDLER( jackal_rambank_w );
-	WRITE_HANDLER( jackal_zram_w );
-	WRITE_HANDLER( jackal_commonram_w );
-	WRITE_HANDLER( jackal_commonram1_w );
-	WRITE_HANDLER( jackal_voram_w );
-	WRITE_HANDLER( jackal_spriteram_w );
 	
 	
 	
@@ -54,11 +48,10 @@ public class jackal
 	
 	static int irq_enable;
 	
-	static WRITE_HANDLER( ctrl_w )
-	{
+	public static WriteHandlerPtr ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		irq_enable = data & 0x02;
 		flip_screen_set(data & 0x08);
-	}
+	} };
 	
 	public static InterruptHandlerPtr jackal_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (irq_enable)

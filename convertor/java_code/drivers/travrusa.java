@@ -58,10 +58,6 @@ public class travrusa
 	
 	extern unsigned char *travrusa_videoram;
 	
-	WRITE_HANDLER( travrusa_videoram_w );
-	WRITE_HANDLER( travrusa_scroll_x_low_w );
-	WRITE_HANDLER( travrusa_scroll_x_high_w );
-	WRITE_HANDLER( travrusa_flipscreen_w );
 	
 	
 	

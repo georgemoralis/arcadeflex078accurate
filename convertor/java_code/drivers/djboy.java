@@ -75,27 +75,21 @@ public class djboy
 	
 	/* public functions from vidhrdw/djboy.h */
 	extern void djboy_set_videoreg( data8_t data );
-	extern WRITE_HANDLER( djboy_scrollx_w );
-	extern WRITE_HANDLER( djboy_scrolly_w );
-	extern WRITE_HANDLER( djboy_videoram_w );
-	extern WRITE_HANDLER( djboy_paletteram_w );
-	extern extern 
+	extern extern extern extern extern extern 
 	static data8_t *sharedram;
 	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset) return sharedram[offset]; }
-	static WRITE_HANDLER( sharedram_w )	{ sharedram[offset] = data; }
+	public static WriteHandlerPtr sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data) sharedram[offset] = data; }
 	
 	static int prot_offs;
 	static data8_t prot_ram[0x80];
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( cpu1_cause_nmi_w )
-	{
+	public static WriteHandlerPtr cpu1_cause_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( cpu1_bankswitch_w )
-	{
+	public static WriteHandlerPtr cpu1_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		logerror( "cpu1_bankswitch( 0x%02x )\n", data );
@@ -103,18 +97,17 @@ public class djboy
 		if( data < 4 )
 		{
 			RAM = &RAM[0x2000 * data];
-		} };
+		}
 		else
 		{
 			RAM = &RAM[0x10000 + 0x2000 * (data-4)];
 		}
 		cpu_setbank(1,RAM);
-	}
+	} };
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( cpu2_bankswitch_w )
-	{
+	public static WriteHandlerPtr cpu2_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU2);
 		
 		djboy_set_videoreg( data );
@@ -140,7 +133,7 @@ public class djboy
 		default:
 			break;
 		}
-	}
+	} };
 	
 	/**
 	 * HACK: fake out port behavior using the addresses at which reads/writes occur
@@ -149,8 +142,7 @@ public class djboy
 	 * rather than tying the behavior to specific addresses.
 	 */
 	
-	static WRITE_HANDLER( cpu2_data_w )
-	{
+	public static WriteHandlerPtr cpu2_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch( activecpu_get_pc() )
 		{
 		case 0x7987: /* 0x03 memtest write */
@@ -206,7 +198,7 @@ public class djboy
 			logerror( "?" );
 		}
 		logerror( "pc == %04x; data_w(%02x)\n", activecpu_get_pc(), data );
-	} /* cpu2_data_w */
+	} }; /* cpu2_data_w */
 	
 	public static ReadHandlerPtr cpu2_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t result = 0x00;
@@ -336,14 +328,12 @@ public class djboy
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( cpu3_nmi_soundcommand_w )
-	{
+	public static WriteHandlerPtr cpu3_nmi_soundcommand_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		cpu_set_irq_line(2, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( cpu3_bankswitch_w )
-	{
+	public static WriteHandlerPtr cpu3_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU3);
 	
 		if( data<3 )
@@ -355,7 +345,7 @@ public class djboy
 			RAM = &RAM[0x10000 + 0x4000*(data-3)];
 		}
 		cpu_setbank(3,RAM);
-	}
+	} };
 	
 	/******************************************************************************/
 	

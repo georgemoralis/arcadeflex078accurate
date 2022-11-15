@@ -89,15 +89,10 @@ public class hexion
 	
 	
 	
-	WRITE_HANDLER( hexion_bankswitch_w );
-	WRITE_HANDLER( hexion_bankedram_w );
-	WRITE_HANDLER( hexion_bankctrl_w );
-	WRITE_HANDLER( hexion_gfxrom_select_w );
 	
 	
 	
-	static WRITE_HANDLER( coincntr_w )
-	{
+	public static WriteHandlerPtr coincntr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: coincntr_w %02x\n",activecpu_get_pc(),data);
 	
 		/* bits 0/1 = coin counters */
@@ -109,7 +104,7 @@ public class hexion
 	
 		/* other bit unknown */
 	if ((data & 0xdc) != 0x10) usrintf_showmessage("coincntr %02x",data);
-	}
+	} };
 	
 	
 	

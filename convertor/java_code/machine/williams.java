@@ -39,30 +39,21 @@ public class williams
 	static void williams_main_irq(int state);
 	static void williams_main_firq(int state);
 	static void williams_snd_irq(int state);
-	static WRITE_HANDLER( williams_snd_cmd_w );
-	static WRITE_HANDLER( playball_snd_cmd_w );
 	
 	/* input port mapping */
 	static UINT8 port_select;
-	static WRITE_HANDLER( williams_port_select_w );
 	
 	/* newer-Williams routines */
-	static WRITE_HANDLER( williams2_snd_cmd_w );
 	
 	/* Defender-specific code */
-	static WRITE_HANDLER( defender_io_w );
 	
 	/* Stargate-specific code */
 	
 	/* Lotto Fun-specific code */
 	
 	/* Turkey Shoot-specific code */
-	static WRITE_HANDLER( tshoot_lamp_w );
-	static WRITE_HANDLER( tshoot_maxvol_w );
 	
 	/* Joust 2-specific code */
-	static WRITE_HANDLER( joust2_snd_cmd_w );
-	static WRITE_HANDLER( joust2_pia_3_cb1_w );
 	
 	
 	
@@ -349,8 +340,7 @@ public class williams
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( williams_vram_select_w )
-	{
+	public static WriteHandlerPtr williams_vram_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* VRAM/ROM banking from bit 0 */
 		vram_bank = data & 0x01;
 	
@@ -369,7 +359,7 @@ public class williams
 		{
 			cpu_setbank(1, williams_videoram);
 		}
-	}
+	} };
 	
 	
 	
@@ -385,16 +375,14 @@ public class williams
 		pia_2_cb1_w(0, (param == 0xff) ? 0 : 1);
 	}
 	
-	WRITE_HANDLER( williams_snd_cmd_w )
-	{
+	public static WriteHandlerPtr williams_snd_cmd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* the high two bits are set externally, and should be 1 */
 		timer_set(TIME_NOW, data | 0xc0, williams_deferred_snd_cmd_w);
-	}
+	} };
 	
-	WRITE_HANDLER( playball_snd_cmd_w )
-	{
+	public static WriteHandlerPtr playball_snd_cmd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, data, williams_deferred_snd_cmd_w);
-	}
+	} };
 	
 	
 	
@@ -404,10 +392,9 @@ public class williams
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( williams_port_select_w )
-	{
+	public static WriteHandlerPtr williams_port_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		port_select = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr williams_input_port_0_3_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -539,8 +526,7 @@ public class williams
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( williams2_bank_select_w )
-	{
+	public static WriteHandlerPtr williams2_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static const UINT32 bank[8] = { 0, 0x10000, 0x20000, 0x10000, 0, 0x30000, 0x40000, 0x30000 };
 	
 		/* select bank index (only lower 3 bits used by IC56) */
@@ -572,7 +558,7 @@ public class williams
 	
 		/* regardless, the top 2k references videoram */
 		cpu_setbank(3, williams_videoram + 0x8800);
-	}
+	} };
 	
 	
 	
@@ -588,10 +574,9 @@ public class williams
 	}
 	
 	
-	static WRITE_HANDLER( williams2_snd_cmd_w )
-	{
+	public static WriteHandlerPtr williams2_snd_cmd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, data, williams2_deferred_snd_cmd_w);
-	}
+	} };
 	
 	
 	
@@ -601,8 +586,7 @@ public class williams
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( williams2_7segment_w )
-	{
+	public static WriteHandlerPtr williams2_7segment_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int n;
 		char dot;
 	
@@ -632,7 +616,7 @@ public class williams
 			logerror("[ %c]\n", dot);
 		else
 			logerror("[%d%c]\n", n, dot);
-	}
+	} };
 	
 	
 	
@@ -653,8 +637,7 @@ public class williams
 	
 	
 	
-	WRITE_HANDLER( defender_bank_select_w )
-	{
+	public static WriteHandlerPtr defender_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT32 bank_offset = defender_bank_list[data & 7];
 	
 		/* set bank address */
@@ -673,7 +656,7 @@ public class williams
 			memory_set_bankhandler_r(2, 0, MRA_BANK2);
 			memory_set_bankhandler_w(2, 0, MWA_ROM);
 		}
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr defender_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -716,8 +699,7 @@ public class williams
 	} };
 	
 	
-	WRITE_HANDLER( defender_io_w )
-	{
+	public static WriteHandlerPtr defender_io_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* write the data through */
 		defender_bank_base[offset] = data;
 	
@@ -734,7 +716,7 @@ public class williams
 			pia_1_w(offset & 3, data);
 		else if (offset >= 0x0c04 && offset < 0x0c08)
 			pia_0_w(offset & 3, data);
-	}
+	} };
 	
 	
 	
@@ -799,8 +781,7 @@ public class williams
 	};
 	
 	
-	WRITE_HANDLER( blaster_vram_select_w )
-	{
+	public static WriteHandlerPtr blaster_vram_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		vram_bank = data;
@@ -818,11 +799,10 @@ public class williams
 			cpu_setbank(1, williams_videoram);
 			cpu_setbank(2, williams_videoram + 0x4000);
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( blaster_bank_select_w )
-	{
+	public static WriteHandlerPtr blaster_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		blaster_bank = data & 15;
@@ -832,7 +812,7 @@ public class williams
 		{
 			cpu_setbank(1, &RAM[blaster_bank_offset[blaster_bank]]);
 		}
-	}
+	} };
 	
 	
 	
@@ -863,15 +843,13 @@ public class williams
 	} };
 	
 	
-	static WRITE_HANDLER( tshoot_maxvol_w )
-	{
+	public static WriteHandlerPtr tshoot_maxvol_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* something to do with the sound volume */
 		logerror("tshoot maxvol = %d (pc:%x)\n", data, activecpu_get_pc());
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( tshoot_lamp_w )
-	{
+	public static WriteHandlerPtr tshoot_lamp_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* set the grenade lamp */
 		set_led_status(0,data & 0x04);
 	
@@ -893,7 +871,7 @@ public class williams
 	
 		printf("\n");
 	#endif
-	}
+	} };
 	
 	
 	
@@ -919,17 +897,15 @@ public class williams
 	}
 	
 	
-	static WRITE_HANDLER( joust2_pia_3_cb1_w )
-	{
+	public static WriteHandlerPtr joust2_pia_3_cb1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		joust2_current_sound_data = (joust2_current_sound_data & ~0x100) | ((data << 8) & 0x100);
 		pia_3_cb1_w(offset, data);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( joust2_snd_cmd_w )
-	{
+	public static WriteHandlerPtr joust2_snd_cmd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		joust2_current_sound_data = (joust2_current_sound_data & ~0xff) | (data & 0xff);
 		williams_cvsd_data_w(joust2_current_sound_data);
 		timer_set(TIME_NOW, joust2_current_sound_data, joust2_deferred_snd_cmd_w);
-	}
+	} };
 }

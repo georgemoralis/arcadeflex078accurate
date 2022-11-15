@@ -124,8 +124,7 @@ public class asteroid
 	} };
 	
 	
-	WRITE_HANDLER( asteroid_bank_switch_w )
-	{
+	public static WriteHandlerPtr asteroid_bank_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int asteroid_bank = 0;
 		int asteroid_newbank;
 		unsigned char *RAM = memory_region(REGION_CPU1);
@@ -146,11 +145,10 @@ public class asteroid
 		}
 		set_led_status (0, ~data & 0x02);
 		set_led_status (1, ~data & 0x01);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( astdelux_bank_switch_w )
-	{
+	public static WriteHandlerPtr astdelux_bank_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int astdelux_bank = 0;
 		int astdelux_newbank;
 		unsigned char *RAM = memory_region(REGION_CPU1);
@@ -169,13 +167,12 @@ public class asteroid
 				RAM[0x300 + i] = temp;
 			}
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( astdelux_led_w )
-	{
+	public static WriteHandlerPtr astdelux_led_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(offset,(data&0x80)?0:1);
-	}
+	} };
 	
 	
 	public static MachineInitHandlerPtr machine_init_asteroid  = new MachineInitHandlerPtr() { public void handler(){

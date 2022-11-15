@@ -115,20 +115,12 @@ public class victory
 	/* sound driver data & functions */
 	int victory_sh_start(const struct MachineSound *msound);
 	
-	WRITE_HANDLER( exidy_shriot_w );
-	WRITE_HANDLER( exidy_sh6840_w );
-	WRITE_HANDLER( exidy_sh8253_w );
-	WRITE_HANDLER( exidy_sfxctrl_w );
 	
 	
 	/* video driver data & functions */
 	extern UINT8 *victory_charram;
 	
 	
-	WRITE_HANDLER( victory_video_control_w );
-	WRITE_HANDLER( victory_paletteram_w );
-	WRITE_HANDLER( victory_videoram_w );
-	WRITE_HANDLER( victory_charram_w );
 	
 	
 	
@@ -158,33 +150,29 @@ public class victory
 		if (LOG_SOUND) logerror("%04X:!!!! Sound command = %02X\n", activecpu_get_previouspc(), data);
 	}
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		timer_set(TIME_NOW, data, delayed_command_w);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( victory_sound_response_w )
-	{
+	public static WriteHandlerPtr victory_sound_response_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_response = data;
 		if (LOG_SOUND) logerror("%04X:!!!! Sound response = %02X\n", activecpu_get_previouspc(), data);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( victory_sound_irq_clear_w )
-	{
+	public static WriteHandlerPtr victory_sound_irq_clear_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (LOG_SOUND) logerror("%04X:!!!! Sound IRQ clear = %02X\n", activecpu_get_previouspc(), data);
 		if (!data) pia_0_ca1_w(0, 1);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( victory_main_ack_w )
-	{
+	public static WriteHandlerPtr victory_main_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (LOG_SOUND) logerror("%04X:!!!! Sound ack = %02X\n", activecpu_get_previouspc(), data);
 		if (sound_response_ack_clk && !data)
 			pia_0_cb1_w(0, 1);
 		sound_response_ack_clk = data;
-	}
+	} };
 	
 	
 	
@@ -194,13 +182,12 @@ public class victory
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( lamp_control_w )
-	{
+	public static WriteHandlerPtr lamp_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0,data & 0x80);
 		set_led_status(1,data & 0x40);
 		set_led_status(2,data & 0x20);
 		set_led_status(3,data & 0x10);
-	}
+	} };
 	
 	
 	

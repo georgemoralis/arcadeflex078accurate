@@ -14,8 +14,7 @@ public class sprint8
 {
 	
 	extern extern extern 
-	extern WRITE_HANDLER( sprint8_video_ram_w );
-	
+	extern 
 	extern UINT8* sprint8_video_ram;
 	extern UINT8* sprint8_pos_h_ram;
 	extern UINT8* sprint8_pos_v_ram;
@@ -154,37 +153,34 @@ public class sprint8
 	} };
 	
 	
-	static WRITE_HANDLER( sprint8_lockout_w )
-	{
+	public static WriteHandlerPtr sprint8_lockout_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_w(offset, !(data & 1));
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint8_team_w )
-	{
+	public static WriteHandlerPtr sprint8_team_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		fill_palette(!(data & 1));
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sprint8_int_reset_w )
-	{
+	public static WriteHandlerPtr sprint8_int_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		collision_reset = !(data & 1);
 	
 		if (collision_reset)
 		{
 			cpu_set_irq_line(0, 0, CLEAR_LINE);
 		}
-	}
+	} };
 	
 	
 	/* names of sound effects taken from Tank 8, might differ for Sprint 8 */
 	
-	static WRITE_HANDLER( sprint8_crash_w ) {}
-	static WRITE_HANDLER( sprint8_explosion_w ) {}
-	static WRITE_HANDLER( sprint8_bugle_w ) {}
-	static WRITE_HANDLER( sprint8_bug_w ) {}
-	static WRITE_HANDLER( sprint8_attract_w ) {}
-	static WRITE_HANDLER( sprint8_motor_w ) {}
+	public static WriteHandlerPtr sprint8_crash_w = new WriteHandlerPtr() {public void handler(int offset, int data)}
+	public static WriteHandlerPtr sprint8_explosion_w = new WriteHandlerPtr() {public void handler(int offset, int data)}
+	public static WriteHandlerPtr sprint8_bugle_w = new WriteHandlerPtr() {public void handler(int offset, int data)}
+	public static WriteHandlerPtr sprint8_bug_w = new WriteHandlerPtr() {public void handler(int offset, int data)}
+	public static WriteHandlerPtr sprint8_attract_w = new WriteHandlerPtr() {public void handler(int offset, int data)}
+	public static WriteHandlerPtr sprint8_motor_w = new WriteHandlerPtr() {public void handler(int offset, int data)}
 	
 	
 	static MEMORY_READ_START( readmem )
@@ -484,7 +480,7 @@ public class sprint8
 		16, 8,
 		64,
 		1,
-		{ 0 },
+		{ 0 } };,
 		{
 			7, 7, 6, 6, 5, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0, 0
 		},

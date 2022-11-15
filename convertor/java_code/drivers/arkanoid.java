@@ -54,19 +54,12 @@ package drivers;
 public class arkanoid
 {
 	
-	extern WRITE_HANDLER( arkanoid_videoram_w );
-	extern extern 
+	extern extern extern 
 	extern 
-	extern WRITE_HANDLER( arkanoid_d008_w );
-	
-	extern extern WRITE_HANDLER( arkanoid_Z80_mcu_w );
-	
-	extern extern WRITE_HANDLER( arkanoid_68705_portA_w );
-	extern WRITE_HANDLER( arkanoid_68705_ddrA_w );
-	
-	extern extern WRITE_HANDLER( arkanoid_68705_portC_w );
-	extern WRITE_HANDLER( arkanoid_68705_ddrC_w );
-	
+	extern 
+	extern extern 
+	extern extern extern 
+	extern extern extern 
 	extern extern 
 	/*
 	Paddle 2 MCU simulation
@@ -130,11 +123,10 @@ public class arkanoid
 		}
 	} };
 	
-	static WRITE_HANDLER( paddle2_prot_w )
-	{
+	public static WriteHandlerPtr paddle2_prot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("%04x: prot_w %02x\n",activecpu_get_pc(),data);
 		paddle2_prot = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr track_kludge_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int track = readinputport(2);

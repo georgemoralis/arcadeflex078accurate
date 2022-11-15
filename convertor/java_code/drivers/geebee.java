@@ -76,14 +76,11 @@ public class geebee
 {
 	
 	/* from machine/geebee.c */
-	WRITE_HANDLER( geebee_out6_w );
-	WRITE_HANDLER( geebee_out7_w );
 	
 	/* from vidhrdw/geebee.c */
 	extern extern 
 	extern extern extern extern extern 
 	/* from sndhrdw/geebee.c */
-	WRITE_HANDLER( geebee_sound_w );
 	extern int geebee_sh_start(const struct MachineSound *msound);
 	extern void geebee_sh_stop(void);
 	extern void geebee_sh_update(void);

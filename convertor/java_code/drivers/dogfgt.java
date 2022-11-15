@@ -23,35 +23,30 @@ public class dogfgt
 		return sharedram[offset];
 	} };
 	
-	static WRITE_HANDLER( sharedram_w )
-	{
+	public static WriteHandlerPtr sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sharedram[offset] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( subirqtrigger_w )
-	{
+	public static WriteHandlerPtr subirqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 used but unknown */
 	
 		if (data & 0x04)
 			cpu_set_irq_line(1,0,ASSERT_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( sub_irqack_w )
-	{
+	public static WriteHandlerPtr sub_irqack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1,0,CLEAR_LINE);
-	}
+	} };
 	
 	
 	static int soundlatch;
 	
-	static WRITE_HANDLER( dogfgt_soundlatch_w )
-	{
+	public static WriteHandlerPtr dogfgt_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( dogfgt_soundcontrol_w )
-	{
+	public static WriteHandlerPtr dogfgt_soundcontrol_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	
 	
@@ -75,7 +70,7 @@ public class dogfgt
 		}
 	
 		last = data;
-	}
+	} };
 	
 	
 	

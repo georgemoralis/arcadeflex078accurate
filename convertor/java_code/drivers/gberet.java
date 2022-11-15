@@ -74,23 +74,16 @@ public class gberet
 	extern unsigned char *gberet_videoram,*gberet_colorram;
 	extern unsigned char *gberet_spritebank;
 	extern unsigned char *gberet_scrollram;
-	WRITE_HANDLER( gberet_videoram_w );
-	WRITE_HANDLER( gberet_colorram_w );
-	WRITE_HANDLER( gberet_e044_w );
-	WRITE_HANDLER( gberet_scroll_w );
-	WRITE_HANDLER( gberetb_scroll_w );
 	
 	
 	
-	static WRITE_HANDLER( gberet_coincounter_w )
-	{
+	public static WriteHandlerPtr gberet_coincounter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0/1 = coin counters */
 		coin_counter_w(0,data & 1);
 		coin_counter_w(1,data & 2);
-	}
+	} };
 	
-	static WRITE_HANDLER( mrgoemon_bankswitch_w )
-	{
+	public static WriteHandlerPtr mrgoemon_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		int offs;
 	
@@ -101,7 +94,7 @@ public class gberet
 		/* bits 5-7 = ROM bank select */
 		offs = 0x10000 + ((data & 0xe0) >> 5) * 0x800;
 		cpu_setbank(1,&RAM[offs]);
-	}
+	} };
 	
 	
 	

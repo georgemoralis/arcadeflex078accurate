@@ -26,10 +26,9 @@ public class clayshoo
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( input_port_select_w )
-	{
+	public static WriteHandlerPtr input_port_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		input_port_select = data;
-	}
+	} };
 	
 	
 	static data8_t difficulty_input_port_r(int bit)
@@ -109,8 +108,7 @@ public class clayshoo
 	}
 	
 	
-	WRITE_HANDLER( clayshoo_analog_reset_w )
-	{
+	public static WriteHandlerPtr clayshoo_analog_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* reset the analog value, and start two times that will fire
 		   off in a short period proportional to the position of the
 		   analog control and set the appropriate bit. */
@@ -119,7 +117,7 @@ public class clayshoo
 	
 		timer_set(compute_duration(readinputport(4)), 0x02, reset_analog_bit);
 		timer_set(compute_duration(readinputport(5)), 0x01, reset_analog_bit);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr clayshoo_analog_r  = new ReadHandlerPtr() { public int handler(int offset){

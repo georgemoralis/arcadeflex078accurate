@@ -19,7 +19,6 @@ public class dorachan
 {
 	extern int dorachan_ctrl;
 	
-	WRITE_HANDLER( dorachan_videoram_w );
 	
 	public static ReadHandlerPtr dorachan_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 	
@@ -38,10 +37,9 @@ public class dorachan
 		return ((cpu_getscanline()>100)?1:0)^(dorachan_ctrl>>6);
 	} };
 	
-	static WRITE_HANDLER(dorachan_ctrl_w)
-	{
+	public static WriteHandlerPtr dorachan_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dorachan_ctrl=data;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{0x0000, 0x17ff, MRA_ROM },

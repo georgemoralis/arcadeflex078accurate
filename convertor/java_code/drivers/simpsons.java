@@ -18,11 +18,8 @@ public class simpsons
 {
 	
 	/* from vidhrdw */
-	WRITE_HANDLER( simpsons_priority_w );
 	
 	/* from machine */
-	WRITE_HANDLER( simpsons_eeprom_w );
-	WRITE_HANDLER( simpsons_coin_counter_w );
 	extern int simpsons_firq_enabled;
 	
 	/***************************************************************************
@@ -66,14 +63,13 @@ public class simpsons
 		{ 0x8000, 0xffff, MWA_ROM },
 	MEMORY_END
 	
-	static WRITE_HANDLER( z80_bankswitch_w )
-	{
+	public static WriteHandlerPtr z80_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU2);
 	
 		offset = 0x10000 + ( ( ( data & 7 ) - 2 ) * 0x4000 );
 	
 		cpu_setbank( 2, &RAM[ offset ] );
-	}
+	} };
 	
 	#if 0
 	static int nmi_enabled;
@@ -91,12 +87,11 @@ public class simpsons
 		cpu_set_nmi_line(1,ASSERT_LINE);
 	}
 	
-	static WRITE_HANDLER( z80_arm_nmi_w )
-	{
+	public static WriteHandlerPtr z80_arm_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	sound_nmi_enabled = 1;
 		cpu_set_nmi_line(1,CLEAR_LINE);
 		timer_set(TIME_IN_USEC(50),0,nmi_callback);	/* kludge until the K053260 is emulated correctly */
-	}
+	} };
 	
 	static MEMORY_READ_START( z80_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

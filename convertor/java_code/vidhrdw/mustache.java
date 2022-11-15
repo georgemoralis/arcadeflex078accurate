@@ -50,17 +50,15 @@ public class mustache
 	  }
 	} };
 	
-	WRITE_HANDLER( mustache_videoram_w )
-	{
+	public static WriteHandlerPtr mustache_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset / 2);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER (mustache_video_control_w)
-	{
+	public static WriteHandlerPtr mustache_video_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (flip_screen != (data & 0x01))
 		{
 			flip_screen_set(data & 0x01);
@@ -74,15 +72,14 @@ public class mustache
 			control_byte = data;
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( mustache_scroll_w )
-	{
+	public static WriteHandlerPtr mustache_scroll_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tilemap_set_scrollx(bg_tilemap, 0, 0x100 - data);
 		tilemap_set_scrollx(bg_tilemap, 1, 0x100 - data);
 		tilemap_set_scrollx(bg_tilemap, 2, 0x100 - data);
 		tilemap_set_scrollx(bg_tilemap, 3, 0x100);
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{

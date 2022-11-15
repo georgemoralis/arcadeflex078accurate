@@ -24,10 +24,6 @@ package drivers;
 public class actfancr
 {
 	
-	WRITE_HANDLER( actfancr_pf1_data_w );
-	WRITE_HANDLER( actfancr_pf1_control_w );
-	WRITE_HANDLER( actfancr_pf2_data_w );
-	WRITE_HANDLER( actfancr_pf2_control_w );
 	
 	extern unsigned char *actfancr_pf1_data,*actfancr_pf2_data,*actfancr_pf1_rowscroll_data;
 	static unsigned char *actfancr_ram;
@@ -50,10 +46,9 @@ public class actfancr
 	
 	static int trio_control_select;
 	
-	static WRITE_HANDLER( triothep_control_select_w )
-	{
+	public static WriteHandlerPtr triothep_control_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		trio_control_select=data;
-	}
+	} };
 	
 	public static ReadHandlerPtr triothep_control_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (trio_control_select) {
@@ -67,11 +62,10 @@ public class actfancr
 		return 0xff;
 	} };
 	
-	static WRITE_HANDLER( actfancr_sound_w )
-	{
+	public static WriteHandlerPtr actfancr_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data & 0xff);
 		cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	/******************************************************************************/
 	

@@ -181,34 +181,29 @@ public class firetrk
 	}
 	
 	
-	WRITE_HANDLER( firetrk_vert_w )
-	{
+	public static WriteHandlerPtr firetrk_vert_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tilemap_set_scrolly(tilemap1, 0, data);
 		tilemap_set_scrolly(tilemap2, 0, data);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( firetrk_horz_w )
-	{
+	public static WriteHandlerPtr firetrk_horz_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tilemap_set_scrollx(tilemap1, 0, data - 37);
 		tilemap_set_scrollx(tilemap2, 0, data - 37);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( firetrk_drone_hpos_w )
-	{
+	public static WriteHandlerPtr firetrk_drone_hpos_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		drone_hpos = data;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( firetrk_drone_vpos_w )
-	{
+	public static WriteHandlerPtr firetrk_drone_vpos_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		drone_vpos = data;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( firetrk_car_rot_w )
-	{
+	public static WriteHandlerPtr firetrk_car_rot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (GAME_IS_FIRETRUCK)
 		{
 			car[0].number = data & 0x03;
@@ -259,11 +254,10 @@ public class firetrk
 			car[0].flipx = data & 0x10;
 			car[0].flipy = data & 0x08;
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( firetrk_drone_rot_w )
-	{
+	public static WriteHandlerPtr firetrk_drone_rot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		car[1].number = data & 0x07;
 	
 		if (GAME_IS_FIRETRUCK)
@@ -286,11 +280,10 @@ public class firetrk
 				car[1].color &= ~1;
 			}
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( firetrk_playfield_w )
-	{
+	public static WriteHandlerPtr firetrk_playfield_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (firetrk_playfield_ram[offset] != data)
 		{
 			tilemap_mark_tile_dirty(tilemap1, offset);
@@ -298,7 +291,7 @@ public class firetrk
 		}
 	
 		firetrk_playfield_ram[offset] = data;
-	}
+	} };
 	
 	
 	public static VideoStartHandlerPtr video_start_firetrk  = new VideoStartHandlerPtr() { public int handler(){

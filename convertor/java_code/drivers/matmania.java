@@ -36,37 +36,24 @@ public class matmania
 	extern unsigned char *matmania_scroll;
 	extern unsigned char *matmania_pageselect;
 	
-	WRITE_HANDLER( matmania_paletteram_w );
-	WRITE_HANDLER( matmania_videoram3_w );
-	WRITE_HANDLER( matmania_colorram3_w );
-	
-	WRITE_HANDLER( maniach_68705_portA_w );
-	WRITE_HANDLER( maniach_68705_portB_w );
-	WRITE_HANDLER( maniach_68705_portC_w );
-	WRITE_HANDLER( maniach_68705_ddrA_w );
-	WRITE_HANDLER( maniach_68705_ddrB_w );
-	WRITE_HANDLER( maniach_68705_ddrC_w );
-	WRITE_HANDLER( maniach_mcu_w );
 	
 	
 	
-	WRITE_HANDLER( matmania_sh_command_w )
-	{
+	
+	public static WriteHandlerPtr matmania_sh_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(1,M6502_IRQ_LINE,HOLD_LINE);
-	}
+	} };
 	
-	WRITE_HANDLER( matmania_dac_w )
-	{
+	public static WriteHandlerPtr matmania_dac_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_signed_data_w(0,data);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( maniach_sh_command_w )
-	{
+	public static WriteHandlerPtr maniach_sh_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(1,M6809_IRQ_LINE,HOLD_LINE);
-	}
+	} };
 	
 	
 	

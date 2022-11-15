@@ -107,8 +107,6 @@ package drivers;
 
 public class pbillian
 {
-	WRITE_HANDLER( pb_videoram_w );
-	WRITE_HANDLER(data_41a_w);
 	
 	int pbillian_sh_start(const struct MachineSound*);
 	
@@ -116,18 +114,16 @@ public class pbillian
 	data8_t select_403,select_407,select_408,is_pbillian;
 	data8_t *pb_videoram;
 	
-	static WRITE_HANDLER(select_408_w)
-	{
+	public static WriteHandlerPtr select_408_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		select_408=data;
-	}  
+	} };  
 	
-	static WRITE_HANDLER(data_410_w)
-	{
+	public static WriteHandlerPtr data_410_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0,data&2);
 		coin_counter_w(1,data&4);
 		interrupt_enable_w(0,data&0x10);
 		flip_screen_set(data&0x20);
-	}
+	} };
 	
 	public static ReadHandlerPtr data_408_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* 

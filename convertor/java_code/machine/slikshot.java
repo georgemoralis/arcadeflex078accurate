@@ -450,11 +450,10 @@ public class slikshot
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( slikz80_port_w )
-	{
+	public static WriteHandlerPtr slikz80_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		z80_port_val = data;
 		z80_clear_to_send = 0;
-	}
+	} };
 	
 	
 	
@@ -492,8 +491,7 @@ public class slikshot
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( slikshot_z80_control_w )
-	{
+	public static WriteHandlerPtr slikshot_z80_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 delta = z80_ctrl ^ data;
 		z80_ctrl = data;
 	
@@ -527,7 +525,7 @@ public class slikshot
 		{
 	//		logerror("%15f: Clock edge high\n", timer_get_time());
 		}
-	}
+	} };
 	
 	
 	

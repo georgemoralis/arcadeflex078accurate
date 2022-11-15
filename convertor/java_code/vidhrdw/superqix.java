@@ -24,30 +24,27 @@ public class superqix
 	
 	static struct tilemap *bg_tilemap;
 	
-	WRITE_HANDLER( superqix_videoram_w )
-	{
+	public static WriteHandlerPtr superqix_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( superqix_colorram_w )
-	{
+	public static WriteHandlerPtr superqix_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (colorram[offset] != data)
 		{
 			colorram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr superqix_bitmapram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return superqix_bitmapram[offset];
 	} };
 	
-	WRITE_HANDLER( superqix_bitmapram_w )
-	{
+	public static WriteHandlerPtr superqix_bitmapram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data != superqix_bitmapram[offset])
 		{
 			int x,y;
@@ -60,14 +57,13 @@ public class superqix
 			if(y<sqix_miny) sqix_miny=y;
 			if(y>sqix_maxy) sqix_maxy=y;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr superqix_bitmapram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return superqix_bitmapram2[offset];
 	} };
 	
-	WRITE_HANDLER( superqix_bitmapram2_w )
-	{
+	public static WriteHandlerPtr superqix_bitmapram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data != superqix_bitmapram2[offset])
 		{
 			int x,y;
@@ -80,10 +76,9 @@ public class superqix
 			if(y<sqix_miny) sqix_miny=y;
 			if(y>sqix_maxy) sqix_maxy=y;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( superqix_0410_w )
-	{
+	public static WriteHandlerPtr superqix_0410_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		UINT8 *RAM = memory_region(REGION_CPU1);
 	
@@ -110,12 +105,11 @@ public class superqix
 		/* bits 4-5 control ROM bank */
 		bankaddress = 0x10000 + ((data & 0x30) >> 4) * 0x4000;
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
-	WRITE_HANDLER( superqix_flipscreen_w )
-	{
+	public static WriteHandlerPtr superqix_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(!data);
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{

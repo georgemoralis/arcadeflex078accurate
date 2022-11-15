@@ -35,7 +35,6 @@ public class hyhoo
 	
 	
 	
-	WRITE_HANDLER( hyhoo_palette_w );
 	void hyhoo_radrx_w(int data);
 	void hyhoo_radry_w(int data);
 	void hyhoo_sizex_w(int data);
@@ -90,8 +89,7 @@ public class hyhoo
 		{ 0x0000, 0xffff, io_hyhoo_r },
 	PORT_END
 	
-	static WRITE_HANDLER( io_hyhoo_w )
-	{
+	public static WriteHandlerPtr io_hyhoo_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if ((0xc000 <= offset) && (0xd000 > offset))
@@ -128,7 +126,7 @@ public class hyhoo
 					break;
 			case	0xf000:	break;
 		}
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_hyhoo )
 		{ 0x0000, 0xffff, io_hyhoo_w },

@@ -72,8 +72,7 @@ public class decocass
 		return (data & 0x9f) | ((data & 0x20) << 1) | ((data & 0x40) >> 1);
 	}
 	
-	WRITE_HANDLER( decocass_w )
-	{
+	public static WriteHandlerPtr decocass_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
@@ -113,7 +112,7 @@ public class decocass
 	
 		/* Swap bits 5 & 6 for opcodes */
 		rom[offset+diff] = swap_bits_5_6(data);
-	}
+	} };
 	
 	static MEMORY_READ_START( decocass_readmem )
 		{ 0x0000, 0x1fff, MRA_RAM },

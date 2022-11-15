@@ -112,8 +112,7 @@ public class gunsmoke
 	
 	
 	
-	WRITE_HANDLER( gunsmoke_c804_w )
-	{
+	public static WriteHandlerPtr gunsmoke_c804_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
@@ -133,12 +132,11 @@ public class gunsmoke
 	
 		/* bit 7 enables characters? */
 		chon = data & 0x80;
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( gunsmoke_d806_w )
-	{
+	public static WriteHandlerPtr gunsmoke_d806_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0-2 select the sprite 3 bank */
 		sprite3bank = data & 0x07;
 	
@@ -147,7 +145,7 @@ public class gunsmoke
 	
 		/* bit 5 enables sprites? */
 		objon = data & 0x20;
-	}
+	} };
 	
 	
 	

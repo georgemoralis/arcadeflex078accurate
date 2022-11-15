@@ -76,30 +76,27 @@ public class sgladiat
 	public static ReadHandlerPtr shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return shared_ram[offset];
 	} };
-	static WRITE_HANDLER( shared_ram_w )
-	{
+	public static WriteHandlerPtr shared_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		shared_ram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr shared_ram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return shared_ram2[offset];
 	} };
-	static WRITE_HANDLER( shared_ram2_w )
-	{
+	public static WriteHandlerPtr shared_ram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		shared_ram2[offset] = data;
-	}
+	} };
 	
 	/************************************************************************/
 	
-	static WRITE_HANDLER( sgladiat_soundlatch_w )
-	{
+	public static WriteHandlerPtr sgladiat_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		snk_sound_busy_bit = 0x20;
 		soundlatch_w( offset, data );
 	
 		/* trigger NMI on sound CPU */
 	//	cpu_set_nmi_line(2, PULSE_LINE);
 		cpu_set_nmi_line(2, PULSE_LINE);	// safer because NMI can be lost in rare occations
-	}
+	} };
 	
 	public static ReadHandlerPtr sgladiat_soundlatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		snk_sound_busy_bit = 0;
@@ -117,11 +114,10 @@ public class sgladiat
 		return(readinputport(0) | snk_sound_busy_bit);
 	} };
 	
-	static WRITE_HANDLER( sglatiat_flipscreen_w )
-	{
+	public static WriteHandlerPtr sglatiat_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* 0xa006 */
 		/* x-------	screen is flipped */
-	}
+	} };
 	
 	static MEMORY_READ_START( sgladiat_readmem_cpuA )
 		{ 0x0000, 0x9fff, MRA_ROM },

@@ -85,23 +85,20 @@ public class drgnmst
 		return 0x00;
 	} };
 	
-	static WRITE_HANDLER( drgnmst_pcm_banksel_w )
-	{
+	public static WriteHandlerPtr drgnmst_pcm_banksel_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*	This is a 4 bit port.
 			Each pair of bits is used in part of the OKI PCM ROM bank selectors.
 			See the Port 2 write handler below (drgnmst_snd_control_w) for details.
 		*/
 	
 		pic16c5x_port0 = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( drgnmst_oki_w )
-	{
+	public static WriteHandlerPtr drgnmst_oki_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		drgnmst_oki_command = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( drgnmst_snd_control_w )
-	{
+	public static WriteHandlerPtr drgnmst_snd_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*	This port controls communications to and from the 68K, both OKI
 			devices, and part of the OKI PCM ROM bank selection.
 	
@@ -155,7 +152,7 @@ public class drgnmst
 						break;
 			default:	break;
 		}
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr PIC16C5X_T0_clk_r  = new ReadHandlerPtr() { public int handler(int offset){

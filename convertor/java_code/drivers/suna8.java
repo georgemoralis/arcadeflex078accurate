@@ -49,12 +49,8 @@ public class suna8
 	
 	/* Functions defined in vidhrdw: */
 	
-	WRITE_HANDLER( suna8_spriteram_w );			// for debug
-	WRITE_HANDLER( suna8_banked_spriteram_w );	// for debug
 	
 	
-	WRITE_HANDLER( suna8_banked_paletteram_w );
-	WRITE_HANDLER( brickzn_banked_paletteram_w );
 	
 	
 	
@@ -833,11 +829,10 @@ public class suna8
 					(((offset ^ protection_val) & 0x01)	?	0x84 : 0);
 	} };
 	
-	static WRITE_HANDLER( hardhead_protection_w )
-	{
+	public static WriteHandlerPtr hardhead_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 0x80)	protection_val = data;
 		else				protection_val = offset & 1;
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -872,8 +867,7 @@ public class suna8
 		---4 ----
 		---- 3210	ROM Bank
 	*/
-	static WRITE_HANDLER( hardhead_bankswitch_w )
-	{
+	public static WriteHandlerPtr hardhead_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU1);
 		int bank = data & 0x0f;
 	
@@ -881,7 +875,7 @@ public class suna8
 	
 		RAM = &RAM[0x4000 * bank + 0x10000];
 		cpu_setbank(1, RAM);
-	}
+	} };
 	
 	
 	/*
@@ -890,12 +884,11 @@ public class suna8
 		---- -2--	Flip Screen
 		---- --10
 	*/
-	static WRITE_HANDLER( hardhead_flipscreen_w )
-	{
+	public static WriteHandlerPtr hardhead_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(    data & 0x04);
 		coin_lockout_w ( 0,	data & 0x08);
 		coin_lockout_w ( 1,	data & 0x10);
-	}
+	} };
 	
 	static MEMORY_READ_START( hardhead_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM				},	// ROM
@@ -943,8 +936,7 @@ public class suna8
 		---- 3---
 		---- -210	ROM Bank
 	*/
-	static WRITE_HANDLER( rranger_bankswitch_w )
-	{
+	public static WriteHandlerPtr rranger_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU1);
 		int bank = data & 0x07;
 		if ((~data & 0x10) && (bank >= 4))	bank += 4;
@@ -958,7 +950,7 @@ public class suna8
 		flip_screen_set(    data & 0x20);
 		coin_lockout_w ( 0,	data & 0x40);
 		coin_lockout_w ( 1,	data & 0x80);
-	}
+	} };
 	
 	/*
 		7--- ----	1 -> Garbled title (another romset?)
@@ -1020,38 +1012,34 @@ public class suna8
 	
 	/*
 	*/
-	static WRITE_HANDLER( brickzn_palettebank_w )
-	{
+	public static WriteHandlerPtr brickzn_palettebank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		suna8_palettebank = (data >> 1) & 1;
 		if (data & ~0x02) 	logerror("CPU #0 - PC %04X: unknown palettebank bits: %02X\n",activecpu_get_pc(),data);
 	
 		/* Also used as soundlatch - depending on c0c0? */
 		soundlatch_w(0,data);
-	}
+	} };
 	
 	/*
 		7654 32--
 		---- --1-	Ram Bank
 		---- ---0	Flip Screen
 	*/
-	static WRITE_HANDLER( brickzn_spritebank_w )
-	{
+	public static WriteHandlerPtr brickzn_spritebank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		suna8_spritebank = (data >> 1) & 1;
 		if (data & ~0x03) 	logerror("CPU #0 - PC %04X: unknown spritebank bits: %02X\n",activecpu_get_pc(),data);
 		flip_screen_set( data & 0x01 );
-	}
+	} };
 	
-	static WRITE_HANDLER( brickzn_unknown_w )
-	{
+	public static WriteHandlerPtr brickzn_unknown_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		suna8_unknown = data;
-	}
+	} };
 	
 	/*
 		7654 ----
 		---- 3210	ROM Bank
 	*/
-	static WRITE_HANDLER( brickzn_rombank_w )
-	{
+	public static WriteHandlerPtr brickzn_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU1);
 		int bank = data & 0x0f;
 	
@@ -1061,7 +1049,7 @@ public class suna8
 	
 		cpu_setbank(1, RAM);
 		suna8_rombank = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( brickzn_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM					},	// ROM
@@ -1104,40 +1092,36 @@ public class suna8
 	static data8_t suna8_nmi_enable;
 	
 	/* Probably wrong: */
-	static WRITE_HANDLER( hardhea2_nmi_w )
-	{
+	public static WriteHandlerPtr hardhea2_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		suna8_nmi_enable = data & 0x01;
 		if (data & ~0x01) 	logerror("CPU #0 - PC %04X: unknown nmi bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	/*
 		7654 321-
 		---- ---0	Flip Screen
 	*/
-	static WRITE_HANDLER( hardhea2_flipscreen_w )
-	{
+	public static WriteHandlerPtr hardhea2_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data & 0x01);
 		if (data & ~0x01) 	logerror("CPU #0 - PC %04X: unknown flipscreen bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
-	WRITE_HANDLER( hardhea2_leds_w )
-	{
+	public static WriteHandlerPtr hardhea2_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0, data & 0x01);
 		set_led_status(1, data & 0x02);
 		coin_counter_w(0, data & 0x04);
 		if (data & ~0x07)	logerror("CPU#0  - PC %06X: unknown leds bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	/*
 		7654 32--
 		---- --1-	Ram Bank
 		---- ---0	Ram Bank?
 	*/
-	static WRITE_HANDLER( hardhea2_spritebank_w )
-	{
+	public static WriteHandlerPtr hardhea2_spritebank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		suna8_spritebank = (data >> 1) & 1;
 		if (data & ~0x02) 	logerror("CPU #0 - PC %04X: unknown spritebank bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	public static ReadHandlerPtr hardhea2_c080_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
@@ -1147,8 +1131,7 @@ public class suna8
 		7654 ----
 		---- 3210	ROM Bank
 	*/
-	static WRITE_HANDLER( hardhea2_rombank_w )
-	{
+	public static WriteHandlerPtr hardhea2_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU1);
 		int bank = data & 0x0f;
 	
@@ -1158,7 +1141,7 @@ public class suna8
 	
 		cpu_setbank(1, RAM);
 		suna8_rombank = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( hardhea2_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM					},	// ROM
@@ -1200,16 +1183,14 @@ public class suna8
 	***************************************************************************/
 	
 	static data8_t spritebank_latch;
-	static WRITE_HANDLER( starfigh_spritebank_latch_w )
-	{
+	public static WriteHandlerPtr starfigh_spritebank_latch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		spritebank_latch = (data >> 2) & 1;
 		if (data & ~0x04) 	logerror("CPU #0 - PC %04X: unknown spritebank bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
-	static WRITE_HANDLER( starfigh_spritebank_w )
-	{
+	public static WriteHandlerPtr starfigh_spritebank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		suna8_spritebank = spritebank_latch;
-	}
+	} };
 	
 	static MEMORY_READ_START( starfigh_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM					},	// ROM
@@ -1249,47 +1230,42 @@ public class suna8
 	***************************************************************************/
 	
 	/* Probably wrong: */
-	static WRITE_HANDLER( sparkman_nmi_w )
-	{
+	public static WriteHandlerPtr sparkman_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		suna8_nmi_enable = data & 0x01;
 		if (data & ~0x01) 	logerror("CPU #0 - PC %04X: unknown nmi bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	/*
 		7654 321-
 		---- ---0	Flip Screen
 	*/
-	static WRITE_HANDLER( sparkman_flipscreen_w )
-	{
+	public static WriteHandlerPtr sparkman_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data & 0x01);
 		if (data & ~0x01) 	logerror("CPU #0 - PC %04X: unknown flipscreen bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
-	WRITE_HANDLER( sparkman_leds_w )
-	{
+	public static WriteHandlerPtr sparkman_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0, data & 0x01);
 		set_led_status(1, data & 0x02);
 		coin_counter_w(0, data & 0x04);
 		if (data & ~0x07)	logerror("CPU#0  - PC %06X: unknown leds bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	/*
 		7654 32--
 		---- --1-	Ram Bank
 		---- ---0	Ram Bank?
 	*/
-	static WRITE_HANDLER( sparkman_spritebank_w )
-	{
+	public static WriteHandlerPtr sparkman_spritebank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		suna8_spritebank = (data >> 1) & 1;
 		if (data & ~0x02) 	logerror("CPU #0 - PC %04X: unknown spritebank bits: %02X\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	/*
 		7654 ----
 		---- 3210	ROM Bank
 	*/
-	static WRITE_HANDLER( sparkman_rombank_w )
-	{
+	public static WriteHandlerPtr sparkman_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU1);
 		int bank = data & 0x0f;
 	
@@ -1299,7 +1275,7 @@ public class suna8
 	
 		cpu_setbank(1, RAM);
 		suna8_rombank = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr sparkman_c0a3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (cpu_getcurrentframe() & 1) ? 0x80 : 0;
@@ -1436,10 +1412,9 @@ public class suna8
 	MEMORY_END
 	
 	
-	static WRITE_HANDLER( brickzn_pcm_w )
-	{
+	public static WriteHandlerPtr brickzn_pcm_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_data_w( offset & 3, (data & 0xf) * 0x11 );
-	}
+	} };
 	
 	static PORT_READ_START( brickzn_pcm_readport )
 		{ 0x00, 0x00, soundlatch2_r		},	// From Sound CPU

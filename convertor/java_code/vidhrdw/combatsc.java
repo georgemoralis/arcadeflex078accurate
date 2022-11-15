@@ -288,8 +288,7 @@ public class combatsc
 		return videoram[offset];
 	} };
 	
-	WRITE_HANDLER( combasc_video_w )
-	{
+	public static WriteHandlerPtr combasc_video_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if( videoram[offset]!=data )
 		{
 			videoram[offset] = data;
@@ -305,11 +304,10 @@ public class combatsc
 				tilemap_mark_tile_dirty( textlayer,offset & 0x3ff);
 			}
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( combasc_vreg_w )
-	{
+	public static WriteHandlerPtr combasc_vreg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data != combasc_vreg)
 		{
 			tilemap_mark_all_tiles_dirty( textlayer );
@@ -319,13 +317,12 @@ public class combatsc
 				tilemap_mark_all_tiles_dirty( tilemap[1] );
 			combasc_vreg = data;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( combascb_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr combascb_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
 	public static ReadHandlerPtr combasc_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((offset <= 0x403) && (offset >= 0x400))
@@ -341,8 +338,7 @@ public class combatsc
 		return banked_area[offset];
 	} };
 	
-	WRITE_HANDLER( combasc_io_w )
-	{
+	public static WriteHandlerPtr combasc_io_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset)
 		{
 			case 0x400: priority = data & 0x20; break;
@@ -351,10 +347,9 @@ public class combatsc
 			default:
 				combasc_io_ram[offset] = data;
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( combasc_bankselect_w )
-	{
+	public static WriteHandlerPtr combasc_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *page = memory_region(REGION_CPU1) + 0x10000;
 	
 		if (data & 0x40)
@@ -380,10 +375,9 @@ public class combatsc
 		{
 			cpu_setbank(1,page + 0x20000 + 0x4000 * (data & 1));
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( combascb_bankselect_w )
-	{
+	public static WriteHandlerPtr combascb_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 0x40)
 		{
 			combasc_video_circuit = 1;
@@ -422,7 +416,7 @@ public class combatsc
 				memory_set_bankhandler_w (1, 0, MWA_ROM);
 			}
 		}
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_combasc  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *MEM = memory_region(REGION_CPU1) + 0x38000;
@@ -440,8 +434,7 @@ public class combatsc
 		combasc_bankselect_w( 0,0 );
 	} };
 	
-	WRITE_HANDLER( combasc_pf_control_w )
-	{
+	public static WriteHandlerPtr combasc_pf_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K007121_ctrl_w(combasc_video_circuit,offset,data);
 	
 		if (offset == 7)
@@ -454,16 +447,15 @@ public class combatsc
 			else
 				memcpy(private_spriteram[combasc_video_circuit],combasc_page[combasc_video_circuit]+0x1800,0x800);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr combasc_scrollram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return combasc_scrollram[offset];
 	} };
 	
-	WRITE_HANDLER( combasc_scrollram_w )
-	{
+	public static WriteHandlerPtr combasc_scrollram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		combasc_scrollram[offset] = data;
-	}
+	} };
 	
 	
 	

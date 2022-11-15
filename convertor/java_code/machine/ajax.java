@@ -37,8 +37,7 @@ public class ajax
 		(*)	The Coin Counters are handled by the Konami Custom 051550
 	*/
 	
-	static WRITE_HANDLER( ajax_bankswitch_w )
-	{
+	public static WriteHandlerPtr ajax_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		int bankaddress = 0;
 	
@@ -55,7 +54,7 @@ public class ajax
 		/* bank # (ROMS N11 and N12) */
 		bankaddress += 0x10000 + (data & 0x07)*0x2000;
 		cpu_setbank(2,&RAM[bankaddress]);
-	}
+	} };
 	
 	/*	ajax_lamps_w:
 	  	Handled by the LS273 Octal +ve edge trigger D-type Flip-flop with Reset at B9:
@@ -81,8 +80,7 @@ public class ajax
 			LS393		C20			Dual -ve edge trigger 4-bit Binary Ripple Counter with Resets
 	*/
 	
-	static WRITE_HANDLER( ajax_lamps_w )
-	{
+	public static WriteHandlerPtr ajax_lamps_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(1,data & 0x02);	/* super weapon lamp */
 		set_led_status(2,data & 0x04);	/* power up lamps */
 		set_led_status(5,data & 0x04);	/* power up lamps */
@@ -91,7 +89,7 @@ public class ajax
 		set_led_status(6,data & 0x40);	/* game over lamps */
 		set_led_status(4,data & 0x80);	/* game over lamps */
 		set_led_status(7,data & 0x80);	/* game over lamps */
-	}
+	} };
 	
 	/*	ajax_ls138_f10:
 		The LS138 1-of-8 Decoder/Demultiplexer at F10 selects what to do:
@@ -137,8 +135,7 @@ public class ajax
 		return data;
 	} };
 	
-	WRITE_HANDLER( ajax_ls138_f10_w )
-	{
+	public static WriteHandlerPtr ajax_ls138_f10_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch ((offset & 0x01c0) >> 6){
 			case 0x00:	/* NSFIRQ + AFR */
 				if (offset)
@@ -164,17 +161,16 @@ public class ajax
 			default:
 				logerror("%04x: (ls138_f10) write %02x to an unknown address %02x\n",activecpu_get_pc(), data, offset);
 		}
-	}
+	} };
 	
 	/* Shared RAM between the 052001 and the 6809 (6264SL at I8) */
 	public static ReadHandlerPtr ajax_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ajax_sharedram[offset];
 	} };
 	
-	WRITE_HANDLER( ajax_sharedram_w )
-	{
+	public static WriteHandlerPtr ajax_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ajax_sharedram[offset] = data;
-	}
+	} };
 	
 	/*	ajax_bankswitch_w_2:
 		Handled by the LS273 Octal +ve edge trigger D-type Flip-flop with Reset at K14:
@@ -191,8 +187,7 @@ public class ajax
 		0	SRB0	/
 	*/
 	
-	WRITE_HANDLER( ajax_bankswitch_2_w )
-	{
+	public static WriteHandlerPtr ajax_bankswitch_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU2);
 		int bankaddress;
 	
@@ -208,7 +203,7 @@ public class ajax
 		/* bank # (ROMS G16 and I16) */
 		bankaddress = 0x10000 + (data & 0x0f)*0x2000;
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
 	
 	public static MachineInitHandlerPtr machine_init_ajax  = new MachineInitHandlerPtr() { public void handler(){

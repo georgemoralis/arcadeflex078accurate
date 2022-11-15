@@ -254,21 +254,17 @@ public class _2151intf
 		return 0;
 	} };
 	
-	WRITE_HANDLER( YM2151_register_port_0_w )
-	{
+	public static WriteHandlerPtr YM2151_register_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		lastreg0 = data;
-	}
-	WRITE_HANDLER( YM2151_register_port_1_w )
-	{
+	} };
+	public static WriteHandlerPtr YM2151_register_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		lastreg1 = data;
-	}
-	WRITE_HANDLER( YM2151_register_port_2_w )
-	{
+	} };
+	public static WriteHandlerPtr YM2151_register_port_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		lastreg2 = data;
-	}
+	} };
 	
-	WRITE_HANDLER( YM2151_data_port_0_w )
-	{
+	public static WriteHandlerPtr YM2151_data_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(FMMode)
 		{
 	#if (HAS_YM2151)
@@ -284,10 +280,9 @@ public class _2151intf
 			break;
 	#endif
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( YM2151_data_port_1_w )
-	{
+	public static WriteHandlerPtr YM2151_data_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(FMMode)
 		{
 	#if (HAS_YM2151)
@@ -303,10 +298,9 @@ public class _2151intf
 			break;
 	#endif
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( YM2151_data_port_2_w )
-	{
+	public static WriteHandlerPtr YM2151_data_port_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(FMMode)
 		{
 	#if (HAS_YM2151)
@@ -322,23 +316,21 @@ public class _2151intf
 			break;
 	#endif
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( YM2151_word_0_w )
-	{
+	public static WriteHandlerPtr YM2151_word_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset)
 			YM2151_data_port_0_w(0,data);
 		else
 			YM2151_register_port_0_w(0,data);
-	}
+	} };
 	
-	WRITE_HANDLER( YM2151_word_1_w )
-	{
+	public static WriteHandlerPtr YM2151_word_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset)
 			YM2151_data_port_1_w(0,data);
 		else
 			YM2151_register_port_1_w(0,data);
-	}
+	} };
 	
 	READ16_HANDLER( YM2151_status_port_0_lsb_r )
 	{

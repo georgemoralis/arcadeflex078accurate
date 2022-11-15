@@ -90,7 +90,7 @@ public class system18
 		{ 0xe000, 0xffff, MWA_RAM },	//??
 	MEMORY_END
 	
-	static WRITE_HANDLER( sys18_soundbank_w ){
+	public static WriteHandlerPtr sys18_soundbank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		/* select access bank for a000~bfff */
 		unsigned char *RAM = memory_region(REGION_CPU2);
 		int Bank=0;

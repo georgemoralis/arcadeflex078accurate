@@ -20,14 +20,8 @@ public class fromanceH
 	/*----------- defined in vidhrdw/fromance.c -----------*/
 	
 	
-	WRITE_HANDLER( fromance_crtc_data_w );
-	WRITE_HANDLER( fromance_crtc_register_w );
 	
-	WRITE_HANDLER( fromance_gfxreg_w );
 	
-	WRITE_HANDLER( fromance_scroll_w );
 	
-	WRITE_HANDLER( fromance_paletteram_w );
 	
-	WRITE_HANDLER( fromance_videoram_w );
-}
+	}

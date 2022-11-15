@@ -115,26 +115,6 @@ public class argus
 	static data8_t butasan_page_latch = 0x00;
 	
 	
-	WRITE_HANDLER( argus_txram_w );
-	WRITE_HANDLER( butasan_txram_w );
-	WRITE_HANDLER( argus_bg1ram_w );
-	WRITE_HANDLER( butasan_bg0ram_w );
-	WRITE_HANDLER( butasan_bg1ram_w );
-	WRITE_HANDLER( argus_bg0_scrollx_w );
-	WRITE_HANDLER( argus_bg0_scrolly_w );
-	WRITE_HANDLER( butasan_bg0_scrollx_w );
-	WRITE_HANDLER( argus_bg1_scrollx_w );
-	WRITE_HANDLER( argus_bg1_scrolly_w );
-	WRITE_HANDLER( argus_bg_status_w );
-	WRITE_HANDLER( valtric_bg_status_w );
-	WRITE_HANDLER( butasan_bg0_status_w );
-	WRITE_HANDLER( argus_flipscreen_w );
-	WRITE_HANDLER( argus_paletteram_w );
-	WRITE_HANDLER( valtric_paletteram_w );
-	WRITE_HANDLER( butasan_paletteram_w );
-	WRITE_HANDLER( butasan_txbackram_w );
-	WRITE_HANDLER( butasan_bg0backram_w );
-	WRITE_HANDLER( butasan_bg1_status_w );
 	
 	/***************************************************************************
 	
@@ -205,8 +185,7 @@ public class argus
 	} };
 	#endif
 	
-	static WRITE_HANDLER( argus_bankselect_w )
-	{
+	public static WriteHandlerPtr argus_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
@@ -216,12 +195,11 @@ public class argus
 			bankaddress = 0x10000 + ((data & 7) * 0x4000);
 			cpu_setbank(1, &RAM[bankaddress]);	 /* Select 8 banks of 16k */
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( butasan_pageselect_w )
-	{
+	public static WriteHandlerPtr butasan_pageselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		butasan_page_latch = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr butasan_pagedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (!(butasan_page_latch & 0x01))
@@ -250,8 +228,7 @@ public class argus
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( butasan_pagedram_w )
-	{
+	public static WriteHandlerPtr butasan_pagedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (!(butasan_page_latch & 0x01))
 		{
 			if (offset < 0x0800)		/* BG0 RAM */
@@ -275,7 +252,7 @@ public class argus
 				butasan_txbackram_w( offset - 0x0800, data );
 			}
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************

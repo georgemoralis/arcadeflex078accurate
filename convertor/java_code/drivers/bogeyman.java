@@ -19,12 +19,7 @@ public class bogeyman
 	
 	extern UINT8 *bogeyman_videoram2, *bogeyman_colorram2;
 	
-	extern WRITE_HANDLER( bogeyman_videoram_w );
-	extern WRITE_HANDLER( bogeyman_colorram_w );
-	extern WRITE_HANDLER( bogeyman_videoram2_w );
-	extern WRITE_HANDLER( bogeyman_colorram2_w );
-	extern WRITE_HANDLER( bogeyman_paletteram_w );
-	
+	extern extern extern extern extern 
 	extern extern extern 
 	/******************************************************************************/
 	
@@ -32,13 +27,11 @@ public class bogeyman
 	
 	static int psg_latch;
 	
-	static WRITE_HANDLER( bogeyman_8910_latch_w )
-	{
+	public static WriteHandlerPtr bogeyman_8910_latch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		psg_latch = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( bogeyman_8910_control_w )
-	{
+	public static WriteHandlerPtr bogeyman_8910_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	
 		/* bit 0 is flipscreen */
@@ -64,7 +57,7 @@ public class bogeyman
 		}
 	
 		last = data;
-	}
+	} };
 	
 	/******************************************************************************/
 	

@@ -17,18 +17,12 @@ public class solomon
 	extern UINT8 *solomon_videoram2;
 	extern UINT8 *solomon_colorram2;
 	
-	extern WRITE_HANDLER( solomon_videoram_w );
-	extern WRITE_HANDLER( solomon_colorram_w );
-	extern WRITE_HANDLER( solomon_videoram2_w );
-	extern WRITE_HANDLER( solomon_colorram2_w );
-	extern WRITE_HANDLER( solomon_flipscreen_w );
-	
+	extern extern extern extern extern 
 	extern extern 
-	static WRITE_HANDLER( solomon_sh_command_w )
-	{
+	public static WriteHandlerPtr solomon_sh_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

@@ -12,11 +12,10 @@ public class ssrj
 	
 	/* tilemap 1 */
 	
-	WRITE_HANDLER(ssrj_vram1_w)
-	{
+	public static WriteHandlerPtr ssrj_vram1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ssrj_vram1[offset]=data;
 		tilemap_mark_tile_dirty(tilemap1,offset>>1);
-	}
+	} };
 	
 	public static ReadHandlerPtr ssrj_vram1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ssrj_vram1[offset];
@@ -35,11 +34,10 @@ public class ssrj
 	
 	/* tilemap 2 */
 	
-	WRITE_HANDLER(ssrj_vram2_w)
-	{
+	public static WriteHandlerPtr ssrj_vram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ssrj_vram2[offset]=data;
 		tilemap_mark_tile_dirty(tilemap2,offset>>1);
-	}
+	} };
 	
 	public static ReadHandlerPtr ssrj_vram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ssrj_vram2[offset];
@@ -58,11 +56,10 @@ public class ssrj
 	
 	/* tilemap 4 */
 	
-	WRITE_HANDLER(ssrj_vram4_w)
-	{
+	public static WriteHandlerPtr ssrj_vram4_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ssrj_vram4[offset]=data;
 		tilemap_mark_tile_dirty(tilemap4,offset>>1);
-	}
+	} };
 	
 	public static ReadHandlerPtr ssrj_vram4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ssrj_vram4[offset];

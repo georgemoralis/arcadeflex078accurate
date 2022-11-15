@@ -37,15 +37,7 @@ package drivers;
 public class galivan
 {
 	
-	WRITE_HANDLER( galivan_scrollx_w );
-	WRITE_HANDLER( galivan_scrolly_w );
-	WRITE_HANDLER( galivan_videoram_w );
-	WRITE_HANDLER( galivan_colorram_w );
-	WRITE_HANDLER( galivan_gfxbank_w );
 	
-	WRITE_HANDLER( ninjemak_scrollx_w );
-	WRITE_HANDLER( ninjemak_scrolly_w );
-	WRITE_HANDLER( ninjemak_gfxbank_w );
 	
 	
 	
@@ -56,10 +48,9 @@ public class galivan
 	//	layers = 0x60;
 	} };
 	
-	static WRITE_HANDLER( galivan_sound_command_w )
-	{
+	public static WriteHandlerPtr galivan_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,(data << 1) | 1);
-	}
+	} };
 	
 	public static ReadHandlerPtr galivan_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data;
@@ -75,8 +66,7 @@ public class galivan
 	
 	
 	/* the scroll registers are memory mapped in ninjemak, I/O ports in the others */
-	static WRITE_HANDLER( ninjemak_videoreg_w )
-	{
+	public static WriteHandlerPtr ninjemak_videoreg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset)
 		{
 			case	0x0b:
@@ -94,7 +84,7 @@ public class galivan
 			default:
 				break;
 		}
-	}
+	} };
 	
 	
 	

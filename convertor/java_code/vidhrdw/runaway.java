@@ -23,8 +23,7 @@ public class runaway
 	
 	
 	
-	WRITE_HANDLER( runaway_paletteram_w )
-	{
+	public static WriteHandlerPtr runaway_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int R =
 			0x21 * ((~data >> 2) & 1) +
 			0x47 * ((~data >> 3) & 1) +
@@ -41,31 +40,29 @@ public class runaway
 			0x97 * ((~data >> 1) & 1);
 	
 		palette_set_color(offset, R, G, B);
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( runaway_video_ram_w )
-	{
+	public static WriteHandlerPtr runaway_video_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data != runaway_video_ram[offset])
 		{
 			tilemap_mark_tile_dirty(tilemap, offset);
 		}
 	
 		runaway_video_ram[offset] = data;
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( runaway_tile_bank_w )
-	{
+	public static WriteHandlerPtr runaway_tile_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((data & 1) != tile_bank)
 		{
 			tilemap_mark_all_tiles_dirty(tilemap);
 		}
 	
 		tile_bank = data & 1;
-	}
+	} };
 	
 	
 	static void runaway_get_tile_info(int tile_index)

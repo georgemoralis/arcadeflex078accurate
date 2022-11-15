@@ -37,8 +37,6 @@ public class m90
 	
 	extern unsigned char *m90_video_data;
 	
-	WRITE_HANDLER( m90_video_control_w );
-	WRITE_HANDLER( m90_video_w );
 	
 	/***************************************************************************/
 	
@@ -54,8 +52,7 @@ public class m90
 	
 	/***************************************************************************/
 	
-	static WRITE_HANDLER( m90_coincounter_w )
-	{
+	public static WriteHandlerPtr m90_coincounter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset==0)
 		{
 			coin_counter_w(0,data & 0x01);
@@ -63,16 +60,15 @@ public class m90
 	
 			if (data&0xfe) logerror("Coin counter %02x\n",data);
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( quizf1_bankswitch_w )
-	{
+	public static WriteHandlerPtr quizf1_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 		{
 			bankaddress = 0x10000 * (data & 0x0f);
 			set_m90_bank();
 		}
-	}
+	} };
 	
 	/***************************************************************************/
 	
@@ -898,12 +894,11 @@ public class m90
 	} };
 	
 	/* Bomberman World executes encrypted code from RAM! */
-	static WRITE_HANDLER (bbmanw_ram_write)
-	{
+	public static WriteHandlerPtr bbmanw_ram_write = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		RAM[0x0a0c00+offset]=data;
 		RAM[0x1a0c00+offset]=dynablaster_decryption_table[data];
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_bbmanw  = new DriverInitHandlerPtr() { public void handler(){
 		irem_cpu_decrypt(0,dynablaster_decryption_table);

@@ -172,15 +172,8 @@ public class wiz
 	extern unsigned char *wiz_attributesram2;
 	extern unsigned char *wiz_sprite_bank;
 	
-	WRITE_HANDLER( wiz_char_bank_select_w );
-	WRITE_HANDLER( wiz_attributes_w );
-	WRITE_HANDLER( wiz_palettebank_w );
-	WRITE_HANDLER( wiz_bgcolor_w );
-	WRITE_HANDLER( wiz_flipx_w );
-	WRITE_HANDLER( wiz_flipy_w );
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int dsc0=1, dsc1=1;
 	
 		switch (offset)
@@ -202,7 +195,7 @@ public class wiz
 				discrete_sound_w(1, dsc0^=1);
 			break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr wiz_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (wiz_colorram2[0])
@@ -215,10 +208,9 @@ public class wiz
 		return wiz_colorram2[0];
 	} };
 	
-	static WRITE_HANDLER( wiz_coin_counter_w )
-	{
+	public static WriteHandlerPtr wiz_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0xbfff, MRA_ROM },

@@ -15,9 +15,6 @@ public class chaknpop
 {
 	
 	/* machine/chaknpop.c */
-	WRITE_HANDLER( chaknpop_mcu_portA_w );
-	WRITE_HANDLER( chaknpop_mcu_portB_w );
-	WRITE_HANDLER( chaknpop_mcu_portC_w );
 	
 	
 	/* vidhrdw/chaknpop.c */
@@ -28,11 +25,8 @@ public class chaknpop
 	
 	
 	
-	WRITE_HANDLER( chaknpop_gfxmode_w );
 	
-	WRITE_HANDLER( chaknpop_txram_w );
 	
-	WRITE_HANDLER( chaknpop_attrram_w );
 	
 	
 	/***************************************************************************
@@ -41,20 +35,17 @@ public class chaknpop
 	
 	***************************************************************************/
 	
-	static WRITE_HANDLER ( unknown_port_1_w )
-	{
+	public static WriteHandlerPtr unknown_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		//logerror("%04x: write to unknow port 1: 0x%02x\n", activecpu_get_pc(), data);
-	}
+	} };
 	
-	static WRITE_HANDLER ( unknown_port_2_w )
-	{
+	public static WriteHandlerPtr unknown_port_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		//logerror("%04x: write to unknow port 2: 0x%02x\n", activecpu_get_pc(), data);
-	}
+	} };
 	
-	static WRITE_HANDLER ( coinlock_w )
-	{
+	public static WriteHandlerPtr coinlock_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("%04x: coin lock %sable\n", activecpu_get_pc(), data ? "dis" : "en");
-	}
+	} };
 	
 	
 	/***************************************************************************

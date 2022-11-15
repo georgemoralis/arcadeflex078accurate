@@ -32,22 +32,15 @@ public class exctsccr
 {
 	
 	/* from vidhrdw */
-	extern WRITE_HANDLER( exctsccr_videoram_w );
-	extern WRITE_HANDLER( exctsccr_colorram_w );
-	extern WRITE_HANDLER( exctsccr_gfx_bank_w );
-	extern WRITE_HANDLER( exctsccr_flipscreen_w );
-	
+	extern extern extern extern 
 	extern extern extern 
 	/* from machine */
 	extern UINT8 *exctsccr_mcu_ram;
-	extern WRITE_HANDLER( exctsccr_mcu_w );
-	extern WRITE_HANDLER( exctsccr_mcu_control_w );
+	extern extern 
 	
-	
-	WRITE_HANDLER( exctsccr_DAC_data_w )
-	{
+	public static WriteHandlerPtr exctsccr_DAC_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_signed_data_w(offset,data << 2);
-	}
+	} };
 	
 	
 	/***************************************************************************

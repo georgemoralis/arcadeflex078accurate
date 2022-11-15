@@ -41,14 +41,6 @@ public class ojankohs
 {
 	
 	
-	WRITE_HANDLER( ojankohs_palette_w );
-	WRITE_HANDLER( ccasino_palette_w );
-	WRITE_HANDLER( ojankohs_videoram_w );
-	WRITE_HANDLER( ojankohs_colorram_w );
-	WRITE_HANDLER( ojankohs_gfxreg_w );
-	WRITE_HANDLER( ojankohs_flipscreen_w );
-	WRITE_HANDLER( ojankoc_palette_w );
-	WRITE_HANDLER( ojankoc_videoram_w );
 	void ojankoc_flipscreen(int data);
 	
 	
@@ -66,15 +58,13 @@ public class ojankohs
 		ojankohs_vclk_left = 0;
 	} };
 	
-	static WRITE_HANDLER( ojankohs_rombank_w )
-	{
+	public static WriteHandlerPtr ojankohs_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *ROM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1, &ROM[0x10000 + (0x4000 * (data & 0x3f))]);
-	}
+	} };
 	
-	static WRITE_HANDLER( ojankoy_rombank_w )
-	{
+	public static WriteHandlerPtr ojankoy_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *ROM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1, &ROM[0x10000 + (0x4000 * (data & 0x1f))]);
@@ -83,21 +73,19 @@ public class ojankohs
 		if (!ojankohs_adpcm_reset) ojankohs_vclk_left = 0;
 	
 		MSM5205_reset_w(0, !ojankohs_adpcm_reset);
-	}
+	} };
 	
-	static WRITE_HANDLER( ojankohs_adpcm_reset_w )
-	{
+	public static WriteHandlerPtr ojankohs_adpcm_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ojankohs_adpcm_reset = (data & 0x01);
 		ojankohs_vclk_left = 0;
 	
 		MSM5205_reset_w(0, !ojankohs_adpcm_reset);
-	}
+	} };
 	
-	static WRITE_HANDLER( ojankohs_msm5205_w )
-	{
+	public static WriteHandlerPtr ojankohs_msm5205_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ojankohs_adpcm_data = data;
 		ojankohs_vclk_left = 2;
-	}
+	} };
 	
 	static void ojankohs_adpcm_int(int irq)
 	{
@@ -117,8 +105,7 @@ public class ojankohs
 			cpu_set_nmi_line(0, PULSE_LINE);
 	}
 	
-	static WRITE_HANDLER( ojankoc_ctrl_w )
-	{
+	public static WriteHandlerPtr ojankoc_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *BANKROM = memory_region(REGION_USER1);
 		UINT32 bank_address = (data & 0x0f) * 0x8000;
 	
@@ -127,12 +114,11 @@ public class ojankohs
 		ojankohs_adpcm_reset = ((data & 0x10) >> 4);
 		MSM5205_reset_w(0, (!(data & 0x10) >> 4));
 		ojankoc_flipscreen(data);
-	}
+	} };
 	
-	static WRITE_HANDLER( ojankohs_portselect_w )
-	{
+	public static WriteHandlerPtr ojankohs_portselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ojankohs_portselect = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr ojankohs_keymatrix_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret;
@@ -203,15 +189,13 @@ public class ojankohs
 		return (readinputport(10) ^ 0xff);		// DIPSW 4
 	} };
 	
-	static WRITE_HANDLER( ojankoy_coinctr_w )
-	{
+	public static WriteHandlerPtr ojankoy_coinctr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w( 0, (data & 0x01));
-	}
+	} };
 	
-	static WRITE_HANDLER( ccasino_coinctr_w )
-	{
+	public static WriteHandlerPtr ccasino_coinctr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0, (data & 0x02));
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem_ojankohs )

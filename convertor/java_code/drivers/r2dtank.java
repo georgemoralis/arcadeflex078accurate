@@ -46,20 +46,18 @@ public class r2dtank
 {
 	
 	static int dipsw_bank;
-	static WRITE_HANDLER( dipsw_bank_w )
-	{
+	public static WriteHandlerPtr dipsw_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	printf("bank = %x\n",data);
 		dipsw_bank = data;
-	}
+	} };
 	
 	static int r2dtank_video_flip;
-	WRITE_HANDLER( r2dtank_video_flip_w )
-	{
+	public static WriteHandlerPtr r2dtank_video_flip_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*	0 -> flipped
 			1 -> not flipped */
 	
 		r2dtank_video_flip = !data;
-	}
+	} };
 	
 	public static ReadHandlerPtr dipsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch( dipsw_bank )
@@ -108,15 +106,13 @@ public class r2dtank
 		}
 	} };
 	
-	WRITE_HANDLER( r2dtank_pia_0_w )
-	{
+	public static WriteHandlerPtr r2dtank_pia_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pia_0_w(offset, ~data);
-	}
+	} };
 	
-	WRITE_HANDLER( r2dtank_pia_1_w )
-	{
+	public static WriteHandlerPtr r2dtank_pia_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pia_1_w(offset, ~data);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_RAM },

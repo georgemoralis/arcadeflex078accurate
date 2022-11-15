@@ -214,14 +214,13 @@ public class bagman
 	}
 	
 	
-	WRITE_HANDLER( bagman_pal16r6_w )
-	{
+	public static WriteHandlerPtr bagman_pal16r6_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	unsigned char line;
 	
 		line = offset*4;
 		columnvalue[line  ] = data&1;
 		columnvalue[line+1] = 1-(data&1);
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_bagman  = new MachineInitHandlerPtr() { public void handler(){
 		bagman_pal16r6_w(0,1);	/*pin 2*/

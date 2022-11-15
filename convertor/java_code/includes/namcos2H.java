@@ -233,16 +233,12 @@ extern data16_t *namcos2_68k_roz_ram;
 /* Sound CPU support handlers - 6809						  */
 /**************************************************************/
 
-WRITE_HANDLER( namcos2_sound_bankselect_w );
 
 
 /**************************************************************/
 /* MCU Specific support handlers - HD63705					  */
 /**************************************************************/
 
-WRITE_HANDLER( namcos2_mcu_analog_ctrl_w );
 
-WRITE_HANDLER( namcos2_mcu_analog_port_w );
 
-WRITE_HANDLER( namcos2_mcu_port_d_w );
 

@@ -50,17 +50,8 @@ package drivers;
 public class tsamurai
 {
 	
-	WRITE_HANDLER( vsgongf_color_w );
 	
-	WRITE_HANDLER( tsamurai_bgcolor_w );
-	WRITE_HANDLER( tsamurai_textbank1_w );
-	WRITE_HANDLER( tsamurai_textbank2_w );
 	
-	WRITE_HANDLER( tsamurai_scrolly_w );
-	WRITE_HANDLER( tsamurai_scrollx_w );
-	WRITE_HANDLER( tsamurai_bg_videoram_w );
-	WRITE_HANDLER( tsamurai_fg_videoram_w );
-	WRITE_HANDLER( tsamurai_fg_colorram_w );
 	extern extern unsigned char *tsamurai_videoram;
 	
 	extern extern 
@@ -90,7 +81,7 @@ public class tsamurai
 	static int nmi_enabled;
 	static int sound_command1, sound_command2, sound_command3;
 	
-	static WRITE_HANDLER( nmi_enable_w ){
+	public static WriteHandlerPtr nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		nmi_enabled = data;
 	}
 	
@@ -118,33 +109,28 @@ public class tsamurai
 		return 0xfb;
 	} };
 	
-	static WRITE_HANDLER( sound_command1_w )
-	{
+	public static WriteHandlerPtr sound_command1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_command1 = data;
 		cpu_set_irq_line( 1, 0, HOLD_LINE );
-	}
+	} };
 	
-	static WRITE_HANDLER( sound_command2_w )
-	{
+	public static WriteHandlerPtr sound_command2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_command2 = data;
 		cpu_set_irq_line( 2, 0, HOLD_LINE );
-	}
+	} };
 	
-	static WRITE_HANDLER( sound_command3_w )
-	{
+	public static WriteHandlerPtr sound_command3_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_command3 = data;
 		cpu_set_irq_line( 3, 0, HOLD_LINE );
-	}
+	} };
 	
-	static WRITE_HANDLER( flip_screen_w )
-	{
+	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data);
-	}
+	} };
 	
-	static WRITE_HANDLER( tsamurai_coin_counter_w )
-	{
+	public static WriteHandlerPtr tsamurai_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )
@@ -260,19 +246,17 @@ public class tsamurai
 		return sound_command1;
 	} };
 	
-	static WRITE_HANDLER( sound_out1_w )
-	{
+	public static WriteHandlerPtr sound_out1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_data_w(0,data);
-	}
+	} };
 	
 	public static ReadHandlerPtr sound_command2_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return sound_command2;
 	}
 	
-	static WRITE_HANDLER( sound_out2_w )
-	{
+	public static WriteHandlerPtr sound_out2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_data_w(1,data);
-	}
+	} };
 	
 	public static ReadHandlerPtr sound_command3_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return sound_command3;
@@ -362,7 +346,7 @@ public class tsamurai
 	/*******************************************************************************/
 	
 	static int vsgongf_sound_nmi_enabled;
-	static WRITE_HANDLER( vsgongf_sound_nmi_enable_w ){
+	public static WriteHandlerPtr vsgongf_sound_nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		vsgongf_sound_nmi_enabled = data;
 	}
 	
@@ -392,7 +376,7 @@ public class tsamurai
 		return 0x00;
 	}
 	
-	static WRITE_HANDLER( vsgongf_sound_command_w ){
+	public static WriteHandlerPtr vsgongf_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		soundlatch_w( offset, data );
 		cpu_set_irq_line( 1, IRQ_LINE_NMI, PULSE_LINE );
 	}

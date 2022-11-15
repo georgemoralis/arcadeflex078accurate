@@ -23,31 +23,13 @@ public class msisaac
 	*/
 	
 	/* in machine/buggychl.c */
-	WRITE_HANDLER( buggychl_68705_portA_w );
-	WRITE_HANDLER( buggychl_68705_ddrA_w );
-	WRITE_HANDLER( buggychl_68705_portB_w );
-	WRITE_HANDLER( buggychl_68705_ddrB_w );
-	WRITE_HANDLER( buggychl_68705_portC_w );
-	WRITE_HANDLER( buggychl_68705_ddrC_w );
-	WRITE_HANDLER( buggychl_mcu_w );
 	
 	
 	//not used
-	//WRITE_HANDLER( msisaac_textbank1_w );
-	
+	//
 	//used
-	WRITE_HANDLER( msisaac_fg_scrolly_w );
-	WRITE_HANDLER( msisaac_fg_scrollx_w );
-	WRITE_HANDLER( msisaac_bg_scrolly_w );
-	WRITE_HANDLER( msisaac_bg_scrollx_w );
-	WRITE_HANDLER( msisaac_bg2_scrolly_w );
-	WRITE_HANDLER( msisaac_bg2_scrollx_w );
 	
-	WRITE_HANDLER( msisaac_bg2_textbank_w );
 	
-	WRITE_HANDLER( msisaac_bg_videoram_w );
-	WRITE_HANDLER( msisaac_bg2_videoram_w );
-	WRITE_HANDLER( msisaac_fg_videoram_w );
 	
 	extern extern extern unsigned char *msisaac_videoram;
 	extern unsigned char *msisaac_videoram2;
@@ -62,43 +44,37 @@ public class msisaac
 		else pending_nmi = 1;
 	}
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		timer_set(TIME_NOW,data,nmi_callback);
-	}
+	} };
 	
-	static WRITE_HANDLER( nmi_disable_w )
-	{
+	public static WriteHandlerPtr nmi_disable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_nmi_enable = 0;
-	}
+	} };
 	
-	static WRITE_HANDLER( nmi_enable_w )
-	{
+	public static WriteHandlerPtr nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_nmi_enable = 1;
 		if (pending_nmi)
 		{
 			cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
 			pending_nmi = 0;
 		}
-	}
+	} };
 	
 	#if 0
-	static WRITE_HANDLER( flip_screen_w )
-	{
+	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data);
-	}
+	} };
 	
-	static WRITE_HANDLER( msisaac_coin_counter_w )
-	{
+	public static WriteHandlerPtr msisaac_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	#endif
-	static WRITE_HANDLER( ms_unknown_w )
-	{
+	public static WriteHandlerPtr ms_unknown_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data!=0x08)
 			usrintf_showmessage("CPU #0 write to 0xf0a3 data=%2x",data);
-	}
+	} };
 	
 	
 	
@@ -199,8 +175,7 @@ public class msisaac
 	#endif
 	} };
 	
-	static WRITE_HANDLER( msisaac_mcu_w )
-	{
+	public static WriteHandlerPtr msisaac_mcu_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	#ifdef USE_MCU
 		buggychl_mcu_w(offset,data);
 	#else
@@ -208,7 +183,7 @@ public class msisaac
 		//	usrintf_showmessage("PC = %04x %02x",activecpu_get_pc(),data);
 		mcu_val = data;
 	#endif
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0xdfff, MRA_ROM },
@@ -300,20 +275,18 @@ public class msisaac
 	static UINT8 snd_ctrl0=0;
 	static UINT8 snd_ctrl1=0;
 	
-	static WRITE_HANDLER( sound_control_0_w )
-	{
+	public static WriteHandlerPtr sound_control_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		snd_ctrl0 = data & 0xff;
 		//usrintf_showmessage("SND0 0=%2x 1=%2x", snd_ctrl0, snd_ctrl1);
 	
 		mixer_set_volume (6, vol_ctrl[  snd_ctrl0     & 15 ]);	/* group1 from msm5232 */
 		mixer_set_volume (7, vol_ctrl[ (snd_ctrl0>>4) & 15 ]);	/* group2 from msm5232 */
 	
-	}
-	static WRITE_HANDLER( sound_control_1_w )
-	{
+	} };
+	public static WriteHandlerPtr sound_control_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		snd_ctrl1 = data & 0xff;
 		//usrintf_showmessage("SND1 0=%2x 1=%2x", snd_ctrl0, snd_ctrl1);
-	}
+	} };
 	
 	
 	

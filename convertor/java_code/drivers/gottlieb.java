@@ -157,26 +157,12 @@ public class gottlieb
 	
 	extern UINT8 *gottlieb_charram;
 	
-	extern WRITE_HANDLER( gottlieb_videoram_w );
-	extern WRITE_HANDLER( gottlieb_charram_w );
-	extern WRITE_HANDLER( gottlieb_video_outputs_w );
-	extern WRITE_HANDLER( usvsthem_video_outputs_w );
-	extern WRITE_HANDLER( gottlieb_paletteram_w );
-	
+	extern extern extern extern extern 
 	extern extern 
-	extern WRITE_HANDLER( gottlieb_sh_w );
-	
+	extern 
 	extern UINT8 *riot_ram;
-	extern extern extern WRITE_HANDLER( riot_ram_w );
-	extern WRITE_HANDLER( gottlieb_riot_w );
-	extern WRITE_HANDLER( gottlieb_speech_w );
-	extern WRITE_HANDLER( gottlieb_speech_clock_DAC_w );
-	extern void gottlieb_sound_init(void);
-	extern extern WRITE_HANDLER( stooges_8910_latch_w );
-	extern WRITE_HANDLER( stooges_sound_control_w );
-	extern WRITE_HANDLER( gottlieb_nmi_rate_w );
-	extern WRITE_HANDLER( gottlieb_cause_dac_nmi_w );
-	
+	extern extern extern extern extern extern extern void gottlieb_sound_init(void);
+	extern extern extern extern extern 
 	
 	static UINT8 *audiobuffer_region;
 	
@@ -198,12 +184,11 @@ public class gottlieb
 		return input_port_3_r(offset) - track[1];
 	} };
 	
-	WRITE_HANDLER( gottlieb_track_reset_w )
-	{
+	public static WriteHandlerPtr gottlieb_track_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* reset the trackball counters */
 		track[0] = input_port_2_r(offset);
 		track[1] = input_port_3_r(offset);
-	}
+	} };
 	
 	static int joympx;
 	
@@ -227,19 +212,17 @@ public class gottlieb
 		return joy | (readinputport(4) & 0xf0);
 	} };
 	
-	WRITE_HANDLER( reactor_output_w )
-	{
+	public static WriteHandlerPtr reactor_output_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0,data & 0x20);
 		set_led_status(1,data & 0x40);
 		set_led_status(2,data & 0x80);
 		gottlieb_video_outputs_w(offset,data);
-	}
+	} };
 	
-	WRITE_HANDLER( stooges_output_w )
-	{
+	public static WriteHandlerPtr stooges_output_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		joympx = (data >> 5) & 0x03;
 		gottlieb_video_outputs_w(offset,data);
-	}
+	} };
 	
 	
 	static int current_frame = 1;
@@ -308,14 +291,12 @@ public class gottlieb
 		return 0;
 	} };
 	
-	WRITE_HANDLER( gottlieb_laserdisc_mpx_w )
-	{
+	public static WriteHandlerPtr gottlieb_laserdisc_mpx_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		lasermpx = data & 1;
 		if (lasermpx==0) skipfirstbyte=1;	/* first byte of the 1K buffer (0x67) is not returned... */
-	}
+	} };
 	
-	WRITE_HANDLER( gottlieb_laserdisc_command_w )
-	{
+	public static WriteHandlerPtr gottlieb_laserdisc_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int loop;
 		int cmd;
 	
@@ -370,7 +351,7 @@ public class gottlieb
 			}
 			lastcmd = cmd;
 		}
-	}
+	} };
 	
 	public static InterruptHandlerPtr gottlieb_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (access_time > 0) {

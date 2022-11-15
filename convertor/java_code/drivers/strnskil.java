@@ -21,15 +21,11 @@ public class strnskil
 	
 	/****************************************************************************/
 	
-	extern WRITE_HANDLER( strnskil_videoram_w );
-	extern WRITE_HANDLER( strnskil_scroll_x_w );
-	extern WRITE_HANDLER( strnskil_scrl_ctrl_w );
-	
 	extern extern extern 
-	WRITE_HANDLER( strnskil_sharedram_w )
-	{
+	extern extern extern 
+	public static WriteHandlerPtr strnskil_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		strnskil_sharedram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr strnskil_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return strnskil_sharedram[offset];
@@ -63,10 +59,9 @@ public class strnskil
 		return res;
 	} };
 	
-	static WRITE_HANDLER( protection_w )
-	{
+	public static WriteHandlerPtr protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("%04x: protection_w %02x\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	/****************************************************************************/
 	

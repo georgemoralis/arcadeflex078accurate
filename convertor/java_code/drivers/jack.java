@@ -46,11 +46,7 @@ public class jack
 {
 	
 	
-	extern WRITE_HANDLER( jack_videoram_w );
-	extern WRITE_HANDLER( jack_colorram_w );
-	extern WRITE_HANDLER( jack_paletteram_w );
-	extern extern WRITE_HANDLER( jack_flipscreen_w );
-	
+	extern extern extern extern extern 
 	extern extern 
 	static int timer_rate;
 	
@@ -61,11 +57,10 @@ public class jack
 	} };
 	
 	
-	static WRITE_HANDLER( jack_sh_command_w )
-	{
+	public static WriteHandlerPtr jack_sh_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		cpu_set_irq_line(1, 0, HOLD_LINE);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

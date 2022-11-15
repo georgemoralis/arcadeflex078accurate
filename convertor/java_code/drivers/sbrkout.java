@@ -37,15 +37,11 @@ package drivers;
 public class sbrkout
 {
 	
-	extern WRITE_HANDLER( sbrkout_serve_led_w );
-	extern WRITE_HANDLER( sbrkout_start_1_led_w );
-	extern WRITE_HANDLER( sbrkout_start_2_led_w );
-	extern extern extern extern 
+	extern extern extern extern extern extern extern 
 	extern UINT8 *sbrkout_horiz_ram;
 	extern UINT8 *sbrkout_vert_ram;
 	
-	extern WRITE_HANDLER( sbrkout_videoram_w );
-	
+	extern 
 	extern extern 
 	
 	/*************************************
@@ -74,10 +70,9 @@ public class sbrkout
 	
 	static UINT8 *sbrkout_sound;
 	
-	static WRITE_HANDLER( sbrkout_dac_w )
-	{
+	public static WriteHandlerPtr sbrkout_dac_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sbrkout_sound[offset]=data;
-	}
+	} };
 	
 	
 	static void sbrkout_tones_4V(int foo)

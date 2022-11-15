@@ -133,8 +133,6 @@ public class spacefb
 	
 	
 	
-	WRITE_HANDLER( spacefb_video_control_w );
-	WRITE_HANDLER( spacefb_port_2_w );
 	
 	
 	public static InterruptHandlerPtr spacefb_interrupt = new InterruptHandlerPtr() {public void handler(){
@@ -157,11 +155,10 @@ public class spacefb
 		return spacefb_sound_latch & 0x04;
 	} };
 	
-	static WRITE_HANDLER( spacefb_port_1_w )
-	{
+	public static WriteHandlerPtr spacefb_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		spacefb_sound_latch = data;
 		cpu_set_irq_line(1, 0, (!(data & 0x02)) ? ASSERT_LINE : CLEAR_LINE);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

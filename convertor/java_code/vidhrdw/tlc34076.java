@@ -138,8 +138,7 @@ public class tlc34076
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( tlc34076_w )
-	{
+	public static WriteHandlerPtr tlc34076_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 oldval;
 	
 		/* keep in range */
@@ -233,7 +232,7 @@ public class tlc34076
 				tlc34076_reset(dacbits);
 				break;
 		}
-	}
+	} };
 	
 	
 	

@@ -19,16 +19,11 @@ public class srumbler
 	
 	extern unsigned char *srumbler_backgroundram,*srumbler_foregroundram;
 	
-	WRITE_HANDLER( srumbler_background_w );
-	WRITE_HANDLER( srumbler_foreground_w );
-	WRITE_HANDLER( srumbler_scroll_w );
-	WRITE_HANDLER( srumbler_4009_w );
 	
 	
 	
 	
-	static WRITE_HANDLER( srumbler_bankswitch_w )
-	{
+	public static WriteHandlerPtr srumbler_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*
 		  banking is controlled by two PROMs. 0000-4fff is mapped to the same
 		  address (RAM and I/O) for all banks, so we don't handle it here.
@@ -49,7 +44,7 @@ public class srumbler
 	
 			cpu_setbank(i+1,&ROM[bank*0x1000]);
 		}
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_srumbler  = new MachineInitHandlerPtr() { public void handler(){
 		/* initialize banked ROM pointers */

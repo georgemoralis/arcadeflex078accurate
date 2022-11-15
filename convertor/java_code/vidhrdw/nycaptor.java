@@ -33,10 +33,9 @@ public class nycaptor
 	
 	UINT8 *nycaptor_spriteram;
 	extern UINT8 *nycaptor_sharedram;
-	WRITE_HANDLER(nycaptor_spriteram_w)
-	{
+	public static WriteHandlerPtr nycaptor_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nycaptor_spriteram[offset]=data;
-	}
+	} };
 	
 	public static ReadHandlerPtr nycaptor_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return nycaptor_spriteram[offset];
@@ -81,23 +80,21 @@ public class nycaptor
 		return video_start_generic();
 	} };
 	
-	WRITE_HANDLER( nycaptor_videoram_w )
-	{
+	public static WriteHandlerPtr nycaptor_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		videoram[offset] = data;
 		tilemap_mark_tile_dirty(tilemap,offset>>1);
-	}
+	} };
 	
 	public static ReadHandlerPtr nycaptor_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
 	} };
 	
-	WRITE_HANDLER( nycaptor_palette_w )
-	{
+	public static WriteHandlerPtr nycaptor_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset & 0x100)
 			paletteram_xxxxBBBBGGGGRRRR_split2_w((offset & 0xff) + (palette_bank << 8),data);
 		else
 			paletteram_xxxxBBBBGGGGRRRR_split1_w((offset & 0xff) + (palette_bank << 8),data);
-	}
+	} };
 	
 	public static ReadHandlerPtr nycaptor_palette_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset & 0x100)
@@ -106,8 +103,7 @@ public class nycaptor
 			return paletteram  [ (offset & 0xff) + (palette_bank << 8) ];
 	} };
 	
-	WRITE_HANDLER( nycaptor_gfxctrl_w )
-	{
+	public static WriteHandlerPtr nycaptor_gfxctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (gfxctrl == data)
 			return;
 		gfxctrl = data;
@@ -119,7 +115,7 @@ public class nycaptor
 		}
 		palette_bank = (data & 0x20) >> 5;
 	
-	}
+	} };
 	
 	public static ReadHandlerPtr nycaptor_gfxctrl_r  = new ReadHandlerPtr() { public int handler(int offset){
 			return 	gfxctrl;
@@ -129,11 +125,10 @@ public class nycaptor
 		return nycaptor_scrlram[offset];
 	} };
 	
-	WRITE_HANDLER( nycaptor_scrlram_w )
-	{
+	public static WriteHandlerPtr nycaptor_scrlram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nycaptor_scrlram[offset] = data;
 		tilemap_set_scrolly(tilemap, offset, data );
-	}
+	} };
 	
 	void nycaptor_draw_sprites(struct mame_bitmap *bitmap, const struct rectangle *cliprect,int pri)
 	{

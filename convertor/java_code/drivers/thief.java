@@ -37,15 +37,6 @@ public class thief
 	
 	static UINT8 thief_input_select;
 	
-	WRITE_HANDLER( thief_context_ram_w );
-	WRITE_HANDLER( thief_context_bank_w );
-	WRITE_HANDLER( thief_video_control_w );
-	WRITE_HANDLER( thief_vtcsel_w );
-	WRITE_HANDLER( thief_color_map_w );
-	WRITE_HANDLER( thief_color_plane_w );
-	WRITE_HANDLER( thief_videoram_w );
-	WRITE_HANDLER( thief_blit_w );
-	WRITE_HANDLER( thief_coprocessor_w );
 	
 	
 	
@@ -95,13 +86,11 @@ public class thief
 	
 	/***********************************************************/
 	
-	static WRITE_HANDLER( thief_input_select_w )
-	{
+	public static WriteHandlerPtr thief_input_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		thief_input_select = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( tape_control_w )
-	{
+	public static WriteHandlerPtr tape_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch( data )
 		{
 		case 0x02: /* coin meter on */
@@ -137,7 +126,7 @@ public class thief
 			tape_set_audio( kCrashTrack, 0 );
 			break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr thief_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch( thief_input_select )

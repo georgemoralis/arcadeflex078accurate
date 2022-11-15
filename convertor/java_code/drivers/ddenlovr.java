@@ -588,10 +588,9 @@ public class ddenlovr
 	profiler_mark(PROFILER_END);
 	}
 	
-	static WRITE_HANDLER( rongrong_blitter_w )
-	{
+	public static WriteHandlerPtr rongrong_blitter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		blitter_w(0,offset,data,0xf8);
-	}
+	} };
 	
 	static WRITE16_HANDLER( ddenlovr_blitter_w )
 	{
@@ -617,15 +616,13 @@ public class ddenlovr
 	}
 	
 	
-	static WRITE_HANDLER( dynax_bgcolor_w )
-	{
+	public static WriteHandlerPtr dynax_bgcolor_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_bgcolor = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( dynax_bgcolor2_w )
-	{
+	public static WriteHandlerPtr dynax_bgcolor2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_bgcolor2 = data;
-	}
+	} };
 	
 	static WRITE16_HANDLER( ddenlovr_bgcolor_w )
 	{
@@ -634,15 +631,13 @@ public class ddenlovr
 	}
 	
 	
-	static WRITE_HANDLER( dynax_priority_w )
-	{
+	public static WriteHandlerPtr dynax_priority_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_priority = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( dynax_priority2_w )
-	{
+	public static WriteHandlerPtr dynax_priority2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_priority2 = data;
-	}
+	} };
 	
 	static WRITE16_HANDLER( ddenlovr_priority_w )
 	{
@@ -651,15 +646,13 @@ public class ddenlovr
 	}
 	
 	
-	static WRITE_HANDLER( dynax_layer_enable_w )
-	{
+	public static WriteHandlerPtr dynax_layer_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_layer_enable = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( dynax_layer_enable2_w )
-	{
+	public static WriteHandlerPtr dynax_layer_enable2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_layer_enable2 = data;
-	}
+	} };
 	
 	
 	static WRITE16_HANDLER( ddenlovr_layer_enable_w )
@@ -798,8 +791,7 @@ public class ddenlovr
 	
 	static data8_t palram[0x200];
 	
-	static WRITE_HANDLER( rongrong_palette_w )
-	{
+	public static WriteHandlerPtr rongrong_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r,g,b,d1,d2,indx;
 	
 		palram[offset] = data;
@@ -818,7 +810,7 @@ public class ddenlovr
 		b =  (b << 3) | (b >> 2);
 	
 		palette_set_color(indx,r,g,b);
-	}
+	} };
 	
 	static WRITE16_HANDLER( ddenlovr_palette_w )
 	{
@@ -827,15 +819,13 @@ public class ddenlovr
 	}
 	
 	
-	static WRITE_HANDLER( rongrong_palette_base_w )
-	{
+	public static WriteHandlerPtr rongrong_palette_base_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_palette_base[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( dynax_palette_base2_w )
-	{
+	public static WriteHandlerPtr dynax_palette_base2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_palette_base[offset+4] = data;
-	}
+	} };
 	
 	
 	static WRITE16_HANDLER( ddenlovr_palette_base_w )
@@ -845,10 +835,9 @@ public class ddenlovr
 	}
 	
 	
-	static WRITE_HANDLER( quizchq_oki_bank_w )
-	{
+	public static WriteHandlerPtr quizchq_oki_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		OKIM6295_set_bank_base(0, (data & 1) * 0x40000);
-	}
+	} };
 	
 	static WRITE16_HANDLER( ddenlovr_oki_bank_w )
 	{
@@ -933,10 +922,9 @@ public class ddenlovr
 		return 0xff;
 	} };
 	
-	WRITE_HANDLER( quiz365_select_w )
-	{
+	public static WriteHandlerPtr quiz365_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		quiz365_select = data;
-	}
+	} };
 	
 	
 	static data8_t rongrong_select2;
@@ -953,10 +941,9 @@ public class ddenlovr
 		return 0xff;
 	} };
 	
-	WRITE_HANDLER( rongrong_select2_w )
-	{
+	public static WriteHandlerPtr rongrong_select2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		rongrong_select2 = data;
-	}
+	} };
 	
 	
 	READ16_HANDLER( quiz365_input2_r )
@@ -1172,8 +1159,7 @@ public class ddenlovr
 		return 0xff;
 	} };
 	
-	WRITE_HANDLER( rongrong_select_w )
-	{
+	public static WriteHandlerPtr rongrong_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *rom = memory_region(REGION_CPU1);
 	
 	//logerror("%04x: rongrong_select_w %02x\n",activecpu_get_pc(),data);
@@ -1183,7 +1169,7 @@ public class ddenlovr
 	
 		/* bits 5-7 = RAM bank */
 		cpu_setbank(2, &rom[0x110000 + 0x1000 * ((data & 0xe0) >> 5)]);
-	}
+	} };
 	
 	
 	
@@ -1287,32 +1273,27 @@ public class ddenlovr
 	} };
 	
 	static data8_t mmpanic_select;
-	static WRITE_HANDLER( mmpanic_select_w )
-	{
+	public static WriteHandlerPtr mmpanic_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mmpanic_select = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( mmpanic_rombank_w )
-	{
+	public static WriteHandlerPtr mmpanic_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *rom = memory_region(REGION_CPU1);
 		cpu_setbank(1, &rom[0x10000 + 0x8000 * (data & 0x7)]);
 		/* Bit 4? */
-	}
+	} };
 	
-	static WRITE_HANDLER( mmpanic_soundlatch_w )
-	{
+	public static WriteHandlerPtr mmpanic_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		cpu_set_nmi_line(1, PULSE_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( mmpanic_blitter_w )
-	{
+	public static WriteHandlerPtr mmpanic_blitter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		blitter_w(0,offset,data,0xdf);	// RST 18
-	}
-	static WRITE_HANDLER( mmpanic_blitter2_w )
-	{
+	} };
+	public static WriteHandlerPtr mmpanic_blitter2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		blitter_w(1,offset,data,0xdf);	// RST 18
-	}
+	} };
 	
 	/* A led for each of the 9 buttons */
 	static data16_t mmpanic_leds;
@@ -1323,28 +1304,25 @@ public class ddenlovr
 	}
 	
 	/* leds 1-8 */
-	static WRITE_HANDLER( mmpanic_leds_w )
-	{
+	public static WriteHandlerPtr mmpanic_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mmpanic_leds = (mmpanic_leds & 0xff00) | data;
 		mmpanic_update_leds();
-	}
+	} };
 	/* led 9 */
-	static WRITE_HANDLER( mmpanic_leds2_w )
-	{
+	public static WriteHandlerPtr mmpanic_leds2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mmpanic_leds = (mmpanic_leds & 0xfeff) | (data ? 0x0100 : 0);
 		mmpanic_update_leds();
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( mmpanic_lockout_w )
-	{
+	public static WriteHandlerPtr mmpanic_lockout_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (mmpanic_select == 0x0c)
 		{
 			coin_counter_w(0,(~data) & 0x01);
 			coin_lockout_w(0,(~data) & 0x02);
 			set_led_status(1,(~data) & 0x04);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr mmpanic_link_r  = new ReadHandlerPtr() { public int handler(int offset) return 0xff; }
 	

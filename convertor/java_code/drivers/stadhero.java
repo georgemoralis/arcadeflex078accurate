@@ -95,8 +95,7 @@ public class stadhero
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( YM3812_w )
-	{
+	public static WriteHandlerPtr YM3812_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset) {
 		case 0:
 			YM3812_control_port_0_w(0,data);
@@ -105,10 +104,9 @@ public class stadhero
 			YM3812_write_port_0_w(0,data);
 			break;
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( YM2203_w )
-	{
+	public static WriteHandlerPtr YM2203_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset) {
 		case 0:
 			YM2203_control_port_0_w(0,data);
@@ -117,7 +115,7 @@ public class stadhero
 			YM2203_write_port_0_w(0,data);
 			break;
 		}
-	}
+	} };
 	
 	static MEMORY_READ_START( stadhero_s_readmem )
 		{ 0x0000, 0x05ff, MRA_RAM },

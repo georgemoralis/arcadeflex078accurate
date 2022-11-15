@@ -70,13 +70,11 @@ public class tankbatt
 	static int tankbatt_nmi_enable; /* No need to init this - the game will set it on reset */
 	static int tankbatt_sound_enable;
 	
-	extern WRITE_HANDLER( tankbatt_videoram_w );
-	
+	extern 
 	extern extern extern 
-	WRITE_HANDLER( tankbatt_led_w )
-	{
+	public static WriteHandlerPtr tankbatt_led_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(offset,data & 1);
-	}
+	} };
 	
 	public static ReadHandlerPtr tankbatt_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val;
@@ -99,8 +97,7 @@ public class tankbatt
 		return ((val << (7-offset)) & 0x80);
 	} };
 	
-	WRITE_HANDLER( tankbatt_interrupt_enable_w )
-	{
+	public static WriteHandlerPtr tankbatt_interrupt_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tankbatt_nmi_enable = !data;
 		tankbatt_sound_enable = !data;
 		if (data != 0)
@@ -111,10 +108,9 @@ public class tankbatt
 		/* hack - turn off the engine noise if the normal game nmi's are disabled */
 		if (data) sample_stop (2);
 	//	interrupt_enable_w (offset, !data);
-	}
+	} };
 	
-	WRITE_HANDLER( tankbatt_demo_interrupt_enable_w )
-	{
+	public static WriteHandlerPtr tankbatt_demo_interrupt_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tankbatt_nmi_enable = data;
 		if (data != 0)
 		{
@@ -122,16 +118,14 @@ public class tankbatt
 			cpu_set_nmi_line(0, CLEAR_LINE);
 		}
 	//	interrupt_enable_w (offset, data);
-	}
+	} };
 	
-	WRITE_HANDLER( tankbatt_sh_expl_w )
-	{
+	public static WriteHandlerPtr tankbatt_sh_expl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (tankbatt_sound_enable)
 			sample_start (1, 3, 0);
-	}
+	} };
 	
-	WRITE_HANDLER( tankbatt_sh_engine_w )
-	{
+	public static WriteHandlerPtr tankbatt_sh_engine_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (tankbatt_sound_enable)
 		{
 			if (data)
@@ -140,13 +134,12 @@ public class tankbatt
 				sample_start (2, 1, 1);
 		}
 		else sample_stop (2);
-	}
+	} };
 	
-	WRITE_HANDLER( tankbatt_sh_fire_w )
-	{
+	public static WriteHandlerPtr tankbatt_sh_fire_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (tankbatt_sound_enable)
 			sample_start (0, 0, 0);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x01ff, MRA_RAM },

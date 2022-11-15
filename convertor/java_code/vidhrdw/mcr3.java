@@ -135,8 +135,7 @@ public class mcr3
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( mcr3_paletteram_w )
-	{
+	public static WriteHandlerPtr mcr3_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
 		paletteram[offset] = data;
@@ -153,7 +152,7 @@ public class mcr3
 		b = (b << 5) | (b << 2) | (b >> 1);
 	
 		palette_set_color(offset / 2, r, g, b);
-	}
+	} };
 	
 	
 	
@@ -163,25 +162,22 @@ public class mcr3
 	 *
 	 *************************************/
 	
-	WRITE_HANDLER( mcr3_videoram_w )
-	{
+	public static WriteHandlerPtr mcr3_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		videoram[offset] = data;
 		tilemap_mark_tile_dirty(bg_tilemap, offset / 2);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( spyhunt_videoram_w )
-	{
+	public static WriteHandlerPtr spyhunt_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		videoram[offset] = data;
 		tilemap_mark_tile_dirty(bg_tilemap, offset);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( spyhunt_alpharam_w )
-	{
+	public static WriteHandlerPtr spyhunt_alpharam_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		spyhunt_alpharam[offset] = data;
 		tilemap_mark_tile_dirty(alpha_tilemap, offset);
-	}
+	} };
 	
 	
 	

@@ -20,30 +20,22 @@ public class grobda
 	extern unsigned char *mappy_soundregs;
 	
 	/* memory functions */
-	WRITE_HANDLER( grobda_snd_sharedram_w );
 	
 	/* custom IO chips functions */
-	WRITE_HANDLER( grobda_customio_1_w );
-	WRITE_HANDLER( grobda_customio_2_w );
 	
 	/* INT functions */
-	WRITE_HANDLER( grobda_cpu2_enable_w );
-	WRITE_HANDLER( grobda_interrupt_ctrl_1_w );
-	WRITE_HANDLER( grobda_interrupt_ctrl_2_w );
 	
 	/* video functions */
 	
 	
-	static WRITE_HANDLER( flip_screen_w )
-	{
+	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( grobda_DAC_w )
-	{
+	public static WriteHandlerPtr grobda_DAC_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_data_w(0, (data << 4) | data);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem_cpu1 )
 		{ 0x0000, 0x03ff, videoram_r },						/* video RAM */

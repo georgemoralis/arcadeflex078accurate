@@ -9,12 +9,7 @@ public class kopunch
 	
 	extern UINT8 *kopunch_videoram2;
 	
-	extern WRITE_HANDLER( kopunch_videoram_w );
-	extern WRITE_HANDLER( kopunch_videoram2_w );
-	extern WRITE_HANDLER( kopunch_scroll_x_w );
-	extern WRITE_HANDLER( kopunch_scroll_y_w );
-	extern WRITE_HANDLER( kopunch_gfxbank_w );
-	
+	extern extern extern extern extern 
 	extern extern extern 
 	
 	public static InterruptHandlerPtr kopunch_interrupt = new InterruptHandlerPtr() {public void handler(){
@@ -43,22 +38,20 @@ public class kopunch
 			return (rand() & 0x07) | input_port_1_r(0);
 	} };
 	
-	static WRITE_HANDLER( kopunch_lamp_w )
-	{
+	public static WriteHandlerPtr kopunch_lamp_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0,~data & 0x80);
 	
 	//	if ((data & 0x7f) != 0x7f)
 	//		usrintf_showmessage("port 38 = %02x",data);
-	}
+	} };
 	
-	static WRITE_HANDLER( kopunch_coin_w )
-	{
+	public static WriteHandlerPtr kopunch_coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0,~data & 0x80);
 		coin_counter_w(1,~data & 0x40);
 	
 	//	if ((data & 0x3f) != 0x3f)
 	//		usrintf_showmessage("port 34 = %02x",data);
-	}
+	} };
 	
 	
 	

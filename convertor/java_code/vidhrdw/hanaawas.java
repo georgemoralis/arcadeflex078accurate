@@ -74,17 +74,15 @@ public class hanaawas
 		}
 	} };
 	
-	WRITE_HANDLER( hanaawas_videoram_w )
-	{
+	public static WriteHandlerPtr hanaawas_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( hanaawas_colorram_w )
-	{
+	public static WriteHandlerPtr hanaawas_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (colorram[offset] != data)
 		{
 			colorram[offset] = data;
@@ -93,17 +91,16 @@ public class hanaawas
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 			tilemap_mark_tile_dirty(bg_tilemap, (offset + (flip_screen ? -1 : 1)) & 0x03ff);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( hanaawas_portB_w )
-	{
+	public static WriteHandlerPtr hanaawas_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 7 is flip screen */
 		if (flip_screen != (~data & 0x80))
 		{
 			flip_screen_set(~data & 0x80);
 			tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
 		}
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{

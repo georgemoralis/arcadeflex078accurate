@@ -70,13 +70,7 @@ public class exprraid
 {
 	
 	
-	extern WRITE_HANDLER( exprraid_videoram_w );
-	extern WRITE_HANDLER( exprraid_colorram_w );
-	extern WRITE_HANDLER( exprraid_flipscreen_w );
-	extern WRITE_HANDLER( exprraid_bgselect_w );
-	extern WRITE_HANDLER( exprraid_scrollx_w );
-	extern WRITE_HANDLER( exprraid_scrolly_w );
-	
+	extern extern extern extern extern extern 
 	extern extern 
 	
 	/*****************************************************************************************/
@@ -93,11 +87,10 @@ public class exprraid
 		return 0x02;
 	} };
 	
-	static WRITE_HANDLER( sound_cpu_command_w )
-	{
+	public static WriteHandlerPtr sound_cpu_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    soundlatch_w(0,data);
 	    cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr vblank_r  = new ReadHandlerPtr() { public int handler(int offset)
 		int val = readinputport( 0 );

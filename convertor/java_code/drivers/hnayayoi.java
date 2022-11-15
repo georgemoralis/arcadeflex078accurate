@@ -43,10 +43,6 @@ public class hnayayoi
 	
 	
 	
-	WRITE_HANDLER( dynax_blitter_rev1_param_w );
-	WRITE_HANDLER( dynax_blitter_rev1_start_w );
-	WRITE_HANDLER( dynax_blitter_rev1_clear_w );
-	WRITE_HANDLER( hnayayoi_palbank_w );
 	
 	
 	
@@ -67,31 +63,26 @@ public class hnayayoi
 		return 0x3f;
 	} };
 	
-	static WRITE_HANDLER( keyboard_w )
-	{
+	public static WriteHandlerPtr keyboard_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		keyb = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( adpcm_data_w )
-	{
+	public static WriteHandlerPtr adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_data_w(0,data);
-	}
+	} };
 	
-	static WRITE_HANDLER( adpcm_vclk_w )
-	{
+	public static WriteHandlerPtr adpcm_vclk_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_vclk_w(0,data & 1);
-	}
+	} };
 	
-	static WRITE_HANDLER( adpcm_reset_w )
-	{
+	public static WriteHandlerPtr adpcm_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_reset_w(0,data & 1);
-	}
+	} };
 	
-	static WRITE_HANDLER( adpcm_reset_inv_w )
-	{
+	public static WriteHandlerPtr adpcm_reset_inv_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_reset_w(0,~data & 1);
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_hnayayoi  = new MachineInitHandlerPtr() { public void handler(){
 		/* start with the MSM5205 reset */

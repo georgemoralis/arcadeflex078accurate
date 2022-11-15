@@ -89,7 +89,6 @@ public class polyplay
 	
 	/* video hardware access */
 	extern unsigned char *polyplay_characterram;
-	WRITE_HANDLER( polyplay_characterram_w );
 	
 	/* I/O Port handling */
 	
@@ -111,8 +110,6 @@ public class polyplay
 	/* timer handling */
 	static void timer_callback(int param);
 	static void* polyplay_timer;
-	static WRITE_HANDLER( polyplay_start_timer2 );
-	static WRITE_HANDLER( polyplay_sound_channel );
 	
 	
 	/* Polyplay Sound Interface */
@@ -207,8 +204,7 @@ public class polyplay
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static WRITE_HANDLER( polyplay_sound_channel )
-	{
+	public static WriteHandlerPtr polyplay_sound_channel = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(offset) {
 		case 0x00:
 			if (channel1_const) {
@@ -253,16 +249,15 @@ public class polyplay
 			}
 			break;
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( polyplay_start_timer2 )
-	{
+	public static WriteHandlerPtr polyplay_start_timer2 = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data == 0x03)
 			timer_adjust(polyplay_timer, TIME_NEVER, 0, 0);
 	
 		if (data == 0xb5)
 			timer_adjust(polyplay_timer, TIME_IN_HZ(40), 0, TIME_IN_HZ(40));
-	}
+	} };
 	
 	public static ReadHandlerPtr polyplay_random_read  = new ReadHandlerPtr() { public int handler(int offset){
 		return rand() & 0xff;

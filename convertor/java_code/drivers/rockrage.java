@@ -18,15 +18,13 @@ public class rockrage
 	extern int rockrage_irq_enable;
 	
 	/* from vidhrdw */
-	WRITE_HANDLER( rockrage_vreg_w );
 	
 	public static InterruptHandlerPtr rockrage_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K007342_is_INT_enabled())
 	        cpu_set_irq_line(0, HD6309_IRQ_LINE, HOLD_LINE);
 	} };
 	
-	static WRITE_HANDLER( rockrage_bankswitch_w )
-	{
+	public static WriteHandlerPtr rockrage_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
@@ -39,19 +37,18 @@ public class rockrage
 		coin_counter_w(1,data & 0x02);
 	
 		/* other bits unknown */
-	}
+	} };
 	
-	static WRITE_HANDLER( rockrage_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr rockrage_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset, data);
 		cpu_set_irq_line(1,M6809_IRQ_LINE,HOLD_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr rockrage_VLM5030_busy_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return ( VLM5030_BSY() ? 1 : 0 );
 	}
 	
-	static WRITE_HANDLER( rockrage_speech_w ) {
+	public static WriteHandlerPtr rockrage_speech_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		/* bit2 = data bus enable */
 		VLM5030_RST( ( data >> 1 ) & 0x01 );
 		VLM5030_ST(  ( data >> 0 ) & 0x01 );

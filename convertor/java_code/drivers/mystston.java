@@ -25,24 +25,18 @@ public class mystston
 	
 	extern UINT8 *mystston_videoram2;
 	
-	extern WRITE_HANDLER( mystston_videoram_w );
-	extern WRITE_HANDLER( mystston_videoram2_w );
-	extern WRITE_HANDLER( mystston_scroll_w );
-	extern WRITE_HANDLER( mystston_control_w );
-	
+	extern extern extern extern 
 	extern extern extern 
 	
 	static int VBLK = 0x80;
 	static int soundlatch;
 	
 	
-	static WRITE_HANDLER( mystston_soundlatch_w )
-	{
+	public static WriteHandlerPtr mystston_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( mystston_soundcontrol_w )
-	{
+	public static WriteHandlerPtr mystston_soundcontrol_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	
 		/* bit 5 goes to 8910 #0 BDIR pin  */
@@ -65,7 +59,7 @@ public class mystston
 		}
 	
 		last = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr port3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int port = readinputport(3);
@@ -73,10 +67,9 @@ public class mystston
 		return port | VBLK;
 	} };
 	
-	static WRITE_HANDLER( mystston_irq_reset_w )
-	{
+	public static WriteHandlerPtr mystston_irq_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

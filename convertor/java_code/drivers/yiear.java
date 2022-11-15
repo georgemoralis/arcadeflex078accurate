@@ -58,26 +58,21 @@ public class yiear
 	
 	extern int nmi_enable;
 	
-	extern WRITE_HANDLER( yiear_videoram_w );
-	extern WRITE_HANDLER( yiear_control_w );
-	
+	extern extern 
 	extern extern extern 
 	/* in sndhrdw/trackfld.c */
-	extern WRITE_HANDLER( konami_SN76496_latch_w );
-	extern WRITE_HANDLER( konami_SN76496_0_w );
-	
+	extern extern 
 	
 	public static ReadHandlerPtr yiear_speech_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (VLM5030_BSY()) return 1;
 		else return 0;
 	} };
 	
-	static WRITE_HANDLER( yiear_VLM5030_control_w )
-	{
+	public static WriteHandlerPtr yiear_VLM5030_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 is latch direction */
 		VLM5030_ST( ( data >> 1 ) & 1 );
 		VLM5030_RST( ( data >> 2 ) & 1 );
-	}
+	} };
 	
 	public static InterruptHandlerPtr yiear_nmi_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* can't use nmi_line_pulse() because interrupt_enable_w() effects it */

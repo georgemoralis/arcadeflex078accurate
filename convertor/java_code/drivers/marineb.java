@@ -50,11 +50,7 @@ public class marineb
 	extern int marineb_active_low_flipscreen;
 	
 	
-	WRITE_HANDLER( marineb_palbank0_w );
-	WRITE_HANDLER( marineb_palbank1_w );
 	
-	WRITE_HANDLER( marineb_flipscreen_x_w );
-	WRITE_HANDLER( marineb_flipscreen_y_w );
 	
 	
 	

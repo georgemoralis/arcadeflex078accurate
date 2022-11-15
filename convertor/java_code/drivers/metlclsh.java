@@ -46,10 +46,6 @@ public class metlclsh
 	
 	/* Functions defined in vidhrdw: */
 	
-	WRITE_HANDLER( metlclsh_bgram_w );
-	WRITE_HANDLER( metlclsh_fgram_w );
-	WRITE_HANDLER( metlclsh_gfxbank_w );
-	WRITE_HANDLER( metlclsh_rambank_w );
 	
 	
 	/***************************************************************************
@@ -61,17 +57,15 @@ public class metlclsh
 	static data8_t *sharedram;
 	
 	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset) return sharedram[offset]; }
-	static WRITE_HANDLER( sharedram_w )	{ sharedram[offset] = data; }
+	public static WriteHandlerPtr sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data) sharedram[offset] = data; }
 	
-	static WRITE_HANDLER( metlclsh_cause_irq )
-	{
+	public static WriteHandlerPtr metlclsh_cause_irq = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1,M6809_IRQ_LINE,ASSERT_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( metlclsh_ack_nmi )
-	{
+	public static WriteHandlerPtr metlclsh_ack_nmi = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0,IRQ_LINE_NMI,CLEAR_LINE);
-	}
+	} };
 	
 	static MEMORY_READ_START( metlclsh_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM					},
@@ -114,25 +108,21 @@ public class metlclsh
 	
 	***************************************************************************/
 	
-	static WRITE_HANDLER( metlclsh_cause_nmi2 )
-	{
+	public static WriteHandlerPtr metlclsh_cause_nmi2 = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0,IRQ_LINE_NMI,ASSERT_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( metlclsh_ack_irq2 )
-	{
+	public static WriteHandlerPtr metlclsh_ack_irq2 = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1,M6809_IRQ_LINE,CLEAR_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( metlclsh_ack_nmi2 )
-	{
+	public static WriteHandlerPtr metlclsh_ack_nmi2 = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1,IRQ_LINE_NMI,CLEAR_LINE);
-	}
+	} };
 	
-	static WRITE_HANDLER( metlclsh_flipscreen_w )
-	{
+	public static WriteHandlerPtr metlclsh_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data & 1);
-	}
+	} };
 	
 	static MEMORY_READ_START( metlclsh_readmem2 )
 		{ 0x0000, 0x7fff, MRA_ROM			},
@@ -251,7 +241,7 @@ public class metlclsh
 		{ STEP8(8*8*2,1), STEP8(8*8*0,1) },
 		{ STEP8(8*8*0,8), STEP8(8*8*1,8) },
 		16*16
-	} };;
+	};
 	
 	static struct GfxLayout tilelayout16 =
 	{

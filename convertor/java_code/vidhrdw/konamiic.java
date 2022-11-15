@@ -1232,15 +1232,13 @@ public class konamiic
 		K007121_ctrlram[chip][offset] = data;
 	}
 	
-	WRITE_HANDLER( K007121_ctrl_0_w )
-	{
+	public static WriteHandlerPtr K007121_ctrl_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K007121_ctrl_w(0,offset,data);
-	}
+	} };
 	
-	WRITE_HANDLER( K007121_ctrl_1_w )
-	{
+	public static WriteHandlerPtr K007121_ctrl_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K007121_ctrl_w(1,offset,data);
-	}
+	} };
 	
 	
 	/*
@@ -1525,8 +1523,7 @@ public class konamiic
 		return K007342_ram[offset];
 	} };
 	
-	WRITE_HANDLER( K007342_w )
-	{
+	public static WriteHandlerPtr K007342_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset < 0x1000)
 		{		/* layer 0 */
 			if (K007342_ram[offset] != data)
@@ -1543,19 +1540,17 @@ public class konamiic
 				tilemap_mark_tile_dirty(K007342_tilemap[1],offset & 0x7ff);
 			}
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr K007342_scroll_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return K007342_scroll_ram[offset];
 	} };
 	
-	WRITE_HANDLER( K007342_scroll_w )
-	{
+	public static WriteHandlerPtr K007342_scroll_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K007342_scroll_ram[offset] = data;
-	}
+	} };
 	
-	WRITE_HANDLER( K007342_vreg_w )
-	{
+	public static WriteHandlerPtr K007342_vreg_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch(offset)
 		{
 			case 0x00:
@@ -1587,7 +1582,7 @@ public class konamiic
 				break;
 		}
 		K007342_regs[offset] = data;
-	}
+	} };
 	
 	void K007342_tilemap_update(void)
 	{
@@ -1693,10 +1688,9 @@ public class konamiic
 		return K007420_ram[offset];
 	} };
 	
-	WRITE_HANDLER( K007420_w )
-	{
+	public static WriteHandlerPtr K007420_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K007420_ram[offset] = data;
-	}
+	} };
 	
 	/*
 	 * Sprite Format
@@ -2087,8 +2081,7 @@ public class konamiic
 		}
 	} };
 	
-	WRITE_HANDLER( K052109_w )
-	{
+	public static WriteHandlerPtr K052109_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((offset & 0x1fff) < 0x1800) /* tilemap RAM */
 		{
 			if (K052109_ram[offset] != data)
@@ -2193,7 +2186,7 @@ public class konamiic
 	//		else
 	//logerror("%04x: write %02x to unknown 052109 address %04x\n",activecpu_get_pc(),data,offset);
 		}
-	}
+	} };
 	
 	READ16_HANDLER( K052109_word_r )
 	{
@@ -2517,10 +2510,9 @@ public class konamiic
 			return K051960_ram[offset];
 	} };
 	
-	WRITE_HANDLER( K051960_w )
-	{
+	public static WriteHandlerPtr K051960_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K051960_ram[offset] = data;
-	}
+	} };
 	
 	READ16_HANDLER( K051960_word_r )
 	{
@@ -2554,8 +2546,7 @@ public class konamiic
 		}
 	} };
 	
-	WRITE_HANDLER( K051937_w )
-	{
+	public static WriteHandlerPtr K051937_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 		{
 	
@@ -2592,7 +2583,7 @@ public class konamiic
 	//	usrintf_showmessage("%04x: write %02x to 051937 address %x",activecpu_get_pc(),data,offset);
 	//logerror("%04x: write %02x to unknown 051937 address %x\n",activecpu_get_pc(),data,offset);
 		}
-	}
+	} };
 	
 	READ16_HANDLER( K051937_word_r )
 	{
@@ -2837,15 +2828,14 @@ public class konamiic
 		else return K052109_r(offset);
 	} };
 	
-	WRITE_HANDLER( K052109_051960_w )
-	{
+	public static WriteHandlerPtr K052109_051960_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset >= 0x3800 && offset < 0x3808)
 			K051937_w(offset - 0x3800,data);
 		else if (offset < 0x3c00)
 			K052109_w(offset,data);
 		else
 			K051960_w(offset - 0x3c00,data);
-	}
+	} };
 	
 	
 	
@@ -2989,13 +2979,12 @@ public class konamiic
 			return (K053245_ram[offset>>1]>>8) & 0xff;
 	} };
 	
-	WRITE_HANDLER( K053245_w )
-	{
+	public static WriteHandlerPtr K053245_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if(offset & 1)
 			K053245_ram[offset>>1] = (K053245_ram[offset>>1] & 0xff00) | data;
 		else
 			K053245_ram[offset>>1] = (K053245_ram[offset>>1] & 0x00ff) | (data<<8);
-	}
+	} };
 	
 	void K053245_clear_buffer(void)
 	{
@@ -3034,8 +3023,7 @@ public class konamiic
 		}
 	} };
 	
-	WRITE_HANDLER( K053244_w )
-	{
+	public static WriteHandlerPtr K053244_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K053244_regs[offset] = data;
 	
 		switch(offset) {
@@ -3051,7 +3039,7 @@ public class konamiic
 			K053245_update_buffer();
 			break;
 		}
-	}
+	} };
 	
 	READ16_HANDLER( K053244_lsb_r )
 	{
@@ -3666,15 +3654,14 @@ public class konamiic
 			return(K053247_ram[offs] >> 8);
 	} };
 	
-	WRITE_HANDLER( K053247_w )
-	{
+	public static WriteHandlerPtr K053247_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int offs = offset >> 1;
 	
 		if (offset & 1)
 			K053247_ram[offs] = (K053247_ram[offs] & 0xff00) | data;
 		else
 			K053247_ram[offs] = (K053247_ram[offs] & 0x00ff) | (data<<8);
-	}
+	} };
 	
 	// Mystic Warriors hardware games support a non-OBJCHA based ROM readback
 	// write the address to the 246 as usual, but there's a completely separate ROM
@@ -3789,10 +3776,9 @@ public class konamiic
 		}
 	} };
 	
-	WRITE_HANDLER( K053246_w )
-	{
+	public static WriteHandlerPtr K053246_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K053246_regs[offset] = data;
-	}
+	} };
 	
 	READ16_HANDLER( K053246_word_r )
 	{
@@ -4441,20 +4427,17 @@ public class konamiic
 		}
 	}
 	
-	WRITE_HANDLER( K051316_0_w )
-	{
+	public static WriteHandlerPtr K051316_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K051316_w(0,offset,data);
-	}
+	} };
 	
-	WRITE_HANDLER( K051316_1_w )
-	{
+	public static WriteHandlerPtr K051316_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K051316_w(1,offset,data);
-	}
+	} };
 	
-	WRITE_HANDLER( K051316_2_w )
-	{
+	public static WriteHandlerPtr K051316_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K051316_w(2,offset,data);
-	}
+	} };
 	
 	
 	int K051316_rom_r(int chip, int offset)
@@ -4498,20 +4481,17 @@ public class konamiic
 	//if (offset >= 0x0c) logerror("%04x: write %02x to 051316 reg %x\n",activecpu_get_pc(),data,offset);
 	}
 	
-	WRITE_HANDLER( K051316_ctrl_0_w )
-	{
+	public static WriteHandlerPtr K051316_ctrl_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K051316_ctrl_w(0,offset,data);
-	}
+	} };
 	
-	WRITE_HANDLER( K051316_ctrl_1_w )
-	{
+	public static WriteHandlerPtr K051316_ctrl_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K051316_ctrl_w(1,offset,data);
-	}
+	} };
 	
-	WRITE_HANDLER( K051316_ctrl_2_w )
-	{
+	public static WriteHandlerPtr K051316_ctrl_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K051316_ctrl_w(2,offset,data);
-	}
+	} };
 	
 	void K051316_wraparound_enable(int chip, int status)
 	{
@@ -4774,8 +4754,7 @@ public class konamiic
 		K053251_tilemaps_set = (ci0 || ci1 || ci2 || ci3 || ci4) ? 1 : 0;
 	}
 	
-	WRITE_HANDLER( K053251_w )
-	{
+	public static WriteHandlerPtr K053251_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i,newind;
 	
 		data &= 0x3f;
@@ -4820,7 +4799,7 @@ public class konamiic
 					tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
 			}
 		}
-	}
+	} };
 	
 	WRITE16_HANDLER( K053251_lsb_w )
 	{
@@ -4854,12 +4833,11 @@ public class konamiic
 	
 	static unsigned char K054000_ram[0x20];
 	
-	WRITE_HANDLER( K054000_w )
-	{
+	public static WriteHandlerPtr K054000_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: write %02x to 054000 address %02x\n",activecpu_get_pc(),data,offset);
 	
 		K054000_ram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr K054000_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int Acx,Acy,Aax,Aay;
@@ -4918,12 +4896,11 @@ public class konamiic
 	
 	static unsigned char K051733_ram[0x20];
 	
-	WRITE_HANDLER( K051733_w )
-	{
+	public static WriteHandlerPtr K051733_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: write %02x to 051733 address %02x\n",activecpu_get_pc(),data,offset);
 	
 		K051733_ram[offset] = data;
-	}
+	} };
 	
 	
 	static int int_sqrt(UINT32 op)

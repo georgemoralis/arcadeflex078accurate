@@ -189,10 +189,9 @@ public class polepos
 		return polepos_sprite16_memory[offset] & 0xff;
 	} };
 	
-	WRITE_HANDLER( polepos_sprite_w )
-	{
+	public static WriteHandlerPtr polepos_sprite_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		polepos_sprite16_memory[offset] = (polepos_sprite16_memory[offset] & 0xff00) | data;
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -215,10 +214,9 @@ public class polepos
 		return polepos_road16_memory[offset] & 0xff;
 	} };
 	
-	WRITE_HANDLER( polepos_road_w )
-	{
+	public static WriteHandlerPtr polepos_road_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		polepos_road16_memory[offset] = (polepos_road16_memory[offset] & 0xff00) | data;
-	}
+	} };
 	
 	WRITE16_HANDLER( polepos_road16_vscroll_w )
 	{
@@ -252,8 +250,7 @@ public class polepos
 		return polepos_view16_memory[offset] & 0xff;
 	} };
 	
-	WRITE_HANDLER( polepos_view_w )
-	{
+	public static WriteHandlerPtr polepos_view_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data16_t oldword = polepos_view16_memory[offset];
 		polepos_view16_memory[offset] = (polepos_view16_memory[offset] & 0xff00) | data;
 		if (oldword != polepos_view16_memory[offset])
@@ -261,7 +258,7 @@ public class polepos
 			if (offset < 0x400)
 				view_dirty[offset] = 1;
 		}
-	}
+	} };
 	
 	WRITE16_HANDLER( polepos_view16_hscroll_w )
 	{
@@ -289,10 +286,9 @@ public class polepos
 		return polepos_alpha16_memory[offset] & 0xff;
 	} };
 	
-	WRITE_HANDLER( polepos_alpha_w )
-	{
+	public static WriteHandlerPtr polepos_alpha_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		polepos_alpha16_memory[offset] = (polepos_alpha16_memory[offset] & 0xff00) | data;
-	}
+	} };
 	
 	
 	/***************************************************************************

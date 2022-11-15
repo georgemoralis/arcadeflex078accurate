@@ -78,8 +78,7 @@ public class gridlee
 	
 	
 	
-	WRITE_HANDLER( gridlee_sound_w )
-	{
+	public static WriteHandlerPtr gridlee_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	static UINT8 sound_data[24];
 	
 		stream_update(gridlee_stream, 0);
@@ -172,5 +171,5 @@ public class gridlee
 	fclose(f);
 	}
 	#endif
-	}
+	} };
 }

@@ -59,15 +59,8 @@ public class williams
 	static void cvsd_irqb(int state);
 	
 	
-	static WRITE_HANDLER( cvsd_pia_w );
-	static WRITE_HANDLER( cvsd_bank_select_w );
 	
-	static WRITE_HANDLER( adpcm_bank_select_w );
-	static WRITE_HANDLER( adpcm_6295_bank_select_w );
 	
-	static WRITE_HANDLER( narc_command2_w );
-	static WRITE_HANDLER( narc_master_bank_select_w );
-	static WRITE_HANDLER( narc_slave_bank_select_w );
 	
 	
 	
@@ -488,10 +481,9 @@ public class williams
 		CVSD BANK SELECT
 	****************************************************************************/
 	
-	static WRITE_HANDLER( cvsd_bank_select_w )
-	{
+	public static WriteHandlerPtr cvsd_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank(6, get_cvsd_bank_base(data));
-	}
+	} };
 	
 	
 	
@@ -499,14 +491,12 @@ public class williams
 		ADPCM BANK SELECT
 	****************************************************************************/
 	
-	static WRITE_HANDLER( adpcm_bank_select_w )
-	{
+	public static WriteHandlerPtr adpcm_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank(6, get_adpcm_bank_base(data));
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( adpcm_6295_bank_select_w )
-	{
+	public static WriteHandlerPtr adpcm_6295_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (adpcm_bank_count <= 3)
 		{
 			if (!(data & 0x04))
@@ -522,7 +512,7 @@ public class williams
 			if (data != 0)
 				OKIM6295_set_bank_base(0, (data - 1) * 0x40000);
 		}
-	}
+	} };
 	
 	
 	
@@ -530,16 +520,14 @@ public class williams
 		NARC BANK SELECT
 	****************************************************************************/
 	
-	static WRITE_HANDLER( narc_master_bank_select_w )
-	{
+	public static WriteHandlerPtr narc_master_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank(6, get_narc_master_bank_base(data));
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( narc_slave_bank_select_w )
-	{
+	public static WriteHandlerPtr narc_slave_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_setbank(5, get_narc_slave_bank_base(data));
-	}
+	} };
 	
 	
 	
@@ -552,10 +540,9 @@ public class williams
 	} };
 	
 	
-	static WRITE_HANDLER( cvsd_pia_w )
-	{
+	public static WriteHandlerPtr cvsd_pia_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pia_write(williams_pianum, offset, data);
-	}
+	} };
 	
 	
 	
@@ -682,9 +669,8 @@ public class williams
 	} };
 	
 	
-	static WRITE_HANDLER( narc_command2_w )
-	{
+	public static WriteHandlerPtr narc_command2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch2_w(0, data & 0xff);
 		cpu_set_irq_line(soundalt_cpunum, M6809_FIRQ_LINE, ASSERT_LINE);
-	}
+	} };
 }

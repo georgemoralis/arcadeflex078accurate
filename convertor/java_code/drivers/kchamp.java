@@ -72,10 +72,7 @@ public class kchamp
 	
 	
 	/* from vidhrdw */
-	extern WRITE_HANDLER( kchamp_videoram_w );
-	extern WRITE_HANDLER( kchamp_colorram_w );
-	extern WRITE_HANDLER( kchamp_flipscreen_w );
-	
+	extern extern extern 
 	extern extern extern extern 
 	
 	static int nmi_enable = 0;
@@ -111,21 +108,21 @@ public class kchamp
 		{ 0x6000, 0xffff, MWA_RAM },
 	MEMORY_END
 	
-	static WRITE_HANDLER( control_w ) {
+	public static WriteHandlerPtr control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		nmi_enable = data & 1;
 	}
 	
-	static WRITE_HANDLER( sound_reset_w ) {
+	public static WriteHandlerPtr sound_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		if ( !( data & 1 ) )
 			cpu_set_reset_line(1,PULSE_LINE);
 	}
 	
-	static WRITE_HANDLER( sound_control_w ) {
+	public static WriteHandlerPtr sound_control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		MSM5205_reset_w( 0, !( data & 1 ) );
 		sound_nmi_enable = ( ( data >> 1 ) & 1 );
 	}
 	
-	static WRITE_HANDLER( sound_command_w ) {
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		soundlatch_w( 0, data );
 		cpu_set_irq_line_and_vector( 1, 0, HOLD_LINE, 0xff );
 	}
@@ -133,7 +130,7 @@ public class kchamp
 	static int msm_data = 0;
 	static int msm_play_lo_nibble = 1;
 	
-	static WRITE_HANDLER( sound_msm_w ) {
+	public static WriteHandlerPtr sound_msm_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		msm_data = data;
 		msm_play_lo_nibble = 1;
 	}
@@ -202,7 +199,7 @@ public class kchamp
 		return 0;
 	}
 	
-	static WRITE_HANDLER( kc_sound_control_w ) {
+	public static WriteHandlerPtr kc_sound_control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		if ( offset == 0 )
 			sound_nmi_enable = ( ( data >> 7 ) & 1 );
 	//	else

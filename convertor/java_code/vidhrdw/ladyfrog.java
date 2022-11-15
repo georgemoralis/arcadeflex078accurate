@@ -23,10 +23,9 @@ public class ladyfrog
 	UINT8 *ladyfrog_spriteram;
 	extern UINT8 *ladyfrog_sharedram;
 	
-	WRITE_HANDLER(ladyfrog_spriteram_w)
-	{
+	public static WriteHandlerPtr ladyfrog_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ladyfrog_spriteram[offset]=data;
-	}
+	} };
 	
 	public static ReadHandlerPtr ladyfrog_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ladyfrog_spriteram[offset];
@@ -44,23 +43,21 @@ public class ladyfrog
 				)
 	}
 	
-	WRITE_HANDLER( ladyfrog_videoram_w )
-	{
+	public static WriteHandlerPtr ladyfrog_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		videoram[offset] = data;
 		tilemap_mark_tile_dirty(tilemap,offset>>1);
-	}
+	} };
 	
 	public static ReadHandlerPtr ladyfrog_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
 	} };
 	
-	WRITE_HANDLER( ladyfrog_palette_w )
-	{
+	public static WriteHandlerPtr ladyfrog_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset & 0x100)
 			paletteram_xxxxBBBBGGGGRRRR_split2_w((offset & 0xff) + (palette_bank << 8),data);
 		else
 			paletteram_xxxxBBBBGGGGRRRR_split1_w((offset & 0xff) + (palette_bank << 8),data);
-	}
+	} };
 	
 	public static ReadHandlerPtr ladyfrog_palette_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset & 0x100)
@@ -69,17 +66,15 @@ public class ladyfrog
 			return paletteram  [ (offset & 0xff) + (palette_bank << 8) ];
 	} };
 	
-	WRITE_HANDLER( ladyfrog_gfxctrl_w )
-	{
+	public static WriteHandlerPtr ladyfrog_gfxctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		palette_bank = (data & 0x20) >> 5;
 	
-	}
+	} };
 	
-	WRITE_HANDLER( ladyfrog_gfxctrl2_w )
-	{
+	public static WriteHandlerPtr ladyfrog_gfxctrl2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		tilebank=((data & 0x18) >> 3)^3;
 		tilemap_mark_all_tiles_dirty( tilemap );
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr ladyfrog_gfxctrl_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -90,11 +85,10 @@ public class ladyfrog
 		return ladyfrog_scrlram[offset];
 	} };
 	
-	WRITE_HANDLER( ladyfrog_scrlram_w )
-	{
+	public static WriteHandlerPtr ladyfrog_scrlram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ladyfrog_scrlram[offset] = data;
 		tilemap_set_scrolly(tilemap, offset, data );
-	}
+	} };
 	
 	void ladyfrog_draw_sprites(struct mame_bitmap *bitmap, const struct rectangle *cliprect)
 	{

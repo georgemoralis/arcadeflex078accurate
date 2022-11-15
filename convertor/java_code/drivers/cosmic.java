@@ -21,8 +21,6 @@ public class cosmic
 {
 	
 	
-	WRITE_HANDLER( cosmic_color_register_w );
-	WRITE_HANDLER( cosmic_background_enable_w );
 	
 	
 	static unsigned int pixel_clock = 0;
@@ -31,8 +29,7 @@ public class cosmic
 	
 	/* Schematics show 12 triggers for discrete sound circuits */
 	
-	static WRITE_HANDLER( panic_sound_output_w )
-	{
+	public static WriteHandlerPtr panic_sound_output_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    static int sound_enabled=1;
 	
 	    /* Sound Enable / Disable */
@@ -100,15 +97,13 @@ public class cosmic
 	    #ifdef MAME_DEBUG
 	 	logerror("Sound output %x=%x\n",offset,data);
 		#endif
-	}
+	} };
 	
-	WRITE_HANDLER( panic_sound_output2_w )
-	{
+	public static WriteHandlerPtr panic_sound_output2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		panic_sound_output_w(offset+15, data);
-	}
+	} };
 	
-	WRITE_HANDLER( cosmicg_output_w )
-	{
+	public static WriteHandlerPtr cosmicg_output_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int march_select;
 	    static int gun_die_select;
 	    static int sound_enabled;
@@ -170,7 +165,7 @@ public class cosmic
 		#ifdef MAME_DEBUG
 	 	if (offset != 11) logerror("Output %x=%x\n",offset,data);
 	    #endif
-	}
+	} };
 	
 	public static InterruptHandlerPtr panic_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() != 0)
@@ -284,10 +279,9 @@ public class cosmic
 	
 	
 	
-	static WRITE_HANDLER( flip_screen_w )
-	{
+	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_set(data&0x80);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( panic_readmem )

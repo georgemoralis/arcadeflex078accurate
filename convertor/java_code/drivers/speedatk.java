@@ -85,10 +85,7 @@ public class speedatk
 	
 	static UINT8 mux_data;
 	
-	extern WRITE_HANDLER( speedatk_videoram_w );
-	extern WRITE_HANDLER( speedatk_colorram_w );
-	extern WRITE_HANDLER( speedatk_flip_screen_w );
-	extern extern extern 
+	extern extern extern extern extern extern 
 	/* This "key matrix" device maps some buttons with multiple bit activations,for        *
 	 * example pressing button A + button B it causes an output of button C.               *
 	 * This function converts the bit inputs of this game into the usual way MAME does,and *
@@ -140,10 +137,9 @@ public class speedatk
 		return 0x00;
 	} };
 	
-	static WRITE_HANDLER( key_matrix_w )
-	{
+	public static WriteHandlerPtr key_matrix_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mux_data = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr read_8001  = new ReadHandlerPtr() { public int handler(int offset){
 		return 1;

@@ -63,12 +63,6 @@ public class dday
 	extern unsigned char *dday_textvideoram;
 	extern unsigned char *dday_colorram;
 	
-	WRITE_HANDLER( dday_bgvideoram_w );
-	WRITE_HANDLER( dday_fgvideoram_w );
-	WRITE_HANDLER( dday_textvideoram_w );
-	WRITE_HANDLER( dday_colorram_w );
-	WRITE_HANDLER( dday_control_w );
-	WRITE_HANDLER( dday_sl_control_w );
 	
 	
 	static MEMORY_READ_START( readmem )

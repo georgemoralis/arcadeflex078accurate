@@ -92,11 +92,10 @@ public class statriv2
 	}
 	
 	
-	WRITE_HANDLER( statriv2_videoram_w )
-	{
+	public static WriteHandlerPtr statriv2_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		statriv2_videoram[offset] = data;
 		tilemap_mark_tile_dirty(statriv2_tilemap,offset & 0x3ff);
-	}
+	} };
 	
 	
 	public static VideoStartHandlerPtr video_start_statriv2  = new VideoStartHandlerPtr() { public int handler(){
@@ -151,20 +150,17 @@ public class statriv2
 	static data8_t  question_offset_med;
 	static data8_t  question_offset_high;
 	
-	static WRITE_HANDLER ( question_offset_low_w )
-	{
+	public static WriteHandlerPtr question_offset_low_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		question_offset_low = data;
-	}
+	} };
 	
-	static WRITE_HANDLER ( question_offset_med_w )
-	{
+	public static WriteHandlerPtr question_offset_med_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		question_offset_med = data;
-	}
+	} };
 	
-	static WRITE_HANDLER ( question_offset_high_w )
-	{
+	public static WriteHandlerPtr question_offset_high_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		question_offset_high = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr statriv2_questions_read  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *question_data    = memory_region       ( REGION_USER1 );

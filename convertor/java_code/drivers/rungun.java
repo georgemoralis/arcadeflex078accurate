@@ -251,20 +251,18 @@ public class rungun
 	
 	/**********************************************************************************/
 	
-	static WRITE_HANDLER( sound_status_w )
-	{
+	public static WriteHandlerPtr sound_status_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		rng_sound_status = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( z80ctrl_w )
-	{
+	public static WriteHandlerPtr z80ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		rng_z80_control = data;
 	
 		cpu_setbank(2, memory_region(REGION_CPU2) + 0x10000 + (data & 0x07) * 0x4000);
 	
 		if (data & 0x10)
 			cpu_set_nmi_line(1, CLEAR_LINE);
-	}
+	} };
 	
 	public static InterruptHandlerPtr audio_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (rng_z80_control & 0x80) return;

@@ -13,21 +13,9 @@ package drivers;
 public class sspeedr
 {
 	
-	extern WRITE_HANDLER( sspeedr_driver_horz_w );
-	extern WRITE_HANDLER( sspeedr_driver_horz_2_w );
-	extern WRITE_HANDLER( sspeedr_driver_vert_w );
-	extern WRITE_HANDLER( sspeedr_driver_pic_w );
-	
-	extern WRITE_HANDLER( sspeedr_drones_horz_w );
-	extern WRITE_HANDLER( sspeedr_drones_horz_2_w );
-	extern WRITE_HANDLER( sspeedr_drones_vert_w );
-	extern WRITE_HANDLER( sspeedr_drones_mask_w );
-	
-	extern WRITE_HANDLER( sspeedr_track_horz_w );
-	extern WRITE_HANDLER( sspeedr_track_horz_2_w );
-	extern WRITE_HANDLER( sspeedr_track_vert_w );
-	extern WRITE_HANDLER( sspeedr_track_ice_w );
-	
+	extern extern extern extern 
+	extern extern extern extern 
+	extern extern extern extern 
 	extern extern extern 
 	static UINT8 led_TIME[2];
 	static UINT8 led_SCORE[24];
@@ -61,25 +49,22 @@ public class sspeedr
 	} };
 	
 	
-	static WRITE_HANDLER( sspeedr_int_ack_w )
-	{
+	public static WriteHandlerPtr sspeedr_int_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sspeedr_lamp_w )
-	{
+	public static WriteHandlerPtr sspeedr_lamp_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		artwork_show("lampGO",
 			data & 1);
 		artwork_show("lampEP",
 			data & 2);
 	
 		coin_counter_w(0, data & 8);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sspeedr_time_w )
-	{
+	public static WriteHandlerPtr sspeedr_time_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 prev = led_TIME[offset];
 	
 		char buf_old[8];
@@ -94,11 +79,10 @@ public class sspeedr
 		artwork_show(buf_new, 1);
 	
 		led_TIME[offset] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sspeedr_score_w )
-	{
+	public static WriteHandlerPtr sspeedr_score_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 prev = led_SCORE[offset];
 	
 		char buf_old[8];
@@ -113,13 +97,12 @@ public class sspeedr
 		artwork_show(buf_new, 1);
 	
 		led_SCORE[offset] = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( sspeedr_sound_w )
-	{
+	public static WriteHandlerPtr sspeedr_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* not implemented */
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

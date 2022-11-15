@@ -83,16 +83,14 @@ public class triplhnt
 	}
 	
 	
-	WRITE_HANDLER( triplhnt_misc_w )
-	{
+	public static WriteHandlerPtr triplhnt_misc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		triplhnt_update_misc(offset);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( triplhnt_zeropage_w )
-	{
+	public static WriteHandlerPtr triplhnt_zeropage_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		memory_region(REGION_CPU1)[offset & 0xff] = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr triplhnt_zeropage_r  = new ReadHandlerPtr() { public int handler(int offset){

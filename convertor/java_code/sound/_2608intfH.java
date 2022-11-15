@@ -39,18 +39,10 @@ public class _2608intfH
 	/************************************************/
 	/* Chip 0 functions				*/
 	/************************************************/
-	WRITE_HANDLER( YM2608_control_port_0_A_w );
-	WRITE_HANDLER( YM2608_control_port_0_B_w );
-	WRITE_HANDLER( YM2608_data_port_0_A_w );
-	WRITE_HANDLER( YM2608_data_port_0_B_w );
 	
 	/************************************************/
 	/* Chip 1 functions				*/
 	/************************************************/
-	WRITE_HANDLER( YM2608_control_port_1_A_w );
-	WRITE_HANDLER( YM2608_control_port_1_B_w );
-	WRITE_HANDLER( YM2608_data_port_1_A_w );
-	WRITE_HANDLER( YM2608_data_port_1_B_w );
 	
 	#endif /* __2608INTF_H__ */
 }

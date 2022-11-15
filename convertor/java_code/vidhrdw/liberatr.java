@@ -90,13 +90,11 @@ public class liberatr
 		plot_pixel(tmpbitmap, x, y, pen);
 	}
 	
-	WRITE_HANDLER( liberatr_bitmap_xy_w )
-	{
+	public static WriteHandlerPtr liberatr_bitmap_xy_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bitmap_common_w(*liberatr_x, *liberatr_y, data);
-	}
+	} };
 	
-	WRITE_HANDLER( liberatr_bitmap_w )
-	{
+	public static WriteHandlerPtr liberatr_bitmap_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 x = (offset & 0x3f) << 2;
 		UINT8 y = (offset >> 6);
 	
@@ -106,7 +104,7 @@ public class liberatr
 	    bitmap_common_w(x+1, y, data);
 	    bitmap_common_w(x+2, y, data);
 	    bitmap_common_w(x+3, y, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr liberatr_bitmap_xy_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -114,8 +112,7 @@ public class liberatr
 	} };
 	
 	
-	WRITE_HANDLER( liberatr_colorram_w )
-	{
+	public static WriteHandlerPtr liberatr_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 r,g,b;
 	
 		/* handle the hardware flip of the bit order from 765 to 576 that
@@ -139,7 +136,7 @@ public class liberatr
 		}
 	
 		palette_set_color(offset,r,g,b);
-	}
+	} };
 	
 	
 	/********************************************************************************************

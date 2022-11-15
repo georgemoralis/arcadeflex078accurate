@@ -28,19 +28,16 @@ public class bublbobl
 	public static ReadHandlerPtr bublbobl_sharedram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bublbobl_sharedram2[offset];
 	} };
-	WRITE_HANDLER( bublbobl_sharedram1_w )
-	{
+	public static WriteHandlerPtr bublbobl_sharedram1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bublbobl_sharedram1[offset] = data;
-	}
-	WRITE_HANDLER( bublbobl_sharedram2_w )
-	{
+	} };
+	public static WriteHandlerPtr bublbobl_sharedram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bublbobl_sharedram2[offset] = data;
-	}
+	} };
 	
 	
 	
-	WRITE_HANDLER( bublbobl_bankswitch_w )
-	{
+	public static WriteHandlerPtr bublbobl_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *ROM = memory_region(REGION_CPU1);
 	
 		/* bits 0-2 select ROM bank */
@@ -57,30 +54,27 @@ public class bublbobl
 	
 		/* bit 7 flips screen */
 		flip_screen_set(data & 0x80);
-	}
+	} };
 	
-	WRITE_HANDLER( tokio_bankswitch_w )
-	{
+	public static WriteHandlerPtr tokio_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *ROM = memory_region(REGION_CPU1);
 	
 		/* bits 0-2 select ROM bank */
 		cpu_setbank(1,&ROM[0x10000 + 0x4000 * (data & 7)]);
 	
 		/* bits 3-7 unknown */
-	}
+	} };
 	
-	WRITE_HANDLER( tokio_videoctrl_w )
-	{
+	public static WriteHandlerPtr tokio_videoctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 7 flips screen */
 		flip_screen_set(data & 0x80);
 	
 		/* other bits unknown */
-	}
+	} };
 	
-	WRITE_HANDLER( bublbobl_nmitrigger_w )
-	{
+	public static WriteHandlerPtr bublbobl_nmitrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr tokio_fake_r  = new ReadHandlerPtr() { public int handler(int offset){
 	  return 0xbf; /* ad-hoc value set to pass initial testing */
@@ -96,26 +90,23 @@ public class bublbobl
 		else pending_nmi = 1;
 	}
 	
-	WRITE_HANDLER( bublbobl_sound_command_w )
-	{
+	public static WriteHandlerPtr bublbobl_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		timer_set(TIME_NOW,data,nmi_callback);
-	}
+	} };
 	
-	WRITE_HANDLER( bublbobl_sh_nmi_disable_w )
-	{
+	public static WriteHandlerPtr bublbobl_sh_nmi_disable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_nmi_enable = 0;
-	}
+	} };
 	
-	WRITE_HANDLER( bublbobl_sh_nmi_enable_w )
-	{
+	public static WriteHandlerPtr bublbobl_sh_nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_nmi_enable = 1;
 		if (pending_nmi)
 		{
 			cpu_set_irq_line(2,IRQ_LINE_NMI,PULSE_LINE);
 			pending_nmi = 0;
 		}
-	}
+	} };
 	
 	
 	
@@ -143,16 +134,14 @@ public class bublbobl
 		return (portA_out & ddrA) | (portA_in & ~ddrA);
 	} };
 	
-	WRITE_HANDLER( bublbobl_68705_portA_w )
-	{
+	public static WriteHandlerPtr bublbobl_68705_portA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: 68705 port A write %02x\n",activecpu_get_pc(),data);
 		portA_out = data;
-	}
+	} };
 	
-	WRITE_HANDLER( bublbobl_68705_ddrA_w )
-	{
+	public static WriteHandlerPtr bublbobl_68705_ddrA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ddrA = data;
-	}
+	} };
 	
 	
 	
@@ -183,8 +172,7 @@ public class bublbobl
 	
 	static int address,latch;
 	
-	WRITE_HANDLER( bublbobl_68705_portB_w )
-	{
+	public static WriteHandlerPtr bublbobl_68705_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: 68705 port B write %02x\n",activecpu_get_pc(),data);
 	
 		if ((ddrB & 0x01) && (~data & 0x01) && (portB_out & 0x01))
@@ -246,10 +234,9 @@ public class bublbobl
 		}
 	
 		portB_out = data;
-	}
+	} };
 	
-	WRITE_HANDLER( bublbobl_68705_ddrB_w )
-	{
+	public static WriteHandlerPtr bublbobl_68705_ddrB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ddrB = data;
-	}
+	} };
 }

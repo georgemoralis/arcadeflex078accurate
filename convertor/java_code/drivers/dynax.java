@@ -103,17 +103,15 @@ public class dynax
 		cpu_set_irq_line_and_vector(0, 0, irq ? ASSERT_LINE : CLEAR_LINE, 0xc7 | irq); /* rst $xx */
 	}
 	
-	WRITE_HANDLER( dynax_vblank_ack_w )
-	{
+	public static WriteHandlerPtr dynax_vblank_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_vblank_irq = 0;
 		sprtmtch_update_irq();
-	}
+	} };
 	
-	WRITE_HANDLER( dynax_blitter_ack_w )
-	{
+	public static WriteHandlerPtr dynax_blitter_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_blitter_irq = 0;
 		sprtmtch_update_irq();
-	}
+	} };
 	
 	public static InterruptHandlerPtr sprtmtch_vblank_interrupt = new InterruptHandlerPtr() {public void handler(){
 		dynax_vblank_irq = 1;
@@ -138,18 +136,16 @@ public class dynax
 									Sports Match
 	***************************************************************************/
 	
-	static WRITE_HANDLER( dynax_coincounter_0_w )
-	{
+	public static WriteHandlerPtr dynax_coincounter_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0, data & 1);
 		if (data & ~1)
 			logerror("CPU#0 PC %06X: Warning, coin counter 0 <- %02X\n", activecpu_get_pc(), data);
-	}
-	static WRITE_HANDLER( dynax_coincounter_1_w )
-	{
+	} };
+	public static WriteHandlerPtr dynax_coincounter_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(1, data & 1);
 		if (data & ~1)
 			logerror("CPU#0 PC %06X: Warning, coin counter 1 <- %02X\n", activecpu_get_pc(), data);
-	}
+	} };
 	
 	public static ReadHandlerPtr ret_ff  = new ReadHandlerPtr() { public int handler(int offset)	return 0xff;	}
 	
@@ -173,40 +169,35 @@ public class dynax
 		return 0x3f;
 	} };
 	
-	static WRITE_HANDLER( hanamai_keyboard_w )
-	{
+	public static WriteHandlerPtr hanamai_keyboard_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		keyb = data;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( dynax_rombank_w )
-	{
+	public static WriteHandlerPtr dynax_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *ROM = memory_region(REGION_CPU1);
 		cpu_setbank(1,&ROM[0x08000+0x8000*(data & 0x0f)]);
-	}
+	} };
 	
 	
 	static int hnoridur_bank;
 	
-	static WRITE_HANDLER( hnoridur_rombank_w )
-	{
+	public static WriteHandlerPtr hnoridur_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *ROM = memory_region(REGION_CPU1) + 0x10000 + 0x8000*data;
 	//logerror("%04x: rom bank = %02x\n",activecpu_get_pc(),data);
 		cpu_setbank(1,ROM);
 		hnoridur_bank = data;
-	}
+	} };
 	
 	static data8_t palette_ram[16*256*2];
 	static int palbank;
 	
-	static WRITE_HANDLER( hnoridur_palbank_w )
-	{
+	public static WriteHandlerPtr hnoridur_palbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		palbank = data & 0x0f;
 		dynax_blit_palbank_w(0,data);
-	}
+	} };
 	
-	static WRITE_HANDLER( hnoridur_palette_w )
-	{
+	public static WriteHandlerPtr hnoridur_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (hnoridur_bank)
 		{
 			case 0x10:
@@ -243,10 +234,9 @@ public class dynax
 			b =  (b << 3) | (b >> 2);
 			palette_set_color(256*palbank + offset,r,g,b);
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( yarunara_palette_w )
-	{
+	public static WriteHandlerPtr yarunara_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int addr = 512*palbank + offset;
 	
 		switch (hnoridur_bank)
@@ -274,10 +264,9 @@ public class dynax
 			b =  (b << 3) | (b >> 2);
 			palette_set_color( 256*palbank + ((offset&0xf)|((offset&0x1e0)>>1)) ,r,g,b);
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( nanajign_palette_w )
-	{
+	public static WriteHandlerPtr nanajign_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (hnoridur_bank)
 		{
 			case 0x10:
@@ -304,7 +293,7 @@ public class dynax
 			b =  (b << 3) | (b >> 2);
 			palette_set_color(256*palbank + offset,r,g,b);
 		}
-	}
+	} };
 	
 	static int msm5205next;
 	static int resetkludge;
@@ -324,16 +313,14 @@ public class dynax
 		}
 	}
 	
-	static WRITE_HANDLER( adpcm_data_w )
-	{
+	public static WriteHandlerPtr adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		msm5205next = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( adpcm_reset_w )
-	{
+	public static WriteHandlerPtr adpcm_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		resetkludge = data & 1;
 		MSM5205_reset_w(0,~data & 1);
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_adpcm  = new MachineInitHandlerPtr() { public void handler(){
 		/* start with the MSM5205 reset */
@@ -341,18 +328,15 @@ public class dynax
 		MSM5205_reset_w(0,1);
 	} };
 	
-	static WRITE_HANDLER( yarunara_layer_half_w )
-	{
+	public static WriteHandlerPtr yarunara_layer_half_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		hanamai_layer_half_w(0,data >> 1);
-	}
-	static WRITE_HANDLER( yarunara_layer_half2_w )
-	{
+	} };
+	public static WriteHandlerPtr yarunara_layer_half2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		hnoridur_layer_half2_w(0,data >> 1);
-	}
-	WRITE_HANDLER( nanajign_layer_half_w )
-	{
+	} };
+	public static WriteHandlerPtr nanajign_layer_half_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		hanamai_layer_half_w(0,~data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( sprtmtch_readmem )
@@ -664,8 +648,7 @@ public class dynax
 	***************************************************************************/
 	
 	static data8_t yarunara_select, yarunara_ip;
-	static WRITE_HANDLER( yarunara_input_w )
-	{
+	public static WriteHandlerPtr yarunara_input_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset)
 		{
 			case 0:	yarunara_select = data;
@@ -675,7 +658,7 @@ public class dynax
 			case 1:	break;
 		}
 	
-	}
+	} };
 	
 	public static ReadHandlerPtr yarunara_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
@@ -717,20 +700,18 @@ public class dynax
 		return 0xff;
 	} };
 	
-	static WRITE_HANDLER( yarunara_rombank_w )
-	{
+	public static WriteHandlerPtr yarunara_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *rom = memory_region(REGION_CPU1) + 0x10000 + 0x8000 * data;
 		cpu_setbank(1, rom);
 	
 		hnoridur_bank = data;
 		if (data == 0x1c)
 			rom[0x0d] = 0x00;	// RTC
-	}
+	} };
 	
-	WRITE_HANDLER( yarunara_flipscreen_w )
-	{
+	public static WriteHandlerPtr yarunara_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		dynax_flipscreen_w(0,(data&2)?1:0);
-	}
+	} };
 	
 	static PORT_READ_START( yarunara_readport )
 		{ 0x02, 0x03, yarunara_input_r		},	// Controls

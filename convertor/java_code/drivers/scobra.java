@@ -204,10 +204,9 @@ public class scobra
 		return scobra_soundram[offset & 0x03ff];
 	} };
 	
-	static WRITE_HANDLER(scobra_soundram_w)
-	{
+	public static WriteHandlerPtr scobra_soundram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		scobra_soundram[offset & 0x03ff] = data;
-	}
+	} };
 	
 	MEMORY_READ_START( scobra_sound_readmem )
 		{ 0x0000, 0x2fff, MRA_ROM },

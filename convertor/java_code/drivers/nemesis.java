@@ -301,19 +301,17 @@ public class nemesis
 		{ 0x060000, 0x067fff, MWA16_RAM, &ram },	/* WORK RAM */
 	MEMORY_END
 	
-	WRITE_HANDLER( salamand_speech_start_w )
-	{
+	public static WriteHandlerPtr salamand_speech_start_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	        VLM5030_ST ( 1 );
 	        VLM5030_ST ( 0 );
-	}
+	} };
 	
-	WRITE_HANDLER( gx400_speech_start_w )
-	{
+	public static WriteHandlerPtr gx400_speech_start_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	        /* the voice data is not in a rom but in sound RAM at $8000 */
 	        VLM5030_set_rom ((memory_region(REGION_CPU2))+ 0x8000);
 	        VLM5030_ST (1);
 	        VLM5030_ST (0);
-	}
+	} };
 	
 	public static ReadHandlerPtr nemesis_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 	/*
@@ -732,12 +730,11 @@ public class nemesis
 		return a;
 	} };
 	
-	static WRITE_HANDLER( city_sound_bank_w )
-	{
+	public static WriteHandlerPtr city_sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bank_A=(data&0x3);
 		int bank_B=((data>>2)&0x3);
 		K007232_set_bank( 0, bank_A, bank_B );
-	}
+	} };
 	
 	static MEMORY_READ_START( sal_sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

@@ -26,8 +26,7 @@ public class sega
 	static UINT16 result;
 	static UINT8 ioSwitch; /* determines whether we're reading the spinner or the buttons */
 	
-	WRITE_HANDLER( sega_w )
-	{
+	public static WriteHandlerPtr sega_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int pc,off;
 	
 		pc = activecpu_get_previouspc();
@@ -60,7 +59,7 @@ public class sega
 		{
 			sega_mem[off]=data;
 		}
-	}
+	} };
 	
 	public static InterruptHandlerPtr sega_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (input_port_5_r(0) & 0x01)
@@ -69,27 +68,23 @@ public class sega
 			cpu_set_irq_line(0, 0, HOLD_LINE);
 	} };
 	
-	WRITE_HANDLER( sega_mult1_w )
-	{
+	public static WriteHandlerPtr sega_mult1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mult1 = data;
-	}
+	} };
 	
-	WRITE_HANDLER( sega_mult2_w )
-	{
+	public static WriteHandlerPtr sega_mult2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Curiously, the multiply is _only_ calculated by writes to this port. */
 		result = mult1 * data;
-	}
+	} };
 	
-	WRITE_HANDLER( sega_switch_w )
-	{
+	public static WriteHandlerPtr sega_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ioSwitch = data;
 	/*	logerror("ioSwitch: %02x\n",ioSwitch); */
-	}
+	} };
 	
-	WRITE_HANDLER( sega_coin_counter_w )
-	{
+	public static WriteHandlerPtr sega_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	public static ReadHandlerPtr sega_mult_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int c;

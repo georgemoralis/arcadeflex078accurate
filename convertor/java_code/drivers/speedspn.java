@@ -62,10 +62,6 @@ public class speedspn
 	/* in vidhrdw */
 	extern data8_t *speedspn_attram;
 	
-	WRITE_HANDLER( speedspn_vidram_w );
-	WRITE_HANDLER( speedspn_attram_w );
-	WRITE_HANDLER(speedspn_banked_vidram_change);
-	WRITE_HANDLER(speedspn_global_display_w);
 	
 	public static ReadHandlerPtr speedspn_irq_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// I think this simply acknowledges the IRQ #0, it's read within the handler and the
@@ -73,8 +69,7 @@ public class speedspn
 		return 0;
 	} };
 	
-	static WRITE_HANDLER(speedspn_banked_rom_change)
-	{
+	public static WriteHandlerPtr speedspn_banked_rom_change = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* is this weird banking some form of protection? */
 	
 		unsigned char *rom = memory_region(REGION_CPU1);
@@ -98,15 +93,14 @@ public class speedspn
 		}
 	
 		cpu_setbank(1,&rom[addr + 0x8000]);
-	}
+	} };
 	
 	/*** SOUND RELATED ***********************************************************/
 	
-	static WRITE_HANDLER(speedspn_sound_w)
-	{
+	public static WriteHandlerPtr speedspn_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(1,data);
 		cpu_set_irq_line(1,0,HOLD_LINE);
-	}
+	} };
 	
 	/*** MEMORY MAPS *************************************************************/
 	

@@ -161,26 +161,13 @@ public class nycaptor
 	static int sound_nmi_enable=0,pending_nmi=0;
 	
 	
-	WRITE_HANDLER( nycaptor_videoram_w );
-	WRITE_HANDLER( nycaptor_spriteram_w );
-	WRITE_HANDLER( nycaptor_palette_w );
-	WRITE_HANDLER( nycaptor_gfxctrl_w );
-	WRITE_HANDLER( nycaptor_scrlram_w );
-	WRITE_HANDLER( nycaptor_68705_portA_w );
-	WRITE_HANDLER( nycaptor_68705_portB_w );
-	WRITE_HANDLER( nycaptor_68705_portC_w );
-	WRITE_HANDLER( nycaptor_68705_ddrA_w );
-	WRITE_HANDLER( nycaptor_68705_ddrB_w );
-	WRITE_HANDLER( nycaptor_68705_ddrC_w );
-	WRITE_HANDLER( nycaptor_mcu_w );
 	
 	
 	
 	
-	static WRITE_HANDLER( sub_cpu_halt_w )
-	{
+	public static WriteHandlerPtr sub_cpu_halt_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_halt_line(1, (data )? ASSERT_LINE : CLEAR_LINE);
-	}
+	} };
 	
 	static UINT8 snd_data;
 	
@@ -188,20 +175,18 @@ public class nycaptor
 		return snd_data;
 	} };
 	
-	WRITE_HANDLER( to_main_w )
-	{
+	public static WriteHandlerPtr to_main_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		snd_data = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr nycaptor_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return nycaptor_sharedram[offset];
 	} };
 	
-	WRITE_HANDLER(nycaptor_sharedram_w)
-	{
+	public static WriteHandlerPtr nycaptor_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nycaptor_sharedram[offset]=data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr nycaptor_b_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -217,10 +202,9 @@ public class nycaptor
 	} };
 	
 	
-	static WRITE_HANDLER( sound_cpu_reset_w )
-	{
+	public static WriteHandlerPtr sound_cpu_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_reset_line(2, (data&1 )? ASSERT_LINE : CLEAR_LINE);
-	}
+	} };
 	
 	static int vol_ctrl[16];
 	
@@ -246,26 +230,23 @@ public class nycaptor
 		else pending_nmi = 1;
 	}
 	
-	static WRITE_HANDLER( sound_command_w )
-	{
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		timer_set(TIME_NOW,data,nmi_callback);
-	}
+	} };
 	
-	static WRITE_HANDLER( nmi_disable_w )
-	{
+	public static WriteHandlerPtr nmi_disable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_nmi_enable = 0;
-	}
+	} };
 	
-	static WRITE_HANDLER( nmi_enable_w )
-	{
+	public static WriteHandlerPtr nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_nmi_enable = 1;
 		if (pending_nmi)
 		{
 			cpu_set_irq_line(2,IRQ_LINE_NMI,PULSE_LINE);
 			pending_nmi = 0;
 		}
-	}
+	} };
 	
 	static struct AY8910interface ay8910_interface =
 	{
@@ -291,11 +272,10 @@ public class nycaptor
 		return generic_control_reg;
 	} };
 	
-	static WRITE_HANDLER( nycaptor_generic_control_w )
-	{
+	public static WriteHandlerPtr nycaptor_generic_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		generic_control_reg = data;
 		cpu_setbank(1, memory_region(REGION_CPU1) + 0x10000 + ((data&0x08)>>3)*0x4000 );
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },
@@ -421,12 +401,12 @@ public class nycaptor
 	  return 7;
 	} };
 	
-	static WRITE_HANDLER(cyclshtg_mcu_w){}
+	public static WriteHandlerPtr cyclshtg_mcu_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	
 	
 	
 	static MEMORY_READ_START( cyclshtg_readmem )
-	  { 0x0000, 0x7fff, MRA_ROM },
+	  { 0x0000, 0x7fff, MRA_ROM } };,
 		{ 0x8000, 0xbfff, MRA_BANK1 },
 	  { 0xc000, 0xcfff, nycaptor_videoram_r },
 	  { 0xd000, 0xd000, cyclshtg_mcu_r },

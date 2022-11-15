@@ -134,8 +134,7 @@ public class royalmah
 	} };
 	
 	
-	WRITE_HANDLER( royalmah_videoram_w )
-	{
+	public static WriteHandlerPtr royalmah_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i;
 		UINT8 x, y;
 		UINT8 col1, col2;
@@ -158,11 +157,10 @@ public class royalmah
 			col1 >>= 1;
 			col2 >>= 1;
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( royalmah_palbank_w )
-	{
+	public static WriteHandlerPtr royalmah_palbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 1 = coin counter */
 		coin_counter_w(0,data & 2);
 	
@@ -170,20 +168,18 @@ public class royalmah
 	
 		/* bit 3 = palette bank */
 		set_vh_global_attribute(&palette_base,(data & 0x08) >> 3);
-	}
+	} };
 	
-	WRITE_HANDLER( mjderngr_coin_w )
-	{
+	public static WriteHandlerPtr mjderngr_coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 1 = coin counter */
 		coin_counter_w(0,data & 2);
 	
 		/* bit 2 always set? */
-	}
+	} };
 	
-	WRITE_HANDLER( mjderngr_palbank_w )
-	{
+	public static WriteHandlerPtr mjderngr_palbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_vh_global_attribute(&palette_base,data);
-	}
+	} };
 	
 	
 	public static VideoUpdateHandlerPtr video_update_royalmah  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
@@ -204,20 +200,18 @@ public class royalmah
 	
 	
 	
-	static WRITE_HANDLER( royalmah_rom_w )
-	{
+	public static WriteHandlerPtr royalmah_rom_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* using this handler will avoid all the entries in the error log that are the result of
 		   the RLD and RRD instructions this games uses to print text on the screen */
-	}
+	} };
 	
 	
 	static int royalmah_input_port_select;
 	static int majs101b_dsw_select;
 	
-	static WRITE_HANDLER( royalmah_input_port_select_w )
-	{
+	public static WriteHandlerPtr royalmah_input_port_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		royalmah_input_port_select = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr royalmah_player_1_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = (input_port_0_r(offset) & 0xc0) | 0x3f;
@@ -275,8 +269,7 @@ public class royalmah
 		}
 	} };
 	
-	static WRITE_HANDLER ( suzume_bank_w )
-	{
+	public static WriteHandlerPtr suzume_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU1);
 		int address;
 	
@@ -288,11 +281,10 @@ public class royalmah
 	
 		address = 0x10000 + (data & 0x07) * 0x8000;
 		cpu_setbank(1,&rom[address]);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER ( tontonb_bank_w )
-	{
+	public static WriteHandlerPtr tontonb_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU1);
 		int address;
 	
@@ -305,12 +297,11 @@ public class royalmah
 		address = 0x10000 + data * 0x8000;
 	
 		cpu_setbank(1,&rom[address]);
-	}
+	} };
 	
 	
 	/* bits 5 and 6 seem to affect which Dip Switch to read in 'majs101b' */
-	static WRITE_HANDLER ( dynax_bank_w )
-	{
+	public static WriteHandlerPtr dynax_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU1);
 		int address;
 	
@@ -323,7 +314,7 @@ public class royalmah
 		address = 0x10000 + data * 0x8000;
 	
 		cpu_setbank(1,&rom[address]);
-	}
+	} };
 	
 	
 	

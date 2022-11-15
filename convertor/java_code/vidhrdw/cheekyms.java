@@ -70,14 +70,12 @@ public class cheekyms
 	} };
 	
 	
-	WRITE_HANDLER( cheekyms_sprite_w )
-	{
+	public static WriteHandlerPtr cheekyms_sprite_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sprites[offset] = data;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( cheekyms_port_40_w )
-	{
+	public static WriteHandlerPtr cheekyms_port_40_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last_dac = -1;
 	
 		/* The lower bits probably trigger sound samples */
@@ -88,11 +86,10 @@ public class cheekyms
 	
 			DAC_data_w(0, last_dac ? 0x80 : 0);
 		}
-	}
+	} };
 	
 	
-	WRITE_HANDLER( cheekyms_port_80_w )
-	{
+	public static WriteHandlerPtr cheekyms_port_80_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int new_man_scroll;
 	
 		/* Bits 0-1 Sound enables, not sure which bit is which */
@@ -113,7 +110,7 @@ public class cheekyms
 	
 		/* Bit 7 is screen flip */
 		flip_screen_set(data & 0x80);
-	}
+	} };
 	
 	
 	

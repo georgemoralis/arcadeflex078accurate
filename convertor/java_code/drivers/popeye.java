@@ -29,12 +29,7 @@ public class popeye
 	extern UINT8 *popeye_background_pos;
 	extern UINT8 *popeye_palettebank;
 	
-	extern WRITE_HANDLER( popeye_videoram_w );
-	extern WRITE_HANDLER( popeye_colorram_w );
-	extern WRITE_HANDLER( popeye_backgroundram_w );
-	extern WRITE_HANDLER( popeye_bitmap_w );
-	extern WRITE_HANDLER( skyskipr_bitmap_w );
-	
+	extern extern extern extern extern 
 	extern extern extern extern extern 
 	
 	
@@ -61,8 +56,7 @@ public class popeye
 		}
 	} };
 	
-	static WRITE_HANDLER( protection_w )
-	{
+	public static WriteHandlerPtr protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 		{
 			/* this is the same as the level number (1-3) */
@@ -73,7 +67,7 @@ public class popeye
 			prot0 = prot1;
 			prot1 = data;
 		}
-	}
+	} };
 	
 	
 	
@@ -447,14 +441,13 @@ public class popeye
 	
 	static int dswbit;
 	
-	static WRITE_HANDLER( popeye_portB_w )
-	{
+	public static WriteHandlerPtr popeye_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 0 flips screen */
 		flip_screen_set(data & 1);
 	
 		/* bits 1-3 select DSW1 bit to read */
 		dswbit = (data & 0x0e) >> 1;
-	}
+	} };
 	
 	public static ReadHandlerPtr popeye_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;

@@ -238,18 +238,9 @@ public class stfight
 {
 	
 	// machine
-	WRITE_HANDLER( stfight_fm_w );
-	WRITE_HANDLER( stfight_voice_w );
-	WRITE_HANDLER( stfight_coin_w );
-	WRITE_HANDLER( stfight_e800_w );
 	void stfight_adpcm_int( int data );
-	WRITE_HANDLER( stfight_adpcm_control_w );
 	
 	// vidhrdw
-	WRITE_HANDLER( stfight_text_char_w );
-	WRITE_HANDLER( stfight_text_attr_w );
-	WRITE_HANDLER( stfight_vh_latch_w );
-	WRITE_HANDLER( stfight_sprite_bank_w );
 	
 	// vidhrdw
 	extern unsigned char *stfight_text_char_ram;

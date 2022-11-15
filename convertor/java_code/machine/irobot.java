@@ -78,14 +78,13 @@ public class irobot
 	} };
 	
 	/* Comment out the mbRAM =, comRAM2 = or comRAM1 = and it will start working */
-	WRITE_HANDLER( irobot_sharedmem_w )
-	{
+	public static WriteHandlerPtr irobot_sharedmem_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (irobot_outx == 3)
 			mbRAM[BYTE_XOR_BE(offset)] = data;
 	
 		if (irobot_outx == 2)
 			irobot_combase[BYTE_XOR_BE(offset & 0xFFF)] = data;
-	}
+	} };
 	
 	static void irvg_done_callback (int param)
 	{
@@ -94,8 +93,7 @@ public class irobot
 		irvg_running = 0;
 	}
 	
-	WRITE_HANDLER( irobot_statwr_w )
-	{
+	public static WriteHandlerPtr irobot_statwr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("write %2x ", data);
 		IR_CPU_STATE;
 	
@@ -123,10 +121,9 @@ public class irobot
 		if ((data & 0x10) && !(irobot_statwr & 0x10))
 			irmb_run();
 		irobot_statwr = data;
-	}
+	} };
 	
-	WRITE_HANDLER( irobot_out0_w )
-	{
+	public static WriteHandlerPtr irobot_out0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 	
 		irobot_out0 = data;
@@ -145,10 +142,9 @@ public class irobot
 		irobot_outx = (data & 0x18) >> 3;
 		irobot_mpage = (data & 0x06) >> 1;
 		irobot_alphamap = (data & 0x80);
-	}
+	} };
 	
-	WRITE_HANDLER( irobot_rom_banksel_w )
-	{
+	public static WriteHandlerPtr irobot_rom_banksel_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 	
 		switch ((data & 0x0E) >> 1)
@@ -174,7 +170,7 @@ public class irobot
 		}
 		set_led_status(0,data & 0x10);
 		set_led_status(1,data & 0x20);
-	}
+	} };
 	
 	static void scanline_callback(int scanline)
 	{
@@ -216,11 +212,10 @@ public class irobot
 		irobot_outx = 0;
 	} };
 	
-	WRITE_HANDLER( irobot_control_w )
-	{
+	public static WriteHandlerPtr irobot_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
 		irobot_control_num = offset & 0x03;
-	}
+	} };
 	
 	public static ReadHandlerPtr irobot_control_r  = new ReadHandlerPtr() { public int handler(int offset){
 	

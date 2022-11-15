@@ -2599,19 +2599,17 @@ public class seta
 	
 	***************************************************************************/
 	
-	static WRITE_HANDLER( sub_bankswitch_w )
-	{
+	public static WriteHandlerPtr sub_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU2);
 		int bank = data >> 4;
 	
 		cpu_setbank(1, &rom[bank * 0x4000 + 0xc000]);
-	}
+	} };
 	
-	static WRITE_HANDLER( sub_bankswitch_lockout_w )
-	{
+	public static WriteHandlerPtr sub_bankswitch_lockout_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sub_bankswitch_w(offset,data);
 		seta_coin_lockout_w(data);
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -2720,11 +2718,10 @@ public class seta
 							Caliber 50 / U.S. Classic
 	***************************************************************************/
 	
-	WRITE_HANDLER( calibr50_soundlatch2_w )
-	{
+	public static WriteHandlerPtr calibr50_soundlatch2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch2_w(0,data);
 		cpu_spinuntil_time(TIME_IN_USEC(50));	// Allow the other cpu to reply
-	}
+	} };
 	
 	static MEMORY_READ_START( calibr50_sub_readmem )
 		{ 0x0000, 0x1fff, seta_sound_r		},	// Sound

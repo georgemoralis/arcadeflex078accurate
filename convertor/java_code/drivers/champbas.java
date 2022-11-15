@@ -49,18 +49,13 @@ public class champbas
 	
 	
 	
-	extern WRITE_HANDLER( champbas_videoram_w );
-	extern WRITE_HANDLER( champbas_colorram_w );
-	extern WRITE_HANDLER( champbas_gfxbank_w );
-	extern WRITE_HANDLER( champbas_flipscreen_w );
-	
+	extern extern extern extern 
 	extern extern extern 
 	
 	
-	WRITE_HANDLER( champbas_dac_w )
-	{
+	public static WriteHandlerPtr champbas_dac_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_signed_data_w(0,data<<2);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x5fff, MRA_ROM },

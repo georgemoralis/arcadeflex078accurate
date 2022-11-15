@@ -56,14 +56,9 @@ package drivers;
 public class sonson
 {
 	
-	extern WRITE_HANDLER( sonson_videoram_w );
-	extern WRITE_HANDLER( sonson_colorram_w );
-	extern WRITE_HANDLER( sonson_scroll_w );
-	extern WRITE_HANDLER( sonson_flipscreen_w );
-	
+	extern extern extern extern 
 	extern extern extern 
-	WRITE_HANDLER( sonson_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr sonson_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	
 		if (last == 0 && data == 1)
@@ -73,7 +68,7 @@ public class sonson
 		}
 	
 		last = data;
-	}
+	} };
 	
 	
 	

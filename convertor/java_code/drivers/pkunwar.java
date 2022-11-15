@@ -17,7 +17,6 @@ public class pkunwar
 {
 	
 	
-	WRITE_HANDLER( pkunwar_flipscreen_w );
 	
 	
 	

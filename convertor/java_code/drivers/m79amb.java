@@ -23,10 +23,8 @@ public class m79amb
 	 *
 	 */
 	
-	WRITE_HANDLER( ramtek_videoram_w );
 	
 	void ramtek_sh_update(void);
-	WRITE_HANDLER( ramtek_mask_w );
 	
 	/*
 	 * since these functions aren't used anywhere else, i've made them
@@ -58,9 +56,8 @@ public class m79amb
 		{ 0xC200, 0xC27f, MRA_RAM},			/* ?? */
 	MEMORY_END
 	
-	WRITE_HANDLER( sound_w )
-	{
-	}
+	public static WriteHandlerPtr sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
+	} };
 	
 	static MEMORY_WRITE_START( writemem )
 		{ 0x0000, 0x1fff, MWA_ROM },

@@ -28,18 +28,6 @@ public class bking2
 	
 	
 	
-	WRITE_HANDLER( bking2_xld1_w );
-	WRITE_HANDLER( bking2_yld1_w );
-	WRITE_HANDLER( bking2_xld2_w );
-	WRITE_HANDLER( bking2_yld2_w );
-	WRITE_HANDLER( bking2_xld3_w );
-	WRITE_HANDLER( bking2_yld3_w );
-	WRITE_HANDLER( bking2_msk_w );
-	WRITE_HANDLER( bking2_cont1_w );
-	WRITE_HANDLER( bking2_cont2_w );
-	WRITE_HANDLER( bking2_cont3_w );
-	WRITE_HANDLER( bking2_hitclr_w );
-	WRITE_HANDLER( bking2_playfield_w );
 	
 	
 	UINT8* bking2_playfield_ram;
@@ -52,13 +40,11 @@ public class bking2
 		return 0;
 	} };
 	
-	static WRITE_HANDLER( bking2_sndnmi_enable_w )
-	{
+	public static WriteHandlerPtr bking2_sndnmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sndnmi_enable = 1;
-	}
+	} };
 	
-	static WRITE_HANDLER( bking2_soundlatch_w )
-	{
+	public static WriteHandlerPtr bking2_soundlatch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int i,code;
 	
 		code = 0;
@@ -67,33 +53,30 @@ public class bking2
 	
 		soundlatch_w(offset,code);
 		if (sndnmi_enable) cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	
 	static int bk3_l, bk3_h;
 	
-	static WRITE_HANDLER( bk3_l_w)
-	{
+	public static WriteHandlerPtr bk3_l_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bk3_l = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( bk3_h_w)
-	{
+	public static WriteHandlerPtr bk3_h_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		bk3_h = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr bk3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *rom = memory_region(REGION_USER2);
 		return rom[bk3_h*256+bk3_l];
 	} };
 	
-	static WRITE_HANDLER( unk_w )
-	{
+	public static WriteHandlerPtr unk_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	/*
 		0 = finished reading extra rom
 		1 = started reading extra rom
 	*/
-	}
+	} };
 	
 	public static ReadHandlerPtr mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int res = 3;
@@ -113,8 +96,7 @@ public class bking2
 	*/
 	static unsigned char mcu_val;
 	
-	static WRITE_HANDLER( mcu_data_w )
-	{
+	public static WriteHandlerPtr mcu_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	#ifdef MAME_DEBUG
 		logerror("mcu_data_w = %x\n",data);
 	#endif
@@ -125,7 +107,7 @@ public class bking2
 	   	   switch-case statement in the mcu_data_r function... */
 		if(mcu_val >= 0x80)
 			mcu_val = 0x5e;
-	}
+	} };
 	
 	public static ReadHandlerPtr mcu_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	usrintf_showmessage("MCU-r1 PC = %04x %02x",activecpu_get_pc(),mcu_val);
@@ -495,11 +477,10 @@ public class bking2
 	};
 	
 	
-	static WRITE_HANDLER( portb_w )
-	{
+	public static WriteHandlerPtr portb_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* don't know what this is... could be a filter */
 		if (data != 0x00) logerror("portB = %02x\n",data);
-	}
+	} };
 	
 	static struct AY8910interface ay8910_interface =
 	{

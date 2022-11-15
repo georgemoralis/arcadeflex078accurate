@@ -29,13 +29,8 @@ public class kingobox
 	extern UINT8 *kingofb_colorram2;
 	extern UINT8 *kingofb_scroll_y;
 	
-	extern WRITE_HANDLER( kingofb_videoram_w );
-	extern WRITE_HANDLER( kingofb_colorram_w );
-	extern WRITE_HANDLER( kingofb_videoram2_w );
-	extern WRITE_HANDLER( kingofb_colorram2_w );
-	
-	extern WRITE_HANDLER( kingofb_f800_w );
-	
+	extern extern extern extern 
+	extern 
 	extern extern extern 
 	extern extern extern 
 	static UINT8 *video_shared;
@@ -46,7 +41,7 @@ public class kingobox
 		return video_shared[offset];
 	}
 	
-	static WRITE_HANDLER( video_shared_w ) {
+	public static WriteHandlerPtr video_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		video_shared[offset] = data;
 	}
 	
@@ -54,24 +49,24 @@ public class kingobox
 		return sprite_shared[offset];
 	}
 	
-	static WRITE_HANDLER( sprite_shared_w ) {
+	public static WriteHandlerPtr sprite_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		sprite_shared[offset] = data;
 	}
 	
-	static WRITE_HANDLER( video_interrupt_w ) {
+	public static WriteHandlerPtr video_interrupt_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		cpu_set_irq_line_and_vector( 1, 0, HOLD_LINE, 0xff );
 	}
 	
-	static WRITE_HANDLER( sprite_interrupt_w ) {
+	public static WriteHandlerPtr sprite_interrupt_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		cpu_set_irq_line_and_vector( 2, 0, HOLD_LINE, 0xff );
 	}
 	
-	static WRITE_HANDLER( scroll_interrupt_w ) {
+	public static WriteHandlerPtr scroll_interrupt_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		sprite_interrupt_w( offset, data );
 		*kingofb_scroll_y = data;
 	}
 	
-	static WRITE_HANDLER( sound_command_w ) {
+	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		soundlatch_w( 0, data );
 		cpu_set_irq_line_and_vector( 3, 0, HOLD_LINE, 0xff );
 	}

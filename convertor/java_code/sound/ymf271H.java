@@ -14,7 +14,5 @@ struct YMF271interface
 int YMF271_sh_start( const struct MachineSound *msound );
 void YMF271_sh_stop( void );
 
-WRITE_HANDLER( YMF271_0_w );
-WRITE_HANDLER( YMF271_1_w );
 
 #endif

@@ -44,7 +44,6 @@ public class malzak
 	extern unsigned char s2636_2_dirty[4];
 	
 	// in vidhrdw/malzak.c
-	WRITE_HANDLER( playfield_w );
 	
 	public static ReadHandlerPtr malzak_s2636_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return s2636_1_ram[offset];
@@ -54,25 +53,22 @@ public class malzak
 		return s2636_2_ram[offset];
 	} };
 	
-	WRITE_HANDLER( malzak_s2636_1_w )
-	{
+	public static WriteHandlerPtr malzak_s2636_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		s2636_w(s2636_1_ram,offset,data,s2636_1_dirty);
-	}
+	} };
 	
-	WRITE_HANDLER( malzak_s2636_2_w )
-	{
+	public static WriteHandlerPtr malzak_s2636_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		s2636_w(s2636_2_ram,offset,data,s2636_2_dirty);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr saa5050_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return saa5050_vidram[offset];
 	} };
 	
-	static WRITE_HANDLER( saa5050_w )
-	{
+	public static WriteHandlerPtr saa5050_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		saa5050_vidram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr fake_VRLE_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (s2636_1_ram[0xcb] & 0x3f) + (cpu_getvblank()*0x40);
@@ -82,10 +78,9 @@ public class malzak
 		return cpu_readmem16(0x1000+offset);
 	} };
 	
-	static WRITE_HANDLER( ram_mirror_w )
-	{
+	public static WriteHandlerPtr ram_mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_writemem16(0x1000+offset,data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )
@@ -132,24 +127,21 @@ public class malzak
 		return 0xff;
 	} };
 	
-	static WRITE_HANDLER( port40_w )
-	{
+	public static WriteHandlerPtr port40_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	usrintf_showmessage("S2650 [0x%04x]: port 0x40 write: 0x%02x",cpunum_get_pc_byte(0),data);
 	//	if(data & 0x01)
 	//		irqenable = 1;
 	//	else
 	//		irqenable = 0;
-	}
+	} };
 	
-	static WRITE_HANDLER( port60_w )
-	{
+	public static WriteHandlerPtr port60_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		temp_x = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( portc0_w )
-	{
+	public static WriteHandlerPtr portc0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		temp_y = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr collision_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// High 4 bits seem to refer to the row affected.

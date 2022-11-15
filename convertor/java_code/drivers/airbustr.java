@@ -205,17 +205,11 @@ public class airbustr
 	extern unsigned char *airbustr_bgram, *airbustr_fgram;
 	
 	/* Functions defined in vidhrdw */
-	WRITE_HANDLER( airbustr_bgram_w );
-	WRITE_HANDLER( airbustr_fgram_w );
-	WRITE_HANDLER( airbustr_scrollregs_w );
 	extern extern 
 	/* Debug stuff (bound to go away sometime) */
 	int u1, u2, u3, u4;
 	
 	
-	static WRITE_HANDLER( bankswitch_w );
-	static WRITE_HANDLER( bankswitch2_w );
-	static WRITE_HANDLER( sound_bankswitch_w );
 	
 	public static MachineInitHandlerPtr machine_init_airbustr  = new MachineInitHandlerPtr() { public void handler(){
 		soundlatch_status = soundlatch2_status = 0;
@@ -243,7 +237,7 @@ public class airbustr
 	
 	
 	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset) return sharedram[offset]; }
-	static WRITE_HANDLER( sharedram_w )	{ sharedram[offset] = data; }
+	public static WriteHandlerPtr sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data) sharedram[offset] = data; }
 	
 	
 	/* There's an MCU here, possibly */
@@ -279,11 +273,10 @@ public class airbustr
 		}
 	
 	} };
-	WRITE_HANDLER( devram_w )	{	devram[offset] = data; }
+	public static WriteHandlerPtr devram_w = new WriteHandlerPtr() {public void handler(int offset, int data)	devram[offset] = data; }
 	
 	
-	static WRITE_HANDLER( bankswitch_w )
-	{
+	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		if ((data & 7) <  3)	RAM = &RAM[0x4000 * (data & 7)];
@@ -293,7 +286,7 @@ public class airbustr
 	//	if (data > 7)	logerror("CPU #0 - suspicious bank: %d ! - PC = %04X\n", data, activecpu_get_pc());
 	
 		u1 = data & 0xf8;
-	}
+	} };
 	
 	/* Memory */
 	
@@ -315,10 +308,9 @@ public class airbustr
 	
 	/* Ports */
 	
-	static WRITE_HANDLER( cause_nmi_w )
-	{
+	public static WriteHandlerPtr cause_nmi_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport )
 		{ 0x00, 0x00, bankswitch_w },
@@ -353,8 +345,7 @@ public class airbustr
 	} };
 	
 	
-	static WRITE_HANDLER( bankswitch2_w )
-	{
+	public static WriteHandlerPtr bankswitch2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	unsigned char *RAM = memory_region(REGION_CPU2);
 	
 		if ((data & 7) <  3)	RAM = &RAM[0x4000 * (data & 7)];
@@ -367,11 +358,10 @@ public class airbustr
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 	
 		u2 = data & 0xf8;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( airbustr_paletteram_w )
-	{
+	public static WriteHandlerPtr airbustr_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r,g,b;
 		int val;
 	
@@ -389,7 +379,7 @@ public class airbustr
 		palette_set_color(offset/2,	(r * 0xff) / 0x1f,
 										(g * 0xff) / 0x1f,
 										(b * 0xff) / 0x1f );
-	}
+	} };
 	
 	
 	/* Memory */
@@ -445,15 +435,14 @@ public class airbustr
 	} };
 	
 	
-	static WRITE_HANDLER( soundcommand_w )
-	{
+	public static WriteHandlerPtr soundcommand_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		soundlatch_status = 1;				// soundlatch has been written
 		cpu_set_irq_line(2, IRQ_LINE_NMI, PULSE_LINE);	// cause a nmi to sub cpu
-	}
+	} };
 	
 	
-	WRITE_HANDLER( port_38_w )	{	u4 = data; } // for debug
+	public static WriteHandlerPtr port_38_w = new WriteHandlerPtr() {public void handler(int offset, int data)	u4 = data; } // for debug
 	
 	
 	static PORT_READ_START( readport2 )
@@ -487,8 +476,7 @@ public class airbustr
 	**
 	*/
 	
-	static WRITE_HANDLER( sound_bankswitch_w )
-	{
+	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	unsigned char *RAM = memory_region(REGION_CPU3);
 	
 		if ((data & 7) <  3)	RAM = &RAM[0x4000 * (data & 7)];
@@ -498,7 +486,7 @@ public class airbustr
 	//	if (data > 7)	logerror("CPU #2 - suspicious bank: %d ! - PC = %04X\n", data, activecpu_get_pc());
 	
 		u3 = data & 0xf8;
-	}
+	} };
 	
 	
 	/* Memory */
@@ -523,11 +511,10 @@ public class airbustr
 	} };
 	
 	
-	WRITE_HANDLER( soundcommand2_w )
-	{
+	public static WriteHandlerPtr soundcommand2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch2_status = 1;		// soundlatch2 has been written
 		soundlatch2_w(0,data);
-	}
+	} };
 	
 	
 	static PORT_READ_START( sound_readport )

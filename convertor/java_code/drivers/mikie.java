@@ -25,11 +25,7 @@ package drivers;
 public class mikie
 {
 	
-	extern WRITE_HANDLER( mikie_videoram_w );
-	extern WRITE_HANDLER( mikie_colorram_w );
-	extern WRITE_HANDLER( mikie_palettebank_w );
-	extern WRITE_HANDLER( mikie_flipscreen_w );
-	
+	extern extern extern extern 
 	extern extern extern 
 	public static ReadHandlerPtr mikie_sh_timer_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int clock;
@@ -41,8 +37,7 @@ public class mikie
 		return clock;
 	} };
 	
-	static WRITE_HANDLER( mikie_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr mikie_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	
 	
@@ -53,12 +48,11 @@ public class mikie
 		}
 	
 		last = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( mikie_coin_counter_w )
-	{
+	public static WriteHandlerPtr mikie_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

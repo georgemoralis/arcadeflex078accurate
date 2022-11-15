@@ -62,8 +62,7 @@ public class playch10
 		return readinputport( 0 ) | ( ( ~pc10_int_detect & 1 ) << 3 );
 	} };
 	
-	WRITE_HANDLER( pc10_SDCS_w )
-	{
+	public static WriteHandlerPtr pc10_SDCS_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/*
 			Hooked to CLR on LS194A - Sheet 2, bottom left.
 			Drives character and color code to 0.
@@ -71,48 +70,40 @@ public class playch10
 			Also hooked to the video sram. Prevent writes.
 		*/
 		pc10_sdcs = ~data & 1;
-	}
+	} };
 	
-	WRITE_HANDLER( pc10_CNTRLMASK_w )
-	{
+	public static WriteHandlerPtr pc10_CNTRLMASK_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cntrl_mask = ~data & 1;
-	}
+	} };
 	
-	WRITE_HANDLER( pc10_DISPMASK_w )
-	{
+	public static WriteHandlerPtr pc10_DISPMASK_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pc10_dispmask = ~data & 1;
-	}
+	} };
 	
-	WRITE_HANDLER( pc10_SOUNDMASK_w )
-	{
+	public static WriteHandlerPtr pc10_SOUNDMASK_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* should mute the APU - unimplemented yet */
-	}
+	} };
 	
-	WRITE_HANDLER( pc10_NMIENABLE_w )
-	{
+	public static WriteHandlerPtr pc10_NMIENABLE_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pc10_nmi_enable = data & 1;
-	}
+	} };
 	
-	WRITE_HANDLER( pc10_DOGDI_w )
-	{
+	public static WriteHandlerPtr pc10_DOGDI_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pc10_dog_di = data & 1;
-	}
+	} };
 	
-	WRITE_HANDLER( pc10_GAMERES_w )
-	{
+	public static WriteHandlerPtr pc10_GAMERES_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_reset_line( 1, ( data & 1 ) ? CLEAR_LINE : ASSERT_LINE );
-	}
+	} };
 	
-	WRITE_HANDLER( pc10_GAMESTOP_w )
-	{
+	public static WriteHandlerPtr pc10_GAMESTOP_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_halt_line( 1, ( data & 1 ) ? CLEAR_LINE : ASSERT_LINE );
-	}
+	} };
 	
-	WRITE_HANDLER( pc10_PPURES_w )
-	{
+	public static WriteHandlerPtr pc10_PPURES_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ( data & 1 )
 			ppu2c03b_reset( 0, /* cpu_getscanlineperiod() * */ 2 );
-	}
+	} };
 	
 	public static ReadHandlerPtr pc10_detectclr_r  = new ReadHandlerPtr() { public int handler(int offset){
 		pc10_int_detect = 0;
@@ -120,11 +111,10 @@ public class playch10
 		return 0;
 	} };
 	
-	WRITE_HANDLER( pc10_CARTSEL_w )
-	{
+	public static WriteHandlerPtr pc10_CARTSEL_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cart_sel &= ~( 1 << offset );
 		cart_sel |= ( data & 1 ) << offset;
-	}
+	} };
 	
 	
 	/*************************************
@@ -146,8 +136,7 @@ public class playch10
 		return data;
 	} };
 	
-	WRITE_HANDLER( pc10_prot_w )
-	{
+	public static WriteHandlerPtr pc10_prot_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* we only support a single cart connected at slot 0 */
 		if ( cart_sel == 0 )
 		{
@@ -164,7 +153,7 @@ public class playch10
 			/* so we just set $ffff with the current value				*/
 			memory_region( REGION_CPU1 )[0xffff] = pc10_prot_r(0);
 		}
-	}
+	} };
 	
 	
 	/*************************************
@@ -172,8 +161,7 @@ public class playch10
 	 *	Input Ports
 	 *
 	 *************************************/
-	WRITE_HANDLER( pc10_in0_w )
-	{
+	public static WriteHandlerPtr pc10_in0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* Toggling bit 0 high then low resets both controllers */
 		if ( data & 1 )
 			return;
@@ -188,7 +176,7 @@ public class playch10
 			/* mask out select and start */
 			input_latch[0] &= ~0x0c;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr pc10_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = ( input_latch[0] ) & 1;
@@ -308,8 +296,7 @@ public class playch10
 	static int mmc1_shiftcount;
 	static int mmc1_rom_mask;
 	
-	static WRITE_HANDLER( mmc1_rom_switch_w )
-	{
+	public static WriteHandlerPtr mmc1_rom_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* basically, a MMC1 mapper from the nes */
 		static int size16k, switchlow, vrom4k;
 	
@@ -413,16 +400,15 @@ public class playch10
 				break;
 			}
 		}
-	}
+	} };
 	
 	/**********************************************************************************/
 	
 	/* A Board games (Track & Field, Gradius) */
 	
-	static WRITE_HANDLER( aboard_vrom_switch_w )
-	{
+	public static WriteHandlerPtr aboard_vrom_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppu2c03b_set_videorom_bank( 0, 0, 8, ( data & 3 ), 512 );
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_pcaboard  = new DriverInitHandlerPtr() { public void handler(){
 		/* switches vrom with writes to the $803e-$8041 area */
@@ -439,12 +425,11 @@ public class playch10
 	
 	/* B Board games (Contra, Rush N' Attach, Pro Wrestling) */
 	
-	static WRITE_HANDLER( bboard_rom_switch_w )
-	{
+	public static WriteHandlerPtr bboard_rom_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankoffset = 0x10000 + ( ( data & 7 ) * 0x4000 );
 	
 		memcpy( &memory_region( REGION_CPU2 )[0x08000], &memory_region( REGION_CPU2 )[bankoffset], 0x4000 );
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_pcbboard  = new DriverInitHandlerPtr() { public void handler(){
 		/* We do manual banking, in case the code falls through */
@@ -465,10 +450,9 @@ public class playch10
 	
 	/* C Board games (The Goonies) */
 	
-	static WRITE_HANDLER( cboard_vrom_switch_w )
-	{
+	public static WriteHandlerPtr cboard_vrom_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppu2c03b_set_videorom_bank( 0, 0, 8, ( ( data >> 1 ) & 1 ), 512 );
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_pccboard  = new DriverInitHandlerPtr() { public void handler(){
 		/* switches vrom with writes to $6000 */
@@ -525,8 +509,7 @@ public class playch10
 		}
 	}
 	
-	static WRITE_HANDLER( eboard_rom_switch_w )
-	{
+	public static WriteHandlerPtr eboard_rom_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* a variation of mapper 9 on a nes */
 		switch( offset & 0x7000 )
 		{
@@ -566,7 +549,7 @@ public class playch10
 	
 			break;
 		}
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_pceboard  = new DriverInitHandlerPtr() { public void handler(){
 		/* We do manual banking, in case the code falls through */
@@ -626,8 +609,7 @@ public class playch10
 		}
 	}
 	
-	static WRITE_HANDLER( gboard_rom_switch_w )
-	{
+	public static WriteHandlerPtr gboard_rom_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* basically, a MMC3 mapper from the nes */
 		static int last_bank = 0xff;
 		static int gboard_command;
@@ -754,7 +736,7 @@ public class playch10
 				ppu2c03b_set_scanline_callback( 0, gboard_scanline_cb );
 			break;
 		}
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_pcgboard  = new DriverInitHandlerPtr() { public void handler(){
 		/* We do manual banking, in case the code falls through */
@@ -791,8 +773,7 @@ public class playch10
 	
 	/* i Board games (Captain Sky Hawk, Solar Jetman) */
 	
-	static WRITE_HANDLER( iboard_rom_switch_w )
-	{
+	public static WriteHandlerPtr iboard_rom_switch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bank = data & 7;
 	
 		if ( data & 0x10 )
@@ -801,7 +782,7 @@ public class playch10
 			ppu2c03b_set_mirroring( 0, PPU_MIRROR_LOW );
 	
 		memcpy( &memory_region( REGION_CPU2 )[0x08000], &memory_region( REGION_CPU2 )[bank * 0x8000 + 0x10000], 0x8000 );
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_pciboard  = new DriverInitHandlerPtr() { public void handler(){
 		/* We do manual banking, in case the code falls through */

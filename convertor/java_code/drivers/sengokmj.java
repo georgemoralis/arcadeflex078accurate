@@ -82,10 +82,6 @@ public class sengokmj
 	extern data8_t *bg_vram,*md_vram,*tx_vram,*fg_vram;
 	static UINT8 sengokumj_mux_data;
 	
-	WRITE_HANDLER( sengoku_bg_vram_w );
-	WRITE_HANDLER( sengoku_fg_vram_w );
-	WRITE_HANDLER( sengoku_md_vram_w );
-	WRITE_HANDLER( sengoku_tx_vram_w );
 	
 	/*Multiplexer device for the mahjong panel*/
 	public static ReadHandlerPtr mahjong_panel_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -106,10 +102,9 @@ public class sengokmj
 		return readinputport(9);
 	} };
 	
-	WRITE_HANDLER( mahjong_panel_w )
-	{
+	public static WriteHandlerPtr mahjong_panel_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if(offset == 1)	{ sengokumj_mux_data = data; }
-	}
+	} };
 	
 	/***************************************************************************************/
 	

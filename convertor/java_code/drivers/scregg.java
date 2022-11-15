@@ -23,9 +23,6 @@ public class scregg
 	
 	/* from vidhrdw/btime.c */
 	
-	WRITE_HANDLER( btime_mirrorvideoram_w );
-	WRITE_HANDLER( btime_mirrorcolorram_w );
-	WRITE_HANDLER( btime_video_control_w );
 	
 	static MEMORY_READ_START( dommy_readmem )
 		{ 0x0000, 0x07ff, MRA_RAM },

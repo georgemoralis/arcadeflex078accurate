@@ -71,8 +71,6 @@ public class gunsmoke
 	extern unsigned char *gunsmoke_bg_scrollx;
 	extern unsigned char *gunsmoke_bg_scrolly;
 	
-	WRITE_HANDLER( gunsmoke_c804_w );	/* in vidhrdw/c1943.c */
-	WRITE_HANDLER( gunsmoke_d806_w );	/* in vidhrdw/c1943.c */
 	
 	
 	#if GUNSMOKE_HACK

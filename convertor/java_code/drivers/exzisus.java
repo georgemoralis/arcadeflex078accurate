@@ -55,10 +55,6 @@ public class exzisus
 	extern size_t  exzisus_objectram_size0;
 	extern size_t  exzisus_objectram_size1;
 	
-	WRITE_HANDLER( exzisus_videoram_0_w );
-	WRITE_HANDLER( exzisus_videoram_1_w );
-	WRITE_HANDLER( exzisus_objectram_0_w );
-	WRITE_HANDLER( exzisus_objectram_1_w );
 	
 	
 	
@@ -68,8 +64,7 @@ public class exzisus
 	
 	***************************************************************************/
 	
-	static WRITE_HANDLER( exzisus_cpua_bankswitch_w )
-	{
+	public static WriteHandlerPtr exzisus_cpua_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 	
 		if ( (data & 0x0f) != exzisus_cpua_bank )
@@ -82,10 +77,9 @@ public class exzisus
 		}
 	
 		flip_screen_set(data & 0x40);
-	}
+	} };
 	
-	static WRITE_HANDLER( exzisus_cpub_bankswitch_w )
-	{
+	public static WriteHandlerPtr exzisus_cpub_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU4);
 	
 		if ( (data & 0x0f) != exzisus_cpub_bank )
@@ -98,15 +92,14 @@ public class exzisus
 		}
 	
 		flip_screen_set(data & 0x40);
-	}
+	} };
 	
-	static WRITE_HANDLER( exzisus_coincounter_w )
-	{
+	public static WriteHandlerPtr exzisus_coincounter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_w(0,~data & 0x01);
 		coin_lockout_w(1,~data & 0x02);
 		coin_counter_w(0,data & 0x04);
 		coin_counter_w(1,data & 0x08);
-	}
+	} };
 	
 	public static ReadHandlerPtr exzisus_sharedram_ac_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return exzisus_sharedram_ac[offset];
@@ -116,15 +109,13 @@ public class exzisus
 		return exzisus_sharedram_bc[offset];
 	} };
 	
-	static WRITE_HANDLER( exzisus_sharedram_ac_w )
-	{
+	public static WriteHandlerPtr exzisus_sharedram_ac_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		exzisus_sharedram_ac[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( exzisus_sharedram_bc_w )
-	{
+	public static WriteHandlerPtr exzisus_sharedram_bc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		exzisus_sharedram_bc[offset] = data;
-	}
+	} };
 	
 	
 	/**************************************************************************

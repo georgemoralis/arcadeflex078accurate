@@ -33,11 +33,7 @@ struct Y8950interface
 
 
 /* YM3812 */
-WRITE_HANDLER( YM3812_control_port_0_w );
-WRITE_HANDLER( YM3812_write_port_0_w );
 
-WRITE_HANDLER( YM3812_control_port_1_w );
-WRITE_HANDLER( YM3812_write_port_1_w );
 
 int YM3812_sh_start(const struct MachineSound *msound);
 void YM3812_sh_stop(void);
@@ -45,11 +41,7 @@ void YM3812_sh_reset(void);
 
 
 /* YM3526 */
-WRITE_HANDLER( YM3526_control_port_0_w );
-WRITE_HANDLER( YM3526_write_port_0_w );
 
-WRITE_HANDLER( YM3526_control_port_1_w );
-WRITE_HANDLER( YM3526_write_port_1_w );
 
 int YM3526_sh_start(const struct MachineSound *msound);
 void YM3526_sh_stop(void);
@@ -57,11 +49,7 @@ void YM3526_sh_reset(void);
 
 
 /* Y8950 */
-WRITE_HANDLER( Y8950_control_port_0_w );
-WRITE_HANDLER( Y8950_write_port_0_w );
 
-WRITE_HANDLER( Y8950_control_port_1_w );
-WRITE_HANDLER( Y8950_write_port_1_w );
 
 int Y8950_sh_start(const struct MachineSound *msound);
 void Y8950_sh_stop(void);

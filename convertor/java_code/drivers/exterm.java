@@ -85,11 +85,6 @@ public class exterm
 	/* Functions in sndhrdw/gottlieb.c */
 	void gottlieb_sound_init(void);
 	WRITE16_HANDLER( gottlieb_sh_word_w );
-	WRITE_HANDLER( gottlieb_nmi_rate_w );
-	WRITE_HANDLER( exterm_sound_control_w );
-	WRITE_HANDLER( exterm_ym2151_w );
-	WRITE_HANDLER( exterm_dac_vol_w );
-	WRITE_HANDLER( exterm_dac_data_w );
 	
 	
 	public static MachineInitHandlerPtr machine_init_exterm  = new MachineInitHandlerPtr() { public void handler(){

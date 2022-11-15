@@ -53,17 +53,15 @@ public class mjkjidai
 	
 	***************************************************************************/
 	
-	WRITE_HANDLER( mjkjidai_videoram_w )
-	{
+	public static WriteHandlerPtr mjkjidai_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (mjkjidai_videoram[offset] != data)
 		{
 			mjkjidai_videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap,offset & 0x7ff);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( mjkjidai_ctrl_w )
-	{
+	public static WriteHandlerPtr mjkjidai_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *rom = memory_region(REGION_CPU1);
 	
 	//	logerror("%04x: port c0 = %02x\n",activecpu_get_pc(),data);
@@ -90,7 +88,7 @@ public class mjkjidai
 			/* there is code flowing from 7fff to this bank so they have to be contiguous in memory */
 			cpu_setbank(1,rom + 0x08000);
 		}
-	}
+	} };
 	
 	
 	

@@ -29,8 +29,7 @@ public class enigma2
 	
 	static int cmap;
 	
-	WRITE_HANDLER( enigma2_videoram_w )
-	{
+	public static WriteHandlerPtr enigma2_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			int i,x,y,col;
@@ -51,7 +50,7 @@ public class enigma2
 				data <<= 1;
 			}
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr fake_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int cnt;

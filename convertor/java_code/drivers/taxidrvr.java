@@ -15,15 +15,15 @@ public class taxidrvr
 	
 	
 	
-	WRITE_HANDLER( p2a_w ) { taxidrvr_spritectrl_w(0,data); }
-	WRITE_HANDLER( p2b_w ) { taxidrvr_spritectrl_w(1,data); }
-	WRITE_HANDLER( p2c_w ) { taxidrvr_spritectrl_w(2,data); }
-	WRITE_HANDLER( p3a_w ) { taxidrvr_spritectrl_w(3,data); }
-	WRITE_HANDLER( p3b_w ) { taxidrvr_spritectrl_w(4,data); }
-	WRITE_HANDLER( p3c_w ) { taxidrvr_spritectrl_w(5,data); }
-	WRITE_HANDLER( p4a_w ) { taxidrvr_spritectrl_w(6,data); }
-	WRITE_HANDLER( p4b_w ) { taxidrvr_spritectrl_w(7,data); }
-	WRITE_HANDLER( p4c_w ) { taxidrvr_spritectrl_w(8,data); }
+	public static WriteHandlerPtr p2a_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(0,data); }
+	public static WriteHandlerPtr p2b_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(1,data); }
+	public static WriteHandlerPtr p2c_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(2,data); }
+	public static WriteHandlerPtr p3a_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(3,data); }
+	public static WriteHandlerPtr p3b_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(4,data); }
+	public static WriteHandlerPtr p3c_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(5,data); }
+	public static WriteHandlerPtr p4a_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(6,data); }
+	public static WriteHandlerPtr p4b_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(7,data); }
+	public static WriteHandlerPtr p4c_w = new WriteHandlerPtr() {public void handler(int offset, int data) taxidrvr_spritectrl_w(8,data); }
 	
 	
 	
@@ -38,13 +38,11 @@ public class taxidrvr
 		return (s1 << 7);
 	} };
 	
-	static WRITE_HANDLER( p0b_w )
-	{
+	public static WriteHandlerPtr p0b_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		latchB = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( p0c_w )
-	{
+	public static WriteHandlerPtr p0c_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		s2 = data & 1;
 	
 		taxidrvr_bghide = data & 2;
@@ -54,7 +52,7 @@ public class taxidrvr
 		flip_screen_set(data & 8);
 	
 	//	usrintf_showmessage("%02x",data&0x0f);
-	}
+	} };
 	
 	public static ReadHandlerPtr p1b_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return latchB;
@@ -64,16 +62,14 @@ public class taxidrvr
 		return (s2 << 7) | (s4 << 6) | ((readinputport(5) & 1) << 4);
 	} };
 	
-	static WRITE_HANDLER( p1a_w )
-	{
+	public static WriteHandlerPtr p1a_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		latchA = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( p1c_w )
-	{
+	public static WriteHandlerPtr p1c_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		s1 = data & 1;
 		s3 = (data & 2) >> 1;
-	}
+	} };
 	
 	public static ReadHandlerPtr p8910_0a_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return latchA;
@@ -85,10 +81,9 @@ public class taxidrvr
 	
 	/* note that a lot of writes happen with port B set as input. I think this is a bug in the
 	   original, since it works anyway even if the communication is flawed. */
-	static WRITE_HANDLER( p8910_0b_w )
-	{
+	public static WriteHandlerPtr p8910_0b_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		s4 = data & 1;
-	}
+	} };
 	
 	
 	static ppi8255_interface ppi8255_intf =

@@ -25,18 +25,13 @@ public class mouser
 	unsigned char mouser_nmi_enable;
 	
 	/* From "vidhrdw/mouser.c" */
-	WRITE_HANDLER( mouser_flip_screen_x_w );
-	WRITE_HANDLER( mouser_flip_screen_y_w );
-	WRITE_HANDLER( mouser_spriteram_w );
-	WRITE_HANDLER( mouser_colorram_w );
 	
 	/* Mouser has external masking circuitry around
 	 * the NMI input on the main CPU */
 	
-	WRITE_HANDLER( mouser_nmi_enable_w )
-	{
+	public static WriteHandlerPtr mouser_nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mouser_nmi_enable = data;
-	}
+	} };
 	
 	public static InterruptHandlerPtr mouser_nmi_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if ((mouser_nmi_enable & 1) == 1)
@@ -45,11 +40,10 @@ public class mouser
 	
 	/* Sound CPU interrupted on write */
 	
-	WRITE_HANDLER( mouser_sound_interrupt_w )
-	{
+	public static WriteHandlerPtr mouser_sound_interrupt_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mouser_sound_byte = data;
 		cpu_set_irq_line(1, 0, PULSE_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr mouser_sound_byte_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return mouser_sound_byte;

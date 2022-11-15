@@ -143,10 +143,9 @@ public class m90
 	}
 	#endif
 	
-	WRITE_HANDLER( m90_video_control_w )
-	{
+	public static WriteHandlerPtr m90_video_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		m90_video_control_data[offset]=data;
-	}
+	} };
 	
 	
 	static void markdirty(struct tilemap *tilemap,int page,offs_t offset)
@@ -158,15 +157,14 @@ public class m90
 	}
 	
 	
-	WRITE_HANDLER( m90_video_w )
-	{
+	public static WriteHandlerPtr m90_video_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		m90_video_data[offset] = data;
 	
 		markdirty(pf1_layer,     m90_video_control_data[0xa] & 0x3,offset);
 		markdirty(pf1_wide_layer,m90_video_control_data[0xa] & 0x2,offset);
 		markdirty(pf2_layer,     m90_video_control_data[0xc] & 0x3,offset);
 		markdirty(pf2_wide_layer,m90_video_control_data[0xc] & 0x2,offset);
-	}
+	} };
 	
 	public static VideoUpdateHandlerPtr video_update_m90  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int last_pf1,last_pf2;

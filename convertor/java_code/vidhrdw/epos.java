@@ -63,8 +63,7 @@ public class epos
 	} };
 	
 	
-	WRITE_HANDLER( epos_videoram_w )
-	{
+	public static WriteHandlerPtr epos_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int x,y;
 	
 		videoram[offset] = data;
@@ -74,11 +73,10 @@ public class epos
 	
 		plot_pixel(tmpbitmap, x,     y, Machine->pens[current_palette | (data & 0x0f)]);
 		plot_pixel(tmpbitmap, x + 1, y, Machine->pens[current_palette | (data >> 4)]);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( epos_port_1_w )
-	{
+	public static WriteHandlerPtr epos_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* D0 - start light #1
 		   D1 - start light #2
 		   D2 - coin counter
@@ -97,7 +95,7 @@ public class epos
 	
 			set_vh_global_attribute(NULL,0);
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************

@@ -52,16 +52,12 @@ public class timeplt
 	
 	extern unsigned char *timeplt_videoram,*timeplt_colorram;
 	
-	WRITE_HANDLER( timeplt_videoram_w );
-	WRITE_HANDLER( timeplt_colorram_w );
-	WRITE_HANDLER( timeplt_flipscreen_w );
 	
 	
 	
-	static WRITE_HANDLER( timeplt_coin_counter_w )
-	{
+	public static WriteHandlerPtr timeplt_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset >> 1, data);
-	}
+	} };
 	
 	public static ReadHandlerPtr psurge_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x80;

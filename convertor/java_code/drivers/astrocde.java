@@ -76,15 +76,7 @@ public class astrocde
 	extern const char *wow_sample_names[];
 	extern const char *gorf_sample_names[];
 	
-	WRITE_HANDLER( wow_videoram_w );
-	WRITE_HANDLER( astrocde_magic_expand_color_w );
-	WRITE_HANDLER( astrocde_magic_control_w );
-	WRITE_HANDLER( wow_magicram_w );
-	WRITE_HANDLER( astrocde_pattern_board_w );
 	
-	WRITE_HANDLER( astrocde_interrupt_vector_w );
-	WRITE_HANDLER( astrocde_interrupt_enable_w );
-	WRITE_HANDLER( astrocde_interrupt_w );
 	
 	
 	
@@ -95,19 +87,11 @@ public class astrocde
 	
 	int  gorf_sh_start(const struct MachineSound *msound);
 	void gorf_sh_update(void);
-	WRITE_HANDLER( gorf_sound_control_a_w );
-	
-	WRITE_HANDLER( astrocde_mode_w );
-	WRITE_HANDLER( astrocde_vertical_blank_w );
-	WRITE_HANDLER( astrocde_colour_register_w );
-	WRITE_HANDLER( astrocde_colour_split_w );
-	WRITE_HANDLER( astrocde_colour_block_w );
-	
-	WRITE_HANDLER( ebases_trackball_select_w );
 	
 	
-	static WRITE_HANDLER( seawolf2_lamps_w )
-	{
+	
+	
+	public static WriteHandlerPtr seawolf2_lamps_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* 0x42 = player 2 (left), 0x43 = player 1 (right) */
 		/* --x----- explosion */
 		/* ---x---- RELOAD (active low) */
@@ -118,7 +102,7 @@ public class astrocde
 	
 		/* I'm only supporting the "RELOAD" lamp since we don't have enough leds ;-) */
 		set_led_status(offset^1,data & 0x10);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( seawolf2_readmem )

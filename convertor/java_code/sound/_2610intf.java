@@ -269,11 +269,10 @@ public class _2610intf
 	/* Control Write for YM2610 - Chip 0			*/
 	/* Consists of 2 addresses						*/
 	/************************************************/
-	WRITE_HANDLER( YM2610_control_port_0_A_w )
-	{
+	public static WriteHandlerPtr YM2610_control_port_0_A_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("PC %04x: 2610 Reg A %02X",activecpu_get_pc(),data);
 		YM2610Write(0,0,data);
-	}
+	} };
 	
 	WRITE16_HANDLER( YM2610_control_port_0_A_lsb_w )
 	{
@@ -281,14 +280,13 @@ public class _2610intf
 		if (ACCESSING_LSB)
 		{
 			YM2610Write(0,0,data);
-		} };
+		}
 	}
 	
-	WRITE_HANDLER( YM2610_control_port_0_B_w )
-	{
+	public static WriteHandlerPtr YM2610_control_port_0_B_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("PC %04x: 2610 Reg B %02X",activecpu_get_pc(),data);
 		YM2610Write(0,2,data);
-	}
+	} };
 	
 	WRITE16_HANDLER( YM2610_control_port_0_B_lsb_w )
 	{
@@ -303,7 +301,7 @@ public class _2610intf
 	/* Control Write for YM2610 - Chip 1			*/
 	/* Consists of 2 addresses						*/
 	/************************************************/
-	WRITE_HANDLER( YM2610_control_port_1_A_w ){
+	public static WriteHandlerPtr YM2610_control_port_1_A_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM2610Write(1,0,data);
 	}
 	
@@ -311,10 +309,10 @@ public class _2610intf
 		if (ACCESSING_LSB)
 		{
 			YM2610Write(1,0,data);
-		}
+		} };
 	}
 	
-	WRITE_HANDLER( YM2610_control_port_1_B_w ){
+	public static WriteHandlerPtr YM2610_control_port_1_B_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM2610Write(1,2,data);
 	}
 	
@@ -322,18 +320,17 @@ public class _2610intf
 		if (ACCESSING_LSB)
 		{
 			YM2610Write(1,2,data);
-		}
+		} };
 	}
 	
 	/************************************************/
 	/* Data Write for YM2610 - Chip 0				*/
 	/* Consists of 2 addresses						*/
 	/************************************************/
-	WRITE_HANDLER( YM2610_data_port_0_A_w )
-	{
+	public static WriteHandlerPtr YM2610_data_port_0_A_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror(" =%02X\n",data);
 		YM2610Write(0,1,data);
-	}
+	} };
 	
 	WRITE16_HANDLER( YM2610_data_port_0_A_lsb_w )
 	{
@@ -344,11 +341,10 @@ public class _2610intf
 		}
 	}
 	
-	WRITE_HANDLER( YM2610_data_port_0_B_w )
-	{
+	public static WriteHandlerPtr YM2610_data_port_0_B_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror(" =%02X\n",data);
 		YM2610Write(0,3,data);
-	}
+	} };
 	
 	WRITE16_HANDLER( YM2610_data_port_0_B_lsb_w )
 	{
@@ -363,7 +359,7 @@ public class _2610intf
 	/* Data Write for YM2610 - Chip 1				*/
 	/* Consists of 2 addresses						*/
 	/************************************************/
-	WRITE_HANDLER( YM2610_data_port_1_A_w ){
+	public static WriteHandlerPtr YM2610_data_port_1_A_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM2610Write(1,1,data);
 	}
 	
@@ -371,10 +367,10 @@ public class _2610intf
 		if (ACCESSING_LSB)
 		{
 			YM2610Write(1,1,data);
-		}
+		} };
 	}
 	
-	WRITE_HANDLER( YM2610_data_port_1_B_w ){
+	public static WriteHandlerPtr YM2610_data_port_1_B_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		YM2610Write(1,3,data);
 	}
 	
@@ -382,7 +378,7 @@ public class _2610intf
 		if (ACCESSING_LSB)
 		{
 			YM2610Write(1,3,data);
-		}
+		} };
 	}
 	
 	/**************** end of file ****************/

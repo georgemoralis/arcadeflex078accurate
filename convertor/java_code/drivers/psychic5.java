@@ -319,10 +319,7 @@ public class psychic5
 {
 	
 	
-	extern WRITE_HANDLER( psychic5_paged_ram_w );
-	extern WRITE_HANDLER( psychic5_vram_page_select_w );
-	extern WRITE_HANDLER( psychic5_title_screen_w );
-	
+	extern extern extern 
 	extern extern 
 	extern 
 	extern extern 
@@ -333,8 +330,7 @@ public class psychic5
 		return psychic5_bank_latch;
 	} };
 	
-	WRITE_HANDLER( psychic5_bankselect_w )
-	{
+	public static WriteHandlerPtr psychic5_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
@@ -344,10 +340,9 @@ public class psychic5
 			bankaddress = 0x10000 + ((data & 3) * 0x4000);
 			cpu_setbank(1,&RAM[bankaddress]);	 /* Select 4 banks of 16k */
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( psychic5_coin_counter_w )
-	{
+	public static WriteHandlerPtr psychic5_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0, data & 0x01);
 		coin_counter_w(1, data & 0x02);
 	
@@ -356,7 +351,7 @@ public class psychic5
 		{
 			flip_screen_set(!flip_screen);
 		}
-	}
+	} };
 	
 	public static InterruptHandlerPtr psychic5_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
@@ -381,7 +376,7 @@ public class psychic5
 		{ 0xf200, 0xf7ff, MRA_RAM },
 		{ 0xf800, 0xffff, MRA_RAM },
 	MEMORY_END
-	WRITE_HANDLER(peek_w){usrintf_showmessage("offset %u data %u", offset, data);};
+	public static WriteHandlerPtr peek_w = new WriteHandlerPtr() {public void handler(int offset, int data)srintf_showmessage("offset %u data %u", offset, data);};
 	
 	static MEMORY_WRITE_START( writemem )
 		{ 0x0000, 0x7fff, MWA_ROM },
@@ -512,7 +507,7 @@ public class psychic5
 		{ 0, 4, 8, 12, 16, 20, 24, 28 },
 		{ 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8 },
 		32*8   	/* every char takes 32 consecutive bytes */
-	};
+	} };;
 	
 	static struct GfxLayout spritelayout =
 	{

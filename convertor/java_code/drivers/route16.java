@@ -82,13 +82,6 @@ public class route16
 	extern size_t route16_videoram_size;
 	extern int route16_hardware;
 	
-	WRITE_HANDLER( route16_out0_w );
-	WRITE_HANDLER( route16_out1_w );
-	WRITE_HANDLER( route16_videoram1_w );
-	WRITE_HANDLER( route16_videoram2_w );
-	WRITE_HANDLER( route16_sharedram_w );
-	WRITE_HANDLER( stratvox_sn76477_w );
-	WRITE_HANDLER ( speakres_out2_w );
 	
 	public static ReadHandlerPtr routex_prot_read  = new ReadHandlerPtr() { public int handler(int offset){
 		if (activecpu_get_pc()==0x2f) return 0xFB;

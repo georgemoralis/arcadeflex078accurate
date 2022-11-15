@@ -93,8 +93,7 @@ public class chaknpop
 		return 0x00;
 	} };
 	
-	WRITE_HANDLER( chaknpop_mcu_portA_w )
-	{
+	public static WriteHandlerPtr chaknpop_mcu_portA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU1);
 		data8_t mcu_command;
 	
@@ -140,17 +139,15 @@ public class chaknpop
 	
 			logerror("%04x: MCU command 0x%02x\n", activecpu_get_pc(), mcu_command);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( chaknpop_mcu_portB_w )
-	{
+	public static WriteHandlerPtr chaknpop_mcu_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		//logerror("%04x: MCU portB write 0x%02x\n", activecpu_get_pc(), data);
-	}
+	} };
 	
-	WRITE_HANDLER( chaknpop_mcu_portC_w )
-	{
+	public static WriteHandlerPtr chaknpop_mcu_portC_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		//logerror("%04x: MCU portC write 0x%02x\n", activecpu_get_pc(), data);
-	}
+	} };
 	
 	
 	/***************************************************************************

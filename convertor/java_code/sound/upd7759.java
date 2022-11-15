@@ -577,20 +577,17 @@ public class upd7759
 		ch->cur_rombank = ch->rom + base;
 	}
 	
-	WRITE_HANDLER(UPD7759_0_start_w)
-	{
+	public static WriteHandlerPtr UPD7759_0_start_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UPD7759_start_w(0,data);
-	}
+	} };
 	
-	WRITE_HANDLER(UPD7759_0_reset_w)
-	{
+	public static WriteHandlerPtr UPD7759_0_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UPD7759_reset_w(0,data);
-	}
+	} };
 	
-	WRITE_HANDLER(UPD7759_0_port_w)
-	{
+	public static WriteHandlerPtr UPD7759_0_port_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UPD7759_port_w(0,data);
-	}
+	} };
 	
 	public static ReadHandlerPtr UPD7759_0_busy_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return UPD7759_busy_r(0);

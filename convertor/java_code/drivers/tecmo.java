@@ -59,47 +59,36 @@ public class tecmo
 	extern int tecmo_video_type;
 	extern unsigned char *tecmo_txvideoram,*tecmo_fgvideoram,*tecmo_bgvideoram;
 	
-	WRITE_HANDLER( tecmo_txvideoram_w );
-	WRITE_HANDLER( tecmo_fgvideoram_w );
-	WRITE_HANDLER( tecmo_bgvideoram_w );
-	WRITE_HANDLER( tecmo_fgscroll_w );
-	WRITE_HANDLER( tecmo_bgscroll_w );
-	WRITE_HANDLER( tecmo_flipscreen_w );
 	
 	
 	
 	
-	WRITE_HANDLER( tecmo_bankswitch_w )
-	{
+	public static WriteHandlerPtr tecmo_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + ((data & 0xf8) << 8);
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
-	static WRITE_HANDLER( tecmo_sound_command_w )
-	{
+	public static WriteHandlerPtr tecmo_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(offset,data);
 		cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
-	}
+	} };
 	
 	static int adpcm_pos,adpcm_end;
 	
-	static WRITE_HANDLER( tecmo_adpcm_start_w )
-	{
+	public static WriteHandlerPtr tecmo_adpcm_start_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		adpcm_pos = data << 8;
 		MSM5205_reset_w(0,0);
-	}
-	static WRITE_HANDLER( tecmo_adpcm_end_w )
-	{
+	} };
+	public static WriteHandlerPtr tecmo_adpcm_end_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		adpcm_end = (data + 1) << 8;
-	}
-	static WRITE_HANDLER( tecmo_adpcm_vol_w )
-	{
+	} };
+	public static WriteHandlerPtr tecmo_adpcm_vol_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		MSM5205_set_volume(0,(data & 0x0f) * 100 / 15);
-	}
+	} };
 	static void tecmo_adpcm_int(int num)
 	{
 		static int adpcm_data = -1;

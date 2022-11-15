@@ -105,43 +105,35 @@ public class flyball
 		return flyball_zero_page[offset & 0xff];
 	} };
 	
-	WRITE_HANDLER( flyball_potmask_w )
-	{
+	public static WriteHandlerPtr flyball_potmask_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flyball_potmask |= data & 0xf;
-	}
+	} };
 	
-	WRITE_HANDLER( flyball_ram_w )
-	{
+	public static WriteHandlerPtr flyball_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flyball_zero_page[offset & 0xff] = data;
-	}
+	} };
 	
-	WRITE_HANDLER( flyball_pitcher_pic_w )
-	{
+	public static WriteHandlerPtr flyball_pitcher_pic_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flyball_pitcher_pic = data & 0xf;
-	}
+	} };
 	
-	WRITE_HANDLER( flyball_ball_vert_w )
-	{
+	public static WriteHandlerPtr flyball_ball_vert_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flyball_ball_vert = data;
-	}
+	} };
 	
-	WRITE_HANDLER( flyball_ball_horz_w )
-	{
+	public static WriteHandlerPtr flyball_ball_horz_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flyball_ball_horz = data;
-	}
+	} };
 	
-	WRITE_HANDLER( flyball_pitcher_vert_w )
-	{
+	public static WriteHandlerPtr flyball_pitcher_vert_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flyball_pitcher_vert = data;
-	}
+	} };
 	
-	WRITE_HANDLER( flyball_pitcher_horz_w )
-	{
+	public static WriteHandlerPtr flyball_pitcher_horz_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flyball_pitcher_horz = data;
-	}
+	} };
 	
-	WRITE_HANDLER( flyball_misc_w )
-	{
+	public static WriteHandlerPtr flyball_misc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bit = ~data & 1;
 	
 		switch (offset)
@@ -165,7 +157,7 @@ public class flyball
 			/* bat hit */
 			break;
 		}
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( flyball_readmem )

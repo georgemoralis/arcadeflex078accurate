@@ -30,9 +30,7 @@ public class dotrikun
 {
 	
 	
-	WRITE_HANDLER( dotrikun_videoram_w );
 	
-	WRITE_HANDLER( dotrikun_color_w );
 	
 	
 	static MEMORY_READ_START( readmem )

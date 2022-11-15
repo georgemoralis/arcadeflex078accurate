@@ -72,23 +72,17 @@ public class _1942
 	extern unsigned char *c1942_bgvideoram;
 	
 	
-	WRITE_HANDLER( c1942_fgvideoram_w );
-	WRITE_HANDLER( c1942_bgvideoram_w );
-	WRITE_HANDLER( c1942_scroll_w );
-	WRITE_HANDLER( c1942_c804_w );
-	WRITE_HANDLER( c1942_palette_bank_w );
 	
 	
 	
-	static WRITE_HANDLER( c1942_bankswitch_w )
-	{
+	public static WriteHandlerPtr c1942_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x03) * 0x4000;
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
 	
 	

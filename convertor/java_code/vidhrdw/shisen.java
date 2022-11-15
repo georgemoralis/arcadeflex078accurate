@@ -11,17 +11,15 @@ public class shisen
 	
 	static struct tilemap *bg_tilemap;
 	
-	WRITE_HANDLER( sichuan2_videoram_w )
-	{
+	public static WriteHandlerPtr sichuan2_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap, offset / 2);
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( sichuan2_bankswitch_w )
-	{
+	public static WriteHandlerPtr sichuan2_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		int bank;
 		UINT8 *RAM = memory_region(REGION_CPU1);
@@ -42,10 +40,9 @@ public class shisen
 		}
 	
 		/* bits 6-7 unknown */
-	}
+	} };
 	
-	WRITE_HANDLER( sichuan2_paletteram_w )
-	{
+	public static WriteHandlerPtr sichuan2_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
 		paletteram[offset] = data;
@@ -60,7 +57,7 @@ public class shisen
 		b = (b << 3) | (b >> 2);
 	
 		palette_set_color(offset, r, g, b);
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{

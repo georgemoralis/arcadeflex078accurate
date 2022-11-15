@@ -58,10 +58,7 @@ public class mrflea
 	static int mrflea_select2;
 	static int mrflea_select3;
 	
-	extern WRITE_HANDLER( mrflea_gfx_bank_w );
-	extern WRITE_HANDLER( mrflea_videoram_w );
-	extern WRITE_HANDLER( mrflea_spriteram_w );
-	extern extern 
+	extern extern extern extern extern 
 	static struct AY8910interface ay8910_interface = {
 		3,	/* 3 chips */
 		2000000, /* 2 MHz? */
@@ -132,12 +129,12 @@ public class mrflea
 	
 	/*******************************************************/
 	
-	static WRITE_HANDLER( mrflea_main_w ){
+	public static WriteHandlerPtr mrflea_main_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		mrflea_status |= 0x01; // pending command to main CPU
 		mrflea_main = data;
 	}
 	
-	static WRITE_HANDLER( mrflea_io_w ){
+	public static WriteHandlerPtr mrflea_io_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		mrflea_status |= 0x08; // pending command to IO CPU
 		mrflea_io = data;
 		cpu_set_irq_line( 1, 0, HOLD_LINE );
@@ -197,19 +194,19 @@ public class mrflea
 	
 	/*******************************************************/
 	
-	static WRITE_HANDLER( mrflea_select0_w ){
+	public static WriteHandlerPtr mrflea_select0_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		mrflea_select0 = data;
 	}
 	
-	static WRITE_HANDLER( mrflea_select1_w ){
+	public static WriteHandlerPtr mrflea_select1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		mrflea_select1 = data;
 	}
 	
-	static WRITE_HANDLER( mrflea_select2_w ){
+	public static WriteHandlerPtr mrflea_select2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		mrflea_select2 = data;
 	}
 	
-	static WRITE_HANDLER( mrflea_select3_w ){
+	public static WriteHandlerPtr mrflea_select3_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		mrflea_select3 = data;
 	}
 	
@@ -247,20 +244,20 @@ public class mrflea
 		{ 0x46, 0x46, mrflea_input3_r },
 	PORT_END
 	
-	static WRITE_HANDLER( mrflea_data0_w ){
+	public static WriteHandlerPtr mrflea_data0_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		AY8910_control_port_0_w( offset, mrflea_select0 );
 		AY8910_write_port_0_w( offset, data );
 	}
 	
-	static WRITE_HANDLER( mrflea_data1_w ){
+	public static WriteHandlerPtr mrflea_data1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	}
 	
-	static WRITE_HANDLER( mrflea_data2_w ){
+	public static WriteHandlerPtr mrflea_data2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		AY8910_control_port_1_w( offset, mrflea_select2 );
 		AY8910_write_port_1_w( offset, data );
 	}
 	
-	static WRITE_HANDLER( mrflea_data3_w ){
+	public static WriteHandlerPtr mrflea_data3_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		AY8910_control_port_2_w( offset, mrflea_select3 );
 		AY8910_write_port_2_w( offset, data );
 	}

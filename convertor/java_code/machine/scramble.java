@@ -48,11 +48,10 @@ public class scramble
 	};
 	
 	
-	WRITE_HANDLER( galaxian_nmi_enable_w )
-	{
+	public static WriteHandlerPtr galaxian_nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		TTL7474_preset_w(1, data);
 		TTL7474_update(1);
-	}
+	} };
 	
 	
 	static void interrupt_timer(int param)
@@ -119,32 +118,27 @@ public class scramble
 		machine_init_scramble();
 	} };
 	
-	WRITE_HANDLER( galaxian_coin_lockout_w )
-	{
+	public static WriteHandlerPtr galaxian_coin_lockout_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_lockout_global_w(~data & 1);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( galaxian_coin_counter_w )
-	{
+	public static WriteHandlerPtr galaxian_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset, data & 0x01);
-	}
+	} };
 	
-	WRITE_HANDLER( galaxian_coin_counter_1_w )
-	{
+	public static WriteHandlerPtr galaxian_coin_counter_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(1, data & 0x01);
-	}
+	} };
 	
-	WRITE_HANDLER( galaxian_coin_counter_2_w )
-	{
+	public static WriteHandlerPtr galaxian_coin_counter_2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(2, data & 0x01);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( galaxian_leds_w )
-	{
+	public static WriteHandlerPtr galaxian_leds_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(offset,data & 1);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr scrambls_input_port_2_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -172,10 +166,9 @@ public class scramble
 	
 	static data8_t moonwar_port_select;
 	
-	static WRITE_HANDLER( moonwar_port_select_w )
-	{
+	public static WriteHandlerPtr moonwar_port_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		moonwar_port_select = data & 0x10;
-	}
+	} };
 	
 	public static ReadHandlerPtr moonwar_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t sign;
@@ -218,10 +211,9 @@ public class scramble
 	
 	
 	
-	static WRITE_HANDLER( scramble_protection_w )
-	{
+	public static WriteHandlerPtr scramble_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* nothing to do yet */
-	}
+	} };
 	
 	public static ReadHandlerPtr scramble_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
@@ -285,10 +277,9 @@ public class scramble
 	} };
 	
 	
-	static WRITE_HANDLER( theend_coin_counter_w )
-	{
+	public static WriteHandlerPtr theend_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(0, data & 0x80);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr mariner_protection_1_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -332,8 +323,7 @@ public class scramble
 	
 	
 	/* Zig Zag can swap ROMs 2 and 3 as a form of copy protection */
-	WRITE_HANDLER( zigzag_sillyprotection_w )
-	{
+	public static WriteHandlerPtr zigzag_sillyprotection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU1);
 	
 	
@@ -348,7 +338,7 @@ public class scramble
 			cpu_setbank(1,&RAM[0x2000]);
 			cpu_setbank(2,&RAM[0x3000]);
 		}
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr dingo_3000_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -378,23 +368,20 @@ public class scramble
 		return (readinputport(1) & ~0x20) | (rand() & 0x20);
 	} };
 	
-	WRITE_HANDLER( kingball_speech_dip_w )
-	{
+	public static WriteHandlerPtr kingball_speech_dip_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		kingball_speech_dip = data;
-	}
+	} };
 	
 	static int kingball_sound;
 	
-	WRITE_HANDLER( kingball_sound1_w )
-	{
+	public static WriteHandlerPtr kingball_sound1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		kingball_sound = (kingball_sound & ~0x01) | data;
-	}
+	} };
 	
-	WRITE_HANDLER( kingball_sound2_w )
-	{
+	public static WriteHandlerPtr kingball_sound2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		kingball_sound = (kingball_sound & ~0x02) | (data << 1);
 		soundlatch_w (0, kingball_sound | 0xf0);
-	}
+	} };
 	
 	
 	
@@ -409,8 +396,7 @@ public class scramble
 	
 	static int _4in1_bank;
 	
-	WRITE_HANDLER( _4in1_bank_w )
-	{
+	public static WriteHandlerPtr _4in1_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* games are banked at 0x0000 - 0x3fff */
 		offs_t bankaddress;
 		data8_t *RAM=memory_region(REGION_CPU1);
@@ -421,7 +407,7 @@ public class scramble
 		cpu_setbank(1, &RAM[bankaddress]);
 	
 		galaxian_gfxbank_w(0, _4in1_bank);
-	}
+	} };
 	
 	public static ReadHandlerPtr _4in1_input_port_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(1) & ~0xc0) | (readinputport(3+_4in1_bank) & 0xc0);
@@ -494,25 +480,23 @@ public class scramble
 		return 0xff;
 	} };
 	
-	static WRITE_HANDLER( cavelon_banksw_w )
-	{
+	public static WriteHandlerPtr cavelon_banksw_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cavelon_banksw();
 	
 		if      ((offset >= 0x0100) && (offset <= 0x0103))
 			ppi8255_0_w(offset - 0x0100, data);
 		else if ((offset >= 0x0200) && (offset <= 0x0203))
 			ppi8255_1_w(offset - 0x0200, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr hunchbks_mirror_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu_readmem16(0x1000+offset);
 	} };
 	
-	WRITE_HANDLER( hunchbks_mirror_w )
-	{
+	public static WriteHandlerPtr hunchbks_mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_writemem16(0x1000+offset,data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr frogger_ppi8255_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -523,15 +507,13 @@ public class scramble
 		return ppi8255_1_r(offset >> 1);
 	} };
 	
-	WRITE_HANDLER(frogger_ppi8255_0_w)
-	{
+	public static WriteHandlerPtr frogger_ppi8255_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_0_w(offset >> 1, data);
-	}
+	} };
 	
-	WRITE_HANDLER(frogger_ppi8255_1_w)
-	{
+	public static WriteHandlerPtr frogger_ppi8255_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_1_w(offset >> 1, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr scobra_type2_ppi8255_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -542,15 +524,13 @@ public class scramble
 		return ppi8255_1_r(offset >> 2);
 	} };
 	
-	WRITE_HANDLER(scobra_type2_ppi8255_0_w)
-	{
+	public static WriteHandlerPtr scobra_type2_ppi8255_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_0_w(offset >> 2, data);
-	}
+	} };
 	
-	WRITE_HANDLER(scobra_type2_ppi8255_1_w)
-	{
+	public static WriteHandlerPtr scobra_type2_ppi8255_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_1_w(offset >> 2, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr hustler_ppi8255_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -561,15 +541,13 @@ public class scramble
 		return ppi8255_1_r(offset >> 3);
 	} };
 	
-	WRITE_HANDLER(hustler_ppi8255_0_w)
-	{
+	public static WriteHandlerPtr hustler_ppi8255_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_0_w(offset >> 3, data);
-	}
+	} };
 	
-	WRITE_HANDLER(hustler_ppi8255_1_w)
-	{
+	public static WriteHandlerPtr hustler_ppi8255_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_1_w(offset >> 3, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr amidar_ppi8255_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -580,15 +558,13 @@ public class scramble
 		return ppi8255_1_r(offset >> 4);
 	} };
 	
-	WRITE_HANDLER(amidar_ppi8255_0_w)
-	{
+	public static WriteHandlerPtr amidar_ppi8255_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_0_w(offset >> 4, data);
-	}
+	} };
 	
-	WRITE_HANDLER(amidar_ppi8255_1_w)
-	{
+	public static WriteHandlerPtr amidar_ppi8255_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_1_w(offset >> 4, data);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr mars_ppi8255_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -599,15 +575,13 @@ public class scramble
 		return ppi8255_1_r(((offset >> 2) & 0x02) | ((offset >> 1) & 0x01));
 	} };
 	
-	WRITE_HANDLER(mars_ppi8255_0_w)
-	{
+	public static WriteHandlerPtr mars_ppi8255_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_0_w(((offset >> 2) & 0x02) | ((offset >> 1) & 0x01), data);
-	}
+	} };
 	
-	WRITE_HANDLER(mars_ppi8255_1_w)
-	{
+	public static WriteHandlerPtr mars_ppi8255_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ppi8255_1_w(((offset >> 2) & 0x02) | ((offset >> 1) & 0x01), data);
-	}
+	} };
 	
 	
 	static ppi8255_interface ppi8255_intf =

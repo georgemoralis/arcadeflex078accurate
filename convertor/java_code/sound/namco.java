@@ -421,13 +421,11 @@ public class namco
 		0x1f:		ch 2	volume
 	*/
 	
-	WRITE_HANDLER( pengo_sound_enable_w )
-	{
+	public static WriteHandlerPtr pengo_sound_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_enable = data;
-	}
+	} };
 	
-	WRITE_HANDLER( pengo_sound_w )
-	{
+	public static WriteHandlerPtr pengo_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_channel *voice;
 		int ch;
 	
@@ -477,7 +475,7 @@ public class namco
 			voice->volume[0] = data;
 			break;
 		}
-	}
+	} };
 	
 	
 	/********************************************************************************/
@@ -507,8 +505,7 @@ public class namco
 		0x3f		ch 5	waveform select & rear volume
 	*/
 	
-	WRITE_HANDLER( polepos_sound_w )
-	{
+	public static WriteHandlerPtr polepos_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_channel *voice;
 		int ch;
 	
@@ -558,7 +555,7 @@ public class namco
 			voice->volume[1] |= namco_soundregs[ch * 4 + 0x2b] >> 4;
 			break;
 		}
-	}
+	} };
 	
 	
 	/********************************************************************************/
@@ -581,13 +578,11 @@ public class namco
 		0x3e		ch 7	waveform select & frequency
 	*/
 	
-	WRITE_HANDLER( mappy_sound_enable_w )
-	{
+	public static WriteHandlerPtr mappy_sound_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_enable = offset;
-	}
+	} };
 	
-	WRITE_HANDLER( mappy_sound_w )
-	{
+	public static WriteHandlerPtr mappy_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_channel *voice;
 		int ch;
 	
@@ -622,7 +617,7 @@ public class namco
 			voice->frequency += (namco_soundregs[ch * 8 + 0x06] & 15) << 16;	/* high bits are from here */
 			break;
 		}
-	}
+	} };
 	
 	
 	/********************************************************************************/
@@ -651,8 +646,7 @@ public class namco
 		0x3c		ch 0	noise sw
 	*/
 	
-	WRITE_HANDLER( namcos1_sound_w )
-	{
+	public static WriteHandlerPtr namcos1_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sound_channel *voice;
 		int ch;
 		int nssw;
@@ -704,14 +698,13 @@ public class namco
 			voice->noise_sw = nssw;
 			break;
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr namcos1_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return namco_soundregs[offset];
 	} };
 	
-	WRITE_HANDLER( namcos1_wavedata_w )
-	{
+	public static WriteHandlerPtr namcos1_wavedata_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (namco_wavedata[offset] != data)
 		{
 			/* update the streams */
@@ -722,7 +715,7 @@ public class namco
 			/* update the decoded waveform table */
 			update_namcos1_waveform(offset, data);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr namcos1_wavedata_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return namco_wavedata[offset];
@@ -731,8 +724,7 @@ public class namco
 	
 	/********************************************************************************/
 	
-	WRITE_HANDLER( snkwave_w )
-	{
+	public static WriteHandlerPtr snkwave_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int freq0 = 0xff;
 		sound_channel *voice = channel_list;
 		if( offset==0 ) freq0 = data;
@@ -749,5 +741,5 @@ public class namco
 				voice->frequency = (data<<16)/freq0;
 			}
 		}
-	}
+	} };
 }

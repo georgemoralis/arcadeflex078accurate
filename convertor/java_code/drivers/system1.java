@@ -71,26 +71,22 @@ public class system1
 		return(inport23_step);
 	} };
 	
-	static WRITE_HANDLER( outport16_w )
-	{
+	public static WriteHandlerPtr outport16_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	logerror("OUT $16 : pc = %04x - data = %02x\n",activecpu_get_pc(),data);
 		inport16_step = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( outport17_w )
-	{
+	public static WriteHandlerPtr outport17_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	logerror("OUT $17 : pc = %04x - data = %02x\n",activecpu_get_pc(),data);
 		inport17_step = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( outport24_w )
-	{
+	public static WriteHandlerPtr outport24_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	logerror("OUT $24 : pc = %04x - data = %02x\n",activecpu_get_pc(),data);
 		inport23_step = data;
-	}
+	} };
 	
-	WRITE_HANDLER( hvymetal_videomode_w )
-	{
+	public static WriteHandlerPtr hvymetal_videomode_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *rom = memory_region(REGION_CPU1);
 	
@@ -103,10 +99,9 @@ public class system1
 		cpu_setbank(1,&rom[bankaddress]);
 	
 		system1_videomode_w(0, data);
-	}
+	} };
 	
-	WRITE_HANDLER( brain_videomode_w )
-	{
+	public static WriteHandlerPtr brain_videomode_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *rom = memory_region(REGION_CPU1);
 	
@@ -114,10 +109,9 @@ public class system1
 		cpu_setbank(1,&rom[bankaddress]);
 	
 		system1_videomode_w(0, data);
-	}
+	} };
 	
-	WRITE_HANDLER( chplft_videomode_w )
-	{
+	public static WriteHandlerPtr chplft_videomode_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *rom = memory_region(REGION_CPU1);
 	
@@ -125,16 +119,15 @@ public class system1
 		cpu_setbank(1,&rom[bankaddress]);
 	
 		system1_videomode_w(0, data);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( system1_soundport_w )
-	{
+	public static WriteHandlerPtr system1_soundport_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundlatch_w(0,data);
 		cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
 		/* spin for a while to let the Z80 read the command (fixes hanging sound in Regulus) */
 		cpu_spinuntil_time(TIME_IN_USEC(50));
-	}
+	} };
 	
 	
 	
@@ -315,10 +308,9 @@ public class system1
 		return work_ram[offset];
 	} };
 	
-	static WRITE_HANDLER( work_ram_w )
-	{
+	public static WriteHandlerPtr work_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		work_ram[offset] = data;
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

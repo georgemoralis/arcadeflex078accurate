@@ -26,19 +26,17 @@ public class atari_vg
 	} };
 	
 	
-	WRITE_HANDLER( atari_vg_earom_w )
-	{
+	public static WriteHandlerPtr atari_vg_earom_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("write earom: %02x:%02x\n", offset, data);
 		earom_offset = offset;
 		earom_data = data;
-	}
+	} };
 	
 	
 	/* 0,8 and 14 get written to this location, too.
 	 * Don't know what they do exactly
 	 */
-	WRITE_HANDLER( atari_vg_earom_ctrl_w )
-	{
+	public static WriteHandlerPtr atari_vg_earom_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		logerror("earom ctrl: %02x:%02x\n",offset, data);
 		/*
 			0x01 = clock
@@ -53,7 +51,7 @@ public class atari_vg
 			earom[earom_offset]=earom_data;
 			logerror("    written %02x:%02x\n", earom_offset, earom_data);
 		}
-	}
+	} };
 	
 	
 	public static NVRAMHandlerPtr nvram_handler_atari_vg  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){

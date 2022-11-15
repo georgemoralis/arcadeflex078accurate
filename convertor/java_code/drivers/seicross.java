@@ -53,9 +53,7 @@ public class seicross
 	
 	extern UINT8 *seicross_row_scroll;
 	
-	extern WRITE_HANDLER( seicross_videoram_w );
-	extern WRITE_HANDLER( seicross_colorram_w );
-	
+	extern extern 
 	extern extern extern 
 	static UINT8 *nvram;
 	static size_t nvram_size;
@@ -92,8 +90,7 @@ public class seicross
 		return (portb & 0x9f) | (readinputport(6) & 0x60);
 	} };
 	
-	static WRITE_HANDLER( friskyt_portB_w )
-	{
+	public static WriteHandlerPtr friskyt_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("PC %04x: 8910 port B = %02x\n",activecpu_get_pc(),data);
 		/* bit 0 is IRQ enable */
 		interrupt_enable_w(0,data & 1);
@@ -110,7 +107,7 @@ public class seicross
 	
 		/* other bits unknown */
 		portb = data;
-	}
+	} };
 	
 	
 	static UINT8 *sharedram;
@@ -119,10 +116,9 @@ public class seicross
 		return sharedram[offset];
 	} };
 	
-	static WRITE_HANDLER( sharedram_w )
-	{
+	public static WriteHandlerPtr sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		sharedram[offset] = data;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

@@ -46,13 +46,6 @@ public class mpatrol
 	
 	
 	
-	WRITE_HANDLER( mpatrol_scroll_w );
-	WRITE_HANDLER( mpatrol_bg1xpos_w );
-	WRITE_HANDLER( mpatrol_bg1ypos_w );
-	WRITE_HANDLER( mpatrol_bg2xpos_w );
-	WRITE_HANDLER( mpatrol_bg2ypos_w );
-	WRITE_HANDLER( mpatrol_bgcontrol_w );
-	WRITE_HANDLER( mpatrol_flipscreen_w );
 	
 	
 	

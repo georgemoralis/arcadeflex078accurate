@@ -86,36 +86,25 @@ public class vicdual
 	static unsigned char *vicdual_ram;
 	
 	extern unsigned char *vicdual_characterram;
-	WRITE_HANDLER( vicdual_characterram_w );
-	WRITE_HANDLER( vicdual_palette_bank_w );
 	
 	/* Carnival sound handlers */
 	extern const char *carnival_sample_names[];
-	WRITE_HANDLER( carnival_sh_port1_w );
-	WRITE_HANDLER( carnival_sh_port2_w );
-	WRITE_HANDLER( carnival_music_port_1_w );
-	WRITE_HANDLER( carnival_music_port_2_w );
 	
 	/* Depth Charge sound handlers */
 	extern const char *depthch_sample_names[];
-	WRITE_HANDLER( depthch_sh_port1_w );
 	
 	/* Invinco sound handlers */
 	extern const char *invinco_sample_names[];
-	WRITE_HANDLER( invinco_sh_port2_w );
 	
 	/* Pulsar sound handlers */
 	extern const char *pulsar_sample_names[];
-	WRITE_HANDLER( pulsar_sh_port1_w );
-	WRITE_HANDLER( pulsar_sh_port2_w );
 	
 	
 	static int protection_data;
 	
-	static WRITE_HANDLER( samurai_protection_w )
-	{
+	public static WriteHandlerPtr samurai_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		protection_data = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr samurai_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int answer = 0;
@@ -127,10 +116,9 @@ public class vicdual
 	} };
 	
 	
-	static WRITE_HANDLER( vicdual_ram_w )
-	{
+	public static WriteHandlerPtr vicdual_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		vicdual_ram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr vicdual_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return vicdual_ram[offset];

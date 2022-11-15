@@ -88,11 +88,10 @@ public class polepos
 		timer_set(cpu_getscanlinetime(scanline), scanline, z80_interrupt);
 	}
 	
-	WRITE_HANDLER( polepos_z80_irq_enable_w )
-	{
+	public static WriteHandlerPtr polepos_z80_irq_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		z80_irq_enabled = data & 1;
 		if ((data & 1) == 0) cpu_set_irq_line(0, 0, CLEAR_LINE);
-	}
+	} };
 	
 	WRITE16_HANDLER( polepos_z8002_nvi_enable_w )
 	{
@@ -119,23 +118,21 @@ public class polepos
 			cpu_set_irq_line(2, 0, ASSERT_LINE);
 	} };
 	
-	WRITE_HANDLER( polepos_z8002_enable_w )
-	{
+	public static WriteHandlerPtr polepos_z8002_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (data & 1)
 			cpu_set_reset_line(offset + 1, CLEAR_LINE);
 		else
 			cpu_set_reset_line(offset + 1, ASSERT_LINE);
-	}
+	} };
 	
 	
 	/*************************************************************************************/
 	/* I/O and ADC handling 															 */
 	/*************************************************************************************/
 	
-	WRITE_HANDLER( polepos_adc_select_w )
-	{
+	public static WriteHandlerPtr polepos_adc_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		adc_input = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr polepos_adc_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = 0;
@@ -202,8 +199,7 @@ public class polepos
 	/* 4 bit cpu emulation																 */
 	/*************************************************************************************/
 	
-	WRITE_HANDLER( polepos_mcu_enable_w )
-	{
+	public static WriteHandlerPtr polepos_mcu_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		polepos_mcu.enabled = data & 1;
 	
 		if (polepos_mcu.enabled == 0)
@@ -211,7 +207,7 @@ public class polepos
 			/* If its getting disabled, kill our timer */
 			timer_adjust(polepos_mcu.timer, TIME_NEVER, 0, 0);
 		}
-	}
+	} };
 	
 	static void polepos_mcu_callback(int param)
 	{
@@ -225,8 +221,7 @@ public class polepos
 		return 0x00;
 	} };
 	
-	WRITE_HANDLER( polepos_mcu_control_w )
-	{
+	public static WriteHandlerPtr polepos_mcu_control_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		LOG(("polepos_mcu_control_w: %d, $%02x\n", offset, data));
 	
 		if (polepos_mcu.enabled)
@@ -246,7 +241,7 @@ public class polepos
 				polepos_mcu.status = 0x10; /* set status */
 			}
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr polepos_mcu_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (polepos_mcu.enabled)
@@ -347,8 +342,7 @@ public class polepos
 		return 0xff; /* pull up */
 	} };
 	
-	WRITE_HANDLER( polepos_mcu_data_w )
-	{
+	public static WriteHandlerPtr polepos_mcu_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (polepos_mcu.enabled)
 		{
 			LOG(("MCU write: PC = %04x, transfer mode = %02x, offset = %02x, data = %02x\n", activecpu_get_pc(), polepos_mcu.transfer_id & 0xff, offset, data ));
@@ -428,10 +422,9 @@ public class polepos
 				polepos_mcu.mode = 1;
 			}
 		}
-	}
+	} };
 	
-	WRITE_HANDLER( polepos_start_w )
-	{
+	public static WriteHandlerPtr polepos_start_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last_start = 0;
 	
 		data &= 1;
@@ -449,6 +442,6 @@ public class polepos
 		}
 	
 		last_start = data;
-	}
+	} };
 	
 }

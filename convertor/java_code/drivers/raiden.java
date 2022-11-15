@@ -46,11 +46,6 @@ package drivers;
 public class raiden
 {
 	
-	WRITE_HANDLER( raiden_background_w );
-	WRITE_HANDLER( raiden_foreground_w );
-	WRITE_HANDLER( raiden_text_w );
-	WRITE_HANDLER( raidena_text_w );
-	WRITE_HANDLER( raiden_control_w );
 	
 	static unsigned char *raiden_shared_ram;
 	extern unsigned char *raiden_back_data,*raiden_fore_data,*raiden_scroll_ram;
@@ -58,7 +53,7 @@ public class raiden
 	/***************************************************************************/
 	
 	public static ReadHandlerPtr raiden_shared_r  = new ReadHandlerPtr() { public int handler(int offset) return raiden_shared_ram[offset]; }
-	static WRITE_HANDLER( raiden_shared_w ) { raiden_shared_ram[offset]=data; }
+	public static WriteHandlerPtr raiden_shared_w = new WriteHandlerPtr() {public void handler(int offset, int data) raiden_shared_ram[offset]=data; }
 	
 	/******************************************************************************/
 	

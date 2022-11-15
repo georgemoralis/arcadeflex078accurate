@@ -21,12 +21,7 @@ public class timelimt
 	
 	/* from vidhrdw */
 	extern extern extern 
-	extern WRITE_HANDLER( timelimt_videoram_w );
-	extern WRITE_HANDLER( timelimt_bg_videoram_w );
-	extern WRITE_HANDLER( timelimt_scroll_y_w );
-	extern WRITE_HANDLER( timelimt_scroll_x_msb_w );
-	extern WRITE_HANDLER( timelimt_scroll_x_lsb_w );
-	
+	extern extern extern extern extern 
 	extern data8_t *timelimt_bg_videoram;
 	extern size_t timelimt_bg_videoram_size;
 	
@@ -39,16 +34,14 @@ public class timelimt
 		nmi_enabled = 0;
 	} };
 	
-	static WRITE_HANDLER( nmi_enable_w )
-	{
+	public static WriteHandlerPtr nmi_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nmi_enabled = data & 1;	/* bit 0 = nmi enable */
-	}
+	} };
 	
-	static WRITE_HANDLER( sound_reset_w )
-	{
+	public static WriteHandlerPtr sound_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ( data & 1 )
 			cpu_set_reset_line( 1, PULSE_LINE );
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

@@ -223,14 +223,13 @@ public class cave
 	
 	
 	/* Sound CPU: write latch for the main CPU (acknowledge) */
-	static WRITE_HANDLER( soundlatch_ack_w )
-	{
+	public static WriteHandlerPtr soundlatch_ack_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		soundbuf.data[soundbuf.len] = data;
 		if (soundbuf.len<32)
 			soundbuf.len++;
 		else
 			logerror("CPU #1 - PC %04X: Sound Buffer 2 Overflow Error\n",activecpu_get_pc());
-	}
+	} };
 	
 	
 	
@@ -1049,24 +1048,22 @@ public class cave
 									Hotdog Storm
 	***************************************************************************/
 	
-	WRITE_HANDLER( hotdogst_rombank_w )
-	{
+	public static WriteHandlerPtr hotdogst_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU2);
 		int bank = data & 0x0f;
 		if ( data & ~0x0f )	logerror("CPU #1 - PC %04X: Bank %02X\n",activecpu_get_pc(),data);
 		if (bank > 1)	bank+=2;
 		cpu_setbank(2, &RAM[ 0x4000 * bank ]);
-	}
+	} };
 	
-	WRITE_HANDLER( hotdogst_okibank_w )
-	{
+	public static WriteHandlerPtr hotdogst_okibank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_SOUND1);
 		int bank1 = (data >> 0) & 0x3;
 		int bank2 = (data >> 4) & 0x3;
 		if (Machine->sample_rate == 0)	return;
 		memcpy(RAM + 0x20000 * 0, RAM + 0x40000 + 0x20000 * bank1, 0x20000);
 		memcpy(RAM + 0x20000 * 1, RAM + 0x40000 + 0x20000 * bank2, 0x20000);
-	}
+	} };
 	
 	static MEMORY_READ_START( hotdogst_sound_readmem )
 		{ 0x0000, 0x3fff, MRA_ROM	},	// ROM
@@ -1101,14 +1098,13 @@ public class cave
 									Mazinger Z
 	***************************************************************************/
 	
-	WRITE_HANDLER( mazinger_rombank_w )
-	{
+	public static WriteHandlerPtr mazinger_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU2);
 		int bank = data & 0x07;
 		if ( data & ~0x07 )	logerror("CPU #1 - PC %04X: Bank %02X\n",activecpu_get_pc(),data);
 		if (bank > 1)	bank+=2;
 		cpu_setbank(2, &RAM[ 0x4000 * bank ]);
-	}
+	} };
 	
 	static MEMORY_READ_START( mazinger_sound_readmem )
 		{ 0x0000, 0x3fff, MRA_ROM	},	// ROM
@@ -1143,34 +1139,31 @@ public class cave
 									Metamoqester
 	***************************************************************************/
 	
-	WRITE_HANDLER( metmqstr_rombank_w )
-	{
+	public static WriteHandlerPtr metmqstr_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *ROM = memory_region(REGION_CPU2);
 		int bank = data & 0xf;
 		if ( bank != data )	logerror("CPU #1 - PC %04X: Bank %02X\n",activecpu_get_pc(),data);
 		if (bank >= 2)	bank += 2;
 		cpu_setbank(1, &ROM[ 0x4000 * bank ]);
-	}
+	} };
 	
-	WRITE_HANDLER( metmqstr_okibank0_w )
-	{
+	public static WriteHandlerPtr metmqstr_okibank0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *ROM = memory_region(REGION_SOUND1);
 		int bank1 = (data >> 0) & 0x7;
 		int bank2 = (data >> 4) & 0x7;
 		if (Machine->sample_rate == 0)	return;
 		memcpy(ROM + 0x20000 * 0, ROM + 0x40000 + 0x20000 * bank1, 0x20000);
 		memcpy(ROM + 0x20000 * 1, ROM + 0x40000 + 0x20000 * bank2, 0x20000);
-	}
+	} };
 	
-	WRITE_HANDLER( metmqstr_okibank1_w )
-	{
+	public static WriteHandlerPtr metmqstr_okibank1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *ROM = memory_region(REGION_SOUND2);
 		int bank1 = (data >> 0) & 0x7;
 		int bank2 = (data >> 4) & 0x7;
 		if (Machine->sample_rate == 0)	return;
 		memcpy(ROM + 0x20000 * 0, ROM + 0x40000 + 0x20000 * bank1, 0x20000);
 		memcpy(ROM + 0x20000 * 1, ROM + 0x40000 + 0x20000 * bank2, 0x20000);
-	}
+	} };
 	
 	static MEMORY_READ_START( metmqstr_sound_readmem )
 		{ 0x0000, 0x3fff, MRA_ROM	},	// ROM
@@ -1207,8 +1200,7 @@ public class cave
 	***************************************************************************/
 	
 	// TODO : FIX SAMPLES TABLE BEING OVERWRITTEN IN DONPACHI
-	static WRITE_HANDLER( pwrinst2_okibank_w )
-	{
+	public static WriteHandlerPtr pwrinst2_okibank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* The OKI6295 ROM space is divided in four banks, each one indepentently
 		   controlled. The sample table at the beginning of the addressing space is
 		   divided in four pages as well, banked together with the sample data. */
@@ -1241,16 +1233,15 @@ public class cave
 		/* and also copy the samples address table (only for chip #1) */
 		rom += banknum * TABLESIZE;
 		memcpy(rom,rom + 0x40000 + bankaddr,TABLESIZE);
-	}
+	} };
 	
-	WRITE_HANDLER( pwrinst2_rombank_w )
-	{
+	public static WriteHandlerPtr pwrinst2_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *ROM = memory_region(REGION_CPU2);
 		int bank = data & 0x07;
 		if ( data & ~0x07 )	logerror("CPU #1 - PC %04X: Bank %02X\n",activecpu_get_pc(),data);
 		if (bank > 2)	bank+=1;
 		cpu_setbank(1, &ROM[ 0x4000 * bank ]);
-	}
+	} };
 	
 	static MEMORY_READ_START( pwrinst2_sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM	},	// ROM
@@ -1293,39 +1284,35 @@ public class cave
 	public static ReadHandlerPtr mirror_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return mirror_ram[offset];
 	} };
-	static WRITE_HANDLER( mirror_ram_w )
-	{
+	public static WriteHandlerPtr mirror_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mirror_ram[offset] = data;
-	}
+	} };
 	
-	WRITE_HANDLER( sailormn_rombank_w )
-	{
+	public static WriteHandlerPtr sailormn_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_CPU2);
 		int bank = data & 0x1f;
 		if ( data & ~0x1f )	logerror("CPU #1 - PC %04X: Bank %02X\n",activecpu_get_pc(),data);
 		if (bank > 1)	bank+=2;
 		cpu_setbank(1, &RAM[ 0x4000 * bank ]);
-	}
+	} };
 	
-	WRITE_HANDLER( sailormn_okibank0_w )
-	{
+	public static WriteHandlerPtr sailormn_okibank0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_SOUND1);
 		int bank1 = (data >> 0) & 0xf;
 		int bank2 = (data >> 4) & 0xf;
 		if (Machine->sample_rate == 0)	return;
 		memcpy(RAM + 0x20000 * 0, RAM + 0x40000 + 0x20000 * bank1, 0x20000);
 		memcpy(RAM + 0x20000 * 1, RAM + 0x40000 + 0x20000 * bank2, 0x20000);
-	}
+	} };
 	
-	WRITE_HANDLER( sailormn_okibank1_w )
-	{
+	public static WriteHandlerPtr sailormn_okibank1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data8_t *RAM = memory_region(REGION_SOUND2);
 		int bank1 = (data >> 0) & 0xf;
 		int bank2 = (data >> 4) & 0xf;
 		if (Machine->sample_rate == 0)	return;
 		memcpy(RAM + 0x20000 * 0, RAM + 0x40000 + 0x20000 * bank1, 0x20000);
 		memcpy(RAM + 0x20000 * 1, RAM + 0x40000 + 0x20000 * bank2, 0x20000);
-	}
+	} };
 	
 	static MEMORY_READ_START( sailormn_sound_readmem )
 		{ 0x0000, 0x3fff, MRA_ROM					},	// ROM

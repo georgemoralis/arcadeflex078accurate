@@ -19,8 +19,7 @@ public class pkunwar
 	static int flipscreen[2];
 	
 	
-	WRITE_HANDLER( pkunwar_flipscreen_w )
-	{
+	public static WriteHandlerPtr pkunwar_flipscreen_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (flipscreen[0] != (data & 1))
 		{
 			flipscreen[0] = data & 1;
@@ -31,7 +30,7 @@ public class pkunwar
 			flipscreen[1] = data & 2;
 			memset(dirtybuffer,1,videoram_size);
 		}
-	}
+	} };
 	
 	
 	

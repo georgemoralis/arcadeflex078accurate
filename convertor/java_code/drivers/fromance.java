@@ -96,11 +96,10 @@ public class fromance
 	}
 	
 	
-	static WRITE_HANDLER( fromance_commanddata_w )
-	{
+	public static WriteHandlerPtr fromance_commanddata_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* do this on a timer to let the slave CPU synchronize */
 		timer_set(TIME_NOW, data, deferred_commanddata_w);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr fromance_busycheck_main_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -118,10 +117,9 @@ public class fromance
 	} };
 	
 	
-	static WRITE_HANDLER( fromance_busycheck_sub_w )
-	{
+	public static WriteHandlerPtr fromance_busycheck_sub_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		fromance_directionflag = 0;
-	}
+	} };
 	
 	
 	
@@ -131,12 +129,11 @@ public class fromance
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( fromance_rombank_w )
-	{
+	public static WriteHandlerPtr fromance_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *ROM = memory_region(REGION_CPU2);
 	
 		cpu_setbank(1, &ROM[0x010000 + (0x4000 * data)]);
-	}
+	} };
 	
 	
 	
@@ -146,20 +143,18 @@ public class fromance
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( fromance_adpcm_reset_w )
-	{
+	public static WriteHandlerPtr fromance_adpcm_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		fromance_adpcm_reset = (data & 0x01);
 		fromance_vclk_left = 0;
 	
 		MSM5205_reset_w(0, !(data & 0x01));
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( fromance_adpcm_w )
-	{
+	public static WriteHandlerPtr fromance_adpcm_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		fromance_adpcm_data = data;
 		fromance_vclk_left = 2;
-	}
+	} };
 	
 	
 	static void fromance_adpcm_int(int irq)
@@ -189,10 +184,9 @@ public class fromance
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( fromance_portselect_w )
-	{
+	public static WriteHandlerPtr fromance_portselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		fromance_portselect = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr fromance_keymatrix_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -220,10 +214,9 @@ public class fromance
 	 *
 	 *************************************/
 	
-	static WRITE_HANDLER( fromance_coinctr_w )
-	{
+	public static WriteHandlerPtr fromance_coinctr_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		//
-	}
+	} };
 	
 	
 	

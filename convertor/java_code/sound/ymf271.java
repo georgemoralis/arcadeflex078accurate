@@ -551,18 +551,16 @@ public class ymf271
 		return ymf271_r(0, offset);
 	} };
 	
-	WRITE_HANDLER( YMF271_0_w )
-	{
+	public static WriteHandlerPtr YMF271_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ymf271_w(0, offset, data);
-	}
+	} };
 	
 	public static ReadHandlerPtr YMF271_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ymf271_r(1, offset);
 	} };
 	
-	WRITE_HANDLER( YMF271_1_w )
-	{
+	public static WriteHandlerPtr YMF271_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ymf271_w(1, offset, data);
-	}
+	} };
 	
 }

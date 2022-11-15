@@ -22,8 +22,6 @@ public class fastlane
 	
 	/* from vidhrdw/fastlane.c */
 	extern unsigned char *fastlane_k007121_regs,*fastlane_videoram1,*fastlane_videoram2;
-	WRITE_HANDLER( fastlane_vram1_w );
-	WRITE_HANDLER( fastlane_vram2_w );
 	
 	public static InterruptHandlerPtr fastlane_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
@@ -38,16 +36,14 @@ public class fastlane
 		}
 	} };
 	
-	WRITE_HANDLER( k007121_registers_w )
-	{
+	public static WriteHandlerPtr k007121_registers_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset < 8)
 			K007121_ctrl_0_w(offset,data);
 		else	/* scroll registers */
 			fastlane_k007121_regs[offset] = data;
-	}
+	} };
 	
-	static WRITE_HANDLER( fastlane_bankswitch_w )
-	{
+	public static WriteHandlerPtr fastlane_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
@@ -63,7 +59,7 @@ public class fastlane
 		K007232_set_bank(1,0 + ((data & 0x10) >> 4),2 + ((data & 0x10) >> 4));
 	
 		/* other bits seems to be unused */
-	}
+	} };
 	
 	/* Read and write handlers for one K007232 chip:
 	   even and odd register are mapped swapped */
@@ -71,17 +67,15 @@ public class fastlane
 	public static ReadHandlerPtr fastlane_K007232_read_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return K007232_read_port_0_r(offset ^ 1);
 	} };
-	static WRITE_HANDLER( fastlane_K007232_write_port_0_w )
-	{
+	public static WriteHandlerPtr fastlane_K007232_write_port_0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K007232_write_port_0_w(offset ^ 1, data);
-	}
+	} };
 	public static ReadHandlerPtr fastlane_K007232_read_port_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return K007232_read_port_1_r(offset ^ 1);
 	} };
-	static WRITE_HANDLER( fastlane_K007232_write_port_1_w )
-	{
+	public static WriteHandlerPtr fastlane_K007232_write_port_1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		K007232_write_port_1_w(offset ^ 1, data);
-	}
+	} };
 	
 	
 	

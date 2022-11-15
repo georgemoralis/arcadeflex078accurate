@@ -34,10 +34,9 @@ public class nitedrvr
 	/***************************************************************************
 	nitedrvr_ram_w
 	***************************************************************************/
-	WRITE_HANDLER( nitedrvr_ram_w )
-	{
+	public static WriteHandlerPtr nitedrvr_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nitedrvr_ram[offset]=data;
-	}
+	} };
 	
 	/***************************************************************************
 	Steering
@@ -89,10 +88,9 @@ public class nitedrvr
 		return 0;
 	} };
 	
-	WRITE_HANDLER( nitedrvr_steering_reset_w )
-	{
+	public static WriteHandlerPtr nitedrvr_steering_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nitedrvr_steering_val=0x00;
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -229,12 +227,11 @@ public class nitedrvr
 	D4 = SKID1
 	D5 = SKID2
 	***************************************************************************/
-	WRITE_HANDLER( nitedrvr_out0_w )
-	{
+	public static WriteHandlerPtr nitedrvr_out0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		discrete_sound_w(3, (~data) & 0x0f);		// Motor freq data*
 		discrete_sound_w(1, (data & 0x10) ? 1 : 0);	// Skid1 enable
 		discrete_sound_w(2, (data & 0x20) ? 1 : 0);	// Skid2 enable
-	}
+	} };
 	
 	/***************************************************************************
 	nitedrvr_out1_w
@@ -246,8 +243,7 @@ public class nitedrvr
 	D4 = LED START
 	D5 = Spare (Not used)
 	***************************************************************************/
-	WRITE_HANDLER( nitedrvr_out1_w )
-	{
+	public static WriteHandlerPtr nitedrvr_out1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_led_status(0,data & 0x10);
 	
 		nitedrvr_crash_en = data & 0x01;
@@ -264,7 +260,7 @@ public class nitedrvr
 			palette_set_color(0,0xff,0xff,0xff); /* WHITE */
 		}
 		discrete_sound_w(0, nitedrvr_crash_data_en ? nitedrvr_crash_data : 0);	// Crash Volume
-	}
+	} };
 	
 	
 	void nitedrvr_crash_toggle(int dummy)

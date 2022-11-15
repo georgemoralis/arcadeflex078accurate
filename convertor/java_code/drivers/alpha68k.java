@@ -753,14 +753,13 @@ public class alpha68k
 	
 	/******************************************************************************/
 	
-	static WRITE_HANDLER( sound_bank_w )
-	{
+	public static WriteHandlerPtr sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU2);
 	
 		bankaddress = 0x10000 + (data) * 0x4000;
 		cpu_setbank(7,&RAM[bankaddress]);
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

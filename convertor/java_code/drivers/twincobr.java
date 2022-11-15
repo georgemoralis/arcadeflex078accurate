@@ -203,7 +203,6 @@ public class twincobr
 	READ16_HANDLER ( twincobr_dsp_r );
 	WRITE16_HANDLER( twincobr_dsp_w );
 	READ16_HANDLER ( twincobr_BIO_r );
-	WRITE_HANDLER  ( twincobr_coin_w );
 	WRITE16_HANDLER( fshark_coin_dsp_w );
 	READ16_HANDLER ( twincobr_68k_dsp_r );
 	WRITE16_HANDLER( twincobr_68k_dsp_w );

@@ -190,33 +190,28 @@ public class tutankhm
 	
 	extern unsigned char *tutankhm_scrollx;
 	
-	WRITE_HANDLER( tutankhm_videoram_w );
 	
 	
-	static WRITE_HANDLER( tutankhm_bankselect_w )
-	{
+	public static WriteHandlerPtr tutankhm_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x1000;
 		cpu_setbank(1,&RAM[bankaddress]);
-	}
+	} };
 	
-	static WRITE_HANDLER( tutankhm_coin_counter_w )
-	{
+	public static WriteHandlerPtr tutankhm_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset ^ 1, data);
-	}
+	} };
 	
-	static WRITE_HANDLER( flip_screen_x_w )
-	{
+	public static WriteHandlerPtr flip_screen_x_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_x_set(data);
-	}
+	} };
 	
-	static WRITE_HANDLER( flip_screen_y_w )
-	{
+	public static WriteHandlerPtr flip_screen_y_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		flip_screen_y_set(data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

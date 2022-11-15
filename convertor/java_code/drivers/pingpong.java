@@ -7,14 +7,11 @@ package drivers;
 public class pingpong
 {
 	
-	extern WRITE_HANDLER( pingpong_videoram_w );
-	extern WRITE_HANDLER( pingpong_colorram_w );
-	
+	extern extern 
 	extern extern extern 
 	static int intenable;
 	
-	static WRITE_HANDLER( coin_w )
-	{
+	public static WriteHandlerPtr coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bit 2 = irq enable, bit 3 = nmi enable */
 		intenable = data & 0x0c;
 	
@@ -23,7 +20,7 @@ public class pingpong
 		coin_counter_w(1,data & 2);
 	
 		/* other bits unknown */
-	}
+	} };
 	
 	public static InterruptHandlerPtr pingpong_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

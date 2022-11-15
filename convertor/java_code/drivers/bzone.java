@@ -269,10 +269,9 @@ public class bzone
 	} };
 	
 	
-	static WRITE_HANDLER( bzone_coin_counter_w )
-	{
+	public static WriteHandlerPtr bzone_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	
 	
@@ -861,11 +860,10 @@ public class bzone
 	} };
 	
 	
-	static WRITE_HANDLER( analog_select_w )
-	{
+	public static WriteHandlerPtr analog_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset <= 2)
 			analog_data = readinputport(6 + offset);
-	}
+	} };
 	
 	
 	public static DriverInitHandlerPtr init_bzone  = new DriverInitHandlerPtr() { public void handler(){

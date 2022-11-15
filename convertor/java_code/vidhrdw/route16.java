@@ -72,8 +72,7 @@ public class route16
 	/***************************************************************************
 	  route16_out0_w
 	***************************************************************************/
-	WRITE_HANDLER( route16_out0_w )
-	{
+	public static WriteHandlerPtr route16_out0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last_write = 0;
 	
 		if (data == last_write) return;
@@ -86,13 +85,12 @@ public class route16
 	
 		video_remap_1 = 1;
 		last_write = data;
-	}
+	} };
 	
 	/***************************************************************************
 	  route16_out1_w
 	***************************************************************************/
-	WRITE_HANDLER( route16_out1_w )
-	{
+	public static WriteHandlerPtr route16_out1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last_write = 0;
 	
 		if (data == last_write) return;
@@ -107,15 +105,14 @@ public class route16
 	
 		video_remap_2 = 1;
 		last_write = data;
-	}
+	} };
 	
 	/***************************************************************************
 	
 	  Handle Stratovox's extra sound effects.
 	
 	***************************************************************************/
-	WRITE_HANDLER( stratvox_sn76477_w )
-	{
+	public static WriteHandlerPtr stratvox_sn76477_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* get out for Route 16 */
 		if (route16_hardware) return;
 	
@@ -134,7 +131,7 @@ public class route16
 		SN76477_envelope_w(0,(data >> 2) & 3);
 	    SN76477_vco_w(0,(data >> 1) & 1);
 	    SN76477_enable_w(0,data & 1);
-	}
+	} };
 	
 	/***************************************************************************
 	  route16_sharedram_r
@@ -146,8 +143,7 @@ public class route16
 	/***************************************************************************
 	  route16_sharedram_w
 	***************************************************************************/
-	WRITE_HANDLER( route16_sharedram_w )
-	{
+	public static WriteHandlerPtr route16_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		route16_sharedram[offset] = data;
 	
 		// 4313-4319 are used in Route 16 as triggers to wake the other CPU
@@ -156,7 +152,7 @@ public class route16
 			// Let the other CPU run
 			cpu_yield();
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	  guessing that the unconnected IN3 and OUT2 on the stratvox schematic
@@ -182,10 +178,9 @@ public class route16
 		return 0xf8|bit2|bit1|bit0;
 	} };
 	
-	WRITE_HANDLER ( speakres_out2_w )
-	{
+	public static WriteHandlerPtr speakres_out2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		speakres_vrx=0;
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -205,22 +200,20 @@ public class route16
 	/***************************************************************************
 	  route16_videoram1_w
 	***************************************************************************/
-	WRITE_HANDLER( route16_videoram1_w )
-	{
+	public static WriteHandlerPtr route16_videoram1_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		route16_videoram1[offset] = data;
 	
 		common_videoram_w(offset, data, 0, tmpbitmap1);
-	}
+	} };
 	
 	/***************************************************************************
 	  route16_videoram2_w
 	***************************************************************************/
-	WRITE_HANDLER( route16_videoram2_w )
-	{
+	public static WriteHandlerPtr route16_videoram2_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		route16_videoram2[offset] = data;
 	
 		common_videoram_w(offset, data, 4, tmpbitmap2);
-	}
+	} };
 	
 	/***************************************************************************
 	  common_videoram_w

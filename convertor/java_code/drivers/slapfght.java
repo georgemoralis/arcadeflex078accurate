@@ -198,36 +198,15 @@ public class slapfght
 	extern unsigned char *slapfight_colorram;
 	extern size_t slapfight_videoram_size;
 	extern unsigned char *slapfight_scrollx_lo,*slapfight_scrollx_hi,*slapfight_scrolly;
-	WRITE_HANDLER( slapfight_flipscreen_w );
-	WRITE_HANDLER( slapfight_fixram_w );
-	WRITE_HANDLER( slapfight_fixcol_w );
-	WRITE_HANDLER( slapfight_videoram_w );
-	WRITE_HANDLER( slapfight_colorram_w );
 	
 	/* MACHINE */
 	extern unsigned char *slapfight_dpram;
 	extern size_t slapfight_dpram_size;
-	WRITE_HANDLER( slapfight_dpram_w );
 	
-	WRITE_HANDLER( slapfight_port_00_w );
-	WRITE_HANDLER( slapfight_port_01_w );
-	WRITE_HANDLER( getstar_port_04_w );
-	WRITE_HANDLER( slapfight_port_06_w );
-	WRITE_HANDLER( slapfight_port_07_w );
-	WRITE_HANDLER( slapfight_port_08_w );
-	WRITE_HANDLER( slapfight_port_09_w );
 	
 	/* MCU */
 	
-	WRITE_HANDLER( tigerh_68705_portA_w );
-	WRITE_HANDLER( tigerh_68705_portB_w );
-	WRITE_HANDLER( tigerh_68705_portC_w );
-	WRITE_HANDLER( tigerh_68705_ddrA_w );
-	WRITE_HANDLER( tigerh_68705_ddrB_w );
-	WRITE_HANDLER( tigerh_68705_ddrC_w );
-	WRITE_HANDLER( tigerh_mcu_w );
 	
-	WRITE_HANDLER( getstar_sh_intenable_w );
 	
 	
 	

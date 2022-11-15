@@ -135,36 +135,24 @@ package drivers;
 public class angelkds
 {
 	
-	static WRITE_HANDLER( angelkds_sound_w );
 	
 	extern data8_t *angelkds_txvideoram, *angelkds_bgtopvideoram, *angelkds_bgbotvideoram;
 	
-	WRITE_HANDLER( angelkds_bgtopvideoram_w );
-	WRITE_HANDLER( angelkds_bgbotvideoram_w );
-	WRITE_HANDLER( angelkds_txvideoram_w );
 	
-	WRITE_HANDLER( angelkds_bgtopbank_write );
-	WRITE_HANDLER( angelkds_bgtopscroll_write );
-	WRITE_HANDLER( angelkds_bgbotbank_write );
-	WRITE_HANDLER( angelkds_bgbotscroll_write );
-	WRITE_HANDLER( angelkds_txbank_write );
 	
-	WRITE_HANDLER( angelkds_paletteram_w );
-	WRITE_HANDLER( angelkds_layer_ctrl_write );
 	
 	
 	/*** CPU Banking
 	
 	*/
 	
-	static WRITE_HANDLER ( angelkds_cpu_bank_write )
-	{
+	public static WriteHandlerPtr angelkds_cpu_bank_write = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int bankaddress;
 		unsigned char *RAM = memory_region(REGION_USER1);
 	
 		bankaddress = data & 0x0f;
 		cpu_setbank(1,&RAM[bankaddress*0x4000]);
-	}
+	} };
 	
 	
 	/*** Fake Inputs
@@ -430,10 +418,9 @@ public class angelkds
 	
 	static UINT8 angelkds_sound[4];
 	
-	static WRITE_HANDLER( angelkds_sound_w )
-	{
+	public static WriteHandlerPtr angelkds_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		angelkds_sound[offset]=data;
-	}
+	} };
 	
 	public static ReadHandlerPtr angelkds_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return angelkds_sound[offset];

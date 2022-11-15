@@ -192,15 +192,14 @@ public class nmk16
 	
 	
 	
-	WRITE_HANDLER ( ssmissin_soundbank_w )
-	{
+	public static WriteHandlerPtr ssmissin_soundbank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *rom = memory_region(REGION_SOUND1);
 		int bank;
 	
 		bank = data & 0x3;
 	
 		memcpy(rom + 0x20000,rom + 0x80000 + bank * 0x20000,0x20000);
-	}
+	} };
 	
 	
 	static data16_t *ram;
@@ -368,15 +367,13 @@ public class nmk16
 		return soundlatch2_r(0);
 	}
 	
-	static WRITE_HANDLER( macross2_sound_bank_w )
-	{
+	public static WriteHandlerPtr macross2_sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		const UINT8 *rom = memory_region(REGION_CPU2) + 0x10000;
 	
 		cpu_setbank(1,rom + (data & 0x07) * 0x4000);
-	}
+	} };
 	
-	static WRITE_HANDLER( macross2_oki6295_bankswitch_w )
-	{
+	public static WriteHandlerPtr macross2_oki6295_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* The OKI6295 ROM space is divided in four banks, each one indepentently
 		   controlled. The sample table at the beginning of the addressing space is
 		   divided in four pages as well, banked together with the sample data. */
@@ -394,7 +391,7 @@ public class nmk16
 		/* and also copy the samples address table */
 		rom += banknum * TABLESIZE;
 		memcpy(rom,rom + 0x40000 + bankaddr,TABLESIZE);
-	}
+	} };
 	
 	static WRITE16_HANDLER( bjtwin_oki6295_bankswitch_w )
 	{

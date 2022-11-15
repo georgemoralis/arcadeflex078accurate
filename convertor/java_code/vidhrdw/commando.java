@@ -81,38 +81,33 @@ public class commando
 	
 	***************************************************************************/
 	
-	WRITE_HANDLER( commando_fgvideoram_w )
-	{
+	public static WriteHandlerPtr commando_fgvideoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		commando_fgvideoram[offset] = data;
 		tilemap_mark_tile_dirty(fg_tilemap,offset & 0x3ff);
-	}
+	} };
 	
-	WRITE_HANDLER( commando_bgvideoram_w )
-	{
+	public static WriteHandlerPtr commando_bgvideoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		commando_bgvideoram[offset] = data;
 		tilemap_mark_tile_dirty(bg_tilemap,offset & 0x3ff);
-	}
+	} };
 	
 	
-	WRITE_HANDLER( commando_scrollx_w )
-	{
+	public static WriteHandlerPtr commando_scrollx_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static unsigned char scroll[2];
 	
 		scroll[offset] = data;
 		tilemap_set_scrollx(bg_tilemap,0,scroll[0] | (scroll[1] << 8));
-	}
+	} };
 	
-	WRITE_HANDLER( commando_scrolly_w )
-	{
+	public static WriteHandlerPtr commando_scrolly_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static unsigned char scroll[2];
 	
 		scroll[offset] = data;
 		tilemap_set_scrolly(bg_tilemap,0,scroll[0] | (scroll[1] << 8));
-	}
+	} };
 	
 	
-	WRITE_HANDLER( commando_c804_w )
-	{
+	public static WriteHandlerPtr commando_c804_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* bits 0 and 1 are coin counters */
 		coin_counter_w(0, data & 0x01);
 		coin_counter_w(1, data & 0x02);
@@ -122,7 +117,7 @@ public class commando
 	
 		/* bit 7 flips screen */
 		flip_screen_set(data & 0x80);
-	}
+	} };
 	
 	
 	

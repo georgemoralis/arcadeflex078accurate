@@ -48,10 +48,9 @@ public class slapfght
 	
 	/* Interrupt handlers cpu & sound */
 	
-	WRITE_HANDLER( slapfight_dpram_w )
-	{
+	public static WriteHandlerPtr slapfight_dpram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    slapfight_dpram[offset]=data;
-	}
+	} };
 	
 	public static ReadHandlerPtr slapfight_dpram_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    return slapfight_dpram[offset];
@@ -66,43 +65,37 @@ public class slapfght
 	*/
 	
 	/* Reset and hold sound CPU */
-	WRITE_HANDLER( slapfight_port_00_w )
-	{
+	public static WriteHandlerPtr slapfight_port_00_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_reset_line(1,ASSERT_LINE);
 		getstar_sh_intenabled = 0;
-	}
+	} };
 	
 	/* Release reset on sound CPU */
-	WRITE_HANDLER( slapfight_port_01_w )
-	{
+	public static WriteHandlerPtr slapfight_port_01_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_reset_line(1,CLEAR_LINE);
-	}
+	} };
 	
 	/* Disable and clear hardware interrupt */
-	WRITE_HANDLER( slapfight_port_06_w )
-	{
+	public static WriteHandlerPtr slapfight_port_06_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		interrupt_enable_w(0,0);
-	}
+	} };
 	
 	/* Enable hardware interrupt */
-	WRITE_HANDLER( slapfight_port_07_w )
-	{
+	public static WriteHandlerPtr slapfight_port_07_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		interrupt_enable_w(0,1);
-	}
+	} };
 	
-	WRITE_HANDLER( slapfight_port_08_w )
-	{
+	public static WriteHandlerPtr slapfight_port_08_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1,&RAM[0x10000]);
-	}
+	} };
 	
-	WRITE_HANDLER( slapfight_port_09_w )
-	{
+	public static WriteHandlerPtr slapfight_port_09_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1,&RAM[0x14000]);
-	}
+	} };
 	
 	
 	/* Status register */
@@ -135,11 +128,10 @@ public class slapfght
 	} };
 	
 	/* Enable hardware interrupt of sound cpu */
-	WRITE_HANDLER( getstar_sh_intenable_w )
-	{
+	public static WriteHandlerPtr getstar_sh_intenable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		getstar_sh_intenabled = 1;
 		logerror("cpu #1 PC=%d: %d written to a0e0\n",activecpu_get_pc(),data);
-	}
+	} };
 	
 	
 	
@@ -149,10 +141,9 @@ public class slapfght
 			cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
 	} };
 	
-	WRITE_HANDLER( getstar_port_04_w )
-	{
+	public static WriteHandlerPtr getstar_port_04_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//	cpu_halt(0,0);
-	}
+	} };
 	
 	
 	/* Tiger Heli MCU */
@@ -167,24 +158,21 @@ public class slapfght
 		return (portA_out & ddrA) | (portA_in & ~ddrA);
 	} };
 	
-	WRITE_HANDLER( tigerh_68705_portA_w )
-	{
+	public static WriteHandlerPtr tigerh_68705_portA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		portA_out = data;//?
 		from_mcu = portA_out;
 		mcu_sent = 1;
-	}
+	} };
 	
-	WRITE_HANDLER( tigerh_68705_ddrA_w )
-	{
+	public static WriteHandlerPtr tigerh_68705_ddrA_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ddrA = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr tigerh_68705_portB_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (portB_out & ddrB) | (portB_in & ~ddrB);
 	} };
 	
-	WRITE_HANDLER( tigerh_68705_portB_w )
-	{
+	public static WriteHandlerPtr tigerh_68705_portB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	
 		if ((ddrB & 0x02) && (~data & 0x02) && (portB_out & 0x02))
 		{
@@ -199,12 +187,11 @@ public class slapfght
 		}
 	
 		portB_out = data;
-	}
+	} };
 	
-	WRITE_HANDLER( tigerh_68705_ddrB_w )
-	{
+	public static WriteHandlerPtr tigerh_68705_ddrB_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ddrB = data;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr tigerh_68705_portC_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -214,23 +201,20 @@ public class slapfght
 		return (portC_out & ddrC) | (portC_in & ~ddrC);
 	} };
 	
-	WRITE_HANDLER( tigerh_68705_portC_w )
-	{
+	public static WriteHandlerPtr tigerh_68705_portC_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		portC_out = data;
-	}
+	} };
 	
-	WRITE_HANDLER( tigerh_68705_ddrC_w )
-	{
+	public static WriteHandlerPtr tigerh_68705_ddrC_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ddrC = data;
-	}
+	} };
 	
-	WRITE_HANDLER( tigerh_mcu_w )
-	{
+	public static WriteHandlerPtr tigerh_mcu_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		from_main = data;
 		main_sent = 1;
 		mcu_sent=0;
 		cpu_set_irq_line(2,0,ASSERT_LINE);
-	}
+	} };
 	
 	public static ReadHandlerPtr tigerh_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		mcu_sent = 0;

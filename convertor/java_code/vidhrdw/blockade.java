@@ -9,8 +9,7 @@ public class blockade
 	
 	static struct tilemap *bg_tilemap;
 	
-	WRITE_HANDLER( blockade_videoram_w )
-	{
+	public static WriteHandlerPtr blockade_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (videoram[offset] != data)
 		{
 			videoram[offset] = data;
@@ -22,7 +21,7 @@ public class blockade
 			logerror("blockade_videoram_w: scanline %d\n", cpu_getscanline());
 			cpu_spinuntil_int();
 		}
-	}
+	} };
 	
 	static void get_bg_tile_info(int tile_index)
 	{

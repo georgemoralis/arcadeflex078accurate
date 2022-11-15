@@ -33,15 +33,9 @@ public class trackfld
 	extern UINT8 *trackfld_scroll;
 	extern UINT8 *trackfld_scroll2;
 	
-	extern WRITE_HANDLER( trackfld_videoram_w );
-	extern WRITE_HANDLER( trackfld_colorram_w );
-	extern WRITE_HANDLER( trackfld_flipscreen_w );
-	
 	extern extern extern 
-	extern WRITE_HANDLER( konami_sh_irqtrigger_w );
-	extern extern extern WRITE_HANDLER( trackfld_sound_w );
-	extern extern WRITE_HANDLER( hyprolyb_ADPCM_data_w );
-	
+	extern extern extern 
+	extern extern extern extern extern extern 
 	extern struct SN76496interface konami_sn76496_interface;
 	extern struct DACinterface konami_dac_interface;
 	extern struct ADPCMinterface hyprolyb_adpcm_interface;
@@ -145,10 +139,9 @@ public class trackfld
 		}
 	} };
 	
-	static WRITE_HANDLER( coin_w )
-	{
+	public static WriteHandlerPtr coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data & 1);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

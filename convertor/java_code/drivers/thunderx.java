@@ -48,13 +48,12 @@ public class thunderx
 			return ram[offset];
 	} };
 	
-	static WRITE_HANDLER( scontra_bankedram_w )
-	{
+	public static WriteHandlerPtr scontra_bankedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (palette_selected)
 			paletteram_xBBBBBGGGGGRRRRR_swap_w(offset,data);
 		else
 			ram[offset] = data;
-	}
+	} };
 	
 	public static ReadHandlerPtr thunderx_bankedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (rambank & 0x01)
@@ -76,8 +75,7 @@ public class thunderx
 			return paletteram_r(offset);
 	} };
 	
-	static WRITE_HANDLER( thunderx_bankedram_w )
-	{
+	public static WriteHandlerPtr thunderx_bankedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (rambank & 0x01)
 			ram[offset] = data;
 		else if (rambank & 0x10)
@@ -93,7 +91,7 @@ public class thunderx
 		}
 		else
 			paletteram_xBBBBBGGGGGRRRRR_swap_w(offset,data);
-	}
+	} };
 	
 	/*
 	this is the data written to internal ram on startup:
@@ -284,8 +282,7 @@ public class thunderx
 		run_collisions(X0,Y0,X1,Y1,CM,HM);
 	}
 	
-	static WRITE_HANDLER( thunderx_1f98_w )
-	{
+	public static WriteHandlerPtr thunderx_1f98_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	// logerror("%04x: 1f98_w %02x\n",activecpu_get_pc(),data);
 	
 		/* bit 0 = enable char ROM reading through the video RAM */
@@ -304,10 +301,9 @@ public class thunderx
 		}
 	
 		unknown_enable = data;
-	}
+	} };
 	
-	WRITE_HANDLER( scontra_bankswitch_w )
-	{
+	public static WriteHandlerPtr scontra_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		int offs;
 	
@@ -326,10 +322,9 @@ public class thunderx
 	
 		/* bit 7 controls layer priority */
 		scontra_priority = data & 0x80;
-	}
+	} };
 	
-	static WRITE_HANDLER( thunderx_videobank_w )
-	{
+	public static WriteHandlerPtr thunderx_videobank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	//logerror("%04x: select video ram bank %02x\n",activecpu_get_pc(),data);
 		/* 0x01 = work RAM at 4000-5fff */
 		/* 0x00 = palette at 5800-5fff */
@@ -342,22 +337,20 @@ public class thunderx
 	
 		/* bit 3 controls layer priority (seems to be always 1) */
 		scontra_priority = data & 0x08;
-	}
+	} };
 	
-	static WRITE_HANDLER( thunderx_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr thunderx_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( scontra_snd_bankswitch_w )
-	{
+	public static WriteHandlerPtr scontra_snd_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		/* b3-b2: bank for chanel B */
 		/* b1-b0: bank for chanel A */
 	
 		int bank_A = (data & 0x03);
 		int bank_B = ((data >> 2) & 0x03);
 		K007232_set_bank( 0, bank_A, bank_B );
-	}
+	} };
 	
 	/***************************************************************************/
 	

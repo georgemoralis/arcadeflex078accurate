@@ -8,15 +8,7 @@
 
 
 
-WRITE_HANDLER( pengo_gfxbank_w );
-WRITE_HANDLER( pengo_flipscreen_w );
 
 
-WRITE_HANDLER( vanvan_bgcolor_w );
 
 extern data8_t *sprite_bank, *tiles_bankram;
-WRITE_HANDLER( s2650games_videoram_w );
-WRITE_HANDLER( s2650games_colorram_w );
-WRITE_HANDLER( s2650games_scroll_w );
-WRITE_HANDLER( s2650games_tilesbank_w );
-WRITE_HANDLER( s2650games_flipscreen_w );

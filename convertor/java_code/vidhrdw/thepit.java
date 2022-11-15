@@ -143,8 +143,7 @@ public class thepit
 	} };
 	
 	
-	WRITE_HANDLER( thepit_attributes_w )
-	{
+	public static WriteHandlerPtr thepit_attributes_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if ((offset & 1) && thepit_attributesram[offset] != data)
 		{
 			int i;
@@ -155,13 +154,12 @@ public class thepit
 		}
 	
 		thepit_attributesram[offset] = data;
-	}
+	} };
 	
 	
-	WRITE_HANDLER( intrepid_graphics_bank_select_w )
-	{
+	public static WriteHandlerPtr intrepid_graphics_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		set_vh_global_attribute(&graphics_bank, data << 1);
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr thepit_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -178,10 +176,9 @@ public class thepit
 	} };
 	
 	
-	WRITE_HANDLER( thepit_sound_enable_w )
-	{
+	public static WriteHandlerPtr thepit_sound_enable_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		mixer_sound_enable_global_w(data);
-	}
+	} };
 	
 	
 	/***************************************************************************

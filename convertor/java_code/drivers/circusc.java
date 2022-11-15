@@ -22,11 +22,7 @@ public class circusc
 	extern unsigned char *circusc_scroll;
 	extern unsigned char *circusc_videoram,*circusc_colorram;
 	
-	WRITE_HANDLER( circusc_videoram_w );
-	WRITE_HANDLER( circusc_colorram_w );
 	
-	WRITE_HANDLER( circusc_flipscreen_w );
-	WRITE_HANDLER( circusc_sprite_bank_select_w );
 	
 	
 	
@@ -39,20 +35,17 @@ public class circusc
 		return clock & 0xF;
 	} };
 	
-	static WRITE_HANDLER( circusc_sh_irqtrigger_w )
-	{
+	public static WriteHandlerPtr circusc_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
-	}
+	} };
 	
-	static WRITE_HANDLER( circusc_dac_w )
-	{
+	public static WriteHandlerPtr circusc_dac_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_data_w(0,data);
-	}
+	} };
 	
-	static WRITE_HANDLER( circusc_coin_counter_w )
-	{
+	public static WriteHandlerPtr circusc_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	
 	

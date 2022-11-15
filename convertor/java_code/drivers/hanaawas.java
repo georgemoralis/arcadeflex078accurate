@@ -39,10 +39,7 @@ public class hanaawas
 {
 	
 	
-	extern WRITE_HANDLER( hanaawas_videoram_w );
-	extern WRITE_HANDLER( hanaawas_colorram_w );
-	extern WRITE_HANDLER( hanaawas_portB_w );
-	
+	extern extern extern 
 	extern extern extern 
 	
 	public static ReadHandlerPtr hanaawas_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){

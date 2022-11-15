@@ -47,17 +47,11 @@ public class nitedrvr
 	extern int nitedrvr_gear;
 	extern int nitedrvr_track;
 	
-	extern extern extern extern extern WRITE_HANDLER( nitedrvr_steering_reset_w );
-	extern WRITE_HANDLER( nitedrvr_out0_w );
-	extern WRITE_HANDLER( nitedrvr_out1_w );
-	extern WRITE_HANDLER( nitedrvr_ram_w );
-	extern void nitedrvr_crash_toggle(int dummy);
+	extern extern extern extern extern extern extern extern extern void nitedrvr_crash_toggle(int dummy);
 	
 	extern UINT8 *nitedrvr_hvc;
 	
-	extern WRITE_HANDLER( nitedrvr_videoram_w );
-	extern WRITE_HANDLER( nitedrvr_hvc_w );
-	
+	extern extern 
 	extern extern 
 	
 	/*************************************

@@ -40,15 +40,10 @@ public class gotya
 	extern UINT8 *gotya_scroll;
 	extern UINT8 *gotya_videoram2;
 	
-	extern WRITE_HANDLER( gotya_videoram_w );
-	extern WRITE_HANDLER( gotya_colorram_w );
-	extern WRITE_HANDLER( gotya_videoram2_w );
-	
 	extern extern extern 
-	extern WRITE_HANDLER( gotya_video_control_w );
-	
-	extern WRITE_HANDLER( gotya_soundlatch_w );
-	
+	extern extern extern 
+	extern 
+	extern 
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x3fff, MRA_ROM },

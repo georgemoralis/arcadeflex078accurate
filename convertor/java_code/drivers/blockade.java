@@ -41,8 +41,7 @@ public class blockade
 	
 	/* #define BLOCKADE_LOG 1 */
 	
-	extern WRITE_HANDLER( blockade_videoram_w );
-	
+	extern 
 	extern extern 
 	/* These are used to simulate coin latch circuitry */
 	
@@ -125,8 +124,7 @@ public class blockade
 	    return (coin_latch<<7) | (temp);
 	} };
 	
-	WRITE_HANDLER( blockade_coin_latch_w )
-	{
+	public static WriteHandlerPtr blockade_coin_latch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	    if (data & 0x80)
 	    {
 	    #ifdef BLOCKADE_LOG
@@ -155,32 +153,29 @@ public class blockade
 	    }
 	
 	    return;
-	}
+	} };
 	
-	WRITE_HANDLER( blockade_sound_freq_w )
-	{
+	public static WriteHandlerPtr blockade_sound_freq_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	#ifdef BLOCKADE_LOG
 	    printf("Sound Freq Write: %d\n",data);
 	#endif
 	    return;
-	}
+	} };
 	
-	WRITE_HANDLER( blockade_env_on_w )
-	{
+	public static WriteHandlerPtr blockade_env_on_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	#ifdef BLOCKADE_LOG
 	    printf("Boom Start\n");
 	#endif
 	    sample_start(0,0,0);
 	    return;
-	}
+	} };
 	
-	WRITE_HANDLER( blockade_env_off_w )
-	{
+	public static WriteHandlerPtr blockade_env_off_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 	#ifdef BLOCKADE_LOG
 	    printf("Boom End\n");
 	#endif
 	    return;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 	    { 0x0000, 0x07ff, MRA_ROM },

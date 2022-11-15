@@ -30,16 +30,10 @@ public class gng
 	
 	extern unsigned char *gng_fgvideoram;
 	extern unsigned char *gng_bgvideoram;
-	WRITE_HANDLER( gng_fgvideoram_w );
-	WRITE_HANDLER( gng_bgvideoram_w );
-	WRITE_HANDLER( gng_bgscrollx_w );
-	WRITE_HANDLER( gng_bgscrolly_w );
-	WRITE_HANDLER( gng_flipscreen_w );
 	
 	
 	
-	static WRITE_HANDLER( gng_bankswitch_w )
-	{
+	public static WriteHandlerPtr gng_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		unsigned char *rom = memory_region(REGION_CPU1);
 	
 	
@@ -51,12 +45,11 @@ public class gng
 		{
 			cpu_setbank(1,rom + 0x10000 + (data & 3) * 0x2000);
 		}
-	}
+	} };
 	
-	static WRITE_HANDLER( gng_coin_counter_w )
-	{
+	public static WriteHandlerPtr gng_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x2fff, MRA_RAM },

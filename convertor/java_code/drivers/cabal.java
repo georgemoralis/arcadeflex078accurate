@@ -207,13 +207,12 @@ public class cabal
 		}
 	} };
 	
-	static WRITE_HANDLER( cabalbl_snd_w )
-	{
+	public static WriteHandlerPtr cabalbl_snd_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch( offset ){
 			case 0x00: cabalbl_play_adpcm( 0, data ); break;
 			case 0x02: cabalbl_play_adpcm( 1, data ); break;
 	     }
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem_sound )
 		{ 0x0000, 0x1fff, MRA_ROM },

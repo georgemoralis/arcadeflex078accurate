@@ -298,7 +298,7 @@ public class tms9928a
 	    return b;
 	}
 	
-	WRITE_HANDLER (TMS9928A_vram_w) {
+	public static WriteHandlerPtr TMS9928A_vram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	    int i;
 	
 	    if (tms.vMem[tms.Addr] != data) {
@@ -340,7 +340,7 @@ public class tms9928a
 	    return b;
 	}
 	
-	WRITE_HANDLER (TMS9928A_register_w) {
+	public static WriteHandlerPtr TMS9928A_register_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		int reg;
 	
 	    if (tms.latch) {
@@ -358,7 +358,7 @@ public class tms9928a
 	            }
 	        }
 	        tms.latch = 0;
-	    } else {
+	    } }; else {
 	        tms.FirstByte = data;
 			tms.latch = 1;
 	    }

@@ -41,23 +41,7 @@ public class nbmj8688
 	
 	
 	
-	WRITE_HANDLER( nbmj8688_color_lookup_w );
-	WRITE_HANDLER( nbmj8688_blitter_w );
-	WRITE_HANDLER( mjsikaku_gfxflag1_w );
-	WRITE_HANDLER( mjsikaku_gfxflag2_w );
-	WRITE_HANDLER( mjsikaku_gfxflag3_w );
-	WRITE_HANDLER( mjsikaku_scrolly_w );
-	WRITE_HANDLER( mjsikaku_romsel_w );
-	WRITE_HANDLER( secolove_romsel_w );
-	WRITE_HANDLER( seiha_romsel_w );
-	WRITE_HANDLER( crystal2_romsel_w );
 	
-	WRITE_HANDLER( nbmj8688_HD61830B_0_instr_w );
-	WRITE_HANDLER( nbmj8688_HD61830B_0_data_w );
-	WRITE_HANDLER( nbmj8688_HD61830B_1_instr_w );
-	WRITE_HANDLER( nbmj8688_HD61830B_1_data_w );
-	WRITE_HANDLER( nbmj8688_HD61830B_both_instr_w );
-	WRITE_HANDLER( nbmj8688_HD61830B_both_data_w );
 	
 	
 	public static DriverInitHandlerPtr init_mjsikaku  = new DriverInitHandlerPtr() { public void handler(){
@@ -366,11 +350,10 @@ public class nbmj8688
 	PORT_END
 	
 	
-	static WRITE_HANDLER( seiha_b0_w )
-	{
+	public static WriteHandlerPtr seiha_b0_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nb1413m3_outcoin_w(0,data);
 		nb1413m3_sndrombank1_w(0,data);
-	}
+	} };
 	
 	static PORT_WRITE_START( writeport_seiha )
 		{ 0x00, 0x00, nb1413m3_nmi_clock_w },

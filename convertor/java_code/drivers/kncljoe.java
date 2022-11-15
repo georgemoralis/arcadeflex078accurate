@@ -33,10 +33,7 @@ public class kncljoe
 	
 	
 	/* from vidhrdw */
-	extern extern extern extern WRITE_HANDLER(kncljoe_videoram_w);
-	extern WRITE_HANDLER(kncljoe_control_w);
-	extern WRITE_HANDLER(kncljoe_scroll_w);
-	extern UINT8 *kncljoe_scrollregs;
+	extern extern extern extern extern extern extern UINT8 *kncljoe_scrollregs;
 	
 	
 	static MEMORY_READ_START( readmem )

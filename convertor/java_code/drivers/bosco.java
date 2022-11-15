@@ -76,31 +76,14 @@ public class bosco
 {
 	
 	extern unsigned char *bosco_sharedram;
-	WRITE_HANDLER( bosco_sharedram_w );
-	WRITE_HANDLER( bosco_interrupt_enable_1_w );
-	WRITE_HANDLER( bosco_interrupt_enable_2_w );
-	WRITE_HANDLER( bosco_interrupt_enable_3_w );
-	WRITE_HANDLER( bosco_halt_w );
-	WRITE_HANDLER( bosco_customio_1_w );
-	WRITE_HANDLER( bosco_customio_2_w );
-	WRITE_HANDLER( bosco_customio_data_1_w );
-	WRITE_HANDLER( bosco_customio_data_2_w );
 	
-	WRITE_HANDLER( bosco_cpu_reset_w );
 	
 	extern unsigned char *bosco_videoram2,*bosco_colorram2;
 	extern unsigned char *bosco_radarx,*bosco_radary,*bosco_radarattr;
 	extern size_t bosco_radarram_size;
 	extern unsigned char *bosco_staronoff;
 	extern unsigned char *bosco_starblink;
-	WRITE_HANDLER( bosco_videoram2_w );
-	WRITE_HANDLER( bosco_colorram2_w );
-	WRITE_HANDLER( bosco_flipscreen_w );
-	WRITE_HANDLER( bosco_scrollx_w );
-	WRITE_HANDLER( bosco_scrolly_w );
-	WRITE_HANDLER( bosco_starcontrol_w );
 	
-	WRITE_HANDLER( pengo_sound_w );
 	int  bosco_sh_start(const struct MachineSound *msound);
 	void bosco_sh_stop(void);
 	extern unsigned char *pengo_soundregs;

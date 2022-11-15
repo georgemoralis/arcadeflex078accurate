@@ -41,10 +41,7 @@ public class starshp1
 	extern int starshp1_mux;
 	
 	extern 
-	extern WRITE_HANDLER( starshp1_sspic_w );
-	extern WRITE_HANDLER( starshp1_ssadd_w );
-	extern WRITE_HANDLER( starshp1_playfield_w );
-	
+	extern extern extern 
 	extern extern extern 
 	static int starshp1_analog_in_select;
 	
@@ -86,8 +83,7 @@ public class starshp1
 	} };
 	
 	
-	static WRITE_HANDLER( starshp1_audio_w )
-	{
+	public static WriteHandlerPtr starshp1_audio_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data &= 1;
 	
 		switch (offset & 7)
@@ -117,13 +113,12 @@ public class starshp1
 	
 		coin_lockout_w(0, !starshp1_attract);
 		coin_lockout_w(1, !starshp1_attract);
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( starshp1_collision_reset_w )
-	{
+	public static WriteHandlerPtr starshp1_collision_reset_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		starshp1_collision_latch = 0;
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr starshp1_port_1_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -159,14 +154,12 @@ public class starshp1
 	} };
 	
 	
-	static WRITE_HANDLER( starshp1_analog_in_w )
-	{
+	public static WriteHandlerPtr starshp1_analog_in_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		starshp1_analog_in_select = offset & 3;
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( starshp1_analog_out_w )
-	{
+	public static WriteHandlerPtr starshp1_analog_out_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset & 7)
 		{
 		case 1:
@@ -191,11 +184,10 @@ public class starshp1
 			starshp1_circle_size = data;
 			break;
 		}
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( starshp1_misc_w )
-	{
+	public static WriteHandlerPtr starshp1_misc_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data &= 1;
 	
 		switch (offset & 7)
@@ -225,13 +217,12 @@ public class starshp1
 			set_led_status(0, !data);
 			break;
 		}
-	}
+	} };
 	
 	
-	static WRITE_HANDLER( starshp1_zeropage_w )
-	{
+	public static WriteHandlerPtr starshp1_zeropage_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		memory_region(REGION_CPU1)[offset & 0xff] = data;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

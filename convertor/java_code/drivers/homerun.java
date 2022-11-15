@@ -28,18 +28,15 @@ public class homerun
 	extern int homerun_xpa,homerun_xpb,homerun_xpc;
 	extern data8_t *homerun_videoram;
 	
-	WRITE_HANDLER( homerun_videoram_w );
-	WRITE_HANDLER( homerun_color_w );
-	WRITE_HANDLER( homerun_banking_w );
 	
-	static WRITE_HANDLER(pa_w){homerun_xpa=data;}
-	static WRITE_HANDLER(pb_w){homerun_xpb=data;}
-	static WRITE_HANDLER(pc_w){homerun_xpc=data;}
+	public static WriteHandlerPtr pa_w = new WriteHandlerPtr() {public void handler(int offset, int data)omerun_xpa=data;}
+	public static WriteHandlerPtr pb_w = new WriteHandlerPtr() {public void handler(int offset, int data)omerun_xpb=data;}
+	public static WriteHandlerPtr pc_w = new WriteHandlerPtr() {public void handler(int offset, int data)omerun_xpc=data;}
 	
 	static ppi8255_interface ppi8255_intf =
 	{
 		1, 		
-		{ 0 },
+		{ 0 } };,
 		{ 0  },
 		{ 0  },
 		{ pa_w },
