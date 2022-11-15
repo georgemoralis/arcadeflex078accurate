@@ -256,15 +256,15 @@ public class angelkds
 		int no, r,g,b;
 	
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		no=offset & 0xff;
 	
-		g = (paletteram[no] & 0xf0)<< 0;
+		g = (paletteram.read(no)& 0xf0)<< 0;
 	
-		r = (paletteram[no] & 0x0f) << 4;
+		r = (paletteram.read(no)& 0x0f) << 4;
 	
-		b = (paletteram[no+0x100] & 0x0f) << 4;
+		b = (paletteram.read(no+0x100)& 0x0f) << 4;
 	
 		palette_set_color(no,r,g,b);
 	} };

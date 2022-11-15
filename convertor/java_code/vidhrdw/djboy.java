@@ -100,9 +100,9 @@ public class djboy
 		int r,g,b;
 		int val;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 		offset &= ~1;
-		val = (paletteram[offset]<<8) | paletteram[offset+1];
+		val = (paletteram.read(offset)<<8) | paletteram.read(offset+1);
 	
 		r = (val >> 8) & 0xf;
 		g = (val >> 4) & 0xf;

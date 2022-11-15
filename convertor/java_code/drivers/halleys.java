@@ -1148,7 +1148,7 @@ public class halleys
 		DWORD d, r, g, b, i, j;
 		DWORD *pal_ptr = internal_palette;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 		d = (DWORD)data;
 		j = d | BG_RGB;
 		pal_ptr[offset] = j;

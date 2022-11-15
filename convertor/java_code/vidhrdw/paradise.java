@@ -48,11 +48,11 @@ public class paradise
 	
 	/* 800 bytes for red, followed by 800 bytes for green & 800 bytes for blue */
 	public static WriteHandlerPtr paradise_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 		offset %= 0x800;
-		palette_set_color(offset,	paletteram[offset + 0x800 * 0],
-									paletteram[offset + 0x800 * 1],
-									paletteram[offset + 0x800 * 2]	);
+		palette_set_color(offset,	paletteram.read(offset + 0x800 * 0),
+									paletteram.read(offset + 0x800 * 1),
+									paletteram.read(offset + 0x800 * 2));
 	} };
 	
 	/***************************************************************************
@@ -84,9 +84,9 @@ public class paradise
 		int bank2 = (data & 0xf0);
 	
 		for (i = 0; i < 15; i++)
-			palette_set_color(0x800+i,	paletteram[0x200 + bank2 + i + 0x800 * 0],
-										paletteram[0x200 + bank2 + i + 0x800 * 1],
-										paletteram[0x200 + bank2 + i + 0x800 * 2]	);
+			palette_set_color(0x800+i,	paletteram.read(0x200 + bank2 + i + 0x800 * 0),
+										paletteram.read(0x200 + bank2 + i + 0x800 * 1),
+										paletteram.read(0x200 + bank2 + i + 0x800 * 2));
 		if (paradise_palbank != bank1)
 		{
 			paradise_palbank = bank1;

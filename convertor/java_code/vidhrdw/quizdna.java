@@ -128,10 +128,10 @@ public class quizdna
 		int r,g,b,d0,d1;
 		int offs = offset & ~1;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
-		d0 = paletteram[offs];
-		d1 = paletteram[offs+1];
+		d0 = paletteram.read(offs);
+		d1 = paletteram.read(offs+1);
 	
 		r = ((d1 << 1) & 0x1e) | ((d1 >> 4) & 1);
 		g = ((d0 >> 3) & 0x1e) | ((d1 >> 5) & 1);

@@ -35,7 +35,7 @@ public class cloud9
 		int blue;
 	
 	
-		paletteram[(offset & 0x3f)] = data;
+		paletteram.write((offset & 0x3f),data);
 		blue = (offset & 0x40);
 	
 		/* red component */

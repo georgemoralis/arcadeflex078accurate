@@ -46,15 +46,15 @@ public class nbmj8991
 	public static WriteHandlerPtr pstadium_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		if (!(offset & 1)) return;
 	
 		offset &= 0x1fe;
 	
-		r = ((paletteram[offset + 1] & 0x0f) << 4);
-		g = ((paletteram[offset + 0] & 0xf0) << 0);
-		b = ((paletteram[offset + 0] & 0x0f) << 4);
+		r = ((paletteram.read(offset + 1)& 0x0f) << 4);
+		g = ((paletteram.read(offset + 0)& 0xf0) << 0);
+		b = ((paletteram.read(offset + 0)& 0x0f) << 4);
 	
 		r = (r | (r >> 4));
 		g = (g | (g >> 4));
@@ -66,15 +66,15 @@ public class nbmj8991
 	public static WriteHandlerPtr galkoku_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		if (!(offset & 1)) return;
 	
 		offset &= 0x1fe;
 	
-		r = ((paletteram[offset + 0] & 0x0f) << 4);
-		g = ((paletteram[offset + 1] & 0xf0) << 0);
-		b = ((paletteram[offset + 1] & 0x0f) << 4);
+		r = ((paletteram.read(offset + 0)& 0x0f) << 4);
+		g = ((paletteram.read(offset + 1)& 0xf0) << 0);
+		b = ((paletteram.read(offset + 1)& 0x0f) << 4);
 	
 		r = (r | (r >> 4));
 		g = (g | (g >> 4));
@@ -86,15 +86,15 @@ public class nbmj8991
 	public static WriteHandlerPtr galkaika_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		if (!(offset & 1)) return;
 	
 		offset &= 0x1fe;
 	
-		r = ((paletteram[offset + 0] & 0x7c) >> 2);
-		g = (((paletteram[offset + 0] & 0x03) << 3) | ((paletteram[offset + 1] & 0xe0) >> 5));
-		b = ((paletteram[offset + 1] & 0x1f) >> 0);
+		r = ((paletteram.read(offset + 0)& 0x7c) >> 2);
+		g = (((paletteram.read(offset + 0)& 0x03) << 3) | ((paletteram.read(offset + 1)& 0xe0) >> 5));
+		b = ((paletteram.read(offset + 1)& 0x1f) >> 0);
 	
 		r = ((r << 3) | (r >> 2));
 		g = ((g << 3) | (g >> 2));

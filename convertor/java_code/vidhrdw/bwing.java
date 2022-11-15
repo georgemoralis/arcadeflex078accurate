@@ -136,7 +136,7 @@ public class bwing
 		const float rgb[4][3]={{0.85,0.95,1.00},{0.90,1.00,1.00},{0.80,1.00,1.00},{0.75,0.90,1.10}};
 		int r, g, b, i;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		r = ~data & 7;
 		g = ~data>>4 & 7;
@@ -159,7 +159,7 @@ public class bwing
 		palette_set_color(offset, r, g, b);
 	
 		#if BW_DEBUG
-			paletteram[offset+0x40] = palatch;
+			paletteram.write(offset+0x40,palatch);
 		#endif
 	} };
 	

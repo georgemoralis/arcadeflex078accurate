@@ -138,7 +138,7 @@ public class mcr3
 	public static WriteHandlerPtr mcr3_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 		offset &= 0x7f;
 	
 		/* high bit of red comes from low bit of address */

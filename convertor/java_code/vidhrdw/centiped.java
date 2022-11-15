@@ -163,7 +163,7 @@ public class centiped
 	public static WriteHandlerPtr centiped_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		r = 0xff * ((~data >> 0) & 1);
 		g = 0xff * ((~data >> 1) & 1);
@@ -272,7 +272,7 @@ public class centiped
 		int bit0,bit1,bit2;
 		int r,g,b;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		/* red component */
 		bit0 = (~data >> 5) & 0x01;

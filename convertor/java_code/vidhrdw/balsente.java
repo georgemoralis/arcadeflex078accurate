@@ -165,11 +165,11 @@ public class balsente
 	public static WriteHandlerPtr balsente_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int r, g, b;
 	
-		paletteram[offset] = data & 0x0f;
+		paletteram.write(offset,data & 0x0f);
 	
-		r = paletteram[(offset & ~3) + 0];
-		g = paletteram[(offset & ~3) + 1];
-		b = paletteram[(offset & ~3) + 2];
+		r = paletteram.read((offset & ~3) + 0);
+		g = paletteram.read((offset & ~3) + 1);
+		b = paletteram.read((offset & ~3) + 2);
 		palette_set_color(offset / 4, (r << 4) | r, (g << 4) | g, (b << 4) | b);
 	} };
 	
