@@ -84,7 +84,7 @@ public class _40love
 		offset 1	xxxx xxxx	x scroll (8 LSB bits)
 	*/
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int tile_number = videoram[tile_index];
 		int tile_attrib = colorram[(tile_index/64)*2];
@@ -100,7 +100,7 @@ public class _40love
 				code,
 				tile_attrib & 0x07,
 				0)
-	}
+	} };
 	
 	/***************************************************************************
 	

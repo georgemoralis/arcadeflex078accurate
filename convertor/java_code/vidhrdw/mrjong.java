@@ -90,14 +90,14 @@ public class mrjong
 		}
 	} };
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int code = videoram[tile_index] | ((colorram[tile_index] & 0x20) << 3);
 		int color = colorram[tile_index] & 0x1f;
 		int flags = ((colorram[tile_index] & 0x40) ? TILE_FLIPX : 0) | ((colorram[tile_index] & 0x80) ? TILE_FLIPY : 0);
 	
 		SET_TILE_INFO(0, code, color, flags)
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_mrjong  = new VideoStartHandlerPtr() { public int handler(){
 		bg_tilemap = tilemap_create(get_bg_tile_info, tilemap_scan_rows_flip_xy,
