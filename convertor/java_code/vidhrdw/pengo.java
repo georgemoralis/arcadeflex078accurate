@@ -253,30 +253,30 @@ public class pengo
 	
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,cliprect,TRANSPARENCY_NONE,0);
 	
-		if( spriteram_size )
+		if( spriteram_size[0] )
 		{
 			/* Draw the sprites. Note that it is important to draw them exactly in this */
 			/* order, to have the correct priorities. */
-			for (offs = spriteram_size - 2;offs > 2*2;offs -= 2)
+			for (offs = spriteram_size[0] - 2;offs > 2*2;offs -= 2)
 			{
 				int sx,sy;
 	
 	
-				sx = 272 - spriteram_2[offs + 1];
-				sy = spriteram_2[offs] - 31;
+				sx = 272 - spriteram_2.read(offs + 1);
+				sy = spriteram_2.read(offs)- 31;
 	
 				drawgfx(bitmap,Machine->gfx[gfx_bank*2+1],
-						spriteram[offs] >> 2,
-						spriteram[offs + 1] & 0x1f,
-						spriteram[offs] & 1,spriteram[offs] & 2,
+						spriteram.read(offs)>> 2,
+						spriteram.read(offs + 1)& 0x1f,
+						spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 						sx,sy,
 						&spriteclip,TRANSPARENCY_COLOR,0);
 	
 				/* also plot the sprite with wraparound (tunnel in Crush Roller) */
 				drawgfx(bitmap,Machine->gfx[gfx_bank*2+1],
-						spriteram[offs] >> 2,
-						spriteram[offs + 1] & 0x1f,
-						spriteram[offs] & 1,spriteram[offs] & 2,
+						spriteram.read(offs)>> 2,
+						spriteram.read(offs + 1)& 0x1f,
+						spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 						sx - 256,sy,
 						&spriteclip,TRANSPARENCY_COLOR,0);
 			}
@@ -287,21 +287,21 @@ public class pengo
 				int sx,sy;
 	
 	
-				sx = 272 - spriteram_2[offs + 1];
-				sy = spriteram_2[offs] - 31;
+				sx = 272 - spriteram_2.read(offs + 1);
+				sy = spriteram_2.read(offs)- 31;
 	
 				drawgfx(bitmap,Machine->gfx[gfx_bank*2+1],
-						spriteram[offs] >> 2,
-						spriteram[offs + 1] & 0x1f,
-						spriteram[offs] & 1,spriteram[offs] & 2,
+						spriteram.read(offs)>> 2,
+						spriteram.read(offs + 1)& 0x1f,
+						spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 						sx,sy + xoffsethack,
 						&spriteclip,TRANSPARENCY_COLOR,0);
 	
 				/* also plot the sprite with wraparound (tunnel in Crush Roller) */
 				drawgfx(bitmap,Machine->gfx[gfx_bank*2+1],
-						spriteram[offs] >> 2,
-						spriteram[offs + 1] & 0x1f,
-						spriteram[offs] & 2,spriteram[offs] & 1,
+						spriteram.read(offs)>> 2,
+						spriteram.read(offs + 1)& 0x1f,
+						spriteram.read(offs)& 2,spriteram.read(offs)& 1,
 						sx - 256,sy + xoffsethack,
 						&spriteclip,TRANSPARENCY_COLOR,0);
 			}
@@ -368,26 +368,26 @@ public class pengo
 	
 	    /* Draw the sprites. Note that it is important to draw them exactly in this */
 		/* order, to have the correct priorities. */
-		for (offs = spriteram_size - 2;offs >= 0;offs -= 2)
+		for (offs = spriteram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			int sx,sy;
 	
 	
-			sx = 272 - spriteram_2[offs + 1];
-			sy = spriteram_2[offs] - 31;
+			sx = 272 - spriteram_2.read(offs + 1);
+			sy = spriteram_2.read(offs)- 31;
 	
 			drawgfx(bitmap,Machine->gfx[gfx_bank*2+1],
-					spriteram[offs] >> 2,
-					spriteram[offs + 1] & 0x1f,
-					spriteram[offs] & 1,spriteram[offs] & 2,
+					spriteram.read(offs)>> 2,
+					spriteram.read(offs + 1)& 0x1f,
+					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
 					&spriteclip,TRANSPARENCY_PEN,0);
 	
 	        /* also plot the sprite with wraparound (tunnel in Crush Roller) */
 	        drawgfx(bitmap,Machine->gfx[gfx_bank*2+1],
-					spriteram[offs] >> 2,
-					spriteram[offs + 1] & 0x1f,
-					spriteram[offs] & 1,spriteram[offs] & 2,
+					spriteram.read(offs)>> 2,
+					spriteram.read(offs + 1)& 0x1f,
+					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx - 256,sy,
 					&spriteclip,TRANSPARENCY_PEN,0);
 		}
@@ -457,18 +457,18 @@ public class pengo
 	
 		tilemap_draw(bitmap,cliprect,tilemap,0,0);
 	
-		for (offs = spriteram_size - 2;offs > 2*2;offs -= 2)
+		for (offs = spriteram_size[0] - 2;offs > 2*2;offs -= 2)
 		{
 			int sx,sy;
 	
 	
-			sx = 255 - spriteram_2[offs + 1];
-			sy = spriteram_2[offs] - 15;
+			sx = 255 - spriteram_2.read(offs + 1);
+			sy = spriteram_2.read(offs)- 15;
 	
 			drawgfx(bitmap,Machine->gfx[1],
-					(spriteram[offs] >> 2) | ((sprite_bank[offs] & 3) << 6),
-					spriteram[offs + 1] & 0x1f,
-					spriteram[offs] & 1,spriteram[offs] & 2,
+					(spriteram.read(offs)>> 2) | ((sprite_bank[offs] & 3) << 6),
+					spriteram.read(offs + 1)& 0x1f,
+					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
 					cliprect,TRANSPARENCY_COLOR,0);
 		}
@@ -479,13 +479,13 @@ public class pengo
 			int sx,sy;
 	
 	
-			sx = 255 - spriteram_2[offs + 1];
-			sy = spriteram_2[offs] - 15;
+			sx = 255 - spriteram_2.read(offs + 1);
+			sy = spriteram_2.read(offs)- 15;
 	
 			drawgfx(bitmap,Machine->gfx[1],
-					(spriteram[offs] >> 2) | ((sprite_bank[offs] & 3)<<6),
-					spriteram[offs + 1] & 0x1f,
-					spriteram[offs] & 1,spriteram[offs] & 2,
+					(spriteram.read(offs)>> 2) | ((sprite_bank[offs] & 3)<<6),
+					spriteram.read(offs + 1)& 0x1f,
+					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy + xoffsethack,
 					cliprect,TRANSPARENCY_COLOR,0);
 		}

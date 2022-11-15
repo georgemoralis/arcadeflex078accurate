@@ -764,6 +764,120 @@ public class convertMame {
                 break;
                 case 's': {
                     i = Convertor.inpos;
+                                        if (type == WRITE_HANDLER8 || type == VIDEO_UPDATE || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_EOF) {
+                        if (sUtil.getToken("spriteram_size")) {
+                            sUtil.putString((new StringBuilder()).append("spriteram_size[0]").toString());
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("spriteram")) {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken(']');
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = i;
+                            break;
+                        } else {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() == '=') {
+                                int g = Convertor.inpos;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                Convertor.inpos = g;
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("spriteram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos += 1;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("spriteram.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("spriteram_2")) {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken(']');
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = i;
+                            break;
+                        } else {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() == '=') {
+                                int g = Convertor.inpos;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                Convertor.inpos = g;
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("spriteram_2.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos += 1;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("spriteram_2.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("spriteram_3")) {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken(']');
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = i;
+                            break;
+                        } else {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() == '=') {
+                                int g = Convertor.inpos;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                Convertor.inpos = g;
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("spriteram_3.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos += 1;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("spriteram_3.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
+                        }
+                    }
+                    if (type == WRITE_HANDLER8) {
+                        if (sUtil.getToken("soundlatch_w")) {
+                            sUtil.putString((new StringBuilder()).append("soundlatch_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("soundlatch2_w")) {
+                            sUtil.putString((new StringBuilder()).append("soundlatch2_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("soundlatch3_w")) {
+                            sUtil.putString((new StringBuilder()).append("soundlatch3_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("soundlatch4_w")) {
+                            sUtil.putString((new StringBuilder()).append("soundlatch4_w.handler").toString());
+                            continue;
+                        }
+                    }
                     if (sUtil.getToken("static")) {
                         sUtil.skipSpace();
                     }

@@ -271,20 +271,20 @@ public class _40love
 		{
 			int code,color,sx,sy,flipx,flipy;
 	
-			sx = spriteram[offs+3];
-			sy = spriteram[offs+0] +1;
+			sx = spriteram.read(offs+3);
+			sy = spriteram.read(offs+0)+1;
 	
 			if (fortyl_flipscreen)
 				sx = 240 - sx;
 			else
 				sy = 242 - sy;
 	
-			code = (spriteram[offs+1] & 0x3f) + ((spriteram[offs+2] & 0x18) << 3);
-			flipx = ((spriteram[offs+1] & 0x40) >> 6) ^ fortyl_flipscreen;
-			flipy = ((spriteram[offs+1] & 0x80) >> 7) ^ fortyl_flipscreen;
-			color = (spriteram[offs+2] & 0x07) + 0x08;
+			code = (spriteram.read(offs+1)& 0x3f) + ((spriteram.read(offs+2)& 0x18) << 3);
+			flipx = ((spriteram.read(offs+1)& 0x40) >> 6) ^ fortyl_flipscreen;
+			flipy = ((spriteram.read(offs+1)& 0x80) >> 7) ^ fortyl_flipscreen;
+			color = (spriteram.read(offs+2)& 0x07) + 0x08;
 	
-			if (spriteram[offs+2] & 0xe0)
+			if (spriteram.read(offs+2)& 0xe0)
 				color = rand()&0xf;
 	
 			drawgfx(bitmap,Machine->gfx[1],
@@ -300,20 +300,20 @@ public class _40love
 		{
 			int code,color,sx,sy,flipx,flipy;
 	
-			sx = spriteram_2[offs+3];
-			sy = spriteram_2[offs+0] +1;
+			sx = spriteram_2.read(offs+3);
+			sy = spriteram_2.read(offs+0)+1;
 	
 			if (fortyl_flipscreen)
 				sx = 240 - sx;
 			else
 				sy = 242 - sy;
 	
-			code = (spriteram_2[offs+1] & 0x3f) + ((spriteram_2[offs+2] & 0x18) << 3);
-			flipx = ((spriteram_2[offs+1] & 0x40) >> 6) ^ fortyl_flipscreen;
-			flipy = ((spriteram_2[offs+1] & 0x80) >> 7) ^ fortyl_flipscreen;
-			color = (spriteram_2[offs+2] & 0x07) + 0x08;
+			code = (spriteram_2.read(offs+1)& 0x3f) + ((spriteram_2.read(offs+2)& 0x18) << 3);
+			flipx = ((spriteram_2.read(offs+1)& 0x40) >> 6) ^ fortyl_flipscreen;
+			flipy = ((spriteram_2.read(offs+1)& 0x80) >> 7) ^ fortyl_flipscreen;
+			color = (spriteram_2.read(offs+2)& 0x07) + 0x08;
 	
-			if (spriteram_2[offs+2] & 0xe0)
+			if (spriteram_2.read(offs+2)& 0xe0)
 				color = rand()&0xf;
 	
 			drawgfx(bitmap,Machine->gfx[1],

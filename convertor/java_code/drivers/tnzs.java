@@ -386,7 +386,7 @@ public class tnzs
 	/* the bootleg board is different, it has a third CPU (and of course no mcu) */
 	
 	public static WriteHandlerPtr tnzsb_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		soundlatch_w(offset,data);
+		soundlatch_w.handler(offset,data);
 		cpu_set_irq_line_and_vector(2,0,HOLD_LINE,0xff);
 	} };
 	

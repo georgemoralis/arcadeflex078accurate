@@ -104,16 +104,16 @@ public class flstory
 	
 		for (i = 0; i < 0x20; i++)
 		{
-			int pr = spriteram[spriteram_size-1 -i];
+			int pr = spriteram.read(spriteram_size-1 -i);
 			int offs = (pr & 0x1f) * 4;
 	
 			if ((pr & 0x80) == pri)
 			{
 				int code,sx,sy,flipx,flipy;
 	
-				code = spriteram[offs+2] + ((spriteram[offs+1] & 0x30) << 4);
-				sx = spriteram[offs+3];
-				sy = spriteram[offs+0];
+				code = spriteram.read(offs+2)+ ((spriteram.read(offs+1)& 0x30) << 4);
+				sx = spriteram.read(offs+3);
+				sy = spriteram.read(offs+0);
 	
 				if (flipscreen)
 				{
@@ -123,12 +123,12 @@ public class flstory
 				else
 					sy = 240 - sy - 1 ;
 	
-				flipx = ((spriteram[offs+1]&0x40)>>6)^flipscreen;
-				flipy = ((spriteram[offs+1]&0x80)>>7)^flipscreen;
+				flipx = ((spriteram.read(offs+1)&0x40)>>6)^flipscreen;
+				flipy = ((spriteram.read(offs+1)&0x80)>>7)^flipscreen;
 	
 				drawgfx(bitmap,Machine->gfx[1],
 						code,
-						spriteram[offs+1] & 0x0f,
+						spriteram.read(offs+1)& 0x0f,
 						flipx,flipy,
 						sx,sy,
 						cliprect,TRANSPARENCY_PEN,15);
@@ -136,7 +136,7 @@ public class flstory
 				if (sx > 240)
 					drawgfx(bitmap,Machine->gfx[1],
 							code,
-							spriteram[offs+1] & 0x0f,
+							spriteram.read(offs+1)& 0x0f,
 							flipx,flipy,
 							sx-256,sy,
 							cliprect,TRANSPARENCY_PEN,15);

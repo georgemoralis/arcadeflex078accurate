@@ -124,8 +124,8 @@ public class hal21
 	
 	public static ReadHandlerPtr hal21_videoram_r  = new ReadHandlerPtr() { public int handler(int offset)return videoram[offset]; }
 	public static WriteHandlerPtr hal21_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)videoram[offset] = data; }
-	public static ReadHandlerPtr hal21_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)return spriteram[offset]; }
-	public static WriteHandlerPtr hal21_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)spriteram[offset] = data; }
+	public static ReadHandlerPtr hal21_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)return spriteram.read(offset); }
+	public static WriteHandlerPtr hal21_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)spriteram.write(offset,data); }
 	
 	public static WriteHandlerPtr hal21_vreg0_w = new WriteHandlerPtr() {public void handler(int offset, int data)hal21_vreg[0] = data; }
 	public static WriteHandlerPtr hal21_vreg1_w = new WriteHandlerPtr() {public void handler(int offset, int data)hal21_vreg[1] = data; }
@@ -584,7 +584,7 @@ public class hal21
 	
 	public static WriteHandlerPtr aso_soundcommand_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		snk_sound_busy_bit = 0x20;
-		soundlatch_w(0, data);
+		soundlatch_w.handler(0, data);
 		cpu_set_irq_line( 2, 0, HOLD_LINE );
 	} };
 	

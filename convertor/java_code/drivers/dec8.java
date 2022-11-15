@@ -367,12 +367,12 @@ public class dec8
 	} };
 	
 	public static WriteHandlerPtr dec8_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-	 	soundlatch_w(0,data);
+	 	soundlatch_w.handler(0,data);
 		cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
 	} };
 	
 	public static WriteHandlerPtr oscar_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-	 	soundlatch_w(0,data);
+	 	soundlatch_w.handler(0,data);
 		cpu_set_irq_line(2,IRQ_LINE_NMI,PULSE_LINE);
 	} };
 	
@@ -470,8 +470,8 @@ public class dec8
 	public static ReadHandlerPtr dec8_share2_r  = new ReadHandlerPtr() { public int handler(int offset) return dec8_shared2_ram[offset]; }
 	public static WriteHandlerPtr dec8_share_w = new WriteHandlerPtr() {public void handler(int offset, int data) dec8_shared_ram[offset]=data; }
 	public static WriteHandlerPtr dec8_share2_w = new WriteHandlerPtr() {public void handler(int offset, int data) dec8_shared2_ram[offset]=data; }
-	public static ReadHandlerPtr shackled_sprite_r  = new ReadHandlerPtr() { public int handler(int offset) return spriteram[offset]; }
-	public static WriteHandlerPtr shackled_sprite_w = new WriteHandlerPtr() {public void handler(int offset, int data) spriteram[offset]=data; }
+	public static ReadHandlerPtr shackled_sprite_r  = new ReadHandlerPtr() { public int handler(int offset) return spriteram.read(offset); }
+	public static WriteHandlerPtr shackled_sprite_w = new WriteHandlerPtr() {public void handler(int offset, int data) spriteram.write(offset,data); }
 	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data)	flip_screen_set(data); }
 	
 	/******************************************************************************/

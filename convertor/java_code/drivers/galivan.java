@@ -49,7 +49,7 @@ public class galivan
 	} };
 	
 	public static WriteHandlerPtr galivan_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		soundlatch_w(offset,(data << 1) | 1);
+		soundlatch_w.handler(offset,(data << 1) | 1);
 	} };
 	
 	public static ReadHandlerPtr galivan_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){

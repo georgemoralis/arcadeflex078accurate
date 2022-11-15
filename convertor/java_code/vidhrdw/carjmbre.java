@@ -104,7 +104,7 @@ public class carjmbre
 	
 		tilemap_draw( bitmap,cliprect,carjmbre_tilemap,0,0 );
 	
-		//spriteram[offs]
+		//spriteram.read(offs)
 		//+0       y pos
 		//+1       sprite number
 		//+2
@@ -115,20 +115,20 @@ public class carjmbre
 		//----x--- ?? probably colour
 		//-----xxx colour
 		//+3       x pos
-		for (offs = spriteram_size-4; offs >= 0; offs-=4)
+		for (offs = spriteram_size[0]-4; offs >= 0; offs-=4)
 		{
 			//before copying the sprites to spriteram the game reorders the first
 			//sprite to last, sprite ordering is incorrect if this isn't undone
-			troffs=(offs-4+spriteram_size)%spriteram_size;
+			troffs=(offs-4+spriteram_size[0])%spriteram_size[0];
 	
 			//unused sprites are marked with ypos <= 0x02 (or >= 0xfd if screen flipped)
-			if (spriteram[troffs] > 0x02 && spriteram[troffs] < 0xfd)
+			if (spriteram.read(troffs)> 0x02 && spriteram.read(troffs)< 0xfd)
 			{
 				{
-					sx = spriteram[troffs+3]-7;
-					sy = 241-spriteram[troffs];
-					flipx = (spriteram[troffs+2]&0x40)>>6;
-					flipy = (spriteram[troffs+2]&0x80)>>7;
+					sx = spriteram.read(troffs+3)-7;
+					sy = 241-spriteram.read(troffs);
+					flipx = (spriteram.read(troffs+2)&0x40)>>6;
+					flipy = (spriteram.read(troffs+2)&0x80)>>7;
 	
 					if (carjmbre_flipscreen)
 					{
@@ -139,8 +139,8 @@ public class carjmbre
 					}
 	
 					drawgfx(bitmap,Machine->gfx[1],
-							spriteram[troffs+1],
-							spriteram[troffs+2]&0x07,
+							spriteram.read(troffs+1),
+							spriteram.read(troffs+2)&0x07,
 							flipx,flipy,
 							sx,sy,
 							cliprect,TRANSPARENCY_PEN,0);

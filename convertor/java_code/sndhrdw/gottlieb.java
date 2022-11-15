@@ -69,7 +69,7 @@ public class gottlieb
 				}
 			}
 	
-			soundlatch_w(offset,data);
+			soundlatch_w.handler(offset,data);
 	
 			switch (cpu_gettotalcpu())
 			{

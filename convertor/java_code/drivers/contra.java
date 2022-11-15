@@ -47,7 +47,7 @@ public class contra
 	} };
 	
 	public static WriteHandlerPtr cpu_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		soundlatch_w(offset,data);
+		soundlatch_w.handler(offset,data);
 	} };
 	
 	

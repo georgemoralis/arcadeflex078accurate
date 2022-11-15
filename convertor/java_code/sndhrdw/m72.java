@@ -128,7 +128,7 @@ public class m72
 	public static WriteHandlerPtr m72_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (offset == 0)
 		{
-			soundlatch_w(offset,data);
+			soundlatch_w.handler(offset,data);
 			timer_set(TIME_NOW,Z80_ASSERT,setvector_callback);
 		}
 	} };

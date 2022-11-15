@@ -149,7 +149,7 @@ public class cvs
 	
 	    /* Sample CPU write - Causes interrupt if bit 7 set */
 	
-	    soundlatch_w(0,data);
+	    soundlatch_w.handler(0,data);
 		if(data & 0x80) cpu_set_irq_line(1,3,HOLD_LINE);
 	
 	

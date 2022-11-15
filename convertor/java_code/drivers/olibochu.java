@@ -117,13 +117,13 @@ public class olibochu
 	
 		for (offs = 0;offs < spriteram_size;offs += 4)
 		{
-			int attr = spriteram[offs+1];
-			int code = spriteram[offs];
+			int attr = spriteram.read(offs+1);
+			int code = spriteram.read(offs);
 			int color = attr & 0x3f;
 			int flipx = attr & 0x40;
 			int flipy = attr & 0x80;
-			int sx = spriteram[offs+3];
-			int sy = ((spriteram[offs+2] + 8) & 0xff) - 8;
+			int sx = spriteram.read(offs+3);
+			int sy = ((spriteram.read(offs+2)+ 8) & 0xff) - 8;
 	
 			if (flip_screen())
 			{
@@ -145,13 +145,13 @@ public class olibochu
 	
 		for (offs = 0;offs < spriteram_2_size;offs += 4)
 		{
-			int attr = spriteram_2[offs+1];
-			int code = spriteram_2[offs];
+			int attr = spriteram_2.read(offs+1);
+			int code = spriteram_2.read(offs);
 			int color = attr & 0x3f;
 			int flipx = attr & 0x40;
 			int flipy = attr & 0x80;
-			int sx = spriteram_2[offs+3];
-			int sy = spriteram_2[offs+2];
+			int sx = spriteram_2.read(offs+3);
+			int sy = spriteram_2.read(offs+2);
 	
 			if (flip_screen())
 			{
@@ -187,7 +187,7 @@ public class olibochu
 		for (c = 15;c >= 0;c--)
 			if (cmd & (1 << c)) break;
 	
-		if (c >= 0) soundlatch_w(0,15-c);
+		if (c >= 0) soundlatch_w.handler(0,15-c);
 	} };
 	
 	

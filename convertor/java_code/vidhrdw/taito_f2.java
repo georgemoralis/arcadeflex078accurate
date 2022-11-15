@@ -630,7 +630,7 @@ public class taito_f2
 	
 			code = 0;
 			extoffs = offs;
-			/* spriteram[0x4000-7fff] has no corresponding extension area */
+			/* spriteram.read(0x4000-7fff)has no corresponding extension area */
 			if (extoffs >= 0x8000) extoffs -= 0x4000;
 	
 			if (f2_sprite_type == 0)
@@ -820,10 +820,10 @@ public class taito_f2
 		taitof2_update_sprites_active_area();
 	
 		prepare_sprites = 0;
-		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size);
-		for (i = 0;i < spriteram_size/2;i++)
+		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size[0]);
+		for (i = 0;i < spriteram_size[0]/2;i++)
 			spriteram_buffered[i] = spriteram16[i];
-		memcpy(spriteram_delayed,spriteram16,spriteram_size);
+		memcpy(spriteram_delayed,spriteram16,spriteram_size[0]);
 	} };
 	
 	public static VideoEofHandlerPtr video_eof_taitof2_partial_buffer_delayed  = new VideoEofHandlerPtr() { public void handler(){
@@ -832,10 +832,10 @@ public class taito_f2
 		taitof2_update_sprites_active_area();
 	
 		prepare_sprites = 0;
-		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size);
-		for (i = 0;i < spriteram_size/2;i += 4)
+		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size[0]);
+		for (i = 0;i < spriteram_size[0]/2;i += 4)
 			spriteram_buffered[i] = spriteram16[i];
-		memcpy(spriteram_delayed,spriteram16,spriteram_size);
+		memcpy(spriteram_delayed,spriteram16,spriteram_size[0]);
 	} };
 	
 	public static VideoEofHandlerPtr video_eof_taitof2_partial_buffer_delayed_thundfox  = new VideoEofHandlerPtr() { public void handler(){
@@ -844,18 +844,18 @@ public class taito_f2
 		taitof2_update_sprites_active_area();
 	
 		prepare_sprites = 0;
-		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size);
-		for (i = 0;i < spriteram_size/2;i += 8)
+		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size[0]);
+		for (i = 0;i < spriteram_size[0]/2;i += 8)
 		{
 			spriteram_buffered[i]   = spriteram16[i];
 			spriteram_buffered[i+1] = spriteram16[i+1];
 			spriteram_buffered[i+4] = spriteram16[i+4];
 		}
-		memcpy(spriteram_delayed,spriteram16,spriteram_size);
+		memcpy(spriteram_delayed,spriteram16,spriteram_size[0]);
 	} };
 	
 	public static VideoEofHandlerPtr video_eof_taitof2_partial_buffer_delayed_qzchikyu  = new VideoEofHandlerPtr() { public void handler(){
-		/* spriteram[2] and [3] are 1 frame behind...
+		/* spriteram.read(2)and [3] are 1 frame behind...
 		   probably thundfox_eof_callback would work fine */
 	
 		int i;
@@ -863,8 +863,8 @@ public class taito_f2
 		taitof2_update_sprites_active_area();
 	
 		prepare_sprites = 0;
-		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size);
-		for (i = 0;i < spriteram_size/2;i += 8)
+		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size[0]);
+		for (i = 0;i < spriteram_size[0]/2;i += 8)
 		{
 			spriteram_buffered[i]   = spriteram16[i];
 			spriteram_buffered[i+1] = spriteram16[i+1];
@@ -873,7 +873,7 @@ public class taito_f2
 			spriteram_buffered[i+6] = spriteram16[i+6];	// not needed?
 			spriteram_buffered[i+7] = spriteram16[i+7];	// not needed?
 		}
-		memcpy(spriteram_delayed,spriteram16,spriteram_size);
+		memcpy(spriteram_delayed,spriteram16,spriteram_size[0]);
 	} };
 	
 	

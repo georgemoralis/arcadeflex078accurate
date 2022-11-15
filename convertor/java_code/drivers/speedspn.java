@@ -97,7 +97,7 @@ public class speedspn
 	/*** SOUND RELATED ***********************************************************/
 	
 	public static WriteHandlerPtr speedspn_sound_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		soundlatch_w(1,data);
+		soundlatch_w.handler(1,data);
 		cpu_set_irq_line(1,0,HOLD_LINE);
 	} };
 	

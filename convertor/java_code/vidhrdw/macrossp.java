@@ -152,14 +152,14 @@ public class macrossp
 	/*** VIDEO START / UPDATE ***/
 	
 	public static VideoStartHandlerPtr video_start_macrossp  = new VideoStartHandlerPtr() { public int handler(){
-		spriteram_old = auto_malloc(spriteram_size);
-		spriteram_old2 = auto_malloc(spriteram_size);
+		spriteram_old = auto_malloc(spriteram_size[0]);
+		spriteram_old2 = auto_malloc(spriteram_size[0]);
 	
 		if (!spriteram_old || !spriteram_old2)
 			return 1;
 	
-		memset(spriteram_old,0,spriteram_size);
-		memset(spriteram_old2,0,spriteram_size);
+		memset(spriteram_old,0,spriteram_size[0]);
+		memset(spriteram_old2,0,spriteram_size[0]);
 	
 		macrossp_text_tilemap = tilemap_create(get_macrossp_text_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64,64);
 		macrossp_scra_tilemap = tilemap_create(get_macrossp_scra_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64,64);
@@ -420,7 +420,7 @@ public class macrossp
 	
 	public static VideoEofHandlerPtr video_eof_macrossp  = new VideoEofHandlerPtr() { public void handler(){
 		/* looks like sprites are *two* frames ahead, like nmk16 */
-		memcpy(spriteram_old2,spriteram_old,spriteram_size);
-		memcpy(spriteram_old,macrossp_spriteram,spriteram_size);
+		memcpy(spriteram_old2,spriteram_old,spriteram_size[0]);
+		memcpy(spriteram_old,macrossp_spriteram,spriteram_size[0]);
 	} };
 }

@@ -365,7 +365,7 @@ public class seta2
 		Machine->gfx[4]->color_granularity = 16;
 		Machine->gfx[5]->color_granularity = 16;
 	
-		buffered_spriteram16 = auto_malloc(spriteram_size);
+		buffered_spriteram16 = auto_malloc(spriteram_size[0]);
 	
 		yoffset = 0;
 		return 0;
@@ -389,6 +389,6 @@ public class seta2
 	
 	public static VideoEofHandlerPtr video_eof_seta2  = new VideoEofHandlerPtr() { public void handler(){
 		/* Buffer sprites by 1 frame */
-		memcpy(buffered_spriteram16,spriteram16,spriteram_size);
+		memcpy(buffered_spriteram16,spriteram16,spriteram_size[0]);
 	} };
 }
