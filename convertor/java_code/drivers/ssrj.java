@@ -215,7 +215,7 @@ public class ssrj
 	
 	***************************************************************************/
 	
-	ROM_START( ssrj )
+	static RomLoadHandlerPtr rom_ssrj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "a40-01.bin",   0x0000, 0x4000, CRC(1ff7dbff) SHA1(a9e676ee087141d62f880cd98e7748db1e6e9461) )
 		ROM_LOAD( "a40-02.bin",   0x4000, 0x4000, CRC(bbb36f9f) SHA1(9f85bac639d18ee932273a6c00b36ac969e69bb8) )
@@ -228,7 +228,7 @@ public class ssrj
 		ROM_REGION( 0x100, REGION_PROMS, 0 )
 		ROM_LOAD( "proms",  0x0000, 0x0100, NO_DUMP )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_ssrj	   = new GameDriver("1985"	,"ssrj"	,"ssrj.java"	,rom_ssrj,null	,machine_driver_ssrj	,input_ports_ssrj	,null	,ORIENTATION_FLIP_X, "Taito Corporation", "Super Speed Race Junior (Japan)",GAME_WRONG_COLORS|GAME_IMPERFECT_GRAPHICS )
 }

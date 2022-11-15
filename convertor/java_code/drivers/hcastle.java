@@ -331,7 +331,7 @@ public class hcastle
 	
 	/***************************************************************************/
 	
-	ROM_START( hcastle )
+	static RomLoadHandlerPtr rom_hcastle = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "m03.k12",      0x08000, 0x08000, CRC(d85e743d) SHA1(314e2a2bbe650540306b85c8b89ec5bcaef11a0d) )
 		ROM_LOAD( "b06.k8",       0x10000, 0x20000, CRC(abd07866) SHA1(a261d0cd90f5909abd06e8b691669e63d890c3be) )
@@ -356,9 +356,9 @@ public class hcastle
 	
 		ROM_REGION( 0x80000, REGION_SOUND1, 0 )	/* 512k for the samples */
 		ROM_LOAD( "768c07.e17",   0x00000, 0x80000, CRC(01f9889c) SHA1(01252d2ce7b14cfbe39ac8d7a5bd7417f1c2fc22) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( hcastleo )
+	static RomLoadHandlerPtr rom_hcastleo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "768.k03",      0x08000, 0x08000, CRC(40ce4f38) SHA1(1ab6d62a75c818b2ccbbb714373d6c7418500eb7) )
 		ROM_LOAD( "768.g06",      0x10000, 0x20000, CRC(cdade920) SHA1(e15b7458ded4e4c811a737575ec3f16e5eec4121) )
@@ -383,9 +383,9 @@ public class hcastle
 	
 		ROM_REGION( 0x80000, REGION_SOUND1, 0 )	/* 512k for the samples */
 		ROM_LOAD( "768c07.e17",   0x00000, 0x80000, CRC(01f9889c) SHA1(01252d2ce7b14cfbe39ac8d7a5bd7417f1c2fc22) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( hcastlej )
+	static RomLoadHandlerPtr rom_hcastlej = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "768p03.k12",0x08000, 0x08000, CRC(d509e340) SHA1(3a8078bd89a80ab9529e4ee8658fcafb8dd65258) )
 		ROM_LOAD( "768j06.k8", 0x10000, 0x20000, CRC(42283c3e) SHA1(565a2eb607e262484f48919536c045d515cff89f) )
@@ -410,9 +410,9 @@ public class hcastle
 	
 		ROM_REGION( 0x80000, REGION_SOUND1, 0 )	/* 512k for the samples */
 		ROM_LOAD( "768c07.e17",   0x00000, 0x80000, CRC(01f9889c) SHA1(01252d2ce7b14cfbe39ac8d7a5bd7417f1c2fc22) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( hcastljo )
+	static RomLoadHandlerPtr rom_hcastljo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "768n03.k12",0x08000, 0x08000, CRC(3e4dca2a) SHA1(cd70fdc42b970b89ae16ab6c81d1a5003fa53dbd) )
 		ROM_LOAD( "768j06.k8", 0x10000, 0x20000, CRC(42283c3e) SHA1(565a2eb607e262484f48919536c045d515cff89f) )
@@ -437,7 +437,7 @@ public class hcastle
 	
 		ROM_REGION( 0x80000, REGION_SOUND1, 0 )	/* 512k for the samples */
 		ROM_LOAD( "768c07.e17",   0x00000, 0x80000, CRC(01f9889c) SHA1(01252d2ce7b14cfbe39ac8d7a5bd7417f1c2fc22) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

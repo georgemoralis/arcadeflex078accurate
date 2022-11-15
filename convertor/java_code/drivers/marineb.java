@@ -692,7 +692,7 @@ public class marineb
 	
 	***************************************************************************/
 	
-	ROM_START( marineb )
+	static RomLoadHandlerPtr rom_marineb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "marineb.1",     0x0000, 0x1000, CRC(661d6540) SHA1(9ef6b58952be7ca245092916782311ee466fe3e1) )
 		ROM_LOAD( "marineb.2",     0x1000, 0x1000, CRC(922da17f) SHA1(e4925ae5afe937a0306af0a4fbbc6edcd13f1926) )
@@ -710,9 +710,9 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "marineb.1b",    0x0000, 0x0100, CRC(f32d9472) SHA1(b965eabb313cdfa0d10f8f25f659e20b0abe9a97) ) /* palette low 4 bits */
 		ROM_LOAD( "marineb.1c",    0x0100, 0x0100, CRC(93c69d3e) SHA1(d13720fa4947e5058d4d699990b9a731e25e5595) ) /* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( changes )
+	static RomLoadHandlerPtr rom_changes = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "changes.1",     0x0000, 0x1000, CRC(56f83813) SHA1(8b97e877b1819402703a9e9e641efc0e89b84cca) )
 		ROM_LOAD( "changes.2",     0x1000, 0x1000, CRC(0e627f0b) SHA1(59012c8f65b921387b381dbc5157a7a22b3d50dc) )
@@ -729,9 +729,9 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "changes.1b",    0x0000, 0x0100, CRC(f693c153) SHA1(463426b580fa02f00baf2fff9f42d34b52bd6be4) ) /* palette low 4 bits */
 		ROM_LOAD( "changes.1c",    0x0100, 0x0100, CRC(f8331705) SHA1(cbead7ed85f96219af14b6552301906f32260b69) ) /* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( looper )
+	static RomLoadHandlerPtr rom_looper = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "changes.1",     0x0000, 0x1000, CRC(56f83813) SHA1(8b97e877b1819402703a9e9e641efc0e89b84cca) )
 		ROM_LOAD( "changes.2",     0x1000, 0x1000, CRC(0e627f0b) SHA1(59012c8f65b921387b381dbc5157a7a22b3d50dc) )
@@ -748,9 +748,9 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "changes.1b",    0x0000, 0x0100, CRC(f693c153) SHA1(463426b580fa02f00baf2fff9f42d34b52bd6be4) ) /* palette low 4 bits */
 		ROM_LOAD( "changes.1c",    0x0100, 0x0100, CRC(f8331705) SHA1(cbead7ed85f96219af14b6552301906f32260b69) ) /* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( springer )
+	static RomLoadHandlerPtr rom_springer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "springer.1",    0x0000, 0x1000, CRC(0794103a) SHA1(71bb7f6bf4f41f50a39a552cc98ea111e4064acd) )
 		ROM_LOAD( "springer.2",    0x1000, 0x1000, CRC(f4aecd9a) SHA1(414d5385286d899f883bd70ee7fbb5f23e424ef9) )
@@ -771,9 +771,9 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "1b.vid",        0x0000, 0x0100, CRC(a2f935aa) SHA1(575b0b0e67aeff664bdf00f1bfd9dc68fdf88074) ) /* palette low 4 bits */
 		ROM_LOAD( "1c.vid",        0x0100, 0x0100, CRC(b95421f4) SHA1(48ddf33d1094eb4343b7c54a2a221050f83b749b) ) /* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( hoccer )
+	static RomLoadHandlerPtr rom_hoccer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "hr1.cpu",       0x0000, 0x2000, CRC(12e96635) SHA1(5d330687dc117a319be355a541c9f634c6711889) )
 		ROM_LOAD( "hr2.cpu",       0x2000, 0x2000, CRC(cf1fc328) SHA1(c8669330d47fe3c8f855990ff9f27549bf94c5bd) )
@@ -789,9 +789,9 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "hr.1b",         0x0000, 0x0100, CRC(896521d7) SHA1(54b295b4bb7357ffdb8916ff9618570867a950b2) ) /* palette low 4 bits */
 		ROM_LOAD( "hr.1c",         0x0100, 0x0100, CRC(2efdd70b) SHA1(1b4fc9e52aaa4600c535b04d40aac1e0dd85fd7b) ) /* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( hoccer2 )
+	static RomLoadHandlerPtr rom_hoccer2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "hr.1",          0x0000, 0x2000, CRC(122d159f) SHA1(cc58fc746d6afebc39f8840c1ea6a68b5d033fbb) )
 		ROM_LOAD( "hr.2",          0x2000, 0x2000, CRC(48e1efc0) SHA1(6472423b129e0fc40e4f12855d70207a360ee378) )
@@ -807,9 +807,9 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "hr.1b",         0x0000, 0x0100, CRC(896521d7) SHA1(54b295b4bb7357ffdb8916ff9618570867a950b2) ) /* palette low 4 bits */
 		ROM_LOAD( "hr.1c",         0x0100, 0x0100, CRC(2efdd70b) SHA1(1b4fc9e52aaa4600c535b04d40aac1e0dd85fd7b) ) /* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( wanted )
+	static RomLoadHandlerPtr rom_wanted = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "prg-1",		   0x0000, 0x2000, CRC(2dd90aed) SHA1(3982d47a66f653a046a95e38648a7c5a2bfe1470) )
 		ROM_LOAD( "prg-2",		   0x2000, 0x2000, CRC(67ac0210) SHA1(29fd01289c9ba5a3a992ac6740badbf2e37f05ac) )
@@ -826,7 +826,7 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "wanted.k7",	   0x0000, 0x0100, CRC(2ba90a00) SHA1(ec545b4682be2875f4e6440a28306a36c6f1771d) )	/* palette low 4 bits */
 		ROM_LOAD( "wanted.k6",	   0x0100, 0x0100, CRC(a93d87cc) SHA1(73920a2a2842efc8678f280e3b30177f4ca6ea9c) )	/* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
 	/*
 	Battle Cruiser M12
@@ -858,7 +858,7 @@ public class marineb
 	                                                                   BCM12COL.K6
 	*/
 	
-	ROM_START( bcruzm12 )
+	static RomLoadHandlerPtr rom_bcruzm12 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for code */
 		ROM_LOAD( "d-84_3.bin",		   0x0000, 0x2000, CRC(132baa3d) SHA1(79f7a1dc49b6e45e68f4008f3ee4e383846f75d5) )
 		ROM_LOAD( "d-84_2.bin",		   0x2000, 0x2000, CRC(1a788d1f) SHA1(5029f93f45d328a282d56e010eee68287b6b9306) )
@@ -875,9 +875,9 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "bcm12col.k7",	   0x0000, 0x0100, CRC(bf4f2671) SHA1(dde6da568ecf0121910f4b507c83fe6230b07c8d) )	/* palette low 4 bits */
 		ROM_LOAD( "bcm12col.k6",	   0x0100, 0x0100, CRC(59f955f6) SHA1(6d6d784971569e0af7cec8bd36659f24a652cd6a) )	/* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( hopprobo )
+	static RomLoadHandlerPtr rom_hopprobo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "hopper01.3k",   0x0000, 0x1000, CRC(fd7935c0) SHA1(08f1b1589203d0f5967cc780a15412ca599c5d2f) )
 		ROM_LOAD( "hopper02.3l",   0x1000, 0x1000, CRC(df1a479a) SHA1(27b56498887041692536f5f71abfa3d6b9098a7d) )
@@ -897,7 +897,7 @@ public class marineb
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "7052hop.1b",    0x0000, 0x0100, CRC(94450775) SHA1(e15fcf6d1cd7cfc0d98e82bd0559b6d342aac9ed) ) /* palette low 4 bits */
 		ROM_LOAD( "7052hop.1c",    0x0100, 0x0100, CRC(a76bbd51) SHA1(5c61d93ab1e9c80b30cfbc2cbd13ede32f0f4f61) ) /* palette high 4 bits */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/*    year  name      parent   machine   inputs */

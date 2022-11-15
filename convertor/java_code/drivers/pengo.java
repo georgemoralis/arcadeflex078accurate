@@ -304,7 +304,7 @@ public class pengo
 	 *
 	 *************************************/
 	
-	ROM_START( pengo )
+	static RomLoadHandlerPtr rom_pengo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "ep1689c.8",          0x0000, 0x1000, CRC(f37066a8) SHA1(0930de17a763a527057f60783a92662b09554426) )
 		ROM_LOAD( "ep1690b.7",          0x1000, 0x1000, CRC(baf48143) SHA1(4c97529e61eeca5d94938b1dfbeac41bf8cbaf7d) )
@@ -328,10 +328,10 @@ public class pengo
 		ROM_REGION( 0x0200, REGION_SOUND1, 0 )	/* sound PROMs */
 		ROM_LOAD( "pr1635.51",		0x0000, 0x0100, CRC(c29dea27) SHA1(563c9770028fe39188e62630711589d6ed242a66) )
 		ROM_LOAD( "pr1636.70",		0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( pengo2 )
+	static RomLoadHandlerPtr rom_pengo2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "ic8.2",		0x0000, 0x1000, CRC(e4924b7b) SHA1(44297658af8f8c884eba02b792346c5008137dfe) )
 		ROM_LOAD( "ic7.2",		0x1000, 0x1000, CRC(72e7775d) SHA1(49e04178ee171f727dd023c019395679cfbad452) )
@@ -355,10 +355,10 @@ public class pengo
 		ROM_REGION( 0x0200, REGION_SOUND1, 0 )	/* sound PROMs */
 		ROM_LOAD( "pr1635.51",		0x0000, 0x0100, CRC(c29dea27) SHA1(563c9770028fe39188e62630711589d6ed242a66) )
 		ROM_LOAD( "pr1636.70",		0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( pengo2u )
+	static RomLoadHandlerPtr rom_pengo2u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pengo.u8",		0x0000, 0x1000, CRC(3dfeb20e) SHA1(a387b72501da77bf38b58619d2099083a0463e1f) )
 		ROM_LOAD( "pengo.u7",		0x1000, 0x1000, CRC(1db341bd) SHA1(d1c66bb9cf479e6960dbcd35c820097a81eaa555) )
@@ -382,9 +382,9 @@ public class pengo
 		ROM_REGION( 0x0200, REGION_SOUND1, 0 )	/* sound PROMs */
 		ROM_LOAD( "pr1635.51",		0x0000, 0x0100, CRC(c29dea27) SHA1(563c9770028fe39188e62630711589d6ed242a66) )
 		ROM_LOAD( "pr1636.70",		0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( pengo3u )
+	static RomLoadHandlerPtr rom_pengo3u = new RomLoadHandlerPtr(){ public void handler(){ 
 	ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ep5120.8",		0x0000, 0x1000, CRC(f01afb60) SHA1(1db732a17a9f79f8f1751f80c77889142928e41b) )
 		ROM_LOAD( "ep5121.7",		0x1000, 0x1000, CRC(2eb38353) SHA1(d351347f93a3ed01c8b5274ec19352dd611a8dd4) )
@@ -408,9 +408,9 @@ public class pengo
 		ROM_REGION( 0x0200, REGION_SOUND1, 0 )	/* sound PROMs */
 		ROM_LOAD( "pr1635.51",		0x0000, 0x0100, CRC(c29dea27) SHA1(563c9770028fe39188e62630711589d6ed242a66) )
 		ROM_LOAD( "pr1636.70",		0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( pengob )
+	static RomLoadHandlerPtr rom_pengob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "1",			0x0000, 0x2000, CRC(e04064db) SHA1(6689066b443807646894a357317f468bfc92368a) )
 		ROM_LOAD( "2",			0x2000, 0x2000, CRC(75752424) SHA1(634e696a692c7245dfa5c5dfd4ce87755c2a90d4) )
@@ -432,10 +432,10 @@ public class pengo
 		ROM_REGION( 0x0200, REGION_SOUND1, 0 )	/* sound PROMs */
 		ROM_LOAD( "pr1635.51",		0x0000, 0x0100, CRC(c29dea27) SHA1(563c9770028fe39188e62630711589d6ed242a66) )
 		ROM_LOAD( "pr1636.70",		0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( penta )
+	static RomLoadHandlerPtr rom_penta = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )     /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "008_pn01.bin",	0x0000, 0x1000, CRC(22f328df) SHA1(ba13b8d20ccde995a158cf62b4bc48cb369a0788) )
 		ROM_LOAD( "007_pn05.bin",	0x1000, 0x1000, CRC(15bbc7d3) SHA1(1823e3ba7388d3f4d9262e9b9cf70f123862c546) )
@@ -459,7 +459,7 @@ public class pengo
 		ROM_REGION( 0x0200, REGION_SOUND1, 0 )	/* sound PROMs */
 		ROM_LOAD( "pr1635.51",		0x0000, 0x0100, CRC(c29dea27) SHA1(563c9770028fe39188e62630711589d6ed242a66) )
 		ROM_LOAD( "pr1636.70",		0x0100, 0x0100, CRC(77245b66) SHA1(0c4d0bee858b97632411c440bea6948a74759746) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

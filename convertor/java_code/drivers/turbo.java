@@ -665,7 +665,7 @@ public class turbo
 	 *
 	 *************************************/
 	
-	ROM_START( turbo )
+	static RomLoadHandlerPtr rom_turbo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr1513.bin",  0x0000, 0x2000, CRC(0326adfc) SHA1(d9f06f0bc78667fa58c4b8ab3a3897d0dd0bdfbf) )
 		ROM_LOAD( "epr1514.bin",  0x2000, 0x2000, CRC(25af63b0) SHA1(9af4b3da83a4cef79b7dd0e9061132c499872c1c) )
@@ -718,10 +718,10 @@ public class turbo
 		ROM_LOAD( "sndprom.bin", 0x0b80, 0x0020, CRC(b369a6ae) SHA1(dda7c6cf58ce5173f29a3084c85393c0c4587086) )
 		ROM_LOAD( "pr-1119.bin", 0x0c00, 0x0200, CRC(628d3f1d) SHA1(570f8999603d02e52106ec2df203f63edfb883dd) )	/* timing - not used */
 		ROM_LOAD( "pr-1120.bin", 0x0e00, 0x0200, CRC(591b6a68) SHA1(85de39d9e14a1f0c65c1308c27a106e3c2dd9b5b) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( turboa )
+	static RomLoadHandlerPtr rom_turboa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr1262.rom",  0x0000, 0x2000, CRC(1951b83a) SHA1(31933676140db66281b7ca016a1b42cb985f44dd) )
 		ROM_LOAD( "epr1263.rom",  0x2000, 0x2000, CRC(45e01608) SHA1(0a9812714c41904bef7a8777b4aae63b5a1dd633) )
@@ -774,10 +774,10 @@ public class turbo
 		ROM_LOAD( "sndprom.bin", 0x0b80, 0x0020, CRC(b369a6ae) SHA1(dda7c6cf58ce5173f29a3084c85393c0c4587086) )
 		ROM_LOAD( "pr-1119.bin", 0x0c00, 0x0200, CRC(628d3f1d) SHA1(570f8999603d02e52106ec2df203f63edfb883dd) )	/* timing - not used */
 		ROM_LOAD( "pr-1120.bin", 0x0e00, 0x0200, CRC(591b6a68) SHA1(85de39d9e14a1f0c65c1308c27a106e3c2dd9b5b) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( turbob )
+	static RomLoadHandlerPtr rom_turbob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 		ROM_LOAD( "epr-1363.cpu",  0x0000, 0x2000, CRC(5c110fb6) SHA1(fdcdf488bd112db12aa22c4b7e9f34004185d4ce) )
 		ROM_LOAD( "epr-1364.cpu",  0x2000, 0x2000, CRC(6a341693) SHA1(428927c4a14bf82225875012c255d25dcffaf2ab) )
@@ -830,10 +830,10 @@ public class turbo
 		ROM_LOAD( "sndprom.bin", 0x0b80, 0x0020, CRC(b369a6ae) SHA1(dda7c6cf58ce5173f29a3084c85393c0c4587086) )
 		ROM_LOAD( "pr-1119.bin", 0x0c00, 0x0200, CRC(628d3f1d) SHA1(570f8999603d02e52106ec2df203f63edfb883dd) )	/* timing - not used */
 		ROM_LOAD( "pr-1120.bin", 0x0e00, 0x0200, CRC(591b6a68) SHA1(85de39d9e14a1f0c65c1308c27a106e3c2dd9b5b) )	/* timing - not used */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( subroc3d )
+	static RomLoadHandlerPtr rom_subroc3d = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "epr1614a.88", 0x0000, 0x2000, CRC(0ed856b4) SHA1(c2f48170365a53bff312ca20df5b74466de6349a) )
 		ROM_LOAD( "epr1615.87",  0x2000, 0x2000, CRC(6281eb2e) SHA1(591d7f184f51f33fb583c916eddacf4581d612d7) )
@@ -877,10 +877,10 @@ public class turbo
 		ROM_LOAD( "pr1451.58",  0x00700, 0x0200, CRC(6a575261) SHA1(79f690db671e471153cbdf1939e733da74fcdc08) )  /* ??? */
 		ROM_LOAD( "pr1453.39",  0x00900, 0x0020, CRC(181c6d23) SHA1(4749b205cbaa513ee65a644946235d2cfe275648) )  /* ??? */
 		ROM_LOAD( "pr1454.67",  0x00920, 0x0020, CRC(dc683440) SHA1(8469914d364dc8f9d0839cae3c864de3b2f3c8df) )  /* ??? */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( buckrog )
+	static RomLoadHandlerPtr rom_buckrog = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 ) /* 64k for code + 64k for decrypted opcodes */
 		ROM_LOAD( "br-3.bin", 0x0000, 0x4000, CRC(f0055e97) SHA1(f6ee2afd6fef710949087d1cb04cbc242d1fa9f5) )	/* encrypted */
 		ROM_LOAD( "br-4.bin", 0x4000, 0x4000, CRC(7d084c39) SHA1(ef2c0a2a59e14d9e196fd3837139fc5acf0f63be) )	/* encrypted */
@@ -911,10 +911,10 @@ public class turbo
 		ROM_REGION( 0x0600, REGION_PROMS, 0 )	/* various PROMs */
 		ROM_LOAD( "ic95",    0x0000, 0x0400, CRC(45e997a8) SHA1(023703b90b503310351b12157b1e732e61430fa5) ) /* sprite colortable */
 		ROM_LOAD( "5198.93", 0x0400, 0x0200, CRC(32e74bc8) SHA1(dd2c812efd7b8f6b31a45e698d6453ea6bec132e) ) /* char colortable */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( buckrogn )
+	static RomLoadHandlerPtr rom_buckrogn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "ic3", 0x0000, 0x4000, CRC(7f1910af) SHA1(22d37750282676d8fd1f602e928c174f823245c9) )
 		ROM_LOAD( "ic4", 0x4000, 0x4000, CRC(5ecd393b) SHA1(d069f12326644f2c685e516d91d33b97ec162c56) )
@@ -945,7 +945,7 @@ public class turbo
 		ROM_REGION( 0x0600, REGION_PROMS, 0 )	/* various PROMs */
 		ROM_LOAD( "ic95",    0x0000, 0x0400, CRC(45e997a8) SHA1(023703b90b503310351b12157b1e732e61430fa5) ) /* sprite colortable */
 		ROM_LOAD( "5198.93", 0x0400, 0x0200, CRC(32e74bc8) SHA1(dd2c812efd7b8f6b31a45e698d6453ea6bec132e) ) /* char colortable */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

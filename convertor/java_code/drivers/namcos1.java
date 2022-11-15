@@ -1251,7 +1251,7 @@ public class namcos1
 		ROM_RELOAD(start+length,length)
 	
 	/* Shadowland */
-	ROM_START( shadowld )
+	static RomLoadHandlerPtr rom_shadowld = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1303,10 +1303,10 @@ public class namcos1
 		ROM_LOAD( "yd_obj-3.bin",       0x60000, 0x20000, CRC(8a6c3d1c) SHA1(e9cb9c859596de753de37368d186feb857a4d08f) )
 		ROM_LOAD( "yd_obj-4.bin",       0x80000, 0x20000, CRC(ef97bffb) SHA1(35bf2102cad41e50e59a31279e69c26d337f2353) )
 		ROM_LOAD_HS( "yd3_obj5.bin",    0xa0000, 0x10000, CRC(1e4aa460) SHA1(c70391c3fba13e270e3cf105bb6d466b9ffedb9a) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Youkai Douchuuki (Shadowland Japan) */
-	ROM_START( youkaidk )
+	static RomLoadHandlerPtr rom_youkaidk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1354,10 +1354,10 @@ public class namcos1
 		ROM_LOAD( "yd_obj-2.bin",       0x40000, 0x20000, CRC(cb721682) SHA1(2305e5950cefe8d6b569d966728c9c5c8b4299a1) )
 		ROM_LOAD( "yd_obj-3.bin",       0x60000, 0x20000, CRC(8a6c3d1c) SHA1(e9cb9c859596de753de37368d186feb857a4d08f) )
 		ROM_LOAD( "yd_obj-4.bin",       0x80000, 0x20000, CRC(ef97bffb) SHA1(35bf2102cad41e50e59a31279e69c26d337f2353) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Youkai Douchuuki (Shadowland Japan old version) */
-	ROM_START( yokaidko )
+	static RomLoadHandlerPtr rom_yokaidko = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1405,10 +1405,10 @@ public class namcos1
 		ROM_LOAD( "yd_obj-2.bin",       0x40000, 0x20000, CRC(cb721682) SHA1(2305e5950cefe8d6b569d966728c9c5c8b4299a1) )
 		ROM_LOAD( "yd_obj-3.bin",       0x60000, 0x20000, CRC(8a6c3d1c) SHA1(e9cb9c859596de753de37368d186feb857a4d08f) )
 		ROM_LOAD( "yd_obj-4.bin",       0x80000, 0x20000, CRC(ef97bffb) SHA1(35bf2102cad41e50e59a31279e69c26d337f2353) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Dragon Spirit */
-	ROM_START( dspirit )
+	static RomLoadHandlerPtr rom_dspirit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1458,10 +1458,10 @@ public class namcos1
 		ROM_LOAD( "ds_obj-2.bin",       0x40000, 0x20000, CRC(061cd763) SHA1(df079052fddb60ea5618ed5a6c41fb4db0e313af) )
 		ROM_LOAD( "ds_obj-3.bin",       0x60000, 0x20000, CRC(63225a09) SHA1(8fffcd5b6baaa9ced16fbac58f6a3eeb11183c8b) )
 		ROM_LOAD_HS( "ds1_o4.bin",      0x80000, 0x10000, CRC(a6246fcb) SHA1(39de4fdb175ab16b791cdc5d757ff7bfee8e3d2b) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Dragon Spirit (old version) */
-	ROM_START( dspirito )
+	static RomLoadHandlerPtr rom_dspirito = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1511,10 +1511,10 @@ public class namcos1
 		ROM_LOAD( "ds_obj-2.bin",       0x40000, 0x20000, CRC(061cd763) SHA1(df079052fddb60ea5618ed5a6c41fb4db0e313af) )
 		ROM_LOAD( "ds_obj-3.bin",       0x60000, 0x20000, CRC(63225a09) SHA1(8fffcd5b6baaa9ced16fbac58f6a3eeb11183c8b) )
 		ROM_LOAD_HS( "ds1_o4.bin",      0x80000, 0x10000, CRC(a6246fcb) SHA1(39de4fdb175ab16b791cdc5d757ff7bfee8e3d2b) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Blazer */
-	ROM_START( blazer )
+	static RomLoadHandlerPtr rom_blazer = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1563,10 +1563,10 @@ public class namcos1
 		ROM_LOAD( "bz_obj-2.bin",       0x40000, 0x20000, CRC(34b23bb7) SHA1(fb288d089270b0e41fccd0da03e019eb9e8cad0c) )
 		ROM_LOAD( "bz_obj-3.bin",       0x60000, 0x20000, CRC(9bc1db71) SHA1(36faaec83decb9d92bb9ffe5c8a482a168de18d8) )
 		ROM_FILL(                       0x80000, 0x80000, 0xff )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Quester */
-	ROM_START( quester )
+	static RomLoadHandlerPtr rom_quester = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1597,10 +1597,10 @@ public class namcos1
 		ROM_REGION( 0x100000, REGION_GFX3, ROMREGION_DISPOSE ) /* sprites */
 		ROM_LOAD( "qs1_o0.bin",         0x00000, 0x10000, CRC(e24f0bf1) SHA1(31f37f853fe27c24cfeaa059f8959dfea37911cb) )
 		ROM_LOAD( "qs1_o1.bin",         0x20000, 0x10000, CRC(e4aab0ca) SHA1(e4765dd369b02492dbb9955cc082f24665a01635) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Pac-Mania */
-	ROM_START( pacmania )
+	static RomLoadHandlerPtr rom_pacmania = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1633,10 +1633,10 @@ public class namcos1
 		ROM_REGION( 0x100000, REGION_GFX3, ROMREGION_DISPOSE ) /* sprites */
 		ROM_LOAD( "pn_obj-0.bin",       0x00000, 0x20000, CRC(fda57e8b) SHA1(16a72585268159d24f881dbb1aa6ae82bcc4bde7) )
 		ROM_LOAD( "pnx_obj1.bin",       0x20000, 0x20000, CRC(4c08affe) SHA1(f8f60fdc31779e2abe496e36ba0e4f27546cbc54) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Pac-Mania (Japan) diff o1,s0,s1,p7,v0 */
-	ROM_START( pacmanij )
+	static RomLoadHandlerPtr rom_pacmanij = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1669,10 +1669,10 @@ public class namcos1
 		ROM_REGION( 0x100000, REGION_GFX3, ROMREGION_DISPOSE ) /* sprites */
 		ROM_LOAD( "pn_obj-0.bin",       0x00000, 0x20000, CRC(fda57e8b) SHA1(16a72585268159d24f881dbb1aa6ae82bcc4bde7) )
 		ROM_LOAD( "pn_obj-1.bin",       0x20000, 0x20000, CRC(27bdf440) SHA1(0be16dc73590eb71090e6a0e6ddd6e7f4f3dbfba) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Galaga '88 */
-	ROM_START( galaga88 )
+	static RomLoadHandlerPtr rom_galaga88 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1717,9 +1717,9 @@ public class namcos1
 		ROM_LOAD( "g8_obj-3.bin",       0x60000, 0x20000, CRC(3ed3941b) SHA1(5404aed795536ce6b37b8292d6a4446222bb50bf) )
 		ROM_LOAD( "g8_obj-4.bin",       0x80000, 0x20000, CRC(370ff4ad) SHA1(61d7306325103c6a03def619c21877faadf12699) )
 		ROM_LOAD( "g8_obj-5.bin",       0xa0000, 0x20000, CRC(b0645169) SHA1(e55dc9bd532b6bd821b7bf6994c35175600c317c) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( galag88b )
+	static RomLoadHandlerPtr rom_galag88b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1764,10 +1764,10 @@ public class namcos1
 		ROM_LOAD( "g8_obj-3.bin",       0x60000, 0x20000, CRC(3ed3941b) SHA1(5404aed795536ce6b37b8292d6a4446222bb50bf) )
 		ROM_LOAD( "g8_obj-4.bin",       0x80000, 0x20000, CRC(370ff4ad) SHA1(61d7306325103c6a03def619c21877faadf12699) )
 		ROM_LOAD( "g8_obj-5.bin",       0xa0000, 0x20000, CRC(b0645169) SHA1(e55dc9bd532b6bd821b7bf6994c35175600c317c) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Galaga '88 (Japan) */
-	ROM_START( galag88j )
+	static RomLoadHandlerPtr rom_galag88j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1812,10 +1812,10 @@ public class namcos1
 		ROM_LOAD( "g8_obj-3.bin",       0x60000, 0x20000, CRC(3ed3941b) SHA1(5404aed795536ce6b37b8292d6a4446222bb50bf) )
 		ROM_LOAD( "g8_obj-4.bin",       0x80000, 0x20000, CRC(370ff4ad) SHA1(61d7306325103c6a03def619c21877faadf12699) )
 		ROM_LOAD( "g8_obj-5.bin",       0xa0000, 0x20000, CRC(b0645169) SHA1(e55dc9bd532b6bd821b7bf6994c35175600c317c) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* World Stadium */
-	ROM_START( ws )
+	static RomLoadHandlerPtr rom_ws = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1855,10 +1855,10 @@ public class namcos1
 		ROM_LOAD( "ws_obj-1.bin",       0x20000, 0x20000, CRC(68290a46) SHA1(c05f31e1c2332cba5d5b8cafc0e9f616aadee5b7) )
 		ROM_LOAD( "ws_obj-2.bin",       0x40000, 0x20000, CRC(cd5ba55d) SHA1(9b5a655909457bcffdaaa95842740a6f0f8f6cec) )
 		ROM_LOAD_HS( "ws1_obj3.bin",    0x60000, 0x10000, CRC(f2ed5309) SHA1(b7d9c0a617660ecceaf7db3fd53bc0377ed1b6c1) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Beraboh Man */
-	ROM_START( berabohm )
+	static RomLoadHandlerPtr rom_berabohm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1904,9 +1904,9 @@ public class namcos1
 		ROM_LOAD( "bm_obj-4.bin",       0x80000, 0x20000, CRC(76dcc24c) SHA1(78deeb6efca1d2a0d52ee047bdd869cb9c9e2816) )
 		ROM_LOAD( "bm_obj-5.bin",       0xa0000, 0x20000, CRC(fe70201d) SHA1(49a621e169f096572583bbbdee2ab1a7916bf95f) )
 		ROM_LOAD( "bm_obj-7.bin",       0xe0000, 0x20000, CRC(377c81ed) SHA1(85f4682c6079863793f5575d261a33309c221ba7) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( beraboho )
+	static RomLoadHandlerPtr rom_beraboho = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1952,10 +1952,10 @@ public class namcos1
 		ROM_LOAD( "bm_obj-4.bin",       0x80000, 0x20000, CRC(76dcc24c) SHA1(78deeb6efca1d2a0d52ee047bdd869cb9c9e2816) )
 		ROM_LOAD( "bm_obj-5.bin",       0xa0000, 0x20000, CRC(fe70201d) SHA1(49a621e169f096572583bbbdee2ab1a7916bf95f) )
 		ROM_LOAD( "bm_obj-7.bin",       0xe0000, 0x20000, CRC(377c81ed) SHA1(85f4682c6079863793f5575d261a33309c221ba7) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Marchen Maze */
-	ROM_START( mmaze )
+	static RomLoadHandlerPtr rom_mmaze = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -1997,10 +1997,10 @@ public class namcos1
 		ROM_LOAD( "mm_obj-1.bin",       0x20000, 0x20000, CRC(1ce49e04) SHA1(fc30a03e443bece11bd86771ebd1fcb40d15b0b9) )
 		ROM_LOAD( "mm_obj-2.bin",       0x40000, 0x20000, CRC(3d3d5de3) SHA1(aa8032f1d99af1d92b0afaa11933548e0d39f03b) )
 		ROM_LOAD( "mm_obj-3.bin",       0x60000, 0x20000, CRC(dac57358) SHA1(5175b66d3622cb56ed7be3568b247195d1485579) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Bakutotsu Kijuutei */
-	ROM_START( bakutotu )
+	static RomLoadHandlerPtr rom_bakutotu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2048,10 +2048,10 @@ public class namcos1
 		ROM_LOAD( "bk_obj-5.bin",       0xa0000, 0x20000, CRC(790560c0) SHA1(b3b0be53a3dccada9b7c059c1f10342a16cc7e1a) )
 		ROM_LOAD( "bk_obj-6.bin",       0xc0000, 0x20000, CRC(2cd4d2ea) SHA1(5a367841488304a93595757a653f9b484cfb252e) )
 		ROM_LOAD( "bk_obj-7.bin",       0xe0000, 0x20000, CRC(809aa0e6) SHA1(d5dbc04037001a0808e79da742f7c4a8f5d3bc2f) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* World Court */
-	ROM_START( wldcourt )
+	static RomLoadHandlerPtr rom_wldcourt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2086,10 +2086,10 @@ public class namcos1
 		ROM_LOAD( "wc1_obj1.bin",       0x20000, 0x20000, CRC(ba8b034a) SHA1(024a4dd4497c17792648f90b59da9bc3da884f13) )
 		ROM_LOAD( "wc1_obj2.bin",       0x40000, 0x20000, CRC(c2bd5f0f) SHA1(9c29144fb77290a4d2aaa43c4c0b2f6757ed1f8c) )
 		ROM_LOAD( "wc1_obj3.bin",       0x60000, 0x10000, CRC(1aa2dbc8) SHA1(dc100fd85aca8b4c29d2100dba43dd4093976633) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Splatter House */
-	ROM_START( splatter )
+	static RomLoadHandlerPtr rom_splatter = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2140,10 +2140,10 @@ public class namcos1
 		ROM_LOAD( "sh_obj-5.bin",       0xa0000, 0x20000, CRC(24d0266f) SHA1(5c768343554209a7d7858afe41489a58809dd5f1) )
 		ROM_LOAD( "sh_obj-6.bin",       0xc0000, 0x20000, CRC(80830b0e) SHA1(f9d69ece0827f5ec46473142d24f3191d40a0d57) )
 		ROM_LOAD( "sh_obj-7.bin",       0xe0000, 0x20000, CRC(08b1953a) SHA1(f84f97e8e14ed6fcf99565d2603651831101ed2f) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Face Off */
-	ROM_START( faceoff )
+	static RomLoadHandlerPtr rom_faceoff = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2179,10 +2179,10 @@ public class namcos1
 		ROM_LOAD( "fo1_o2.bin",         0x40000, 0x20000, CRC(c1f7eb52) SHA1(f87a59afa19bbc7a9b876f50a787df8148b63738) )
 		ROM_LOAD( "fo1_o3.bin",         0x60000, 0x20000, CRC(aa95d2e0) SHA1(adb1acf5c032abc37c76445fd17f4bb02f0952f6) )
 		ROM_LOAD( "fo1_o4.bin",         0x80000, 0x20000, CRC(985f04c7) SHA1(03fcb84c9134aa4521ce9549d09925a4f7a82318) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Rompers */
-	ROM_START( rompers )
+	static RomLoadHandlerPtr rom_rompers = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2222,10 +2222,10 @@ public class namcos1
 		ROM_LOAD( "rp_obj-4.bin",       0x80000, 0x20000, CRC(0348220b) SHA1(453c86d27490397c49d2708d5afc5a12c4bc99d1) )
 		ROM_LOAD( "rp1_obj5.bin",       0xa0000, 0x10000, CRC(9e2ba243) SHA1(36721dbebfef5f7fb3935ff89462b52ee286df82) )
 		ROM_LOAD( "rp1_obj6.bin",       0xc0000, 0x10000, CRC(6bf2aca6) SHA1(ecd6022c0e4022ebfc571ee20d89369921cf3f1d) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Rompers (old version) */
-	ROM_START( romperso )
+	static RomLoadHandlerPtr rom_romperso = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2265,10 +2265,10 @@ public class namcos1
 		ROM_LOAD( "rp_obj-4.bin",       0x80000, 0x20000, CRC(0348220b) SHA1(453c86d27490397c49d2708d5afc5a12c4bc99d1) )
 		ROM_LOAD( "rp1_obj5.bin",       0xa0000, 0x10000, CRC(9e2ba243) SHA1(36721dbebfef5f7fb3935ff89462b52ee286df82) )
 		ROM_LOAD( "rp1_obj6.bin",       0xc0000, 0x10000, CRC(6bf2aca6) SHA1(ecd6022c0e4022ebfc571ee20d89369921cf3f1d) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Blast Off */
-	ROM_START( blastoff )
+	static RomLoadHandlerPtr rom_blastoff = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2311,10 +2311,10 @@ public class namcos1
 		ROM_LOAD( "bo_obj-2.bin",       0x40000, 0x20000, CRC(eef77527) SHA1(ba1931a37e4ad06e57e73d61f985bf6267f92d76) )
 		ROM_LOAD( "bo_obj-3.bin",       0x60000, 0x20000, CRC(e3d9ed58) SHA1(ddb68274957f52882331b4ab13c55f096a0b1f76) )
 		ROM_LOAD( "bo1_obj4.bin",       0x80000, 0x20000, CRC(c2c1b9cb) SHA1(754bf6136f4b1b4958474072dca5c6dbf54517bd) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* World Stadium '89 */
-	ROM_START( ws89 )
+	static RomLoadHandlerPtr rom_ws89 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2354,10 +2354,10 @@ public class namcos1
 		ROM_LOAD( "ws_obj-1.bin",       0x20000, 0x20000, CRC(68290a46) SHA1(c05f31e1c2332cba5d5b8cafc0e9f616aadee5b7) )
 		ROM_LOAD( "ws_obj-2.bin",       0x40000, 0x20000, CRC(cd5ba55d) SHA1(9b5a655909457bcffdaaa95842740a6f0f8f6cec) )
 		ROM_LOAD_HS( "w91_obj3.bin",    0x60000, 0x10000, CRC(8ee76105) SHA1(8b567631250981fd9ec15ef8beb1df469cc70c4d) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Dangerous Seed */
-	ROM_START( dangseed )
+	static RomLoadHandlerPtr rom_dangseed = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2396,10 +2396,10 @@ public class namcos1
 		ROM_LOAD( "dr_obj-0.bin",       0x00000, 0x20000, CRC(abb95644) SHA1(f96f7aa3d1f6742f2460e3fc6aebc3b5ac4cdad7) )
 		ROM_LOAD( "dr_obj-1.bin",       0x20000, 0x20000, CRC(24d6db51) SHA1(6ca66548cca53019dc242e39584b987f45e139f7) )
 		ROM_LOAD( "dr_obj-2.bin",       0x40000, 0x20000, CRC(7e3a78c0) SHA1(d0026f70c05ef84dd9fc0588869ad7920949624a) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* World Stadium '90 */
-	ROM_START( ws90 )
+	static RomLoadHandlerPtr rom_ws90 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2439,10 +2439,10 @@ public class namcos1
 		ROM_LOAD( "ws_obj-1.bin",       0x20000, 0x20000, CRC(68290a46) SHA1(c05f31e1c2332cba5d5b8cafc0e9f616aadee5b7) )
 		ROM_LOAD( "ws_obj-2.bin",       0x40000, 0x20000, CRC(cd5ba55d) SHA1(9b5a655909457bcffdaaa95842740a6f0f8f6cec) )
 		ROM_LOAD_HS( "w901obj3.bin",    0x60000, 0x10000, CRC(7d0b8961) SHA1(b64e28e2a784bcc5f370436411da6c9fa8900c3d) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Pistol Daimyo no Bouken */
-	ROM_START( pistoldm )
+	static RomLoadHandlerPtr rom_pistoldm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2485,10 +2485,10 @@ public class namcos1
 		ROM_LOAD( "pd_obj-5.bin",       0xa0000, 0x20000, CRC(414f9a9d) SHA1(e48c308152cf038117997caacb93b46e2ea2f481) )
 		ROM_LOAD( "pd_obj-6.bin",       0xc0000, 0x20000, CRC(91b4e6e0) SHA1(aca45e1d3a8ee11b4feb50a8ada9c4e8e4820224) )
 		ROM_LOAD( "pd_obj-7.bin",       0xe0000, 0x20000, CRC(00d4a8f0) SHA1(2312bea93272974b944ea5566b5cd2631761dfef) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Souko Ban Deluxe */
-	ROM_START( boxyboy )
+	static RomLoadHandlerPtr rom_boxyboy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2520,9 +2520,9 @@ public class namcos1
 	
 		ROM_REGION( 0x100000, REGION_GFX3, ROMREGION_DISPOSE ) /* sprites */
 		ROM_LOAD( "sb1_obj0.bin",       0x00000, 0x10000, CRC(ed810da4) SHA1(b3172b50b15d0e2fd40d38d32abf4de22b6f7a85) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( soukobdx )
+	static RomLoadHandlerPtr rom_soukobdx = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2554,10 +2554,10 @@ public class namcos1
 	
 		ROM_REGION( 0x100000, REGION_GFX3, ROMREGION_DISPOSE ) /* sprites */
 		ROM_LOAD( "sb1_obj0.bin",       0x00000, 0x10000, CRC(ed810da4) SHA1(b3172b50b15d0e2fd40d38d32abf4de22b6f7a85) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Puzzle Club */
-	ROM_START( puzlclub )
+	static RomLoadHandlerPtr rom_puzlclub = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2592,10 +2592,10 @@ public class namcos1
 	
 		ROM_REGION( 0x100000, REGION_GFX3, ROMREGION_DISPOSE ) /* sprites */
 		/* no sprites */
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Tank Force */
-	ROM_START( tankfrce )
+	static RomLoadHandlerPtr rom_tankfrce = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2633,10 +2633,10 @@ public class namcos1
 		ROM_REGION( 0x100000, REGION_GFX3, ROMREGION_DISPOSE ) /* sprites */
 		ROM_LOAD( "tf1_obj0.bin",       0x00000, 0x20000, CRC(4bedd51a) SHA1(fedb972986efe5ff3bd6c75fa16f22f8267ee0b7) )
 		ROM_LOAD( "tf1_obj1.bin",       0x20000, 0x20000, CRC(df674d6d) SHA1(65935c2d6072228fcb2fbca8808fc921db9e0ddd) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* Tank Force (Japan) */
-	ROM_START( tankfrcj )
+	static RomLoadHandlerPtr rom_tankfrcj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )       /* 64k for the main cpu */
 		/* Nothing loaded here. Bankswitching makes sure this gets the necessary code */
 	
@@ -2674,7 +2674,7 @@ public class namcos1
 		ROM_REGION( 0x100000, REGION_GFX3, ROMREGION_DISPOSE ) /* sprites */
 		ROM_LOAD( "tf1_obj0.bin",       0x00000, 0x20000, CRC(4bedd51a) SHA1(fedb972986efe5ff3bd6c75fa16f22f8267ee0b7) )
 		ROM_LOAD( "tf1_obj1.bin",       0x20000, 0x20000, CRC(df674d6d) SHA1(65935c2d6072228fcb2fbca8808fc921db9e0ddd) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_shadowld	   = new GameDriver("1987"	,"shadowld"	,"namcos1.java"	,rom_shadowld,null	,machine_driver_ns1	,input_ports_ns1	,init_shadowld	,ROT0,   "Namco", "Shadow Land" )

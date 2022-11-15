@@ -883,7 +883,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( 64street )
+	static RomLoadHandlerPtr rom_64street = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "64th_03.rom", 0x000000, 0x040000, CRC(ed6c6942) SHA1(f610b31548ed4889a43d77be286b9bfabf700064) )
 		ROM_LOAD16_BYTE( "64th_02.rom", 0x000001, 0x040000, CRC(0621ed1d) SHA1(97d3e84cced23865157c5a15cbf5b7671c1dbae1) )
@@ -913,10 +913,10 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom",        0x0000, 0x0200, NO_DUMP )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( 64streej )
+	static RomLoadHandlerPtr rom_64streej = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "91105-3.bin", 0x000000, 0x040000, CRC(a211a83b) SHA1(423d8f273f1520f6a37f1255bb2d343a6bbd790a) )
 		ROM_LOAD16_BYTE( "91105-2.bin", 0x000001, 0x040000, CRC(27c1f436) SHA1(d7936523549cfcd99ba98c6776ebd225b245867b) )
@@ -946,7 +946,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom",        0x0000, 0x0200, NO_DUMP )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	
@@ -994,7 +994,7 @@ public class megasys1
 	***************************************************************************/
 	
 	
-	ROM_START( astyanax )
+	static RomLoadHandlerPtr rom_astyanax = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "astyan2.bin", 0x00000, 0x20000, CRC(1b598dcc) SHA1(f6b733d9b0e81226eb784aaddda1791e3e95b816) )
 		ROM_LOAD16_BYTE( "astyan1.bin", 0x00001, 0x20000, CRC(1a1ad3cf) SHA1(e094b4528e6f36eb30bfc148f2ad50d876e9280a) )
@@ -1036,9 +1036,9 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "rd.bpr",       0x0000, 0x0200, CRC(85b30ac4) SHA1(b03f577ceb0f26b67453ffa52ef61fea76a93184) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( lordofk )
+	static RomLoadHandlerPtr rom_lordofk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "lokj02.bin", 0x00000, 0x20000, CRC(0d7f9b4a) SHA1(551f237cd60e3b9aa339e393a672b08645b043cc) )
 		ROM_LOAD16_BYTE( "lokj01.bin", 0x00001, 0x20000, CRC(bed3cb93) SHA1(ad4dbdacded60289ebf245111ce4543151b9456a) )
@@ -1080,7 +1080,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "rd.bpr",       0x0000, 0x0200, CRC(85b30ac4) SHA1(b03f577ceb0f26b67453ffa52ef61fea76a93184) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	INPUT_PORTS_START( astyanax )
@@ -1167,7 +1167,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( avspirit )
+	static RomLoadHandlerPtr rom_avspirit = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xc0000, REGION_CPU1, 0 )		/* Main CPU Code: 00000-3ffff & 80000-bffff */
 		ROM_LOAD16_BYTE( "spirit05.rom",  0x000000, 0x020000, CRC(b26a341a) SHA1(5ff5b7d3aa73cc7cea7b6e8cc2ba55f4cd9b52e5) )
 		ROM_CONTINUE (                    0x080000, 0x020000 )
@@ -1198,10 +1198,10 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "ph.bin",        0x0000, 0x0200, CRC(8359650a) SHA1(97d0105f06c64340fb19a541db03481a7e0b5e05) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( phantasm )
+	static RomLoadHandlerPtr rom_phantasm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "phntsm02.bin", 0x000000, 0x020000, CRC(d96a3584) SHA1(3ae62c5785b6249f1921d914c1f094bcf850d8d1) )
 		ROM_LOAD16_BYTE( "phntsm01.bin", 0x000001, 0x020000, CRC(a54b4b87) SHA1(92745c53d8550189c3b0ce55be9027447817a2dc) )
@@ -1238,7 +1238,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "ph.bin",        0x0000, 0x0200, CRC(8359650a) SHA1(97d0105f06c64340fb19a541db03481a7e0b5e05) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	INPUT_PORTS_START( avspirit )
@@ -1292,7 +1292,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( bigstrik )
+	static RomLoadHandlerPtr rom_bigstrik = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "91105v11.3", 0x000000, 0x020000, CRC(5d6e08ec) SHA1(4b80a5073cd0b0142cad094816b935d750ac11fb) )
 		ROM_LOAD16_BYTE( "91105v11.2", 0x000001, 0x020000, CRC(2120f05b) SHA1(a769cf8c3a4fa6a3f604edf45ce6db35979826cb) )
@@ -1321,7 +1321,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom",         0x0000, 0x0200, NO_DUMP )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	INPUT_PORTS_START( bigstrik )
@@ -1404,7 +1404,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( chimerab )
+	static RomLoadHandlerPtr rom_chimerab = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "prg3.bin", 0x000000, 0x040000, CRC(70f1448f) SHA1(60aaee1cf7aa15ffa4962d947747b0ae7cdcfd8a) )
 		ROM_LOAD16_BYTE( "prg2.bin", 0x000001, 0x040000, CRC(821dbb85) SHA1(df204db38995ff4c898b8a0121834ec1b84b215c) )
@@ -1434,7 +1434,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom",         0x0000, 0x0200, NO_DUMP )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( chimerab )
 	
@@ -1503,7 +1503,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( cybattlr )
+	static RomLoadHandlerPtr rom_cybattlr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "cb_03.rom", 0x000000, 0x040000, CRC(bee20587) SHA1(3c1d546c63a3d6f8a63b7dee1c8e99a7091d774d) )
 		ROM_LOAD16_BYTE( "cb_02.rom", 0x000001, 0x040000, CRC(2ed14c50) SHA1(4ed01ea5c5e59c3c012d9a4d5257be78220758c1) )
@@ -1533,7 +1533,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "pr-91028.12",  0x0000, 0x0200, CRC(cfe90082) SHA1(b59991ec7b3e83ba645b709547e5b4cbe03c0f11) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( cybattlr )
 	
@@ -1615,7 +1615,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( edf )
+	static RomLoadHandlerPtr rom_edf = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xc0000, REGION_CPU1, 0 )		/* Main CPU Code: 00000-3ffff & 80000-bffff */
 		ROM_LOAD16_BYTE( "edf_05.rom",  0x000000, 0x020000, CRC(105094d1) SHA1(e962164836756bc20c2b5dc0032042a0219e82d8) )
 		ROM_CONTINUE (                  0x080000, 0x020000 )
@@ -1646,7 +1646,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom.14m",    0x0000, 0x0200, CRC(1d877538) SHA1(a5be0dc65dcfc36fbba10d1fddbe155e24b6122f) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( edf )
 		COINS
@@ -1698,7 +1698,7 @@ public class megasys1
 	***************************************************************************/
 	
 	
-	ROM_START( hachoo )
+	static RomLoadHandlerPtr rom_hachoo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "hacho02.rom", 0x000000, 0x020000, CRC(49489c27) SHA1(21c31e1b41ca6c7e78803e5a2e7c49f7b885d0e3) )
 		ROM_LOAD16_BYTE( "hacho01.rom", 0x000001, 0x020000, CRC(97fc9515) SHA1(192660061af6a5bddccf7cfffcbfa368c4030de9) )
@@ -1735,7 +1735,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "ht.bin",      0x0000, 0x0200, CRC(85302b15) SHA1(8184c1184a71706cdb981e3c4f90a08521413e72) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	INPUT_PORTS_START( hachoo )
@@ -1799,7 +1799,7 @@ public class megasys1
 	***************************************************************************/
 	
 	
-	ROM_START( iganinju )
+	static RomLoadHandlerPtr rom_iganinju = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "iga_02.bin", 0x000000, 0x020000, CRC(bd00c280) SHA1(d4e074bb25fc7295b1a39aa22e966cf471a6789f) )
 		ROM_LOAD16_BYTE( "iga_01.bin", 0x000001, 0x020000, CRC(fa416a9e) SHA1(c81405037366c93754d8eed1c70128091f9b3e3f) )
@@ -1830,7 +1830,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom",         0x0000, 0x0200, NO_DUMP )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	INPUT_PORTS_START( iganinju )
@@ -1901,7 +1901,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( jitsupro )
+	static RomLoadHandlerPtr rom_jitsupro = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "jp_2.bin", 0x000000, 0x020000, CRC(5d842ff2) SHA1(69032601c0e67c5c78fad1cb2bb4f1b59014fe5a) )
 		ROM_LOAD16_BYTE( "jp_1.bin", 0x000001, 0x020000, CRC(0056edec) SHA1(529a5181f7d791930e238bc115daeae1ab9a63ad) )
@@ -1932,7 +1932,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "bs.bpr",    0x0000, 0x0200, CRC(85b30ac4) SHA1(b03f577ceb0f26b67453ffa52ef61fea76a93184) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	INPUT_PORTS_START( jitsupro )
@@ -2011,7 +2011,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( kickoff )
+	static RomLoadHandlerPtr rom_kickoff = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "kioff03.rom", 0x000000, 0x010000, CRC(3b01be65) SHA1(110b4e02053073c0315aba1eca8c19afe5fafb33) )
 		ROM_LOAD16_BYTE( "kioff01.rom", 0x000001, 0x010000, CRC(ae6e68a1) SHA1(aac54e13dd33420712a869e6f46fb9b94fde9e34) )
@@ -2049,7 +2049,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "kick.bin",    0x0000, 0x0200, CRC(85b30ac4) SHA1(b03f577ceb0f26b67453ffa52ef61fea76a93184) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( kickoff )
 		COINS						/* IN0 0x80001.b ->  !f0008/a.w  */
@@ -2117,7 +2117,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( lomakai )
+	static RomLoadHandlerPtr rom_lomakai = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "lom_30.rom", 0x000000, 0x020000, CRC(ba6d65b8) SHA1(4c83e57c977b2be82a99a4a61ab8fd5f7099ae38) )
 		ROM_LOAD16_BYTE( "lom_20.rom", 0x000001, 0x020000, CRC(56a00dc2) SHA1(5d97f89d384e12d70cbb5aabd6ce309e5cfb5497) )
@@ -2137,9 +2137,9 @@ public class megasys1
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Unknown PROMs */
 		ROM_LOAD( "makaiden.9",  0x0000, 0x0100, CRC(3567065d) SHA1(e111e40f9400512b3e088842d87462b00b450b8d) )
 		ROM_LOAD( "makaiden.10", 0x0100, 0x0100, CRC(e6709c51) SHA1(f5cd4f0454c1a71a5b0006b098f9e76c2d8a27d2) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( makaiden )
+	static RomLoadHandlerPtr rom_makaiden = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "makaiden.3a", 0x000000, 0x020000, CRC(87cf81d1) SHA1(c4410a86a01c683368dbc3daca61e21931885650) )
 		ROM_LOAD16_BYTE( "makaiden.2a", 0x000001, 0x020000, CRC(d40e0fea) SHA1(0f8a0440f63f52508ab44c3a8eb5b7f03ccca49d) )
@@ -2159,7 +2159,7 @@ public class megasys1
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Unknown PROMs */
 		ROM_LOAD( "makaiden.9",  0x0000, 0x0100, CRC(3567065d) SHA1(e111e40f9400512b3e088842d87462b00b450b8d) )
 		ROM_LOAD( "makaiden.10", 0x0100, 0x0100, CRC(e6709c51) SHA1(f5cd4f0454c1a71a5b0006b098f9e76c2d8a27d2) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( lomakai )
 		COINS						/* IN0 0x80001.b */
@@ -2259,7 +2259,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( p47 )
+	static RomLoadHandlerPtr rom_p47 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "p47us3.bin", 0x000000, 0x020000, CRC(022e58b8) SHA1(87db59e409977358d9a7b689f2d69bef056328d9) )
 		ROM_LOAD16_BYTE( "p47us1.bin", 0x000001, 0x020000, CRC(ed926bd8) SHA1(5cf3e7b9b23667eaa8ebcff0803a7b881c7b83cf) )
@@ -2297,10 +2297,10 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom.14m",    0x0000, 0x0200, CRC(1d877538) SHA1(a5be0dc65dcfc36fbba10d1fddbe155e24b6122f) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( p47j )
+	static RomLoadHandlerPtr rom_p47j = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "p47j_3.bin", 0x000000, 0x020000, CRC(11c655e5) SHA1(a2bfd6538ac81a5f20fa77460ba045584313413a) )
 		ROM_LOAD16_BYTE( "p47j_1.bin", 0x000001, 0x020000, CRC(0a5998de) SHA1(9f474c6c9b125fc7c41a44dbaacf3ba3800df8b5) )
@@ -2338,7 +2338,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom.14m",    0x0000, 0x0200, CRC(1d877538) SHA1(a5be0dc65dcfc36fbba10d1fddbe155e24b6122f) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( p47 )
 	
@@ -2470,7 +2470,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( peekaboo )
+	static RomLoadHandlerPtr rom_peekaboo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* 68000 CPU Code */
 		ROM_LOAD16_BYTE( "j3", 0x000000, 0x020000, CRC(f5f4cf33) SHA1(f135f2b627347255bb0811e9a4a213e3b447c199) )
 		ROM_LOAD16_BYTE( "j2", 0x000001, 0x020000, CRC(7b3d430d) SHA1(8b48101929da4938a61dfd0eda845368c4184831) )
@@ -2493,7 +2493,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "priority.69",    0x000000, 0x200, CRC(b40bff56) SHA1(39c95eed79328ef2df754988db83e07909e848f8) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( peekaboo )
 	
@@ -2607,7 +2607,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( plusalph )
+	static RomLoadHandlerPtr rom_plusalph = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "pa-rom2.bin", 0x000000, 0x020000, CRC(33244799) SHA1(686fb7fa8a6c25b5aff78bc509f35c69492d7d1e) )
 		ROM_LOAD16_BYTE( "pa-rom1.bin", 0x000001, 0x020000, CRC(a32fdcae) SHA1(c2315a7142e5499e9325f5a8361cb25e83747a3e) )
@@ -2649,7 +2649,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom.14m",     0x0000, 0x0200, CRC(1d877538) SHA1(a5be0dc65dcfc36fbba10d1fddbe155e24b6122f) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( plusalph )
 		COINS						/* IN0 0x80001.b */
@@ -2712,7 +2712,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( rodland )
+	static RomLoadHandlerPtr rom_rodland = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "rl_02.rom", 0x000000, 0x020000, CRC(c7e00593) SHA1(055b7bcabf90ed6d5edc2797d0f85a5d49b8693b) )
 		ROM_LOAD16_BYTE( "rl_01.rom", 0x000001, 0x020000, CRC(2e748ca1) SHA1(285414af11aad36f3bd7020365ff90eb696d2de3) )
@@ -2748,9 +2748,9 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "rl.bin",    0x0000, 0x0200, CRC(8914e72d) SHA1(80a664471f14c8ed8544a5e226fdca425ab3c657) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( rodlandj )
+	static RomLoadHandlerPtr rom_rodlandj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "rl_2.bin", 0x000000, 0x020000, CRC(b1d2047e) SHA1(75d282b7614c5f4b76ab44e34fea9e87ab8b992c) )
 		ROM_LOAD16_BYTE( "rl_1.bin", 0x000001, 0x020000, CRC(3c47c2a3) SHA1(62e66a2f53aeacf92551ba64ae4ce14c2e982bb0) )
@@ -2783,10 +2783,10 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "rl.bin",    0x0000, 0x0200, CRC(8914e72d) SHA1(80a664471f14c8ed8544a5e226fdca425ab3c657) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* 100% identical to rodlandj, but not encrypted */
-	ROM_START( rodlndjb )
+	static RomLoadHandlerPtr rom_rodlndjb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "rl19.bin", 0x000000, 0x010000, CRC(028de21f) SHA1(04c88a0138dd119655b4a8a965617781a9a6ff71) )
 		ROM_LOAD16_BYTE( "rl17.bin", 0x000001, 0x010000, CRC(9c720046) SHA1(8543f0942863b4aa5329572dd1f374ea18c29851) )
@@ -2824,7 +2824,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "rl.bin",    0x0000, 0x0200, CRC(8914e72d) SHA1(80a664471f14c8ed8544a5e226fdca425ab3c657) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	INPUT_PORTS_START( rodland )
@@ -2879,7 +2879,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( stdragon )
+	static RomLoadHandlerPtr rom_stdragon = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "jsd-02.bin", 0x000000, 0x020000, CRC(cc29ab19) SHA1(e145eeb01fad313e300f0c614c0e7a5c1d75d7d9) )
 		ROM_LOAD16_BYTE( "jsd-01.bin", 0x000001, 0x020000, CRC(67429a57) SHA1(f3c20fabed97ac5c2fe3e891f9c8c86478453a6c) )
@@ -2919,7 +2919,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "prom.14m",    0x0000, 0x0200, CRC(1d877538) SHA1(a5be0dc65dcfc36fbba10d1fddbe155e24b6122f) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( stdragon )
 		COINS						/* IN0 0x80001.b */
@@ -2977,7 +2977,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( soldamj )
+	static RomLoadHandlerPtr rom_soldamj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "soldam2.bin", 0x000000, 0x020000, CRC(c73d29e4) SHA1(2a6bffd6835506a0a1449047dec69445d2242fca) )
 		ROM_LOAD16_BYTE( "soldam1.bin", 0x000001, 0x020000, CRC(e7cb0c20) SHA1(7b1adf439cd4022ec110ec18359fb50ac137f253) )
@@ -3008,7 +3008,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "soldam.m14",   0x0000, 0x0200, CRC(8914e72d) SHA1(80a664471f14c8ed8544a5e226fdca425ab3c657) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( soldamj )
 		COINS						/* IN0 0x80001.b */
@@ -3067,7 +3067,7 @@ public class megasys1
 	
 	***************************************************************************/
 	
-	ROM_START( tshingen )
+	static RomLoadHandlerPtr rom_tshingen = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "takeda2.bin", 0x000000, 0x020000, CRC(6ddfc9f3) SHA1(0ce1b8eae31453db0b2081717d7dbda9ea7d5a60) )
 		ROM_LOAD16_BYTE( "takeda1.bin", 0x000001, 0x020000, CRC(1afc6b7d) SHA1(b56da1b8c5b417a88a2952491c2d5472bb783945) )
@@ -3104,9 +3104,9 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "ts.bpr",        0x0000, 0x0200, CRC(85b30ac4) SHA1(b03f577ceb0f26b67453ffa52ef61fea76a93184) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( tshingna )
+	static RomLoadHandlerPtr rom_tshingna = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD16_BYTE( "shing_02.rom", 0x000000, 0x020000, CRC(d9ab5b78) SHA1(c7622ec11a636dc7a6bcad02556a98aa0a9fb043) )
 		ROM_LOAD16_BYTE( "shing_01.rom", 0x000001, 0x020000, CRC(a9d2de20) SHA1(b53205722ae19305a1c373abbbac4fbcbcb0b0f0) )
@@ -3143,7 +3143,7 @@ public class megasys1
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )		/* Priority PROM */
 		ROM_LOAD( "ts.bpr",        0x0000, 0x0200, CRC(85b30ac4) SHA1(b03f577ceb0f26b67453ffa52ef61fea76a93184) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( tshingen )
 		COINS						/* IN0 0x80001.b */

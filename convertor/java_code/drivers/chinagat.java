@@ -661,7 +661,7 @@ public class chinagat
 	
 	***************************************************************************/
 	
-	ROM_START( chinagat )
+	static RomLoadHandlerPtr rom_chinagat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* Main CPU: 128KB for code (bankswitched using $3F01) */
 		ROM_LOAD( "cgate51.bin", 0x10000, 0x18000, CRC(439a3b19) SHA1(01393b4302ac7a66390270b01e2757582240f6b8) )	/* Banks 0x4000 long @ 0x4000 */
 		ROM_CONTINUE(            0x08000, 0x08000 )				/* Static code */
@@ -695,10 +695,10 @@ public class chinagat
 		ROM_REGION(0x300, REGION_USER1, 0 )	/* Unknown Bipolar PROMs */
 		ROM_LOAD( "23jb-0.16", 0x000, 0x200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* 82S131 on video board */
 		ROM_LOAD( "23j5-0.45", 0x200, 0x100, CRC(fdb130a9) SHA1(4c4f214229b9fab2b5d69c745ec5428787b89e1f) )	/* 82S129 on main board */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( saiyugou )
+	static RomLoadHandlerPtr rom_saiyugou = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* Main CPU: 128KB for code (bankswitched using $3F01) */
 		ROM_LOAD( "23j3-0.51",  0x10000, 0x18000, CRC(aa8132a2) SHA1(87c3bd447767f263113c4865afc905a0e484a625) )	/* Banks 0x4000 long @ 0x4000 */
 		ROM_CONTINUE(           0x08000, 0x08000)				/* Static code */
@@ -732,9 +732,9 @@ public class chinagat
 		ROM_REGION(0x300, REGION_USER1, 0 )	/* Unknown Bipolar PROMs */
 		ROM_LOAD( "23jb-0.16", 0x000, 0x200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* 82S131 on video board */
 		ROM_LOAD( "23j5-0.45", 0x200, 0x100, CRC(fdb130a9) SHA1(4c4f214229b9fab2b5d69c745ec5428787b89e1f) )	/* 82S129 on main board */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( saiyugb1 )
+	static RomLoadHandlerPtr rom_saiyugb1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* Main CPU: 128KB for code (bankswitched using $3F01) */
 		ROM_LOAD( "23j3-0.51",  0x10000, 0x18000, CRC(aa8132a2) SHA1(87c3bd447767f263113c4865afc905a0e484a625) )	/* Banks 0x4000 long @ 0x4000 */
 		/* Orientation of bootleg ROMs which are split, but otherwise the same.
@@ -797,9 +797,9 @@ public class chinagat
 		ROM_REGION(0x300, REGION_USER1, 0 )	/* Unknown Bipolar PROMs */
 		ROM_LOAD( "23jb-0.16", 0x000, 0x200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* 82S131 on video board */
 		ROM_LOAD( "23j5-0.45", 0x200, 0x100, CRC(fdb130a9) SHA1(4c4f214229b9fab2b5d69c745ec5428787b89e1f) )	/* 82S129 on main board */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( saiyugb2 )
+	static RomLoadHandlerPtr rom_saiyugb2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 )	/* Main CPU: 128KB for code (bankswitched using $3F01) */
 		ROM_LOAD( "23j3-0.51",   0x10000, 0x18000, CRC(aa8132a2) SHA1(87c3bd447767f263113c4865afc905a0e484a625) )	/* Banks 0x4000 long @ 0x4000 */
 		/* Orientation of bootleg ROMs which are split, but otherwise the same.
@@ -862,7 +862,7 @@ public class chinagat
 		ROM_REGION(0x300, REGION_USER1, 0 )	/* Unknown Bipolar PROMs */
 		ROM_LOAD( "23jb-0.16", 0x000, 0x200, CRC(46339529) SHA1(64f4c42a826d67b7cbaa8a23a45ebc4eb6248891) )	/* 82S131 on video board */
 		ROM_LOAD( "23j5-0.45", 0x200, 0x100, CRC(fdb130a9) SHA1(4c4f214229b9fab2b5d69c745ec5428787b89e1f) )	/* 82S129 on main board */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

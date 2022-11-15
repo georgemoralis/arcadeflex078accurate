@@ -1614,7 +1614,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	ROM_START( samuraia )
+	static RomLoadHandlerPtr rom_samuraia = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "4-u127.bin", 0x000000, 0x040000, CRC(8c9911ca) SHA1(821ba648b9a1d495c600cbf4606f2dbddc6f9e6f) ) // 1&0
@@ -1638,9 +1638,9 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* Sprites LUT */
 		ROM_LOAD( "u11.bin",  0x000000, 0x040000, CRC(11a04d91) SHA1(5d146a9a39a70f2ee212ceab9a5469598432449e) ) // x1xxxxxxxxxxxxxxxx = 0xFF
 	
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sngkace )
+	static RomLoadHandlerPtr rom_sngkace = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1-u127.bin", 0x000000, 0x040000, CRC(6c45b2f8) SHA1(08473297e174f3a6d67043f3b16f4e6b9c68b826) ) // 1&0
@@ -1664,7 +1664,7 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* Sprites LUT */
 		ROM_LOAD( "u11.bin",  0x000000, 0x040000, CRC(11a04d91) SHA1(5d146a9a39a70f2ee212ceab9a5469598432449e) ) // x1xxxxxxxxxxxxxxxx = 0xFF
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	DRIVER_INIT( sngkace )
 	{
@@ -1724,7 +1724,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	ROM_START( gunbird )
+	static RomLoadHandlerPtr rom_gunbird = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "4-u46.bin", 0x000000, 0x040000, CRC(b78ec99d) SHA1(399b79931652d9df1632cd4d7ec3d214e473a5c3) ) // 1&0
@@ -1752,9 +1752,9 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* Sprites LUT */
 		ROM_LOAD( "u3.bin",  0x000000, 0x040000, CRC(0905aeb2) SHA1(8cca09f7dfe3f804e77515f7b1b1bdbeb7bb3d80) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( gunbirdk )
+	static RomLoadHandlerPtr rom_gunbirdk = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1k-u46.bin", 0x000000, 0x080000, CRC(745cee52) SHA1(6c5bb92c92c55f882484417bc1aa580684019610) ) // 1&0
@@ -1782,9 +1782,9 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* Sprites LUT */
 		ROM_LOAD( "u3.bin",  0x000000, 0x040000, CRC(0905aeb2) SHA1(8cca09f7dfe3f804e77515f7b1b1bdbeb7bb3d80) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( gunbirdj )
+	static RomLoadHandlerPtr rom_gunbirdj = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1-u46.bin", 0x000000, 0x040000, CRC(474abd69) SHA1(27f37333075f9c92849101aad4875e69004d747b) ) // 1&0
@@ -1812,10 +1812,10 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* Sprites LUT */
 		ROM_LOAD( "u3.bin",  0x000000, 0x040000, CRC(0905aeb2) SHA1(8cca09f7dfe3f804e77515f7b1b1bdbeb7bb3d80) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( btlkroad )
+	static RomLoadHandlerPtr rom_btlkroad = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "4-u46.bin", 0x000000, 0x040000, CRC(8a7a28b4) SHA1(f7197be673dfd0ddf46998af81792b81d8fe9fbf) ) // 1&0
@@ -1843,7 +1843,7 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* Sprites LUT */
 		ROM_LOAD( "u3.bin",  0x000000, 0x040000, CRC(30d541ed) SHA1(6f7fb5f5ecbce7c086185392de164ebb6887e780) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	
@@ -1875,7 +1875,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	ROM_START( s1945jn )
+	static RomLoadHandlerPtr rom_s1945jn = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1-u46.bin", 0x000000, 0x080000, CRC(45fa8086) SHA1(f1753b9420596f4b828c77e877a044ba5fb01b28) ) // 1&0
@@ -1903,7 +1903,7 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* */
 		ROM_LOAD( "u1.bin",  0x000000, 0x040000, CRC(dee22654) SHA1(5df05b0029ff7b1f7f04b41da7823d2aa8034bd2) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	DRIVER_INIT( s1945jn )
 	{
@@ -1940,7 +1940,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	ROM_START( s1945 )
+	static RomLoadHandlerPtr rom_s1945 = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "2s.u40", 0x000000, 0x040000, CRC(9b10062a) SHA1(cf963bba157422b659d8d64b4493eb7d69cd07b7) ) // 1&0
@@ -1968,9 +1968,9 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* */
 		ROM_LOAD( "u1.bin",  0x000000, 0x040000, CRC(dee22654) SHA1(5df05b0029ff7b1f7f04b41da7823d2aa8034bd2) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( s1945j )
+	static RomLoadHandlerPtr rom_s1945j = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "1-u40.bin", 0x000000, 0x040000, CRC(c00eb012) SHA1(080dae010ca83548ebdb3324585d15e48baf0541) ) // 1&0
@@ -1998,7 +1998,7 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* */
 		ROM_LOAD( "u1.bin",  0x000000, 0x040000, CRC(dee22654) SHA1(5df05b0029ff7b1f7f04b41da7823d2aa8034bd2) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	DRIVER_INIT( s1945 )
 	{
@@ -2051,7 +2051,7 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	ROM_START( tengai )
+	static RomLoadHandlerPtr rom_tengai = new RomLoadHandlerPtr(){ public void handler(){ 
 	
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* Main CPU Code */
 		ROM_LOAD32_WORD_SWAP( "2-u40.bin", 0x000000, 0x080000, CRC(ab6fe58a) SHA1(6687a3af192b3eab60d75ca286ebb8e0636297b5) ) // 1&0
@@ -2079,7 +2079,7 @@ public class psikyo
 		ROM_REGION( 0x040000, REGION_USER1, 0 )	/* Sprites LUT */
 		ROM_LOAD( "u1.bin",  0x000000, 0x040000, CRC(681d7d55) SHA1(b0b28471440d747adbc4d22d1918f89f6ede1615) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	DRIVER_INIT( tengai )
 	{

@@ -1249,7 +1249,7 @@ public class royalmah
 	
 	***************************************************************************/
 	
-	ROM_START( royalmah )
+	static RomLoadHandlerPtr rom_royalmah = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "rom1",       0x0000, 0x1000, CRC(69b37a62) SHA1(7792528754b0df4e11f4ebe33380b713ac7351a3) )
 		ROM_LOAD( "rom2",       0x1000, 0x1000, CRC(0c8351b6) SHA1(9e6b48fd39dd98478d1e3557df839b09652c4349) )
@@ -1260,10 +1260,10 @@ public class royalmah
 	
 		ROM_REGION( 0x0020, REGION_PROMS, ROMREGION_DISPOSE )
 		ROM_LOAD( "f-rom.bpr",  0x0000, 0x0020, CRC(d3007282) SHA1(e4d863ab193e49208ed0f59dcddb1da0492314f6) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( suzume )
+	static RomLoadHandlerPtr rom_suzume = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )
 		ROM_LOAD( "p1.bin",     0x00000, 0x1000, CRC(e9706967) SHA1(2e3d78178623de6552c9036da90e02f240d94055) )
 		ROM_LOAD( "p2.bin",     0x01000, 0x1000, CRC(dd48cd62) SHA1(1ce7b515fabae5054f0ac284a9ed5760f59d18fa) )
@@ -1280,9 +1280,9 @@ public class royalmah
 	
 		ROM_REGION( 0x0020, REGION_PROMS, ROMREGION_DISPOSE )
 		ROM_LOAD( "ic6k.bin",   0x0000, 0x0020, CRC(97e1defe) SHA1(b5002218b2292f7623dd9a205ce183dedeec03f1) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( dondenmj )
+	static RomLoadHandlerPtr rom_dondenmj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )
 		ROM_LOAD( "dn5.1h",     0x00000, 0x08000, CRC(3080252e) SHA1(e039087afc36a0c594da093ea599b81a1d757139) )
 		/* bank switched ROMs follow */
@@ -1293,9 +1293,9 @@ public class royalmah
 	
 		ROM_REGION( 0x0020, REGION_PROMS, ROMREGION_DISPOSE )
 		ROM_LOAD( "ic6k.bin",   0x0000, 0x0020, CRC(97e1defe) SHA1(b5002218b2292f7623dd9a205ce183dedeec03f1) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( mjdiplob )
+	static RomLoadHandlerPtr rom_mjdiplob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )
 		ROM_LOAD( "071.4l",     0x00000, 0x10000, CRC(81a6d6b0) SHA1(c6169e6d5f35304a0c3efcc2175c3213650f179c) )
 		/* bank switched ROMs follow */
@@ -1306,9 +1306,9 @@ public class royalmah
 	
 		ROM_REGION( 0x0020, REGION_PROMS, ROMREGION_DISPOSE )
 		ROM_LOAD( "ic6k.bin",   0x0000, 0x0020, CRC(c1e427df) SHA1(9a9980d93dff4b87a940398b18277acaf946eeab) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( tontonb )
+	static RomLoadHandlerPtr rom_tontonb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )
 		ROM_LOAD( "091.5e",   	0x00000, 0x10000, CRC(d8d67b59) SHA1(7e7a85df738f80fc031cda8a104ac9c7b3e24785) )
 		/* bank switched ROMs follow */
@@ -1320,9 +1320,9 @@ public class royalmah
 	
 		ROM_REGION( 0x0020, REGION_PROMS, ROMREGION_DISPOSE )
 		ROM_LOAD( "ic6k.bin",   0x0000, 0x0020, CRC(97e1defe) SHA1(b5002218b2292f7623dd9a205ce183dedeec03f1) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( majs101b )
+	static RomLoadHandlerPtr rom_majs101b = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x90000, REGION_CPU1, 0 )
 		ROM_LOAD( "171.3e",     0x00000, 0x10000, CRC(fa3c553b) SHA1(fda212559c4d55610a12ad2927afe21f9069c7b6) )
 		/* bank switched ROMs follow */
@@ -1334,9 +1334,9 @@ public class royalmah
 	
 		ROM_REGION( 0x0020, REGION_PROMS, ROMREGION_DISPOSE )
 		ROM_LOAD( "ic6k.bin",   0x0000, 0x0020, CRC(c1e427df) SHA1(9a9980d93dff4b87a940398b18277acaf946eeab) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( mjderngr )
+	static RomLoadHandlerPtr rom_mjderngr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xb0000, REGION_CPU1, 0 )
 		ROM_LOAD( "2201.1a",    0x00000, 0x08000, CRC(54ec531d) SHA1(c5d9c575f6bdc499bae35123d7ad5bd4869b6ed9) )
 		/* bank switched ROMs follow */
@@ -1349,9 +1349,9 @@ public class royalmah
 		ROM_REGION( 0x400, REGION_PROMS, ROMREGION_DISPOSE )
 		ROM_LOAD( "ic3g.bin",   0x000, 0x200, CRC(d43f4c7c) SHA1(117d2e4e8d5bea3e5dc903a4b87bd71786ae009c) )
 		ROM_LOAD( "ic4g.bin",   0x200, 0x200, CRC(30cf7831) SHA1(b4593d51c6ceb301279a01a98665e4be8a3c403d) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( mjifb )
+	static RomLoadHandlerPtr rom_mjifb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xd0000, REGION_CPU1, 0 )
 		ROM_LOAD( "2911.1b",    0x00000, 0x08000, CRC(138a31a1) SHA1(7e77c63a968206b8e61aaa423e19a766e4142554) )
 		/* bank switched ROMs follow */
@@ -1365,7 +1365,7 @@ public class royalmah
 		ROM_REGION( 0x400, REGION_PROMS, ROMREGION_DISPOSE )
 		ROM_LOAD( "d29-2.4d",   0x000, 0x200, CRC(78252f6a) SHA1(1869147bc6b7573c2543bdf6b17d6c3c1debdddb) )
 		ROM_LOAD( "d29-1.4c",   0x200, 0x200, CRC(4aaec8cf) SHA1(fbe1c3729d078a422ffe68dfde495fcb9f329cdd) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

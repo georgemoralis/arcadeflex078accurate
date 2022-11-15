@@ -742,7 +742,7 @@ public class sidearms
 	
 	
 	
-	ROM_START( sidearms )
+	static RomLoadHandlerPtr rom_sidearms = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for code + banked ROMs images */
 		ROM_LOAD( "sa03.bin",     0x00000, 0x08000, CRC(e10fe6a0) SHA1(ae59461768d044f14b9aac3e4e491c76cec7adac) )        /* CODE */
 		ROM_LOAD( "a_14e.rom",    0x10000, 0x08000, CRC(4925ed03) SHA1(b11dbd9889db89cff008ca21beb6b1b70d983e16) )        /* 0+1 */
@@ -785,9 +785,9 @@ public class sidearms
 		ROM_LOAD( "63s141.11h",   0x0100, 0x0100, CRC(a6e4d68f) SHA1(b9367e0c959cdf0397d33a49d778a66a407572b7) )	// color mixing
 		ROM_LOAD( "63s141.15h",   0x0200, 0x0100, CRC(c47c182a) SHA1(47d6139256e6838f633a04084bd0a7a84912f7fb) )	// timing
 		ROM_LOAD( "63s081.3j",    0x0300, 0x0020, CRC(c5817816) SHA1(cc642daafa0bcb160ee04e74e2d168fd44087608) )	// unknown
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sidearmr )
+	static RomLoadHandlerPtr rom_sidearmr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for code + banked ROMs images */
 		ROM_LOAD( "03",           0x00000, 0x08000, CRC(9a799c45) SHA1(cf6836108506929ee2449546a4867a7cbf00bcc8) )        /* CODE */
 		ROM_LOAD( "a_14e.rom",    0x10000, 0x08000, CRC(4925ed03) SHA1(b11dbd9889db89cff008ca21beb6b1b70d983e16) )        /* 0+1 */
@@ -830,9 +830,9 @@ public class sidearms
 		ROM_LOAD( "63s141.11h",   0x0100, 0x0100, CRC(a6e4d68f) SHA1(b9367e0c959cdf0397d33a49d778a66a407572b7) )	// color mixing
 		ROM_LOAD( "63s141.15h",   0x0200, 0x0100, CRC(c47c182a) SHA1(47d6139256e6838f633a04084bd0a7a84912f7fb) )	// timing
 		ROM_LOAD( "63s081.3j",    0x0300, 0x0020, CRC(c5817816) SHA1(cc642daafa0bcb160ee04e74e2d168fd44087608) )	// unknown
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sidearjp )
+	static RomLoadHandlerPtr rom_sidearjp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for code + banked ROMs images */
 		ROM_LOAD( "a_15e.rom",    0x00000, 0x08000, CRC(61ceb0cc) SHA1(bacf28e5e02b90a9d404c3ade0267e0a7cd73cd8) )        /* CODE */
 		ROM_LOAD( "a_14e.rom",    0x10000, 0x08000, CRC(4925ed03) SHA1(b11dbd9889db89cff008ca21beb6b1b70d983e16) )        /* 0+1 */
@@ -875,9 +875,9 @@ public class sidearms
 		ROM_LOAD( "63s141.11h",   0x0100, 0x0100, CRC(a6e4d68f) SHA1(b9367e0c959cdf0397d33a49d778a66a407572b7) )	// color mixing
 		ROM_LOAD( "63s141.15h",   0x0200, 0x0100, CRC(c47c182a) SHA1(47d6139256e6838f633a04084bd0a7a84912f7fb) )	// timing
 		ROM_LOAD( "63s081.3j",    0x0300, 0x0020, CRC(c5817816) SHA1(cc642daafa0bcb160ee04e74e2d168fd44087608) )	// unknown
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( turtship )
+	static RomLoadHandlerPtr rom_turtship = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for code + banked ROMs images */
 		ROM_LOAD( "turtship.003",    0x00000, 0x08000, CRC(e7a7fc2e) SHA1(1a9147e82a5e56e8e5b68bbce144f96261e88669) )
 		ROM_LOAD( "turtship.002",    0x10000, 0x08000, CRC(e576f482) SHA1(3be3792cb437bff0345681a3a2fdefefa3439357) )
@@ -905,9 +905,9 @@ public class sidearms
 	
 		ROM_REGION( 0x08000, REGION_GFX4, 0 )	/* background tilemaps */
 		ROM_LOAD( "turtship.016",    0x0000, 0x8000, CRC(affd51dd) SHA1(3338aa1fdd6b9926acc215f7f3656d70803f1832) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( dyger )
+	static RomLoadHandlerPtr rom_dyger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for code + banked ROMs images */
 		ROM_LOAD( "dyger.003",    0x00000, 0x08000, CRC(bae9882e) SHA1(88194e58673ebd0841e9e07482842f6dbb823afc) )
 		ROM_LOAD( "dyger.002",    0x10000, 0x08000, CRC(059ac4dc) SHA1(fe46d819946e168b4a8188302737fdde957743ea) )
@@ -936,9 +936,9 @@ public class sidearms
 	
 		ROM_REGION( 0x08000, REGION_GFX4, 0 )	/* background tilemaps */
 		ROM_LOAD( "dyger.016",    0x0000, 0x8000, CRC(0792e8f2) SHA1(3716839502679ecc973571d824065b40771d5bfa) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( dygera )
+	static RomLoadHandlerPtr rom_dygera = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for code + banked ROMs images */
 		ROM_LOAD( "dygar_t3.bin", 0x00000, 0x08000, CRC(fc63da8b) SHA1(f324a314cda167ae05e2eb017da355709489a7a3) )
 		ROM_LOAD( "dyger.002",    0x10000, 0x08000, CRC(059ac4dc) SHA1(fe46d819946e168b4a8188302737fdde957743ea) )
@@ -967,9 +967,9 @@ public class sidearms
 	
 		ROM_REGION( 0x08000, REGION_GFX4, 0 )	/* background tilemaps */
 		ROM_LOAD( "dyger.016",    0x0000, 0x8000, CRC(0792e8f2) SHA1(3716839502679ecc973571d824065b40771d5bfa) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( whizz )
+	static RomLoadHandlerPtr rom_whizz = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )     /* 64k for code + banked ROMs images */
 		ROM_LOAD( "whizz.t15",    0x00000, 0x08000, BAD_DUMP CRC(0cdd0657) SHA1(860a12fa1067c696e20ac3470cb923eba4cbc279)  )
 		ROM_LOAD( "whizz.t14",    0x10000, 0x10000, CRC(bf248879) SHA1(f46f15e3949221e59d8c37de9c23473a74c2927e) )
@@ -999,7 +999,7 @@ public class sidearms
 		ROM_LOAD( "whizz.t7",    0x0000, 0x8000, CRC(a8b5f750) SHA1(94eb7af3cb8bee87ce3d31260e3bde062ebbc8f0) )
 	
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	static DRIVER_INIT( sidearms ) { sidearms_gameid = 0; }
 	static DRIVER_INIT( turtship ) { sidearms_gameid = 1; }

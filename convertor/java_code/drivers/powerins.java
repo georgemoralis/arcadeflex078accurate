@@ -409,7 +409,7 @@ public class powerins
 	
 	***************************************************************************/
 	
-	ROM_START( powerins )
+	static RomLoadHandlerPtr rom_powerins = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_WORD_SWAP( "rom1", 0x000000, 0x080000, CRC(b86c84d6) SHA1(2ec0933130925dfae859ea6abe62a8c92385aee8) )
 		ROM_LOAD16_WORD_SWAP( "rom2", 0x080000, 0x080000, CRC(d3d7a782) SHA1(7846de0ebb09bd9b2534cd451ff9aa5175e60647) )
@@ -430,7 +430,7 @@ public class powerins
 		ROM_REGION( 0x090000, REGION_SOUND1, 0 )	/* 8 bit adpcm (banked) */
 		ROM_LOAD( "rom5", 0x000000, 0x030000, CRC(88579c8f) SHA1(13083934ab294c9b08d3e36f55c00a6a2e5a0507) )
 		ROM_CONTINUE(     0x040000, 0x050000 )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/***************************************************************************
 	
@@ -483,7 +483,7 @@ public class powerins
 	
 	***************************************************************************/
 	
-	ROM_START( powerina )
+	static RomLoadHandlerPtr rom_powerina = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "2q.bin", 0x000000, 0x80000, CRC(11bf3f2a) SHA1(c840add78da9b19839c667f9bbd77e0a7c560ed7) )
 		ROM_LOAD16_BYTE( "2r.bin", 0x000001, 0x80000, CRC(d8d621be) SHA1(91d501ac661c1ff52c85eee96c455c008a7dad1c) )
@@ -534,7 +534,7 @@ public class powerins
 		ROM_REGION( 0x0220, REGION_PROMS, 0 )		/* unknown */
 		ROM_LOAD( "82s123.bin", 0x0000, 0x0020, CRC(67d5ec4b) SHA1(87d32948a0c88277dcdd0eaa035bde40fc7db5fe) )
 		ROM_LOAD( "82s147.bin", 0x0020, 0x0200, CRC(d7818542) SHA1(e94f8004c804f260874a117d59dfa0637c5d3d73) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_powerins	   = new GameDriver("1993"	,"powerins"	,"powerins.java"	,rom_powerins,null	,machine_driver_powerins	,input_ports_powerins	,null	,ROT0, "Atlus", "Power Instinct (USA bootleg) (set 1)" )
 	public static GameDriver driver_powerina	   = new GameDriver("1993"	,"powerina"	,"powerins.java"	,rom_powerina,driver_powerins	,machine_driver_powerina	,input_ports_powerins	,null	,ROT0, "Atlus", "Power Instinct (USA bootleg) (set 2)", GAME_NO_SOUND )

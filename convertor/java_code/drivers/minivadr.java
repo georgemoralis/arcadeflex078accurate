@@ -81,10 +81,10 @@ public class minivadr
 	
 	***************************************************************************/
 	
-	ROM_START( minivadr )
+	static RomLoadHandlerPtr rom_minivadr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "d26-01.bin",	0x0000, 0x2000, CRC(a96c823d) SHA1(aa9969ff80e94b0fff0f3530863f6b300510162e) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_minivadr	   = new GameDriver("1990"	,"minivadr"	,"minivadr.java"	,rom_minivadr,null	,machine_driver_minivadr	,input_ports_minivadr	,null	,ROT0, "Taito Corporation", "Minivader" )

@@ -230,7 +230,7 @@ public class carjmbre
 		MDRV_SOUND_ADD(AY8910, carjmbre_ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	ROM_START( carjmbre )
+	static RomLoadHandlerPtr rom_carjmbre = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "c1",      0x0000, 0x1000, CRC(62b21739) SHA1(710e5c52f27603aa8f864f6f28d7272f21271d60) )
 		ROM_LOAD( "c2",      0x1000, 0x1000, CRC(9ab1a0fa) SHA1(519cf67b98e62b2b42232788ba01ab6637880afc) )
@@ -257,7 +257,7 @@ public class carjmbre
 		ROM_REGION( 0x0040, REGION_PROMS, 0 )
 		ROM_LOAD( "c.d19",  0x0000, 0x0020, CRC(220bceeb) SHA1(46b9f867d014596e2aa7503f104dc721965f0ed5) )
 		ROM_LOAD( "c.d18",  0x0020, 0x0020, CRC(7b9ed1b0) SHA1(ec5e1f56e5a2fc726083866c08ac0e1de0ed6ace) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_carjmbre	   = new GameDriver("1983"	,"carjmbre"	,"carjmbre.java"	,rom_carjmbre,null	,machine_driver_carjmbre	,input_ports_carjmbre	,null	,ROT90, "Omori Electric Co., Ltd.", "Car Jamboree", GAME_IMPERFECT_COLORS )
 }

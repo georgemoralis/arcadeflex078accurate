@@ -343,7 +343,7 @@ public class triplhnt
 	MACHINE_DRIVER_END
 	
 	
-	ROM_START( triplhnt )
+	static RomLoadHandlerPtr rom_triplhnt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_HIGH( "8404.f1", 0x7000, 0x400, CRC(abc8acd5) SHA1(bcef2abc5829829a01aa21776c3deb2e1bf1d4ac) )
 		ROM_LOAD_NIB_LOW ( "8408.f2", 0x7000, 0x400, CRC(77fcdd3f) SHA1(ce0196abb8d6510aa9a5308f8efd6442e94272c4) )
@@ -363,7 +363,7 @@ public class triplhnt
 		ROM_REGION( 0x200, REGION_GFX2, ROMREGION_DISPOSE )   /* tiles */
 		ROM_LOAD_NIB_HIGH( "8409.l3", 0x0000, 0x200, CRC(ec304172) SHA1(ccbf7e117fef7fa4288e3bf68f1a150b3a492ce6) )
 		ROM_LOAD_NIB_LOW ( "8410.m3", 0x0000, 0x200, CRC(f75a1b08) SHA1(81b4733194462cd4cef7f4221ecb7abd1556b871) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_triplhnt	   = new GameDriver("1977"	,"triplhnt"	,"triplhnt.java"	,rom_triplhnt,null	,machine_driver_triplhnt	,input_ports_triplhnt	,init_triplhnt	,0, "Atari", "Triple Hunt", GAME_NO_SOUND )

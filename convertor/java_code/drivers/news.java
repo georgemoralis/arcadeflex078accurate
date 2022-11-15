@@ -139,7 +139,7 @@ public class news
 	
 	
 	
-	ROM_START( news )
+	static RomLoadHandlerPtr rom_news = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "virus.4", 0x00000, 0x08000, BAD_DUMP CRC(aa005dfb) SHA1(52f4dd399a30568851d43d052b83cfaa6682665d)  ) /* The Original was too short, I padded it with 0xFF */
 	
@@ -149,7 +149,7 @@ public class news
 	
 		ROM_REGION( 0x40000, REGION_SOUND1, 0 )
 		ROM_LOAD( "virus.1", 0x00000, 0x40000, CRC(41f5935a) SHA1(1566d243f165019660cd4dd69df9f049e0130f15) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_news	   = new GameDriver("1993"	,"news"	,"news.java"	,rom_news,null	,machine_driver_news	,input_ports_news	,null	,ROT0, "Poby / Virus", "News" )

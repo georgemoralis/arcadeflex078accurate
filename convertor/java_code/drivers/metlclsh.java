@@ -425,7 +425,7 @@ public class metlclsh
 	
 	***************************************************************************/
 	
-	ROM_START( metlclsh )
+	static RomLoadHandlerPtr rom_metlclsh = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "cs04.bin",    0x00000, 0x8000, CRC(c2cc79a6) SHA1(0f586d4145afabbb45ea4865ed7a6590b14a2ab0) )
 		ROM_LOAD( "cs00.bin",    0x0a000, 0x2000, CRC(af0f2998) SHA1(09dd2516406168660d5cd3a36be1e5f0adbcdb8a) )
@@ -464,7 +464,7 @@ public class metlclsh
 	
 		ROM_REGION( 0x020, REGION_PROMS, 0 )	// ?
 		ROM_LOAD( "82s123.prm",   0x0000, 0x20, CRC(6844cc88) SHA1(89d23367aa6ff541205416e82781fe938dfeeb52) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_metlclsh	   = new GameDriver("1985"	,"metlclsh"	,"metlclsh.java"	,rom_metlclsh,null	,machine_driver_metlclsh	,input_ports_metlclsh	,null	,ROT0, "Data East", "Metal Clash (Japan)" )
 	

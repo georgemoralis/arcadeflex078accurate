@@ -293,7 +293,7 @@ public class rollerg
 	
 	***************************************************************************/
 	
-	ROM_START( rollerg )
+	static RomLoadHandlerPtr rom_rollerg = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "999m02.g7",  0x10000, 0x18000, CRC(3df8db93) SHA1(10c46d53d11b12b8f7cc6417601baef4638c1efe) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -311,9 +311,9 @@ public class rollerg
 	
 		ROM_REGION( 0x80000, REGION_SOUND1, 0 )	/* samples for 053260 */
 		ROM_LOAD( "999h09.c5",  0x000000, 0x080000, CRC(c5188783) SHA1(d9ab69e4197ba2b42e3b0bb713236c8037fc2ab3) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( rollergj )
+	static RomLoadHandlerPtr rom_rollergj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x28000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "999v02.bin", 0x10000, 0x18000, CRC(0dd8c3ac) SHA1(4c3d5514dec317c6640ceaaa06411766632f4412) )
 		ROM_CONTINUE(           0x08000, 0x08000 )
@@ -331,7 +331,7 @@ public class rollerg
 	
 		ROM_REGION( 0x80000, REGION_SOUND1, 0 )	/* samples for 053260 */
 		ROM_LOAD( "999h09.c5",  0x000000, 0x080000, CRC(c5188783) SHA1(d9ab69e4197ba2b42e3b0bb713236c8037fc2ab3) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

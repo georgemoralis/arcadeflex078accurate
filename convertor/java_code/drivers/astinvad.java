@@ -315,7 +315,7 @@ public class astinvad
 	MACHINE_DRIVER_END
 	
 	
-	ROM_START( astinvad )
+	static RomLoadHandlerPtr rom_astinvad = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "ai_cpu_1.rom", 0x0000, 0x0400, CRC(20e3ec41) SHA1(7e77fa3c51d1e83ce91a24808301d9f1e0bed18e) )
 		ROM_LOAD( "ai_cpu_2.rom", 0x0400, 0x0400, CRC(e8f1ab55) SHA1(b3e38f2d6bdb65ee7c53c8d5dd3951a3fd43c51c) )
@@ -327,9 +327,9 @@ public class astinvad
 	
 		ROM_REGION( 0x0400, REGION_PROMS, 0 )
 		ROM_LOAD( "ai_vid_c.rom", 0x0000, 0x0400, CRC(b45287ff) SHA1(7e558eaf402641d7ff60171f854030219fbf9a59) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( kamikaze )
+	static RomLoadHandlerPtr rom_kamikaze = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "km01",         0x0000, 0x0800, CRC(8aae7414) SHA1(91cb5c268a03960d50401000903d70dc29f904fb) )
 		ROM_LOAD( "km02",         0x0800, 0x0800, CRC(6c7a2beb) SHA1(86447d077a58e8c1fc096d0d32b02d18523019a6) )
@@ -338,9 +338,9 @@ public class astinvad
 	
 		ROM_REGION( 0x0400, REGION_PROMS, 0 )
 		ROM_LOAD( "ai_vid_c.rom", 0x0000, 0x0400, BAD_DUMP CRC(b45287ff) SHA1(7e558eaf402641d7ff60171f854030219fbf9a59)  )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( spcking2 )
+	static RomLoadHandlerPtr rom_spcking2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1.bin",        0x0000, 0x0400, CRC(716fe9e0) SHA1(d5131abf6e3e6650ff9f649a999bf1d8ae8afb78) )
 		ROM_LOAD( "2.bin",        0x0400, 0x0400, CRC(6f6d4e5c) SHA1(0269c3b9da2723411c16ee13ff53e2140e49e7ff) )
@@ -351,9 +351,9 @@ public class astinvad
 	
 		ROM_REGION( 0x0400, REGION_PROMS, 0 )
 		ROM_LOAD( "c.bin",        0x0000, 0x0400, CRC(d27fe595) SHA1(1781281110b57ab3a5eef7a3dbaa93f11c013554) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( spaceint )
+	static RomLoadHandlerPtr rom_spaceint = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "1",			  0x0000, 0x0400, CRC(184314d2) SHA1(76789780c46e19c73904b229d23c865819915558) )
 		ROM_LOAD( "2",			  0x0400, 0x0400, CRC(55459aa1) SHA1(5631d8de4e41682962cde65002b0fe86f2b189f9) )
@@ -364,7 +364,7 @@ public class astinvad
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "clr",		  0x0000, 0x0100, CRC(13c1803f) SHA1(da59bf63d9e84aca32904c107674bc89974648eb) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_astinvad	   = new GameDriver("1980"	,"astinvad"	,"astinvad.java"	,rom_astinvad,null	,machine_driver_astinvad	,input_ports_astinvad	,null	,ROT270, "Stern",  "Astro Invader" )

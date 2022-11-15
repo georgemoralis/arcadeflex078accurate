@@ -543,7 +543,7 @@ public class djboy
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	ROM_START( djboy )
+	static RomLoadHandlerPtr rom_djboy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x48000, REGION_CPU1, 0 )
 		ROM_LOAD( "bs64.4b",  0x00000, 0x08000, CRC(b77aacc7) SHA1(78100d4695738a702f13807526eb1bcac759cce3) )
 		ROM_CONTINUE( 0x10000, 0x18000 )
@@ -573,7 +573,7 @@ public class djboy
 	
 		ROM_REGION( 0x40000, REGION_SOUND1, 0 ) /* OKI-M6295 samples */
 		ROM_LOAD( "bs203.5j", 0x000000, 0x40000, CRC(805341fb) SHA1(fb94e400e2283aaa806814d5a39d6196457dc822) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	INPUT_PORTS_START( djboy )
 		PORT_START

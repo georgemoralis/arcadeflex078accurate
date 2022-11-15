@@ -365,7 +365,7 @@ public class r2dtank
 		/* sound hardware */
 	MACHINE_DRIVER_END
 	
-	ROM_START( r2dtank )
+	static RomLoadHandlerPtr rom_r2dtank = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "r2d1.1c",      0xc800, 0x0800, CRC(20606a0f) SHA1(9a55e595c7ea332bdc89142338947be8a28a92a3) )
 		ROM_LOAD( "r2d2.1a",      0xd000, 0x1000, CRC(7561c67f) SHA1(cccc7bbd7975db340fe571a4c31c25b41b2563b8) )
@@ -374,7 +374,7 @@ public class r2dtank
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )
 		ROM_LOAD( "r2d5.7l",      0xf800, 0x0800, CRC(c49bed15) SHA1(ffa635a65c024c532bb13fb91bbd3e54923e81bf) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_r2dtank	   = new GameDriver("1980"	,"r2dtank"	,"r2dtank.java"	,rom_r2dtank,null	,machine_driver_r2dtank	,input_ports_r2dtank	,null	,ROT270, "Sigma Enterprises Inc.", "R2D Tank", GAME_NO_SOUND )
 }

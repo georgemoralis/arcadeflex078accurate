@@ -384,7 +384,7 @@ public class destroyr
 	MACHINE_DRIVER_END
 	
 	
-	ROM_START( destroyr )
+	static RomLoadHandlerPtr rom_destroyr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )                  /* program code */
 		ROM_LOAD( "30146-01.c3", 0x7800, 0x0800, CRC(e560c712) SHA1(0505ab57eee5421b4ff4e87d14505e02b18fd54c) )
 		ROM_RELOAD(              0xF800, 0x0800 )
@@ -404,7 +404,7 @@ public class destroyr
 	
 		ROM_REGION( 0x0100, REGION_USER1, 0 )                  /* sync (unused) */
 		ROM_LOAD( "30131-01.m1", 0x0000, 0x0100, CRC(b8094b4c) SHA1(82dc6799a19984f3b204ee3aeeb007e55afc8be3) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_destroyr	   = new GameDriver("1977"	,"destroyr"	,"destroyr.java"	,rom_destroyr,null	,machine_driver_destroyr	,input_ports_destroyr	,null	,ORIENTATION_FLIP_X, "Atari", "Destroyer", GAME_NO_SOUND )

@@ -380,7 +380,7 @@ public class aquarium
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	MACHINE_DRIVER_END
 	
-	ROM_START( aquarium )
+	static RomLoadHandlerPtr rom_aquarium = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )     /* 68000 code */
 		ROM_LOAD16_WORD_SWAP( "aquar3",  0x000000, 0x080000, CRC(344509a1) SHA1(9deb610732dee5066b3225cd7b1929b767579235) )
 	
@@ -408,7 +408,7 @@ public class aquarium
 	
 		ROM_REGION( 0x100000, REGION_SOUND1, 0 ) /* Samples */
 		ROM_LOAD( "aquar4",  0x000000, 0x80000, CRC(9a4af531) SHA1(bb201b7a6c9fd5924a0d79090257efffd8d4aba1) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	#if !AQUARIUS_HACK
 	public static GameDriver driver_aquarium	   = new GameDriver("1996"	,"aquarium"	,"aquarium.java"	,rom_aquarium,null	,machine_driver_aquarium	,input_ports_aquarium	,init_aquarium	,ROT0, "Excellent System", "Aquarium (Japan)", GAME_IMPERFECT_SOUND | GAME_IMPERFECT_GRAPHICS | GAME_NO_COCKTAIL )

@@ -515,7 +515,7 @@ public class blockade
 	
 	***************************************************************************/
 	
-	ROM_START( blockade )
+	static RomLoadHandlerPtr rom_blockade = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -527,9 +527,9 @@ public class blockade
 	    ROM_REGION( 0x200, REGION_GFX1, ROMREGION_DISPOSE )
 	    ROM_LOAD( "316-02.u29", 0x0000, 0x0100, CRC(409f610f) SHA1(0c2253f4b72d8aa395f87cc0abe07f0b46fa538b) )
 	    ROM_LOAD( "316-01.u43", 0x0100, 0x0100, CRC(41a00b28) SHA1(2d0a90aac9d10a1ded240e5202fdf9cd7f70c4a7) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( comotion )
+	static RomLoadHandlerPtr rom_comotion = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -543,9 +543,9 @@ public class blockade
 	    ROM_REGION( 0x200, REGION_GFX1, ROMREGION_DISPOSE )
 	    ROM_LOAD( "316-06.u43", 0x0000, 0x0100, CRC(8f071297) SHA1(811471c87b77b4b9ab056cf0c0743fc2616b754c) )  /* Note: these are reversed */
 	    ROM_LOAD( "316-05.u29", 0x0100, 0x0100, CRC(53fb8821) SHA1(0a499aa4cf15f7ebea155aacd914de8851544215) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( blasto )
+	static RomLoadHandlerPtr rom_blasto = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -559,9 +559,9 @@ public class blockade
 	    ROM_REGION( 0x400, REGION_GFX1, ROMREGION_DISPOSE )
 	    ROM_LOAD( "blasto.u29", 0x0000, 0x0200, CRC(4dd69499) SHA1(34f097477a297bf5f986804e5967c92f9292be29) )
 	    ROM_LOAD( "blasto.u43", 0x0200, 0x0200, CRC(104051a4) SHA1(cae6b9d48e3eda5ba12ff5d9835ce2733e90f774) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( hustle )
+	static RomLoadHandlerPtr rom_hustle = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -575,9 +575,9 @@ public class blockade
 	    ROM_REGION( 0x400, REGION_GFX1, ROMREGION_DISPOSE )
 	    ROM_LOAD( "3160020.u29", 0x0000, 0x0200, CRC(541d2c67) SHA1(abdb918f302352693870b0a50eabaf95acf1cf63) )
 	    ROM_LOAD( "3160021.u43", 0x0200, 0x0200, CRC(b5083128) SHA1(d7e8242e9d12d09f3d69c08e373ede2bdd4deba9) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( mineswpr )
+	static RomLoadHandlerPtr rom_mineswpr = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* 64k for code */
 	    /* Note: These are being loaded into a bogus location, */
 	    /*       They are nibble wide rom images which will be */
@@ -589,7 +589,7 @@ public class blockade
 	    ROM_REGION( 0x400, REGION_GFX1, ROMREGION_DISPOSE )
 	    ROM_LOAD( "mineswee.ums", 0x0000, 0x0200, CRC(0e1c5c37) SHA1(d4d56bd63307e387771c48304724dfc1ea1306d9) )
 	    ROM_LOAD( "mineswee.uls", 0x0200, 0x0200, CRC(3a4f66e1) SHA1(bd7f6c51d568a79fb06414b2a6ef245d0d983c3e) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_blockade	   = new GameDriver("1976"	,"blockade"	,"blockade.java"	,rom_blockade,null	,machine_driver_blockade	,input_ports_blockade	,init_blockade	,ROT0, "Gremlin", "Blockade", GAME_IMPERFECT_SOUND )
 	public static GameDriver driver_comotion	   = new GameDriver("1976"	,"comotion"	,"blockade.java"	,rom_comotion,null	,machine_driver_comotion	,input_ports_comotion	,init_comotion	,ROT0, "Gremlin", "Comotion", GAME_IMPERFECT_SOUND )

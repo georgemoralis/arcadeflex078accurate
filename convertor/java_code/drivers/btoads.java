@@ -429,7 +429,7 @@ public class btoads
 	 *
 	 *************************************/
 	
-	ROM_START( btoads )
+	static RomLoadHandlerPtr rom_btoads = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( TOBYTE(0x400000), REGION_CPU1, 0 )		/* 34020 dummy region */
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )	/* sound program */
@@ -441,7 +441,7 @@ public class btoads
 	
 		ROM_REGION( 0x200000, REGION_SOUND1, 0 )	/* BSMT data */
 		ROM_LOAD( "btu109.bin", 0x00000, 0x200000, CRC(d9612ddb) SHA1(f186dfb013e81abf81ba8ac5dc7eb731c1ad82b6) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

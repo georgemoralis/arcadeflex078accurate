@@ -1507,7 +1507,7 @@ public class itech32
 	 *
 	 *************************************/
 	
-	ROM_START( timekill )
+	static RomLoadHandlerPtr rom_timekill = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x4000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1532,10 +1532,10 @@ public class itech32
 		ROM_LOAD16_BYTE( "tksrom00.u18", 0x000000, 0x80000, CRC(79d8b83a) SHA1(78934b4d0ccca8fefcf8277e4296eb1d59cd575b) )
 		ROM_LOAD16_BYTE( "tksrom01.u20", 0x100000, 0x80000, CRC(ec01648c) SHA1(b83c66cf22db5d89b9ed79b79861b79429d8380c) )
 		ROM_LOAD16_BYTE( "tksrom02.u26", 0x200000, 0x80000, CRC(051ced3e) SHA1(6b63c4837e709806ffea9a37d93933635d356a6e) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( timek131 )
+	static RomLoadHandlerPtr rom_timek131 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x4000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1560,10 +1560,10 @@ public class itech32
 		ROM_LOAD16_BYTE( "tksrom00.u18", 0x000000, 0x80000, CRC(79d8b83a) SHA1(78934b4d0ccca8fefcf8277e4296eb1d59cd575b) )
 		ROM_LOAD16_BYTE( "tksrom01.u20", 0x100000, 0x80000, CRC(ec01648c) SHA1(b83c66cf22db5d89b9ed79b79861b79429d8380c) )
 		ROM_LOAD16_BYTE( "tksrom02.u26", 0x200000, 0x80000, CRC(051ced3e) SHA1(6b63c4837e709806ffea9a37d93933635d356a6e) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( bloodstm )
+	static RomLoadHandlerPtr rom_bloodstm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1600,10 +1600,10 @@ public class itech32
 		ROM_LOAD16_BYTE( "bssrom0.bin",  0x000000, 0x80000, CRC(ee4570c8) SHA1(73dd292224bf182770b3cc2d90eb52b7d7b24378) )
 		ROM_LOAD16_BYTE( "bssrom1.bin",  0x100000, 0x80000, CRC(b0f32ec5) SHA1(666f904b31cdef12cbf1dbb43a7d3ff7c2903260) )
 		ROM_LOAD16_BYTE( "bssrom2.bin",  0x300000, 0x40000, CRC(8aee1e77) SHA1(f949fa89ee7d59f457ce89c72d461cecd0cface3) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( bloods22 )
+	static RomLoadHandlerPtr rom_bloods22 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1640,10 +1640,10 @@ public class itech32
 		ROM_LOAD16_BYTE( "bssrom0.bin",  0x000000, 0x80000, CRC(ee4570c8) SHA1(73dd292224bf182770b3cc2d90eb52b7d7b24378) )
 		ROM_LOAD16_BYTE( "bssrom1.bin",  0x100000, 0x80000, CRC(b0f32ec5) SHA1(666f904b31cdef12cbf1dbb43a7d3ff7c2903260) )
 		ROM_LOAD16_BYTE( "bssrom2.bin",  0x300000, 0x40000, CRC(8aee1e77) SHA1(f949fa89ee7d59f457ce89c72d461cecd0cface3) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( bloods21 )
+	static RomLoadHandlerPtr rom_bloods21 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1680,10 +1680,10 @@ public class itech32
 		ROM_LOAD16_BYTE( "bssrom0.bin",  0x000000, 0x80000, CRC(ee4570c8) SHA1(73dd292224bf182770b3cc2d90eb52b7d7b24378) )
 		ROM_LOAD16_BYTE( "bssrom1.bin",  0x100000, 0x80000, CRC(b0f32ec5) SHA1(666f904b31cdef12cbf1dbb43a7d3ff7c2903260) )
 		ROM_LOAD16_BYTE( "bssrom2.bin",  0x300000, 0x40000, CRC(8aee1e77) SHA1(f949fa89ee7d59f457ce89c72d461cecd0cface3) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( bloods11 )
+	static RomLoadHandlerPtr rom_bloods11 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1720,10 +1720,10 @@ public class itech32
 		ROM_LOAD16_BYTE( "bssrom0.bin",  0x000000, 0x80000, CRC(ee4570c8) SHA1(73dd292224bf182770b3cc2d90eb52b7d7b24378) )
 		ROM_LOAD16_BYTE( "bssrom1.bin",  0x100000, 0x80000, CRC(b0f32ec5) SHA1(666f904b31cdef12cbf1dbb43a7d3ff7c2903260) )
 		ROM_LOAD16_BYTE( "bssrom2.bin",  0x300000, 0x40000, CRC(8aee1e77) SHA1(f949fa89ee7d59f457ce89c72d461cecd0cface3) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( hardyard )
+	static RomLoadHandlerPtr rom_hardyard = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1754,10 +1754,10 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND3, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "fbsrom00.bin", 0x000000, 0x080000, CRC(b0a76ad2) SHA1(d1125cf96f6b9613840b8d22afa59748fb32ab90) )
 		ROM_LOAD16_BYTE( "fbsrom01.bin", 0x100000, 0x080000, CRC(9fbf6a02) SHA1(90c86a94767a383895183a25b15084ed62891518) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( hardyd10 )
+	static RomLoadHandlerPtr rom_hardyd10 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1788,10 +1788,10 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND3, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "fbsrom00.bin", 0x000000, 0x080000, CRC(b0a76ad2) SHA1(d1125cf96f6b9613840b8d22afa59748fb32ab90) )
 		ROM_LOAD16_BYTE( "fbsrom01.bin", 0x100000, 0x080000, CRC(9fbf6a02) SHA1(90c86a94767a383895183a25b15084ed62891518) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( pairs )
+	static RomLoadHandlerPtr rom_pairs = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x40000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1817,9 +1817,9 @@ public class itech32
 	
 		ROM_REGION16_BE( 0x400000, REGION_SOUND3, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "srom0.bin", 0x000000, 0x80000, CRC(19a857f9) SHA1(2515b4c127191d52d3b5a72477384847d8cabad3) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( pairsa )
+	static RomLoadHandlerPtr rom_pairsa = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
 		ROM_REGION16_BE( 0x40000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1845,10 +1845,10 @@ public class itech32
 	
 		ROM_REGION16_BE( 0x400000, REGION_SOUND3, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "srom0", 0x000000, 0x80000, CRC(1d96c581) SHA1(3b7c84b7db3b098ec28c7058c16f97e9cf0e4733) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( wcbowl )		/* Version 1.66 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_wcbowl = new RomLoadHandlerPtr(){ public void handler(){ 		/* Version 1.66 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1879,10 +1879,10 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND2, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "wcb_srom.2",  0x000000, 0x080000, CRC(f82c08fd) SHA1(8f6f47f5a4b68a31df4c2eb330dc95a9963e55c1) )
 		ROM_LOAD16_BYTE( "wcb_srom.3",  0x200000, 0x020000, CRC(1c2efdee) SHA1(d306c9e7f9c4c2662561401170439a10a9ee89ed) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( wcbwl165 )	/* Version 1.65 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_wcbwl165 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.65 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1913,10 +1913,10 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND2, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "wcb_srom.2",  0x000000, 0x080000, CRC(f82c08fd) SHA1(8f6f47f5a4b68a31df4c2eb330dc95a9963e55c1) )
 		ROM_LOAD16_BYTE( "wcb_srom.3",  0x200000, 0x020000, CRC(1c2efdee) SHA1(d306c9e7f9c4c2662561401170439a10a9ee89ed) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( wcbwl161 )	/* Version 1.61 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_wcbwl161 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.61 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -1947,10 +1947,10 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND2, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "wcb_srom.2",  0x000000, 0x080000, CRC(f82c08fd) SHA1(8f6f47f5a4b68a31df4c2eb330dc95a9963e55c1) )
 		ROM_LOAD16_BYTE( "wcb_srom.3",  0x200000, 0x020000, CRC(1c2efdee) SHA1(d306c9e7f9c4c2662561401170439a10a9ee89ed) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( wcbwl12 )	/* Version 1.2 (unique Hardware, 3-tier type board) */
+	static RomLoadHandlerPtr rom_wcbwl12 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.2 (unique Hardware, 3-tier type board) */
 		/* v1.3 & v1.5 for this platform has been confirmed, but not dumped */
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 	
@@ -1979,10 +1979,10 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND3, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "wcb_srm.0",  0x000000, 0x080000, CRC(115bcd1f) SHA1(c321bf3145c11de1351c8f9cd554ab3d6600e854) )
 		ROM_LOAD16_BYTE( "wcb_srm.1",  0x100000, 0x080000, CRC(87a4a4d8) SHA1(60db2f466686481857eb39b90ac7a19d0a96adac) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( drivedge )
+	static RomLoadHandlerPtr rom_drivedge = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x8000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2023,10 +2023,10 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND3, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "de-srom0.bin", 0x000000, 0x80000, CRC(649c685f) SHA1(95d8f257cac621c8bd4abaa88ea5f7b3b8adea4c) )
 		ROM_LOAD16_BYTE( "de-srom1.bin", 0x100000, 0x80000, CRC(df4fff97) SHA1(3c43623bfc176639417e86a037b92026e84a5dce) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( sftm )	/* Version 1.12 */
+	static RomLoadHandlerPtr rom_sftm = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.12 */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2058,10 +2058,10 @@ public class itech32
 	
 		ROM_REGION16_BE( 0x400000, REGION_SOUND4, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "sfm_srom.3",  0x000000, 0x080000, CRC(4f181534) SHA1(e858a33b22558665427146ec79dfba48edc20c2c) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( sftm111 )	/* Version 1.11 */
+	static RomLoadHandlerPtr rom_sftm111 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.11 */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2093,10 +2093,10 @@ public class itech32
 	
 		ROM_REGION16_BE( 0x400000, REGION_SOUND4, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "sfm_srom.3",  0x000000, 0x080000, CRC(4f181534) SHA1(e858a33b22558665427146ec79dfba48edc20c2c) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( sftm110 )	/* Version 1.10 */
+	static RomLoadHandlerPtr rom_sftm110 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.10 */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2128,10 +2128,10 @@ public class itech32
 	
 		ROM_REGION16_BE( 0x400000, REGION_SOUND4, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "sfm_srom.3",  0x000000, 0x080000, CRC(4f181534) SHA1(e858a33b22558665427146ec79dfba48edc20c2c) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( sftmj )	/* Version 1.12N (Japan) */
+	static RomLoadHandlerPtr rom_sftmj = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.12N (Japan) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x100000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2163,10 +2163,10 @@ public class itech32
 	
 		ROM_REGION16_BE( 0x400000, REGION_SOUND4, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "sfm_srom.3",  0x000000, 0x080000, CRC(4f181534) SHA1(e858a33b22558665427146ec79dfba48edc20c2c) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( shufshot )	/* Version 1.39 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_shufshot = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.39 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2200,10 +2200,10 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND1, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "shf_srom.0", 0x000000, 0x80000, CRC(9a3cb6c9) SHA1(2af3ce3b1cd7688199195a66cf01bb83775d42fa) )
 		ROM_LOAD16_BYTE( "shf_srom.1", 0x200000, 0x80000, CRC(8c89948a) SHA1(1054eca5de352c17f34f31ef16297ba6177a37ba) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( sshot137 )	/* Version 1.37 (PCB P/N 1082 Rev 2) */
+	static RomLoadHandlerPtr rom_sshot137 = new RomLoadHandlerPtr(){ public void handler(){ 	/* Version 1.37 (PCB P/N 1082 Rev 2) */
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 	
 		ROM_REGION32_BE( 0x80000, REGION_USER1, ROMREGION_DISPOSE )
@@ -2237,7 +2237,7 @@ public class itech32
 		ROM_REGION16_BE( 0x400000, REGION_SOUND1, ROMREGION_ERASE00 )
 		ROM_LOAD16_BYTE( "shf_srom.0", 0x000000, 0x80000, CRC(9a3cb6c9) SHA1(2af3ce3b1cd7688199195a66cf01bb83775d42fa) )
 		ROM_LOAD16_BYTE( "shf_srom.1", 0x200000, 0x80000, CRC(8c89948a) SHA1(1054eca5de352c17f34f31ef16297ba6177a37ba) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/*************************************

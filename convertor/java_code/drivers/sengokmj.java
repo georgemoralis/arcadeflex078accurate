@@ -365,7 +365,7 @@ public class sengokmj
 	/***************************************************************************************/
 	
 	
-	ROM_START( sengokmj )
+	static RomLoadHandlerPtr rom_sengokmj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* V30 code */
 		ROM_LOAD16_BYTE( "mm01-1-1.21",  0xc0000, 0x20000, CRC(74076b46) SHA1(64b0ed5a8c32e21157ae12fe40519e4c605b329c))
 		ROM_LOAD16_BYTE( "mm01-2-1.24",  0xc0001, 0x20000, CRC(f1a7c131) SHA1(d0fbbdedbff8f05da0e0296baa41369bc41a67e4))
@@ -387,7 +387,7 @@ public class sengokmj
 	
 		ROM_REGION( 0x200, REGION_USER1, ROMREGION_DISPOSE )
 		ROM_LOAD( "rs006.89", 0x000, 0x200, CRC(96f7646e) SHA1(400a831b83d6ac4d2a46ef95b97b1ee237099e44)) /* Priority */
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_sengokmj	   = new GameDriver("1991"	,"sengokmj"	,"sengokmj.java"	,rom_sengokmj,null	,machine_driver_sengokmj	,input_ports_sengokmj	,null	,ROT0, "Sigma", "Sengoku Mahjong (Japan)" ,GAME_IMPERFECT_GRAPHICS | GAME_IMPERFECT_COLORS )
 }

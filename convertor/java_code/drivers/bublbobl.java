@@ -800,7 +800,7 @@ public class bublbobl
 	
 	***************************************************************************/
 	
-	ROM_START( bublbobl )
+	static RomLoadHandlerPtr rom_bublbobl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "a78-06.51",    0x00000, 0x08000, CRC(32c8305b) SHA1(6bf69b3edfbefd33cd670a762b4bf0b39629a220) )
 	    /* ROMs banked at 8000-bfff */
@@ -834,9 +834,9 @@ public class bublbobl
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( bublbobr )
+	static RomLoadHandlerPtr rom_bublbobr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "a78-25.51",    0x00000, 0x08000, CRC(2d901c9d) SHA1(72504225d3a26212e8f35508a79200eeb91138b6) )
 	    /* ROMs banked at 8000-bfff */
@@ -870,9 +870,9 @@ public class bublbobl
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( bubbobr1 )
+	static RomLoadHandlerPtr rom_bubbobr1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "a78-06.51",    0x00000, 0x08000, CRC(32c8305b) SHA1(6bf69b3edfbefd33cd670a762b4bf0b39629a220) )
 	    /* ROMs banked at 8000-bfff */
@@ -906,9 +906,9 @@ public class bublbobl
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( boblbobl )
+	static RomLoadHandlerPtr rom_boblbobl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "bb3",          0x00000, 0x08000, CRC(01f81936) SHA1(a48489a13bfd01949e7fd273029d9cb8bfd7be48) )
 	    /* ROMs banked at 8000-bfff */
@@ -940,9 +940,9 @@ public class bublbobl
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sboblbob )
+	static RomLoadHandlerPtr rom_sboblbob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )
 		ROM_LOAD( "bbb-3.rom",    0x00000, 0x08000, CRC(f304152a) SHA1(103d9beddccef289ed739d28ebda69bbad3d42f9) )
 	    /* ROMs banked at 8000-bfff */
@@ -974,9 +974,9 @@ public class bublbobl
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "a71-25.41",    0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( tokio )
+	static RomLoadHandlerPtr rom_tokio = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* main CPU */
 		ROM_LOAD( "a71-27-1.256", 0x00000, 0x8000, CRC(8c180896) SHA1(bc8aeb42da4bae7db6f65b9874224f60a9bc4500) )
 	    /* ROMs banked at 8000-bfff */
@@ -1014,9 +1014,9 @@ public class bublbobl
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "a71-25.bin",   0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( tokiob )
+	static RomLoadHandlerPtr rom_tokiob = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "2",            0x00000, 0x8000, CRC(f583b1ef) SHA1(a97b36299b51792953516224191f11decc579a38) )
 	    /* ROMs banked at 8000-bfff */
@@ -1051,7 +1051,7 @@ public class bublbobl
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "a71-25.bin",   0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

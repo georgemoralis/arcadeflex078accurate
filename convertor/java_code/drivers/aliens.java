@@ -303,7 +303,7 @@ public class aliens
 	
 	***************************************************************************/
 	
-	ROM_START( aliens )
+	static RomLoadHandlerPtr rom_aliens = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x38000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "e24_j02.bin", 0x10000, 0x08000, CRC(56c20971) SHA1(af272e146705e97342466a208c64d823ebc83d83) )
 		ROM_CONTINUE(            0x08000, 0x08000 )
@@ -333,9 +333,9 @@ public class aliens
 	
 		ROM_REGION( 0x40000, REGION_SOUND1, 0 ) /* samples for 007232 */
 		ROM_LOAD( "875b04.bin",  0x00000, 0x40000, CRC(4e209ac8) SHA1(09d9eaae61bfd04bf318555ccd44d7371571d86d) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( aliens2 )
+	static RomLoadHandlerPtr rom_aliens2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x38000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "e24_p02.bin", 0x10000, 0x08000, CRC(4edd707d) SHA1(02b39068e5fd99ecb5b35a586335b65a20fde490) )
 		ROM_CONTINUE(            0x08000, 0x08000 )
@@ -365,9 +365,9 @@ public class aliens
 	
 		ROM_REGION( 0x40000, REGION_SOUND1, 0 ) /* samples for 007232 */
 		ROM_LOAD( "875b04.bin",  0x00000, 0x40000, CRC(4e209ac8) SHA1(09d9eaae61bfd04bf318555ccd44d7371571d86d) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( aliensu )
+	static RomLoadHandlerPtr rom_aliensu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x38000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "e24_n02.bin", 0x10000, 0x08000, CRC(24dd612e) SHA1(35bceb3045cd0bd9d107312b371fb60dcf3f1272) )
 		ROM_CONTINUE(            0x08000, 0x08000 )
@@ -397,9 +397,9 @@ public class aliens
 	
 		ROM_REGION( 0x40000, REGION_SOUND1, 0 ) /* samples for 007232 */
 		ROM_LOAD( "875b04.bin",  0x00000, 0x40000, CRC(4e209ac8) SHA1(09d9eaae61bfd04bf318555ccd44d7371571d86d) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( aliensj )
+	static RomLoadHandlerPtr rom_aliensj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x38000, REGION_CPU1, 0 ) /* code + banked roms */
 		ROM_LOAD( "875m02.e24",  0x10000, 0x08000, CRC(54a774e5) SHA1(b6413b2199f863cae1c6fcef766989162cd4b95e) )
 		ROM_CONTINUE(            0x08000, 0x08000 )
@@ -429,7 +429,7 @@ public class aliens
 	
 		ROM_REGION( 0x40000, REGION_SOUND1, 0 ) /* samples for 007232 */
 		ROM_LOAD( "875b04.bin",  0x00000, 0x40000, CRC(4e209ac8) SHA1(09d9eaae61bfd04bf318555ccd44d7371571d86d) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***************************************************************************

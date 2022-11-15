@@ -554,7 +554,7 @@ public class lastduel
 	
 	/******************************************************************************/
 	
-	ROM_START( lastduel )
+	static RomLoadHandlerPtr rom_lastduel = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "ldu-06.rom",   0x00000, 0x20000, CRC(4228a00b) SHA1(8c23f74f682ba2074da9f3306600c881ce41e50f) )
 		ROM_LOAD16_BYTE( "ldu-05.rom",   0x00001, 0x20000, CRC(7260434f) SHA1(55eeb12977efb3c6afd86d68612782ba526c9055) )
@@ -595,9 +595,9 @@ public class lastduel
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "63s141.3d",    0x0000, 0x0100, CRC(729a1ddc) SHA1(eb1d48785a0f187a4cb9c164e6c82481268b3174) )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( lstduela )
+	static RomLoadHandlerPtr rom_lstduela = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "06",   0x00000, 0x20000, CRC(0e71acaf) SHA1(e804c77bfd768ae2fc1917bcec1fd0ec7418b780) )
 		ROM_LOAD16_BYTE( "05",   0x00001, 0x20000, CRC(47a85bea) SHA1(9d6b2a4e27c84ffce8ed58aa1b314c67c7314932) )
@@ -638,9 +638,9 @@ public class lastduel
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "63s141.3d",    0x0000, 0x0100, CRC(729a1ddc) SHA1(eb1d48785a0f187a4cb9c164e6c82481268b3174) )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( lstduelb )
+	static RomLoadHandlerPtr rom_lstduelb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x60000, REGION_CPU1, 0 )	/* 68000 code */
 		ROM_LOAD16_BYTE( "ld_08.bin",    0x00000, 0x10000, CRC(43811a96) SHA1(79db50c941d8845f1642f2257c610768172923a3) )
 		ROM_LOAD16_BYTE( "ld_07.bin",    0x00001, 0x10000, CRC(63c30946) SHA1(cab7374839a68483b3f94821144546cc3eb1528e) )
@@ -683,9 +683,9 @@ public class lastduel
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "63s141.3d",    0x0000, 0x0100, CRC(729a1ddc) SHA1(eb1d48785a0f187a4cb9c164e6c82481268b3174) )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( madgear )
+	static RomLoadHandlerPtr rom_madgear = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 256K for 68000 code */
 		ROM_LOAD16_BYTE( "mg_04.rom",    0x00000, 0x20000, CRC(b112257d) SHA1(4acfd8ba0fe8d68ca7c9b0fde2b13ce0c9104258) )
 		ROM_LOAD16_BYTE( "mg_03.rom",    0x00001, 0x20000, CRC(b2672465) SHA1(96d10046e67181160daebb2b07c867c08f8600dc) )
@@ -721,9 +721,9 @@ public class lastduel
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "prom",         0x0000, 0x0100, NO_DUMP )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( madgearj )
+	static RomLoadHandlerPtr rom_madgearj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 256K for 68000 code */
 		ROM_LOAD16_BYTE( "mdj_04.rom",   0x00000, 0x20000, CRC(9ebbebb1) SHA1(84a2b146c10c1635b11c3af0242fd4680994eb5a) )
 		ROM_LOAD16_BYTE( "mdj_03.rom",   0x00001, 0x20000, CRC(a5579c2d) SHA1(789dcb1cdf5cae20ab497c75460ad98c33d1a046) )
@@ -759,9 +759,9 @@ public class lastduel
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "prom",         0x0000, 0x0100, NO_DUMP )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( ledstorm )
+	static RomLoadHandlerPtr rom_ledstorm = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )	/* 256K for 68000 code */
 		ROM_LOAD16_BYTE( "mdu.04",    0x00000, 0x20000, CRC(7f7f8329) SHA1(9b7ecb7f5cc3f2c80e05da3b9055e2fbd64bf0ce) )
 		ROM_LOAD16_BYTE( "mdu.03",    0x00001, 0x20000, CRC(11fa542f) SHA1(1cedfc471058e0d0502a1eeafcab479dca4fea41) )
@@ -797,7 +797,7 @@ public class lastduel
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "prom",         0x0000, 0x0100, NO_DUMP )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
 	/******************************************************************************/
 	

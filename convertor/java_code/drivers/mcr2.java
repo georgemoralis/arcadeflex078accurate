@@ -678,7 +678,7 @@ public class mcr2
 	 *
 	 *************************************/
 	
-	ROM_START( shollow )
+	static RomLoadHandlerPtr rom_shollow = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sh-pro.00",    0x0000, 0x2000, CRC(95e2b800) SHA1(8781295e21e5202288293fb9eb558cb1835b11ea) )
 		ROM_LOAD( "sh-pro.01",    0x2000, 0x2000, CRC(b99f6ff8) SHA1(575cdba5bf9965c7765ce913a3376c7ba36b8291) )
@@ -704,10 +704,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.12d",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( shollow2 )
+	static RomLoadHandlerPtr rom_shollow2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "sh-pro.00",    0x0000, 0x2000, CRC(95e2b800) SHA1(8781295e21e5202288293fb9eb558cb1835b11ea) )
 		ROM_LOAD( "sh-pro.01",    0x2000, 0x2000, CRC(b99f6ff8) SHA1(575cdba5bf9965c7765ce913a3376c7ba36b8291) )
@@ -733,10 +733,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.12d",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( tron )
+	static RomLoadHandlerPtr rom_tron = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "scpu_pga.bin", 0x0000, 0x2000, CRC(5151770b) SHA1(26f4d830de7be228528e462dd628f439629a2641) )
 		ROM_LOAD( "scpu_pgb.bin", 0x2000, 0x2000, CRC(8ddf8717) SHA1(e0c294afa8ba0b0ba89e3e0fb3ff6d8fc4398e32) )
@@ -762,10 +762,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.d12",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( tron2 )
+	static RomLoadHandlerPtr rom_tron2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "pro0.d2",      0x0000, 0x2000, CRC(0de0471a) SHA1(378847604a6a9c079d887348010ab9539d5f6195) )
 		ROM_LOAD( "scpu_pgb.bin", 0x2000, 0x2000, CRC(8ddf8717) SHA1(e0c294afa8ba0b0ba89e3e0fb3ff6d8fc4398e32) )
@@ -791,10 +791,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.d12",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( kroozr )
+	static RomLoadHandlerPtr rom_kroozr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "kozmkcpu.2d",  0x0000, 0x2000, CRC(61e02045) SHA1(42ba00f28466870407be96e864fadba5d6908648) )
 		ROM_LOAD( "kozmkcpu.3d",  0x2000, 0x2000, CRC(caabed57) SHA1(1effe2285939ad55b5ff254c7e5ea3512e843f84) )
@@ -819,10 +819,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.12d",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )	/* from shollow, assuming it's the same */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( domino )
+	static RomLoadHandlerPtr rom_domino = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "dmanpg0.bin",  0x0000, 0x2000, CRC(3bf3bb1c) SHA1(0dc38b47fc1f6828cd1dc2e14f43448d878ccd8a) )
 		ROM_LOAD( "dmanpg1.bin",  0x2000, 0x2000, CRC(85cf1d69) SHA1(32198a2b8fbfb5b9593f083034ef4762b7ab1a27) )
@@ -847,10 +847,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.12d",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )	/* from shollow, assuming it's the same */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( wacko )
+	static RomLoadHandlerPtr rom_wacko = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "wackocpu.2d",  0x0000, 0x2000, CRC(c98e29b6) SHA1(38fbb663c238b354925b34b67de246d8ba3356e1) )
 		ROM_LOAD( "wackocpu.3d",  0x2000, 0x2000, CRC(90b89774) SHA1(1f9cbe8134e7d7f797d88c0cb4be3d8c39ca03a3) )
@@ -874,10 +874,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.12d",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )	/* from shollow, assuming it's the same */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( twotiger )
+	static RomLoadHandlerPtr rom_twotiger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "2tgrpg0.bin",  0x0000, 0x2000, CRC(e77a924b) SHA1(c1720a8a6ca8e6551ef38d565d5f18db7fbd5d2e) )
 		ROM_LOAD( "2tgrpg1.bin",  0x2000, 0x2000, CRC(2699ebdc) SHA1(bed7c5fe8783dab79e7563f6b2348b9a980bdcc7) )
@@ -901,10 +901,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.12d",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )	/* from shollow, assuming it's the same */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( twotigra )
+	static RomLoadHandlerPtr rom_twotigra = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "cpu_d2",  0x0000, 0x2000, CRC(a682ed24) SHA1(e4418143b02739e417c44e6b4089354778e8d77f) )
 		ROM_LOAD( "cpu_d3",  0x2000, 0x2000, CRC(5b48fde9) SHA1(52e07ffdd360631ea322935af5fb560afe3006ea) )
@@ -928,10 +928,10 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.12d",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )	/* from shollow, assuming it's the same */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( journey )
+	static RomLoadHandlerPtr rom_journey = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "d2",           0x0000, 0x2000, CRC(f2618913) SHA1(eee323ac502cedefef0675a90c3c9c17f9610fc9) )
 		ROM_LOAD( "d3",           0x2000, 0x2000, CRC(2f290d2e) SHA1(b672064969326e594b6a4225e73bf51d25f33871) )
@@ -961,7 +961,7 @@ public class mcr2
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.12d",   0x0000, 0x0020, CRC(e1281ee9) SHA1(9ac9b01d24affc0ee9227a4364c4fd8f8290343a) )	/* from shollow, assuming it's the same */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

@@ -3133,7 +3133,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( bakubrkr )
+	static RomLoadHandlerPtr rom_bakubrkr = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "ts100j.u18", 0x000000, 0x040000, CRC(8cc0a4fd) SHA1(e7e18b5ea236522a79ba9db8f573ac8f7ade504b) )
 		ROM_LOAD16_BYTE( "ts101j.u19", 0x000001, 0x040000, CRC(aea92195) SHA1(e89f964e7e936fd7774f21956eb4ff5c9104837b) )
@@ -3153,7 +3153,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x0100000, REGION_SOUND1, 0 )	/* Samples */
 		ROM_LOAD( "ts030.u5",  0x000000, 0x100000, CRC(1d68e9d1) SHA1(aaa64a8e8d7cd7f91d2be346fafb9d1f29b40eda) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***************************************************************************
@@ -3189,7 +3189,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( berlwall )
+	static RomLoadHandlerPtr rom_berlwall = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "bw100a", 0x000000, 0x020000, CRC(e6bcb4eb) SHA1(220b8fddc79230b4f6a8cf33e1035355c485e8d1) )
 		ROM_LOAD16_BYTE( "bw101a", 0x000001, 0x020000, CRC(38056fb2) SHA1(48338b9a5ebea872286541a3c45016673c4af76b) )
@@ -3214,9 +3214,9 @@ public class kaneko16
 	
 		ROM_REGION( 0x040000, REGION_SOUND1, 0 )	/* Samples */
 		ROM_LOAD( "bw000",  0x000000, 0x040000, CRC(d8fe869d) SHA1(75e9044c4164ca6db9519fcff8eca6c8a2d8d5d1) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( berlwalt )
+	static RomLoadHandlerPtr rom_berlwalt = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "u23_01.bin", 0x000000, 0x020000, CRC(76b526ce) SHA1(95ba7cccbe88fd695c28b6a7c25a1afd130c1aa6) )
 		ROM_LOAD16_BYTE( "u39_01.bin", 0x000001, 0x020000, CRC(78fa7ef2) SHA1(8392de6e307dcd2bf5bcbeb37d578d33246acfcf) )
@@ -3241,7 +3241,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x040000, REGION_SOUND1, 0 )	/* Samples */
 		ROM_LOAD( "bw000",  0x000000, 0x040000, CRC(d8fe869d) SHA1(75e9044c4164ca6db9519fcff8eca6c8a2d8d5d1) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***************************************************************************
@@ -3270,7 +3270,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( blazeon )
+	static RomLoadHandlerPtr rom_blazeon = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x080000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "bz_prg1.u80", 0x000000, 0x040000, CRC(8409e31d) SHA1(a9dfc299f4b457df190314401aef309adfaf9bae) )
 		ROM_LOAD16_BYTE( "bz_prg2.u81", 0x000001, 0x040000, CRC(b8a0a08b) SHA1(5f275b98d3e49a834850b45179d26e8c2f9fd604) )
@@ -3284,7 +3284,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x100000, REGION_GFX2, ROMREGION_DISPOSE )	/* Tiles (Scrambled) */
 		ROM_LOAD( "bz_bg.u2", 0x000000, 0x100000, CRC(fc67f19f) SHA1(f5d9e037a736b0932efbfb48587de08bec93df5d) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/***************************************************************************
 	
@@ -3361,7 +3361,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( bloodwar )
+	static RomLoadHandlerPtr rom_bloodwar = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "pof3.514", 0x000000, 0x080000, CRC(0c93da15) SHA1(65b6b1b4acfc32c551ae4fbe6a13f7f2b8554dbf) )
 		ROM_LOAD16_BYTE( "p1f3.513", 0x000001, 0x080000, CRC(894ecbe5) SHA1(bf403d19e6315266114ac742a08cac903e7b54b5) )
@@ -3407,7 +3407,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x100000, REGION_SOUND2, 0 )	/* Samples */
 		ROM_LOAD( "1000222.99",   0x000000, 0x100000, CRC(42b12269) SHA1(f9d9c42057e176710f09e8db0bfcbf603c15ca11) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***************************************************************************
@@ -3501,7 +3501,7 @@ public class kaneko16
 		tb05mm-eu "1000 miglia"
 		master up= 94/07/18 15:12:35			*/
 	
-	ROM_START( gtmr )
+	static RomLoadHandlerPtr rom_gtmr = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "u2.bin", 0x000000, 0x080000, CRC(031799f7) SHA1(a59a9635002d139247828e3b74f6cf2fbdd5e569) )
 		ROM_LOAD16_BYTE( "u1.bin", 0x000001, 0x080000, CRC(6238790a) SHA1(a137fd581138804534f3193068f117611a982004) )
@@ -3532,7 +3532,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x100000, REGION_SOUND2, 0 )	/* Samples */
 		ROM_LOAD( "gmmu24.bin",  0x000000, 0x100000, CRC(380cdc7c) SHA1(ba7f51201b0f2bf15e66557e45bb2af5cf797779) )	//  2 x $40000 - HALVES IDENTICAL
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/*	This version displays:
@@ -3540,7 +3540,7 @@ public class kaneko16
 		tb05mm-eu "1000 miglia"
 		master up= 94/09/06 14:49:19			*/
 	
-	ROM_START( gtmre )
+	static RomLoadHandlerPtr rom_gtmre = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "gmmu2.bin", 0x000000, 0x080000, CRC(36dc4aa9) SHA1(0aea4dc169d7aad2ea957a1de698d1fa12c71556) )
 		ROM_LOAD16_BYTE( "gmmu1.bin", 0x000001, 0x080000, CRC(8653c144) SHA1(a253a01327a9443337a55a13c063ea5096444c4c) )
@@ -3569,7 +3569,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x100000, REGION_SOUND2, 0 )	/* Samples */
 		ROM_LOAD( "gmmu24.bin",  0x000000, 0x100000, CRC(380cdc7c) SHA1(ba7f51201b0f2bf15e66557e45bb2af5cf797779) )	//  2 x $40000 - HALVES IDENTICAL
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/*	This version displays:
@@ -3577,7 +3577,7 @@ public class kaneko16
 		tb05mm-eu "1000 miglia"
 		master up= 94/09/06 20:30:39			*/
 	
-	ROM_START( gtmrusa )
+	static RomLoadHandlerPtr rom_gtmrusa = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "gtmrusa.u2", 0x000000, 0x080000, CRC(5be615c4) SHA1(c14d11a5bf6e025a65b932039165302ff407c4e1) )
 		ROM_LOAD16_BYTE( "gtmrusa.u1", 0x000001, 0x080000, CRC(ae853e4e) SHA1(31eaa73b0c5ddab1292f521ceec43b202653efe9) )
@@ -3606,7 +3606,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x100000, REGION_SOUND2, 0 )	/* Samples */
 		ROM_LOAD( "gmmu24.bin",  0x000000, 0x100000, CRC(380cdc7c) SHA1(ba7f51201b0f2bf15e66557e45bb2af5cf797779) )	//  2 x $40000 - HALVES IDENTICAL
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***************************************************************************
@@ -3664,7 +3664,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( gtmr2 )
+	static RomLoadHandlerPtr rom_gtmr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "m2p0x1.u8",  0x000000, 0x080000, CRC(525f6618) SHA1(da8008cc7768b4e8c0091aa3ea21752d0ca33691) )
 		ROM_LOAD16_BYTE( "m2p1x1.u7",  0x000001, 0x080000, CRC(914683e5) SHA1(dbb2140f7de86073647abc6e73ba739ea201dd30) )
@@ -3696,7 +3696,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x080000, REGION_SOUND2, 0 )	/* Samples */
 		ROM_LOAD( "m2w1x0.u47",        0x040000, 0x040000, CRC(1b0513c5) SHA1(8c9ddef19297e1b39d900297005203b7ff28667e) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***************************************************************************
@@ -3748,7 +3748,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( mgcrystl )
+	static RomLoadHandlerPtr rom_mgcrystl = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x040000*2, REGION_CPU1, ROMREGION_ERASE )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "magcrstl.u18", 0x000000, 0x020000, CRC(c7456ba7) SHA1(96c25c3432069373fa86d7af3e093e02e39aea34) )
 		ROM_LOAD16_BYTE( "magcrstl.u19", 0x000001, 0x040000, CRC(ea8f9300) SHA1(0cd0d448805aa45986b63befca00b08fe066dbb2) ) //!!
@@ -3770,9 +3770,9 @@ public class kaneko16
 	
 		ROM_REGION( 0x040000, REGION_SOUND1, 0 )	/* Samples */
 		ROM_LOAD( "mc030.u32",  0x000000, 0x040000, CRC(c165962e) SHA1(f7e130db387ae9dcb7223f7ad6e51270d3033bc9) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( mgcrystj )
+	static RomLoadHandlerPtr rom_mgcrystj = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x040000*2, REGION_CPU1, ROMREGION_ERASE )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "mc100j.u18", 0x000000, 0x020000, CRC(afe5882d) SHA1(176e6e12e3df63c08d7aff781f5e5a9bd83ec293) )
 		ROM_LOAD16_BYTE( "mc101j.u19", 0x000001, 0x040000, CRC(60da5492) SHA1(82b90a617d355825624ce9fb30bddf4714bd0d18) )	//!!
@@ -3794,7 +3794,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x040000, REGION_SOUND1, 0 )	/* Samples */
 		ROM_LOAD( "mc030.u32",  0x000000, 0x040000, CRC(c165962e) SHA1(f7e130db387ae9dcb7223f7ad6e51270d3033bc9) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***************************************************************************
@@ -3818,7 +3818,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( sandscrp )
+	static RomLoadHandlerPtr rom_sandscrp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )		/* 68000 Code */
 		ROM_LOAD16_BYTE( "sandsc11.bin", 0x000000, 0x040000, CRC(9b24ab40) SHA1(3187422dbe8b15d8053be4cb20e56d3e6afbd5f2) )
 		ROM_LOAD16_BYTE( "sandsc12.bin", 0x000001, 0x040000, CRC(ad12caee) SHA1(83267445b89c3cf4dc317106aa68763d2f29eff7) )
@@ -3837,7 +3837,7 @@ public class kaneko16
 	
 		ROM_REGION( 0x040000, REGION_SOUND1, 0 )	/* Samples */
 		ROM_LOAD( "sandsc07.bin", 0x000000, 0x040000, CRC(9870ab12) SHA1(5ea3412cbc57bfaa32a1e2552b2eb46f4ceb5fa8) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***************************************************************************
@@ -3881,7 +3881,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( shogwarr )
+	static RomLoadHandlerPtr rom_shogwarr = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "fb030a.u61", 0x000000, 0x020000, CRC(a04106c6) SHA1(95ab084f2e709be7cec2964cb09bcf5a8d3aacdf) )
 		ROM_LOAD16_BYTE( "fb031a.u62", 0x000001, 0x020000, CRC(d1def5e2) SHA1(f442de4433547e52b483549aca5786e4597a7122) )
@@ -3911,7 +3911,7 @@ public class kaneko16
 		ROM_REGION( 0x100000, REGION_SOUND2, 0 )	/* Samples */
 		ROM_LOAD( "fb002.u44",   0x000000, 0x080000, CRC(05d7c2a9) SHA1(e34d395985caec10139a22daa179bb185df157d6) )	// 2 x $40000
 		ROM_LOAD( "fb003.u45",   0x080000, 0x080000, CRC(405722e9) SHA1(92e51093d50f74f650ba137f5fc2910e0f85337e) )	// 2 x $40000
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	DRIVER_INIT( shogwarr )
@@ -3977,7 +3977,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( fjbuster )	// Fujiyama Buster - Japan version of Shogun Warriors
+	static RomLoadHandlerPtr rom_fjbuster = new RomLoadHandlerPtr(){ public void handler(){ 	// Fujiyama Buster - Japan version of Shogun Warriors
 	 	ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "fb030j.u61", 0x000000, 0x020000, CRC(32ce7909) SHA1(02d87342706ac9547eb611bd542f8498ba41e34a) )
 		ROM_LOAD16_BYTE( "fb031j.u62", 0x000001, 0x020000, CRC(000c8c08) SHA1(439daac1541c34557b5a4308ed69dfebb93abe13) )
@@ -4007,7 +4007,7 @@ public class kaneko16
 		ROM_REGION( 0x100000, REGION_SOUND2, 0 )	/* Samples */
 		ROM_LOAD( "fb002.u44",   0x000000, 0x080000, CRC(05d7c2a9) SHA1(e34d395985caec10139a22daa179bb185df157d6) )	// 2 x $40000
 		ROM_LOAD( "fb003.u45",   0x080000, 0x080000, CRC(405722e9) SHA1(92e51093d50f74f650ba137f5fc2910e0f85337e) )	// 2 x $40000
-	ROM_END
+	ROM_END(); }}; 
 	
 	DRIVER_INIT( fjbuster )
 	{
@@ -4138,7 +4138,7 @@ public class kaneko16
 	
 	***************************************************************************/
 	
-	ROM_START( brapboys )
+	static RomLoadHandlerPtr rom_brapboys = new RomLoadHandlerPtr(){ public void handler(){ 
 	 	ROM_REGION( 0x040000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "rb-004.u61", 0x000000, 0x020000, CRC(5432442c) SHA1(f0f7328ece96ef25e6d4fd1958d734f64a9ef371) )
 		ROM_LOAD16_BYTE( "rb-005.u62", 0x000001, 0x020000, CRC(118b3cfb) SHA1(1690ecf5c629879bd97131ff77029e152919e45d) )
@@ -4172,7 +4172,7 @@ public class kaneko16
 		/* order is probably wrong, but until it does more we can't tell */
 		ROM_LOAD( "rb-001.u44",   0x000000, 0x080000, CRC(09c779e3) SHA1(c9c9bf939d58d329b87e0aa08ec3d35f7440d3c7) )
 		ROM_LOAD( "rb-002.u45",   0x080000, 0x080000, CRC(55de7003) SHA1(cc349fd8671926cafed4d86d1a5cb671e591c408) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/**********************************************************************
 	
@@ -4224,7 +4224,7 @@ public class kaneko16
 	
 	**********************************************************************/
 	
-	ROM_START( bonkadv )
+	static RomLoadHandlerPtr rom_bonkadv = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )			/* 68000 Code */
 		ROM_LOAD16_BYTE( "prg.8",        0x000000, 0x080000, CRC(af2e60f8) SHA1(406f79e155d1244b84f8c89c25b37188e1b4f4a6) )
 		ROM_LOAD16_BYTE( "prg.7",        0x000001, 0x080000, CRC(a1cc6a78) SHA1(a9cea21a6a0dfd3b0952664681c057190aa27f8c) )
@@ -4252,7 +4252,7 @@ public class kaneko16
 		ROM_REGION( 0x200000, REGION_SOUND2, 0 )	/* Samples */
 		ROM_LOAD( "pc603108.102",		 0x000000, 0x100000, CRC(58458985) SHA1(9a846d604ba901eb2a59d2b6cd9c42e3b43adb6a) )
 		ROM_LOAD( "pc604109.101",		 0x100000, 0x100000, CRC(76025530) SHA1(e0c8192d783057798eea084aa3e87938f6e01cb7) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/***************************************************************************
 	

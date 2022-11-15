@@ -383,7 +383,7 @@ public class wolfpack
 	MACHINE_DRIVER_END
 	
 	
-	ROM_START( wolfpack )
+	static RomLoadHandlerPtr rom_wolfpack = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD_NIB_LOW ( "30285.e3", 0x7000, 0x0800, CRC(b4d30b33) SHA1(46645c227828632b57244bdccad455e1831b5273) )
 		ROM_RELOAD       (             0xF000, 0x0800 )
@@ -410,7 +410,7 @@ public class wolfpack
 		ROM_REGION( 0x0800, REGION_SOUND1, ROMREGION_DISPOSE ) /* voice data */
 		ROM_LOAD_NIB_LOW ( "30863.r1", 0x0000, 0x0800, CRC(3f779f13) SHA1(8ed8a1bf680e8277066416f467388e3875e8cbbd) )
 		ROM_LOAD_NIB_HIGH( "30864.r3", 0x0000, 0x0800, CRC(c4a58d1d) SHA1(a2ba9354b99c739bbfa94458d671c109be163ca0) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_wolfpack	   = new GameDriver("1978"	,"wolfpack"	,"wolfpack.java"	,rom_wolfpack,null	,machine_driver_wolfpack	,input_ports_wolfpack	,null	,ORIENTATION_FLIP_Y, "Atari", "Wolf Pack (prototype)", GAME_NO_SOUND )

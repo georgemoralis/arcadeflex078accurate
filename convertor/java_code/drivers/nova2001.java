@@ -230,7 +230,7 @@ public class nova2001
 	
 	
 	
-	ROM_START( nova2001 )
+	static RomLoadHandlerPtr rom_nova2001 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "1.6c",         0x0000, 0x2000, CRC(368cffc0) SHA1(b756c0542d5b86640af62639bdd0d32f6e364dd3) )
 		ROM_LOAD( "2.6d",         0x2000, 0x2000, CRC(bc4e442b) SHA1(6e1dca5dde442db95403377bf49aaad2a337813e) )
@@ -248,9 +248,9 @@ public class nova2001
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "nova2001.clr", 0x0000, 0x0020, CRC(a2fac5cd) SHA1(ad14aa2be57722d1f48b47171fe72f96091423b6) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( nov2001u )
+	static RomLoadHandlerPtr rom_nov2001u = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "nova2001.1",   0x0000, 0x2000, CRC(b79461bd) SHA1(7fac3313bc76612f66a6518450d0fed32fe70c45) )
 		ROM_LOAD( "nova2001.2",   0x2000, 0x2000, CRC(fab87144) SHA1(506703f9d96443839f864ef5bde1a71120f54384) )
@@ -268,7 +268,7 @@ public class nova2001
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "nova2001.clr", 0x0000, 0x0020, CRC(a2fac5cd) SHA1(ad14aa2be57722d1f48b47171fe72f96091423b6) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

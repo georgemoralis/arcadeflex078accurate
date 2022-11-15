@@ -331,7 +331,7 @@ public class battlane
 	
 	***************************************************************************/
 	
-	ROM_START( battlane )
+	static RomLoadHandlerPtr rom_battlane = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		/* first half of da00-5 will be copied at 0x4000-0x7fff */
 		ROM_LOAD( "da00-5",    0x4000, 0x8000, CRC(85b4ed73) SHA1(b8e61eedf8fb75bb07f1df91a7465cee2b6ff372) )
@@ -353,9 +353,9 @@ public class battlane
 		ROM_REGION( 0x0040, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.7h", 0x00000, 0x0020, CRC(b9933663) SHA1(5d5c840caa0b8416ed7dd4890dd5f3e4a9e86511) )
 		ROM_LOAD( "82s123.9n", 0x00020, 0x0020, CRC(06491e53) SHA1(d6cf5003798f9a9d555bca97844dcb2966cbac9d) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( battlan2 )
+	static RomLoadHandlerPtr rom_battlan2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		/* first half of da00-3 will be copied at 0x4000-0x7fff */
 		ROM_LOAD( "da00-3",    0x4000, 0x8000, CRC(7a0a5d58) SHA1(ef97e5a64a668c437c18cda931c52bf39b580b4a) )
@@ -377,9 +377,9 @@ public class battlane
 		ROM_REGION( 0x0040, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.7h", 0x00000, 0x0020, CRC(b9933663) SHA1(5d5c840caa0b8416ed7dd4890dd5f3e4a9e86511) )
 		ROM_LOAD( "82s123.9n", 0x00020, 0x0020, CRC(06491e53) SHA1(d6cf5003798f9a9d555bca97844dcb2966cbac9d) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( battlan3 )
+	static RomLoadHandlerPtr rom_battlan3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for main CPU */
 		/* first half of bl_04.rom will be copied at 0x4000-0x7fff */
 		ROM_LOAD( "bl_04.rom", 0x4000, 0x8000, CRC(5681564c) SHA1(25b3a715e91976830d87c7c45b93b473df709241) )
@@ -401,7 +401,7 @@ public class battlane
 		ROM_REGION( 0x0040, REGION_PROMS, 0 )
 		ROM_LOAD( "82s123.7h", 0x00000, 0x0020, CRC(b9933663) SHA1(5d5c840caa0b8416ed7dd4890dd5f3e4a9e86511) )
 		ROM_LOAD( "82s123.9n", 0x00020, 0x0020, CRC(06491e53) SHA1(d6cf5003798f9a9d555bca97844dcb2966cbac9d) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_battlane	   = new GameDriver("1986"	,"battlane"	,"battlane.java"	,rom_battlane,null	,machine_driver_battlane	,input_ports_battlane	,null	,ROT90, "Technos (Taito license)", "Battle Lane! Vol. 5 (set 1)" )

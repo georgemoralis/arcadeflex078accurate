@@ -195,7 +195,7 @@ public class homerun
 		
 	MACHINE_DRIVER_END
 	
-	ROM_START( homerun )
+	static RomLoadHandlerPtr rom_homerun = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	  
 		ROM_LOAD( "homerun.43",        0x0000, 0x4000, CRC(e759e476) SHA1(ad4f356ff26209033320a3e6353e4d4d9beb59c1) )
 		ROM_CONTINUE(        0x10000,0x1c000) 
@@ -209,7 +209,7 @@ public class homerun
 		ROM_REGION( 0x01000, REGION_SOUND1, 0 )
 		ROM_LOAD( "homerun.snd",  0x00000, 0x1000, NO_DUMP ) /* D7756C internal rom */
 		
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_homerun	   = new GameDriver("1988"	,"homerun"	,"homerun.java"	,rom_homerun,null	,machine_driver_homerun	,input_ports_homerun	,null	,ROT0, "Jaleco", "Moero Pro Yakyuu Homerun",GAME_IMPERFECT_GRAPHICS)
 	

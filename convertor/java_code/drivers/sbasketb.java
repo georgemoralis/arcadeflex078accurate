@@ -286,7 +286,7 @@ public class sbasketb
 	
 	***************************************************************************/
 	
-	ROM_START( sbasketb )
+	static RomLoadHandlerPtr rom_sbasketb = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for the decrypted opcodes */
 		ROM_LOAD( "405g05",  0x6000, 0x2000, CRC(336dc0ab) SHA1(0fe47fdbf183683c569785fc6b980337a9cfde95) )
 		ROM_LOAD( "405g04",  0x8000, 0x2000, CRC(f064a9bc) SHA1(4f1b94a880385c6ba74cc0883b24f6fec934e35d) )
@@ -317,9 +317,9 @@ public class sbasketb
 	
 		ROM_REGION( 0x10000, REGION_SOUND1, 0 )     /* 64k for speech rom */
 		ROM_LOAD( "405e15",       0x0000, 0x2000, CRC(01bb5ce9) SHA1(f48477b4011befba13c8bcd83e0c9f7deb14a1e1) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sbasketo )
+	static RomLoadHandlerPtr rom_sbasketo = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 2*0x10000, REGION_CPU1, 0 )	/* 64k for code + 64k for the decrypted opcodes */
 		ROM_LOAD( "405e05",  0x6000, 0x2000, CRC(32ea5b71) SHA1(d917c31d2c9a7229396e4a930e8d27394329533a) )
 		ROM_LOAD( "405e04",  0x8000, 0x2000, CRC(7abf3087) SHA1(fbaaaaae0b8bed1bc6ad7f2da267c2ef8bd75b15) )
@@ -350,9 +350,9 @@ public class sbasketb
 	
 		ROM_REGION( 0x10000, REGION_SOUND1, 0 )     /* 64k for speech rom */
 		ROM_LOAD( "405e15",       0x0000, 0x2000, CRC(01bb5ce9) SHA1(f48477b4011befba13c8bcd83e0c9f7deb14a1e1) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sbasketu )
+	static RomLoadHandlerPtr rom_sbasketu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )     /* 64k for code */
 		ROM_LOAD( "sbb_j13.bin",  0x6000, 0x2000, CRC(263ec36b) SHA1(b445b600726ba4935623311e1a178aeb4a356b0a) )
 		ROM_LOAD( "sbb_j11.bin",  0x8000, 0x4000, CRC(0a4d7a82) SHA1(2e0153b41e23284427881258a44bd55be3570eb2) )
@@ -381,7 +381,7 @@ public class sbasketb
 	
 		ROM_REGION( 0x10000, REGION_SOUND1, 0 )     /* 64k for speech rom */
 		ROM_LOAD( "405e15",       0x0000, 0x2000, CRC(01bb5ce9) SHA1(f48477b4011befba13c8bcd83e0c9f7deb14a1e1) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	static DRIVER_INIT( sbasketb )

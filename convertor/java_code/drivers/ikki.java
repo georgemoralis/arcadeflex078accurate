@@ -258,7 +258,7 @@ public class ikki
 	
 	/****************************************************************************/
 	
-	ROM_START( ikki )
+	static RomLoadHandlerPtr rom_ikki = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "tvg17_1",  0x0000,  0x2000, CRC(cb28167c) SHA1(6843553faee0d3bbe432689fdf5f5454470e2b09) )
 		ROM_CONTINUE(         0x8000,  0x2000 )
@@ -289,7 +289,7 @@ public class ikki
 		ROM_REGION( 0x0200, REGION_USER1, 0 )
 		ROM_LOAD( "prom17_1", 0x0000,  0x0100, CRC(ca0af30c) SHA1(6d7cfeb16daf61c6e7f93172809b0983bf13cd6c) ) /* video attribute */
 		ROM_LOAD( "prom17_2", 0x0100,  0x0100, CRC(f3c55174) SHA1(936c5432c4fccfcb2601c1e08b98d5509202fe5b) ) /* unknown */
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_ikki	   = new GameDriver("1985"	,"ikki"	,"ikki.java"	,rom_ikki,null	,machine_driver_ikki	,input_ports_ikki	,null	,ROT0, "Sun Electronics", "Ikki (Japan)" )
 }

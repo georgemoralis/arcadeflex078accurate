@@ -95,7 +95,7 @@ public class convertMame {
                             Convertor.inpos = i;
                             break;
                         }
-                        type = GAMEDRIVER;
+                        type2 = GAMEDRIVER;
                         sUtil.skipSpace();
                         Convertor.token[0] = sUtil.parseTokenGameDriv();//year
                         Convertor.inpos++;
@@ -126,12 +126,6 @@ public class convertMame {
                         Convertor.inpos++;
                         sUtil.skipSpace();
                         Convertor.token[6] = sUtil.parseToken();//ROT
-                        /*Convertor.inpos++;
-                        sUtil.skipSpace();
-                        Convertor.token[7] = sUtil.parseToken();//comp
-                        Convertor.inpos++;
-                        sUtil.skipSpace();
-                        Convertor.token[8] = sUtil.parseToken();//name*/
 
                         sUtil.putString((new StringBuilder()).append("public static GameDriver driver_").append(Convertor.token[1]).append("\t   = new GameDriver(\"").append(Convertor.token[0]).append("\"\t,\"").append(Convertor.token[1]).append("\"\t,\"").append(Convertor.className).append(".java\"\t,rom_")
                                 .append(Convertor.token[1]).append(",").append(Convertor.token[2])
@@ -139,16 +133,36 @@ public class convertMame {
                                 .append("\t,input_ports_").append(Convertor.token[4])
                                 .append("\t,").append(Convertor.token[5])
                                 .append("\t,").append(Convertor.token[6])
-                                //.append("\t,").append(Convertor.token[7])
-                                //.append("\t,").append(Convertor.token[8])
-                                //.append("\t").append(";")
                                 .toString());
                         continue;
                     }
                 }
                 Convertor.inpos = i;
                 break;
-
+                case 'R': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("ROM_START")) {
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.putString((new StringBuilder()).append("static RomLoadHandlerPtr rom_").append(Convertor.token[0]).append(" = new RomLoadHandlerPtr(){ public void handler(){ ").toString());
+                        continue;
+                    }
+                    if (sUtil.getToken("ROM_END")) {
+                        sUtil.putString((new StringBuilder()).append("ROM_END(); }}; ").toString());
+                        continue;
+                    }
+                }
+                Convertor.inpos = i;
+                break;
             }
 
             Convertor.outbuf[Convertor.outpos++] = Convertor.inbuf[Convertor.inpos++];//grapse to inputbuffer sto output

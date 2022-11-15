@@ -415,7 +415,7 @@ public class taotaido
 	MACHINE_DRIVER_END
 	
 	
-	ROM_START( taotaido )
+	static RomLoadHandlerPtr rom_taotaido = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_WORD_SWAP( "1-u90.bin", 0x00000, 0x80000, CRC(a3ee30da) SHA1(920a83ce9192bf785bffdc041e280f1a420de4c9) )
 		ROM_LOAD16_WORD_SWAP( "2-u91.bin", 0x80000, 0x80000, CRC(30b7e4fb) SHA1(15e1f6d252c736fdee33b691a0a1a45f0307bffb) )
@@ -437,9 +437,9 @@ public class taotaido
 	
 		ROM_REGION( 0x200000, REGION_GFX2, 0 ) /* BG Tiles */
 		ROM_LOAD( "u15.bin", 0x000000, 0x200000, CRC(e95823e9) SHA1(362583944ad4fdde4f9e29928cf34376c7ad931f) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( taotaida )
+	static RomLoadHandlerPtr rom_taotaida = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 ) /* 68000 Code */
 		ROM_LOAD16_WORD_SWAP( "tt0-u90.bin", 0x00000, 0x80000, CRC(69d4cca7) SHA1(f1aba74fef8fe4271d19763f428fc0e2674d08b3) )
 		ROM_LOAD16_WORD_SWAP( "tt1-u91.bin", 0x80000, 0x80000, CRC(41025469) SHA1(fa3a424ca3ecb513f418e436e4191ff76f6a0de1) )
@@ -461,7 +461,7 @@ public class taotaido
 	
 		ROM_REGION( 0x200000, REGION_GFX2, 0 ) /* BG Tiles */
 		ROM_LOAD( "u15.bin", 0x000000, 0x200000, CRC(e95823e9) SHA1(362583944ad4fdde4f9e29928cf34376c7ad931f) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_taotaido	   = new GameDriver("1993"	,"taotaido"	,"taotaido.java"	,rom_taotaido,null	,machine_driver_taotaido	,input_ports_taotaido	,null	,ROT0, "Video System Co.", "Tao Taido (set 1)", GAME_NO_COCKTAIL )
 	public static GameDriver driver_taotaida	   = new GameDriver("1993"	,"taotaida"	,"taotaido.java"	,rom_taotaida,driver_taotaido	,machine_driver_taotaido	,input_ports_taotaido	,null	,ROT0, "Video System Co.", "Tao Taido (set 2)", GAME_NO_COCKTAIL )

@@ -1218,15 +1218,15 @@ public class suprnova
 	
 	/***** ROM LOADING *****/
 	
-	ROM_START( skns )
+	static RomLoadHandlerPtr rom_skns = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0100000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10", 0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 		ROM_LOAD       ( "sknse1.u10", 0x000000, 0x080000, CRC(e2b9d7d1) SHA1(b530a3bb9dedc8cfafcba9f1f10277590be04a15) ) /* Europ BIOS */
 		ROM_LOAD       ( "sknsa1.u10", 0x000000, 0x080000, CRC(745e5212) SHA1(caba649ab2d83b2d7e007eecee0fc582c019df38) ) /* Asia  BIOS */
 		ROM_LOAD       ( "sknsu1.u10", 0x000000, 0x080000, CRC(384d21ec) SHA1(a27e8a18099d9cea64fa32db28d01101c2a78815) ) /* USA   BIOS */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( cyvern )
+	static RomLoadHandlerPtr rom_cyvern = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1249,9 +1249,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 		ROM_LOAD( "cv300-00.u4", 0x000000, 0x400000, CRC(fbeda465) SHA1(4d5066a22f4589b6b7f85b3e77c348d900ac4bdd) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( galpani4 )
+	static RomLoadHandlerPtr rom_galpani4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1273,9 +1273,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "gp430000.u4", 0x000000, 0x200000, CRC(8374663a) SHA1(095512564f4de25dc3752d9fbd254b9dabd16d1b) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( galpanis )
+	static RomLoadHandlerPtr rom_galpanis = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1298,9 +1298,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "gps30000.u4", 0x000000, 0x400000, CRC(9e4da8e3) SHA1(6506d9300a442883357003a05fd2c78d364c35bb) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( galpans2 )
+	static RomLoadHandlerPtr rom_galpans2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1325,9 +1325,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	      ROM_LOAD( "gs230000.u1",  0x000000, 0x400000, CRC(0348e8e1) SHA1(8a21c7e5cea0bc08a2595213d689c58c0251fdb5) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( gutsn )
+	static RomLoadHandlerPtr rom_gutsn = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1347,9 +1347,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 		ROM_LOAD( "gts30000.u4", 0x000000, 0x400000, CRC(8c169141) SHA1(41caea6fa644515f7417c84bdac599b13ad07e8c) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( panicstr )
+	static RomLoadHandlerPtr rom_panicstr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1370,9 +1370,9 @@ public class suprnova
 	
 	  	ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "ps-30000.u4",  0x000000, 0x400000, CRC(2262e263) SHA1(73443e5f40f5c5c9bd41c6207fa6376072f0f65e) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( puzzloop )
+	static RomLoadHandlerPtr rom_puzzloop = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknse1.u10", 0x000000, 0x080000, CRC(e2b9d7d1) SHA1(b530a3bb9dedc8cfafcba9f1f10277590be04a15) ) /* Europe BIOS */
 	
@@ -1393,9 +1393,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "pzl30000.u4", 0x000000, 0x400000, CRC(38604b8d) SHA1(1191cf48a6a7baa58e51509442b40ea67f5252d2) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( puzloopj )
+	static RomLoadHandlerPtr rom_puzloopj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1416,9 +1416,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "pzl30000.u4", 0x000000, 0x400000, CRC(38604b8d) SHA1(1191cf48a6a7baa58e51509442b40ea67f5252d2) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( puzloopu )
+	static RomLoadHandlerPtr rom_puzloopu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsu1.u10",   0x000000, 0x080000, CRC(384d21ec) SHA1(a27e8a18099d9cea64fa32db28d01101c2a78815) ) /* US BIOS */
 	
@@ -1439,11 +1439,11 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "pzl30000.u4", 0x000000, 0x400000, CRC(38604b8d) SHA1(1191cf48a6a7baa58e51509442b40ea67f5252d2) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	/* haven't even tried to run the ones below yet */
 	
-	ROM_START( jjparads )
+	static RomLoadHandlerPtr rom_jjparads = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1465,9 +1465,9 @@ public class suprnova
 	
 		ROM_REGION( 0x200000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "jp300-00.u4", 0x000000, 0x200000, CRC(7023fe46) SHA1(24a92133bc664d63b3be67c2ef11cd7b605ee7e8) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( jjparad2 )
+	static RomLoadHandlerPtr rom_jjparad2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1490,9 +1490,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "jp230000.u1", 0x000000, 0x400000, CRC(73e30d7f) SHA1(af5b16cec722dbbf0e03d73edfa133dbf10ac4f3) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sengekis )
+	static RomLoadHandlerPtr rom_sengekis = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsa1.u10", 0x000000, 0x080000, CRC(745e5212) SHA1(caba649ab2d83b2d7e007eecee0fc582c019df38) ) /* Asia BIOS */
 	
@@ -1517,9 +1517,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "ss300-00.u1", 0x000000, 0x400000, CRC(35b04b18) SHA1(b69f33fc6a50ec20382329317d20b3c1e7f01b87) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sengekij )
+	static RomLoadHandlerPtr rom_sengekij = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1544,9 +1544,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "ss300-00.u1", 0x000000, 0x400000, CRC(35b04b18) SHA1(b69f33fc6a50ec20382329317d20b3c1e7f01b87) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( senknow )
+	static RomLoadHandlerPtr rom_senknow = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1569,9 +1569,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "snw30000.u1",  0x000000, 0x400000, CRC(ec9eef40) SHA1(8f74ec9cb6054a77227c0505094f0ef8bc371429) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( teljan )
+	static RomLoadHandlerPtr rom_teljan = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1593,9 +1593,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "tj300-00.u4", 0x000000, 0x400000, CRC(685495c4) SHA1(3853c0583b84ed3163370ae48e4b3912cbeb986e) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( ryouran )
+	static RomLoadHandlerPtr rom_ryouran = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1618,9 +1618,9 @@ public class suprnova
 	
 		ROM_REGION( 0x400000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "or300-00.u4", 0x000000, 0x400000, CRC(a3f64b79) SHA1(6ecb2b4c0d213fe5384b19d6bfdb86871f21fd9f) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( vblokbrk )
+	static RomLoadHandlerPtr rom_vblokbrk = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsa1.u10", 0x000000, 0x080000, CRC(745e5212) SHA1(caba649ab2d83b2d7e007eecee0fc582c019df38) ) /* Asia BIOS */
 	
@@ -1641,9 +1641,9 @@ public class suprnova
 	
 		ROM_REGION( 0x200000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "sk300-00.u4", 0x000000, 0x200000, CRC(e6535c05) SHA1(8895b7c326e0261691cb184887ac1ca637302460) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( sarukani )
+	static RomLoadHandlerPtr rom_sarukani = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 ) /* SH-2 Code */
 		ROM_LOAD       ( "sknsj1.u10",   0x000000, 0x080000, CRC(7e2b836c) SHA1(92c5a7a2472496028bff0e5980d41dd294f42144) ) /* Japan BIOS */
 	
@@ -1664,7 +1664,7 @@ public class suprnova
 	
 		ROM_REGION( 0x200000, REGION_SOUND1, 0 ) /* Samples */
 	    ROM_LOAD( "sk300-00.u4", 0x000000, 0x200000, CRC(e6535c05) SHA1(8895b7c326e0261691cb184887ac1ca637302460) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/***** GAME DRIVERS *****/

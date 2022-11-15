@@ -149,7 +149,7 @@ public class frogger
 	
 	***************************************************************************/
 	
-	ROM_START( frogger )
+	static RomLoadHandlerPtr rom_frogger = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "frogger.26",   0x0000, 0x1000, CRC(597696d6) SHA1(e7e021776cad00f095a1ebbef407b7c0a8f5d835) )
 		ROM_LOAD( "frogger.27",   0x1000, 0x1000, CRC(b6e6fcc3) SHA1(5e8692f2b0c7f4b3642b3ee6670e1c3b20029cdc) )
@@ -166,9 +166,9 @@ public class frogger
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "pr-91.6l",     0x0000, 0x0020, CRC(413703bf) SHA1(66648b2b28d3dcbda5bdb2605d1977428939dd3c) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( frogseg1 )
+	static RomLoadHandlerPtr rom_frogseg1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "frogger.26",   0x0000, 0x1000, CRC(597696d6) SHA1(e7e021776cad00f095a1ebbef407b7c0a8f5d835) )
 		ROM_LOAD( "frogger.27",   0x1000, 0x1000, CRC(b6e6fcc3) SHA1(5e8692f2b0c7f4b3642b3ee6670e1c3b20029cdc) )
@@ -185,9 +185,9 @@ public class frogger
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "pr-91.6l",     0x0000, 0x0020, CRC(413703bf) SHA1(66648b2b28d3dcbda5bdb2605d1977428939dd3c) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( frogseg2 )
+	static RomLoadHandlerPtr rom_frogseg2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "frogger.ic5",  0x0000, 0x1000, CRC(efab0c79) SHA1(68c99b6cdcb9396bb473739a62ffc009b4bf57d5) )
 		ROM_LOAD( "frogger.ic6",  0x1000, 0x1000, CRC(aeca9c13) SHA1(cdf560adbd7f2813e86e378da7781cccf7928a44) )
@@ -205,7 +205,7 @@ public class frogger
 	
 		ROM_REGION( 0x0020, REGION_PROMS, 0 )
 		ROM_LOAD( "pr-91.6l",     0x0000, 0x0020, CRC(413703bf) SHA1(66648b2b28d3dcbda5bdb2605d1977428939dd3c) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

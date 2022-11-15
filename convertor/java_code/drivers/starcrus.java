@@ -219,7 +219,7 @@ public class starcrus
 	
 	***************************************************************************/
 	
-	ROM_START( starcrus )
+	static RomLoadHandlerPtr rom_starcrus = new RomLoadHandlerPtr(){ public void handler(){ 
 	    ROM_REGION( 0x10000, REGION_CPU1, 0 )  /* code */
 		ROM_LOAD( "starcrus.j1",   0x0000, 0x0200, CRC(0ee60a50) SHA1(7419e7cb4c589da53d4a10ad129373502682464e) )
 		ROM_LOAD( "starcrus.k1",   0x0200, 0x0200, CRC(a7bc3bc4) SHA1(0e38076e921856608b1dd712687bef1c2522b4b8) )
@@ -239,7 +239,7 @@ public class starcrus
 	    ROM_REGION( 0x0400, REGION_GFX3, ROMREGION_DISPOSE )
 		ROM_LOAD( "starcrus.j4",   0x0000, 0x0200, CRC(25f15ae1) SHA1(7528edaa01ad5a167191c7e72394cb6009db1b27) )
 		ROM_LOAD( "starcrus.g5",   0x0200, 0x0200, CRC(73b27f6e) SHA1(4a6cf9244556a2c2647d594c7a19fe1a374a57e6) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_starcrus	   = new GameDriver("1977"	,"starcrus"	,"starcrus.java"	,rom_starcrus,null	,machine_driver_starcrus	,input_ports_starcrus	,null	,ROT0, "RamTek", "Star Cruiser" )

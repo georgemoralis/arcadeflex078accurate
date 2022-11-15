@@ -264,7 +264,7 @@ public class markham
 	
 	/****************************************************************************/
 	
-	ROM_START( markham )
+	static RomLoadHandlerPtr rom_markham = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 ) /* main CPU */
 		ROM_LOAD( "tv3.9",   0x0000,  0x2000, CRC(59391637) SHA1(e0cfe49a5591d6a6e64c3277319a19235b0ee6ea) )
 		ROM_LOAD( "tvg4.10", 0x2000,  0x2000, CRC(1837bcce) SHA1(50e1ae0a4937f09a3dced48bb12f57cee846487a) )
@@ -290,7 +290,7 @@ public class markham
 		ROM_LOAD( "14-5.101", 0x0200,  0x0100, CRC(2d444fa6) SHA1(66b64133ca740686bedd33bafd20a3f9f3df97d4) ) /* B */
 		ROM_LOAD( "14-1.61",  0x0300,  0x0200, CRC(3ad8306d) SHA1(877f1d58cb8da9098ec71a7c7aec633dbf9e76e6) ) /* sprite */
 		ROM_LOAD( "14-2.115", 0x0500,  0x0200, CRC(12a4f1ff) SHA1(375e37d7162053d45da66eee23d66bd432303c1c) ) /* bg */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_markham	   = new GameDriver("1983"	,"markham"	,"markham.java"	,rom_markham,null	,machine_driver_markham	,input_ports_markham	,null	,ROT0, "Sun Electronics", "Markham" )

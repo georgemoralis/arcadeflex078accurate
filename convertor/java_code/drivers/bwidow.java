@@ -767,7 +767,7 @@ public class bwidow
 	 *
 	 *************************************/
 	
-	ROM_START( bwidow )
+	static RomLoadHandlerPtr rom_bwidow = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "136017.107",   0x2800, 0x0800, CRC(97f6000c) SHA1(bbae93058228820ee67b05f23e45fb54ee0963ff) )
@@ -782,9 +782,9 @@ public class bwidow
 		ROM_LOAD( "136017.105",   0xd000, 0x1000, CRC(1fdf801c) SHA1(33da2ba3cefa3d0dddc8647f9b6caf5d5bfe9b3b) )
 		ROM_LOAD( "136017.106",   0xe000, 0x1000, CRC(ccc9b26c) SHA1(f1398e3ff2b62af1509bc117028845b671ff1ca2) )
 		ROM_RELOAD(               0xf000, 0x1000 )	/* for reset/interrupt vectors */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( gravitar )
+	static RomLoadHandlerPtr rom_gravitar = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "136010.210",   0x2800, 0x0800, CRC(debcb243) SHA1(2c50cd38d60739c126f1d0d8e7fbd46a0bde6e1c) )
@@ -799,9 +799,9 @@ public class bwidow
 		ROM_LOAD( "136010.305",   0xd000, 0x1000, CRC(840603af) SHA1(4a7124f91d3ee940686c51374a861efe6cb5d282) )
 		ROM_LOAD( "136010.306",   0xe000, 0x1000, CRC(3f3805ad) SHA1(baf080deaa8eea43af2f3be71dacc63e4666c453) )
 		ROM_RELOAD(              0xf000, 0x1000 )	/* for reset/interrupt vectors */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( gravitr2 )
+	static RomLoadHandlerPtr rom_gravitr2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "136010.210",   0x2800, 0x0800, CRC(debcb243) SHA1(2c50cd38d60739c126f1d0d8e7fbd46a0bde6e1c) )
@@ -816,9 +816,9 @@ public class bwidow
 		ROM_LOAD( "136010.205",   0xd000, 0x1000, CRC(0db1ff34) SHA1(288d9ffff9d18025621be249ea25a7444f58f3a9) )
 		ROM_LOAD( "136010.206",   0xe000, 0x1000, CRC(4521ca48) SHA1(5770cb46c4ac28d632ad5910723a9edda8283ce5) )
 		ROM_RELOAD(              0xf000, 0x1000 )	/* for reset/interrupt vectors */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( gravp )
+	static RomLoadHandlerPtr rom_gravp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "l7.bin",   0x2800, 0x0800, CRC(1da0d845) SHA1(99bccae0521c105388784175c475035bf19270a7) )
@@ -833,9 +833,9 @@ public class bwidow
 		ROM_LOAD( "kl1.bin",  0xd000, 0x1000, CRC(032b5806) SHA1(b719792a177e74ec49e6952e445b9cdeaca7505f) )
 		ROM_LOAD( "m1.bin",   0xe000, 0x1000, CRC(47fe97a0) SHA1(7cbde4b59abde679c28d7547700b342f25762e4a) )
 		ROM_RELOAD(           0xf000, 0x1000 )	/* for reset/interrupt vectors */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( lunarbat )
+	static RomLoadHandlerPtr rom_lunarbat = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "010.010",      0x2800, 0x0800, CRC(48fd38aa) SHA1(e6ec31e784c2965369161c33d00903ba027f7f20) )
@@ -849,9 +849,9 @@ public class bwidow
 		ROM_LOAD( "005.010",      0xd000, 0x1000, CRC(4feb6f81) SHA1(b852f1093e56343225c1b2b2554a93c88fc58637) )
 		ROM_LOAD( "006.010",      0xe000, 0x1000, CRC(f8ad139d) SHA1(e9e0dcb0872b19af09825a979f8b3747c9632091) )
 		ROM_RELOAD(               0xf000, 0x1000 )	/* for reset/interrupt vectors */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( lunarba1 )
+	static RomLoadHandlerPtr rom_lunarba1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "vrom1.bin",   0x2800, 0x0800, CRC(c60634d9) SHA1(b94f056b5e73a2e015ba9a4be66dc2abee325016) )
@@ -869,9 +869,9 @@ public class bwidow
 		ROM_RELOAD(              0xd000, 0x1000 )
 		ROM_RELOAD(              0xe000, 0x1000 )
 		ROM_RELOAD(              0xf000, 0x1000 )	/* for reset/interrupt vectors */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( spacduel )
+	static RomLoadHandlerPtr rom_spacduel = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		/* Vector ROM */
 		ROM_LOAD( "136006.106",   0x2800, 0x0800, CRC(691122fe) SHA1(f53be76a49dba319050ca7767de3441521910e83) )
@@ -889,7 +889,7 @@ public class bwidow
 		ROM_RELOAD(              0xd000, 0x1000 )
 		ROM_RELOAD(              0xe000, 0x1000 )
 		ROM_RELOAD(              0xf000, 0x1000 )	/* for reset/interrupt vectors */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

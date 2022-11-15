@@ -856,7 +856,7 @@ public class fromanc2
 	//
 	// ----------------------------------------------------------------------------
 	
-	ROM_START( fromanc2 )
+	static RomLoadHandlerPtr rom_fromanc2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0080000, REGION_CPU1, 0 )	// MAIN CPU
 		ROM_LOAD16_WORD_SWAP( "4-ic23.bin", 0x000000, 0x080000, CRC(96c90f9e) SHA1(c233e91d6967ef05cf14923273be84b17fce200f) )
 	
@@ -885,9 +885,9 @@ public class fromanc2
 		ROM_REGION( 0x0400000, REGION_SOUND1, 0 )	// SOUND DATA
 		ROM_LOAD( "ic96.bin",    0x000000, 0x200000, CRC(2f1b394c) SHA1(d95dd8231d7873328f2253eaa27374c79d87e21b) )
 		ROM_LOAD( "ic97.bin",    0x200000, 0x200000, CRC(1d1377fc) SHA1(0dae5dfcbcf4ed6662522e9404fcac0236dce04d) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( fromancr )
+	static RomLoadHandlerPtr rom_fromancr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0080000, REGION_CPU1, 0 )	// MAIN CPU
 		ROM_LOAD16_WORD_SWAP( "2-ic20.bin", 0x000000, 0x080000, CRC(378eeb9c) SHA1(c1cfc7440590a229b3cdc1114428a473fea15b63) )
 	
@@ -918,9 +918,9 @@ public class fromanc2
 		ROM_REGION( 0x0400000, REGION_SOUND1, 0 )	// SOUND DATA
 		ROM_LOAD( "ic81.bin",    0x0000000, 0x200000, CRC(8ab6e343) SHA1(5ae28e6944edb0a4b8d0071ce48e348b6e927ca9) )
 		ROM_LOAD( "ic82.bin",    0x0200000, 0x200000, CRC(f57daaf8) SHA1(720eadf771c89d8749317b632bbc5e8ff1f6f520) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( fromanc4 )
+	static RomLoadHandlerPtr rom_fromanc4 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x0800000, REGION_CPU1, 0 )	// MAIN CPU + DATA
 		ROM_LOAD16_WORD_SWAP( "ic18.bin",    0x0000000, 0x080000, CRC(46a47839) SHA1(f1ba47b193e7e4b1c0fe8d67a76a9c452989885c) )
 		ROM_LOAD16_WORD_SWAP( "em33-m00.19", 0x0400000, 0x400000, CRC(6442534b) SHA1(a504d5cdd569ad4301f9917247531d4fdb807c76) )
@@ -954,7 +954,7 @@ public class fromanc2
 		ROM_REGION( 0x0800000, REGION_SOUND1, 0 )	// SOUND DATA
 		ROM_LOAD16_WORD_SWAP( "em33-p00.88", 0x0000000, 0x400000, CRC(1c6418d2) SHA1(c66d6b35f342fcbeca5414dbb2ac038d8a2ec2c4) )
 		ROM_LOAD16_WORD_SWAP( "em33-p01.89", 0x0400000, 0x400000, CRC(615b4e6e) SHA1(a031773ed27de2263e32422a3d11118bdcb2c197) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_fromanc2	   = new GameDriver("1995"	,"fromanc2"	,"fromanc2.java"	,rom_fromanc2,null	,machine_driver_fromanc2	,input_ports_fromanc2	,init_fromanc2	,ROT0, "Video System Co.", "Taisen Idol-Mahjong Final Romance 2 (Japan)" )

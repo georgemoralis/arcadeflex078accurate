@@ -377,7 +377,7 @@ public class sbowling
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 	MACHINE_DRIVER_END
 	
-	ROM_START( sbowling )
+	static RomLoadHandlerPtr rom_sbowling = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	
 		ROM_LOAD( "kb01.6h",        0x0000, 0x1000, CRC(dd5d411a) SHA1(ca15676d234353bc47f642be13d58f3d6d880126))
 		ROM_LOAD( "kb02.5h",        0x1000, 0x1000, CRC(75d3c45f) SHA1(af6e6237b7b28efaac258e6ddd85518c3406b24a))
@@ -394,7 +394,7 @@ public class sbowling
 		ROM_REGION( 0x0800, REGION_PROMS, 0 )
 		ROM_LOAD( "kb08.7m",        0x0000, 0x0400, CRC(e949e441) SHA1(8e0fe71ed6d4e6f94a703c27a8364da27b443730))
 		ROM_LOAD( "kb09.6m",        0x0400, 0x0400, CRC(e29191a6) SHA1(9a2c78a96ef6d118f4dacbea0b7d454b66a452ae))
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_sbowling	   = new GameDriver("1982"	,"sbowling"	,"sbowling.java"	,rom_sbowling,null	,machine_driver_sbowling	,input_ports_sbowling	,null	,ROT90, "Taito Corporation", "Strike Bowling",GAME_IMPERFECT_SOUND|GAME_IMPERFECT_COLORS)
 	

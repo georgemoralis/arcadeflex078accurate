@@ -360,7 +360,7 @@ public class volfied
 						DRIVERS
 	***************************************************************************/
 	
-	ROM_START( volfied )
+	static RomLoadHandlerPtr rom_volfied = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code and tile data */
 		ROM_LOAD16_BYTE( "c04-12-1.bin", 0x00000, 0x10000, CRC(afb6a058) SHA1(fca488e86725a0a673332afeb0002f0e77ef2dbf) )
 		ROM_LOAD16_BYTE( "c04-08-1.bin", 0x00001, 0x10000, CRC(19f7e66b) SHA1(51b5d0d00ec398ed717154286bec24b05c3f81b8) )
@@ -383,9 +383,9 @@ public class volfied
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )     /* sound cpu */
 		ROM_LOAD( "c04-06.bin", 0x0000, 0x8000, CRC(b70106b2) SHA1(d71062f9d9b11492e13fc93982b95883f564f902) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( volfiedu )
+	static RomLoadHandlerPtr rom_volfiedu = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code and tile data */
 		ROM_LOAD16_BYTE( "c04-12-1.bin", 0x00000, 0x10000, CRC(afb6a058) SHA1(fca488e86725a0a673332afeb0002f0e77ef2dbf) )
 		ROM_LOAD16_BYTE( "c04-08-1.bin", 0x00001, 0x10000, CRC(19f7e66b) SHA1(51b5d0d00ec398ed717154286bec24b05c3f81b8) )
@@ -408,9 +408,9 @@ public class volfied
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )     /* sound cpu */
 		ROM_LOAD( "c04-06.bin", 0x0000, 0x8000, CRC(b70106b2) SHA1(d71062f9d9b11492e13fc93982b95883f564f902) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( volfiedj )
+	static RomLoadHandlerPtr rom_volfiedj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )     /* 68000 code and tile data */
 		ROM_LOAD16_BYTE( "c04-12-1.bin", 0x00000, 0x10000, CRC(afb6a058) SHA1(fca488e86725a0a673332afeb0002f0e77ef2dbf) )
 		ROM_LOAD16_BYTE( "c04-08-1.bin", 0x00001, 0x10000, CRC(19f7e66b) SHA1(51b5d0d00ec398ed717154286bec24b05c3f81b8) )
@@ -433,7 +433,7 @@ public class volfied
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )     /* sound cpu */
 		ROM_LOAD( "c04-06.bin", 0x0000, 0x8000, CRC(b70106b2) SHA1(d71062f9d9b11492e13fc93982b95883f564f902) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_volfied	   = new GameDriver("1989"	,"volfied"	,"volfied.java"	,rom_volfied,null	,machine_driver_volfied	,input_ports_volfied	,init_volfied	,ROT270, "Taito Corporation Japan", "Volfied (World)", GAME_UNEMULATED_PROTECTION )

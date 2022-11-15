@@ -575,7 +575,7 @@ public class bking2
 	
 	***************************************************************************/
 	
-	ROM_START( bking )
+	static RomLoadHandlerPtr rom_bking = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "dm_11.f13", 0x0000, 0x1000, CRC(d84fe4f7) SHA1(3ad1641d05e4faca2be28052ccae8f81bc2255bb) )
 		ROM_LOAD( "dm_12.f11", 0x1000, 0x1000, CRC(e065bbe6) SHA1(8d6d3334977c1eea1bf238817d59c25acd9d99f0) )
@@ -610,9 +610,9 @@ public class bking2
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "dm_03.d1",  0x0000, 0x0200, CRC(61b7a9ff) SHA1(4302de0c0dad2b871ad4719ad934beaee05a0c40) ) /* palette */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( bking2 )
+	static RomLoadHandlerPtr rom_bking2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "01.13f",       0x0000, 0x1000, CRC(078ada3f) SHA1(5e82a6d27c65fe29d664dbfc2ede547c0f4869f0) )
 		ROM_LOAD( "02.11f",       0x1000, 0x1000, CRC(c37d110a) SHA1(7aec6c949d1cf136c3037140bd86597feaf29108) )
@@ -649,9 +649,9 @@ public class bking2
 	
 		ROM_REGION( 0x0200, REGION_PROMS, 0 )
 		ROM_LOAD( "82s141.2d",    0x0000, 0x0200, CRC(61b7a9ff) SHA1(4302de0c0dad2b871ad4719ad934beaee05a0c40) )	/* palette */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( bking3 )
+	static RomLoadHandlerPtr rom_bking3 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "a24-04.13f",   0x0000, 0x1000, CRC(a0c319a6) SHA1(6b79667288113fde43975fcfd05e93d8e45bf92d) )
 		ROM_LOAD( "a24-05.11f",   0x1000, 0x1000, CRC(fedc9b4a) SHA1(3ac22c3ca09df9983f3c8c05e807ecf5999c9fc5) )
@@ -700,7 +700,7 @@ public class bking2
 	//"a24_03" 	A24_03 - TI TBP28S46N - Not read
 	//"a24_04" 	A24_04 - Bipolar PROM - Not read
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_bking	   = new GameDriver("1982"	,"bking"	,"bking2.java"	,rom_bking,null	,machine_driver_bking2	,input_ports_bking	,null	,ROT270, "Taito Corporation", "Birdie King" )
 	public static GameDriver driver_bking2	   = new GameDriver("1983"	,"bking2"	,"bking2.java"	,rom_bking2,null	,machine_driver_bking2	,input_ports_bking2	,null	,ROT90,  "Taito Corporation", "Birdie King 2" )

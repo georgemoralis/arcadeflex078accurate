@@ -1254,7 +1254,7 @@ public class wgp
 	                                   DRIVERS
 	***************************************************************************/
 	
-	ROM_START( wgp )
+	static RomLoadHandlerPtr rom_wgp = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c32-25.12",      0x00000, 0x20000, CRC(0cc81e77) SHA1(435190bc24423e1e34134dff3cd4b79e120852d1) )
 		ROM_LOAD16_BYTE( "c32-29.13",      0x00001, 0x20000, CRC(fab47cf0) SHA1(c0129c0290b48f24c25e4dd7c6c937675e31842a) )
@@ -1305,9 +1305,9 @@ public class wgp
 	//	Pals on lan interface board
 	//	ROM_LOAD( "c32-34", 0x00000, 0x00???, NO_DUMP )
 	//	ROM_LOAD( "c32-35", 0x00000, 0x00???, NO_DUMP )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( wgpj )
+	static RomLoadHandlerPtr rom_wgpj = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c32-48.12",      0x00000, 0x20000, CRC(819cc134) SHA1(501bb1038979117586f6d8202ca6e1e44191f421) )
 		ROM_LOAD16_BYTE( "c32-49.13",      0x00001, 0x20000, CRC(4a515f02) SHA1(d0be52bbb5cc8151b23363092ac04e27b2d20a50) )
@@ -1341,9 +1341,9 @@ public class wgp
 	
 		ROM_REGION( 0x80000, REGION_SOUND2, 0 )	/* Delta-T samples */
 		ROM_LOAD( "c32-12.7", 0x00000, 0x80000, CRC(df48a37b) SHA1(c0c191f4b8a5f55c0f1e52dac9cd3f7d15adace6) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( wgpjoy )
+	static RomLoadHandlerPtr rom_wgpjoy = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c32-57.12",      0x00000, 0x20000, CRC(13a78911) SHA1(d3ace25dddce56cc35e93992f4fae01e87693d36) )
 		ROM_LOAD16_BYTE( "c32-58.13",      0x00001, 0x20000, CRC(326d367b) SHA1(cbfb15841f61fa856876d4321fbce190f89a5020) )
@@ -1377,9 +1377,9 @@ public class wgp
 	
 		ROM_REGION( 0x80000, REGION_SOUND2, 0 )	/* delta-t samples */
 		ROM_LOAD( "c32-12.7", 0x00000, 0x80000, CRC(df48a37b) SHA1(c0c191f4b8a5f55c0f1e52dac9cd3f7d15adace6) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( wgpjoya )	/* Older joystick version ??? */
+	static RomLoadHandlerPtr rom_wgpjoya = new RomLoadHandlerPtr(){ public void handler(){ 	/* Older joystick version ??? */
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c32-57.12",      0x00000, 0x20000, CRC(13a78911) SHA1(d3ace25dddce56cc35e93992f4fae01e87693d36) )
 		ROM_LOAD16_BYTE( "c32-58.13",      0x00001, 0x20000, CRC(326d367b) SHA1(cbfb15841f61fa856876d4321fbce190f89a5020) )
@@ -1413,9 +1413,9 @@ public class wgp
 	
 		ROM_REGION( 0x80000, REGION_SOUND2, 0 )	/* delta-t samples */
 		ROM_LOAD( "c32-12.7", 0x00000, 0x80000, CRC(df48a37b) SHA1(c0c191f4b8a5f55c0f1e52dac9cd3f7d15adace6) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( wgp2 )
+	static RomLoadHandlerPtr rom_wgp2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x100000, REGION_CPU1, 0 )	/* 256K for 68000 code (CPU A) */
 		ROM_LOAD16_BYTE( "c73-01.12",      0x00000, 0x20000, CRC(c6434834) SHA1(75b2937a9bf18d268fa7bbfb3e822fba510ec2f1) )
 		ROM_LOAD16_BYTE( "c73-02.13",      0x00001, 0x20000, CRC(c67f1ed1) SHA1(c30dc3fd46f103a75aa71f87c1fd6c0e7fed9214) )
@@ -1452,7 +1452,7 @@ public class wgp
 	
 	//	WGP2 security board (has TC0190FMC)
 	//	ROM_LOAD( "c73-06", 0x00000, 0x00???, NO_DUMP )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	DRIVER_INIT( wgp )

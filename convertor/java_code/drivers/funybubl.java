@@ -394,7 +394,7 @@ public class funybubl
 	
 	
 	
-	ROM_START( funybubl )
+	static RomLoadHandlerPtr rom_funybubl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x50000, REGION_CPU1, 0 ) /* main z80, lots of banked data */
 		ROM_LOAD( "2.bin", 0x00000, 0x40000, CRC(d684c13f) SHA1(6a58b44dd775f374d6fd476a8fd175c28a83a495)  )
 		ROM_RELOAD ( 0x10000, 0x40000 )
@@ -425,7 +425,7 @@ public class funybubl
 		ROM_REGION( 0x40000, REGION_SOUND2, 0 )
 		ROM_LOAD( "4.bin", 0x00000, 0x40000,  CRC(1f7e9269) SHA1(5c16b49a4e94aec7606d088c2d45a77842ab565b) )
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_funybubl	   = new GameDriver("1999"	,"funybubl"	,"funybubl.java"	,rom_funybubl,null	,machine_driver_funybubl	,input_ports_funybubl	,init_funybubl	,ROT0, "Comad", "Funny Bubble", GAME_IMPERFECT_GRAPHICS | GAME_IMPERFECT_SOUND )

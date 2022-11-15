@@ -407,7 +407,7 @@ public class ohmygod
 	
 	***************************************************************************/
 	
-	ROM_START( ohmygod )
+	static RomLoadHandlerPtr rom_ohmygod = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_WORD_SWAP( "omg-p.114", 0x00000, 0x80000, CRC(48fa40ca) SHA1(b1d91e1a4a888526febbe53a12b73e375f604f2b) )
 	
@@ -421,9 +421,9 @@ public class ohmygod
 		ROM_LOAD( "omg-g.107",    0x00000, 0x200000, CRC(7405573c) SHA1(f4e7318c0a58f43d3c6370490637aea53b28547e) )
 		/* 00000-1ffff is fixed, 20000-3ffff is banked */
 		ROM_RELOAD(               0x40000, 0x200000 )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( naname )
+	static RomLoadHandlerPtr rom_naname = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x80000, REGION_CPU1, 0 )
 		ROM_LOAD16_WORD_SWAP( "036-prg.114", 0x00000, 0x80000, CRC(3b7362f7) SHA1(ba16ec9df8569bacd387561ef2b3ea5b17cb650c) )
 	
@@ -437,7 +437,7 @@ public class ohmygod
 		ROM_LOAD( "036-snd.107",  0x00000, 0x200000, CRC(a3e0caf4) SHA1(35b0eb4ae5b9df1b7c99ec2476a6d834ea50d2e3) )
 		/* 00000-1ffff is fixed, 20000-3ffff is banked */
 		ROM_RELOAD(               0x40000, 0x200000 )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

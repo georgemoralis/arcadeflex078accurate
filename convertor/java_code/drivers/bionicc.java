@@ -371,7 +371,7 @@ public class bionicc
 	
 	
 	
-	ROM_START( bionicc )
+	static RomLoadHandlerPtr rom_bionicc = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )      /* 68000 code */
 		ROM_LOAD16_BYTE( "tsu_02b.rom",  0x00000, 0x10000, CRC(cf965a0a) SHA1(ab88742a3225a0b82ee2dfef6ed0058d3e11c38c) ) /* 68000 code */
 		ROM_LOAD16_BYTE( "tsu_04b.rom",  0x00001, 0x10000, CRC(c9884bfb) SHA1(7d10cedff0a62847f8deb61a9611cc6661efb037) ) /* 68000 code */
@@ -410,9 +410,9 @@ public class bionicc
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "63s141.18f",   0x0000, 0x0100, CRC(b58d0023) SHA1(e8a4a2e2951bf73b3d9eed6957e9ee1e61c9c58a) )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( bionicc2 )
+	static RomLoadHandlerPtr rom_bionicc2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )      /* 68000 code */
 		ROM_LOAD16_BYTE( "02",      0x00000, 0x10000, CRC(f2528f08) SHA1(04c793837c86d83312fd44b46a6a94378c90113b) ) /* 68000 code */
 		ROM_LOAD16_BYTE( "04",      0x00001, 0x10000, CRC(38b1c7e4) SHA1(14bf743726c214bd00177e7b410c272dd7ab3d3f) ) /* 68000 code */
@@ -451,9 +451,9 @@ public class bionicc
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "63s141.18f",   0x0000, 0x0100, CRC(b58d0023) SHA1(e8a4a2e2951bf73b3d9eed6957e9ee1e61c9c58a) )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( topsecrt )
+	static RomLoadHandlerPtr rom_topsecrt = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x40000, REGION_CPU1, 0 )      /* 68000 code */
 		ROM_LOAD16_BYTE( "ts_02.rom",  0x00000, 0x10000, CRC(b2fe1ddb) SHA1(892f19124993add96edabdba3aafeecc6668c5d9) ) /* 68000 code */
 		ROM_LOAD16_BYTE( "ts_04.rom",  0x00001, 0x10000, CRC(427a003d) SHA1(5a379fe2942e5565810939d5eb843003226222cc) ) /* 68000 code */
@@ -492,7 +492,7 @@ public class bionicc
 	
 		ROM_REGION( 0x0100, REGION_PROMS, 0 )
 		ROM_LOAD( "63s141.18f",   0x0000, 0x0100, CRC(b58d0023) SHA1(e8a4a2e2951bf73b3d9eed6957e9ee1e61c9c58a) )	/* priority (not used) */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	

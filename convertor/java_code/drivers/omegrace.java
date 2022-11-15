@@ -569,7 +569,7 @@ public class omegrace
 	 *
 	 *************************************/
 	
-	ROM_START( omegrace )
+	static RomLoadHandlerPtr rom_omegrace = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "omega.m7",     0x0000, 0x1000, CRC(0424d46e) SHA1(cc1ac6c06ba6f6e8466fa08286a0c70b5335af33) )
 		ROM_LOAD( "omega.l7",     0x1000, 0x1000, CRC(edcd7a7d) SHA1(5d142de2f48b01d563578a54fd5540e5d0ac8f4c) )
@@ -580,9 +580,9 @@ public class omegrace
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )	/* 64k for audio cpu */
 		ROM_LOAD( "sound.k5",     0x0000, 0x0800, CRC(7d426017) SHA1(370f0fb5608819de873c845f6010cbde75a9818e) )
-	ROM_END
+	ROM_END(); }}; 
 	
-	ROM_START( deltrace )
+	static RomLoadHandlerPtr rom_deltrace = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	/* 64k for code */
 		ROM_LOAD( "omega.m7",     0x0000, 0x1000, CRC(0424d46e) SHA1(cc1ac6c06ba6f6e8466fa08286a0c70b5335af33) )
 		ROM_LOAD( "omega.l7",     0x1000, 0x1000, CRC(edcd7a7d) SHA1(5d142de2f48b01d563578a54fd5540e5d0ac8f4c) )
@@ -593,7 +593,7 @@ public class omegrace
 	
 		ROM_REGION( 0x10000, REGION_CPU2, 0 )	/* 64k for audio cpu */
 		ROM_LOAD( "sound.k5",     0x0000, 0x0800, CRC(7d426017) SHA1(370f0fb5608819de873c845f6010cbde75a9818e) )
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	/*************************************

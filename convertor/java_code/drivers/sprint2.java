@@ -905,7 +905,7 @@ public class sprint2
 	MACHINE_DRIVER_END
 	
 	
-	ROM_START( sprint1 )
+	static RomLoadHandlerPtr rom_sprint1 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "6290-01.b1", 0x2000, 0x0800, CRC(41fc985e) SHA1(7178846480cbf8d15955ccd987d0b0e902ab9f90) )
 		ROM_RELOAD(             0xe000, 0x0800 )
@@ -927,10 +927,10 @@ public class sprint2
 		ROM_REGION( 0x0120, REGION_PROMS, 0 )
 		ROM_LOAD( "6400-01.m2", 0x0000, 0x0100, CRC(b8094b4c) SHA1(82dc6799a19984f3b204ee3aeeb007e55afc8be3) )	/* SYNC */
 		ROM_LOAD( "6401-01.e2", 0x0100, 0x0020, CRC(857df8db) SHA1(06313d5bde03220b2bc313d18e50e4bb1d0cfbbb) )	/* address */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( sprint2 )
+	static RomLoadHandlerPtr rom_sprint2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "6290-01.b1", 0x2000, 0x0800, CRC(41fc985e) SHA1(7178846480cbf8d15955ccd987d0b0e902ab9f90) )
 		ROM_RELOAD(             0xe000, 0x0800 )
@@ -952,10 +952,10 @@ public class sprint2
 		ROM_REGION( 0x0120, REGION_PROMS, 0 )
 		ROM_LOAD( "6400-01.m2", 0x0000, 0x0100, CRC(b8094b4c) SHA1(82dc6799a19984f3b204ee3aeeb007e55afc8be3) )	/* SYNC */
 		ROM_LOAD( "6401-01.e2", 0x0100, 0x0020, CRC(857df8db) SHA1(06313d5bde03220b2bc313d18e50e4bb1d0cfbbb) )	/* address */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( sprint2a )
+	static RomLoadHandlerPtr rom_sprint2a = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "6290-01.b1", 0x2000, 0x0800, CRC(41fc985e) SHA1(7178846480cbf8d15955ccd987d0b0e902ab9f90) )
 		ROM_RELOAD(             0xe000, 0x0800 )
@@ -977,10 +977,10 @@ public class sprint2
 		ROM_REGION( 0x0120, REGION_PROMS, 0 )
 		ROM_LOAD( "6400-01.m2", 0x0000, 0x0100, CRC(b8094b4c) SHA1(82dc6799a19984f3b204ee3aeeb007e55afc8be3) )	/* SYNC */
 		ROM_LOAD( "6401-01.e2", 0x0100, 0x0020, CRC(857df8db) SHA1(06313d5bde03220b2bc313d18e50e4bb1d0cfbbb) )	/* address */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
-	ROM_START( dominos )
+	static RomLoadHandlerPtr rom_dominos = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )
 		ROM_LOAD( "7352-02.d1",   0x3000, 0x0800, CRC(738b4413) SHA1(3a90ab25bb5f65504692f97da43f03e21392dcd8) )
 		ROM_RELOAD(               0xf000, 0x0800 )
@@ -997,7 +997,7 @@ public class sprint2
 		ROM_REGION( 0x0120, REGION_PROMS, 0 )
 		ROM_LOAD( "6400-01.m2", 0x0000, 0x0100, CRC(b8094b4c) SHA1(82dc6799a19984f3b204ee3aeeb007e55afc8be3) )	/* SYNC */
 		ROM_LOAD( "6401-01.e2", 0x0100, 0x0020, CRC(857df8db) SHA1(06313d5bde03220b2bc313d18e50e4bb1d0cfbbb) )	/* address */
-	ROM_END
+	ROM_END(); }}; 
 	
 	
 	public static GameDriver driver_sprint1	   = new GameDriver("1978"	,"sprint1"	,"sprint2.java"	,rom_sprint1,null	,machine_driver_sprint1	,input_ports_sprint1	,init_sprint1	,ROT0, "Atari", "Sprint 1" )

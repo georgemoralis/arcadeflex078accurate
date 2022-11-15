@@ -408,7 +408,7 @@ public class malzak
 	
 	MACHINE_DRIVER_END
 	
-	ROM_START( malzak )
+	static RomLoadHandlerPtr rom_malzak = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x8000, REGION_CPU1, 0 )
 		ROM_LOAD( "malzak.5",     0x0000, 0x0800, CRC(75355c98) SHA1(7036ed5d9ee38585b1a6bc204d410d5fb5ddd81f) )
 		ROM_CONTINUE( 0x2000, 0x0800 )
@@ -425,7 +425,7 @@ public class malzak
 		ROM_REGION(0x01000, REGION_GFX2,0) // internal character set?
 		ROM_LOAD("p2000.chr", 0x0140, 0x08c0, BAD_DUMP CRC(78c17e3e))
 	
-	ROM_END
+	ROM_END(); }}; 
 	
 	public static GameDriver driver_malzak	   = new GameDriver("19??"	,"malzak"	,"malzak.java"	,rom_malzak,null	,machine_driver_malzak	,input_ports_malzak	,null	,ROT0, "Kitronix", "Malzak", GAME_NOT_WORKING | GAME_NO_SOUND )
 }
