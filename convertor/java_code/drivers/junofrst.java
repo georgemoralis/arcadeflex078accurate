@@ -95,7 +95,6 @@ public class junofrst
 	
 	WRITE_HANDLER( tutankhm_videoram_w );
 	WRITE_HANDLER( junofrst_blitter_w );
-	VIDEO_UPDATE( tutankhm );
 	
 	
 	WRITE_HANDLER( tutankhm_sh_irqtrigger_w );

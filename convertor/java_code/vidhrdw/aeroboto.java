@@ -156,8 +156,7 @@ public class aeroboto
 	}
 	
 	
-	VIDEO_UPDATE( aeroboto )
-	{
+	public static VideoUpdateHandlerPtr video_update_aeroboto  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static struct rectangle splitrect1 = { 0, 255, 0, 39 };
 		static struct rectangle splitrect2 = { 0, 255, 40, 255 };
 		static int sx=0, sy=0;
@@ -220,5 +219,5 @@ public class aeroboto
 		// the status display behaves more closely to a 40-line splitscreen than an overlay
 		tilemap_set_scrolly(bg_tilemap,0,0);
 		tilemap_draw(bitmap,&splitrect1,bg_tilemap,0,0);
-	}
+	} };
 }

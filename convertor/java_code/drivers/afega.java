@@ -47,8 +47,6 @@ public class afega
 	
 	PALETTE_INIT( grdnstrm );
 	
-	VIDEO_UPDATE( afega );
-	VIDEO_UPDATE( bubl2000 );
 	
 	
 	/***************************************************************************

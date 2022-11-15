@@ -35,8 +35,6 @@ public class gng
 	WRITE_HANDLER( gng_bgscrollx_w );
 	WRITE_HANDLER( gng_bgscrolly_w );
 	WRITE_HANDLER( gng_flipscreen_w );
-	VIDEO_UPDATE( gng );
-	VIDEO_EOF( gng );
 	
 	
 	

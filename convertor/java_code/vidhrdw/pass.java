@@ -62,12 +62,11 @@ public class pass
 	
 	/* video update / start */
 	
-	VIDEO_UPDATE( pass )
-	{
+	public static VideoUpdateHandlerPtr video_update_pass  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,pass_bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,pass_fg_tilemap,0,0);
 	
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_pass  = new VideoStartHandlerPtr() { public int handler(){
 	

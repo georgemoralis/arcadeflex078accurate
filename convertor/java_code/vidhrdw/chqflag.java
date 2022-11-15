@@ -85,8 +85,7 @@ public class chqflag
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( chqflag )
-	{
+	public static VideoUpdateHandlerPtr video_update_chqflag  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[0],cliprect);
 	
 		K051316_zoom_draw_1(bitmap,cliprect,TILEMAP_BACK,0);
@@ -94,5 +93,5 @@ public class chqflag
 		K051316_zoom_draw_1(bitmap,cliprect,TILEMAP_FRONT,0);
 		K051960_sprites_draw(bitmap,cliprect,1,1);
 		K051316_zoom_draw_0(bitmap,cliprect,0,0);
-	}
+	} };
 }

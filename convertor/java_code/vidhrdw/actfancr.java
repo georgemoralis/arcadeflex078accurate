@@ -159,8 +159,7 @@ public class actfancr
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( actfancr )
-	{
+	public static VideoUpdateHandlerPtr video_update_actfancr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,mult;
 		int scrollx=(actfancr_control_1[0x10]+(actfancr_control_1[0x11]<<8));
 		int scrolly=(actfancr_control_1[0x12]+(actfancr_control_1[0x13]<<8));
@@ -237,10 +236,9 @@ public class actfancr
 		}
 	
 		tilemap_draw(bitmap,cliprect,pf2_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( triothep )
-	{
+	public static VideoUpdateHandlerPtr video_update_triothep  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,i,mult;
 		int scrollx=(actfancr_control_1[0x10]+(actfancr_control_1[0x11]<<8));
 		int scrolly=(actfancr_control_1[0x12]+(actfancr_control_1[0x13]<<8));
@@ -321,5 +319,5 @@ public class actfancr
 		}
 	
 		tilemap_draw(bitmap,cliprect,pf2_tilemap,0,0);
-	}
+	} };
 }

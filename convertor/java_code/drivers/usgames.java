@@ -36,7 +36,6 @@ public class usgames
 	WRITE_HANDLER( usg_videoram_w );
 	WRITE_HANDLER( usg_charram_w );
 	PALETTE_INIT(usg);
-	VIDEO_UPDATE(usg);
 	extern struct tilemap *usg_tilemap;
 	
 	

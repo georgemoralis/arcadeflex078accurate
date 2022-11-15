@@ -90,9 +90,8 @@ public class mosaic
 	
 	
 	
-	VIDEO_UPDATE( mosaic )
-	{
+	public static VideoUpdateHandlerPtr video_update_mosaic  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

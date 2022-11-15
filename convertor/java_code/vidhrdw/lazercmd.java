@@ -94,8 +94,7 @@ public class lazercmd
 	} };
 	
 	
-	VIDEO_UPDATE( lazercmd )
-	{
+	public static VideoUpdateHandlerPtr video_update_lazercmd  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i,x,y;
 	
 		if (video_inverted != (input_port_2_r(0) & 0x20))
@@ -134,5 +133,5 @@ public class lazercmd
 		x = marker_x - 1;             /* normal video lags marker by 1 pixel */
 		y = vert_scale(marker_y) - VERT_CHR; /* first line used as scratch pad */
 		plot_pattern(bitmap,x,y);
-	}
+	} };
 }

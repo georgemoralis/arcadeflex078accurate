@@ -26,8 +26,7 @@ public class strnskil
 	extern WRITE_HANDLER( strnskil_scrl_ctrl_w );
 	
 	extern PALETTE_INIT( strnskil );
-	extern extern VIDEO_UPDATE( strnskil );
-	
+	extern extern 
 	WRITE_HANDLER( strnskil_sharedram_w )
 	{
 		strnskil_sharedram[offset] = data;

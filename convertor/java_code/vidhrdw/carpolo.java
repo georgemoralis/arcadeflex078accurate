@@ -265,8 +265,7 @@ public class carpolo
 	}
 	
 	
-	VIDEO_UPDATE( carpolo )
-	{
+	public static VideoUpdateHandlerPtr video_update_carpolo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* draw the playfield elements, in the correct priority order */
 	
 		/* score area - position determined by bit 4 of the vertical timing PROM */
@@ -352,7 +351,7 @@ public class carpolo
 		draw_alpha_line(bitmap, cliprect, 5, (1*4+2)*2+1);
 		draw_alpha_line(bitmap, cliprect, 6, (0*4+3)*2  );
 		draw_alpha_line(bitmap, cliprect, 7, (0*4+3)*2+1);
-	}
+	} };
 	
 	
 	/*************************************
@@ -627,8 +626,7 @@ public class carpolo
 	}
 	
 	
-	VIDEO_EOF( carpolo )
-	{
+	public static VideoEofHandlerPtr video_eof_carpolo  = new VideoEofHandlerPtr() { public void handler(){
 		int col_x, col_y;
 		int car1_x, car2_x, car3_x, car4_x, ball_x;
 		int car1_y, car2_y, car3_y, car4_y, ball_y;
@@ -832,5 +830,5 @@ public class carpolo
 			}
 		}
 		}
-	}
+	} };
 }

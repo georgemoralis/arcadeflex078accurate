@@ -106,7 +106,6 @@ public class vball
 	extern int vb_scrollx_lo;
 	extern int vball_gfxset;
 	
-	VIDEO_UPDATE( vb );
 	extern void vb_bgprombank_w(int bank);
 	extern void vb_spprombank_w(int bank);
 	extern WRITE_HANDLER( vb_attrib_w );

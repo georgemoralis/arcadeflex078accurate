@@ -2643,8 +2643,7 @@ public class stvvdp2
 	
 	extern data32_t *stv_vdp1_vram;
 	
-	VIDEO_UPDATE( stv_vdp2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_stv_vdp2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static UINT8 pri;
 	
 	//#ifndef MAME_DEBUG
@@ -2748,7 +2747,7 @@ public class stvvdp2
 	
 	
 	
-	}
+	} };
 	
 	/* below is some old code we might use .. */
 	

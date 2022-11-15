@@ -95,12 +95,11 @@ public class sbowling
 		}
 	}
 	
-	VIDEO_UPDATE(sbowling)
-	{
+	public static VideoUpdateHandlerPtr video_update_sbowling  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[0x18],cliprect);
 		tilemap_draw(bitmap,cliprect,sb_tilemap,0,0);
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,cliprect, TRANSPARENCY_PEN, color_prom_address);
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_sbowling  = new VideoStartHandlerPtr() { public int handler(){
 		tmpbitmap = auto_bitmap_alloc(32*8,32*8);

@@ -103,8 +103,7 @@ public class mainevt
 	
 	/*****************************************************************************/
 	
-	VIDEO_UPDATE( mainevt )
-	{
+	public static VideoUpdateHandlerPtr video_update_mainevt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		fillbitmap(priority_bitmap,0,cliprect);
@@ -114,15 +113,14 @@ public class mainevt
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[0],0,8);
 	
 		K051960_sprites_draw(bitmap,cliprect,-1,-1);
-	}
+	} };
 	
-	VIDEO_UPDATE( dv )
-	{
+	public static VideoUpdateHandlerPtr video_update_dv  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[1],TILEMAP_IGNORE_TRANSPARENCY,0);
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[2],0,0);
 		K051960_sprites_draw(bitmap,cliprect,0,0);
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[0],0,0);
-	}
+	} };
 }

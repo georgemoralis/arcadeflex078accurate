@@ -1880,8 +1880,7 @@ public class galaxian
 	}
 	
 	
-	VIDEO_UPDATE( galaxian )
-	{
+	public static VideoUpdateHandlerPtr video_update_galaxian  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		draw_background(bitmap);
 	
 	
@@ -1906,5 +1905,5 @@ public class galaxian
 		{
 			draw_sprites(bitmap, galaxian_spriteram2, galaxian_spriteram2_size);
 		}
-	}
+	} };
 }

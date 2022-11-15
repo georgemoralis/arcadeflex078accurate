@@ -22,6 +22,4 @@ extern data32_t *namconb1_spritepos32;
 
 WRITE32_HANDLER( namconb1_videoram_w );
 
-VIDEO_UPDATE( namconb1 );
 
-VIDEO_UPDATE( namconb2 );

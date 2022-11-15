@@ -21,8 +21,7 @@ public class destroyr
 	UINT8* destroyr_alpha_num_ram;
 	
 	
-	VIDEO_UPDATE( destroyr )
-	{
+	public static VideoUpdateHandlerPtr video_update_destroyr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 		int j;
 	
@@ -93,5 +92,5 @@ public class destroyr
 			if (i & 4)
 				plot_pixel(bitmap, i, destroyr_cursor ^ 0xff, Machine->pens[7]);
 		}
-	}
+	} };
 }

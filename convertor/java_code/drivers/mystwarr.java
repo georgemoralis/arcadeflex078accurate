@@ -32,10 +32,6 @@ public class mystwarr
 {
 	
 	
-	VIDEO_UPDATE(dadandrn);
-	VIDEO_UPDATE(mystwarr);
-	VIDEO_UPDATE(metamrph);
-	VIDEO_UPDATE(martchmp);
 	
 	WRITE16_HANDLER(ddd_053936_enable_w);
 	WRITE16_HANDLER(ddd_053936_clip_w);

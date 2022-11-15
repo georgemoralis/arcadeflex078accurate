@@ -228,8 +228,7 @@ public class dogfgt
 	}
 	
 	
-	VIDEO_UPDATE( dogfgt )
-	{
+	public static VideoUpdateHandlerPtr video_update_dogfgt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int lastflip,lastpixcolor;
 		int offs;
 	
@@ -249,5 +248,5 @@ public class dogfgt
 		draw_sprites(bitmap,cliprect);
 	
 		copybitmap(bitmap,pixbitmap,0,0,0,0,cliprect,TRANSPARENCY_COLOR,PIXMAP_COLOR_BASE + 8*pixcolor);
-	}
+	} };
 }

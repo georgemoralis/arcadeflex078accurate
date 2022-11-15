@@ -622,8 +622,7 @@ public class tmnt
 		SWAP(1,2)
 	}
 	
-	VIDEO_UPDATE( mia )
-	{
+	public static VideoUpdateHandlerPtr video_update_mia  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[2],TILEMAP_IGNORE_TRANSPARENCY,0);
@@ -631,10 +630,9 @@ public class tmnt
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[1],0,0);
 		if ((priorityflag & 1) == 0) K051960_sprites_draw(bitmap,cliprect,0,0);
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[0],0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( tmnt )
-	{
+	public static VideoUpdateHandlerPtr video_update_tmnt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[2],TILEMAP_IGNORE_TRANSPARENCY,0);
@@ -642,11 +640,10 @@ public class tmnt
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[1],0,0);
 		if ((priorityflag & 1) == 0) K051960_sprites_draw(bitmap,cliprect,0,0);
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[0],0,0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( punkshot )
-	{
+	public static VideoUpdateHandlerPtr video_update_punkshot  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		bg_colorbase       = K053251_get_palette_index(K053251_CI0);
 		sprite_colorbase   = K053251_get_palette_index(K053251_CI1);
 		layer_colorbase[0] = K053251_get_palette_index(K053251_CI2);
@@ -670,11 +667,10 @@ public class tmnt
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[sorted_layer[2]],0,4);
 	
 		K051960_sprites_draw(bitmap,cliprect,-1,-1);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( lgtnfght )
-	{
+	public static VideoUpdateHandlerPtr video_update_lgtnfght  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		bg_colorbase       = K053251_get_palette_index(K053251_CI0);
 		sprite_colorbase   = K053251_get_palette_index(K053251_CI1);
 		layer_colorbase[0] = K053251_get_palette_index(K053251_CI2);
@@ -699,7 +695,7 @@ public class tmnt
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[sorted_layer[2]],0,4);
 	
 		K053245_sprites_draw(bitmap,cliprect);
-	}
+	} };
 	
 	static int glfgreat_pixel;
 	
@@ -713,8 +709,7 @@ public class tmnt
 		else return glfgreat_pixel & 0xff;
 	}
 	
-	VIDEO_UPDATE( glfgreat )
-	{
+	public static VideoUpdateHandlerPtr video_update_glfgreat  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K053251_set_tilemaps(NULL,NULL,K052109_tilemap[0],K052109_tilemap[1],K052109_tilemap[2]);
 	
 		bg_colorbase       = K053251_get_palette_index(K053251_CI0);
@@ -758,10 +753,9 @@ public class tmnt
 		}
 	
 		K053245_sprites_draw(bitmap,cliprect);
-	}
+	} };
 	
-	VIDEO_UPDATE( tmnt2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_tmnt2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		double brt;
 		int i, newdim, newen, cb, ce;
 	
@@ -807,11 +801,10 @@ public class tmnt
 		}
 	
 		video_update_lgtnfght(bitmap,cliprect);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( thndrx2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_thndrx2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		bg_colorbase       = K053251_get_palette_index(K053251_CI0);
 		sprite_colorbase   = K053251_get_palette_index(K053251_CI1);
 		layer_colorbase[0] = K053251_get_palette_index(K053251_CI2);
@@ -836,7 +829,7 @@ public class tmnt
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[sorted_layer[2]],0,4);
 	
 		K051960_sprites_draw(bitmap,cliprect,-1,-1);
-	}
+	} };
 	
 	
 	
@@ -846,8 +839,7 @@ public class tmnt
 	
 	***************************************************************************/
 	
-	VIDEO_EOF( detatwin )
-	{
+	public static VideoEofHandlerPtr video_eof_detatwin  = new VideoEofHandlerPtr() { public void handler(){
 		K053245_clear_buffer();
-	}
+	} };
 }

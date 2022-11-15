@@ -112,8 +112,7 @@ public class skyarmy
 	} };
 	
 	
-	VIDEO_UPDATE( skyarmy )
-	{
+	public static VideoUpdateHandlerPtr video_update_skyarmy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	        int sx, sy, flipx, flipy, offs,pal;
 	        int i;
 		for(i=0;i<0x20;i++)tilemap_set_scrolly( skyarmy_tilemap,i,skyarmy_scrollram[i]);
@@ -144,7 +143,7 @@ public class skyarmy
 			sx,sy,
 			cliprect,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 	
 	static int skyarmy_nmi=0;
 	

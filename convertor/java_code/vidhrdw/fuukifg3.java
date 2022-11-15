@@ -314,8 +314,7 @@ public class fuukifg3
 		}
 	}
 	
-	VIDEO_UPDATE( fuuki32 )
-	{
+	public static VideoUpdateHandlerPtr video_update_fuuki32  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		data16_t layer0_scrollx, layer0_scrolly;
 		data16_t layer1_scrollx, layer1_scrolly;
 		data16_t layer2_scrollx, layer2_scrolly;
@@ -374,15 +373,14 @@ public class fuukifg3
 		// don't do the rasters on the sprites . its very slow and the hw might not anyway.
 		if (cliprect->max_y == Machine->visible_area.max_y)
 			fuuki32_draw_sprites(bitmap,&Machine->visible_area);
-	}
+	} };
 	
-	VIDEO_EOF( fuuki32 )
-	{
+	public static VideoEofHandlerPtr video_eof_fuuki32  = new VideoEofHandlerPtr() { public void handler(){
 		/* Buffer sprites and tilebank by 2 frames */
 	
 		spr_buffered_tilebank[1] = spr_buffered_tilebank[0];
 		spr_buffered_tilebank[0] = fuuki32_tilebank[0];
 		memcpy(buffered_spriteram32_2,buffered_spriteram32,spriteram_size);
 		memcpy(buffered_spriteram32,spriteram32,spriteram_size);
-	}
+	} };
 }

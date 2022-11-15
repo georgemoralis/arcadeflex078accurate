@@ -232,8 +232,7 @@ public class paradise
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( paradise )
-	{
+	public static VideoUpdateHandlerPtr video_update_paradise  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 	#ifdef MAME_DEBUG
@@ -273,5 +272,5 @@ public class paradise
 			if (!(paradise_priority & 1))
 				if (layers_ctrl&16)	draw_sprites(bitmap,cliprect);
 		}
-	}
+	} };
 }

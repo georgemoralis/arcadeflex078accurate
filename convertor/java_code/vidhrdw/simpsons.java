@@ -157,8 +157,7 @@ public class simpsons
 		SWAP(1,2)
 	}
 	
-	VIDEO_UPDATE( simpsons )
-	{
+	public static VideoUpdateHandlerPtr video_update_simpsons  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer[3];
 	
 	
@@ -186,5 +185,5 @@ public class simpsons
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[layer[2]],0,4);
 	
 		K053247_sprites_draw(bitmap,cliprect);
-	}
+	} };
 }

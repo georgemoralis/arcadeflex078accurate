@@ -100,8 +100,7 @@ public class tehkanwc
 	extern WRITE_HANDLER( gridiron_led0_w );
 	extern WRITE_HANDLER( gridiron_led1_w );
 	
-	extern extern VIDEO_UPDATE( tehkanwc );
-	
+	extern extern 
 	
 	static UINT8 *shared_ram;
 	

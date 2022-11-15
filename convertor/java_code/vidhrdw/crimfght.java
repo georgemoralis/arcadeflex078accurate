@@ -82,8 +82,7 @@ public class crimfght
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( crimfght )
-	{
+	public static VideoUpdateHandlerPtr video_update_crimfght  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[1],TILEMAP_IGNORE_TRANSPARENCY,0);
@@ -92,5 +91,5 @@ public class crimfght
 		K051960_sprites_draw(bitmap,cliprect,1,1);
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[0],0,0);
 		K051960_sprites_draw(bitmap,cliprect,0,0);
-	}
+	} };
 }

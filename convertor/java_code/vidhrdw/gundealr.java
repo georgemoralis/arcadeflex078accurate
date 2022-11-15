@@ -156,9 +156,8 @@ public class gundealr
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( gundealr )
-	{
+	public static VideoUpdateHandlerPtr video_update_gundealr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

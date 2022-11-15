@@ -139,8 +139,7 @@ public class mjkjidai
 	
 	
 	
-	VIDEO_UPDATE( mjkjidai )
-	{
+	public static VideoUpdateHandlerPtr video_update_mjkjidai  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (!display_enable)
 		{
 			fillbitmap(bitmap,get_black_pen(),cliprect);
@@ -150,5 +149,5 @@ public class mjkjidai
 			tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 			draw_sprites(bitmap,cliprect);
 		}
-	}
+	} };
 }

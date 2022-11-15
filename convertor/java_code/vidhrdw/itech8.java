@@ -740,8 +740,7 @@ public class itech8
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( itech8 )
-	{
+	public static VideoUpdateHandlerPtr video_update_itech8  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int y, ty;
 	
 		/* first get the current display state */
@@ -807,5 +806,5 @@ public class itech8
 		/* extra rendering for slikshot */
 		if (slikshot)
 			slikshot_extra_draw(bitmap, cliprect);
-	}
+	} };
 }

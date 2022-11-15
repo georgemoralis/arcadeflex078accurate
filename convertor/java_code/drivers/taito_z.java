@@ -693,13 +693,6 @@ public class taito_z
 {
 	
 	
-	VIDEO_UPDATE( contcirc );
-	VIDEO_UPDATE( chasehq );
-	VIDEO_UPDATE( bshark );
-	VIDEO_UPDATE( sci );
-	VIDEO_UPDATE( aquajack );
-	VIDEO_UPDATE( spacegun );
-	VIDEO_UPDATE( dblaxle );
 	
 	READ16_HANDLER ( sci_spriteframe_r );
 	WRITE16_HANDLER( sci_spriteframe_w );

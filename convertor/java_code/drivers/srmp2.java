@@ -72,10 +72,7 @@ public class srmp2
 	***************************************************************************/
 	
 	PALETTE_INIT( srmp2 );
-	VIDEO_UPDATE( srmp2 );
 	PALETTE_INIT( srmp3 );
-	VIDEO_UPDATE( srmp3 );
-	VIDEO_UPDATE( mjyuugi );
 	
 	
 	extern int srmp2_color_bank;

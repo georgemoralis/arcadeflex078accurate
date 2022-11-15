@@ -335,16 +335,14 @@ public class ojankohs
 	
 	******************************************************************************/
 	
-	VIDEO_UPDATE( ojankohs )
-	{
+	public static VideoUpdateHandlerPtr video_update_ojankohs  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(ojankohs_tilemap, 0, ojankohs_scrollx);
 		tilemap_set_scrolly(ojankohs_tilemap, 0, ojankohs_scrolly);
 	
 		tilemap_draw(bitmap, cliprect, ojankohs_tilemap, 0, 0);
-	}
+	} };
 	
-	VIDEO_UPDATE( ojankoc )
-	{
+	public static VideoUpdateHandlerPtr video_update_ojankoc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		if (get_vh_global_attribute_changed() || ojankoc_screen_refresh) {
@@ -357,5 +355,5 @@ public class ojankohs
 		}
 	
 		copybitmap(bitmap, ojankoc_tmpbitmap, 0, 0, 0, 0, cliprect, TRANSPARENCY_NONE, 0);
-	}
+	} };
 }

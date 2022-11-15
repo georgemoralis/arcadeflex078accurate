@@ -72,6 +72,4 @@ WRITE16_HANDLER( neo_game_fix_16_w );
 WRITE16_HANDLER (neogeo_select_bios_vectors);
 WRITE16_HANDLER (neogeo_select_game_vectors);
 
-VIDEO_UPDATE( neogeo );
-VIDEO_UPDATE( neogeo_raster );
 void neogeo_vh_raster_partial_refresh(struct mame_bitmap *bitmap,int current_line);

@@ -47,7 +47,6 @@ public class karnov
 {
 	
 	PALETTE_INIT( karnov );
-	VIDEO_UPDATE( karnov );
 	WRITE16_HANDLER( karnov_playfield_w );
 	WRITE16_HANDLER( karnov_videoram_w );
 	void karnov_flipscreen_w(int data);

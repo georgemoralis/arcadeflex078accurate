@@ -314,8 +314,7 @@ public class taito_l
 	}
 	
 	
-	VIDEO_UPDATE( taitol )
-	{
+	public static VideoUpdateHandlerPtr video_update_taitol  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int dx,dy;
 	
 	
@@ -350,14 +349,13 @@ public class taito_l
 		}
 		else
 			fillbitmap(bitmap,Machine->pens[0],cliprect);
-	}
+	} };
 	
 	
 	
-	VIDEO_EOF( taitol )
-	{
+	public static VideoEofHandlerPtr video_eof_taitol  = new VideoEofHandlerPtr() { public void handler(){
 		unsigned char *spriteram = taitol_rambanks + 0x7000;
 	
 		memcpy(buffered_spriteram,spriteram,SPRITERAM_SIZE);
-	}
+	} };
 }

@@ -207,8 +207,7 @@ public class glass
 	
 	****************************************************************************/
 	
-	VIDEO_UPDATE( glass )
-	{
+	public static VideoUpdateHandlerPtr video_update_glass  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* set scroll registers */
 		tilemap_set_scrolly(pant[0], 0, glass_vregs[0]);
 		tilemap_set_scrollx(pant[0], 0, glass_vregs[1] + 0x04);
@@ -221,5 +220,5 @@ public class glass
 		tilemap_draw(bitmap,cliprect,pant[1],0,0);
 		tilemap_draw(bitmap,cliprect,pant[0],0,0);
 		glass_draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

@@ -273,8 +273,7 @@ public class wolfpack
 	}
 	
 	
-	VIDEO_UPDATE( wolfpack )
-	{
+	public static VideoUpdateHandlerPtr video_update_wolfpack  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 		int j;
 	
@@ -301,11 +300,10 @@ public class wolfpack
 		draw_ship(bitmap, cliprect);
 		draw_torpedo(bitmap, cliprect);
 		draw_water(bitmap, cliprect);
-	}
+	} };
 	
 	
-	VIDEO_EOF( wolfpack )
-	{
+	public static VideoEofHandlerPtr video_eof_wolfpack  = new VideoEofHandlerPtr() { public void handler(){
 		struct rectangle rect;
 	
 		int x;
@@ -340,5 +338,5 @@ public class wolfpack
 		}
 	
 		current_index += 0x300 * 262;
-	}
+	} };
 }

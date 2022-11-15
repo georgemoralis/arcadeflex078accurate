@@ -121,8 +121,7 @@ public class megazone
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( megazone )
-	{
+	public static VideoUpdateHandlerPtr video_update_megazone  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int x,y;
 	
@@ -235,5 +234,5 @@ public class megazone
 				offs++;
 			}
 		}
-	}
+	} };
 }

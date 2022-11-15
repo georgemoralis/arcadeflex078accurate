@@ -91,8 +91,6 @@ public class nbmj8991
 	#define	SIGNED_DAC	0		// 0:unsigned DAC, 1:signed DAC
 	
 	
-	VIDEO_UPDATE( pstadium );
-	VIDEO_UPDATE( galkoku );
 	
 	WRITE_HANDLER( pstadium_palette_w );
 	WRITE_HANDLER( galkoku_palette_w );

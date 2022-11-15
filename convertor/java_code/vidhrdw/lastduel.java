@@ -255,22 +255,20 @@ public class lastduel
 		}
 	}
 	
-	VIDEO_UPDATE( lastduel )
-	{
+	public static VideoUpdateHandlerPtr video_update_lastduel  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,TILEMAP_BACK,0);
 		draw_sprites(bitmap,cliprect,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,TILEMAP_FRONT,0);
 		draw_sprites(bitmap,cliprect,1);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
 	
-	VIDEO_EOF( lastduel )
-	{
+	public static VideoEofHandlerPtr video_eof_lastduel  = new VideoEofHandlerPtr() { public void handler(){
 		/* Spriteram is always 1 frame ahead, suggesting buffering.  I can't find
 			a register to control this so I assume it happens automatically
 			every frame at the end of vblank */
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 }

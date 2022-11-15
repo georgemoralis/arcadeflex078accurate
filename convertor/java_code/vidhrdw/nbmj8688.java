@@ -679,8 +679,7 @@ public class nbmj8688
 	******************************************************************************/
 	
 	
-	VIDEO_UPDATE( mbmj8688 )
-	{
+	public static VideoUpdateHandlerPtr video_update_mbmj8688  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 	
 		if (get_vh_global_attribute_changed() || mjsikaku_screen_refresh)
@@ -710,12 +709,11 @@ public class nbmj8688
 		{
 			fillbitmap(bitmap, Machine->pens[0], 0);
 		}
-	}
+	} };
 	
 	
 	
-	VIDEO_UPDATE( mbmj8688_LCD )
-	{
+	public static VideoUpdateHandlerPtr video_update_mbmj8688_LCD  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y, b;
 		struct rectangle clip = *cliprect;
 	
@@ -746,5 +744,5 @@ public class nbmj8688
 					plot_pixel(bitmap,16 + (8*x+b),16+y,(data & (1<<b)) ? 0x0000 : 0x18ff);
 			}
 		}
-	}
+	} };
 }

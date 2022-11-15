@@ -212,11 +212,10 @@ public class williams
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( williams )
-	{
+	public static VideoUpdateHandlerPtr video_update_williams  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* copy the pixels into the final result */
 		copy_pixels(bitmap, cliprect, -1);
-	}
+	} };
 	
 	
 	
@@ -276,8 +275,7 @@ public class williams
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( williams2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_williams2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 *tileram = &memory_region(REGION_CPU1)[0xc000];
 		int xpixeloffset, xtileoffset;
 		int color, col, y;
@@ -308,7 +306,7 @@ public class williams
 	
 		/* copy the bitmap data on top of that */
 		copy_pixels(bitmap, cliprect, 0);
-	}
+	} };
 	
 	
 	

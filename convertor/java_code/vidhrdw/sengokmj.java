@@ -174,8 +174,7 @@ public class sengokmj
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( sengokmj )
-	{
+	public static VideoUpdateHandlerPtr video_update_sengokmj  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, get_black_pen(), cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect, 2);
@@ -185,5 +184,5 @@ public class sengokmj
 		draw_sprites(bitmap,cliprect, 0);
 		draw_sprites(bitmap,cliprect, 3);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 }

@@ -432,8 +432,7 @@ public class cyberbal
 	}
 	
 	
-	VIDEO_UPDATE( cyberbal )
-	{
+	public static VideoUpdateHandlerPtr video_update_cyberbal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	#if (CYBERBALL_DUAL_MODE)
 		struct rectangle rect;
 		
@@ -454,5 +453,5 @@ public class cyberbal
 	#else
 		update_one_screen(current_screen, bitmap, cliprect);
 	#endif
-	}
+	} };
 }

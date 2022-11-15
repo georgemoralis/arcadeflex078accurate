@@ -317,10 +317,9 @@ public class docastle
 		}
 	}
 	
-	VIDEO_UPDATE( docastle )
-	{
+	public static VideoUpdateHandlerPtr video_update_docastle  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		docastle_draw_sprites(bitmap);
 		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
-	}
+	} };
 }

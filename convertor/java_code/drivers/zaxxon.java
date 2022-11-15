@@ -175,11 +175,7 @@ public class zaxxon
 	extern PALETTE_INIT( zaxxon );
 	
 	extern extern extern 
-	extern VIDEO_UPDATE( zaxxon );
-	extern VIDEO_UPDATE( razmataz );
-	extern VIDEO_UPDATE( congo );
-	extern VIDEO_UPDATE( futspy );
-	
+	extern extern extern extern 
 	extern READ_HANDLER( zaxxon_IN2_r );
 	extern WRITE_HANDLER( zaxxon_sound_w );
 	

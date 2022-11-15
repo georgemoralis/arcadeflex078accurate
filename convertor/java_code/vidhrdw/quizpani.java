@@ -89,8 +89,7 @@ public class quizpani
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( quizpani )
-	{
+	public static VideoUpdateHandlerPtr video_update_quizpani  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap, 0, quizpani_scrollreg[0] - 64);
 		tilemap_set_scrolly(bg_tilemap, 0, quizpani_scrollreg[1] + 16);
 		tilemap_set_scrollx(txt_tilemap, 0, quizpani_scrollreg[2] - 64);
@@ -98,5 +97,5 @@ public class quizpani
 	
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,txt_tilemap,0,0);
-	}
+	} };
 }

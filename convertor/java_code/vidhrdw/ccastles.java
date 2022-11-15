@@ -266,8 +266,7 @@ public class ccastles
 	}
 	
 	
-	VIDEO_UPDATE( ccastles )
-	{
+	public static VideoUpdateHandlerPtr video_update_ccastles  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		unsigned char *spriteaddr;
 		int scrollx,scrolly;
@@ -348,5 +347,5 @@ public class ccastles
 						cliprect,TRANSPARENCY_PEN,7);
 			}
 		}
-	}
+	} };
 }

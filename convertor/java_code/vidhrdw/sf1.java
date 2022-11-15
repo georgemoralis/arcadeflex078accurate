@@ -236,8 +236,7 @@ public class sf1
 	}
 	
 	
-	VIDEO_UPDATE( sf1 )
-	{
+	public static VideoUpdateHandlerPtr video_update_sf1  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (sf1_active & 0x20)
 			tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		else
@@ -249,5 +248,5 @@ public class sf1
 			draw_sprites(bitmap,cliprect);
 	
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 }

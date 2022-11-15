@@ -657,8 +657,7 @@ public class namcos2
 		return -1;
 	} };
 	
-	VIDEO_UPDATE( namcos2_default )
-	{
+	public static VideoUpdateHandlerPtr video_update_namcos2_default  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pri;
 	
 		UpdatePalette();
@@ -678,7 +677,7 @@ public class namcos2
 			DrawSpritesDefault( bitmap,cliprect,pri, 0x0007 );
 		}
 		DrawCrossshair( bitmap,cliprect );
-	}
+	} };
 	
 	/**************************************************************************/
 	
@@ -692,8 +691,7 @@ public class namcos2
 		return -1;
 	} };
 	
-	VIDEO_UPDATE( finallap )
-	{
+	public static VideoUpdateHandlerPtr video_update_finallap  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pri;
 	
 		UpdatePalette();
@@ -706,7 +704,7 @@ public class namcos2
 			namco_road_draw( bitmap,cliprect,pri );
 			DrawSpritesDefault( bitmap,cliprect,pri,0x000f );
 		}
-	}
+	} };
 	
 	/**************************************************************************/
 	
@@ -727,8 +725,7 @@ public class namcos2
 		return -1;
 	} };
 	
-	VIDEO_UPDATE( luckywld )
-	{
+	public static VideoUpdateHandlerPtr video_update_luckywld  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pri;
 	
 		UpdatePalette();
@@ -746,7 +743,7 @@ public class namcos2
 			namco_obj_draw( bitmap, cliprect, pri );
 		}
 		DrawCrossshair( bitmap,cliprect );
-	}
+	} };
 	
 	/**************************************************************************/
 	
@@ -759,8 +756,7 @@ public class namcos2
 		return -1;
 	} };
 	
-	VIDEO_UPDATE( sgunner )
-	{
+	public static VideoUpdateHandlerPtr video_update_sgunner  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pri;
 	
 		UpdatePalette();
@@ -773,7 +769,7 @@ public class namcos2
 			namco_obj_draw( bitmap, cliprect, pri );
 		}
 		DrawCrossshair( bitmap,cliprect );
-	}
+	} };
 	
 	/**************************************************************************/
 	
@@ -786,8 +782,7 @@ public class namcos2
 		return -1;
 	} };
 	
-	VIDEO_UPDATE( metlhawk )
-	{
+	public static VideoUpdateHandlerPtr video_update_metlhawk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pri;
 	
 		UpdatePalette();
@@ -800,5 +795,5 @@ public class namcos2
 			namco_roz_draw( bitmap, cliprect, pri );
 			DrawSpritesMetalHawk( bitmap,cliprect,pri );
 		}
-	}
+	} };
 }

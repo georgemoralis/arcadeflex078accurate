@@ -47,7 +47,6 @@ public class ssrj
 	READ_HANDLER(ssrj_vram2_r);
 	READ_HANDLER(ssrj_vram4_r);
 	
-	VIDEO_UPDATE( ssrj );
 	PALETTE_INIT( ssrj );
 	
 	static int oldport=0x80;

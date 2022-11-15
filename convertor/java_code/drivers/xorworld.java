@@ -45,7 +45,6 @@ public class xorworld
 	/* from vidhrdw/xorworld.c */
 	READ16_HANDLER(xorworld_vram_r);
 	WRITE16_HANDLER(xorworld_vram_w);
-	VIDEO_UPDATE( xorworld );
 	PALETTE_INIT( xorworld );
 	
 	/****************************************************************

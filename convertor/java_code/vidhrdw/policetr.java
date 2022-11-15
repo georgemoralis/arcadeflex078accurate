@@ -359,8 +359,7 @@ public class policetr
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( policetr )
-	{
+	public static VideoUpdateHandlerPtr video_update_policetr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int width = cliprect->max_x - cliprect->min_x + 1;
 		int beamx, beamy;
 		int y;
@@ -378,5 +377,5 @@ public class policetr
 		beamx = ((readinputport(5) & 0xff) * Machine->drv->screen_width) >> 8;
 		beamy = ((readinputport(6) & 0xff) * Machine->drv->screen_height) >> 8;
 		draw_crosshair(bitmap, beamx, beamy, cliprect);
-	}
+	} };
 }

@@ -138,12 +138,11 @@ public class ultraman
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( ultraman )
-	{
+	public static VideoUpdateHandlerPtr video_update_ultraman  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K051316_zoom_draw_2(bitmap,cliprect,0,0);
 		K051316_zoom_draw_1(bitmap,cliprect,0,0);
 		K051960_sprites_draw(bitmap,cliprect,0,0);
 		K051316_zoom_draw_0(bitmap,cliprect,0,0);
 		K051960_sprites_draw(bitmap,cliprect,1,1);
-	}
+	} };
 }

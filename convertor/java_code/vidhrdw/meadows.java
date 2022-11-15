@@ -109,13 +109,12 @@ public class meadows
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( meadows )
-	{
+	public static VideoUpdateHandlerPtr video_update_meadows  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* draw the background */
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 	
 		/* draw the sprites */
 		if (Machine->gfx[1])
 			draw_sprites(bitmap, cliprect);
-	}
+	} };
 }

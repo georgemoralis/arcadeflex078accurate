@@ -213,11 +213,10 @@ public class xain
 		}
 	}
 	
-	VIDEO_UPDATE( xain )
-	{
+	public static VideoUpdateHandlerPtr video_update_xain  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bgram0_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,bgram1_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,char_tilemap,0,0);
-	}
+	} };
 }

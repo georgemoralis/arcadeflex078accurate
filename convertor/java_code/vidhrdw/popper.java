@@ -241,8 +241,7 @@ public class popper
 		}
 	}
 	
-	VIDEO_UPDATE( popper )
-	{
+	public static VideoUpdateHandlerPtr video_update_popper  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle finalclip = tilemap_clip;
 		sect_rect(&finalclip, cliprect);
 	
@@ -263,5 +262,5 @@ public class popper
 		tilemap_draw( bitmap,cliprect,popper_p0_tilemap,       TILEMAP_FRONT,0 );
 		tilemap_draw( bitmap,&finalclip,popper_ol_p123_tilemap,TILEMAP_FRONT,0 );
 		tilemap_draw( bitmap,&finalclip,popper_ol_p0_tilemap,  TILEMAP_FRONT,0 );
-	}
+	} };
 }

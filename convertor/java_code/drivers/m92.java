@@ -132,7 +132,6 @@ public class m92
 	WRITE_HANDLER( m92_pf2_control_w );
 	WRITE_HANDLER( m92_pf3_control_w );
 	WRITE_HANDLER( m92_master_control_w );
-	VIDEO_UPDATE( m92 );
 	void m92_vh_raster_partial_refresh(struct mame_bitmap *bitmap,int start_line,int end_line);
 	
 	extern int m92_raster_irq_position,m92_raster_enable;

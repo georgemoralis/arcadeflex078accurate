@@ -17,7 +17,6 @@ public class beezer
 	
 	/* from vidhrdw/beezer.c */
 	extern UINT8 *videoram;
-	VIDEO_UPDATE( beezer );
 	WRITE_HANDLER( beezer_ram_w );
 	
 	/* from machine/beezer.c */

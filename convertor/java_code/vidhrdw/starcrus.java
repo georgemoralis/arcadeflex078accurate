@@ -500,8 +500,7 @@ public class starcrus
 	    return 0;
 	}
 	
-	VIDEO_UPDATE( starcrus )
-	{
+	public static VideoUpdateHandlerPtr video_update_starcrus  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
 	
 		/* Draw ship 1 */
@@ -574,7 +573,7 @@ public class starcrus
 	        collision_reg |= 0x04;
 	    }
 	
-	}
+	} };
 	
 	READ_HANDLER( starcrus_coll_det_r )
 	{

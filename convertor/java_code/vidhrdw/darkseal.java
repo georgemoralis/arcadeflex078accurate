@@ -294,8 +294,7 @@ public class darkseal
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( darkseal )
-	{
+	public static VideoUpdateHandlerPtr video_update_darkseal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flipscreen=!(darkseal_control_0[0]&0x80);
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 	
@@ -322,7 +321,7 @@ public class darkseal
 		tilemap_draw(bitmap,cliprect,pf2_tilemap,0,0);
 		darkseal_drawsprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 }

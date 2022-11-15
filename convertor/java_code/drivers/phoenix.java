@@ -55,7 +55,6 @@ public class phoenix
 	READ_HANDLER( survival_protection_r );
 	PALETTE_INIT( phoenix );
 	PALETTE_INIT( pleiads );
-	VIDEO_UPDATE( phoenix );
 	
 	WRITE_HANDLER( phoenix_sound_control_a_w );
 	WRITE_HANDLER( phoenix_sound_control_b_w );

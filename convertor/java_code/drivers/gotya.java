@@ -45,8 +45,7 @@ public class gotya
 	extern WRITE_HANDLER( gotya_videoram2_w );
 	
 	extern PALETTE_INIT( gotya );
-	extern extern VIDEO_UPDATE( gotya );
-	
+	extern extern 
 	extern WRITE_HANDLER( gotya_video_control_w );
 	
 	extern WRITE_HANDLER( gotya_soundlatch_w );

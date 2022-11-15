@@ -779,8 +779,7 @@ public class ssv
 		enable_video = enable;
 	}
 	
-	VIDEO_UPDATE( ssv )
-	{
+	public static VideoUpdateHandlerPtr video_update_ssv  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* The background color is the first one in the palette */
 		fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
 	
@@ -788,5 +787,5 @@ public class ssv
 	
 		ssv_draw_layer(bitmap);		// "background layer"
 		ssv_draw_sprites(bitmap);	// sprites list
-	}
+	} };
 }

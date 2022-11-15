@@ -37,8 +37,6 @@ public class m90
 	
 	extern unsigned char *m90_video_data;
 	
-	VIDEO_UPDATE( m90 );
-	VIDEO_UPDATE( m90_bootleg );
 	WRITE_HANDLER( m90_video_control_w );
 	WRITE_HANDLER( m90_video_w );
 	

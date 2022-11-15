@@ -211,8 +211,7 @@ public class ashnojoe
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( ashnojoe )
-	{
+	public static VideoUpdateHandlerPtr video_update_ashnojoe  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
 	//	ashnojoe_tilemap_reg[0] & 0x10 // ?? on coin insertion
 	
@@ -229,5 +228,5 @@ public class ashnojoe
 		tilemap_draw(bitmap,cliprect,joetilemap3,0,0);
 		tilemap_draw(bitmap,cliprect,joetilemap, 0,0);
 	
-	}
+	} };
 }

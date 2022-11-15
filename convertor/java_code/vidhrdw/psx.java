@@ -633,12 +633,10 @@ public class psx
 		return psx_gpu_init( 1024, 1024 );
 	} };
 	
-	VIDEO_STOP( psx )
-	{
-	}
+	public static VideoStopHandlerPtr video_stop_psx  = new VideoStopHandlerPtr() { public void handler(){
+	} };
 	
-	VIDEO_UPDATE( psx )
-	{
+	public static VideoUpdateHandlerPtr video_update_psx  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT32 n_x;
 		UINT32 n_y;
 	
@@ -726,7 +724,7 @@ public class psx
 				draw_scanline16( bitmap, 0, n_y, m_n_screenwidth, m_p_p_vram[ n_y + m_n_displaystarty ] + n_x, Machine->pens, -1 );
 			}
 		}
-	}
+	} };
 	
 	/*
 	type 1

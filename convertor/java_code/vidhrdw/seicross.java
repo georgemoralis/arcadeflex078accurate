@@ -151,8 +151,7 @@ public class seicross
 		}
 	}
 	
-	VIDEO_UPDATE( seicross )
-	{
+	public static VideoUpdateHandlerPtr video_update_seicross  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int col;
 	
 		for (col = 0; col < 32; col++)
@@ -162,5 +161,5 @@ public class seicross
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		seicross_draw_sprites(bitmap);
-	}
+	} };
 }

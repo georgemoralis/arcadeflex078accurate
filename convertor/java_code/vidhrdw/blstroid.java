@@ -147,8 +147,7 @@ public class blstroid
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( blstroid )
-	{
+	public static VideoUpdateHandlerPtr video_update_blstroid  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct atarimo_rect_list rectlist;
 		struct mame_bitmap *mobitmap;
 		int x, y, r;
@@ -178,5 +177,5 @@ public class blstroid
 						mo[x] = 0;
 					}
 			}
-	}
+	} };
 }

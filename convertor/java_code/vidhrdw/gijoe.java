@@ -79,8 +79,7 @@ public class gijoe
 		SWAP(2, 3)
 	}
 	
-	VIDEO_UPDATE( gijoe )
-	{
+	public static VideoUpdateHandlerPtr video_update_gijoe  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		const int K053251_CI[4] = { K053251_CI1, K053251_CI2, K053251_CI3, K053251_CI4 };
 		int layer[4];
 		int vrc_mode, vrc_new, colorbase_new, primode, dirty, i;
@@ -160,5 +159,5 @@ public class gijoe
 		K056832_tilemap_draw(bitmap,cliprect, layer[3], 0, 8);
 	
 		K053247_sprites_draw(bitmap, cliprect);
-	}
+	} };
 }

@@ -192,8 +192,7 @@ public class bankp
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( bankp )
-	{
+	public static VideoUpdateHandlerPtr video_update_bankp  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* The tilemap has to be shifted to the left in flip screen mode
 			because the visible tilemap data is not centered in video memory */
 	
@@ -225,5 +224,5 @@ public class bankp
 			tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, TILEMAP_IGNORE_TRANSPARENCY, 0); // just a guess
 			break;
 		}
-	}
+	} };
 }

@@ -221,8 +221,7 @@ public class spdodgeb
 	#undef DRAW_SPRITE
 	
 	
-	VIDEO_UPDATE( spdodgeb )
-	{
+	public static VideoUpdateHandlerPtr video_update_spdodgeb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 	
@@ -239,5 +238,5 @@ public class spdodgeb
 	
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

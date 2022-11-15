@@ -107,7 +107,6 @@ public class konamigx
 {
 	
 	
-	VIDEO_UPDATE(konamigx);
 	
 	MACHINE_INIT(konamigx);
 	

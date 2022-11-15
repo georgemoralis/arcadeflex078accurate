@@ -369,8 +369,7 @@ public class hyhoo
 	
 	
 	******************************************************************************/
-	VIDEO_UPDATE( hyhoo )
-	{
+	public static VideoUpdateHandlerPtr video_update_hyhoo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		unsigned short color;
 	
@@ -395,5 +394,5 @@ public class hyhoo
 		{
 			fillbitmap(bitmap, Machine->pens[0x0000], 0);
 		}
-	}
+	} };
 }

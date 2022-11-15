@@ -24,7 +24,6 @@ public class blockout
 	WRITE16_HANDLER( blockout_videoram_w );
 	WRITE16_HANDLER( blockout_paletteram_w );
 	WRITE16_HANDLER( blockout_frontcolor_w );
-	VIDEO_UPDATE( blockout );
 	
 	
 	public static InterruptHandlerPtr blockout_interrupt = new InterruptHandlerPtr() {public void handler(){

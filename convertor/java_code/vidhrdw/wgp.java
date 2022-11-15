@@ -704,8 +704,7 @@ public class wgp
 	                        SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( wgp )
-	{
+	public static VideoUpdateHandlerPtr video_update_wgp  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 		UINT8 layer[3];
 	
@@ -815,6 +814,6 @@ public class wgp
 			}
 		}
 	#endif
-	}
+	} };
 	
 }

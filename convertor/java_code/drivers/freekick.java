@@ -48,9 +48,6 @@ public class freekick
 	
 	extern data8_t *freek_videoram;
 	
-	VIDEO_UPDATE(gigas);
-	VIDEO_UPDATE(pbillrd);
-	VIDEO_UPDATE(freekick);
 	WRITE_HANDLER( freek_videoram_w );
 	
 	static int oigas_inval,oigas_outval,oigas_cnt;//oigas

@@ -293,8 +293,7 @@ public class tp84
 		}
 	}
 	
-	VIDEO_UPDATE( tp84 )
-	{
+	public static VideoUpdateHandlerPtr video_update_tp84  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle clip;
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
@@ -315,7 +314,7 @@ public class tp84
 		clip.min_y = Machine->visible_area.min_y;
 		clip.max_y = Machine->visible_area.max_y;
 		tilemap_draw(bitmap, &clip, fg_tilemap, 0, 0);
-	}
+	} };
 	
 	public static InterruptHandlerPtr tp84_6809_interrupt = new InterruptHandlerPtr() {public void handler(){
 		scanline = 255 - cpu_getiloops();

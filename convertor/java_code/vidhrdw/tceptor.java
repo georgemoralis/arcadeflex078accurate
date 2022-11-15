@@ -612,8 +612,7 @@ public class tceptor
 	}
 	
 	
-	VIDEO_UPDATE( tceptor )
-	{
+	public static VideoUpdateHandlerPtr video_update_tceptor  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle rect;
 		int pri;
 		int bg_center = 144 - ((((bg1_scroll_x + bg2_scroll_x ) & 0x1ff) - 288) / 2);
@@ -640,5 +639,5 @@ public class tceptor
 		}
 	
 		tilemap_draw(bitmap, cliprect, tx_tilemap, 0, 0);
-	}
+	} };
 }

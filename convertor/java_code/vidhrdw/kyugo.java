@@ -235,8 +235,7 @@ public class kyugo
 	}
 	
 	
-	VIDEO_UPDATE( kyugo )
-	{
+	public static VideoUpdateHandlerPtr video_update_kyugo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (flipscreen)
 			tilemap_set_scrollx(bg_tilemap,0,-(scroll_x_lo + (scroll_x_hi*256)));
 		else
@@ -247,5 +246,5 @@ public class kyugo
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		draw_sprites(bitmap, cliprect);
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 }

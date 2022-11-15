@@ -329,8 +329,7 @@ public class tecmosys
 	
 	static int command_data=0;
 	
-	VIDEO_UPDATE(deroon)
-	{
+	public static VideoUpdateHandlerPtr video_update_deroon  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	/* nothing  - just simulate sound commands writes here ... to test OPL3 emulator */
 	
 		int j,trueorientation;
@@ -367,7 +366,7 @@ public class tecmosys
 			cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
 			usrintf_showmessage("command write=%2x",command_data);
 		}
-	}
+	} };
 	
 	/*
 	>>> Richard wrote:

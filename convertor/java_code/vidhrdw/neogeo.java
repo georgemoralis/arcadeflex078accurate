@@ -438,8 +438,7 @@ public class neogeo
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( neogeo )
-	{
+	public static VideoUpdateHandlerPtr video_update_neogeo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int sx =0,sy =0,my =0,zx = 0x0f, zy = 0xff;
 		int offs,count;
 		int tileno,tileatr,t1,t2,t3;
@@ -651,5 +650,5 @@ public class neogeo
 		}
 	
 	profiler_mark(PROFILER_END);
-	}
+	} };
 }

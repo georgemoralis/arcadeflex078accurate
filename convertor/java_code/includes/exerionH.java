@@ -7,7 +7,6 @@
 /*----------- defined in vidhrdw/exerion.c -----------*/
 
 PALETTE_INIT( exerion );
-VIDEO_UPDATE( exerion );
 
 WRITE_HANDLER( exerion_videoreg_w );
 WRITE_HANDLER( exerion_video_latch_w );

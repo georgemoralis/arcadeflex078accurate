@@ -278,8 +278,7 @@ public class bking2
 	} };
 	
 	
-	VIDEO_UPDATE( bking2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_bking2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, tilemap, 0, 0);
 	
 		/* draw the balls */
@@ -306,11 +305,10 @@ public class bking2
 			crow_flip, crow_flip,
 			crow_flip ? xld3 - 16 : 256 - xld3, crow_flip ? yld3 - 16 : 256 - yld3,
 			cliprect, TRANSPARENCY_PEN, 0);
-	}
+	} };
 	
 	
-	VIDEO_EOF( bking2 )
-	{
+	public static VideoEofHandlerPtr video_eof_bking2  = new VideoEofHandlerPtr() { public void handler(){
 		static struct rectangle rect = { 0, 7, 0, 15 };
 	
 		int xld = 0;
@@ -388,5 +386,5 @@ public class bking2
 				}
 			}
 		}
-	}
+	} };
 }

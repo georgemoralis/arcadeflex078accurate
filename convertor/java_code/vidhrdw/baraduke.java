@@ -254,8 +254,7 @@ public class baraduke
 		}
 	}
 	
-	VIDEO_UPDATE( baraduke )
-	{
+	public static VideoUpdateHandlerPtr video_update_baraduke  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		/* this is the global sprite Y offset, actually */
@@ -298,10 +297,9 @@ public class baraduke
 					flipscreen,flipscreen,sx*8,sy*8,
 					cliprect,TRANSPARENCY_PEN,3);
 		}
-	}
+	} };
 	
-	VIDEO_UPDATE( metrocrs )
-	{
+	public static VideoUpdateHandlerPtr video_update_metrocrs  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		/* this is the global sprite Y offset, actually */
@@ -342,5 +340,5 @@ public class baraduke
 					flipscreen,flipscreen,sx*8,sy*8,
 					cliprect,TRANSPARENCY_PEN,3);
 		}
-	}
+	} };
 }

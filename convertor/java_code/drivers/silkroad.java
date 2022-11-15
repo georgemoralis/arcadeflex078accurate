@@ -140,7 +140,6 @@ public class silkroad
 	WRITE32_HANDLER( silkroad_fgram_w );
 	WRITE32_HANDLER( silkroad_fgram2_w );
 	WRITE32_HANDLER( silkroad_fgram3_w );
-	VIDEO_UPDATE(silkroad);
 	
 	static WRITE32_HANDLER( paletteram32_xRRRRRGGGGGBBBBB_dword_w )
 	{

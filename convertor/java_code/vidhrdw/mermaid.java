@@ -106,8 +106,7 @@ public class mermaid
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( mermaid )
-	{
+	public static VideoUpdateHandlerPtr video_update_mermaid  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -247,5 +246,5 @@ public class mermaid
 					    &spritevisiblearea),
 					TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 }

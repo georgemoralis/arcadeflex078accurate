@@ -149,9 +149,8 @@ public class higemaru
 		}
 	}
 	
-	VIDEO_UPDATE( higemaru )
-	{
+	public static VideoUpdateHandlerPtr video_update_higemaru  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		higemaru_draw_sprites(bitmap);
-	}
+	} };
 }

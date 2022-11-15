@@ -21,7 +21,6 @@ public class _88games
 	static int videobank;
 	
 	extern int k88games_priority;
-	VIDEO_UPDATE( 88games );
 	
 	
 	public static InterruptHandlerPtr k88games_interrupt = new InterruptHandlerPtr() {public void handler(){

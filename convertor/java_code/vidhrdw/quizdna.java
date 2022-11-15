@@ -203,8 +203,7 @@ public class quizdna
 		}
 	}
 	
-	VIDEO_UPDATE( quizdna )
-	{
+	public static VideoUpdateHandlerPtr video_update_quizdna  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (quizdna_video_enable)
 		{
 			tilemap_draw(bitmap, cliprect, quizdna_bg_tilemap, 0, 0);
@@ -213,5 +212,5 @@ public class quizdna
 		}
 		else
 			fillbitmap(bitmap, get_black_pen(), &Machine->visible_area);
-	}
+	} };
 }

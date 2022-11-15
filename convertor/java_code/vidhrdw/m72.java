@@ -665,8 +665,7 @@ public class m72
 	}
 	
 	
-	VIDEO_UPDATE( m72 )
-	{
+	public static VideoUpdateHandlerPtr video_update_m72  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (video_off)
 		{
 			fillbitmap(bitmap,Machine->pens[0],cliprect);
@@ -678,10 +677,9 @@ public class m72
 		draw_sprites(bitmap,cliprect);
 		draw_bg(bitmap,cliprect,TILEMAP_FRONT);
 		draw_fg(bitmap,cliprect,TILEMAP_FRONT);
-	}
+	} };
 	
-	VIDEO_UPDATE( majtitle )
-	{
+	public static VideoUpdateHandlerPtr video_update_majtitle  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 	
@@ -711,11 +709,10 @@ public class m72
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_FRONT,0);
 		draw_fg(bitmap,cliprect,TILEMAP_FRONT);
-	}
+	} };
 	
 	
-	VIDEO_EOF( m72 )
-	{
+	public static VideoEofHandlerPtr video_eof_m72  = new VideoEofHandlerPtr() { public void handler(){
 		int i;
 	
 		for (i = 0;i < 255;i++)
@@ -725,5 +722,5 @@ public class m72
 			scrollx2[i] = scrollx2[255];
 			scrolly2[i] = scrolly2[255];
 		}
-	}
+	} };
 }

@@ -90,7 +90,6 @@ public class sengokmj
 	WRITE_HANDLER( sengoku_fg_vram_w );
 	WRITE_HANDLER( sengoku_md_vram_w );
 	WRITE_HANDLER( sengoku_tx_vram_w );
-	VIDEO_UPDATE( sengokmj );
 	
 	/*Multiplexer device for the mahjong panel*/
 	READ_HANDLER( mahjong_panel_0_r )

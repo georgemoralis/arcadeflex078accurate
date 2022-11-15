@@ -1105,8 +1105,7 @@ public class itech32
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( itech32 )
-	{
+	public static VideoUpdateHandlerPtr video_update_itech32  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int y;
 	
 		/* loop over height */
@@ -1138,5 +1137,5 @@ public class itech32
 			else
 				draw_scanline16(bitmap, cliprect->min_x, y, cliprect->max_x - cliprect->min_x + 1, &src1[cliprect->min_x], Machine->pens, -1);
 		}
-	}
+	} };
 }

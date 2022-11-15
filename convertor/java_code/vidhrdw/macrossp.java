@@ -378,8 +378,7 @@ public class macrossp
 		SWAP(1,2)
 	}
 	
-	VIDEO_UPDATE(macrossp)
-	{
+	public static VideoUpdateHandlerPtr video_update_macrossp  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers[3],layerpri[3];
 	
 	
@@ -417,12 +416,11 @@ public class macrossp
 	macrossp_scrc_videoregs[1], // 04 - 07
 	macrossp_scrc_videoregs[2]);// 08 - 0b
 	#endif
-	}
+	} };
 	
-	VIDEO_EOF( macrossp )
-	{
+	public static VideoEofHandlerPtr video_eof_macrossp  = new VideoEofHandlerPtr() { public void handler(){
 		/* looks like sprites are *two* frames ahead, like nmk16 */
 		memcpy(spriteram_old2,spriteram_old,spriteram_size);
 		memcpy(spriteram_old,macrossp_spriteram,spriteram_size);
-	}
+	} };
 }

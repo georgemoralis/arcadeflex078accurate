@@ -149,8 +149,7 @@ public class labyrunr
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( labyrunr )
-	{
+	public static VideoUpdateHandlerPtr video_update_labyrunr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle finalclip0 = clip0, finalclip1 = clip1;
 	
 		sect_rect(&finalclip0, cliprect);
@@ -162,5 +161,5 @@ public class labyrunr
 		tilemap_draw(bitmap,&finalclip0,layer0,0,0);
 		K007121_sprites_draw(0,bitmap,cliprect,spriteram,(K007121_ctrlram[0][6]&0x30)*2,40,0,-1);
 		tilemap_draw(bitmap,&finalclip1,layer1,0,0);
-	}
+	} };
 }

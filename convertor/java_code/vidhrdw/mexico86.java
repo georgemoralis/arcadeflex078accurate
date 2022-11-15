@@ -27,8 +27,7 @@ public class mexico86
 	
 	
 	
-	VIDEO_UPDATE( mexico86 )
-	{
+	public static VideoUpdateHandlerPtr video_update_mexico86  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int sx,sy,xc,yc;
 		int gfx_num,gfx_attr,gfx_offs;
@@ -104,11 +103,10 @@ public class mexico86
 				}
 			}
 		}
-	}
+	} };
 	//AT
 	#if 0 // old code
-	VIDEO_UPDATE( kikikai )
-	{
+	public static VideoUpdateHandlerPtr video_update_kikikai  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int sx,sy,xc,yc;
 		int gfx_num,gfx_attr,gfx_offs;
@@ -183,11 +181,10 @@ public class mexico86
 				}
 			}
 		}
-	}
+	} };
 	#endif
 	
-	VIDEO_UPDATE( kikikai )
-	{
+	public static VideoUpdateHandlerPtr video_update_kikikai  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int sx,sy,yc;
 		int gfx_num,gfx_attr,gfx_offs;
@@ -249,6 +246,6 @@ public class mexico86
 						&Machine->visible_area,TRANSPARENCY_PEN,15);
 			}
 		}
-	}
+	} };
 	//ZT
 }

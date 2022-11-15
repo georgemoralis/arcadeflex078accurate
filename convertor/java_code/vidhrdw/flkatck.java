@@ -149,8 +149,7 @@ public class flkatck
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( flkatck )
-	{
+	public static VideoUpdateHandlerPtr video_update_flkatck  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle final_clip[2];
 	
 	#if 0
@@ -173,5 +172,5 @@ public class flkatck
 		tilemap_draw(bitmap,&final_clip[0],k007121_tilemap[0],0,0);
 		K007121_sprites_draw(0,bitmap,cliprect,&k007121_ram[0x1000],0,40,0,-1);
 		tilemap_draw(bitmap,&final_clip[1],k007121_tilemap[1],0,0);
-	}
+	} };
 }

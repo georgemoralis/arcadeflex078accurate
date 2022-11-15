@@ -186,8 +186,7 @@ public class ladybug
 		}
 	}
 	
-	VIDEO_UPDATE( ladybug )
-	{
+	public static VideoUpdateHandlerPtr video_update_ladybug  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		for (offs = 0; offs < 32; offs++)
@@ -203,5 +202,5 @@ public class ladybug
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		ladybug_draw_sprites(bitmap);
-	}
+	} };
 }

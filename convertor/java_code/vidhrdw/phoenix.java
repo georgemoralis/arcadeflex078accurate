@@ -348,9 +348,8 @@ public class phoenix
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( phoenix )
-	{
+	public static VideoUpdateHandlerPtr video_update_phoenix  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

@@ -196,9 +196,8 @@ public class tagteam
 		}
 	}
 	
-	VIDEO_UPDATE( tagteam )
-	{
+	public static VideoUpdateHandlerPtr video_update_tagteam  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		tagteam_draw_sprites(bitmap);
-	}
+	} };
 }

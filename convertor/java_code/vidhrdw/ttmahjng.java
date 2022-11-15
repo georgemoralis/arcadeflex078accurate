@@ -199,8 +199,7 @@ public class ttmahjng
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( ttmahjng )
-	{
+	public static VideoUpdateHandlerPtr video_update_ttmahjng  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (video_remap_1)
 		{
 			modify_pen(0, video_color_select_1 + 0);
@@ -236,7 +235,7 @@ public class ttmahjng
 	
 		copybitmap(bitmap,tmpbitmap2,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
 		copybitmap(bitmap,tmpbitmap1,0,0,0,0,&Machine->visible_area,TRANSPARENCY_COLOR,0);
-	}
+	} };
 	
 	/***************************************************************************
 	  mofify_pen

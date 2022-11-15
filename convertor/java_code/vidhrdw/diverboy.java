@@ -52,9 +52,8 @@ public class diverboy
 		}
 	}
 	
-	VIDEO_UPDATE(diverboy)
-	{
+	public static VideoUpdateHandlerPtr video_update_diverboy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	//	fillbitmap(bitmap,get_black_pen(),cliprect);
 		diverboy_drawsprites(bitmap,cliprect);
-	}
+	} };
 }

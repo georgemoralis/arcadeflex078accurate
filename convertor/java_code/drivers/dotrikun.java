@@ -31,7 +31,6 @@ public class dotrikun
 	
 	
 	WRITE_HANDLER( dotrikun_videoram_w );
-	VIDEO_UPDATE( dotrikun );
 	
 	WRITE_HANDLER( dotrikun_color_w );
 	

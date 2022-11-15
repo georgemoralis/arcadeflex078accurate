@@ -142,8 +142,7 @@ public class stlforce
 		}
 	}
 	
-	VIDEO_UPDATE( stlforce )
-	{
+	public static VideoUpdateHandlerPtr video_update_stlforce  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
 		tilemap_set_scrollx( stlforce_bg_tilemap, 0, stlforce_bg_scrollram[0]+8);
 		tilemap_set_scrolly( stlforce_bg_tilemap, 0, stlforce_vidattrram[1] );
@@ -162,7 +161,7 @@ public class stlforce
 		tilemap_draw(bitmap,cliprect,stlforce_tx_tilemap,0,0);
 	
 	//usrintf_showmessage	("Regs %04x, %04x, %04x, %04x, %04", stlforce_vidattrram[0tlforce_tx_scrollram], stlforce_vidattrram[4],stlforce_vidattrram[5],stlforce_vidattrram[6],stlforce_vidattrram[7] );
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_stlforce  = new VideoStartHandlerPtr() { public int handler(){
 		stlforce_bg_tilemap = tilemap_create(get_stlforce_bg_tile_info,tilemap_scan_cols,TILEMAP_OPAQUE, 16, 16,64,16);

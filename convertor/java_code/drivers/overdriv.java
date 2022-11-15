@@ -28,7 +28,6 @@ public class overdriv
 {
 	
 	
-	VIDEO_UPDATE( overdriv );
 	
 	
 	

@@ -82,7 +82,6 @@ public class mappy
 	READ_HANDLER( todruaga_customio_2_r );
 	
 	/* video driver data & functions */
-	VIDEO_UPDATE( mappy );
 	WRITE_HANDLER( mappy_videoram_w );
 	WRITE_HANDLER( mappy_colorram_w );
 	WRITE_HANDLER( mappy_scroll_w );

@@ -78,7 +78,6 @@ public class _1942
 	WRITE_HANDLER( c1942_scroll_w );
 	WRITE_HANDLER( c1942_c804_w );
 	WRITE_HANDLER( c1942_palette_bank_w );
-	VIDEO_UPDATE( 1942 );
 	
 	
 	

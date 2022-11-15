@@ -129,10 +129,9 @@ public class battlex
 	
 	}
 	
-	VIDEO_UPDATE(battlex)
-	{
+	public static VideoUpdateHandlerPtr video_update_battlex  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap, 0, battlex_scroll_lsb | (battlex_scroll_msb << 8));
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		battlex_drawsprites(bitmap, &Machine->visible_area);
-	}
+	} };
 }

@@ -293,8 +293,7 @@ public class brkthru
 			}
 		}
 	
-	VIDEO_UPDATE( brkthru )
-		{
+	public static VideoUpdateHandlerPtr video_update_brkthru  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)	{
 		tilemap_set_scrollx(bg_tilemap,0, bgscroll);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_IGNORE_TRANSPARENCY,0);
 	
@@ -312,5 +311,5 @@ public class brkthru
 	
 	/*	show_register(bitmap,8,8,(unsigned long)flipscreen); */
 	
-	}
+	} };
 }

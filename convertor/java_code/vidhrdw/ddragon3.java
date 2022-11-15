@@ -191,8 +191,7 @@ public class ddragon3
 		}
 	}
 	
-	VIDEO_UPDATE( ddragon3 )
-	{
+	public static VideoUpdateHandlerPtr video_update_ddragon3  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap, 0, ddragon3_bg_scrollx);
 		tilemap_set_scrolly(bg_tilemap, 0, ddragon3_bg_scrolly);
 		tilemap_set_scrollx(fg_tilemap, 0, ddragon3_fg_scrollx);
@@ -210,10 +209,9 @@ public class ddragon3
 			ddragon3_draw_sprites(bitmap, cliprect);
 			tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
 		}
-	}
+	} };
 	
-	VIDEO_UPDATE( ctribe )
-	{
+	public static VideoUpdateHandlerPtr video_update_ctribe  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx( bg_tilemap, 0, ddragon3_bg_scrollx );
 		tilemap_set_scrolly( bg_tilemap, 0, ddragon3_bg_scrolly );
 		tilemap_set_scrollx( fg_tilemap, 0, ddragon3_fg_scrollx );
@@ -222,5 +220,5 @@ public class ddragon3
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
 		ddragon3_draw_sprites(bitmap, cliprect);
-	}
+	} };
 }

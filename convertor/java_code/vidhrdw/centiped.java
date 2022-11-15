@@ -310,8 +310,7 @@ public class centiped
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( centiped )
-	{
+	public static VideoUpdateHandlerPtr video_update_centiped  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle spriteclip = *cliprect;
 		int offs;
 	
@@ -336,11 +335,10 @@ public class centiped
 			drawgfx(bitmap, Machine->gfx[1], code, color & 0x3f, centiped_flipscreen, flipy, x, y,
 					&spriteclip, TRANSPARENCY_PEN, 0);
 		}
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( warlords )
-	{
+	public static VideoUpdateHandlerPtr video_update_warlords  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int upright_mode = input_port_0_r(0) & 0x80;
 		int offs;
 	
@@ -380,5 +378,5 @@ public class centiped
 			drawgfx(bitmap, Machine->gfx[1], code, color, flipx, flipy, x, y,
 					cliprect, TRANSPARENCY_PEN, 0);
 		}
-	}
+	} };
 }

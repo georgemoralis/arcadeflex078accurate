@@ -25,7 +25,6 @@ public class fastlane
 	WRITE_HANDLER( fastlane_vram1_w );
 	WRITE_HANDLER( fastlane_vram2_w );
 	PALETTE_INIT( fastlane );
-	VIDEO_UPDATE( fastlane );
 	
 	public static InterruptHandlerPtr fastlane_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

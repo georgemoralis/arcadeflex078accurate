@@ -230,8 +230,7 @@ public class astrof
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( astrof )
-	{
+	public static VideoUpdateHandlerPtr video_update_astrof  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (do_modify_palette)
 		{
 			modify_palette();
@@ -251,5 +250,5 @@ public class astrof
 		}
 		
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
-	}
+	} };
 }

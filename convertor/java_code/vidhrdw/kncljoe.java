@@ -267,9 +267,8 @@ public class kncljoe
 		}
 	}
 	
-	VIDEO_UPDATE( kncljoe )
-	{
+	public static VideoUpdateHandlerPtr video_update_kncljoe  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

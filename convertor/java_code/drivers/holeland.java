@@ -20,8 +20,6 @@ package drivers;
 public class holeland
 {
 	
-	VIDEO_UPDATE( holeland );
-	VIDEO_UPDATE( crzrally );
 	
 	WRITE_HANDLER( holeland_videoram_w );
 	WRITE_HANDLER( holeland_colorram_w );

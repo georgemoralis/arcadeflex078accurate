@@ -19,4 +19,3 @@ READ_HANDLER( sbrkout_select2_r );
 extern unsigned char *sbrkout_horiz_ram;
 extern unsigned char *sbrkout_vert_ram;
 
-VIDEO_UPDATE( sbrkout );

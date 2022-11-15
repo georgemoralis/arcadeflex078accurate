@@ -18,8 +18,7 @@ public class shisen
 	extern WRITE_HANDLER( sichuan2_bankswitch_w );
 	extern WRITE_HANDLER( sichuan2_paletteram_w );
 	
-	extern extern VIDEO_UPDATE( sichuan2 );
-	
+	extern extern 
 	static READ_HANDLER( sichuan2_dsw1_r )
 	{
 		int ret = input_port_3_r(0);

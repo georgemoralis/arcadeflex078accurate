@@ -113,8 +113,7 @@ public class gladiatr
 	READ_HANDLER( gladiatr_video_registers_r );
 	WRITE_HANDLER( gladiatr_paletteram_rg_w );
 	WRITE_HANDLER( gladiatr_paletteram_b_w );
-	extern extern VIDEO_UPDATE( gladiatr );
-	WRITE_HANDLER( gladiatr_spritebank_w );
+	extern extern WRITE_HANDLER( gladiatr_spritebank_w );
 	
 	/*Rom bankswitching*/
 	static int banka;

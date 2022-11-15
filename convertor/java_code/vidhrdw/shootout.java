@@ -169,21 +169,19 @@ public class shootout
 		}
 	}
 	
-	VIDEO_UPDATE( shootout )
-	{
+	public static VideoUpdateHandlerPtr video_update_shootout  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap,0,cliprect);
 	
 		tilemap_draw(bitmap,cliprect,background,0,0);
 		tilemap_draw(bitmap,cliprect,foreground,0,1);
 		draw_sprites(bitmap,cliprect,3/*bank bits */);
-	}
+	} };
 	
-	VIDEO_UPDATE( shootouj )
-	{
+	public static VideoUpdateHandlerPtr video_update_shootouj  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap,0,cliprect);
 	
 		tilemap_draw(bitmap,cliprect,background,0,0);
 		tilemap_draw(bitmap,cliprect,foreground,0,1);
 		draw_sprites(bitmap,cliprect,2/*bank bits*/);
-	}
+	} };
 }

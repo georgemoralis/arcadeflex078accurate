@@ -66,7 +66,6 @@ public class tecmo
 	WRITE_HANDLER( tecmo_bgscroll_w );
 	WRITE_HANDLER( tecmo_flipscreen_w );
 	
-	VIDEO_UPDATE( tecmo );
 	
 	
 	

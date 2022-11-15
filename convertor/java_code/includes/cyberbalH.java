@@ -34,7 +34,6 @@ READ16_HANDLER( cyberbal_paletteram_1_r );
 WRITE16_HANDLER( cyberbal_paletteram_0_w );
 WRITE16_HANDLER( cyberbal_paletteram_1_w );
 
-VIDEO_UPDATE( cyberbal );
 
 void cyberbal_scanline_update(int param);
 

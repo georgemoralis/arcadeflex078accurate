@@ -242,8 +242,7 @@ public class othunder
 					SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( othunder )
-	{
+	public static VideoUpdateHandlerPtr video_update_othunder  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -357,6 +356,6 @@ public class othunder
 			/* player 2 */
 			draw_crosshair(bitmap,screenx,screeny,cliprect);
 		}
-	}
+	} };
 	
 }

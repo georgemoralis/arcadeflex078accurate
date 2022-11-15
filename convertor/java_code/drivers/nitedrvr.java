@@ -62,8 +62,7 @@ public class nitedrvr
 	extern WRITE_HANDLER( nitedrvr_videoram_w );
 	extern WRITE_HANDLER( nitedrvr_hvc_w );
 	
-	extern extern VIDEO_UPDATE( nitedrvr );
-	
+	extern extern 
 	
 	/*************************************
 	 *

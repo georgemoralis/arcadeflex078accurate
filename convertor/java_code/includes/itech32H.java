@@ -48,4 +48,3 @@ READ16_HANDLER( bloodstm_video_r );
 WRITE32_HANDLER( itech020_video_w );
 READ32_HANDLER( itech020_video_r );
 
-VIDEO_UPDATE( itech32 );

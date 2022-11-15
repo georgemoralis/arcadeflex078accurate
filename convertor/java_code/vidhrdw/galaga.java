@@ -187,8 +187,7 @@ public class galaga
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( galaga )
-	{
+	public static VideoUpdateHandlerPtr video_update_galaga  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -358,7 +357,7 @@ public class galaga
 				}
 			}
 		}
-	}
+	} };
 	
 	
 	

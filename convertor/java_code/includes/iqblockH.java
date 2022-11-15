@@ -7,4 +7,3 @@ WRITE_HANDLER( iqblock_bgvideoram_w );
 READ_HANDLER( iqblock_bgvideoram_r );
 WRITE_HANDLER( iqblock_fgscroll_w );
 
-VIDEO_UPDATE( iqblock );

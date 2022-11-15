@@ -18,7 +18,6 @@ public class rockrage
 	extern int rockrage_irq_enable;
 	
 	/* from vidhrdw */
-	VIDEO_UPDATE( rockrage );
 	WRITE_HANDLER( rockrage_vreg_w );
 	PALETTE_INIT( rockrage );
 	

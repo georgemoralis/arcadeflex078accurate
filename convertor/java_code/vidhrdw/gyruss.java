@@ -164,8 +164,7 @@ public class gyruss
 	}
 	
 	
-	VIDEO_UPDATE( gyruss )
-	{
+	public static VideoUpdateHandlerPtr video_update_gyruss  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -235,7 +234,7 @@ public class gyruss
 						8*sx,8*sy,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr gyruss_6809_interrupt = new InterruptHandlerPtr() {public void handler(){

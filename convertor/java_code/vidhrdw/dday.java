@@ -350,8 +350,7 @@ public class dday
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( dday )
-	{
+	public static VideoUpdateHandlerPtr video_update_dday  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(main_bitmap,cliprect,bg_tilemap,TILEMAP_BACK,0);
 		tilemap_draw(main_bitmap,cliprect,fg_tilemap,0,0);
 		tilemap_draw(main_bitmap,cliprect,bg_tilemap,TILEMAP_FRONT,0);
@@ -389,5 +388,5 @@ public class dday
 		{
 			copybitmap(bitmap,main_bitmap,0,0,0,0,cliprect,TRANSPARENCY_NONE,0);
 		}
-	}
+	} };
 }

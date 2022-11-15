@@ -12,4 +12,3 @@ PALETTE_INIT( lethalj );
 
 WRITE16_HANDLER( lethalj_blitter_w );
 
-VIDEO_UPDATE( lethalj );

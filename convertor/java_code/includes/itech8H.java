@@ -36,4 +36,3 @@ WRITE_HANDLER( itech8_blitter_w );
 WRITE_HANDLER( itech8_tms34061_w );
 READ_HANDLER( itech8_tms34061_r );
 
-VIDEO_UPDATE( itech8 );

@@ -50,7 +50,6 @@ public class plygonet
 {
 	
 	
-	VIDEO_UPDATE(polygonet_vh_screenrefresh);
 	
 	READ32_HANDLER( polygonet_ttl_ram_r );
 	WRITE32_HANDLER( polygonet_ttl_ram_w );

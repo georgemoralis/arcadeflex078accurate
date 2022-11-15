@@ -341,8 +341,7 @@ public class gaplus
 		} };
 	}
 	
-	VIDEO_UPDATE( gaplus )
-	{
+	public static VideoUpdateHandlerPtr video_update_gaplus  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		fillbitmap( bitmap, Machine->pens[0], &Machine->visible_area );
@@ -404,5 +403,5 @@ public class gaplus
 		}
 	
 		gaplus_draw_sprites(bitmap);
-	}
+	} };
 }

@@ -205,12 +205,11 @@ public class karnov
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( karnov )
-	{
+	public static VideoUpdateHandlerPtr video_update_karnov  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		draw_background(bitmap,cliprect);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	

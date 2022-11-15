@@ -245,8 +245,7 @@ public class ddrible
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( ddrible )
-	{
+	public static VideoUpdateHandlerPtr video_update_ddrible  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_flip(fg_tilemap, (ddribble_vregs[0][4] & 0x08) ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 		tilemap_set_flip(bg_tilemap, (ddribble_vregs[1][4] & 0x08) ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 	
@@ -260,5 +259,5 @@ public class ddrible
 		ddribble_draw_sprites(bitmap,cliprect,ddrible_spriteram_1,0x07d,2,ddribble_vregs[0][4] & 0x08);
 		ddribble_draw_sprites(bitmap,cliprect,ddrible_spriteram_2,0x140,3,ddribble_vregs[1][4] & 0x08);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

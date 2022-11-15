@@ -400,8 +400,7 @@ public class marinedt
 		}
 	}
 	
-	VIDEO_UPDATE( marinedt )
-	{
+	public static VideoUpdateHandlerPtr video_update_marinedt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy,flipx,flipy;
 	#if 0
 		int i=0,j=0;
@@ -598,7 +597,7 @@ public class marinedt
 	
 	//if(coll)
 	//	plot_pixel(bitmap, 256-32-marinedt_obj1_x+i, 256-marinedt_obj1_y+j-1,Machine->pens[1]);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( marinedt )
 	

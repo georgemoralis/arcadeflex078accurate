@@ -4,8 +4,6 @@
 extern data32_t *psikyosh_bgram, *psikyosh_zoomram, *psikyosh_vidregs, *psh_ram;
 
 /* defined in vidhrdw/psiykosh.c */
-VIDEO_UPDATE( psikyosh );
-VIDEO_EOF( psikyosh );
 
 enum { EEPROM_0=0, EEPROM_DEFAULT=1, EEPROM_DARAKU, EEPROM_S1945III, EEPROM_DRAGNBLZ, EEPROM_GNBARICH };
 

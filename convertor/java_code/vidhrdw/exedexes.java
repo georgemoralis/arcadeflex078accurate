@@ -241,8 +241,7 @@ public class exedexes
 		}
 	}
 	
-	VIDEO_UPDATE( exedexes )
-	{
+	public static VideoUpdateHandlerPtr video_update_exedexes  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (sc2on)
 		{
 			tilemap_set_scrollx(bg_tilemap, 0, ((exedexes_bg_scroll[1]) << 8) + exedexes_bg_scroll[0]);
@@ -268,10 +267,9 @@ public class exedexes
 		{
 			tilemap_draw(bitmap, &Machine->visible_area, tx_tilemap, 0, 0);
 		}
-	}
+	} };
 	
-	VIDEO_EOF( exedexes )
-	{
+	public static VideoEofHandlerPtr video_eof_exedexes  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0,0);
-	}
+	} };
 }

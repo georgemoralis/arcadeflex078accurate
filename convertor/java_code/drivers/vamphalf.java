@@ -54,10 +54,9 @@ public class vamphalf
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( vamphalf )
-	{
+	public static VideoUpdateHandlerPtr video_update_vamphalf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
-	}
+	} };
 	
 	static struct GfxLayout vamphalf_layout =
 	{

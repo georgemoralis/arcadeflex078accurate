@@ -95,8 +95,7 @@ public class carjmbre
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( carjmbre )
-	{
+	public static VideoUpdateHandlerPtr video_update_carjmbre  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,troffs,sx,sy,flipx,flipy;
 	
 		//colorram
@@ -151,5 +150,5 @@ public class carjmbre
 				}
 			}
 		}
-	}
+	} };
 }

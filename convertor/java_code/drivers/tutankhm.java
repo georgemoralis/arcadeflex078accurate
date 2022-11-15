@@ -191,7 +191,6 @@ public class tutankhm
 	extern unsigned char *tutankhm_scrollx;
 	
 	WRITE_HANDLER( tutankhm_videoram_w );
-	VIDEO_UPDATE( tutankhm );
 	
 	
 	static WRITE_HANDLER( tutankhm_bankselect_w )

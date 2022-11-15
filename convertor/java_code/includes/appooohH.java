@@ -12,5 +12,4 @@ WRITE_HANDLER( appoooh_bg_colorram_w );
 PALETTE_INIT( appoooh );
 WRITE_HANDLER( appoooh_scroll_w );
 WRITE_HANDLER( appoooh_out_w );
-VIDEO_UPDATE( appoooh );
 

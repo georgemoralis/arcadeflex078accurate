@@ -68,5 +68,4 @@ public class midtunitH
 	READ16_HANDLER( midtunit_dma_r );
 	WRITE16_HANDLER( midtunit_dma_w );
 	
-	VIDEO_UPDATE( midtunit );
-}
+	}

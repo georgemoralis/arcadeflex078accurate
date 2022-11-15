@@ -36,8 +36,6 @@ public class blktiger
 	WRITE_HANDLER( blktiger_scrollx_w );
 	WRITE_HANDLER( blktiger_scrolly_w );
 	
-	VIDEO_UPDATE( blktiger );
-	VIDEO_EOF( blktiger );
 	
 	
 	

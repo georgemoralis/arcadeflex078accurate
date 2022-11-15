@@ -119,8 +119,7 @@ public class fitfight
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(fitfight)
-	{
+	public static VideoUpdateHandlerPtr video_update_fitfight  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* scroll isn't right */
 	
 		int scrollval;
@@ -156,5 +155,5 @@ public class fitfight
 				fof_800000[0], fof_900000[0],
 				fof_a00000[0] );
 	*/
-	}
+	} };
 }

@@ -124,10 +124,9 @@ public class solomon
 		}
 	}
 	
-	VIDEO_UPDATE( solomon )
-	{
+	public static VideoUpdateHandlerPtr video_update_solomon  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
 		solomon_draw_sprites(bitmap);
-	}
+	} };
 }

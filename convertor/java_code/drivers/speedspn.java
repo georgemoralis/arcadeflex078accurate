@@ -65,7 +65,6 @@ public class speedspn
 	WRITE_HANDLER( speedspn_vidram_w );
 	WRITE_HANDLER( speedspn_attram_w );
 	READ_HANDLER( speedspn_vidram_r );
-	VIDEO_UPDATE(speedspn);
 	WRITE_HANDLER(speedspn_banked_vidram_change);
 	WRITE_HANDLER(speedspn_global_display_w);
 	

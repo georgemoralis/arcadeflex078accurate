@@ -96,8 +96,7 @@ public class arcadecl
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( arcadecl )
-	{
+	public static VideoUpdateHandlerPtr video_update_arcadecl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* draw the playfield */
 		rampart_bitmap_render(bitmap, cliprect);
 	
@@ -126,5 +125,5 @@ public class arcadecl
 						}
 				}
 		}
-	}
+	} };
 }

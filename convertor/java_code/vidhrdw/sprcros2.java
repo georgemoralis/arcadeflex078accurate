@@ -177,10 +177,9 @@ public class sprcros2
 		}
 	}
 	
-	VIDEO_UPDATE( sprcros2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_sprcros2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw( bitmap,cliprect,sprcros2_bgtilemap,0,0 );
 		sprcros2_draw_sprites(bitmap,cliprect);
 		tilemap_draw( bitmap,cliprect,sprcros2_fgtilemap,0,0 );
-	}
+	} };
 }

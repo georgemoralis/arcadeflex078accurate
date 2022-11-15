@@ -359,8 +359,7 @@ public class namcos86
 	
 	
 	
-	VIDEO_UPDATE( namcos86 )
-	{
+	public static VideoUpdateHandlerPtr video_update_namcos86  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer;
 	
 		/* this is the global sprite Y offset, actually */
@@ -398,5 +397,5 @@ public class namcos86
 		usrintf_showmessage(buf);
 	}
 	#endif
-	}
+	} };
 }

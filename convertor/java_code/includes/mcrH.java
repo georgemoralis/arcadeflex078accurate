@@ -44,9 +44,6 @@ WRITE_HANDLER( mcr1_videoram_w );
 WRITE_HANDLER( mcr2_videoram_w );
 WRITE_HANDLER( twotigra_videoram_w );
 
-VIDEO_UPDATE( mcr1 );
-VIDEO_UPDATE( mcr2 );
-VIDEO_UPDATE( journey );
 
 
 /*----------- defined in vidhrdw/mcr3.c -----------*/
@@ -67,9 +64,6 @@ void mcr3_update_sprites(struct mame_bitmap *bitmap, const struct rectangle *cli
 
 PALETTE_INIT( spyhunt );
 
-VIDEO_UPDATE( mcr3 );
-VIDEO_UPDATE( spyhunt );
-VIDEO_UPDATE( dotron );
 
 
 /*----------- defined in vidhrdw/mcr68.c -----------*/
@@ -80,11 +74,9 @@ extern INT8 mcr68_sprite_xoffset;
 WRITE16_HANDLER( mcr68_paletteram_w );
 WRITE16_HANDLER( mcr68_videoram_w );
 
-VIDEO_UPDATE( mcr68 );
 
 WRITE16_HANDLER( zwackery_paletteram_w );
 WRITE16_HANDLER( zwackery_videoram_w );
 WRITE16_HANDLER( zwackery_spriteram_w );
 
 PALETTE_INIT( zwackery );
-VIDEO_UPDATE( zwackery );

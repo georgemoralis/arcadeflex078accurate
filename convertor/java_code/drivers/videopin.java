@@ -24,8 +24,7 @@ public class videopin
 	extern WRITE_HANDLER( videopin_video_ram_w );
 	extern WRITE_HANDLER( videopin_ball_w );
 	
-	extern extern VIDEO_UPDATE( videopin );
-	
+	extern extern 
 	static double time_pushed;
 	static double time_released;
 	

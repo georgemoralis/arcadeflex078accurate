@@ -157,9 +157,8 @@ public class amspdwy
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( amspdwy )
-	{
+	public static VideoUpdateHandlerPtr video_update_amspdwy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

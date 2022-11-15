@@ -126,8 +126,7 @@ public class cloak
 	extern WRITE_HANDLER( cloak_flipscreen_w );
 	extern READ_HANDLER( graph_processor_r );
 	
-	extern extern VIDEO_UPDATE( cloak );
-	
+	extern extern 
 	
 	/*************************************
 	 *

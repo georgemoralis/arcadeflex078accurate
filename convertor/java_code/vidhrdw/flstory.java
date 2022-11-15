@@ -150,8 +150,7 @@ public class flstory
 		}
 	}
 	
-	VIDEO_UPDATE( flstory )
-	{
+	public static VideoUpdateHandlerPtr video_update_flstory  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		tilemap_draw(bitmap,cliprect,tilemap,TILEMAP_BACK,0);
@@ -188,5 +187,5 @@ public class flstory
 			}
 		}
 	
-	}
+	} };
 }

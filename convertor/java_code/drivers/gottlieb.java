@@ -163,8 +163,7 @@ public class gottlieb
 	extern WRITE_HANDLER( usvsthem_video_outputs_w );
 	extern WRITE_HANDLER( gottlieb_paletteram_w );
 	
-	extern extern VIDEO_UPDATE( gottlieb );
-	
+	extern extern 
 	extern WRITE_HANDLER( gottlieb_sh_w );
 	
 	extern UINT8 *riot_ram;

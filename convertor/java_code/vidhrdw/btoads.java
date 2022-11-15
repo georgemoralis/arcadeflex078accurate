@@ -335,8 +335,7 @@ public class btoads
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( btoads )
-	{
+	public static VideoUpdateHandlerPtr video_update_btoads  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 	
 		/* loop over all scanlines */
@@ -494,5 +493,5 @@ public class btoads
 	
 		logerror("---VBLANK---\n");
 	#endif
-	}
+	} };
 }

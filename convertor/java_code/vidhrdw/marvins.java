@@ -346,8 +346,7 @@ public class marvins
 		}
 	}
 	
-	VIDEO_UPDATE( marvins )
-	{
+	public static VideoUpdateHandlerPtr video_update_marvins  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		unsigned char *mem = memory_region(REGION_CPU1);
 		unsigned char sprite_partition = mem[0xfe00];
 	
@@ -390,10 +389,9 @@ public class marvins
 		draw_sprites( bitmap,cliprect, sprite_scrollx+29+1, sprite_scrolly+16, 1, sprite_partition );
 		tilemap_draw( bitmap,&finalclip,tx_tilemap,0 ,0);
 		draw_status( bitmap,cliprect );
-	}
+	} };
 	
-	VIDEO_UPDATE( madcrash )
-	{
+	public static VideoUpdateHandlerPtr video_update_madcrash  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	/***************************************************************************
 	**
 	**	Game Specific Initialization
@@ -449,5 +447,5 @@ public class marvins
 		draw_sprites( bitmap,cliprect, sprite_scrollx+29, sprite_scrolly+17, 1, sprite_partition );
 		tilemap_draw( bitmap,&finalclip,tx_tilemap,0 ,0);
 		draw_status( bitmap,cliprect );
-	}
+	} };
 }

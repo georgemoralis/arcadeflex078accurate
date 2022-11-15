@@ -218,8 +218,7 @@ public class thoop2
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( thoop2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_thoop2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* set scroll registers */
 		tilemap_set_scrolly(pant[0], 0, thoop2_vregs[0]);
 		tilemap_set_scrollx(pant[0], 0, thoop2_vregs[1]+4);
@@ -255,5 +254,5 @@ public class thoop2
 		tilemap_draw(bitmap,cliprect,pant[0],TILEMAP_FRONT | 0,0);
 	
 		gaelco_draw_sprites(bitmap,cliprect,4);
-	}
+	} };
 }

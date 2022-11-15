@@ -19,7 +19,6 @@ public class quizdna
 	
 	#define MCLK 16000000
 	
-	VIDEO_UPDATE( quizdna );
 	
 	WRITE_HANDLER( quizdna_fg_ram_w );
 	WRITE_HANDLER( quizdna_bg_ram_w );

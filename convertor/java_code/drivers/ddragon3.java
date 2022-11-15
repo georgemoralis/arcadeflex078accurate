@@ -43,9 +43,7 @@ public class ddragon3
 	extern WRITE16_HANDLER( ddragon3_scroll16_w );
 	extern READ16_HANDLER( ddragon3_scroll16_r );
 	
-	extern extern VIDEO_UPDATE( ddragon3 );
-	extern VIDEO_UPDATE( ctribe );
-	
+	extern extern extern 
 	/* Read/Write Handlers */
 	
 	static WRITE_HANDLER( oki_bankswitch_w )

@@ -26,8 +26,7 @@ public class bogeyman
 	extern WRITE_HANDLER( bogeyman_paletteram_w );
 	
 	extern PALETTE_INIT( bogeyman );
-	extern extern VIDEO_UPDATE( bogeyman );
-	
+	extern extern 
 	/******************************************************************************/
 	
 	/* Sound section is copied from Mysterious Stones driver by Nicola, Mike, Brad */

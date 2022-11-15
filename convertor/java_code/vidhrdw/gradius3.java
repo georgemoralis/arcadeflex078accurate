@@ -143,8 +143,7 @@ public class gradius3
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( gradius3 )
-	{
+	public static VideoUpdateHandlerPtr video_update_gradius3  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static struct GfxLayout charlayout =
 		{
 			8,8,
@@ -199,5 +198,5 @@ public class gradius3
 		}
 	
 		K051960_sprites_draw(bitmap,cliprect,-1,-1);
-	}
+	} };
 }

@@ -272,8 +272,7 @@ public class r2dtank
 	
 	}
 	
-	VIDEO_UPDATE( r2dtank )
-	{
+	public static VideoUpdateHandlerPtr video_update_r2dtank  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int loop, data0, data1;
 	
 		unsigned char *RAM = memory_region(REGION_CPU1);
@@ -302,7 +301,7 @@ public class r2dtank
 	
 		/* Now copy the temp bitmap to the screen */
 		copybitmap(bitmap,tmpbitmap,r2dtank_video_flip,r2dtank_video_flip,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
-	}
+	} };
 	
 	/* Declare PIA structure */
 	

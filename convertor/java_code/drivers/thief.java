@@ -50,7 +50,6 @@ public class thief
 	READ_HANDLER( thief_coprocessor_r );
 	WRITE_HANDLER( thief_coprocessor_w );
 	
-	VIDEO_UPDATE( thief );
 	
 	
 	public static InterruptHandlerPtr thief_interrupt = new InterruptHandlerPtr() {public void handler(){

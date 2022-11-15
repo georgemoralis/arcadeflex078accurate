@@ -28,9 +28,9 @@
 #define PALETTE_INIT(name)		void palette_init_##name(UINT16 *colortable, const UINT8 *color_prom)
 
 #define public static VideoStartHandlerPtr video_start_name  = new VideoStartHandlerPtr() { public int handler()int video_start_##name(void)
-#define VIDEO_STOP(name)		void video_stop_##name(void)
-#define VIDEO_EOF(name)			void video_eof_##name(void)
-#define VIDEO_UPDATE(name)		void video_update_##name(struct mame_bitmap *bitmap, const struct rectangle *cliprect)
+#define public static VideoStopHandlerPtr video_stop_name  = new VideoStopHandlerPtr() { public void handler()void video_stop_##name(void)
+#define public static VideoEofHandlerPtr video_eof_name  = new VideoEofHandlerPtr() { public void handler()	void video_eof_##name(void)
+#define public static VideoUpdateHandlerPtr video_update_name  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)void video_update_##name(struct mame_bitmap *bitmap, const struct rectangle *cliprect)
 
 /* NULL versions */
 #define init_NULL				NULL

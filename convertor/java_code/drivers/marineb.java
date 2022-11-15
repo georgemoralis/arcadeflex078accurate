@@ -58,11 +58,6 @@ public class marineb
 	WRITE_HANDLER( marineb_flipscreen_x_w );
 	WRITE_HANDLER( marineb_flipscreen_y_w );
 	
-	VIDEO_UPDATE( marineb );
-	VIDEO_UPDATE( changes );
-	VIDEO_UPDATE( springer );
-	VIDEO_UPDATE( hoccer );
-	VIDEO_UPDATE( hopprobo );
 	
 	
 	static MACHINE_INIT( marineb )

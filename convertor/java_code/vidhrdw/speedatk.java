@@ -117,8 +117,7 @@ public class speedatk
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( speedatk )
-	{
+	public static VideoUpdateHandlerPtr video_update_speedatk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,tilemap,0,0);
-	}
+	} };
 }

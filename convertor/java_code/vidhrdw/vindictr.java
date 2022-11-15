@@ -231,8 +231,7 @@ public class vindictr
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( vindictr )
-	{
+	public static VideoUpdateHandlerPtr video_update_vindictr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct atarimo_rect_list rectlist;
 		struct mame_bitmap *mobitmap;
 		int x, y, r;
@@ -309,5 +308,5 @@ public class vindictr
 						mo[x] = 0;
 					}
 			}
-	}
+	} };
 }

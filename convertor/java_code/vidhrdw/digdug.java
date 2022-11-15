@@ -153,8 +153,7 @@ public class digdug
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( digdug )
-	{
+	public static VideoUpdateHandlerPtr video_update_digdug  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,pfindex,pfcolor;
 		unsigned char *pf;
 	
@@ -320,5 +319,5 @@ public class digdug
 				}
 			}
 		}
-	}
+	} };
 }

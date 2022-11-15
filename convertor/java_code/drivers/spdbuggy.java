@@ -56,7 +56,6 @@ public class spdbuggy
 	
 	WRITE_HANDLER( spdbuggy_scrollregs_w );
 	
-	VIDEO_UPDATE( spdbuggy );
 	
 	
 	
@@ -667,8 +666,7 @@ public class spdbuggy
 	
 	
 	
-	VIDEO_UPDATE( spdbuggy )
-	{
+	public static VideoUpdateHandlerPtr video_update_spdbuggy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = 0xFFFF;
 	
 	#if 0
@@ -714,5 +712,5 @@ public class spdbuggy
 	
 		/* Draw the foreground (text) */
 		if (layers_ctrl & 4)	tilemap_draw(bitmap, cliprect, fg_tilemap,  0, 0);
-	}
+	} };
 }

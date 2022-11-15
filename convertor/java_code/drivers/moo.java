@@ -50,7 +50,6 @@ package drivers;
 public class moo
 {
 	
-	VIDEO_UPDATE(moo);
 	void moo_set_alpha(int on);
 	
 	static int init_eeprom_count, init_nosound_count, game_type;

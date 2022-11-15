@@ -388,10 +388,9 @@ public class gcpinbal
 	                        MACHINE DRIVERS
 	***********************************************************/
 	
-	VIDEO_EOF( gcpinbal )
-	{
+	public static VideoEofHandlerPtr video_eof_gcpinbal  = new VideoEofHandlerPtr() { public void handler(){
 	//	buffer_spriteram16_w(0,0,0);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( gcpinbal )
 	

@@ -41,8 +41,6 @@ public class skykid
 	WRITE_HANDLER( skykid_scroll_x_w );
 	WRITE_HANDLER( skykid_scroll_y_w );
 	WRITE_HANDLER( skykid_flipscreen_w );
-	VIDEO_UPDATE( skykid );
-	VIDEO_UPDATE( drgnbstr );
 	PALETTE_INIT( skykid );
 	
 	

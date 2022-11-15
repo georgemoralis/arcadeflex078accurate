@@ -592,8 +592,7 @@ public class m92
 	
 	/*****************************************************************************/
 	
-	VIDEO_UPDATE( m92 )
-	{
+	public static VideoUpdateHandlerPtr video_update_m92  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Screen refresh is handled by raster interrupt routine, here
 			we just check the keyboard */
 		if (keyboard_pressed_memory(KEYCODE_F1)) {
@@ -609,7 +608,7 @@ public class m92
 			flip_screen_set(0);
 		else
 			flip_screen_set(1);
-	}
+	} };
 	
 	static void m92_update_scroll_positions(void)
 	{

@@ -170,8 +170,7 @@ public class dassault
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( dassault )
-	{
+	public static VideoUpdateHandlerPtr video_update_dassault  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Update tilemaps */
 		flip_screen_set( deco16_pf12_control[0]&0x80 );
 		deco16_pf12_update(deco16_pf1_rowscroll,deco16_pf2_rowscroll);
@@ -200,5 +199,5 @@ public class dassault
 		/* Draw sprites - two sprite generators, with selectable priority */
 		dassault_drawsprites(bitmap,deco16_priority);
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 }

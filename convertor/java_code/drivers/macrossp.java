@@ -234,8 +234,6 @@ public class macrossp
 	WRITE32_HANDLER( macrossp_scrb_videoram_w );
 	WRITE32_HANDLER( macrossp_scrc_videoram_w );
 	WRITE32_HANDLER( macrossp_text_videoram_w );
-	VIDEO_UPDATE(macrossp);
-	VIDEO_EOF(macrossp);
 	
 	/*** VARIOUS READ / WRITE HANDLERS *******************************************/
 	

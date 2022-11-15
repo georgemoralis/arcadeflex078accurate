@@ -288,11 +288,10 @@ public class starfire
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( starfire )
-	{
+	public static VideoUpdateHandlerPtr video_update_starfire  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* copy the bitmap, remapping the colors */
 		copybitmap_remap(bitmap, tmpbitmap, 0, 0, 0, 0, &Machine->visible_area, TRANSPARENCY_NONE, 0);
-	}
+	} };
 	
 	
 }

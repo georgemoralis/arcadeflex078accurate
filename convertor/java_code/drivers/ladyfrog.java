@@ -55,7 +55,6 @@ package drivers;
 public class ladyfrog
 {
 	
-	VIDEO_UPDATE( ladyfrog );
 	
 	extern UINT8 *ladyfrog_scrlram;
 	static int sound_nmi_enable=0,pending_nmi=0;

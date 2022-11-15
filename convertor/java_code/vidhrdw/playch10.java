@@ -117,8 +117,7 @@ public class playch10
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( playch10 )
-	{
+	public static VideoUpdateHandlerPtr video_update_playch10  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle top_monitor = Machine->visible_area;
 		struct rectangle bottom_monitor = Machine->visible_area;
 	
@@ -152,5 +151,5 @@ public class playch10
 		{
 			tilemap_draw(bitmap, &top_monitor, bg_tilemap, 0, 0);
 		}
-	}
+	} };
 }

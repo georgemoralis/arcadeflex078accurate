@@ -1451,8 +1451,7 @@ public class namcos22
 		return -1; /* error */
 	} };
 	
-	VIDEO_UPDATE( namcos22s )
-	{
+	public static VideoUpdateHandlerPtr video_update_namcos22s  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		mbSuperSystem22 = 1;
 		UpdatePaletteS();
 		fillbitmap( bitmap, get_black_pen(), cliprect );
@@ -1460,15 +1459,14 @@ public class namcos22
 		DrawPolygons( bitmap );
 		DrawSprites( bitmap, cliprect );
 		DrawTextLayer( bitmap, cliprect );
-	}
+	} };
 	
-	VIDEO_UPDATE( namcos22 )
-	{
+	public static VideoUpdateHandlerPtr video_update_namcos22  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		mbSuperSystem22 = 0;
 		UpdatePalette();
 		fillbitmap( bitmap, get_black_pen(), cliprect );
 		namcos3d_Start( bitmap );
 		DrawPolygons( bitmap );
 		DrawTextLayer( bitmap, cliprect );
-	}
+	} };
 }

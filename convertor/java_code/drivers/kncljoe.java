@@ -34,8 +34,7 @@ public class kncljoe
 	
 	/* from vidhrdw */
 	extern extern PALETTE_INIT( kncljoe );
-	extern VIDEO_UPDATE( kncljoe );
-	extern WRITE_HANDLER(kncljoe_videoram_w);
+	extern extern WRITE_HANDLER(kncljoe_videoram_w);
 	extern WRITE_HANDLER(kncljoe_control_w);
 	extern WRITE_HANDLER(kncljoe_scroll_w);
 	extern UINT8 *kncljoe_scrollregs;

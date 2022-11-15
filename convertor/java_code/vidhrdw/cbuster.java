@@ -230,8 +230,7 @@ public class cbuster
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( twocrude )
-	{
+	public static VideoUpdateHandlerPtr video_update_twocrude  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int pf23_control,pf14_control;
 	
@@ -402,5 +401,5 @@ public class cbuster
 	
 		twocrude_drawsprites(bitmap,cliprect,1);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,0,0);
-	}
+	} };
 }

@@ -28,8 +28,7 @@ public class bublbobl
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( bublbobl )
-	{
+	public static VideoUpdateHandlerPtr video_update_bublbobl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int sx,sy,xc,yc;
 		int gfx_num,gfx_attr,gfx_offs;
@@ -107,5 +106,5 @@ public class bublbobl
 	
 			sx += 16;
 		}
-	}
+	} };
 }

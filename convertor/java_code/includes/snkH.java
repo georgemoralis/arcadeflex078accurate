@@ -24,12 +24,7 @@ extern PALETTE_INIT( snk_3bpp_shadow );
 extern PALETTE_INIT( snk_4bpp_shadow );
 
 extern extern 
-extern VIDEO_UPDATE( tnk3 );
-extern VIDEO_UPDATE( ikari );
-extern VIDEO_UPDATE( tdfever );
-extern VIDEO_UPDATE( gwar );
-extern VIDEO_UPDATE( sgladiat );
-
+extern extern extern extern extern 
 extern void tnk3_draw_text( struct mame_bitmap *bitmap, int bank, unsigned char *source );
 extern void tnk3_draw_status( struct mame_bitmap *bitmap, int bank, unsigned char *source );
 

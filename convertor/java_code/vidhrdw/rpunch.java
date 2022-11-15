@@ -329,8 +329,7 @@ public class rpunch
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( rpunch )
-	{
+	public static VideoUpdateHandlerPtr video_update_rpunch  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int effbins;
 	
 		/* this seems like the most plausible explanation */
@@ -342,5 +341,5 @@ public class rpunch
 		draw_sprites(bitmap,cliprect, effbins, gins);
 		if (rpunch_bitmapram)
 			draw_bitmap(bitmap,cliprect);
-	}
+	} };
 }

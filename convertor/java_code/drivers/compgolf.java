@@ -162,12 +162,11 @@ public class compgolf
 		}
 	}
 	
-	VIDEO_UPDATE( compgolf )
-	{
+	public static VideoUpdateHandlerPtr video_update_compgolf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, background_tilemap, 0, 0);
 		tilemap_draw(bitmap, cliprect, text_tilemap, 0, 0);
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
 	static WRITE_HANDLER( compgolf_ctrl_w )
 	{

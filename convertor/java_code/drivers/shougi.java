@@ -161,8 +161,7 @@ public class shougi
 	
 	
 	
-	VIDEO_UPDATE( shougi )
-	{
+	public static VideoUpdateHandlerPtr video_update_shougi  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	int offs;
 	
 		for (offs = 0;offs <0x4000; offs++)
@@ -192,7 +191,7 @@ public class shougi
 		}
 		/* copy the character mapped graphics */
 		//copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
-	}
+	} };
 	
 	
 	

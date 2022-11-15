@@ -112,7 +112,6 @@ public class buggychl
 	WRITE_HANDLER( buggychl_sprite_lookup_w );
 	WRITE_HANDLER( buggychl_ctrl_w );
 	WRITE_HANDLER( buggychl_bg_scrollx_w );
-	VIDEO_UPDATE( buggychl );
 	
 	
 	

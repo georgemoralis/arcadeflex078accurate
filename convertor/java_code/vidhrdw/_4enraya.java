@@ -39,8 +39,7 @@ public class _4enraya
 		return video_start_generic();
 	} };
 	
-	VIDEO_UPDATE( 4enraya)
-	{
+	public static VideoUpdateHandlerPtr video_update_4enraya  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,tilemap, 0,0);
-	}
+	} };
 }

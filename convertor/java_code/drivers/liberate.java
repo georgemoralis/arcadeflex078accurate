@@ -24,10 +24,6 @@ public class liberate
 {
 	
 	PALETTE_INIT( liberate );
-	VIDEO_UPDATE( prosoccr );
-	VIDEO_UPDATE( prosport );
-	VIDEO_UPDATE( liberate );
-	VIDEO_UPDATE( boomrang );
 	
 	static int deco16_bank;
 	static data8_t *scratchram;

@@ -135,8 +135,7 @@ public class markham
 		}
 	}
 	
-	VIDEO_UPDATE( markham )
-	{
+	public static VideoUpdateHandlerPtr video_update_markham  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		for (i = 0; i < 32; i++)
@@ -149,5 +148,5 @@ public class markham
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		markham_draw_sprites(bitmap);
-	}
+	} };
 }

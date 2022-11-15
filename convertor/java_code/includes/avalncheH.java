@@ -14,4 +14,3 @@ WRITE_HANDLER( avalnche_noise_amplitude_w );
 /*----------- defined in vidhrdw/avalnche.c -----------*/
 
 WRITE_HANDLER( avalnche_videoram_w );
-VIDEO_UPDATE( avalnche );

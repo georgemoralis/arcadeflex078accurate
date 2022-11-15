@@ -20,7 +20,6 @@ public class drmicro
 	#define MCLK 18432000
 	
 	PALETTE_INIT( drmicro );
-	VIDEO_UPDATE( drmicro );
 	
 	WRITE_HANDLER( drmicro_flipscreen_w );
 	WRITE_HANDLER( drmicro_priority_w );

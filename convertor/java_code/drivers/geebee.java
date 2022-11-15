@@ -85,8 +85,7 @@ public class geebee
 	extern PALETTE_INIT( geebee );
 	extern PALETTE_INIT( navalone );
 	
-	extern extern extern extern extern VIDEO_UPDATE( geebee );
-	
+	extern extern extern extern extern 
 	/* from sndhrdw/geebee.c */
 	WRITE_HANDLER( geebee_sound_w );
 	extern int geebee_sh_start(const struct MachineSound *msound);

@@ -214,8 +214,7 @@ public class taotaido
 	} };
 	
 	
-	VIDEO_UPDATE(taotaido)
-	{
+	public static VideoUpdateHandlerPtr video_update_taotaido  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	//	tilemap_set_scrollx(bg_tilemap,0,(taotaido_scrollram[0x380/2]>>4)); // the values put here end up being wrong every other frame
 	//	tilemap_set_scrolly(bg_tilemap,0,(taotaido_scrollram[0x382/2]>>4)); // the values put here end up being wrong every other frame
 	
@@ -239,10 +238,9 @@ public class taotaido
 		}
 	
 		taotaido_drawsprites(bitmap,cliprect);
-	}
+	} };
 	
-	VIDEO_EOF( taotaido )
-	{
+	public static VideoEofHandlerPtr video_eof_taotaido  = new VideoEofHandlerPtr() { public void handler(){
 		/* sprites need to be delayed by 2 frames? */
 	
 		memcpy(taotaido_spriteram2_older,taotaido_spriteram2_old,0x10000);
@@ -250,5 +248,5 @@ public class taotaido
 	
 		memcpy(taotaido_spriteram_older,taotaido_spriteram_old,0x2000);
 		memcpy(taotaido_spriteram_old,taotaido_spriteram,0x2000);
-	}
+	} };
 }

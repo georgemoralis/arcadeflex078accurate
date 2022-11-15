@@ -118,9 +118,8 @@ public class tankbatt
 		}
 	}
 	
-	VIDEO_UPDATE( tankbatt )
-	{
+	public static VideoUpdateHandlerPtr video_update_tankbatt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		tankbatt_draw_bullets(bitmap);
-	}
+	} };
 }

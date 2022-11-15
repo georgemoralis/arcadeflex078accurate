@@ -267,8 +267,7 @@ public class f1gp
 	}
 	
 	
-	VIDEO_UPDATE( f1gp )
-	{
+	public static VideoUpdateHandlerPtr video_update_f1gp  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static struct GfxLayout tilelayout =
 		{
 			16,16,
@@ -325,7 +324,7 @@ public class f1gp
 			f1gp_drawsprites(bitmap,cliprect,0,0x00);
 			f1gp_drawsprites(bitmap,cliprect,1,0x02);
 		}
-	}
+	} };
 	
 	
 	
@@ -402,8 +401,7 @@ public class f1gp
 	}
 	
 	
-	VIDEO_UPDATE( f1gp2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_f1gp2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (gfxctrl & 4)	/* blank screen */
 		{
 			fillbitmap(bitmap, get_black_pen(), cliprect);
@@ -433,5 +431,5 @@ public class f1gp
 	#endif
 			}
 		}
-	}
+	} };
 }

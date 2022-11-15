@@ -393,8 +393,7 @@ public class firetrk
 	}
 	
 	
-	VIDEO_UPDATE( firetrk )
-	{
+	public static VideoUpdateHandlerPtr video_update_firetrk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		tilemap_draw(bitmap, &playfield_window, tilemap1, 0, 0);
@@ -421,11 +420,10 @@ public class firetrk
 		}
 	
 		draw_text(bitmap, cliprect);
-	}
+	} };
 	
 	
-	VIDEO_EOF( firetrk )
-	{
+	public static VideoEofHandlerPtr video_eof_firetrk  = new VideoEofHandlerPtr() { public void handler(){
 		int i;
 	
 		tilemap_draw(helper1, &playfield_window, tilemap2, 0, 0);
@@ -491,5 +489,5 @@ public class firetrk
 		{
 			firetrk_set_blink(0);
 		}
-	}
+	} };
 }

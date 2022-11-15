@@ -288,8 +288,7 @@ public class vigilant
 		}
 	}
 	
-	VIDEO_UPDATE( vigilant )
-	{
+	public static VideoUpdateHandlerPtr video_update_vigilant  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 	
@@ -325,10 +324,9 @@ public class vigilant
 			draw_sprites(bitmap,&bottomvisiblearea);
 			draw_foreground(bitmap,1,0); // priority tiles
 		}
-	}
+	} };
 	
-	VIDEO_UPDATE( kikcubic )
-	{
+	public static VideoUpdateHandlerPtr video_update_kikcubic  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -356,5 +354,5 @@ public class vigilant
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 		draw_sprites(bitmap,&Machine->visible_area);
-	}
+	} };
 }

@@ -281,8 +281,7 @@ public class madmotor
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( madmotor )
-	{
+	public static VideoUpdateHandlerPtr video_update_madmotor  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		/* Update flipscreen */
@@ -311,5 +310,5 @@ public class madmotor
 		tilemap_draw(bitmap,cliprect,madmotor_pf2_tilemap,0,0);
 		madmotor_drawsprites(bitmap,cliprect,0x00,0x00);
 		tilemap_draw(bitmap,cliprect,madmotor_pf1_tilemap,0,0);
-	}
+	} };
 }

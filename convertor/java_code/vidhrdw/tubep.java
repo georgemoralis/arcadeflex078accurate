@@ -652,16 +652,14 @@ public class tubep
 		}
 	}
 	
-	VIDEO_EOF( tubep_eof )
-	{
+	public static VideoEofHandlerPtr video_eof_tubep_eof  = new VideoEofHandlerPtr() { public void handler(){
 		/* clear displayed frame */
 		memset(spritemap+DISP*256*256, 0x0f, 256*256);
 		DISP = DISP ^ 1;
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( tubep )
-	{
+	public static VideoUpdateHandlerPtr video_update_tubep  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		for (offs = 0;offs < 0x800; offs+=2)
@@ -759,7 +757,7 @@ public class tubep
 	
 		/* copy the character mapped graphics */
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] );
-	}
+	} };
 	
 	
 	
@@ -781,8 +779,7 @@ public class tubep
 	}
 	
 	
-	VIDEO_UPDATE( rjammer )
-	{
+	public static VideoUpdateHandlerPtr video_update_rjammer  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		for (offs = 0;offs < 0x800; offs+=2)
@@ -931,6 +928,6 @@ public class tubep
 		/* copy the character mapped graphics */
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] );
 	
-	}
+	} };
 	
 }

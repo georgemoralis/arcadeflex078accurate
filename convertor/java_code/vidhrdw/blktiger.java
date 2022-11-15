@@ -233,8 +233,7 @@ public class blktiger
 		}
 	}
 	
-	VIDEO_UPDATE( blktiger )
-	{
+	public static VideoUpdateHandlerPtr video_update_blktiger  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[1023],cliprect);
 	
 		if (bgon)
@@ -248,10 +247,9 @@ public class blktiger
 	
 		if (chon)
 			tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_EOF( blktiger )
-	{
+	public static VideoEofHandlerPtr video_eof_blktiger  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0,0);
-	}
+	} };
 }

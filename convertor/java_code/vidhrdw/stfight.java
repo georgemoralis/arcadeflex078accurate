@@ -300,8 +300,7 @@ public class stfight
 	}
 	
 	
-	VIDEO_UPDATE( stfight )
-	{
+	public static VideoUpdateHandlerPtr video_update_stfight  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap,0,cliprect);
 	
 		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* in case bg_tilemap is disabled */
@@ -313,5 +312,5 @@ public class stfight
 			draw_sprites(bitmap,cliprect);
 	
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 }

@@ -90,7 +90,6 @@ public class vicdual
 	WRITE_HANDLER( vicdual_characterram_w );
 	READ_HANDLER( vicdual_characterram_r );
 	WRITE_HANDLER( vicdual_palette_bank_w );
-	VIDEO_UPDATE( vicdual );
 	
 	/* Carnival sound handlers */
 	extern const char *carnival_sample_names[];

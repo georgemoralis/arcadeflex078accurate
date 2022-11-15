@@ -29,7 +29,6 @@ public class amspdwy
 	WRITE_HANDLER( amspdwy_paletteram_w );
 	WRITE_HANDLER( amspdwy_flipscreen_w );
 	
-	VIDEO_UPDATE( amspdwy );
 	
 	
 	/***************************************************************************

@@ -136,11 +136,10 @@ public class renegade
 		}
 	}
 	
-	VIDEO_UPDATE( renegade )
-	{
+	public static VideoUpdateHandlerPtr video_update_renegade  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx( bg_tilemap, 0, renegade_scrollx );
 		tilemap_draw( bitmap,cliprect,bg_tilemap,0 ,0);
 		draw_sprites( bitmap,cliprect );
 		tilemap_draw( bitmap,cliprect,fg_tilemap,0 ,0);
-	}
+	} };
 }

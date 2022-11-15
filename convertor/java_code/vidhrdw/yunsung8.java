@@ -200,8 +200,7 @@ public class yunsung8
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( yunsung8 )
-	{
+	public static VideoUpdateHandlerPtr video_update_yunsung8  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = (~yunsung8_layers_ctrl) >> 4;
 	
 	#ifdef MAME_DEBUG
@@ -218,5 +217,5 @@ public class yunsung8
 		else				fillbitmap(bitmap,Machine->pens[0],cliprect);
 	
 		if (layers_ctrl&2)	tilemap_draw(bitmap,cliprect, tilemap_1, 0,0);
-	}
+	} };
 }

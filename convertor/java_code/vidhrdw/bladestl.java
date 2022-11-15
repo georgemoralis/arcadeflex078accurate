@@ -72,8 +72,7 @@ public class bladestl
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( bladestl )
-	{
+	public static VideoUpdateHandlerPtr video_update_bladestl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K007342_tilemap_update();
 	
 		K007342_tilemap_draw( bitmap, cliprect, 1, TILEMAP_IGNORE_TRANSPARENCY ,0);
@@ -81,5 +80,5 @@ public class bladestl
 		K007342_tilemap_draw( bitmap, cliprect, 1, 1 | TILEMAP_IGNORE_TRANSPARENCY ,0);
 		K007342_tilemap_draw( bitmap, cliprect, 0, 0 ,0);
 		K007342_tilemap_draw( bitmap, cliprect, 0, 1 ,0);
-	}
+	} };
 }

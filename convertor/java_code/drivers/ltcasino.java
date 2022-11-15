@@ -500,10 +500,9 @@ public class ltcasino
 	};
 	
 	
-	VIDEO_UPDATE(ltcasino)
-	{
+	public static VideoUpdateHandlerPtr video_update_ltcasino  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,ltcasino_tilemap,0,0);
-	}
+	} };
 	
 	static struct AY8910interface ay8910_interface =
 	{

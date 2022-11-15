@@ -282,8 +282,7 @@ public class afega
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( afega )
-	{
+	public static VideoUpdateHandlerPtr video_update_afega  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 		/* Horizintal and vertical screen flip are hardwired to 2 dip switches */
@@ -311,11 +310,10 @@ public class afega
 		if (layers_ctrl & 2) 	afega_draw_sprites(bitmap,cliprect);
 	
 		if (layers_ctrl & 4)	tilemap_draw(bitmap,cliprect,tilemap_1,0,0);
-	}
+	} };
 	
 	/* Same as 'afega', but no screen flip support */
-	VIDEO_UPDATE( bubl2000 )
-	{
+	public static VideoUpdateHandlerPtr video_update_bubl2000  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 	/* I really would like somebody to see the schematics of 'bubl2000' for confirmation */
@@ -346,6 +344,6 @@ public class afega
 		if (layers_ctrl & 2) 	afega_draw_sprites(bitmap,cliprect);
 	
 		if (layers_ctrl & 4)	tilemap_draw(bitmap,cliprect,tilemap_1,0,0);
-	}
+	} };
 	
 }

@@ -154,10 +154,9 @@ public class xorworld
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( xorworld )
-	{	
+	public static VideoUpdateHandlerPtr video_update_xorworld  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){	
 		tilemap_draw(bitmap, cliprect, screen, 0, 0);
 	
 		xorworld_draw_sprites(bitmap);
-	}
+	} };
 }

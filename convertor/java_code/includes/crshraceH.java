@@ -5,5 +5,3 @@ WRITE16_HANDLER( crshrace_videoram2_w );
 WRITE16_HANDLER( crshrace_roz_bank_w );
 WRITE16_HANDLER( crshrace_gfxctrl_w );
 
-VIDEO_EOF( crshrace );
-VIDEO_UPDATE( crshrace );

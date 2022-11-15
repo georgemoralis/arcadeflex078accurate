@@ -95,12 +95,11 @@ public class kinst
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( kinst )
-	{
+	public static VideoUpdateHandlerPtr video_update_kinst  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int y;
 	
 		/* loop over rows and copy to the destination */
 		for (y = cliprect->min_y; y <= cliprect->max_y; y++)
 			memcpy(bitmap->line[y], &vram_buffer[y * 320], 320 * sizeof(UINT16));
-	}
+	} };
 }

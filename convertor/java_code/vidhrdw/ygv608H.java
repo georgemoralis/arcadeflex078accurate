@@ -329,8 +329,6 @@ typedef struct _ygv608 {
 } YGV608, *pYGV608;
 
 
-VIDEO_UPDATE( ygv608 );
-VIDEO_STOP( ygv608 );
 
 READ16_HANDLER( ygv608_r );
 WRITE16_HANDLER( ygv608_w );

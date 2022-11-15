@@ -48,8 +48,7 @@ public class dlair
 		led1 = data;
 	}
 	
-	VIDEO_UPDATE( dlair )
-	{
+	public static VideoUpdateHandlerPtr video_update_dlair  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -115,7 +114,7 @@ public class dlair
 	if ((led1 & 64) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
 		32+8,16,&Machine->visible_area,TRANSPARENCY_NONE,0);
 	}
-	}
+	} };
 	
 	
 	

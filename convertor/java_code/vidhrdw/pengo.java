@@ -206,8 +206,7 @@ public class pengo
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( pengo )
-	{
+	public static VideoUpdateHandlerPtr video_update_pengo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle spriteclip = spritevisiblearea;
 		int offs;
 		
@@ -311,7 +310,7 @@ public class pengo
 						&spriteclip,TRANSPARENCY_COLOR,0);
 			}
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( vanvan_bgcolor_w )
@@ -321,8 +320,7 @@ public class pengo
 	}
 	
 	
-	VIDEO_UPDATE( vanvan )
-	{
+	public static VideoUpdateHandlerPtr video_update_vanvan  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle spriteclip = spritevisiblearea;
 		int offs;
 		
@@ -398,7 +396,7 @@ public class pengo
 					sx - 256,sy,
 					&spriteclip,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 	
 	static void get_tile_info(int tile_index)
 	{
@@ -464,8 +462,7 @@ public class pengo
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( s2650games )
-	{
+	public static VideoUpdateHandlerPtr video_update_s2650games  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		tilemap_draw(bitmap,cliprect,tilemap,0,0);
@@ -502,5 +499,5 @@ public class pengo
 					sx,sy + xoffsethack,
 					cliprect,TRANSPARENCY_COLOR,0);
 		}
-	}
+	} };
 }

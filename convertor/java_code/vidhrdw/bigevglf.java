@@ -94,9 +94,8 @@ public class bigevglf
 		}
 	}
 	
-	VIDEO_UPDATE( bigevglf )
-	{
+	public static VideoUpdateHandlerPtr video_update_bigevglf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		copybitmap(bitmap,tmp_bitmap[ plane_visible ],0,0,0,0,cliprect,TRANSPARENCY_NONE, 0);
 		beg_draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

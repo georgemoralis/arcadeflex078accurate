@@ -694,8 +694,7 @@ public class suprnova
 		}
 	}
 	
-	VIDEO_UPDATE(skns)
-	{
+	public static VideoUpdateHandlerPtr video_update_skns  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i, offset;
 	
 		data8_t *btiles;
@@ -789,10 +788,9 @@ public class suprnova
 	
 	
 		skns_drawsprites(bitmap, cliprect);
-	}
+	} };
 	
-	VIDEO_EOF(skns)
-	{
+	public static VideoEofHandlerPtr video_eof_skns  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram32_w(0,0,0);
-	}
+	} };
 }

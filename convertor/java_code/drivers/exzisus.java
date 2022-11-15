@@ -64,7 +64,6 @@ public class exzisus
 	WRITE_HANDLER( exzisus_objectram_0_w );
 	WRITE_HANDLER( exzisus_objectram_1_w );
 	
-	VIDEO_UPDATE( exzisus );
 	
 	
 	/***************************************************************************

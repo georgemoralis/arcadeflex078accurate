@@ -160,9 +160,8 @@ public class mario
 		}
 	}
 	
-	VIDEO_UPDATE( mario )
-	{
+	public static VideoUpdateHandlerPtr video_update_mario  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		mario_draw_sprites(bitmap);
-	}
+	} };
 }

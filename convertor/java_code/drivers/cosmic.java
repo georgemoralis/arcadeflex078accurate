@@ -26,12 +26,6 @@ public class cosmic
 	PALETTE_INIT( cosmicg );
 	PALETTE_INIT( magspot2 );
 	PALETTE_INIT( nomnlnd );
-	VIDEO_UPDATE( panic );
-	VIDEO_UPDATE( magspot2 );
-	VIDEO_UPDATE( devzone );
-	VIDEO_UPDATE( cosmica );
-	VIDEO_UPDATE( cosmicg );
-	VIDEO_UPDATE( nomnlnd );
 	WRITE_HANDLER( cosmic_color_register_w );
 	WRITE_HANDLER( cosmic_background_enable_w );
 	

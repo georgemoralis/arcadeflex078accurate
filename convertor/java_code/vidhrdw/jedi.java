@@ -270,8 +270,7 @@ public class jedi
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( jedi )
-	{
+	public static VideoUpdateHandlerPtr video_update_jedi  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int bgexdirty[32][2];
 		int offs;
 	
@@ -393,5 +392,5 @@ public class jedi
 			bounds.max_y = y + (tall ? 31 : 15);
 			fillbitmap(mobitmap, 0, &bounds);
 	    }
-	}
+	} };
 }

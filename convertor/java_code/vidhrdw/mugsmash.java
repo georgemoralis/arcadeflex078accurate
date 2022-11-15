@@ -161,10 +161,9 @@ public class mugsmash
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( mugsmash )
-	{
+	public static VideoUpdateHandlerPtr video_update_mugsmash  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,mugsmash_tilemap2,0,0);
 		tilemap_draw(bitmap,cliprect,mugsmash_tilemap1,0,0);
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

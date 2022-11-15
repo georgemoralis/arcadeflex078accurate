@@ -845,8 +845,7 @@ public class metro
 	}
 	
 	
-	VIDEO_UPDATE( metro )
-	{
+	public static VideoUpdateHandlerPtr video_update_metro  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i,pri,sprites_pri,layers_ctrl = -1;
 		data8_t *dirtyindex;
 		data16_t screenctrl = *metro_screenctrl;
@@ -946,5 +945,5 @@ public class metro
 				for (i = 0; i < 0x20; i++)
 					metro_draw_sprites(bitmap,cliprect, i);
 		}
-	}
+	} };
 }

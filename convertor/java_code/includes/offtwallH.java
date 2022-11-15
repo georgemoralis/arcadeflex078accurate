@@ -6,4 +6,3 @@
 
 /*----------- defined in vidhrdw/offtwall.c -----------*/
 
-VIDEO_UPDATE( offtwall );

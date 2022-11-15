@@ -105,8 +105,7 @@ public class ambush
 	}
 	
 	
-	VIDEO_UPDATE( ambush )
-	{
+	public static VideoUpdateHandlerPtr video_update_ambush  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -184,5 +183,5 @@ public class ambush
 	
 		/* Draw the foreground priority characters */
 		draw_chars(bitmap, 0x10);
-	}
+	} };
 }

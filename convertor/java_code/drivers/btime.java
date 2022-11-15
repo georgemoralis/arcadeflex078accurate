@@ -68,13 +68,6 @@ public class btime
 	
 	
 	
-	VIDEO_UPDATE( btime );
-	VIDEO_UPDATE( cookrace );
-	VIDEO_UPDATE( bnj );
-	VIDEO_UPDATE( lnc );
-	VIDEO_UPDATE( zoar );
-	VIDEO_UPDATE( disco );
-	VIDEO_UPDATE( eggs );
 	
 	WRITE_HANDLER( btime_paletteram_w );
 	WRITE_HANDLER( bnj_background_w );

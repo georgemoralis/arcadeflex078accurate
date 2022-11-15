@@ -881,8 +881,7 @@ public class seattle
 	}
 	
 	
-	static VIDEO_UPDATE( carnevil )
-	{
+	static public static VideoUpdateHandlerPtr video_update_carnevil  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int beamx, beamy;
 	
 		/* first do common video update */
@@ -893,7 +892,7 @@ public class seattle
 		draw_crosshair(bitmap, beamx, beamy, cliprect);
 		get_crosshair_xy(1, &beamx, &beamy);
 		draw_crosshair(bitmap, beamx, beamy, cliprect);
-	}
+	} };
 	
 	
 	static READ32_HANDLER( carnevil_gun_r )

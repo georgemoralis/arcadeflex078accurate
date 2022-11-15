@@ -178,8 +178,7 @@ public class matmania
 	}
 	
 	
-	VIDEO_UPDATE( matmania )
-	{
+	public static VideoUpdateHandlerPtr video_update_matmania  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -272,10 +271,9 @@ public class matmania
 					8*sx,8*sy,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 	
-	VIDEO_UPDATE( maniach )
-	{
+	public static VideoUpdateHandlerPtr video_update_maniach  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -368,5 +366,5 @@ public class matmania
 					8*sx,8*sy,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 }

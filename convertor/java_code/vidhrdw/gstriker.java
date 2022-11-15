@@ -481,8 +481,7 @@ public class gstriker
 	}
 	
 	
-	VIDEO_UPDATE(gstriker)
-	{
+	public static VideoUpdateHandlerPtr video_update_gstriker  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,get_black_pen(),cliprect);
 	
 		// Sandwitched screen/sprite0/score/sprite1. Surely wrong, probably
@@ -501,7 +500,7 @@ public class gstriker
 			(UINT16)gs_mixer_regs[12], (UINT16)gs_mixer_regs[13], (UINT16)gs_mixer_regs[14], (UINT16)gs_mixer_regs[15]
 		);
 	#endif
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_gstriker  = new VideoStartHandlerPtr() { public int handler(){
 		// Palette bases are hardcoded, but should be probably extracted from the mixer registers

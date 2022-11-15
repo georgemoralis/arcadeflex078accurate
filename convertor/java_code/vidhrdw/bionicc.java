@@ -229,8 +229,7 @@ public class bionicc
 		}
 	}
 	
-	VIDEO_UPDATE( bionicc )
-	{
+	public static VideoUpdateHandlerPtr video_update_bionicc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[0],cliprect);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,1|TILEMAP_BACK,0);	/* nothing in FRONT */
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
@@ -238,10 +237,9 @@ public class bionicc
 		bionicc_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0|TILEMAP_FRONT,0);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_EOF( bionicc )
-	{
+	public static VideoEofHandlerPtr video_eof_bionicc  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 }

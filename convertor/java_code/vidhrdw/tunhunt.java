@@ -406,8 +406,7 @@ public class tunhunt
 				TRANSPARENCY_PEN,0 );
 	}
 	
-	VIDEO_UPDATE( tunhunt )
-	{
+	public static VideoUpdateHandlerPtr video_update_tunhunt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		const UINT8 *pMem = memory_region( REGION_CPU1 );
 	
 		update_palette();
@@ -433,5 +432,5 @@ public class tunhunt
 			tunhunt_control&0x10 ); /* hstretch */
 	
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 }

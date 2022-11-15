@@ -1179,8 +1179,7 @@ public class midvunit
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( midvunit )
-	{
+	public static VideoUpdateHandlerPtr video_update_midvunit  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y, width, xoffs;
 		UINT32 offset;
 	
@@ -1216,5 +1215,5 @@ public class midvunit
 				*dest++ = midvunit_videoram[offset + x] & 0x7fff;
 			offset += 512;
 		}
-	}
+	} };
 }

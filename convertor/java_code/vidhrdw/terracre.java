@@ -216,8 +216,7 @@ public class terracre
 		return 1;
 	} };
 	
-	VIDEO_UPDATE( amazon )
-	{
+	public static VideoUpdateHandlerPtr video_update_amazon  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if( xscroll&0x2000 )
 		{
 			fillbitmap( bitmap,get_black_pen(),cliprect );
@@ -228,5 +227,5 @@ public class terracre
 		}
 		draw_sprites( bitmap,cliprect );
 		tilemap_draw( bitmap,cliprect, foreground, 0, 0 );
-	}
+	} };
 }

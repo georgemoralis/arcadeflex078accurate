@@ -33,7 +33,6 @@ public class megazone
 	WRITE_HANDLER( megazone_flipscreen_w );
 	PALETTE_INIT( megazone );
 	WRITE_HANDLER( megazone_sprite_bank_select_w );
-	VIDEO_UPDATE( megazone );
 	
 	
 	

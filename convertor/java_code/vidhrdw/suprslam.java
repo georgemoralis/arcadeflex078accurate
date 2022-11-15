@@ -162,8 +162,7 @@ public class suprslam
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( suprslam )
-	{
+	public static VideoUpdateHandlerPtr video_update_suprslam  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,get_black_pen(),cliprect);
 	
 		K053936_0_zoom_draw(bitmap,cliprect,suprslam_bg_tilemap,0,0);
@@ -171,7 +170,7 @@ public class suprslam
 		suprslam_drawsprites(bitmap, cliprect);
 	
 		tilemap_draw(bitmap,cliprect,suprslam_screen_tilemap,0,0);
-	}
+	} };
 	
 	WRITE16_HANDLER (suprslam_bank_w)
 	{

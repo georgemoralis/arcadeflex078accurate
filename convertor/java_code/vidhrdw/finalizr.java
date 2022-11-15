@@ -111,8 +111,7 @@ public class finalizr
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( finalizr )
-	{
+	public static VideoUpdateHandlerPtr video_update_finalizr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -279,5 +278,5 @@ public class finalizr
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
-	}
+	} };
 }

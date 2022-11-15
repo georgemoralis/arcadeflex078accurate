@@ -155,8 +155,7 @@ public class skyraid
 	}
 	
 	
-	VIDEO_UPDATE( skyraid )
-	{
+	public static VideoUpdateHandlerPtr video_update_skyraid  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, Machine->pens[0], cliprect);
 	
 		draw_terrain(helper);
@@ -164,5 +163,5 @@ public class skyraid
 		draw_missiles(helper, cliprect);
 		draw_trapezoid(bitmap, helper);
 		draw_text(bitmap, cliprect);
-	}
+	} };
 }

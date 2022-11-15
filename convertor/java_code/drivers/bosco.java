@@ -94,7 +94,6 @@ public class bosco
 	MACHINE_INIT( bosco );
 	
 	WRITE_HANDLER( bosco_cpu_reset_w );
-	VIDEO_UPDATE( bosco );
 	PALETTE_INIT( bosco );
 	
 	extern unsigned char *bosco_videoram2,*bosco_colorram2;
@@ -108,7 +107,6 @@ public class bosco
 	WRITE_HANDLER( bosco_scrollx_w );
 	WRITE_HANDLER( bosco_scrolly_w );
 	WRITE_HANDLER( bosco_starcontrol_w );
-	VIDEO_UPDATE( bosco );
 	
 	WRITE_HANDLER( pengo_sound_w );
 	int  bosco_sh_start(const struct MachineSound *msound);

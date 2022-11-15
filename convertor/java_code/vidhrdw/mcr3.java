@@ -253,8 +253,7 @@ public class mcr3
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( mcr3 )
-	{
+	public static VideoUpdateHandlerPtr video_update_mcr3  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* update the flip state */
 		tilemap_set_flip(bg_tilemap, mcr_cocktail_flip ? (TILEMAP_FLIPX | TILEMAP_FLIPY) : 0);
 	
@@ -263,11 +262,10 @@ public class mcr3
 	
 		/* draw the sprites */
 		mcr3_update_sprites(bitmap, cliprect, 0x03, 0, 0, 0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( spyhunt )
-	{
+	public static VideoUpdateHandlerPtr video_update_spyhunt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
 		tilemap_set_scrollx(bg_tilemap, 0, spyhunt_scrollx * 2 + spyhunt_scroll_offset);
@@ -279,7 +277,7 @@ public class mcr3
 	
 		/* render any characters on top */
 		tilemap_draw(bitmap, cliprect, alpha_tilemap, 0, 0);
-	}
+	} };
 	
 	
 	

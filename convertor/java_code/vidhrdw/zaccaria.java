@@ -298,10 +298,9 @@ public class zaccaria
 	}
 	
 	
-	VIDEO_UPDATE( zaccaria )
-	{
+	public static VideoUpdateHandlerPtr video_update_zaccaria  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 	
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

@@ -92,8 +92,7 @@ public class stadhero
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( stadhero )
-	{
+	public static VideoUpdateHandlerPtr video_update_stadhero  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flipscreen=stadhero_pf2_control_0[0]&0x80;
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 		tilemap_set_scrollx( pf2_tilemap,0, stadhero_pf2_control_1[0] );
@@ -102,7 +101,7 @@ public class stadhero
 		tilemap_draw(bitmap,cliprect,pf2_tilemap,0,0);
 		stadhero_drawsprites(bitmap,cliprect,0x00,0x00);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	

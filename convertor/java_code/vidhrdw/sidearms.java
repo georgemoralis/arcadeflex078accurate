@@ -382,8 +382,7 @@ public class sidearms
 		}
 	}
 	
-	VIDEO_UPDATE( sidearms )
-	{
+	public static VideoUpdateHandlerPtr video_update_sidearms  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		sidearms_draw_starfield(bitmap);
 	
 		tilemap_set_scrollx(bg_tilemap, 0, sidearms_bg_scrollx[0] + (sidearms_bg_scrollx[1] << 8 & 0xf00));
@@ -397,10 +396,9 @@ public class sidearms
 	
 		if (charon)
 			tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 	
-	VIDEO_EOF( sidearms )
-	{
+	public static VideoEofHandlerPtr video_eof_sidearms  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0, 0);
-	}
+	} };
 }

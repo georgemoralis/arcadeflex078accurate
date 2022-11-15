@@ -91,8 +91,7 @@ public class ashnojoe
 	extern WRITE16_HANDLER( joe_tilemaps_xscroll_w );
 	extern WRITE16_HANDLER( joe_tilemaps_yscroll_w );
 	
-	extern extern VIDEO_UPDATE( ashnojoe );
-	
+	extern extern 
 	static READ16_HANDLER(fake_4a00a_r)
 	{
 		//if it returns 1 there's no sound. is it used to sync the game and sound?

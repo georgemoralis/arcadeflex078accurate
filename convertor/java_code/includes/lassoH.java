@@ -24,6 +24,3 @@ PALETTE_INIT( lasso );
 PALETTE_INIT( wwjgtin );
 
 
-VIDEO_UPDATE( lasso );
-VIDEO_UPDATE( chameleo );
-VIDEO_UPDATE( wwjgtin );

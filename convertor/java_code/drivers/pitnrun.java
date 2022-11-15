@@ -99,7 +99,6 @@ public class pitnrun
 	READ_HANDLER( pitnrun_videoram2_r );
 	
 	PALETTE_INIT(pitnrun);
-	VIDEO_UPDATE(pitnrun);
 	
 	static int pitnrun_nmi;
 	

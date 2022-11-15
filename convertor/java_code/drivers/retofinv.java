@@ -33,7 +33,6 @@ public class retofinv
 	
 	/* in vidhrdw */
 	PALETTE_INIT( retofinv );
-	VIDEO_UPDATE( retofinv );
 	READ_HANDLER( retofinv_bg_videoram_r );
 	READ_HANDLER( retofinv_fg_videoram_r );
 	READ_HANDLER( retofinv_bg_colorram_r );

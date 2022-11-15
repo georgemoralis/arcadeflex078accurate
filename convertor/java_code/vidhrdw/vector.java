@@ -716,8 +716,7 @@ public class vector
 		}
 	}
 	
-	VIDEO_UPDATE( vector )
-	{
+	public static VideoUpdateHandlerPtr video_update_vector  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 		point *curpoint;
 	
@@ -783,7 +782,7 @@ public class vector
 		}
 	
 		vector_dirty_list[dirty_index] = VECTOR_PIXEL_END;
-	}
+	} };
 	
 	#endif /* if !(defined xgl) */
 }

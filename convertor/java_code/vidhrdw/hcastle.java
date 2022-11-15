@@ -202,8 +202,7 @@ public class hcastle
 	
 	/*****************************************************************************/
 	
-	VIDEO_UPDATE( hcastle )
-	{
+	public static VideoUpdateHandlerPtr video_update_hcastle  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int old_pf1,old_pf2;
 	
 	
@@ -243,5 +242,5 @@ public class hcastle
 			draw_sprites( bitmap,cliprect, buffered_spriteram, 0 );
 			draw_sprites( bitmap,cliprect, buffered_spriteram_2, 1 );
 		}
-	}
+	} };
 }

@@ -95,9 +95,8 @@ public class mrflea
 		return 0;
 	}
 	
-	VIDEO_UPDATE( mrflea )
-	{
+	public static VideoUpdateHandlerPtr video_update_mrflea  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		draw_background( bitmap );
 		draw_sprites( bitmap );
-	}
+	} };
 }

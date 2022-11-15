@@ -47,8 +47,7 @@ public class videopin
 	} };
 	
 	
-	VIDEO_UPDATE( videopin )
-	{
+	public static VideoUpdateHandlerPtr video_update_videopin  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int col;
 		int row;
 	
@@ -110,7 +109,7 @@ public class videopin
 				}
 			}
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( videopin_ball_w )

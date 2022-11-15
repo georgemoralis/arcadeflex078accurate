@@ -70,8 +70,7 @@ public class ikki
 		ikki_flipscreen = (data >> 2) & 1;
 	}
 	
-	VIDEO_UPDATE( ikki )
-	{
+	public static VideoUpdateHandlerPtr video_update_ikki  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
 		int offs,chr,col,px,py,f,bank,d;
 		data8_t *VIDEOATTR = memory_region( REGION_USER1 );
@@ -210,5 +209,5 @@ public class ikki
 			}
 		}
 	
-	}
+	} };
 }

@@ -115,8 +115,7 @@ public class lemmings
 		return 0;
 	} };
 	
-	VIDEO_STOP( lemmings )
-	{
+	public static VideoStopHandlerPtr video_stop_lemmings  = new VideoStopHandlerPtr() { public void handler(){
 		if (bitmap0)
 			bitmap_free(bitmap0);
 		if (vram_buffer)
@@ -127,13 +126,12 @@ public class lemmings
 			free(sprite_triple_buffer_0);
 		if (sprite_triple_buffer_1)
 			free(sprite_triple_buffer_1);
-	}
+	} };
 	
-	VIDEO_EOF( lemmings )
-	{
+	public static VideoEofHandlerPtr video_eof_lemmings  = new VideoEofHandlerPtr() { public void handler(){
 		memcpy(sprite_triple_buffer_0,buffered_spriteram16,0x800);
 		memcpy(sprite_triple_buffer_1,buffered_spriteram16_2,0x800);
-	}
+	} };
 	
 	/******************************************************************************/
 	
@@ -185,8 +183,7 @@ public class lemmings
 		tilemap_mark_tile_dirty(vram_tilemap,offset);
 	}
 	
-	VIDEO_UPDATE( lemmings )
-	{
+	public static VideoUpdateHandlerPtr video_update_lemmings  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x1=-lemmings_control_data[0],x0=-lemmings_control_data[2],i,y=0;
 		struct rectangle rect;
 		rect.max_y=cliprect->max_y;
@@ -219,5 +216,5 @@ public class lemmings
 		lemmings_drawsprites(bitmap,sprite_triple_buffer_1,1,0x2000);
 		tilemap_draw(bitmap,cliprect,vram_tilemap,0,0);
 		lemmings_drawsprites(bitmap,sprite_triple_buffer_0,0,0x2000);
-	}
+	} };
 }

@@ -23,7 +23,6 @@ public class targeth
 	
 	/* from vidhrdw/targeth.c */
 	WRITE16_HANDLER( targeth_vram_w );
-	VIDEO_UPDATE( targeth );
 	
 	
 	static struct GfxLayout tilelayout16_0x080000 =

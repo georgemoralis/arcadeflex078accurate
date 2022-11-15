@@ -58,14 +58,12 @@ public class tsamurai
 	
 	WRITE_HANDLER( tsamurai_scrolly_w );
 	WRITE_HANDLER( tsamurai_scrollx_w );
-	VIDEO_UPDATE( tsamurai );
 	WRITE_HANDLER( tsamurai_bg_videoram_w );
 	WRITE_HANDLER( tsamurai_fg_videoram_w );
 	WRITE_HANDLER( tsamurai_fg_colorram_w );
 	extern extern unsigned char *tsamurai_videoram;
 	
-	extern extern VIDEO_UPDATE( vsgongf );
-	
+	extern extern 
 	static struct AY8910interface ay8910_interface =
 	{
 		1, /* number of chips */

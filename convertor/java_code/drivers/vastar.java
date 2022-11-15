@@ -81,7 +81,6 @@ public class vastar
 	WRITE_HANDLER( vastar_fgvideoram_w );
 	READ_HANDLER( vastar_bg1videoram_r );
 	READ_HANDLER( vastar_bg2videoram_r );
-	VIDEO_UPDATE( vastar );
 	
 	static unsigned char *vastar_sharedram;
 	

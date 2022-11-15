@@ -20,10 +20,9 @@ public class embargo
 	
 	
 	
-	static VIDEO_UPDATE( embargo )
-	{
+	static public static VideoUpdateHandlerPtr video_update_embargo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		copybitmap(bitmap, tmpbitmap, 0, 0, 0, 0, cliprect, TRANSPARENCY_NONE, 0);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( embargo_videoram_w )

@@ -310,8 +310,7 @@ public class mystwarr
 	
 	
 	
-	VIDEO_UPDATE(mystwarr)
-	{
+	public static VideoUpdateHandlerPtr video_update_mystwarr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i, old, blendmode=0;
 	
 		if (cbparam<0) cbparam=0; else if (cbparam>=32) blendmode=(1<<16|GXMIX_BLEND_FORCE)<<2; //* water hack (TEMPORARY)
@@ -326,10 +325,9 @@ public class mystwarr
 		sprite_colorbase = K055555_get_palette_index(4)<<5;
 	
 		konamigx_mixer(bitmap, cliprect, 0, 0, 0, 0, blendmode);
-	}
+	} };
 	
-	VIDEO_UPDATE(metamrph)
-	{
+	public static VideoUpdateHandlerPtr video_update_metamrph  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i, old;
 	
 		for (i = 0; i < 4; i++)
@@ -342,10 +340,9 @@ public class mystwarr
 		sprite_colorbase = K055555_get_palette_index(4)<<4;
 	
 		konamigx_mixer(bitmap, cliprect, 0, GXSUB_K053250 | GXSUB_4BPP, 0, 0, 0);
-	}
+	} };
 	
-	VIDEO_UPDATE(martchmp)
-	{
+	public static VideoUpdateHandlerPtr video_update_martchmp  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i, old, blendmode;
 	
 		for (i = 0; i < 4; i++)
@@ -364,7 +361,7 @@ public class mystwarr
 		blendmode = (oinprion==0xef && K054338_read_register(K338_REG_PBLEND)) ? ((1<<16|GXMIX_BLEND_FORCE)<<2) : 0;
 	
 		konamigx_mixer(bitmap, cliprect, 0, 0, 0, 0, blendmode);
-	}
+	} };
 	
 	
 	
@@ -471,7 +468,7 @@ public class mystwarr
 		return ROM[offset]<<8;
 	}
 	
-	VIDEO_UPDATE(dadandrn) /* and gaiapols */
+	public static VideoUpdateHandlerPtr video_update_dadandrn  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)* and gaiapols */
 	{
 		int i, newbase, dirty, rozmode, blendmode;
 	
@@ -552,5 +549,5 @@ public class mystwarr
 		}
 	
 		konamigx_mixer(bitmap, cliprect, (roz_enable) ? ult_936_tilemap : 0, rozmode, 0, 0, blendmode);
-	}
+	} };
 }

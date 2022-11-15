@@ -238,11 +238,10 @@ public class strvmstr
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( strvmstr )
-	{
+	public static VideoUpdateHandlerPtr video_update_strvmstr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 	
 	static struct AY8910interface ay8912_interface =
 	{

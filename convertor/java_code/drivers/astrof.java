@@ -48,7 +48,6 @@ public class astrof
 	extern unsigned char *tomahawk_protection;
 	
 	PALETTE_INIT( astrof );
-	VIDEO_UPDATE( astrof );
 	WRITE_HANDLER( astrof_videoram_w );
 	WRITE_HANDLER( tomahawk_videoram_w );
 	WRITE_HANDLER( astrof_video_control1_w );

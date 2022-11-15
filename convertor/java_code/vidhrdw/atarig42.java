@@ -231,8 +231,7 @@ public class atarig42
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( atarig42 )
-	{
+	public static VideoUpdateHandlerPtr video_update_atarig42  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* draw the playfield */
 		fillbitmap(priority_bitmap, 0, cliprect);
 		tilemap_draw(bitmap, cliprect, atarigen_playfield_tilemap, 0, 0);
@@ -272,5 +271,5 @@ public class atarig42
 		
 		/* add the alpha on top */
 		tilemap_draw(bitmap, cliprect, atarigen_alpha_tilemap, 0, 0);
-	}
+	} };
 }

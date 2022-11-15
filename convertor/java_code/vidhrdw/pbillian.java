@@ -85,10 +85,9 @@ public class pbillian
 		}
 	}
 	
-	VIDEO_UPDATE(pbillian)
-	{
+	public static VideoUpdateHandlerPtr video_update_pbillian  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,pb_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
 		if(is_pbillian)usrintf_showmessage	("Power %d%%", ((input_port_3_r(0)&0x3f)*100)/0x3f);
-	}
+	} };
 }

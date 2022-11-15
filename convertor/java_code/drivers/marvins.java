@@ -61,9 +61,7 @@ public class marvins
 	**
 	***************************************************************************/
 	
-	extern extern VIDEO_UPDATE( marvins );
-	extern VIDEO_UPDATE( madcrash );
-	
+	extern extern extern 
 	extern WRITE_HANDLER( marvins_palette_bank_w );
 	
 	

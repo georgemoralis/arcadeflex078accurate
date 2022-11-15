@@ -33,7 +33,6 @@ public class xyonix
 	/* in vidhrdw/xyonix.c */
 	PALETTE_INIT( xyonix );
 	WRITE_HANDLER( xyonix_vidram_w );
-	VIDEO_UPDATE(xyonix);
 	
 	
 	static WRITE_HANDLER( xyonix_irqack_w )

@@ -115,8 +115,7 @@ public class relief
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( relief )
-	{
+	public static VideoUpdateHandlerPtr video_update_relief  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct atarimo_rect_list rectlist;
 		struct mame_bitmap *mobitmap;
 		int x, y, r;
@@ -180,5 +179,5 @@ public class relief
 						mo[x] = 0;
 					}
 			}
-	}
+	} };
 }

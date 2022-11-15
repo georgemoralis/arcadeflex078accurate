@@ -75,10 +75,7 @@ public class legionna
 	extern WRITE16_HANDLER( legionna_text_w );
 	extern WRITE16_HANDLER( legionna_control_w );
 	
-	extern extern extern VIDEO_UPDATE( legionna );
-	extern VIDEO_UPDATE( godzilla );
-	extern VIDEO_UPDATE( sdgndmrb );
-	void heatbrl_setgfxbank(UINT16 data);
+	extern extern extern extern extern void heatbrl_setgfxbank(UINT16 data);
 	
 	extern data16_t *legionna_back_data,*legionna_fore_data,*legionna_mid_data,*legionna_scrollram16,*legionna_textram;
 	static data16_t *mcu_ram;

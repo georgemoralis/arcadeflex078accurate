@@ -91,10 +91,9 @@ public class rabbit
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(rabbit)
-	{
+	public static VideoUpdateHandlerPtr video_update_rabbit  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
-	}
+	} };
 	
 	
 	static MACHINE_DRIVER_START( rabbit )

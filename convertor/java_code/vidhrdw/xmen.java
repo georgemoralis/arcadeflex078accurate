@@ -87,8 +87,7 @@ public class xmen
 	}
 	
 	
-	VIDEO_UPDATE( xmen )
-	{
+	public static VideoUpdateHandlerPtr video_update_xmen  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer[3];
 	
 	
@@ -118,5 +117,5 @@ public class xmen
 	
 		pdrawgfx_shadow_lowpri = 1;	/* fix shadows of boulders in front of feet */
 		K053247_sprites_draw(bitmap,cliprect);
-	}
+	} };
 }

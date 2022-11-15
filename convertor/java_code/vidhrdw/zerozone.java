@@ -54,8 +54,7 @@ public class zerozone
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( zerozone )
-	{
+	public static VideoUpdateHandlerPtr video_update_zerozone  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,zerozone_tilemap,0,0);
-	}
+	} };
 }

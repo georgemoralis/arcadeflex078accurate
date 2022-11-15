@@ -477,11 +477,10 @@ public class polepos
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( polepos )
-	{
+	public static VideoUpdateHandlerPtr video_update_polepos  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		draw_view(bitmap);
 		draw_road(bitmap);
 		draw_sprites(bitmap);
 		draw_alpha(bitmap);
-	}
+	} };
 }

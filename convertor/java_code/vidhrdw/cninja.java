@@ -114,10 +114,9 @@ public class cninja
 	
 	/******************************************************************************/
 	
-	VIDEO_EOF( cninja )
-	{
+	public static VideoEofHandlerPtr video_eof_cninja  = new VideoEofHandlerPtr() { public void handler(){
 		deco16_raster_display_position=0;
-	}
+	} };
 	
 	static void raster_pf3_draw(struct mame_bitmap *bitmap, const struct rectangle *cliprect, int flags, int pri)
 	{
@@ -410,8 +409,7 @@ public class cninja
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( cninja )
-	{
+	public static VideoUpdateHandlerPtr video_update_cninja  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flip_screen_set( deco16_pf12_control[0]&0x80 );
 		deco16_pf12_update(deco16_pf1_rowscroll,deco16_pf2_rowscroll);
 		deco16_pf34_update(deco16_pf3_rowscroll,deco16_pf4_rowscroll);
@@ -425,10 +423,9 @@ public class cninja
 		deco16_tilemap_2_draw(bitmap,cliprect,TILEMAP_FRONT,4);
 		cninja_drawsprites(bitmap,cliprect);
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( edrandy )
-	{
+	public static VideoUpdateHandlerPtr video_update_edrandy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flip_screen_set( deco16_pf12_control[0]&0x80 );
 		deco16_pf12_update(deco16_pf1_rowscroll,deco16_pf2_rowscroll);
 		deco16_pf34_update(deco16_pf3_rowscroll,deco16_pf4_rowscroll);
@@ -443,10 +440,9 @@ public class cninja
 		deco16_tilemap_2_draw(bitmap,cliprect,0,4);
 		cninja_drawsprites(bitmap,cliprect);
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( robocop2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_robocop2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* One of the tilemap chips can switch between 2 tilemaps at 4bpp, or 1 at 8bpp */
 		if (deco16_priority&4) {
 			deco16_set_tilemap_colour_mask(2,0);
@@ -490,10 +486,9 @@ public class cninja
 	
 		robocop2_drawsprites(bitmap,cliprect);
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( mutantf )
-	{
+	public static VideoUpdateHandlerPtr video_update_mutantf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flip_screen_set( deco16_pf12_control[0]&0x80 );
 		deco16_pf12_update(deco16_pf1_rowscroll,deco16_pf2_rowscroll);
 		deco16_pf34_update(deco16_pf3_rowscroll,deco16_pf4_rowscroll);
@@ -534,5 +529,5 @@ public class cninja
 			mutantf_drawsprites(bitmap,cliprect,buffered_spriteram16,3);
 		}
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 }

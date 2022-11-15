@@ -717,8 +717,7 @@ public class homedata
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( mrokumei )
-	{
+	public static VideoUpdateHandlerPtr video_update_mrokumei  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int flags,width;
 	
 		/* blank screen */
@@ -757,10 +756,9 @@ public class homedata
 	
 		tilemap_draw(bitmap, cliprect, tilemap[homedata_visible_page][0], 0, 0);
 		tilemap_draw(bitmap, cliprect, tilemap[homedata_visible_page][1], 0, 0);
-	}
+	} };
 	/*
-	VIDEO_UPDATE( reikaids )
-	{
+	public static VideoUpdateHandlerPtr video_update_reikaids  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int flags;
 		static int pritable[8][4] =
 		{
@@ -789,11 +787,10 @@ public class homedata
 		pri = (blitter_bank & 0x70) >> 4;
 		for (i = 0;i < 4;i++)
 			tilemap_draw(bitmap, cliprect, tilemap[homedata_visible_page][pritable[pri][3-i]], 0, 0);
-	}
+	} };
 	
 	*/
-	VIDEO_UPDATE( reikaids )
-	{
+	public static VideoUpdateHandlerPtr video_update_reikaids  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int flags;
 		static int pritable[2][8][4] =	/* table of priorities derived from the PROM */
 		{
@@ -834,11 +831,10 @@ public class homedata
 		pri = (blitter_bank & 0x70) >> 4;
 		for (i = 0;i < 4;i++)
 			tilemap_draw(bitmap, cliprect, tilemap[homedata_visible_page][pritable[homedata_priority][pri][3-i]], 0, 0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( pteacher )
-	{
+	public static VideoUpdateHandlerPtr video_update_pteacher  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int flags,scroll_low,scroll_high;
 	
 	
@@ -912,11 +908,10 @@ public class homedata
 	
 		tilemap_draw(bitmap, cliprect, tilemap[homedata_visible_page][0], 0, 0);
 		tilemap_draw(bitmap, cliprect, tilemap[homedata_visible_page][1], 0, 0);
-	}
+	} };
 	
 	
-	VIDEO_EOF( homedata )
-	{
+	public static VideoEofHandlerPtr video_eof_homedata  = new VideoEofHandlerPtr() { public void handler(){
 		homedata_visible_page ^= 1;
-	}
+	} };
 }

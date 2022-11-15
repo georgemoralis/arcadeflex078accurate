@@ -259,8 +259,7 @@ public class tecmo
 	}
 	
 	
-	VIDEO_UPDATE( tecmo )
-	{
+	public static VideoUpdateHandlerPtr video_update_tecmo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap,0,cliprect);
 		fillbitmap(bitmap,Machine->pens[0x100],cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,1);
@@ -268,5 +267,5 @@ public class tecmo
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,4);
 	
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

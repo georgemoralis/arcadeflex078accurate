@@ -959,17 +959,15 @@ public class turbo
 	
 	***************************************************************************/
 	
-	VIDEO_EOF( turbo )
-	{
+	public static VideoEofHandlerPtr video_eof_turbo  = new VideoEofHandlerPtr() { public void handler(){
 		/* only do collision checking if we didn't draw */
 		if (!drew_frame)
 			turbo_render(NULL);
 		drew_frame = 0;
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( turbo )
-	{
+	public static VideoUpdateHandlerPtr video_update_turbo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* perform the actual drawing */
 		turbo_render(bitmap);
 	
@@ -978,27 +976,25 @@ public class turbo
 	
 		/* indicate that we drew this frame, so that the eof callback doesn't bother doing anything */
 		drew_frame = 1;
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( subroc3d )
-	{
+	public static VideoUpdateHandlerPtr video_update_subroc3d  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* perform the actual drawing */
 		subroc3d_render(bitmap);
 	
 		/* draw the LEDs for the scores */
 		turbo_update_segments();
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( buckrog )
-	{
+	public static VideoUpdateHandlerPtr video_update_buckrog  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* perform the actual drawing */
 		buckrog_render(bitmap);
 	
 		/* draw the LEDs for the scores */
 		turbo_update_segments();
-	}
+	} };
 	
 	
 	

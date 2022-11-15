@@ -198,8 +198,6 @@ public class slapfght
 	extern unsigned char *slapfight_colorram;
 	extern size_t slapfight_videoram_size;
 	extern unsigned char *slapfight_scrollx_lo,*slapfight_scrollx_hi,*slapfight_scrolly;
-	VIDEO_UPDATE( slapfight );
-	VIDEO_UPDATE( perfrman );
 	WRITE_HANDLER( slapfight_flipscreen_w );
 	WRITE_HANDLER( slapfight_fixram_w );
 	WRITE_HANDLER( slapfight_fixcol_w );
@@ -799,10 +797,9 @@ public class slapfght
 		{ 0, 0 }
 	};
 	
-	static VIDEO_EOF( perfrman )
-	{
+	static public static VideoEofHandlerPtr video_eof_perfrman  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0,0);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( perfrman )
 	

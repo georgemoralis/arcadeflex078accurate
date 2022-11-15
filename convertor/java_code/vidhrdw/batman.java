@@ -205,8 +205,7 @@ public class batman
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( batman )
-	{
+	public static VideoUpdateHandlerPtr video_update_batman  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct atarimo_rect_list rectlist;
 		struct mame_bitmap *mobitmap;
 		int x, y, r;
@@ -319,5 +318,5 @@ public class batman
 						mo[x] = 0;
 					}
 			}
-	}
+	} };
 }

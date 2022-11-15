@@ -56,7 +56,6 @@ public class superpac
 	WRITE_HANDLER( superpac_cpu_enable_w );
 	WRITE_HANDLER( superpac_reset_2_w );
 	
-	VIDEO_UPDATE( superpac );
 	MACHINE_INIT( superpac );
 	PALETTE_INIT( superpac );
 	READ_HANDLER( superpac_flipscreen_r );

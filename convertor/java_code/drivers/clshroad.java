@@ -39,7 +39,6 @@ public class clshroad
 	
 	PALETTE_INIT( firebatl );
 	PALETTE_INIT( clshroad );
-	VIDEO_UPDATE( clshroad );
 	
 	extern unsigned char *wiping_soundregs;
 	int wiping_sh_start(const struct MachineSound *msound);

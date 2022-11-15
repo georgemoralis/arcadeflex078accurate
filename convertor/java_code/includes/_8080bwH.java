@@ -105,9 +105,7 @@ WRITE_HANDLER( helifire_colorram_w );
 WRITE_HANDLER( spaceint_color_w );
 WRITE_HANDLER( cosmo_colorram_w );
 
-VIDEO_UPDATE( 8080bw );
 
-VIDEO_EOF (helifire);
 
 PALETTE_INIT( invadpt2 );
 PALETTE_INIT( helifire );

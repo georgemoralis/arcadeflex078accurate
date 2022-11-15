@@ -66,9 +66,7 @@ public class twin16
 	extern WRITE16_HANDLER( fround_gfx_bank_w );
 	extern WRITE16_HANDLER( twin16_video_register_w );
 	
-	extern extern extern VIDEO_UPDATE( twin16 );
-	extern VIDEO_EOF( twin16 );
-	
+	extern extern extern extern 
 	extern void twin16_spriteram_process( void );
 	
 	UINT16 twin16_custom_vidhrdw;

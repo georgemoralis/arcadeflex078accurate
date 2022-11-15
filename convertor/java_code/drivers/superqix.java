@@ -33,8 +33,7 @@ public class superqix
 	extern WRITE_HANDLER( superqix_0410_w );
 	extern WRITE_HANDLER( superqix_flipscreen_w );
 	
-	extern extern VIDEO_UPDATE( superqix );
-	
+	extern extern 
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

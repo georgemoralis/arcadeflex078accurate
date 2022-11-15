@@ -88,8 +88,7 @@ public class hexa
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( hexa )
-	{
+	public static VideoUpdateHandlerPtr video_update_hexa  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
-	}
+	} };
 }

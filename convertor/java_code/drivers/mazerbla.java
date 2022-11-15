@@ -132,8 +132,7 @@ public class mazerbla
 	#endif
 	
 	#if 0
-	VIDEO_UPDATE( test_vcu )
-	{
+	public static VideoUpdateHandlerPtr video_update_test_vcu  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int j,trueorientation;
 		char buf[128];
 	
@@ -250,13 +249,12 @@ public class mazerbla
 			Machine->orientation = trueorientation;
 		}
 	
-	}
+	} };
 	#endif
 	
 	
-	/* these two VIDEO_UPDATE()s will be joined one day */
-	VIDEO_UPDATE( greatgun )
-	{
+	/* these two public static VideoUpdateHandlerPtr video_update_  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)will be joined one day */
+	public static VideoUpdateHandlerPtr video_update_greatgun  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
 		UINT32 color_base=0;
 	
@@ -272,10 +270,9 @@ public class mazerbla
 		copybitmap(bitmap,tmpbitmaps[2],0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[color_base] );
 		copybitmap(bitmap,tmpbitmaps[1],0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[color_base] );
 		copybitmap(bitmap,tmpbitmaps[0],0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[color_base] );
-	}
+	} };
 	
-	VIDEO_UPDATE( mazerbla )
-	{
+	public static VideoUpdateHandlerPtr video_update_mazerbla  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
 		UINT32 color_base=0;
 	
@@ -291,7 +288,7 @@ public class mazerbla
 		copybitmap(bitmap,tmpbitmaps[2],0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] );
 		copybitmap(bitmap,tmpbitmaps[1],0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] ); //haircross
 		copybitmap(bitmap,tmpbitmaps[0],0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] ); //sprites
-	}
+	} };
 	
 	
 	static UINT8 zpu_int_vector;

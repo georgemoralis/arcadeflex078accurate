@@ -129,8 +129,7 @@ public class flower
 	
 	} };
 	
-	VIDEO_UPDATE( flower )
-	{
+	public static VideoUpdateHandlerPtr video_update_flower  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, get_black_pen(), cliprect);
 	
 		tilemap_set_scrolly(flower_bg0_tilemap,0, flower_sharedram[0x3200]+16);
@@ -143,7 +142,7 @@ public class flower
 		flower_drawsprites(bitmap,cliprect);
 	
 		flower_drawtextlayer(bitmap,cliprect);
-	}
+	} };
 	
 	
 	READ_HANDLER( flower_sharedram_r ) { return flower_sharedram[offset]; }

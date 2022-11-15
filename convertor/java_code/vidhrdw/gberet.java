@@ -280,19 +280,17 @@ public class gberet
 	}
 	
 	
-	VIDEO_UPDATE( gberet )
-	{
+	public static VideoUpdateHandlerPtr video_update_gberet  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_IGNORE_TRANSPARENCY|0,0);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_IGNORE_TRANSPARENCY|1,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( gberetb )
-	{
+	public static VideoUpdateHandlerPtr video_update_gberetb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_IGNORE_TRANSPARENCY|0,0);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_IGNORE_TRANSPARENCY|1,0);
 		draw_sprites_bootleg(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
-	}
+	} };
 }

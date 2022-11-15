@@ -248,10 +248,9 @@ public class _1942
 	
 	}
 	
-	VIDEO_UPDATE( 1942 )
-	{
+	public static VideoUpdateHandlerPtr video_update_1942  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

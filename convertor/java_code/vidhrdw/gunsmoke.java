@@ -159,8 +159,7 @@ public class gunsmoke
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( gunsmoke )
-	{
+	public static VideoUpdateHandlerPtr video_update_gunsmoke  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy;
 		int bg_scrolly, bg_scrollx;
 		unsigned char *p=memory_region(REGION_GFX4);
@@ -301,5 +300,5 @@ public class gunsmoke
 						&Machine->visible_area,TRANSPARENCY_COLOR,79);
 			}
 		}
-	}
+	} };
 }

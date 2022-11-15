@@ -79,7 +79,6 @@ public class suna8
 	WRITE_HANDLER( suna8_spriteram_w );			// for debug
 	WRITE_HANDLER( suna8_banked_spriteram_w );	// for debug
 	
-	VIDEO_UPDATE( suna8 );
 	
 	
 	/***************************************************************************
@@ -416,8 +415,7 @@ public class suna8
 	*/
 	#define TILEMAPS 0
 	
-	VIDEO_UPDATE( suna8 )
-	{
+	public static VideoUpdateHandlerPtr video_update_suna8  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	#ifdef MAME_DEBUG
 	#if TILEMAPS
 	{
@@ -464,5 +462,5 @@ public class suna8
 			suna8_draw_normal_sprites(bitmap,cliprect);
 			suna8_draw_text_sprites(bitmap,cliprect);
 		}
-	}
+	} };
 }

@@ -28,9 +28,7 @@ public class sspeedr
 	extern WRITE_HANDLER( sspeedr_track_vert_w );
 	extern WRITE_HANDLER( sspeedr_track_ice_w );
 	
-	extern extern VIDEO_UPDATE( sspeedr );
-	extern VIDEO_EOF( sspeedr );
-	
+	extern extern extern 
 	static UINT8 led_TIME[2];
 	static UINT8 led_SCORE[24];
 	

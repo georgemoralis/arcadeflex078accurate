@@ -407,7 +407,7 @@ public class grchamp
 		}
 	}
 	
-	VIDEO_UPDATE( grchamp ){
+	public static VideoUpdateHandlerPtr video_update_grchamp  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		int bFog = grchamp_videoreg0&0x40;
 	
 		draw_background( bitmap,cliprect ); /* 3 layers */
@@ -420,7 +420,7 @@ public class grchamp
 	
 		if( grchamp_videoreg0&(0x10|0x40) ){
 			draw_fog( bitmap,cliprect,bFog ); /* grey fog / black tunnel darkness */
-		}
+		} };
 	
 		/* fog covered sprites look like black shadows */
 		if( bFog ) draw_sprites( bitmap,cliprect, bFog );

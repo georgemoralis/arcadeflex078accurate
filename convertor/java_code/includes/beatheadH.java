@@ -9,7 +9,6 @@
 extern data32_t *	beathead_vram_bulk_latch;
 extern data32_t *	beathead_palette_select;
 
-VIDEO_UPDATE( beathead );
 
 void beathead_scanline_update(int scanline);
 

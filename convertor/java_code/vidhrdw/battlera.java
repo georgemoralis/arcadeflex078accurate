@@ -389,10 +389,9 @@ public class battlera
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( battlera )
-	{
+	public static VideoUpdateHandlerPtr video_update_battlera  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Nothing */
-	}
+	} };
 	
 	#if 0
 	static void partial_refresh(struct mame_bitmap *bitmap,int current_line)

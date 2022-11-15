@@ -110,9 +110,6 @@ public class argus
 	extern data8_t *argus_bg1_scrolly;
 	extern data8_t *butasan_bg1ram;
 	
-	VIDEO_UPDATE( argus );
-	VIDEO_UPDATE( valtric );
-	VIDEO_UPDATE( butasan );
 	
 	static data8_t argus_bank_latch   = 0x00;
 	static data8_t butasan_page_latch = 0x00;

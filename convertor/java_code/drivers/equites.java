@@ -201,8 +201,7 @@ public class equites
 	
 	// Equites Hardware
 	extern PALETTE_INIT( equites );
-	extern extern VIDEO_UPDATE( equites );
-	extern READ16_HANDLER(equites_spriteram_r);
+	extern extern extern READ16_HANDLER(equites_spriteram_r);
 	extern WRITE16_HANDLER(equites_charram_w);
 	extern WRITE16_HANDLER(equites_scrollreg_w);
 	extern WRITE16_HANDLER(equites_bgcolor_w);
@@ -210,8 +209,7 @@ public class equites
 	// Splendor Blast Hareware
 	extern MACHINE_INIT( splndrbt );
 	extern PALETTE_INIT( splndrbt );
-	extern extern VIDEO_UPDATE( splndrbt );
-	extern READ16_HANDLER(splndrbt_bankedchar_r);
+	extern extern extern READ16_HANDLER(splndrbt_bankedchar_r);
 	extern WRITE16_HANDLER(splndrbt_charram_w);
 	extern WRITE16_HANDLER(splndrbt_bankedchar_w);
 	extern WRITE16_HANDLER(splndrbt_selchar0_w);

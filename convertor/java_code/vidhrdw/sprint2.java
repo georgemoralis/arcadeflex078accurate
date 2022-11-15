@@ -121,8 +121,7 @@ public class sprint2
 	}
 	
 	
-	VIDEO_UPDATE( sprint2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_sprint2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		tilemap_draw(bitmap, cliprect, tilemap, 0, 0);
@@ -139,11 +138,10 @@ public class sprint2
 				get_sprite_y(i),
 				cliprect, TRANSPARENCY_PEN, 0);
 		}
-	}
+	} };
 	
 	
-	VIDEO_EOF( sprint2 )
-	{
+	public static VideoEofHandlerPtr video_eof_sprint2  = new VideoEofHandlerPtr() { public void handler(){
 		int i;
 		int j;
 	
@@ -213,5 +211,5 @@ public class sprint2
 	
 			collision[i] |= collision_check(&rect);
 		}
-	}
+	} };
 }

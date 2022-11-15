@@ -252,8 +252,7 @@ public class metlclsh
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( metlclsh )
-	{
+	public static VideoUpdateHandlerPtr video_update_metlclsh  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[0x10],cliprect);
 	
 		tilemap_draw(bitmap,cliprect,fg_tilemap,1,0);	// low priority tiles of foreground
@@ -268,6 +267,6 @@ public class metlclsh
 		tilemap_draw(bitmap,cliprect,fg_tilemap,2,0);	// high priority tiles of foreground
 	
 	//	usrintf_showmessage("%02X",metlclsh_scrollx[0]);
-	}
+	} };
 	
 }

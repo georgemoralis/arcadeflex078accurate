@@ -65,7 +65,6 @@ public class aquarium
 	WRITE16_HANDLER( aquarium_mid_videoram_w );
 	WRITE16_HANDLER( aquarium_bak_videoram_w );
 	
-	VIDEO_UPDATE(aquarium);
 	
 	#if AQUARIUS_HACK
 	static MACHINE_INIT( aquarium )

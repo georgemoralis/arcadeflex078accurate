@@ -193,8 +193,7 @@ public class cbasebal
 		}
 	}
 	
-	VIDEO_UPDATE( cbasebal )
-	{
+	public static VideoUpdateHandlerPtr video_update_cbasebal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (bg_on)
 			tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		else
@@ -205,5 +204,5 @@ public class cbasebal
 	
 		if (text_on)
 			tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

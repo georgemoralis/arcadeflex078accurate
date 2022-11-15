@@ -223,8 +223,7 @@ public class zodiack
 		}
 	}
 	
-	VIDEO_UPDATE( zodiack )
-	{
+	public static VideoUpdateHandlerPtr video_update_zodiack  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		for (i = 0; i < 32; i++)
@@ -236,5 +235,5 @@ public class zodiack
 		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
 		zodiack_draw_bullets(bitmap);
 		zodiack_draw_sprites(bitmap);
-	}
+	} };
 }

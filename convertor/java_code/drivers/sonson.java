@@ -62,8 +62,7 @@ public class sonson
 	extern WRITE_HANDLER( sonson_flipscreen_w );
 	
 	extern PALETTE_INIT( sonson );
-	extern extern VIDEO_UPDATE( sonson );
-	
+	extern extern 
 	WRITE_HANDLER( sonson_sh_irqtrigger_w )
 	{
 		static int last;

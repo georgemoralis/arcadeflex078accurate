@@ -62,8 +62,7 @@ public class flyball
 	} };
 	
 	
-	VIDEO_UPDATE( flyball )
-	{
+	public static VideoUpdateHandlerPtr video_update_flyball  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pitcherx = flyball_pitcher_horz;
 		int pitchery = flyball_pitcher_vert - 31;
 	
@@ -99,5 +98,5 @@ public class flyball
 				}
 			}
 		}
-	}
+	} };
 }

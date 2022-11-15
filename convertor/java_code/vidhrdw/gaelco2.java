@@ -486,8 +486,7 @@ public class gaelco2
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( gaelco2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_gaelco2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		/* read scroll values */
@@ -512,10 +511,9 @@ public class gaelco2
 		tilemap_draw(bitmap, cliprect, pant[1], 0, 0);
 		tilemap_draw(bitmap, cliprect, pant[0], 0, 0);
 		gaelco2_draw_sprites(bitmap, cliprect, 0, 0);
-	}
+	} };
 	
-	VIDEO_UPDATE( bang )
-	{
+	public static VideoUpdateHandlerPtr video_update_bang  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    /* standard rendering on this hardware */
 	    video_update_gaelco2(bitmap, cliprect);
 	
@@ -533,13 +531,12 @@ public class gaelco2
 	        posy = readinputport(6)*240/256;
 	        draw_crosshair(bitmap, posx, posy + 0x0c, cliprect);
 	    }
-	}
+	} };
 	
 	
 	#ifdef ONE_MONITOR
 	
-	VIDEO_UPDATE( gaelco2_dual )
-	{
+	public static VideoUpdateHandlerPtr video_update_gaelco2_dual  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		/* read scroll values */
@@ -567,12 +564,11 @@ public class gaelco2
 			tilemap_draw(bitmap,cliprect,pant[0], 0, 0);
 			gaelco2_draw_sprites(bitmap,cliprect, 0x0000, 0);
 		}
-	}
+	} };
 	
 	#else
 	
-	VIDEO_UPDATE( gaelco2_dual )
-	{
+	public static VideoUpdateHandlerPtr video_update_gaelco2_dual  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		/* read scroll values */
@@ -613,13 +609,12 @@ public class gaelco2
 			tilemap_draw(bitmap,&cliprect1,pant[0], 0, 0);
 			gaelco2_draw_sprites(bitmap,&cliprect1, 0x0000, 0);
 		}
-	}
+	} };
 	
 	#endif
 	
-	VIDEO_EOF( gaelco2 )
-	{
+	public static VideoEofHandlerPtr video_eof_gaelco2  = new VideoEofHandlerPtr() { public void handler(){
 		/* sprites are one frame ahead */
 		buffer_spriteram16_w(0, 0, 0);
-	}
+	} };
 }

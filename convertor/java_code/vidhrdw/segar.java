@@ -287,13 +287,12 @@ public class segar
 	"Standard" refresh for games without special background boards.
 	***************************************************************************/
 	
-	VIDEO_UPDATE( segar )
-	{
+	public static VideoUpdateHandlerPtr video_update_segar  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (get_vh_global_attribute_changed())
 			sv.refresh = 1;
 	
 		segar_common_screenrefresh(bitmap, TRANSPARENCY_NONE, TRANSPARENCY_NONE);
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -408,8 +407,7 @@ public class segar
 	Special refresh for Space Odyssey, this code refreshes the static background.
 	***************************************************************************/
 	
-	VIDEO_UPDATE( spaceod )
-	{
+	public static VideoUpdateHandlerPtr video_update_spaceod  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int charcode;
 		int sprite_transparency;
@@ -512,7 +510,7 @@ public class segar
 	
 		/* Refresh the "standard" graphics */
 		segar_common_screenrefresh(bitmap, TRANSPARENCY_NONE, TRANSPARENCY_PEN);
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -570,8 +568,7 @@ public class segar
 	Special refresh for Monster Bash, this code refreshes the static background.
 	***************************************************************************/
 	
-	VIDEO_UPDATE( monsterb )
-	{
+	public static VideoUpdateHandlerPtr video_update_monsterb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int charcode;
 		int sprite_transparency;
@@ -620,7 +617,7 @@ public class segar
 	
 		/* Refresh the "standard" graphics */
 		segar_common_screenrefresh(bitmap, sprite_transparency, TRANSPARENCY_NONE);
-	}
+	} };
 	
 	/***************************************************************************
 	 ---------------------------------------------------------------------------
@@ -745,8 +742,7 @@ public class segar
 	Special refresh for Sinbad Mystery, this code refreshes the static background.
 	***************************************************************************/
 	
-	VIDEO_UPDATE( sindbadm )
-	{
+	public static VideoUpdateHandlerPtr video_update_sindbadm  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int charcode;
 		int sprite_transparency;
@@ -803,6 +799,6 @@ public class segar
 		/* Refresh the "standard" graphics */
 		segar_common_screenrefresh(bitmap, sprite_transparency, TRANSPARENCY_NONE);
 	
-	}
+	} };
 	
 }

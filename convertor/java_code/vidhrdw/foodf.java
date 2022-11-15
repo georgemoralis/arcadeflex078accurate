@@ -112,8 +112,7 @@ public class foodf
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( foodf )
-	{
+	public static VideoUpdateHandlerPtr video_update_foodf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		/* draw the playfield */
@@ -139,5 +138,5 @@ public class foodf
 			drawgfx(bitmap, Machine->gfx[1], pict, color, hflip, vflip,
 					xpos - 256, ypos, cliprect, TRANSPARENCY_PEN, 0);
 		}
-	}
+	} };
 }

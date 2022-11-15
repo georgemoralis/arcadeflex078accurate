@@ -188,8 +188,7 @@ public class ninjakd2
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( ninjakd2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_ninjakd2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int scrollx,scrolly;
 	
 		if (bg_enable)
@@ -212,5 +211,5 @@ public class ninjakd2
 			ninjakd2_draw_foreground(bitmap);
 		}
 	
-	}
+	} };
 }

@@ -383,8 +383,7 @@ public class deniam
 		}
 	}
 	
-	VIDEO_UPDATE( deniam )
-	{
+	public static VideoUpdateHandlerPtr video_update_deniam  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int bg_scrollx,bg_scrolly,fg_scrollx,fg_scrolly;
 		int page;
 	
@@ -419,5 +418,5 @@ public class deniam
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,4);
 	
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

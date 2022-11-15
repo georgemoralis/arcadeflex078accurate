@@ -528,26 +528,23 @@ public class nmk16
 		}
 	}
 	
-	VIDEO_UPDATE( macross )
-	{
+	public static VideoUpdateHandlerPtr video_update_macross  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(tx_tilemap,0,-videoshift);
 	
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect,0,0);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( manybloc )
-	{
+	public static VideoUpdateHandlerPtr video_update_manybloc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(tx_tilemap,0,-videoshift);
 	
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		manybloc_draw_sprites(bitmap,cliprect,0,0);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( gunnail )
-	{
+	public static VideoUpdateHandlerPtr video_update_gunnail  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		for (i = 0;i < 256;i++)
@@ -555,10 +552,9 @@ public class nmk16
 		tilemap_set_scrolly(bg_tilemap,0,gunnail_scrolly);
 	
 		video_update_macross(bitmap,cliprect);
-	}
+	} };
 	
-	VIDEO_UPDATE( bioship )
-	{
+	public static VideoUpdateHandlerPtr video_update_bioship  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		data16_t *tilerom = (data16_t *)memory_region(REGION_GFX5);
 		int scrollx=-(bioship_scroll[1] + bioship_scroll[0]*256);
 		int scrolly=-(bioship_scroll[3] + bioship_scroll[2]*256);
@@ -604,30 +600,27 @@ public class nmk16
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect,0,0);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( strahl )
-	{
+	public static VideoUpdateHandlerPtr video_update_strahl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(tx_tilemap,0,-videoshift);
 	
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect,0,0);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( bjtwin )
-	{
+	public static VideoUpdateHandlerPtr video_update_bjtwin  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap,0,-videoshift);
 	
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect,0,0);
-	}
+	} };
 	
-	VIDEO_EOF( nmk )
-	{
+	public static VideoEofHandlerPtr video_eof_nmk  = new VideoEofHandlerPtr() { public void handler(){
 		/* looks like sprites are *two* frames ahead */
 		memcpy(spriteram_old2,spriteram_old,spriteram_size);
 		memcpy(spriteram_old,spriteram16,spriteram_size);
-	}
+	} };
 }

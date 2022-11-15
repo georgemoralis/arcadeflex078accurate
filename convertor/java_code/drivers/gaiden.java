@@ -139,8 +139,6 @@ public class gaiden
 	extern int raiga_alpha;
 	
 	
-	VIDEO_UPDATE( gaiden );
-	VIDEO_UPDATE( raiga );
 	
 	WRITE16_HANDLER( gaiden_videoram_w );
 	WRITE16_HANDLER( gaiden_videoram2_w );

@@ -372,8 +372,7 @@ public class taitoair
 		}
 	}
 	
-	VIDEO_UPDATE( taitoair )
-	{
+	public static VideoUpdateHandlerPtr video_update_taitoair  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		TC0080VCO_tilemap_update();
 	
 		fillbitmap(bitmap, Machine->pens[0x41], cliprect);
@@ -424,5 +423,5 @@ public class taitoair
 				fill_poly(bitmap, &q);
 			}
 		}
-	}
+	} };
 }

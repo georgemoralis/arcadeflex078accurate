@@ -31,7 +31,6 @@ public class fromanc2
 {
 	
 	
-	VIDEO_UPDATE( fromanc2 );
 	
 	READ16_HANDLER( fromanc2_paletteram_0_r );
 	READ16_HANDLER( fromanc2_paletteram_1_r );

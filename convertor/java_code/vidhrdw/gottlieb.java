@@ -200,8 +200,7 @@ public class gottlieb
 		}
 	}
 	
-	VIDEO_UPDATE( gottlieb )
-	{
+	public static VideoUpdateHandlerPtr video_update_gottlieb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (!background_priority)
 		{
 			tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, TILEMAP_IGNORE_TRANSPARENCY, 0);
@@ -217,5 +216,5 @@ public class gottlieb
 		{
 			tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		}
-	}
+	} };
 }

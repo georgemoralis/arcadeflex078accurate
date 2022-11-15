@@ -383,22 +383,19 @@ public class lasso
 	}
 	
 	
-	VIDEO_UPDATE( lasso )
-	{
+	public static VideoUpdateHandlerPtr video_update_lasso  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		draw_lasso  (bitmap);
 		draw_sprites(bitmap, cliprect, 0);
-	}
+	} };
 	
-	VIDEO_UPDATE( chameleo )
-	{
+	public static VideoUpdateHandlerPtr video_update_chameleo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		draw_sprites(bitmap, cliprect, 0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( wwjgtin )
-	{
+	public static VideoUpdateHandlerPtr video_update_wwjgtin  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(track_tilemap,0,wwjgtin_track_scroll[0] + wwjgtin_track_scroll[1]*256);
 		tilemap_set_scrolly(track_tilemap,0,wwjgtin_track_scroll[2] + wwjgtin_track_scroll[3]*256);
 	
@@ -409,5 +406,5 @@ public class lasso
 	
 		draw_sprites(bitmap, cliprect, 1);	// reverse order
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
-	}
+	} };
 }

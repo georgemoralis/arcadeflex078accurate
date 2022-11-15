@@ -97,7 +97,6 @@ package drivers;
 public class system24
 {
 	
-	VIDEO_UPDATE(system24);
 	
 	
 	// Floppy Fisk Controller

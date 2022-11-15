@@ -355,8 +355,7 @@ public class mpatrol
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( mpatrol )
-	{
+	public static VideoUpdateHandlerPtr video_update_mpatrol  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,i;
 	
 	
@@ -500,5 +499,5 @@ public class mpatrol
 					sx,sy,
 					&Machine->visible_area,TRANSPARENCY_COLOR,128+32);
 		}
-	}
+	} };
 }

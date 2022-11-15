@@ -81,8 +81,7 @@ public class bombjack
 	extern WRITE_HANDLER( bombjack_background_w );
 	extern WRITE_HANDLER( bombjack_flipscreen_w );
 	
-	extern extern VIDEO_UPDATE( bombjack );
-	
+	extern extern 
 	
 	static int latch;
 	

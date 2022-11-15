@@ -34,7 +34,6 @@ public class skyfox
 	
 	PALETTE_INIT( skyfox );
 	
-	VIDEO_UPDATE( skyfox );
 	
 	
 	/***************************************************************************

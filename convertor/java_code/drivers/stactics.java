@@ -61,7 +61,6 @@ public class stactics
 	extern unsigned char *stactics_motor_on;
 	
 	/* Defined in vidhrdw/stactics.c */
-	VIDEO_UPDATE( stactics );
 	extern unsigned char *stactics_scroll_ram;
 	extern unsigned char *stactics_videoram_b;
 	extern unsigned char *stactics_chardata_b;

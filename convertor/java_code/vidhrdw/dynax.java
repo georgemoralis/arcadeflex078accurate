@@ -808,8 +808,7 @@ public class dynax
 	}
 	
 	
-	VIDEO_UPDATE( hanamai )
-	{
+	public static VideoUpdateHandlerPtr video_update_hanamai  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = ~dynax_layer_enable;
 		int lay[4];
 	
@@ -845,11 +844,10 @@ public class dynax
 		if (layers_ctrl & (1 << lay[1]))	hanamai_copylayer( bitmap, cliprect, lay[1] );
 		if (layers_ctrl & (1 << lay[2]))	hanamai_copylayer( bitmap, cliprect, lay[2] );
 		if (layers_ctrl & (1 << lay[3]))	hanamai_copylayer( bitmap, cliprect, lay[3] );
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( hnoridur )
-	{
+	public static VideoUpdateHandlerPtr video_update_hnoridur  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = ~BITSWAP8(hanamai_priority, 7,6,5,4, 0,1,2,3);
 		int lay[4];
 	
@@ -880,11 +878,10 @@ public class dynax
 		if (layers_ctrl & (1 << lay[3]))	hanamai_copylayer( bitmap, cliprect, lay[3] );
 	
 	//	usrintf_showmessage("(%04x %02x %02x)(%x %02x-%02x e %02x-%02x f%d)",dynax_blit_palettes,dynax_blit_palbank,hanamai_priority,dynax_blit_scroll_high,dynax_blit_scroll_x, dynax_blit_scroll_y,extra_scroll_x,extra_scroll_y,flipscreen);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( sprtmtch )
-	{
+	public static VideoUpdateHandlerPtr video_update_sprtmtch  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = ~dynax_layer_enable;
 	
 		layers_ctrl &= debug_mask();
@@ -897,11 +894,10 @@ public class dynax
 		if (layers_ctrl & 1)	hanamai_copylayer( bitmap, cliprect, 0 );
 		if (layers_ctrl & 2)	hanamai_copylayer( bitmap, cliprect, 1 );
 		if (layers_ctrl & 4)	hanamai_copylayer( bitmap, cliprect, 2 );
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( mjdialq2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_mjdialq2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = ~dynax_layer_enable;
 	
 		layers_ctrl &= debug_mask();
@@ -913,5 +909,5 @@ public class dynax
 	
 		if (layers_ctrl & 1)	mjdialq2_copylayer( bitmap, cliprect, 0 );
 		if (layers_ctrl & 2)	mjdialq2_copylayer( bitmap, cliprect, 1 );
-	}
+	} };
 }

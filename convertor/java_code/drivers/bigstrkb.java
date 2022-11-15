@@ -41,7 +41,6 @@ public class bigstrkb
 	WRITE16_HANDLER( bsb_videoram_w );
 	WRITE16_HANDLER( bsb_videoram2_w );
 	WRITE16_HANDLER( bsb_videoram3_w );
-	VIDEO_UPDATE(bigstrkb);
 	
 	
 	/* Memory Maps */

@@ -32,8 +32,7 @@ public class system24
 		return default_pri[l2] - default_pri[l1];
 	}
 	
-	VIDEO_UPDATE(system24)
-	{
+	public static VideoUpdateHandlerPtr video_update_system24  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i, level;
 		int order[12], spri[4];
 	
@@ -61,5 +60,5 @@ public class system24
 			}
 	
 		sys24_sprite_draw(bitmap, cliprect, spri);
-	}
+	} };
 }

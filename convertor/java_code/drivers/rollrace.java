@@ -16,7 +16,6 @@ public class rollrace
 {
 	
 	
-	VIDEO_UPDATE( rollrace );
 	PALETTE_INIT( wiz );
 	
 	WRITE_HANDLER( rollrace_charbank_w );

@@ -47,7 +47,6 @@ public class ambush
 	extern unsigned char *ambush_colorbank;
 	
 	PALETTE_INIT( ambush );
-	VIDEO_UPDATE( ambush );
 	
 	
 	static WRITE_HANDLER( ambush_coin_counter_w )

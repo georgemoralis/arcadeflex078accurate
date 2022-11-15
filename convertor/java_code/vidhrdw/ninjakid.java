@@ -264,8 +264,7 @@ public class ninjakid
 		} };
 	}
 	
-	VIDEO_UPDATE( ninjakid )
-	{
+	public static VideoUpdateHandlerPtr video_update_ninjakid  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,chr,col,px,py,x,y;
 	
 		tilemap_draw( bitmap,cliprect,bg_tilemap,0,0 );
@@ -306,5 +305,5 @@ public class ninjakid
 		}
 	
 	
-	}
+	} };
 }

@@ -151,10 +151,9 @@ public class ladyfrog
 	} };
 	
 	
-	VIDEO_UPDATE( ladyfrog )
-	{
+	public static VideoUpdateHandlerPtr video_update_ladyfrog  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    tilemap_draw(bitmap,cliprect,tilemap,0,0);
 	    ladyfrog_draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
 }

@@ -336,8 +336,7 @@ public class realbrk
 		}
 	}
 	
-	VIDEO_UPDATE(realbrk)
-	{
+	public static VideoUpdateHandlerPtr video_update_realbrk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 		tilemap_set_scrolly(tilemap_0, 0, realbrk_vregs[0x0/2]);
@@ -372,5 +371,5 @@ public class realbrk
 		if (layers_ctrl & 4)	tilemap_draw(bitmap,cliprect,tilemap_2,0,0);
 	
 	//	usrintf_showmessage("%04x",realbrk_vregs[0x8/2]);
-	}
+	} };
 }

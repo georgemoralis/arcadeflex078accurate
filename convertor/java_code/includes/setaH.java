@@ -32,8 +32,6 @@ PALETTE_INIT( usclssic );
 PALETTE_INIT( zingzip );
 
 
-VIDEO_UPDATE( seta );
-VIDEO_UPDATE( seta_no_layers );
 
 
 /* Variables and functions defined in vidhrdw/seta2.c */
@@ -42,8 +40,6 @@ extern data16_t *seta2_vregs;
 
 WRITE16_HANDLER( seta2_vregs_w );
 
-VIDEO_UPDATE( seta2 );
-VIDEO_EOF( seta2 );
 
 
 /* Variables and functions defined in sndhrdw/seta.c */
@@ -66,4 +62,3 @@ WRITE16_HANDLER( ssv_scroll_w );
 WRITE16_HANDLER( paletteram16_xrgb_swap_word_w );
 void ssv_enable_video(int enable);
 
-VIDEO_UPDATE( ssv );

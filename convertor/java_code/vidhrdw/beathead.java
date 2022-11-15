@@ -219,8 +219,7 @@ public class beathead
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( beathead )
-	{
+	public static VideoUpdateHandlerPtr video_update_beathead  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 	
 		/* generate the final screen */
@@ -236,5 +235,5 @@ public class beathead
 			/* then draw it */
 			draw_scanline8(bitmap, cliprect->min_x, y, cliprect->max_x - cliprect->min_x + 1, &scanline[cliprect->min_x], &Machine->pens[scanline_palette[y] * 256], -1);
 		}
-	}
+	} };
 }

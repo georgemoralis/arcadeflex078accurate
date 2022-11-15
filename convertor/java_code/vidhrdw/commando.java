@@ -167,15 +167,13 @@ public class commando
 		}
 	}
 	
-	VIDEO_UPDATE( commando )
-	{
+	public static VideoUpdateHandlerPtr video_update_commando  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_EOF( commando )
-	{
+	public static VideoEofHandlerPtr video_eof_commando  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0,0);
-	}
+	} };
 }

@@ -58,8 +58,7 @@ public class toki
 	}
 	
 	/* At EOF clear the previous frames scroll registers */
-	VIDEO_EOF( toki )
-	{
+	public static VideoEofHandlerPtr video_eof_toki  = new VideoEofHandlerPtr() { public void handler(){
 		int i;
 	
 		toki_background_xscroll[0]=((toki_scrollram16[0x16] &0x7f) << 1)
@@ -73,12 +72,11 @@ public class toki
 			toki_background_xscroll[i]=toki_foreground_xscroll[i]=0xffff;
 	
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 	
-	VIDEO_EOF( tokib )
-	{
+	public static VideoEofHandlerPtr video_eof_tokib  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 	
 	static void get_text_tile_info(int tile_index)
 	{
@@ -308,8 +306,7 @@ public class toki
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( toki )
-	{
+	public static VideoUpdateHandlerPtr video_update_toki  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i,background_y_scroll,foreground_y_scroll,latch1,latch2;
 	
 		background_y_scroll=((toki_scrollram16[0x0d]&0x10)<<4)+((toki_scrollram16[0x0e]&0x7f)<<1)+((toki_scrollram16[0x0e]&0x80)>>7);
@@ -340,10 +337,9 @@ public class toki
 		}
 		toki_draw_sprites (bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( tokib )
-	{
+	public static VideoUpdateHandlerPtr video_update_tokib  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scroll_rows(foreground_layer,1);
 		tilemap_set_scroll_rows(background_layer,1);
 		tilemap_set_scrolly( background_layer, 0, toki_scrollram16[0]+1 );
@@ -361,5 +357,5 @@ public class toki
 	
 		tokib_draw_sprites (bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 }

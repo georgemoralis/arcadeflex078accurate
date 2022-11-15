@@ -63,9 +63,8 @@ public class sbrkout
 		}
 	}
 	
-	VIDEO_UPDATE( sbrkout )
-	{
+	public static VideoUpdateHandlerPtr video_update_sbrkout  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		sbrkout_draw_balls(bitmap);
-	}
+	} };
 }

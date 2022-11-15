@@ -125,8 +125,7 @@ public class topspeed
 	
 	/***************************************************************************/
 	
-	VIDEO_UPDATE( topspeed )
-	{
+	public static VideoUpdateHandlerPtr video_update_topspeed  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[4];
 	
 	#ifdef MAME_DEBUG
@@ -201,7 +200,7 @@ public class topspeed
 	#endif
 	
 		topspeed_draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
 	
 }

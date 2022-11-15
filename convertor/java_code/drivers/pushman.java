@@ -30,7 +30,6 @@ package drivers;
 public class pushman
 {
 	
-	VIDEO_UPDATE( pushman );
 	WRITE16_HANDLER( pushman_scroll_w );
 	WRITE16_HANDLER( pushman_videoram_w );
 	

@@ -101,9 +101,6 @@ public class m72
 	WRITE_HANDLER( m72_port02_w );
 	WRITE_HANDLER( rtype2_port02_w );
 	WRITE_HANDLER( majtitle_gfx_ctrl_w );
-	VIDEO_UPDATE( m72 );
-	VIDEO_UPDATE( majtitle );
-	VIDEO_EOF( m72 );
 	
 	
 	static unsigned char *protection_ram;

@@ -112,10 +112,9 @@ public class nitedrvr
 					&Machine->visible_area,TRANSPARENCY_NONE,0);
 	}
 	
-	VIDEO_UPDATE( nitedrvr )
-	{
+	public static VideoUpdateHandlerPtr video_update_nitedrvr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		nitedrvr_draw_road(bitmap);
 		//nitedrvr_draw_hacks(bitmap);
-	}
+	} };
 }

@@ -227,8 +227,7 @@ public class snk
 		}
 	}
 	
-	VIDEO_UPDATE( tnk3 )
-	{
+	public static VideoUpdateHandlerPtr video_update_tnk3  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		unsigned char *ram = memory_region(REGION_CPU1);
 		int attributes = ram[0xc800];
 		/*
@@ -267,7 +266,7 @@ public class snk
 			tnk3_draw_text( bitmap, bank, &ram[0xf800] );
 			tnk3_draw_status( bitmap, bank, &ram[0xfc00] );
 		}
-	}
+	} };
 	
 	/************************************************************************************/
 	
@@ -307,8 +306,7 @@ public class snk
 		copyscrollbitmap(bitmap,tmpbitmap,1,&scrollx,1,&scrolly,clip,TRANSPARENCY_NONE,0);
 	}
 	
-	VIDEO_UPDATE( sgladiat )
-	{
+	public static VideoUpdateHandlerPtr video_update_sgladiat  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		unsigned char *pMem = memory_region(REGION_CPU1);
 		int attributes, scrollx, scrolly;
 	
@@ -327,7 +325,7 @@ public class snk
 		tnk3_draw_sprites( bitmap, scrollx, scrolly );
 	
 		tnk3_draw_text( bitmap, 0, &pMem[0xf000] );
-	}
+	} };
 	
 	/**************************************************************************************/
 	
@@ -370,8 +368,7 @@ public class snk
 		}
 	}
 	
-	VIDEO_UPDATE( ikari )
-	{
+	public static VideoUpdateHandlerPtr video_update_ikari  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		unsigned char *ram = memory_region(REGION_CPU1);
 	
 		{
@@ -397,7 +394,7 @@ public class snk
 	
 		tnk3_draw_text( bitmap, -1, &ram[0xf800] );
 		tnk3_draw_status( bitmap, -1, &ram[0xfc00] );
-	}
+	} };
 	
 	/**************************************************************/
 	
@@ -541,8 +538,7 @@ public class snk
 	
 	/**************************************************************/
 	
-	VIDEO_UPDATE( tdfever )
-	{
+	public static VideoUpdateHandlerPtr video_update_tdfever  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		const unsigned char *ram = memory_region(REGION_CPU1);
 		int i;
 	
@@ -581,10 +577,9 @@ public class snk
 		tdfever_draw_sp( bitmap, sp_scroll_x, sp_scroll_y, 0 );
 	
 		tdfever_draw_tx( bitmap, tx_attributes, 0, 0, 0xf800 );
-	}
+	} };
 	
-	VIDEO_UPDATE( gwar )
-	{
+	public static VideoUpdateHandlerPtr video_update_gwar  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		const unsigned char *ram = memory_region(REGION_CPU1);
 		int gwar_sp_baseaddr, gwar_tx_baseaddr;
 		unsigned char bg_attribute;
@@ -653,5 +648,5 @@ public class snk
 			unsigned char text_attribute = ram[gwar_sp_baseaddr+0x8c0];
 			tdfever_draw_tx( bitmap, text_attribute, 0, 0, gwar_tx_baseaddr );
 		}
-	}
+	} };
 }

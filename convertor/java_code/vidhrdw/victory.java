@@ -1183,8 +1183,7 @@ public class victory
 	 *
 	 *************************************/
 	
-	VIDEO_EOF( victory )
-	{
+	public static VideoEofHandlerPtr video_eof_victory  = new VideoEofHandlerPtr() { public void handler(){
 		int bgcollmask = (video_control & 4) ? 4 : 7;
 		int count = 0;
 		int x, y;
@@ -1217,7 +1216,7 @@ public class victory
 					timer_set(pixel_time(x, y), x | (y << 8), bgcoll_irq_callback);
 			}
 		}
-	}
+	} };
 	
 	
 	
@@ -1227,8 +1226,7 @@ public class victory
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( victory )
-	{
+	public static VideoUpdateHandlerPtr video_update_victory  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int bgcollmask = (video_control & 4) ? 4 : 7;
 		int count = 0;
 		int x, y;
@@ -1261,5 +1259,5 @@ public class victory
 	
 		/* indicate that we already did collision detection */
 		update_complete = 1;
-	}
+	} };
 }

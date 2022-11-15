@@ -101,8 +101,7 @@ public class terracre
 	extern WRITE16_HANDLER( amazon_scrolly_w );
 	extern WRITE16_HANDLER( amazon_scrollx_w );
 	extern WRITE16_HANDLER( amazon_flipscreen_w );
-	extern extern VIDEO_UPDATE( amazon );
-	
+	extern extern 
 	static const data16_t mAmazonProtData[] =
 	{
 		/* default high scores (0x40db4) - wrong data ? */

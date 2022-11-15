@@ -440,8 +440,7 @@ public class namcos21
 		}
 	} /* update_palette */
 	
-	VIDEO_UPDATE( namcos21_default )
-	{
+	public static VideoUpdateHandlerPtr video_update_namcos21_default  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pri;
 	
 		update_palette();
@@ -512,5 +511,5 @@ public class namcos21
 				namcos21_dspram16[0x10e/2] = 0; /* ack */
 			}
 		}
-	} /* namcos21_default */
+	} }; /* namcos21_default */
 }

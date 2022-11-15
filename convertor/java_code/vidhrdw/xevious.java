@@ -450,10 +450,9 @@ public class xevious
 	}
 	
 	
-	VIDEO_UPDATE( xevious )
-	{
+	public static VideoUpdateHandlerPtr video_update_xevious  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

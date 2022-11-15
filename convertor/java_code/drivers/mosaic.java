@@ -21,7 +21,6 @@ public class mosaic
 	extern data8_t *mosaic_bgvideoram;
 	WRITE_HANDLER( mosaic_fgvideoram_w );
 	WRITE_HANDLER( mosaic_bgvideoram_w );
-	VIDEO_UPDATE( mosaic );
 	
 	
 	

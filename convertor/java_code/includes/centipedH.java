@@ -13,9 +13,6 @@ PALETTE_INIT( milliped );
 PALETTE_INIT( warlords );
 
 
-VIDEO_UPDATE( centiped );
-VIDEO_UPDATE( warlords );
-VIDEO_UPDATE( qwakprot );
 
 WRITE_HANDLER( centiped_paletteram_w );
 WRITE_HANDLER( milliped_paletteram_w );

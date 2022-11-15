@@ -26,7 +26,6 @@ public class finalizr
 	
 	PALETTE_INIT( finalizr );
 	WRITE_HANDLER( finalizr_videoctrl_w );
-	VIDEO_UPDATE( finalizr );
 	
 	
 	

@@ -18,4 +18,3 @@ WRITE_HANDLER( jrpacman_colortablebank_w );
 WRITE_HANDLER( jrpacman_charbank_w );
 WRITE_HANDLER( jrpacman_flipscreen_w );
 
-VIDEO_UPDATE( jrpacman );

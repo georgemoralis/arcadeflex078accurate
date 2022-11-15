@@ -70,8 +70,7 @@ public class bishi
 		SWAP(2,3)
 	}
 	
-	VIDEO_UPDATE(bishi)
-	{
+	public static VideoUpdateHandlerPtr video_update_bishi  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers[4], i;/*, old;*/
 	/*	int bg_colorbase, new_colorbase, plane, dirty; */
 		int pris[4] = { K55_PRIINP_0, K55_PRIINP_3, K55_PRIINP_6, K55_PRIINP_7 };
@@ -97,5 +96,5 @@ public class bishi
 				K056832_tilemap_draw(bitmap, cliprect, layers[i], 0, 1<<i);
 			}
 		}
-	}
+	} };
 }

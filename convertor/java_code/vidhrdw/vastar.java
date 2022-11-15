@@ -197,8 +197,7 @@ public class vastar
 		}
 	}
 	
-	VIDEO_UPDATE( vastar )
-	{
+	public static VideoUpdateHandlerPtr video_update_vastar  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 	
@@ -236,5 +235,5 @@ public class vastar
 			logerror("Unimplemented priority %X\n", *vastar_sprite_priority);
 			break;
 		}
-	}
+	} };
 }

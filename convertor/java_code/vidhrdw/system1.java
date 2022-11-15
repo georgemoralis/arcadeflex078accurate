@@ -512,8 +512,7 @@ public class system1
 		}
 	}
 	
-	VIDEO_UPDATE( system1 )
-	{
+	public static VideoUpdateHandlerPtr video_update_system1  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int drawn;
 	
 	
@@ -528,7 +527,7 @@ public class system1
 		/* even if screen is off, sprites must still be drawn to update the collision table */
 		if (system1_video_mode & 0x10)  /* screen off */
 			fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
-	}
+	} };
 	
 	
 	
@@ -652,8 +651,7 @@ public class system1
 		}
 	}
 	
-	VIDEO_UPDATE( choplifter )
-	{
+	public static VideoUpdateHandlerPtr video_update_choplifter  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int drawn;
 	
 	
@@ -676,7 +674,7 @@ public class system1
 			memory_region(REGION_CPU1)[0xC085]=33;
 		}
 	#endif
-	}
+	} };
 	
 	
 	
@@ -789,8 +787,7 @@ public class system1
 	}
 	
 	
-	VIDEO_UPDATE( wbml )
-	{
+	public static VideoUpdateHandlerPtr video_update_wbml  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		wbml_draw_bg(bitmap,0);
 		draw_sprites(bitmap);
 		wbml_draw_bg(bitmap,1);
@@ -799,10 +796,9 @@ public class system1
 		/* even if screen is off, sprites must still be drawn to update the collision table */
 		if (system1_video_mode & 0x10)  /* screen off */
 			fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
-	}
+	} };
 	
-	VIDEO_UPDATE( blockgal )
-	{
+	public static VideoUpdateHandlerPtr video_update_blockgal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int drawn;
 	
 	
@@ -821,5 +817,5 @@ public class system1
 			fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
 	
 		blockgal_kludgeoffset = 0;
-	}
+	} };
 }

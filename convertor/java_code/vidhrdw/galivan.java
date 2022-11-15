@@ -406,8 +406,7 @@ public class galivan
 	}
 	
 	
-	VIDEO_UPDATE( galivan )
-	{
+	public static VideoUpdateHandlerPtr video_update_galivan  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap,0,scrollx[0] + 256 * (scrollx[1] & 0x07));
 		tilemap_set_scrolly(bg_tilemap,0,scrolly[0] + 256 * (scrolly[1] & 0x07));
 	
@@ -421,10 +420,9 @@ public class galivan
 		draw_sprites(bitmap,cliprect);
 	
 		tilemap_draw(bitmap,cliprect,tx_tilemap,1,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( ninjemak )
-	{
+	public static VideoUpdateHandlerPtr video_update_ninjemak  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* (scrollx[1] & 0x40) does something */
 		tilemap_set_scrollx(bg_tilemap,0,scrollx[0] + 256 * (scrollx[1] & 0x1f));
 		tilemap_set_scrolly(bg_tilemap,0,scrolly[0] + 256 * (scrolly[1] & 0xff));
@@ -437,5 +435,5 @@ public class galivan
 		draw_sprites(bitmap,cliprect);
 	
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 }

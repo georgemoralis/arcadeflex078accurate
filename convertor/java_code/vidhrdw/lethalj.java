@@ -196,8 +196,7 @@ public class lethalj
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( lethalj )
-	{
+	public static VideoUpdateHandlerPtr video_update_lethalj  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int beamx, beamy;
 		
 		/* blank palette: fill with white */
@@ -227,5 +226,5 @@ public class lethalj
 	
 		if (cliprect->max_y == Machine->visible_area.max_y)
 			blank_palette = 0;
-	}
+	} };
 }

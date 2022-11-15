@@ -259,8 +259,7 @@ public class armedf
 	
 	
 	
-	VIDEO_UPDATE( armedf )
-	{
+	public static VideoUpdateHandlerPtr video_update_armedf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int sprite_enable = armedf_vreg & 0x200;
 	
 		tilemap_set_enable( bg_tilemap, armedf_vreg&0x800 );
@@ -319,10 +318,9 @@ public class armedf
 			}
 			tilemap_mark_all_tiles_dirty( tx_tilemap );
 		}
-	}
+	} };
 	
-	VIDEO_EOF( armedf )
-	{
+	public static VideoEofHandlerPtr video_eof_armedf  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 }

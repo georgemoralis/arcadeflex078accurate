@@ -21,4 +21,3 @@ READ_HANDLER( crgolf_videoram_bit1_r );
 READ_HANDLER( crgolf_videoram_bit2_r );
 
 PALETTE_INIT( crgolf );
-VIDEO_UPDATE( crgolf );

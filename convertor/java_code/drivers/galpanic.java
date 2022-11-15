@@ -109,8 +109,6 @@ public class galpanic
 	PALETTE_INIT( galpanic );
 	WRITE16_HANDLER( galpanic_bgvideoram_w );
 	WRITE16_HANDLER( galpanic_paletteram_w );
-	VIDEO_UPDATE( galpanic );
-	VIDEO_UPDATE( comad );
 	
 	
 	

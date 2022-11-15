@@ -144,9 +144,8 @@ public class mustache
 		}
 	}
 	
-	VIDEO_UPDATE( mustache )
-	{
+	public static VideoUpdateHandlerPtr video_update_mustache  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		mustache_draw_sprites(bitmap, cliprect);
-	}
+	} };
 }

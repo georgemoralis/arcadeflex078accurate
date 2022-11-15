@@ -88,8 +88,7 @@ public class mjsister
 		}
 	}
 	
-	VIDEO_UPDATE( mjsister )
-	{
+	public static VideoUpdateHandlerPtr video_update_mjsister  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int f = mjsister_flip_screen;
 		int i,j;
 	
@@ -119,5 +118,5 @@ public class mjsister
 		}
 		else
 			fillbitmap(bitmap, get_black_pen(), &Machine->visible_area);
-	}
+	} };
 }

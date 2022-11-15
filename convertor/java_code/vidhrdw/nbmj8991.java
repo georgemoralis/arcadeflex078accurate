@@ -375,8 +375,7 @@ public class nbmj8991
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( pstadium )
-	{
+	public static VideoUpdateHandlerPtr video_update_pstadium  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		int color;
 	
@@ -405,10 +404,9 @@ public class nbmj8991
 		{
 			fillbitmap(bitmap, Machine->pens[0x00], 0);
 		}
-	}
+	} };
 	
-	VIDEO_UPDATE( galkoku )
-	{
+	public static VideoUpdateHandlerPtr video_update_galkoku  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		int color;
 	
@@ -437,5 +435,5 @@ public class nbmj8991
 		{
 			fillbitmap(bitmap, Machine->pens[0x00], 0);
 		}
-	}
+	} };
 }

@@ -23,6 +23,9 @@ public class convertMame {
     static final int INPUTPORTS = 1;
     static final int INTERRUPT = 2;
     static final int VIDEO_START = 3;
+    static final int VIDEO_STOP = 4;
+    static final int VIDEO_UPDATE = 5;
+    static final int VIDEO_EOF = 6;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -332,12 +335,85 @@ public class convertMame {
                             continue;
                         }
                     }
+                    if (sUtil.getToken("VIDEO_STOP")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static VideoStopHandlerPtr video_stop_" + Convertor.token[0] + "  = new VideoStopHandlerPtr() { public void handler()");
+                            type = VIDEO_STOP;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("VIDEO_UPDATE")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static VideoUpdateHandlerPtr video_update_" + Convertor.token[0] + "  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)");
+                            type = VIDEO_UPDATE;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("VIDEO_EOF")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static VideoEofHandlerPtr video_eof_" + Convertor.token[0] + "  = new VideoEofHandlerPtr() { public void handler()");
+                            type = VIDEO_EOF;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
                 case '{': {
                     i = Convertor.inpos;
-                    if (type == INTERRUPT || type == VIDEO_START) {
+                    if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
+                            || type == VIDEO_EOF) {
                         i3++;
                     }
                 }
@@ -345,7 +421,8 @@ public class convertMame {
                 break;
                 case '}': {
                     i = Convertor.inpos;
-                    if (type == INTERRUPT || type == VIDEO_START) {
+                    if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
+                            || type == VIDEO_EOF) {
                         i3--;
                         if (i3 == -1) {
                             sUtil.putString("} };");

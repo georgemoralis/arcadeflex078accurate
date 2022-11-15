@@ -15,10 +15,9 @@ public class grtwall
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(grtwall)
-	{
+	public static VideoUpdateHandlerPtr video_update_grtwall  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
-	}
+	} };
 	static MEMORY_READ16_START( grtwall_readmem )
 		{ 0x000000, 0x07ffff, MRA16_ROM },
 		{ 0x100000, 0x103fff, MRA16_RAM },

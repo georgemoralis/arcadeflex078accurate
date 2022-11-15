@@ -50,9 +50,8 @@ public class mayumi
 		return mayumi_videoram[offset];
 	}
 	
-	VIDEO_UPDATE( mayumi )
-	{
+	public static VideoUpdateHandlerPtr video_update_mayumi  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, mayumi_tilemap, 0, 0);
-	}
+	} };
 	
 }

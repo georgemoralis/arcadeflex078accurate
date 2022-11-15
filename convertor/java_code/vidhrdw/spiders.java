@@ -59,8 +59,7 @@ public class spiders
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( spiders )
-	{
+	public static VideoUpdateHandlerPtr video_update_spiders  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int loop,data0,data1,data2,col;
 	
 		size_t crtc6845_mem_size;
@@ -132,5 +131,5 @@ public class spiders
 	
 		/* Now copy the temp bitmap to the screen */
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
-	}
+	} };
 }

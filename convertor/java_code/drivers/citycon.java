@@ -20,7 +20,6 @@ public class citycon
 	WRITE_HANDLER( citycon_linecolor_w );
 	WRITE_HANDLER( citycon_background_w );
 	
-	VIDEO_UPDATE( citycon );
 	
 	
 	READ_HANDLER( citycon_in_r )

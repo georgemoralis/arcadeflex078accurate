@@ -234,8 +234,7 @@ public class thedeep
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( thedeep )
-	{
+	public static VideoUpdateHandlerPtr video_update_thedeep  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int scrollx = thedeep_scroll[0] + (thedeep_scroll[1]<<8);
 		int scrolly = thedeep_scroll[2] + (thedeep_scroll[3]<<8);
 		int x;
@@ -253,5 +252,5 @@ public class thedeep
 		tilemap_draw(bitmap,cliprect,tilemap_0,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,tilemap_1,0,0);
-	}
+	} };
 }

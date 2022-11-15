@@ -156,8 +156,7 @@ public class missile
 	
 	
 	/********************************************************************************************/
-	VIDEO_UPDATE( missile )
-	{
+	public static VideoUpdateHandlerPtr video_update_missile  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (get_vh_global_attribute_changed())
 		{
 			int offs;
@@ -166,5 +165,5 @@ public class missile
 				missile_blit_w (offs);
 		}
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
-	}
+	} };
 }

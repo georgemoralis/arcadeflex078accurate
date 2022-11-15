@@ -83,8 +83,7 @@ public class exzisus
 	  Screen refresh
 	***************************************************************************/
 	
-	VIDEO_UPDATE( exzisus )
-	{
+	public static VideoUpdateHandlerPtr video_update_exzisus  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int sx, sy, xc, yc;
 		int gfx_num, gfx_attr, gfx_offs;
@@ -232,5 +231,5 @@ public class exzisus
 				gfx_offs += height << 1;
 			}
 		}
-	}
+	} };
 }

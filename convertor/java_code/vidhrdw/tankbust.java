@@ -248,8 +248,7 @@ public class tankbust
 	}
 	
 	
-	VIDEO_UPDATE( tankbust )
-	{
+	public static VideoUpdateHandlerPtr video_update_tankbust  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	#if 0
 		int i;
 	
@@ -269,5 +268,5 @@ public class tankbust
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 1, 0);
 	
 		tilemap_draw(bitmap, cliprect, txt_tilemap, 0,0);
-	}
+	} };
 }

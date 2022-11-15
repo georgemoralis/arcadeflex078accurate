@@ -192,8 +192,7 @@ public class jackal
 	}
 	
 	
-	VIDEO_UPDATE( jackal )
-	{
+	public static VideoUpdateHandlerPtr video_update_jackal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		unsigned char *sr, *ss;
 		int offs,i;
 		unsigned char *RAM = (memory_region(REGION_CPU1));
@@ -275,5 +274,5 @@ public class jackal
 		/* Draw the sprites. */
 		jackal_draw_sprites(bitmap,ss,0x0f5,3);
 		jackal_draw_sprites(bitmap,sr,0x500,1);
-	}
+	} };
 }

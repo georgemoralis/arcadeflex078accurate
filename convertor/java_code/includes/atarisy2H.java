@@ -15,6 +15,5 @@ WRITE16_HANDLER( atarisy2_xscroll_w );
 WRITE16_HANDLER( atarisy2_videoram_w );
 WRITE16_HANDLER( atarisy2_paletteram_w );
 
-VIDEO_UPDATE( atarisy2 );
 
 extern data16_t *atarisy2_slapstic;

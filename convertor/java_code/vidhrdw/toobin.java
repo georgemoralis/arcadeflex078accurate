@@ -236,8 +236,7 @@ public class toobin
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( toobin )
-	{
+	public static VideoUpdateHandlerPtr video_update_toobin  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct atarimo_rect_list rectlist;
 		struct mame_bitmap *mobitmap;
 		int x, y, r;
@@ -277,5 +276,5 @@ public class toobin
 	
 		/* add the alpha on top */
 		tilemap_draw(bitmap, cliprect, atarigen_alpha_tilemap, 0, 0);
-	}
+	} };
 }

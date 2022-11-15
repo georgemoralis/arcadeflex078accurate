@@ -344,8 +344,7 @@ public class mcr68
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( mcr68 )
-	{
+	public static VideoUpdateHandlerPtr video_update_mcr68  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* draw the background */
 		tilemap_draw(bitmap, cliprect, bg_tilemap, TILEMAP_IGNORE_TRANSPARENCY | 0, 0);
 		tilemap_draw(bitmap, cliprect, bg_tilemap, TILEMAP_IGNORE_TRANSPARENCY | 1, 0);
@@ -358,11 +357,10 @@ public class mcr68
 	
 		/* draw the high-priority sprites */
 		mcr68_update_sprites(bitmap, cliprect, 1);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( zwackery )
-	{
+	public static VideoUpdateHandlerPtr video_update_zwackery  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* draw the background */
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 	
@@ -374,5 +372,5 @@ public class mcr68
 	
 		/* draw the high-priority sprites */
 		zwackery_update_sprites(bitmap, cliprect, 1);
-	}
+	} };
 }

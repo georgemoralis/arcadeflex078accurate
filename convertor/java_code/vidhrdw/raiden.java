@@ -166,8 +166,7 @@ public class raiden
 		}
 	}
 	
-	VIDEO_UPDATE( raiden )
-	{
+	public static VideoUpdateHandlerPtr video_update_raiden  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Setup the tilemaps, alternate version has different scroll positions */
 		if (!ALTERNATE) {
 			tilemap_set_scrollx( bg_layer,0, ((raiden_scroll_ram[1]<<8)+raiden_scroll_ram[0]) );
@@ -193,5 +192,5 @@ public class raiden
 	
 		/* Text layer */
 		tilemap_draw(bitmap,cliprect,tx_layer,0,0);
-	}
+	} };
 }

@@ -174,7 +174,6 @@ public class spiders
 	/* VIDHRDW */
 	
 	PALETTE_INIT( nyny );
-	VIDEO_UPDATE( spiders );
 	
 	/* MACHINE */
 	

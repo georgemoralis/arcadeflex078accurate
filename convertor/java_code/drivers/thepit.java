@@ -70,7 +70,6 @@ public class thepit
 	
 	PALETTE_INIT( thepit );
 	PALETTE_INIT( suprmous );
-	VIDEO_UPDATE( thepit );
 	READ_HANDLER( thepit_input_port_0_r );
 	WRITE_HANDLER( thepit_sound_enable_w );
 	WRITE_HANDLER( intrepid_graphics_bank_select_w );

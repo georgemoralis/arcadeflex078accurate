@@ -802,16 +802,14 @@ public class seta
 	
 	
 	/* For games without tilemaps */
-	VIDEO_UPDATE( seta_no_layers )
-	{
+	public static VideoUpdateHandlerPtr video_update_seta_no_layers  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[0],cliprect);
 		seta_draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
 	
 	/* For games with 1 or 2 tilemaps */
-	VIDEO_UPDATE( seta )
-	{
+	public static VideoUpdateHandlerPtr video_update_seta  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 		int enab_0, enab_1, x_0, x_1, y_0, y_1;
 	
@@ -946,5 +944,5 @@ public class seta
 		{
 			zombraid_drawcrosshairs(bitmap,cliprect);
 		}
-	}
+	} };
 }

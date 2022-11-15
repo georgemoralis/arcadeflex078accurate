@@ -22,8 +22,7 @@ public class goal92
 	extern WRITE16_HANDLER( goal92_fg_bank_w );
 	extern READ16_HANDLER( goal92_fg_bank_r );
 	
-	extern extern VIDEO_UPDATE( goal92 );
-	
+	extern extern 
 	extern data16_t *goal92_back_data,*goal92_fore_data,*goal92_textram,*goal92_scrollram16;
 	
 	static WRITE16_HANDLER( goal92_sound_command_w )

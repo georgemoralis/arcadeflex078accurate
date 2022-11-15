@@ -119,8 +119,7 @@ public class kopunch
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( kopunch )
-	{
+	public static VideoUpdateHandlerPtr video_update_kopunch  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
@@ -140,5 +139,5 @@ public class kopunch
 					8*(sx+8)+scroll[0],8*(8+(gfxflip ? 15-sy : sy))+scroll[1],
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 }

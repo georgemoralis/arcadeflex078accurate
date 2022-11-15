@@ -129,8 +129,7 @@ public class kickgoal
 	}
 	
 	
-	VIDEO_UPDATE( kickgoal )
-	{
+	public static VideoUpdateHandlerPtr video_update_kickgoal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* set scroll */
 		tilemap_set_scrollx( kickgoal_fgtm, 0, kickgoal_scrram[0]  );
 		tilemap_set_scrolly( kickgoal_fgtm, 0, kickgoal_scrram[1]*2  );
@@ -158,5 +157,5 @@ public class kickgoal
 		kickgoal_scrram[6],
 		kickgoal_scrram[7]);
 		*/
-	}
+	} };
 }

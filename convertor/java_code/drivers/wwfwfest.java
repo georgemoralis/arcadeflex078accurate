@@ -408,10 +408,9 @@ public class wwfwfest
 		{ 90 }
 	};
 	
-	VIDEO_EOF( wwfwfest )
-	{
+	public static VideoEofHandlerPtr video_eof_wwfwfest  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 	
 	/*******************************************************************************
 	 Machine Driver(s)

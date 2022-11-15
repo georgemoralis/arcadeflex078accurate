@@ -28,7 +28,6 @@ public class gridleeH
 	extern UINT8 gridlee_cocktail_flip;
 	
 	PALETTE_INIT( gridlee );
-	VIDEO_UPDATE( gridlee );
 	
 	WRITE_HANDLER( gridlee_cocktail_flip_w );
 	WRITE_HANDLER( gridlee_videoram_w );

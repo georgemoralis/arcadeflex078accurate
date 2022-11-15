@@ -109,7 +109,6 @@ public class nbmj8891
 	#define	SIGNED_DAC	0		// 0:unsigned DAC, 1:signed DAC
 	
 	
-	VIDEO_UPDATE( gionbana );
 	
 	READ_HANDLER( gionbana_palette_r );
 	WRITE_HANDLER( gionbana_palette_w );

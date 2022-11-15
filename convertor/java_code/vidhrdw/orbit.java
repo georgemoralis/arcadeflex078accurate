@@ -115,12 +115,11 @@ public class orbit
 	}
 	
 	
-	VIDEO_UPDATE( orbit )
-	{
+	public static VideoUpdateHandlerPtr video_update_orbit  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		orbit_flip_screen = readinputport(3) & 8;
 	
 		tilemap_draw(bitmap, cliprect, tilemap, 0, 0);
 	
 		orbit_draw_sprites(bitmap, cliprect);
-	}
+	} };
 }

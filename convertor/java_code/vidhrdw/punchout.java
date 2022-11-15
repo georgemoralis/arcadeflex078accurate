@@ -351,8 +351,7 @@ public class punchout
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( punchout )
-	{
+	public static VideoUpdateHandlerPtr video_update_punchout  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -527,11 +526,10 @@ public class punchout
 					sx,sy + 8*TOP_MONITOR_ROWS - 16,
 					&bottomvisiblearea,TRANSPARENCY_COLOR,1024);
 		}
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( armwrest )
-	{
+	public static VideoUpdateHandlerPtr video_update_armwrest  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -715,5 +713,5 @@ public class punchout
 					8*sx,8*sy + 8*TOP_MONITOR_ROWS - 16,
 					&backgroundvisiblearea,TRANSPARENCY_PEN,7);
 		}
-	}
+	} };
 }

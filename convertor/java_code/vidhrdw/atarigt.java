@@ -568,8 +568,7 @@ public class atarigt
 	*/
 	
 	
-	VIDEO_UPDATE( atarigt )
-	{
+	public static VideoUpdateHandlerPtr video_update_atarigt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct mame_bitmap *mo_bitmap = atarirle_get_vram(0, 0);
 		struct mame_bitmap *tm_bitmap = atarirle_get_vram(0, 1);
 		int color_latch;
@@ -688,5 +687,5 @@ public class atarigt
 				}
 			}
 		}
-	}
+	} };
 }

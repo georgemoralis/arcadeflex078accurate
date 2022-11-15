@@ -53,8 +53,7 @@ public class asuka
 	                        SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( asuka )
-	{
+	public static VideoUpdateHandlerPtr video_update_asuka  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -74,11 +73,10 @@ public class asuka
 	
 		/* Sprites may be over or under top bg layer */
 		PC090OJ_draw_sprites(bitmap,cliprect,2);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( bonzeadv )
-	{
+	public static VideoUpdateHandlerPtr video_update_bonzeadv  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -98,5 +96,5 @@ public class asuka
 	
 		/* Sprites are always over both bg layers */
 		PC090OJ_draw_sprites(bitmap,cliprect,0);
-	}
+	} };
 }

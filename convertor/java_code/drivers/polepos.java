@@ -104,7 +104,6 @@ public class polepos
 	extern data16_t *polepos_sprite16_memory;
 	
 	PALETTE_INIT( polepos );
-	VIDEO_UPDATE( polepos );
 	
 	WRITE16_HANDLER( polepos_view16_w );
 	WRITE16_HANDLER( polepos_road16_w );

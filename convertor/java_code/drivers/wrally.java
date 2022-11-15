@@ -91,7 +91,6 @@ public class wrally
 	extern data16_t *wrally_spriteram;
 	
 	WRITE16_HANDLER( wrally_vram_w );
-	VIDEO_UPDATE( wrally );
 	
 	/* from machine/wrally.c */
 	DRIVER_INIT( wrally );

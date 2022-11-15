@@ -354,8 +354,7 @@ public class senjyo
 		}
 	}
 	
-	VIDEO_UPDATE( senjyo )
-	{
+	public static VideoUpdateHandlerPtr video_update_senjyo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 	
@@ -453,5 +452,5 @@ public class senjyo
 		ui_text(baf,0,30);
 	}
 	#endif
-	}
+	} };
 }

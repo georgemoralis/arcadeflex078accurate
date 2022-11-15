@@ -84,8 +84,7 @@ public class _88games
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( 88games )
-	{
+	public static VideoUpdateHandlerPtr video_update_88games  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		if (k88games_priority)
@@ -106,5 +105,5 @@ public class _88games
 			K051960_sprites_draw(bitmap,cliprect,1,1);
 			tilemap_draw(bitmap,cliprect,K052109_tilemap[0],0,0);
 		}
-	}
+	} };
 }

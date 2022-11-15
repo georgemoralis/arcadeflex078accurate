@@ -514,8 +514,7 @@ public class stactics
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( stactics )
-	{
+	public static VideoUpdateHandlerPtr video_update_stactics  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    int offs, sx, sy, i;
 	    int char_number;
 	    int color_code;
@@ -895,5 +894,5 @@ public class stactics
 	        dirty_chardata_f[i] &= 0x01;
 	    }
 	
-	}
+	} };
 }

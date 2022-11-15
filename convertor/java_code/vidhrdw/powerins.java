@@ -355,8 +355,7 @@ public class powerins
 	***************************************************************************/
 	
 	
-	VIDEO_UPDATE( powerins )
-	{
+	public static VideoUpdateHandlerPtr video_update_powerins  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 		int scrollx = (powerins_vctrl_0[2/2]&0xff) + (powerins_vctrl_0[0/2]&0xff)*256;
@@ -385,5 +384,5 @@ public class powerins
 		else					fillbitmap(bitmap,Machine->pens[0],cliprect);
 		if (layers_ctrl&8)		powerins_draw_sprites(bitmap,cliprect);
 		if (layers_ctrl&2)		tilemap_draw(bitmap,cliprect, tilemap_1, 0, 0);
-	}
+	} };
 }

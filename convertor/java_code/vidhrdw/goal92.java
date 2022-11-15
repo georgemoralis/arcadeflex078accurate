@@ -161,8 +161,7 @@ public class goal92
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( goal92 )
-	{
+	public static VideoUpdateHandlerPtr video_update_goal92  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx( background_layer, 0, goal92_scrollram16[0] + 60);
 		tilemap_set_scrolly( background_layer, 0, goal92_scrollram16[1] + 8);
 	
@@ -193,5 +192,5 @@ public class goal92
 		draw_sprites(bitmap,cliprect,0);
 		draw_sprites(bitmap,cliprect,3);
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 }

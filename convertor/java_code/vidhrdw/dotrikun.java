@@ -75,8 +75,7 @@ public class dotrikun
 	}
 	
 	
-	VIDEO_UPDATE( dotrikun )
-	{
+	public static VideoUpdateHandlerPtr video_update_dotrikun  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (get_vh_global_attribute_changed())
 		{
 			int offs;
@@ -87,5 +86,5 @@ public class dotrikun
 				dotrikun_videoram_w(offs,videoram[offs]);
 		}
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
-	}
+	} };
 }

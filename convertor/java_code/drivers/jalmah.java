@@ -77,10 +77,9 @@ public class jalmah
 	} };
 	
 	
-	VIDEO_UPDATE(jalmah)
-	{
+	public static VideoUpdateHandlerPtr video_update_jalmah  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
-	}
+	} };
 	
 	static InputPortHandlerPtr input_ports_jalmah = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( jalmah )
 	INPUT_PORTS_END(); }}; 

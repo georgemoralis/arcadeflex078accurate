@@ -318,8 +318,7 @@ public class funybubl
 	
 	
 	
-	VIDEO_UPDATE(funybubl)
-	{
+	public static VideoUpdateHandlerPtr video_update_funybubl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x,y, offs;
 	
 		offs = 0;
@@ -358,7 +357,7 @@ public class funybubl
 	*/
 	
 	
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( funybubl )
 		/* basic machine hardware */

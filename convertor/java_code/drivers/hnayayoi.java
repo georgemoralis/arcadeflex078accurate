@@ -42,7 +42,6 @@ public class hnayayoi
 {
 	
 	
-	VIDEO_UPDATE( hnayayoi );
 	
 	WRITE_HANDLER( dynax_blitter_rev1_param_w );
 	WRITE_HANDLER( dynax_blitter_rev1_start_w );

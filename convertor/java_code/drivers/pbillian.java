@@ -112,7 +112,6 @@ public class pbillian
 	
 	int pbillian_sh_start(const struct MachineSound*);
 	
-	VIDEO_UPDATE(pbillian);
 	
 	data8_t select_403,select_407,select_408,is_pbillian;
 	data8_t *pb_videoram;

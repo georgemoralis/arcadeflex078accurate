@@ -64,8 +64,6 @@ public class travrusa
 	WRITE_HANDLER( travrusa_scroll_x_low_w );
 	WRITE_HANDLER( travrusa_scroll_x_high_w );
 	WRITE_HANDLER( travrusa_flipscreen_w );
-	VIDEO_UPDATE( travrusa );
-	VIDEO_UPDATE( shtrider );
 	
 	
 	

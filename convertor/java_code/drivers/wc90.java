@@ -75,7 +75,6 @@ public class wc90
 	WRITE_HANDLER( wc90_fgvideoram_w );
 	WRITE_HANDLER( wc90_bgvideoram_w );
 	WRITE_HANDLER( wc90_txvideoram_w );
-	VIDEO_UPDATE( wc90 );
 	
 	
 	static data8_t *wc90_shared;

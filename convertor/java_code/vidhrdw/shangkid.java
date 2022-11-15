@@ -172,8 +172,7 @@ public class shangkid
 		}
 	}
 	
-	VIDEO_UPDATE( shangkid )
-	{
+	public static VideoUpdateHandlerPtr video_update_shangkid  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int flipscreen = shangkid_videoreg[1]&0x80;
 		tilemap_set_flip( background, flipscreen?(TILEMAP_FLIPX|TILEMAP_FLIPY):0 );
 		tilemap_set_scrollx( background,0,shangkid_videoreg[0]-40 );
@@ -182,7 +181,7 @@ public class shangkid
 		tilemap_draw( bitmap,cliprect,background,0,0 );
 		draw_sprites( bitmap,cliprect );
 		tilemap_draw( bitmap,cliprect,background,1,0 ); /* high priority tiles */
-	}
+	} };
 	
 	
 	PALETTE_INIT( dynamski )
@@ -303,10 +302,9 @@ public class shangkid
 		}
 	}
 	
-	VIDEO_UPDATE( dynamski )
-	{
+	public static VideoUpdateHandlerPtr video_update_dynamski  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		dynamski_draw_background( bitmap,cliprect, 0 );
 		dynamski_draw_sprites( bitmap,cliprect );
 		dynamski_draw_background( bitmap,cliprect, 1 );
-	}
+	} };
 }

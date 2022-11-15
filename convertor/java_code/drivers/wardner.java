@@ -165,8 +165,6 @@ public class wardner
 	WRITE_HANDLER( wardner_txscroll_w );
 	WRITE_HANDLER( wardner_exscroll_w );
 	
-	VIDEO_UPDATE( toaplan0 );
-	VIDEO_EOF( toaplan0 );
 	
 	extern int twincobr_display_on;
 	

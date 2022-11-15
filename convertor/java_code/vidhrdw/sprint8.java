@@ -146,16 +146,14 @@ public class sprint8
 	}
 	
 	
-	VIDEO_UPDATE( sprint8 )
-	{
+	public static VideoUpdateHandlerPtr video_update_sprint8  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, tilemap1, 0, 0);
 	
 		draw_sprites(bitmap, cliprect);
-	}
+	} };
 	
 	
-	VIDEO_EOF( sprint8 )
-	{
+	public static VideoEofHandlerPtr video_eof_sprint8  = new VideoEofHandlerPtr() { public void handler(){
 		int x;
 		int y;
 	
@@ -180,5 +178,5 @@ public class sprint8
 				}
 			}
 		}
-	}
+	} };
 }

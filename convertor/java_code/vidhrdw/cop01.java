@@ -229,8 +229,7 @@ public class cop01
 	}
 	
 	
-	VIDEO_UPDATE( cop01 )
-	{
+	public static VideoUpdateHandlerPtr video_update_cop01  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap,0,mightguy_vreg[1] + 256 * (mightguy_vreg[2] & 1));
 		tilemap_set_scrolly(bg_tilemap,0,mightguy_vreg[3]);
 	
@@ -238,5 +237,5 @@ public class cop01
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_FRONT,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0 );
-	}
+	} };
 }

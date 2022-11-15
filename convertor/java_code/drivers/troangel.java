@@ -17,7 +17,6 @@ public class troangel
 	extern unsigned char *troangel_scroll;
 	WRITE_HANDLER( troangel_flipscreen_w );
 	PALETTE_INIT( troangel );
-	VIDEO_UPDATE( troangel );
 	
 	
 	

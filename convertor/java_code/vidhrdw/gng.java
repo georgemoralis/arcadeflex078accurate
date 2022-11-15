@@ -151,16 +151,14 @@ public class gng
 		}
 	}
 	
-	VIDEO_UPDATE( gng )
-	{
+	public static VideoUpdateHandlerPtr video_update_gng  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_BACK,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_FRONT,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_EOF( gng )
-	{
+	public static VideoEofHandlerPtr video_eof_gng  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0,0);
-	}
+	} };
 }

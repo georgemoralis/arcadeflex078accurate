@@ -406,8 +406,7 @@ public class fromance
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( fromance )
-	{
+	public static VideoUpdateHandlerPtr video_update_fromance  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap, 0, scrollx[0]);
 		tilemap_set_scrolly(bg_tilemap, 0, scrolly[0]);
 		tilemap_set_scrollx(fg_tilemap, 0, scrollx[1]);
@@ -415,11 +414,10 @@ public class fromance
 	
 		tilemap_draw(bitmap,cliprect, bg_tilemap, 0, 0);
 		tilemap_draw(bitmap,cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( pipedrm )
-	{
+	public static VideoUpdateHandlerPtr video_update_pipedrm  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* there seems to be no logical mapping for the X scroll register -- maybe it's gone */
 		tilemap_set_scrolly(bg_tilemap, 0, scrolly[1]);
 		tilemap_set_scrolly(fg_tilemap, 0, scrolly[0]);
@@ -429,5 +427,5 @@ public class fromance
 	
 		draw_sprites(bitmap,cliprect, 0);
 		draw_sprites(bitmap,cliprect, 1);
-	}
+	} };
 }

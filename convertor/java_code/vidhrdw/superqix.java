@@ -259,8 +259,7 @@ public class superqix
 		}
 	}
 	
-	VIDEO_UPDATE( superqix )
-	{
+	public static VideoUpdateHandlerPtr video_update_superqix  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, get_black_pen(), cliprect);
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		superqix_draw_bitmap(bitmap);
@@ -268,5 +267,5 @@ public class superqix
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 1, 0);
 	
 		sqix_minx=1000;sqix_maxx=-1;sqix_miny=1000;sqix_maxy=-1;
-	}
+	} };
 }

@@ -451,15 +451,14 @@ public class ygv608
 		return 0;
 	} };
 	
-	VIDEO_STOP( ygv608 )
-	{
+	public static VideoStopHandlerPtr video_stop_ygv608  = new VideoStopHandlerPtr() { public void handler(){
 		tilemap_A = NULL;
 		tilemap_B = NULL;
 	#ifdef _ENABLE_ROTATE_ZOOM
 		if( work_bitmap )
 			bitmap_free( work_bitmap );
 	#endif
-	}
+	} };
 	
 	static void draw_sprites( struct mame_bitmap *bitmap, const struct rectangle *cliprect )
 	{
@@ -655,8 +654,7 @@ public class ygv608
 	static char *psize[] = { "8x8", "16x16", "32x32", "64x64" };
 	#endif
 	
-	VIDEO_UPDATE( ygv608 )
-	{
+	public static VideoUpdateHandlerPtr video_update_ygv608  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	#ifdef _SHOW_VIDEO_DEBUG
 	    char buffer[64];
 	#endif
@@ -894,7 +892,7 @@ public class ygv608
 		   ( ( (int)ygv608.scroll_data_table[1][0x01] & 0x0f ) << 8 ) );
 	  ui_text( bitmap, buffer, 0, 64 );
 	#endif
-	}
+	} };
 	
 	static void HandleYGV608Reset( void );
 	static void HandleRomTransfers( void );

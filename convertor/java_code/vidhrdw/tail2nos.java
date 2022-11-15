@@ -176,8 +176,7 @@ public class tail2nos
 		}
 	}
 	
-	VIDEO_UPDATE( tail2nos )
-	{
+	public static VideoUpdateHandlerPtr video_update_tail2nos  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static struct GfxLayout tilelayout =
 		{
 			16,16,
@@ -224,5 +223,5 @@ public class tail2nos
 		}
 		else
 			fillbitmap(bitmap,Machine->pens[0],cliprect);
-	}
+	} };
 }

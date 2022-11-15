@@ -424,8 +424,7 @@ public class rohga
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( rohga )
-	{
+	public static VideoUpdateHandlerPtr video_update_rohga  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Update playfields */
 	//	flip_screen_set( deco16_pf12_control[0]&0x80 );
 		deco16_pf12_update(deco16_pf1_rowscroll,deco16_pf2_rowscroll);
@@ -446,10 +445,9 @@ public class rohga
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
 	
 	//	deco16_print_debug_info();
-	}
+	} };
 	
-	VIDEO_UPDATE( wizdfire )
-	{
+	public static VideoUpdateHandlerPtr video_update_wizdfire  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Update playfields */
 		flip_screen_set( deco16_pf12_control[0]&0x80 );
 		deco16_pf12_update(deco16_pf1_rowscroll,deco16_pf2_rowscroll);
@@ -474,10 +472,9 @@ public class rohga
 		wizdfire_drawsprites(bitmap,buffered_spriteram16_2,1,4);
 	
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( nitrobal )
-	{
+	public static VideoUpdateHandlerPtr video_update_nitrobal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Update playfields */
 		flip_screen_set( deco16_pf12_control[0]&0x80 );
 		deco16_pf12_update(deco16_pf1_rowscroll,deco16_pf2_rowscroll);
@@ -498,5 +495,5 @@ public class rohga
 		nitrobal_drawsprites(bitmap,cliprect,buffered_spriteram16_2,4);
 	
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 }

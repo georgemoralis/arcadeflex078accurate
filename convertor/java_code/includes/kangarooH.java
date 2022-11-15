@@ -24,7 +24,6 @@ public class kangarooH
 	extern UINT8 *kangaroo_scroll;
 	
 	PALETTE_INIT( kangaroo );
-	VIDEO_UPDATE( kangaroo );
 	
 	WRITE_HANDLER( kangaroo_blitter_w );
 	WRITE_HANDLER( kangaroo_videoram_w );

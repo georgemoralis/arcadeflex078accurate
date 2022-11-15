@@ -22,8 +22,7 @@ public class markham
 	extern WRITE_HANDLER( markham_flipscreen_w );
 	
 	extern PALETTE_INIT( markham );
-	extern extern VIDEO_UPDATE( markham );
-	
+	extern extern 
 	static UINT8 *markham_sharedram;
 	
 	/****************************************************************************/

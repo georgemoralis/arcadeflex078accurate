@@ -20,7 +20,6 @@ public class flkatck
 {
 	
 	/* from vidhrdw/flkatck.c */
-	VIDEO_UPDATE( flkatck );
 	WRITE_HANDLER( flkatck_k007121_w );
 	WRITE_HANDLER( flkatck_k007121_regs_w );
 	

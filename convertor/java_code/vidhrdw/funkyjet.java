@@ -86,8 +86,7 @@ public class funkyjet
 		}
 	}
 	
-	VIDEO_UPDATE( funkyjet )
-	{
+	public static VideoUpdateHandlerPtr video_update_funkyjet  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flip_screen_set( deco16_pf12_control[0]&0x80 );
 		deco16_pf12_update(deco16_pf1_rowscroll,deco16_pf2_rowscroll);
 	
@@ -95,5 +94,5 @@ public class funkyjet
 		deco16_tilemap_2_draw(bitmap,cliprect,TILEMAP_IGNORE_TRANSPARENCY,0);
 		deco16_tilemap_1_draw(bitmap,cliprect,0,0);
 		funkyjet_drawsprites(bitmap,cliprect);
-	}
+	} };
 }

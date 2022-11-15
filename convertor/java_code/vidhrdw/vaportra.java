@@ -229,8 +229,7 @@ public class vaportra
 	}
 	
 	
-	VIDEO_UPDATE( vaportra )
-	{
+	public static VideoUpdateHandlerPtr video_update_vaportra  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pri=vaportra_control_2[0];
 	
 		/* Update flipscreen */
@@ -281,5 +280,5 @@ public class vaportra
 	
 		vaportra_drawsprites(bitmap,cliprect,1);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,0,0);
-	}
+	} };
 }

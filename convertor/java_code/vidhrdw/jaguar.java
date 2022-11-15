@@ -769,8 +769,7 @@ public class jaguar
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( cojag )
-	{
+	public static VideoUpdateHandlerPtr video_update_cojag  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* if not enabled, just blank */
 		if (!(gpu_regs[VMODE] & 1))
 		{
@@ -794,7 +793,7 @@ public class jaguar
 			get_crosshair_xy(1, &beamx, &beamy);
 			draw_crosshair(bitmap, beamx, beamy, cliprect);
 		}
-	}
+	} };
 	
 	
 	

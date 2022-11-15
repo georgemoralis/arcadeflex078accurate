@@ -46,14 +46,6 @@ public class dec8
 {
 	
 	PALETTE_INIT( ghostb );
-	VIDEO_UPDATE( cobracom );
-	VIDEO_UPDATE( ghostb );
-	VIDEO_UPDATE( srdarwin );
-	VIDEO_UPDATE( gondo );
-	VIDEO_UPDATE( garyoret );
-	VIDEO_UPDATE( lastmiss );
-	VIDEO_UPDATE( shackled );
-	VIDEO_UPDATE( oscar );
 	
 	WRITE_HANDLER( dec8_bac06_0_w );
 	WRITE_HANDLER( dec8_bac06_1_w );
@@ -86,10 +78,9 @@ public class dec8
 	/******************************************************************************/
 	
 	/* Only used by ghostb, gondo, garyoret, other games can control buffering */
-	static VIDEO_EOF( dec8 )
-	{
+	static public static VideoEofHandlerPtr video_eof_dec8  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0,0);
-	}
+	} };
 	
 	static READ_HANDLER( i8751_h_r )
 	{

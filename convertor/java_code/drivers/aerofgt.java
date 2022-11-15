@@ -74,11 +74,6 @@ public class aerofgt
 	WRITE16_HANDLER( aerofgt_bg2scrollx_w );
 	WRITE16_HANDLER( aerofgt_bg2scrolly_w );
 	WRITE16_HANDLER( pspikes_palette_bank_w );
-	VIDEO_UPDATE( pspikes );
-	VIDEO_UPDATE( karatblz );
-	VIDEO_UPDATE( spinlbrk );
-	VIDEO_UPDATE( turbofrc );
-	VIDEO_UPDATE( aerofgt );
 	
 	
 	

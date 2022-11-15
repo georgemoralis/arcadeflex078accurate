@@ -152,12 +152,11 @@ public class cabal
 	}
 	
 	
-	VIDEO_UPDATE( cabal )
-	{
+	public static VideoUpdateHandlerPtr video_update_cabal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,background_layer,TILEMAP_IGNORE_TRANSPARENCY,0);
 		cabal_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 	
 	
 }

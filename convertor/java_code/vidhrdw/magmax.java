@@ -276,8 +276,7 @@ public class magmax
 	
 	
 	
-	VIDEO_UPDATE( magmax )
-	{
+	public static VideoUpdateHandlerPtr video_update_magmax  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		/* bit 2 flip screen */
@@ -536,5 +535,5 @@ public class magmax
 						&Machine->visible_area, TRANSPARENCY_PEN, 15);
 			}
 		}
-	}
+	} };
 }

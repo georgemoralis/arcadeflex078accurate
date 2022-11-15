@@ -161,8 +161,7 @@ public class volfied
 		}
 	}
 	
-	VIDEO_UPDATE( volfied )
-	{
+	public static VideoUpdateHandlerPtr video_update_volfied  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap, 0, cliprect);
 	
 		refresh_pixel_layer();
@@ -170,5 +169,5 @@ public class volfied
 		copybitmap(bitmap, pixel_layer, 0, 0, 0, 0, cliprect, TRANSPARENCY_NONE, 0);
 	
 		PC090OJ_draw_sprites(bitmap, cliprect, 0);
-	}
+	} };
 }

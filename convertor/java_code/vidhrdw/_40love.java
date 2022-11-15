@@ -352,13 +352,12 @@ public class _40love
 			copybitmap(bitmap,pixel_bitmap2,f,f,fortyl_xoffset,0,cliprect,TRANSPARENCY_NONE,0);
 	}
 	
-	VIDEO_UPDATE( fortyl )
-	{
+	public static VideoUpdateHandlerPtr video_update_fortyl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		draw_pixram(bitmap,cliprect);
 	
 		tilemap_set_scrolldy(background,-fortyl_video_ctrl[1]+1,-fortyl_video_ctrl[1]-1 );
 		tilemap_draw(bitmap,cliprect,background,0,0);
 	
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

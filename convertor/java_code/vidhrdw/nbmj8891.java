@@ -423,8 +423,7 @@ public class nbmj8891
 	
 	
 	******************************************************************************/
-	VIDEO_UPDATE( gionbana )
-	{
+	public static VideoUpdateHandlerPtr video_update_gionbana  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		unsigned char color;
 	
@@ -471,5 +470,5 @@ public class nbmj8891
 		{
 			fillbitmap(bitmap, Machine->pens[0xff], 0);
 		}
-	}
+	} };
 }

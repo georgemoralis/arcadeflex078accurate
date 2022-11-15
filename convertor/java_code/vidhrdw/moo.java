@@ -103,8 +103,7 @@ public class moo
 		SWAP(1,2)
 	}
 	
-	VIDEO_UPDATE(moo)
-	{
+	public static VideoUpdateHandlerPtr video_update_moo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		const int K053251_CI[4] = { K053251_CI1, K053251_CI2, K053251_CI3, K053251_CI4 };
 		int layers[3];
 		int bg_colorbase, new_colorbase, plane, dirty, alpha;
@@ -170,5 +169,5 @@ public class moo
 		K053247_sprites_draw(bitmap,cliprect);
 	
 		K056832_tilemap_draw(bitmap, cliprect, 0, 0, 0);
-	}
+	} };
 }

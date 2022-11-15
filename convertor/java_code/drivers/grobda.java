@@ -37,7 +37,6 @@ public class grobda
 	
 	/* video functions */
 	PALETTE_INIT( grobda );
-	VIDEO_UPDATE( grobda );
 	
 	
 	static WRITE_HANDLER( flip_screen_w )

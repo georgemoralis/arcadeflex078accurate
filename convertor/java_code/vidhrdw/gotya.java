@@ -191,11 +191,10 @@ public class gotya
 		gotya_draw_status_row(bitmap, 34, 15);
 	}
 	
-	VIDEO_UPDATE( gotya )
-	{
+	public static VideoUpdateHandlerPtr video_update_gotya  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap, 0, -(*gotya_scroll + (scroll_bit_8 * 256)) - 2 * 8);
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		gotya_draw_sprites(bitmap);
 		gotya_draw_status(bitmap);
-	}
+	} };
 }

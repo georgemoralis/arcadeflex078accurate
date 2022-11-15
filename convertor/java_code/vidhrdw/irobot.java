@@ -379,8 +379,7 @@ public class irobot
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( irobot )
-	{
+	public static VideoUpdateHandlerPtr video_update_irobot  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 *bitmap_base = irobot_bufsel ? polybitmap1 : polybitmap2;
 		int x, y, offs;
 	
@@ -403,5 +402,5 @@ public class irobot
 							8*x,8*y,
 							&Machine->visible_area,TRANSPARENCY_COLOR,transp);
 				}
-	}
+	} };
 }

@@ -372,8 +372,7 @@ public class crospang
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(crospang)
-	{
+	public static VideoUpdateHandlerPtr video_update_crospang  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	/*
 		if(keyboard_pressed(KEYCODE_X))
 		{
@@ -415,7 +414,7 @@ public class crospang
 		tilemap_draw(bitmap,cliprect,fg_layer,0,0);
 	
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( crospang )
 		/* basic machine hardware */

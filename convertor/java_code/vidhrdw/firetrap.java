@@ -297,11 +297,10 @@ public class firetrap
 		}
 	}
 	
-	VIDEO_UPDATE( firetrap )
-	{
+	public static VideoUpdateHandlerPtr video_update_firetrap  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg2_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,bg1_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

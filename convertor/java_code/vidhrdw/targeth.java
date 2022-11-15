@@ -146,8 +146,7 @@ public class targeth
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( targeth )
-	{
+	public static VideoUpdateHandlerPtr video_update_targeth  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* set scroll registers */
 		tilemap_set_scrolly(pant[0], 0, targeth_vregs[0]);
 		tilemap_set_scrollx(pant[0], 0, targeth_vregs[1] + 0x04);
@@ -172,5 +171,5 @@ public class targeth
 			posy = readinputport(3) & 0x0ff;
 			draw_crosshair(bitmap, posx - 0x17, posy + 1, cliprect);
 		}
-	}
+	} };
 }

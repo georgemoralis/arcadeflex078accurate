@@ -88,8 +88,7 @@ public class bottom9
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( bottom9 )
-	{
+	public static VideoUpdateHandlerPtr video_update_bottom9  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		/* note: FIX layer is not used */
@@ -105,5 +104,5 @@ public class bottom9
 			K051960_sprites_draw(bitmap,cliprect,2,3);
 			tilemap_draw(bitmap,cliprect,K052109_tilemap[1],0,0);
 		}
-	}
+	} };
 }

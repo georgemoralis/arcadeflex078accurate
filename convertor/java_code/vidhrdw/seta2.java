@@ -378,19 +378,17 @@ public class seta2
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( seta2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_seta2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Black or pens[0]? */
 		fillbitmap(bitmap,Machine->pens[0],cliprect);
 	
 		if (seta2_vregs[0x30/2] & 1)	return;		// BLANK SCREEN
 	
 		seta2_draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
-	VIDEO_EOF( seta2 )
-	{
+	public static VideoEofHandlerPtr video_eof_seta2  = new VideoEofHandlerPtr() { public void handler(){
 		/* Buffer sprites by 1 frame */
 		memcpy(buffered_spriteram16,spriteram16,spriteram_size);
-	}
+	} };
 }

@@ -43,7 +43,6 @@ public class nyny
 {
 	
 	PALETTE_INIT( nyny );
-	VIDEO_UPDATE( nyny );
 	
 	unsigned char *nyny_videoram ;
 	unsigned char *nyny_colourram ;

@@ -25,7 +25,6 @@ public class xain
 	
 	static unsigned char *xain_sharedram;
 	
-	VIDEO_UPDATE( xain );
 	WRITE_HANDLER( xain_scrollxP0_w );
 	WRITE_HANDLER( xain_scrollyP0_w );
 	WRITE_HANDLER( xain_scrollxP1_w );

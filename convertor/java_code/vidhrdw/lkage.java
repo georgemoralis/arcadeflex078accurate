@@ -182,8 +182,7 @@ public class lkage
 		}
 	}
 	
-	VIDEO_UPDATE( lkage )
-	{
+	public static VideoUpdateHandlerPtr video_update_lkage  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flip_screen_x_set(~lkage_vreg[2] & 0x01);
 		flip_screen_y_set(~lkage_vreg[2] & 0x02);
 	
@@ -225,5 +224,5 @@ public class lkage
 		{
 			tilemap_draw( bitmap,cliprect,tx_tilemap,TILEMAP_IGNORE_TRANSPARENCY ,0);
 		}
-	}
+	} };
 }

@@ -103,7 +103,6 @@ public class pirates
 	WRITE16_HANDLER( pirates_tx_tileram_w );
 	WRITE16_HANDLER( pirates_fg_tileram_w );
 	WRITE16_HANDLER( pirates_bg_tileram_w );
-	VIDEO_UPDATE(pirates);
 	
 	
 	

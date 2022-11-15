@@ -222,8 +222,7 @@ public class superchs
 					SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( superchs )
-	{
+	public static VideoUpdateHandlerPtr video_update_superchs  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[5];
 		UINT16 priority;
 		int primasks[4] = {0xfffc, 0xfff0, 0xff00, 0x0};
@@ -257,5 +256,5 @@ public class superchs
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[4],0,8);	/* text layer */
 		superchs_draw_sprites_16x16(bitmap,cliprect,primasks,48,-116);
 	#endif
-	}
+	} };
 }

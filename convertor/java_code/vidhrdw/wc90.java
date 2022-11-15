@@ -390,8 +390,7 @@ public class wc90
 	#undef WC90_DRAW_SPRITE
 	
 	
-	VIDEO_UPDATE( wc90 )
-	{
+	public static VideoUpdateHandlerPtr video_update_wc90  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap,0,wc90_scroll2xlo[0] + 256 * wc90_scroll2xhi[0]);
 		tilemap_set_scrolly(bg_tilemap,0,wc90_scroll2ylo[0] + 256 * wc90_scroll2yhi[0]);
 		tilemap_set_scrollx(fg_tilemap,0,wc90_scroll1xlo[0] + 256 * wc90_scroll1xhi[0]);
@@ -406,5 +405,5 @@ public class wc90
 		draw_sprites( bitmap,cliprect, 1 );
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
 		draw_sprites( bitmap,cliprect, 0 );
-	}
+	} };
 }

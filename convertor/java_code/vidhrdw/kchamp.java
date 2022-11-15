@@ -144,15 +144,13 @@ public class kchamp
 	}
 	
 	
-	VIDEO_UPDATE( kchamp )
-	{
+	public static VideoUpdateHandlerPtr video_update_kchamp  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		kchamp_draw_sprites(bitmap);
-	}
+	} };
 	
-	VIDEO_UPDATE( kchampvs )
-	{
+	public static VideoUpdateHandlerPtr video_update_kchampvs  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		kchampvs_draw_sprites(bitmap);
-	}
+	} };
 }

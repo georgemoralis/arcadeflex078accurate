@@ -75,7 +75,6 @@ WRITE_HANDLER( hotshock_flip_screen_w );
 WRITE_HANDLER( darkplnt_bullet_color_w );
 
 
-VIDEO_UPDATE( galaxian );
 
 WRITE_HANDLER( galaxian_gfxbank_w );
 WRITE_HANDLER( galaxian_nmi_enable_w );

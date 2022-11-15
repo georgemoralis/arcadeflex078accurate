@@ -62,8 +62,7 @@ public class vsnes
 	  Display refresh
 	
 	***************************************************************************/
-	VIDEO_UPDATE( vsnes )
-	{
+	public static VideoUpdateHandlerPtr video_update_vsnes  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* render the ppu */
 		ppu2c03b_render( 0, bitmap, 0, 0, 0, 0 );
 	
@@ -77,13 +76,12 @@ public class vsnes
 	
 			}
 	
-		}
+		} };
 	
 	
-	VIDEO_UPDATE( vsdual )
-	{
+	public static VideoUpdateHandlerPtr video_update_vsdual  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* render the ppu's */
 		ppu2c03b_render( 0, bitmap, 0, 0, 0, 0 );
 		ppu2c03b_render( 1, bitmap, 0, 0, 32*8, 0 );
-	}
+	} };
 }

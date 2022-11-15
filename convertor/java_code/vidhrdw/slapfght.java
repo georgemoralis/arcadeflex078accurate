@@ -202,8 +202,7 @@ public class slapfght
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( perfrman )
-	{
+	public static VideoUpdateHandlerPtr video_update_perfrman  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_flip( pf1_tilemap, flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 		tilemap_set_scrolly( pf1_tilemap ,0 , 0 );
 		if (flipscreen) {
@@ -222,11 +221,10 @@ public class slapfght
 	#ifdef MAME_DEBUG
 		slapfght_log_vram();
 	#endif
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( slapfight )
-	{
+	public static VideoUpdateHandlerPtr video_update_slapfight  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
@@ -269,5 +267,5 @@ public class slapfght
 	#ifdef MAME_DEBUG
 		slapfght_log_vram();
 	#endif
-	}
+	} };
 }

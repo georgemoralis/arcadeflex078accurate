@@ -292,8 +292,7 @@ public class kangaroo
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( kangaroo )
-	{
+	public static VideoUpdateHandlerPtr video_update_kangaroo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int scrollx, scrolly;
 	
 		if (screen_flipped)
@@ -328,5 +327,5 @@ public class kangaroo
 			copyscrollbitmap(bitmap,tmpbitmap,1,&scrollx,1,&scrolly,&Machine->visible_area,TRANSPARENCY_NONE,0);
 			copybitmap(bitmap,tmpbitmap2,0,0,0,0,&Machine->visible_area,TRANSPARENCY_COLOR,16);
 		}
-	}
+	} };
 }

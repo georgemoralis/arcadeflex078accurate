@@ -102,12 +102,11 @@ public class iqblock
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( iqblock )
-	{
+	public static VideoUpdateHandlerPtr video_update_iqblock  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (!iqblock_videoenable) return;
 	
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 	
 }

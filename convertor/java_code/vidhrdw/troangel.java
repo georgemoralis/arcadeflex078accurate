@@ -237,9 +237,8 @@ public class troangel
 	
 	
 	
-	VIDEO_UPDATE( troangel )
-	{
+	public static VideoUpdateHandlerPtr video_update_troangel  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		draw_background(bitmap);
 		draw_sprites(bitmap);
-	}
+	} };
 }

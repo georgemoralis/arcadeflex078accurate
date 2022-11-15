@@ -235,8 +235,7 @@ public class gaelco
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( maniacsq )
-	{
+	public static VideoUpdateHandlerPtr video_update_maniacsq  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* set scroll registers */
 		tilemap_set_scrolly(pant[0], 0, gaelco_vregs[0]);
 		tilemap_set_scrollx(pant[0], 0, gaelco_vregs[1]+4);
@@ -263,10 +262,9 @@ public class gaelco
 		tilemap_draw(bitmap,cliprect,pant[1],0,0);
 		tilemap_draw(bitmap,cliprect,pant[0],0,0);
 		gaelco_draw_sprites(bitmap,cliprect,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( bigkarnk )
-	{
+	public static VideoUpdateHandlerPtr video_update_bigkarnk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* set scroll registers */
 		tilemap_set_scrolly(pant[0], 0, gaelco_vregs[0]);
 		tilemap_set_scrollx(pant[0], 0, gaelco_vregs[1]+4);
@@ -303,5 +301,5 @@ public class gaelco
 		tilemap_draw(bitmap,cliprect,pant[0],TILEMAP_FRONT | 0,0);
 	
 		gaelco_draw_sprites(bitmap,cliprect,4);
-	}
+	} };
 }

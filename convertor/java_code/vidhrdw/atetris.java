@@ -68,8 +68,7 @@ public class atetris
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( atetris )
-	{
+	public static VideoUpdateHandlerPtr video_update_atetris  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, tilemap, 0,0);
-	}
+	} };
 }

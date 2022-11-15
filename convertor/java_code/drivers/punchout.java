@@ -120,8 +120,6 @@ public class punchout
 	WRITE_HANDLER( punchout_palettebank_w );
 	PALETTE_INIT( punchout );
 	PALETTE_INIT( armwrest );
-	VIDEO_UPDATE( punchout );
-	VIDEO_UPDATE( armwrest );
 	
 	DRIVER_INIT( punchout );
 	DRIVER_INIT( spnchout );

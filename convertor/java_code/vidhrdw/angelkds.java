@@ -299,8 +299,7 @@ public class angelkds
 	
 	/* enable bits are uncertain */
 	
-	VIDEO_UPDATE( angelkds )
-	{
+	public static VideoUpdateHandlerPtr video_update_angelkds  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle clip;
 	
 		fillbitmap(bitmap,0x3f,cliprect); /* is there a register controling the colour?, we currently use the last colour of the tx palette */
@@ -322,5 +321,5 @@ public class angelkds
 		if ((angelkds_layer_ctrl & 0x40) == 0x00) tilemap_draw(bitmap,&clip,bgbot_tilemap,0,0);
 		draw_sprites(bitmap,&clip, 0x40);
 		if ((angelkds_layer_ctrl & 0x20) == 0x00) tilemap_draw(bitmap,&clip,tx_tilemap,0,0);
-	}
+	} };
 }

@@ -259,8 +259,7 @@ public class legionna
 	}
 	
 	
-	VIDEO_UPDATE( legionna )
-	{
+	public static VideoUpdateHandlerPtr video_update_legionna  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	#ifdef MAME_DEBUG
 		static int dislayer[5];	/* Layer toggles to help get the layers correct */
 	#endif
@@ -333,10 +332,9 @@ public class legionna
 		if (dislayer[4]==0)
 	#endif
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( godzilla )
-	{
+	public static VideoUpdateHandlerPtr video_update_godzilla  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx( text_layer, 0, 0 );
 		tilemap_set_scrolly( text_layer, 0, 112 );
 	
@@ -350,10 +348,9 @@ public class legionna
 		draw_sprites(bitmap,cliprect,0);
 		draw_sprites(bitmap,cliprect,3);
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( sdgndmrb )
-	{
+	public static VideoUpdateHandlerPtr video_update_sdgndmrb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Setup the tilemaps */
 		tilemap_set_scrollx( background_layer, 0, legionna_scrollram16[0] );
 		tilemap_set_scrolly( background_layer, 0, legionna_scrollram16[1] );
@@ -374,6 +371,6 @@ public class legionna
 		draw_sprites(bitmap,cliprect,0);
 		draw_sprites(bitmap,cliprect,3);
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 	
 }

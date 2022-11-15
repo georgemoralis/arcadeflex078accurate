@@ -55,8 +55,7 @@ public class champbas
 	extern WRITE_HANDLER( champbas_flipscreen_w );
 	
 	extern PALETTE_INIT( champbas );
-	extern extern VIDEO_UPDATE( champbas );
-	
+	extern extern 
 	
 	
 	WRITE_HANDLER( champbas_dac_w )

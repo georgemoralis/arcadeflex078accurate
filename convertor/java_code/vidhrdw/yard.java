@@ -236,8 +236,7 @@ public class yard
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( yard )
-	{
+	public static VideoUpdateHandlerPtr video_update_yard  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -369,5 +368,5 @@ public class yard
 			           xpos,0,
 					   flip_screen ? &panelvisibleareaflip : &panelvisiblearea,TRANSPARENCY_NONE,0);
 		}
-	}
+	} };
 }

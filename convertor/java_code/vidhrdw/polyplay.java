@@ -55,8 +55,7 @@ public class polyplay
 	}
 	
 	
-	VIDEO_UPDATE( polyplay )
-	{
+	public static VideoUpdateHandlerPtr video_update_polyplay  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -128,5 +127,5 @@ public class polyplay
 		{
 			if (dirtycharacter[offs] == 2) dirtycharacter[offs] = 0;
 		}
-	}
+	} };
 }

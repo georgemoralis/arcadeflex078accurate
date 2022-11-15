@@ -58,7 +58,6 @@ public class suna8
 	WRITE_HANDLER( suna8_banked_paletteram_w );
 	WRITE_HANDLER( brickzn_banked_paletteram_w );
 	
-	VIDEO_UPDATE( suna8 );
 	
 	
 	/***************************************************************************

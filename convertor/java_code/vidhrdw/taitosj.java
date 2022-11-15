@@ -760,8 +760,7 @@ public class taitosj
 	}
 	
 	
-	VIDEO_UPDATE( taitosj )
-	{
+	public static VideoUpdateHandlerPtr video_update_taitosj  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,i,alldirty = 0;
 	
 	
@@ -889,5 +888,5 @@ public class taitosj
 		check_sprite_plane_collision();
 	
 		/*check_plane_plane_collision();*/	/*not implemented !!!*/
-	}
+	} };
 }

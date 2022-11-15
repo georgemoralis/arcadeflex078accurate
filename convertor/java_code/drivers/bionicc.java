@@ -58,8 +58,6 @@ public class bionicc
 	extern data16_t *bionicc_fgvideoram;
 	extern data16_t *bionicc_txvideoram;
 	
-	VIDEO_UPDATE( bionicc );
-	VIDEO_EOF( bionicc );
 	
 	void bionicc_readinputs(void);
 	void bionicc_sound_cmd(int data);

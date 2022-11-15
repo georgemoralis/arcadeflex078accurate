@@ -1142,7 +1142,7 @@ public class system16
 		tilemap_set_enable( foreground2, sys18_fg2_active );
 	}
 	
-	VIDEO_UPDATE( system16 ){
+	public static VideoUpdateHandlerPtr video_update_system16  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		if (!sys16_refreshenable) return;
 	
 		if( sys16_update_proc ) sys16_update_proc();
@@ -1167,7 +1167,7 @@ public class system16
 		draw_sprites( bitmap,cliprect,0 );
 	}
 	
-	VIDEO_UPDATE( system18 ){
+	public static VideoUpdateHandlerPtr video_update_system18  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		if (!sys16_refreshenable) return;
 		if( sys16_update_proc ) sys16_update_proc();
 		update_page();
@@ -1236,7 +1236,7 @@ public class system16
 			}
 			fclose( f );
 		}
-	}
+	} };
 	#endif
 	
 		priority=priority << 10;
@@ -1378,7 +1378,7 @@ public class system16
 		}
 	}
 	
-	VIDEO_UPDATE( hangon ){
+	public static VideoUpdateHandlerPtr video_update_hangon  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		if (!sys16_refreshenable) return;
 		if( sys16_update_proc ) sys16_update_proc();
 		update_page();
@@ -1556,7 +1556,7 @@ public class system16
 					data_ver++;
 				}
 			}
-		}
+		} };
 	}
 	
 	
@@ -1577,7 +1577,7 @@ public class system16
 		return 0;
 	}
 	
-	VIDEO_UPDATE( outrun ){
+	public static VideoUpdateHandlerPtr video_update_outrun  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		if( sys16_refreshenable ){
 			if( sys16_update_proc ) sys16_update_proc();
 			update_page();
@@ -1886,7 +1886,7 @@ public class system16
 		tilemap_set_scrolly( foreground2, 0, -256+sys16_fg2_scrolly );
 	}
 	
-	VIDEO_UPDATE( aburner ){
+	public static VideoUpdateHandlerPtr video_update_aburner  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		sys16_aburner_vh_screenrefresh_helper();
 		update_page();
 	

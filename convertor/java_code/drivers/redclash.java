@@ -42,8 +42,7 @@ public class redclash
 	extern WRITE_HANDLER( redclash_star_reset_w );
 	
 	extern PALETTE_INIT( redclash );
-	extern extern VIDEO_UPDATE( redclash );
-	
+	extern extern 
 	/*
 	  This game doesn't have VBlank interrupts.
 	  Interrupts are still used, but they are related to coin

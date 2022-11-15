@@ -25,7 +25,6 @@ public class yamato
 	WRITE_HANDLER( cclimber_colorram_w );
 	WRITE_HANDLER( cclimber_bigsprite_videoram_w );
 	PALETTE_INIT( cclimber );
-	VIDEO_UPDATE( cclimber );
 	
 	
 	PALETTE_INIT( yamato )

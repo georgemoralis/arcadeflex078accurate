@@ -58,12 +58,11 @@ public class yumefuda
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( yumefuda )
-	{
+	public static VideoUpdateHandlerPtr video_update_yumefuda  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, get_black_pen(), &Machine->visible_area);
 	
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
-	}
+	} };
 	
 	/***************************************************************************************/
 	

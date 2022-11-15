@@ -57,7 +57,6 @@ package drivers;
 public class _4enraya
 {
 	
-	VIDEO_UPDATE( 4enraya );
 	
 	WRITE_HANDLER( fenraya_videoram_w );
 	

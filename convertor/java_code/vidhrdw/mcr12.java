@@ -425,8 +425,7 @@ public class mcr12
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( mcr1 )
-	{
+	public static VideoUpdateHandlerPtr video_update_mcr1  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* update the flip state */
 		tilemap_set_flip(bg_tilemap, mcr_cocktail_flip ? (TILEMAP_FLIPX | TILEMAP_FLIPY) : 0);
 	
@@ -435,11 +434,10 @@ public class mcr12
 	
 		/* update the sprites and render them */
 		mcr1_render_sprites(bitmap);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( mcr2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_mcr2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* update the flip state */
 		tilemap_set_flip(bg_tilemap, mcr_cocktail_flip ? (TILEMAP_FLIPX | TILEMAP_FLIPY) : 0);
 	
@@ -448,11 +446,10 @@ public class mcr12
 	
 		/* update the sprites and render them */
 		mcr2_render_sprites(bitmap);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( journey )
-	{
+	public static VideoUpdateHandlerPtr video_update_journey  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* update the flip state */
 		tilemap_set_flip(bg_tilemap, mcr_cocktail_flip ? (TILEMAP_FLIPX | TILEMAP_FLIPY) : 0);
 	
@@ -461,5 +458,5 @@ public class mcr12
 	
 		/* draw the sprites */
 		mcr3_update_sprites(bitmap, cliprect, 0x03, 0, 0, 0);
-	}
+	} };
 }

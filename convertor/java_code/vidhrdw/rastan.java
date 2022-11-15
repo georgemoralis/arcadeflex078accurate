@@ -115,8 +115,7 @@ public class rastan
 	
 	/***************************************************************************/
 	
-	VIDEO_UPDATE( rastan )
-	{
+	public static VideoUpdateHandlerPtr video_update_rastan  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer[2];
 	
 		PC080SN_tilemap_update();
@@ -138,12 +137,11 @@ public class rastan
 			usrintf_showmessage(buf);
 		}
 	#endif
-	}
+	} };
 	
 	/***************************************************************************/
 	
-	VIDEO_UPDATE( opwolf )
-	{
+	public static VideoUpdateHandlerPtr video_update_opwolf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer[2];
 	
 		PC080SN_tilemap_update();
@@ -168,12 +166,11 @@ public class rastan
 			/* Draw an aiming crosshair */
 			draw_crosshair(bitmap,(input_port_4_word_r(0,0xffff)*320)/256,input_port_5_word_r(0,0xffff),cliprect);
 		}
-	}
+	} };
 	
 	/***************************************************************************/
 	
-	VIDEO_UPDATE( rainbow )
-	{
+	public static VideoUpdateHandlerPtr video_update_rainbow  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer[2];
 	
 		PC080SN_tilemap_update();
@@ -187,7 +184,7 @@ public class rastan
 		PC080SN_tilemap_draw(bitmap,cliprect,0,layer[1],0,2);
 	
 		PC090OJ_draw_sprites(bitmap,cliprect,1);
-	}
+	} };
 	
 	/***************************************************************************
 	
@@ -199,8 +196,7 @@ public class rastan
 	
 	*/
 	
-	VIDEO_UPDATE( jumping )
-	{
+	public static VideoUpdateHandlerPtr video_update_jumping  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,layer[2];
 		int sprite_colbank = (sprite_ctrl & 0xe0) >> 1;
 	
@@ -250,6 +246,6 @@ public class rastan
 			usrintf_showmessage(buf);
 		}
 	#endif
-	}
+	} };
 	
 }

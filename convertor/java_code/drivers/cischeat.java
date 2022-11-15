@@ -182,10 +182,6 @@ public class cischeat
 	WRITE16_HANDLER( scudhamm_vregs_w );
 	
 	
-	VIDEO_UPDATE( bigrun );
-	VIDEO_UPDATE( cischeat );
-	VIDEO_UPDATE( f1gpstar );
-	VIDEO_UPDATE( scudhamm );
 	
 	
 	/**************************************************************************

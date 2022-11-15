@@ -202,8 +202,7 @@ public class superpac
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( superpac )
-	{
+	public static VideoUpdateHandlerPtr video_update_superpac  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		if (get_vh_global_attribute_changed())
@@ -298,5 +297,5 @@ public class superpac
 	
 		/* Color 31 still has priority over that (ghost eyes in Pac 'n Pal) */
 		draw_sprites(bitmap, &Machine->visible_area, TRANSPARENCY_PENS);
-	}
+	} };
 }

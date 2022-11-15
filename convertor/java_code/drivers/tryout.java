@@ -164,10 +164,9 @@ public class tryout
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( tryout )
-	{
+	public static VideoUpdateHandlerPtr video_update_tryout  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 	
 	static void tryout_snd_irq(int linestate)
 	{

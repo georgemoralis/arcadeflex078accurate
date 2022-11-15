@@ -173,8 +173,7 @@ public class trackfld
 		}
 	}
 	
-	VIDEO_UPDATE( trackfld )
-	{
+	public static VideoUpdateHandlerPtr video_update_trackfld  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int row, scrollx;
 	
 		for (row = 0; row < 32; row++)
@@ -186,5 +185,5 @@ public class trackfld
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		trackfld_draw_sprites(bitmap);
-	}
+	} };
 }

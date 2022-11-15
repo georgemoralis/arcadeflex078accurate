@@ -134,8 +134,7 @@ public class eprom
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( eprom )
-	{
+	public static VideoUpdateHandlerPtr video_update_eprom  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct atarimo_rect_list rectlist;
 		struct mame_bitmap *mobitmap;
 		int x, y, r;
@@ -276,5 +275,5 @@ public class eprom
 						mo[x] = 0;
 					}
 			}
-	}
+	} };
 }

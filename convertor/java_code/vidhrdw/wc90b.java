@@ -153,8 +153,7 @@ public class wc90b
 		}
 	}
 	
-	VIDEO_UPDATE( wc90b )
-	{
+	public static VideoUpdateHandlerPtr video_update_wc90b  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap,0,8 * wc90b_scroll2x[0] + 256);
 		tilemap_set_scrolly(bg_tilemap,0,wc90b_scroll2y[0] + ((wc90b_scroll2y[0] < 0x10 || wc90b_scroll2y[0] == 0xff) ? 256 : 0));
 		tilemap_set_scrollx(fg_tilemap,0,8 * wc90b_scroll1x[0] + 256);
@@ -167,5 +166,5 @@ public class wc90b
 		draw_sprites( bitmap,cliprect, 1 );
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
 		draw_sprites( bitmap,cliprect, 0 );
-	}
+	} };
 }

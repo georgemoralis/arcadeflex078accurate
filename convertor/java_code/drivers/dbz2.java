@@ -74,8 +74,6 @@ public class dbz2
 	
 	static int dbz2_control;
 	
-	VIDEO_UPDATE(dbz);
-	VIDEO_UPDATE(dbz2);
 	
 	public static InterruptHandlerPtr dbz2_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch (cpu_getiloops())

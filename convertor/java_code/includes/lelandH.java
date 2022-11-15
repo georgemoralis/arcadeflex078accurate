@@ -145,6 +145,3 @@ WRITE_HANDLER( ataxx_svram_port_w );
 READ_HANDLER( ataxx_mvram_port_r );
 READ_HANDLER( ataxx_svram_port_r );
 
-VIDEO_EOF( leland );
-VIDEO_UPDATE( leland );
-VIDEO_UPDATE( ataxx );

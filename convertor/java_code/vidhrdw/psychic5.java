@@ -503,10 +503,9 @@ public class psychic5
 			fillbitmap(bitmap, get_black_pen(), cliprect);
 	}
 	
-	VIDEO_UPDATE( psychic5 )
-	{
+	public static VideoUpdateHandlerPtr video_update_psychic5  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		psychic5_draw_background(bitmap, cliprect);
 		psychic5_draw_sprites(bitmap, cliprect);
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 }

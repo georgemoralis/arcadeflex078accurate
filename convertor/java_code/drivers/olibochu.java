@@ -174,11 +174,10 @@ public class olibochu
 		}
 	}
 	
-	VIDEO_UPDATE( olibochu )
-	{
+	public static VideoUpdateHandlerPtr video_update_olibochu  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		olibochu_draw_sprites(bitmap);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( sound_command_w )

@@ -119,8 +119,7 @@ public class djboy
 			(b * 0xff) / 0xf );
 	}
 	
-	VIDEO_UPDATE( djboy )
-	{
+	public static VideoUpdateHandlerPtr video_update_djboy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/**
 		 * xx------ msb x
 		 * --x----- msb y
@@ -140,5 +139,5 @@ public class djboy
 	
 		tilemap_draw( bitmap, cliprect,background,0,0 );
 		draw_sprites( bitmap, cliprect );
-	}
+	} };
 }

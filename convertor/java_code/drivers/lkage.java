@@ -38,7 +38,6 @@ public class lkage
 	
 	extern unsigned char *lkage_scroll, *lkage_vreg;
 	WRITE_HANDLER( lkage_videoram_w );
-	VIDEO_UPDATE( lkage );
 	
 	READ_HANDLER( lkage_68705_portA_r );
 	WRITE_HANDLER( lkage_68705_portA_w );

@@ -480,14 +480,13 @@ public class leland
 	}
 	
 	
-	VIDEO_EOF( leland )
-	{
+	public static VideoEofHandlerPtr video_eof_leland  = new VideoEofHandlerPtr() { public void handler(){
 		/* update anything remaining */
 		update_for_scanline(VIDEO_HEIGHT * 8);
 	
 		/* set a timer to go off at the top of the frame */
 		timer_set(cpu_getscanlinetime(0), 0, scanline_reset);
-	}
+	} };
 	
 	
 	
@@ -497,8 +496,7 @@ public class leland
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( leland )
-	{
+	public static VideoUpdateHandlerPtr video_update_leland  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		const UINT8 *background_prom = memory_region(REGION_USER1);
 		const struct GfxElement *gfx = Machine->gfx[0];
 		int char_bank = ((gfxbank >> 4) & 0x03) * 0x0400;
@@ -538,7 +536,7 @@ public class leland
 	
 		/* Merge the two bitmaps together */
 		copybitmap(bitmap, fgbitmap, 0, 0, 0, 0, cliprect, TRANSPARENCY_BLEND, 6);
-	}
+	} };
 	
 	
 	
@@ -548,8 +546,7 @@ public class leland
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( ataxx )
-	{
+	public static VideoUpdateHandlerPtr video_update_ataxx  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		const struct GfxElement *gfx = Machine->gfx[0];
 		int xcoarse = xscroll / 8;
 		int ycoarse = yscroll / 8;
@@ -580,5 +577,5 @@ public class leland
 	
 		/* Merge the two bitmaps together */
 		copybitmap(bitmap, fgbitmap, 0, 0, 0, 0, cliprect, TRANSPARENCY_BLEND, 6);
-	}
+	} };
 }

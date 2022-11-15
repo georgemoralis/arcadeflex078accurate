@@ -45,10 +45,9 @@ public class sbugger
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(sbugger)
-	{
+	public static VideoUpdateHandlerPtr video_update_sbugger  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,sbugger_tilemap,0,0);
-	}
+	} };
 	
 	/* not right but so we can see things ok */
 	PALETTE_INIT(sbugger)

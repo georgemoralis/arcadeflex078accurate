@@ -871,8 +871,7 @@ public class midtunit
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( midtunit )
-	{
+	public static VideoUpdateHandlerPtr video_update_midtunit  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int v, width, xoffs, dpytap;
 		UINT32 offset;
 	
@@ -908,5 +907,5 @@ public class midtunit
 			draw_scanline16(bitmap, xoffs, v, width, &local_videoram[offset], pen_map, -1);
 			offset = (offset + 512) & 0x3ffff;
 		}
-	}
+	} };
 }

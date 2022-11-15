@@ -143,8 +143,7 @@ public class warriorb
 					SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( warriorb )
-	{
+	public static VideoUpdateHandlerPtr video_update_warriorb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3], nodraw;
 	
 		TC0100SCN_tilemap_update();
@@ -173,5 +172,5 @@ public class warriorb
 		// draw top(text) layer
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[2],0,0);
 		TC0100SCN_tilemap_draw(bitmap,cliprect,1,layer[2],0,0);
-	}
+	} };
 }

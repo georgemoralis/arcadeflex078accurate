@@ -340,12 +340,11 @@ public class fastfred
 	}
 	
 	
-	VIDEO_UPDATE( fastfred )
-	{
+	public static VideoUpdateHandlerPtr video_update_fastfred  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 	
 		draw_sprites(bitmap, cliprect);
-	}
+	} };
 	
 	
 	static void imago_get_tile_info_bg(int tile_index)
@@ -395,12 +394,11 @@ public class fastfred
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( imago )
-	{
+	public static VideoUpdateHandlerPtr video_update_imago  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 	
 		draw_sprites(bitmap, cliprect);
 		
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

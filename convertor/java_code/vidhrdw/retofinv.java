@@ -406,10 +406,9 @@ public class retofinv
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( retofinv )
-	{
+	public static VideoUpdateHandlerPtr video_update_retofinv  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		retofinv_draw_background(bitmap);
 		retofinv_render_sprites(bitmap);
 		retofinv_draw_foreground(bitmap);
-	}
+	} };
 }

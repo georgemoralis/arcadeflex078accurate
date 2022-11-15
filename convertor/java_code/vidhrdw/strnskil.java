@@ -136,8 +136,7 @@ public class strnskil
 		}
 	}
 	
-	VIDEO_UPDATE( strnskil )
-	{
+	public static VideoUpdateHandlerPtr video_update_strnskil  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int row;
 	
 		for (row = 0; row < 32; row++)
@@ -158,5 +157,5 @@ public class strnskil
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		strnskil_draw_sprites(bitmap);
-	}
+	} };
 }

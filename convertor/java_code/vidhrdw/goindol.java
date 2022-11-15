@@ -147,8 +147,7 @@ public class goindol
 		}
 	}
 	
-	VIDEO_UPDATE( goindol )
-	{
+	public static VideoUpdateHandlerPtr video_update_goindol  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(fg_tilemap,0,*goindol_fg_scrollx);
 		tilemap_set_scrolly(fg_tilemap,0,*goindol_fg_scrolly);
 	
@@ -156,5 +155,5 @@ public class goindol
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect,1,spriteram);
 		draw_sprites(bitmap,cliprect,0,spriteram_2);
-	}
+	} };
 }

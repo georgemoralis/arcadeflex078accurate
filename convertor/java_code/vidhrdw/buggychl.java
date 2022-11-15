@@ -255,8 +255,7 @@ public class buggychl
 	}
 	
 	
-	VIDEO_UPDATE( buggychl )
-	{
+	public static VideoUpdateHandlerPtr video_update_buggychl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int code;
 	
 	
@@ -281,5 +280,5 @@ public class buggychl
 	
 		for (code = 0;code < 256;code++)
 			dirtychar[code] = 0;
-	}
+	} };
 }

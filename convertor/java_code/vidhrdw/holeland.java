@@ -197,17 +197,15 @@ public class holeland
 		}
 	}
 	
-	VIDEO_UPDATE( holeland )
-	{
+	public static VideoUpdateHandlerPtr video_update_holeland  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	/*tilemap_mark_all_tiles_dirty(bg_tilemap); */
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_BACK,0);
 		holeland_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_FRONT,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( crzrally )
-	{
+	public static VideoUpdateHandlerPtr video_update_crzrally  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		crzrally_draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

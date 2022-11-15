@@ -377,8 +377,7 @@ public class exerion
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( exerion )
-	{
+	public static VideoUpdateHandlerPtr video_update_exerion  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int sx, sy, offs, i;
 	
 		/* finish updating the scanlines */
@@ -459,5 +458,5 @@ public class exerion
 					exerion_cocktail_flip, exerion_cocktail_flip, x, y,
 					cliprect, TRANSPARENCY_PEN, 0);
 			}
-	}
+	} };
 }

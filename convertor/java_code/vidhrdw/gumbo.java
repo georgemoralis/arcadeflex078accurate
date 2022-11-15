@@ -57,9 +57,8 @@ public class gumbo
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( gumbo )
-	{
+	public static VideoUpdateHandlerPtr video_update_gumbo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,gumbo_bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,gumbo_fg_tilemap,0,0);
-	}
+	} };
 }

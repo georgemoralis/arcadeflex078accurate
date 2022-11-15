@@ -13,8 +13,7 @@ package drivers;
 public class destroyr
 {
 	
-	extern VIDEO_UPDATE( destroyr );
-	
+	extern 
 	extern int destroyr_wavemod;
 	extern int destroyr_cursor;
 	

@@ -221,8 +221,7 @@ public class skykid
 		}
 	}
 	
-	VIDEO_UPDATE( skykid )
-	{
+	public static VideoUpdateHandlerPtr video_update_skykid  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		tilemap_draw(bitmap,cliprect,background,0,0);
@@ -263,5 +262,5 @@ public class skykid
 		}
 		if ((priority & 0xf0) == 0x50)
 			skykid_draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

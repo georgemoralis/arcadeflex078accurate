@@ -33,7 +33,6 @@ public class cbasebal
 	WRITE_HANDLER( cbasebal_gfxctrl_w );
 	WRITE_HANDLER( cbasebal_scrollx_w );
 	WRITE_HANDLER( cbasebal_scrolly_w );
-	VIDEO_UPDATE( cbasebal );
 	
 	
 	static int rambank;

@@ -171,8 +171,7 @@ public class vball
 	
 	#undef DRAW_SPRITE
 	
-	VIDEO_UPDATE( vb )
-	{
+	public static VideoUpdateHandlerPtr video_update_vb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		tilemap_set_scrolly(bg_tilemap,0,vb_scrolly_hi + *vb_scrolly_lo);
@@ -184,7 +183,7 @@ public class vball
 		}
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
 	
 	/*I don't really understand what the proper timing of this should be,

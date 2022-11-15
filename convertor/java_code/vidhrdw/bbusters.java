@@ -283,8 +283,7 @@ public class bbusters
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( bbuster )
-	{
+	public static VideoUpdateHandlerPtr video_update_bbuster  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx( pf1_tilemap,0, bbuster_pf1_scroll_data[0] );
 		tilemap_set_scrolly( pf1_tilemap,0, bbuster_pf1_scroll_data[1] );
 		tilemap_set_scrollx( pf2_tilemap,0, bbuster_pf2_scroll_data[0] );
@@ -300,10 +299,9 @@ public class bbusters
 		draw_crosshair(bitmap,readinputport(6),readinputport(5),cliprect);
 		draw_crosshair(bitmap,readinputport(8),readinputport(7),cliprect);
 		draw_crosshair(bitmap,readinputport(10),readinputport(9),cliprect);
-	}
+	} };
 	
-	VIDEO_UPDATE( mechatt )
-	{
+	public static VideoUpdateHandlerPtr video_update_mechatt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx( pf1_tilemap,0, bbuster_pf1_scroll_data[0] );
 		tilemap_set_scrolly( pf1_tilemap,0, bbuster_pf1_scroll_data[1] );
 		tilemap_set_scrollx( pf2_tilemap,0, bbuster_pf2_scroll_data[0] );
@@ -316,5 +314,5 @@ public class bbusters
 	
 		draw_crosshair(bitmap,readinputport(2),readinputport(3),cliprect);
 		draw_crosshair(bitmap,readinputport(4),readinputport(5),cliprect);
-	}
+	} };
 }

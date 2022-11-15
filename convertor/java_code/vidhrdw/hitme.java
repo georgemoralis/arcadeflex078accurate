@@ -79,8 +79,7 @@ public class hitme
 		return 0;
 	} };
 	
-	VIDEO_UPDATE (hitme)
-	{
+	public static VideoUpdateHandlerPtr video_update_hitme  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,hitme_tilemap,0,0);
-	}
+	} };
 }

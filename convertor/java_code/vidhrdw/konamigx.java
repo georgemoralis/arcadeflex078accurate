@@ -418,8 +418,7 @@ public class konamigx
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(konamigx)
-	{
+	public static VideoUpdateHandlerPtr video_update_konamigx  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i, newbank, newbase, dirty, unchained, blendmode;
 	
 		/* if any banks are different from last render, we need to flush the planes */
@@ -510,7 +509,7 @@ public class konamigx
 			draw_crosshair( bitmap, readinputport( 9)*287/0xff+24, readinputport(10)*223/0xff+16, cliprect );
 			draw_crosshair( bitmap, readinputport(11)*287/0xff+24, readinputport(12)*223/0xff+16, cliprect );
 		}
-	}
+	} };
 	
 	
 	WRITE32_HANDLER( konamigx_palette_w )

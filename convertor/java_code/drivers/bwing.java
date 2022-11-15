@@ -47,8 +47,7 @@ public class bwing
 	extern WRITE_HANDLER( bwing_scrollreg_w );
 	extern WRITE_HANDLER( bwing_scrollram_w );
 	extern READ_HANDLER( bwing_scrollram_r );
-	extern extern VIDEO_UPDATE( bwing );
-	
+	extern extern 
 	//****************************************************************************
 	// Local Vars
 	

@@ -166,8 +166,7 @@ public class galpani2
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( galpani2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_galpani2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 		galpani2_mcu_run();
@@ -219,5 +218,5 @@ public class galpani2
 		}
 	
 		if (layers_ctrl & 0x8)	kaneko16_draw_sprites(bitmap, cliprect, 0xf);
-	}
+	} };
 }

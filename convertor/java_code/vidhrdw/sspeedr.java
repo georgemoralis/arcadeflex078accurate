@@ -265,18 +265,16 @@ public class sspeedr
 	} };
 	
 	
-	VIDEO_UPDATE( sspeedr )
-	{
+	public static VideoUpdateHandlerPtr video_update_sspeedr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		draw_track(bitmap);
 	
 		draw_drones(bitmap, cliprect);
 	
 		draw_driver(bitmap, cliprect);
-	}
+	} };
 	
 	
-	VIDEO_EOF( sspeedr )
-	{
+	public static VideoEofHandlerPtr video_eof_sspeedr  = new VideoEofHandlerPtr() { public void handler(){
 		toggle ^= 1;
-	}
+	} };
 }

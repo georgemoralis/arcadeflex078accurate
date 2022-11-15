@@ -447,8 +447,7 @@ public class aerofgt
 	}
 	
 	
-	VIDEO_UPDATE( pspikes )
-	{
+	public static VideoUpdateHandlerPtr video_update_pspikes  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i,scrolly;
 	
 		tilemap_set_scroll_rows(bg1_tilemap,256);
@@ -461,10 +460,9 @@ public class aerofgt
 	
 		tilemap_draw(bitmap,cliprect,bg1_tilemap,0,0);
 		turbofrc_drawsprites(bitmap,cliprect,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( karatblz )
-	{
+	public static VideoUpdateHandlerPtr video_update_karatblz  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg1_tilemap,0,bg1scrollx-8);
 		tilemap_set_scrolly(bg1_tilemap,0,bg1scrolly);
 		tilemap_set_scrollx(bg2_tilemap,0,bg2scrollx-4);
@@ -478,10 +476,9 @@ public class aerofgt
 		/* we use the priority buffer so sprites are drawn front to back */
 		turbofrc_drawsprites(bitmap,cliprect,1);
 		turbofrc_drawsprites(bitmap,cliprect,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( spinlbrk )
-	{
+	public static VideoUpdateHandlerPtr video_update_spinlbrk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i,scrolly;
 	
 		tilemap_set_scroll_rows(bg1_tilemap,512);
@@ -500,10 +497,9 @@ public class aerofgt
 		/* we use the priority buffer so sprites are drawn front to back */
 		turbofrc_drawsprites(bitmap,cliprect,0);
 		turbofrc_drawsprites(bitmap,cliprect,1);
-	}
+	} };
 	
-	VIDEO_UPDATE( turbofrc )
-	{
+	public static VideoUpdateHandlerPtr video_update_turbofrc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i,scrolly;
 	
 		tilemap_set_scroll_rows(bg1_tilemap,512);
@@ -523,10 +519,9 @@ public class aerofgt
 		/* we use the priority buffer so sprites are drawn front to back */
 		turbofrc_drawsprites(bitmap,cliprect,1);
 		turbofrc_drawsprites(bitmap,cliprect,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( aerofgt )
-	{
+	public static VideoUpdateHandlerPtr video_update_aerofgt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg1_tilemap,0,aerofgt_rasterram[0x0000]-18);
 		tilemap_set_scrolly(bg1_tilemap,0,bg1scrolly);
 		tilemap_set_scrollx(bg2_tilemap,0,aerofgt_rasterram[0x0200]-20);
@@ -543,5 +538,5 @@ public class aerofgt
 	
 		aerofgt_drawsprites(bitmap,cliprect,2);
 		aerofgt_drawsprites(bitmap,cliprect,3);
-	}
+	} };
 }

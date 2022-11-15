@@ -148,8 +148,7 @@ public class triplhnt
 	}
 	
 	
-	VIDEO_UPDATE( triplhnt )
-	{
+	public static VideoUpdateHandlerPtr video_update_triplhnt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int cross_x = readinputport(8);
 		int cross_y = readinputport(9);
 	
@@ -160,5 +159,5 @@ public class triplhnt
 		triplhnt_draw_sprites(bitmap, cliprect);
 	
 		draw_crosshair(bitmap, cross_x, cross_y, cliprect);
-	}
+	} };
 }

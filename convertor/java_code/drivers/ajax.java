@@ -33,7 +33,6 @@ public class ajax
 	MACHINE_INIT( ajax );
 	
 	/* from vidhrdw/ajax.c */
-	VIDEO_UPDATE( ajax );
 	
 	/****************************************************************************/
 	

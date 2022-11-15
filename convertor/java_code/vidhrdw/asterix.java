@@ -78,8 +78,7 @@ public class asterix
 		SWAP(1,2)
 	}
 	
-	VIDEO_UPDATE( asterix )
-	{
+	public static VideoUpdateHandlerPtr video_update_asterix  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer[3];
 	
 		tilebanks[0] = (K054157_get_lookup(0) << 10);
@@ -115,5 +114,5 @@ public class asterix
 		K053245_sprites_draw(bitmap, cliprect);
 	
 		K054157_tilemap_draw(bitmap, cliprect, 2, 0, 0);
-	}
+	} };
 }

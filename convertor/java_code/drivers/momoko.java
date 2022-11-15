@@ -28,7 +28,6 @@ public class momoko
 	extern data8_t *momoko_bg_scrollx;
 	extern data8_t *momoko_bg_scrolly;
 	
-	VIDEO_UPDATE( momoko );
 	
 	WRITE_HANDLER( momoko_fg_scrollx_w );
 	WRITE_HANDLER( momoko_fg_scrolly_w );

@@ -31,8 +31,7 @@ public class spcforce
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( spcforce )
-	{
+	public static VideoUpdateHandlerPtr video_update_spcforce  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -64,5 +63,5 @@ public class spcforce
 					sx, sy,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 }

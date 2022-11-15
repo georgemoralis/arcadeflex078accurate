@@ -99,7 +99,6 @@ public class galaga
 	
 	
 	extern unsigned char *galaga_starcontrol;
-	VIDEO_UPDATE( galaga );
 	PALETTE_INIT( galaga );
 	
 	WRITE_HANDLER( pengo_sound_w );

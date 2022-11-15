@@ -34,7 +34,6 @@ public class pastelgl
 	
 	
 	PALETTE_INIT( pastelgl );
-	VIDEO_UPDATE( pastelgl );
 	
 	void pastelgl_paltbl_w(int offset, int data);
 	void pastelgl_radrx_w(int data);

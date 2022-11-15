@@ -380,8 +380,7 @@ public class arabian
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( arabian )
-	{
+	public static VideoUpdateHandlerPtr video_update_arabian  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		pen_t *colortable = &Machine->remapped_colortable[(arabian_video_control >> 3) << 8];
 		int y;
 	
@@ -402,5 +401,5 @@ public class arabian
 				draw_scanline8(bitmap, 0, BITMAP_HEIGHT - 1 - y, BITMAP_WIDTH, scanline, colortable, -1);
 			}
 		}
-	}
+	} };
 }

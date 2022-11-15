@@ -97,13 +97,12 @@ public class lsasquad
 		}
 	}
 	
-	VIDEO_UPDATE( lsasquad )
-	{
+	public static VideoUpdateHandlerPtr video_update_lsasquad  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[511],&Machine->visible_area);
 	
 		draw_layer(bitmap,lsasquad_scrollram + 0x000);
 		draw_layer(bitmap,lsasquad_scrollram + 0x080);
 		draw_sprites(bitmap);
 		draw_layer(bitmap,lsasquad_scrollram + 0x100);
-	}
+	} };
 }

@@ -78,8 +78,7 @@ public class usgames
 	
 	
 	
-	VIDEO_UPDATE(usg)
-	{
+	public static VideoUpdateHandlerPtr video_update_usg  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,usg_tilemap,0,0);
-	}
+	} };
 }

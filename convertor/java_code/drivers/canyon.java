@@ -43,8 +43,7 @@ public class canyon
 	
 	extern WRITE_HANDLER( canyon_videoram_w );
 	
-	extern extern VIDEO_UPDATE( canyon );
-	
+	extern extern 
 	extern UINT8* canyon_videoram;
 	
 	

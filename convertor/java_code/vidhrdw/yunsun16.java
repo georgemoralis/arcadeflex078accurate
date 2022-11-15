@@ -212,8 +212,7 @@ public class yunsun16
 	***************************************************************************/
 	
 	
-	VIDEO_UPDATE( yunsun16 )
-	{
+	public static VideoUpdateHandlerPtr video_update_yunsun16  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(tilemap_0, 0, yunsun16_scroll_0[ 0 ]);
 		tilemap_set_scrolly(tilemap_0, 0, yunsun16_scroll_0[ 1 ]);
 	
@@ -244,5 +243,5 @@ public class yunsun16
 			sect_rect(&clip,cliprect);
 			fillbitmap(bitmap,Machine->pens[0],&clip);
 		}
-	}
+	} };
 }

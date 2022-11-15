@@ -652,8 +652,7 @@ public class zn
 		}
 	}
 	
-	static VIDEO_UPDATE( player )
-	{
+	static public static VideoUpdateHandlerPtr video_update_player  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if( keyboard_pressed_memory( KEYCODE_F1 ) )
 		{
 			n_playermode = !n_playermode;
@@ -734,7 +733,7 @@ public class zn
 			dt[ 3 ].text = 0; /* terminate array */
 			displaytext( Machine->scrbitmap, dt );
 		}
-	}
+	} };
 	
 	static MACHINE_INIT( zn )
 	{

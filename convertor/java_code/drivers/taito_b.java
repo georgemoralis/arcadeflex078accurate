@@ -182,9 +182,7 @@ public class taito_b
 	extern data16_t *taitob_pixelram;
 	
 	
-	VIDEO_EOF( taitob );
 	
-	VIDEO_UPDATE( taitob );
 	
 	WRITE16_HANDLER( TC0180VCU_word_w );
 	READ16_HANDLER ( TC0180VCU_word_r );

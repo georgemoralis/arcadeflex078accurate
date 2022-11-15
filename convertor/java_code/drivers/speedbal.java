@@ -61,7 +61,6 @@ public class speedbal
 	size_t speedbal_background_videoram_size;
 	size_t speedbal_sprites_dataram_size;
 	
-	VIDEO_UPDATE( speedbal );
 	READ_HANDLER( speedbal_foreground_videoram_r );
 	WRITE_HANDLER( speedbal_foreground_videoram_w );
 	READ_HANDLER( speedbal_background_videoram_r );

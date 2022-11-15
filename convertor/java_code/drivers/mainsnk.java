@@ -28,7 +28,6 @@ public class mainsnk
 	WRITE_HANDLER(me_bgram_w);
 	READ_HANDLER(me_fgram_r);
 	READ_HANDLER(me_bgram_r);
-	VIDEO_UPDATE(mainsnk);
 	
 	static int sound_cpu_ready;
 	static int sound_command;

@@ -201,10 +201,9 @@ public class munchmo
 		}
 	}
 	
-	VIDEO_UPDATE( mnchmobl )
-	{
+	public static VideoUpdateHandlerPtr video_update_mnchmobl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		draw_background( bitmap );
 		draw_sprites( bitmap );
 		draw_status( bitmap );
-	}
+	} };
 }

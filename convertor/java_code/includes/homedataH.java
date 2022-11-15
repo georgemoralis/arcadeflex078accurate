@@ -20,7 +20,3 @@ PALETTE_INIT( mrokumei );
 PALETTE_INIT( reikaids );
 PALETTE_INIT( pteacher );
 
-VIDEO_UPDATE( mrokumei );
-VIDEO_UPDATE( reikaids );
-VIDEO_UPDATE( pteacher );
-VIDEO_EOF( homedata );

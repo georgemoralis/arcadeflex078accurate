@@ -92,8 +92,7 @@ public class rockrage
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( rockrage )
-	{
+	public static VideoUpdateHandlerPtr video_update_rockrage  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K007342_tilemap_update();
 	
 		K007342_tilemap_draw( bitmap,cliprect, 0, TILEMAP_IGNORE_TRANSPARENCY ,0);
@@ -101,5 +100,5 @@ public class rockrage
 		K007342_tilemap_draw( bitmap,cliprect, 0, 1 | TILEMAP_IGNORE_TRANSPARENCY ,0);
 		K007342_tilemap_draw( bitmap,cliprect, 1, 0 ,0);
 		K007342_tilemap_draw( bitmap,cliprect, 1, 1 ,0);
-	}
+	} };
 }

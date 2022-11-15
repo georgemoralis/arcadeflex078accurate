@@ -219,8 +219,7 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( crgolf )
-	{
+	public static VideoUpdateHandlerPtr video_update_crgolf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int flip = *crgolf_screen_flip & 1;
 	
 		/* draw screen b if enabled */
@@ -236,5 +235,5 @@ public class crgolf
 		/* apply the color select bit */
 		if (*crgolf_color_select)
 			copybitmap(bitmap, highbit, 0, 0, 0, 0, cliprect, TRANSPARENCY_BLEND, 0);
-	}
+	} };
 }

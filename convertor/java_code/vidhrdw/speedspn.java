@@ -97,8 +97,7 @@ public class speedspn
 	}
 	
 	
-	VIDEO_UPDATE(speedspn)
-	{
+	public static VideoUpdateHandlerPtr video_update_speedspn  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (speedspn_display_disable)
 		{
 			fillbitmap(bitmap,get_black_pen(),cliprect);
@@ -116,5 +115,5 @@ public class speedspn
 		tilemap_set_scrollx(speedspn_tilemap,0, 0x100); // verify
 		tilemap_draw(bitmap,cliprect,speedspn_tilemap,0,0);
 		speedspn_drawsprites(bitmap,cliprect);
-	}
+	} };
 }

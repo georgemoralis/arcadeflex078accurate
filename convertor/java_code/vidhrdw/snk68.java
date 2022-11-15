@@ -222,8 +222,7 @@ public class snk68
 	}
 	
 	
-	VIDEO_UPDATE( pow )
-	{
+	public static VideoUpdateHandlerPtr video_update_pow  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[2047],cliprect);
 	
 		/* This appears to be correct priority */
@@ -235,7 +234,7 @@ public class snk68
 		draw_sprites(bitmap,cliprect,0,0x800);
 	
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 	
 	
 	static void draw_sprites2(struct mame_bitmap *bitmap, const struct rectangle *cliprect, int j, int z, int pos)
@@ -303,8 +302,7 @@ public class snk68
 	}
 	
 	
-	VIDEO_UPDATE( searchar )
-	{
+	public static VideoUpdateHandlerPtr video_update_searchar  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[2047],cliprect);
 	
 		/* This appears to be correct priority */
@@ -316,6 +314,6 @@ public class snk68
 		draw_sprites2(bitmap,cliprect,4,0x1000,0x800);
 	
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 	
 }

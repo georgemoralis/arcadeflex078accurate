@@ -24,8 +24,6 @@ package drivers;
 public class actfancr
 {
 	
-	VIDEO_UPDATE( actfancr );
-	VIDEO_UPDATE( triothep );
 	WRITE_HANDLER( actfancr_pf1_data_w );
 	READ_HANDLER( actfancr_pf1_data_r );
 	WRITE_HANDLER( actfancr_pf1_control_w );

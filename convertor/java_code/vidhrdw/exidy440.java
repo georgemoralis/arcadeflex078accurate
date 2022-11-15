@@ -482,8 +482,7 @@ public class exidy440
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( exidy440 )
-	{
+	public static VideoUpdateHandlerPtr video_update_exidy440  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* if we need a full refresh, mark all scanlines dirty */
 		if (get_vh_global_attribute_changed())
 			memset(scanline_dirty, 1, 256);
@@ -507,7 +506,7 @@ public class exidy440
 			/* redraw the screen */
 			update_screen(bitmap, cliprect, 0);
 		}
-	}
+	} };
 	
 	
 	
@@ -517,8 +516,7 @@ public class exidy440
 	 *
 	 *************************************/
 	
-	VIDEO_EOF( exidy440 )
-	{
+	public static VideoEofHandlerPtr video_eof_exidy440  = new VideoEofHandlerPtr() { public void handler(){
 		/* generate an interrupt once/frame for the beam */
 		if (!exidy440_topsecret)
 		{
@@ -540,5 +538,5 @@ public class exidy440
 			for (i = 0; i <= 12; i++, time += increment)
 				timer_set(time, beamx, beam_firq_callback);
 		}
-	}
+	} };
 }

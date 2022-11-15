@@ -238,8 +238,7 @@ public class appoooh
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( appoooh )
-	{
+	public static VideoUpdateHandlerPtr video_update_appoooh  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 	
 		if (priority == 0)	/* fg behind sprites */
@@ -263,5 +262,5 @@ public class appoooh
 	
 		if (priority != 0)	/* fg in front of sprites */
 			tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

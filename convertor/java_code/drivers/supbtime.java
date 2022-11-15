@@ -31,8 +31,6 @@ package drivers;
 public class supbtime
 {
 	
-	VIDEO_UPDATE( supbtime );
-	VIDEO_UPDATE( chinatwn );
 	
 	WRITE16_HANDLER( supbtime_pf2_data_w );
 	WRITE16_HANDLER( supbtime_pf1_data_w );

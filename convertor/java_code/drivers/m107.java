@@ -36,8 +36,6 @@ public class m107
 	WRITE_HANDLER( m107_spritebuffer_w );
 	void m107_vh_raster_partial_refresh(struct mame_bitmap *bitmap,int start_line,int end_line);
 	void m107_screenrefresh(struct mame_bitmap *bitmap,const struct rectangle *clip);
-	VIDEO_UPDATE( m107 );
-	VIDEO_UPDATE( dsoccr );
 	WRITE_HANDLER( m107_control_w );
 	WRITE_HANDLER( m107_vram_w );
 	READ_HANDLER( m107_vram_r );

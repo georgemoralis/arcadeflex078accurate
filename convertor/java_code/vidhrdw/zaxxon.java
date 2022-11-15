@@ -365,12 +365,11 @@ public class zaxxon
 		}
 	}
 	
-	VIDEO_UPDATE( zaxxon )
-	{
+	public static VideoUpdateHandlerPtr video_update_zaxxon  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		zaxxon_draw_background(bitmap, cliprect);
 		zaxxon_draw_sprites(bitmap, cliprect);
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 	
 	/* Razzmatazz */
 	
@@ -443,12 +442,11 @@ public class zaxxon
 		}
 	}
 	
-	VIDEO_UPDATE( razmataz )
-	{
+	public static VideoUpdateHandlerPtr video_update_razmataz  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		razmataz_draw_background(bitmap, cliprect);
 		zaxxon_draw_sprites(bitmap, cliprect);
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 	
 	/* Congo Bongo */
 	
@@ -518,12 +516,11 @@ public class zaxxon
 		}
 	}
 	
-	VIDEO_UPDATE( congo )
-	{
+	public static VideoUpdateHandlerPtr video_update_congo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		zaxxon_draw_background(bitmap, cliprect);
 		congo_draw_sprites(bitmap, cliprect);
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 	
 	/* Future Spy */
 	
@@ -556,10 +553,9 @@ public class zaxxon
 		}
 	}
 	
-	VIDEO_UPDATE( futspy )
-	{
+	public static VideoUpdateHandlerPtr video_update_futspy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		zaxxon_draw_background(bitmap, cliprect);
 		futspy_draw_sprites(bitmap, cliprect);
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 }

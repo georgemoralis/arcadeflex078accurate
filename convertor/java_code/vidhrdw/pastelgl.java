@@ -300,8 +300,7 @@ public class pastelgl
 	
 	
 	******************************************************************************/
-	VIDEO_UPDATE( pastelgl )
-	{
+	public static VideoUpdateHandlerPtr video_update_pastelgl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		unsigned char color;
 	
@@ -327,5 +326,5 @@ public class pastelgl
 		{
 			fillbitmap(bitmap, Machine->pens[0x00], 0);
 		}
-	}
+	} };
 }

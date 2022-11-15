@@ -14,4 +14,3 @@ extern data16_t *tickee_control;
 extern data16_t *tickee_vram;
 
 
-VIDEO_UPDATE( tickee );

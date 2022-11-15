@@ -94,8 +94,7 @@ public class homerun
 		}
 	}
 	
-	VIDEO_UPDATE(homerun)
-	{
+	public static VideoUpdateHandlerPtr video_update_homerun  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle myclip=*cliprect; 
 		
 		/* upper part */
@@ -116,7 +115,7 @@ public class homerun
 		draw_sprites(bitmap,&myclip);
 	
 		homerun_gc_down=homerun_gc_up;
-	}
+	} };
 	
 	
 }

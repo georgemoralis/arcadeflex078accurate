@@ -54,8 +54,7 @@ public class bankp
 	extern WRITE_HANDLER( bankp_out_w );
 	
 	extern PALETTE_INIT( bankp );
-	extern extern VIDEO_UPDATE( bankp );
-	
+	extern extern 
 	
 	
 	static MEMORY_READ_START( readmem )

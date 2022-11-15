@@ -1,11 +1,4 @@
 /* Video emulation definitions */
-VIDEO_UPDATE( hbarrel );
-VIDEO_UPDATE( baddudes );
-VIDEO_UPDATE( birdtry );
-VIDEO_UPDATE( robocop );
-VIDEO_UPDATE( hippodrm );
-VIDEO_UPDATE( slyspy );
-VIDEO_UPDATE( midres );
 
 extern data16_t *dec0_pf1_rowscroll,*dec0_pf2_rowscroll,*dec0_pf3_rowscroll;
 extern data16_t *dec0_pf1_colscroll,*dec0_pf2_colscroll,*dec0_pf3_colscroll;

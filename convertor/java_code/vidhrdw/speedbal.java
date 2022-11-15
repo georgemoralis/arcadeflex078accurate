@@ -270,8 +270,7 @@ public class speedbal
 	 *				   *
 	 *************************************/
 	
-	VIDEO_UPDATE( speedbal )
-	{
+	public static VideoUpdateHandlerPtr video_update_speedbal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		// first background
 		speedbal_draw_background (bitmap);
 	
@@ -280,5 +279,5 @@ public class speedbal
 	
 		// thirth sprites
 		speedbal_draw_sprites (bitmap);
-	}
+	} };
 }

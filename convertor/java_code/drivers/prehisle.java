@@ -22,8 +22,7 @@ public class prehisle
 	extern WRITE16_HANDLER( prehisle_control16_w );
 	extern READ16_HANDLER( prehisle_control16_r );
 	
-	extern extern VIDEO_UPDATE( prehisle );
-	
+	extern extern 
 	extern UINT16 *prehisle_bg_videoram16;
 	
 	static UINT16 *prehisle_ram16;

@@ -5,4 +5,3 @@ extern int taxidrvr_bghide;
 
 WRITE_HANDLER( taxidrvr_spritectrl_w );
 
-VIDEO_UPDATE( taxidrvr );

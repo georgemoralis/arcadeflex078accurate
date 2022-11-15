@@ -18,7 +18,6 @@ public class ikki
 {
 	
 	PALETTE_INIT( ikki );
-	VIDEO_UPDATE( ikki );
 	
 	static UINT8 *ikki_sharedram;
 	

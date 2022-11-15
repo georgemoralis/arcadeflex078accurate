@@ -433,8 +433,7 @@ public class taito_h
 	
 	/**************************************************************************/
 	
-	VIDEO_UPDATE( syvalion )
-	{
+	public static VideoUpdateHandlerPtr video_update_syvalion  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		TC0080VCO_tilemap_update();
 	
 	#ifdef MAME_DEBUG
@@ -447,11 +446,10 @@ public class taito_h
 		TC0080VCO_tilemap_draw(bitmap,cliprect,1,0,0);
 		syvalion_draw_sprites (bitmap,cliprect);
 		TC0080VCO_tilemap_draw(bitmap,cliprect,2,0,0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( recordbr )
-	{
+	public static VideoUpdateHandlerPtr video_update_recordbr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		TC0080VCO_tilemap_update();
 	
 	#ifdef MAME_DEBUG
@@ -477,11 +475,10 @@ public class taito_h
 	#endif
 	
 		TC0080VCO_tilemap_draw(bitmap,cliprect,2,0,0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( dleague )
-	{
+	public static VideoUpdateHandlerPtr video_update_dleague  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		TC0080VCO_tilemap_update();
 	
 	#ifdef MAME_DEBUG
@@ -507,6 +504,6 @@ public class taito_h
 	#endif
 	
 		TC0080VCO_tilemap_draw(bitmap,cliprect,2,0,0);
-	}
+	} };
 	
 }

@@ -36,7 +36,6 @@ PALETTE_INIT( pwrinst2 );
 
 
 
-VIDEO_UPDATE( cave );
 
 void cave_get_sprite_info(void);
 

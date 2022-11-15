@@ -24,9 +24,6 @@ package drivers;
 public class rohga
 {
 	
-	VIDEO_UPDATE( rohga );
-	VIDEO_UPDATE( wizdfire );
-	VIDEO_UPDATE( nitrobal );
 	
 	static READ16_HANDLER( rohga_dip3_r ) { return readinputport(3); }
 	static READ16_HANDLER( nitrobal_control_r ) { return readinputport(3); }

@@ -118,8 +118,7 @@ public class jailbrek
 		}
 	}
 	
-	VIDEO_UPDATE( jailbrek )
-	{
+	public static VideoUpdateHandlerPtr video_update_jailbrek  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		// added support for vertical scrolling (credits).  23/1/2002  -BR
@@ -149,5 +148,5 @@ public class jailbrek
 	
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		jailbrek_draw_sprites(bitmap, cliprect);
-	}
+	} };
 }

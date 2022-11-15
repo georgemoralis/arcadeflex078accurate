@@ -203,8 +203,7 @@ public class wilytowr
 		}
 	}
 	
-	VIDEO_UPDATE( wilytowr )
-	{
+	public static VideoUpdateHandlerPtr video_update_wilytowr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int col;
 	
 		for (col = 0; col < 32; col++)
@@ -213,7 +212,7 @@ public class wilytowr
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		wilytowr_draw_sprites(bitmap);
 		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( coin_w )

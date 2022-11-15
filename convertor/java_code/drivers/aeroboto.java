@@ -35,7 +35,6 @@ public class aeroboto
 	extern data8_t *aeroboto_hscroll, *aeroboto_vscroll, *aeroboto_tilecolor;
 	extern data8_t *aeroboto_starx, *aeroboto_stary, *aeroboto_bgcolor;
 	
-	VIDEO_UPDATE( aeroboto );
 	
 	READ_HANDLER( aeroboto_in0_r );
 	WRITE_HANDLER( aeroboto_3000_w );

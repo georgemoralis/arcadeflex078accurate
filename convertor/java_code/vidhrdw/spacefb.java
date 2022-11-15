@@ -91,8 +91,7 @@ public class spacefb
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( spacefb )
-	{
+	public static VideoUpdateHandlerPtr video_update_spacefb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int spriteno, col_bit2;
 	
@@ -162,5 +161,5 @@ public class spacefb
 			}
 		}
 	
-	}
+	} };
 }

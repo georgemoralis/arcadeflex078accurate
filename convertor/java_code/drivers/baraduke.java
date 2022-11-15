@@ -24,8 +24,6 @@ public class baraduke
 	extern unsigned char *baraduke_textram, *spriteram, *baraduke_videoram;
 	
 	/* from vidhrdw/baraduke.c */
-	VIDEO_UPDATE( baraduke );
-	VIDEO_UPDATE( metrocrs );
 	READ_HANDLER( baraduke_textlayer_r );
 	READ_HANDLER( baraduke_videoram_r );
 	WRITE_HANDLER( baraduke_textlayer_w );

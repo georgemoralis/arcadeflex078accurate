@@ -365,8 +365,7 @@ public class clshroad
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( clshroad )
-	{
+	public static VideoUpdateHandlerPtr video_update_clshroad  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int scrollx  = clshroad_vregs[ 0 ] + (clshroad_vregs[ 1 ] << 8);
 	//	int priority = clshroad_vregs[ 2 ];
 	
@@ -378,5 +377,5 @@ public class clshroad
 		tilemap_draw(bitmap,cliprect,tilemap_0b,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,tilemap_1,0,0);
-	}
+	} };
 }

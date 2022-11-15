@@ -19,7 +19,6 @@ package drivers;
 public class flstory
 {
 	
-	VIDEO_UPDATE( flstory );
 	
 	extern UINT8 *flstory_scrlram;
 	

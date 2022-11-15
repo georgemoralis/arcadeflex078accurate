@@ -238,8 +238,7 @@ public class undrfire
 					SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( undrfire )
-	{
+	public static VideoUpdateHandlerPtr video_update_undrfire  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[5];
 		UINT8 pivlayer[3];
 		UINT16 priority;
@@ -378,5 +377,5 @@ public class undrfire
 			}
 		}
 	#endif
-	}
+	} };
 }

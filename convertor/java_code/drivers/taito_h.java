@@ -89,9 +89,6 @@ public class taito_h
 	
 	static data16_t *taitoh_68000_mainram;
 	
-	VIDEO_UPDATE( syvalion );
-	VIDEO_UPDATE( recordbr );
-	VIDEO_UPDATE( dleague );
 	
 	
 	/***************************************************************************

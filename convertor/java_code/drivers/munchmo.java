@@ -41,7 +41,6 @@ public class munchmo
 	WRITE_HANDLER( mnchmobl_sprite_tile_w );
 	READ_HANDLER( mnchmobl_videoram_r );
 	WRITE_HANDLER( mnchmobl_videoram_w );
-	VIDEO_UPDATE( mnchmobl );
 	
 	
 	/***************************************************************************/

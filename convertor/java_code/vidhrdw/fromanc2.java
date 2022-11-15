@@ -607,8 +607,7 @@ public class fromanc2
 	
 	******************************************************************************/
 	
-	VIDEO_UPDATE( fromanc2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_fromanc2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (fromanc2_tilemap[fromanc2_dispvram][0]) {
 			tilemap_set_scrollx(fromanc2_tilemap[fromanc2_dispvram][0], 0, -fromanc2_scrollx[fromanc2_dispvram][0]);
 			tilemap_set_scrolly(fromanc2_tilemap[fromanc2_dispvram][0], 0, -fromanc2_scrolly[fromanc2_dispvram][0]);
@@ -629,5 +628,5 @@ public class fromanc2
 			tilemap_set_scrolly(fromanc2_tilemap[fromanc2_dispvram][3], 0, -fromanc2_scrolly[fromanc2_dispvram][3]);
 		 	tilemap_draw(bitmap,cliprect, fromanc2_tilemap[fromanc2_dispvram][3], 0, 0);
 		}
-	}
+	} };
 }

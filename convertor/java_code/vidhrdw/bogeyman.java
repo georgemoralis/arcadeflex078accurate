@@ -172,10 +172,9 @@ public class bogeyman
 		}
 	}
 	
-	VIDEO_UPDATE( bogeyman )
-	{
+	public static VideoUpdateHandlerPtr video_update_bogeyman  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		bogeyman_draw_sprites(bitmap);
 		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
-	}
+	} };
 }

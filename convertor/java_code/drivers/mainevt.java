@@ -30,8 +30,6 @@ public class mainevt
 {
 	
 	
-	VIDEO_UPDATE( mainevt );
-	VIDEO_UPDATE( dv );
 	
 	
 	

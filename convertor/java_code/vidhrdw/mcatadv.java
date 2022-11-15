@@ -169,8 +169,7 @@ public class mcatadv
 		}
 	}
 	
-	VIDEO_UPDATE( mcatadv )
-	{
+	public static VideoUpdateHandlerPtr video_update_mcatadv  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i, scrollx, scrolly, flip;
 	
 		fillbitmap(bitmap, get_black_pen(), cliprect);
@@ -228,7 +227,7 @@ public class mcatadv
 	#endif
 			mcatadv_drawsprites (bitmap, cliprect);
 		profiler_mark(PROFILER_END);
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_mcatadv  = new VideoStartHandlerPtr() { public int handler(){
 		mcatadv_tilemap1 = tilemap_create(get_mcatadv_tile_info1,tilemap_scan_rows,TILEMAP_TRANSPARENT, 16, 16,32,32);
@@ -251,9 +250,8 @@ public class mcatadv
 		return 0;
 	} };
 	
-	VIDEO_EOF( mcatadv )
-	{
+	public static VideoEofHandlerPtr video_eof_mcatadv  = new VideoEofHandlerPtr() { public void handler(){
 		memcpy(spriteram_old,spriteram16,spriteram_size);
 		memcpy(vidregs_old,mcatadv_vidregs,0xf);
-	}
+	} };
 }

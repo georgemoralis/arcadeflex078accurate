@@ -64,8 +64,7 @@ public class xyonix
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(xyonix)
-	{
+	public static VideoUpdateHandlerPtr video_update_xyonix  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,xyonix_tilemap,0,0);
-	}
+	} };
 }

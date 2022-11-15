@@ -114,8 +114,6 @@ public class asuka
 	WRITE16_HANDLER( asuka_spritectrl_w );
 	
 	
-	VIDEO_UPDATE( asuka );
-	VIDEO_UPDATE( bonzeadv );
 	
 	WRITE_HANDLER( rastan_adpcm_trigger_w );
 	WRITE_HANDLER( rastan_c000_w );
@@ -987,10 +985,9 @@ public class asuka
 				     MACHINE DRIVERS
 	***********************************************************/
 	
-	VIDEO_EOF( asuka )
-	{
+	public static VideoEofHandlerPtr video_eof_asuka  = new VideoEofHandlerPtr() { public void handler(){
 		PC090OJ_eof_callback();
-	}
+	} };
 	
 	
 	static MACHINE_DRIVER_START( bonzeadv )

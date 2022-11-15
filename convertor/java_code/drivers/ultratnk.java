@@ -141,15 +141,14 @@ public class ultratnk
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( ultratnk )
-	{
+	public static VideoUpdateHandlerPtr video_update_ultratnk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		ultratnk_draw_sprites(bitmap);
 	
 		/* Weird, but we have to update our sound registers here. */
 		discrete_sound_w(2, mirror_ram[0x88] % 16);
 		discrete_sound_w(3, mirror_ram[0x8A] % 16);
-	}
+	} };
 	
 	/*************************************
 	 *

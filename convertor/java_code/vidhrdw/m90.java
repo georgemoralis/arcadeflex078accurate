@@ -168,8 +168,7 @@ public class m90
 		markdirty(pf2_wide_layer,m90_video_control_data[0xc] & 0x2,offset);
 	}
 	
-	VIDEO_UPDATE( m90 )
-	{
+	public static VideoUpdateHandlerPtr video_update_m90  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int last_pf1,last_pf2;
 		int pf1_base = m90_video_control_data[0xa] & 0x3;
 		int pf2_base = m90_video_control_data[0xc] & 0x3;
@@ -268,5 +267,5 @@ public class m90
 		}
 	
 		m90_drawsprites(bitmap,cliprect);
-	}
+	} };
 }

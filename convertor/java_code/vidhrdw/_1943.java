@@ -184,8 +184,7 @@ public class _1943
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( 1943 )
-	{
+	public static VideoUpdateHandlerPtr video_update_1943  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy;
 		int bg_scrolly, bg_scrollx;
 		unsigned char *p;
@@ -385,5 +384,5 @@ public class _1943
 						cliprect,TRANSPARENCY_COLOR,79);
 			}
 		}
-	}
+	} };
 }

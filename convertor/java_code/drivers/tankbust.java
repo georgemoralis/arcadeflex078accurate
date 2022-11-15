@@ -26,7 +26,6 @@ public class tankbust
 {
 	
 	
-	VIDEO_UPDATE( tankbust );
 	
 	extern data8_t * txt_ram;
 	

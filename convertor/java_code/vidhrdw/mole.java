@@ -79,8 +79,7 @@ public class mole
 		flip_screen_set(data);
 	}
 	
-	VIDEO_UPDATE( moleattack )
-	{
+	public static VideoUpdateHandlerPtr video_update_moleattack  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
-	}
+	} };
 }

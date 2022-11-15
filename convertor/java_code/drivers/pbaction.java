@@ -52,8 +52,7 @@ public class pbaction
 	extern WRITE_HANDLER( pbaction_flipscreen_w );
 	extern WRITE_HANDLER( pbaction_scroll_w );
 	
-	extern extern VIDEO_UPDATE( pbaction );
-	
+	extern extern 
 	
 	static WRITE_HANDLER( pbaction_sh_command_w )
 	{

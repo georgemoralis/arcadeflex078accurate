@@ -66,8 +66,7 @@ public class ace
 	}
 	#endif
 	
-	VIDEO_UPDATE( ace )
-	{
+	public static VideoUpdateHandlerPtr video_update_ace  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		decodechar(Machine->gfx[1], 0, ace_characterram, Machine->drv->gfxdecodeinfo[1].gfxlayout);
@@ -113,7 +112,7 @@ public class ace
 					10*8+offs*16,256-16, /* ?? */
 					&Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
-	}
+	} };
 	
 	
 	static PALETTE_INIT( ace )

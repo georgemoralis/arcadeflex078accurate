@@ -50,9 +50,5 @@ WRITE_HANDLER( dynax_extra_scrollx_w );
 WRITE_HANDLER( dynax_extra_scrolly_w );
 
 
-VIDEO_UPDATE( hanamai );
-VIDEO_UPDATE( hnoridur );
-VIDEO_UPDATE( sprtmtch );
-VIDEO_UPDATE( mjdialq2 );
 
 PALETTE_INIT( sprtmtch );

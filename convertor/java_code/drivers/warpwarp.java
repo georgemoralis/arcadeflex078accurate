@@ -69,7 +69,6 @@ public class warpwarp
 	
 	extern unsigned char *warpwarp_bulletsram;
 	PALETTE_INIT( warpwarp );
-	VIDEO_UPDATE( warpwarp );
 	WRITE_HANDLER( warpwarp_flip_screen_w );
 	
 	/* from sndhrdw/warpwarp.c */

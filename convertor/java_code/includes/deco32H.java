@@ -1,12 +1,6 @@
 
 
-VIDEO_EOF( captaven );
-VIDEO_EOF( dragngun );
 
-VIDEO_UPDATE( captaven );
-VIDEO_UPDATE( fghthist );
-VIDEO_UPDATE( dragngun );
-VIDEO_UPDATE( tattass );
 
 extern data32_t *deco32_pf1_data,*deco32_pf2_data,*deco32_pf3_data,*deco32_pf4_data;
 extern data32_t *deco32_pf12_control,*deco32_pf34_control;

@@ -354,8 +354,7 @@ public class exidy
 		return (!(*exidy_sprite_enable & 0x40));
 	}
 	
-	VIDEO_EOF( exidy )
-	{
+	public static VideoEofHandlerPtr video_eof_exidy  = new VideoEofHandlerPtr() { public void handler(){
 		UINT8 enable_set = ((*exidy_sprite_enable & 0x20) != 0);
 	    struct rectangle clip = { 0, 15, 0, 15 };
 	    int pen0 = Machine->pens[0];
@@ -443,7 +442,7 @@ public class exidy
 							timer_set(pixel_time(org_2_x + sx, org_2_y + sy), 0x08, collision_irq_callback);
 	            }
 			}
-	}
+	} };
 	
 	
 	
@@ -453,8 +452,7 @@ public class exidy
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( exidy )
-	{
+	public static VideoUpdateHandlerPtr video_update_exidy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int sx, sy;
 	
 		/* update the background and draw it */
@@ -489,5 +487,5 @@ public class exidy
 	
 		/* indicate that we already updated the background */
 		update_complete = 1;
-	}
+	} };
 }

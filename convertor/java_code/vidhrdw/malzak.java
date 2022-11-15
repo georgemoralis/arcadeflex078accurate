@@ -78,8 +78,7 @@ public class malzak
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( malzak )
-	{
+	public static VideoUpdateHandlerPtr video_update_malzak  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int code, colour;
 		int sx, sy;
 		int x,y;
@@ -223,7 +222,7 @@ public class malzak
 	
 		Update_Bitmap(bitmap,s2636_1_ram,s2636_1_dirty,1,collision_bitmap);
 		Update_Bitmap(bitmap,s2636_2_ram,s2636_2_dirty,2,collision_bitmap);
-	}
+	} };
 	
 	WRITE_HANDLER( playfield_w )
 	{

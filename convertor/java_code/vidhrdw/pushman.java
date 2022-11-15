@@ -120,8 +120,7 @@ public class pushman
 		}
 	}
 	
-	VIDEO_UPDATE( pushman )
-	{
+	public static VideoUpdateHandlerPtr video_update_pushman  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Setup the tilemaps */
 		tilemap_set_scrollx( bg_tilemap,0, control[0] );
 		tilemap_set_scrolly( bg_tilemap,0, 0xf00-control[1] );
@@ -129,5 +128,5 @@ public class pushman
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 }

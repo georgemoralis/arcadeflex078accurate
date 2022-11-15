@@ -157,8 +157,6 @@ public class armedf
 	
 	extern void armedf_setgfxtype( int type );
 	
-	VIDEO_UPDATE( armedf );
-	VIDEO_EOF( armedf );
 	
 	WRITE16_HANDLER( armedf_bg_videoram_w );
 	WRITE16_HANDLER( armedf_fg_videoram_w );

@@ -628,8 +628,7 @@ public class taito_b
 	profiler_mark(PROFILER_END);
 	}
 	
-	VIDEO_UPDATE( taitob )
-	{
+	public static VideoUpdateHandlerPtr video_update_taitob  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	  if ((video_control & 0x20) == 0)
 	  {
 	    fillbitmap(bitmap,Machine->pens[0],cliprect);
@@ -666,12 +665,11 @@ public class taito_b
 	  draw_framebuffer(bitmap,cliprect,0);
 	
 	  tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
 	
 	
-	VIDEO_EOF( taitob )
-	{
+	public static VideoEofHandlerPtr video_eof_taitob  = new VideoEofHandlerPtr() { public void handler(){
 	  if (~video_control & 0x01)
 	    fillbitmap(framebuffer[framebuffer_page],0,&Machine->visible_area);
 	
@@ -679,6 +677,6 @@ public class taito_b
 	    framebuffer_page ^= 1;
 	
 	  taitob_draw_sprites(framebuffer[framebuffer_page],&Machine->visible_area);
-	}
+	} };
 	
 }

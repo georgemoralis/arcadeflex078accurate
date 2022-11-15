@@ -10,7 +10,6 @@ extern UINT8 *jedi_PIXIRAM;
 extern UINT8 *jedi_backgroundram;
 extern size_t jedi_backgroundram_size;
 
-VIDEO_UPDATE( jedi );
 
 WRITE_HANDLER( jedi_alpha_banksel_w );
 WRITE_HANDLER( jedi_paletteram_w );

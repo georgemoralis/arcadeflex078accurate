@@ -390,15 +390,14 @@ public class equites
 	#undef SPRITE_BANKBASE
 	}
 	
-	VIDEO_UPDATE( equites )
-	{
+	public static VideoUpdateHandlerPtr video_update_equites  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		equites_update_clut();
 		equites_draw_scroll(bitmap);
 		equites_draw_sprites(bitmap);
 		plot_box(bitmap, cliprect->min_x, cliprect->min_y, maskwidth, maskheight, maskcolor);
 		plot_box(bitmap, cliprect->max_x-maskwidth+1, cliprect->min_y, maskwidth, maskheight, maskcolor);
 		tilemap_draw(bitmap, cliprect, charmap0, 0, 0);
-	}
+	} };
 	
 	// Splendor Blast Hardware
 	static void splndrbt_update_clut(void)
@@ -570,8 +569,7 @@ public class equites
 	#undef SPRITE_BANKBASE
 	}
 	
-	VIDEO_UPDATE( splndrbt )
-	{
+	public static VideoUpdateHandlerPtr video_update_splndrbt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		splndrbt_update_clut();
 		fillbitmap(bitmap, *bgcolor, &halfclip);
 		splndrbt_draw_scroll(tmpbitmap);
@@ -584,7 +582,7 @@ public class equites
 		tilemap_draw(bitmap, cliprect, charmap1, 0, 0);
 		splndrbt_draw_sprites(bitmap, cliprect);
 		tilemap_draw(bitmap, cliprect, charmap0, 0, 0);
-	}
+	} };
 	
 	/******************************************************************************/
 	// Memory Handlers

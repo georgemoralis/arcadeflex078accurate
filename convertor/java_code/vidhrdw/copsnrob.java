@@ -29,8 +29,7 @@ public class copsnrob
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( copsnrob )
-	{
+	public static VideoUpdateHandlerPtr video_update_copsnrob  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs, x, y;
 	
 	    /* redrawing the entire display is faster in this case */
@@ -169,5 +168,5 @@ public class copsnrob
 	            mask2 <<= 1;
 	        }
 	    }
-	}
+	} };
 }

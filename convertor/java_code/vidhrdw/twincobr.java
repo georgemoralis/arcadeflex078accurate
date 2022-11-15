@@ -294,8 +294,7 @@ public class twincobr
 	
 	
 	
-	VIDEO_UPDATE( toaplan0 )
-	{
+	public static VideoUpdateHandlerPtr video_update_toaplan0  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int offs,code,tile,color;
 	
 	
@@ -437,13 +436,12 @@ public class twincobr
 	
 		/* draw the sprites in high priority */
 		twincobr_draw_sprites (bitmap, 0x0c00);
-	}
+	} };
 	
-	VIDEO_EOF( toaplan0 )
-	{
+	public static VideoEofHandlerPtr video_eof_toaplan0  = new VideoEofHandlerPtr() { public void handler(){
 		/*  Spriteram is always 1 frame ahead, suggesting spriteram buffering.
 			There are no CPU output registers that control this so we
 			assume it happens automatically every frame, at the end of vblank */
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 }

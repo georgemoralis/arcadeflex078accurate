@@ -282,24 +282,21 @@ public class lwings
 		}
 	}
 	
-	VIDEO_UPDATE( lwings )
-	{
+	public static VideoUpdateHandlerPtr video_update_lwings  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg1_tilemap,0,0);
 		lwings_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( trojan )
-	{
+	public static VideoUpdateHandlerPtr video_update_trojan  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg2_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,bg1_tilemap,TILEMAP_BACK,0);
 		trojan_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg1_tilemap,TILEMAP_FRONT,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_EOF( lwings )
-	{
+	public static VideoEofHandlerPtr video_eof_lwings  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0,0);
-	}
+	} };
 }

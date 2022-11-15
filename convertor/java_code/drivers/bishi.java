@@ -19,7 +19,6 @@ package drivers;
 public class bishi
 {
 	
-	VIDEO_UPDATE(bishi);
 	
 	/*static int init_eeprom_count;*/
 	static data16_t cur_control;

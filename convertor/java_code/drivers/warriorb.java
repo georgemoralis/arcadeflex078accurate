@@ -121,7 +121,6 @@ public class warriorb
 	
 	MACHINE_INIT( taito_dualscreen );
 	
-	VIDEO_UPDATE( warriorb );
 	
 	
 	/***********************************************************

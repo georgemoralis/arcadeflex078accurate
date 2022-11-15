@@ -377,8 +377,7 @@ public class segac2
 	
 	
 	/* end-of-frame callback to mark the start of VBLANK */
-	VIDEO_EOF( segac2 )
-	{
+	public static VideoEofHandlerPtr video_eof_segac2  = new VideoEofHandlerPtr() { public void handler(){
 		/* set VBLANK flag */
 		internal_vblank = 1;
 	
@@ -394,7 +393,7 @@ public class segac2
 		}
 	#endif
 	
-	}
+	} };
 	
 	
 	
@@ -421,8 +420,7 @@ public class segac2
 	
 	
 	/* core refresh: computes the final screen */
-	VIDEO_UPDATE( segac2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_segac2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int old_bg = segac2_bg_palbase, old_sp = segac2_sp_palbase;
 		int y;
 	
@@ -454,13 +452,12 @@ public class segac2
 	
 		segac2_bg_palbase = old_bg;
 		segac2_sp_palbase = old_sp;
-	}
+	} };
 	
 	/* megatech, same but drawing the sms display too */
 	
 	/* core refresh: computes the final screen */
-	VIDEO_UPDATE( megatech )
-	{
+	public static VideoUpdateHandlerPtr video_update_megatech  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int old_bg = segac2_bg_palbase, old_sp = segac2_sp_palbase;
 		int y;
 	
@@ -498,13 +495,12 @@ public class segac2
 		/*if (readinputport(5)&0x01)*/	
 			update_megatech_video_normal(bitmap, cliprect);
 	
-	}
+	} };
 	
 	/* megaplay, draws either Genesis or SMS (single screen display) */
 	
 	/* core refresh: computes the final screen */
-	VIDEO_UPDATE( megaplay )
-	{
+	public static VideoUpdateHandlerPtr video_update_megaplay  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int old_bg = segac2_bg_palbase, old_sp = segac2_sp_palbase;
 		int y;
 	
@@ -542,7 +538,7 @@ public class segac2
 		segac2_bg_palbase = old_bg;
 		segac2_sp_palbase = old_sp;
 	
-	}
+	} };
 	
 	/******************************************************************************
 		VDP Read & Write Handlers

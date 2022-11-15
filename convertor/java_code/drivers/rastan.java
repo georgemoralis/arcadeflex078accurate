@@ -19,7 +19,6 @@ public class rastan
 	
 	WRITE16_HANDLER( rastan_spritectrl_w );
 	
-	VIDEO_UPDATE( rastan );
 	
 	WRITE_HANDLER( rastan_adpcm_trigger_w );
 	WRITE_HANDLER( rastan_c000_w );

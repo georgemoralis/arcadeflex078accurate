@@ -153,8 +153,7 @@ public class dbz2
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(dbz2)
-	{
+	public static VideoUpdateHandlerPtr video_update_dbz2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap, 0, NULL);
 		fillbitmap(bitmap, get_black_pen(), &Machine->visible_area);
 	
@@ -166,10 +165,9 @@ public class dbz2
 		K053247_sprites_draw(bitmap, cliprect);
 	
 		K054157_tilemap_draw(bitmap, cliprect, 3, 0, 1<<0);
-	}
+	} };
 	
-	VIDEO_UPDATE(dbz)
-	{
+	public static VideoUpdateHandlerPtr video_update_dbz  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap, 0, NULL);
 		fillbitmap(bitmap, get_black_pen(), &Machine->visible_area);
 	
@@ -182,6 +180,6 @@ public class dbz2
 		K054157_tilemap_draw(bitmap, cliprect, 0, 0, 1<<0);
 	
 		K053247_sprites_draw(bitmap, cliprect);
-	}
+	} };
 	
 }

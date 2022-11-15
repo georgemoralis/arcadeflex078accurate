@@ -662,8 +662,7 @@ public class namcona1
 		}
 	} /* draw_background */
 	
-	VIDEO_UPDATE( namcona1 )
-	{
+	public static VideoUpdateHandlerPtr video_update_namcona1  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int which;
 		int priority;
 		/* int flipscreen = namcona1_vreg[0x98/2]; (TBA) */
@@ -704,5 +703,5 @@ public class namcona1
 			} /* next priority level */
 			draw_sprites( bitmap );
 		} /* gfx enabled */
-	} /* namcona1_vh_screenrefresh */
+	} }; /* namcona1_vh_screenrefresh */
 }

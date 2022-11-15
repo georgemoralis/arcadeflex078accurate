@@ -1806,8 +1806,7 @@ public class cps1
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( cps1 )
-	{
+	public static VideoUpdateHandlerPtr video_update_cps1  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    int layercontrol,l0,l1,l2,l3;
 		int videocontrol=cps1_port(0x22);
 	
@@ -1938,10 +1937,9 @@ public class cps1
 			cps1_dump_video();
 		}
 	#endif
-	}
+	} };
 	
-	VIDEO_EOF( cps1 )
-	{
+	public static VideoEofHandlerPtr video_eof_cps1  = new VideoEofHandlerPtr() { public void handler(){
 		/* Get video memory base registers */
 		cps1_get_video_base();
 	
@@ -1950,7 +1948,7 @@ public class cps1
 			/* CPS1 sprites have to be delayed one frame */
 			memcpy(cps1_buffered_obj, cps1_obj, cps1_obj_size);
 		}
-	}
+	} };
 	
 	void cps2_set_sprite_priorities(void)
 	{

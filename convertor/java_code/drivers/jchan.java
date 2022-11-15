@@ -165,10 +165,9 @@ public class jchan
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(jchan)
-	{
+	public static VideoUpdateHandlerPtr video_update_jchan  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	
-	}
+	} };
 	
 	/* memory maps */
 	

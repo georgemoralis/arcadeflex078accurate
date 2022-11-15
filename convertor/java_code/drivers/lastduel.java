@@ -32,8 +32,6 @@ public class lastduel
 	WRITE16_HANDLER( madgear_scroll1_w );
 	WRITE16_HANDLER( madgear_scroll2_w );
 	WRITE16_HANDLER( lastduel_scroll_w );
-	VIDEO_UPDATE( lastduel );
-	VIDEO_EOF( lastduel );
 	
 	extern data16_t *lastduel_vram,*lastduel_scroll2,*lastduel_scroll1;
 	

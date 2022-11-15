@@ -15,7 +15,6 @@ WRITE_HANDLER( missile_w );
 
 extern unsigned char *missile_video2ram;
 
-VIDEO_UPDATE( missile );
 
 WRITE_HANDLER( missile_video_3rd_bit_w );
 WRITE_HANDLER( missile_video2_w );

@@ -58,7 +58,6 @@ public class esd16
 	WRITE16_HANDLER( esd16_vram_0_w );
 	WRITE16_HANDLER( esd16_vram_1_w );
 	
-	VIDEO_UPDATE( esd16 );
 	
 	
 	/***************************************************************************
@@ -297,8 +296,7 @@ public class esd16
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( esd16 )
-	{
+	public static VideoUpdateHandlerPtr video_update_esd16  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 		tilemap_set_scrollx(esdtilemap_0, 0, esd16_scroll_0[0]);
@@ -322,11 +320,10 @@ public class esd16
 		if (layers_ctrl & 2)	tilemap_draw(bitmap,cliprect,esdtilemap_1,0,0);
 	
 		if (layers_ctrl & 4)	esd16_draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( hedpanic )
-	{
+	public static VideoUpdateHandlerPtr video_update_hedpanic  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 		tilemap_set_scrollx(esdtilemap_0, 0, esd16_scroll_0[0]);
@@ -365,5 +362,5 @@ public class esd16
 	
 	
 	//	usrintf_showmessage("%04x %04x %04x %04x %04x",head_unknown1[0],head_layersize[0],head_unknown3[0],head_unknown4[0],head_unknown5[0]);
-	}
+	} };
 }

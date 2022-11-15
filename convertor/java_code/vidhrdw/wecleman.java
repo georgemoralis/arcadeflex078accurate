@@ -1283,8 +1283,7 @@ public class wecleman
 								Video Updates
 	***************************************************************************/
 	
-	VIDEO_UPDATE ( wecleman )
-	{
+	public static VideoUpdateHandlerPtr video_update_wecleman  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		pen_t *mrct;
 		int video_on;
 		int fg_x, bg_x, fg_y, bg_y;
@@ -1366,14 +1365,13 @@ public class wecleman
 	
 		/* Draw the text layer */
 		if (video_on) tilemap_draw(bitmap,cliprect, txt_tilemap, 0, 0);
-	}
+	} };
 	
 	/***************************************************************************
 									Hot Chase
 	***************************************************************************/
 	
-	VIDEO_UPDATE( hotchase )
-	{
+	public static VideoUpdateHandlerPtr video_update_hotchase  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int video_on;
 	
 		video_on = wecleman_irqctrl & 0x40;
@@ -1395,5 +1393,5 @@ public class wecleman
 	
 		/* Draw the foreground (text) */
 		if (video_on) K051316_zoom_draw_1(bitmap,cliprect, 0, 0);
-	}
+	} };
 }

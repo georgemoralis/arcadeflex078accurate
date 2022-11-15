@@ -200,11 +200,10 @@ public class skydiver
 	}
 	
 	
-	VIDEO_UPDATE( skydiver )
-	{
+	public static VideoUpdateHandlerPtr video_update_skydiver  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 	
 		draw_sprites(bitmap, cliprect);
-	}
+	} };
 	
 }

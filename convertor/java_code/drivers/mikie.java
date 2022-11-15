@@ -31,8 +31,7 @@ public class mikie
 	extern WRITE_HANDLER( mikie_flipscreen_w );
 	
 	extern PALETTE_INIT( mikie );
-	extern extern VIDEO_UPDATE( mikie );
-	
+	extern extern 
 	static READ_HANDLER( mikie_sh_timer_r )
 	{
 		int clock;

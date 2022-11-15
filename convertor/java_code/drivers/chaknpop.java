@@ -33,7 +33,6 @@ public class chaknpop
 	
 	
 	PALETTE_INIT( chaknpop );
-	VIDEO_UPDATE( chaknpop );
 	
 	READ_HANDLER( chaknpop_gfxmode_r );
 	WRITE_HANDLER( chaknpop_gfxmode_w );

@@ -196,8 +196,7 @@ public class crshrace
 	}
 	
 	
-	VIDEO_UPDATE( crshrace )
-	{
+	public static VideoUpdateHandlerPtr video_update_crshrace  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (gfxctrl & 0x04)	/* display disable? */
 		{
 			fillbitmap(bitmap,get_black_pen(),cliprect);
@@ -223,11 +222,10 @@ public class crshrace
 	usrintf_showmessage("gfxctrl = %02x",gfxctrl);
 				break;
 		}
-	}
+	} };
 	
-	VIDEO_EOF( crshrace )
-	{
+	public static VideoEofHandlerPtr video_eof_crshrace  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram16_w(0,0,0);
 		buffer_spriteram16_2_w(0,0,0);
-	}
+	} };
 }

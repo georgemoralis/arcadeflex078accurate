@@ -48,7 +48,6 @@ public class jackal
 	WRITE_HANDLER( jackal_spriteram_w );
 	
 	PALETTE_INIT( jackal );
-	VIDEO_UPDATE( jackal );
 	
 	
 	

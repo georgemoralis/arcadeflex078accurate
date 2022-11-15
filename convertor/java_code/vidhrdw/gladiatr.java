@@ -261,13 +261,12 @@ public class gladiatr
 	
 	
 	
-	VIDEO_UPDATE( gladiatr )
-	{
+	public static VideoUpdateHandlerPtr video_update_gladiatr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (video_attributes & 0x20)	/* screen refresh enable? */
 		{
 			render_background( bitmap );
 			render_sprites( bitmap );
 			render_text( bitmap );
 		}
-	}
+	} };
 }

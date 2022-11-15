@@ -697,8 +697,7 @@ public class ddenlovr
 		}
 	}
 	
-	VIDEO_UPDATE(ddenlovr)
-	{
+	public static VideoUpdateHandlerPtr video_update_ddenlovr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	#if 0
 		static int base = 0x24bbed;//0x294a82;//0x27c47a; ;// = 0x279a4b;//0x2a0e7c;//0x2a88ae;//0x24bbed;
 	
@@ -775,7 +774,7 @@ public class ddenlovr
 			copylayer(framebuffer,&Machine->visible_area,order[pri][3]+4);
 			}
 		}
-	}
+	} };
 	
 	
 	

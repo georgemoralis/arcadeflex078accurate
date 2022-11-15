@@ -711,8 +711,7 @@ public class namcos1
 		memcpy(sp_backbuffer, &namcos1_controlram[0x800], 0x7f0); // take a snapshot of current sprite RAM
 	}
 	
-	VIDEO_UPDATE( namcos1 )
-	{
+	public static VideoUpdateHandlerPtr video_update_namcos1  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		data8_t *temp;
 	
 		if (idle_counter < idle_threshold && !(update_status & UPDATE_OVERRIDE))
@@ -728,5 +727,5 @@ public class namcos1
 		}
 	
 		temp = sp_backbuffer; sp_backbuffer = sp_updatebuffer; sp_updatebuffer = temp; // mature backbuffer
-	}
+	} };
 }

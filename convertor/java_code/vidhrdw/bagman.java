@@ -164,12 +164,11 @@ public class bagman
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( bagman )
-	{
+	public static VideoUpdateHandlerPtr video_update_bagman  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (*bagman_video_enable == 0)
 			return;
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		bagman_draw_sprites(bitmap);
-	}
+	} };
 }

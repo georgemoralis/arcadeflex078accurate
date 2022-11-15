@@ -152,8 +152,7 @@ public class darius
 	
 	
 	
-	VIDEO_UPDATE( darius )
-	{
+	public static VideoUpdateHandlerPtr video_update_darius  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		PC080SN_tilemap_update();
 	
 		// draw bottom layer(always active)
@@ -171,5 +170,5 @@ public class darius
 		tilemap_set_scrollx(fg_tilemap,0,0);
 		tilemap_set_scrolly(fg_tilemap,0,-8);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 }

@@ -718,13 +718,11 @@ public class shanghai
 		return HD63484_start();
 	} };
 	
-	VIDEO_STOP( shanghai )
-	{
+	public static VideoStopHandlerPtr video_stop_shanghai  = new VideoStopHandlerPtr() { public void handler(){
 		HD63484_stop();
-	}
+	} };
 	
-	VIDEO_UPDATE( shanghai )
-	{
+	public static VideoUpdateHandlerPtr video_update_shanghai  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x,y,b;
 	
 	
@@ -759,7 +757,7 @@ public class shanghai
 				}
 			}
 		}
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr shanghai_interrupt = new InterruptHandlerPtr() {public void handler(){

@@ -187,8 +187,7 @@ public class othldrby
 		}
 	}
 	
-	VIDEO_UPDATE( othldrby )
-	{
+	public static VideoUpdateHandlerPtr video_update_othldrby  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer;
 	
 	
@@ -224,12 +223,11 @@ public class othldrby
 		for (layer = 0;layer < 3;layer++)
 			tilemap_draw(bitmap,cliprect,tilemap[layer],3,0);
 		draw_sprites(bitmap,cliprect,3);
-	}
+	} };
 	
-	VIDEO_EOF( othldrby )
-	{
+	public static VideoEofHandlerPtr video_eof_othldrby  = new VideoEofHandlerPtr() { public void handler(){
 		/* sprites need to be delayed two frames */
 	    memcpy(buf_spriteram,buf_spriteram2,SPRITERAM_SIZE*sizeof(buf_spriteram[0]));
 	    memcpy(buf_spriteram2,&vram[SPRITERAM_START],SPRITERAM_SIZE*sizeof(buf_spriteram[0]));
-	}
+	} };
 }

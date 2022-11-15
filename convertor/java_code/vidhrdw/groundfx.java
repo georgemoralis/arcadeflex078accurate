@@ -230,8 +230,7 @@ public class groundfx
 					SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( groundfx )
-	{
+	public static VideoUpdateHandlerPtr video_update_groundfx  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[5];
 		UINT8 pivlayer[3];
 		UINT16 priority;
@@ -291,5 +290,5 @@ public class groundfx
 		}
 	
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[4],0,0);	/* TC0480SCP text layer */
-	}
+	} };
 }

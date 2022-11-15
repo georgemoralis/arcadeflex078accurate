@@ -252,8 +252,7 @@ public class bosco
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( bosco )
-	{
+	public static VideoUpdateHandlerPtr video_update_bosco  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy;
 	
 	
@@ -417,7 +416,7 @@ public class bosco
 				}
 			}
 		}
-	}
+	} };
 	
 	void bosco_vh_interrupt(void)
 	{

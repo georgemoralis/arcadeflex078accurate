@@ -50,7 +50,6 @@ public class zaccaria
 	WRITE_HANDLER( zaccaria_attributes_w );
 	WRITE_HANDLER( zaccaria_flip_screen_x_w );
 	WRITE_HANDLER( zaccaria_flip_screen_y_w );
-	VIDEO_UPDATE( zaccaria );
 	
 	
 	static int dsw;

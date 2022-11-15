@@ -225,13 +225,12 @@ public class wwfsstar
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( wwfsstar )
-	{
+	public static VideoUpdateHandlerPtr video_update_wwfsstar  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrolly( bg0_tilemap, 0, wwfsstar_scrolly  );
 		tilemap_set_scrollx( bg0_tilemap, 0, wwfsstar_scrollx  );
 	
 		tilemap_draw(bitmap,cliprect,bg0_tilemap,0,0);
 		wwfsstar_drawsprites( bitmap,cliprect );
 		tilemap_draw(bitmap,cliprect,fg0_tilemap,0,0);
-	}
+	} };
 }

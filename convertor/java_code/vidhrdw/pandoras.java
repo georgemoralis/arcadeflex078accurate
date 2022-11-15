@@ -175,10 +175,9 @@ public class pandoras
 		}
 	}
 	
-	VIDEO_UPDATE( pandoras )
-	{
+	public static VideoUpdateHandlerPtr video_update_pandoras  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw( bitmap,cliprect, layer0, 1 ,0);
 		draw_sprites( bitmap,cliprect, &pandoras_sharedram[0x800] );
 		tilemap_draw( bitmap,cliprect, layer0, 0 ,0);
-	}
+	} };
 }

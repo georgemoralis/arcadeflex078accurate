@@ -357,10 +357,9 @@ public class m107
 	
 	/*****************************************************************************/
 	
-	VIDEO_UPDATE( m107 )
-	{
+	public static VideoUpdateHandlerPtr video_update_m107  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Nothing - screen refresh is handled by raster interrupt routine */
-	}
+	} };
 	
 	/*****************************************************************************/
 	

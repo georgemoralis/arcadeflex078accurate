@@ -257,8 +257,7 @@ public class ginganin
 	}
 	
 	
-	VIDEO_UPDATE( ginganin )
-	{
+	public static VideoUpdateHandlerPtr video_update_ginganin  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl1;
 	
 		layers_ctrl1 = layers_ctrl;
@@ -299,6 +298,6 @@ public class ginganin
 		if (layers_ctrl1 & 8)	draw_sprites(bitmap,cliprect);
 		if (layers_ctrl1 & 4)	tilemap_draw(bitmap,cliprect, tx_tilemap, 0,0);
 	
-	}
+	} };
 	
 }

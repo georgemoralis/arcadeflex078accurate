@@ -15,5 +15,4 @@ WRITE_HANDLER( paradise_pixmap_w );
 WRITE_HANDLER( paradise_priority_w );
 WRITE_HANDLER( paradise_palbank_w );
 
-VIDEO_UPDATE( paradise );
 

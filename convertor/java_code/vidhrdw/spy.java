@@ -73,8 +73,7 @@ public class spy
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( spy )
-	{
+	public static VideoUpdateHandlerPtr video_update_spy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		fillbitmap(priority_bitmap, 0, cliprect);
@@ -89,5 +88,5 @@ public class spy
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[2],0,2);
 		K051960_sprites_draw(bitmap,cliprect,-1,-1);
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[0],0,0);
-	}
+	} };
 }

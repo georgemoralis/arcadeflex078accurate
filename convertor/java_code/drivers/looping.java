@@ -204,11 +204,10 @@ public class looping
 		}
 	}
 	
-	VIDEO_UPDATE( looping )
-	{
+	public static VideoUpdateHandlerPtr video_update_looping  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw( bitmap,cliprect,tilemap,0,0 );
 		draw_sprites( bitmap,cliprect );
-	}
+	} };
 	
 	WRITE_HANDLER( looping_intack )
 	{

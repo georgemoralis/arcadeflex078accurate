@@ -26,7 +26,6 @@ public class ttmahjng
 	READ_HANDLER( ttmahjng_videoram2_r );
 	WRITE_HANDLER( ttmahjng_sharedram_w );
 	READ_HANDLER( ttmahjng_sharedram_r );
-	VIDEO_UPDATE( ttmahjng );
 	
 	
 	static int psel;

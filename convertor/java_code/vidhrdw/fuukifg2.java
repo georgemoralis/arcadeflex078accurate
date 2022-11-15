@@ -296,8 +296,7 @@ public class fuukifg2
 		}
 	}
 	
-	VIDEO_UPDATE( fuuki16 )
-	{
+	public static VideoUpdateHandlerPtr video_update_fuuki16  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		data16_t layer0_scrollx, layer0_scrolly;
 		data16_t layer1_scrollx, layer1_scrolly;
 		data16_t layer2_scrollx, layer2_scrolly;
@@ -362,5 +361,5 @@ public class fuukifg2
 		// don't do the rasters on the sprites . its very slow and the hw might not anyway.
 		if (cliprect->max_y == Machine->visible_area.max_y)
 			fuuki16_draw_sprites(bitmap,&Machine->visible_area);
-	}
+	} };
 }

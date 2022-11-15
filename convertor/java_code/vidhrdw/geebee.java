@@ -125,8 +125,7 @@ public class geebee
 			plot_pixel(bitmap,x,y,Machine->pens[1]);
 	}
 	
-	VIDEO_UPDATE( geebee )
-	{
+	public static VideoUpdateHandlerPtr video_update_geebee  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	#ifdef MAME_DEBUG
@@ -190,5 +189,5 @@ public class geebee
 				for( x = 0; x < 4; x++ )
 					geebee_plot(bitmap,cliprect,geebee_ball_h+x+5,geebee_ball_v+y-2);
 		}
-	}
+	} };
 }

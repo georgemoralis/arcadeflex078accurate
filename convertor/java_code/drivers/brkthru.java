@@ -63,7 +63,6 @@ public class brkthru
 	WRITE_HANDLER( brkthru_bgram_w );
 	WRITE_HANDLER( brkthru_fgram_w );
 	PALETTE_INIT( brkthru );
-	VIDEO_UPDATE( brkthru );
 	
 	
 	static int nmi_enable;

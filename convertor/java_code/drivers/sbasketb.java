@@ -37,8 +37,7 @@ public class sbasketb
 	extern WRITE_HANDLER( sbasketb_scroll_w );
 	
 	extern PALETTE_INIT( sbasketb );
-	extern extern VIDEO_UPDATE( sbasketb );
-	
+	extern extern 
 	extern struct VLM5030interface konami_vlm5030_interface;
 	extern struct SN76496interface konami_sn76496_interface;
 	extern struct DACinterface konami_dac_interface;

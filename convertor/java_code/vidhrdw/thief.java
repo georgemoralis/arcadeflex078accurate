@@ -142,7 +142,7 @@ public class thief
 		return 1;
 	}
 	
-	VIDEO_UPDATE( thief ){
+	public static VideoUpdateHandlerPtr video_update_thief  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		unsigned int offs;
 		int flipscreen = thief_video_control&1;
 		const pen_t *pal_data = Machine->pens;
@@ -154,7 +154,7 @@ public class thief
 			dirty += 0x2000;
 			source += 0x2000*4;
 			page = thief_page1;
-		}
+		} };
 		else {
 			page = thief_page0;
 		}

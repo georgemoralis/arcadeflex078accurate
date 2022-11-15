@@ -273,8 +273,7 @@ public class balsente
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( balsente )
-	{
+	public static VideoUpdateHandlerPtr video_update_balsente  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int update_all = get_vh_global_attribute_changed();
 		int y, i;
 	
@@ -307,5 +306,5 @@ public class balsente
 	
 			draw_crosshair(bitmap,beamx,beamy,cliprect);
 		}
-	}
+	} };
 }

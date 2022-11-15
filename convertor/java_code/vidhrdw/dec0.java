@@ -496,8 +496,7 @@ public class dec0
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( hbarrel )
-	{
+	public static VideoUpdateHandlerPtr video_update_hbarrel  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		dec0_pf1_update();
 		dec0_pf2_update();
 		dec0_pf3_update();
@@ -512,12 +511,11 @@ public class dec0
 	
 		dec0_drawsprites(bitmap,cliprect,0x08,0x00);
 		dec0_pf1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( baddudes )
-	{
+	public static VideoUpdateHandlerPtr video_update_baddudes  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* WARNING: priority inverted wrt all the other games */
 		dec0_pf1_update();
 		dec0_pf2_update();
@@ -562,12 +560,11 @@ public class dec0
 		}
 	
 		dec0_pf1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( robocop )
-	{
+	public static VideoUpdateHandlerPtr video_update_robocop  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int trans;
 	
 		dec0_pf1_update();
@@ -612,12 +609,11 @@ public class dec0
 			dec0_drawsprites(bitmap,cliprect,0x00,0x00);
 	
 		dec0_pf1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( birdtry )
-	{
+	public static VideoUpdateHandlerPtr video_update_birdtry  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* This game doesn't have the extra playfield chip on the game board */
 		dec0_pf1_update();
 		dec0_pf2_update();
@@ -625,12 +621,11 @@ public class dec0
 		dec0_pf2_draw(bitmap,cliprect,TILEMAP_FRONT|TILEMAP_IGNORE_TRANSPARENCY,1);
 		dec0_drawsprites(bitmap,cliprect,0x00,0x00);
 		dec0_pf1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( hippodrm )
-	{
+	public static VideoUpdateHandlerPtr video_update_hippodrm  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		dec0_pf1_update();
 		dec0_pf2_update();
 		dec0_pf3_update();
@@ -652,12 +647,11 @@ public class dec0
 	
 		dec0_drawsprites(bitmap,cliprect,0x00,0x00);
 		dec0_pf1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( slyspy )
-	{
+	public static VideoUpdateHandlerPtr video_update_slyspy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		dec0_pf1_update();
 		dec0_pf2_update();
 		dec0_pf3_update();
@@ -674,12 +668,11 @@ public class dec0
 			dec0_pf2_draw(bitmap,cliprect,TILEMAP_FRONT,1);
 	
 		dec0_pf1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( midres )
-	{
+	public static VideoUpdateHandlerPtr video_update_midres  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int trans;
 	
 		if (dec0_pri & 0x04)
@@ -719,7 +712,7 @@ public class dec0
 			dec0_drawsprites(bitmap,cliprect,0x00,0x00);
 	
 		dec0_pf1_draw(bitmap,cliprect,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	

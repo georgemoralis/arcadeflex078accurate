@@ -503,12 +503,11 @@ public class slapshot
 		}
 	}
 	
-	VIDEO_EOF( taito_no_buffer )
-	{
+	public static VideoEofHandlerPtr video_eof_taito_no_buffer  = new VideoEofHandlerPtr() { public void handler(){
 		taito_update_sprites_active_area();
 	
 		prepare_sprites = 1;
-	}
+	} };
 	
 	
 	/**************************************************************
@@ -527,8 +526,7 @@ public class slapshot
 	a bg layer given priority over some sprites.
 	********************************************************************/
 	
-	VIDEO_UPDATE( slapshot )
-	{
+	public static VideoUpdateHandlerPtr video_update_slapshot  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[5];
 		UINT8 tilepri[5];
 		UINT8 spritepri[4];
@@ -643,6 +641,6 @@ public class slapshot
 		if (dislayer[layer[4]]==0)
 	#endif
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[4],0,0);
-	}
+	} };
 	
 }

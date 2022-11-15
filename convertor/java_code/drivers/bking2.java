@@ -28,8 +28,6 @@ public class bking2
 	
 	PALETTE_INIT( bking2 );
 	
-	VIDEO_UPDATE( bking2 );
-	VIDEO_EOF( bking2 );
 	
 	WRITE_HANDLER( bking2_xld1_w );
 	WRITE_HANDLER( bking2_yld1_w );

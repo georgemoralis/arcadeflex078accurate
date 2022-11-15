@@ -95,8 +95,7 @@ public class offtwall
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( offtwall )
-	{
+	public static VideoUpdateHandlerPtr video_update_offtwall  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct atarimo_rect_list rectlist;
 		struct mame_bitmap *mobitmap;
 		int x, y, r;
@@ -122,5 +121,5 @@ public class offtwall
 						mo[x] = 0;
 					}
 			}
-	}
+	} };
 }

@@ -46,9 +46,7 @@ public class starshp1
 	extern WRITE_HANDLER( starshp1_ssadd_w );
 	extern WRITE_HANDLER( starshp1_playfield_w );
 	
-	extern VIDEO_UPDATE( starshp1 );
-	extern VIDEO_EOF( starshp1 );
-	extern 
+	extern extern extern 
 	static int starshp1_analog_in_select;
 	
 	

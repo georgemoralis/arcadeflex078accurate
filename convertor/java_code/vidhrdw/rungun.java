@@ -137,8 +137,7 @@ public class rungun
 		return(0);
 	} };
 	
-	VIDEO_UPDATE(rng)
-	{
+	public static VideoUpdateHandlerPtr video_update_rng  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, get_black_pen(), cliprect);
 		fillbitmap(priority_bitmap, 0, cliprect);
 	
@@ -148,5 +147,5 @@ public class rungun
 	
 		tilemap_mark_all_tiles_dirty(ttl_tilemap);
 		tilemap_draw(bitmap, cliprect, ttl_tilemap, 0, 0);
-	}
+	} };
 }

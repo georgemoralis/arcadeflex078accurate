@@ -213,8 +213,7 @@ public class tsamurai
 		}
 	}
 	
-	VIDEO_UPDATE( tsamurai )
-	{
+	public static VideoUpdateHandlerPtr video_update_tsamurai  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 	/* Do the column scroll used for the "660" logo on the title screen */
@@ -237,7 +236,7 @@ public class tsamurai
 		tilemap_draw(bitmap,cliprect,background,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,foreground,0,0);
-	}
+	} };
 	
 	/***************************************************************************
 	
@@ -275,8 +274,7 @@ public class tsamurai
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( vsgongf )
-	{
+	public static VideoUpdateHandlerPtr video_update_vsgongf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		#ifdef MAME_DEBUG
 		static int k;
 		if( keyboard_pressed( KEYCODE_Q ) ){
@@ -290,5 +288,5 @@ public class tsamurai
 	
 		tilemap_draw(bitmap,cliprect,foreground,0,0);
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

@@ -266,8 +266,7 @@ public class ironhors
 		}
 	}
 	
-	VIDEO_UPDATE( ironhors )
-	{
+	public static VideoUpdateHandlerPtr video_update_ironhors  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int row;
 	
 		for (row = 0; row < 32; row++)
@@ -275,5 +274,5 @@ public class ironhors
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		ironhors_draw_sprites(bitmap);
-	}
+	} };
 }

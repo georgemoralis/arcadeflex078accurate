@@ -39,8 +39,6 @@ extern UINT8 exidy440_firq_beam;
 extern UINT8 topsecex_yscroll;
 
 
-VIDEO_EOF( exidy440 );
-VIDEO_UPDATE( exidy440 );
 
 READ_HANDLER( exidy440_videoram_r );
 WRITE_HANDLER( exidy440_videoram_w );

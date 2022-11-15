@@ -28,8 +28,7 @@ public class ssozumo
 	extern WRITE_HANDLER( ssozumo_flipscreen_w );
 	
 	extern PALETTE_INIT( ssozumo );
-	extern extern VIDEO_UPDATE( ssozumo );
-	
+	extern extern 
 	
 	public static InterruptHandlerPtr ssozumo_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int coin;

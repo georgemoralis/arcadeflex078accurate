@@ -32,10 +32,6 @@ public class toki
 	extern data16_t *toki_sprites_dataram16;
 	extern data16_t *toki_scrollram16;
 	
-	VIDEO_EOF( toki );
-	VIDEO_EOF( tokib );
-	VIDEO_UPDATE( toki );
-	VIDEO_UPDATE( tokib );
 	WRITE16_HANDLER( toki_background1_videoram16_w );
 	WRITE16_HANDLER( toki_background2_videoram16_w );
 	WRITE16_HANDLER( toki_control_w );

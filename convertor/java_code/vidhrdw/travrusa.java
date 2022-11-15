@@ -337,10 +337,9 @@ public class travrusa
 	}
 	
 	
-	VIDEO_UPDATE( travrusa )
-	{
+	public static VideoUpdateHandlerPtr video_update_travrusa  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_BACK,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_FRONT,0);
-	}
+	} };
 }

@@ -14,9 +14,7 @@ extern int firetrk_game;
 
 /*----------- defined in vidhrdw/firetrk.c -----------*/
 
-extern VIDEO_UPDATE( firetrk );
-extern extern VIDEO_EOF( firetrk );
-
+extern extern extern 
 extern WRITE_HANDLER( firetrk_vert_w );
 extern WRITE_HANDLER( firetrk_horz_w );
 extern WRITE_HANDLER( firetrk_drone_hpos_w );

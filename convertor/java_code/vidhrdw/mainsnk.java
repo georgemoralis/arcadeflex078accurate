@@ -189,8 +189,7 @@ public class mainsnk
 		}
 	}
 	
-	VIDEO_UPDATE(mainsnk)
-	{
+	public static VideoUpdateHandlerPtr video_update_mainsnk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle myclip;
 		myclip.min_x = cliprect->min_x+8;
 		myclip.max_x = cliprect->max_x-8;
@@ -202,6 +201,6 @@ public class mainsnk
 		draw_status( bitmap,cliprect,0,0x400 );
 		draw_status( bitmap,cliprect,32*8,0x40 );
 		update_palette(1);
-	}
+	} };
 	
 }

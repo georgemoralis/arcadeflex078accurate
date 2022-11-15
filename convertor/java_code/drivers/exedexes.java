@@ -29,9 +29,7 @@ public class exedexes
 	extern WRITE_HANDLER( exedexes_gfxctrl_w );
 	
 	extern PALETTE_INIT( exedexes );
-	extern extern VIDEO_UPDATE( exedexes );
-	extern VIDEO_EOF( exedexes );
-	
+	extern extern extern 
 	
 	
 	public static InterruptHandlerPtr exedexes_interrupt = new InterruptHandlerPtr() {public void handler(){

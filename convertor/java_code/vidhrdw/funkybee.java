@@ -186,10 +186,9 @@ public class funkybee
 		}
 	}
 	
-	VIDEO_UPDATE( funkybee )
-	{
+	public static VideoUpdateHandlerPtr video_update_funkybee  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		funkybee_draw_sprites(bitmap);
 		funkybee_draw_columns(bitmap);
-	}
+	} };
 }

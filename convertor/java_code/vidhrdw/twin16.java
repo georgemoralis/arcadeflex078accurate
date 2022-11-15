@@ -526,22 +526,20 @@ public class twin16
 		return 0;
 	} };
 	
-	VIDEO_EOF( twin16 )
-	{
+	public static VideoEofHandlerPtr video_eof_twin16  = new VideoEofHandlerPtr() { public void handler(){
 		if( twin16_spriteram_process_enable() && need_process_spriteram )
 			twin16_spriteram_process();
 	
 		need_process_spriteram = 1;
 	
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( twin16 )
-	{
+	public static VideoUpdateHandlerPtr video_update_twin16  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap,0,cliprect);
 		draw_layer( bitmap,1 );
 		draw_layer( bitmap,0 );
 		draw_sprites( bitmap );
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
-	}
+	} };
 }

@@ -16,9 +16,7 @@ package drivers;
 public class sprint4
 {
 	
-	extern VIDEO_EOF( sprint4 );
-	extern extern VIDEO_UPDATE( sprint4 );
-	
+	extern extern extern 
 	extern WRITE_HANDLER( sprint4_video_ram_w );
 	
 	extern UINT8* sprint4_video_ram;

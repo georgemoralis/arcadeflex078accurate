@@ -22,8 +22,6 @@ public class vigilant
 	WRITE_HANDLER( vigilant_horiz_scroll_w );
 	WRITE_HANDLER( vigilant_rear_horiz_scroll_w );
 	WRITE_HANDLER( vigilant_rear_color_w );
-	VIDEO_UPDATE( vigilant );
-	VIDEO_UPDATE( kikcubic );
 	
 	
 	WRITE_HANDLER( vigilant_bank_select_w )

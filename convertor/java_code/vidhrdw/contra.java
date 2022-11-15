@@ -284,8 +284,7 @@ public class contra
 		K007121_sprites_draw(bank,bitmap,cliprect,source,base_color,40,0,-1);
 	}
 	
-	VIDEO_UPDATE( contra )
-	{
+	public static VideoUpdateHandlerPtr video_update_contra  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle bg_finalclip = bg_clip;
 		struct rectangle fg_finalclip = fg_clip;
 		struct rectangle tx_finalclip = tx_clip;
@@ -304,5 +303,5 @@ public class contra
 		draw_sprites( bitmap,cliprect, 0 );
 		draw_sprites( bitmap,cliprect, 1 );
 		tilemap_draw( bitmap,&tx_finalclip, tx_tilemap, 0 ,0);
-	}
+	} };
 }

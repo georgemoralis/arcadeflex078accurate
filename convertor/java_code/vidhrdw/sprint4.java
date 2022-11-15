@@ -66,8 +66,7 @@ public class sprint4
 	}
 	
 	
-	VIDEO_UPDATE( sprint4 )
-	{
+	public static VideoUpdateHandlerPtr video_update_sprint4  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		tilemap_draw(bitmap, cliprect, tilemap, 0, 0);
@@ -95,11 +94,10 @@ public class sprint4
 				cliprect, TRANSPARENCY_PEN, 0);
 		}
 	
-	}
+	} };
 	
 	
-	VIDEO_EOF( sprint4 )
-	{
+	public static VideoEofHandlerPtr video_eof_sprint4  = new VideoEofHandlerPtr() { public void handler(){
 		int i;
 	
 		/* check for sprite-playfield collisions */
@@ -157,5 +155,5 @@ public class sprint4
 				}
 			}
 		}
-	}
+	} };
 }

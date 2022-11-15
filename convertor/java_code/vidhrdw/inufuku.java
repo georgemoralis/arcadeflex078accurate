@@ -250,8 +250,7 @@ public class inufuku
 	
 	******************************************************************************/
 	
-	VIDEO_UPDATE( inufuku )
-	{
+	public static VideoUpdateHandlerPtr video_update_inufuku  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		fillbitmap(bitmap, get_black_pen(), cliprect);
@@ -273,5 +272,5 @@ public class inufuku
 		tilemap_draw(bitmap, cliprect, inufuku_text_tilemap, 0, 4);
 	
 		inufuku_draw_sprites(bitmap, cliprect);
-	}
+	} };
 }

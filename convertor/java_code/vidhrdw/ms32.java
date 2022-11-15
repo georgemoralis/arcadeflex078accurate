@@ -468,8 +468,7 @@ public class ms32
 	
 	
 	
-	VIDEO_UPDATE( ms32 )
-	{
+	public static VideoUpdateHandlerPtr video_update_ms32  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int scrollx,scrolly;
 	
 		/* TODO: registers 0x04/4 and 0x10/4 are used too; the most interesting case
@@ -516,5 +515,5 @@ public class ms32
 	if (!keyboard_pressed(KEYCODE_R))
 	#endif
 		ms32_draw_sprites(bitmap,cliprect, ms32_spram, 0x40000);
-	}
+	} };
 }

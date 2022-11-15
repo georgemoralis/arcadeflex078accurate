@@ -50,7 +50,6 @@ public class flower
 	
 	READ_HANDLER( flower_sharedram_r );
 	WRITE_HANDLER( flower_sharedram_w );
-	VIDEO_UPDATE( flower );
 	
 	
 	extern data8_t *flower_soundregs1,*flower_soundregs2;

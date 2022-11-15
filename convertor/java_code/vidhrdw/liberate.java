@@ -369,8 +369,7 @@ public class liberate
 	
 	/***************************************************************************/
 	
-	VIDEO_UPDATE( prosoccr )
-	{
+	public static VideoUpdateHandlerPtr video_update_prosoccr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrolly(background_tilemap,0,deco16_io_ram[1]);
 		tilemap_set_scrollx(background_tilemap,0,-deco16_io_ram[0]);
 	
@@ -380,10 +379,9 @@ public class liberate
 			tilemap_draw(bitmap,cliprect,background_tilemap,0,0);
 		boomrang_drawsprites(bitmap,0);
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( prosport )
-	{
+	public static VideoUpdateHandlerPtr video_update_prosport  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int mx,my,tile,color,offs;
 	
 		fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
@@ -405,10 +403,9 @@ public class liberate
 					tile,1,0,0,248-8*mx,8*my,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 	
-	VIDEO_UPDATE( boomrang )
-	{
+	public static VideoUpdateHandlerPtr video_update_boomrang  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrolly(background_tilemap,0, deco16_io_ram[1]);
 		tilemap_set_scrollx(background_tilemap,0,-deco16_io_ram[0]);
 	
@@ -422,10 +419,9 @@ public class liberate
 			tilemap_draw(bitmap,cliprect,background_tilemap,TILEMAP_FRONT,0);
 		boomrang_drawsprites(bitmap,0);
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( liberate )
-	{
+	public static VideoUpdateHandlerPtr video_update_liberate  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrolly(background_tilemap,0, deco16_io_ram[1]);
 		tilemap_set_scrollx(background_tilemap,0,-deco16_io_ram[0]);
 	
@@ -436,5 +432,5 @@ public class liberate
 	
 		liberate_drawsprites(bitmap);
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 }

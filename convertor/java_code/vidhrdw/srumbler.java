@@ -175,16 +175,14 @@ public class srumbler
 	}
 	
 	
-	VIDEO_UPDATE( srumbler )
-	{
+	public static VideoUpdateHandlerPtr video_update_srumbler  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_BACK,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,TILEMAP_FRONT,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_EOF( srumbler )
-	{
+	public static VideoEofHandlerPtr video_eof_srumbler  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram_w(0,0);
-	}
+	} };
 }

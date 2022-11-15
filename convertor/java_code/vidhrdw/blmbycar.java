@@ -238,8 +238,7 @@ public class blmbycar
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( blmbycar )
-	{
+	public static VideoUpdateHandlerPtr video_update_blmbycar  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i,layers_ctrl = -1;
 	
 		tilemap_set_scrolly( tilemap_0, 0, blmbycar_scroll_0[ 0 ]);
@@ -274,5 +273,5 @@ public class blmbycar
 	
 		if (layers_ctrl&8)
 			blmbycar_draw_sprites(bitmap, cliprect);
-	}
+	} };
 }

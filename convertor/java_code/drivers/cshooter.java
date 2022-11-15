@@ -122,10 +122,9 @@ public class cshooter
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(cshooter)
-	{
+	public static VideoUpdateHandlerPtr video_update_cshooter  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,cshooter_txtilemap,0,0);
-	}
+	} };
 	
 	
 	/* main cpu */

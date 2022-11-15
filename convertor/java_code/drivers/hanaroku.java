@@ -71,11 +71,10 @@ public class hanaroku
 		}
 	}
 	
-	VIDEO_UPDATE(hanaroku)
-	{
+	public static VideoUpdateHandlerPtr video_update_hanaroku  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, Machine->pens[0x1f0], cliprect);	// ???
 		hanaroku_draw_sprites(bitmap, cliprect);
-	}
+	} };
 	
 	static WRITE_HANDLER( hanaroku_out_0_w )
 	{

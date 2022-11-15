@@ -542,8 +542,7 @@ public class taito_f3
 	
 	/******************************************************************************/
 	
-	VIDEO_EOF( f3 )
-	{
+	public static VideoEofHandlerPtr video_eof_f3  = new VideoEofHandlerPtr() { public void handler(){
 		if (sprite_lag==2)
 		{
 			if (osd_skip_this_frame() == 0)
@@ -559,10 +558,9 @@ public class taito_f3
 				get_sprite_info(spriteram32);
 			}
 		}
-	}
+	} };
 	
-	VIDEO_STOP( f3 )
-	{
+	public static VideoStopHandlerPtr video_stop_f3  = new VideoStopHandlerPtr() { public void handler(){
 	#if DEBUG_F3
 	#define FWRITE32(pRAM,len,file)	\
 	{								\
@@ -607,7 +605,7 @@ public class taito_f3
 		}
 	#undef FWRITE32
 	#endif	//DEBUG_F3
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_f3  = new VideoStartHandlerPtr() { public int handler(){
 		const struct F3config *pCFG=&f3_config_table[0];
@@ -3184,8 +3182,7 @@ public class taito_f3
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( f3 )
-	{
+	public static VideoUpdateHandlerPtr video_update_f3  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle tempclip;
 		unsigned int sy_fix[4],sx_fix[4];
 		int tile;
@@ -3508,5 +3505,5 @@ public class taito_f3
 			}
 		}
 	#endif	//DEBUG_F3
-	}
+	} };
 }

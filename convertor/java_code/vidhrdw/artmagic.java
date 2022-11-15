@@ -348,8 +348,7 @@ public class artmagic
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( artmagic )
-	{
+	public static VideoUpdateHandlerPtr video_update_artmagic  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT32 offset, dpytap;
 		UINT16 *vram;
 		int x, y;
@@ -378,5 +377,5 @@ public class artmagic
 				dest[x] = vram[(offset + x) & TOWORD(0x1fffff)] & 0xff;
 			offset += TOWORD(0x2000);
 		}
-	}
+	} };
 }

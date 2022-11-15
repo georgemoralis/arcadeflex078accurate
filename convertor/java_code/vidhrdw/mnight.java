@@ -194,8 +194,7 @@ public class mnight
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( mnight )
-	{
+	public static VideoUpdateHandlerPtr video_update_mnight  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int scrollx,scrolly;
 	
 	
@@ -219,5 +218,5 @@ public class mnight
 			mnight_draw_foreground(bitmap);
 		}
 	
-	}
+	} };
 }

@@ -44,7 +44,6 @@ public class genericH
 	
 	void video_stop_generic(void);
 	void video_stop_generic_bitmapped(void);
-	VIDEO_UPDATE( generic_bitmapped );
 	
 	READ_HANDLER( videoram_r );
 	READ_HANDLER( colorram_r );

@@ -153,7 +153,6 @@ package drivers;
 public class nycaptor
 {
 	
-	VIDEO_UPDATE( nycaptor );
 	
 	
 	extern UINT8 *nycaptor_scrlram;

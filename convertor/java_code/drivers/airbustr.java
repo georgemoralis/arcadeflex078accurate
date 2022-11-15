@@ -208,8 +208,7 @@ public class airbustr
 	WRITE_HANDLER( airbustr_bgram_w );
 	WRITE_HANDLER( airbustr_fgram_w );
 	WRITE_HANDLER( airbustr_scrollregs_w );
-	extern extern VIDEO_UPDATE( airbustr );
-	
+	extern extern 
 	/* Debug stuff (bound to go away sometime) */
 	int u1, u2, u3, u4;
 	

@@ -198,8 +198,7 @@ public class sshangha
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( sshangha )
-	{
+	public static VideoUpdateHandlerPtr video_update_sshangha  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int last_pf1_bank,last_pf2_bank;
 		int offs;
 	
@@ -270,5 +269,5 @@ public class sshangha
 		
 		sshangha_drawsprites(bitmap,spriteram16_2,0x0000,0x0000);
 		sshangha_drawsprites(bitmap,spriteram16,0x4000,0x0000);
-	}
+	} };
 }

@@ -23,9 +23,7 @@ public class hyperspt
 	extern WRITE_HANDLER( hyperspt_flipscreen_w );
 	
 	extern PALETTE_INIT( hyperspt );
-	extern extern VIDEO_UPDATE( hyperspt );
-	extern extern VIDEO_UPDATE( roadf );
-	
+	extern extern extern extern 
 	extern WRITE_HANDLER( konami_sh_irqtrigger_w );
 	extern READ_HANDLER( hyperspt_sh_timer_r );
 	extern WRITE_HANDLER( hyperspt_sound_w );

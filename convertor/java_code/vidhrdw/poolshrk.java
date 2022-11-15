@@ -45,8 +45,7 @@ public class poolshrk
 	} };
 	
 	
-	VIDEO_UPDATE( poolshrk )
-	{
+	public static VideoUpdateHandlerPtr video_update_poolshrk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		tilemap_mark_all_tiles_dirty(tilemap);
@@ -67,5 +66,5 @@ public class poolshrk
 		/* draw playfield */
 	
 		tilemap_draw(bitmap, cliprect, tilemap, 0, 0);
-	}
+	} };
 }

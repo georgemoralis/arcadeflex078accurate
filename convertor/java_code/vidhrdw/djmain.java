@@ -158,8 +158,7 @@ public class djmain
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( djmain )
-	{
+	public static VideoUpdateHandlerPtr video_update_djmain  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int enables = K055555_read_register(K55_INPUT_ENABLES);
 		int pri[NUM_LAYERS + 1];
 		int order[NUM_LAYERS + 1];
@@ -199,5 +198,5 @@ public class djmain
 					K056832_tilemap_draw_dj(bitmap, cliprect, layer, 0, 1 << i);
 			}
 		}
-	}
+	} };
 }

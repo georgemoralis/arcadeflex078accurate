@@ -96,10 +96,9 @@ public class generic
 	  To be used by bitmapped games not using sprites.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( generic_bitmapped )
-	{
+	public static VideoUpdateHandlerPtr video_update_generic_bitmapped  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
-	}
+	} };
 	
 	
 	READ_HANDLER( videoram_r )

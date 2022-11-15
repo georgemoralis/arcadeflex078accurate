@@ -1394,7 +1394,7 @@ public class system32
 		}
 	}
 	
-	VIDEO_UPDATE( system32 ) {
+	public static VideoUpdateHandlerPtr video_update_system32  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		int i;
 	
 		int monitor_setting;
@@ -1408,7 +1408,7 @@ public class system32
 		int priority1 = (system32_mixerregs[multi32][0x24/2] & 0x000f);
 		int priority2 = (system32_mixerregs[0][0x26/2] & 0x000f);
 		int priority3 = (system32_mixerregs[multi32][0x28/2] & 0x000f);
-		int sys32_palette_dirty[2] = {0, 0};
+		int sys32_palette_dirty[2] = {0, 0} };;
 	
 		// -------------------------------------- experimental wip code --------------------------------
 		int tm,ii;

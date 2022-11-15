@@ -93,12 +93,11 @@ public class canyon
 	}
 	
 	
-	VIDEO_UPDATE( canyon )
-	{
+	public static VideoUpdateHandlerPtr video_update_canyon  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, tilemap, 0, 0);
 	
 		canyon_draw_sprites(bitmap, cliprect);
 	
 		canyon_draw_bombs(bitmap, cliprect);
-	}
+	} };
 }

@@ -102,8 +102,7 @@ public class phozon
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( phozon )
-	{
+	public static VideoUpdateHandlerPtr video_update_phozon  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 	
@@ -150,7 +149,7 @@ public class phozon
 						8*sx,8*sy,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
 				}
-		} };
+		}
 	
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
 	
@@ -256,5 +255,5 @@ public class phozon
 						&Machine->visible_area,TRANSPARENCY_PEN,0);
 				}
 		}
-	}
+	} };
 }

@@ -307,8 +307,7 @@ public class pacland
 		}
 	}
 	
-	VIDEO_UPDATE( pacland )
-	{
+	public static VideoUpdateHandlerPtr video_update_pacland  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, cliprect, bg_tilemap, 0, 0);
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 0, 0);
 		pacland_draw_sprites(bitmap, 2);
@@ -316,5 +315,5 @@ public class pacland
 		tilemap_draw(bitmap, cliprect, fg_tilemap, 1, 0);
 		pacland_draw_sprites(bitmap, 2);
 		pacland_draw_sprites(bitmap, 1);
-	}
+	} };
 }

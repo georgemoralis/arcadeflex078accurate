@@ -106,10 +106,9 @@ public class statriv2
 		return 0;
 	} };
 	
-	VIDEO_UPDATE (statriv2)
-	{
+	public static VideoUpdateHandlerPtr video_update_statriv2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,statriv2_tilemap,0,0);
-	}
+	} };
 	
 	PALETTE_INIT(statriv2)
 	{

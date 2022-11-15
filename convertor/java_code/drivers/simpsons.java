@@ -19,7 +19,6 @@ public class simpsons
 	
 	/* from vidhrdw */
 	WRITE_HANDLER( simpsons_priority_w );
-	VIDEO_UPDATE( simpsons );
 	
 	/* from machine */
 	READ_HANDLER( simpsons_eeprom_r );

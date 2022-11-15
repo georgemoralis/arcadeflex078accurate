@@ -120,8 +120,7 @@ public class drmicro
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( drmicro )
-	{
+	public static VideoUpdateHandlerPtr video_update_drmicro  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,adr,g;
 		int chr,col,attr;
 		int x,y,fx,fy;
@@ -172,6 +171,6 @@ public class drmicro
 				}
 			}
 		}
-	}
+	} };
 	
 }

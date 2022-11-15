@@ -54,7 +54,6 @@ public class carjmbre
 	WRITE_HANDLER( carjmbre_videoram_w );
 	
 	PALETTE_INIT( carjmbre );
-	VIDEO_UPDATE( carjmbre );
 	
 	
 	static MEMORY_READ_START( carjmbre_readmem )

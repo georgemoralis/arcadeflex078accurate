@@ -128,8 +128,7 @@ public class astinvad
 	} };
 	
 	
-	VIDEO_UPDATE( spaceint )
-	{
+	public static VideoUpdateHandlerPtr video_update_spaceint  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (get_vh_global_attribute_changed())
 		{
 			int offset;
@@ -141,11 +140,10 @@ public class astinvad
 		}
 	
 		copybitmap(bitmap, tmpbitmap, 0, 0, 0, 0, cliprect, TRANSPARENCY_NONE, 0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( astinvad )
-	{
+	public static VideoUpdateHandlerPtr video_update_astinvad  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (astinvad_flash)
 		{
 			fillbitmap(bitmap, 1, cliprect);
@@ -164,5 +162,5 @@ public class astinvad
 	
 			copybitmap(bitmap, tmpbitmap, 0, 0, 0, 0, cliprect, TRANSPARENCY_NONE, 0);
 		}
-	}
+	} };
 }

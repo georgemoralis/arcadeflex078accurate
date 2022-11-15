@@ -32,7 +32,6 @@ public class ddrible
 	
 	/* video hardware functions */
 	PALETTE_INIT( ddrible );
-	VIDEO_UPDATE( ddrible );
 	WRITE_HANDLER( K005885_0_w );
 	WRITE_HANDLER( K005885_1_w );
 	

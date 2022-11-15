@@ -1426,8 +1426,7 @@ public class cave
 	{	 cave_tilemap_draw( bitmap, cliprect, tilemap_3, cave_vram_3, cave_vctrl_3, flags, priority, priority2 );	}
 	
 	
-	VIDEO_UPDATE( cave )
-	{
+	public static VideoUpdateHandlerPtr video_update_cave  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int pri, pri2;
 		int layers_ctrl = -1;
 	
@@ -1538,7 +1537,7 @@ public class cave
 				if (layers_ctrl&(1<<(pri+12)))	cave_tilemap_3_draw(bitmap, cliprect, pri, 0, pri2);
 			}
 		}
-	}
+	} };
 	
 	
 	

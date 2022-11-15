@@ -179,9 +179,6 @@ public class wiz
 	WRITE_HANDLER( wiz_flipx_w );
 	WRITE_HANDLER( wiz_flipy_w );
 	PALETTE_INIT( wiz );
-	VIDEO_UPDATE( wiz );
-	VIDEO_UPDATE( stinger );
-	VIDEO_UPDATE( kungfut );
 	
 	static WRITE_HANDLER( sound_command_w )
 	{

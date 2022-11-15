@@ -77,8 +77,7 @@ public class exprraid
 	extern WRITE_HANDLER( exprraid_scrollx_w );
 	extern WRITE_HANDLER( exprraid_scrolly_w );
 	
-	extern extern VIDEO_UPDATE( exprraid );
-	
+	extern extern 
 	
 	/*****************************************************************************************/
 	/* Emulate Protection ( only for original express raider, code is cracked on the bootleg */

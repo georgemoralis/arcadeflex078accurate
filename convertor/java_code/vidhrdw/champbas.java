@@ -160,9 +160,8 @@ public class champbas
 		}
 	}
 	
-	VIDEO_UPDATE( champbas )
-	{
+	public static VideoUpdateHandlerPtr video_update_champbas  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		champbas_draw_sprites(bitmap);
-	}
+	} };
 }

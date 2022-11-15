@@ -82,8 +82,7 @@ public class aliens
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( aliens )
-	{
+	public static VideoUpdateHandlerPtr video_update_aliens  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		K052109_tilemap_update();
 	
 		fillbitmap(priority_bitmap,0,cliprect);
@@ -93,5 +92,5 @@ public class aliens
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[0],0,4);
 	
 		K051960_sprites_draw(bitmap,cliprect,-1,-1);
-	}
+	} };
 }

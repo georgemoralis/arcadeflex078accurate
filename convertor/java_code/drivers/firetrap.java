@@ -79,7 +79,6 @@ public class firetrap
 	WRITE_HANDLER( firetrap_bg2_scrollx_w );
 	WRITE_HANDLER( firetrap_bg2_scrolly_w );
 	PALETTE_INIT( firetrap );
-	VIDEO_UPDATE( firetrap );
 	
 	
 	static int firetrap_irq_enable = 0;

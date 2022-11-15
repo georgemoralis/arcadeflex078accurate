@@ -158,8 +158,7 @@ public class alpha68k
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( alpha68k_II )
-	{
+	public static VideoUpdateHandlerPtr video_update_alpha68k_II  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int last_bank=0;
 	
 		if (last_bank!=bank_base)
@@ -183,7 +182,7 @@ public class alpha68k
 		draw_sprites(bitmap,cliprect,0,0x0000,0x07c0);
 	//ZT
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	
@@ -314,8 +313,7 @@ public class alpha68k
 		}
 	}
 	
-	VIDEO_UPDATE( alpha68k_V )
-	{
+	public static VideoUpdateHandlerPtr video_update_alpha68k_V  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int last_bank=0;
 	
 		if (last_bank!=bank_base)
@@ -347,10 +345,9 @@ public class alpha68k
 		}
 	
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( alpha68k_V_sb )
-	{
+	public static VideoUpdateHandlerPtr video_update_alpha68k_V_sb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		static int last_bank=0;
 	
 		if (last_bank!=bank_base)
@@ -367,7 +364,7 @@ public class alpha68k
 		draw_sprites_V(bitmap,cliprect,0,0x0000,0x07c0,0x4000,0x8000,0x3fff);
 	
 		tilemap_draw(bitmap,cliprect,fix_tilemap,0,0);
-	}
+	} };
 	
 	/******************************************************************************/
 	//AT
@@ -430,8 +427,7 @@ public class alpha68k
 		}
 	}
 	
-	VIDEO_UPDATE( alpha68k_I )
-	{
+	public static VideoUpdateHandlerPtr video_update_alpha68k_I  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int yshift = (microcontroller_id == 0x890a) ? 1 : 0; // The Next Space is 1 pixel off
 	
 		fillbitmap(bitmap,Machine->pens[0],cliprect);
@@ -440,7 +436,7 @@ public class alpha68k
 		draw_sprites2(bitmap,cliprect,2,0x0800,yshift);
 		draw_sprites2(bitmap,cliprect,3,0x0c00,yshift);
 		draw_sprites2(bitmap,cliprect,1,0x0400,yshift);
-	}
+	} };
 	//ZT
 	/******************************************************************************/
 	
@@ -592,15 +588,14 @@ public class alpha68k
 		}
 	}
 	
-	VIDEO_UPDATE( kyros )
-	{
+	public static VideoUpdateHandlerPtr video_update_kyros  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		//fillbitmap(bitmap,Machine->pens[0],cliprect);
 		fillbitmap(bitmap,*videoram16&0xff,cliprect); //AT
 	
 		kyros_draw_sprites(bitmap,cliprect,2,0x0800);
 		kyros_draw_sprites(bitmap,cliprect,3,0x0c00);
 		kyros_draw_sprites(bitmap,cliprect,1,0x0400);
-	}
+	} };
 	
 	/******************************************************************************/
 	
@@ -658,13 +653,12 @@ public class alpha68k
 		}
 	}
 	
-	VIDEO_UPDATE( sstingry )
-	{
+	public static VideoUpdateHandlerPtr video_update_sstingry  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		//fillbitmap(bitmap,Machine->pens[0],cliprect);
 		fillbitmap(bitmap,*videoram16&0xff,cliprect); //AT
 	
 		sstingry_draw_sprites(bitmap,cliprect,2,0x0800);
 		sstingry_draw_sprites(bitmap,cliprect,3,0x0c00);
 		sstingry_draw_sprites(bitmap,cliprect,1,0x0400);
-	}
+	} };
 }

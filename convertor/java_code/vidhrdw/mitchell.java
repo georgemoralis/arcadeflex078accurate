@@ -256,10 +256,9 @@ public class mitchell
 		}
 	}
 	
-	VIDEO_UPDATE( pang )
-	{
+	public static VideoUpdateHandlerPtr video_update_pang  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,Machine->pens[0],cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

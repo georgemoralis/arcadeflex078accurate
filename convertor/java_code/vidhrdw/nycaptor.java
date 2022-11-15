@@ -220,8 +220,7 @@ public class nycaptor
 	}
 	#endif
 	
-	VIDEO_UPDATE( nycaptor )
-	{
+	public static VideoUpdateHandlerPtr video_update_nycaptor  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	#ifdef MAME_DEBUG
 	  nycaptor_setmask();
 	  if(nycaptor_mask&0x1000)
@@ -301,6 +300,6 @@ public class nycaptor
 	  break;
 	 }
 	 	draw_crosshair(bitmap,readinputport(5),readinputport(6),cliprect);
-	}
+	} };
 	
 }

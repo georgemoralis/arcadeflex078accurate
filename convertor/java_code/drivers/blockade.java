@@ -43,8 +43,7 @@ public class blockade
 	
 	extern WRITE_HANDLER( blockade_videoram_w );
 	
-	extern extern VIDEO_UPDATE( blockade );
-	
+	extern extern 
 	/* These are used to simulate coin latch circuitry */
 	
 	static int coin_latch;  /* Active Low */

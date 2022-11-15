@@ -197,8 +197,7 @@ public class splash
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( splash )
-	{
+	public static VideoUpdateHandlerPtr video_update_splash  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* set scroll registers */
 		tilemap_set_scrolly(screen[0], 0, splash_vregs[0]);
 		tilemap_set_scrolly(screen[1], 0, splash_vregs[1]);
@@ -208,5 +207,5 @@ public class splash
 		tilemap_draw(bitmap,cliprect,screen[1],0,0);
 		splash_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,screen[0],0,0);
-	}
+	} };
 }

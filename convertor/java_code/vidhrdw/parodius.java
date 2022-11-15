@@ -76,8 +76,7 @@ public class parodius
 		SWAP(1,2)
 	}
 	
-	VIDEO_UPDATE( parodius )
-	{
+	public static VideoUpdateHandlerPtr video_update_parodius  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layer[3];
 	
 	
@@ -105,5 +104,5 @@ public class parodius
 		tilemap_draw(bitmap,cliprect,K052109_tilemap[layer[2]],0,4);
 	
 		K053245_sprites_draw(bitmap,cliprect);
-	}
+	} };
 }

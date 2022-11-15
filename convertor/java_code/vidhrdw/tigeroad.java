@@ -170,17 +170,15 @@ public class tigeroad
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( tigeroad )
-	{
+	public static VideoUpdateHandlerPtr video_update_tigeroad  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, TILEMAP_BACK, 0);
 		tigeroad_draw_sprites(bitmap, 0);
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, TILEMAP_FRONT, 1);
 		//tigeroad_draw_sprites(bitmap, 1); draw priority sprites?
 		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 2);
-	}
+	} };
 	
-	VIDEO_EOF( tigeroad )
-	{
+	public static VideoEofHandlerPtr video_eof_tigeroad  = new VideoEofHandlerPtr() { public void handler(){
 		buffer_spriteram16_w(0,0,0);
-	}
+	} };
 }

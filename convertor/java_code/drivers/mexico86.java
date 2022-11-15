@@ -88,8 +88,6 @@ public class mexico86
 	extern unsigned char *mexico86_videoram,*mexico86_objectram;
 	extern size_t mexico86_objectram_size;
 	WRITE_HANDLER( mexico86_bankswitch_w );
-	VIDEO_UPDATE( mexico86 );
-	VIDEO_UPDATE( kikikai );
 	
 	//AT
 	static READ_HANDLER( kiki_2203_r )

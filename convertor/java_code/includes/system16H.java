@@ -224,20 +224,15 @@ extern WRITE16_HANDLER( sys16_textram_w );
 extern WRITE16_HANDLER( sys16_paletteram_w );
 
 /* "normal" video hardware */
-extern extern VIDEO_UPDATE( system16 );
-
+extern extern 
 /* hang-on video hardware */
-extern extern VIDEO_UPDATE( hangon );
-
+extern extern 
 /* outrun video hardware */
-extern extern VIDEO_UPDATE( outrun );
-
+extern extern 
 /* aburner video hardware */
-extern extern VIDEO_UPDATE( aburner );
-
+extern extern 
 /* system18 video hardware */
-extern extern VIDEO_UPDATE( system18 );
-
+extern extern 
 /* video driver constants (vary with game) */
 extern int sys16_gr_bitmap_width;
 extern int sys16_sprxoffset;

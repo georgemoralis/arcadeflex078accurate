@@ -106,8 +106,6 @@ public class nbmj9195
 	#define	SIGNED_DAC	0		// 0:unsigned DAC, 1:signed DAC
 	
 	
-	VIDEO_UPDATE( sailorws );
-	VIDEO_UPDATE( mscoutm );
 	
 	READ_HANDLER( sailorws_palette_r );
 	WRITE_HANDLER( sailorws_palette_w );

@@ -21,7 +21,6 @@ public class crimfght
 	static MACHINE_INIT( crimfght );
 	static void crimfght_banking( int lines );
 	
-	VIDEO_UPDATE( crimfght );
 	
 	
 	static WRITE_HANDLER( crimfght_coin_w )

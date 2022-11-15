@@ -13,4 +13,3 @@ extern data8_t dribling_abca;
 
 PALETTE_INIT( dribling );
 WRITE_HANDLER( dribling_colorram_w );
-VIDEO_UPDATE( dribling );

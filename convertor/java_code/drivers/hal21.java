@@ -10,8 +10,7 @@ Change Log
 AT08XX03:
 
 [Common]
- - cleaned and consolidated VIDEO_UPDATE()
- - added shadows and highlights
+ - cleaned and consolidated public static VideoUpdateHandlerPtr video_update_  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect) - added shadows and highlights
 
  * A.S.O and HAL21 do a lot of palette cycling therefore
    conversion to tilemaps may be disadvantageous.
@@ -72,7 +71,7 @@ public class hal21
 		if (data == 0x7f && shared_auxram[0x04d2] & 1) data++;
 	
 		shared_auxram[0x04f8] = data;
-	}
+	} };
 	
 	static void hal21_sound_scheduler(int mode, int data)
 	{
@@ -323,8 +322,7 @@ public class hal21
 		}
 	}
 	
-	VIDEO_UPDATE( aso )
-	{
+	public static VideoUpdateHandlerPtr video_update_aso  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 *ram = memory_region(REGION_CPU1);
 		int attr, msbs, spsy, spsx, bgsy, bgsx, bank, i;
 	
@@ -354,7 +352,7 @@ public class hal21
 		bank = msbs>>6 & 1;
 		tnk3_draw_text(bitmap, bank, &ram[0xf800]);
 		tnk3_draw_status(bitmap, bank, &ram[0xfc00]);
-	}
+	} };
 	
 	
 	static InputPortHandlerPtr input_ports_hal21 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hal21 )

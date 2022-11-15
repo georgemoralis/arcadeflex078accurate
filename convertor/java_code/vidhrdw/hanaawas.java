@@ -128,8 +128,7 @@ public class hanaawas
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( hanaawas )
-	{
+	public static VideoUpdateHandlerPtr video_update_hanaawas  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
-	}
+	} };
 }

@@ -128,9 +128,8 @@ public class arkanoid
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( arkanoid )
-	{
+	public static VideoUpdateHandlerPtr video_update_arkanoid  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		arkanoid_draw_sprites(bitmap);
-	}
+	} };
 }

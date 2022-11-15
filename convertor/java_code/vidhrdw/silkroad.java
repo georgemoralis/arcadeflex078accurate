@@ -158,8 +158,7 @@ public class silkroad
 	
 	int enable1=1,enable2=1,enable3=1;
 	
-	VIDEO_UPDATE(silkroad)
-	{
+	public static VideoUpdateHandlerPtr video_update_silkroad  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap,0x7c0,&Machine->visible_area);
 	
 		tilemap_set_scrollx( fg_tilemap, 0, ((silkroad_regs[0] & 0xffff0000) >> 16) );
@@ -194,5 +193,5 @@ public class silkroad
 		silkroad_regs[5]
 		);
 	*/
-	}
+	} };
 }

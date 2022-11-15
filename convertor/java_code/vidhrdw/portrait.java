@@ -116,13 +116,12 @@ public class portrait
 		}
 	}
 	
-	VIDEO_UPDATE( portrait )
-	{
+	public static VideoUpdateHandlerPtr video_update_portrait  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrolly( background, 0, portrait_scrollx_hi );
 		tilemap_set_scrolly( foreground, 0, portrait_scrollx_hi );
 	
 		tilemap_draw( bitmap, cliprect, background, 0, 0 );
 		draw_sprites(bitmap);
 		tilemap_draw( bitmap, cliprect, foreground, 0, 0 );
-	}
+	} };
 }

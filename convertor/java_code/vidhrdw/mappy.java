@@ -156,8 +156,7 @@ public class mappy
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( mappy )
-	{
+	public static VideoUpdateHandlerPtr video_update_mappy  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		/* for every character in the Video RAM, check if it has been modified */
@@ -396,5 +395,5 @@ public class mappy
 							0,TRANSPARENCY_COLOR,31);
 			}
 		}
-	}
+	} };
 }

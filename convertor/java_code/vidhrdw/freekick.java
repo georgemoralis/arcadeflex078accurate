@@ -142,21 +142,18 @@ public class freekick
 		}
 	}
 	
-	VIDEO_UPDATE(gigas)
-	{
+	public static VideoUpdateHandlerPtr video_update_gigas  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,freek_tilemap,0,0);
 		gigas_draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
-	VIDEO_UPDATE(pbillrd)
-	{
+	public static VideoUpdateHandlerPtr video_update_pbillrd  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,freek_tilemap,0,0);
 		pbillrd_draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
-	VIDEO_UPDATE(freekick)
-	{
+	public static VideoUpdateHandlerPtr video_update_freekick  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,freek_tilemap,0,0);
 		freekick_draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

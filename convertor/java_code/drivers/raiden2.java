@@ -151,14 +151,13 @@ public class raiden2
 	
 	/* VIDEO UPDATE (move to vidhrdw file) */
 	
-	VIDEO_UPDATE (raiden2)
-	{
+	public static VideoUpdateHandlerPtr video_update_raiden2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,background_layer,0,0);
 		tilemap_draw(bitmap,cliprect,midground_layer,0,0);
 		tilemap_draw(bitmap,cliprect,foreground_layer,0,0);
 		draw_sprites(bitmap,cliprect,0);
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 	
 	/* MISC READ HANDLERS */
 	

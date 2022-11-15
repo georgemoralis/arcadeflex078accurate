@@ -913,8 +913,7 @@ public class voodoo
 	} };
 	
 	
-	VIDEO_STOP( voodoo )
-	{
+	public static VideoStopHandlerPtr video_stop_voodoo  = new VideoStopHandlerPtr() { public void handler(){
 	#if LOG_RENDERERS
 		int i;
 	
@@ -930,7 +929,7 @@ public class voodoo
 				renderer_list[i][7],
 				renderer_list[i][8]);
 	#endif
-	}
+	} };
 	
 	
 	
@@ -940,8 +939,7 @@ public class voodoo
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( voodoo )
-	{
+	public static VideoUpdateHandlerPtr video_update_voodoo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 	
 	#if DISPLAY_STATISTICS
@@ -976,7 +974,7 @@ public class voodoo
 			for (x = cliprect->min_x; x <= cliprect->max_x; x++)
 				*dest++ = pen_lookup[*source++];
 		}
-	}
+	} };
 	
 	
 	

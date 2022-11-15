@@ -37,13 +37,7 @@ public class _8080bw
 	static WRITE_HANDLER( invadpt2_videoram_w );
 	static WRITE_HANDLER( cosmo_videoram_w );
 	
-	static VIDEO_UPDATE( 8080bw_common );
-	static VIDEO_UPDATE( helifire );
-	static VIDEO_UPDATE( seawolf );
-	static VIDEO_UPDATE( blueshrk );
-	static VIDEO_UPDATE( desertgu );
-	static VIDEO_UPDATE( bowler );
-	
+	static static static static static static 
 	static void plot_pixel_8080(int x, int y, int col);
 	
 	/* smoothed colors, overlays are not so contrasted */
@@ -563,14 +557,12 @@ public class _8080bw
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( 8080bw )
-	{
+	public static VideoUpdateHandlerPtr video_update_8080bw  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		video_update_p(bitmap, cliprect);
-	}
+	} };
 	
 	
-	static VIDEO_UPDATE( 8080bw_common )
-	{
+	static public static VideoUpdateHandlerPtr video_update_8080bw_common  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (get_vh_global_attribute_changed())
 		{
 			int offs;
@@ -580,7 +572,7 @@ public class _8080bw
 		}
 	
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,cliprect,TRANSPARENCY_NONE,0);
-	}
+	} };
 	
 	
 	
@@ -637,8 +629,7 @@ public class _8080bw
 		}
 	}
 	
-	VIDEO_EOF (helifire)
-	{
+	public static VideoEofHandlerPtr video_eof_helifire  = new VideoEofHandlerPtr() { public void handler(){
 		int i;
 	
 		/* there are two circuits:
@@ -691,11 +682,10 @@ public class _8080bw
 				palette_set_color(i,r,g,b);
 			}
 		}
-	}
+	} };
 	
 	
-	static VIDEO_UPDATE( helifire )
-	{
+	static public static VideoUpdateHandlerPtr video_update_helifire  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		int sun_brightness = readinputport(4);
 		int sea_brightness = readinputport(5);
@@ -786,7 +776,7 @@ public class _8080bw
 	
 		/* foreground */
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,cliprect,TRANSPARENCY_PEN,8);
-	}
+	} };
 	
 	static void draw_sight(struct mame_bitmap *bitmap,const struct rectangle *cliprect,int x_center, int y_center)
 	{
@@ -854,31 +844,28 @@ public class _8080bw
 	}
 	
 	
-	static VIDEO_UPDATE( seawolf )
-	{
+	static public static VideoUpdateHandlerPtr video_update_seawolf  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* update the bitmap (and erase old cross) */
 		video_update_8080bw_common(bitmap, cliprect);
 	
 	    draw_sight(bitmap,cliprect,((input_port_0_r(0) & 0x1f) * 8) + 4, 63);
-	}
+	} };
 	
-	static VIDEO_UPDATE( blueshrk )
-	{
+	static public static VideoUpdateHandlerPtr video_update_blueshrk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* update the bitmap (and erase old cross) */
 		video_update_8080bw_common(bitmap, cliprect);
 	
 	    draw_sight(bitmap,cliprect,((input_port_0_r(0) & 0x7f) * 2) - 12, 63);
-	}
+	} };
 	
-	static VIDEO_UPDATE( desertgu )
-	{
+	static public static VideoUpdateHandlerPtr video_update_desertgu  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* update the bitmap (and erase old cross) */
 		video_update_8080bw_common(bitmap, cliprect);
 	
 		draw_sight(bitmap,cliprect,
 				   ((input_port_0_r(0) & 0x7f) * 2) - 30,
 				   ((input_port_2_r(0) & 0x7f) * 2) + 2);
-	}
+	} };
 	
 	
 	WRITE_HANDLER( bowler_bonus_display_w )
@@ -891,8 +878,7 @@ public class _8080bw
 	}
 	
 	
-	static VIDEO_UPDATE( bowler )
-	{
+	static public static VideoUpdateHandlerPtr video_update_bowler  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x,y,i;
 	
 		char score_line_1[] = "Bonus 200 400 500 700 500 400 200";
@@ -941,7 +927,7 @@ public class _8080bw
 	
 			y -= Machine->uifontwidth;
 		}
-	}
+	} };
 	
 	
 	PALETTE_INIT( invadpt2 )

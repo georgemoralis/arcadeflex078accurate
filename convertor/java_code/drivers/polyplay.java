@@ -90,7 +90,6 @@ public class polyplay
 	/* video hardware access */
 	extern unsigned char *polyplay_characterram;
 	PALETTE_INIT( polyplay );
-	VIDEO_UPDATE( polyplay );
 	READ_HANDLER( polyplay_characterram_r );
 	WRITE_HANDLER( polyplay_characterram_w );
 	

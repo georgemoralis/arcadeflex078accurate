@@ -148,8 +148,7 @@ public class ninjaw
 					SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( ninjaw )
-	{
+	public static VideoUpdateHandlerPtr video_update_ninjaw  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3], nodraw;
 	
 		TC0100SCN_tilemap_update();
@@ -181,5 +180,5 @@ public class ninjaw
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[2],0,0);
 		TC0100SCN_tilemap_draw(bitmap,cliprect,1,layer[2],0,0);
 		TC0100SCN_tilemap_draw(bitmap,cliprect,2,layer[2],0,0);
-	}
+	} };
 }

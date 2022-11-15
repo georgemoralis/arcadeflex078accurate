@@ -219,8 +219,7 @@ public class rallyx
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( rallyx )
-	{
+	public static VideoUpdateHandlerPtr video_update_rallyx  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy;
 		int scrollx,scrolly;
 	const int displacement = 1;
@@ -380,12 +379,11 @@ public class rallyx
 					x,y,
 					&Machine->visible_area,TRANSPARENCY_PEN,3);
 		}
-	}
+	} };
 	
 	
 	
-	VIDEO_UPDATE( jungler )
-	{
+	public static VideoUpdateHandlerPtr video_update_jungler  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy;
 		int scrollx,scrolly;
 	const int displacement = 0;
@@ -506,12 +504,11 @@ public class rallyx
 					x,y,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 	
 	
 	
-	VIDEO_UPDATE( locomotn )
-	{
+	public static VideoUpdateHandlerPtr video_update_locomotn  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy;
 	const int displacement = 0;
 	
@@ -646,12 +643,11 @@ public class rallyx
 					x,y,
 					&Machine->visible_area,TRANSPARENCY_PEN,3);
 		}
-	}
+	} };
 	
 	
 	
-	VIDEO_UPDATE( commsega )
-	{
+	public static VideoUpdateHandlerPtr video_update_commsega  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy;
 	
 	
@@ -800,5 +796,5 @@ public class rallyx
 					x,y,
 					&Machine->visible_area,TRANSPARENCY_PEN,3);
 		}
-	}
+	} };
 }

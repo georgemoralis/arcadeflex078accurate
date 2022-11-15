@@ -71,7 +71,6 @@ package drivers;
 public class groundfx
 {
 	
-	VIDEO_UPDATE( groundfx );
 	
 	/* F3 sound */
 	READ16_HANDLER(f3_68000_share_r);

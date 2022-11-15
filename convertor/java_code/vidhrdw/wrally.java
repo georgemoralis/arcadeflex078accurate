@@ -166,8 +166,7 @@ public class wrally
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( wrally )
-	{
+	public static VideoUpdateHandlerPtr video_update_wrally  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* set scroll registers */
 		tilemap_set_scrolly(pant[0], 0, wrally_vregs[0]);
 		tilemap_set_scrollx(pant[0], 0, wrally_vregs[1]);
@@ -179,5 +178,5 @@ public class wrally
 		tilemap_draw(bitmap,cliprect,pant[1],0,0);
 		tilemap_draw(bitmap,cliprect,pant[0],0,0);
 		gaelco_draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

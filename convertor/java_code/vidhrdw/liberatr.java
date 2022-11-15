@@ -387,8 +387,7 @@ public class liberatr
 	}
 	
 	
-	VIDEO_UPDATE( liberatr )
-	{
+	public static VideoUpdateHandlerPtr video_update_liberatr  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (get_vh_global_attribute_changed())
 		{
 			UINT8 liberatr_y_save = *liberatr_y;
@@ -410,5 +409,5 @@ public class liberatr
 	
 		/* draw the planet */
 		liberatr_draw_planet(bitmap);
-	}
+	} };
 }

@@ -23,7 +23,6 @@ public class scregg
 	
 	/* from vidhrdw/btime.c */
 	PALETTE_INIT( btime );
-	VIDEO_UPDATE( eggs );
 	
 	READ_HANDLER( btime_mirrorvideoram_r );
 	WRITE_HANDLER( btime_mirrorvideoram_w );

@@ -348,8 +348,7 @@ public class unico
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( unico )
-	{
+	public static VideoUpdateHandlerPtr video_update_unico  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 		tilemap_set_scrollx(tilemap_0, 0, *unico_scrollx_0);
@@ -396,10 +395,9 @@ public class unico
 				readinputport(3)*224/256,
 				cliprect);
 		}
-	}
+	} };
 	
-	VIDEO_UPDATE( zeropnt2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_zeropnt2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int layers_ctrl = -1;
 	
 		tilemap_set_scrollx(tilemap_0, 0, unico_scroll32[0] >> 16);
@@ -446,6 +444,6 @@ public class unico
 				readinputport(3)*224/256,
 				cliprect);
 		}
-	}
+	} };
 	
 }

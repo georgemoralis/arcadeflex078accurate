@@ -26,4 +26,3 @@ void nitedrvr_crash_toggle(int dummy);
 
 extern unsigned char *nitedrvr_hvc;
 WRITE_HANDLER( nitedrvr_hvc_w );
-VIDEO_UPDATE( nitedrvr );

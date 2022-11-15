@@ -34,8 +34,7 @@ public class bsktball
 	
 	extern WRITE_HANDLER( bsktball_videoram_w );
 	
-	extern extern VIDEO_UPDATE( bsktball );
-	
+	extern extern 
 	extern WRITE_HANDLER( bsktball_nmion_w );
 	extern extern WRITE_HANDLER( bsktball_ld1_w );
 	extern WRITE_HANDLER( bsktball_ld2_w );

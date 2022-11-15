@@ -458,8 +458,7 @@ public class cvs
 		}
 	}
 	
-	VIDEO_UPDATE( cvs )
-	{
+	public static VideoUpdateHandlerPtr video_update_cvs  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,character;
 		int sx,sy;
 	
@@ -722,5 +721,5 @@ public class cvs
 			}
 	
 	    }
-	}
+	} };
 }

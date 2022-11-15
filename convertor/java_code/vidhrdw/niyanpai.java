@@ -486,8 +486,7 @@ public class niyanpai
 	
 	
 	******************************************************************************/
-	VIDEO_UPDATE( niyanpai )
-	{
+	public static VideoUpdateHandlerPtr video_update_niyanpai  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		unsigned short color;
 	
@@ -533,5 +532,5 @@ public class niyanpai
 		{
 			copyscrollbitmap(bitmap, niyanpai_tmpbitmap2, 1, &niyanpai_scrollx[2], 1, &niyanpai_scrolly[2], &Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x02ff]);
 		}
-	}
+	} };
 }

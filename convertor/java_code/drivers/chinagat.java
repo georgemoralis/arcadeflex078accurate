@@ -82,7 +82,6 @@ public class chinagat
 	WRITE_HANDLER( ddragon_bgvideoram_w );
 	WRITE_HANDLER( ddragon_fgvideoram_w );
 	
-	VIDEO_UPDATE( ddragon );
 	
 	extern int technos_video_hw;
 	extern int ddragon_scrollx_hi, ddragon_scrolly_hi;

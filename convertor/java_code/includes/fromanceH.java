@@ -19,8 +19,6 @@ public class fromanceH
 	
 	/*----------- defined in vidhrdw/fromance.c -----------*/
 	
-	VIDEO_UPDATE( fromance );
-	VIDEO_UPDATE( pipedrm );
 	
 	WRITE_HANDLER( fromance_crtc_data_w );
 	WRITE_HANDLER( fromance_crtc_register_w );

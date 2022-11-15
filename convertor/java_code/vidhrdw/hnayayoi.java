@@ -258,8 +258,7 @@ public class hnayayoi
 	}
 	
 	
-	VIDEO_UPDATE( hnayayoi )
-	{
+	public static VideoUpdateHandlerPtr video_update_hnayayoi  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int col0 = (palbank >>  0) & 0x0f;
 		int col1 = (palbank >>  4) & 0x0f;
 		int col2 = (palbank >>  8) & 0x0f;
@@ -277,5 +276,5 @@ public class hnayayoi
 			draw_layer_interleaved(bitmap,cliprect,3,2,col1,1);
 			draw_layer_interleaved(bitmap,cliprect,1,0,col0,1);
 		}
-	}
+	} };
 }

@@ -131,8 +131,7 @@ public class deadang
 		}
 	}
 	
-	VIDEO_UPDATE( deadang )
-	{
+	public static VideoUpdateHandlerPtr video_update_deadang  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Setup the tilemaps */
 		tilemap_set_scrolly( pf3_layer,0, ((deadang_scroll_ram[0x02]&0xf0)<<4)+((deadang_scroll_ram[0x04]&0x7f)<<1)+((deadang_scroll_ram[0x04]&0x80)>>7) );
 		tilemap_set_scrollx( pf3_layer,0, ((deadang_scroll_ram[0x12]&0xf0)<<4)+((deadang_scroll_ram[0x14]&0x7f)<<1)+((deadang_scroll_ram[0x14]&0x80)>>7) );
@@ -163,5 +162,5 @@ public class deadang
 		tilemap_draw(bitmap,cliprect,pf2_layer,0,4);
 		if (!(deadang_scroll_ram[0x68]&0x10)) draw_sprites(bitmap);
 		tilemap_draw(bitmap,cliprect,text_layer,0,0);
-	}
+	} };
 }

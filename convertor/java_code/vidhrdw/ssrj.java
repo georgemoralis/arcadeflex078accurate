@@ -285,8 +285,7 @@ public class ssrj
 		  palette_set_color(i*8+j,fakecols[i][j][0],fakecols[i][j][1],fakecols[i][j][2]);	
 	}
 	
-	VIDEO_UPDATE( ssrj )
-	{
+	public static VideoUpdateHandlerPtr video_update_ssrj  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrolly(tilemap1 , 0, 0xff-ssrj_scrollram[2] );
 		tilemap_set_scrollx(tilemap1 , 0, ssrj_scrollram[0] );
 		tilemap_draw(bitmap,cliprect,tilemap1, 0,0);
@@ -294,7 +293,7 @@ public class ssrj
 		tilemap_draw(bitmap,cliprect,tilemap2, 0,0);
 	
 		if(ssrj_scrollram[0x101]==0xb)tilemap_draw(bitmap,cliprect,tilemap4, 0,0);/* hack to display 4th tilemap */
-	}
+	} };
 	
 	
 }

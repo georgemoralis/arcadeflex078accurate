@@ -270,11 +270,10 @@ public class supdrapo
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( supdrapo )
-	{
+	public static VideoUpdateHandlerPtr video_update_supdrapo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
 	
-	}
+	} };
 	
 	static struct AY8910interface ay8910_interface =
 	{

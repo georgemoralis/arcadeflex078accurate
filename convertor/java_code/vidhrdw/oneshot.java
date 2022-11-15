@@ -189,8 +189,7 @@ public class oneshot
 	
 	}
 	
-	VIDEO_UPDATE( oneshot )
-	{
+	public static VideoUpdateHandlerPtr video_update_oneshot  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, get_black_pen(), cliprect);
 	
 		tilemap_set_scrollx(oneshot_mid_tilemap,0, oneshot_scroll[0]-0x1f5);
@@ -201,10 +200,9 @@ public class oneshot
 		oneshot_drawsprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,oneshot_fg_tilemap,0,0);
 		oneshot_drawcrosshairs(bitmap,cliprect);
-	}
+	} };
 	
-	VIDEO_UPDATE( maddonna )
-	{
+	public static VideoUpdateHandlerPtr video_update_maddonna  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, get_black_pen(), cliprect);
 	
 		tilemap_set_scrolly(oneshot_mid_tilemap,0, oneshot_scroll[1]); // other registers aren't used so we don't know which layers they relate to
@@ -216,5 +214,5 @@ public class oneshot
 	//	oneshot_drawcrosshairs(bitmap,cliprect); // not a gun game
 	
 	//	usrintf_showmessage	("%04x %04x %04x %04x %04x %04x %04x %04x", oneshot_scroll[0],oneshot_scroll[1],oneshot_scroll[2],oneshot_scroll[3],oneshot_scroll[4],oneshot_scroll[5],oneshot_scroll[6],oneshot_scroll[7]);
-	}
+	} };
 }

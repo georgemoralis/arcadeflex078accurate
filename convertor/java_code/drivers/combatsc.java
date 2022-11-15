@@ -141,8 +141,6 @@ public class combatsc
 	READ_HANDLER( combasc_scrollram_r );
 	WRITE_HANDLER( combasc_scrollram_w );
 	
-	VIDEO_UPDATE( combascb );
-	VIDEO_UPDATE( combasc );
 	WRITE_HANDLER( combasc_io_w );
 	WRITE_HANDLER( combasc_vreg_w );
 	

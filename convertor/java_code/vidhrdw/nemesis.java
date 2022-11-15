@@ -604,8 +604,7 @@ public class nemesis
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( nemesis )
-	{
+	public static VideoUpdateHandlerPtr video_update_nemesis  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		update_gfx();
@@ -629,10 +628,9 @@ public class nemesis
 		tilemap_draw(bitmap,cliprect,foreground,1,8);
 	
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 	
-	VIDEO_UPDATE( salamand )
-	{
+	public static VideoUpdateHandlerPtr video_update_salamand  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		struct rectangle clip;
 	
@@ -672,5 +670,5 @@ public class nemesis
 		}
 	
 		draw_sprites(bitmap,cliprect);
-	}
+	} };
 }

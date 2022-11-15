@@ -81,8 +81,7 @@ public class mouser
 		colorram_w(offset, data);
 	}
 	
-	VIDEO_UPDATE( mouser )
-	{
+	public static VideoUpdateHandlerPtr video_update_mouser  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int sx,sy;
 		int flipx,flipy;
@@ -193,5 +192,5 @@ public class mouser
 						&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
-	}
+	} };
 }

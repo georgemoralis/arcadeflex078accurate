@@ -838,8 +838,7 @@ public class taito_z
 	                        SCREEN REFRESH
 	**************************************************************/
 	
-	VIDEO_UPDATE( contcirc )
-	{
+	public static VideoUpdateHandlerPtr video_update_contcirc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -859,13 +858,12 @@ public class taito_z
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[2],0,4);
 	
 		contcirc_draw_sprites_16x8(bitmap,cliprect,5);	// 7
-	}
+	} };
 	
 	
 	/* Nightstr and ChaseHQ */
 	
-	VIDEO_UPDATE( chasehq )
-	{
+	public static VideoUpdateHandlerPtr video_update_chasehq  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -885,11 +883,10 @@ public class taito_z
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[2],0,4);
 	
 		chasehq_draw_sprites_16x16(bitmap,cliprect,7);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( bshark )
-	{
+	public static VideoUpdateHandlerPtr video_update_bshark  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -909,11 +906,10 @@ public class taito_z
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[2],0,4);
 	
 		bshark_draw_sprites_16x8(bitmap,cliprect,8);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( sci )
-	{
+	public static VideoUpdateHandlerPtr video_update_sci  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -933,11 +929,10 @@ public class taito_z
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[2],0,4);
 	
 		sci_draw_sprites_16x8(bitmap,cliprect,6);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( aquajack )
-	{
+	public static VideoUpdateHandlerPtr video_update_aquajack  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -957,11 +952,10 @@ public class taito_z
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[2],0,4);
 	
 		aquajack_draw_sprites_16x8(bitmap,cliprect,3);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( spacegun )
-	{
+	public static VideoUpdateHandlerPtr video_update_spacegun  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[3];
 	
 		TC0100SCN_tilemap_update();
@@ -1085,11 +1079,10 @@ public class taito_z
 	
 			draw_crosshair(bitmap,screenx,screeny,cliprect);
 		}
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( dblaxle )
-	{
+	public static VideoUpdateHandlerPtr video_update_dblaxle  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		UINT8 layer[5];
 		UINT16 priority;
 	
@@ -1119,7 +1112,7 @@ public class taito_z
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[3],0,4);
 	
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[4],0,0);	/* Text layer */
-	}
+	} };
 	
 	
 }

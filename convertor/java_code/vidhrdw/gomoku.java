@@ -164,8 +164,7 @@ public class gomoku
 	
 	
 	******************************************************************************/
-	VIDEO_UPDATE( gomoku )
-	{
+	public static VideoUpdateHandlerPtr video_update_gomoku  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		unsigned char *GOMOKU_BG_X = memory_region( REGION_USER1 );
 		unsigned char *GOMOKU_BG_Y = memory_region( REGION_USER2 );
 		unsigned char *GOMOKU_BG_D = memory_region( REGION_USER3 );
@@ -320,6 +319,6 @@ public class gomoku
 		}
 	}
 	#endif
-	}
+	} };
 	
 }

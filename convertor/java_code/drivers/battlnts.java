@@ -18,7 +18,6 @@ public class battlnts
 	
 	/* from vidhrdw */
 	WRITE_HANDLER( battlnts_spritebank_w );
-	VIDEO_UPDATE( battlnts );
 	
 	public static InterruptHandlerPtr battlnts_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K007342_is_INT_enabled())

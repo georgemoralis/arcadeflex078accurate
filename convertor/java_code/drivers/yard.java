@@ -26,7 +26,6 @@ public class yard
 	PALETTE_INIT( yard );
 	WRITE_HANDLER( yard_flipscreen_w );
 	WRITE_HANDLER( yard_scroll_panel_w );
-	VIDEO_UPDATE( yard );
 	
 	
 	

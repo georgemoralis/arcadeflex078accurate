@@ -772,11 +772,10 @@ public class midyunit
 	 *
 	 *************************************/
 	
-	VIDEO_EOF( midyunit )
-	{
+	public static VideoEofHandlerPtr video_eof_midyunit  = new VideoEofHandlerPtr() { public void handler(){
 		/* finish updating/autoerasing, even if we skipped a frame */
 		update_partial(Machine->visible_area.max_y, 0);
-	}
+	} };
 	
 	
 	static void scanline0_callback(int param)
@@ -793,8 +792,7 @@ public class midyunit
 	 *
 	 *************************************/
 	
-	VIDEO_UPDATE( midyunit )
-	{
+	public static VideoUpdateHandlerPtr video_update_midyunit  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int hsblnk, heblnk, leftscroll;
 		int v, width, xoffs;
 		UINT32 offset;
@@ -835,5 +833,5 @@ public class midyunit
 			erase.max_x = leftscroll - 1;
 			fillbitmap(bitmap, get_black_pen(), &erase);
 		}
-	}
+	} };
 }

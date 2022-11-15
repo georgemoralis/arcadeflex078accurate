@@ -436,8 +436,7 @@ public class psikyo
 		else				return 0x10*16;
 	}
 	
-	VIDEO_UPDATE( psikyo )
-	{
+	public static VideoUpdateHandlerPtr video_update_psikyo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i, layers_ctrl = -1;
 	
 		data32_t tm0size, tm1size;
@@ -571,11 +570,10 @@ public class psikyo
 		/* Sprites can go below layer 1 (and 0?) */
 		if (layers_ctrl & 4)	psikyo_draw_sprites(bitmap,cliprect,(spr_ctrl & 4 ?0:15));
 	
-	}
+	} };
 	
-	VIDEO_EOF( psikyo )
-	{
+	public static VideoEofHandlerPtr video_eof_psikyo  = new VideoEofHandlerPtr() { public void handler(){
 		memcpy(spritebuf2, spritebuf1, 0x2000);
 		memcpy(spritebuf1, spriteram32, 0x2000);
-	}
+	} };
 }

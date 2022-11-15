@@ -32,8 +32,7 @@ public class redalert
 	WRITE_HANDLER( redalert_spriteram4_w );
 	WRITE_HANDLER( redalert_characterram_w );
 	WRITE_HANDLER( redalert_characterram2_w );
-	extern VIDEO_UPDATE( redalert );
-	WRITE_HANDLER( redalert_c040_w );
+	extern WRITE_HANDLER( redalert_c040_w );
 	WRITE_HANDLER( demoneye_c040_w );
 	WRITE_HANDLER( redalert_backcolor_w );
 	

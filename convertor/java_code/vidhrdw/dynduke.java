@@ -198,8 +198,7 @@ public class dynduke
 		}
 	}
 	
-	VIDEO_UPDATE( dynduke )
-	{
+	public static VideoUpdateHandlerPtr video_update_dynduke  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Setup the tilemaps */
 		tilemap_set_scrolly( bg_layer,0, ((dynduke_scroll_ram[0x02]&0x30)<<4)+((dynduke_scroll_ram[0x04]&0x7f)<<1)+((dynduke_scroll_ram[0x04]&0x80)>>7) );
 		tilemap_set_scrollx( bg_layer,0, ((dynduke_scroll_ram[0x12]&0x30)<<4)+((dynduke_scroll_ram[0x14]&0x7f)<<1)+((dynduke_scroll_ram[0x14]&0x80)>>7) );
@@ -220,5 +219,5 @@ public class dynduke
 		tilemap_draw(bitmap,cliprect,fg_layer,0,0);
 		draw_sprites(bitmap,cliprect,3);
 		tilemap_draw(bitmap,cliprect,tx_layer,0,0);
-	}
+	} };
 }

@@ -247,13 +247,12 @@ public class welltris
 		}
 	}
 	
-	VIDEO_UPDATE( welltris )
-	{
+	public static VideoUpdateHandlerPtr video_update_welltris  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(char_tilemap, 0, welltris_scrollx);
 		tilemap_set_scrolly(char_tilemap, 0, welltris_scrolly);
 	
 		welltris_drawbackground(bitmap, cliprect);
 		tilemap_draw(bitmap, cliprect, char_tilemap, 0, 0);
 		welltris_draw_sprites(bitmap, cliprect);
-	}
+	} };
 }

@@ -257,12 +257,11 @@ public class msisaac
 		}
 	}
 	
-	VIDEO_UPDATE( msisaac )
-	{
+	public static VideoUpdateHandlerPtr video_update_msisaac  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,background, 0,0);
 		tilemap_draw(bitmap,cliprect,background2,0,0);
 		draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,foreground, 0,0);
-	}
+	} };
 	
 }

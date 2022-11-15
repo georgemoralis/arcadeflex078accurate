@@ -141,9 +141,7 @@ public class vsnes
 	
 	/* from vidhrdw */
 	extern extern PALETTE_INIT( vsnes );
-	extern VIDEO_UPDATE( vsnes );
-	extern extern VIDEO_UPDATE( vsdual );
-	extern PALETTE_INIT( vsdual );
+	extern extern extern extern PALETTE_INIT( vsdual );
 	
 	/* from machine */
 	extern MACHINE_INIT( vsnes );

@@ -22,9 +22,7 @@ public class astinvad
 {
 	
 	
-	extern VIDEO_UPDATE( astinvad );
-	extern VIDEO_UPDATE( spaceint );
-	
+	extern extern 
 	extern extern extern 
 	extern WRITE_HANDLER( astinvad_sound1_w );
 	extern WRITE_HANDLER( astinvad_sound2_w );

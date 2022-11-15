@@ -153,7 +153,6 @@ public class angelkds
 	WRITE_HANDLER( angelkds_paletteram_w );
 	WRITE_HANDLER( angelkds_layer_ctrl_write );
 	
-	VIDEO_UPDATE( angelkds );
 	
 	/*** CPU Banking
 	

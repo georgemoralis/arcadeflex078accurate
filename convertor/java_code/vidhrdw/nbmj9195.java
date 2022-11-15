@@ -744,8 +744,7 @@ public class nbmj9195
 	
 	
 	******************************************************************************/
-	VIDEO_UPDATE( sailorws )
-	{
+	public static VideoUpdateHandlerPtr video_update_sailorws  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		unsigned short color;
 	
@@ -826,10 +825,9 @@ public class nbmj9195
 	#endif
 			}
 		}
-	}
+	} };
 	
-	VIDEO_UPDATE( mscoutm )
-	{
+	public static VideoUpdateHandlerPtr video_update_mscoutm  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x, y;
 		unsigned short color;
 	
@@ -877,5 +875,5 @@ public class nbmj9195
 				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], &Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x1ff]);
 			}
 		}
-	}
+	} };
 }

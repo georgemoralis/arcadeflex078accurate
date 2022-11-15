@@ -19,5 +19,4 @@ WRITE_HANDLER( espial_colorram_w );
 WRITE_HANDLER( espial_attributeram_w );
 WRITE_HANDLER( espial_scrollram_w );
 WRITE_HANDLER( espial_flipscreen_w );
-VIDEO_UPDATE( espial );
 

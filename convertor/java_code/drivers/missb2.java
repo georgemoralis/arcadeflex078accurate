@@ -21,7 +21,6 @@ public class missb2
 	/* vidhrdw/bublbobl.c */
 	extern unsigned char *bublbobl_objectram;
 	extern size_t bublbobl_objectram_size;
-	VIDEO_UPDATE( bublbobl );
 	
 	/* machine/bublbobl.c */
 	extern unsigned char *bublbobl_sharedram1,*bublbobl_sharedram2;
@@ -46,8 +45,7 @@ public class missb2
 	extern int bublbobl_video_enable;
 	
 	
-	VIDEO_UPDATE( missb2 )
-	{
+	public static VideoUpdateHandlerPtr video_update_missb2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		int sx,sy,xc,yc;
 		int gfx_num,gfx_attr,gfx_offs;
@@ -138,7 +136,7 @@ public class missb2
 	
 			sx += 16;
 		}
-	}
+	} };
 	
 	INLINE void bg_changecolor_RRRRGGGGBBBBxxxx(pen_t color,int data)
 	{

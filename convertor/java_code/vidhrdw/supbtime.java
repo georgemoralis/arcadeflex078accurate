@@ -166,8 +166,7 @@ public class supbtime
 	
 	/******************************************************************************/
 	
-	VIDEO_UPDATE( supbtime )
-	{
+	public static VideoUpdateHandlerPtr video_update_supbtime  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flipscreen=supbtime_control_0[0]&0x80;
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 	
@@ -187,10 +186,9 @@ public class supbtime
 		tilemap_draw(bitmap,cliprect,pf2_tilemap,0,0);
 		supbtime_drawsprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( chinatwn )
-	{
+	public static VideoUpdateHandlerPtr video_update_chinatwn  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		flipscreen=supbtime_control_0[0]&0x80;
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 	
@@ -209,5 +207,5 @@ public class supbtime
 		tilemap_draw(bitmap,cliprect,pf2_tilemap,0,0);
 		supbtime_drawsprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,0,0);
-	}
+	} };
 }

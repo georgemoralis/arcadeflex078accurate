@@ -44,15 +44,11 @@ public class system1H
 	WRITE_HANDLER( system1_videoram_w );
 	WRITE_HANDLER( system1_paletteram_w );
 	WRITE_HANDLER( system1_backgroundram_w );
-	VIDEO_UPDATE( system1 );
 	PALETTE_INIT( system1 );
 	WRITE_HANDLER( system1_videomode_w );
 	READ_HANDLER( system1_videomode_r );
 	
 	WRITE_HANDLER( choplifter_scroll_x_w );
-	VIDEO_UPDATE( choplifter );
-	VIDEO_UPDATE( wbml );
-	VIDEO_UPDATE( blockgal );
 	
 	#endif
 }

@@ -175,8 +175,7 @@ public class aquarium
 		return 0;
 	} };
 	
-	VIDEO_UPDATE(aquarium)
-	{
+	public static VideoUpdateHandlerPtr video_update_aquarium  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(bitmap, get_black_pen(), cliprect);
 		fillbitmap(priority_bitmap,0,cliprect);
 	
@@ -191,5 +190,5 @@ public class aquarium
 		tilemap_draw(bitmap,cliprect,aquarium_mid_tilemap,0,4);
 		tilemap_draw(bitmap,cliprect,aquarium_txt_tilemap,0,1);
 		aquarium_draw_sprites(bitmap,cliprect,16);
-	}
+	} };
 }

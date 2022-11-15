@@ -77,10 +77,9 @@ public class rmhaihai
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( rmhaihai )
-	{
+	public static VideoUpdateHandlerPtr video_update_rmhaihai  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
-	}
+	} };
 	
 	
 	

@@ -66,7 +66,7 @@ public class battlnts
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( battlnts ){
+	public static VideoUpdateHandlerPtr video_update_battlnts  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 	
 		K007342_tilemap_update();
 	

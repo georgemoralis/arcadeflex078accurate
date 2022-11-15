@@ -45,7 +45,6 @@ public class tecmo16
 	WRITE16_HANDLER( tecmo16_scroll_char_x_w );
 	WRITE16_HANDLER( tecmo16_scroll_char_y_w );
 	
-	VIDEO_UPDATE( tecmo16 );
 	
 	/******************************************************************************/
 	

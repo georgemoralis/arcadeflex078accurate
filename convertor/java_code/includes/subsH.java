@@ -22,7 +22,6 @@ WRITE_HANDLER( subs_explode_w );
 
 /*----------- defined in vidhrdw/subs.c -----------*/
 
-VIDEO_UPDATE( subs );
 
 WRITE_HANDLER( subs_invert1_w );
 WRITE_HANDLER( subs_invert2_w );

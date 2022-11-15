@@ -67,8 +67,7 @@ public class dragrace
 	} };
 	
 	
-	VIDEO_UPDATE( dragrace )
-	{
+	public static VideoUpdateHandlerPtr video_update_dragrace  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int y;
 	
 		tilemap_mark_all_tiles_dirty(tilemap);
@@ -90,5 +89,5 @@ public class dragrace
 	
 			tilemap_draw(bitmap, &rect, tilemap, 0, 0);
 		}
-	}
+	} };
 }

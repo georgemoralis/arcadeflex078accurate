@@ -146,7 +146,6 @@ public class bublbobl
 	/* vidhrdw/bublbobl.c */
 	extern unsigned char *bublbobl_objectram;
 	extern size_t bublbobl_objectram_size;
-	VIDEO_UPDATE( bublbobl );
 	
 	/* machine/bublbobl.c */
 	extern unsigned char *bublbobl_sharedram1,*bublbobl_sharedram2;

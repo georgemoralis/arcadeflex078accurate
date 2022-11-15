@@ -243,8 +243,7 @@ public class bloodbro
 	
 	
 	
-	VIDEO_UPDATE( bloodbro )
-	{
+	public static VideoUpdateHandlerPtr video_update_bloodbro  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap,0,bloodbro_scroll[0x10]);	/* ? */
 		tilemap_set_scrolly(bg_tilemap,0,bloodbro_scroll[0x11]);	/* ? */
 		tilemap_set_scrollx(fg_tilemap,0,bloodbro_scroll[0x12]);
@@ -256,10 +255,9 @@ public class bloodbro
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,1);
 		bloodbro_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
-	VIDEO_UPDATE( weststry )
-	{
+	public static VideoUpdateHandlerPtr video_update_weststry  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	//	tilemap_set_scrollx(bg_tilemap,0,bloodbro_scroll[0x10]);	/* ? */
 	//	tilemap_set_scrolly(bg_tilemap,0,bloodbro_scroll[0x11]);	/* ? */
 	//	tilemap_set_scrollx(fg_tilemap,0,bloodbro_scroll[0x12]);
@@ -271,11 +269,10 @@ public class bloodbro
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,1);
 		weststry_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( skysmash )
-	{
+	public static VideoUpdateHandlerPtr video_update_skysmash  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap,0,bloodbro_scroll[0x08]);
 		tilemap_set_scrolly(bg_tilemap,0,bloodbro_scroll[0x09]);	/* ? */
 		tilemap_set_scrollx(fg_tilemap,0,bloodbro_scroll[0x0a]);
@@ -287,7 +284,7 @@ public class bloodbro
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,1);
 		bloodbro_draw_sprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,0);
-	}
+	} };
 	
 	
 }

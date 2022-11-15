@@ -262,8 +262,7 @@ public class bwing
 	}
 	
 	
-	VIDEO_UPDATE( bwing )
-	{
+	public static VideoUpdateHandlerPtr video_update_bwing  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		unsigned x, y, shiftx;
 	
 		if (mapmask & 0x20)
@@ -307,7 +306,7 @@ public class bwing
 			tilemap_set_flip(charmap, mapflip);
 			tilemap_draw(bitmap, cliprect, charmap, 0, 0);
 		}
-	}
+	} };
 	
 	//****************************************************************************
 }

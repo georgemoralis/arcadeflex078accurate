@@ -42,5 +42,3 @@ extern data8_t *carpolo_spriteram;
 
 PALETTE_INIT( carpolo );
 WRITE_HANDLER( carpolo_videoram_w );
-VIDEO_UPDATE( carpolo );
-VIDEO_EOF( carpolo );

@@ -254,8 +254,7 @@ public class cloud9
 	  the main emulation engine.
 	
 	***************************************************************************/
-	VIDEO_UPDATE( cloud9 )
-	{
+	public static VideoUpdateHandlerPtr video_update_cloud9  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
@@ -283,7 +282,7 @@ public class cloud9
 					x,y,
 					&Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_cloud9  = new VideoStartHandlerPtr() { public int handler(){
 		tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height);

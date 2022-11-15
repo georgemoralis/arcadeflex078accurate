@@ -49,8 +49,7 @@ public class sbrkout
 	
 	extern WRITE_HANDLER( sbrkout_videoram_w );
 	
-	extern extern VIDEO_UPDATE( sbrkout );
-	
+	extern extern 
 	
 	/*************************************
 	 *

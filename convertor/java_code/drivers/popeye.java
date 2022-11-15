@@ -37,8 +37,7 @@ public class popeye
 	
 	extern PALETTE_INIT( popeye );
 	extern PALETTE_INIT( popeyebl );
-	extern extern extern VIDEO_UPDATE( popeye );
-	
+	extern extern extern 
 	
 	
 	public static InterruptHandlerPtr popeye_interrupt = new InterruptHandlerPtr() {public void handler(){

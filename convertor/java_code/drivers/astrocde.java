@@ -83,7 +83,6 @@ public class astrocde
 	WRITE_HANDLER( astrocde_magic_control_w );
 	WRITE_HANDLER( wow_magicram_w );
 	WRITE_HANDLER( astrocde_pattern_board_w );
-	VIDEO_UPDATE( astrocde );
 	READ_HANDLER( wow_video_retrace_r );
 	
 	WRITE_HANDLER( astrocde_interrupt_vector_w );
@@ -92,7 +91,6 @@ public class astrocde
 	
 	READ_HANDLER( seawolf2_controller1_r );
 	READ_HANDLER( seawolf2_controller2_r );
-	VIDEO_UPDATE( seawolf2 );
 	
 	READ_HANDLER( gorf_timer_r );
 	READ_HANDLER( gorf_io_r );

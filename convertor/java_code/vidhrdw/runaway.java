@@ -100,8 +100,7 @@ public class runaway
 	
 	
 	
-	VIDEO_UPDATE( runaway )
-	{
+	public static VideoUpdateHandlerPtr video_update_runaway  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		tilemap_draw(bitmap, cliprect, tilemap, 0, 0);
@@ -132,11 +131,10 @@ public class runaway
 				x - 256, 240 - y,
 				cliprect, TRANSPARENCY_PEN, 0);
 		}
-	}
+	} };
 	
 	
-	VIDEO_UPDATE( qwak )
-	{
+	public static VideoUpdateHandlerPtr video_update_qwak  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int i;
 	
 		tilemap_draw(bitmap, cliprect, tilemap, 0, 0);
@@ -167,5 +165,5 @@ public class runaway
 				x - 256, 240 - y,
 				cliprect, TRANSPARENCY_PEN, 0);
 		}
-	}
+	} };
 }

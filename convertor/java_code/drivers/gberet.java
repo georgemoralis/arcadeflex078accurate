@@ -80,8 +80,6 @@ public class gberet
 	WRITE_HANDLER( gberet_scroll_w );
 	WRITE_HANDLER( gberetb_scroll_w );
 	PALETTE_INIT( gberet );
-	VIDEO_UPDATE( gberet );
-	VIDEO_UPDATE( gberetb );
 	
 	
 	

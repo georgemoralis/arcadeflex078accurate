@@ -14,11 +14,7 @@ extern UINT16		scanbase;
 
 
 
-VIDEO_EOF( segac2 );
 
-VIDEO_UPDATE( segac2 );
-VIDEO_UPDATE( megatech );
-VIDEO_UPDATE( megaplay );
 
 void	segac2_enable_display(int enable);
 

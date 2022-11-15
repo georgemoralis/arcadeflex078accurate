@@ -145,8 +145,7 @@ public class sslam
 	} };
 	
 	
-	VIDEO_UPDATE(sslam)
-	{
+	public static VideoUpdateHandlerPtr video_update_sslam  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(sslam_tx_tilemap,0, sslam_regs[0]);
 		tilemap_set_scrolly(sslam_tx_tilemap,0, sslam_regs[1]+8);
 		tilemap_set_scrollx(sslam_md_tilemap,0, sslam_regs[2]+2);
@@ -173,7 +172,7 @@ public class sslam
 			sslam_regs[7]
 		);
 	*/
-	}
+	} };
 	
 	
 }

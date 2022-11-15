@@ -174,9 +174,8 @@ public class hexion
 	
 	***************************************************************************/
 	
-	VIDEO_UPDATE( hexion )
-	{
+	public static VideoUpdateHandlerPtr video_update_hexion  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap,cliprect,tilemap[1],0,0);
 		tilemap_draw(bitmap,cliprect,tilemap[0],0,0);
-	}
+	} };
 }

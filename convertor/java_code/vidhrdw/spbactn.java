@@ -192,8 +192,7 @@ public class spbactn
 		return 0;
 	} };
 	
-	VIDEO_UPDATE( spbactn )
-	{
+	public static VideoUpdateHandlerPtr video_update_spbactn  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs, sx, sy;
 	
 		fillbitmap(tile_bitmap_fg,      0, cliprect);
@@ -288,5 +287,5 @@ public class spbactn
 	
 		/* mix & blend the tilemaps and sprites into a 32-bit bitmap */
 		blendbitmaps(bitmap, tile_bitmap_bg, tile_bitmap_fg, 0, 0, cliprect);
-	}
+	} };
 }

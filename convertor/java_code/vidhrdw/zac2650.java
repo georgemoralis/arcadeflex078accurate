@@ -251,9 +251,8 @@ public class zac2650
 	//  if(SpriteCollision(2,4)) CollisionSprite |= 0x01;	/* Not Used */
 	}
 	
-	VIDEO_UPDATE( tinvader )
-	{
+	public static VideoUpdateHandlerPtr video_update_tinvader  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
 		tinvader_draw_sprites(bitmap);
-	}
+	} };
 }

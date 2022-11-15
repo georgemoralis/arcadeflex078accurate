@@ -56,8 +56,6 @@ extern UINT8 exidy_collision_mask;
 extern UINT8 exidy_collision_invert;
 
 PALETTE_INIT( exidy );
-VIDEO_EOF( exidy );
-VIDEO_UPDATE( exidy );
 
 
 WRITE_HANDLER( exidy_characterram_w );
