@@ -77,7 +77,7 @@ public class phozon
 		spriteram_2 = &phozon_spriteram[0x780+0x800];
 		spriteram_3 = &phozon_spriteram[0x780+0x800+0x800];
 	
-		return video_start_generic();
+		return video_start_generic.handler();
 	}
 	
 	void phozon_draw_sprite(struct mame_bitmap *dest,unsigned int code,unsigned int color,
@@ -107,7 +107,7 @@ public class phozon
 	
 		/* for every character in the video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -142,7 +142,7 @@ public class phozon
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[(colorram.read(offs)& 0x80) ? 1 : 0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram.read(offs)& 0x3f,
 						0,0,
 						8*sx,8*sy,
@@ -214,7 +214,7 @@ public class phozon
 	
 	
 		/* redraw high priority chars */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (colorram.read(offs)& 0x40)
 			{
@@ -247,7 +247,7 @@ public class phozon
 				}
 	
 				drawgfx(bitmap,Machine->gfx[(colorram.read(offs)& 0x80) ? 1 : 0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram.read(offs)& 0x3f,
 						0,0,
 						8*sx,8*sy,

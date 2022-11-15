@@ -74,7 +74,7 @@ public class timelimt
 	
 	public static GetTileInfoHandlerPtr get_fg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		SET_TILE_INFO(0, videoram[tile_index], 0, 0);
+		SET_TILE_INFO(0, videoram.read(tile_index), 0, 0);
 	} };
 	
 	public static VideoStartHandlerPtr video_start_timelimt  = new VideoStartHandlerPtr() { public int handler(){
@@ -98,9 +98,9 @@ public class timelimt
 	/***************************************************************************/
 	
 	public static WriteHandlerPtr timelimt_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(fg_tilemap, offset);
 		}
 	} };

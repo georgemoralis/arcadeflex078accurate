@@ -137,12 +137,12 @@ public class bosco
 		int x,y;
 		int set = 0;
 	
-		if (video_start_generic() != 0)
+		if (video_start_generic.handler() != 0)
 			return 1;
 	
-		if ((dirtybuffer2 = auto_malloc(videoram_size)) == 0)
+		if ((dirtybuffer2 = auto_malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer2,1,videoram_size);
+		memset(dirtybuffer2,1,videoram_size[0]);
 	
 		if ((tmpbitmap1 = auto_bitmap_alloc(32*8,32*8)) == 0)
 			return 1;
@@ -220,8 +220,8 @@ public class bosco
 		if (flipscreen != (~data & 1))
 		{
 			flipscreen = ~data & 1;
-			memset(dirtybuffer,1,videoram_size);
-			memset(dirtybuffer2,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
+			memset(dirtybuffer2,1,videoram_size[0]);
 		}
 	} };
 	
@@ -251,7 +251,7 @@ public class bosco
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer2[offs])
 			{
@@ -282,7 +282,7 @@ public class bosco
 		}
 	
 		/* update radar */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -304,7 +304,7 @@ public class bosco
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram.read(offs)& 0x3f,
 						flipx,flipy,
 						8*sx,8*sy,

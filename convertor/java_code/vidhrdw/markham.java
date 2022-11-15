@@ -49,9 +49,9 @@ public class markham
 	} };
 	
 	public static WriteHandlerPtr markham_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset / 2);
 		}
 	} };
@@ -70,8 +70,8 @@ public class markham
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int attr = videoram[tile_index * 2];
-		int code = videoram[(tile_index * 2) + 1] + ((attr & 0x60) << 3);
+		int attr = videoram.read(tile_index * 2);
+		int code = videoram.read((tile_index * 2) + 1)+ ((attr & 0x60) << 3);
 		int color = (attr & 0x1f) | ((attr & 0x80) >> 2);
 	
 		SET_TILE_INFO(0, code, color, 0)

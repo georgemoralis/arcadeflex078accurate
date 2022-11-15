@@ -316,7 +316,7 @@ public class _8080bw
 	public static WriteHandlerPtr bw_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int x,y;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -327,7 +327,7 @@ public class _8080bw
 	public static WriteHandlerPtr schaser_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -340,7 +340,7 @@ public class _8080bw
 	public static WriteHandlerPtr lupin3_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -354,7 +354,7 @@ public class _8080bw
 		int x,i,col,back_color,fore_color,color_map;
 		UINT8 y, cloud_y;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -417,7 +417,7 @@ public class _8080bw
 	public static WriteHandlerPtr helifire_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int x,y,back_color,foreground_color;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -433,7 +433,7 @@ public class _8080bw
 		colorram.write(offset,data);
 	
 		/* redraw region with (possibly) changed color */
-		videoram_w_p(offset, videoram[offset]);
+		videoram_w_p(offset, videoram.read(offset));
 	} };
 	
 	
@@ -448,7 +448,7 @@ public class _8080bw
 		/* redraw region with (possibly) changed color */
 		for (i = 0; i < 8; i++, offset += 0x20)
 		{
-			videoram_w_p(offset, videoram[offset]);
+			videoram_w_p(offset, videoram.read(offset));
 		}
 	} };
 	
@@ -467,7 +467,7 @@ public class _8080bw
 		offs_t cloud_offs;
 	
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = (offset % 32) * 8;
@@ -528,8 +528,8 @@ public class _8080bw
 		{
 			int offs;
 	
-			for (offs = 0;offs < videoram_size;offs++)
-				videoram_w_p(offs, videoram[offs]);
+			for (offs = 0;offs < videoram_size[0];offs++)
+				videoram_w_p(offs, videoram.read(offs));
 		}
 	
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,cliprect,TRANSPARENCY_NONE,0);
@@ -656,8 +656,8 @@ public class _8080bw
 		{
 			int offs;
 	
-			for (offs = 0;offs < videoram_size;offs++)
-				videoram_w_p(offs, videoram[offs]);
+			for (offs = 0;offs < videoram_size[0];offs++)
+				videoram_w_p(offs, videoram.read(offs));
 		}
 	
 	
@@ -923,7 +923,7 @@ public class _8080bw
 	public static WriteHandlerPtr invadpt2_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -964,7 +964,7 @@ public class _8080bw
 		/* redraw region with (possibly) changed color */
 		for (i=0; i<8; i++)
 		{
-			videoram_w_p(offs, videoram[offs]);
+			videoram_w_p(offs, videoram.read(offs));
 			offs+= 0x20;
 		}		
 	} };
@@ -972,7 +972,7 @@ public class _8080bw
 	public static WriteHandlerPtr cosmo_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = offset % 32;
@@ -986,7 +986,7 @@ public class _8080bw
 	public static WriteHandlerPtr sstrngr2_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		UINT8 x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);

@@ -83,7 +83,7 @@ public class lazercmd
 	
 	
 	public static VideoStartHandlerPtr video_start_lazercmd  = new VideoStartHandlerPtr() { public int handler(){
-		if( video_start_generic() )
+		if( video_start_generic.handler() )
 			return 1;
 	
 		/* is overlay enabled? */
@@ -99,11 +99,11 @@ public class lazercmd
 		if (video_inverted != (input_port_2_r(0) & 0x20))
 		{
 			video_inverted = input_port_2_r(0) & 0x20;
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		}
 	
 		if (get_vh_global_attribute_changed())
-	        memset(dirtybuffer, 1, videoram_size);
+	        memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* The first row of characters are invisible */
 		for (i = 0; i < (VERT_RES - 1) * HORZ_RES; i++)
@@ -121,7 +121,7 @@ public class lazercmd
 				sy *= VERT_CHR;
 	
 				drawgfx(tmpbitmap, Machine->gfx[0],
-						videoram[i], video_inverted ? 1 : 0,
+						videoram.read(i), video_inverted ? 1 : 0,
 						0,0,
 						sx,sy,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);

@@ -50,7 +50,7 @@ public class skychut
 	public static VideoUpdateHandlerPtr video_update_skychut  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		if (get_vh_global_attribute_changed())
-			memset (dirtybuffer, 1, videoram_size);
+			memset (dirtybuffer, 1, videoram_size[0]);
 	
 		fillbitmap(bitmap,Machine->pens[7],cliprect);
 	
@@ -93,7 +93,7 @@ public class skychut
 			}
 		}
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int sx,sy;
 	
@@ -104,7 +104,7 @@ public class skychut
 			sy = offs % 32;
 	
 			drawgfx(bitmap,Machine->gfx[0],
-					videoram[offs],
+					videoram.read(offs),
 					colorram.read(offs),
 					0,0,
 					8*sx,8*sy,
@@ -142,9 +142,9 @@ public class skychut
 	public static VideoUpdateHandlerPtr video_update_iremm15  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 		if (get_vh_global_attribute_changed())
-			memset (dirtybuffer, 1, videoram_size);
+			memset (dirtybuffer, 1, videoram_size[0]);
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -157,7 +157,7 @@ public class skychut
 				sy = offs % 32;
 	
 				iremm15_drawgfx(tmpbitmap,
-								videoram[offs],
+								videoram.read(offs),
 								Machine->pens[colorram.read(offs)& 7],
 								Machine->pens[7], // space beam not color 0
 								8*sx,8*sy);

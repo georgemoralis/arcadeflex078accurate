@@ -102,7 +102,7 @@ public class gunsmoke
 		if ((bgbitmap = auto_bitmap_alloc(9*32,9*32)) == 0)
 			return 1;
 	
-		if (video_start_generic() == 1)
+		if (video_start_generic.handler() == 1)
 			return 1;
 	
 		memset (bgmap, 0xff, sizeof (bgmap));
@@ -279,7 +279,7 @@ public class gunsmoke
 		if (chon)
 		{
 			/* draw the frontmost playfield. They are characters, but draw them as sprites */
-			for (offs = videoram_size - 1;offs >= 0;offs--)
+			for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 			{
 				sx = offs % 32;
 				sy = offs / 32;
@@ -290,7 +290,7 @@ public class gunsmoke
 				}
 	
 				drawgfx(bitmap,Machine->gfx[0],
-						videoram[offs] + ((colorram.read(offs)& 0xc0) << 2),
+						videoram.read(offs)+ ((colorram.read(offs)& 0xc0) << 2),
 						colorram.read(offs)& 0x1f,
 						!flip_screen(),!flip_screen(),
 						8*sx,8*sy,

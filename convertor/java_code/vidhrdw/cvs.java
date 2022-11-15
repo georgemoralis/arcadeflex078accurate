@@ -218,7 +218,7 @@ public class cvs
 	    {
 	    	// Data
 	
-	        return videoram[offset];
+	        return videoram.read(offset);
 	    }
 	} };
 	
@@ -358,7 +358,7 @@ public class cvs
 		int generator = 0;
 	    int x,y;
 	
-		video_start_generic();
+		video_start_generic.handler();
 	
 		/* precalculate the star background */
 	
@@ -447,14 +447,14 @@ public class cvs
 		int sx,sy;
 	
 		if (get_vh_global_attribute_changed())
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
-	        character = videoram[offs];
+	        character = videoram.read(offs);
 	
 			if(dirtybuffer[offs] || dirty_character[character])
 			{

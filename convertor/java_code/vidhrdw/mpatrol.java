@@ -206,7 +206,7 @@ public class mpatrol
 		int i,j;
 	
 	
-		if (video_start_generic() != 0)
+		if (video_start_generic.handler() != 0)
 			return 1;
 	
 		/* prepare the background graphics */
@@ -351,12 +351,12 @@ public class mpatrol
 	
 	
 		if (get_vh_global_attribute_changed())
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -378,7 +378,7 @@ public class mpatrol
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs] + 2 * (colorram.read(offs)& 0x80),
+						videoram.read(offs)+ 2 * (colorram.read(offs)& 0x80),
 						color,
 						flip_screen(),flip_screen(),
 						8*sx,8*sy,

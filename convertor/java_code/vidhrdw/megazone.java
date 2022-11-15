@@ -93,7 +93,7 @@ public class megazone
 		if (flipscreen != (data & 1))
 		{
 			flipscreen = data & 1;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -101,9 +101,9 @@ public class megazone
 		dirtybuffer = 0;
 		tmpbitmap = 0;
 	
-		if ((dirtybuffer = auto_malloc(videoram_size)) == 0)
+		if ((dirtybuffer = auto_malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		if ((tmpbitmap = auto_bitmap_alloc(256,256)) == 0)
 			return 1;
@@ -125,7 +125,7 @@ public class megazone
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -146,7 +146,7 @@ public class megazone
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						((int)videoram[offs]) + ((colorram.read(offs)& (1<<7) ? 256 : 0) ),
+						((int)videoram.read(offs)) + ((colorram.read(offs)& (1<<7) ? 256 : 0) ),
 						(colorram.read(offs)& 0x0f) + 0x10,
 						flipx,flipy,
 						8*sx,8*sy,

@@ -156,7 +156,7 @@ public class exidy
 	 *************************************/
 	
 	public static VideoStartHandlerPtr video_start_exidy  = new VideoStartHandlerPtr() { public int handler(){
-	    if (video_start_generic())
+	    if (video_start_generic.handler())
 	        return 1;
 	
 		motion_object_1_vid = auto_bitmap_alloc(16, 16);
@@ -270,7 +270,7 @@ public class exidy
 		for (y = offs = 0; y < 32; y++)
 			for (x = 0; x < 32; x++, offs++)
 			{
-				int code = videoram[offs];
+				int code = videoram.read(offs);
 	
 				/* see if the character is dirty */
 				if (chardirty[code] == 1)

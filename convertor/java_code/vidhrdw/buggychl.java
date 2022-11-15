@@ -32,7 +32,7 @@ public class buggychl
 	
 	
 	public static VideoStartHandlerPtr video_start_buggychl  = new VideoStartHandlerPtr() { public int handler(){
-		dirtybuffer = auto_malloc(videoram_size);
+		dirtybuffer = auto_malloc(videoram_size[0]);
 		dirtychar = auto_malloc(256 * sizeof(*dirtychar));
 		tmpbitmap1 = auto_bitmap_alloc(256,256);
 		tmpbitmap2 = auto_bitmap_alloc(256,256);
@@ -40,7 +40,7 @@ public class buggychl
 		if (!dirtybuffer || !dirtychar || !tmpbitmap1 || !tmpbitmap2)
 			return 1;
 	
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 		memset(dirtychar,0xff,256 * sizeof(*dirtychar));
 	
 		return 0;
@@ -116,7 +116,7 @@ public class buggychl
 	
 		for (offs = 0;offs < 0x400;offs++)
 		{
-			int code = videoram[0x400+offs];
+			int code = videoram.read(0x400+offs);
 	
 			if (dirtybuffer[0x400+offs] || dirtychar[code])
 			{
@@ -163,7 +163,7 @@ public class buggychl
 			/* the following line is most likely wrong */
 			int transp = (bg_on && sx >= 22) ? TRANSPARENCY_NONE : TRANSPARENCY_PEN;
 	
-			int code = videoram[offs];
+			int code = videoram.read(offs);
 	
 			if (flip_screen_x) sx = 31 - sx;
 			if (flip_screen_y) sy = 31 - sy;

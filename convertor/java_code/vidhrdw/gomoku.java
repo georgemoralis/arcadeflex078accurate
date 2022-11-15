@@ -264,7 +264,7 @@ public class gomoku
 					{
 						sprintf(buf, "%02X", gomoku_bgram[((y * 16) + x)] & 0xff);
 					//	sprintf(buf, "%02X", spriteram.read(((y * 16) + x))& 0xff);
-					//	sprintf(buf, "%02X", videoram[((y * 16) + x)] & 0xff);
+					//	sprintf(buf, "%02X", videoram.read(((y * 16) + x))& 0xff);
 					//	sprintf(buf, "%02X", colorram.read(((y * 16) + x))& 0xff);
 						ui_text(Machine->scrbitmap, buf, (16 + (x * 14)), (24 + (y * 8)));
 					}
@@ -307,7 +307,7 @@ public class gomoku
 		fp=fopen("TILE_VID.DMP", "w+b");
 		if (fp)
 		{
-			fwrite(&videoram[0], videoram_size, 1, fp);
+			fwrite(&videoram.read(0), videoram_size[0], 1, fp);
 			usrintf_showmessage("saved");
 			fclose(fp);
 		}

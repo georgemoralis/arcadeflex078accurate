@@ -66,7 +66,7 @@ public class epos
 	public static WriteHandlerPtr epos_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int x,y;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		x = (offset % 136) * 2;
 		y = (offset / 136);
@@ -111,9 +111,9 @@ public class epos
 	
 			int offs;
 	
-			for (offs = 0; offs < videoram_size; offs++)
+			for (offs = 0; offs < videoram_size[0]; offs++)
 			{
-				epos_videoram_w(offs, videoram[offs]);
+				epos_videoram_w(offs, videoram.read(offs));
 			}
 		}
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);

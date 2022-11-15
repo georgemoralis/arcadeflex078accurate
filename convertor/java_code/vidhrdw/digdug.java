@@ -86,7 +86,7 @@ public class digdug
 	
 	***************************************************************************/
 	public static VideoStartHandlerPtr video_start_digdug  = new VideoStartHandlerPtr() { public int handler(){
-		if (video_start_generic() != 0)
+		if (video_start_generic.handler() != 0)
 			return 1;
 	
 		pflastindex = -1;
@@ -139,7 +139,7 @@ public class digdug
 		if (flipscreen != (data & 1))
 		{
 			flipscreen = data & 1;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -170,7 +170,7 @@ public class digdug
 		/* force a full update if the playfield has changed */
 		if (pfindex != pflastindex || pfcolor != pflastcolor)
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 		pflastindex = pfindex;
 		pflastcolor = pfcolor;
@@ -179,7 +179,7 @@ public class digdug
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -219,7 +219,7 @@ public class digdug
 					sy = 27 - sy;
 				}
 	
-				vrval = videoram[offs];
+				vrval = videoram.read(offs);
 				if (pf)
 				{
 					/* first draw the playfield */

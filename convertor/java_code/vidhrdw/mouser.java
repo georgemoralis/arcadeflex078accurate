@@ -83,7 +83,7 @@ public class mouser
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int scrolled_y_position;
 			int color_offs;
@@ -115,7 +115,7 @@ public class mouser
 				color_offs = offs%32 + ((256 + 8*(offs/32) - spriteram.read(offs%32))%256)/8*32;
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs] | (colorram.read(color_offs)>>5)*256 | ((colorram.read(color_offs)>>4)&1)*512,
+						videoram.read(offs)| (colorram.read(color_offs)>>5)*256 | ((colorram.read(color_offs)>>4)&1)*512,
 						colorram.read(color_offs)%16,
 						flip_screen_x,flip_screen_y,
 						8*sx,scrolled_y_position,

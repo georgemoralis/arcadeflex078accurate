@@ -39,10 +39,10 @@ public class leprechn
 	
 	
 	public static VideoStartHandlerPtr video_start_leprechn  = new VideoStartHandlerPtr() { public int handler(){
-		videoram_size = Machine->drv->screen_width * Machine->drv->screen_height;
+		videoram_size[0] = Machine->drv->screen_width * Machine->drv->screen_height;
 	
 		/* allocate our own dirty buffer */
-		videoram = auto_malloc(videoram_size);
+		videoram = auto_malloc(videoram_size[0]);
 		if (!videoram)
 			return 1;
 	
@@ -68,7 +68,7 @@ public class leprechn
 		if (pending)
 		{
 			plot_pixel(tmpbitmap, x, y, Machine->pens[color]);
-	        videoram[y * Machine->drv->screen_width + x] = color;
+	        videoram.write(y * Machine->drv->screen_width + x,color);
 	
 	        pending = 0;
 	   	}
@@ -112,7 +112,7 @@ public class leprechn
 			// Indicate that the we are busy
 			via_0_ca1_w(0, 1);
 	
-	        memset(videoram, data, videoram_size);
+	        memset(videoram, data, videoram_size[0]);
 	
 	        for (sx = 0; sx < Machine->drv->screen_width; sx++)
 	        {
@@ -137,6 +137,6 @@ public class leprechn
 	
 	
 	public static ReadHandlerPtr leprechn_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
-	    return videoram[y * Machine->drv->screen_width + x];
+	    return videoram.read(y * Machine->drv->screen_width + x);
 	} };
 }

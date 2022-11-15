@@ -75,9 +75,9 @@ public class hanaawas
 	} };
 	
 	public static WriteHandlerPtr hanaawas_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -108,7 +108,7 @@ public class hanaawas
 		int offset = (tile_index + (flip_screen() ? 1 : -1)) & 0x3ff;
 		int attr = colorram.read(offset);
 		int gfxbank = (attr & 0x40) >> 6;
-		int code = videoram[tile_index] + ((attr & 0x20) << 3);
+		int code = videoram.read(tile_index)+ ((attr & 0x20) << 3);
 		int color = colorram.read(tile_index)& 0x1f;
 		
 		SET_TILE_INFO(gfxbank, code, color, 0)

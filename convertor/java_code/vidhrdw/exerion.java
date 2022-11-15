@@ -186,7 +186,7 @@ public class exerion
 			}
 		}
 	
-		return video_start_generic();
+		return video_start_generic.handler();
 	} };
 	
 	
@@ -449,8 +449,8 @@ public class exerion
 	
 				offs = sx + sy * 64;
 				drawgfx(bitmap, Machine->gfx[0],
-					videoram[offs] + 256 * char_bank,
-					((videoram[offs] & 0xf0) >> 4) + char_palette * 16,
+					videoram.read(offs)+ 256 * char_bank,
+					((videoram.read(offs)& 0xf0) >> 4) + char_palette * 16,
 					exerion_cocktail_flip, exerion_cocktail_flip, x, y,
 					cliprect, TRANSPARENCY_PEN, 0);
 			}

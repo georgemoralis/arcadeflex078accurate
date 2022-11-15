@@ -89,7 +89,7 @@ public class marineb
 				}
 	
 				drawgfx(_tmpbitmap,Machine->gfx[0],
-						videoram[offs] | ((colorram.read(offs)& 0xc0) << 2),
+						videoram.read(offs)| ((colorram.read(offs)& 0xc0) << 2),
 						(colorram.read(offs)& 0x0f) + 16 * palbank,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -150,8 +150,8 @@ public class marineb
 			}
 	
 	
-			code  = videoram[offs2];
-			sx    = videoram[offs2 + 0x20];
+			code  = videoram.read(offs2);
+			sx    = videoram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
 			col   = (colorram.read(offs2 + 0x20)& 0x0f) + 16 * palbank;
 			flipx =   code & 0x02;
@@ -206,8 +206,8 @@ public class marineb
 	
 			offs2 = 0x001a + offs;
 	
-			code  = videoram[offs2];
-			sx    = videoram[offs2 + 0x20];
+			code  = videoram.read(offs2);
+			sx    = videoram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
 			col   = (colorram.read(offs2 + 0x20)& 0x0f) + 16 * palbank;
 			flipx =   code & 0x02;
@@ -234,8 +234,8 @@ public class marineb
 	
 		/* draw the big sprite */
 	
-		code  = videoram[0x3df];
-		sx    = videoram[0x3ff];
+		code  = videoram.read(0x3df);
+		sx    = videoram.read(0x3ff);
 		sy    = colorram.read(0x3df);
 		col   = colorram.read(0x3ff);
 		flipx =   code & 0x02;
@@ -291,8 +291,8 @@ public class marineb
 			offs2 = 0x0010 + offs;
 	
 	
-			code  = videoram[offs2];
-			sx    = 240 - videoram[offs2 + 0x20];
+			code  = videoram.read(offs2);
+			sx    = 240 - videoram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
 			col   = (colorram.read(offs2 + 0x20)& 0x0f) + 16 * palbank;
 			flipx = !(code & 0x02);
@@ -397,8 +397,8 @@ public class marineb
 			offs2 = 0x0010 + offs;
 	
 	
-			code  = videoram[offs2];
-			sx    = videoram[offs2 + 0x20];
+			code  = videoram.read(offs2);
+			sx    = videoram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
 			col   = (colorram.read(offs2 + 0x20)& 0x0f) + 16 * palbank;
 			flipx =   code & 0x02;

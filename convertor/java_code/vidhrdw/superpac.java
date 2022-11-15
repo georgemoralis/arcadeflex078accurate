@@ -203,11 +203,11 @@ public class superpac
 		int offs;
 	
 		if (get_vh_global_attribute_changed())
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1; offs >= 0; offs--)
+		for (offs = videoram_size[0] - 1; offs >= 0; offs--)
 			if (dirtybuffer[offs])
 			{
 				int sx, sy, mx, my;
@@ -245,7 +245,7 @@ public class superpac
 					sy = 27 - sy;
 				}
 	
-				drawgfx(tmpbitmap, Machine->gfx[0], videoram[offs], colorram.read(offs),
+				drawgfx(tmpbitmap, Machine->gfx[0], videoram.read(offs), colorram.read(offs),
 						flip_screen(), flip_screen(), 8 * sx, 8 * sy,
 						&Machine->visible_area, TRANSPARENCY_NONE, 0);
 			}
@@ -257,7 +257,7 @@ public class superpac
 		draw_sprites(bitmap, &Machine->visible_area, TRANSPARENCY_COLOR);
 	
 		/* Draw the high priority characters */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 			if (colorram.read(offs)& 0x40)
 			{
 				int sx, sy, mx, my;
@@ -287,7 +287,7 @@ public class superpac
 					sy = 27 - sy;
 				}
 	
-				drawgfx(bitmap, Machine->gfx[0], videoram[offs], colorram.read(offs),
+				drawgfx(bitmap, Machine->gfx[0], videoram.read(offs), colorram.read(offs),
 						flip_screen(), flip_screen(), 8 * sx, 8 * sy,
 						&Machine->visible_area, TRANSPARENCY_COLOR, 31);
 			}

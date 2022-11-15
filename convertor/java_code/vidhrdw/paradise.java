@@ -137,7 +137,7 @@ public class paradise
 	public static WriteHandlerPtr paradise_pixmap_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		int x,y;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		x = (offset & 0x7f) << 1;
 		y = (offset >> 7);

@@ -177,9 +177,9 @@ public class yard
 	
 	***************************************************************************/
 	public static VideoStartHandlerPtr video_start_yard  = new VideoStartHandlerPtr() { public int handler(){
-		if ((dirtybuffer = auto_malloc(videoram_size)) == 0)
+		if ((dirtybuffer = auto_malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width*2,Machine->drv->screen_height)) == 0)
 			return 1;
@@ -239,13 +239,13 @@ public class yard
 	
 		if (get_vh_global_attribute_changed())
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size-2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0]-2;offs >= 0;offs -= 2)
 		{
 			if (dirtybuffer[offs] || dirtybuffer[offs+1])
 			{
@@ -257,7 +257,7 @@ public class yard
 	
 				sx = (offs/2) % 32;
 				sy = (offs/2) / 32;
-				flipx = videoram[offs+1] & 0x20;
+				flipx = videoram.read(offs+1)& 0x20;
 	
 				if (sy >= 32)
 				{
@@ -273,8 +273,8 @@ public class yard
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs] + ((videoram[offs+1] & 0xc0) << 2),
-						videoram[offs+1] & 0x1f,
+						videoram.read(offs)+ ((videoram.read(offs+1)& 0xc0) << 2),
+						videoram.read(offs+1)& 0x1f,
 						flipx,flip_screen(),
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);

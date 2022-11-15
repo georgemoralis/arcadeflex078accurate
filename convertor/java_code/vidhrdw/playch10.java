@@ -14,9 +14,9 @@ public class playch10
 	public static WriteHandlerPtr playch10_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if (pc10_sdcs)
 		{
-			if (videoram[offset] != data)
+			if (videoram.read(offset)!= data)
 			{
-				videoram[offset] = data;
+				videoram.write(offset,data);
 				tilemap_mark_tile_dirty(bg_tilemap, offset / 2);
 			}
 		}
@@ -86,8 +86,8 @@ public class playch10
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int offs = tile_index * 2;
-		int code = videoram[offs] + ((videoram[offs + 1] & 0x07) << 8);
-		int color = (videoram[offs + 1] >> 3) & 0x1f;
+		int code = videoram.read(offs)+ ((videoram.read(offs + 1)& 0x07) << 8);
+		int color = (videoram.read(offs + 1)>> 3) & 0x1f;
 	
 		SET_TILE_INFO(0, code, color, 0)
 	} };

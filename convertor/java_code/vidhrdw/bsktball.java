@@ -18,16 +18,16 @@ public class bsktball
 	static struct tilemap *bg_tilemap;
 	
 	public static WriteHandlerPtr bsktball_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int attr = videoram[tile_index];
+		int attr = videoram.read(tile_index);
 		int code = ((attr & 0x0f) << 2) | ((attr & 0x30) >> 4);
 		int color = (attr & 0x40) >> 6;
 		int flags = (attr & 0x80) ? TILE_FLIPX : 0;

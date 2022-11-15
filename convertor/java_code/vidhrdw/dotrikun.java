@@ -49,7 +49,7 @@ public class dotrikun
 		int color;
 	
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		x = 2 * (((offset % 16) * 8));
 		y = 2 * ((offset / 16));
@@ -80,8 +80,8 @@ public class dotrikun
 	
 			/* redraw bitmap */
 	
-			for (offs = 0; offs < videoram_size; offs++)
-				dotrikun_videoram_w(offs,videoram[offs]);
+			for (offs = 0; offs < videoram_size[0]; offs++)
+				dotrikun_videoram_w(offs,videoram.read(offs));
 		}
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
 	} };

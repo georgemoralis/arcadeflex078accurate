@@ -84,9 +84,9 @@ public class astrof
 	
 	***************************************************************************/
 	public static VideoStartHandlerPtr video_start_astrof  = new VideoStartHandlerPtr() { public int handler(){
-		if ((colorram = auto_malloc(videoram_size)) == 0)
+		if ((colorram = auto_malloc(videoram_size[0])) == 0)
 			return 1;
-		if (video_start_generic())
+		if (video_start_generic.handler())
 			return 1;
 	
 		do_modify_palette = 0;
@@ -107,7 +107,7 @@ public class astrof
 		int i,x,y,fore,back;
 		int dx = 1;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 		colorram.write(offset,color);
 	
 		fore = Machine->pens[color | 1];
@@ -236,9 +236,9 @@ public class astrof
 			int offs;
 	
 			/* redraw bitmap */
-			for (offs = 0; offs < videoram_size; offs++)
+			for (offs = 0; offs < videoram_size[0]; offs++)
 			{
-				common_videoram_w(offs, videoram[offs], colorram.read(offs));
+				common_videoram_w(offs, videoram.read(offs), colorram.read(offs));
 			}
 		}
 		

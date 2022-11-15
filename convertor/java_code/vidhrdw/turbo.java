@@ -720,7 +720,7 @@ public class turbo
 			for (x = 8; x < VIEW_WIDTH; x += 8)
 			{
 				int area5_buffer = road_gfxdata_base[0x4000 + (x >> 3)];
-				UINT8 fore_data = videoram[(y / 8) * 32 + (x / 8) - 33];
+				UINT8 fore_data = videoram.read((y / 8) * 32 + (x / 8) - 33);
 				UINT16 forebits_buffer = fore_expanded_data[(fore_data << 3) | (y & 7)];
 	
 				/* loop over columns */
@@ -843,7 +843,7 @@ public class turbo
 			/* loop over 8-pixel chunks */
 			for (x = 0; x < VIEW_WIDTH; x += 8)
 			{
-				UINT8 fore_data = videoram[(y / 8) * 32 + (((x / 8) + subroc3d_chofs) % 32)];
+				UINT8 fore_data = videoram.read((y / 8) * 32 + (((x / 8) + subroc3d_chofs) % 32));
 				UINT16 forebits_buffer = fore_expanded_data[(fore_data << 3) | (y & 7)];
 				int i;
 	
@@ -906,7 +906,7 @@ public class turbo
 			/* loop over 8-pixel chunks */
 			for (x = 0; x < VIEW_WIDTH; x += 8)
 			{
-				UINT8 fore_data = videoram[(y / 8) * 32 + (x / 8)];
+				UINT8 fore_data = videoram.read((y / 8) * 32 + (x / 8));
 				UINT16 forebits_buffer = fore_expanded_data[(fore_data << 3) | (y & 7)];
 				UINT16 forebits_upper = ((buckrog_fchg << 7) & 0x180) | ((fore_data >> 1) & 0x7c);
 				UINT8 *stars = &buckrog_bitmap_ram[y * 256];

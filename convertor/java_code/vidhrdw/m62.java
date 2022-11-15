@@ -608,7 +608,7 @@ public class m62
 		if (kidniki_background_bank != (data & 1))
 		{
 			kidniki_background_bank = data & 1;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -651,7 +651,7 @@ public class m62
 		if (spelunkr_palbank != (data & 0x01))
 		{
 			spelunkr_palbank = data & 0x01;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -697,7 +697,7 @@ public class m62
 		if (spelunkr_palbank != ((data & 0x0c) >> 2))
 		{
 			spelunkr_palbank = (data & 0x0c) >> 2;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	

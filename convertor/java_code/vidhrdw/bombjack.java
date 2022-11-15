@@ -20,9 +20,9 @@ public class bombjack
 	static struct tilemap *fg_tilemap, *bg_tilemap;
 	
 	public static WriteHandlerPtr bombjack_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(fg_tilemap, offset);
 		}
 	} };
@@ -66,7 +66,7 @@ public class bombjack
 	
 	public static GetTileInfoHandlerPtr get_fg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + 16 * (colorram.read(tile_index)& 0x10);
+		int code = videoram.read(tile_index)+ 16 * (colorram.read(tile_index)& 0x10);
 		int color = colorram.read(tile_index)& 0x0f;
 	
 		SET_TILE_INFO(0, code, color, 0)

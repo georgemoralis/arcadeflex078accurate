@@ -33,7 +33,7 @@ public class galaga
 	
 	public static WriteHandlerPtr gatsbee_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		galaga_gfxbank = data & 0x1;
-		memset (dirtybuffer, 1, videoram_size);
+		memset (dirtybuffer, 1, videoram_size[0]);
 	} };
 	
 	/***************************************************************************
@@ -131,7 +131,7 @@ public class galaga
 	
 		galaga_gfxbank = 0;
 	
-		if (video_start_generic() != 0)
+		if (video_start_generic.handler() != 0)
 			return 1;
 	
 	
@@ -191,13 +191,13 @@ public class galaga
 	
 		if (get_vh_global_attribute_changed())
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -238,7 +238,7 @@ public class galaga
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs]+galaga_gfxbank*0x100,
+						videoram.read(offs)+galaga_gfxbank*0x100,
 						colorram.read(offs),
 						flip_screen(),flip_screen(),
 						8*sx,8*sy,

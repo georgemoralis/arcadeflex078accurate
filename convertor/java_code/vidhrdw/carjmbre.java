@@ -57,7 +57,7 @@ public class carjmbre
 	
 		if(oldbg!=carjmbre_bgcolor)
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 			for (i=0;i<64;i+=4)
 				palette_set_color(i, (carjmbre_bgcolor&0xff)*0x50, (carjmbre_bgcolor&0xff)*0x50, (carjmbre_bgcolor&0xff)!=0?0x50:0);
@@ -65,8 +65,8 @@ public class carjmbre
 	} };
 	
 	public static GetTileInfoHandlerPtr get_carjmbre_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) {
-		unsigned int tile_number = videoram[tile_index] & 0xFF;
-		unsigned char attr  = videoram[tile_index+0x400];
+		unsigned int tile_number = videoram.read(tile_index)& 0xFF;
+		unsigned char attr  = videoram.read(tile_index+0x400);
 		tile_number += (attr & 0x80) << 1; /* bank */
 		SET_TILE_INFO(
 				0,
@@ -76,7 +76,7 @@ public class carjmbre
 	} };
 	
 	public static WriteHandlerPtr carjmbre_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
-		videoram[offset] = data;
+		videoram.write(offset,data);
 		tilemap_mark_tile_dirty(carjmbre_tilemap,offset&0x3ff);
 	}
 	

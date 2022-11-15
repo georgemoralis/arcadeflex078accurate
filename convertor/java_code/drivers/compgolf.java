@@ -46,7 +46,7 @@ public class compgolf
 	static struct tilemap *text_tilemap, *background_tilemap;
 	
 	public static WriteHandlerPtr compgolf_video_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		videoram[offset] = data;
+		videoram.write(offset,data);
 		tilemap_mark_tile_dirty(text_tilemap, offset/2);
 	} };
 	
@@ -66,7 +66,7 @@ public class compgolf
 	static void get_text_info(int cgindex)
 	{
 		cgindex<<=1;
-		SET_TILE_INFO(2, videoram[cgindex+1]|(videoram[cgindex]<<8), videoram[cgindex]>>2, 0)
+		SET_TILE_INFO(2, videoram.read(cgindex+1)|(videoram.read(cgindex)<<8), videoram.read(cgindex)>>2, 0)
 	}
 	
 	static void get_back_info(int cgindex)

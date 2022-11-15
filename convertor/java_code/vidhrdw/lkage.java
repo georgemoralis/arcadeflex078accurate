@@ -36,9 +36,9 @@ public class lkage
 	struct tilemap *bg_tilemap, *fg_tilemap, *tx_tilemap;
 	
 	public static WriteHandlerPtr lkage_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if( videoram[offset]!=data )
+		if( videoram.read(offset)!=data )
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 	
 			switch( offset/0x400 )
 			{
@@ -61,7 +61,7 @@ public class lkage
 	{
 		SET_TILE_INFO(
 				0,
-				videoram[tile_index + 0x800] + 256 * (bg_tile_bank?5:1),
+				videoram.read(tile_index + 0x800)+ 256 * (bg_tile_bank?5:1),
 				0,
 				0)
 	} };
@@ -70,7 +70,7 @@ public class lkage
 	{
 		SET_TILE_INFO(
 				0,
-				videoram[tile_index + 0x400] + 256 * (fg_tile_bank?1:0),
+				videoram.read(tile_index + 0x400)+ 256 * (fg_tile_bank?1:0),
 				1,
 				0)
 	} };
@@ -79,7 +79,7 @@ public class lkage
 	{
 		SET_TILE_INFO(
 				0,
-				videoram[tile_index],
+				videoram.read(tile_index),
 				2,
 				0)
 	} };

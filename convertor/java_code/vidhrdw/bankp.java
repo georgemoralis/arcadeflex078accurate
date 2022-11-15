@@ -97,9 +97,9 @@ public class bankp
 	} };
 	
 	public static WriteHandlerPtr bankp_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(fg_tilemap, offset);
 		}
 	} };
@@ -159,7 +159,7 @@ public class bankp
 	
 	public static GetTileInfoHandlerPtr get_fg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + 256 * ((colorram.read(tile_index)& 3) >> 0);
+		int code = videoram.read(tile_index)+ 256 * ((colorram.read(tile_index)& 3) >> 0);
 		int color = colorram.read(tile_index)>> 3;
 		int flags = (colorram.read(tile_index)& 0x04) ? TILE_FLIPX : 0;
 	

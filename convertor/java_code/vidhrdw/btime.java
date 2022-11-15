@@ -138,7 +138,7 @@ public class btime
 	
 	***************************************************************************/
 	public static VideoStartHandlerPtr video_start_bnj  = new VideoStartHandlerPtr() { public int handler(){
-	    if (video_start_generic() != 0)
+	    if (video_start_generic.handler() != 0)
 	        return 1;
 	
 	    if ((dirtybuffer2 = auto_malloc(bnj_backgroundram_size)) == 0)
@@ -159,7 +159,7 @@ public class btime
 	    bnj_scroll1 = 0;
 	    bnj_scroll2 = 0;
 	
-	    return video_start_generic();
+	    return video_start_generic.handler();
 	} };
 	
 	
@@ -170,9 +170,9 @@ public class btime
 	} };
 	
 	public static WriteHandlerPtr lnc_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-	    if (videoram[offset] != data || colorram.read(offset)!= *lnc_charbank)
+	    if (videoram.read(offset)!= data || colorram.read(offset)!= *lnc_charbank)
 	    {
-	        videoram[offset] = data;
+	        videoram.write(offset,data);
 	        colorram.write(offset,*lnc_charbank);
 	
 	        dirtybuffer[offset] = 1;
@@ -353,7 +353,7 @@ public class btime
 	
 	        dirtybuffer[offs] = 0;
 	
-	        code = videoram[offs] + 256 * (colorram.read(offs)& 3);
+	        code = videoram.read(offs)+ 256 * (colorram.read(offs)& 3);
 	
 	        /* check priority */
 	        if ((priority != -1) && (priority != ((code >> 7) & 0x01)))  continue;
@@ -475,7 +475,7 @@ public class btime
 	    {
 	        int code;
 	
-	        code = videoram[offs] + 256 * (colorram.read(offs)& 3);
+	        code = videoram.read(offs)+ 256 * (colorram.read(offs)& 3);
 	
 	        switch (char_dirty[code])
 	        {
@@ -514,7 +514,7 @@ public class btime
 	
 	public static VideoUpdateHandlerPtr video_update_btime  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    if (get_vh_global_attribute_changed())
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    if (bnj_scroll1 & 0x10)
 	    {
@@ -552,7 +552,7 @@ public class btime
 	
 	public static VideoUpdateHandlerPtr video_update_eggs  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    if (get_vh_global_attribute_changed())
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    drawchars(tmpbitmap, TRANSPARENCY_NONE, 0, -1);
 	
@@ -565,7 +565,7 @@ public class btime
 	
 	public static VideoUpdateHandlerPtr video_update_lnc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    if (get_vh_global_attribute_changed())
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    drawchars(tmpbitmap, TRANSPARENCY_NONE, 0, -1);
 	
@@ -578,7 +578,7 @@ public class btime
 	
 	public static VideoUpdateHandlerPtr video_update_zoar  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    if (get_vh_global_attribute_changed())
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    if (bnj_scroll1 & 0x04)
 	    {
@@ -603,7 +603,7 @@ public class btime
 	public static VideoUpdateHandlerPtr video_update_bnj  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    if (get_vh_global_attribute_changed())
 	    {
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	        memset(dirtybuffer2,1,bnj_backgroundram_size);
 	    }
 	
@@ -670,7 +670,7 @@ public class btime
 	
 	
 	    if (get_vh_global_attribute_changed())
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    /*
 	     *  For each character in the background RAM, check if it has been
@@ -705,7 +705,7 @@ public class btime
 	
 	public static VideoUpdateHandlerPtr video_update_disco  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	    if (get_vh_global_attribute_changed())
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    decode_modified(spriteram, 1);
 	

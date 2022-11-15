@@ -159,7 +159,7 @@ public class pengo
 		gfx_bank = 0;
 		xoffsethack = 0;
 	
-	    return video_start_generic();
+	    return video_start_generic.handler();
 	} };
 	
 	public static VideoStartHandlerPtr video_start_pacman  = new VideoStartHandlerPtr() { public int handler(){
@@ -168,7 +168,7 @@ public class pengo
 		/* one pixel to the left to get a more correct placement */
 		xoffsethack = 1;
 	
-		return video_start_generic();
+		return video_start_generic.handler();
 	} };
 	
 	
@@ -181,7 +181,7 @@ public class pengo
 		if (gfx_bank != (data & 1))
 		{
 			gfx_bank = data & 1;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -189,7 +189,7 @@ public class pengo
 		if (flipscreen != (data & 1))
 		{
 			flipscreen = data & 1;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -208,7 +208,7 @@ public class pengo
 		
 		sect_rect(&spriteclip, cliprect);
 	
-		for (offs = videoram_size - 1; offs > 0; offs--)
+		for (offs = videoram_size[0] - 1; offs > 0; offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -243,7 +243,7 @@ public class pengo
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[gfx_bank*2],
-						videoram[offs],
+						videoram.read(offs),
 						colorram.read(offs)& 0x1f,
 						flipscreen,flipscreen,
 						sx*8,sy*8,
@@ -321,7 +321,7 @@ public class pengo
 		
 		sect_rect(&spriteclip, cliprect);
 	
-		for (offs = videoram_size - 1; offs > 0; offs--)
+		for (offs = videoram_size[0] - 1; offs > 0; offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -356,7 +356,7 @@ public class pengo
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[gfx_bank*2],
-						videoram[offs],
+						videoram.read(offs),
 						colorram.read(offs)& 0x1f,
 						flipscreen,flipscreen,
 						sx*8,sy*8,
@@ -400,7 +400,7 @@ public class pengo
 		colbank = tiles_bankram[tile_index & 0x1f] & 0x3;
 	
 	
-		code = videoram[tile_index] + (colbank << 8);
+		code = videoram.read(tile_index)+ (colbank << 8);
 		attr = colorram.read(tile_index & 0x1f);
 	
 		/* remove when we have proms dumps for it */
@@ -413,7 +413,7 @@ public class pengo
 	} };
 	
 	public static WriteHandlerPtr s2650games_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		videoram[offset] = data;
+		videoram.write(offset,data);
 		tilemap_mark_tile_dirty(tilemap,offset);
 	} };
 	

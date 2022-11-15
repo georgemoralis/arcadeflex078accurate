@@ -87,9 +87,9 @@ public class ladybug
 	} };
 	
 	public static WriteHandlerPtr ladybug_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -113,7 +113,7 @@ public class ladybug
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + 32 * (colorram.read(tile_index)& 0x08);
+		int code = videoram.read(tile_index)+ 32 * (colorram.read(tile_index)& 0x08);
 		int color = colorram.read(tile_index)& 0x07;
 	
 		SET_TILE_INFO(0, code, color, 0)
@@ -191,9 +191,9 @@ public class ladybug
 			int sy = offs / 4;
 	
 			if (flip_screen())
-				tilemap_set_scrollx(bg_tilemap, offs, -videoram[32 * sx + sy]);
+				tilemap_set_scrollx(bg_tilemap, offs, -videoram.read(32 * sx + sy));
 			else
-				tilemap_set_scrollx(bg_tilemap, offs, videoram[32 * sx + sy]);
+				tilemap_set_scrollx(bg_tilemap, offs, videoram.read(32 * sx + sy));
 		}
 	
 		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);

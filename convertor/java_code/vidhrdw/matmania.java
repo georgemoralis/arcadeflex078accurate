@@ -132,9 +132,9 @@ public class matmania
 	
 	***************************************************************************/
 	public static VideoStartHandlerPtr video_start_matmania  = new VideoStartHandlerPtr() { public int handler(){
-		if ((dirtybuffer = auto_malloc(videoram_size)) == 0)
+		if ((dirtybuffer = auto_malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		if ((dirtybuffer2 = auto_malloc(matmania_videoram3_size)) == 0)
 			return 1;
@@ -179,7 +179,7 @@ public class matmania
 	
 	
 		/* Update the tiles in the left tile ram bank */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -192,7 +192,7 @@ public class matmania
 				sy = offs % 32;
 	
 				drawgfx(tmpbitmap,Machine->gfx[1],
-						videoram[offs] + ((colorram.read(offs)& 0x08) << 5),
+						videoram.read(offs)+ ((colorram.read(offs)& 0x08) << 5),
 						(colorram.read(offs)& 0x30) >> 4,
 						0,sy >= 16,	/* flip horizontally tiles on the right half of the bitmap */
 						16*sx,16*sy,
@@ -274,7 +274,7 @@ public class matmania
 	
 	
 		/* Update the tiles in the left tile ram bank */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -287,7 +287,7 @@ public class matmania
 				sy = offs % 32;
 	
 				drawgfx(tmpbitmap,Machine->gfx[1],
-						videoram[offs] + ((colorram.read(offs)& 0x03) << 8),
+						videoram.read(offs)+ ((colorram.read(offs)& 0x03) << 8),
 						(colorram.read(offs)& 0x30) >> 4,
 						0,sy >= 16,	/* flip horizontally tiles on the right half of the bitmap */
 						16*sx,16*sy,

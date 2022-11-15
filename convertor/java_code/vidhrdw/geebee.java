@@ -54,7 +54,7 @@ public class geebee
 	
 	
 	public static VideoStartHandlerPtr video_start_geebee  = new VideoStartHandlerPtr() { public int handler(){
-		if( video_start_generic() )
+		if( video_start_generic.handler() )
 			return 1;
 	
 		/* use an overlay only in upright mode */
@@ -64,7 +64,7 @@ public class geebee
 	} };
 	
 	public static VideoStartHandlerPtr video_start_navalone  = new VideoStartHandlerPtr() { public int handler(){
-		if( video_start_generic() )
+		if( video_start_generic.handler() )
 			return 1;
 	
 	    /* overlay? */
@@ -73,7 +73,7 @@ public class geebee
 	} };
 	
 	public static VideoStartHandlerPtr video_start_sos  = new VideoStartHandlerPtr() { public int handler(){
-		if( video_start_generic() )
+		if( video_start_generic.handler() )
 			return 1;
 	
 	    /* overlay? */
@@ -82,7 +82,7 @@ public class geebee
 	} };
 	
 	public static VideoStartHandlerPtr video_start_kaitei  = new VideoStartHandlerPtr() { public int handler(){
-		if( video_start_generic() )
+		if( video_start_generic.handler() )
 		return 1;
 	
 	    /* overlay? */
@@ -124,9 +124,9 @@ public class geebee
 	#endif
 	
 		if (get_vh_global_attribute_changed())
-	        memset(dirtybuffer, 1, videoram_size);
+	        memset(dirtybuffer, 1, videoram_size[0]);
 	
-		for( offs = 0; offs < videoram_size; offs++ )
+		for( offs = 0; offs < videoram_size[0]; offs++ )
 		{
 			if( dirtybuffer[offs] )
 			{
@@ -159,7 +159,7 @@ public class geebee
 					sy = 31*8 - sy;
 				}
 	
-				code = videoram[offs];
+				code = videoram.read(offs);
 				color = ((geebee_bgw & 1) << 1) | ((code & 0x80) >> 7);
 				drawgfx(tmpbitmap,Machine->gfx[0],
 						code,color,

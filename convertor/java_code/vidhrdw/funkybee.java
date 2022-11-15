@@ -49,9 +49,9 @@ public class funkybee
 	} };
 	
 	public static WriteHandlerPtr funkybee_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -86,7 +86,7 @@ public class funkybee
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index];
+		int code = videoram.read(tile_index);
 		int color = colorram.read(tile_index)& 0x03;
 	
 		SET_TILE_INFO(gfx_bank, code, color, 0)
@@ -115,12 +115,12 @@ public class funkybee
 		for (offs = 0x0f; offs >= 0; offs--)
 		{
 			int offs2 = offs + 0x1e00;
-			int attr = videoram[offs2];
+			int attr = videoram.read(offs2);
 			int code = (attr >> 2) | ((attr & 2) << 5);
 			int color = colorram.read(offs2 + 0x10);
 			int flipx = 0;
 			int flipy = attr & 0x01;
-			int sx = videoram[offs2 + 0x10];
+			int sx = videoram.read(offs2 + 0x10);
 			int sy = 224 - colorram.read(offs2);
 	
 			if (flip_screen())
@@ -144,9 +144,9 @@ public class funkybee
 	
 		for (offs = 0x1f;offs >= 0;offs--)
 		{
-			int code = videoram[0x1c00 + offs];
+			int code = videoram.read(0x1c00 + offs);
 			int color = colorram.read(0x1f10)& 0x03;
-			int sx = videoram[0x1f10];
+			int sx = videoram.read(0x1f10);
 			int sy = offs * 8;
 	
 			if (flip_screen())
@@ -161,9 +161,9 @@ public class funkybee
 					sx, sy,
 					0,TRANSPARENCY_PEN,0);
 	
-			code = videoram[0x1d00 + offs];
+			code = videoram.read(0x1d00 + offs);
 			color = colorram.read(0x1f11)& 0x03;
-			sx = videoram[0x1f11];
+			sx = videoram.read(0x1f11);
 			sy = offs * 8;
 	
 			if (flip_screen())

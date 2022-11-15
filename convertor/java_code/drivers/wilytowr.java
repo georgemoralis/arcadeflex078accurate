@@ -93,9 +93,9 @@ public class wilytowr
 	} };
 	
 	public static WriteHandlerPtr wilytowr_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -135,7 +135,7 @@ public class wilytowr
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int attr = colorram.read(tile_index);
-		int code = videoram[tile_index] | ((attr & 0x30) << 4);
+		int code = videoram.read(tile_index)| ((attr & 0x30) << 4);
 		int color = (attr & 0x0f) + (pal_bank << 4);
 	
 		SET_TILE_INFO(1, code, color, 0)

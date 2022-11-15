@@ -149,7 +149,7 @@ public class thepit
 			int i;
 	
 	
-			for (i = offset / 2;i < videoram_size;i += 32)
+			for (i = offset / 2;i < videoram_size[0];i += 32)
 				dirtybuffer[i] = 1;
 		}
 	
@@ -222,7 +222,7 @@ public class thepit
 	
 				if (priority == 0)
 				{
-					code = videoram[offs];
+					code = videoram.read(offs);
 					bank = graphics_bank;
 				}
 				else
@@ -333,7 +333,7 @@ public class thepit
 	public static VideoUpdateHandlerPtr video_update_thepit  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (get_vh_global_attribute_changed())
 		{
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		}
 	
 	

@@ -18,9 +18,9 @@ public class nitedrvr
 	static struct tilemap *bg_tilemap;
 	
 	public static WriteHandlerPtr nitedrvr_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -34,7 +34,7 @@ public class nitedrvr
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] & 0x3f;
+		int code = videoram.read(tile_index)& 0x3f;
 	
 		SET_TILE_INFO(0, code, 0, 0)
 	} };

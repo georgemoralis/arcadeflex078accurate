@@ -41,7 +41,7 @@ public class atarifb
 		if (data - 8 != *atarifb_scroll_register)
 		{
 			*atarifb_scroll_register = data - 8;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -49,10 +49,10 @@ public class atarifb
 	***************************************************************************/
 	
 	public static VideoStartHandlerPtr video_start_atarifb  = new VideoStartHandlerPtr() { public int handler(){
-		if (video_start_generic())
+		if (video_start_generic.handler())
 			return 1;
 	
-		memset(dirtybuffer, 1, videoram_size);
+		memset(dirtybuffer, 1, videoram_size[0]);
 	
 		return 0;
 	} };
@@ -70,7 +70,7 @@ public class atarifb
 		int sprite_bank;
 	
 		if (get_vh_global_attribute_changed())
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 		/* Soccer uses a different graphics set for sprites */
 		if (atarifb_game == 4)
@@ -130,7 +130,7 @@ public class atarifb
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -140,9 +140,9 @@ public class atarifb
 	
 				dirtybuffer[offs]=0;
 	
-				charcode = videoram[offs] & 0x3f;
-				flipx = (videoram[offs] & 0x40) >> 6;
-				flipy = (videoram[offs] & 0x80) >> 7;
+				charcode = videoram.read(offs)& 0x3f;
+				flipx = (videoram.read(offs)& 0x40) >> 6;
+				flipy = (videoram.read(offs)& 0x80) >> 7;
 	
 				sx = (8 * (offs % 32) - *atarifb_scroll_register);
 				sy = 8 * (offs / 32) + 8;

@@ -54,7 +54,7 @@ public class subs
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (updateall || dirtybuffer[offs])
 			{
@@ -68,7 +68,7 @@ public class subs
 	
 				dirtybuffer[offs]=0;
 	
-				charcode = videoram[offs];
+				charcode = videoram.read(offs);
 	
 				/* Which monitor is this for? */
 				right_enable = charcode & 0x40;

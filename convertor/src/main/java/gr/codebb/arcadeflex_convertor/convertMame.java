@@ -397,7 +397,7 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
-                case 'i':{
+                case 'i': {
                     i = Convertor.inpos;
                     if (type == READ_HANDLER8) {
                         if (sUtil.getToken("input_port_0_r")) {
@@ -764,7 +764,7 @@ public class convertMame {
                 break;
                 case 's': {
                     i = Convertor.inpos;
-                                        if (type == WRITE_HANDLER8 || type == VIDEO_UPDATE || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_EOF) {
+                    if (type == WRITE_HANDLER8 || type == VIDEO_UPDATE || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_EOF) {
                         if (sUtil.getToken("spriteram_size")) {
                             sUtil.putString((new StringBuilder()).append("spriteram_size[0]").toString());
                             continue;
@@ -1309,6 +1309,51 @@ public class convertMame {
                             type = VIDEO_EOF;
                             i3 = -1;
                             Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                }
+                Convertor.inpos = i;
+                break;
+                case 'v': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("video_start_generic")) {
+                        sUtil.putString((new StringBuilder()).append("video_start_generic.handler").toString());
+                        continue;
+                    }
+                    if (type == VIDEO_UPDATE || type == VIDEO_START || type == WRITE_HANDLER8 || type == VIDEO_STOP || type == VIDEO_EOF) {
+                        if (sUtil.getToken("videoram_size")) {
+                            sUtil.putString((new StringBuilder()).append("videoram_size[0]").toString());
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("videoram")) {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken(']');
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = i;
+                            break;
+                        } else {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() == '=') {
+                                int g = Convertor.inpos;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                Convertor.inpos = g;
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("videoram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos += 1;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("videoram.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
                             continue;
                         }
                     }

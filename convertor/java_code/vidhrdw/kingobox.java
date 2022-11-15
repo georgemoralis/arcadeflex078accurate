@@ -146,9 +146,9 @@ public class kingobox
 	} };
 	
 	public static WriteHandlerPtr kingofb_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -197,7 +197,7 @@ public class kingobox
 	{
 		int attr = colorram.read(tile_index);
 		int bank = ((attr & 0x04) >> 2) + 2;
-		int code = (tile_index / 16) ? videoram[tile_index] + ((attr & 0x03) << 8) : 0;
+		int code = (tile_index / 16) ? videoram.read(tile_index)+ ((attr & 0x03) << 8) : 0;
 		int color = ((attr & 0x70) >> 4) + 8 * palette_bank;
 	
 		SET_TILE_INFO(bank, code, color, 0)
@@ -272,7 +272,7 @@ public class kingobox
 	
 	public static GetTileInfoHandlerPtr ringking_get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = (tile_index / 16) ? videoram[tile_index] : 0;
+		int code = (tile_index / 16) ? videoram.read(tile_index): 0;
 		int color = ((colorram.read(tile_index)& 0x70) >> 4) + 8 * palette_bank;
 	
 		SET_TILE_INFO(4, code, color, 0)

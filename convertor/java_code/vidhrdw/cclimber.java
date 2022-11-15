@@ -356,12 +356,12 @@ public class cclimber
 	
 		if (get_vh_global_attribute_changed())
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -389,7 +389,7 @@ public class cclimber
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[(colorram.read(offs)& 0x10) ? 1 : 0],
-						videoram[offs] + 8 * (colorram.read(offs)& 0x20),
+						videoram.read(offs)+ 8 * (colorram.read(offs)& 0x20),
 						colorram.read(offs)& 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -473,12 +473,12 @@ public class cclimber
 	
 		if (get_vh_global_attribute_changed())
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -512,7 +512,7 @@ public class cclimber
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs] + ((colorram.read(offs)& 0x10) << 4),
+						videoram.read(offs)+ ((colorram.read(offs)& 0x10) << 4),
 						color,
 						flipx,flipy,
 						8*sx,8*sy,

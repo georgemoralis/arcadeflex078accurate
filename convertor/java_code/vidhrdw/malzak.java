@@ -64,7 +64,7 @@ public class malzak
 	unsigned char s2636_2_dirty[4];
 	
 	public static VideoStartHandlerPtr video_start_malzak  = new VideoStartHandlerPtr() { public int handler(){
-		video_start_generic();
+		video_start_generic.handler();
 	
 		if ((collision_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
 			return 1;

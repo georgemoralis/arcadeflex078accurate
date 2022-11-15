@@ -23,12 +23,12 @@ public class pkunwar
 		if (flipscreen[0] != (data & 1))
 		{
 			flipscreen[0] = data & 1;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 		if (flipscreen[1] != (data & 2))
 		{
 			flipscreen[1] = data & 2;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -40,7 +40,7 @@ public class pkunwar
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -55,7 +55,7 @@ public class pkunwar
 				if (flipscreen[1]) sy = 31 - sy;
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs] + ((colorram.read(offs)& 0x07) << 8),
+						videoram.read(offs)+ ((colorram.read(offs)& 0x07) << 8),
 						(colorram.read(offs)& 0xf0) >> 4,
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,
@@ -98,7 +98,7 @@ public class pkunwar
 	
 	
 		/* redraw characters which have priority over sprites */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (colorram.read(offs)& 0x08)
 			{
@@ -111,7 +111,7 @@ public class pkunwar
 				if (flipscreen[1]) sy = 31 - sy;
 	
 				drawgfx(bitmap,Machine->gfx[0],
-						videoram[offs] + ((colorram.read(offs)& 0x07) << 8),
+						videoram.read(offs)+ ((colorram.read(offs)& 0x07) << 8),
 						(colorram.read(offs)& 0xf0) >> 4,
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,

@@ -72,7 +72,7 @@ public class wiping
 		if (flipscreen != (data & 1))
 		{
 			flipscreen = (data & 1);
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -88,7 +88,7 @@ public class wiping
 	public static VideoUpdateHandlerPtr video_update_wiping  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
-		for (offs = videoram_size - 1; offs > 0; offs--)
+		for (offs = videoram_size[0] - 1; offs > 0; offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -122,7 +122,7 @@ public class wiping
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram.read(offs)& 0x3f,
 						flipscreen,flipscreen,
 						sx*8,sy*8,
@@ -160,7 +160,7 @@ public class wiping
 		}
 	
 		/* redraw high priority chars */
-		for (offs = videoram_size - 1; offs > 0; offs--)
+		for (offs = videoram_size[0] - 1; offs > 0; offs--)
 		{
 			if (colorram.read(offs)& 0x80)
 			{
@@ -192,7 +192,7 @@ public class wiping
 				}
 	
 				drawgfx(bitmap,Machine->gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram.read(offs)& 0x3f,
 						flipscreen,flipscreen,
 						sx*8,sy*8,

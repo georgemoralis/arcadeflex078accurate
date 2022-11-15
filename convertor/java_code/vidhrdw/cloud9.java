@@ -108,7 +108,7 @@ public class cloud9
 		switch (x & 0x02)
 		{
 		case 0x00:
-			*vptr = &(videoram[voff]);
+			*vptr = &(videoram.read(voff));
 			break;
 		case 0x02:
 			*vptr = &(cloud9_vram2[voff]);
@@ -219,7 +219,7 @@ public class cloud9
 	
 		if (*cloud9_both_banks & 0x80)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			cloud9_vram2[offset] = data;
 	
 			plot_pixel(tmpbitmap, x,   y, Machine->pens[((data & 0x0f) >> 0) + ((*cloud9_color_bank & 0x80) >> 2)]);
@@ -236,7 +236,7 @@ public class cloud9
 		}
 		else
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 	
 			plot_pixel(tmpbitmap, x  , y, Machine->pens[((data & 0x0f) >> 0) + ((*cloud9_color_bank & 0x80) >> 2)]);
 			plot_pixel(tmpbitmap, x+1, y, Machine->pens[((data & 0xf0) >> 4) + ((*cloud9_color_bank & 0x80) >> 2)]);
@@ -282,12 +282,12 @@ public class cloud9
 	
 	public static VideoStartHandlerPtr video_start_cloud9  = new VideoStartHandlerPtr() { public int handler(){
 		tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height);
-		cloud9_vram2 = auto_malloc(videoram_size);
+		cloud9_vram2 = auto_malloc(videoram_size[0]);
 	
 		if (!tmpbitmap || !cloud9_vram2)
 			return 1;
 	
-		memset(cloud9_vram2, 0, videoram_size);
+		memset(cloud9_vram2, 0, videoram_size[0]);
 	
 		return 0;
 	} };

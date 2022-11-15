@@ -116,7 +116,7 @@ public class qix
 	public static ReadHandlerPtr qix_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* add in the upper bit of the address latch */
 		offset += (qix_videoaddress[0] & 0x80) << 8;
-		return videoram[offset];
+		return videoram.read(offset);
 	} };
 	
 	
@@ -125,7 +125,7 @@ public class qix
 		offset += (qix_videoaddress[0] & 0x80) << 8;
 	
 		/* blend the data */
-		videoram[offset] = (videoram[offset] & ~vram_mask) | (data & vram_mask);
+		videoram.write(offset,(videoram[offset] & ~vram_mask) | (data & vram_mask));
 	} };
 	
 	
@@ -148,7 +148,7 @@ public class qix
 	public static ReadHandlerPtr qix_addresslatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* compute the value at the address latch */
 		offset = (qix_videoaddress[0] << 8) | qix_videoaddress[1];
-		return videoram[offset];
+		return videoram.read(offset);
 	} };
 	
 	
@@ -158,7 +158,7 @@ public class qix
 		offset = (qix_videoaddress[0] << 8) | qix_videoaddress[1];
 	
 		/* blend the data */
-		videoram[offset] = (videoram[offset] & ~vram_mask) | (data & vram_mask);
+		videoram.write(offset,(videoram[offset] & ~vram_mask) | (data & vram_mask));
 	} };
 	
 	
@@ -236,6 +236,6 @@ public class qix
 	
 		/* draw the bitmap */
 		for (y = cliprect->min_y; y <= cliprect->max_y; y++)
-			draw_scanline8(bitmap, 0, y, 256, &videoram[y * 256], pens, -1);
+			draw_scanline8(bitmap, 0, y, 256, &videoram.read(y * 256), pens, -1);
 	} };
 }
