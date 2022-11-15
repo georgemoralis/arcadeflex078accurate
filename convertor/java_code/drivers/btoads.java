@@ -133,14 +133,13 @@ public class btoads
 	 *
 	 *************************************/
 	
-	static INTERRUPT_GEN( sound_interrupt )
-	{
+	public static InterruptHandlerPtr sound_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (sound_int_state & 0x80)
 		{
 			cpu_set_irq_line(1, 0, ASSERT_LINE);
 			sound_int_state = 0x00;
 		}
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( sound_int_state_w )

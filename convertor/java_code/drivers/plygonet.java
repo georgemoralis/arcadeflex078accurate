@@ -142,13 +142,12 @@ public class plygonet
 	// irq 5 does ??? (polygon end of draw?)
 	// irq 7 does nothing (it jsrs to a rts and then rte)
 	
-	static INTERRUPT_GEN(polygonet_interrupt)
-	{
+	public static InterruptHandlerPtr polygonet_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops())
 			cpu_set_irq_line(0, MC68000_IRQ_5, HOLD_LINE);
 		else
 			cpu_set_irq_line(0, MC68000_IRQ_3, HOLD_LINE);
-	}
+	} };
 	
 	/* sound CPU communications */
 	
@@ -324,10 +323,9 @@ public class plygonet
 		reset_sound_region();
 	}
 	
-	static INTERRUPT_GEN(audio_interrupt)
-	{
+	public static InterruptHandlerPtr audio_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_nmi_line(1, PULSE_LINE);
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

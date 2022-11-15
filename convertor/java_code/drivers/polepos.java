@@ -78,8 +78,6 @@ public class polepos
 	MACHINE_INIT( polepos );
 	WRITE_HANDLER( polepos_z80_irq_enable_w );
 	WRITE16_HANDLER( polepos_z8002_nvi_enable_w );
-	INTERRUPT_GEN( polepos_z8002_1_interrupt );
-	INTERRUPT_GEN( polepos_z8002_2_interrupt );
 	WRITE_HANDLER( polepos_z8002_enable_w );
 	WRITE_HANDLER( polepos_adc_select_w );
 	READ_HANDLER( polepos_adc_r );

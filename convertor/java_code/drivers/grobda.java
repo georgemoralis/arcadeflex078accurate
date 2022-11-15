@@ -30,8 +30,6 @@ public class grobda
 	READ_HANDLER( grobda_customio_2_r );
 	
 	/* INT functions */
-	INTERRUPT_GEN( grobda_interrupt_1 );
-	INTERRUPT_GEN( grobda_interrupt_2 );
 	WRITE_HANDLER( grobda_cpu2_enable_w );
 	WRITE_HANDLER( grobda_interrupt_ctrl_1_w );
 	WRITE_HANDLER( grobda_interrupt_ctrl_2_w );

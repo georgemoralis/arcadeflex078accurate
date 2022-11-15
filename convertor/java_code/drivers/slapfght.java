@@ -241,7 +241,6 @@ public class slapfght
 	READ_HANDLER ( tigerh_mcu_status_r );
 	
 	WRITE_HANDLER( getstar_sh_intenable_w );
-	INTERRUPT_GEN( getstar_interrupt );
 	
 	
 	

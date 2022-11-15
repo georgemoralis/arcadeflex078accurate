@@ -1465,8 +1465,7 @@ public class ms32
 		cpu_set_irq_line(0, 0, ASSERT_LINE);
 	}
 	
-	static INTERRUPT_GEN(ms32_interrupt)
-	{
+	public static InterruptHandlerPtr ms32_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if( cpu_getiloops() == 0 ) irq_raise(10);
 		if( cpu_getiloops() == 1 ) irq_raise(9);
 		/* hayaosi1 needs at least 12 IRQ 0 per frame to work (see code at FFE02289)
@@ -1478,7 +1477,7 @@ public class ms32
 		   p47aces
 		   */
 		if( cpu_getiloops() >= 3 && cpu_getiloops() <= 32 ) irq_raise(0);
-	}
+	} };
 	
 	/********** SOUND **********/
 	

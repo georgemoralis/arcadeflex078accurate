@@ -33,8 +33,6 @@ public class mcrH
 	MACHINE_INIT( mcr68 );
 	MACHINE_INIT( zwackery );
 	
-	INTERRUPT_GEN( mcr_interrupt );
-	INTERRUPT_GEN( mcr68_interrupt );
 	
 	WRITE_HANDLER( mcr_control_port_w );
 	WRITE_HANDLER( mcrmono_control_port_w );

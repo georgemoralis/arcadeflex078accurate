@@ -32,7 +32,6 @@ VIDEO_EOF( cps1 );
 DRIVER_INIT( cps1 );
 DRIVER_INIT( cps2 );
 
-INTERRUPT_GEN( cps1_qsound_interrupt );
 
 extern struct QSound_interface qsound_interface;
 

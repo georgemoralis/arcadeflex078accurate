@@ -42,12 +42,9 @@ public class gaplus
 	READ_HANDLER( gaplusa_customio_2_r );
 	READ_HANDLER( gaplusa_customio_3_r );
 	
-	extern INTERRUPT_GEN( gaplus_interrupt_1 );
-	WRITE_HANDLER( gaplus_reset_2_3_w );
-	extern INTERRUPT_GEN( gaplus_interrupt_2 );
-	WRITE_HANDLER( gaplus_interrupt_ctrl_2_w );
-	extern INTERRUPT_GEN( gaplus_interrupt_3 );
-	WRITE_HANDLER( gaplus_interrupt_ctrl_3a_w );
+	extern WRITE_HANDLER( gaplus_reset_2_3_w );
+	extern WRITE_HANDLER( gaplus_interrupt_ctrl_2_w );
+	extern WRITE_HANDLER( gaplus_interrupt_ctrl_3a_w );
 	WRITE_HANDLER( gaplus_interrupt_ctrl_3b_w );
 	
 	extern VIDEO_START( gaplus );

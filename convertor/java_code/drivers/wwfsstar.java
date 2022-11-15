@@ -311,10 +311,10 @@ public class wwfsstar
 	 file)
 	*******************************************************************************/
 	
-	static INTERRUPT_GEN( wwfsstar_interrupt ) {
+	public static InterruptHandlerPtr wwfsstar_interrupt = new InterruptHandlerPtr() {public void handler()
 		if( cpu_getiloops() == 0 ){
 			vbl = 1;
-		}
+		} };
 	
 		else if( cpu_getiloops() == 240 ){
 			vbl = 0;

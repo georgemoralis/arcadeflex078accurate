@@ -31,7 +31,6 @@ public class battlera
 	
 	VIDEO_UPDATE( battlera );
 	VIDEO_START( battlera );
-	INTERRUPT_GEN( battlera_interrupt );
 	
 	READ_HANDLER( HuC6270_register_r );
 	WRITE_HANDLER( HuC6270_register_w );

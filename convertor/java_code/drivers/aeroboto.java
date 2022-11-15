@@ -58,13 +58,12 @@ public class aeroboto
 	}
 	
 	
-	static INTERRUPT_GEN( aeroboto_interrupt )
-	{
+	public static InterruptHandlerPtr aeroboto_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (!disable_irq)
 			cpu_set_irq_line(0, 0, HOLD_LINE);
 		else
 			disable_irq--;
-	}
+	} };
 	
 	static READ_HANDLER( aeroboto_2973_r )
 	{

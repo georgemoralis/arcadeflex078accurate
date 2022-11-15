@@ -132,9 +132,6 @@ public class digdug
 	WRITE_HANDLER( digdug_customio_w );
 	READ_HANDLER( digdug_customio_data_r );
 	WRITE_HANDLER( digdug_customio_data_w );
-	INTERRUPT_GEN( digdug_interrupt_1 );
-	INTERRUPT_GEN( digdug_interrupt_2 );
-	INTERRUPT_GEN( digdug_interrupt_3 );
 	MACHINE_INIT( digdig );
 	
 	WRITE_HANDLER( digdug_flipscreen_w );

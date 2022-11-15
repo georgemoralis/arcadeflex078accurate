@@ -20,8 +20,7 @@ public class kopunch
 	extern VIDEO_UPDATE( kopunch );
 	
 	
-	INTERRUPT_GEN( kopunch_interrupt )
-	{
+	public static InterruptHandlerPtr kopunch_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		{
 			if (~input_port_1_r(0) & 0x80)	/* coin 1 */
@@ -37,7 +36,7 @@ public class kopunch
 		}
 	
 		cpu_set_irq_line_and_vector(0,0,HOLD_LINE,0xff);	/* RST 38h */
-	}
+	} };
 	
 	static READ_HANDLER( kopunch_in_r )
 	{

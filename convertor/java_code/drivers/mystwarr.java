@@ -222,8 +222,7 @@ public class mystwarr
 	}
 	
 	
-	static INTERRUPT_GEN(mystwarr_interrupt)
-	{
+	public static InterruptHandlerPtr mystwarr_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (resume_trigger && suspension_active) { suspension_active = 0; cpu_trigger(resume_trigger); }
 	
 		if (!(mw_irq_control & 0x01)) return;
@@ -242,10 +241,9 @@ public class mystwarr
 				cpu_set_irq_line(0, MC68000_IRQ_6, HOLD_LINE);
 			break;
 		}
-	}
+	} };
 	
-	static INTERRUPT_GEN(metamrph_interrupt)
-	{
+	public static InterruptHandlerPtr metamrph_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (resume_trigger && suspension_active) { cpu_trigger(resume_trigger); suspension_active = 0; }
 	
 		switch (cpu_getiloops())
@@ -262,10 +260,9 @@ public class mystwarr
 				if (K053246_is_IRQ_enabled()) cpu_set_irq_line(0, MC68000_IRQ_5, HOLD_LINE);
 			break;
 		}
-	}
+	} };
 	
-	static INTERRUPT_GEN(mchamp_interrupt)
-	{
+	public static InterruptHandlerPtr mchamp_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (resume_trigger && suspension_active) { cpu_trigger(resume_trigger); suspension_active = 0; }
 	
 		if (!(mw_irq_control & 0x02)) return;
@@ -280,14 +277,13 @@ public class mystwarr
 				cpu_set_irq_line(0, MC68000_IRQ_2, HOLD_LINE);
 			break;
 		}
-	}
+	} };
 	
-	static INTERRUPT_GEN(ddd_interrupt)
-	{
+	public static InterruptHandlerPtr ddd_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (resume_trigger && suspension_active) { cpu_trigger(resume_trigger); suspension_active = 0; }
 	
 		cpu_set_irq_line(0, MC68000_IRQ_5, HOLD_LINE);
-	}
+	} };
 	
 	
 	/**********************************************************************************/
@@ -817,10 +813,9 @@ public class mystwarr
 		reset_sound_region();
 	}
 	
-	static INTERRUPT_GEN(audio_interrupt)
-	{
+	public static InterruptHandlerPtr audio_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_nmi_line(1, PULSE_LINE);
-	}
+	} };
 	
 	/* sound memory maps
 	

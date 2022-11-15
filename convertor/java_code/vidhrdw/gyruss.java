@@ -239,13 +239,12 @@ public class gyruss
 	}
 	
 	
-	INTERRUPT_GEN( gyruss_6809_interrupt )
-	{
+	public static InterruptHandlerPtr gyruss_6809_interrupt = new InterruptHandlerPtr() {public void handler(){
 		scanline = 255 - cpu_getiloops();
 	
 		memcpy(sprite_mux_buffer + scanline * spriteram_size,spriteram,spriteram_size);
 	
 		if (scanline == 255)
 			irq0_line_hold();
-	}
+	} };
 }

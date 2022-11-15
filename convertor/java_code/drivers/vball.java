@@ -27,7 +27,7 @@
  Remaining Issues:
  -1) IRQ & NMI code is totally guessed, and needs to be solved properly
 
-Measurements from Guru (someone needs to rewrite INTERRUPT_GEN() in vidhrdw/vball.c):
+Measurements from Guru (someone needs to rewrite public static InterruptHandlerPtr  = new InterruptHandlerPtr() {public void handler()n vidhrdw/vball.c):
 6502 /IRQ = 1.720kHz
 6202 /NMI = 58 Hz
 VBlank = 58Hz
@@ -114,7 +114,6 @@ public class vball
 	extern WRITE_HANDLER( vb_videoram_w );
 	extern void vb_mark_all_dirty(void);
 	
-	INTERRUPT_GEN( vball_interrupt );
 	
 	/* end of extern code & data */
 	
@@ -139,7 +138,7 @@ public class vball
 				vb_mark_all_dirty();
 		}
 		vb_scrolly_hi = (data & 0x40)<<2;
-	}
+	} };
 	
 	/* The sound system comes all but verbatim from Double Dragon */
 	

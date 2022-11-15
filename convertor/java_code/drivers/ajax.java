@@ -31,7 +31,6 @@ public class ajax
 	READ_HANDLER( ajax_ls138_f10_r );
 	WRITE_HANDLER( ajax_ls138_f10_w );
 	MACHINE_INIT( ajax );
-	INTERRUPT_GEN( ajax_interrupt );
 	
 	/* from vidhrdw/ajax.c */
 	VIDEO_START( ajax );

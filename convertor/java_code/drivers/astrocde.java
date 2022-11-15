@@ -89,13 +89,11 @@ public class astrocde
 	WRITE_HANDLER( astrocde_interrupt_vector_w );
 	WRITE_HANDLER( astrocde_interrupt_enable_w );
 	WRITE_HANDLER( astrocde_interrupt_w );
-	INTERRUPT_GEN( wow_interrupt );
 	
 	READ_HANDLER( seawolf2_controller1_r );
 	READ_HANDLER( seawolf2_controller2_r );
 	VIDEO_UPDATE( seawolf2 );
 	
-	INTERRUPT_GEN( gorf_interrupt );
 	READ_HANDLER( gorf_timer_r );
 	READ_HANDLER( gorf_io_r );
 	

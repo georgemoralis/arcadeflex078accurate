@@ -42,7 +42,6 @@ public class balsenteH
 	READ_HANDLER( balsente_m6850_sound_r );
 	WRITE_HANDLER( balsente_m6850_sound_w );
 	
-	INTERRUPT_GEN( balsente_update_analog_inputs );
 	READ_HANDLER( balsente_adc_data_r );
 	WRITE_HANDLER( balsente_adc_select_w );
 	

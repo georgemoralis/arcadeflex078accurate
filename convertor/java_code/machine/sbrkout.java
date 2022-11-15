@@ -31,8 +31,7 @@ public class sbrkout
 	key presses.  Also, MAME doesn't currently support a switch control like
 	DIP switches that's used as a runtime control.
 	***************************************************************************/
-	INTERRUPT_GEN( sbrkout_interrupt )
-	{
+	public static InterruptHandlerPtr sbrkout_interrupt = new InterruptHandlerPtr() {public void handler(){
 	    int game_switch=input_port_7_r(0);
 	
 	    if (game_switch & 0x01)
@@ -43,7 +42,7 @@ public class sbrkout
 	        sbrkout_game_switch=SBRKOUT_CAVITY;
 	
 	    cpu_set_irq_line(0, 0, HOLD_LINE);
-	}
+	} };
 	
 	READ_HANDLER( sbrkout_select1_r )
 	{

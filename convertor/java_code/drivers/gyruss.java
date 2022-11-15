@@ -72,7 +72,6 @@ public class gyruss
 	VIDEO_START( gyruss );
 	PALETTE_INIT( gyruss );
 	VIDEO_UPDATE( gyruss );
-	INTERRUPT_GEN( gyruss_6809_interrupt );
 	
 	
 	READ_HANDLER( gyruss_portA_r );

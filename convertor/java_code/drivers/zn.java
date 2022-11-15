@@ -743,8 +743,7 @@ public class zn
 		psx_machine_init();
 	}
 	
-	static INTERRUPT_GEN( qsound_interrupt )
-	{
+	public static InterruptHandlerPtr qsound_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if( queue_len == 4 )
 		{
 			soundlatch_w( 0, queue_data >> 8 );
@@ -761,10 +760,9 @@ public class zn
 		{
 			cpu_set_irq_line(1, 0, HOLD_LINE);
 		}
-	}
+	} };
 	
-	static INTERRUPT_GEN( fx1a_sound_interrupt )
-	{
+	public static InterruptHandlerPtr fx1a_sound_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if( queue_len == 4 )
 		{
 			taitosound_port_w( 0, 0 );
@@ -789,7 +787,7 @@ public class zn
 			taitosound_comm_w( 0, ( queue_data >> 12 ) & 0x0f );
 			queue_len--;
 		}
-	}
+	} };
 	
 	static struct QSound_interface qsound_interface =
 	{

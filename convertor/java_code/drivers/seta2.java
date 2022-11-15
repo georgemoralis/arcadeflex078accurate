@@ -1326,8 +1326,7 @@ public class seta2
 	
 	***************************************************************************/
 	
-	static INTERRUPT_GEN( seta2_interrupt )
-	{
+	public static InterruptHandlerPtr seta2_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:
@@ -1335,7 +1334,7 @@ public class seta2
 				tmp68301_external_interrupt_0();
 				break;
 		}
-	}
+	} };
 	
 	static struct x1_010_interface x1_010_sound_intf_16MHz =
 	{

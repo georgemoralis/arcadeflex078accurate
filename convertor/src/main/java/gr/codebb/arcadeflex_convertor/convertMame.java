@@ -19,8 +19,9 @@ public class convertMame {
 
     }
 
-    public static final int GAMEDRIVER = 0;
-    public static final int INPUTPORTS = 1;
+    static final int GAMEDRIVER = 0;
+    static final int INPUTPORTS = 1;
+    static final int INTERRUPT = 2;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -174,6 +175,30 @@ public class convertMame {
                         sUtil.putString((new StringBuilder()).append("INPUT_PORTS_END(); }}; ").toString());
                         continue;
                     }
+                    if (sUtil.getToken("INTERRUPT_GEN")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static InterruptHandlerPtr " + Convertor.token[0] + " = new InterruptHandlerPtr() {public void handler()");
+                            type = INTERRUPT;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -218,6 +243,41 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case 's': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("static")) {
+                        sUtil.skipSpace();
+                    }
+                    if (!sUtil.getToken("struct")) //static but not static struct
+                    {
+                        if (sUtil.getToken("INTERRUPT_GEN")) {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '(') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != ')') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            if (sUtil.parseChar() == ';') {
+                                sUtil.skipLine();
+                                continue;
+                            } else {
+                                sUtil.putString("public static InterruptHandlerPtr " + Convertor.token[0] + " = new InterruptHandlerPtr() {public void handler()");
+                                type = INTERRUPT;
+                                i3 = -1;
+                                Convertor.inpos += 1;
+                                continue;
+                            }
+                        }
+                    } // end of static but not static struct
+                }
+                Convertor.inpos = i;
+                break;
                 case ')': {
                     i = Convertor.inpos;
                     if (type2 == INPUTPORTS) {
@@ -241,6 +301,28 @@ public class convertMame {
                         }
                         type2 = -1;
                         continue;
+                    }
+                }
+                Convertor.inpos = i;
+                break;
+                case '{': {
+                    i = Convertor.inpos;
+                    if (type == INTERRUPT) {
+                        i3++;
+                    }
+                }
+                Convertor.inpos = i;
+                break;
+                case '}': {
+                    i = Convertor.inpos;
+                    if (type == INTERRUPT) {
+                        i3--;
+                        if (i3 == -1) {
+                            sUtil.putString("} };");
+                            Convertor.inpos += 1;
+                            type = -1;
+                            continue;
+                        }
                     }
                 }
                 Convertor.inpos = i;

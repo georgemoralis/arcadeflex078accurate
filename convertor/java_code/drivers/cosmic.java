@@ -183,8 +183,7 @@ public class cosmic
 	    #endif
 	}
 	
-	static INTERRUPT_GEN( panic_interrupt )
-	{
+	public static InterruptHandlerPtr panic_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() != 0)
 		{
 	    	/* Coin insert - Trigger Sample */
@@ -201,10 +200,9 @@ public class cosmic
 	    {
 	        cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xd7);	/* RST 10h */
 	    }
-	}
+	} };
 	
-	static INTERRUPT_GEN( cosmica_interrupt )
-	{
+	public static InterruptHandlerPtr cosmica_interrupt = new InterruptHandlerPtr() {public void handler(){
 	    pixel_clock = (pixel_clock + 2) & 0x3f;
 	
 	    if (pixel_clock == 0)
@@ -212,10 +210,9 @@ public class cosmic
 			if (readinputport(3) & 1)	/* Left Coin */
 				cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 	    }
-	}
+	} };
 	
-	static INTERRUPT_GEN( cosmicg_interrupt )
-	{
+	public static InterruptHandlerPtr cosmicg_interrupt = new InterruptHandlerPtr() {public void handler(){
 	    /* Insert Coin */
 	
 		/* R Nabet : fixed to make this piece of code sensible.
@@ -232,10 +229,9 @@ public class cosmic
 		{
 			cpu_set_irq_line(0, 0, CLEAR_LINE);
 		}
-	}
+	} };
 	
-	static INTERRUPT_GEN( magspot2_interrupt )
-	{
+	public static InterruptHandlerPtr magspot2_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* Coin 1 causes an IRQ, Coin 2 an NMI */
 		if (input_port_4_r(0) & 0x01)
 		{
@@ -245,16 +241,15 @@ public class cosmic
 		{
 			cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
-	static INTERRUPT_GEN( nomnlnd_interrupt )
-	{
+	public static InterruptHandlerPtr nomnlnd_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* Coin causes an NMI */
 		if (input_port_4_r(0) & 0x01)
 		{
 			cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	
 	

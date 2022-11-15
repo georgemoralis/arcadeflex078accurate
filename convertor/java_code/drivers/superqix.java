@@ -205,8 +205,7 @@ public class superqix
 		{ 0 }	/* port Bwrite */
 	};
 	
-	INTERRUPT_GEN( sqix_interrupt )
-	{
+	public static InterruptHandlerPtr sqix_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int loop=0;
 	
 		loop++;
@@ -215,7 +214,7 @@ public class superqix
 			if(loop==6) loop=0;
 			nmi_line_pulse();
 		}
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( superqix )
 	

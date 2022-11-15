@@ -476,8 +476,7 @@ public class galpani2
 	
 	/* CPU#1 Interrups */
 	#define GALPANI2_INTERRUPTS_NUM	4
-	INTERRUPT_GEN( galpani2_interrupt )
-	{
+	public static InterruptHandlerPtr galpani2_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 3:  cpu_set_irq_line(0, 3, HOLD_LINE); break;
@@ -485,20 +484,19 @@ public class galpani2
 			case 1:  cpu_set_irq_line(0, 5, HOLD_LINE); break;	// vblank?
 			case 0:  cpu_set_irq_line(0, 6, HOLD_LINE); break;	// hblank?
 		}
-	}
+	} };
 	
 	/* CPU#2 Interrups */
 	/* lev 3,4 & 5 are tested on power up. The rest is rte, but lev 7 */
 	#define GALPANI2_INTERRUPTS_NUM2	3
-	INTERRUPT_GEN( galpani2_interrupt2 )
-	{
+	public static InterruptHandlerPtr galpani2_interrupt2 = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 2:  cpu_set_irq_line(1, 3, HOLD_LINE); break;
 			case 1:  cpu_set_irq_line(1, 4, HOLD_LINE); break;
 			case 0:  cpu_set_irq_line(1, 5, HOLD_LINE); break;
 		}
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( galpani2 )
 	

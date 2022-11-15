@@ -50,13 +50,12 @@ public class cheekyms
 	PORT_END
 	
 	
-	static INTERRUPT_GEN( cheekyms_interrupt )
-	{
+	public static InterruptHandlerPtr cheekyms_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (readinputport(2) & 1)	/* Coin */
 			nmi_line_pulse();
 		else
 			irq0_line_hold();
-	}
+	} };
 	
 	
 	static InputPortHandlerPtr input_ports_cheekyms = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( cheekyms )

@@ -686,8 +686,7 @@ public class karnov
 	
 	/******************************************************************************/
 	
-	static INTERRUPT_GEN( karnov_interrupt )
-	{
+	public static InterruptHandlerPtr karnov_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int latch;
 	
 		/* Coin input to the i8751 generates an interrupt to the main cpu */
@@ -705,7 +704,7 @@ public class karnov
 		}
 	
 		cpu_set_irq_line(0,7,HOLD_LINE);	/* VBL */
-	}
+	} };
 	
 	static void sound_irq(int linestate)
 	{

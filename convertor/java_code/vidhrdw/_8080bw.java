@@ -278,8 +278,7 @@ public class _8080bw
 	}
 	
 	
-	INTERRUPT_GEN( polaris_interrupt )
-	{
+	public static InterruptHandlerPtr polaris_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int cloud_speed;
 	
 		cloud_speed++;
@@ -299,11 +298,10 @@ public class _8080bw
 		}
 	
 		c8080bw_interrupt();
-	}
+	} };
 	
 	
-	INTERRUPT_GEN( phantom2_interrupt )
-	{
+	public static InterruptHandlerPtr phantom2_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int cloud_speed;
 	
 		cloud_speed++;
@@ -317,7 +315,7 @@ public class _8080bw
 		}
 	
 		c8080bw_interrupt();
-	}
+	} };
 	
 	
 	static void plot_pixel_8080(int x, int y, int col)

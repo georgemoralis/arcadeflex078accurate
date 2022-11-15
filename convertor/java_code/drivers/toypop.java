@@ -22,9 +22,6 @@ public class toypop
 	
 	// machine\toypop.c
 	MACHINE_INIT( toypop );
-	INTERRUPT_GEN( toypop_main_interrupt );
-	INTERRUPT_GEN( toypop_sound_interrupt );
-	INTERRUPT_GEN( toypop_m68000_interrupt );
 	WRITE_HANDLER( toypop_main_interrupt_enable_w );
 	WRITE_HANDLER( toypop_main_interrupt_disable_w );
 	WRITE_HANDLER( toypop_sound_interrupt_enable_w );

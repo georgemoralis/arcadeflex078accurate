@@ -55,8 +55,7 @@ public class stactics
 	    return stactics_horiz_pos+0x80;
 	}
 	
-	INTERRUPT_GEN( stactics_interrupt )
-	{
+	public static InterruptHandlerPtr stactics_interrupt = new InterruptHandlerPtr() {public void handler(){
 	    /* Run the monitor motors */
 	
 	    if (*stactics_motor_on & 0x01) /* under joystick control */
@@ -90,7 +89,7 @@ public class stactics
 	    }
 	
 	    cpu_set_irq_line(0,0,HOLD_LINE);
-	}
+	} };
 	
 	WRITE_HANDLER( stactics_coin_lockout_w )
 	{

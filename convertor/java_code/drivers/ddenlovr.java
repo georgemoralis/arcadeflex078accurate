@@ -2076,8 +2076,7 @@ public class ddenlovr
 	   0xee is vblank
 	   0xfc is from the 6242RTC
 	 */
-	static INTERRUPT_GEN( quizchq_irq )
-	{
+	public static InterruptHandlerPtr quizchq_irq = new InterruptHandlerPtr() {public void handler(){
 		static int count;
 	
 		/* I haven't found a irq ack register, so I need this kludge to
@@ -2090,12 +2089,11 @@ public class ddenlovr
 			cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xfc);
 		else
 			cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xee);
-	}
+	} };
 	
-	static INTERRUPT_GEN( rtc_irq )
-	{
+	public static InterruptHandlerPtr rtc_irq = new InterruptHandlerPtr() {public void handler(){
 	//	cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xfc);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( quizchq )
 	
@@ -2142,8 +2140,7 @@ public class ddenlovr
 		RST 18 is from the blitter
 		RST 20 is from the 6242RTC
 	 */
-	static INTERRUPT_GEN( mmpanic_irq )
-	{
+	public static InterruptHandlerPtr mmpanic_irq = new InterruptHandlerPtr() {public void handler(){
 		static int count;
 	
 		/* I haven't found a irq ack register, so I need this kludge to
@@ -2156,7 +2153,7 @@ public class ddenlovr
 			cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xe7);	// RST 20, clock
 		else
 			cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xcf);	// RST 08, vblank
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( mmpanic )
 	

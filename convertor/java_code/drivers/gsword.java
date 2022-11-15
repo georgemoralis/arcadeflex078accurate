@@ -232,14 +232,13 @@ public class gsword
 		TAITO8741_start(&gsword_8741interface);
 	}
 	
-	static INTERRUPT_GEN( gsword_snd_interrupt )
-	{
+	public static InterruptHandlerPtr gsword_snd_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if( (gsword_nmi_count+=gsword_nmi_step) >= 4)
 		{
 			gsword_nmi_count = 0;
 			cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( gsword_nmi_set_w )
 	{

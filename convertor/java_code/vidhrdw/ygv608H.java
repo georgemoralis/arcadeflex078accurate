@@ -329,7 +329,6 @@ typedef struct _ygv608 {
 } YGV608, *pYGV608;
 
 
-INTERRUPT_GEN( ygv608_timed_interrupt );
 VIDEO_START( ygv608 );
 VIDEO_UPDATE( ygv608 );
 VIDEO_STOP( ygv608 );

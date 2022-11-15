@@ -57,8 +57,7 @@ public class ygv608
 	#endif
 	
 	/* interrupt generated every 1ms second */
-	INTERRUPT_GEN( ygv608_timed_interrupt )
-	{
+	public static InterruptHandlerPtr ygv608_timed_interrupt = new InterruptHandlerPtr() {public void handler(){
 	/*
 	    this is not quite generic, because we trigger a 68k interrupt
 	    - if this chip is ever used by another driver, we should make
@@ -85,7 +84,7 @@ public class ygv608
 			if (ygv608.regs.s.r14 & r14_iep)
 				irq2_line_hold();
 		}
-	}
+	} };
 	
 	
 	static UINT32 get_tile_offset( UINT32 col, UINT32 row,

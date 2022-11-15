@@ -61,7 +61,6 @@ public class qixH
 	VIDEO_START( qix );
 	VIDEO_UPDATE( qix );
 	
-	INTERRUPT_GEN( qix_vblank_start );
 	void qix_scanline_callback(int scanline);
 	
 	READ_HANDLER( qix_scanline_r );

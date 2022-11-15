@@ -191,25 +191,23 @@ public class exidy
 	}
 	
 	
-	INTERRUPT_GEN( exidy_vblank_interrupt )
-	{
+	public static InterruptHandlerPtr exidy_vblank_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* latch the current condition */
 		latch_condition(0);
 		int_condition &= ~0x80;
 	
 		/* set the IRQ line */
 		cpu_set_irq_line(0, 0, ASSERT_LINE);
-	}
+	} };
 	
 	
-	INTERRUPT_GEN( teetert_vblank_interrupt )
-	{
+	public static InterruptHandlerPtr teetert_vblank_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* standard stuff */
 		exidy_vblank_interrupt();
 		
 		/* plus a pulse on the NMI line */
 		cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	
 	READ_HANDLER( exidy_interrupt_r )

@@ -1465,8 +1465,7 @@ public class cischeat
 	
 	/* CPU # 1 */
 	#define CISCHEAT_INTERRUPT_NUM	3
-	INTERRUPT_GEN( cischeat_interrupt )
-	{
+	public static InterruptHandlerPtr cischeat_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops()==0)
 			cpu_set_irq_line(0, 4, HOLD_LINE); /* Once */
 		else
@@ -1474,7 +1473,7 @@ public class cischeat
 			if (cpu_getiloops()%2)	cpu_set_irq_line(0, 2, HOLD_LINE);
 			else 					cpu_set_irq_line(0, 1, HOLD_LINE);
 		}
-	}
+	} };
 	
 	
 	/* CPU # 2 & 3 */
@@ -1633,15 +1632,14 @@ public class cischeat
 		4]	 		== 3
 	*/
 	#define INTERRUPT_NUM_SCUDHAMM		30
-	INTERRUPT_GEN( interrupt_scudhamm )
-	{
+	public static InterruptHandlerPtr interrupt_scudhamm = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:		cpu_set_irq_line(0, 3, PULSE_LINE);	// update palette, layers etc. Not the sprites.
 			case 14:	cpu_set_irq_line(0, 2, PULSE_LINE);	// "real" vblank. It just sets a flag that
 															// the main loop polls before updating the sprites.
 		}
-	}
+	} };
 	
 	
 	static MACHINE_DRIVER_START( scudhamm )

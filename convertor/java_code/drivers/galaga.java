@@ -94,9 +94,6 @@ public class galaga
 	WRITE_HANDLER( galaga_customio_w );
 	WRITE_HANDLER( galaga_customio_data_w );
 	WRITE_HANDLER( galaga_halt_w );
-	INTERRUPT_GEN( galaga_interrupt_1 );
-	INTERRUPT_GEN( galaga_interrupt_2 );
-	INTERRUPT_GEN( galaga_interrupt_3 );
 	MACHINE_INIT( galaga );
 	WRITE_HANDLER ( gatsbee_bank_w );
 	

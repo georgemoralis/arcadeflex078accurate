@@ -96,7 +96,6 @@ public class btime
 	WRITE_HANDLER( lnc_video_control_w );
 	WRITE_HANDLER( disco_video_control_w );
 	
-	INTERRUPT_GEN( lnc_sound_interrupt );
 	
 	static WRITE_HANDLER( sound_command_w );
 	
@@ -496,20 +495,17 @@ public class btime
 		else coin = 0;
 	}
 	
-	static INTERRUPT_GEN( btime_irq_interrupt )
-	{
+	public static InterruptHandlerPtr btime_irq_interrupt = new InterruptHandlerPtr() {public void handler(){
 		btime_interrupt(0, 1);
-	}
+	} };
 	
-	static INTERRUPT_GEN( zoar_irq_interrupt )
-	{
+	public static InterruptHandlerPtr zoar_irq_interrupt = new InterruptHandlerPtr() {public void handler(){
 		btime_interrupt(0, 0);
-	}
+	} };
 	
-	static INTERRUPT_GEN( btime_nmi_interrupt )
-	{
+	public static InterruptHandlerPtr btime_nmi_interrupt = new InterruptHandlerPtr() {public void handler(){
 		btime_interrupt(IRQ_LINE_NMI, 0);
-	}
+	} };
 	
 	static WRITE_HANDLER( sound_command_w )
 	{

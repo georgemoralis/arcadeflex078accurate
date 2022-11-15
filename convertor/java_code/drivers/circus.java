@@ -49,8 +49,7 @@ public class circus
 	extern VIDEO_UPDATE( ripcord ); //AT
 	extern VIDEO_EOF( ripcord ); //AT
 	
-	extern INTERRUPT_GEN( crash_interrupt );
-	extern struct Samplesinterface circus_samples_interface;
+	extern extern struct Samplesinterface circus_samples_interface;
 	#if 0
 	static int circus_interrupt;
 	
@@ -281,10 +280,9 @@ public class circus
 	  Machine drivers
 	***************************************************************************/
 	#if 0
-	static INTERRUPT_GEN( ripcord_interrupt )
-	{
+	public static InterruptHandlerPtr ripcord_interrupt = new InterruptHandlerPtr() {public void handler(){
 		circus_interrupt = 0;
-	}
+	} };
 	#endif
 	
 	static struct DACinterface dac_interface =

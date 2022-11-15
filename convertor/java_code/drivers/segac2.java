@@ -296,15 +296,14 @@ public class segac2
 	
 	
 	/* interrupt callback to generate the VBLANK interrupt */
-	static INTERRUPT_GEN( vblank_interrupt )
-	{
+	public static InterruptHandlerPtr vblank_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* generate the interrupt */
 		vblank_int = 1;
 		update_interrupts();
 	
 		/* set a timer to turn it off */
 		timer_set(cpu_getscanlineperiod() * (22. / 342.), 0, vdp_int6_off);
-	}
+	} };
 	
 	
 	/* interrupt callback to generate the YM3438 interrupt */
@@ -1839,8 +1838,7 @@ public class segac2
 	extern UINT8 *segae_vdp_regs[];		/* pointer to vdp's registers */
 	
 	// Interrupt handler - from drivers/segasyse.c
-	INTERRUPT_GEN (megatech_irq)
-	{
+	public static InterruptHandlerPtr megatech_irq = new InterruptHandlerPtr() {public void handler(){
 		int sline;
 		sline = 261 - cpu_getiloops();
 	
@@ -1877,7 +1875,7 @@ public class segac2
 			}
 		}
 	
-	}
+	} };
 	
 	
 	/******************************************************************************

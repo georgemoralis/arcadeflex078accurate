@@ -122,7 +122,7 @@ public class sharrier
 		page[2] = data&0xf;
 	}
 	
-	static INTERRUPT_GEN( sys16_interrupt ){
+	public static InterruptHandlerPtr sys16_interrupt = new InterruptHandlerPtr() {public void handler()
 		if(sys16_custom_irq) sys16_custom_irq();
 		cpu_set_irq_line(cpu_getactivecpu(), 4, HOLD_LINE); /* Interrupt vector 4, used by VBlank */
 	}
@@ -131,7 +131,7 @@ public class sharrier
 		if( ACCESSING_LSB ){
 			soundlatch_w( 0,data&0xff );
 			cpu_set_nmi_line(1, PULSE_LINE);
-		}
+		} };
 	}
 	
 	static data16_t coinctrl;

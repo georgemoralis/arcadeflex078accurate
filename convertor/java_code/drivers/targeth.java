@@ -45,8 +45,7 @@ public class targeth
 	};
 	
 	
-	static INTERRUPT_GEN(targeth_interrupt )
-	{
+	public static InterruptHandlerPtr targeth_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch(cpu_getiloops()){
 			case 0: /* IRQ 2: drives the game */
 				cpu_set_irq_line(0, 2, HOLD_LINE);
@@ -58,7 +57,7 @@ public class targeth
 				cpu_set_irq_line(0, 6, HOLD_LINE);
 				break;
 		}
-	}
+	} };
 	
 	
 	static MEMORY_READ16_START( targeth_readmem )

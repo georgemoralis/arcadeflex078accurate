@@ -32,7 +32,6 @@ public class spdodgeb
 	PALETTE_INIT( spdodgeb );
 	VIDEO_START( spdodgeb );
 	VIDEO_UPDATE( spdodgeb );
-	INTERRUPT_GEN( spdodgeb_interrupt );
 	WRITE_HANDLER( spdodgeb_scrollx_lo_w );
 	WRITE_HANDLER( spdodgeb_ctrl_w );
 	WRITE_HANDLER( spdodgeb_videoram_w );

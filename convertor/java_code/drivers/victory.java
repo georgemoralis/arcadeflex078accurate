@@ -130,7 +130,6 @@ public class victory
 	VIDEO_START( victory );
 	VIDEO_EOF( victory );
 	VIDEO_UPDATE( victory );
-	INTERRUPT_GEN( victory_vblank_interrupt );
 	
 	READ_HANDLER( victory_video_control_r );
 	WRITE_HANDLER( victory_video_control_w );

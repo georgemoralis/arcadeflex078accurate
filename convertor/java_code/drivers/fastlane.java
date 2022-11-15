@@ -28,8 +28,7 @@ public class fastlane
 	VIDEO_START( fastlane );
 	VIDEO_UPDATE( fastlane );
 	
-	static INTERRUPT_GEN( fastlane_interrupt )
-	{
+	public static InterruptHandlerPtr fastlane_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		{
 			if (K007121_ctrlram[0][0x07] & 0x02)
@@ -40,7 +39,7 @@ public class fastlane
 			if (K007121_ctrlram[0][0x07] & 0x01)
 				cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( k007121_registers_w )
 	{

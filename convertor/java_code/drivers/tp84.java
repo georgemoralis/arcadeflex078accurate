@@ -108,8 +108,7 @@ public class tp84
 	extern VIDEO_START( tp84 );
 	extern VIDEO_UPDATE( tp84 );
 	
-	extern INTERRUPT_GEN( tp84_6809_interrupt );
-	
+	extern 
 	
 	static UINT8 *sharedram;
 	

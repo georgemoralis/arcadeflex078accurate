@@ -223,8 +223,6 @@ WRITE_HANDLER( hunchbks_mirror_w );
 
 WRITE_HANDLER( zigzag_sillyprotection_w );
 
-INTERRUPT_GEN( hunchbks_vh_interrupt );
-INTERRUPT_GEN( gmgalax_vh_interrupt );
 
 READ_HANDLER( gmgalax_input_port_0_r );
 READ_HANDLER( gmgalax_input_port_1_r );

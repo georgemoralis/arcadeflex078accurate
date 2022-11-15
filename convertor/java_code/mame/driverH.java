@@ -18,7 +18,7 @@
 
 #define DRIVER_INIT(name)		void init_##name(void)
 
-#define INTERRUPT_GEN(func)		void func(void)
+#define public static InterruptHandlerPtr func = new InterruptHandlerPtr() {public void handler()void func(void)
 
 #define MACHINE_INIT(name)		void machine_init_##name(void)
 #define MACHINE_STOP(name)		void machine_stop_##name(void)
@@ -88,7 +88,7 @@ public class driverH
 			(void)cpu;														\
 	
 	#define MACHINE_DRIVER_END 												\
-		}																	\
+		} };																	\
 	
 	
 	/* importing data from other machine drivers */

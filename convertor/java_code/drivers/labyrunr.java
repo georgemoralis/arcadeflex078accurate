@@ -27,8 +27,7 @@ public class labyrunr
 	VIDEO_START( labyrunr );
 	VIDEO_UPDATE( labyrunr );
 	
-	static INTERRUPT_GEN( labyrunr_interrupt )
-	{
+	public static InterruptHandlerPtr labyrunr_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		{
 			if (K007121_ctrlram[0][0x07] & 0x02)
@@ -39,7 +38,7 @@ public class labyrunr
 			if (K007121_ctrlram[0][0x07] & 0x01)
 				cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( labyrunr_bankswitch_w )
 	{

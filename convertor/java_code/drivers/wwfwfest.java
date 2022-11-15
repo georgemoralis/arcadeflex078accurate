@@ -374,7 +374,7 @@ public class wwfwfest
 	 Interrupt Function
 	*******************************************************************************/
 	
-	static INTERRUPT_GEN( wwfwfest_interrupt ) {
+	public static InterruptHandlerPtr wwfwfest_interrupt = new InterruptHandlerPtr() {public void handler()
 		if( cpu_getiloops() == 0 )
 			cpu_set_irq_line(0, 3, HOLD_LINE);
 		else
@@ -396,7 +396,7 @@ public class wwfwfest
 	{
 		1,			/* 1 chip */
 		3579545,
-		{ YM3012_VOL(45,MIXER_PAN_LEFT,45,MIXER_PAN_RIGHT) },
+		{ YM3012_VOL(45,MIXER_PAN_LEFT,45,MIXER_PAN_RIGHT) } };,
 		{ dd3_ymirq_handler }
 	};
 	

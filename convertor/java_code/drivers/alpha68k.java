@@ -1909,13 +1909,12 @@ public class alpha68k
 		{ YM3812_irq },
 	};
 	
-	static INTERRUPT_GEN( goldmedl_interrupt )
-	{
+	public static InterruptHandlerPtr goldmedl_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 			cpu_set_irq_line(0, 1, HOLD_LINE);
 		else
 			cpu_set_irq_line(0, 2, HOLD_LINE);
-	}
+	} };
 	//ZT
 	
 	static struct DACinterface dac_interface =
@@ -1924,13 +1923,12 @@ public class alpha68k
 		{ 75 }
 	};
 	
-	static INTERRUPT_GEN( kyros_interrupt )
-	{
+	public static InterruptHandlerPtr kyros_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 			cpu_set_irq_line(0, 1, HOLD_LINE);
 		else
 			cpu_set_irq_line(0, 2, HOLD_LINE);
-	}
+	} };
 	
 	/******************************************************************************/
 	

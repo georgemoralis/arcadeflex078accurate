@@ -202,7 +202,7 @@ public class outrun
 	}
 	#endif
 	
-	static INTERRUPT_GEN( sys16_interrupt ){
+	public static InterruptHandlerPtr sys16_interrupt = new InterruptHandlerPtr() {public void handler()
 		if(sys16_custom_irq) sys16_custom_irq();
 		cpu_set_irq_line(cpu_getactivecpu(), 4, HOLD_LINE); /* Interrupt vector 4, used by VBlank */
 	}
@@ -236,7 +236,7 @@ public class outrun
 	{
 		if( ACCESSING_LSB ){
 			sound_shared_ram[offset*2+1] = data&0xff;
-		}
+		} };
 		if( ACCESSING_MSB ){
 			sound_shared_ram[offset*2] = data>>8;
 		}
@@ -1059,7 +1059,7 @@ public class outrun
 	INPUT_PORTS_END(); }}; 
 	
 	/***************************************************************************/
-	static INTERRUPT_GEN( or_interrupt ){
+	public static InterruptHandlerPtr or_interrupt = new InterruptHandlerPtr() {public void handler()
 		int intleft=cpu_getiloops();
 		if(intleft!=0) cpu_set_irq_line(0, 2, HOLD_LINE);
 		else cpu_set_irq_line(0, 4, HOLD_LINE);

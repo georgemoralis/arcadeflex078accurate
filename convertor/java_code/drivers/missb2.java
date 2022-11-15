@@ -29,7 +29,6 @@ public class missb2
 	READ_HANDLER( bublbobl_sharedram2_r );
 	WRITE_HANDLER( bublbobl_sharedram1_w );
 	WRITE_HANDLER( bublbobl_sharedram2_w );
-	INTERRUPT_GEN( bublbobl_m68705_interrupt );
 	READ_HANDLER( bublbobl_68705_portA_r );
 	WRITE_HANDLER( bublbobl_68705_portA_w );
 	WRITE_HANDLER( bublbobl_68705_ddrA_w );

@@ -271,10 +271,9 @@ public class avengrgs
 		{ sound_irq_gen }
 	};
 	
-	static INTERRUPT_GEN(avengrgs_interrupt)
-	{
+	public static InterruptHandlerPtr avengrgs_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line(0, 1, HOLD_LINE);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( avengrgs )
 	

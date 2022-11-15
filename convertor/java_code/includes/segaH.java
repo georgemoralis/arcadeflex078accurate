@@ -11,7 +11,6 @@ extern void sega_security(int chip);
 
 WRITE_HANDLER( sega_w );
 
-INTERRUPT_GEN( sega_interrupt );
 
 READ_HANDLER( sega_mult_r );
 WRITE_HANDLER( sega_mult1_w );

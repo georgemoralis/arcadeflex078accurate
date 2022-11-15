@@ -368,8 +368,7 @@ public class grchamp
 	};
 	
 	
-	static INTERRUPT_GEN( grchamp_interrupt )
-	{
+	public static InterruptHandlerPtr grchamp_interrupt = new InterruptHandlerPtr() {public void handler(){
 		int cpu = cpu_getactivecpu();
 	
 		if ( grchamp_cpu_irq_enable[cpu] )
@@ -377,7 +376,7 @@ public class grchamp
 			grchamp_cpu_irq_enable[cpu] = 0;
 			cpu_set_irq_line(cpu, 0, HOLD_LINE);
 		}
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( grchamp )
 	

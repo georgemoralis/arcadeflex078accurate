@@ -318,8 +318,7 @@ public class xexex
 		}
 	}
 	
-	static INTERRUPT_GEN( xexex_interrupt )
-	{
+	public static InterruptHandlerPtr xexex_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (suspension_active) { suspension_active = 0; cpu_trigger(resume_trigger); }
 	
 		switch (cpu_getiloops())
@@ -346,7 +345,7 @@ public class xexex
 					cpu_set_irq_line(0, 4, HOLD_LINE);
 			break;
 		}
-	}
+	} };
 	
 	
 	static MEMORY_READ16_START( readmem )

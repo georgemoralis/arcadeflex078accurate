@@ -206,7 +206,6 @@ enum {
 
 MACHINE_INIT( nb1413m3 );
 WRITE_HANDLER( nb1413m3_nmi_clock_w );
-INTERRUPT_GEN( nb1413m3_interrupt );
 NVRAM_HANDLER( nb1413m3 );
 int nb1413m3_sndrom_r(int offset);
 WRITE_HANDLER( nb1413m3_sndrombank1_w );

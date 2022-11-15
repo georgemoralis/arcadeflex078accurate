@@ -763,10 +763,9 @@ public class shanghai
 	}
 	
 	
-	static INTERRUPT_GEN( shanghai_interrupt )
-	{
+	public static InterruptHandlerPtr shanghai_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line_and_vector(0,0,HOLD_LINE,0x80);
-	}
+	} };
 	
 	static WRITE_HANDLER( shanghai_coin_w )
 	{

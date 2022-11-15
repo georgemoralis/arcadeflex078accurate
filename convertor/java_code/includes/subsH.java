@@ -7,7 +7,6 @@
 /*----------- defined in machine/subs.c -----------*/
 
 MACHINE_INIT( subs );
-INTERRUPT_GEN( subs_interrupt );
 WRITE_HANDLER( subs_steer_reset_w );
 READ_HANDLER( subs_control_r );
 READ_HANDLER( subs_coin_r );

@@ -162,10 +162,9 @@ public class psikyo4
 		return 0;
 	}
 	
-	static INTERRUPT_GEN(psikyosh_interrupt)
-	{
+	public static InterruptHandlerPtr psikyosh_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line(0, 4, HOLD_LINE);
-	}
+	} };
 	
 	static READ32_HANDLER(hotgmck_io32_r) /* used by hotgmck/hgkairak */
 	{

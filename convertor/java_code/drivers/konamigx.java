@@ -706,8 +706,7 @@ public class konamigx
 	}
 	
 	
-	static INTERRUPT_GEN(konamigx_vbinterrupt)
-	{
+	public static InterruptHandlerPtr konamigx_vbinterrupt = new InterruptHandlerPtr() {public void handler(){
 		// lift idle suspension
 		if (resume_trigger && suspension_active) { suspension_active = 0; cpu_trigger(resume_trigger); }
 	
@@ -724,10 +723,9 @@ public class konamigx
 		}
 	
 		dmastart_callback(0);
-	}
+	} };
 	
-	static INTERRUPT_GEN(konamigx_vbinterrupt_type4)
-	{
+	public static InterruptHandlerPtr konamigx_vbinterrupt_type4 = new InterruptHandlerPtr() {public void handler(){
 		// lift idle suspension
 		if (resume_trigger && suspension_active) { suspension_active = 0; cpu_trigger(resume_trigger); }
 	
@@ -746,10 +744,9 @@ public class konamigx
 		}
 	
 		dmastart_callback(0);
-	}
+	} };
 	
-	static INTERRUPT_GEN(konamigx_hbinterrupt)
-	{
+	public static InterruptHandlerPtr konamigx_hbinterrupt = new InterruptHandlerPtr() {public void handler(){
 		if (!cpu_getiloops())
 		{
 			konamigx_vbinterrupt_type4();
@@ -768,7 +765,7 @@ public class konamigx
 				}
 			}
 		}
-	}
+	} };
 	
 	
 	/**********************************************************************************/
@@ -1395,10 +1392,9 @@ public class konamigx
 	MEMORY_END
 	
 	/* 68000 timer interrupt controller */
-	static INTERRUPT_GEN(gxaudio_interrupt)
-	{
+	public static InterruptHandlerPtr gxaudio_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line(1, 2, HOLD_LINE);
-	}
+	} };
 	
 	static struct K054539interface k054539_interface =
 	{

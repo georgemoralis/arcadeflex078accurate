@@ -232,8 +232,7 @@ public class timeplt
 	}
 	
 	
-	INTERRUPT_GEN( timeplt_interrupt )
-	{
+	public static InterruptHandlerPtr timeplt_interrupt = new InterruptHandlerPtr() {public void handler(){
 		scanline = 255 - cpu_getiloops();
 	
 		memcpy(sprite_mux_buffer + scanline * spriteram_size,spriteram,spriteram_size);
@@ -241,5 +240,5 @@ public class timeplt
 	
 		if (scanline == 255)
 			nmi_line_pulse();
-	}
+	} };
 }

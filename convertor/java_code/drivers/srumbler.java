@@ -60,8 +60,7 @@ public class srumbler
 		srumbler_bankswitch_w(0,0);
 	}
 	
-	static INTERRUPT_GEN( srumbler_interrupt )
-	{
+	public static InterruptHandlerPtr srumbler_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops()==0)
 		{
 			cpu_set_irq_line(0,0,HOLD_LINE);
@@ -70,7 +69,7 @@ public class srumbler
 		{
 			cpu_set_irq_line(0,M6809_FIRQ_LINE,HOLD_LINE);
 		}
-	}
+	} };
 	
 	
 	

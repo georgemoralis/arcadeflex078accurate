@@ -6,9 +6,6 @@
 
 /*----------- defined in machine/asteroid.c -----------*/
 
-INTERRUPT_GEN( asteroid_interrupt );
-INTERRUPT_GEN( asterock_interrupt );
-INTERRUPT_GEN( llander_interrupt );
 
 READ_HANDLER( asteroid_IN0_r );
 READ_HANDLER( asteroib_IN0_r );

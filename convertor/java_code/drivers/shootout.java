@@ -293,8 +293,7 @@ public class shootout
 		{ shootout_snd2_irq },
 	};
 	
-	static INTERRUPT_GEN( shootout_interrupt )
-	{
+	public static InterruptHandlerPtr shootout_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int coin = 0;
 	
 		if ( readinputport( 2 ) & 0xc0 ) {
@@ -304,7 +303,7 @@ public class shootout
 			}
 		} else
 			coin = 0;
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( shootout )
 	

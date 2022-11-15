@@ -222,9 +222,6 @@ public class xevious
 	WRITE_HANDLER( xevious_customio_w );
 	WRITE_HANDLER( xevious_customio_data_w );
 	WRITE_HANDLER( xevious_halt_w );
-	INTERRUPT_GEN( xevious_interrupt_1 );
-	INTERRUPT_GEN( xevious_interrupt_2 );
-	INTERRUPT_GEN( xevious_interrupt_3 );
 	MACHINE_INIT( xevious );
 	
 	WRITE_HANDLER( xevious_vh_latch_w );
@@ -261,7 +258,6 @@ public class xevious
 	WRITE_HANDLER( battles_CPU4_4000_w );
 	WRITE_HANDLER( battles_noise_sound_w );
 	
-	INTERRUPT_GEN( battles_interrupt_4 );
 	
 	MACHINE_INIT( battles );
 	PALETTE_INIT( battles );

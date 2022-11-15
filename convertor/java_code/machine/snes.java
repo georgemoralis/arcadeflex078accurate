@@ -1432,8 +1432,7 @@ public class snes
 	}
 	#endif	/* MESS */
 	
-	INTERRUPT_GEN(snes_scanline_interrupt)
-	{
+	public static InterruptHandlerPtr snes_scanline_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* Start of VBlank */
 		if( snes_ppu.beam.current_vert == snes_ppu.beam.last_visible_line )
 		{
@@ -1501,7 +1500,7 @@ public class snes
 			snes_ram[RDNMI]  &= 0x7f;		/* Clear nmi occured bit */
 			cpu_set_irq_line( 0, G65816_LINE_NMI, CLEAR_LINE );
 		}
-	}
+	} };
 	
 	void snes_hdma_init()
 	{

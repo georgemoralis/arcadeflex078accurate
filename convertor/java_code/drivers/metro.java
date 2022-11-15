@@ -216,8 +216,7 @@ public class metro
 	}
 	
 	
-	INTERRUPT_GEN( metro_interrupt )
-	{
+	public static InterruptHandlerPtr metro_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:
@@ -230,15 +229,14 @@ public class metro
 				update_irq_state();
 				break;
 		}
-	}
+	} };
 	
 	/* Lev 1. Lev 2 seems sound related */
-	INTERRUPT_GEN( bangball_interrupt )
-	{
+	public static InterruptHandlerPtr bangball_interrupt = new InterruptHandlerPtr() {public void handler(){
 		requested_int[0] = 1;	// set scroll regs if a flag is set
 		requested_int[4] = 1;	// clear that flag
 		update_irq_state();
-	}
+	} };
 	
 	
 	static void vblank_end_callback(int param)
@@ -247,8 +245,7 @@ public class metro
 	}
 	
 	/* lev 2-7 (lev 1 seems sound related) */
-	INTERRUPT_GEN( karatour_interrupt )
-	{
+	public static InterruptHandlerPtr karatour_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:
@@ -263,10 +260,9 @@ public class metro
 				update_irq_state();
 				break;
 		}
-	}
+	} };
 	
-	INTERRUPT_GEN( mouja_interrupt )
-	{
+	public static InterruptHandlerPtr mouja_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:
@@ -279,10 +275,9 @@ public class metro
 				update_irq_state();
 				break;
 		}
-	}
+	} };
 	
-	INTERRUPT_GEN( gakusai_interrupt )
-	{
+	public static InterruptHandlerPtr gakusai_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:
@@ -290,10 +285,9 @@ public class metro
 				update_irq_state();
 				break;
 		}
-	}
+	} };
 	
-	INTERRUPT_GEN( dokyusei_interrupt )
-	{
+	public static InterruptHandlerPtr dokyusei_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:
@@ -305,7 +299,7 @@ public class metro
 				update_irq_state();
 				break;
 		}
-	}
+	} };
 	
 	static void ymf278b_interrupt(int active)
 	{

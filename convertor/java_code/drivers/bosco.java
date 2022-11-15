@@ -91,9 +91,6 @@ public class bosco
 	READ_HANDLER( bosco_customio_data_2_r );
 	WRITE_HANDLER( bosco_customio_data_1_w );
 	WRITE_HANDLER( bosco_customio_data_2_w );
-	INTERRUPT_GEN( bosco_interrupt_1 );
-	INTERRUPT_GEN( bosco_interrupt_2 );
-	INTERRUPT_GEN( bosco_interrupt_3 );
 	MACHINE_INIT( bosco );
 	
 	WRITE_HANDLER( bosco_cpu_reset_w );

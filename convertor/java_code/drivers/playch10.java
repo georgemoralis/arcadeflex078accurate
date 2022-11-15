@@ -743,12 +743,12 @@ public class playch10
 		{ -1 } /* end of array */
 	};
 	
-	static INTERRUPT_GEN( playch10_interrupt ) {
+	public static InterruptHandlerPtr playch10_interrupt = new InterruptHandlerPtr() {public void handler()
 	
 		/* LS161A, Sheet 1 - bottom left of Z80 */
 		if ( !pc10_dog_di && !pc10_nmi_enable ) {
 			cpu_set_reset_line( 0, PULSE_LINE );
-		}
+		} };
 	
 		else if ( pc10_nmi_enable )
 			cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);

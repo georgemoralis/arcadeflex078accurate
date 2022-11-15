@@ -364,13 +364,12 @@ public class psychic5
 		}
 	}
 	
-	INTERRUPT_GEN( psychic5_interrupt )
-	{
+	public static InterruptHandlerPtr psychic5_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		   cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xd7);		/* RST 10h */
 		else
 	   	   cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xcf);		/* RST 08h */
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

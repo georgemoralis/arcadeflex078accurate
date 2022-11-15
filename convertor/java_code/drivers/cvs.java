@@ -91,7 +91,6 @@ package drivers;
 public class cvs
 {
 	
-	INTERRUPT_GEN( cvs_interrupt );
 	PALETTE_INIT( cvs );
 	VIDEO_UPDATE( cvs );
 	VIDEO_START( cvs );

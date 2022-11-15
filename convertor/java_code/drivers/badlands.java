@@ -168,8 +168,7 @@ public class badlands
 	 *
 	 *************************************/
 	
-	static INTERRUPT_GEN( vblank_int )
-	{
+	public static InterruptHandlerPtr vblank_int = new InterruptHandlerPtr() {public void handler(){
 		int pedal_state = input_port_4_r(0);
 		int i;
 	
@@ -182,7 +181,7 @@ public class badlands
 		}
 	
 		atarigen_video_int_gen();
-	}
+	} };
 	
 	
 	

@@ -47,7 +47,6 @@ WRITE_HANDLER( indyheat_analog_w );
 MACHINE_INIT( leland );
 MACHINE_INIT( ataxx );
 
-INTERRUPT_GEN( leland_master_interrupt );
 
 WRITE_HANDLER( leland_master_alt_bankswitch_w );
 void cerberus_bankswitch(void);

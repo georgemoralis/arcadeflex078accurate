@@ -84,7 +84,6 @@ public class gberet
 	VIDEO_UPDATE( gberet );
 	VIDEO_UPDATE( gberetb );
 	
-	INTERRUPT_GEN( gberet_interrupt );
 	
 	
 	static WRITE_HANDLER( gberet_coincounter_w )

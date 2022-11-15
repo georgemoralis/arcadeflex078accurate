@@ -184,8 +184,7 @@ public class tmnt
 			K053244_w(offset + 1,data & 0xff);
 	}
 	
-	static INTERRUPT_GEN(cbj_interrupt)
-	{
+	public static InterruptHandlerPtr cbj_interrupt = new InterruptHandlerPtr() {public void handler(){
 		// cheap IRQ multiplexing to avoid losing sound IRQs
 		switch (cpu_getiloops())
 		{
@@ -198,19 +197,17 @@ public class tmnt
 					cpu_set_irq_line(0, MC68000_IRQ_6, HOLD_LINE);
 				break;
 		}
-	}
+	} };
 	
-	static INTERRUPT_GEN( punkshot_interrupt )
-	{
+	public static InterruptHandlerPtr punkshot_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K052109_is_IRQ_enabled()) irq4_line_hold();
 	
-	}
+	} };
 	
-	static INTERRUPT_GEN( lgtnfght_interrupt )
-	{
+	public static InterruptHandlerPtr lgtnfght_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K052109_is_IRQ_enabled()) irq5_line_hold();
 	
-	}
+	} };
 	
 	
 	

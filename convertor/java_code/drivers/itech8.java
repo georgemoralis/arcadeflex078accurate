@@ -252,14 +252,13 @@ public class itech8
 	 *
 	 *************************************/
 	
-	static INTERRUPT_GEN( generate_nmi )
-	{
+	public static InterruptHandlerPtr generate_nmi = new InterruptHandlerPtr() {public void handler(){
 		/* signal the NMI */
 		itech8_update_interrupts(1, -1, -1);
 		itech8_update_interrupts(0, -1, -1);
 	
 		if (FULL_LOGGING) logerror("------------ VBLANK (%d) --------------\n", cpu_getscanline());
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( itech8_nmi_ack_w )

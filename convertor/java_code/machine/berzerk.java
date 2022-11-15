@@ -73,8 +73,7 @@ public class berzerk
 		return 0;
 	}
 	
-	INTERRUPT_GEN( berzerk_interrupt )
-	{
+	public static InterruptHandlerPtr berzerk_interrupt = new InterruptHandlerPtr() {public void handler(){
 		int_count++;
 	
 		if (int_count & 0x03)
@@ -85,6 +84,6 @@ public class berzerk
 		{
 			if (irq_enabled) cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xfc);
 		}
-	}
+	} };
 	
 }

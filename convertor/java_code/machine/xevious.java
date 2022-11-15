@@ -402,11 +402,10 @@ public class xevious
 	
 	
 	
-	INTERRUPT_GEN( xevious_interrupt_1 )
-	{
+	public static InterruptHandlerPtr xevious_interrupt_1 = new InterruptHandlerPtr() {public void handler(){
 		if (interrupt_enable_1)
 			cpu_set_irq_line(0, 0, HOLD_LINE);
-	}
+	} };
 	
 	
 	
@@ -417,11 +416,10 @@ public class xevious
 	
 	
 	
-	INTERRUPT_GEN( xevious_interrupt_2 )
-	{
+	public static InterruptHandlerPtr xevious_interrupt_2 = new InterruptHandlerPtr() {public void handler(){
 		if (interrupt_enable_2)
 			cpu_set_irq_line(1, 0, HOLD_LINE);
-	}
+	} };
 	
 	
 	
@@ -432,11 +430,10 @@ public class xevious
 	
 	
 	
-	INTERRUPT_GEN( xevious_interrupt_3 )
-	{
+	public static InterruptHandlerPtr xevious_interrupt_3 = new InterruptHandlerPtr() {public void handler(){
 		if (interrupt_enable_3)
 			cpu_set_irq_line(2, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	
 	
@@ -617,9 +614,8 @@ public class xevious
 	}
 	
 	
-	INTERRUPT_GEN( battles_interrupt_4 )
-	{
+	public static InterruptHandlerPtr battles_interrupt_4 = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line(3, 0, HOLD_LINE);
-	}
+	} };
 	
 }

@@ -104,10 +104,9 @@ public class pitnrun
 	
 	static int pitnrun_nmi;
 	
-	static INTERRUPT_GEN( pitnrun_nmi_source )
-	{
+	public static InterruptHandlerPtr pitnrun_nmi_source = new InterruptHandlerPtr() {public void handler(){
 		 if(pitnrun_nmi) cpu_set_irq_line(0,IRQ_LINE_NMI, PULSE_LINE)	;
-	}
+	} };
 	
 	static WRITE_HANDLER( nmi_enable_w )
 	{

@@ -11,7 +11,6 @@ WRITE_HANDLER( c8080bw_shift_data_w );
 READ_HANDLER( c8080bw_shift_data_r );
 READ_HANDLER( c8080bw_shift_data_rev_r );
 READ_HANDLER( c8080bw_shift_data_comp_r );
-INTERRUPT_GEN( c8080bw_interrupt );
 
 READ_HANDLER( boothill_shift_data_r );
 
@@ -98,8 +97,6 @@ void c8080bw_flip_screen_w(int data);
 void c8080bw_screen_red_w(int data);
 void c8080bw_helifire_colors_change_w(int data);
 
-INTERRUPT_GEN( polaris_interrupt );
-INTERRUPT_GEN( phantom2_interrupt );
 
 WRITE_HANDLER( c8080bw_videoram_w );
 WRITE_HANDLER( schaser_colorram_w );

@@ -62,8 +62,6 @@ public class mappy
 	WRITE_HANDLER( mappy_sharedram_w );
 	WRITE_HANDLER( mappy_customio_1_w );
 	WRITE_HANDLER( mappy_customio_2_w );
-	INTERRUPT_GEN( mappy_interrupt_1 );
-	INTERRUPT_GEN( mappy_interrupt_2 );
 	WRITE_HANDLER( mappy_interrupt_enable_1_w );
 	WRITE_HANDLER( mappy_interrupt_enable_2_w );
 	WRITE_HANDLER( mappy_cpu_enable_w );

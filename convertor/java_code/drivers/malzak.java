@@ -336,11 +336,10 @@ public class malzak
 	
 	static int val = -1;
 	
-	static INTERRUPT_GEN( malzak_interrupt )
-	{
+	public static InterruptHandlerPtr malzak_interrupt = new InterruptHandlerPtr() {public void handler(){
 	//	if(irqenable != 0)
 	//		cpu_set_irq_line_and_vector(0,0,HOLD_LINE,0x0300);
-	}
+	} };
 	
 	static PALETTE_INIT( malzak )
 	{

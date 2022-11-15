@@ -47,7 +47,6 @@ extern UINT32 adsp_speedup_count[4];
 /* Driver/Multisync board */
 MACHINE_INIT( harddriv );
 
-INTERRUPT_GEN( hd68k_irq_gen );
 WRITE16_HANDLER( hd68k_irq_ack_w );
 void hdgsp_irq_gen(int state);
 void hdmsp_irq_gen(int state);

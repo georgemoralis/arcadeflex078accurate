@@ -173,13 +173,12 @@ public class wardner
 	
 	
 	
-	static INTERRUPT_GEN( wardner_interrupt )
-	{
+	public static InterruptHandlerPtr wardner_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (twincobr_intenable) {
 			twincobr_intenable = 0;
 			cpu_set_irq_line(0, 0, HOLD_LINE);
 		}
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( CRTC_reg_sel_w )

@@ -488,7 +488,7 @@ public class pgm
 	
 	/*** Machine Driver **********************************************************/
 	
-	static INTERRUPT_GEN( pgm_interrupt ) {
+	public static InterruptHandlerPtr pgm_interrupt = new InterruptHandlerPtr() {public void handler()
 		if( cpu_getiloops() == 0 )
 			cpu_set_irq_line(0, 6, HOLD_LINE);
 		else
@@ -541,7 +541,7 @@ public class pgm
 			pix =  ((src[3+5*cnt] >> 1)& 0x1f );							  dst[5+8*cnt]=pix;
 			pix =  ((src[3+5*cnt] >> 6)& 0x03) | ((src[4+5*cnt] << 2) & 0x1c);dst[6+8*cnt]=pix;
 			pix =  ((src[4+5*cnt] >> 3)& 0x1f );							  dst[7+8*cnt]=pix;
-		}
+		} };
 	}
 	
 	/* This function expands the sprite colour data (in the A Roms) from 3 pixels

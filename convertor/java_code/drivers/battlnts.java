@@ -21,11 +21,10 @@ public class battlnts
 	VIDEO_START( battlnts );
 	VIDEO_UPDATE( battlnts );
 	
-	static INTERRUPT_GEN( battlnts_interrupt )
-	{
+	public static InterruptHandlerPtr battlnts_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K007342_is_INT_enabled())
 			cpu_set_irq_line(0, HD6309_IRQ_LINE, HOLD_LINE);
-	}
+	} };
 	
 	WRITE_HANDLER( battlnts_sh_irqtrigger_w )
 	{

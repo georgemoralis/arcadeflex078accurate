@@ -136,10 +136,9 @@ public class freekick
 		nmi_en = data & 1;
 	}
 	
-	static INTERRUPT_GEN( freekick_irqgen )
-	{
+	public static InterruptHandlerPtr freekick_irqgen = new InterruptHandlerPtr() {public void handler(){
 		if (nmi_en) cpu_set_irq_line(0,IRQ_LINE_NMI,PULSE_LINE);
-	}
+	} };
 	
 	static MEMORY_READ_START( gigas_readmem )
 		{ 0x0000, 0xbfff, MRA_ROM },

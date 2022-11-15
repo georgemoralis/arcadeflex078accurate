@@ -41,8 +41,7 @@ public class sbrkout
 	extern WRITE_HANDLER( sbrkout_start_1_led_w );
 	extern WRITE_HANDLER( sbrkout_start_2_led_w );
 	extern READ_HANDLER( sbrkout_read_DIPs_r );
-	extern INTERRUPT_GEN( sbrkout_interrupt );
-	extern READ_HANDLER( sbrkout_select1_r );
+	extern extern READ_HANDLER( sbrkout_select1_r );
 	extern READ_HANDLER( sbrkout_select2_r );
 	
 	extern UINT8 *sbrkout_horiz_ram;

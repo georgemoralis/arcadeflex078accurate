@@ -28,8 +28,7 @@ public class pingpong
 		/* other bits unknown */
 	}
 	
-	static INTERRUPT_GEN( pingpong_interrupt )
-	{
+	public static InterruptHandlerPtr pingpong_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		{
 			if (intenable & 0x04) cpu_set_irq_line(0, 0, HOLD_LINE);
@@ -38,7 +37,7 @@ public class pingpong
 		{
 			if (intenable & 0x08) cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	
 	

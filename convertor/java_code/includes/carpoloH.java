@@ -20,7 +20,6 @@ READ_HANDLER( carpolo_car_goal_collision_cause_r );
 READ_HANDLER( carpolo_car_ball_collision_cause_r );
 READ_HANDLER( carpolo_car_border_collision_cause_r );
 
-INTERRUPT_GEN( carpolo_timer_interrupt );
 
 WRITE_HANDLER( carpolo_ball_screen_interrupt_clear_w );
 WRITE_HANDLER( carpolo_car_car_interrupt_clear_w );

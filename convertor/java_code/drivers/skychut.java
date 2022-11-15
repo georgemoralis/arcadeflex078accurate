@@ -105,13 +105,12 @@ public class skychut
 	MEMORY_END
 	
 	
-	INTERRUPT_GEN( skychut_interrupt )
-	{
+	public static InterruptHandlerPtr skychut_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (readinputport(2) & 1)	/* Left Coin */
 	        cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 	    else
 	    	cpu_set_irq_line(0, 0, HOLD_LINE);
-	}
+	} };
 	
 	static InputPortHandlerPtr input_ports_skychut = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skychut )
 		PORT_START(); 

@@ -185,25 +185,23 @@ public class megasys1
 	
 	
 	#define INTERRUPT_NUM_A		3
-	INTERRUPT_GEN( interrupt_A )
-	{
+	public static InterruptHandlerPtr interrupt_A = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:		cpu_set_irq_line(0, 3, HOLD_LINE);	break;
 			case 1:		cpu_set_irq_line(0, 2, HOLD_LINE);	break;
 			case 2:		cpu_set_irq_line(0, 1, HOLD_LINE);	break;
 		}
-	}
+	} };
 	
-	INTERRUPT_GEN( interrupt_A_iganinju )
-	{
+	public static InterruptHandlerPtr interrupt_A_iganinju = new InterruptHandlerPtr() {public void handler(){
 		switch ( cpu_getiloops() )
 		{
 			case 0:		cpu_set_irq_line(0, 2, HOLD_LINE);	break;
 			case 1:		cpu_set_irq_line(0, 1, HOLD_LINE);	break;
 		//	case 2:		cpu_set_irq_line(0, 1, HOLD_LINE);	break;
 		}
-	}
+	} };
 	
 	
 	
@@ -244,15 +242,14 @@ public class megasys1
 	***************************************************************************/
 	
 	#define INTERRUPT_NUM_B		3
-	INTERRUPT_GEN( interrupt_B )
-	{
+	public static InterruptHandlerPtr interrupt_B = new InterruptHandlerPtr() {public void handler(){
 		switch (cpu_getiloops())
 		{
 			case 0:		cpu_set_irq_line(0, 4, HOLD_LINE); break;
 			case 1:		cpu_set_irq_line(0, 1, HOLD_LINE); break;
 			default:	cpu_set_irq_line(0, 2, HOLD_LINE); break;
 		}
-	}
+	} };
 	
 	
 	
@@ -371,10 +368,9 @@ public class megasys1
 	***************************************************************************/
 	
 	#define INTERRUPT_NUM_D		1
-	INTERRUPT_GEN( interrupt_D )
-	{
+	public static InterruptHandlerPtr interrupt_D = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line(0, 2, HOLD_LINE);
-	}
+	} };
 	
 	static MEMORY_READ16_START( readmem_D )
 		{ 0x000000, 0x03ffff, MRA16_ROM },

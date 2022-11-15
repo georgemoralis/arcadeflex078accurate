@@ -251,8 +251,7 @@ public class pacman
 	 *
 	 *************************************/
 	
-	static INTERRUPT_GEN( pacman_interrupt )
-	{
+	public static InterruptHandlerPtr pacman_interrupt = new InterruptHandlerPtr() {public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		/* speed up cheat */
@@ -273,11 +272,10 @@ public class pacman
 		}
 	
 		irq0_line_hold();
-	}
+	} };
 	
 	
-	static INTERRUPT_GEN( pacplus_interrupt )
-	{
+	public static InterruptHandlerPtr pacplus_interrupt = new InterruptHandlerPtr() {public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		/* speed up cheat */
@@ -298,11 +296,10 @@ public class pacman
 		}
 	
 		irq0_line_hold();
-	}
+	} };
 	
 	
-	static INTERRUPT_GEN( mspacman_interrupt )
-	{
+	public static InterruptHandlerPtr mspacman_interrupt = new InterruptHandlerPtr() {public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		/* speed up cheat */
@@ -323,7 +320,7 @@ public class pacman
 		}
 	
 		irq0_line_hold();
-	}
+	} };
 	
 	/*
 	   The piranha board has a sync bus controler card similar to Midway's pacman. It
@@ -598,10 +595,9 @@ public class pacman
 	 *
 	 ************************************/
 	
-	static INTERRUPT_GEN( s2650_interrupt )
-	{
+	public static InterruptHandlerPtr s2650_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0x03);
-	}
+	} };
 	
 	static READ_HANDLER( s2650_mirror_r )
 	{

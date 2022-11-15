@@ -62,8 +62,7 @@ public class bwing
 	//****************************************************************************
 	// Interrupt Handlers
 	
-	INTERRUPT_GEN ( bwp1_interrupt )
-	{
+	public static InterruptHandlerPtr bwp1_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int coin = 0;
 		data8_t latch_data;
 	
@@ -91,10 +90,10 @@ public class bwing
 				if (readinputport(5)) cpu_set_irq_line(0, M6809_FIRQ_LINE, ASSERT_LINE);
 			break;
 		}
-	}
+	} };
 	
 	
-	INTERRUPT_GEN ( bwp3_interrupt ) { if (!bwp3_nmimask) cpu_set_nmi_line(2, ASSERT_LINE); }
+	public static InterruptHandlerPtr bwp3_interrupt = new InterruptHandlerPtr() {public void handler() if (!bwp3_nmimask) cpu_set_nmi_line(2, ASSERT_LINE); }
 	
 	//****************************************************************************
 	// Memory and I/O Handlers
@@ -154,7 +153,7 @@ public class bwing
 	
 			// hardwired to SWAP
 			case 7: break;
-		}
+		} };
 	
 		#if BW_DEBUG
 			(bwp123_membase[0])[0x1c00 + offset] = data;

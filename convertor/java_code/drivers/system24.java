@@ -667,8 +667,7 @@ public class system24
 		return 0xffff;
 	}
 	
-	static INTERRUPT_GEN(irq_vbl)
-	{
+	public static InterruptHandlerPtr irq_vbl = new InterruptHandlerPtr() {public void handler(){
 		int irq = cpu_getiloops() ? IRQ_SPRITE : IRQ_VBLANK;
 		int mask = 1 << irq;
 	
@@ -686,7 +685,7 @@ public class system24
 			if(fdc_index_count >= 20)
 				fdc_index_count = 0;
 		}
-	}
+	} };
 	
 	static void irq_ym(int irq)
 	{

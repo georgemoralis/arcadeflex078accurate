@@ -50,8 +50,7 @@ public class ladybug
 	
 	extern READ_HANDLER( ladybug_IN0_r );
 	extern READ_HANDLER( ladybug_IN1_r );
-	extern INTERRUPT_GEN( ladybug_interrupt );
-	
+	extern 
 	extern WRITE_HANDLER( ladybug_videoram_w );
 	extern WRITE_HANDLER( ladybug_colorram_w );
 	extern WRITE_HANDLER( ladybug_flipscreen_w );
@@ -91,13 +90,12 @@ public class ladybug
 	  slots. Left slot generates a NMI, Right slot an IRQ.
 	
 	***************************************************************************/
-	INTERRUPT_GEN( ladybug_interrupt )
-	{
+	public static InterruptHandlerPtr ladybug_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (readinputport(5) & 1)	/* Left Coin */
 			cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		else if (readinputport(5) & 2)	/* Right Coin */
 			cpu_set_irq_line(0, 0, HOLD_LINE);
-	}
+	} };
 	
 	static InputPortHandlerPtr input_ports_ladybug = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( ladybug )
 		PORT_START(); 	/* IN0 */

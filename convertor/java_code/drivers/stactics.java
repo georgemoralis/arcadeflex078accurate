@@ -57,7 +57,6 @@ public class stactics
 	READ_HANDLER( stactics_port_3_r );
 	READ_HANDLER( stactics_vert_pos_r );
 	READ_HANDLER( stactics_horiz_pos_r );
-	INTERRUPT_GEN( stactics_interrupt );
 	WRITE_HANDLER( stactics_coin_lockout_w );
 	extern unsigned char *stactics_motor_on;
 	

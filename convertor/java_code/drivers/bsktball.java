@@ -38,8 +38,7 @@ public class bsktball
 	extern VIDEO_UPDATE( bsktball );
 	
 	extern WRITE_HANDLER( bsktball_nmion_w );
-	extern INTERRUPT_GEN( bsktball_interrupt );
-	extern WRITE_HANDLER( bsktball_ld1_w );
+	extern extern WRITE_HANDLER( bsktball_ld1_w );
 	extern WRITE_HANDLER( bsktball_ld2_w );
 	extern READ_HANDLER( bsktball_in0_r );
 	extern WRITE_HANDLER( bsktball_led1_w );

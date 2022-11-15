@@ -470,8 +470,7 @@ public class suprnova
 	}
 	
 	
-	static INTERRUPT_GEN(skns_interrupt)
-	{
+	public static InterruptHandlerPtr skns_interrupt = new InterruptHandlerPtr() {public void handler(){
 		UINT8 interrupt = 5;
 		switch(cpu_getiloops())
 		{
@@ -483,7 +482,7 @@ public class suprnova
 				break;
 		}
 		cpu_set_irq_line(0,interrupt,HOLD_LINE);
-	}
+	} };
 	
 	static InputPortHandlerPtr input_ports_skns = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( skns )
 	

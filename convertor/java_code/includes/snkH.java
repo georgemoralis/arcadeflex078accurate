@@ -6,9 +6,7 @@
 
 /*----------- defined in drivers/snk.c -----------*/
 
-extern INTERRUPT_GEN( snk_irq_AB );
-extern INTERRUPT_GEN( snk_irq_BA );
-
+extern extern 
 extern READ_HANDLER ( snk_cpuA_nmi_trigger_r );
 extern WRITE_HANDLER( snk_cpuA_nmi_ack_w );
 

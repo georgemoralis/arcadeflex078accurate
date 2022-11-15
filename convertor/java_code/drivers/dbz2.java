@@ -79,8 +79,7 @@ public class dbz2
 	VIDEO_UPDATE(dbz);
 	VIDEO_UPDATE(dbz2);
 	
-	static INTERRUPT_GEN(dbz2_interrupt)
-	{
+	public static InterruptHandlerPtr dbz2_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch (cpu_getiloops())
 		{
 			case 0:
@@ -92,7 +91,7 @@ public class dbz2
 					cpu_set_irq_line(0, MC68000_IRQ_4, HOLD_LINE);
 				break;
 		}
-	}
+	} };
 	
 	#if 0
 	static READ16_HANDLER(dbzcontrol_r)

@@ -61,13 +61,12 @@ public class toratora
 	
 	
 	
-	INTERRUPT_GEN( toratora_interrupt )
-	{
+	public static InterruptHandlerPtr toratora_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* for simplicity, I generate an IRQ every vblank. In reality, the IRQ
 		   should be generated every time the status of an input
 		   (buttons + coins) changes. */
 		cpu_set_irq_line(0, 0, HOLD_LINE);
-	}
+	} };
 	
 	
 	
@@ -144,13 +143,12 @@ public class toratora
 	
 	static int timer;
 	
-	INTERRUPT_GEN( toratora_timer )
-	{
+	public static InterruptHandlerPtr toratora_timer = new InterruptHandlerPtr() {public void handler(){
 		timer++;	/* timer counting at 16 Hz */
 	
 		/* also, when the timer overflows (16 seconds) watchdog would kick in */
 		if (timer & 0x100) usrintf_showmessage("watchdog!");
-	}
+	} };
 	
 	static READ_HANDLER( toratora_timer_r )
 	{

@@ -144,10 +144,9 @@ public class sg1000a
 	    { 100 }
 	};
 	
-	static INTERRUPT_GEN( sg100a_interrupt )
-	{
+	public static InterruptHandlerPtr sg100a_interrupt = new InterruptHandlerPtr() {public void handler(){
 	    TMS9928A_interrupt();
-	}
+	} };
 	
 	static void vdp_interrupt (int state)
 	{

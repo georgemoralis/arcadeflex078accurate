@@ -25,7 +25,6 @@ public class m79amb
 	
 	WRITE_HANDLER( ramtek_videoram_w );
 	
-	INTERRUPT_GEN( invaders_interrupt );
 	void ramtek_sh_update(void);
 	WRITE_HANDLER( ramtek_mask_w );
 	
@@ -125,10 +124,9 @@ public class m79amb
 		palette_set_color(6,0xff,0x20,0xff); /* PURPLE */
 	}
 	
-	static INTERRUPT_GEN( M79_interrupt )
-	{
+	public static InterruptHandlerPtr M79_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xcf);  /* RST 08h */
-	}
+	} };
 	
 	static DRIVER_INIT( m79amb )
 	{

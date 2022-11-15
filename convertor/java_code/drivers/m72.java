@@ -84,7 +84,6 @@ public class m72
 	MACHINE_INIT( m72 );
 	MACHINE_INIT( xmultipl );
 	MACHINE_INIT( kengo );
-	INTERRUPT_GEN( m72_interrupt );
 	VIDEO_START( m72 );
 	VIDEO_START( rtype2 );
 	VIDEO_START( majtitle );
@@ -155,12 +154,11 @@ public class m72
 		return addr;
 	}
 	
-	static INTERRUPT_GEN(fake_nmi)
-	{
+	public static InterruptHandlerPtr fake_nmi = new InterruptHandlerPtr() {public void handler(){
 		int sample = m72_sample_r(0);
 		if (sample)
 			m72_sample_w(0,sample);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( bchopper_sample_trigger_w )

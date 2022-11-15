@@ -520,8 +520,7 @@ public class liberate
 	
 	/***************************************************************************/
 	
-	static INTERRUPT_GEN( deco16_interrupt )
-	{
+	public static InterruptHandlerPtr deco16_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int latch=0;
 		int p=~readinputport(3);
 		if (p&0x43 && !latch) {
@@ -531,7 +530,7 @@ public class liberate
 			if (!(p&0x43))
 				latch=0;
 		}
-	}
+	} };
 	
 	static struct AY8910interface ay8910_interface =
 	{

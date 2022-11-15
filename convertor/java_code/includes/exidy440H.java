@@ -38,7 +38,6 @@ extern UINT8 exidy440_firq_vblank;
 extern UINT8 exidy440_firq_beam;
 extern UINT8 topsecex_yscroll;
 
-INTERRUPT_GEN( exidy440_vblank_interrupt );
 
 VIDEO_START( exidy440 );
 VIDEO_EOF( exidy440 );

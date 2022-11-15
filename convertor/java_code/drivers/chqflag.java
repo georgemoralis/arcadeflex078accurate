@@ -29,8 +29,7 @@ public class chqflag
 	VIDEO_UPDATE( chqflag );
 	
 	
-	static INTERRUPT_GEN( chqflag_interrupt )
-	{
+	public static InterruptHandlerPtr chqflag_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		{
 			if (K051960_is_IRQ_enabled())
@@ -41,7 +40,7 @@ public class chqflag
 			if (K051960_is_NMI_enabled())
 				cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( chqflag_bankswitch_w )
 	{

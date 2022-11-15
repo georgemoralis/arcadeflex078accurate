@@ -162,8 +162,7 @@ public class brkthru
 	
 	
 	
-	INTERRUPT_GEN( brkthru_interrupt )
-	{
+	public static InterruptHandlerPtr brkthru_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		{
 			if (nmi_enable)
@@ -175,7 +174,7 @@ public class brkthru
 			if ((readinputport(2) & 0xe0) != 0xe0)
 				cpu_set_irq_line(0, 0, HOLD_LINE);
 		}
-	}
+	} };
 	
 	static InputPortHandlerPtr input_ports_brkthru = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( brkthru )
 		PORT_START(); 	/* IN0 */

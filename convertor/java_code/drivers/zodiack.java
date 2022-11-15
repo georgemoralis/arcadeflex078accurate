@@ -45,8 +45,7 @@ public class zodiack
 	
 	extern MACHINE_INIT( espial );
 	extern WRITE_HANDLER( zodiac_master_interrupt_enable_w );
-	extern INTERRUPT_GEN( zodiac_master_interrupt );
-	extern WRITE_HANDLER( zodiac_master_soundlatch_w );
+	extern extern WRITE_HANDLER( zodiac_master_soundlatch_w );
 	
 	
 	static MACHINE_INIT( zodiack )

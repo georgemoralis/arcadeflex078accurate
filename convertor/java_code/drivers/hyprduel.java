@@ -181,8 +181,7 @@ public class hyprduel
 		cpu_set_irq_line(1, 2, HOLD_LINE);
 	}
 	
-	INTERRUPT_GEN( hyprduel_interrupt )
-	{
+	public static InterruptHandlerPtr hyprduel_interrupt = new InterruptHandlerPtr() {public void handler(){
 		int line = RASTER_LINES - cpu_getiloops();
 	
 		if (line == RASTER_LINES)
@@ -199,7 +198,7 @@ public class hyprduel
 		}
 	
 		update_irq_state();
-	}
+	} };
 	
 	MACHINE_INIT( hyprduel )
 	{

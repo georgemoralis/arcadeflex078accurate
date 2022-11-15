@@ -1067,13 +1067,12 @@ public class system32
 	}
 	
 	
-	static INTERRUPT_GEN( system32_interrupt )
-	{
+	public static InterruptHandlerPtr system32_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if(cpu_getiloops())
 			irq_raise(1);
 		else
 			irq_raise(0);
-	}
+	} };
 	
 	/* jurassic park moving cab - not working yet */
 	

@@ -32,8 +32,7 @@ public class ssozumo
 	extern VIDEO_UPDATE( ssozumo );
 	
 	
-	static INTERRUPT_GEN( ssozumo_interrupt )
-	{
+	public static InterruptHandlerPtr ssozumo_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int coin;
 	
 		if ((readinputport(0) & 0xc0) != 0xc0)
@@ -48,7 +47,7 @@ public class ssozumo
 		else coin = 0;
 	
 		irq0_line_hold();
-	}
+	} };
 	
 	
 	WRITE_HANDLER( ssozumo_sh_command_w )

@@ -35,8 +35,7 @@ public class bishi
 		COMBINE_DATA(&cur_control);
 	}
 	
-	static INTERRUPT_GEN(bishi_interrupt)
-	{
+	public static InterruptHandlerPtr bishi_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch (cpu_getiloops())
 		{
 			case 0:
@@ -47,7 +46,7 @@ public class bishi
 				cpu_set_irq_line(0, MC68000_IRQ_4, HOLD_LINE);
 				break;
 		}
-	}
+	} };
 	
 	/* compensate for a bug in the ram/rom test */
 	static READ16_HANDLER( bishi_mirror_r )

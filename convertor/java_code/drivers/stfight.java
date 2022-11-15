@@ -241,8 +241,6 @@ public class stfight
 	DRIVER_INIT( empcity );
 	DRIVER_INIT( stfight );
 	MACHINE_INIT( stfight );
-	INTERRUPT_GEN( stfight_vb_interrupt );
-	INTERRUPT_GEN( stfight_interrupt_1 );
 	READ_HANDLER( stfight_dsw_r );
 	WRITE_HANDLER( stfight_fm_w );
 	WRITE_HANDLER( stfight_voice_w );

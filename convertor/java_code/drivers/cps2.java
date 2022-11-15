@@ -131,8 +131,7 @@ public class cps2
 	void cps2_set_sprite_priorities(void);
 	
 	
-	static INTERRUPT_GEN( cps2_interrupt )
-	{
+	public static InterruptHandlerPtr cps2_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int scancount;
 	
 		/* 2 is vblank, 4 is some sort of scanline interrupt, 6 is both at the same time. */
@@ -186,7 +185,7 @@ public class cps2
 			cps2_objram_latch();
 		}
 		//usrintf_showmessage("Raster calls = %i",scancalls);
-	}
+	} };
 	
 	
 	

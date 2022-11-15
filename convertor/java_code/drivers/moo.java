@@ -171,8 +171,7 @@ public class moo
 			cpu_set_irq_line(0, 4, HOLD_LINE);
 	}
 	
-	static INTERRUPT_GEN(moo_interrupt)
-	{
+	public static InterruptHandlerPtr moo_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K053246_is_IRQ_enabled())
 		{
 			moo_objdma(game_type);
@@ -184,10 +183,9 @@ public class moo
 		// trigger V-blank interrupt
 		if (cur_control2 & 0x20)
 			cpu_set_irq_line(0, 5, HOLD_LINE);
-	}
+	} };
 	
-	static INTERRUPT_GEN(moobl_interrupt)
-	{
+	public static InterruptHandlerPtr moobl_interrupt = new InterruptHandlerPtr() {public void handler(){
 		moo_objdma(game_type);
 	
 		// schedule DMA end interrupt (delay shortened to catch up with V-blank)
@@ -195,7 +193,7 @@ public class moo
 	
 		// trigger V-blank interrupt
 		cpu_set_irq_line(0, 5, HOLD_LINE);
-	}
+	} };
 	
 	static WRITE16_HANDLER( sound_cmd1_w )
 	{

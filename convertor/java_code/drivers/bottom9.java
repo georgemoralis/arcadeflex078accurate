@@ -25,11 +25,10 @@ public class bottom9
 	
 	
 	
-	static INTERRUPT_GEN( bottom9_interrupt )
-	{
+	public static InterruptHandlerPtr bottom9_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K052109_is_IRQ_enabled())
 			cpu_set_irq_line(0, 0, HOLD_LINE);
-	}
+	} };
 	
 	
 	static int zoomreadroms,K052109_selected;
@@ -105,11 +104,10 @@ public class bottom9
 	
 	static int nmienable;
 	
-	static INTERRUPT_GEN( bottom9_sound_interrupt )
-	{
+	public static InterruptHandlerPtr bottom9_sound_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (nmienable)
 			cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	static WRITE_HANDLER( nmi_enable_w )
 	{

@@ -143,8 +143,7 @@ public class battlane
 	MEMORY_END
 	
 	
-	INTERRUPT_GEN( battlane_cpu1_interrupt )
-	{
+	public static InterruptHandlerPtr battlane_cpu1_interrupt = new InterruptHandlerPtr() {public void handler(){
 		/* See note in battlane_cpu_command_w */
 	
 		if (~battlane_cpu_control & 0x08)
@@ -152,7 +151,7 @@ public class battlane
 			cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 			cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	
 	static InputPortHandlerPtr input_ports_battlane = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( battlane )

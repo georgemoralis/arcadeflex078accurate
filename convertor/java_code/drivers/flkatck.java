@@ -35,11 +35,10 @@ public class flkatck
 		K007232_set_bank( 0, 0, 1 );
 	}
 	
-	static INTERRUPT_GEN( flkatck_interrupt )
-	{
+	public static InterruptHandlerPtr flkatck_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (flkatck_irq_enabled)
 			cpu_set_irq_line(0, HD6309_IRQ_LINE, HOLD_LINE);
-	}
+	} };
 	
 	static WRITE_HANDLER( flkatck_bankswitch_w )
 	{

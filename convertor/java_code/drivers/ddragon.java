@@ -879,8 +879,7 @@ public class ddragon
 		{ 15 }
 	};
 	
-	static INTERRUPT_GEN( ddragon_interrupt )
-	{
+	public static InterruptHandlerPtr ddragon_interrupt = new InterruptHandlerPtr() {public void handler(){
 		int scanline=271 - cpu_getiloops();
 	
 		/* VBLK is lowered on scanline 0 */
@@ -897,7 +896,7 @@ public class ddragon
 		/* IMS is triggered every time VPOS line 3 is raised, as VPOS counter starts at 16, effectively every 16 scanlines */
 		if ((scanline%16)==0)
 			cpu_set_irq_line(0,M6809_FIRQ_LINE,ASSERT_LINE);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( ddragon )
 	

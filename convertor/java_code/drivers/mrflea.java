@@ -169,7 +169,7 @@ public class mrflea
 		return mrflea_status^0x01;
 	}
 	
-	INTERRUPT_GEN( mrflea_io_interrupt ){
+	public static InterruptHandlerPtr mrflea_io_interrupt = new InterruptHandlerPtr() {public void handler()
 		if( cpu_getiloops()==0 || (mrflea_status&0x08) ) 
 			cpu_set_irq_line(1, 0, HOLD_LINE);
 	}

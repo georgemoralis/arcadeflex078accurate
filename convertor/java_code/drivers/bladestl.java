@@ -41,8 +41,7 @@ public class bladestl
 	PALETTE_INIT( bladestl );
 	WRITE_HANDLER( bladestl_vreg_w );
 	
-	static INTERRUPT_GEN( bladestl_interrupt )
-	{
+	public static InterruptHandlerPtr bladestl_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0){
 			if (K007342_is_INT_enabled())
 				cpu_set_irq_line(0, HD6309_FIRQ_LINE, HOLD_LINE);
@@ -50,7 +49,7 @@ public class bladestl
 		else if (cpu_getiloops() % 2){
 			cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	static READ_HANDLER( trackball_r )
 	{

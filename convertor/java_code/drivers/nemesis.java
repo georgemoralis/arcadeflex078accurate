@@ -103,11 +103,10 @@ public class nemesis
 	
 	
 	
-	INTERRUPT_GEN( nemesis_interrupt )
-	{
+	public static InterruptHandlerPtr nemesis_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (irq_on)
 			cpu_set_irq_line(0, 1, HOLD_LINE);
-	}
+	} };
 	
 	WRITE16_HANDLER( salamand_soundlatch_word_w )
 	{
@@ -123,8 +122,7 @@ public class nemesis
 	
 	static int gx400_irq1_cnt;
 	
-	INTERRUPT_GEN( konamigt_interrupt )
-	{
+	public static InterruptHandlerPtr konamigt_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		{
 			if ( (irq_on) && (gx400_irq1_cnt++ & 1) ) cpu_set_irq_line(0, 1, HOLD_LINE);
@@ -133,10 +131,9 @@ public class nemesis
 		{
 			if (irq2_on) cpu_set_irq_line(0, 2, HOLD_LINE);
 		}
-	}
+	} };
 	
-	INTERRUPT_GEN( gx400_interrupt )
-	{
+	public static InterruptHandlerPtr gx400_interrupt = new InterruptHandlerPtr() {public void handler(){
 		switch (cpu_getiloops())
 		{
 			case 0:
@@ -151,7 +148,7 @@ public class nemesis
 				if (irq4_on) cpu_set_irq_line(0, 4, HOLD_LINE);
 				break;
 		}
-	}
+	} };
 	
 	WRITE16_HANDLER( gx400_irq1_enable_word_w )
 	{
@@ -192,17 +189,15 @@ public class nemesis
 	
 	
 	
-	INTERRUPT_GEN( salamand_interrupt )
-	{
+	public static InterruptHandlerPtr salamand_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (irq_on)
 			cpu_set_irq_line(0, 1, HOLD_LINE);
-	}
+	} };
 	
-	INTERRUPT_GEN( blkpnthr_interrupt )
-	{
+	public static InterruptHandlerPtr blkpnthr_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (irq_on)
 			cpu_set_irq_line(0, 2, HOLD_LINE);
-	}
+	} };
 	
 	WRITE16_HANDLER( nemesis_irq_enable_word_w )
 	{

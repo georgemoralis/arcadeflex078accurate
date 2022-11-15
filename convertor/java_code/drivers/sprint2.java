@@ -60,8 +60,7 @@ public class sprint2
 	}
 	
 	
-	static INTERRUPT_GEN( sprint2 )
-	{
+	public static InterruptHandlerPtr sprint2 = new InterruptHandlerPtr() {public void handler(){
 		static UINT8 dial[2];
 	
 		/* handle steering wheels */
@@ -100,7 +99,7 @@ public class sprint2
 		discrete_sound_w(4, sprint2_video_ram[0x396] & 15);
 	
 		cpu_set_nmi_line(0, PULSE_LINE);
-	}
+	} };
 	
 	
 	static PALETTE_INIT( sprint2 )

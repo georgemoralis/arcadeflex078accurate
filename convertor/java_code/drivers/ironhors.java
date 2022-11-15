@@ -30,8 +30,7 @@ public class ironhors
 	extern VIDEO_UPDATE( ironhors );
 	
 	
-	static INTERRUPT_GEN( ironhors_interrupt )
-	{
+	public static InterruptHandlerPtr ironhors_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
 		{
 			if (*ironhors_interrupt_enable & 4)
@@ -42,7 +41,7 @@ public class ironhors
 			if (*ironhors_interrupt_enable & 1)
 				cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( ironhors_sh_irqtrigger_w )
 	{

@@ -379,23 +379,21 @@ public class namcos86
 		int_enabled[1] = 1;
 	}
 	
-	static INTERRUPT_GEN( namco86_interrupt1 )
-	{
+	public static InterruptHandlerPtr namco86_interrupt1 = new InterruptHandlerPtr() {public void handler(){
 		if (int_enabled[0])
 		{
 			int_enabled[0] = 0;
 			cpu_set_irq_line(0, 0, HOLD_LINE);
 		}
-	}
+	} };
 	
-	static INTERRUPT_GEN( namco86_interrupt2 )
-	{
+	public static InterruptHandlerPtr namco86_interrupt2 = new InterruptHandlerPtr() {public void handler(){
 		if (int_enabled[1])
 		{
 			int_enabled[1] = 0;
 			cpu_set_irq_line(1, 0, HOLD_LINE);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( namcos86_coin_w )
 	{

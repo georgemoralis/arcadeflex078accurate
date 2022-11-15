@@ -23,11 +23,10 @@ public class rockrage
 	WRITE_HANDLER( rockrage_vreg_w );
 	PALETTE_INIT( rockrage );
 	
-	static INTERRUPT_GEN( rockrage_interrupt )
-	{
+	public static InterruptHandlerPtr rockrage_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K007342_is_INT_enabled())
 	        cpu_set_irq_line(0, HD6309_IRQ_LINE, HOLD_LINE);
-	}
+	} };
 	
 	static WRITE_HANDLER( rockrage_bankswitch_w )
 	{

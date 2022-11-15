@@ -345,8 +345,7 @@ extern WRITE_HANDLER( snes_w_io );
 extern DEVICE_LOAD(snes_cart);
 #endif
 
-extern INTERRUPT_GEN(snes_scanline_interrupt);
-extern void snes_gdma( UINT8 channels );
+extern extern void snes_gdma( UINT8 channels );
 extern void snes_hdma_init(void);
 extern void snes_hdma(void);
 extern void snes_refresh_scanline( UINT16 curline );

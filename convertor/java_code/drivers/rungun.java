@@ -206,11 +206,10 @@ public class rungun
 		return(0);
 	}
 	
-	static INTERRUPT_GEN(rng_interrupt)
-	{
+	public static InterruptHandlerPtr rng_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (rng_sysreg[0x0c/2] & 0x09)
 			cpu_set_irq_line(0, MC68000_IRQ_5, ASSERT_LINE);
-	}
+	} };
 	
 	static MEMORY_READ16_START( rngreadmem )
 		{ 0x000000, 0x2fffff, MRA16_ROM },		// main program + data
@@ -271,12 +270,11 @@ public class rungun
 			cpu_set_nmi_line(1, CLEAR_LINE);
 	}
 	
-	static INTERRUPT_GEN(audio_interrupt)
-	{
+	public static InterruptHandlerPtr audio_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (rng_z80_control & 0x80) return;
 	
 		cpu_set_nmi_line(1, ASSERT_LINE);
-	}
+	} };
 	
 	/* sound (this should be split into sndhrdw/xexex.c or pregx.c or so someday) */
 	

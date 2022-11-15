@@ -506,8 +506,7 @@ public class djmain
 	 *
 	 *************************************/
 	
-	static INTERRUPT_GEN( vb_interrupt )
-	{
+	public static InterruptHandlerPtr vb_interrupt = new InterruptHandlerPtr() {public void handler(){
 		pending_vb_int = 0;
 	
 		if (DISABLE_VB_INT)
@@ -518,7 +517,7 @@ public class djmain
 	
 		//logerror("V-Blank interrupt\n");
 		cpu_set_irq_line(0, MC68000_IRQ_4, HOLD_LINE);
-	}
+	} };
 	
 	
 	static void ide_interrupt(int state)

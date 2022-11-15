@@ -48,12 +48,12 @@ public class grobda
 	    int_enable_2 = offset;
 	}
 	
-	INTERRUPT_GEN( grobda_interrupt_1 ) {
+	public static InterruptHandlerPtr grobda_interrupt_1 = new InterruptHandlerPtr() {public void handler()
 		if (int_enable_1)
 			cpu_set_irq_line(0, 0, HOLD_LINE);
 	}
 	
-	INTERRUPT_GEN( grobda_interrupt_2 ){
+	public static InterruptHandlerPtr grobda_interrupt_2 = new InterruptHandlerPtr() {public void handler()
 	    if (int_enable_2)
 	        cpu_set_irq_line(1, 0, HOLD_LINE);
 	}
@@ -175,7 +175,7 @@ public class grobda
 	            default:
 	                return 0x0f;
 	        }
-	    }
+	    } };
 	    else if (mode == 5)  /* IO tests chip 1 */
 	    {
 	        switch (offset)
