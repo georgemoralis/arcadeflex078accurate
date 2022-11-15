@@ -1625,6 +1625,7 @@ public class convertMame {
                 }
                 break;
                 case '&': {
+                    i = Convertor.inpos;
                     if (type == MEMORY_READ8 || type == MEMORY_WRITE8 || type == PORT_READ8 || type == PORT_WRITE8 || type == GFXDECODE) {
                         Convertor.inpos += 1;
                         continue;
@@ -1638,7 +1639,22 @@ public class convertMame {
                         continue;
                     }
                 }
+                Convertor.inpos = i;
                 break;
+                case '*':
+                    i = Convertor.inpos;
+                    if (type == PALETTE_INIT) {
+                        if (sUtil.getToken("*color_prom")) {
+                            if (sUtil.parseChar() == '+') {//avoid color_prom++
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("color_prom.read()").toString());
+                            continue;
+                        }
+                    }
+                    Convertor.inpos = i;
+                    break;
             }
 
             Convertor.outbuf[Convertor.outpos++] = Convertor.inbuf[Convertor.inpos++];//grapse to inputbuffer sto output

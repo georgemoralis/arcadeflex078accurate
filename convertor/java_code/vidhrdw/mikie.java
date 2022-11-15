@@ -78,7 +78,7 @@ public class mikie
 	
 	
 			for (j = 0;j < 8;j++)
-				COLOR(0,i + j * TOTAL_COLORS(0)/8) = (*color_prom & 0x0f) + 32 * j + 16;
+				COLOR(0,i + j * TOTAL_COLORS(0)/8) = (color_prom.read()& 0x0f) + 32 * j + 16;
 	
 			color_prom++;
 		}
@@ -89,7 +89,7 @@ public class mikie
 	
 	
 			for (j = 0;j < 8;j++)
-				COLOR(1,i + j * TOTAL_COLORS(1)/8) = (*color_prom & 0x0f) + 32 * j;
+				COLOR(1,i + j * TOTAL_COLORS(1)/8) = (color_prom.read()& 0x0f) + 32 * j;
 	
 			color_prom++;
 		}

@@ -25,7 +25,7 @@
 
 #define public static NVRAMHandlerPtr nvram_handler_name  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write)void nvram_handler_##name(mame_file *file, int read_or_write)
 
-#define public static PaletteInitHandlerPtr palette_init_name  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom)void palette_init_##name(UINT16 *colortable, const UINT8 *color_prom)
+#define public static PaletteInitHandlerPtr palette_init_name  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom)void palette_init_##name(UINT16 *colortable, const UINT8 color_prom.read()
 
 #define public static VideoStartHandlerPtr video_start_name  = new VideoStartHandlerPtr() { public int handler()int video_start_##name(void)
 #define public static VideoStopHandlerPtr video_stop_name  = new VideoStopHandlerPtr() { public void handler()void video_stop_##name(void)
