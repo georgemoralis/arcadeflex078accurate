@@ -73,11 +73,10 @@ public class strvmstr
 	}
 	
 	
-	static READ_HANDLER( strvmstr_question_r )
-	{
+	public static ReadHandlerPtr strvmstr_question_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *Question = memory_region(REGION_USER1);
 		return Question[offset + 0x10000 * ((strvmstr_control >> 3) & 3)];
-	}
+	} };
 	
 	static int b800_prev,b000_val,b000_ret;
 	
@@ -86,10 +85,9 @@ public class strvmstr
 		b000_val = data;
 	}
 	
-	static READ_HANDLER( b000_r )
-	{
+	public static ReadHandlerPtr b000_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return b000_ret;
-	}
+	} };
 	
 	static WRITE_HANDLER( b800_w )
 	{

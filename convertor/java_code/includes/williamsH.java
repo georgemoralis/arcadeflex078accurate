@@ -59,7 +59,6 @@ WRITE_HANDLER( williams2_7segment_w );
 
 /* Mayday protection */
 extern UINT8 *mayday_protection;
-READ_HANDLER( mayday_protection_r );
 
 
 /*----------- defined in vidhrdw/wmsyunit.c -----------*/
@@ -97,7 +96,6 @@ WRITE_HANDLER( williams2_videoram_w );
 WRITE_HANDLER( williams_blitter_w );
 WRITE_HANDLER( blaster_remap_select_w );
 WRITE_HANDLER( blaster_palette_0_w );
-READ_HANDLER( williams_video_counter_r );
 
 
 

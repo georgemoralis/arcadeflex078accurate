@@ -46,8 +46,7 @@ public class tnzs
 	
 	
 	
-	static READ_HANDLER( mcu_tnzs_r )
-	{
+	public static ReadHandlerPtr mcu_tnzs_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char data;
 	
 		if (offset == 0)
@@ -64,7 +63,7 @@ public class tnzs
 	//	logerror("PC %04x: read %02x from mcu $c00%01x\n", activecpu_get_previouspc(), data, offset);
 	
 		return data;
-	}
+	} };
 	
 	static WRITE_HANDLER( mcu_tnzs_w )
 	{
@@ -77,8 +76,7 @@ public class tnzs
 	}
 	
 	
-	READ_HANDLER( tnzs_port1_r )
-	{
+	public static ReadHandlerPtr tnzs_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = 0;
 	
 		switch (tnzs_input_select & 0x0f)
@@ -92,16 +90,15 @@ public class tnzs
 	//	logerror("I8742:%04x  Read %02x from port 1\n", activecpu_get_previouspc(), data);
 	
 		return data;
-	}
+	} };
 	
-	READ_HANDLER( tnzs_port2_r )
-	{
+	public static ReadHandlerPtr tnzs_port2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = input_port_4_r(0);
 	
 	//	logerror("I8742:%04x  Read %02x from port 2\n", activecpu_get_previouspc(), data);
 	
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( tnzs_port2_w )
 	{
@@ -117,8 +114,7 @@ public class tnzs
 	
 	
 	
-	READ_HANDLER( arknoid2_sh_f000_r )
-	{
+	public static ReadHandlerPtr arknoid2_sh_f000_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val;
 	
 		logerror("PC %04x: read input %04x\n", activecpu_get_pc(), 0xf000 + offset);
@@ -132,7 +128,7 @@ public class tnzs
 		{
 			return val & 0xff;
 		}
-	}
+	} };
 	
 	
 	static void mcu_reset(void)
@@ -221,8 +217,7 @@ public class tnzs
 	
 	
 	
-	static READ_HANDLER( mcu_arknoid2_r )
-	{
+	public static ReadHandlerPtr mcu_arknoid2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		const char *mcu_startup = "\x55\xaa\x5a";
 	
 	//	logerror("PC %04x: read mcu %04x\n", activecpu_get_pc(), 0xc000 + offset);
@@ -281,7 +276,7 @@ public class tnzs
 			if (mcu_reportcoin & 0x04) return 0x31;	/* coin 3 (will trigger "coin inserted" sound) */
 			return 0x01;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( mcu_arknoid2_w )
 	{
@@ -326,8 +321,7 @@ public class tnzs
 	}
 	
 	
-	static READ_HANDLER( mcu_extrmatn_r )
-	{
+	public static ReadHandlerPtr mcu_extrmatn_r  = new ReadHandlerPtr() { public int handler(int offset){
 		const char *mcu_startup = "\x5a\xa5\x55";
 	
 		logerror("PC %04x (re %04x): read mcu %04x\n", activecpu_get_pc(), cpu_geturnpc(), 0xc000 + offset);
@@ -409,7 +403,7 @@ public class tnzs
 			if (mcu_reportcoin & 0x04) return 0x31;	/* coin 3 (will trigger "coin inserted" sound) */
 			return 0x01;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( mcu_extrmatn_w )
 	{
@@ -536,8 +530,7 @@ public class tnzs
 	} };
 	
 	
-	READ_HANDLER( tnzs_mcu_r )
-	{
+	public static ReadHandlerPtr tnzs_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (mcu_type)
 		{
 			case MCU_TNZS:
@@ -555,7 +548,7 @@ public class tnzs
 				return 0xff;
 				break;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( tnzs_mcu_w )
 	{
@@ -627,8 +620,7 @@ public class tnzs
 	} };
 	
 	
-	READ_HANDLER( tnzs_workram_r )
-	{
+	public static ReadHandlerPtr tnzs_workram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Location $EF10 workaround required to stop TNZS getting */
 		/* caught in and endless loop due to shared ram sync probs */
 	
@@ -650,12 +642,11 @@ public class tnzs
 			}
 		}
 		return tnzs_workram[offset];
-	}
+	} };
 	
-	READ_HANDLER( tnzs_workram_sub_r )
-	{
+	public static ReadHandlerPtr tnzs_workram_sub_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tnzs_workram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( tnzs_workram_w )
 	{

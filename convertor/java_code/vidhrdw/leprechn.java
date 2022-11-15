@@ -138,8 +138,7 @@ public class leprechn
 	}
 	
 	
-	READ_HANDLER( leprechn_videoram_r )
-	{
+	public static ReadHandlerPtr leprechn_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    return videoram[y * Machine->drv->screen_width + x];
-	}
+	} };
 }

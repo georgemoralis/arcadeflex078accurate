@@ -147,8 +147,7 @@ public class chinagat
 		cpu_set_irq_line( 2, sound_irq, (sound_irq == IRQ_LINE_NMI) ? PULSE_LINE : HOLD_LINE );
 	}
 	
-	static READ_HANDLER( saiyugb1_mcu_command_r )
-	{
+	public static ReadHandlerPtr saiyugb1_mcu_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 	#if 0
 		if (saiyugb1_mcu_command == 0x78)
 		{
@@ -156,7 +155,7 @@ public class chinagat
 		}
 	#endif
 		return saiyugb1_mcu_command;
-	}
+	} };
 	
 	static WRITE_HANDLER( saiyugb1_mcu_command_w )
 	{
@@ -244,15 +243,14 @@ public class chinagat
 	#endif
 	}
 	
-	static READ_HANDLER( saiyugb1_m5205_irq_r )
-	{
+	public static ReadHandlerPtr saiyugb1_m5205_irq_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (adpcm_sound_irq)
 		{
 			adpcm_sound_irq = 0;
 			return 1;
 		}
 		return 0;
-	}
+	} };
 	static void saiyugb1_m5205_irq_w(int num)
 	{
 		adpcm_sound_irq = 1;

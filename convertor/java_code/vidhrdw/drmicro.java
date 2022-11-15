@@ -40,10 +40,9 @@ public class drmicro
 			tilemap_mark_tile_dirty(drmicro_bg1,(offset & 0x3ff));
 	}
 	
-	READ_HANDLER( drmicro_videoram_r )
-	{
+	public static ReadHandlerPtr drmicro_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return drmicro_videoram[offset];
-	}
+	} };
 	
 	/****************************************************************************/
 	

@@ -164,10 +164,9 @@ public class shangkid
 	
 	/***************************************************************************************/
 	
-	READ_HANDLER( shangkid_soundlatch_r )
-	{
+	public static ReadHandlerPtr shangkid_soundlatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sound_latch;
-	}
+	} };
 	
 	/***************************************************************************************/
 	
@@ -176,10 +175,9 @@ public class shangkid
 		shareram[offset] = data;
 	}
 	
-	static READ_HANDLER( shareram_r )
-	{
+	public static ReadHandlerPtr shareram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return shareram[offset];
-	}
+	} };
 	
 	/***************************************************************************************/
 	

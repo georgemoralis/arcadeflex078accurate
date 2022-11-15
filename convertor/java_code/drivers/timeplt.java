@@ -52,7 +52,6 @@ public class timeplt
 	
 	extern unsigned char *timeplt_videoram,*timeplt_colorram;
 	
-	READ_HANDLER( timeplt_scanline_r );
 	WRITE_HANDLER( timeplt_videoram_w );
 	WRITE_HANDLER( timeplt_colorram_w );
 	WRITE_HANDLER( timeplt_flipscreen_w );
@@ -64,10 +63,9 @@ public class timeplt
 		coin_counter_w(offset >> 1, data);
 	}
 	
-	static READ_HANDLER( psurge_protection_r )
-	{
+	public static ReadHandlerPtr psurge_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x80;
-	}
+	} };
 	
 	
 	

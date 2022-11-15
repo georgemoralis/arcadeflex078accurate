@@ -527,20 +527,18 @@ public class multipcm
 	
 	/* MAME/M1 access functions */
 	
-	READ_HANDLER( MultiPCM_reg_0_r )
-	{
+	public static ReadHandlerPtr MultiPCM_reg_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return MultiPCM_reg_r(0, offset);
-	}
+	} };
 	
 	WRITE_HANDLER( MultiPCM_reg_0_w )
 	{
 		MultiPCM_reg_w(0, offset, data);
 	}
 	
-	READ_HANDLER( MultiPCM_reg_1_r )
-	{
+	public static ReadHandlerPtr MultiPCM_reg_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return MultiPCM_reg_r(1, offset);
-	}
+	} };
 	
 	WRITE_HANDLER( MultiPCM_reg_1_w )
 	{

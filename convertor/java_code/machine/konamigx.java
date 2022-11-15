@@ -83,11 +83,10 @@ public class konamigx
 		}
 	}
 	
-	READ_HANDLER( tms57002_status_r )
-	{
+	public static ReadHandlerPtr tms57002_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		chk_ldw();
 		return 1;
-	}
+	} };
 	
 	WRITE_HANDLER( tms57002_data_w )
 	{
@@ -129,8 +128,7 @@ public class konamigx
 		}
 	}
 	
-	READ_HANDLER( tms57002_data_r )
-	{
+	public static ReadHandlerPtr tms57002_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char res;
 	
 		chk_ldw();
@@ -146,7 +144,7 @@ public class konamigx
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	READ16_HANDLER( tms57002_data_word_r )

@@ -97,14 +97,13 @@ public class firetrap
 		cpu_setbank(1,&RAM[bankaddress]);
 	}
 	
-	static READ_HANDLER( firetrap_8751_bootleg_r )
-	{
+	public static ReadHandlerPtr firetrap_8751_bootleg_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Check for coin insertion */
 		/* the following only works in the bootleg version, which doesn't have an */
 		/* 8751 - the real thing is much more complicated than that. */
 		if ((readinputport(2) & 0x70) != 0x70) return 0xff;
 		return 0;
-	}
+	} };
 	
 	static int i8751_return,i8751_current_command;
 	
@@ -112,11 +111,10 @@ public class firetrap
 		i8751_current_command=0;
 	} };
 	
-	static READ_HANDLER( firetrap_8751_r )
-	{
+	public static ReadHandlerPtr firetrap_8751_r  = new ReadHandlerPtr() { public int handler(int offset){
 		//logerror("PC:%04x read from 8751\n",activecpu_get_pc());
 		return i8751_return;
-	}
+	} };
 	
 	static WRITE_HANDLER( firetrap_8751_w )
 	{

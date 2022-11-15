@@ -39,18 +39,13 @@ public class lkage
 	extern unsigned char *lkage_scroll, *lkage_vreg;
 	WRITE_HANDLER( lkage_videoram_w );
 	
-	READ_HANDLER( lkage_68705_portA_r );
 	WRITE_HANDLER( lkage_68705_portA_w );
-	READ_HANDLER( lkage_68705_portB_r );
 	WRITE_HANDLER( lkage_68705_portB_w );
-	READ_HANDLER( lkage_68705_portC_r );
 	WRITE_HANDLER( lkage_68705_portC_w );
 	WRITE_HANDLER( lkage_68705_ddrA_w );
 	WRITE_HANDLER( lkage_68705_ddrB_w );
 	WRITE_HANDLER( lkage_68705_ddrC_w );
 	WRITE_HANDLER( lkage_mcu_w );
-	READ_HANDLER( lkage_mcu_r );
-	READ_HANDLER( lkage_mcu_status_r );
 	
 	
 	static int sound_nmi_enable,pending_nmi;
@@ -121,10 +116,9 @@ public class lkage
 		{ 0xf400, 0xffff, lkage_videoram_w, &videoram }, /* videoram */
 	MEMORY_END
 	
-	static READ_HANDLER( port_fetch_r )
-	{
+	public static ReadHandlerPtr port_fetch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_USER1)[offset];
-	}
+	} };
 	
 	static PORT_READ_START( readport )
 		{ 0x4000, 0x7fff, port_fetch_r },
@@ -521,8 +515,7 @@ public class lkage
 	
 	/*Note:This probably uses another MCU dump,which is undumped.*/
 	
-	static READ_HANDLER( fake_mcu_r )
-	{
+	public static ReadHandlerPtr fake_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch(mcu_val)
 		{
 			/*These are for the attract mode*/
@@ -535,7 +528,7 @@ public class lkage
 	
 			default:   return (mcu_val);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( fake_mcu_w )
 	{
@@ -545,12 +538,11 @@ public class lkage
 		mcu_val = data;
 	}
 	
-	static READ_HANDLER( fake_status_r )
-	{
+	public static ReadHandlerPtr fake_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int res = 3;// cpu data/mcu ready status
 	
 		return res;
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_lkageb  = new DriverInitHandlerPtr() { public void handler(){
 		install_mem_read_handler (0,0xf062,0xf062,fake_mcu_r);

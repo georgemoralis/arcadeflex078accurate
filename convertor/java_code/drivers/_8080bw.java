@@ -1774,11 +1774,10 @@ public class _8080bw
 	
 	static int sfl_int=0;
 	
-	static READ_HANDLER( sfl_input_r )
-	{
+	public static ReadHandlerPtr sfl_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sfl_int^=0x80;//vblank flag ?
 		return sfl_int|input_port_1_r(0);
-	}
+	} };
 	
 	static MEMORY_READ_START( sflush_readmem )
 		{ 0x0000, 0x1fff, MRA_RAM}, //?

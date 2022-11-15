@@ -18,8 +18,7 @@ public class tourtabl
 	
 	extern extern 
 	extern extern 
-	extern READ_HANDLER( tia_r );
-	extern WRITE_HANDLER( tia_w );
+	extern extern WRITE_HANDLER( tia_w );
 	
 	extern void tia_init(void);
 	
@@ -50,14 +49,12 @@ public class tourtabl
 	}
 	
 	
-	static READ_HANDLER( r6532_0_ram_r )
-	{
+	public static ReadHandlerPtr r6532_0_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return r6532_0_ram[offset];
-	}
-	static READ_HANDLER( r6532_1_ram_r )
-	{
+	} };
+	public static ReadHandlerPtr r6532_1_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return r6532_1_ram[offset];
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

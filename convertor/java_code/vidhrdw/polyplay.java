@@ -48,10 +48,9 @@ public class polyplay
 		}
 	}
 	
-	READ_HANDLER( polyplay_characterram_r )
-	{
+	public static ReadHandlerPtr polyplay_characterram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return polyplay_characterram[offset];
-	}
+	} };
 	
 	
 	public static VideoUpdateHandlerPtr video_update_polyplay  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){

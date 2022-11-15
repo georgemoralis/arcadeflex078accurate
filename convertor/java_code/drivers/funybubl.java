@@ -71,10 +71,9 @@ public class funybubl
 	}
 	
 	
-	static READ_HANDLER ( unk_port_r )
-	{
+	public static ReadHandlerPtr unk_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

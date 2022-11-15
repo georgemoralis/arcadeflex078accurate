@@ -231,8 +231,7 @@ public class bzone
 	 *
 	 *************************************/
 	
-	READ_HANDLER( bzone_IN0_r )
-	{
+	public static ReadHandlerPtr bzone_IN0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 		res = readinputport(0);
@@ -248,7 +247,7 @@ public class bzone
 			res &= ~IN0_VG_HALT;
 	
 		return res;
-	}
+	} };
 	
 	
 	/* Translation table for one-joystick emulation */
@@ -258,8 +257,7 @@ public class bzone
 		0x09,0x08,0x04,0x00,0x00,0x00,0x00,0x00
 	};
 	
-	static READ_HANDLER( bzone_IN3_r )
-	{
+	public static ReadHandlerPtr bzone_IN3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res,res1;
 	
 		res=readinputport(3);
@@ -268,7 +266,7 @@ public class bzone
 		res |= one_joy_trans[res1 & 0x0f];
 	
 		return (res);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( bzone_coin_counter_w )
@@ -284,10 +282,9 @@ public class bzone
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( redbaron_joy_r )
-	{
+	public static ReadHandlerPtr redbaron_joy_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(rb_input_select ? 5 : 6);
-	}
+	} };
 	
 	
 	
@@ -859,10 +856,9 @@ public class bzone
 	
 	static UINT8 analog_data;
 	
-	static READ_HANDLER( analog_data_r )
-	{
+	public static ReadHandlerPtr analog_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return analog_data;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( analog_select_w )

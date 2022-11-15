@@ -315,20 +315,17 @@ public class firetrk
 	} };
 	
 	
-	static READ_HANDLER( firetrk_zeropage_r )
-	{
+	public static ReadHandlerPtr firetrk_zeropage_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_CPU1)[offset & 0xff];
-	}
+	} };
 	
 	
-	static READ_HANDLER( firetrk_playfield_r )
-	{
+	public static ReadHandlerPtr firetrk_playfield_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return firetrk_playfield_ram[offset & 0xff];
-	}
+	} };
 	
 	
-	static READ_HANDLER( firetrk_dip_r )
-	{
+	public static ReadHandlerPtr firetrk_dip_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val0 = readinputport(2);
 		UINT8 val1 = readinputport(3);
 	
@@ -344,11 +341,10 @@ public class firetrk
 		}
 	
 		return val0;
-	}
+	} };
 	
 	
-	static READ_HANDLER( firetrk_input_r )
-	{
+	public static ReadHandlerPtr firetrk_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = 0;
 	
 		UINT8 bit0 = readinputport(4);
@@ -416,7 +412,7 @@ public class firetrk
 		if (bit7 & (1 << offset)) val |= 0x80;
 	
 		return val;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( firetrk_zeropage_w )

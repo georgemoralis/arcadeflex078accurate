@@ -47,11 +47,7 @@ public class nitedrvr
 	extern int nitedrvr_gear;
 	extern int nitedrvr_track;
 	
-	extern READ_HANDLER( nitedrvr_in0_r );
-	extern READ_HANDLER( nitedrvr_in1_r );
-	extern READ_HANDLER( nitedrvr_ram_r );
-	extern READ_HANDLER( nitedrvr_steering_reset_r );
-	extern WRITE_HANDLER( nitedrvr_steering_reset_w );
+	extern extern extern extern extern WRITE_HANDLER( nitedrvr_steering_reset_w );
 	extern WRITE_HANDLER( nitedrvr_out0_w );
 	extern WRITE_HANDLER( nitedrvr_out1_w );
 	extern WRITE_HANDLER( nitedrvr_ram_w );

@@ -126,27 +126,24 @@ public class tubep
 	{
 		cpu_sharedram[offset] = data;
 	}
-	static READ_HANDLER ( cpu_sharedram_r )
-	{
+	public static ReadHandlerPtr cpu_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu_sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER ( tubep_sprite_sharedram_w )
 	{
 		tubep_sprite_sharedram[offset] = data;
 	}
-	static READ_HANDLER ( tubep_sprite_sharedram_r )
-	{
+	public static ReadHandlerPtr tubep_sprite_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tubep_sprite_sharedram[offset];
-	}
+	} };
 	static WRITE_HANDLER ( tubep_sprite_colorsharedram_w )
 	{
 		tubep_sprite_colorsharedram[offset] = data;
 	}
-	static READ_HANDLER ( tubep_sprite_colorsharedram_r )
-	{
+	public static ReadHandlerPtr tubep_sprite_colorsharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tubep_sprite_colorsharedram[offset];
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( tubep_LS259_w )
@@ -249,8 +246,7 @@ public class tubep
 		{ 0xf800, 0xffff, tubep_sprite_sharedram_w },			/* program copies here part of shared ram ?? */
 	MEMORY_END
 	
-	static READ_HANDLER( tubep_soundlatch_r )
-	{
+	public static ReadHandlerPtr tubep_soundlatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 	 	int res;
 	
 		res = sound_latch;
@@ -259,13 +255,12 @@ public class tubep
 		/*logerror("SOUND COMM READ %2x\n",res);*/
 	
 		return res;
-	}
+	} };
 	
-	static READ_HANDLER( tubep_sound_irq_ack )
-	{
+	public static ReadHandlerPtr tubep_sound_irq_ack  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(2, 0, CLEAR_LINE);
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( tubep_sound_unknown )
 	{
@@ -427,11 +422,10 @@ public class tubep
 	
 	
 	
-	static READ_HANDLER( rjammer_soundlatch_r )
-	{
+	public static ReadHandlerPtr rjammer_soundlatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 	 	int res = sound_latch;
 		return res;
-	}
+	} };
 	
 	static WRITE_HANDLER( rjammer_voice_startstop_w )
 	{

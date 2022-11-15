@@ -224,12 +224,11 @@ public class esd16
 		{ 0xf800, 0xffff, MWA_RAM		},	// RAM
 	MEMORY_END
 	
-	READ_HANDLER( esd16_sound_command_r )
-	{
+	public static ReadHandlerPtr esd16_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Clear IRQ only after reading the command, or some get lost */
 		cpu_set_irq_line(1,0,CLEAR_LINE);
 		return soundlatch_r(0);
-	}
+	} };
 	
 	static PORT_READ_START( multchmp_sound_readport )
 		{ 0x02, 0x02, OKIM6295_status_0_r		},	// M6295

@@ -87,10 +87,9 @@ public class iqblock
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
 	}
 	
-	static READ_HANDLER( extrarom_r )
-	{
+	public static ReadHandlerPtr extrarom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_USER1)[offset];
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( port_C_w )

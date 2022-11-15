@@ -50,8 +50,7 @@ public class runaway
 	} };
 	
 	
-	static READ_HANDLER( runaway_input_r )
-	{
+	public static ReadHandlerPtr runaway_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = 0;
 	
 		if (readinputport(0) & (1 << offset))
@@ -64,13 +63,12 @@ public class runaway
 		}
 	
 		return val;
-	}
+	} };
 	
 	
-	static READ_HANDLER( runaway_pot_r )
-	{
+	public static ReadHandlerPtr runaway_pot_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(4) << (7 - offset)) & 0x80;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( runaway_led_w )

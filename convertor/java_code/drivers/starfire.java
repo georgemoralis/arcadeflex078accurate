@@ -58,9 +58,7 @@ public class starfire
 	extern extern void starfire_video_update(int scanline, int count);
 	
 	WRITE_HANDLER( starfire_videoram_w );
-	READ_HANDLER( starfire_videoram_r );
 	WRITE_HANDLER( starfire_colorram_w );
-	READ_HANDLER( starfire_colorram_r );
 	WRITE_HANDLER( starfire_vidctrl_w );
 	WRITE_HANDLER( starfire_vidctrl1_w );
 	
@@ -127,8 +125,7 @@ public class starfire
 	}
 	
 	
-	static READ_HANDLER( starfire_scratch_r )
-	{
+	public static ReadHandlerPtr starfire_scratch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* A11 selects input ports */
 		if (offset & 0x800)
 			return (*input_read)(offset);
@@ -136,7 +133,7 @@ public class starfire
 		/* convert to a videoram offset */
 		offset = (offset & 0x31f) | ((offset & 0xe0) << 5);
 	    return starfire_videoram[offset];
-	}
+	} };
 	
 	
 	
@@ -146,8 +143,7 @@ public class starfire
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( starfire_input_r )
-	{
+	public static ReadHandlerPtr starfire_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset & 15)
 		{
 			case 0:	return input_port_0_r(0);
@@ -157,11 +153,10 @@ public class starfire
 			case 7:	return input_port_3_r(0);
 			default: return 0xff;
 		}
-	}
+	} };
 	
 	
-	static READ_HANDLER( fireone_input_r )
-	{
+	public static ReadHandlerPtr fireone_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static const UINT8 fireone_paddle_map[64] =
 		{
 			0x00,0x01,0x03,0x02,0x06,0x07,0x05,0x04,
@@ -185,7 +180,7 @@ public class starfire
 				return temp;
 			default: return 0xff;
 		}
-	}
+	} };
 	
 	
 	

@@ -469,10 +469,9 @@ public class _8080bw
 		}
 	}
 	
-	READ_HANDLER( schaser_colorram_r )
-	{
+	public static ReadHandlerPtr schaser_colorram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return colorram[offset & 0x1f1f];
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( phantom2_videoram_w )

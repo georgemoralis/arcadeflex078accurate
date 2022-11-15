@@ -28,10 +28,9 @@ public class ladyfrog
 		ladyfrog_spriteram[offset]=data;
 	}
 	
-	READ_HANDLER(ladyfrog_spriteram_r)
-	{
+	public static ReadHandlerPtr ladyfrog_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ladyfrog_spriteram[offset];
-	}
+	} };
 	
 	static void get_tile_info(int tile_index)
 	{
@@ -51,10 +50,9 @@ public class ladyfrog
 		tilemap_mark_tile_dirty(tilemap,offset>>1);
 	}
 	
-	READ_HANDLER( ladyfrog_videoram_r )
-	{
+	public static ReadHandlerPtr ladyfrog_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( ladyfrog_palette_w )
 	{
@@ -64,13 +62,12 @@ public class ladyfrog
 			paletteram_xxxxBBBBGGGGRRRR_split1_w((offset & 0xff) + (palette_bank << 8),data);
 	}
 	
-	READ_HANDLER( ladyfrog_palette_r )
-	{
+	public static ReadHandlerPtr ladyfrog_palette_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset & 0x100)
 			return paletteram_2[ (offset & 0xff) + (palette_bank << 8) ];
 		else
 			return paletteram  [ (offset & 0xff) + (palette_bank << 8) ];
-	}
+	} };
 	
 	WRITE_HANDLER( ladyfrog_gfxctrl_w )
 	{
@@ -85,15 +82,13 @@ public class ladyfrog
 	}
 	
 	
-	READ_HANDLER( ladyfrog_gfxctrl_r )
-	{
+	public static ReadHandlerPtr ladyfrog_gfxctrl_r  = new ReadHandlerPtr() { public int handler(int offset){
 			return 	gfxctrl;
-	}
+	} };
 	
-	READ_HANDLER( ladyfrog_scrlram_r )
-	{
+	public static ReadHandlerPtr ladyfrog_scrlram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ladyfrog_scrlram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( ladyfrog_scrlram_w )
 	{

@@ -68,25 +68,22 @@ public class jcross
 	{
 		spriteram[offset] = data;
 	}
-	READ_HANDLER( jcross_spriteram_r )
-	{
+	public static ReadHandlerPtr jcross_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return spriteram[offset];
-	}
+	} };
 	
-	READ_HANDLER( jcross_background_ram_r )
-	{
+	public static ReadHandlerPtr jcross_background_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
-	}
+	} };
 	WRITE_HANDLER( jcross_background_ram_w )
 	{
 		videoram[offset]=data;
 		tilemap_mark_tile_dirty(bg_tilemap,offset);
 	}
 	
-	READ_HANDLER( jcross_text_ram_r )
-	{
+	public static ReadHandlerPtr jcross_text_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return jcr_textram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( jcross_text_ram_w )
 	{

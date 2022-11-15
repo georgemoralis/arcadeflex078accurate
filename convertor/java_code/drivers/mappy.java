@@ -56,7 +56,6 @@ public class mappy
 	/* machine driver data & functions */
 	extern unsigned char *mappy_sharedram;
 	extern unsigned char *mappy_customio_1,*mappy_customio_2;
-	READ_HANDLER( mappy_sharedram_r );
 	WRITE_HANDLER( mappy_sharedram_w );
 	WRITE_HANDLER( mappy_customio_1_w );
 	WRITE_HANDLER( mappy_customio_2_w );
@@ -67,17 +66,9 @@ public class mappy
 	WRITE_HANDLER( mappy_io_chips_enable_w );
 	WRITE_HANDLER( mappy_flipscreen_w );
 	
-	READ_HANDLER( mappy_customio_1_r );
-	READ_HANDLER( mappy_customio_2_r );
 	
-	READ_HANDLER( digdug2_customio_1_r );
-	READ_HANDLER( digdug2_customio_2_r );
 	
-	READ_HANDLER( motos_customio_1_r );
-	READ_HANDLER( motos_customio_2_r );
 	
-	READ_HANDLER( todruaga_customio_1_r );
-	READ_HANDLER( todruaga_customio_2_r );
 	
 	/* video driver data & functions */
 	WRITE_HANDLER( mappy_videoram_w );

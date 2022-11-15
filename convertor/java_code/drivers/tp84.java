@@ -102,17 +102,15 @@ public class tp84
 	extern WRITE_HANDLER( tp84_flipscreen_x_w );
 	extern WRITE_HANDLER( tp84_flipscreen_y_w );
 	extern WRITE_HANDLER( tp84_col0_w );
-	extern READ_HANDLER( tp84_scanline_r );
-	
+	extern 
 	extern extern extern 
 	extern 
 	
 	static UINT8 *sharedram;
 	
-	static READ_HANDLER( sharedram_r )
-	{
+	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( sharedram_w )
 	{
@@ -121,14 +119,13 @@ public class tp84
 	
 	
 	
-	static READ_HANDLER( tp84_sh_timer_r )
-	{
+	public static ReadHandlerPtr tp84_sh_timer_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* main xtal 14.318MHz, divided by 4 to get the CPU clock, further */
 		/* divided by 2048 to get this timer */
 		/* (divide by (2048/2), and not 1024, because the CPU cycle counter is */
 		/* incremented every other state change of the clock) */
 		return (activecpu_gettotalcycles() / (2048/2)) & 0x0f;
-	}
+	} };
 	
 	static WRITE_HANDLER( tp84_filter_w )
 	{

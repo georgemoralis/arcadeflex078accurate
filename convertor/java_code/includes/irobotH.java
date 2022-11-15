@@ -12,13 +12,10 @@ extern UINT8 irobot_alphamap;
 extern UINT8 *irobot_combase;
 
 
-READ_HANDLER( irobot_status_r );
 WRITE_HANDLER( irobot_statwr_w );
 WRITE_HANDLER( irobot_out0_w );
 WRITE_HANDLER( irobot_rom_banksel_w );
-READ_HANDLER( irobot_control_r );
 WRITE_HANDLER( irobot_control_w );
-READ_HANDLER( irobot_sharedmem_r );
 WRITE_HANDLER( irobot_sharedmem_w );
 
 

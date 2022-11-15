@@ -50,8 +50,7 @@ public class clayshoo
 	}
 	
 	
-	static READ_HANDLER( input_port_r )
-	{
+	public static ReadHandlerPtr input_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t ret = 0;
 	
 	
@@ -69,7 +68,7 @@ public class clayshoo
 		}
 	
 		return ret;
-	}
+	} };
 	
 	
 	static ppi8255_interface ppi8255_intf =
@@ -123,8 +122,7 @@ public class clayshoo
 	}
 	
 	
-	READ_HANDLER( clayshoo_analog_r )
-	{
+	public static ReadHandlerPtr clayshoo_analog_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return analog_port_val;
-	}
+	} };
 }

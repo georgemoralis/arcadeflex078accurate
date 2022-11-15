@@ -46,31 +46,27 @@ public class berzerk
 		nmi_enabled = 0;
 	}
 	
-	READ_HANDLER( berzerk_nmi_enable_r )
-	{
+	public static ReadHandlerPtr berzerk_nmi_enable_r  = new ReadHandlerPtr() { public int handler(int offset){
 		nmi_enabled = 1;
 		return 0;
-	}
+	} };
 	
-	READ_HANDLER( berzerk_nmi_disable_r )
-	{
+	public static ReadHandlerPtr berzerk_nmi_disable_r  = new ReadHandlerPtr() { public int handler(int offset){
 		nmi_enabled = 0;
 		return 0;
-	}
+	} };
 	
-	READ_HANDLER( berzerk_led_on_r )
-	{
+	public static ReadHandlerPtr berzerk_led_on_r  = new ReadHandlerPtr() { public int handler(int offset){
 		set_led_status(0,1);
 	
 		return 0;
-	}
+	} };
 	
-	READ_HANDLER( berzerk_led_off_r )
-	{
+	public static ReadHandlerPtr berzerk_led_off_r  = new ReadHandlerPtr() { public int handler(int offset){
 		set_led_status(0,0);
 	
 		return 0;
-	}
+	} };
 	
 	public static InterruptHandlerPtr berzerk_interrupt = new InterruptHandlerPtr() {public void handler(){
 		int_count++;

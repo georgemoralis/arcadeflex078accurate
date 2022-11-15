@@ -51,10 +51,9 @@ public class mouser
 		cpu_set_irq_line(1, 0, PULSE_LINE);
 	}
 	
-	READ_HANDLER( mouser_sound_byte_r )
-	{
+	public static ReadHandlerPtr mouser_sound_byte_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return mouser_sound_byte;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x5fff, MRA_ROM },

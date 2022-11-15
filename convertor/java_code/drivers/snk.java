@@ -245,10 +245,10 @@ public class snk
 	} };
 	
 	// NMI handshakes between CPUs are determined to be much simpler
-	READ_HANDLER ( snk_cpuA_nmi_trigger_r ) { cpu_set_nmi_line(0, ASSERT_LINE); return 0; }
+	public static ReadHandlerPtr snk_cpuA_nmi_trigger_r  = new ReadHandlerPtr() { public int handler(int offset) cpu_set_nmi_line(0, ASSERT_LINE); return 0; }
 	WRITE_HANDLER( snk_cpuA_nmi_ack_w ) { cpu_set_nmi_line(0, CLEAR_LINE); }
 	
-	READ_HANDLER ( snk_cpuB_nmi_trigger_r ) { cpu_set_nmi_line(1, ASSERT_LINE); return 0; }
+	public static ReadHandlerPtr snk_cpuB_nmi_trigger_r  = new ReadHandlerPtr() { public int handler(int offset) cpu_set_nmi_line(1, ASSERT_LINE); return 0; }
 	WRITE_HANDLER( snk_cpuB_nmi_ack_w ) { cpu_set_nmi_line(1, CLEAR_LINE); }
 	
 	/*********************************************************************/
@@ -288,7 +288,7 @@ public class snk
 	/*********************************************************************/
 	
 	static int snk_rot8( int which ){
-		const int dial_8[8]   = { 0xf0,0x30,0x10,0x50,0x40,0xc0,0x80,0xa0 };
+		const int dial_8[8]   = { 0xf0,0x30,0x10,0x50,0x40,0xc0,0x80,0xa0 } };;
 		int value = readinputport(which+1);
 		int joypos16 = value>>4;
 		return (value&0xf) | dial_8[joypos16>>1];
@@ -369,7 +369,7 @@ public class snk
 		snk_sound_register &= (data>>4);
 	}
 	
-	static READ_HANDLER( snk_sound_register_r ){
+	public static ReadHandlerPtr snk_sound_register_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return snk_sound_register;// | 0x2; /* hack; lets chopper1 play music */
 	}
 	
@@ -384,7 +384,7 @@ public class snk
 	static struct YM3526interface ym3526_interface = {
 		1,			/* number of chips */
 		4000000,	/* 4 MHz */
-		{ 100 },		/* mixing level */
+		{ 100 } };,		/* mixing level */
 		{ snk_sound_callback0_w } /* ? */
 	};
 	
@@ -415,7 +415,7 @@ public class snk
 		soundlatch_w( offset, data );
 	}
 	
-	static READ_HANDLER( snk_soundlatch_clear_r ){ /* TNK3 */
+	public static ReadHandlerPtr snk_soundlatch_clear_r  = new ReadHandlerPtr() { public int handler(int offset)/* TNK3 */
 		soundlatch_w( 0, 0 );
 		snk_sound_register = 0;
 		return 0x00;
@@ -513,21 +513,21 @@ public class snk
 	
 	/**********************  Tnk3, Athena, Fighting Golf ********************/
 	
-	static READ_HANDLER( shared_ram_r ){
+	public static ReadHandlerPtr shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return shared_ram[offset];
 	}
 	static WRITE_HANDLER( shared_ram_w ){
 		shared_ram[offset] = data;
 	}
 	
-	static READ_HANDLER( shared_ram2_r ){
+	public static ReadHandlerPtr shared_ram2_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return shared_ram2[offset];
 	}
 	static WRITE_HANDLER( shared_ram2_w ){
 		shared_ram2[offset] = data;
 	}
 	
-	static READ_HANDLER( cpuA_io_r ){
+	public static ReadHandlerPtr cpuA_io_r  = new ReadHandlerPtr() { public int handler(int offset)
 		switch( offset ){
 			case 0x000: return snk_input_port_r( 0 );	// coin input, player start
 			case 0x100: return snk_input_port_r( 1 );	// joy1
@@ -553,7 +553,7 @@ public class snk
 			case 0xe80:
 			case 0xea0:
 			case 0xee0: if( hard_flags ) return 0xff;
-		}
+		} };
 		return io_ram[offset];
 	}
 	
@@ -577,7 +577,7 @@ public class snk
 		}
 	}
 	
-	static READ_HANDLER( cpuB_io_r ){
+	public static ReadHandlerPtr cpuB_io_r  = new ReadHandlerPtr() { public int handler(int offset)
 		switch( offset ){
 			case 0x000:
 			case 0x700: return(snk_cpuA_nmi_trigger_r(0));
@@ -590,7 +590,7 @@ public class snk
 			case 0xe80:
 			case 0xea0:
 			case 0xee0: if( hard_flags ) return 0xff;
-		}
+		} };
 		return io_ram[offset];
 	}
 	

@@ -43,10 +43,9 @@ public class nbmj8891
 	
 	
 	******************************************************************************/
-	READ_HANDLER( gionbana_palette_r )
-	{
+	public static ReadHandlerPtr gionbana_palette_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return gionbana_palette[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( gionbana_palette_w )
 	{
@@ -69,10 +68,9 @@ public class nbmj8891
 		palette_set_color((offset >> 1), r, g, b);
 	}
 	
-	READ_HANDLER( maiko_palette_r )
-	{
+	public static ReadHandlerPtr maiko_palette_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return gionbana_palette[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( maiko_palette_w )
 	{
@@ -184,10 +182,9 @@ public class nbmj8891
 		gionbana_paltblnum = data;
 	}
 	
-	READ_HANDLER( gionbana_paltbl_r )
-	{
+	public static ReadHandlerPtr gionbana_paltbl_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return gionbana_paltbl[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( gionbana_paltbl_w )
 	{

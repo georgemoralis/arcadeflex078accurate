@@ -163,13 +163,12 @@ public class sega
 													/* here only to initialize the pointer */
 	MEMORY_END
 	
-	static READ_HANDLER( sega_sh_r )
-	{
+	public static ReadHandlerPtr sega_sh_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* 0x80 = universal sound board ready */
 		/* 0x01 = speech ready, theorically, but the schematics show it unconnected */
 	
 		return 0x80;
-	}
+	} };
 	
 	static PORT_READ_START( readport )
 		{ 0x3f, 0x3f, sega_sh_r },

@@ -132,8 +132,7 @@ public class mjsister
 		mjsister_input_sel2 = data;
 	}
 	
-	static READ_HANDLER( mjsister_keys_r )
-	{
+	public static ReadHandlerPtr mjsister_keys_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int p,i,ret = 0;
 	
 		p = mjsister_input_sel1 & 0x3f;
@@ -146,7 +145,7 @@ public class mjsister
 		}
 	
 		return ret;
-	}
+	} };
 	
 	/****************************************************************************/
 	

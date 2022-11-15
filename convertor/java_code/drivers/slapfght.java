@@ -208,9 +208,7 @@ public class slapfght
 	extern unsigned char *slapfight_dpram;
 	extern size_t slapfight_dpram_size;
 	WRITE_HANDLER( slapfight_dpram_w );
-	READ_HANDLER( slapfight_dpram_r );
 	
-	READ_HANDLER( slapfight_port_00_r );
 	WRITE_HANDLER( slapfight_port_00_w );
 	WRITE_HANDLER( slapfight_port_01_w );
 	WRITE_HANDLER( getstar_port_04_w );
@@ -220,20 +218,14 @@ public class slapfght
 	WRITE_HANDLER( slapfight_port_09_w );
 	
 	/* MCU */
-	READ_HANDLER( getstar_e803_r );
 	
-	READ_HANDLER ( tigerh_68705_portA_r );
 	WRITE_HANDLER( tigerh_68705_portA_w );
-	READ_HANDLER ( tigerh_68705_portB_r );
 	WRITE_HANDLER( tigerh_68705_portB_w );
-	READ_HANDLER ( tigerh_68705_portC_r );
 	WRITE_HANDLER( tigerh_68705_portC_w );
 	WRITE_HANDLER( tigerh_68705_ddrA_w );
 	WRITE_HANDLER( tigerh_68705_ddrB_w );
 	WRITE_HANDLER( tigerh_68705_ddrC_w );
 	WRITE_HANDLER( tigerh_mcu_w );
-	READ_HANDLER ( tigerh_mcu_r );
-	READ_HANDLER ( tigerh_mcu_status_r );
 	
 	WRITE_HANDLER( getstar_sh_intenable_w );
 	
@@ -318,10 +310,9 @@ public class slapfght
 		{ 0x00, 0x00, slapfight_port_00_r },	/* status register */
 	PORT_END
 	
-	static READ_HANDLER(tigerh_status_r)
-	{
+	public static ReadHandlerPtr tigerh_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (slapfight_port_00_r(0)&0xf9)| ((tigerh_mcu_status_r(0)));
-	}
+	} };
 	
 	static PORT_READ_START( tigerh_readport )
 		{ 0x00, 0x00, tigerh_status_r },	/* status register */

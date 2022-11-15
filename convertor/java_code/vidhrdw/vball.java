@@ -72,10 +72,9 @@ public class vball
 		}
 	}
 	
-	READ_HANDLER( vb_attrib_r )
-	{
+	public static ReadHandlerPtr vb_attrib_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return vb_attribram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( vb_attrib_w )
 	{

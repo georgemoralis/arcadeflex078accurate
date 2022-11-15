@@ -216,19 +216,17 @@ public class nbmj8688
 	
 	
 	
-	static READ_HANDLER( sndrom_r )
-	{
+	public static ReadHandlerPtr sndrom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* get top 8 bits of the I/O port address */
 		offset = (offset << 8) | (activecpu_get_reg(Z80_BC) >> 8);
 		return nb1413m3_sndrom_r(offset);
-	}
+	} };
 	
-	static READ_HANDLER( ff_r )
-	{
+	public static ReadHandlerPtr ff_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* possibly because of a bug, reads from port 0xd0 must return 0xff
 		   otherwise apparel doesn't clear the background when you insert a coin */
 		return 0xff;
-	}
+	} };
 	
 	
 	

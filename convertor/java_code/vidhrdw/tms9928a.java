@@ -289,7 +289,7 @@ public class tms9928a
 	/*
 	** The I/O functions.
 	*/
-	READ_HANDLER (TMS9928A_vram_r) {
+	public static ReadHandlerPtr TMS9928A_vram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	    UINT8 b;
 	    b = tms.ReadAhead;
 	    tms.ReadAhead = tms.vMem[tms.Addr];
@@ -322,20 +322,20 @@ public class tms9928a
 	            tms.DirtyPattern[i] = 1;
 	            tms.anyDirtyPattern = 1;
 	        }
-	    }
+	    } };
 	    tms.Addr = (tms.Addr + 1) & (tms.vramsize - 1);
 	    tms.ReadAhead = data;
 	    tms.latch = 0;
 	}
 	
-	READ_HANDLER (TMS9928A_register_r) {
+	public static ReadHandlerPtr TMS9928A_register_r  = new ReadHandlerPtr() { public int handler(int offset)
 	    UINT8 b;
 	    b = tms.StatusReg;
 	    tms.StatusReg = 0x1f;
 	    if (tms.INT) {
 	        tms.INT = 0;
 	        if (tms.INTCallback) tms.INTCallback (tms.INT);
-	    }
+	    } };
 	    tms.latch = 0;
 	    return b;
 	}

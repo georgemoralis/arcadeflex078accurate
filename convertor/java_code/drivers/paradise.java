@@ -333,10 +333,9 @@ public class paradise
 	
 	looks like its probably similar hardware ... */
 	
-	READ_HANDLER( tgt_ball_unk )
-	{
+	public static ReadHandlerPtr tgt_ball_unk  = new ReadHandlerPtr() { public int handler(int offset){
 		return rand();
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_tgtball  = new DriverInitHandlerPtr() { public void handler(){
 		install_port_read_handler(0, 0x2000, 0x2fff, tgt_ball_unk);

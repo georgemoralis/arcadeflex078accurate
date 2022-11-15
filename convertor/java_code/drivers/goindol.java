@@ -59,15 +59,14 @@ public class goindol
 	
 	
 	
-	static READ_HANDLER( prot_f422_r )
-	{
+	public static ReadHandlerPtr prot_f422_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int toggle;
 	
 		/* bit 7 = vblank? */
 		toggle ^= 0x80;
 	
 		return toggle;
-	}
+	} };
 	
 	
 	static UINT8 *ram;

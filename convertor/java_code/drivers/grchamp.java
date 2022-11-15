@@ -64,9 +64,7 @@ public class grchamp
 	
 	/* from machine */
 	extern int grchamp_cpu_irq_enable[2];
-	extern extern READ_HANDLER( grchamp_port_0_r );
-	extern READ_HANDLER( grchamp_port_1_r );
-	extern WRITE_HANDLER( grchamp_port_1_w );
+	extern extern extern extern WRITE_HANDLER( grchamp_port_1_w );
 	
 	extern WRITE_HANDLER( grchamp_control0_w );
 	extern WRITE_HANDLER( grchamp_coinled_w );
@@ -119,18 +117,15 @@ public class grchamp
 		PC3259_data = data;
 	}
 	
-	READ_HANDLER( PC3259_0_r )
-	{ /* 0x01 (401a)*/
+	public static ReadHandlerPtr PC3259_0_r  = new ReadHandlerPtr() { public int handler(int offset){ /* 0x01 (401a)*/
 		return 0xff; /* unknown */
-	}
+	} };
 	
-	READ_HANDLER( PC3259_1_r )
-	{ /* 0x09 (401b)*/
+	public static ReadHandlerPtr PC3259_1_r  = new ReadHandlerPtr() { public int handler(int offset){ /* 0x09 (401b)*/
 		return 0xff; /* unknown */
-	}
+	} };
 	
-	READ_HANDLER( PC3259_2_r )
-	{ /* 0x11 (401c)*/
+	public static ReadHandlerPtr PC3259_2_r  = new ReadHandlerPtr() { public int handler(int offset){ /* 0x11 (401c)*/
 		int result = 0;
 		if( grchamp_player_ypos<128 )
 		{
@@ -141,13 +136,12 @@ public class grchamp
 			result = rand()&0xff; // OBJECT crash
 		}
 		return result;
-	}
+	} };
 	
-	READ_HANDLER( PC3259_3_r )
-	{ /* 0x19 (401d)*/
+	public static ReadHandlerPtr PC3259_3_r  = new ReadHandlerPtr() { public int handler(int offset){ /* 0x19 (401d)*/
 		int result = grchamp_collision?1:0; /* crash */
 		return result;
-	}
+	} };
 	
 	/***************************************************************************/
 	
@@ -248,10 +242,9 @@ public class grchamp
 	{
 		shareram[offset] = data;
 	}
-	static READ_HANDLER( shareram_r )
-	{
+	public static ReadHandlerPtr shareram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return shareram[offset];
-	}
+	} };
 	#endif
 	
 	static MEMORY_READ_START( readmem )

@@ -46,8 +46,7 @@ public class bwing
 	extern WRITE_HANDLER( bwing_spriteram_w );
 	extern WRITE_HANDLER( bwing_scrollreg_w );
 	extern WRITE_HANDLER( bwing_scrollram_w );
-	extern READ_HANDLER( bwing_scrollram_r );
-	extern extern 
+	extern extern extern 
 	//****************************************************************************
 	// Local Vars
 	
@@ -102,8 +101,7 @@ public class bwing
 	static WRITE_HANDLER( bwp3_nmimask_w ) { bwp3_nmimask = data & 0x80; }
 	
 	
-	static READ_HANDLER( bwp1_io_r )
-	{
+	public static ReadHandlerPtr bwp1_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset == 0) return(readinputport(0));
 		if (offset == 1) return(readinputport(1));
 		if (offset == 2) return(readinputport(2));
@@ -111,7 +109,7 @@ public class bwing
 		if (offset == 4) return(readinputport(4));
 	
 		return((bwp123_membase[0])[0x1b00 + offset]);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( bwp1_ctrl_w )
@@ -151,7 +149,7 @@ public class bwing
 	
 			// hardwired to SWAP
 			case 7: break;
-		} };
+		}
 	
 		#if BW_DEBUG
 			(bwp123_membase[0])[0x1c00 + offset] = data;

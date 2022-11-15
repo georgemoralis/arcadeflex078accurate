@@ -60,8 +60,7 @@ public class portrait
 		{ -1 } /* end of array */
 	};
 	
-	static READ_HANDLER(a000_r)
-	{
+	public static ReadHandlerPtr a000_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch( offset )
 		{
 		case 0x00: /*Dipswitch 1*/
@@ -107,7 +106,7 @@ public class portrait
 		default:
 			return 0x00;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER(a000_w)
 	{

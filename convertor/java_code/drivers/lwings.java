@@ -72,10 +72,9 @@ public class lwings
 		avengers_adpcm = data;
 	}
 	
-	READ_HANDLER( avengers_adpcm_r )
-	{
+	public static ReadHandlerPtr avengers_adpcm_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return avengers_adpcm;
-	}
+	} };
 	
 	static WRITE_HANDLER( lwings_bankswitch_w )
 	{
@@ -224,8 +223,7 @@ public class lwings
 		return result;
 	}
 	
-	static READ_HANDLER( avengers_protection_r )
-	{
+	public static ReadHandlerPtr avengers_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		const int xpos[8] = { 10, 7,  0, -7, -10, -7,   0,  7 };
 		const int ypos[8] = {  0, 7, 10,  7,   0, -7, -10, -7 };
 		int best_dist = 0;
@@ -258,14 +256,13 @@ public class lwings
 			}
 		}
 		return best_dir<<5;
-	}
+	} };
 	
-	static READ_HANDLER( avengers_soundlatch2_r )
-	{
+	public static ReadHandlerPtr avengers_soundlatch2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data = *avengers_soundlatch2 | avengers_soundstate;
 		avengers_soundstate = 0;
 		return(data);
-	}
+	} };
 	
 	static WRITE_HANDLER( msm5205_w )
 	{

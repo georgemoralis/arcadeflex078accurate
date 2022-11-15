@@ -46,10 +46,9 @@ public class speedspn
 		tilemap_mark_tile_dirty(speedspn_tilemap,offset^0x400);
 	}
 	
-	READ_HANDLER( speedspn_vidram_r )
-	{
+	public static ReadHandlerPtr speedspn_vidram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return speedspn_vidram[offset + speedspn_bank_vidram];
-	}
+	} };
 	
 	WRITE_HANDLER(speedspn_banked_vidram_change)
 	{

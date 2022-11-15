@@ -28,8 +28,7 @@ public class surpratk
 		if (K052109_is_IRQ_enabled()) cpu_set_irq_line(0,0,HOLD_LINE);
 	} };
 	
-	static READ_HANDLER( bankedram_r )
-	{
+	public static ReadHandlerPtr bankedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (videobank & 0x02)
 		{
 			if (videobank & 0x04)
@@ -41,7 +40,7 @@ public class surpratk
 			return K053245_r(offset);
 		else
 			return ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( bankedram_w )
 	{

@@ -160,11 +160,10 @@ public class dlair
 	MEMORY_END
 	
 	static unsigned char pip[4];
-	static READ_HANDLER( pip_r )
-	{
+	public static ReadHandlerPtr pip_r  = new ReadHandlerPtr() { public int handler(int offset){
 	logerror("PC %04x: read I/O port %02x\n",activecpu_get_pc(),offset);
 		return pip[offset];
-	}
+	} };
 	static WRITE_HANDLER( pip_w )
 	{
 	logerror("PC %04x: write %02x to I/O port %02x\n",activecpu_get_pc(),data,offset);

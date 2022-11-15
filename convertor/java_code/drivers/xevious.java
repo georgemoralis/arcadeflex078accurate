@@ -209,16 +209,11 @@ public class xevious
 	
 	/* XEVIOUS */
 	extern unsigned char *xevious_sharedram;
-	READ_HANDLER( xevious_sharedram_r );
 	WRITE_HANDLER( xevious_sharedram_w );
-	READ_HANDLER( xevious_dsw_r );
 	WRITE_HANDLER( xevious_interrupt_enable_1_w );
 	WRITE_HANDLER( xevious_interrupt_enable_2_w );
 	WRITE_HANDLER( xevious_interrupt_enable_3_w );
 	WRITE_HANDLER( xevious_bs_w );
-	READ_HANDLER( xevious_bb_r );
-	READ_HANDLER( xevious_customio_r );
-	READ_HANDLER( xevious_customio_data_r );
 	WRITE_HANDLER( xevious_customio_w );
 	WRITE_HANDLER( xevious_customio_data_w );
 	WRITE_HANDLER( xevious_halt_w );
@@ -238,12 +233,6 @@ public class xevious
 	
 	/* BATTLES */
 	extern unsigned char *battles_sharedram;
-	READ_HANDLER( battles_sharedram_r );
-	READ_HANDLER( battles_customio0_r );
-	READ_HANDLER( battles_customio_data0_r );
-	READ_HANDLER( battles_customio3_r );
-	READ_HANDLER( battles_customio_data3_r );
-	READ_HANDLER( battles_input_port_r );
 	
 	WRITE_HANDLER( battles_halt_w );
 	WRITE_HANDLER( battles_sharedram_w );

@@ -48,20 +48,17 @@ public class skyraid
 	} };
 	
 	
-	static READ_HANDLER( skyraid_zeropage_r )
-	{
+	public static ReadHandlerPtr skyraid_zeropage_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_CPU1)[offset & 0xff];
-	}
+	} };
 	
 	
-	static READ_HANDLER( skyraid_alpha_num_r)
-	{
+	public static ReadHandlerPtr skyraid_alpha_num_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return skyraid_alpha_num_ram[offset & 0x7f];
-	}
+	} };
 	
 	
-	static READ_HANDLER( skyraid_port_0_r )
-	{
+	public static ReadHandlerPtr skyraid_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = readinputport(0);
 	
 		if (readinputport(4) > analog_range)
@@ -70,7 +67,7 @@ public class skyraid
 			val |= 0x80;
 	
 		return val;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( skyraid_zeropage_w )

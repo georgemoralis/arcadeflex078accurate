@@ -67,10 +67,8 @@ public class dday
 	WRITE_HANDLER( dday_fgvideoram_w );
 	WRITE_HANDLER( dday_textvideoram_w );
 	WRITE_HANDLER( dday_colorram_w );
-	READ_HANDLER( dday_colorram_r );
 	WRITE_HANDLER( dday_control_w );
 	WRITE_HANDLER( dday_sl_control_w );
-	READ_HANDLER( dday_countdown_timer_r );
 	
 	
 	static MEMORY_READ_START( readmem )

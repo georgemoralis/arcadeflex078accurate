@@ -54,17 +54,15 @@ public class mpatrol
 	WRITE_HANDLER( mpatrol_bgcontrol_w );
 	WRITE_HANDLER( mpatrol_flipscreen_w );
 	
-	READ_HANDLER( mpatrol_input_port_3_r );
 	
 	
 	
 	/* this looks like some kind of protection. The game does strange things */
 	/* if a read from this address doesn't return the value it expects. */
-	READ_HANDLER( mpatrol_protection_r )
-	{
+	public static ReadHandlerPtr mpatrol_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//logerror("%04x: read protection\n",activecpu_get_pc());
 		return activecpu_get_reg(Z80_DE) & 0xff;
-	}
+	} };
 	
 	
 	

@@ -89,25 +89,21 @@ public class flyball
 	
 	/* two physical buttons (start game and stop runner) share the same port bit */
 	
-	READ_HANDLER( flyball_input_r )
-	{
+	public static ReadHandlerPtr flyball_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(0) & readinputport(5);
-	}
+	} };
 	
-	READ_HANDLER( flyball_scanline_r )
-	{
+	public static ReadHandlerPtr flyball_scanline_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu_getscanline() & 0x3f;
-	}
+	} };
 	
-	READ_HANDLER( flyball_potsense_r )
-	{
+	public static ReadHandlerPtr flyball_potsense_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return flyball_potsense & ~flyball_potmask;
-	}
+	} };
 	
-	READ_HANDLER( flyball_ram_r )
-	{
+	public static ReadHandlerPtr flyball_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return flyball_zero_page[offset & 0xff];
-	}
+	} };
 	
 	WRITE_HANDLER( flyball_potmask_w )
 	{

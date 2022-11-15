@@ -74,8 +74,7 @@ public class poolshrk
 	}
 	
 	
-	READ_HANDLER( poolshrk_input_r )
-	{
+	public static ReadHandlerPtr poolshrk_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = readinputport(offset);
 	
 		int x = readinputport(4 + (offset & 1));
@@ -85,15 +84,14 @@ public class poolshrk
 		if (y >= poolshrk_da_latch) val |= 4;
 	
 		return val;
-	}
+	} };
 	
 	
-	READ_HANDLER( poolshrk_interrupt_ack_r )
-	{
+	public static ReadHandlerPtr poolshrk_interrupt_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
 	
 		return 0;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( poolshrk_readmem )

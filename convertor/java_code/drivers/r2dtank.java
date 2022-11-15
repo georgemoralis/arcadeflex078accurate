@@ -61,8 +61,7 @@ public class r2dtank
 		r2dtank_video_flip = !data;
 	}
 	
-	static READ_HANDLER( dipsw_r )
-	{
+	public static ReadHandlerPtr dipsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch( dipsw_bank )
 		{
 		case 0xff: // @ $154
@@ -107,7 +106,7 @@ public class r2dtank
 	//		logerror("Unknown dipsw_r bank = %x\n",dipsw_bank);
 			return 0xff;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( r2dtank_pia_0_w )
 	{

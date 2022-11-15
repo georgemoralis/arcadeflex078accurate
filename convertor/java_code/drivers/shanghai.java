@@ -618,13 +618,12 @@ public class shanghai
 	
 	static int regno;
 	
-	static READ_HANDLER( HD63484_status_r )
-	{
+	public static ReadHandlerPtr HD63484_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset == 1) return 0xff;	/* high 8 bits - not used */
 	
 		if (activecpu_get_pc() != 0xfced6 && activecpu_get_pc() != 0xfe1d6) logerror("%05x: HD63484 status read\n",activecpu_get_pc());
 		return 0x22|4;	/* write FIFO ready + command end    + read FIFO ready */
-	}
+	} };
 	
 	static WRITE_HANDLER( HD63484_address_w )
 	{
@@ -656,8 +655,7 @@ public class shanghai
 		}
 	}
 	
-	static READ_HANDLER( HD63484_data_r )
-	{
+	public static ReadHandlerPtr HD63484_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 		if (regno == 0x80)
@@ -679,7 +677,7 @@ public class shanghai
 			return res & 0xff;
 		else
 			return (res >> 8) & 0xff;
-	}
+	} };
 	
 	
 	

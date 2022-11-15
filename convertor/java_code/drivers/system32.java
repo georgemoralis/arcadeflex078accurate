@@ -935,18 +935,16 @@ public class system32
 	
 	static UINT8 *sys32_SoundMemBank;
 	
-	static READ_HANDLER( system32_bank_r )
-	{
+	public static ReadHandlerPtr system32_bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sys32_SoundMemBank[offset];
-	}
+	} };
 	
 	// the Z80's work RAM is fully shared with the V60 or V70 and battery backed up.
-	static READ_HANDLER( sys32_shared_snd_r )
-	{
+	public static ReadHandlerPtr sys32_shared_snd_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *RAM = (data8_t *)system32_shared_ram;
 	
 		return RAM[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( sys32_shared_snd_w )
 	{
@@ -957,10 +955,9 @@ public class system32
 	
 	// some games require that port f1 be a magic echo-back latch.
 	// thankfully, it's not required to do any math or anything on the values.
-	static READ_HANDLER( sys32_sound_prot_r )
-	{
+	public static ReadHandlerPtr sys32_sound_prot_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return s32_f1_prot;
-	}
+	} };
 	
 	static WRITE_HANDLER( sys32_sound_prot_w )
 	{
@@ -1071,10 +1068,9 @@ public class system32
 	
 	/* jurassic park moving cab - not working yet */
 	
-	static READ_HANDLER( jpcab_z80_read )
-	{
+	public static ReadHandlerPtr jpcab_z80_read  = new ReadHandlerPtr() { public int handler(int offset){
 		return tocab;
-	}
+	} };
 	
 	static MEMORY_READ_START( jpcab_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

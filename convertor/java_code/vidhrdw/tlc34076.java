@@ -101,8 +101,7 @@ public class tlc34076
 	 *
 	 *************************************/
 	
-	READ_HANDLER( tlc34076_r )
-	{
+	public static ReadHandlerPtr tlc34076_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 result;
 	
 		/* keep in range */
@@ -129,7 +128,7 @@ public class tlc34076
 		}
 	
 		return result;
-	}
+	} };
 	
 	
 	

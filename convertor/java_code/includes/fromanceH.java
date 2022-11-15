@@ -27,9 +27,7 @@ public class fromanceH
 	
 	WRITE_HANDLER( fromance_scroll_w );
 	
-	READ_HANDLER( fromance_paletteram_r );
 	WRITE_HANDLER( fromance_paletteram_w );
 	
-	READ_HANDLER( fromance_videoram_r );
 	WRITE_HANDLER( fromance_videoram_w );
 }

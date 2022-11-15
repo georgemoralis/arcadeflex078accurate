@@ -75,13 +75,8 @@ public class pitnrun
 	WRITE_HANDLER (pitnrun_68705_portA_w);
 	WRITE_HANDLER (pitnrun_68705_portB_w);
 	
-	READ_HANDLER (pitnrun_68705_portA_r);
-	READ_HANDLER (pitnrun_68705_portB_r);
-	READ_HANDLER (pitnrun_68705_portC_r);
 	
 	
-	READ_HANDLER( pitnrun_mcu_data_r );
-	READ_HANDLER( pitnrun_mcu_status_r );
 	WRITE_HANDLER( pitnrun_mcu_data_w );
 	
 	extern UINT8* videoram2;
@@ -94,8 +89,6 @@ public class pitnrun
 	WRITE_HANDLER(pitnrun_color_select_w);
 	WRITE_HANDLER( pitnrun_char_bank_select );
 	WRITE_HANDLER( pitnrun_scroll_w );
-	READ_HANDLER( pitnrun_videoram_r );
-	READ_HANDLER( pitnrun_videoram2_r );
 	
 	
 	static int pitnrun_nmi;

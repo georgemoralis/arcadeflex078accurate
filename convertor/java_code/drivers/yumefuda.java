@@ -113,11 +113,10 @@ public class yumefuda
 	static UINT8 *cus_ram;
 	static UINT8 prot_lock,nvram_lock;
 	/*Custom RAM (Protection)*/
-	static READ_HANDLER( custom_ram_r )
-	{
+	public static ReadHandlerPtr custom_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("Custom RAM read at %02x PC = %x\n",offset+0xaf80,activecpu_get_pc());
 		return cus_ram[offset];// ^ 0x55;
-	}
+	} };
 	
 	static WRITE_HANDLER( custom_ram_w )
 	{

@@ -169,13 +169,12 @@ public class _40love
 		}
 	}
 	
-	READ_HANDLER( fortyl_pixram_r )
-	{
+	public static ReadHandlerPtr fortyl_pixram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (pixram_sel)
 			return fortyl_pixram2[offset];
 		else
 			return fortyl_pixram1[offset];
-	}
+	} };
 	
 	static void fortyl_plot_pix(int offset)
 	{
@@ -225,10 +224,9 @@ public class _40love
 			tilemap_mark_tile_dirty(background,offset);
 		}
 	}
-	READ_HANDLER( fortyl_bg_videoram_r )
-	{
+	public static ReadHandlerPtr fortyl_bg_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( fortyl_bg_colorram_w )
 	{
@@ -243,10 +241,9 @@ public class _40love
 			fortyl_set_scroll_x(offset);
 		}
 	}
-	READ_HANDLER( fortyl_bg_colorram_r )
-	{
+	public static ReadHandlerPtr fortyl_bg_colorram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return colorram[offset];
-	}
+	} };
 	
 	/***************************************************************************
 	

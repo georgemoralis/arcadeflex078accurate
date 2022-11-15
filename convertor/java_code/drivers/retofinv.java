@@ -18,24 +18,15 @@ public class retofinv
 {
 	
 	/* in machine */
-	READ_HANDLER( retofinv_68705_portA_r );
 	WRITE_HANDLER( retofinv_68705_portA_w );
 	WRITE_HANDLER( retofinv_68705_ddrA_w );
-	READ_HANDLER( retofinv_68705_portB_r );
 	WRITE_HANDLER( retofinv_68705_portB_w );
 	WRITE_HANDLER( retofinv_68705_ddrB_w );
-	READ_HANDLER( retofinv_68705_portC_r );
 	WRITE_HANDLER( retofinv_68705_portC_w );
 	WRITE_HANDLER( retofinv_68705_ddrC_w );
 	WRITE_HANDLER( retofinv_mcu_w );
-	READ_HANDLER( retofinv_mcu_r );
-	READ_HANDLER( retofinv_mcu_status_r );
 	
 	/* in vidhrdw */
-	READ_HANDLER( retofinv_bg_videoram_r );
-	READ_HANDLER( retofinv_fg_videoram_r );
-	READ_HANDLER( retofinv_bg_colorram_r );
-	READ_HANDLER( retofinv_fg_colorram_r );
 	WRITE_HANDLER( retofinv_bg_videoram_w );
 	WRITE_HANDLER( retofinv_fg_videoram_w );
 	WRITE_HANDLER( retofinv_bg_colorram_w );
@@ -63,10 +54,9 @@ public class retofinv
 	
 	static unsigned char *sharedram;
 	
-	static READ_HANDLER( retofinv_shared_ram_r )
-	{
+	public static ReadHandlerPtr retofinv_shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( retofinv_shared_ram_w )
 	{
@@ -95,10 +85,9 @@ public class retofinv
 		cpu2_m6000 = data;
 	}
 	
-	static READ_HANDLER( cpu0_mf800_r )
-	{
+	public static ReadHandlerPtr cpu0_mf800_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu2_m6000;
-	}
+	} };
 	
 	static WRITE_HANDLER( soundcommand_w )
 	{

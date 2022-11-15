@@ -38,8 +38,7 @@ public class bsktball
 	extern WRITE_HANDLER( bsktball_nmion_w );
 	extern extern WRITE_HANDLER( bsktball_ld1_w );
 	extern WRITE_HANDLER( bsktball_ld2_w );
-	extern READ_HANDLER( bsktball_in0_r );
-	extern WRITE_HANDLER( bsktball_led1_w );
+	extern extern WRITE_HANDLER( bsktball_led1_w );
 	extern WRITE_HANDLER( bsktball_led2_w );
 	extern WRITE_HANDLER( bsktball_bounce_w );
 	extern WRITE_HANDLER( bsktball_note_w );

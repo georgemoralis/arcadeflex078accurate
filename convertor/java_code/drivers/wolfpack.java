@@ -83,14 +83,12 @@ public class wolfpack
 	} };
 	
 	
-	static READ_HANDLER( wolfpack_zeropage_r )
-	{
+	public static ReadHandlerPtr wolfpack_zeropage_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_CPU1)[offset & 0xff];
-	}
+	} };
 	
 	
-	static READ_HANDLER( wolfpack_input_r )
-	{
+	public static ReadHandlerPtr wolfpack_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = readinputport(0);
 	
 		if (((readinputport(2) + 0) / 2) & 1)
@@ -103,11 +101,10 @@ public class wolfpack
 		}
 	
 		return val;
-	}
+	} };
 	
 	
-	static READ_HANDLER( wolfpack_misc_r )
-	{
+	public static ReadHandlerPtr wolfpack_misc_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = 0;
 	
 		/* BIT0 => SPEECH BUSY */
@@ -129,7 +126,7 @@ public class wolfpack
 		}
 	
 		return val;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( wolfpack_zeropage_w )

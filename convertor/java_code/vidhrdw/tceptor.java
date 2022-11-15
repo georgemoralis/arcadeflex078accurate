@@ -168,10 +168,9 @@ public class tceptor
 	}
 	
 	
-	READ_HANDLER( tceptor_tile_ram_r )
-	{
+	public static ReadHandlerPtr tceptor_tile_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tceptor_tile_ram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( tceptor_tile_ram_w )
 	{
@@ -182,10 +181,9 @@ public class tceptor
 		}
 	}
 	
-	READ_HANDLER( tceptor_tile_attr_r )
-	{
+	public static ReadHandlerPtr tceptor_tile_attr_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tceptor_tile_attr[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( tceptor_tile_attr_w )
 	{
@@ -217,10 +215,9 @@ public class tceptor
 		SET_TILE_INFO(bg, code, color, 0);
 	}
 	
-	READ_HANDLER( tceptor_bg_ram_r )
-	{
+	public static ReadHandlerPtr tceptor_bg_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tceptor_bg_ram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( tceptor_bg_ram_w )
 	{

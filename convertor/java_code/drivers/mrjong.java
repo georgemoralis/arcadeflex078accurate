@@ -81,10 +81,9 @@ public class mrjong
 		mrjong_flipscreen_w(0, ((data & 0x04) > 2));
 	}
 	
-	READ_HANDLER( io_0x03_r )
-	{
+	public static ReadHandlerPtr io_0x03_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x00;
-	}
+	} };
 	
 	static PORT_READ_START( readport )
 		{ 0x00, 0x00, input_port_0_r },		// Input 1

@@ -70,10 +70,9 @@ public class tbowl
 	
 	static unsigned char *shared_ram;
 	
-	static READ_HANDLER( shared_r )
-	{
+	public static ReadHandlerPtr shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return shared_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( shared_w )
 	{

@@ -169,10 +169,9 @@ public class gottlieb
 	
 	unsigned char *riot_ram;
 	
-	READ_HANDLER( riot_ram_r )
-	{
+	public static ReadHandlerPtr riot_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    return riot_ram[offset&0x7f];
-	}
+	} };
 	
 	WRITE_HANDLER( riot_ram_w )
 	{
@@ -182,8 +181,7 @@ public class gottlieb
 	static unsigned char riot_regs[32];
 	    /* lazy handling of the 6532's I/O, and no handling of timers at all */
 	
-	READ_HANDLER( gottlieb_riot_r )
-	{
+	public static ReadHandlerPtr gottlieb_riot_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    switch (offset&0x1f) {
 		case 0: /* port A */
 			return soundlatch_r(offset) ^ 0xff;	/* invert command */
@@ -194,7 +192,7 @@ public class gottlieb
 		default:
 			return riot_regs[offset&0x1f];
 	    }
-	}
+	} };
 	
 	WRITE_HANDLER( gottlieb_riot_w )
 	{
@@ -215,8 +213,7 @@ public class gottlieb
 		nmi_timer = timer_alloc(nmi_callback);
 	}
 	
-	READ_HANDLER( stooges_sound_input_r )
-	{
+	public static ReadHandlerPtr stooges_sound_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bits 0-3 are probably unused (future expansion) */
 	
 		/* bits 4 & 5 are two dip switches. Unused? */
@@ -226,7 +223,7 @@ public class gottlieb
 		/* bit 7 comes from the speech chip DATA REQUEST pin */
 	
 		return 0xc0;
-	}
+	} };
 	
 	WRITE_HANDLER( stooges_8910_latch_w )
 	{
@@ -312,11 +309,10 @@ public class gottlieb
 		cpu_set_irq_line(cpu_gettotalcpu()-2, IRQ_LINE_NMI, PULSE_LINE);
 	}
 	
-	READ_HANDLER( gottlieb_cause_dac_nmi_r )
-	{
+	public static ReadHandlerPtr gottlieb_cause_dac_nmi_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    gottlieb_cause_dac_nmi_w(offset, 0);
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( exterm_ym2151_w )
 	{

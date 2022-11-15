@@ -72,8 +72,7 @@ public class sidearms
 	
 	
 	/* Turtle Ship input ports are rotated 90 degrees */
-	static READ_HANDLER( turtship_ports_r )
-	{
+	public static ReadHandlerPtr turtship_ports_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int i,res;
 	
 	
@@ -82,7 +81,7 @@ public class sidearms
 			res |= ((readinputport(i) >> offset) & 1) << i;
 	
 		return res;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

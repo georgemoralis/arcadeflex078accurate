@@ -9,8 +9,6 @@
 READ16_HANDLER( aztarac_sound_r );
 WRITE16_HANDLER( aztarac_sound_w );
 
-READ_HANDLER( aztarac_snd_command_r );
-READ_HANDLER( aztarac_snd_status_r );
 WRITE_HANDLER( aztarac_snd_status_w );
 
 

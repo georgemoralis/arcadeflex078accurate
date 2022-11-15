@@ -82,9 +82,8 @@ public class beezer
 		videoram[offset] = data;
 	}
 	
-	READ_HANDLER( beezer_line_r )
-	{
+	public static ReadHandlerPtr beezer_line_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (scanline & 0xfe) << 1;
-	}
+	} };
 	
 }

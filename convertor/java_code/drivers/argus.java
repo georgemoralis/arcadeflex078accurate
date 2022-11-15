@@ -114,14 +114,6 @@ public class argus
 	static data8_t argus_bank_latch   = 0x00;
 	static data8_t butasan_page_latch = 0x00;
 	
-	READ_HANDLER( argus_txram_r );
-	READ_HANDLER( butasan_txram_r );
-	READ_HANDLER( argus_bg1ram_r );
-	READ_HANDLER( butasan_bg0ram_r );
-	READ_HANDLER( butasan_bg1ram_r );
-	READ_HANDLER( argus_paletteram_r );
-	READ_HANDLER( butasan_txbackram_r );
-	READ_HANDLER( butasan_bg0backram_r );
 	
 	WRITE_HANDLER( argus_txram_w );
 	WRITE_HANDLER( butasan_txram_w );
@@ -208,10 +200,9 @@ public class argus
 	***************************************************************************/
 	
 	#if 0
-	static READ_HANDLER( argus_bankselect_r )
-	{
+	public static ReadHandlerPtr argus_bankselect_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return argus_bank_latch;
-	}
+	} };
 	#endif
 	
 	static WRITE_HANDLER( argus_bankselect_w )
@@ -232,8 +223,7 @@ public class argus
 		butasan_page_latch = data;
 	}
 	
-	static READ_HANDLER( butasan_pagedram_r )
-	{
+	public static ReadHandlerPtr butasan_pagedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (!(butasan_page_latch & 0x01))
 		{
 			if (offset < 0x0800)		/* BG0 RAM */
@@ -258,7 +248,7 @@ public class argus
 		}
 	
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( butasan_pagedram_w )
 	{

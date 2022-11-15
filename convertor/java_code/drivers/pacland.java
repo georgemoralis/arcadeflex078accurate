@@ -50,10 +50,9 @@ public class pacland
 	
 	extern extern extern 
 	
-	static READ_HANDLER( sharedram1_r )
-	{
+	public static ReadHandlerPtr sharedram1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram1[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( sharedram1_w )
 	{
@@ -70,24 +69,22 @@ public class pacland
 	
 	
 	/* Stubs to pass the correct Dip Switch setup to the MCU */
-	static READ_HANDLER( dsw0_r )
-	{
+	public static ReadHandlerPtr dsw0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Hi 4 bits = DSWA Hi 4 bits */
 		/* Lo 4 bits = DSWB Hi 4 bits */
 		int r = readinputport( 0 );
 		r &= 0xf0;
 		r |= ( readinputport( 1 ) >> 4 ) & 0x0f;
 		return ~r; /* Active Low */
-	}
+	} };
 	
-	static READ_HANDLER( dsw1_r )
-	{
+	public static ReadHandlerPtr dsw1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Hi 4 bits = DSWA Lo 4 bits */
 		/* Lo 4 bits = DSWB Lo 4 bits */
 		int r = ( readinputport( 0 ) & 0x0f ) << 4;
 		r |= readinputport( 1 ) & 0x0f;
 		return ~r; /* Active Low */
-	}
+	} };
 	
 	static WRITE_HANDLER( pacland_coin_w )
 	{
@@ -163,10 +160,9 @@ public class pacland
 	MEMORY_END
 	
 	
-	static READ_HANDLER( readFF )
-	{
+	public static ReadHandlerPtr readFF  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	static PORT_READ_START( mcu_readport )
 		{ HD63701_PORT1, HD63701_PORT1, input_port_4_r },

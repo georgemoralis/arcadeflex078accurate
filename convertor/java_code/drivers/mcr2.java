@@ -98,8 +98,7 @@ public class mcr2
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( kroozr_dial_r )
-	{
+	public static ReadHandlerPtr kroozr_dial_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int dial = readinputport(7);
 		int val = readinputport(1);
 	
@@ -107,11 +106,10 @@ public class mcr2
 		val |= (dial & 0x70) >> 4;
 	
 		return val;
-	}
+	} };
 	
 	
-	static READ_HANDLER( kroozr_trakball_x_r )
-	{
+	public static ReadHandlerPtr kroozr_trakball_x_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val = readinputport(6);
 	
 		if (val & 0x02)		/* left */
@@ -119,11 +117,10 @@ public class mcr2
 		if (val & 0x01)		/* right */
 			return 0x64 + 0x34;
 		return 0x64;
-	}
+	} };
 	
 	
-	static READ_HANDLER( kroozr_trakball_y_r )
-	{
+	public static ReadHandlerPtr kroozr_trakball_y_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val = readinputport(6);
 	
 		if (val & 0x08)		/* up */
@@ -131,7 +128,7 @@ public class mcr2
 		if (val & 0x04)		/* down */
 			return 0x64 + 0x34;
 		return 0x64;
-	}
+	} };
 	
 	
 	
@@ -147,13 +144,12 @@ public class mcr2
 	}
 	
 	
-	static READ_HANDLER( wacko_trackball_r )
-	{
+	public static ReadHandlerPtr wacko_trackball_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (!wacko_mux_select)
 			return readinputport(1 + offset);
 		else
 			return readinputport(6 + offset);
-	}
+	} };
 	
 	
 	
@@ -163,8 +159,7 @@ public class mcr2
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( twotigra_yoke1_r )
-	{
+	public static ReadHandlerPtr twotigra_yoke1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int p1_yoke = readinputport(6);
 		if (p1_yoke & 0x10)
 		{
@@ -178,11 +173,10 @@ public class mcr2
 			if (p1_yoke < 0x1b) return 0;
 			return p1_yoke - 0x1b;
 		}
-	}
+	} };
 	
 	
-	static READ_HANDLER( twotigra_yoke2_r )
-	{
+	public static ReadHandlerPtr twotigra_yoke2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int p1_yoke = readinputport(6);
 		if (p1_yoke & 0x10)
 		{
@@ -196,7 +190,7 @@ public class mcr2
 			if (p1_yoke < 0x1b) return 0;
 			return p1_yoke - 0x1b;
 		}
-	}
+	} };
 	
 	
 	

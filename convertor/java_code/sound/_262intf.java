@@ -110,7 +110,7 @@ public class _262intf
 	}
 	
 	/* chip #0 */
-	READ_HANDLER( YMF262_status_0_r ) {
+	public static ReadHandlerPtr YMF262_status_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YMF262Read(0, 0);
 	}
 	WRITE_HANDLER( YMF262_register_A_0_w ) {
@@ -127,7 +127,7 @@ public class _262intf
 	}
 	
 	/* chip #1 */
-	READ_HANDLER( YMF262_status_1_r ) {
+	public static ReadHandlerPtr YMF262_status_1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YMF262Read(1, 0);
 	}
 	WRITE_HANDLER( YMF262_register_A_1_w ) {

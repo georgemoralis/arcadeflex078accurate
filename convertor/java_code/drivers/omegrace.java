@@ -246,17 +246,15 @@ public class omegrace
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( omegrace_vg_go_r )
-	{
+	public static ReadHandlerPtr omegrace_vg_go_r  = new ReadHandlerPtr() { public int handler(int offset){
 		avgdvg_go_w(0,0);
 		return 0;
-	}
+	} };
 	
 	
-	static READ_HANDLER( omegrace_vg_status_r )
-	{
+	public static ReadHandlerPtr omegrace_vg_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return avgdvg_done() ? 0x00 : 0x80;
-	}
+	} };
 	
 	
 	
@@ -291,10 +289,9 @@ public class omegrace
 	};
 	
 	
-	READ_HANDLER( omegrace_spinner1_r )
-	{
+	public static ReadHandlerPtr omegrace_spinner1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (spinnerTable[readinputport(4) & 0x3f]);
-	}
+	} };
 	
 	
 	

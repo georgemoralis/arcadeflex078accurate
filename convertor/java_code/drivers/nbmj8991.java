@@ -107,7 +107,6 @@ public class nbmj8991
 	void pstadium_scrolly_w(int data);
 	void pstadium_romsel_w(int data);
 	void pstadium_paltblnum_w(int data);
-	READ_HANDLER( pstadium_paltbl_r );
 	WRITE_HANDLER( pstadium_paltbl_w );
 	
 	
@@ -124,13 +123,12 @@ public class nbmj8991
 		soundlatch_w(0, data);
 	}
 	
-	static READ_HANDLER( pstadium_sound_r )
-	{
+	public static ReadHandlerPtr pstadium_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data;
 	
 		data = soundlatch_r(0);
 		return data;
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_pstadium  = new DriverInitHandlerPtr() { public void handler(){
 		nb1413m3_type = NB1413M3_PSTADIUM;
@@ -351,8 +349,7 @@ public class nbmj8991
 	MEMORY_END
 	
 	
-	static READ_HANDLER( io_pstadium_r )
-	{
+	public static ReadHandlerPtr io_pstadium_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		switch (offset & 0xff00)
@@ -365,7 +362,7 @@ public class nbmj8991
 			case	0xf800:	return nb1413m3_dipsw2_r(0);
 			default:	return 0xff;
 		}
-	}
+	} };
 	
 	static PORT_READ_START( readport_pstadium )
 		{ 0x0000, 0xffff, io_pstadium_r },
@@ -437,8 +434,7 @@ public class nbmj8991
 		{ 0x0000, 0xffff, io_av2mj1bb_w },
 	PORT_END
 	
-	static READ_HANDLER( io_galkoku_r )
-	{
+	public static ReadHandlerPtr io_galkoku_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if (offset < 0x8000) return nb1413m3_sndrom_r(offset);
@@ -453,7 +449,7 @@ public class nbmj8991
 			case	0xf100:	return nb1413m3_dipsw2_r(0);
 			default:	return 0xff;
 		}
-	}
+	} };
 	
 	static PORT_READ_START( readport_galkoku )
 		{ 0x0000, 0xffff, io_galkoku_r },
@@ -499,8 +495,7 @@ public class nbmj8991
 		{ 0x0000, 0xffff, io_galkoku_w },
 	PORT_END
 	
-	static READ_HANDLER( io_hyouban_r )
-	{
+	public static ReadHandlerPtr io_hyouban_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if (offset < 0x8000) return nb1413m3_sndrom_r(offset);
@@ -516,7 +511,7 @@ public class nbmj8991
 			case	0xf100:	return nb1413m3_dipsw2_r(0);
 			default:	return 0xff;
 		}
-	}
+	} };
 	
 	static PORT_READ_START( readport_hyouban )
 		{ 0x0000, 0xffff, io_hyouban_r },

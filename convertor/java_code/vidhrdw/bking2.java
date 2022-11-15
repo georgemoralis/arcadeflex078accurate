@@ -223,20 +223,17 @@ public class bking2
 	}
 	
 	
-	READ_HANDLER( bking2_input_port_5_r )
-	{
+	public static ReadHandlerPtr bking2_input_port_5_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(controller ? 7 : 5);
-	}
+	} };
 	
-	READ_HANDLER( bking2_input_port_6_r )
-	{
+	public static ReadHandlerPtr bking2_input_port_6_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(controller ? 8 : 6);
-	}
+	} };
 	
-	READ_HANDLER( bking2_pos_r )
-	{
+	public static ReadHandlerPtr bking2_pos_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return pc3259_output[offset / 8] << 4;
-	}
+	} };
 	
 	
 	static UINT32 get_memory_offset(UINT32 col, UINT32 row, UINT32 num_cols, UINT32 num_rows)

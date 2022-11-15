@@ -15,8 +15,7 @@ public class leprechn
 	    input_port_select = data;
 	}
 	
-	static READ_HANDLER( leprechn_input_port_r )
-	{
+	public static ReadHandlerPtr leprechn_input_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    switch (input_port_select)
 	    {
 	    case 0x01:
@@ -34,7 +33,7 @@ public class leprechn
 	    }
 	
 	    return 0xff;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( leprechn_coin_counter_w )
@@ -85,8 +84,7 @@ public class leprechn
 	} };
 	
 	
-	READ_HANDLER( leprechn_sh_0805_r )
-	{
+	public static ReadHandlerPtr leprechn_sh_0805_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    return 0xc0;
-	}
+	} };
 }

@@ -175,8 +175,7 @@ public class zaxxon
 	extern 
 	extern extern extern 
 	extern extern extern extern 
-	extern READ_HANDLER( zaxxon_IN2_r );
-	extern WRITE_HANDLER( zaxxon_sound_w );
+	extern extern WRITE_HANDLER( zaxxon_sound_w );
 	
 	/* Read/Write Handlers */
 	
@@ -200,15 +199,13 @@ public class zaxxon
 		flip_screen_set(data & 0x01);
 	}
 	
-	static READ_HANDLER( razmataz_unknown1_r )
-	{
+	public static ReadHandlerPtr razmataz_unknown1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return rand() & 0xff;
-	}
+	} };
 	
-	static READ_HANDLER( razmataz_unknown2_r )
-	{
+	public static ReadHandlerPtr razmataz_unknown2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	static int razmataz_dial_r(int num)
 	{
@@ -233,15 +230,13 @@ public class zaxxon
 		return res;
 	}
 	
-	static READ_HANDLER( razmataz_dial_0_r )
-	{
+	public static ReadHandlerPtr razmataz_dial_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return razmataz_dial_r(0);
-	}
+	} };
 	
-	static READ_HANDLER( razmataz_dial_1_r )
-	{
+	public static ReadHandlerPtr razmataz_dial_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return razmataz_dial_r(1);
-	}
+	} };
 	
 	static WRITE_HANDLER( congo_daio_w )
 	{

@@ -213,10 +213,9 @@ public class shougi
 		cpu_sharedram[offset] = data;
 	}
 	
-	static READ_HANDLER ( cpu_sharedram_r )
-	{
+	public static ReadHandlerPtr cpu_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu_sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER ( cpu_shared_ctrl_sub_w )
 	{
@@ -303,14 +302,13 @@ public class shougi
 	
 	/* sub */
 	static int r=0;
-	static READ_HANDLER ( dummy_r )
-	{
+	public static ReadHandlerPtr dummy_r  = new ReadHandlerPtr() { public int handler(int offset){
 		r ^= 1;
 		if(r)
 			return 0xff;
 		else
 			return 0;
-	}
+	} };
 	
 	static PORT_READ_START( readport_sub )
 		{ 0x00,0x00, dummy_r},

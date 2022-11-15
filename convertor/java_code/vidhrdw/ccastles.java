@@ -104,8 +104,7 @@ public class ccastles
 	
 	
 	
-	READ_HANDLER( ccastles_bitmode_r )
-	{
+	public static ReadHandlerPtr ccastles_bitmode_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int addr;
 	
 		addr = (ccastles_screen_addr[1]<<7) | (ccastles_screen_addr[0]>>1);
@@ -139,7 +138,7 @@ public class ccastles
 		}
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( ccastles_bitmode_w )
 	{

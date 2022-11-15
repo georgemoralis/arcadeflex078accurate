@@ -323,18 +323,15 @@ public class psychic5
 	extern WRITE_HANDLER( psychic5_vram_page_select_w );
 	extern WRITE_HANDLER( psychic5_title_screen_w );
 	
-	extern READ_HANDLER( psychic5_paged_ram_r );
-	extern READ_HANDLER( psychic5_vram_page_select_r );
-	
+	extern extern 
 	extern 
 	extern extern 
 	static int psychic5_bank_latch = 0x0;
 	
 	
-	READ_HANDLER( psychic5_bankselect_r )
-	{
+	public static ReadHandlerPtr psychic5_bankselect_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return psychic5_bank_latch;
-	}
+	} };
 	
 	WRITE_HANDLER( psychic5_bankselect_w )
 	{

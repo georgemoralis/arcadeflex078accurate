@@ -42,7 +42,7 @@ public class kingobox
 	static UINT8 *sprite_shared;
 	int kingofb_nmi_enable = 0;
 	
-	static READ_HANDLER( video_shared_r ) {
+	public static ReadHandlerPtr video_shared_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return video_shared[offset];
 	}
 	
@@ -50,7 +50,7 @@ public class kingobox
 		video_shared[offset] = data;
 	}
 	
-	static READ_HANDLER( sprite_shared_r ) {
+	public static ReadHandlerPtr sprite_shared_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return sprite_shared[offset];
 	}
 	
@@ -423,7 +423,7 @@ public class kingobox
 		{ 0, 1, 2, 3, 4, 5, 6, 7 },
 		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8     /* every char takes 8 consecutive bytes */
-	};
+	} };;
 	
 	static struct GfxLayout spritelayout =
 	{

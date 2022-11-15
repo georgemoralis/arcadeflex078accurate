@@ -31,8 +31,7 @@ public class mikie
 	extern WRITE_HANDLER( mikie_flipscreen_w );
 	
 	extern extern extern 
-	static READ_HANDLER( mikie_sh_timer_r )
-	{
+	public static ReadHandlerPtr mikie_sh_timer_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int clock;
 	
 	#define TIMER_RATE 512
@@ -40,7 +39,7 @@ public class mikie
 		clock = activecpu_gettotalcycles() / TIMER_RATE;
 	
 		return clock;
-	}
+	} };
 	
 	static WRITE_HANDLER( mikie_sh_irqtrigger_w )
 	{

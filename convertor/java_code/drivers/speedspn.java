@@ -64,16 +64,14 @@ public class speedspn
 	
 	WRITE_HANDLER( speedspn_vidram_w );
 	WRITE_HANDLER( speedspn_attram_w );
-	READ_HANDLER( speedspn_vidram_r );
 	WRITE_HANDLER(speedspn_banked_vidram_change);
 	WRITE_HANDLER(speedspn_global_display_w);
 	
-	static READ_HANDLER(speedspn_irq_ack_r)
-	{
+	public static ReadHandlerPtr speedspn_irq_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// I think this simply acknowledges the IRQ #0, it's read within the handler and the
 		//  value is discarded
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER(speedspn_banked_rom_change)
 	{

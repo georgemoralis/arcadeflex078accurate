@@ -40,8 +40,7 @@ public class starshp1
 	extern int starshp1_starfield_kill;
 	extern int starshp1_mux;
 	
-	extern READ_HANDLER( starshp1_rng_r );
-	
+	extern 
 	extern WRITE_HANDLER( starshp1_sspic_w );
 	extern WRITE_HANDLER( starshp1_ssadd_w );
 	extern WRITE_HANDLER( starshp1_playfield_w );
@@ -127,8 +126,7 @@ public class starshp1
 	}
 	
 	
-	static READ_HANDLER( starshp1_port_1_r )
-	{
+	public static ReadHandlerPtr starshp1_port_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val = 0;
 	
 		switch (starshp1_analog_in_select)
@@ -148,19 +146,17 @@ public class starshp1
 		}
 	
 		return (val & 0x3f) | readinputport(1);
-	}
+	} };
 	
 	
-	static READ_HANDLER( starshp1_port_2_r )
-	{
+	public static ReadHandlerPtr starshp1_port_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(2) | (starshp1_collision_latch & 0x0f);
-	}
+	} };
 	
 	
-	static READ_HANDLER( starshp1_zeropage_r )
-	{
+	public static ReadHandlerPtr starshp1_zeropage_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_CPU1)[offset & 0xff];
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( starshp1_analog_in_w )

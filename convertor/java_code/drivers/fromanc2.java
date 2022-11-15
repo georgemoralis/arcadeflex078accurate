@@ -284,17 +284,15 @@ public class fromanc2
 		return (fromanc2_datalatch_2h << 8) | fromanc2_datalatch_2l;
 	}
 	
-	static READ_HANDLER( fromanc2_maincpu_r_l )
-	{
+	public static ReadHandlerPtr fromanc2_maincpu_r_l  = new ReadHandlerPtr() { public int handler(int offset){
 		return fromanc2_datalatch1 & 0x00ff;
-	}
+	} };
 	
-	static READ_HANDLER( fromanc2_maincpu_r_h )
-	{
+	public static ReadHandlerPtr fromanc2_maincpu_r_h  = new ReadHandlerPtr() { public int handler(int offset){
 		fromanc2_subcpu_int_flag = 1;
 	
 		return (fromanc2_datalatch1 & 0xff00) >> 8;
-	}
+	} };
 	
 	static WRITE_HANDLER( fromanc2_maincpu_w_l )
 	{
@@ -311,12 +309,11 @@ public class fromanc2
 		fromanc2_subcpu_nmi_flag = 1;
 	}
 	
-	static READ_HANDLER( fromanc2_sndcpu_nmi_clr )
-	{
+	public static ReadHandlerPtr fromanc2_sndcpu_nmi_clr  = new ReadHandlerPtr() { public int handler(int offset){
 		fromanc2_sndcpu_nmi_flag = 1;
 	
 		return 0xff;
-	}
+	} };
 	
 	static WRITE_HANDLER( fromanc2_subcpu_rombank_w )
 	{

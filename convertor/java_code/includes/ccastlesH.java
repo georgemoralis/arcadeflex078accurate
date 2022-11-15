@@ -16,5 +16,4 @@ extern unsigned char *ccastles_scrolly;
 WRITE_HANDLER( ccastles_paletteram_w );
 
 
-READ_HANDLER( ccastles_bitmode_r );
 WRITE_HANDLER( ccastles_bitmode_w );

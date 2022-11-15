@@ -65,10 +65,9 @@ public class ojankohs
 		}
 	} };
 	
-	READ_HANDLER( ojankohs_palette_r )
-	{
+	public static ReadHandlerPtr ojankohs_palette_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ojankohs_paletteram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( ojankohs_palette_w )
 	{
@@ -142,10 +141,9 @@ public class ojankohs
 	
 	******************************************************************************/
 	
-	READ_HANDLER( ojankohs_videoram_r )
-	{
+	public static ReadHandlerPtr ojankohs_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ojankohs_videoram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( ojankohs_videoram_w )
 	{
@@ -155,10 +153,9 @@ public class ojankohs
 		}
 	}
 	
-	READ_HANDLER( ojankohs_colorram_r )
-	{
+	public static ReadHandlerPtr ojankohs_colorram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ojankohs_colorram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( ojankohs_colorram_w )
 	{

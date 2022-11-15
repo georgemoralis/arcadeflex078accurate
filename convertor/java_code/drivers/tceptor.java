@@ -22,12 +22,9 @@ public class tceptor
 	
 	
 	extern extern extern 
-	extern READ_HANDLER( tceptor_tile_ram_r );
-	extern WRITE_HANDLER( tceptor_tile_ram_w );
-	extern READ_HANDLER( tceptor_tile_attr_r );
-	extern WRITE_HANDLER( tceptor_tile_attr_w );
-	extern READ_HANDLER( tceptor_bg_ram_r );
-	extern WRITE_HANDLER( tceptor_bg_ram_w );
+	extern extern WRITE_HANDLER( tceptor_tile_ram_w );
+	extern extern WRITE_HANDLER( tceptor_tile_attr_w );
+	extern extern WRITE_HANDLER( tceptor_bg_ram_w );
 	extern WRITE_HANDLER( tceptor_bg_scroll_w );
 	
 	extern data8_t *tceptor_tile_ram;
@@ -50,20 +47,18 @@ public class tceptor
 	
 	/*******************************************************************/
 	
-	static READ_HANDLER( m6502_a_shared_r )
-	{
+	public static ReadHandlerPtr m6502_a_shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return m6502_a_shared_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( m6502_a_shared_w )
 	{
 		m6502_a_shared_ram[offset] = data;
 	}
 	
-	static READ_HANDLER( m6502_b_shared_r )
-	{
+	public static ReadHandlerPtr m6502_b_shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return m6502_b_shared_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( m6502_b_shared_w )
 	{
@@ -71,10 +66,9 @@ public class tceptor
 	}
 	
 	
-	static READ_HANDLER( m68k_shared_r )
-	{
+	public static ReadHandlerPtr m68k_shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return m68k_shared_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( m68k_shared_w )
 	{
@@ -93,10 +87,9 @@ public class tceptor
 	}
 	
 	
-	static READ_HANDLER( mcu_shared_r )
-	{
+	public static ReadHandlerPtr mcu_shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return mcu_shared_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( mcu_shared_w )
 	{
@@ -192,30 +185,25 @@ public class tceptor
 		return r;
 	}
 	
-	static READ_HANDLER( dsw0_r )
-	{
+	public static ReadHandlerPtr dsw0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return fix_input0(readinputport(0), readinputport(1));
-	}
+	} };
 	
-	static READ_HANDLER( dsw1_r )
-	{
+	public static ReadHandlerPtr dsw1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return fix_input1(readinputport(0), readinputport(1));
-	}
+	} };
 	
-	static READ_HANDLER( input0_r )
-	{
+	public static ReadHandlerPtr input0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return fix_input0(readinputport(2), readinputport(3));
-	}
+	} };
 	
-	static READ_HANDLER( input1_r )
-	{
+	public static ReadHandlerPtr input1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return fix_input1(readinputport(2), readinputport(3));
-	}
+	} };
 	
-	static READ_HANDLER( readFF )
-	{
+	public static ReadHandlerPtr readFF  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	/*******************************************************************/
 	

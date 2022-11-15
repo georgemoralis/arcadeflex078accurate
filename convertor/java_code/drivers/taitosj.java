@@ -134,21 +134,13 @@ public class taitosj
 	
 	
 	WRITE_HANDLER( taitosj_bankswitch_w );
-	READ_HANDLER( taitosj_fake_data_r );
-	READ_HANDLER( taitosj_fake_status_r );
 	WRITE_HANDLER( taitosj_fake_data_w );
-	READ_HANDLER( taitosj_mcu_data_r );
-	READ_HANDLER( taitosj_mcu_status_r );
 	WRITE_HANDLER( taitosj_mcu_data_w );
-	READ_HANDLER( taitosj_68705_portA_r );
-	READ_HANDLER( taitosj_68705_portB_r );
-	READ_HANDLER( taitosj_68705_portC_r );
 	WRITE_HANDLER( taitosj_68705_portA_w );
 	WRITE_HANDLER( taitosj_68705_portB_w );
 	
 	WRITE_HANDLER( alpine_protection_w );
 	WRITE_HANDLER( alpinea_bankswitch_w );
-	READ_HANDLER( alpine_port_2_r );
 	
 	extern unsigned char *taitosj_videoram2,*taitosj_videoram3;
 	extern unsigned char *taitosj_characterram;
@@ -157,7 +149,6 @@ public class taitosj
 	extern unsigned char *taitosj_gfxpointer;
 	extern unsigned char *taitosj_colorbank,*taitosj_video_priority;
 	extern unsigned char *kikstart_scrollram;
-	READ_HANDLER( taitosj_gfxrom_r );
 	WRITE_HANDLER( taitosj_videoram2_w );
 	WRITE_HANDLER( taitosj_videoram3_w );
 	WRITE_HANDLER( taitosj_paletteram_w );
@@ -165,7 +156,6 @@ public class taitosj
 	WRITE_HANDLER( taitosj_videoenable_w );
 	WRITE_HANDLER( taitosj_characterram_w );
 	WRITE_HANDLER( junglhbr_characterram_w );
-	READ_HANDLER( taitosj_collision_reg_r );
 	WRITE_HANDLER( taitosj_collision_reg_clear_w );
 	
 	
@@ -278,8 +268,7 @@ public class taitosj
 	/* seems the most logical way to do the gears */
 	static int kikstart_gear;
 	
-	static READ_HANDLER ( kikstart_gears_read )
-	{
+	public static ReadHandlerPtr kikstart_gears_read  = new ReadHandlerPtr() { public int handler(int offset){
 		/* gear MUST be 1, 2 or 3 */
 	
 		int portreturn = readinputport(3) & 0xf4;
@@ -295,7 +284,7 @@ public class taitosj
 	//usrintf_showmessage	("Kikstart gear %02x",  kikstart_gear);
 	
 		return portreturn;
-	}
+	} };
 	
 	static MEMORY_READ_START( kikstart_readmem )
 		{ 0x0000, 0x5fff, MRA_ROM },

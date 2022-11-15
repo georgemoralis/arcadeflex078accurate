@@ -226,28 +226,20 @@ public class _40love
 {
 	
 	/* in machine/buggychl.c */
-	READ_HANDLER( buggychl_68705_portA_r );
 	WRITE_HANDLER( buggychl_68705_portA_w );
 	WRITE_HANDLER( buggychl_68705_ddrA_w );
-	READ_HANDLER( buggychl_68705_portB_r );
 	WRITE_HANDLER( buggychl_68705_portB_w );
 	WRITE_HANDLER( buggychl_68705_ddrB_w );
-	READ_HANDLER( buggychl_68705_portC_r );
 	WRITE_HANDLER( buggychl_68705_portC_w );
 	WRITE_HANDLER( buggychl_68705_ddrC_w );
 	WRITE_HANDLER( buggychl_mcu_w );
-	READ_HANDLER( buggychl_mcu_r );
-	READ_HANDLER( buggychl_mcu_status_r );
 	
 	
 	extern extern extern 
 	extern WRITE_HANDLER( fortyl_bg_videoram_w );
 	extern WRITE_HANDLER( fortyl_bg_colorram_w );
-	extern READ_HANDLER ( fortyl_bg_videoram_r );
-	extern READ_HANDLER ( fortyl_bg_colorram_r );
-	extern WRITE_HANDLER( fortyl_pixram_sel_w );
-	extern READ_HANDLER( fortyl_pixram_r );
-	extern WRITE_HANDLER( fortyl_pixram_w );
+	extern extern extern WRITE_HANDLER( fortyl_pixram_sel_w );
+	extern extern WRITE_HANDLER( fortyl_pixram_w );
 	
 	extern unsigned char *fortyl_video_ctrl;
 	extern int fortyl_pix_color[4];
@@ -292,15 +284,13 @@ public class _40love
 	#endif
 	
 	
-	static READ_HANDLER( fortyl_mcu_r )
-	{
+	public static ReadHandlerPtr fortyl_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return buggychl_mcu_r(offset);
-	}
+	} };
 	
-	static READ_HANDLER( fortyl_mcu_status_r )
-	{
+	public static ReadHandlerPtr fortyl_mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return buggychl_mcu_status_r(offset);
-	}
+	} };
 	
 	static WRITE_HANDLER( fortyl_mcu_w )
 	{
@@ -343,21 +333,19 @@ public class _40love
 	}
 	
 	#if 0
-	static READ_HANDLER( pix1_r )
-	{
+	public static ReadHandlerPtr pix1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return pix1;
-	}
+	} };
 	#endif
 	
-	static READ_HANDLER( pix2_r )
-	{
+	public static ReadHandlerPtr pix2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 		int d1 = pix1 & 7;
 	
 		res = (((pix2[1] << (d1+8)) | (pix2[0] << d1)) & 0xff00) >> 8;
 	
 		return res;
-	}
+	} };
 	
 	
 	/****************************************************************************
@@ -590,20 +578,18 @@ public class _40love
 		}
 	}
 	
-	static READ_HANDLER( undoukai_mcu_r )
-	{
+	public static ReadHandlerPtr undoukai_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 	
 	//	logerror("mcu_r %02x\n",from_mcu);
 	
 		return from_mcu;
-	}
+	} };
 	
-	static READ_HANDLER( undoukai_mcu_status_r )
-	{
+	public static ReadHandlerPtr undoukai_mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = 3;
 	
 		return res;
-	}
+	} };
 	
 	/***************************************************************************/
 	
@@ -641,16 +627,14 @@ public class _40love
 	static UINT8 snd_data;
 	static UINT8 snd_flag;
 	
-	static READ_HANDLER( from_snd_r )
-	{
+	public static ReadHandlerPtr from_snd_r  = new ReadHandlerPtr() { public int handler(int offset){
 		snd_flag = 0;
 		return snd_data;
-	}
+	} };
 	
-	static READ_HANDLER( snd_flag_r )
-	{
+	public static ReadHandlerPtr snd_flag_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return snd_flag | 0xfd;
-	}
+	} };
 	
 	static WRITE_HANDLER( to_main_w )
 	{

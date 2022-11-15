@@ -115,10 +115,10 @@ public class _3812intf
 	WRITE_HANDLER( YM3812_write_port_0_w ) {
 		YM3812Write(0, 1, data);
 	}
-	READ_HANDLER( YM3812_status_port_0_r ) {
+	public static ReadHandlerPtr YM3812_status_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YM3812Read(0, 0);
 	}
-	READ_HANDLER( YM3812_read_port_0_r ) {
+	public static ReadHandlerPtr YM3812_read_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YM3812Read(0, 1);
 	}
 	
@@ -129,10 +129,10 @@ public class _3812intf
 	WRITE_HANDLER( YM3812_write_port_1_w ) {
 		YM3812Write(1, 1, data);
 	}
-	READ_HANDLER( YM3812_status_port_1_r ) {
+	public static ReadHandlerPtr YM3812_status_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YM3812Read(1, 0);
 	}
-	READ_HANDLER( YM3812_read_port_1_r ) {
+	public static ReadHandlerPtr YM3812_read_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YM3812Read(1, 1);
 	}
 	
@@ -163,7 +163,7 @@ public class _3812intf
 		if( period == 0 )
 		{	/* Reset FM Timer */
 			timer_enable(Timer_3526[c], 0);
-		}
+		} };
 		else
 		{	/* Start FM Timer */
 			timer_adjust(Timer_3526[c], period, c, 0);
@@ -230,10 +230,10 @@ public class _3812intf
 	WRITE_HANDLER( YM3526_write_port_0_w ) {
 		YM3526Write(0, 1, data);
 	}
-	READ_HANDLER( YM3526_status_port_0_r ) {
+	public static ReadHandlerPtr YM3526_status_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YM3526Read(0, 0);
 	}
-	READ_HANDLER( YM3526_read_port_0_r ) {
+	public static ReadHandlerPtr YM3526_read_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YM3526Read(0, 1);
 	}
 	
@@ -244,10 +244,10 @@ public class _3812intf
 	WRITE_HANDLER( YM3526_write_port_1_w ) {
 		YM3526Write(1, 1, data);
 	}
-	READ_HANDLER( YM3526_status_port_1_r ) {
+	public static ReadHandlerPtr YM3526_status_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YM3526Read(1, 0);
 	}
-	READ_HANDLER( YM3526_read_port_1_r ) {
+	public static ReadHandlerPtr YM3526_read_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return YM3526Read(1, 1);
 	}
 	
@@ -275,7 +275,7 @@ public class _3812intf
 		if( period == 0 )
 		{	/* Reset FM Timer */
 			timer_enable(Timer_8950[c], 0);
-		}
+		} };
 		else
 		{	/* Start FM Timer */
 			timer_adjust(Timer_8950[c], period, c, 0);
@@ -378,10 +378,10 @@ public class _3812intf
 	WRITE_HANDLER( Y8950_write_port_0_w ) {
 		Y8950Write(0, 1, data);
 	}
-	READ_HANDLER( Y8950_status_port_0_r ) {
+	public static ReadHandlerPtr Y8950_status_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return Y8950Read(0, 0);
 	}
-	READ_HANDLER( Y8950_read_port_0_r ) {
+	public static ReadHandlerPtr Y8950_read_port_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return Y8950Read(0, 1);
 	}
 	
@@ -392,10 +392,10 @@ public class _3812intf
 	WRITE_HANDLER( Y8950_write_port_1_w ) {
 		Y8950Write(1, 1, data);
 	}
-	READ_HANDLER( Y8950_status_port_1_r ) {
+	public static ReadHandlerPtr Y8950_status_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return Y8950Read(1, 0);
 	}
-	READ_HANDLER( Y8950_read_port_1_r ) {
+	public static ReadHandlerPtr Y8950_read_port_1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return Y8950Read(1, 1);
 	}
 	

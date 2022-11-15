@@ -58,17 +58,13 @@ public class williams
 	static void cvsd_irqa(int state);
 	static void cvsd_irqb(int state);
 	
-	static READ_HANDLER( cvsd_pia_r );
 	
 	static WRITE_HANDLER( cvsd_pia_w );
 	static WRITE_HANDLER( cvsd_bank_select_w );
 	
-	static READ_HANDLER( adpcm_command_r );
 	static WRITE_HANDLER( adpcm_bank_select_w );
 	static WRITE_HANDLER( adpcm_6295_bank_select_w );
 	
-	static READ_HANDLER( narc_command_r );
-	static READ_HANDLER( narc_command2_r );
 	static WRITE_HANDLER( narc_command2_w );
 	static WRITE_HANDLER( narc_master_bank_select_w );
 	static WRITE_HANDLER( narc_slave_bank_select_w );
@@ -551,10 +547,9 @@ public class williams
 		PIA INTERFACES
 	****************************************************************************/
 	
-	static READ_HANDLER( cvsd_pia_r )
-	{
+	public static ReadHandlerPtr cvsd_pia_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return pia_read(williams_pianum, offset);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( cvsd_pia_w )
@@ -602,12 +597,11 @@ public class williams
 		ADPCM COMMUNICATIONS
 	****************************************************************************/
 	
-	static READ_HANDLER( adpcm_command_r )
-	{
+	public static ReadHandlerPtr adpcm_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(sound_cpunum, M6809_IRQ_LINE, CLEAR_LINE);
 		williams_sound_int_state = 0;
 		return soundlatch_r(0);
-	}
+	} };
 	
 	
 	void williams_adpcm_data_w(int data)
@@ -641,13 +635,12 @@ public class williams
 		NARC COMMUNICATIONS
 	****************************************************************************/
 	
-	static READ_HANDLER( narc_command_r )
-	{
+	public static ReadHandlerPtr narc_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_nmi_line(sound_cpunum, CLEAR_LINE);
 		cpu_set_irq_line(sound_cpunum, M6809_IRQ_LINE, CLEAR_LINE);
 		williams_sound_int_state = 0;
 		return soundlatch_r(0);
-	}
+	} };
 	
 	
 	void williams_narc_data_w(int data)
@@ -683,11 +676,10 @@ public class williams
 	}
 	
 	
-	static READ_HANDLER( narc_command2_r )
-	{
+	public static ReadHandlerPtr narc_command2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(soundalt_cpunum, M6809_FIRQ_LINE, CLEAR_LINE);
 		return soundlatch2_r(0);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( narc_command2_w )

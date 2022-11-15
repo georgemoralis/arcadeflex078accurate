@@ -48,8 +48,7 @@ public class kyugo
 	}
 	
 	
-	READ_HANDLER( kyugo_sharedram_r )
-	{
+	public static ReadHandlerPtr kyugo_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return kyugo_sharedram[offset];
-	}
+	} };
 }

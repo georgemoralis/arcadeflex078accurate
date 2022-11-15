@@ -107,9 +107,7 @@ public class nbmj9195
 	
 	
 	
-	READ_HANDLER( sailorws_palette_r );
 	WRITE_HANDLER( sailorws_palette_w );
-	READ_HANDLER( mscoutm_palette_r );
 	WRITE_HANDLER( mscoutm_palette_w );
 	
 	WRITE_HANDLER( sailorws_gfxflag_0_w );
@@ -134,10 +132,6 @@ public class nbmj9195
 	void sailorws_paltblnum_w(int data);
 	WRITE_HANDLER( sailorws_paltbl_0_w );
 	WRITE_HANDLER( sailorws_paltbl_1_w );
-	READ_HANDLER( sailorws_gfxbusy_0_r );
-	READ_HANDLER( sailorws_gfxbusy_1_r );
-	READ_HANDLER( sailorws_gfxrom_0_r );
-	READ_HANDLER( sailorws_gfxrom_1_r );
 	
 	
 	static int sailorws_inputport;
@@ -229,23 +223,21 @@ public class nbmj9195
 		mscoutm_inputport = (data ^ 0xff);
 	}
 	
-	static READ_HANDLER( mscoutm_dipsw_0_r )
-	{
+	public static ReadHandlerPtr mscoutm_dipsw_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// DIPSW A
 		return (((readinputport(0) & 0x01) << 7) | ((readinputport(0) & 0x02) << 5) |
 		        ((readinputport(0) & 0x04) << 3) | ((readinputport(0) & 0x08) << 1) |
 		        ((readinputport(0) & 0x10) >> 1) | ((readinputport(0) & 0x20) >> 3) |
 		        ((readinputport(0) & 0x40) >> 5) | ((readinputport(0) & 0x80) >> 7));
-	}
+	} };
 	
-	static READ_HANDLER( mscoutm_dipsw_1_r )
-	{
+	public static ReadHandlerPtr mscoutm_dipsw_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// DIPSW B
 		return (((readinputport(1) & 0x01) << 7) | ((readinputport(1) & 0x02) << 5) |
 		        ((readinputport(1) & 0x04) << 3) | ((readinputport(1) & 0x08) << 1) |
 		        ((readinputport(1) & 0x10) >> 1) | ((readinputport(1) & 0x20) >> 3) |
 		        ((readinputport(1) & 0x40) >> 5) | ((readinputport(1) & 0x80) >> 7));
-	}
+	} };
 	
 	
 	/* TMPZ84C011 PIO emulation */
@@ -494,11 +486,11 @@ public class nbmj9195
 	/* CPU interface */
 	
 	/* device 0 */
-	static READ_HANDLER( tmpz84c011_0_pa_r ) { return (tmpz84c011_pio_r(0) & ~pio_dir[0]) | (pio_latch[0] & pio_dir[0]); }
-	static READ_HANDLER( tmpz84c011_0_pb_r ) { return (tmpz84c011_pio_r(1) & ~pio_dir[1]) | (pio_latch[1] & pio_dir[1]); }
-	static READ_HANDLER( tmpz84c011_0_pc_r ) { return (tmpz84c011_pio_r(2) & ~pio_dir[2]) | (pio_latch[2] & pio_dir[2]); }
-	static READ_HANDLER( tmpz84c011_0_pd_r ) { return (tmpz84c011_pio_r(3) & ~pio_dir[3]) | (pio_latch[3] & pio_dir[3]); }
-	static READ_HANDLER( tmpz84c011_0_pe_r ) { return (tmpz84c011_pio_r(4) & ~pio_dir[4]) | (pio_latch[4] & pio_dir[4]); }
+	public static ReadHandlerPtr tmpz84c011_0_pa_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(0) & ~pio_dir[0]) | (pio_latch[0] & pio_dir[0]); }
+	public static ReadHandlerPtr tmpz84c011_0_pb_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(1) & ~pio_dir[1]) | (pio_latch[1] & pio_dir[1]); }
+	public static ReadHandlerPtr tmpz84c011_0_pc_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(2) & ~pio_dir[2]) | (pio_latch[2] & pio_dir[2]); }
+	public static ReadHandlerPtr tmpz84c011_0_pd_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(3) & ~pio_dir[3]) | (pio_latch[3] & pio_dir[3]); }
+	public static ReadHandlerPtr tmpz84c011_0_pe_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(4) & ~pio_dir[4]) | (pio_latch[4] & pio_dir[4]); }
 	
 	static WRITE_HANDLER( tmpz84c011_0_pa_w ) { pio_latch[0] = data; tmpz84c011_pio_w(0, data); }
 	static WRITE_HANDLER( tmpz84c011_0_pb_w ) { pio_latch[1] = data; tmpz84c011_pio_w(1, data); }
@@ -506,11 +498,11 @@ public class nbmj9195
 	static WRITE_HANDLER( tmpz84c011_0_pd_w ) { pio_latch[3] = data; tmpz84c011_pio_w(3, data); }
 	static WRITE_HANDLER( tmpz84c011_0_pe_w ) { pio_latch[4] = data; tmpz84c011_pio_w(4, data); }
 	
-	static READ_HANDLER( tmpz84c011_0_dir_pa_r ) { return pio_dir[0]; }
-	static READ_HANDLER( tmpz84c011_0_dir_pb_r ) { return pio_dir[1]; }
-	static READ_HANDLER( tmpz84c011_0_dir_pc_r ) { return pio_dir[2]; }
-	static READ_HANDLER( tmpz84c011_0_dir_pd_r ) { return pio_dir[3]; }
-	static READ_HANDLER( tmpz84c011_0_dir_pe_r ) { return pio_dir[4]; }
+	public static ReadHandlerPtr tmpz84c011_0_dir_pa_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[0]; }
+	public static ReadHandlerPtr tmpz84c011_0_dir_pb_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[1]; }
+	public static ReadHandlerPtr tmpz84c011_0_dir_pc_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[2]; }
+	public static ReadHandlerPtr tmpz84c011_0_dir_pd_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[3]; }
+	public static ReadHandlerPtr tmpz84c011_0_dir_pe_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[4]; }
 	
 	static WRITE_HANDLER( tmpz84c011_0_dir_pa_w ) { pio_dir[0] = data; }
 	static WRITE_HANDLER( tmpz84c011_0_dir_pb_w ) { pio_dir[1] = data; }
@@ -519,11 +511,11 @@ public class nbmj9195
 	static WRITE_HANDLER( tmpz84c011_0_dir_pe_w ) { pio_dir[4] = data; }
 	
 	/* device 1 */
-	static READ_HANDLER( tmpz84c011_1_pa_r ) { return (tmpz84c011_pio_r(5) & ~pio_dir[5]) | (pio_latch[5] & pio_dir[5]); }
-	static READ_HANDLER( tmpz84c011_1_pb_r ) { return (tmpz84c011_pio_r(6) & ~pio_dir[6]) | (pio_latch[6] & pio_dir[6]); }
-	static READ_HANDLER( tmpz84c011_1_pc_r ) { return (tmpz84c011_pio_r(7) & ~pio_dir[7]) | (pio_latch[7] & pio_dir[7]); }
-	static READ_HANDLER( tmpz84c011_1_pd_r ) { return (tmpz84c011_pio_r(8) & ~pio_dir[8]) | (pio_latch[8] & pio_dir[8]); }
-	static READ_HANDLER( tmpz84c011_1_pe_r ) { return (tmpz84c011_pio_r(9) & ~pio_dir[9]) | (pio_latch[9] & pio_dir[9]); }
+	public static ReadHandlerPtr tmpz84c011_1_pa_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(5) & ~pio_dir[5]) | (pio_latch[5] & pio_dir[5]); }
+	public static ReadHandlerPtr tmpz84c011_1_pb_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(6) & ~pio_dir[6]) | (pio_latch[6] & pio_dir[6]); }
+	public static ReadHandlerPtr tmpz84c011_1_pc_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(7) & ~pio_dir[7]) | (pio_latch[7] & pio_dir[7]); }
+	public static ReadHandlerPtr tmpz84c011_1_pd_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(8) & ~pio_dir[8]) | (pio_latch[8] & pio_dir[8]); }
+	public static ReadHandlerPtr tmpz84c011_1_pe_r  = new ReadHandlerPtr() { public int handler(int offset) return (tmpz84c011_pio_r(9) & ~pio_dir[9]) | (pio_latch[9] & pio_dir[9]); }
 	
 	static WRITE_HANDLER( tmpz84c011_1_pa_w ) { pio_latch[5] = data; tmpz84c011_pio_w(5, data); }
 	static WRITE_HANDLER( tmpz84c011_1_pb_w ) { pio_latch[6] = data; tmpz84c011_pio_w(6, data); }
@@ -531,11 +523,11 @@ public class nbmj9195
 	static WRITE_HANDLER( tmpz84c011_1_pd_w ) { pio_latch[8] = data; tmpz84c011_pio_w(8, data); }
 	static WRITE_HANDLER( tmpz84c011_1_pe_w ) { pio_latch[9] = data; tmpz84c011_pio_w(9, data); }
 	
-	static READ_HANDLER( tmpz84c011_1_dir_pa_r ) { return pio_dir[5]; }
-	static READ_HANDLER( tmpz84c011_1_dir_pb_r ) { return pio_dir[6]; }
-	static READ_HANDLER( tmpz84c011_1_dir_pc_r ) { return pio_dir[7]; }
-	static READ_HANDLER( tmpz84c011_1_dir_pd_r ) { return pio_dir[8]; }
-	static READ_HANDLER( tmpz84c011_1_dir_pe_r ) { return pio_dir[9]; }
+	public static ReadHandlerPtr tmpz84c011_1_dir_pa_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[5]; }
+	public static ReadHandlerPtr tmpz84c011_1_dir_pb_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[6]; }
+	public static ReadHandlerPtr tmpz84c011_1_dir_pc_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[7]; }
+	public static ReadHandlerPtr tmpz84c011_1_dir_pd_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[8]; }
+	public static ReadHandlerPtr tmpz84c011_1_dir_pe_r  = new ReadHandlerPtr() { public int handler(int offset) return pio_dir[9]; }
 	
 	static WRITE_HANDLER( tmpz84c011_1_dir_pa_w ) { pio_dir[5] = data; }
 	static WRITE_HANDLER( tmpz84c011_1_dir_pb_w ) { pio_dir[6] = data; }

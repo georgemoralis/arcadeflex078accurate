@@ -121,8 +121,7 @@ public class segapcm
 		spcm.ram[offset & 0x07ff] = data;
 	}
 	
-	READ_HANDLER( SegaPCM_r )
-	{
+	public static ReadHandlerPtr SegaPCM_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return spcm.ram[offset & 0x07ff];
-	}
+	} };
 }

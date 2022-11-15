@@ -183,13 +183,12 @@ public class renegade
 	static int mcu_output_byte;
 	static int mcu_key;
 	
-	static READ_HANDLER( mcu_reset_r )
-	{
+	public static ReadHandlerPtr mcu_reset_r  = new ReadHandlerPtr() { public int handler(int offset){
 		mcu_key = -1;
 		mcu_input_size = 0;
 		mcu_output_byte = 0;
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( mcu_w )
 	{
@@ -340,8 +339,7 @@ public class renegade
 		}
 	}
 	
-	static READ_HANDLER( mcu_r )
-	{
+	public static ReadHandlerPtr mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int result = 1;
 	
 		if( mcu_input_size ) mcu_process_command();
@@ -350,7 +348,7 @@ public class renegade
 			result = mcu_buffer[mcu_output_byte++];
 	
 		return result;
-	}
+	} };
 	
 	/********************************************************************************************/
 	

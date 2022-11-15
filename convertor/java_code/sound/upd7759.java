@@ -592,8 +592,7 @@ public class upd7759
 		UPD7759_port_w(0,data);
 	}
 	
-	READ_HANDLER(UPD7759_0_busy_r)
-	{
+	public static ReadHandlerPtr UPD7759_0_busy_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return UPD7759_busy_r(0);
-	}
+	} };
 }

@@ -238,8 +238,7 @@ public class tms34061
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( register_r )
-	{
+	public static ReadHandlerPtr register_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int regnum = offset >> 2;
 		data8_t result;
 	
@@ -273,7 +272,7 @@ public class tms34061
 				break;
 		}
 		return result;
-	}
+	} };
 	
 	
 	
@@ -389,8 +388,7 @@ public class tms34061
 	}
 	
 	
-	static READ_HANDLER( xypixel_r )
-	{
+	public static ReadHandlerPtr xypixel_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* determine the offset, then adjust it */
 		offs_t pixeloffs = tms34061.regs[TMS34061_XYADDRESS];
 		if (offset)
@@ -404,7 +402,7 @@ public class tms34061
 	
 		/* return the result */
 		return tms34061.vram[pixeloffs];
-	}
+	} };
 	
 	
 	
@@ -539,10 +537,9 @@ public class tms34061
 	 *
 	 *************************************/
 	
-	READ_HANDLER( tms34061_latch_r )
-	{
+	public static ReadHandlerPtr tms34061_latch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tms34061.latchdata;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( tms34061_latch_w )

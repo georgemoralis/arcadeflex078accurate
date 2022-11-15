@@ -5524,8 +5524,7 @@ public class taitoic
 	static data8_t TC0220IOC_regs[8];
 	static data8_t TC0220IOC_port;
 	
-	READ_HANDLER( TC0220IOC_r )
-	{
+	public static ReadHandlerPtr TC0220IOC_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 			case 0x00:	/* IN00-07 (DSA) */
@@ -5550,7 +5549,7 @@ public class taitoic
 	logerror("PC %06x: warning - read TC0220IOC address %02x\n",activecpu_get_pc(),offset);
 				return 0xff;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( TC0220IOC_w )
 	{
@@ -5579,20 +5578,18 @@ public class taitoic
 		}
 	}
 	
-	READ_HANDLER( TC0220IOC_port_r )
-	{
+	public static ReadHandlerPtr TC0220IOC_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return TC0220IOC_port;
-	}
+	} };
 	
 	WRITE_HANDLER( TC0220IOC_port_w )
 	{
 		TC0220IOC_port = data;
 	}
 	
-	READ_HANDLER( TC0220IOC_portreg_r )
-	{
+	public static ReadHandlerPtr TC0220IOC_portreg_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return TC0220IOC_r(TC0220IOC_port);
-	}
+	} };
 	
 	WRITE_HANDLER( TC0220IOC_portreg_w )
 	{
@@ -5685,8 +5682,7 @@ public class taitoic
 	
 	static data8_t TC0510NIO_regs[8];
 	
-	READ_HANDLER( TC0510NIO_r )
-	{
+	public static ReadHandlerPtr TC0510NIO_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 			case 0x00:	/* DSA */
@@ -5711,7 +5707,7 @@ public class taitoic
 	logerror("PC %06x: warning - read TC0510NIO address %02x\n",activecpu_get_pc(),offset);
 				return 0xff;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( TC0510NIO_w )
 	{
@@ -5768,8 +5764,7 @@ public class taitoic
 	
 	static data8_t TC0640FIO_regs[8];
 	
-	READ_HANDLER( TC0640FIO_r )
-	{
+	public static ReadHandlerPtr TC0640FIO_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 			case 0x00:	/* DSA */
@@ -5794,7 +5789,7 @@ public class taitoic
 	logerror("PC %06x: warning - read TC0640FIO address %02x\n",activecpu_get_pc(),offset);
 				return 0xff;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( TC0640FIO_w )
 	{

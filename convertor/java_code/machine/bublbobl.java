@@ -22,14 +22,12 @@ public class bublbobl
 	extern int bublbobl_video_enable;
 	
 	
-	READ_HANDLER( bublbobl_sharedram1_r )
-	{
+	public static ReadHandlerPtr bublbobl_sharedram1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bublbobl_sharedram1[offset];
-	}
-	READ_HANDLER( bublbobl_sharedram2_r )
-	{
+	} };
+	public static ReadHandlerPtr bublbobl_sharedram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bublbobl_sharedram2[offset];
-	}
+	} };
 	WRITE_HANDLER( bublbobl_sharedram1_w )
 	{
 		bublbobl_sharedram1[offset] = data;
@@ -84,10 +82,9 @@ public class bublbobl
 		cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
 	}
 	
-	READ_HANDLER( tokio_fake_r )
-	{
+	public static ReadHandlerPtr tokio_fake_r  = new ReadHandlerPtr() { public int handler(int offset){
 	  return 0xbf; /* ad-hoc value set to pass initial testing */
-	}
+	} };
 	
 	
 	
@@ -141,11 +138,10 @@ public class bublbobl
 	
 	static unsigned char portA_in,portA_out,ddrA;
 	
-	READ_HANDLER( bublbobl_68705_portA_r )
-	{
+	public static ReadHandlerPtr bublbobl_68705_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//logerror("%04x: 68705 port A read %02x\n",activecpu_get_pc(),portA_in);
 		return (portA_out & ddrA) | (portA_in & ~ddrA);
-	}
+	} };
 	
 	WRITE_HANDLER( bublbobl_68705_portA_w )
 	{
@@ -181,10 +177,9 @@ public class bublbobl
 	
 	static unsigned char portB_in,portB_out,ddrB;
 	
-	READ_HANDLER( bublbobl_68705_portB_r )
-	{
+	public static ReadHandlerPtr bublbobl_68705_portB_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (portB_out & ddrB) | (portB_in & ~ddrB);
-	}
+	} };
 	
 	static int address,latch;
 	

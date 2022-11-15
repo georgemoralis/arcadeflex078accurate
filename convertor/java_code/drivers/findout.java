@@ -56,11 +56,10 @@ public class findout
 	}
 	
 	
-	static READ_HANDLER( portC_r )
-	{
+	public static ReadHandlerPtr portC_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 4;
 	//	return (rand()&2);
-	}
+	} };
 	
 	static WRITE_HANDLER( lamps_w )
 	{
@@ -101,15 +100,14 @@ public class findout
 	} };
 	
 	
-	static READ_HANDLER( catchall )
-	{
+	public static ReadHandlerPtr catchall  = new ReadHandlerPtr() { public int handler(int offset){
 		int pc = activecpu_get_pc();
 	
 		if (pc != 0x3c74 && pc != 0x0364 && pc != 0x036d)	/* weed out spurious blit reads */
 			logerror("%04x: unmapped memory read from %04x\n",pc,offset);
 	
 		return 0xff;
-	}
+	} };
 	
 	static WRITE_HANDLER( banksel_main_w )
 	{
@@ -140,10 +138,9 @@ public class findout
 	/* This signature is used to validate the question ROMs. Simple protection check? */
 	static int signature_answer,signature_pos;
 	
-	static READ_HANDLER( signature_r )
-	{
+	public static ReadHandlerPtr signature_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return signature_answer;
-	}
+	} };
 	
 	static WRITE_HANDLER( signature_w )
 	{

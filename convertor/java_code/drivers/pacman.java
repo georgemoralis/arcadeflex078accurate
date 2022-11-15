@@ -436,17 +436,15 @@ public class pacman
 	}
 	
 	
-	static READ_HANDLER( alibaba_mystery_1_r )
-	{
+	public static ReadHandlerPtr alibaba_mystery_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// The return value determines what the mystery item is.  Each bit corresponds
 		// to a question mark
 	
 		return rand() & 0x0f;
-	}
+	} };
 	
 	
-	static READ_HANDLER( alibaba_mystery_2_r )
-	{
+	public static ReadHandlerPtr alibaba_mystery_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int mystery = 0;
 	
 		// The single bit return value determines when the mystery is lit up.
@@ -454,7 +452,7 @@ public class pacman
 	
 		mystery++;
 		return (mystery >> 10) & 1;
-	}
+	} };
 	
 	
 	
@@ -464,8 +462,7 @@ public class pacman
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( maketrax_special_port2_r )
-	{
+	public static ReadHandlerPtr maketrax_special_port2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = input_port_2_r(offset);
 		int pc = activecpu_get_previouspc();
 	
@@ -483,11 +480,10 @@ public class pacman
 		}
 	
 		return data;
-	}
+	} };
 	
 	
-	static READ_HANDLER( maketrax_special_port3_r )
-	{
+	public static ReadHandlerPtr maketrax_special_port3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int pc = activecpu_get_previouspc();
 	
 		if (pc == 0x040e) return 0x20;
@@ -505,10 +501,9 @@ public class pacman
 			default:
 				return 0x20;
 		}
-	}
+	} };
 	
-	static READ_HANDLER( korosuke_special_port2_r )
-	{
+	public static ReadHandlerPtr korosuke_special_port2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = input_port_2_r(offset);
 		int pc = activecpu_get_previouspc();
 	
@@ -526,10 +521,9 @@ public class pacman
 		}
 	
 		return data;
-	}
+	} };
 	
-	static READ_HANDLER( korosuke_special_port3_r )
-	{
+	public static ReadHandlerPtr korosuke_special_port3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int pc = activecpu_get_previouspc();
 	
 		if (pc == 0x0445) return 0x20;
@@ -547,7 +541,7 @@ public class pacman
 			default:
 				return 0x20;
 		}
-	}
+	} };
 	
 	/*************************************
 	 *
@@ -555,11 +549,10 @@ public class pacman
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( mschamp_kludge_r )
-	{
+	public static ReadHandlerPtr mschamp_kludge_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static UINT8 counter;
 		return counter++;
-	}
+	} };
 	
 	/************************************
 	 *
@@ -574,8 +567,7 @@ public class pacman
 		bigbucks_bank = data;
 	}
 	
-	static READ_HANDLER( bigbucks_question_r )
-	{
+	public static ReadHandlerPtr bigbucks_question_r  = new ReadHandlerPtr() { public int handler(int offset){
 	
 		UINT8 *question = memory_region(REGION_USER1);
 		UINT8 ret;
@@ -583,7 +575,7 @@ public class pacman
 		ret = question[(bigbucks_bank << 16) | (offset ^ 0xffff)];
 	
 		return ret;
-	}
+	} };
 	
 	/************************************
 	 *
@@ -595,18 +587,16 @@ public class pacman
 		cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0x03);
 	} };
 	
-	static READ_HANDLER( s2650_mirror_r )
-	{
+	public static ReadHandlerPtr s2650_mirror_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu_readmem16(0x1000 + offset);
-	}
+	} };
 	
 	static WRITE_HANDLER( s2650_mirror_w )
 	{
 		cpu_writemem16(0x1000 + offset, data);
 	}
 	
-	static READ_HANDLER( drivfrcp_port1_r )
-	{
+	public static ReadHandlerPtr drivfrcp_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
 		{
 			case 0x0030:
@@ -615,10 +605,9 @@ public class pacman
 		}
 	
 	    return 0;
-	}
+	} };
 	
-	static READ_HANDLER( _8bpm_port1_r )
-	{
+	public static ReadHandlerPtr _8bpm_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
 		{
 			case 0x0030:
@@ -627,10 +616,9 @@ public class pacman
 		}
 	
 	    return 0;
-	}
+	} };
 	
-	static READ_HANDLER( porky_port1_r )
-	{
+	public static ReadHandlerPtr porky_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
 		{
 			case 0x0034:
@@ -638,7 +626,7 @@ public class pacman
 		}
 	
 	    return 0;
-	}
+	} };
 	
 	
 	/*************************************

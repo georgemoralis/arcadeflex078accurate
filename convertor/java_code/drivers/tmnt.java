@@ -277,10 +277,9 @@ public class tmnt
 		else return offset ? 0x00 : 0x80;
 	}
 	
-	READ_HANDLER( tmnt_sres_r )
-	{
+	public static ReadHandlerPtr tmnt_sres_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tmnt_soundlatch;
-	}
+	} };
 	
 	WRITE_HANDLER( tmnt_sres_w )
 	{
@@ -1463,10 +1462,9 @@ public class tmnt
 		{ 0xfc00, 0xfc2f, K053260_0_w },
 	MEMORY_END
 	
-	static READ_HANDLER( K054539_0_ctrl_r )
-	{
+	public static ReadHandlerPtr K054539_0_ctrl_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return K054539_0_r(0x200+offset);
-	}
+	} };
 	static WRITE_HANDLER( K054539_0_ctrl_w )
 	{
 		K054539_0_w(0x200+offset,data);

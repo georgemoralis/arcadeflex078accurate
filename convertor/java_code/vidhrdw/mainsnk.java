@@ -78,10 +78,9 @@ public class mainsnk
 	}
 	
 	
-	READ_HANDLER( me_fgram_r )
-	{
+	public static ReadHandlerPtr me_fgram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return me_fgram[offset];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( me_fgram_w )
@@ -103,11 +102,10 @@ public class mainsnk
 	}
 	
 	
-	READ_HANDLER( me_bgram_r )
-	{
+	public static ReadHandlerPtr me_bgram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return me_bgram[offset];
 	
-	}
+	} };
 	
 	WRITE_HANDLER( me_bgram_w )
 	{

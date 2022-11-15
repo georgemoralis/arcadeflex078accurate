@@ -107,8 +107,7 @@ public class cloak
 		}
 	}
 	
-	READ_HANDLER( graph_processor_r )
-	{
+	public static ReadHandlerPtr graph_processor_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret;
 	
 		if (bmap)
@@ -123,7 +122,7 @@ public class cloak
 		adjust_xy(offset);
 	
 		return ret;
-	}
+	} };
 	
 	WRITE_HANDLER( graph_processor_w )
 	{

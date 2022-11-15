@@ -71,8 +71,7 @@ public class canyon
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( canyon_switches_r )
-	{
+	public static ReadHandlerPtr canyon_switches_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = 0;
 	
 		if ((readinputport(2) >> (offset & 7)) & 1)
@@ -85,19 +84,17 @@ public class canyon
 		}
 	
 		return val;
-	}
+	} };
 	
 	
-	static READ_HANDLER( canyon_options_r )
-	{
+	public static ReadHandlerPtr canyon_options_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(0) >> (2 * (~offset & 3))) & 3;
-	}
+	} };
 	
 	
-	static READ_HANDLER( canyon_wram_r )
-	{
+	public static ReadHandlerPtr canyon_wram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_CPU1)[offset];
-	}
+	} };
 	
 	
 	

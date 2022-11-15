@@ -90,7 +90,6 @@ public class hexion
 	
 	
 	WRITE_HANDLER( hexion_bankswitch_w );
-	READ_HANDLER( hexion_bankedram_r );
 	WRITE_HANDLER( hexion_bankedram_w );
 	WRITE_HANDLER( hexion_bankctrl_w );
 	WRITE_HANDLER( hexion_gfxrom_select_w );

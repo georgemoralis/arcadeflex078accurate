@@ -138,8 +138,7 @@ public class vendetta
 		}
 	} };
 	
-	static READ_HANDLER( vendetta_eeprom_r )
-	{
+	public static ReadHandlerPtr vendetta_eeprom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 		res = EEPROM_read_bit();
@@ -154,7 +153,7 @@ public class vendetta
 			res &= 0xfb;
 		}
 		return res;
-	}
+	} };
 	
 	static int irq_enabled;
 	
@@ -184,7 +183,7 @@ public class vendetta
 	
 	/********************************************/
 	
-	static READ_HANDLER( vendetta_K052109_r ) { return K052109_r( offset + 0x2000 ); }
+	public static ReadHandlerPtr vendetta_K052109_r  = new ReadHandlerPtr() { public int handler(int offset) return K052109_r( offset + 0x2000 ); }
 	//static WRITE_HANDLER( vendetta_K052109_w ) { K052109_w( offset + 0x2000, data ); }
 	static WRITE_HANDLER( vendetta_K052109_w ) {
 		// *************************************************************************************
@@ -203,7 +202,7 @@ public class vendetta
 			memory_set_bankhandler_w( 2, 0, paletteram_xBBBBBGGGGGRRRRR_swap_w );
 			memory_set_bankhandler_r( 3, 0, K053247_r );
 			memory_set_bankhandler_w( 3, 0, K053247_w );
-		}
+		} };
 		else
 		{
 			memory_set_bankhandler_r( 2, 0, vendetta_K052109_r );
@@ -247,14 +246,12 @@ public class vendetta
 		cpu_set_irq_line_and_vector( 1, 0, HOLD_LINE, 0xff );
 	}
 	
-	READ_HANDLER( vendetta_sound_interrupt_r )
-	{
+	public static ReadHandlerPtr vendetta_sound_interrupt_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line_and_vector( 1, 0, HOLD_LINE, 0xff );
 		return 0x00;
-	}
+	} };
 	
-	READ_HANDLER( vendetta_sound_r )
-	{
+	public static ReadHandlerPtr vendetta_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* If the sound CPU is running, read the status, otherwise
 		   just make it pass the test */
 		if (Machine->sample_rate != 0) 	return K053260_0_r(2 + offset);
@@ -265,7 +262,7 @@ public class vendetta
 			res = ((res + 1) & 0x07);
 			return offset ? res : 0x00;
 		}
-	}
+	} };
 	
 	/********************************************/
 	

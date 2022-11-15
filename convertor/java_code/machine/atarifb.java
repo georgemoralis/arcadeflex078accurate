@@ -115,8 +115,7 @@ public class atarifb
 	}
 	
 	
-	READ_HANDLER( atarifb_in0_r )
-	{
+	public static ReadHandlerPtr atarifb_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((CTRLD & 0x20)==0x00)
 		{
 			int val;
@@ -150,11 +149,10 @@ public class atarifb
 	
 			return (((counter_y & 0x0f) << 4) | (counter_x & 0x0f));
 		}
-	}
+	} };
 	
 	
-	READ_HANDLER( atarifb_in2_r )
-	{
+	public static ReadHandlerPtr atarifb_in2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((CTRLD & 0x20)==0x00)
 		{
 			return input_port_1_r(offset);
@@ -181,10 +179,9 @@ public class atarifb
 	
 			return (((counter_y & 0x0f) << 4) | (counter_x & 0x0f));
 		}
-	}
+	} };
 	
-	READ_HANDLER( atarifb4_in0_r )
-	{
+	public static ReadHandlerPtr atarifb4_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* LD1 and LD2 low, return sign bits */
 		if ((CTRLD & 0x60)==0x00)
 		{
@@ -248,11 +245,10 @@ public class atarifb
 		}
 	
 		else return 0;
-	}
+	} };
 	
 	
-	READ_HANDLER( atarifb4_in2_r )
-	{
+	public static ReadHandlerPtr atarifb4_in2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((CTRLD & 0x40)==0x00)
 		{
 			return input_port_2_r(offset);
@@ -305,7 +301,7 @@ public class atarifb
 		}
 	
 		else return 0;
-	}
+	} };
 	
 	
 }

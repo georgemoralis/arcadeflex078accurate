@@ -1235,15 +1235,13 @@ public class palette
 	
 	******************************************************************************/
 	
-	READ_HANDLER( paletteram_r )
-	{
+	public static ReadHandlerPtr paletteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return paletteram[offset];
-	}
+	} };
 	
-	READ_HANDLER( paletteram_2_r )
-	{
+	public static ReadHandlerPtr paletteram_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return paletteram_2[offset];
-	}
+	} };
 	
 	READ16_HANDLER( paletteram16_word_r )
 	{

@@ -47,7 +47,7 @@ public class rockrage
 		cpu_set_irq_line(1,M6809_IRQ_LINE,HOLD_LINE);
 	}
 	
-	static READ_HANDLER( rockrage_VLM5030_busy_r ) {
+	public static ReadHandlerPtr rockrage_VLM5030_busy_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return ( VLM5030_BSY() ? 1 : 0 );
 	}
 	
@@ -217,7 +217,7 @@ public class rockrage
 		{ 0*4, 1*4, 0x20000*8+0*4, 0x20000*8+1*4, 2*4, 3*4, 0x20000*8+2*4, 0x20000*8+3*4 },
 		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		16*8		/* every char takes 16 consecutive bytes */
-	};
+	} };;
 	
 	static struct GfxLayout spritelayout =
 	{

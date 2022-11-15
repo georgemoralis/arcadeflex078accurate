@@ -19,11 +19,8 @@ package drivers;
 public class gameplan
 {
 	
-	READ_HANDLER( gameplan_video_r );
 	WRITE_HANDLER( gameplan_video_w );
-	READ_HANDLER( gameplan_sound_r );
 	WRITE_HANDLER( gameplan_sound_w );
-	READ_HANDLER( gameplan_via5_r );
 	WRITE_HANDLER( gameplan_via5_w );
 	
 	static int gameplan_current_port;
@@ -88,10 +85,9 @@ public class gameplan
 		}
 	}
 	
-	static READ_HANDLER( gameplan_port_r )
-	{
+	public static ReadHandlerPtr gameplan_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(gameplan_current_port);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 	    { 0x0000, 0x03ff, MRA_RAM },

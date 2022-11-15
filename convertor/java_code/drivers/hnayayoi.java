@@ -52,8 +52,7 @@ public class hnayayoi
 	
 	static int keyb;
 	
-	static READ_HANDLER( keyboard_0_r )
-	{
+	public static ReadHandlerPtr keyboard_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = 0x3f;
 		int i;
 	
@@ -61,13 +60,12 @@ public class hnayayoi
 			if (~keyb & (1 << i)) res &= readinputport(4+i);
 	
 		return res;
-	}
+	} };
 	
-	static READ_HANDLER( keyboard_1_r )
-	{
+	public static ReadHandlerPtr keyboard_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Player 2 not supported */
 		return 0x3f;
-	}
+	} };
 	
 	static WRITE_HANDLER( keyboard_w )
 	{

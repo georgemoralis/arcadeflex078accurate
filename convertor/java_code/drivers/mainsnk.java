@@ -26,8 +26,6 @@ public class mainsnk
 	WRITE_HANDLER(me_c600_w);
 	WRITE_HANDLER(me_fgram_w);
 	WRITE_HANDLER(me_bgram_w);
-	READ_HANDLER(me_fgram_r);
-	READ_HANDLER(me_bgram_r);
 	
 	static int sound_cpu_ready;
 	static int sound_command;
@@ -52,24 +50,21 @@ public class mainsnk
 		cpu_set_irq_line(1, IRQ_LINE_NMI, PULSE_LINE);
 	}
 	
-	static READ_HANDLER( sound_command_r )
-	{
+	public static ReadHandlerPtr sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sound_fetched = 1;
 		return sound_command;
-	}
+	} };
 	
-	static READ_HANDLER( sound_ack_r )
-	{
+	public static ReadHandlerPtr sound_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sound_cpu_ready = 1;
 		return 0xff;
-	}
+	} };
 	
-	static READ_HANDLER( mainsnk_port_0_r )
-	{
+	public static ReadHandlerPtr mainsnk_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int result = input_port_0_r( 0 );
 		if( !sound_cpu_ready ) result |= 0x20;
 		return result;
-	}
+	} };
 	
 	static struct AY8910interface ay8910_interface =
 	{

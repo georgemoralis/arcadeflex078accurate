@@ -118,10 +118,9 @@ public class tankbust
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	}
-	READ_HANDLER( tankbust_background_videoram_r )
-	{
+	public static ReadHandlerPtr tankbust_background_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( tankbust_background_colorram_w )
 	{
@@ -131,10 +130,9 @@ public class tankbust
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	}
-	READ_HANDLER( tankbust_background_colorram_r )
-	{
+	public static ReadHandlerPtr tankbust_background_colorram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return colorram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( tankbust_txtram_w )
 	{
@@ -144,10 +142,9 @@ public class tankbust
 			tilemap_mark_tile_dirty(txt_tilemap, offset);
 		}
 	}
-	READ_HANDLER( tankbust_txtram_r )
-	{
+	public static ReadHandlerPtr tankbust_txtram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return txt_ram[offset];
-	}
+	} };
 	
 	
 	static UINT8 xscroll[2];

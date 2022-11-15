@@ -242,7 +242,7 @@ public class outrun
 		}
 	}
 	
-	static READ_HANDLER( sound2_shared_ram_r ){
+	public static ReadHandlerPtr sound2_shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return sound_shared_ram[offset];
 	}
 	static WRITE_HANDLER( sound2_shared_ram_w ){
@@ -635,7 +635,7 @@ public class outrun
 			case 1:	return 0xff00;  // brake
 			case 2:	return 0x0000;  // accel
 			case 0:	return 0x0000;  // neither
-		}
+		} };
 		return 0x0000;
 	}
 	

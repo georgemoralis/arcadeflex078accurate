@@ -10,7 +10,6 @@ extern data8_t *skydiver_videoram;
 
 WRITE_HANDLER( skydiver_videoram_w );
 WRITE_HANDLER( skydiver_wram_w );	/* the signal is WRAM, presumably Work RAM */
-READ_HANDLER( skydiver_wram_r );
 WRITE_HANDLER( skydiver_start_lamp_1_w );
 WRITE_HANDLER( skydiver_start_lamp_2_w );
 WRITE_HANDLER( skydiver_lamp_s_w );

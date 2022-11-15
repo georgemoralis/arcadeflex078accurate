@@ -200,8 +200,7 @@ public class victory
 	 *
 	 *************************************/
 	
-	READ_HANDLER( victory_video_control_r )
-	{
+	public static ReadHandlerPtr victory_video_control_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int result = 0;
 	
 		switch (offset)
@@ -256,7 +255,7 @@ public class victory
 				break;
 		}
 		return 0;
-	}
+	} };
 	
 	
 	

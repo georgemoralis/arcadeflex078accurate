@@ -197,7 +197,7 @@ public class kchamp
 		{ 0xe000, 0xe2ff, MWA_RAM },
 	MEMORY_END
 	
-	static READ_HANDLER( sound_reset_r ) {
+	public static ReadHandlerPtr sound_reset_r  = new ReadHandlerPtr() { public int handler(int offset)
 		cpu_set_reset_line(1,PULSE_LINE);
 		return 0;
 	}
@@ -362,7 +362,7 @@ public class kchamp
 		{ 0,1,2,3,4,5,6,7 }, /* x offsets */
 		{ 0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8 }, /* y offsets */
 		8*8	/* offset to next tile */
-	};
+	} };;
 	
 	static struct GfxLayout spritelayout =
 	{

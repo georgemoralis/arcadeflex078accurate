@@ -19,7 +19,6 @@ public class mayumi
 	
 	
 	WRITE_HANDLER( mayumi_videoram_w );
-	READ_HANDLER( mayumi_videoram_r );
 	
 	static int int_enable;
 	static int input_sel;
@@ -51,8 +50,7 @@ public class mayumi
 		input_sel = data;
 	}
 	
-	static READ_HANDLER( key_matrix_r )
-	{
+	public static ReadHandlerPtr key_matrix_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int p,i,ret;
 	
 		ret = 0xff;
@@ -66,7 +64,7 @@ public class mayumi
 		}
 	
 		return ret;
-	}
+	} };
 	
 	/****************************************************************************/
 	

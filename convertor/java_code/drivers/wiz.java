@@ -204,8 +204,7 @@ public class wiz
 		}
 	}
 	
-	static READ_HANDLER( wiz_protection_r )
-	{
+	public static ReadHandlerPtr wiz_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (wiz_colorram2[0])
 		{
 		case 0x35: return 0x25;	/* FIX: sudden player death + free play afterwards   */
@@ -214,7 +213,7 @@ public class wiz
 		}
 	
 		return wiz_colorram2[0];
-	}
+	} };
 	
 	static WRITE_HANDLER( wiz_coin_counter_w )
 	{

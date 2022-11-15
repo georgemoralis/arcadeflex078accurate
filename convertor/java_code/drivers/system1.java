@@ -51,29 +51,25 @@ public class system1
 	
 	static int inport16_step,inport17_step,inport23_step;
 	
-	static READ_HANDLER( inport16_r )
-	{
+	public static ReadHandlerPtr inport16_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	logerror("IN  $16 : pc = %04x - data = %02x\n",activecpu_get_pc(),inport16_step);
 		return(inport16_step);
-	}
+	} };
 	
-	static READ_HANDLER( inport1c_r )
-	{
+	public static ReadHandlerPtr inport1c_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	logerror("IN  $1c : pc = %04x - data = 0x80\n",activecpu_get_pc());
 		return(0x80);	// infinite loop (at 0x0fb3) until bit 7 is set
-	}
+	} };
 	
-	static READ_HANDLER( inport22_r )
-	{
+	public static ReadHandlerPtr inport22_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	logerror("IN  $22 : pc = %04x - data = %02x\n",activecpu_get_pc(),inport17_step);
 		return(inport17_step);
-	}
+	} };
 	
-	static READ_HANDLER( inport23_r )
-	{
+	public static ReadHandlerPtr inport23_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	logerror("IN  $23 : pc = %04x - step = %02x\n",activecpu_get_pc(),inport23_step);
 		return(inport23_step);
-	}
+	} };
 	
 	static WRITE_HANDLER( outport16_w )
 	{
@@ -315,10 +311,9 @@ public class system1
 	
 	static unsigned char *work_ram;
 	
-	static READ_HANDLER( work_ram_r )
-	{
+	public static ReadHandlerPtr work_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return work_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( work_ram_w )
 	{

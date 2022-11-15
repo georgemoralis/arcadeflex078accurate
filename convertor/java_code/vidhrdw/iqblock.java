@@ -84,10 +84,9 @@ public class iqblock
 		tilemap_mark_tile_dirty(bg_tilemap,offset & 0x7ff);
 	}
 	
-	READ_HANDLER( iqblock_bgvideoram_r )
-	{
+	public static ReadHandlerPtr iqblock_bgvideoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return iqblock_bgvideoram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( iqblock_fgscroll_w )
 	{

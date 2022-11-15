@@ -263,8 +263,7 @@ public class decocass
 		mark_bg_tile_dirty( offset );
 	}
 	
-	READ_HANDLER( decocass_mirrorvideoram_r )
-	{
+	public static ReadHandlerPtr decocass_mirrorvideoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int x,y;
 	
 		/* swap x and y coordinates */
@@ -273,10 +272,9 @@ public class decocass
 		offset = 32 * y + x;
 	
 		return decocass_fgvideoram[offset];
-	}
+	} };
 	
-	READ_HANDLER( decocass_mirrorcolorram_r )
-	{
+	public static ReadHandlerPtr decocass_mirrorcolorram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int x,y;
 	
 		/* swap x and y coordinates */
@@ -285,7 +283,7 @@ public class decocass
 		offset = 32 * y + x;
 	
 		return decocass_colorram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( decocass_mirrorvideoram_w )
 	{

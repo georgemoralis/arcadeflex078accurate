@@ -43,9 +43,6 @@ public class ssrj
 	WRITE_HANDLER(ssrj_vram1_w);
 	WRITE_HANDLER(ssrj_vram2_w);
 	WRITE_HANDLER(ssrj_vram4_w);
-	READ_HANDLER(ssrj_vram1_r);
-	READ_HANDLER(ssrj_vram2_r);
-	READ_HANDLER(ssrj_vram4_r);
 	
 	
 	static int oldport=0x80;
@@ -56,13 +53,12 @@ public class ssrj
 		oldport=0x80;
 	} };
 	
-	static READ_HANDLER(ssrj_wheel_r)
-	{
+	public static ReadHandlerPtr ssrj_wheel_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int port= input_port_1_r(0) -0x80;
 		int retval=port-oldport;
 		oldport=port;
 		return retval;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

@@ -207,8 +207,7 @@ public class nb1413m3
 		nb1413m3_inputport = data;
 	}
 	
-	READ_HANDLER( nb1413m3_inputport0_r )
-	{
+	public static ReadHandlerPtr nb1413m3_inputport0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (nb1413m3_type)
 		{
 			case	NB1413M3_PASTELGL:
@@ -221,10 +220,9 @@ public class nb1413m3
 				return ((input_port_2_r(0) & 0xfc) | ((nb1413m3_outcoin_flag & 0x01) << 1) | (nb1413m3_busyflag & 0x01));
 				break;
 		}
-	}
+	} };
 	
-	READ_HANDLER( nb1413m3_inputport1_r )
-	{
+	public static ReadHandlerPtr nb1413m3_inputport1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (nb1413m3_type)
 		{
 			case	NB1413M3_PASTELGL:
@@ -277,10 +275,9 @@ public class nb1413m3
 				}
 				break;
 		}
-	}
+	} };
 	
-	READ_HANDLER( nb1413m3_inputport2_r )
-	{
+	public static ReadHandlerPtr nb1413m3_inputport2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (nb1413m3_type)
 		{
 			case	NB1413M3_PASTELGL:
@@ -333,10 +330,9 @@ public class nb1413m3
 				}
 				break;
 		}
-	}
+	} };
 	
-	READ_HANDLER( nb1413m3_inputport3_r )
-	{
+	public static ReadHandlerPtr nb1413m3_inputport3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (nb1413m3_type)
 		{
 			case	NB1413M3_TAIWANMB:
@@ -359,10 +355,9 @@ public class nb1413m3
 				return 0xff;
 				break;
 		}
-	}
+	} };
 	
-	READ_HANDLER( nb1413m3_dipsw1_r )
-	{
+	public static ReadHandlerPtr nb1413m3_dipsw1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (nb1413m3_type)
 		{
 			case	NB1413M3_TAIWANMB:
@@ -403,10 +398,9 @@ public class nb1413m3
 				return readinputport(0);
 				break;
 		}
-	}
+	} };
 	
-	READ_HANDLER( nb1413m3_dipsw2_r )
-	{
+	public static ReadHandlerPtr nb1413m3_dipsw2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (nb1413m3_type)
 		{
 			case	NB1413M3_TAIWANMB:
@@ -447,7 +441,7 @@ public class nb1413m3
 				return readinputport(1);
 				break;
 		}
-	}
+	} };
 	
 	int nb1413m3_dipsw3_l_r(void)
 	{

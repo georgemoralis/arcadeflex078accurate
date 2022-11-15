@@ -70,7 +70,7 @@ public class system18
 	
 	static UINT8 *sys18_SoundMemBank;
 	
-	static READ_HANDLER( system18_bank_r ){
+	public static ReadHandlerPtr system18_bank_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return sys18_SoundMemBank[offset];
 	}
 	
@@ -107,7 +107,7 @@ public class system18
 			case 0xc0:
 				Bank = ((data&0x1f) + (512+128)/8)<<13;
 				break;
-		}
+		} };
 		sys18_SoundMemBank = &RAM[Bank+0x10000];
 	}
 	
@@ -227,7 +227,7 @@ public class system18
 	/***************************************************************************/
 	
 	/*
-	static READ_HANDLER( shdancer_skip_r ){
+	public static ReadHandlerPtr shdancer_skip_r  = new ReadHandlerPtr() { public int handler(int offset)
 		if (activecpu_get_pc()==0x2f76) {cpu_spinuntil_int(); return 0xffff;} };
 		return (*(UINT16 *)(&sys16_workingram[0x0000]));
 	}

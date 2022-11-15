@@ -48,9 +48,7 @@ public class ladybug
 {
 	
 	
-	extern READ_HANDLER( ladybug_IN0_r );
-	extern READ_HANDLER( ladybug_IN1_r );
-	extern 
+	extern extern extern 
 	extern WRITE_HANDLER( ladybug_videoram_w );
 	extern WRITE_HANDLER( ladybug_colorram_w );
 	extern WRITE_HANDLER( ladybug_flipscreen_w );

@@ -31,8 +31,7 @@ public class bottom9
 	
 	static int zoomreadroms,K052109_selected;
 	
-	static READ_HANDLER( bottom9_bankedram1_r )
-	{
+	public static ReadHandlerPtr bottom9_bankedram1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (K052109_selected)
 			return K052109_051960_r(offset);
 		else
@@ -42,7 +41,7 @@ public class bottom9
 			else
 				return K051316_0_r(offset);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( bottom9_bankedram1_w )
 	{
@@ -50,11 +49,10 @@ public class bottom9
 		else K051316_0_w(offset,data);
 	}
 	
-	static READ_HANDLER( bottom9_bankedram2_r )
-	{
+	public static ReadHandlerPtr bottom9_bankedram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (K052109_selected) return K052109_051960_r(offset + 0x2000);
 		else return paletteram_r(offset);
-	}
+	} };
 	
 	static WRITE_HANDLER( bottom9_bankedram2_w )
 	{

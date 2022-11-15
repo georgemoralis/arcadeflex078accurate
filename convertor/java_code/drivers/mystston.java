@@ -67,12 +67,11 @@ public class mystston
 		last = data;
 	}
 	
-	static READ_HANDLER( port3_r )
-	{
+	public static ReadHandlerPtr port3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int port = readinputport(3);
 	
 		return port | VBLK;
-	}
+	} };
 	
 	static WRITE_HANDLER( mystston_irq_reset_w )
 	{

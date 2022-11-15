@@ -9,15 +9,7 @@
 /* defined in machine/carpolo.c */
 
 
-READ_HANDLER( carpolo_interrupt_cause_r );
 
-READ_HANDLER( carpolo_ball_screen_collision_cause_r );
-READ_HANDLER( carpolo_car_ball_collision_x_r );
-READ_HANDLER( carpolo_car_ball_collision_y_r );
-READ_HANDLER( carpolo_car_car_collision_cause_r );
-READ_HANDLER( carpolo_car_goal_collision_cause_r );
-READ_HANDLER( carpolo_car_ball_collision_cause_r );
-READ_HANDLER( carpolo_car_border_collision_cause_r );
 
 
 WRITE_HANDLER( carpolo_ball_screen_interrupt_clear_w );

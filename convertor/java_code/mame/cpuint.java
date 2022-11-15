@@ -498,11 +498,10 @@ public class cpuint
 	}
 	
 	
-	READ_HANDLER( interrupt_enable_r )
-	{
+	public static ReadHandlerPtr interrupt_enable_r  = new ReadHandlerPtr() { public int handler(int offset){
 		VERIFY_ACTIVECPU(1, interrupt_enable_r);
 		return interrupt_enable[activecpu];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( interrupt_vector_w )
@@ -515,6 +514,6 @@ public class cpuint
 	
 			/* make sure there are no queued interrupts */
 			timer_set(TIME_NOW, activecpu, cpu_clearintcallback);
-		} };
+		}
 	}
 }

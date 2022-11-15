@@ -133,14 +133,12 @@ public class sprint8
 	} };
 	
 	
-	static READ_HANDLER( sprint8_collision_r )
-	{
+	public static ReadHandlerPtr sprint8_collision_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return collision_index;
-	}
+	} };
 	
 	
-	static READ_HANDLER( sprint8_input_r )
-	{
+	public static ReadHandlerPtr sprint8_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = readinputport(offset);
 	
 		if (steer_dir[offset])
@@ -153,7 +151,7 @@ public class sprint8
 		}
 	
 		return val;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( sprint8_lockout_w )

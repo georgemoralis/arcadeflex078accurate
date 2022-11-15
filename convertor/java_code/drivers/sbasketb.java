@@ -44,8 +44,7 @@ public class sbasketb
 	extern WRITE_HANDLER( konami_SN76496_latch_w );
 	extern WRITE_HANDLER( konami_SN76496_0_w );
 	extern WRITE_HANDLER( hyperspt_sound_w );
-	extern READ_HANDLER( hyperspt_sh_timer_r );
-	
+	extern 
 	
 	WRITE_HANDLER( sbasketb_sh_irqtrigger_w )
 	{

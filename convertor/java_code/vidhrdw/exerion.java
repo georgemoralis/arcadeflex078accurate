@@ -235,8 +235,7 @@ public class exerion
 	}
 	
 	
-	READ_HANDLER( exerion_video_timing_r )
-	{
+	public static ReadHandlerPtr exerion_video_timing_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 1 is VBLANK */
 		/* bit 0 is the SNMI signal, which is low for H >= 0x1c0 and /VBLANK */
 	
@@ -250,7 +249,7 @@ public class exerion
 			result |= 1;
 	
 		return result;
-	}
+	} };
 	
 	
 	/*************************************

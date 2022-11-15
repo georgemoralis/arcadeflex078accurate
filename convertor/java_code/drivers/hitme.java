@@ -189,45 +189,41 @@ public class hitme
 		{ -1 } /* end of array */
 	};
 	
-	static READ_HANDLER ( hitme_port_0_r )
-	{
+	public static ReadHandlerPtr hitme_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((timer_get_time() - timeout_time) > (timeout_counter * tock))
 		{
 			return input_port_0_r (offset) - ((rand()%2) << 2) - 0x80;
 		}
 		else
 			return input_port_0_r (offset) - ((rand()%2) << 2);
-	}
+	} };
 	
-	static READ_HANDLER ( hitme_port_1_r )
-	{
+	public static ReadHandlerPtr hitme_port_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((timer_get_time() - timeout_time) > (timeout_counter * tock))
 		{
 			return input_port_1_r (offset) - 0x80;
 		}
 		else
 			return input_port_1_r (offset);
-	}
+	} };
 	
-	static READ_HANDLER ( hitme_port_2_r )
-	{
+	public static ReadHandlerPtr hitme_port_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((timer_get_time() - timeout_time) > (timeout_counter * tock))
 		{
 			return input_port_2_r (offset) - ((rand()%2) << 2) - 0x80;
 		}
 		else
 			return input_port_2_r (offset) - ((rand()%2) << 2);
-	}
+	} };
 	
-	static READ_HANDLER ( hitme_port_3_r )
-	{
+	public static ReadHandlerPtr hitme_port_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((timer_get_time() - timeout_time) > (timeout_counter * tock))
 		{
 			return input_port_3_r (offset) - 0x80;
 		}
 		else
 			return input_port_3_r (offset);
-	}
+	} };
 	
 	static WRITE_HANDLER ( output_port_0_w )
 	{
@@ -236,10 +232,9 @@ public class hitme
 	}
 	
 	#if 0
-	static READ_HANDLER ( hitme_unknown_r )
-	{
+	public static ReadHandlerPtr hitme_unknown_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x00;
-	}
+	} };
 	#endif
 	
 	static MEMORY_READ_START( hitme_readmem )

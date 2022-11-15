@@ -39,9 +39,6 @@ public class _2608intfH
 	/************************************************/
 	/* Chip 0 functions				*/
 	/************************************************/
-	READ_HANDLER( YM2608_status_port_0_A_r );
-	READ_HANDLER( YM2608_status_port_0_B_r );
-	READ_HANDLER( YM2608_read_port_0_r );
 	WRITE_HANDLER( YM2608_control_port_0_A_w );
 	WRITE_HANDLER( YM2608_control_port_0_B_w );
 	WRITE_HANDLER( YM2608_data_port_0_A_w );
@@ -50,9 +47,6 @@ public class _2608intfH
 	/************************************************/
 	/* Chip 1 functions				*/
 	/************************************************/
-	READ_HANDLER( YM2608_status_port_1_A_r );
-	READ_HANDLER( YM2608_status_port_1_B_r );
-	READ_HANDLER( YM2608_read_port_1_r );
 	WRITE_HANDLER( YM2608_control_port_1_A_w );
 	WRITE_HANDLER( YM2608_control_port_1_B_w );
 	WRITE_HANDLER( YM2608_data_port_1_A_w );

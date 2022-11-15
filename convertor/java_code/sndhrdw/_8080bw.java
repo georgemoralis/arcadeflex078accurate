@@ -897,25 +897,21 @@ public class _8080bw
 	}
 	
 	
-	READ_HANDLER( sheriff_sh_t0_r )
-	{
+	public static ReadHandlerPtr sheriff_sh_t0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sheriff_t0;
-	}
+	} };
 	
-	READ_HANDLER( sheriff_sh_t1_r )
-	{
+	public static ReadHandlerPtr sheriff_sh_t1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sheriff_t1;
-	}
+	} };
 	
-	READ_HANDLER( sheriff_sh_p1_r )
-	{
+	public static ReadHandlerPtr sheriff_sh_p1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return soundlatch_r(0);;
-	}
+	} };
 	
-	READ_HANDLER( sheriff_sh_p2_r )
-	{
+	public static ReadHandlerPtr sheriff_sh_p2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sheriff_p2;
-	}
+	} };
 	
 	WRITE_HANDLER( sheriff_sh_p2_w )
 	{
@@ -1075,10 +1071,9 @@ public class _8080bw
 		/*logerror("dac_vref_charge=%1x\n", Vref_control);*/
 	}
 	
-	READ_HANDLER( helifire_sh_p1_r )
-	{
+	public static ReadHandlerPtr helifire_sh_p1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return helifire_snd_latch;
-	}
+	} };
 	
 	/*******************************************************/
 	/*                                                     */

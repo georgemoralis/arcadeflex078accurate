@@ -246,8 +246,7 @@ public class bwidow
 	
 	*/
 	
-	static READ_HANDLER( spacduel_IN3_r )
-	{
+	public static ReadHandlerPtr spacduel_IN3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 		int res1;
 		int res2;
@@ -290,7 +289,7 @@ public class bwidow
 		}
 	
 		return res;
-	}
+	} };
 	
 	
 	

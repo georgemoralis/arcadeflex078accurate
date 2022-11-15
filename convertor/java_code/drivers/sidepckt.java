@@ -36,10 +36,9 @@ public class sidepckt
 	    cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
 	}
 	
-	static READ_HANDLER( sidepckt_i8751_r )
-	{
+	public static ReadHandlerPtr sidepckt_i8751_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return i8751_return;
-	}
+	} };
 	
 	static WRITE_HANDLER( sidepckt_i8751_w )
 	{

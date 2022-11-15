@@ -68,10 +68,8 @@ public class gyruss
 	void konami1_decode_cpu2(void);
 	
 	WRITE_HANDLER( gyruss_flipscreen_w );
-	READ_HANDLER( gyruss_scanline_r );
 	
 	
-	READ_HANDLER( gyruss_portA_r );
 	WRITE_HANDLER( gyruss_filter0_w );
 	WRITE_HANDLER( gyruss_filter1_w );
 	WRITE_HANDLER( gyruss_sh_irqtrigger_w );
@@ -80,10 +78,9 @@ public class gyruss
 	
 	unsigned char *gyruss_sharedram;
 	
-	READ_HANDLER( gyruss_sharedram_r )
-	{
+	public static ReadHandlerPtr gyruss_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return gyruss_sharedram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( gyruss_sharedram_w )
 	{

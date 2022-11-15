@@ -73,28 +73,25 @@ public class chaknpop
 	  Memory handlers
 	***************************************************************************/
 	
-	READ_HANDLER( chaknpop_mcu_portA_r )
-	{
+	public static ReadHandlerPtr chaknpop_mcu_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 		//logerror("%04x: MCU portA read\n", activecpu_get_pc());
 		return mcu_result;
-	}
+	} };
 	
 	
-	READ_HANDLER( chaknpop_mcu_portB_r )
-	{
+	public static ReadHandlerPtr chaknpop_mcu_portB_r  = new ReadHandlerPtr() { public int handler(int offset){
 		//logerror("%04x: MCU portB read\n", activecpu_get_pc());
 	
 		if (--mcu_wait)
 			return 0x00;
 	
 		return 0xff;
-	}
+	} };
 	
-	READ_HANDLER( chaknpop_mcu_portC_r )
-	{
+	public static ReadHandlerPtr chaknpop_mcu_portC_r  = new ReadHandlerPtr() { public int handler(int offset){
 		//logerror("%04x: MCU portC read\n", activecpu_get_pc());
 		return 0x00;
-	}
+	} };
 	
 	WRITE_HANDLER( chaknpop_mcu_portA_w )
 	{

@@ -161,10 +161,9 @@ public class raiden2
 	
 	/* MISC READ HANDLERS */
 	
-	static READ_HANDLER ( raiden2_kludge_r )
-	{
+	public static ReadHandlerPtr raiden2_kludge_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	/* MEMORY MAPS */
 	

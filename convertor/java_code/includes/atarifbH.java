@@ -21,10 +21,6 @@ extern int atarifb_lamp1, atarifb_lamp2;
 WRITE_HANDLER( atarifb_out1_w );
 WRITE_HANDLER( atarifb_out2_w );
 WRITE_HANDLER( atarifb_out3_w );
-READ_HANDLER( atarifb_in0_r );
-READ_HANDLER( atarifb_in2_r );
-READ_HANDLER( atarifb4_in0_r );
-READ_HANDLER( atarifb4_in2_r );
 
 
 /*----------- defined in vidhrdw/atarifb.c -----------*/

@@ -624,8 +624,7 @@ public class itech8
 	 *
 	 *************************************/
 	
-	READ_HANDLER( itech8_blitter_r )
-	{
+	public static ReadHandlerPtr itech8_blitter_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int result = blitter_data[offset / 2];
 	
 		/* debugging */
@@ -645,7 +644,7 @@ public class itech8
 		}
 	
 		return result;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( itech8_blitter_w )
@@ -718,8 +717,7 @@ public class itech8
 	}
 	
 	
-	READ_HANDLER( itech8_tms34061_r )
-	{
+	public static ReadHandlerPtr itech8_tms34061_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int func = (offset >> 9) & 7;
 		int col = offset & 0xff;
 	
@@ -730,7 +728,7 @@ public class itech8
 	
 		/* Row address (RA0-RA8) is not dependent on the offset */
 		return tms34061_r(col, 0xff, func);
-	}
+	} };
 	
 	
 	

@@ -65,15 +65,11 @@ public class bigevglf
 {
 	
 	
-	READ_HANDLER( bigevglf_vidram_r );
 	WRITE_HANDLER( bigevglf_vidram_w );
 	WRITE_HANDLER( bigevglf_vidram_addr_w );
 	
-	READ_HANDLER( bigevglf_68705_portA_r );
 	WRITE_HANDLER( bigevglf_68705_portA_w );
-	READ_HANDLER( bigevglf_68705_portB_r );
 	WRITE_HANDLER( bigevglf_68705_portB_w );
-	READ_HANDLER( bigevglf_68705_portC_r );
 	WRITE_HANDLER( bigevglf_68705_portC_w );
 	WRITE_HANDLER( bigevglf_68705_ddrA_w );
 	WRITE_HANDLER( bigevglf_68705_ddrB_w );
@@ -81,8 +77,6 @@ public class bigevglf
 	
 	WRITE_HANDLER( bigevglf_mcu_w );
 	WRITE_HANDLER( bigevglf_mcu_set_w );
-	READ_HANDLER( bigevglf_mcu_r );
-	READ_HANDLER( bigevglf_mcu_status_r );
 	
 	WRITE_HANDLER( beg_gfxcontrol_w );
 	WRITE_HANDLER( beg_palette_w );
@@ -118,28 +112,25 @@ public class bigevglf
 		timer_set(TIME_NOW, (activecpu_get_pc()<<16)|data, from_sound_latch_callback);
 	}
 	
-	static READ_HANDLER(beg_fromsound_r)
-	{
+	public static ReadHandlerPtr beg_fromsound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* set a timer to force synchronization after the read */
 		timer_set(TIME_NOW, 0, NULL);
 		return from_sound;
-	}
+	} };
 	
-	static READ_HANDLER(beg_soundstate_r)
-	{
+	public static ReadHandlerPtr beg_soundstate_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 ret = sound_state;
 		/* set a timer to force synchronization after the read */
 		timer_set(TIME_NOW, 0, NULL);
 		sound_state &= ~2; /* read from port 21 clears bit 1 in status */
 		return ret;
-	}
+	} };
 	
-	static READ_HANDLER(soundstate_r)
-	{
+	public static ReadHandlerPtr soundstate_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* set a timer to force synchronization after the read */
 		timer_set(TIME_NOW, 0, NULL);
 		return sound_state;
-	}
+	} };
 	
 	static void nmi_callback(int param)
 	{
@@ -153,11 +144,11 @@ public class bigevglf
 		timer_set(TIME_NOW,data,nmi_callback);
 	}
 	
-	static READ_HANDLER( sound_command_r )	/* read from D800 sets bit 0 in status */
+	public static ReadHandlerPtr sound_command_r  = new ReadHandlerPtr() { public int handler(int offset)* read from D800 sets bit 0 in status */
 	{
 		sound_state |= 1;
 		return for_sound;
-	}
+	} };
 	
 	static WRITE_HANDLER( nmi_disable_w )
 	{
@@ -201,8 +192,7 @@ public class bigevglf
 		timer_set(TIME_NOW, (1<<8) | 1, deferred_ls74_w);
 	}
 	
-	static READ_HANDLER( beg_status_r )
-	{
+	public static ReadHandlerPtr beg_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 	/* d0 = Q of 74ls74 IC13(partA)
 	   d1 = Q of 74ls74 IC13(partB)
 	   d2 =
@@ -215,13 +205,12 @@ public class bigevglf
 		/* set a timer to force synchronization after the read */
 		timer_set(TIME_NOW, 0, NULL);
 		return (beg13_ls74[0]<<0) | (beg13_ls74[1]<<1);
-	}
+	} };
 	
 	
-	static READ_HANDLER(  beg_sharedram_r )
-	{
+	public static ReadHandlerPtr beg_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return beg_sharedram[offset];
-	}
+	} };
 	static WRITE_HANDLER( beg_sharedram_w )
 	{
 		beg_sharedram[offset] = data;
@@ -355,8 +344,7 @@ public class bigevglf
 	
 	
 	
-	static READ_HANDLER( sub_cpu_mcu_coin_port_r )
-	{
+	public static ReadHandlerPtr sub_cpu_mcu_coin_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int bit5=0;
 		/*
 				bit 0 and bit 1 = coin inputs
@@ -366,7 +354,7 @@ public class bigevglf
 		*/
 		bit5 ^= 0x20;
 		return bigevglf_mcu_status_r(0) | (readinputport(1) & 3) | bit5; /* bit 0 and bit 1 - coin inputs */
-	}
+	} };
 	
 	static PORT_READ_START( bigevglf_sub_readport )
 		{ 0x00, 0x00, input_port_0_r },

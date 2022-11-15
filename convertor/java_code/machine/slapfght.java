@@ -53,10 +53,9 @@ public class slapfght
 	    slapfight_dpram[offset]=data;
 	}
 	
-	READ_HANDLER( slapfight_dpram_r )
-	{
+	public static ReadHandlerPtr slapfight_dpram_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    return slapfight_dpram[offset];
-	}
+	} };
 	
 	
 	
@@ -107,8 +106,7 @@ public class slapfght
 	
 	
 	/* Status register */
-	READ_HANDLER( slapfight_port_00_r )
-	{
+	public static ReadHandlerPtr slapfight_port_00_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int states[3]={ 0xc7, 0x55, 0x00 };
 	
 		slapfight_status = states[slapfight_status_state];
@@ -117,7 +115,7 @@ public class slapfght
 		if (slapfight_status_state > 2) slapfight_status_state = 0;
 	
 		return slapfight_status;
-	}
+	} };
 	
 	
 	
@@ -127,15 +125,14 @@ public class slapfght
 	 - third value is (first+5)^0x56
 	 I don't know what writes to this address do (connected to port 0 reads?).
 	*/
-	READ_HANDLER( getstar_e803_r )
-	{
+	public static ReadHandlerPtr getstar_e803_r  = new ReadHandlerPtr() { public int handler(int offset){
 	unsigned char seq[] = { 0, 1, ((0+5)^0x56) };
 	unsigned char val;
 	
 		val = seq[getstar_sequence_index];
 		getstar_sequence_index = (getstar_sequence_index+1)%3;
 		return val;
-	}
+	} };
 	
 	/* Enable hardware interrupt of sound cpu */
 	WRITE_HANDLER( getstar_sh_intenable_w )
@@ -166,10 +163,9 @@ public class slapfght
 	static unsigned char portB_in,portB_out,ddrB;
 	static unsigned char portC_in,portC_out,ddrC;
 	
-	READ_HANDLER( tigerh_68705_portA_r )
-	{
+	public static ReadHandlerPtr tigerh_68705_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (portA_out & ddrA) | (portA_in & ~ddrA);
-	}
+	} };
 	
 	WRITE_HANDLER( tigerh_68705_portA_w )
 	{
@@ -183,10 +179,9 @@ public class slapfght
 		ddrA = data;
 	}
 	
-	READ_HANDLER( tigerh_68705_portB_r )
-	{
+	public static ReadHandlerPtr tigerh_68705_portB_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (portB_out & ddrB) | (portB_in & ~ddrB);
-	}
+	} };
 	
 	WRITE_HANDLER( tigerh_68705_portB_w )
 	{
@@ -212,13 +207,12 @@ public class slapfght
 	}
 	
 	
-	READ_HANDLER( tigerh_68705_portC_r )
-	{
+	public static ReadHandlerPtr tigerh_68705_portC_r  = new ReadHandlerPtr() { public int handler(int offset){
 		portC_in = 0;
 		if (!main_sent) portC_in |= 0x01;
 		if (mcu_sent) portC_in |= 0x02;
 		return (portC_out & ddrC) | (portC_in & ~ddrC);
-	}
+	} };
 	
 	WRITE_HANDLER( tigerh_68705_portC_w )
 	{
@@ -238,18 +232,16 @@ public class slapfght
 		cpu_set_irq_line(2,0,ASSERT_LINE);
 	}
 	
-	READ_HANDLER( tigerh_mcu_r )
-	{
+	public static ReadHandlerPtr tigerh_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		mcu_sent = 0;
 		return from_mcu;
-	}
+	} };
 	
-	READ_HANDLER( tigerh_mcu_status_r )
-	{
+	public static ReadHandlerPtr tigerh_mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = 0;
 		if (!main_sent) res |= 0x02;
 		if (!mcu_sent) res |= 0x04;
 		return res;
-	}
+	} };
 	
 }

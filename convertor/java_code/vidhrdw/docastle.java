@@ -164,19 +164,17 @@ public class docastle
 		}
 	}
 	
-	READ_HANDLER( docastle_flipscreen_off_r )
-	{
+	public static ReadHandlerPtr docastle_flipscreen_off_r  = new ReadHandlerPtr() { public int handler(int offset){
 		flip_screen_set(0);
 		tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
 		return 0;
-	}
+	} };
 	
-	READ_HANDLER( docastle_flipscreen_on_r )
-	{
+	public static ReadHandlerPtr docastle_flipscreen_on_r  = new ReadHandlerPtr() { public int handler(int offset){
 		flip_screen_set(1);
 		tilemap_mark_all_tiles_dirty(ALL_TILEMAPS);
 		return 1;
-	}
+	} };
 	
 	WRITE_HANDLER( docastle_flipscreen_off_w )
 	{

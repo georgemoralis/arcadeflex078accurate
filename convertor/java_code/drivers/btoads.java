@@ -104,25 +104,22 @@ public class btoads
 	}
 	
 	
-	static READ_HANDLER( sound_data_r )
-	{
+	public static ReadHandlerPtr sound_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		main_to_sound_ready = 0;
 		return main_to_sound_data;
-	}
+	} };
 	
 	
-	static READ_HANDLER( sound_ready_to_send_r )
-	{
+	public static ReadHandlerPtr sound_ready_to_send_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sound_to_main_ready ? 0x00 : 0x80;
-	}
+	} };
 	
 	
-	static READ_HANDLER( sound_data_ready_r )
-	{
+	public static ReadHandlerPtr sound_data_ready_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (activecpu_get_pc() == 0xd50 && !main_to_sound_ready)
 			cpu_spinuntil_int();
 		return main_to_sound_ready ? 0x00 : 0x80;
-	}
+	} };
 	
 	
 	
@@ -157,10 +154,9 @@ public class btoads
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( bsmt_ready_r )
-	{
+	public static ReadHandlerPtr bsmt_ready_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x80;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( bsmt2000_port_w )

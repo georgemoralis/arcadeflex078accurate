@@ -69,10 +69,7 @@ public class omegaf
 	extern WRITE_HANDLER( omegaf_bg0_bank_w );
 	extern WRITE_HANDLER( omegaf_bg1_bank_w );
 	extern WRITE_HANDLER( omegaf_bg2_bank_w );
-	extern READ_HANDLER( omegaf_bg0_videoram_r );
-	extern READ_HANDLER( omegaf_bg1_videoram_r );
-	extern READ_HANDLER( omegaf_bg2_videoram_r );
-	extern WRITE_HANDLER( omegaf_bg0_videoram_w );
+	extern extern extern extern WRITE_HANDLER( omegaf_bg0_videoram_w );
 	extern WRITE_HANDLER( omegaf_bg1_videoram_w );
 	extern WRITE_HANDLER( omegaf_bg2_videoram_w );
 	extern WRITE_HANDLER( robokid_bg0_videoram_w );

@@ -22,9 +22,7 @@ public class zac2650
 	extern WRITE_HANDLER( tinvader_videoram_w );
 	extern WRITE_HANDLER( zac_s2636_w );
 	extern WRITE_HANDLER( tinvader_sound_w );
-	extern READ_HANDLER( zac_s2636_r );
-	extern READ_HANDLER( tinvader_port_0_r );
-	
+	extern extern 
 	extern extern 
 	#define WHITE           MAKE_ARGB(0x04,0xff,0xff,0xff)
 	#define GREEN 			MAKE_ARGB(0x04,0x20,0xff,0x20)

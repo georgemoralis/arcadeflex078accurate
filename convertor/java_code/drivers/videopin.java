@@ -93,8 +93,7 @@ public class videopin
 	}
 	
 	
-	static READ_HANDLER( videopin_misc_r )
-	{
+	public static ReadHandlerPtr videopin_misc_r  = new ReadHandlerPtr() { public int handler(int offset){
 		double plunger = calc_plunger_pos();
 	
 		// The plunger of the ball shooter has a black piece of
@@ -118,7 +117,7 @@ public class videopin
 		}
 	
 		return val;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( videopin_led_w )

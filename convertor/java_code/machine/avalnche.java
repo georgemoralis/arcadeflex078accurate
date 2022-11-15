@@ -17,8 +17,7 @@ public class avalnche
 	  avalnche_input_r
 	***************************************************************************/
 	
-	READ_HANDLER( avalnche_input_r )
-	{
+	public static ReadHandlerPtr avalnche_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset & 0x03)
 		{
 			case 0x00:	 return input_port_0_r(offset);
@@ -27,7 +26,7 @@ public class avalnche
 			case 0x03:	 return 0; /* Spare */
 		}
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	  avalnche_output_w

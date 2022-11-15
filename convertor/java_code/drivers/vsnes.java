@@ -143,11 +143,7 @@ public class vsnes
 	extern extern extern extern extern extern 
 	/* from machine */
 	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
-	extern READ_HANDLER( vsnes_in0_r );
-	extern READ_HANDLER( vsnes_in1_r );
-	extern READ_HANDLER( vsnes_in0_1_r );
-	extern READ_HANDLER( vsnes_in1_1_r );
-	extern WRITE_HANDLER( vsnes_in0_w );
+	extern extern extern extern extern WRITE_HANDLER( vsnes_in0_w );
 	extern WRITE_HANDLER( vsnes_in0_1_w );
 	
 	/******************************************************************************/
@@ -156,15 +152,13 @@ public class vsnes
 	static UINT8 *work_ram, *work_ram_1;
 	static int coin;
 	
-	static READ_HANDLER( mirror_ram_r )
-	{
+	public static ReadHandlerPtr mirror_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return work_ram[ offset & 0x7ff ];
-	}
+	} };
 	
-	static READ_HANDLER( mirror_ram_1_r )
-	{
+	public static ReadHandlerPtr mirror_ram_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return work_ram[ offset & 0x7ff ];
-	}
+	} };
 	
 	static WRITE_HANDLER( mirror_ram_w )
 	{
@@ -201,11 +195,10 @@ public class vsnes
 		}
 	}
 	
-	static READ_HANDLER( vsnes_coin_counter_r )
-	{
+	public static ReadHandlerPtr vsnes_coin_counter_r  = new ReadHandlerPtr() { public int handler(int offset){
 		//only for platoon
 		return coin;
-	}
+	} };
 	
 	static WRITE_HANDLER( vsnes_coin_counter_1_w )
 	{

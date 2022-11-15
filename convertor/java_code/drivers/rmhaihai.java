@@ -85,8 +85,7 @@ public class rmhaihai
 	
 	static int keyboard_cmd;
 	
-	static READ_HANDLER( keyboard_r )
-	{
+	public static ReadHandlerPtr keyboard_r  = new ReadHandlerPtr() { public int handler(int offset){
 	logerror("%04x: keyboard_r\n",activecpu_get_pc());
 		switch(activecpu_get_pc())
 		{
@@ -131,7 +130,7 @@ public class rmhaihai
 	
 		/* there are many more reads whose function is unknown, returning 0 seems fine */
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( keyboard_w )
 	{
@@ -139,10 +138,9 @@ public class rmhaihai
 		keyboard_cmd = data;
 	}
 	
-	static READ_HANDLER( samples_r )
-	{
+	public static ReadHandlerPtr samples_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_SOUND1)[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( adpcm_w )
 	{

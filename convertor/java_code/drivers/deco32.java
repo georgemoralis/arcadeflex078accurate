@@ -900,10 +900,9 @@ public class deco32
 		cpu_set_irq_line(1, M6809_IRQ_LINE, HOLD_LINE); /* BSMT is ready */
 	}
 	
-	static READ_HANDLER(deco32_bsmt_status_r)
-	{
+	public static ReadHandlerPtr deco32_bsmt_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x80;
-	}
+	} };
 	
 	static MEMORY_READ_START( sound_readmem )
 		{ 0x000000, 0x00ffff, MRA_ROM },

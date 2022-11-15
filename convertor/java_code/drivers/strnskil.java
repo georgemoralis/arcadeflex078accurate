@@ -31,24 +31,21 @@ public class strnskil
 		strnskil_sharedram[offset] = data;
 	}
 	
-	READ_HANDLER( strnskil_sharedram_r )
-	{
+	public static ReadHandlerPtr strnskil_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return strnskil_sharedram[offset];
-	}
+	} };
 	
-	READ_HANDLER( strnskil_d800_r )
-	{
+	public static ReadHandlerPtr strnskil_d800_r  = new ReadHandlerPtr() { public int handler(int offset){
 	/* bit0: interrupt type?, bit1: CPU2 busack? */
 	
 		if (cpu_getiloops() == 0)
 			return 0;
 		return 1;
-	}
+	} };
 	
 	/****************************************************************************/
 	
-	static READ_HANDLER( protection_r )
-	{
+	public static ReadHandlerPtr protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 		switch (activecpu_get_pc())
@@ -64,7 +61,7 @@ public class strnskil
 	
 		logerror("%04x: protection_r -> %02x\n",activecpu_get_pc(),res);
 		return res;
-	}
+	} };
 	
 	static WRITE_HANDLER( protection_w )
 	{

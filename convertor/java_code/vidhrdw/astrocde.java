@@ -225,20 +225,18 @@ public class astrocde
 	
 	/* ======================================================================= */
 	
-	READ_HANDLER( wow_video_retrace_r )
-	{
+	public static ReadHandlerPtr wow_video_retrace_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return CurrentScan;
-	}
+	} };
 	
-	READ_HANDLER( wow_intercept_r )
-	{
+	public static ReadHandlerPtr wow_intercept_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 		res = collision;
 		collision = 0;
 	
 		return res;
-	}
+	} };
 	
 	
 	/* Switches color registers at this zone - 40 zones (NOT USED) */
@@ -610,8 +608,7 @@ public class astrocde
 	 *
 	 */
 	
-	READ_HANDLER( gorf_io_r )
-	{
+	public static ReadHandlerPtr gorf_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data;
 	
 		data = (activecpu_get_reg(Z80_BC) >> 8) & 0x0f;
@@ -640,7 +637,7 @@ public class astrocde
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	/* Wizard of Wor Special Registers
@@ -662,8 +659,7 @@ public class astrocde
 	 *
 	 */
 	
-	READ_HANDLER( wow_io_r )
-	{
+	public static ReadHandlerPtr wow_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data;
 	
 		data = (activecpu_get_reg(Z80_AF) >> 8) & 0x0f;
@@ -687,7 +683,7 @@ public class astrocde
 	#endif
 	
 		return 0;
-	}
+	} };
 	
 	/****************************************************************************/
 	

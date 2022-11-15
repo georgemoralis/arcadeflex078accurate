@@ -34,8 +34,7 @@ public class geebee
 	extern int geebee_cnt;
 	#endif
 	
-	READ_HANDLER( geebee_in_r )
-	{
+	public static ReadHandlerPtr geebee_in_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = readinputport(offset & 3);
 		if ((offset & 3) == 2)	/* combine with Bonus Life settings ? */
 		{
@@ -46,10 +45,9 @@ public class geebee
 		}
 		logerror("in_r %d $%02X\n", offset & 3, data);
 		return data;
-	}
+	} };
 	
-	READ_HANDLER( navalone_in_r )
-	{
+	public static ReadHandlerPtr navalone_in_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    int data = readinputport(offset & 3);
 		if ((offset & 3) == 3)
 		{
@@ -60,7 +58,7 @@ public class geebee
 		}
 	    logerror("in_r %d $%02X\n", offset & 3, data);
 	    return data;
-	}
+	} };
 	
 	WRITE_HANDLER( geebee_out6_w )
 	{

@@ -119,11 +119,10 @@ public class kyugo
 	}
 	
 	
-	READ_HANDLER( kyugo_spriteram_2_r )
-	{
+	public static ReadHandlerPtr kyugo_spriteram_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// only the lower nibble is connected
 		return kyugo_spriteram_2[offset] | 0xf0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( kyugo_scroll_x_lo_w )

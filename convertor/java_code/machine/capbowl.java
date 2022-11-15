@@ -62,8 +62,7 @@ public class capbowl
 	}
 	
 	
-	READ_HANDLER( bowlrama_turbo_r )
-	{
+	public static ReadHandlerPtr bowlrama_turbo_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = 0;
 		int data = memory_region(REGION_GFX1)[currentaddress];
 	
@@ -106,5 +105,5 @@ public class capbowl
 		}
 	
 		return ret;
-	}
+	} };
 }

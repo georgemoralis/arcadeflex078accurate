@@ -46,15 +46,13 @@ public class malzak
 	// in vidhrdw/malzak.c
 	WRITE_HANDLER( playfield_w );
 	
-	READ_HANDLER( malzak_s2636_1_r )
-	{
+	public static ReadHandlerPtr malzak_s2636_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return s2636_1_ram[offset];
-	}
+	} };
 	
-	READ_HANDLER( malzak_s2636_2_r )
-	{
+	public static ReadHandlerPtr malzak_s2636_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return s2636_2_ram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( malzak_s2636_1_w )
 	{
@@ -67,25 +65,22 @@ public class malzak
 	}
 	
 	
-	static READ_HANDLER( saa5050_r )
-	{
+	public static ReadHandlerPtr saa5050_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return saa5050_vidram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( saa5050_w )
 	{
 		saa5050_vidram[offset] = data;
 	}
 	
-	static READ_HANDLER( fake_VRLE_r )
-	{
+	public static ReadHandlerPtr fake_VRLE_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (s2636_1_ram[0xcb] & 0x3f) + (cpu_getvblank()*0x40);
-	}
+	} };
 	
-	static READ_HANDLER( ram_mirror_r )
-	{
+	public static ReadHandlerPtr ram_mirror_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu_readmem16(0x1000+offset);
-	}
+	} };
 	
 	static WRITE_HANDLER( ram_mirror_w )
 	{
@@ -132,11 +127,10 @@ public class malzak
 	
 	MEMORY_END
 	
-	static READ_HANDLER( s2650_data_r )
-	{
+	public static ReadHandlerPtr s2650_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		usrintf_showmessage("S2650 data port read");
 		return 0xff;
-	}
+	} };
 	
 	static WRITE_HANDLER( port40_w )
 	{
@@ -157,15 +151,14 @@ public class malzak
 		temp_y = data;
 	}
 	
-	static READ_HANDLER( collision_r )
-	{
+	public static ReadHandlerPtr collision_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// High 4 bits seem to refer to the row affected.
 		static int counter;
 	
 		if(++counter > 15)
 			counter = 0;
 		return 0xd0 + counter;
-	}
+	} };
 	
 	static PORT_READ_START( readport )
 		{ 0x00, 0x00, collision_r }, // returns where a collision can occur.

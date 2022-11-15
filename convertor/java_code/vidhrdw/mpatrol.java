@@ -290,8 +290,7 @@ public class mpatrol
 	}
 	
 	
-	READ_HANDLER( mpatrol_input_port_3_r )
-	{
+	public static ReadHandlerPtr mpatrol_input_port_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = input_port_3_r(0);
 	
 		/* Based on the coin mode fill in the upper bits */
@@ -307,7 +306,7 @@ public class mpatrol
 		}
 	
 		return ret;
-	}
+	} };
 	
 	
 	

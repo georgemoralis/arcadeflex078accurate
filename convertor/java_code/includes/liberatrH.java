@@ -16,5 +16,4 @@ extern UINT8 *liberatr_bitmapram;
 
 WRITE_HANDLER( liberatr_colorram_w ) ;
 WRITE_HANDLER( liberatr_bitmap_w );
-READ_HANDLER( liberatr_bitmap_xy_r );
 WRITE_HANDLER( liberatr_bitmap_xy_w );

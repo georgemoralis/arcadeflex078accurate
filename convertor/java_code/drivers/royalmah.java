@@ -219,8 +219,7 @@ public class royalmah
 		royalmah_input_port_select = data;
 	}
 	
-	static READ_HANDLER( royalmah_player_1_port_r )
-	{
+	public static ReadHandlerPtr royalmah_player_1_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = (input_port_0_r(offset) & 0xc0) | 0x3f;
 	
 		if ((royalmah_input_port_select & 0x01) == 0)  ret &= input_port_0_r(offset);
@@ -230,10 +229,9 @@ public class royalmah
 		if ((royalmah_input_port_select & 0x10) == 0)  ret &= input_port_4_r(offset);
 	
 		return ret;
-	}
+	} };
 	
-	static READ_HANDLER( royalmah_player_2_port_r )
-	{
+	public static ReadHandlerPtr royalmah_player_2_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = (input_port_5_r(offset) & 0xc0) | 0x3f;
 	
 		if ((royalmah_input_port_select & 0x01) == 0)  ret &= input_port_5_r(offset);
@@ -243,12 +241,11 @@ public class royalmah
 		if ((royalmah_input_port_select & 0x10) == 0)  ret &= input_port_9_r(offset);
 	
 		return ret;
-	}
+	} };
 	
 	
 	
-	static READ_HANDLER ( majs101b_dsw_r )
-	{
+	public static ReadHandlerPtr majs101b_dsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (majs101b_dsw_select)
 		{
 			case 0x00: return readinputport(13);	/* DSW3 */
@@ -256,13 +253,12 @@ public class royalmah
 			case 0x40: return readinputport(12);	/* DSW2 */
 		}
 		return 0;
-	}
+	} };
 	
 	
 	static data8_t suzume_bank;
 	
-	static READ_HANDLER ( suzume_dsw_r )
-	{
+	public static ReadHandlerPtr suzume_dsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (suzume_bank & 0x40)
 		{
 			return suzume_bank;
@@ -277,7 +273,7 @@ public class royalmah
 			}
 			return 0;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER ( suzume_bank_w )
 	{

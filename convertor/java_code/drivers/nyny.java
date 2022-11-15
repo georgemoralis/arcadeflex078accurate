@@ -51,14 +51,10 @@ public class nyny
 	static unsigned char dac_volume = 0 ;
 	static unsigned char dac_enable = 0 ;
 	
-	READ_HANDLER( nyny_videoram0_r );
 	WRITE_HANDLER( nyny_videoram0_w );
-	READ_HANDLER( nyny_videoram1_r );
 	WRITE_HANDLER( nyny_videoram1_w );
 	
-	READ_HANDLER( nyny_colourram0_r );
 	WRITE_HANDLER( nyny_colourram0_w );
-	READ_HANDLER( nyny_colourram1_r );
 	WRITE_HANDLER( nyny_colourram1_w );
 	WRITE_HANDLER( nyny_flipscreen_w ) ;
 	
@@ -86,10 +82,9 @@ public class nyny
 	}
 	
 	
-	static READ_HANDLER( pia1_ca1_r )
-	{
+	public static ReadHandlerPtr pia1_ca1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return pia1_ca1;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( pia1_porta_w )
@@ -155,10 +150,9 @@ public class nyny
 	
 	static unsigned char snd_w = 0;
 	
-	READ_HANDLER( snd_answer_r )
-	{
+	public static ReadHandlerPtr snd_answer_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return snd_w;
-	}
+	} };
 	
 	WRITE_HANDLER( snd_answer_w )
 	{

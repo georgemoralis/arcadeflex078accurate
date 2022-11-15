@@ -192,8 +192,7 @@ public class mhavoc
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( dual_pokey_r )
-	{
+	public static ReadHandlerPtr dual_pokey_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int pokey_num = (offset >> 3) & 0x01;
 		int control = (offset & 0x10) >> 1;
 		int pokey_reg = (offset % 8) | control;
@@ -202,7 +201,7 @@ public class mhavoc
 			return pokey1_r(pokey_reg);
 		else
 			return pokey2_r(pokey_reg);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( dual_pokey_w )
@@ -227,10 +226,9 @@ public class mhavoc
 	
 	static data8_t *gammaram;
 	
-	static READ_HANDLER( mhavoc_gammaram_r )
-	{
+	public static ReadHandlerPtr mhavoc_gammaram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return gammaram[offset & 0x7ff];
-	}
+	} };
 	
 	static WRITE_HANDLER( mhavoc_gammaram_w )
 	{

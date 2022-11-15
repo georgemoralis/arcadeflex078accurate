@@ -58,8 +58,7 @@ public class gameplan
 	static int finished_sound = 0;
 	static int cb2 = -1;
 	
-	READ_HANDLER( gameplan_sound_r )
-	{
+	public static ReadHandlerPtr gameplan_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 	#ifdef VERBOSE
 		logerror("GAME:  read reg%X at PC %04x\n", offset, activecpu_get_pc());
 	#endif
@@ -75,7 +74,7 @@ public class gameplan
 		}
 		else
 			return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( gameplan_sound_w )
 	{
@@ -118,8 +117,7 @@ public class gameplan
 		}
 	}
 	
-	READ_HANDLER( gameplan_via5_r )
-	{
+	public static ReadHandlerPtr gameplan_via5_r  = new ReadHandlerPtr() { public int handler(int offset){
 	#ifdef VERBOSE
 		logerror("SOUND:  read reg%X at PC %04x\n", offset, activecpu_get_pc());
 	#endif
@@ -152,7 +150,7 @@ public class gameplan
 		}
 	
 		return 1;
-	}
+	} };
 	
 	WRITE_HANDLER( gameplan_via5_w )
 	{
@@ -169,15 +167,14 @@ public class gameplan
 		}
 	}
 	
-	READ_HANDLER( gameplan_video_r )
-	{
+	public static ReadHandlerPtr gameplan_video_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int x;
 		x++;
 	#if 0
 		logerror("%04x: reading %d from 200d\n", activecpu_get_pc(), x);
 	#endif
 		return x;
-	}
+	} };
 	
 	WRITE_HANDLER( gameplan_video_w )
 	{

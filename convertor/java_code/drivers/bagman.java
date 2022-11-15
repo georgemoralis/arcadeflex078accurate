@@ -66,8 +66,7 @@ public class bagman
 {
 	
 	
-	extern READ_HANDLER( bagman_pal16r6_r );
-	extern extern WRITE_HANDLER( bagman_pal16r6_w );
+	extern extern extern WRITE_HANDLER( bagman_pal16r6_w );
 	
 	
 	extern UINT8 *bagman_video_enable;
@@ -156,10 +155,9 @@ public class bagman
 	}
 	
 	#if 0
-	static READ_HANDLER( bagman_ls259_r )
-	{
+	public static ReadHandlerPtr bagman_ls259_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ls259_buf[offset];
-	}
+	} };
 	#endif
 	
 	static WRITE_HANDLER( bagman_ls259_w )

@@ -122,14 +122,13 @@ public class punchout
 	
 	
 	
-	READ_HANDLER( punchout_input_3_r )
-	{
+	public static ReadHandlerPtr punchout_input_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = input_port_3_r(offset);
 		/* bit 4 is busy pin level */
 		if( VLM5030_BSY() ) data &= ~0x10;
 		else data |= 0x10;
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( punchout_speech_reset_w )
 	{
@@ -157,7 +156,7 @@ public class punchout
 	static int prot_mode_sel = -1; /* Mode selector */
 	static int prot_mem[16];
 	
-	static READ_HANDLER( spunchout_prot_r ) {
+	public static ReadHandlerPtr spunchout_prot_r  = new ReadHandlerPtr() { public int handler(int offset)
 	
 		switch ( offset ) {
 			case 0x00:
@@ -225,7 +224,7 @@ public class punchout
 			case 0x0d:
 				return prot_mode_sel;
 			break;
-		}
+		} };
 	
 		logerror("Read from unknown protection? port %02x ( selector = %02x )\n", offset, prot_mode_sel );
 	
@@ -292,7 +291,7 @@ public class punchout
 		prot_mem[offset] = data;
 	}
 	
-	static READ_HANDLER( spunchout_prot_0_r ) {
+	public static ReadHandlerPtr spunchout_prot_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 0 );
 	}
 	
@@ -300,7 +299,7 @@ public class punchout
 		spunchout_prot_w( 0, data );
 	}
 	
-	static READ_HANDLER( spunchout_prot_1_r ) {
+	public static ReadHandlerPtr spunchout_prot_1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 1 );
 	}
 	
@@ -308,7 +307,7 @@ public class punchout
 		spunchout_prot_w( 1, data );
 	}
 	
-	static READ_HANDLER( spunchout_prot_2_r ) {
+	public static ReadHandlerPtr spunchout_prot_2_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 2 );
 	}
 	
@@ -316,7 +315,7 @@ public class punchout
 		spunchout_prot_w( 2, data );
 	}
 	
-	static READ_HANDLER( spunchout_prot_3_r ) {
+	public static ReadHandlerPtr spunchout_prot_3_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 3 );
 	}
 	
@@ -324,7 +323,7 @@ public class punchout
 		spunchout_prot_w( 3, data );
 	}
 	
-	static READ_HANDLER( spunchout_prot_5_r ) {
+	public static ReadHandlerPtr spunchout_prot_5_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 5 );
 	}
 	
@@ -333,7 +332,7 @@ public class punchout
 	}
 	
 	
-	static READ_HANDLER( spunchout_prot_6_r ) {
+	public static ReadHandlerPtr spunchout_prot_6_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 6 );
 	}
 	
@@ -341,11 +340,11 @@ public class punchout
 		spunchout_prot_w( 6, data );
 	}
 	
-	static READ_HANDLER( spunchout_prot_9_r ) {
+	public static ReadHandlerPtr spunchout_prot_9_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 9 );
 	}
 	
-	static READ_HANDLER( spunchout_prot_b_r ) {
+	public static ReadHandlerPtr spunchout_prot_b_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 11 );
 	}
 	
@@ -353,7 +352,7 @@ public class punchout
 		spunchout_prot_w( 11, data );
 	}
 	
-	static READ_HANDLER( spunchout_prot_c_r ) {
+	public static ReadHandlerPtr spunchout_prot_c_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 12 );
 	}
 	
@@ -361,7 +360,7 @@ public class punchout
 		spunchout_prot_w( 13, data );
 	}
 	
-	static READ_HANDLER( spunchout_prot_a_r ) {
+	public static ReadHandlerPtr spunchout_prot_a_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 10 );
 	}
 	
@@ -370,7 +369,7 @@ public class punchout
 	}
 	
 	#if 0
-	static READ_HANDLER( spunchout_prot_f_r ) {
+	public static ReadHandlerPtr spunchout_prot_f_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return spunchout_prot_r( 15 );
 	}
 	#endif
@@ -681,7 +680,7 @@ public class punchout
 		{ 0, 1, 2, 3, 4, 5, 6, 7 },
 		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* every char takes 8 consecutive bytes */
-	};
+	} };;
 	
 	static struct GfxLayout armwrest_charlayout =
 	{

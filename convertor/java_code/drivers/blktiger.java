@@ -27,7 +27,6 @@ public class blktiger
 	
 	WRITE_HANDLER( blktiger_screen_layout_w );
 	
-	READ_HANDLER( blktiger_bgvideoram_r );
 	WRITE_HANDLER( blktiger_bgvideoram_w );
 	WRITE_HANDLER( blktiger_txvideoram_w );
 	WRITE_HANDLER( blktiger_video_control_w );
@@ -41,12 +40,11 @@ public class blktiger
 	
 	/* this is a protection check. The game crashes (thru a jump to 0x8000) */
 	/* if a read from this address doesn't return the value it expects. */
-	static READ_HANDLER( blktiger_protection_r )
-	{
+	public static ReadHandlerPtr blktiger_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = activecpu_get_reg(Z80_DE) >> 8;
 		logerror("protection read, PC: %04x Result:%02x\n",activecpu_get_pc(),data);
 		return data;
-	}
+	} };
 	
 	static WRITE_HANDLER( blktiger_bankswitch_w )
 	{

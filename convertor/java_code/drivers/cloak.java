@@ -124,8 +124,7 @@ public class cloak
 	extern WRITE_HANDLER( cloak_clearbmp_w );
 	extern WRITE_HANDLER( graph_processor_w );
 	extern WRITE_HANDLER( cloak_flipscreen_w );
-	extern READ_HANDLER( graph_processor_r );
-	
+	extern 
 	extern extern 
 	
 	/*************************************
@@ -134,10 +133,9 @@ public class cloak
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( cloak_sharedram_r )
-	{
+	public static ReadHandlerPtr cloak_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cloak_sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( cloak_sharedram_w )
 	{

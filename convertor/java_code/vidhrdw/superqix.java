@@ -42,10 +42,9 @@ public class superqix
 		}
 	}
 	
-	READ_HANDLER( superqix_bitmapram_r )
-	{
+	public static ReadHandlerPtr superqix_bitmapram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return superqix_bitmapram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( superqix_bitmapram_w )
 	{
@@ -63,10 +62,9 @@ public class superqix
 		}
 	}
 	
-	READ_HANDLER( superqix_bitmapram2_r )
-	{
+	public static ReadHandlerPtr superqix_bitmapram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return superqix_bitmapram2[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( superqix_bitmapram2_w )
 	{

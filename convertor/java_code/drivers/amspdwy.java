@@ -47,7 +47,7 @@ public class amspdwy
 		Or last value when wheel delta = 0
 	*/
 	#define AMSPDWY_WHEEL_R( _n_ ) \
-	READ_HANDLER( amspdwy_wheel_##_n_##_r ) \
+	public static ReadHandlerPtr amspdwy_wheel_##_n_##_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{ \
 		static data8_t wheel_old, ret; \
 		data8_t wheel = readinputport(5 + _n_); \
@@ -59,15 +59,14 @@ public class amspdwy
 			wheel_old = wheel; \
 		} \
 		return ret | readinputport(2 + _n_); \
-	}
+	} };
 	AMSPDWY_WHEEL_R( 0 )
 	AMSPDWY_WHEEL_R( 1 )
 	
 	
-	READ_HANDLER( amspdwy_sound_r )
-	{
+	public static ReadHandlerPtr amspdwy_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (YM2151_status_port_0_r(0) & ~ 0x30) | readinputport(4);
-	}
+	} };
 	
 	WRITE_HANDLER( amspdwy_sound_w )
 	{
@@ -107,11 +106,10 @@ public class amspdwy
 	MEMORY_END
 	
 	
-	READ_HANDLER( amspdwy_port_r )
-	{
+	public static ReadHandlerPtr amspdwy_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *Tracks = memory_region(REGION_CPU1)+0x10000;
 		return Tracks[offset];
-	}
+	} };
 	
 	static PORT_READ_START( amspdwy_readport )
 		{ 0x0000, 0x7fff, amspdwy_port_r	},

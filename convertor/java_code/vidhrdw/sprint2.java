@@ -48,14 +48,12 @@ public class sprint2
 	} };
 	
 	
-	READ_HANDLER( sprint2_collision1_r )
-	{
+	public static ReadHandlerPtr sprint2_collision1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return collision[0];
-	}
-	READ_HANDLER( sprint2_collision2_r )
-	{
+	} };
+	public static ReadHandlerPtr sprint2_collision2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return collision[1];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( sprint2_collision_reset1_w )

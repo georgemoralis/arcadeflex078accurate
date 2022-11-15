@@ -34,18 +34,16 @@ public class deadang
 	extern extern 
 	/* Read/Write Handlers */
 	
-	static READ_HANDLER( deadang_shared_r )
-	{
+	public static ReadHandlerPtr deadang_shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return deadang_shared_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( deadang_shared_w )
 	{
 		deadang_shared_ram[offset] = data;
 	}
 	
-	READ_HANDLER( ghunter_trackball_low_r )
-	{
+	public static ReadHandlerPtr ghunter_trackball_low_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 			case 0:	return (readinputport(5) & 0xff);
@@ -53,9 +51,8 @@ public class deadang
 		}
 	
 		return 0;
-	}
-	READ_HANDLER( ghunter_trackball_high_r )
-	{
+	} };
+	public static ReadHandlerPtr ghunter_trackball_high_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 			case 0:	return (readinputport(5) & 0xff00) >> 4;
@@ -63,7 +60,7 @@ public class deadang
 		}
 	
 		return 0;
-	}
+	} };
 	
 	/* Memory Maps */
 	

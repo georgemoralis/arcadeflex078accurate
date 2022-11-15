@@ -429,8 +429,7 @@ public class h6280
 	
 	/*****************************************************************************/
 	
-	READ_HANDLER( H6280_irq_status_r )
-	{
+	public static ReadHandlerPtr H6280_irq_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int status;
 	
 		switch (offset)
@@ -447,7 +446,7 @@ public class h6280
 		}
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( H6280_irq_status_w )
 	{
@@ -465,8 +464,7 @@ public class h6280
 		}
 	}
 	
-	READ_HANDLER( H6280_timer_r )
-	{
+	public static ReadHandlerPtr H6280_timer_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset) {
 			case 0: /* Counter value */
 				return (h6280.timer_value/1024)&127;
@@ -476,7 +474,7 @@ public class h6280
 		}
 	
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( H6280_timer_w )
 	{

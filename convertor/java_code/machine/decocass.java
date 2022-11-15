@@ -103,19 +103,17 @@ public class decocass
 		cpu_set_irq_line(1, M6502_IRQ_LINE, ASSERT_LINE);
 	}
 	
-	READ_HANDLER( decocass_sound_data_r )
-	{
+	public static ReadHandlerPtr decocass_sound_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data = soundlatch2_r(0);
 		LOG(2,("CPU #%d sound data    <- $%02x\n", cpu_getactivecpu(), data));
 		return data;
-	}
+	} };
 	
-	READ_HANDLER( decocass_sound_ack_r )
-	{
+	public static ReadHandlerPtr decocass_sound_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data = decocass_sound_ack;	/* D6+D7 */
 		LOG(2,("CPU #%d sound ack     <- $%02x\n", cpu_getactivecpu(), data));
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( decocass_sound_data_w )
 	{
@@ -124,14 +122,13 @@ public class decocass
 		decocass_sound_ack |= 0x40;
 	}
 	
-	READ_HANDLER( decocass_sound_command_r )
-	{
+	public static ReadHandlerPtr decocass_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data = soundlatch_r(0);
 		LOG(2,("CPU #%d sound command <- $%02x\n", cpu_getactivecpu(), data));
 		cpu_set_irq_line(1, M6502_IRQ_LINE, CLEAR_LINE);
 		decocass_sound_ack &= ~0x80;
 		return data;
-	}
+	} };
 	
 	static void decocass_sound_nmi_pulse( int param )
 	{
@@ -144,21 +141,19 @@ public class decocass
 		timer_adjust(decocass_sound_timer, TIME_IN_HZ(256 * 57 / 8 / 2), 0, TIME_IN_HZ(256 * 57 / 8 / 2));
 	}
 	
-	READ_HANDLER( decocass_sound_nmi_enable_r )
-	{
+	public static ReadHandlerPtr decocass_sound_nmi_enable_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data = 0xff;
 		LOG(2,("CPU #%d sound NMI enb <- $%02x\n", cpu_getactivecpu(), data));
 		timer_adjust(decocass_sound_timer, TIME_IN_HZ(256 * 57 / 8 / 2), 0, TIME_IN_HZ(256 * 57 / 8 / 2));
 		return data;
-	}
+	} };
 	
-	READ_HANDLER( decocass_sound_data_ack_reset_r )
-	{
+	public static ReadHandlerPtr decocass_sound_data_ack_reset_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data = 0xff;
 		LOG(2,("CPU #%d sound ack rst <- $%02x\n", cpu_getactivecpu(), data));
 		decocass_sound_ack &= ~0x40;
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( decocass_sound_data_ack_reset_w )
 	{
@@ -194,8 +189,7 @@ public class decocass
 	 * E6x6    ""
 	 * E6x7    a/d converter read
 	 */
-	READ_HANDLER( decocass_input_r )
-	{
+	public static ReadHandlerPtr decocass_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data = 0xff;
 		switch (offset & 7)
 		{
@@ -210,7 +204,7 @@ public class decocass
 		}
 	
 		return data;
-	}
+	} };
 	
 	/*
 	 * D0 - REQ/ data request	  (8041 pin 34 port 1.7)
@@ -552,8 +546,7 @@ public class decocass
 	 *
 	 ***************************************************************************/
 	
-	READ_HANDLER( decocass_type1_r )
-	{
+	public static ReadHandlerPtr decocass_type1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static data8_t latch1;
 		data8_t data;
 	
@@ -626,7 +619,7 @@ public class decocass
 			latch1 = save;		/* latch the data for the next A0 == 0 read */
 		}
 		return data;
-	}
+	} };
 	
 	/*
 	 * special handler for the test tape, because we cannot
@@ -637,8 +630,7 @@ public class decocass
 	 * table by applying data to the dongle and logging the outputs.
 	 */
 	
-	READ_HANDLER( decocass_type1_map1_r )
-	{
+	public static ReadHandlerPtr decocass_type1_map1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static data8_t map[] = {
 			0x01,0x34,0x03,0x36,0xa4,0x15,0xa6,0x17,
 			0x09,0x3c,0x0b,0x3e,0xac,0x1d,0xae,0x1f,
@@ -708,10 +700,9 @@ public class decocass
 			LOG(3,("%9.7f 6502-PC: %04x decocass_type1_r(%02x): $%02x '%c' <- map[%02x] (%s)\n", timer_get_time(), activecpu_get_previouspc(), offset, data, (data >= 32) ? data : '.', save, 0 == (offset & E5XX_MASK) ? "8041-DATA" : "open bus"));
 		}
 		return data;
-	}
+	} };
 	
-	READ_HANDLER( decocass_type1_map2_r )
-	{
+	public static ReadHandlerPtr decocass_type1_map2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static data8_t map[] = {
 	/* 00 */0x06,0x1f,0x8f,0x0c,0x02,0x1b,0x8b,0x08,
 			0x1e,0x1d,0x8e,0x16,0x1a,0x19,0x8a,0x12,
@@ -794,10 +785,9 @@ public class decocass
 			latch2 = save;
 		}
 		return data;
-	}
+	} };
 	
-	READ_HANDLER( decocass_type1_map3_r )
-	{
+	public static ReadHandlerPtr decocass_type1_map3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static data8_t map[] = {
 	/* 00 */0x03,0x36,0x01,0x34,0xa6,0x17,0xa4,0x15,
 			0x0b,0x3e,0x09,0x3c,0xae,0x1f,0xac,0x1d,
@@ -881,7 +871,7 @@ public class decocass
 			latch3 = save;
 		}
 		return data;
-	}
+	} };
 	
 	/***************************************************************************
 	 *
@@ -892,8 +882,7 @@ public class decocass
 	 *	- Tornado
 	 *
 	 ***************************************************************************/
-	READ_HANDLER( decocass_type2_r )
-	{
+	public static ReadHandlerPtr decocass_type2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data;
 	
 		if (1 == type2_xx_latch)
@@ -919,7 +908,7 @@ public class decocass
 			LOG(3,("%9.7f 6502-PC: %04x decocass_type2_r(%02x): $%02x <- 8041-%s\n", timer_get_time(), activecpu_get_previouspc(), offset, data, offset & 1 ? "STATUS" : "DATA"));
 		}
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( decocass_type2_w )
 	{
@@ -972,8 +961,7 @@ public class decocass
 	 *	- Peter Pepper's Ice Cream Factory
 	 *
 	 ***************************************************************************/
-	READ_HANDLER( decocass_type3_r )
-	{
+	public static ReadHandlerPtr decocass_type3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data, save;
 	
 		if (1 == (offset & 1))
@@ -1171,7 +1159,7 @@ public class decocass
 		}
 	
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( decocass_type3_w )
 	{
@@ -1212,8 +1200,7 @@ public class decocass
 	 *
 	 ***************************************************************************/
 	
-	READ_HANDLER( decocass_type4_r )
-	{
+	public static ReadHandlerPtr decocass_type4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data;
 	
 		if (1 == (offset & 1))
@@ -1255,7 +1242,7 @@ public class decocass
 		}
 	
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( decocass_type4_w )
 	{
@@ -1295,8 +1282,7 @@ public class decocass
 	 *
 	 ***************************************************************************/
 	
-	READ_HANDLER( decocass_type5_r )
-	{
+	public static ReadHandlerPtr decocass_type5_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data;
 	
 		if (1 == (offset & 1))
@@ -1335,7 +1321,7 @@ public class decocass
 		}
 	
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( decocass_type5_w )
 	{
@@ -1369,8 +1355,7 @@ public class decocass
 	 *
 	 ***************************************************************************/
 	
-	READ_HANDLER( decocass_e5xx_r )
-	{
+	public static ReadHandlerPtr decocass_e5xx_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data;
 	
 		/* E5x2-E5x3 and mirrors */
@@ -1407,7 +1392,7 @@ public class decocass
 				data = 0xff;
 		}
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( decocass_e5xx_w )
 	{
@@ -1843,8 +1828,7 @@ public class decocass
 		i8041_p1 = data;
 	}
 	
-	READ_HANDLER( i8041_p1_r )
-	{
+	public static ReadHandlerPtr i8041_p1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data = i8041_p1;
 		static int i8041_p1_old;
 	
@@ -1865,7 +1849,7 @@ public class decocass
 			i8041_p1_old = data;
 		}
 		return data;
-	}
+	} };
 	
 	WRITE_HANDLER( i8041_p2_w )
 	{
@@ -1890,8 +1874,7 @@ public class decocass
 		i8041_p2 = data;
 	}
 	
-	READ_HANDLER( i8041_p2_r )
-	{
+	public static ReadHandlerPtr i8041_p2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data;
 		static int i8041_p2_old;
 	
@@ -1916,7 +1899,7 @@ public class decocass
 			i8041_p2_old = data;
 		}
 		return data;
-	}
+	} };
 	
 	
 }

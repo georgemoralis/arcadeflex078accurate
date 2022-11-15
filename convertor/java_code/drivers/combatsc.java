@@ -129,13 +129,11 @@ public class combatsc
 	extern unsigned char* banked_area;
 	
 	/* from vidhrdw/combasc.c */
-	READ_HANDLER( combasc_video_r );
 	WRITE_HANDLER( combasc_video_w );
 	
 	WRITE_HANDLER( combascb_bankselect_w );
 	WRITE_HANDLER( combasc_bankselect_w );
 	WRITE_HANDLER( combasc_pf_control_w );
-	READ_HANDLER( combasc_scrollram_r );
 	WRITE_HANDLER( combasc_scrollram_w );
 	
 	WRITE_HANDLER( combasc_io_w );
@@ -154,8 +152,7 @@ public class combatsc
 		coin_counter_w(1,data & 0x02);
 	}
 	
-	static READ_HANDLER( trackball_r )
-	{
+	public static ReadHandlerPtr trackball_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static UINT8 pos[4],sign[4];
 	
 		if (offset == 0)
@@ -187,7 +184,7 @@ public class combatsc
 		}
 	
 		return sign[offset] | (pos[offset] & 0x7f);
-	}
+	} };
 	
 	
 	/* the protection is a simple multiply */
@@ -197,10 +194,9 @@ public class combatsc
 	{
 		prot[offset] = data;
 	}
-	static READ_HANDLER( protection_r )
-	{
+	public static ReadHandlerPtr protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ((prot[0] * prot[1]) >> (offset * 8)) & 0xff;
-	}
+	} };
 	static WRITE_HANDLER( protection_clock_w )
 	{
 		/* 0x3f is written here every time before accessing the other registers */
@@ -231,8 +227,7 @@ public class combatsc
 	
 	static mame_timer *combasc_interleave_timer;
 	
-	static READ_HANDLER ( combasc_YM2203_status_port_0_r )
-	{
+	public static ReadHandlerPtr combasc_YM2203_status_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int boost = 1;
 		int status = YM2203Read(0,0);
 	
@@ -251,7 +246,7 @@ public class combatsc
 		}
 	
 		return(status);
-	}
+	} };
 	
 	/****************************************************************************/
 	

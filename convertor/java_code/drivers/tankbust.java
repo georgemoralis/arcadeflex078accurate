@@ -30,11 +30,8 @@ public class tankbust
 	extern data8_t * txt_ram;
 	
 	WRITE_HANDLER( tankbust_background_videoram_w );
-	READ_HANDLER ( tankbust_background_videoram_r );
 	WRITE_HANDLER( tankbust_background_colorram_w );
-	READ_HANDLER ( tankbust_background_colorram_r );
 	WRITE_HANDLER( tankbust_txtram_w );
-	READ_HANDLER ( tankbust_txtram_r );
 	
 	WRITE_HANDLER( tankbust_xscroll_w );
 	WRITE_HANDLER( tankbust_yscroll_w );
@@ -53,21 +50,19 @@ public class tankbust
 		timer_set(TIME_NOW,data,soundlatch_callback);
 	}
 	
-	static READ_HANDLER( tankbust_soundlatch_r )
-	{
+	public static ReadHandlerPtr tankbust_soundlatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return latch;
-	}
+	} };
 	
 	//port B of ay8910#0
 	static unsigned int timer1=0;
-	static READ_HANDLER( tankbust_soundtimer_r )
-	{
+	public static ReadHandlerPtr tankbust_soundtimer_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret;
 	
 		timer1++;
 		ret = timer1;
 		return ret;
-	}
+	} };
 	
 	static void soundirqline_callback (int param)
 	{
@@ -123,10 +118,9 @@ public class tankbust
 		}
 	}
 	
-	static READ_HANDLER( debug_output_area_r )
-	{
+	public static ReadHandlerPtr debug_output_area_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return e0xx_data[offset];
-	}
+	} };
 	
 	
 	
@@ -181,18 +175,16 @@ public class tankbust
 	} };
 	
 	#if 0
-	static READ_HANDLER( read_from_unmapped_memory )
-	{
+	public static ReadHandlerPtr read_from_unmapped_memory  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	#endif
 	
 	static int variable_data=0x11;
-	static READ_HANDLER( some_changing_input )
-	{
+	public static ReadHandlerPtr some_changing_input  = new ReadHandlerPtr() { public int handler(int offset){
 		variable_data = (variable_data+8) & 0xff;
 		return variable_data;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x5fff, MRA_ROM },

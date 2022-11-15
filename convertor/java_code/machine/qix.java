@@ -28,7 +28,6 @@ public class qix
 	
 	
 	/* Prototypes */
-	static READ_HANDLER( qixmcu_coin_r );
 	static WRITE_HANDLER( qixmcu_coinctrl_w );
 	static WRITE_HANDLER( qixmcu_coin_w );
 	
@@ -46,8 +45,6 @@ public class qix
 	static WRITE_HANDLER( slither_76489_0_w );
 	static WRITE_HANDLER( slither_76489_1_w );
 	
-	static READ_HANDLER( slither_trak_lr_r );
-	static READ_HANDLER( slither_trak_ud_r );
 	
 	
 	
@@ -280,10 +277,9 @@ public class qix
 	 *
 	 *************************************/
 	
-	READ_HANDLER( qix_sharedram_r )
-	{
+	public static ReadHandlerPtr qix_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return qix_sharedram[offset];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( qix_sharedram_w )
@@ -329,18 +325,16 @@ public class qix
 	}
 	
 	
-	READ_HANDLER( qix_data_firq_r )
-	{
+	public static ReadHandlerPtr qix_data_firq_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(0, M6809_FIRQ_LINE, ASSERT_LINE);
 		return 0xff;
-	}
+	} };
 	
 	
-	READ_HANDLER( qix_data_firq_ack_r )
-	{
+	public static ReadHandlerPtr qix_data_firq_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(0, M6809_FIRQ_LINE, CLEAR_LINE);
 		return 0xff;
-	}
+	} };
 	
 	
 	
@@ -362,18 +356,16 @@ public class qix
 	}
 	
 	
-	READ_HANDLER( qix_video_firq_r )
-	{
+	public static ReadHandlerPtr qix_video_firq_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(1, M6809_FIRQ_LINE, ASSERT_LINE);
 		return 0xff;
-	}
+	} };
 	
 	
-	READ_HANDLER( qix_video_firq_ack_r )
-	{
+	public static ReadHandlerPtr qix_video_firq_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(1, M6809_FIRQ_LINE, CLEAR_LINE);
 		return 0xff;
-	}
+	} };
 	
 	
 	
@@ -430,10 +422,9 @@ public class qix
 	 *
 	 *************************************/
 	
-	READ_HANDLER( qixmcu_coin_r )
-	{
+	public static ReadHandlerPtr qixmcu_coin_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return qix_68705_port_out[0];
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( qixmcu_coin_w )
@@ -468,31 +459,28 @@ public class qix
 	 *
 	 *************************************/
 	
-	READ_HANDLER( qix_68705_portA_r )
-	{
+	public static ReadHandlerPtr qix_68705_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 ddr = qix_68705_ddr[0];
 		UINT8 out = qix_68705_port_out[0];
 		UINT8 in = qix_68705_port_in[0];
 		return (out & ddr) | (in & ~ddr);
-	}
+	} };
 	
 	
-	READ_HANDLER( qix_68705_portB_r )
-	{
+	public static ReadHandlerPtr qix_68705_portB_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 ddr = qix_68705_ddr[1];
 		UINT8 out = qix_68705_port_out[1];
 		UINT8 in = (readinputport(1) & 0x0f) | ((readinputport(1) & 0x80) >> 3);
 		return (out & ddr) | (in & ~ddr);
-	}
+	} };
 	
 	
-	READ_HANDLER( qix_68705_portC_r )
-	{
+	public static ReadHandlerPtr qix_68705_portC_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 ddr = qix_68705_ddr[2];
 		UINT8 out = qix_68705_port_out[2];
 		UINT8 in = (~qix_coinctrl & 0x08) | ((readinputport(1) & 0x70) >> 4);
 		return (out & ddr) | (in & ~ddr);
-	}
+	} };
 	
 	
 	
@@ -642,14 +630,12 @@ public class qix
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( slither_trak_lr_r )
-	{
+	public static ReadHandlerPtr slither_trak_lr_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(qix_cocktail_flip ? 6 : 4);
-	}
+	} };
 	
 	
-	static READ_HANDLER( slither_trak_ud_r )
-	{
+	public static ReadHandlerPtr slither_trak_ud_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(qix_cocktail_flip ? 5 : 3);
-	}
+	} };
 }

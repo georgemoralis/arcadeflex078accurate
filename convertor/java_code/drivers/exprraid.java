@@ -83,17 +83,15 @@ public class exprraid
 	/* Emulate Protection ( only for original express raider, code is cracked on the bootleg */
 	/*****************************************************************************************/
 	
-	static READ_HANDLER( exprraid_prot_0_r )
-	{
+	public static ReadHandlerPtr exprraid_prot_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 	
 		return RAM[0x02a9];
-	}
+	} };
 	
-	static READ_HANDLER( exprraid_prot_1_r )
-	{
+	public static ReadHandlerPtr exprraid_prot_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x02;
-	}
+	} };
 	
 	static WRITE_HANDLER( sound_cpu_command_w )
 	{
@@ -101,7 +99,7 @@ public class exprraid
 	    cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
 	}
 	
-	static READ_HANDLER( vblank_r ) {
+	public static ReadHandlerPtr vblank_r  = new ReadHandlerPtr() { public int handler(int offset)
 		int val = readinputport( 0 );
 	
 		if ( ( val & 0x02 ) )
@@ -241,7 +239,7 @@ public class exprraid
 		{ (0x2000*8)+0, (0x2000*8)+1, (0x2000*8)+2, (0x2000*8)+3, 0, 1, 2, 3 },
 		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* every char takes 8 consecutive bytes */
-	};
+	} };;
 	
 	static struct GfxLayout spritelayout =
 	{

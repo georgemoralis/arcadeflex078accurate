@@ -95,8 +95,7 @@ public class boxer
 	} };
 	
 	
-	static READ_HANDLER( boxer_input_r )
-	{
+	public static ReadHandlerPtr boxer_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = readinputport(0);
 	
 		if (readinputport(9) < cpu_getscanline())
@@ -105,11 +104,10 @@ public class boxer
 		}
 	
 		return (val << ((offset & 7) ^ 7)) & 0x80;
-	}
+	} };
 	
 	
-	static READ_HANDLER( boxer_misc_r )
-	{
+	public static ReadHandlerPtr boxer_misc_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = 0;
 	
 		switch (offset & 3)
@@ -132,15 +130,14 @@ public class boxer
 		}
 	
 		return val ^ 0x3f;
-	}
+	} };
 	
 	
-	static READ_HANDLER( boxer_bad_address_r )
-	{
+	public static ReadHandlerPtr boxer_bad_address_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_reset_line(0, PULSE_LINE);
 	
 		return 0;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( boxer_bell_w )

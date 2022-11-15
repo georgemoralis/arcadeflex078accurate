@@ -99,10 +99,9 @@ public class chaknpop
 		tilemap_set_flip(tx_tilemap, flip_x | flip_y);
 	}
 	
-	READ_HANDLER( chaknpop_gfxmode_r )
-	{
+	public static ReadHandlerPtr chaknpop_gfxmode_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return gfxmode;
-	}
+	} };
 	
 	WRITE_HANDLER( chaknpop_gfxmode_w )
 	{

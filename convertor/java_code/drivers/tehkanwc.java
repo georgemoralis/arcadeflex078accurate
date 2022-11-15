@@ -104,10 +104,9 @@ public class tehkanwc
 	
 	static UINT8 *shared_ram;
 	
-	static READ_HANDLER( shared_r )
-	{
+	public static ReadHandlerPtr shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return shared_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( shared_w )
 	{
@@ -126,25 +125,23 @@ public class tehkanwc
 	
 	static int track0[2],track1[2];
 	
-	static READ_HANDLER( tehkanwc_track_0_r )
-	{
+	public static ReadHandlerPtr tehkanwc_track_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int joy;
 	
 		joy = readinputport(10) >> (2*offset);
 		if (joy & 1) return -63;
 		if (joy & 2) return 63;
 		return readinputport(3 + offset) - track0[offset];
-	}
+	} };
 	
-	static READ_HANDLER( tehkanwc_track_1_r )
-	{
+	public static ReadHandlerPtr tehkanwc_track_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int joy;
 	
 		joy = readinputport(10) >> (4+2*offset);
 		if (joy & 1) return -63;
 		if (joy & 2) return 63;
 		return readinputport(6 + offset) - track1[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( tehkanwc_track_0_reset_w )
 	{
@@ -185,15 +182,13 @@ public class tehkanwc
 	
 	static int msm_data_offs;
 	
-	static READ_HANDLER( tehkanwc_portA_r )
-	{
+	public static ReadHandlerPtr tehkanwc_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return msm_data_offs & 0xff;
-	}
+	} };
 	
-	static READ_HANDLER( tehkanwc_portB_r )
-	{
+	public static ReadHandlerPtr tehkanwc_portB_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (msm_data_offs >> 8) & 0xff;
-	}
+	} };
 	
 	static WRITE_HANDLER( tehkanwc_portA_w )
 	{

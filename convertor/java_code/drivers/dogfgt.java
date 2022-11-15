@@ -19,10 +19,9 @@ public class dogfgt
 	
 	static data8_t *sharedram;
 	
-	static READ_HANDLER( sharedram_r )
-	{
+	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( sharedram_w )
 	{

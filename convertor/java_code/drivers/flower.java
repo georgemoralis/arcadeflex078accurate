@@ -48,7 +48,6 @@ public class flower
 	
 	data8_t *flower_sharedram;
 	
-	READ_HANDLER( flower_sharedram_r );
 	WRITE_HANDLER( flower_sharedram_w );
 	
 	

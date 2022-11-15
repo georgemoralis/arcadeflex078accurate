@@ -110,9 +110,7 @@ public class nbmj8891
 	
 	
 	
-	READ_HANDLER( gionbana_palette_r );
 	WRITE_HANDLER( gionbana_palette_w );
-	READ_HANDLER( maiko_palette_r );
 	WRITE_HANDLER( maiko_palette_w );
 	void gionbana_radrx_w(int data);
 	void gionbana_radry_w(int data);
@@ -125,7 +123,6 @@ public class nbmj8891
 	void gionbana_vramsel_w(int data);
 	void gionbana_romsel_w(int data);
 	void gionbana_paltblnum_w(int data);
-	READ_HANDLER( gionbana_paltbl_r );
 	WRITE_HANDLER( gionbana_paltbl_w );
 	
 	
@@ -404,8 +401,7 @@ public class nbmj8891
 	MEMORY_END
 	
 	
-	static READ_HANDLER( io_gionbana_r )
-	{
+	public static ReadHandlerPtr io_gionbana_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if (offset < 0x8000) return nb1413m3_sndrom_r(offset);
@@ -420,7 +416,7 @@ public class nbmj8891
 			case	0xf100:	return nb1413m3_dipsw2_r(0);
 			default:	return 0xff;
 		}
-	}
+	} };
 	
 	static PORT_READ_START( readport_gionbana )
 		{ 0x0000, 0xffff, io_gionbana_r },
@@ -579,8 +575,7 @@ public class nbmj8891
 		{ 0x0000, 0xffff, io_scandal_w },
 	PORT_END
 	
-	static READ_HANDLER( io_scandalm_r )
-	{
+	public static ReadHandlerPtr io_scandalm_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if (offset < 0x8000) return nb1413m3_sndrom_r(offset);
@@ -596,7 +591,7 @@ public class nbmj8891
 			case	0xf100:	return nb1413m3_dipsw2_r(0);
 			default:	return 0xff;
 		}
-	}
+	} };
 	
 	static PORT_READ_START( readport_scandalm )
 		{ 0x0000, 0xffff, io_scandalm_r },
@@ -687,8 +682,7 @@ public class nbmj8891
 		{ 0x0000, 0xffff, io_bananadr_w },
 	PORT_END
 	
-	static READ_HANDLER( io_maiko_r )
-	{
+	public static ReadHandlerPtr io_maiko_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if (offset < 0x8000) return nb1413m3_sndrom_r(offset);
@@ -703,7 +697,7 @@ public class nbmj8891
 			case	0xf100:	return nb1413m3_dipsw2_r(0);
 			default:	return 0xff;
 		}
-	}
+	} };
 	
 	static PORT_READ_START( readport_maiko )
 		{ 0x0000, 0xffff, io_maiko_r },

@@ -50,8 +50,7 @@ public class simpsons
 		}
 	} };
 	
-	READ_HANDLER( simpsons_eeprom_r )
-	{
+	public static ReadHandlerPtr simpsons_eeprom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 		res = (EEPROM_read_bit() << 4);
@@ -66,7 +65,7 @@ public class simpsons
 			res &= 0xfe;
 		}
 		return res;
-	}
+	} };
 	
 	WRITE_HANDLER( simpsons_eeprom_w )
 	{
@@ -101,14 +100,12 @@ public class simpsons
 		K053246_set_OBJCHA_line((~data & 0x20) ? ASSERT_LINE : CLEAR_LINE);
 	}
 	
-	READ_HANDLER( simpsons_sound_interrupt_r )
-	{
+	public static ReadHandlerPtr simpsons_sound_interrupt_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line_and_vector( 1, 0, HOLD_LINE, 0xff );
 		return 0x00;
-	}
+	} };
 	
-	READ_HANDLER( simpsons_sound_r )
-	{
+	public static ReadHandlerPtr simpsons_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* If the sound CPU is running, read the status, otherwise
 		   just make it pass the test */
 		if (Machine->sample_rate != 0) 	return K053260_0_r(2 + offset);
@@ -119,7 +116,7 @@ public class simpsons
 			res = (res & 0xfc) | ((res + 1) & 0x03);
 			return offset ? res : 0x00;
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	
@@ -127,8 +124,7 @@ public class simpsons
 	
 	***************************************************************************/
 	
-	READ_HANDLER( simpsons_speedup1_r )
-	{
+	public static ReadHandlerPtr simpsons_speedup1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		int data1 = RAM[0x486a];
@@ -154,17 +150,16 @@ public class simpsons
 			RAM[0x486a]--;
 	
 		return RAM[0x4942];
-	}
+	} };
 	
-	READ_HANDLER( simpsons_speedup2_r )
-	{
+	public static ReadHandlerPtr simpsons_speedup2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = memory_region(REGION_CPU1)[0x4856];
 	
 		if ( data == 1 )
 			cpu_spinuntil_int();
 	
 		return data;
-	}
+	} };
 	
 	/***************************************************************************
 	

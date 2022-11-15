@@ -29,7 +29,6 @@ public class skyfox
 	
 	/* Functions defined in vidhrdw: */
 	
-	READ_HANDLER( skyfox_vregs_r );
 	WRITE_HANDLER( skyfox_vregs_w );
 	
 	

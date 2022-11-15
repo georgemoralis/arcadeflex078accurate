@@ -83,7 +83,7 @@ public class mole
 		{ 0 }
 	};
 	
-	READ_HANDLER( mole_prot_r ){
+	public static ReadHandlerPtr mole_prot_r  = new ReadHandlerPtr() { public int handler(int offset)
 		/*	Following are all known examples of Mole Attack
 		**	code reading from the protection circuitry:
 		**
@@ -116,7 +116,7 @@ public class mole
 			}
 		case 0x86: return 0x91; /* game over */
 		case 0xae: return 0x32; /* coinage */
-		}
+		} };
 	
 		/*	The above are critical protection reads.
 		**	It isn't clear what effect (if any) the

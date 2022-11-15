@@ -49,10 +49,9 @@ public class psychic5
 		ps5_vram_page = data;
 	}
 	
-	READ_HANDLER( psychic5_vram_page_select_r )
-	{
+	public static ReadHandlerPtr psychic5_vram_page_select_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ps5_vram_page;
-	}
+	} };
 	
 	WRITE_HANDLER( psychic5_title_screen_w )
 	{
@@ -182,8 +181,7 @@ public class psychic5
 		}
 	}
 	
-	READ_HANDLER( psychic5_paged_ram_r )
-	{
+	public static ReadHandlerPtr psychic5_paged_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val;
 	
 		if (!ps5_vram_page)
@@ -230,7 +228,7 @@ public class psychic5
 			}
 		}
 		return 0;
-	}
+	} };
 	
 	WRITE_HANDLER( psychic5_paged_ram_w )
 	{

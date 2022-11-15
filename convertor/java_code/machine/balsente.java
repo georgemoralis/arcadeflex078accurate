@@ -273,8 +273,7 @@ public class balsente
 	}
 	
 	
-	READ_HANDLER( balsente_random_num_r )
-	{
+	public static ReadHandlerPtr balsente_random_num_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned int cc;
 	
 		/* CPU runs at 1.25MHz, noise source at 100kHz --> multiply by 12.5 */
@@ -283,7 +282,7 @@ public class balsente
 		/* 12.5 = 8 + 4 + 0.5 */
 		cc = (cc << 3) + (cc << 2) + (cc >> 1);
 		return rand17[cc & POLY17_SIZE];
-	}
+	} };
 	
 	
 	
@@ -451,8 +450,7 @@ public class balsente
 	 *
 	 *************************************/
 	
-	READ_HANDLER( balsente_m6850_r )
-	{
+	public static ReadHandlerPtr balsente_m6850_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int result;
 	
 		/* status register is at offset 0 */
@@ -472,7 +470,7 @@ public class balsente
 		}
 	
 		return result;
-	}
+	} };
 	
 	
 	static void m6850_data_ready_callback(int param)
@@ -520,8 +518,7 @@ public class balsente
 	 *
 	 *************************************/
 	
-	READ_HANDLER( balsente_m6850_sound_r )
-	{
+	public static ReadHandlerPtr balsente_m6850_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int result;
 	
 		/* status register is at offset 0 */
@@ -541,7 +538,7 @@ public class balsente
 		}
 	
 		return result;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( balsente_m6850_sound_w )
@@ -613,11 +610,10 @@ public class balsente
 	}
 	
 	
-	READ_HANDLER( balsente_adc_data_r )
-	{
+	public static ReadHandlerPtr balsente_adc_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* just return the last value read */
 		return adc_value;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( balsente_adc_select_w )
@@ -755,8 +751,7 @@ public class balsente
 	 *
 	 *************************************/
 	
-	READ_HANDLER( balsente_counter_8253_r )
-	{
+	public static ReadHandlerPtr balsente_counter_8253_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int which;
 	
 		switch (offset & 3)
@@ -786,7 +781,7 @@ public class balsente
 				break;
 		}
 		return 0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( balsente_counter_8253_w )
@@ -933,8 +928,7 @@ public class balsente
 	 *
 	 *************************************/
 	
-	READ_HANDLER( balsente_counter_state_r )
-	{
+	public static ReadHandlerPtr balsente_counter_state_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit D0 is the inverse of the flip-flop state */
 		int result = !counter_0_ff;
 	
@@ -942,7 +936,7 @@ public class balsente
 		if (counter[0].out) result |= 0x02;
 	
 		return result;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( balsente_counter_control_w )
@@ -1088,10 +1082,9 @@ public class balsente
 	 *
 	 *************************************/
 	
-	READ_HANDLER( nstocker_port2_r )
-	{
+	public static ReadHandlerPtr nstocker_port2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(2) & 0xf0) | nstocker_bits;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( spiker_expand_w )
@@ -1110,8 +1103,7 @@ public class balsente
 	}
 	
 	
-	READ_HANDLER( spiker_expand_r )
-	{
+	public static ReadHandlerPtr spiker_expand_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 left, right;
 	
 		/* first rotate each nibble */
@@ -1126,7 +1118,7 @@ public class balsente
 	
 		/* return the combined result */
 		return (left & 0xf0) | (right & 0x0f);
-	}
+	} };
 	
 	
 	static void update_grudge_steering(void)
@@ -1170,12 +1162,11 @@ public class balsente
 	}
 	
 	
-	READ_HANDLER( grudge_steering_r )
-	{
+	public static ReadHandlerPtr grudge_steering_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("%04X:grudge_steering_r(@%d)\n", activecpu_get_pc(), cpu_getscanline());
 		grudge_steering_result |= 0x80;
 		return grudge_steering_result;
-	}
+	} };
 	
 	
 	
@@ -1197,15 +1188,14 @@ public class balsente
 	}
 	
 	
-	READ_HANDLER( shrike_shared_6809_r )
-	{
+	public static ReadHandlerPtr shrike_shared_6809_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset == 0)
 			return 0;
 		if (offset == 9)
 			return 0xaa;
 	logerror("6809 read %02x = %02x\n", offset, shrike_shared[offset] & 0xff);
 		return shrike_shared[offset] & 0xff;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( shrike_shared_6809_w )

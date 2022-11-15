@@ -129,8 +129,7 @@ public class pbillian
 		flip_screen_set(data&0x20);
 	}
 	
-	static READ_HANDLER(data_408_r)
-	{
+	public static ReadHandlerPtr data_408_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* 
 			Hot Smash
 			select_408=1 && bit 7==1 -> protection related ?
@@ -169,13 +168,12 @@ public class pbillian
 		}
 		logerror("408[%x] r at %x\n",select_408,activecpu_get_previouspc());
 		return 0;
-	}
+	} };
 	
-	static READ_HANDLER(ay_port_a_r)
-	{
+	public static ReadHandlerPtr ay_port_a_r  = new ReadHandlerPtr() { public int handler(int offset){
 		 /* bits 76------  latches ?  0x40 should be ok for prebillian but not for hot smash*/
 		 return (rand()&0xc0)|input_port_5_r(0);
-	}
+	} };
 	
 	
 	static struct CustomSound_interface custom_interface =

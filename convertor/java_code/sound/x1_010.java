@@ -245,11 +245,10 @@ public class x1_010
 	/* Use these for 8 bit CPUs */
 	
 	
-	READ_HANDLER( seta_sound_r )
-	{
+	public static ReadHandlerPtr seta_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset ^= address;
 		return x1_010_reg[offset];
-	}
+	} };
 	
 	
 	

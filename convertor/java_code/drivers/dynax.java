@@ -151,13 +151,12 @@ public class dynax
 			logerror("CPU#0 PC %06X: Warning, coin counter 1 <- %02X\n", activecpu_get_pc(), data);
 	}
 	
-	static READ_HANDLER( ret_ff )	{	return 0xff;	}
+	public static ReadHandlerPtr ret_ff  = new ReadHandlerPtr() { public int handler(int offset)	return 0xff;	}
 	
 	
 	static int keyb;
 	
-	static READ_HANDLER( hanamai_keyboard_0_r )
-	{
+	public static ReadHandlerPtr hanamai_keyboard_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = 0x3f;
 	
 		/* the game reads all rows at once (keyb = 0) to check if a key is pressed */
@@ -168,12 +167,11 @@ public class dynax
 		if (~keyb & 0x10) res &= readinputport(7);
 	
 		return res;
-	}
+	} };
 	
-	static READ_HANDLER( hanamai_keyboard_1_r )
-	{
+	public static ReadHandlerPtr hanamai_keyboard_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x3f;
-	}
+	} };
 	
 	static WRITE_HANDLER( hanamai_keyboard_w )
 	{
@@ -679,8 +677,7 @@ public class dynax
 	
 	}
 	
-	static READ_HANDLER( yarunara_input_r )
-	{
+	public static ReadHandlerPtr yarunara_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 			case 0:
@@ -718,7 +715,7 @@ public class dynax
 			}
 		}
 		return 0xff;
-	}
+	} };
 	
 	static WRITE_HANDLER( yarunara_rombank_w )
 	{

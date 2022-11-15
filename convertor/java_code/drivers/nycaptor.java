@@ -174,17 +174,6 @@ public class nycaptor
 	WRITE_HANDLER( nycaptor_68705_ddrC_w );
 	WRITE_HANDLER( nycaptor_mcu_w );
 	
-	READ_HANDLER( nycaptor_mcu_r );
-	READ_HANDLER( nycaptor_mcu_status_r1 );
-	READ_HANDLER( nycaptor_mcu_status_r2 );
-	READ_HANDLER( nycaptor_spriteram_r );
-	READ_HANDLER( nycaptor_palette_r );
-	READ_HANDLER( nycaptor_gfxctrl_r );
-	READ_HANDLER( nycaptor_scrlram_r );
-	READ_HANDLER( nycaptor_68705_portC_r );
-	READ_HANDLER( nycaptor_68705_portB_r );
-	READ_HANDLER( nycaptor_68705_portA_r );
-	READ_HANDLER( nycaptor_videoram_r );
 	
 	
 	
@@ -195,10 +184,9 @@ public class nycaptor
 	
 	static UINT8 snd_data;
 	
-	READ_HANDLER( from_snd_r )
-	{
+	public static ReadHandlerPtr from_snd_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return snd_data;
-	}
+	} };
 	
 	WRITE_HANDLER( to_main_w )
 	{
@@ -206,10 +194,9 @@ public class nycaptor
 	}
 	
 	
-	READ_HANDLER(nycaptor_sharedram_r)
-	{
+	public static ReadHandlerPtr nycaptor_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return nycaptor_sharedram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER(nycaptor_sharedram_w)
 	{
@@ -217,20 +204,17 @@ public class nycaptor
 	}
 	
 	
-	static READ_HANDLER( nycaptor_b_r )
-	{
+	public static ReadHandlerPtr nycaptor_b_r  = new ReadHandlerPtr() { public int handler(int offset){
 			return 1;
-	}
+	} };
 	
-	static READ_HANDLER( nycaptor_by_r )
-	{
+	public static ReadHandlerPtr nycaptor_by_r  = new ReadHandlerPtr() { public int handler(int offset){
 			return readinputport(6)-8;
-	}
+	} };
 	
-	static READ_HANDLER( nycaptor_bx_r )
-	{
+	public static ReadHandlerPtr nycaptor_bx_r  = new ReadHandlerPtr() { public int handler(int offset){
 			return (readinputport(5)+0x27)|1;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( sound_cpu_reset_w )
@@ -303,10 +287,9 @@ public class nycaptor
 	};
 	
 	
-	static READ_HANDLER ( nycaptor_generic_control_r )
-	{
+	public static ReadHandlerPtr nycaptor_generic_control_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return generic_control_reg;
-	}
+	} };
 	
 	static WRITE_HANDLER( nycaptor_generic_control_w )
 	{
@@ -430,15 +413,13 @@ public class nycaptor
 	/* Cycle Shooting */
 	
 	
-	static READ_HANDLER(cyclshtg_mcu_status_r)
-	{
+	public static ReadHandlerPtr cyclshtg_mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 	  return 0xff;
-	}
+	} };
 	
-	static READ_HANDLER(cyclshtg_mcu_r)
-	{
+	public static ReadHandlerPtr cyclshtg_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 	  return 7;
-	}
+	} };
 	
 	static WRITE_HANDLER(cyclshtg_mcu_w){}
 	

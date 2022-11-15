@@ -55,10 +55,6 @@ public class exzisus
 	extern size_t  exzisus_objectram_size0;
 	extern size_t  exzisus_objectram_size1;
 	
-	READ_HANDLER ( exzisus_videoram_0_r );
-	READ_HANDLER ( exzisus_videoram_1_r );
-	READ_HANDLER ( exzisus_objectram_0_r );
-	READ_HANDLER ( exzisus_objectram_1_r );
 	WRITE_HANDLER( exzisus_videoram_0_w );
 	WRITE_HANDLER( exzisus_videoram_1_w );
 	WRITE_HANDLER( exzisus_objectram_0_w );
@@ -112,15 +108,13 @@ public class exzisus
 		coin_counter_w(1,data & 0x08);
 	}
 	
-	static READ_HANDLER( exzisus_sharedram_ac_r )
-	{
+	public static ReadHandlerPtr exzisus_sharedram_ac_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return exzisus_sharedram_ac[offset];
-	}
+	} };
 	
-	static READ_HANDLER( exzisus_sharedram_bc_r )
-	{
+	public static ReadHandlerPtr exzisus_sharedram_bc_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return exzisus_sharedram_bc[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( exzisus_sharedram_ac_w )
 	{

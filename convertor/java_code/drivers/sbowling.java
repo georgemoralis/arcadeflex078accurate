@@ -116,8 +116,7 @@ public class sbowling
 		pix[0] = pix[1];
 		pix[1] = data;
 	}
-	static READ_HANDLER( pix_data_r )
-	{
+	public static ReadHandlerPtr pix_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT32 p1, p0;
 		int res;
 		int sh = pix_sh & 7;
@@ -128,7 +127,7 @@ public class sbowling
 		res = (((p1 << (sh+8)) | (p0 << sh)) & 0xff00) >> 8;
 	
 		return res;
-	}
+	} };
 	
 	
 	
@@ -174,13 +173,12 @@ public class sbowling
 		tilemap_mark_all_tiles_dirty(sb_tilemap);
 	}
 	
-	static READ_HANDLER (controls_r)
-	{
+	public static ReadHandlerPtr controls_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if(sbw_system&2)
 			return input_port_2_r(0);
 		else
 			return input_port_3_r(0);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x2fff, MRA_RAM },

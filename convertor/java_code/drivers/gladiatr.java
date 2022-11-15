@@ -110,7 +110,6 @@ public class gladiatr
 	/*Video functions*/
 	extern unsigned char *gladiator_text;
 	WRITE_HANDLER( gladiatr_video_registers_w );
-	READ_HANDLER( gladiatr_video_registers_r );
 	WRITE_HANDLER( gladiatr_paletteram_rg_w );
 	WRITE_HANDLER( gladiatr_paletteram_b_w );
 	extern extern WRITE_HANDLER( gladiatr_spritebank_w );
@@ -118,7 +117,6 @@ public class gladiatr
 	/*Rom bankswitching*/
 	static int banka;
 	WRITE_HANDLER( gladiatr_bankswitch_w );
-	READ_HANDLER( gladiatr_bankswitch_r );
 	
 	/*Rom bankswitching*/
 	WRITE_HANDLER( gladiatr_bankswitch_w ){
@@ -130,12 +128,11 @@ public class gladiatr
 		cpu_setbank(2,&RAM[bank2[(data & 0x03)]]);
 	}
 	
-	READ_HANDLER( gladiatr_bankswitch_r ){
+	public static ReadHandlerPtr gladiatr_bankswitch_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return banka;
 	}
 	
-	static READ_HANDLER( gladiator_dsw1_r )
-	{
+	public static ReadHandlerPtr gladiator_dsw1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int orig = readinputport(0); /* DSW1 */
 	/*Reverse all bits for Input Port 0*/
 	/*ie..Bit order is: 0,1,2,3,4,5,6,7*/
@@ -143,10 +140,9 @@ public class gladiatr
 	       | ((orig&0x04)<<3) | ((orig&0x08)<<1)
 	       | ((orig&0x10)>>1) | ((orig&0x20)>>3)
 	       | ((orig&0x40)>>5) | ((orig&0x80)>>7);;
-	}
+	} };
 	
-	static READ_HANDLER( gladiator_dsw2_r )
-	{
+	public static ReadHandlerPtr gladiator_dsw2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int orig = readinputport(1); /* DSW2 */
 	/*Bits 2-7 are reversed for Input Port 1*/
 	/*ie..Bit order is: 2,3,4,5,6,7,1,0*/
@@ -154,10 +150,9 @@ public class gladiatr
 		| ((orig&0x04)<<5) | ((orig&0x08)<<3)
 		| ((orig&0x10)<<1) | ((orig&0x20)>>1)
 		| ((orig&0x40)>>3) | ((orig&0x80)>>5);
-	}
+	} };
 	
-	static READ_HANDLER( gladiator_controll_r )
-	{
+	public static ReadHandlerPtr gladiator_controll_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int coins = 0;
 	
 		if( readinputport(4) & 0xc0 ) coins = 0x80;
@@ -172,10 +167,9 @@ public class gladiatr
 		}
 		/* unknown */
 		return 0;
-	}
+	} };
 	
-	static READ_HANDLER( gladiator_button3_r )
-	{
+	public static ReadHandlerPtr gladiator_button3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch(offset)
 		{
 		case 0x01: /* button 3 */
@@ -183,7 +177,7 @@ public class gladiatr
 		}
 		/* unknown */
 		return 0;
-	}
+	} };
 	
 	static struct TAITO8741interface gsword_8741interface=
 	{
@@ -213,10 +207,9 @@ public class gladiatr
 	#endif
 	
 	/* YM2203 port A handler (input) */
-	static READ_HANDLER( gladiator_dsw3_r )
-	{
+	public static ReadHandlerPtr gladiator_dsw3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return input_port_2_r(offset)^0xff;
-	}
+	} };
 	/* YM2203 port B handler (output) */
 	static WRITE_HANDLER( gladiator_int_control_w )
 	{
@@ -252,11 +245,10 @@ public class gladiatr
 		cpu_set_nmi_line(2,ASSERT_LINE);
 	}
 	
-	static READ_HANDLER( glad_cpu_sound_command_r )
-	{
+	public static ReadHandlerPtr glad_cpu_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_nmi_line(2,CLEAR_LINE);
 		return soundlatch_r(0);
-	}
+	} };
 	
 	
 	

@@ -131,16 +131,14 @@ public class thedeep
 		}
 	}
 	
-	static READ_HANDLER( thedeep_e004_r )
-	{
+	public static ReadHandlerPtr thedeep_e004_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return protection_irq ? 1 : 0;
-	}
+	} };
 	
-	static READ_HANDLER( thedeep_protection_r )
-	{
+	public static ReadHandlerPtr thedeep_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		protection_irq = 0;
 		return protection_data;
-	}
+	} };
 	
 	static WRITE_HANDLER( thedeep_e100_w )
 	{

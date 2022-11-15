@@ -100,10 +100,9 @@ public class popper
 	
 	static data8_t *popper_sharedram;
 	
-	static READ_HANDLER( popper_sharedram_r )
-	{
+	public static ReadHandlerPtr popper_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return popper_sharedram[offset];
-	}
+	} };
 	
 	//e000                  e001                  e002                  e003
 	//76543210              76543210              76543210              76543210
@@ -132,8 +131,7 @@ public class popper
 	//                      -----x--  free play
 	//                      ------x-  continue
 	//                      -------x  sound
-	static READ_HANDLER( popper_input_ports_r )
-	{
+	public static ReadHandlerPtr popper_input_ports_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t data=0;
 		switch (offset)
 		{
@@ -148,13 +146,12 @@ public class popper
 			case 7: data=                   ((readinputport(4)&0x40)<<1) | ((readinputport(5)&0x80)>>2); break;
 		}
 		return data;
-	}
+	} };
 	
-	static READ_HANDLER( popper_soundcpu_nmi_r )
-	{
+	public static ReadHandlerPtr popper_soundcpu_nmi_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_nmi_line(1,PULSE_LINE);
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( popper_sharedram_w )
 	{

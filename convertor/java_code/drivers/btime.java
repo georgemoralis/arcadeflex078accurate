@@ -70,9 +70,7 @@ public class btime
 	WRITE_HANDLER( bnj_background_w );
 	WRITE_HANDLER( bnj_scroll1_w );
 	WRITE_HANDLER( bnj_scroll2_w );
-	READ_HANDLER( btime_mirrorvideoram_r );
 	WRITE_HANDLER( btime_mirrorvideoram_w );
-	READ_HANDLER( btime_mirrorcolorram_r );
 	WRITE_HANDLER( btime_mirrorcolorram_w );
 	WRITE_HANDLER( lnc_videoram_w );
 	WRITE_HANDLER( lnc_mirrorvideoram_w );
@@ -87,7 +85,6 @@ public class btime
 	
 	static WRITE_HANDLER( sound_command_w );
 	
-	READ_HANDLER( mmonkey_protection_r );
 	WRITE_HANDLER( mmonkey_protection_w );
 	
 	
@@ -1800,8 +1797,7 @@ public class btime
 			rom[A+diff] = swap_bits_5_6(rom[A]);
 	}
 	
-	static READ_HANDLER( wtennis_reset_hack_r )
-	{
+	public static ReadHandlerPtr wtennis_reset_hack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		/* Otherwise the game goes into test mode and there is no way out that I
@@ -1811,7 +1807,7 @@ public class btime
 		RAM[0xfc30] = 0;
 	
 		return RAM[0xc15f];
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_btime  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *rom = memory_region(REGION_CPU1);

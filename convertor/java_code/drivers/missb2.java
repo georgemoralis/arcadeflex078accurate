@@ -24,21 +24,16 @@ public class missb2
 	
 	/* machine/bublbobl.c */
 	extern unsigned char *bublbobl_sharedram1,*bublbobl_sharedram2;
-	READ_HANDLER( bublbobl_sharedram1_r );
-	READ_HANDLER( bublbobl_sharedram2_r );
 	WRITE_HANDLER( bublbobl_sharedram1_w );
 	WRITE_HANDLER( bublbobl_sharedram2_w );
-	READ_HANDLER( bublbobl_68705_portA_r );
 	WRITE_HANDLER( bublbobl_68705_portA_w );
 	WRITE_HANDLER( bublbobl_68705_ddrA_w );
-	READ_HANDLER( bublbobl_68705_portB_r );
 	WRITE_HANDLER( bublbobl_68705_portB_w );
 	WRITE_HANDLER( bublbobl_68705_ddrB_w );
 	WRITE_HANDLER( bublbobl_bankswitch_w );
 	WRITE_HANDLER( tokio_bankswitch_w );
 	WRITE_HANDLER( tokio_videoctrl_w );
 	WRITE_HANDLER( bublbobl_nmitrigger_w );
-	READ_HANDLER( tokio_fake_r );
 	WRITE_HANDLER( bublbobl_sound_command_w );
 	WRITE_HANDLER( bublbobl_sh_nmi_disable_w );
 	WRITE_HANDLER( bublbobl_sh_nmi_enable_w );
@@ -209,10 +204,9 @@ public class missb2
 		{ 0xff94, 0xff94, MWA_NOP }, // ?
 	MEMORY_END
 	
-	//READ_HANDLER ( missb_random )
-	//{
+	//public static ReadHandlerPtr missb_random  = new ReadHandlerPtr() { public int handler(int offset)//{
 	//	return rand();
-	//}
+	//} };
 	
 	static MEMORY_READ_START( missb2_readmem2 )
 		{ 0x0000, 0x7fff, MRA_ROM },

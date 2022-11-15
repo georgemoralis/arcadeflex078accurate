@@ -18,10 +18,9 @@ public class ssrj
 		tilemap_mark_tile_dirty(tilemap1,offset>>1);
 	}
 	
-	READ_HANDLER(ssrj_vram1_r)
-	{
+	public static ReadHandlerPtr ssrj_vram1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ssrj_vram1[offset];
-	}
+	} };
 	
 	static void get_tile_info1(int tile_index)
 	{
@@ -42,10 +41,9 @@ public class ssrj
 		tilemap_mark_tile_dirty(tilemap2,offset>>1);
 	}
 	
-	READ_HANDLER(ssrj_vram2_r)
-	{
+	public static ReadHandlerPtr ssrj_vram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ssrj_vram2[offset];
-	}
+	} };
 	
 	static void get_tile_info2(int tile_index)
 	{
@@ -66,10 +64,9 @@ public class ssrj
 		tilemap_mark_tile_dirty(tilemap4,offset>>1);
 	}
 	
-	READ_HANDLER(ssrj_vram4_r)
-	{
+	public static ReadHandlerPtr ssrj_vram4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ssrj_vram4[offset];
-	}
+	} };
 	
 	static void get_tile_info4(int tile_index)
 	{

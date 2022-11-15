@@ -46,8 +46,6 @@ package drivers;
 public class raiden
 {
 	
-	READ_HANDLER( raiden_background_r );
-	READ_HANDLER( raiden_foreground_r );
 	WRITE_HANDLER( raiden_background_w );
 	WRITE_HANDLER( raiden_foreground_w );
 	WRITE_HANDLER( raiden_text_w );
@@ -59,7 +57,7 @@ public class raiden
 	
 	/***************************************************************************/
 	
-	static READ_HANDLER( raiden_shared_r ) { return raiden_shared_ram[offset]; }
+	public static ReadHandlerPtr raiden_shared_r  = new ReadHandlerPtr() { public int handler(int offset) return raiden_shared_ram[offset]; }
 	static WRITE_HANDLER( raiden_shared_w ) { raiden_shared_ram[offset]=data; }
 	
 	/******************************************************************************/
@@ -234,7 +232,7 @@ public class raiden
 		{ 0,1,2,3,8,9,10,11 },
 		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		128
-	};
+	} };;
 	
 	static struct GfxLayout raiden_spritelayout =
 	{
@@ -482,8 +480,7 @@ public class raiden
 	/***************************************************************************/
 	
 	/* Spin the sub-cpu if it is waiting on the master cpu */
-	static READ_HANDLER( sub_cpu_spin_r )
-	{
+	public static ReadHandlerPtr sub_cpu_spin_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int pc=activecpu_get_pc();
 		int ret=raiden_shared_ram[0x8];
 	
@@ -493,10 +490,9 @@ public class raiden
 			cpu_spin();
 	
 		return ret;
-	}
+	} };
 	
-	static READ_HANDLER( sub_cpu_spina_r )
-	{
+	public static ReadHandlerPtr sub_cpu_spina_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int pc=activecpu_get_pc();
 		int ret=raiden_shared_ram[0x8];
 	
@@ -506,7 +502,7 @@ public class raiden
 			cpu_spin();
 	
 		return ret;
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_raiden  = new DriverInitHandlerPtr() { public void handler(){
 		install_mem_read_handler(1, 0x4008, 0x4009, sub_cpu_spin_r);

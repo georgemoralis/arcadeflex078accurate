@@ -131,8 +131,7 @@ public class tugboat
 	
 	static int ctrl;
 	
-	static READ_HANDLER( tugboat_input_r )
-	{
+	public static ReadHandlerPtr tugboat_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (~ctrl & 0x80)
 			return readinputport(0);
 		else if (~ctrl & 0x40)
@@ -143,12 +142,11 @@ public class tugboat
 			return readinputport(3);
 		else
 			return readinputport(4);
-	}
+	} };
 	
-	static READ_HANDLER( tugboat_ctrl_r )
-	{
+	public static ReadHandlerPtr tugboat_ctrl_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ctrl;
-	}
+	} };
 	
 	static WRITE_HANDLER( tugboat_ctrl_w )
 	{

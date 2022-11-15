@@ -109,8 +109,7 @@ public class dogfgt
 		bm_plane = data;
 	}
 	
-	READ_HANDLER( dogfgt_bitmapram_r )
-	{
+	public static ReadHandlerPtr dogfgt_bitmapram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (bm_plane > 2)
 		{
 			usrintf_showmessage("bitmapram_r offs %04x plane %d\n",offset,bm_plane);
@@ -118,7 +117,7 @@ public class dogfgt
 		}
 	
 		return bitmapram[offset + BITMAPRAM_SIZE/3 * bm_plane];
-	}
+	} };
 	
 	static WRITE_HANDLER( internal_bitmapram_w )
 	{

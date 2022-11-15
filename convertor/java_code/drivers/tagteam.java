@@ -35,10 +35,8 @@ public class tagteam
 	
 	extern WRITE_HANDLER( tagteam_videoram_w );
 	extern WRITE_HANDLER( tagteam_colorram_w );
-	extern READ_HANDLER( tagteam_mirrorvideoram_r );
-	extern WRITE_HANDLER( tagteam_mirrorvideoram_w );
-	extern READ_HANDLER( tagteam_mirrorcolorram_r );
-	extern WRITE_HANDLER( tagteam_mirrorcolorram_w );
+	extern extern WRITE_HANDLER( tagteam_mirrorvideoram_w );
+	extern extern WRITE_HANDLER( tagteam_mirrorcolorram_w );
 	extern WRITE_HANDLER( tagteam_video_control_w );
 	extern WRITE_HANDLER( tagteam_control_w );
 	extern WRITE_HANDLER( tagteam_flipscreen_w );

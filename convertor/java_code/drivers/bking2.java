@@ -41,20 +41,16 @@ public class bking2
 	WRITE_HANDLER( bking2_hitclr_w );
 	WRITE_HANDLER( bking2_playfield_w );
 	
-	READ_HANDLER( bking2_input_port_5_r );
-	READ_HANDLER( bking2_input_port_6_r );
-	READ_HANDLER( bking2_pos_r );
 	
 	UINT8* bking2_playfield_ram;
 	
 	
 	static int sndnmi_enable = 1;
 	
-	static READ_HANDLER( bking2_sndnmi_disable_r )
-	{
+	public static ReadHandlerPtr bking2_sndnmi_disable_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sndnmi_enable = 0;
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( bking2_sndnmi_enable_w )
 	{
@@ -86,11 +82,10 @@ public class bking2
 		bk3_h = data;
 	}
 	
-	static READ_HANDLER( bk3_r )
-	{
+	public static ReadHandlerPtr bk3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *rom = memory_region(REGION_USER2);
 		return rom[bk3_h*256+bk3_l];
-	}
+	} };
 	
 	static WRITE_HANDLER( unk_w )
 	{
@@ -100,12 +95,11 @@ public class bking2
 	*/
 	}
 	
-	static READ_HANDLER( mcu_status_r )
-	{
+	public static ReadHandlerPtr mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int res = 3;
 	
 		return res;//cpu data / MCU ready
-	}
+	} };
 	
 	
 	/*
@@ -133,8 +127,7 @@ public class bking2
 			mcu_val = 0x5e;
 	}
 	
-	static READ_HANDLER( mcu_data_r )
-	{
+	public static ReadHandlerPtr mcu_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	usrintf_showmessage("MCU-r1 PC = %04x %02x",activecpu_get_pc(),mcu_val);
 		switch(mcu_val)
 		{
@@ -142,13 +135,12 @@ public class bking2
 			case 0x30: return (mcu_val-0x1e);
 			default:   return (mcu_val);
 		}
-	}
+	} };
 	
-	static READ_HANDLER( mcu_data_r2 )
-	{
+	public static ReadHandlerPtr mcu_data_r2  = new ReadHandlerPtr() { public int handler(int offset){
 	//	usrintf_showmessage("MCU-r2 PC = %04x %02x",activecpu_get_pc(),mcu_val);
 		return 0x31; //no "bad rom.", no "bad ext."
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

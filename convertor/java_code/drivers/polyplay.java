@@ -89,11 +89,9 @@ public class polyplay
 	
 	/* video hardware access */
 	extern unsigned char *polyplay_characterram;
-	READ_HANDLER( polyplay_characterram_r );
 	WRITE_HANDLER( polyplay_characterram_w );
 	
 	/* I/O Port handling */
-	static READ_HANDLER( polyplay_random_read );
 	
 	/* sound handling */
 	void set_channel1(int active);
@@ -266,10 +264,9 @@ public class polyplay
 			timer_adjust(polyplay_timer, TIME_IN_HZ(40), 0, TIME_IN_HZ(40));
 	}
 	
-	static READ_HANDLER( polyplay_random_read )
-	{
+	public static ReadHandlerPtr polyplay_random_read  = new ReadHandlerPtr() { public int handler(int offset){
 		return rand() & 0xff;
-	}
+	} };
 	
 	/* graphic structures */
 	static struct GfxLayout charlayout_1_bit =

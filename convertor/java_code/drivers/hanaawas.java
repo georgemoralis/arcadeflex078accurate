@@ -45,8 +45,7 @@ public class hanaawas
 	
 	extern extern extern 
 	
-	static READ_HANDLER( hanaawas_input_port_0_r )
-	{
+	public static ReadHandlerPtr hanaawas_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int i,ordinal = 0;
 		UINT16 buttons;
 	
@@ -67,7 +66,7 @@ public class hanaawas
 		}
 	
 		return (input_port_0_r(0) & 0xf0) | ordinal;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

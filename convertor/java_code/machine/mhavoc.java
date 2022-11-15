@@ -145,13 +145,12 @@ public class mhavoc
 	}
 	
 	
-	READ_HANDLER( mhavoc_alpha_r )
-	{
+	public static ReadHandlerPtr mhavoc_alpha_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("\t\t\t\t\treading from alpha processor: %02x (%d %d)\n", alpha_data, gamma_rcvd, alpha_xmtd);
 		gamma_rcvd = 1;
 		alpha_xmtd = 0;
 		return alpha_data;
-	}
+	} };
 	
 	
 	
@@ -170,13 +169,12 @@ public class mhavoc
 	}
 	
 	
-	READ_HANDLER( mhavoc_gamma_r )
-	{
+	public static ReadHandlerPtr mhavoc_gamma_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("  reading from gamma processor: %02x (%d %d)\n", gamma_data, alpha_rcvd, gamma_xmtd);
 		alpha_rcvd = 1;
 		gamma_xmtd = 0;
 		return gamma_data;
-	}
+	} };
 	
 	
 	
@@ -213,8 +211,7 @@ public class mhavoc
 	 *
 	 *************************************/
 	
-	READ_HANDLER( mhavoc_port_0_r )
-	{
+	public static ReadHandlerPtr mhavoc_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t res;
 	
 		/* Bits 7-6 = selected based on Player 1 */
@@ -241,11 +238,10 @@ public class mhavoc
 			res |= 0x01;
 	
 		return res;
-	}
+	} };
 	
 	
-	READ_HANDLER( alphaone_port_0_r )
-	{
+	public static ReadHandlerPtr alphaone_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Bits 7-2 = common */
 		data8_t res = readinputport(0) & 0xfc;
 	
@@ -258,11 +254,10 @@ public class mhavoc
 			res |= 0x01;
 	
 		return res;
-	}
+	} };
 	
 	
-	READ_HANDLER( mhavoc_port_1_r )
-	{
+	public static ReadHandlerPtr mhavoc_port_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Bits 7-2 = input switches */
 		data8_t res = readinputport(1) & 0xfc;
 	
@@ -275,7 +270,7 @@ public class mhavoc
 			res |= 0x01;
 	
 		return res;
-	}
+	} };
 	
 	
 	

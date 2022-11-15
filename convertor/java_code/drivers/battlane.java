@@ -104,11 +104,10 @@ public class battlane
 		RAM[offset] = data;
 	}
 	
-	READ_HANDLER( battlane_shared_ram_r )
-	{
+	public static ReadHandlerPtr battlane_shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 		return RAM[offset];
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( battlane_readmem )

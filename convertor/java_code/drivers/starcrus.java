@@ -31,7 +31,6 @@ public class starcrus
 	WRITE_HANDLER( starcrus_ship_parm_2_w );
 	WRITE_HANDLER( starcrus_proj_parm_1_w );
 	WRITE_HANDLER( starcrus_proj_parm_2_w );
-	READ_HANDLER( starcrus_coll_det_r );
 	extern extern extern int p1_sprite;
 	extern int p2_sprite;
 	extern int s1_sprite;

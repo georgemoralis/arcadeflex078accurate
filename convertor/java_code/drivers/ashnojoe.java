@@ -141,8 +141,7 @@ public class ashnojoe
 		{ 0x080000, 0x0bffff, MWA16_ROM },
 	MEMORY_END
 	
-	static READ_HANDLER(fake_6_r)
-	{
+	public static ReadHandlerPtr fake_6_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// if it returns 0 the cpu doesn't read from port $4 ?
 		int ret = 0;
 		ret ^= 1;
@@ -150,7 +149,7 @@ public class ashnojoe
 		return 1;
 		return 0;
 		return rand();
-	}
+	} };
 	
 	static WRITE_HANDLER( adpcm_data_w )
 	{

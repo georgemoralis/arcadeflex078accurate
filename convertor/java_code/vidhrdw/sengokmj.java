@@ -16,25 +16,21 @@ public class sengokmj
 	static struct tilemap *bg_tilemap,*md_tilemap,*tx_tilemap,*fg_tilemap;
 	data8_t *bg_vram,*md_vram,*tx_vram,*fg_vram;
 	
-	READ_HANDLER( sengoku_bg_vram_r )
-	{
+	public static ReadHandlerPtr sengoku_bg_vram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bg_vram[offset];
-	}
+	} };
 	
-	READ_HANDLER( sengoku_md_vram_r )
-	{
+	public static ReadHandlerPtr sengoku_md_vram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return md_vram[offset];
-	}
+	} };
 	
-	READ_HANDLER( sengoku_tx_vram_r )
-	{
+	public static ReadHandlerPtr sengoku_tx_vram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return tx_vram[offset];
-	}
+	} };
 	
-	READ_HANDLER( sengoku_fg_vram_r )
-	{
+	public static ReadHandlerPtr sengoku_fg_vram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return fg_vram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( sengoku_bg_vram_w )
 	{

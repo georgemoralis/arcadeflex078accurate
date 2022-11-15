@@ -67,7 +67,7 @@ public class spdbuggy
 	
 	***************************************************************************/
 	#if 0
-	static READ_HANDLER ( sharedram_r )	{ return sharedram[offset]; }
+	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset) return sharedram[offset]; }
 	static WRITE_HANDLER( sharedram_w )	{ sharedram[offset] = data; }
 	#endif
 	
@@ -94,8 +94,7 @@ public class spdbuggy
 		a400		shared with sub 1800
 	
 	*/
-	READ_HANDLER( spdbuggy_ram_r )
-	{
+	public static ReadHandlerPtr spdbuggy_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 			case 0x0aa6:
@@ -105,7 +104,7 @@ public class spdbuggy
 	
 			default:		return spdbuggy_ram[offset];
 		}
-	}
+	} };
 	
 	// f002 read : watchdog reset
 	static MEMORY_READ_START ( spdbuggy_readmem )
@@ -146,8 +145,7 @@ public class spdbuggy
 	***************************************************************************/
 	
 	
-	READ_HANDLER( spdbuggy_ram2_r )
-	{
+	public static ReadHandlerPtr spdbuggy_ram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 			case 0x3e00:
@@ -161,7 +159,7 @@ public class spdbuggy
 			}
 			default:	return spdbuggy_ram2[offset];
 		}
-	}
+	} };
 	
 	
 	static MEMORY_READ_START ( spdbuggy_readmem2 )

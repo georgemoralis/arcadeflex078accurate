@@ -226,8 +226,7 @@ public class spdodgeb
 	}
 	#endif
 	
-	static READ_HANDLER( mcu63701_r )
-	{
+	public static ReadHandlerPtr mcu63701_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	logerror("CPU #0 PC %04x: read from port %02x of 63701 data address 3801\n",activecpu_get_pc(),offset);
 	
 		if (mcu63701_command == 0) return 0x6a;
@@ -240,7 +239,7 @@ public class spdodgeb
 			case 3: return inputs[3];
 			case 4: return readinputport(4);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( mcu63701_w )
 	{
@@ -250,14 +249,13 @@ public class spdodgeb
 	}
 	
 	
-	static READ_HANDLER( port_0_r )
-	{
+	public static ReadHandlerPtr port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int port = readinputport(0);
 	
 		toggle^=0x02;	/* mcu63701_busy flag */
 	
 		return (port | toggle);
-	}
+	} };
 	
 	
 	

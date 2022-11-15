@@ -1535,15 +1535,13 @@ public class es5506
 	
 	***********************************************************************************************/
 	
-	READ_HANDLER( ES5506_data_0_r )
-	{
+	public static ReadHandlerPtr ES5506_data_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return es5506_reg_read(&es5506[0], offset);
-	}
+	} };
 	
-	READ_HANDLER( ES5506_data_1_r )
-	{
+	public static ReadHandlerPtr ES5506_data_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return es5506_reg_read(&es5506[1], offset);
-	}
+	} };
 	
 	READ16_HANDLER( ES5506_data_0_word_r )
 	{

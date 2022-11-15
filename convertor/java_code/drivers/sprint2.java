@@ -26,9 +26,7 @@ package drivers;
 public class sprint2
 {
 	
-	extern READ_HANDLER( sprint2_collision1_r );
-	extern READ_HANDLER( sprint2_collision2_r );
-	
+	extern extern 
 	extern WRITE_HANDLER( sprint2_collision_reset1_w );
 	extern WRITE_HANDLER( sprint2_collision_reset2_w );
 	extern WRITE_HANDLER( sprint2_video_ram_w );
@@ -118,20 +116,17 @@ public class sprint2
 	} };
 	
 	
-	static READ_HANDLER( sprint2_wram_r )
-	{
+	public static ReadHandlerPtr sprint2_wram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sprint2_video_ram[0x380 + offset % 0x80];
-	}
+	} };
 	
 	
-	static READ_HANDLER( sprint2_dip_r )
-	{
+	public static ReadHandlerPtr sprint2_dip_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(0) << (2 * ((offset & 3) ^ 3))) & 0xc0;
-	}
+	} };
 	
 	
-	static READ_HANDLER( sprint2_input_A_r )
-	{
+	public static ReadHandlerPtr sprint2_input_A_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = readinputport(1);
 	
 		if (game == 2)
@@ -145,11 +140,10 @@ public class sprint2
 		}
 	
 		return (val << (offset ^ 7)) & 0x80;
-	}
+	} };
 	
 	
-	static READ_HANDLER( sprint2_input_B_r )
-	{
+	public static ReadHandlerPtr sprint2_input_B_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = readinputport(2);
 	
 		if (game == 1)
@@ -160,11 +154,10 @@ public class sprint2
 		}
 	
 		return (val << (offset ^ 7)) & 0x80;
-	}
+	} };
 	
 	
-	static READ_HANDLER( sprint2_sync_r )
-	{
+	public static ReadHandlerPtr sprint2_sync_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = 0;
 	
 		if (attract != 0)
@@ -185,17 +178,15 @@ public class sprint2
 		}
 	
 		return val;
-	}
+	} };
 	
 	
-	static READ_HANDLER( sprint2_steering1_r )
-	{
+	public static ReadHandlerPtr sprint2_steering1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return steering[0];
-	}
-	static READ_HANDLER( sprint2_steering2_r )
-	{
+	} };
+	public static ReadHandlerPtr sprint2_steering2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return steering[1];
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( sprint2_steering_reset1_w )

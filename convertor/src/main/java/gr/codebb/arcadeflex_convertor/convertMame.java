@@ -31,6 +31,7 @@ public class convertMame {
     static final int MACHINE_STOP = 9;
     static final int DRIVER_INIT = 10;
     static final int NVRAM_HANDLER = 11;
+    static final int READ_HANDLER8 = 12;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -379,6 +380,30 @@ public class convertMame {
                         sUtil.putString((new StringBuilder()).append("ROM_END(); }}; ").toString());
                         continue;
                     }
+                    if (sUtil.getToken("READ_HANDLER")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static ReadHandlerPtr " + Convertor.token[0] + "  = new ReadHandlerPtr() { public int handler(int offset)");
+                            type = READ_HANDLER8;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -504,6 +529,30 @@ public class convertMame {
                             } else {
                                 sUtil.putString("public static NVRAMHandlerPtr nvram_handler_" + Convertor.token[0] + "  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write)");
                                 type = NVRAM_HANDLER;
+                                i3 = -1;
+                                Convertor.inpos += 1;
+                                continue;
+                            }
+                        }
+                        if (sUtil.getToken("READ_HANDLER")) {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '(') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != ')') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            if (sUtil.parseChar() == ';') {
+                                sUtil.skipLine();
+                                continue;
+                            } else {
+                                sUtil.putString("public static ReadHandlerPtr " + Convertor.token[0] + "  = new ReadHandlerPtr() { public int handler(int offset)");
+                                type = READ_HANDLER8;
                                 i3 = -1;
                                 Convertor.inpos += 1;
                                 continue;
@@ -645,7 +694,7 @@ public class convertMame {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
                             || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP
-                            || type == DRIVER_INIT || type == NVRAM_HANDLER) {
+                            || type == DRIVER_INIT || type == NVRAM_HANDLER || type == READ_HANDLER8) {
                         i3++;
                     }
                 }
@@ -655,7 +704,7 @@ public class convertMame {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
                             || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP
-                            || type == DRIVER_INIT || type == NVRAM_HANDLER) {
+                            || type == DRIVER_INIT || type == NVRAM_HANDLER || type == READ_HANDLER8) {
                         i3--;
                         if (i3 == -1) {
                             sUtil.putString("} };");

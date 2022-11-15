@@ -72,12 +72,11 @@ public class bwing
 	WRITE_HANDLER( bwing_videoram_w )  { videoram[offset] = data; tilemap_mark_tile_dirty(charmap, offset); }
 	
 	
-	READ_HANDLER ( bwing_scrollram_r )
-	{
+	public static ReadHandlerPtr bwing_scrollram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (!srbank) offset = srxlat[offset];
 	
 		return((srbase[srbank])[offset]);
-	}
+	} };
 	
 	
 	WRITE_HANDLER( bwing_scrollram_w )

@@ -74,8 +74,7 @@ public class cop01
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
 	}
 	
-	static READ_HANDLER( cop01_sound_command_r )
-	{
+	public static ReadHandlerPtr cop01_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 		static int pulse;
 	#define TIMER_RATE 12000	/* total guess */
@@ -92,11 +91,10 @@ public class cop01
 		else pulse = 0;
 	
 		return res;
-	}
+	} };
 	
 	
-	static READ_HANDLER( mightguy_dsw_r )
-	{
+	public static ReadHandlerPtr mightguy_dsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = 0xff;
 	
 		switch (offset)
@@ -110,7 +108,7 @@ public class cop01
 			}
 	
 		return (data);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )
@@ -173,7 +171,7 @@ public class cop01
 	PORT_END
 	
 	/* this just gets some garbage out of the YM3526 */
-	static READ_HANDLER( kludge ) { static int timer; return timer++; }
+	public static ReadHandlerPtr kludge  = new ReadHandlerPtr() { public int handler(int offset) static int timer; return timer++; }
 	
 	static PORT_READ_START( mightguy_sound_readport )
 		{ 0x03, 0x03, kludge },		/* 1412M2? */
@@ -366,7 +364,7 @@ public class cop01
 		{ 1*4, 0*4, 3*4, 2*4, 5*4, 4*4, 7*4, 6*4 },
 		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8
-	};
+	} };;
 	
 	static struct GfxLayout tilelayout =
 	{

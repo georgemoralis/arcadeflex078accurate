@@ -58,10 +58,9 @@ public class lasso
 	
 	static data8_t *lasso_sharedram;
 	
-	static READ_HANDLER( lasso_sharedram_r )
-	{
+	public static ReadHandlerPtr lasso_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return lasso_sharedram[offset];
-	}
+	} };
 	static WRITE_HANDLER( lasso_sharedram_w )
 	{
 		lasso_sharedram[offset] = data;
@@ -76,11 +75,10 @@ public class lasso
 		cpu_set_irq_line( 1, 0, PULSE_LINE );
 	}
 	
-	static READ_HANDLER( sound_status_r )
-	{
+	public static ReadHandlerPtr sound_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/*	0x01: chip#0 ready; 0x02: chip#1 ready */
 		return 0x03;
-	}
+	} };
 	
 	static data8_t lasso_chip_data;
 	

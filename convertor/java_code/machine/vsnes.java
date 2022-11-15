@@ -126,8 +126,7 @@ public class vsnes
 		}
 	}
 	
-	READ_HANDLER( gun_in0_r )
-	{
+	public static ReadHandlerPtr gun_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = ( input_latch[0] ) & 1;
 	
 		/* shift */
@@ -148,11 +147,10 @@ public class vsnes
 	
 		return ret;
 	
-	}
+	} };
 	
 	
-	READ_HANDLER( vsnes_in0_r )
-	{
+	public static ReadHandlerPtr vsnes_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 	
 		int ret = ( input_latch[0] ) & 1;
 	
@@ -164,11 +162,10 @@ public class vsnes
 	
 		return ret;
 	
-	}
+	} };
 	
 	
-	READ_HANDLER( vsnes_in1_r )
-	{
+	public static ReadHandlerPtr vsnes_in1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = ( input_latch[1] ) & 1;
 	
 		ret |= readinputport( 3 ) & ~3;			/* merge the rest of the dipswitches */
@@ -177,7 +174,7 @@ public class vsnes
 		input_latch[1] >>= 1;
 	
 		return ret;
-	}
+	} };
 	
 	WRITE_HANDLER( vsnes_in0_1_w )
 	{
@@ -190,8 +187,7 @@ public class vsnes
 		}
 	}
 	
-	READ_HANDLER( vsnes_in0_1_r )
-	{
+	public static ReadHandlerPtr vsnes_in0_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = ( input_latch[2] ) & 1;
 	
 		/* shift */
@@ -200,10 +196,9 @@ public class vsnes
 		ret |= readinputport( 6 ); 				/* merge coins, etc */
 		ret |= ( readinputport( 7 ) & 3 ) << 3; /* merge 2 dipswitches */
 		return ret;
-	}
+	} };
 	
-	READ_HANDLER( vsnes_in1_1_r )
-	{
+	public static ReadHandlerPtr vsnes_in1_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = ( input_latch[3] ) & 1;
 	
 		ret |= readinputport( 7 ) & ~3;			/* merge the rest of the dipswitches */
@@ -213,7 +208,7 @@ public class vsnes
 	
 		return ret;
 	
-	}
+	} };
 	
 	/*************************************
 	 *
@@ -491,11 +486,10 @@ public class vsnes
 	
 	/* Vs. Gumshoe */
 	
-	static READ_HANDLER( vsgshoe_security_r )
-	{
+	public static ReadHandlerPtr vsgshoe_security_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* low part must be 0x1c */
 		return ppu2c03b_0_r( 2 ) | 0x1c;
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_vsgshoe  = new DriverInitHandlerPtr() { public void handler(){
 	
@@ -751,11 +745,10 @@ public class vsnes
 	
 	/* VS Top Gun: ROMs bankings at $8000-$ffff, plus some protection */
 	
-	static READ_HANDLER( topgun_security_r )
-	{
+	public static ReadHandlerPtr topgun_security_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* low part must be 0x1b */
 		return ppu2c03b_0_r( 2 ) | 0x1b;
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_topgun  = new DriverInitHandlerPtr() { public void handler(){
 		/* when starting the game, the 1st 16k and the last 16k are loaded into the 2 banks */
@@ -955,8 +948,7 @@ public class vsnes
 	
 	/* Vs. RBI Baseball */
 	
-	static READ_HANDLER( rbi_hack_r)
-	{
+	public static ReadHandlerPtr rbi_hack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Supplied by Ben Parnell <xodnizel@home.com> of FCE Ultra fame */
 	
 		static int VSindex;
@@ -984,7 +976,7 @@ public class vsnes
 				break;
 			}
 		}
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_rbibb  = new DriverInitHandlerPtr() { public void handler(){
 		init_MMC3();
@@ -999,29 +991,25 @@ public class vsnes
 	
 	static int supxevs_prot_index = 0;
 	
-	static READ_HANDLER( supxevs_read_prot_1_r )
-	{
+	public static ReadHandlerPtr supxevs_read_prot_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x05;
-	}
+	} };
 	
-	static READ_HANDLER( supxevs_read_prot_2_r )
-	{
+	public static ReadHandlerPtr supxevs_read_prot_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if( supxevs_prot_index )
 			return 0;
 		else
 			return 0x01;
-	}
+	} };
 	
-	static READ_HANDLER( supxevs_read_prot_3_r )
-	{
+	public static ReadHandlerPtr supxevs_read_prot_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if( supxevs_prot_index )
 			return 0xd1;
 		else
 			return 0x89;
-	}
+	} };
 	
-	static READ_HANDLER( supxevs_read_prot_4_r )
-	{
+	public static ReadHandlerPtr supxevs_read_prot_4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if( supxevs_prot_index )
 		{
 			supxevs_prot_index = 0;
@@ -1032,7 +1020,7 @@ public class vsnes
 			supxevs_prot_index = 1;
 			return 0x37;
 		}
-	}
+	} };
 	
 	
 	public static DriverInitHandlerPtr init_supxevs  = new DriverInitHandlerPtr() { public void handler(){
@@ -1049,8 +1037,7 @@ public class vsnes
 	
 	/* Vs. TKO Boxing */
 	
-	static READ_HANDLER( tko_security_r )
-	{
+	public static ReadHandlerPtr tko_security_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int security_counter;
 		static UINT8 security_data[] = {
 			0xff, 0xbf, 0xb7, 0x97, 0x97, 0x17, 0x57, 0x4f,
@@ -1067,7 +1054,7 @@ public class vsnes
 	
 		return security_data[(security_counter++)];
 	
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_tkoboxng  = new DriverInitHandlerPtr() { public void handler(){
 		init_MMC3();
@@ -1155,10 +1142,9 @@ public class vsnes
 		/* 0, 4, 84 */
 	}
 	
-	static READ_HANDLER ( set_bnglngby_irq_r )
-	{
+	public static ReadHandlerPtr set_bnglngby_irq_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ret;
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_bnglngby  = new DriverInitHandlerPtr() { public void handler(){
 		install_mem_read_handler( 0, 0x0231, 0x0231, set_bnglngby_irq_r );
@@ -1182,11 +1168,10 @@ public class vsnes
 	/**********************************************************************************/
 	/* Vs. Ninja Jajamaru Kun */
 	
-	static READ_HANDLER( jajamaru_security_r )
-	{
+	public static ReadHandlerPtr jajamaru_security_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* low part must be 0x40 */
 		return ppu2c03b_0_r( 2 ) | 0x40;
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_jajamaru  = new DriverInitHandlerPtr() { public void handler(){
 		//It executes an illegal opcode: 0x04 at 0x9e67 and 0x9e1c
@@ -1208,11 +1193,10 @@ public class vsnes
 	
 	/* Vs. Mighty Bomb Jack */
 	
-	static READ_HANDLER( mightybj_security_r )
-	{
+	public static ReadHandlerPtr mightybj_security_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* low part must be 0x3d */
 		return ppu2c03b_0_r( 2 ) | 0x3d;
-	}
+	} };
 	
 	public static DriverInitHandlerPtr init_mightybj  = new DriverInitHandlerPtr() { public void handler(){
 		/* Protection */

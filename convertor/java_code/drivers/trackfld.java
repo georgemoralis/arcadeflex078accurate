@@ -39,11 +39,8 @@ public class trackfld
 	
 	extern extern extern 
 	extern WRITE_HANDLER( konami_sh_irqtrigger_w );
-	extern READ_HANDLER( trackfld_sh_timer_r );
-	extern READ_HANDLER( trackfld_speech_r );
-	extern WRITE_HANDLER( trackfld_sound_w );
-	extern READ_HANDLER( hyprolyb_speech_r );
-	extern WRITE_HANDLER( hyprolyb_ADPCM_data_w );
+	extern extern extern WRITE_HANDLER( trackfld_sound_w );
+	extern extern WRITE_HANDLER( hyprolyb_ADPCM_data_w );
 	
 	extern struct SN76496interface konami_sn76496_interface;
 	extern struct DACinterface konami_dac_interface;
@@ -51,8 +48,7 @@ public class trackfld
 	
 	
 	/* handle fake button for speed cheat */
-	static READ_HANDLER( konami_IN1_r )
-	{
+	public static ReadHandlerPtr konami_IN1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 		static int cheat = 0;
 		static int bits[] = { 0xee, 0xff, 0xbb, 0xaa };
@@ -66,7 +62,7 @@ public class trackfld
 			cheat = (cheat+1)%4;
 		}
 		return res;
-	}
+	} };
 	
 	/*
 	 Track'n'Field has 1k of battery backed RAM which can be erased by setting a dipswitch

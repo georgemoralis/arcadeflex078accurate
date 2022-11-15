@@ -95,8 +95,7 @@ public class segar
 	
 	***************************************************************************/
 	
-	static READ_HANDLER( segar_ports_r )
-	{
+	public static ReadHandlerPtr segar_ports_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int dip1, dip2;
 	
 		dip1 = input_port_6_r(offset);
@@ -121,7 +120,7 @@ public class segar
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	

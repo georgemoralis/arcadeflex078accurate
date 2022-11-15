@@ -46,7 +46,6 @@ public class yunsung8
 	
 	WRITE_HANDLER( yunsung8_videobank_w );
 	
-	READ_HANDLER ( yunsung8_videoram_r );
 	WRITE_HANDLER( yunsung8_videoram_w );
 	
 	WRITE_HANDLER( yunsung8_flipscreen_w );

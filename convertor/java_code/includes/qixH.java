@@ -23,24 +23,16 @@ public class qixH
 	extern UINT8 *qix_68705_ddr;
 	
 	
-	READ_HANDLER( qix_sharedram_r );
 	WRITE_HANDLER( qix_sharedram_w );
 	
 	WRITE_HANDLER( zoo_bankswitch_w );
 	
-	READ_HANDLER( qix_data_firq_r );
-	READ_HANDLER( qix_data_firq_ack_r );
 	WRITE_HANDLER( qix_data_firq_w );
 	WRITE_HANDLER( qix_data_firq_ack_w );
 	
-	READ_HANDLER( qix_video_firq_r );
-	READ_HANDLER( qix_video_firq_ack_r );
 	WRITE_HANDLER( qix_video_firq_w );
 	WRITE_HANDLER( qix_video_firq_ack_w );
 	
-	READ_HANDLER( qix_68705_portA_r );
-	READ_HANDLER( qix_68705_portB_r );
-	READ_HANDLER( qix_68705_portC_r );
 	WRITE_HANDLER( qix_68705_portA_w );
 	WRITE_HANDLER( qix_68705_portB_w );
 	WRITE_HANDLER( qix_68705_portC_w );
@@ -58,17 +50,12 @@ public class qixH
 	
 	void qix_scanline_callback(int scanline);
 	
-	READ_HANDLER( qix_scanline_r );
-	READ_HANDLER( qix_videoram_r );
 	WRITE_HANDLER( qix_videoram_w );
-	READ_HANDLER( qix_addresslatch_r );
 	WRITE_HANDLER( qix_addresslatch_w );
 	WRITE_HANDLER( slither_vram_mask_w );
 	WRITE_HANDLER( qix_paletteram_w );
 	WRITE_HANDLER( qix_palettebank_w );
 	
-	READ_HANDLER( qix_data_io_r );
-	READ_HANDLER( qix_sound_io_r );
 	WRITE_HANDLER( qix_data_io_w );
 	WRITE_HANDLER( qix_sound_io_w );
 }

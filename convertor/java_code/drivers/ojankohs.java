@@ -41,12 +41,9 @@ public class ojankohs
 {
 	
 	
-	READ_HANDLER( ojankohs_palette_r );
 	WRITE_HANDLER( ojankohs_palette_w );
 	WRITE_HANDLER( ccasino_palette_w );
-	READ_HANDLER( ojankohs_videoram_r );
 	WRITE_HANDLER( ojankohs_videoram_w );
-	READ_HANDLER( ojankohs_colorram_r );
 	WRITE_HANDLER( ojankohs_colorram_w );
 	WRITE_HANDLER( ojankohs_gfxreg_w );
 	WRITE_HANDLER( ojankohs_flipscreen_w );
@@ -137,8 +134,7 @@ public class ojankohs
 		ojankohs_portselect = data;
 	}
 	
-	static READ_HANDLER( ojankohs_keymatrix_r )
-	{
+	public static ReadHandlerPtr ojankohs_keymatrix_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret;
 	
 		switch (ojankohs_portselect) {
@@ -161,10 +157,9 @@ public class ojankohs
 		}
 	
 		return ret;
-	}
+	} };
 	
-	static READ_HANDLER( ojankoc_keymatrix_r )
-	{
+	public static ReadHandlerPtr ojankoc_keymatrix_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int i;
 		int ret = 0;
 	
@@ -174,45 +169,39 @@ public class ojankohs
 		}
 	
 		return (ret & 0x3f) | (readinputport(12 + offset) & 0xc0);
-	}
+	} };
 	
-	static READ_HANDLER( ojankohs_ay8910_0_r )
-	{
+	public static ReadHandlerPtr ojankohs_ay8910_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// DIPSW 2
 		return (((readinputport(2) & 0x01) << 7) | ((readinputport(2) & 0x02) << 5) |
 		        ((readinputport(2) & 0x04) << 3) | ((readinputport(2) & 0x08) << 1) |
 		        ((readinputport(2) & 0x10) >> 1) | ((readinputport(2) & 0x20) >> 3) |
 		        ((readinputport(2) & 0x40) >> 5) | ((readinputport(2) & 0x80) >> 7));
-	}
+	} };
 	
-	static READ_HANDLER( ojankohs_ay8910_1_r )
-	{
+	public static ReadHandlerPtr ojankohs_ay8910_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// DIPSW 1
 		return (((readinputport(3) & 0x01) << 7) | ((readinputport(3) & 0x02) << 5) |
 		        ((readinputport(3) & 0x04) << 3) | ((readinputport(3) & 0x08) << 1) |
 		        ((readinputport(3) & 0x10) >> 1) | ((readinputport(3) & 0x20) >> 3) |
 		        ((readinputport(3) & 0x40) >> 5) | ((readinputport(3) & 0x80) >> 7));
-	}
+	} };
 	
-	static READ_HANDLER( ojankoy_ay8910_0_r )
-	{
+	public static ReadHandlerPtr ojankoy_ay8910_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(2);				// DIPSW 2
-	}
+	} };
 	
-	static READ_HANDLER( ojankoy_ay8910_1_r )
-	{
+	public static ReadHandlerPtr ojankoy_ay8910_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(3);				// DIPSW 1
-	}
+	} };
 	
-	static READ_HANDLER( ccasino_dipsw3_r )
-	{
+	public static ReadHandlerPtr ccasino_dipsw3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(9) ^ 0xff);		// DIPSW 3
-	}
+	} };
 	
-	static READ_HANDLER( ccasino_dipsw4_r )
-	{
+	public static ReadHandlerPtr ccasino_dipsw4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(10) ^ 0xff);		// DIPSW 4
-	}
+	} };
 	
 	static WRITE_HANDLER( ojankoy_coinctr_w )
 	{

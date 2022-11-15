@@ -59,20 +59,15 @@ public class arkanoid
 	extern 
 	extern WRITE_HANDLER( arkanoid_d008_w );
 	
-	extern READ_HANDLER( arkanoid_Z80_mcu_r );
-	extern WRITE_HANDLER( arkanoid_Z80_mcu_w );
+	extern extern WRITE_HANDLER( arkanoid_Z80_mcu_w );
 	
-	extern READ_HANDLER( arkanoid_68705_portA_r );
-	extern WRITE_HANDLER( arkanoid_68705_portA_w );
+	extern extern WRITE_HANDLER( arkanoid_68705_portA_w );
 	extern WRITE_HANDLER( arkanoid_68705_ddrA_w );
 	
-	extern READ_HANDLER( arkanoid_68705_portC_r );
-	extern WRITE_HANDLER( arkanoid_68705_portC_w );
+	extern extern WRITE_HANDLER( arkanoid_68705_portC_w );
 	extern WRITE_HANDLER( arkanoid_68705_ddrC_w );
 	
-	extern READ_HANDLER( arkanoid_68705_input_0_r );
-	extern READ_HANDLER( arkanoid_input_2_r );
-	
+	extern extern 
 	/*
 	Paddle 2 MCU simulation
 	
@@ -92,8 +87,7 @@ public class arkanoid
 	
 	static int paddle2_prot;
 	
-	static READ_HANDLER( paddle2_prot_r )
-	{
+	public static ReadHandlerPtr paddle2_prot_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static UINT8 level_table_a[] =
 		{
 			0xf3,0xf7,0xf9,0xfb,0xfd,0xff,0xf5,0xe3, /* 1- 8*/
@@ -134,7 +128,7 @@ public class arkanoid
 			case 0xf7: return 0;
 			default: return paddle2_prot;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( paddle2_prot_w )
 	{
@@ -142,15 +136,14 @@ public class arkanoid
 		paddle2_prot = data;
 	}
 	
-	static READ_HANDLER( track_kludge_r )
-	{
+	public static ReadHandlerPtr track_kludge_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int track = readinputport(2);
 	
 		/* temp kludge,needed to get the right side of the screen */
 		if(track < 0x44)
 			return 0x23;
 		return 0x03;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0xbfff, MRA_ROM },

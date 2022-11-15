@@ -70,16 +70,14 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( switch_input_r )
-	{
+	public static ReadHandlerPtr switch_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(port_select);
-	}
+	} };
 	
 	
-	static READ_HANDLER( analog_input_r )
-	{
+	public static ReadHandlerPtr analog_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ((readinputport(7) >> 4) | (readinputport(8) & 0xf0)) ^ 0x88;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( switch_input_select_w )
@@ -120,11 +118,10 @@ public class crgolf
 	}
 	
 	
-	static READ_HANDLER( main_to_sound_r )
-	{
+	public static ReadHandlerPtr main_to_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(1, IRQ_LINE_NMI, CLEAR_LINE);
 		return main_to_sound_data;
-	}
+	} };
 	
 	
 	
@@ -147,11 +144,10 @@ public class crgolf
 	}
 	
 	
-	static READ_HANDLER( sound_to_main_r )
-	{
+	public static ReadHandlerPtr sound_to_main_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(0, IRQ_LINE_NMI, CLEAR_LINE);
 		return sound_to_main_data;
-	}
+	} };
 	
 	
 	

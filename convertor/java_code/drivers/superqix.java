@@ -26,10 +26,8 @@ public class superqix
 	
 	extern WRITE_HANDLER( superqix_videoram_w );
 	extern WRITE_HANDLER( superqix_colorram_w );
-	extern READ_HANDLER( superqix_bitmapram_r );
-	extern WRITE_HANDLER( superqix_bitmapram_w );
-	extern READ_HANDLER( superqix_bitmapram2_r );
-	extern WRITE_HANDLER( superqix_bitmapram2_w );
+	extern extern WRITE_HANDLER( superqix_bitmapram_w );
+	extern extern WRITE_HANDLER( superqix_bitmapram2_w );
 	extern WRITE_HANDLER( superqix_0410_w );
 	extern WRITE_HANDLER( superqix_flipscreen_w );
 	

@@ -6,7 +6,6 @@
 
 /*----------- defined in drivers/bzone.c -----------*/
 
-READ_HANDLER( bzone_IN0_r );
 
 
 /*----------- defined in sndhrdw/bzone.c -----------*/

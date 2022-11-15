@@ -375,10 +375,9 @@ public class metro
 	
 	static int porta,portb;
 	
-	static READ_HANDLER( daitorid_porta_r )
-	{
+	public static ReadHandlerPtr daitorid_porta_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return porta;
-	}
+	} };
 	
 	static WRITE_HANDLER( daitorid_porta_w )
 	{

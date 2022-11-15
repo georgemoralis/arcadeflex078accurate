@@ -384,10 +384,9 @@ public class leland
 	}
 	
 	
-	READ_HANDLER( leland_mvram_port_r )
-	{
+	public static ReadHandlerPtr leland_mvram_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    return leland_vram_port_r(offset, 0);
-	}
+	} };
 	
 	
 	
@@ -409,10 +408,9 @@ public class leland
 	}
 	
 	
-	READ_HANDLER( leland_svram_port_r )
-	{
+	public static ReadHandlerPtr leland_svram_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    return leland_vram_port_r(offset, 1);
-	}
+	} };
 	
 	
 	
@@ -449,18 +447,16 @@ public class leland
 	 *
 	 *************************************/
 	
-	READ_HANDLER( ataxx_mvram_port_r )
-	{
+	public static ReadHandlerPtr ataxx_mvram_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = ((offset >> 1) & 0x07) | ((offset << 3) & 0x08) | (offset & 0x10);
 	    return leland_vram_port_r(offset, 0);
-	}
+	} };
 	
 	
-	READ_HANDLER( ataxx_svram_port_r )
-	{
+	public static ReadHandlerPtr ataxx_svram_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = ((offset >> 1) & 0x07) | ((offset << 3) & 0x08) | (offset & 0x10);
 	    return leland_vram_port_r(offset, 1);
-	}
+	} };
 	
 	
 	

@@ -182,8 +182,6 @@ pen_t get_black_pen(void);
 /* here are some functions to handle commonly used palette layouts, so you don't
    have to write your own paletteram_w() function. */
 
-READ_HANDLER( paletteram_r );
-READ_HANDLER( paletteram_2_r );
 READ16_HANDLER( paletteram16_word_r );
 READ16_HANDLER( paletteram16_2_word_r );
 READ32_HANDLER( paletteram32_r );

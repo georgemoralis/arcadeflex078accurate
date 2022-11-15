@@ -81,8 +81,7 @@ public class pastelgl
 	MEMORY_END
 	
 	
-	static READ_HANDLER( io_pastelgl_r )
-	{
+	public static ReadHandlerPtr io_pastelgl_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset = (((offset & 0xff00) >> 8) | ((offset & 0x00ff) << 8));
 	
 		if (offset < 0x8000) return nb1413m3_sndrom_r(offset);
@@ -99,7 +98,7 @@ public class pastelgl
 			case	0xf100:	return nb1413m3_dipsw2_r(0);
 			default:	return 0xff;
 		}
-	}
+	} };
 	
 	static PORT_READ_START( readport_pastelgl )
 		{ 0x0000, 0xffff, io_pastelgl_r },

@@ -210,15 +210,13 @@ public class dkong
 	WRITE_HANDLER( dkongjr_sh_test4_w )      { p[2] = ACTIVELOW_PORT_BIT(p[2],4,data); }
 	WRITE_HANDLER( dkongjr_sh_tuneselect_w ) { soundlatch_w(offset,data); }
 	
-	READ_HANDLER( hunchbks_mirror_r );
 	WRITE_HANDLER( hunchbks_mirror_w );
 	
-	static READ_HANDLER( dkong_sh_p1_r )   { return p[1]; }
-	static READ_HANDLER( dkong_sh_p2_r )   { return p[2]; }
-	static READ_HANDLER( dkong_sh_t0_r )   { return t[0]; }
-	static READ_HANDLER( dkong_sh_t1_r )   { return t[1]; }
-	static READ_HANDLER( dkong_sh_tune_r )
-	{
+	public static ReadHandlerPtr dkong_sh_p1_r  = new ReadHandlerPtr() { public int handler(int offset) { return p[1]; } };
+	public static ReadHandlerPtr dkong_sh_p2_r  = new ReadHandlerPtr() { public int handler(int offset) { return p[2]; } };
+	public static ReadHandlerPtr dkong_sh_t0_r  = new ReadHandlerPtr() { public int handler(int offset) { return t[0]; } };
+	public static ReadHandlerPtr dkong_sh_t1_r  = new ReadHandlerPtr() { public int handler(int offset) { return t[1]; } };
+	public static ReadHandlerPtr dkong_sh_tune_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 *SND = memory_region(REGION_CPU2);
 		if (page & 0x40)
 		{
@@ -228,9 +226,8 @@ public class dkong
 			}
 		}
 		return (SND[2048+(page & 7)*256+offset]);
-	}
+	} };
 	
-	READ_HANDLER( strtheat_decrypt_rom );
 	//WRITE_HANDLER( strtheat_writeport );
 	
 	
@@ -262,10 +259,9 @@ public class dkong
 	}
 	
 	
-	static READ_HANDLER( dkong_in2_r )
-	{
+	public static ReadHandlerPtr dkong_in2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return input_port_2_r(offset) | (mcustatus << 6);
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )
@@ -419,8 +415,7 @@ public class dkong
 		hunchloopback=data;
 	}
 	
-	READ_HANDLER( hunchbkd_port0_r )
-	{
+	public static ReadHandlerPtr hunchbkd_port0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("port 0 : pc = %4x\n",activecpu_get_pc());
 	
 		switch (activecpu_get_pc())
@@ -430,15 +425,13 @@ public class dkong
 		}
 	
 	    return 0;
-	}
+	} };
 	
-	READ_HANDLER( hunchbkd_port1_r )
-	{
+	public static ReadHandlerPtr hunchbkd_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return hunchloopback;
-	}
+	} };
 	
-	READ_HANDLER( herbiedk_port1_r )
-	{
+	public static ReadHandlerPtr herbiedk_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
 		{
 	        case 0x002b:
@@ -446,10 +439,9 @@ public class dkong
 		}
 	
 	    return 1;
-	}
+	} };
 	
-	READ_HANDLER( spclforc_port0_r )
-	{
+	public static ReadHandlerPtr spclforc_port0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
 		{
 			case 0x00a3: // spclforc
@@ -458,10 +450,9 @@ public class dkong
 		}
 	
 	    return 0;
-	}
+	} };
 	
-	READ_HANDLER( eightact_port1_r )
-	{
+	public static ReadHandlerPtr eightact_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
 		{
 			case 0x0021:
@@ -469,10 +460,9 @@ public class dkong
 		}
 	
 	    return 1;
-	}
+	} };
 	
-	READ_HANDLER( shootgal_port0_r )
-	{
+	public static ReadHandlerPtr shootgal_port0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
 		{
 			case 0x0079:
@@ -480,7 +470,7 @@ public class dkong
 		}
 	
 	    return 0;
-	}
+	} };
 	
 	static PORT_WRITE_START( hunchbkd_writeport )
 		{ S2650_DATA_PORT, S2650_DATA_PORT, hunchbkd_data_w },

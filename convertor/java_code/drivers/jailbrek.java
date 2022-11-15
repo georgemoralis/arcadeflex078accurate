@@ -56,7 +56,7 @@ public class jailbrek
 	} };
 	
 	
-	static READ_HANDLER( jailbrek_speech_r ) {
+	public static ReadHandlerPtr jailbrek_speech_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return ( VLM5030_BSY() ? 1 : 0 );
 	}
 	
@@ -212,7 +212,7 @@ public class jailbrek
 		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
 		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8	/* every char takes 32 consecutive bytes */
-	};
+	} };;
 	
 	static struct GfxLayout spritelayout =
 	{

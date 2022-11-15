@@ -172,13 +172,12 @@ public class supertnk
 	
 	
 	
-	READ_HANDLER( supertnk_videoram_r )
-	{
+	public static ReadHandlerPtr supertnk_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (supertnk_video_bitplane < 3)
 			return supertnk_videoram[0x2000 * supertnk_video_bitplane + offset];
 		else
 			return 0;
-	}
+	} };
 	
 	
 	public static VideoUpdateHandlerPtr video_update_supertnk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){

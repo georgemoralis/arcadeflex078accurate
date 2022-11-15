@@ -1500,11 +1500,10 @@ public class ms32
 	 code at $38 reads the 2nd command latch ??
 	*/
 	
-	static READ_HANDLER( latch_r )
-	{
+	public static ReadHandlerPtr latch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(1, IRQ_LINE_NMI, CLEAR_LINE);
 		return soundlatch_r(0)^0xff;
-	}
+	} };
 	
 	static WRITE_HANDLER( ms32_snd_bank_w )
 	{

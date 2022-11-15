@@ -137,8 +137,7 @@ public class polepos
 		adc_input = data;
 	}
 	
-	READ_HANDLER( polepos_adc_r )
-	{
+	public static ReadHandlerPtr polepos_adc_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = 0;
 	
 		switch (adc_input)
@@ -157,10 +156,9 @@ public class polepos
 		}
 	
 		return ret;
-	}
+	} };
 	
-	READ_HANDLER( polepos_io_r )
-	{
+	public static ReadHandlerPtr polepos_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = 0xff;
 	
 		if (cpu_getscanline() >= 128)
@@ -169,7 +167,7 @@ public class polepos
 		ret ^= 0x08; /* ADC End Flag */
 	
 		return ret;
-	}
+	} };
 	
 	
 	/*************************************************************************************/
@@ -220,13 +218,12 @@ public class polepos
 		cpu_set_nmi_line(0, PULSE_LINE);
 	}
 	
-	READ_HANDLER( polepos_mcu_control_r )
-	{
+	public static ReadHandlerPtr polepos_mcu_control_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (polepos_mcu.enabled)
 			return polepos_mcu.status;
 	
 		return 0x00;
-	}
+	} };
 	
 	WRITE_HANDLER( polepos_mcu_control_w )
 	{
@@ -251,8 +248,7 @@ public class polepos
 		}
 	}
 	
-	READ_HANDLER( polepos_mcu_data_r )
-	{
+	public static ReadHandlerPtr polepos_mcu_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (polepos_mcu.enabled)
 		{
 			LOG(("MCU read: PC = %04x, transfer mode = %02x, offset = %02x\n", activecpu_get_pc(), polepos_mcu.transfer_id & 0xff, offset ));
@@ -349,7 +345,7 @@ public class polepos
 		}
 	
 		return 0xff; /* pull up */
-	}
+	} };
 	
 	WRITE_HANDLER( polepos_mcu_data_w )
 	{

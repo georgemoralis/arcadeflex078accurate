@@ -166,14 +166,13 @@ public class cave
 	
 	//static data8_t sound_flag1, sound_flag2;
 	
-	static READ_HANDLER( soundflags_r )
-	{
+	public static ReadHandlerPtr soundflags_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// bit 2 is low: can read command (lo)
 		// bit 3 is low: can read command (hi)
 	//	return	(sound_flag1 ? 0 : 4) |
 	//			(sound_flag2 ? 0 : 8) ;
 	return 0;
-	}
+	} };
 	
 	static READ16_HANDLER( soundflags_ack_r )
 	{
@@ -196,18 +195,16 @@ public class cave
 	}
 	
 	/* Sound CPU: read the low 8 bits of the 16 bit sound latch */
-	static READ_HANDLER( soundlatch_lo_r )
-	{
+	public static ReadHandlerPtr soundlatch_lo_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	sound_flag1 = 0;
 		return soundlatch_word_r(offset,0) & 0xff;
-	}
+	} };
 	
 	/* Sound CPU: read the high 8 bits of the 16 bit sound latch */
-	static READ_HANDLER( soundlatch_hi_r )
-	{
+	public static ReadHandlerPtr soundlatch_hi_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//	sound_flag2 = 0;
 		return soundlatch_word_r(offset,0) >> 8;
-	}
+	} };
 	
 	/* Main CPU: read the latch written by the sound CPU (acknowledge) */
 	static READ16_HANDLER( soundlatch_ack_r )
@@ -1293,10 +1290,9 @@ public class cave
 	***************************************************************************/
 	
 	static data8_t *mirror_ram;
-	static READ_HANDLER( mirror_ram_r )
-	{
+	public static ReadHandlerPtr mirror_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return mirror_ram[offset];
-	}
+	} };
 	static WRITE_HANDLER( mirror_ram_w )
 	{
 		mirror_ram[offset] = data;

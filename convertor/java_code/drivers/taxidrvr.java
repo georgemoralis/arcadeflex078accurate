@@ -30,15 +30,13 @@ public class taxidrvr
 	
 	static int s1,s2,s3,s4,latchA,latchB;
 	
-	static READ_HANDLER( p0a_r )
-	{
+	public static ReadHandlerPtr p0a_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return latchA;
-	}
+	} };
 	
-	static READ_HANDLER( p0c_r )
-	{
+	public static ReadHandlerPtr p0c_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (s1 << 7);
-	}
+	} };
 	
 	static WRITE_HANDLER( p0b_w )
 	{
@@ -58,15 +56,13 @@ public class taxidrvr
 	//	usrintf_showmessage("%02x",data&0x0f);
 	}
 	
-	static READ_HANDLER( p1b_r )
-	{
+	public static ReadHandlerPtr p1b_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return latchB;
-	}
+	} };
 	
-	static READ_HANDLER( p1c_r )
-	{
+	public static ReadHandlerPtr p1c_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (s2 << 7) | (s4 << 6) | ((readinputport(5) & 1) << 4);
-	}
+	} };
 	
 	static WRITE_HANDLER( p1a_w )
 	{
@@ -79,15 +75,13 @@ public class taxidrvr
 		s3 = (data & 2) >> 1;
 	}
 	
-	static READ_HANDLER( p8910_0a_r )
-	{
+	public static ReadHandlerPtr p8910_0a_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return latchA;
-	}
+	} };
 	
-	static READ_HANDLER( p8910_1a_r )
-	{
+	public static ReadHandlerPtr p8910_1a_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return s3;
-	}
+	} };
 	
 	/* note that a lot of writes happen with port B set as input. I think this is a bug in the
 	   original, since it works anyway even if the communication is flawed. */

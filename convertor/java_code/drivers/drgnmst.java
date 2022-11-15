@@ -57,13 +57,11 @@ public class drgnmst
 	}
 	
 	
-	static READ_HANDLER( pic16c5x_port0_r )
-	{
+	public static ReadHandlerPtr pic16c5x_port0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return pic16c5x_port0;
-	}
+	} };
 	
-	static READ_HANDLER( drgnmst_snd_command_r )
-	{
+	public static ReadHandlerPtr drgnmst_snd_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = 0;
 	
 		switch (drgnmst_oki_control & 0x1f)
@@ -76,17 +74,16 @@ public class drgnmst
 		}
 	
 		return data;
-	}
+	} };
 	
-	static READ_HANDLER( drgnmst_snd_flag_r )
-	{
+	public static ReadHandlerPtr drgnmst_snd_flag_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (drgnmst_snd_flag) {
 			drgnmst_snd_flag = 0;
 			return 0x40;
 		}
 	
 		return 0x00;
-	}
+	} };
 	
 	static WRITE_HANDLER( drgnmst_pcm_banksel_w )
 	{
@@ -161,10 +158,9 @@ public class drgnmst
 	}
 	
 	
-	static READ_HANDLER( PIC16C5X_T0_clk_r )
-	{
+	public static ReadHandlerPtr PIC16C5X_T0_clk_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0;
-	}
+	} };
 	
 	
 	

@@ -63,8 +63,7 @@ public class finalizr
 			cpu_set_irq_line(1, 0, CLEAR_LINE);
 	}
 	
-	static READ_HANDLER( i8039_T1_r )
-	{
+	public static ReadHandlerPtr i8039_T1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/*  I suspect the clock-out from the I8039 T0 line should be connected
 			here (See the i8039_T0_w handler below).
 			The frequency of this clock cannot be greater than I8039 CLKIN / 45
@@ -86,7 +85,7 @@ public class finalizr
 			return 1;
 		}
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( i8039_T0_w )
 	{

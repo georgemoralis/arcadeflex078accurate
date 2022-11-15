@@ -70,15 +70,13 @@ public class dribling
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( dsr_r )
-	{
+	public static ReadHandlerPtr dsr_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* return DSR0-7 */
 		return (ds << sh) | (dr >> (8 - sh));
-	}
+	} };
 	
 	
-	static READ_HANDLER( input_mux0_r )
-	{
+	public static ReadHandlerPtr input_mux0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* low value in the given bit selects */
 		if (!(input_mux & 0x01))
 			return readinputport(0);
@@ -87,7 +85,7 @@ public class dribling
 		else if (!(input_mux & 0x04))
 			return readinputport(2);
 		return 0xff;
-	}
+	} };
 	
 	
 	
@@ -159,14 +157,13 @@ public class dribling
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( ioread )
-	{
+	public static ReadHandlerPtr ioread  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset & 0x08)
 			return ppi8255_0_r(offset & 3);
 		else if (offset & 0x10)
 			return ppi8255_1_r(offset & 3);
 		return 0xff;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( iowrite )

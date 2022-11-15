@@ -49,18 +49,16 @@ public class jack
 	extern WRITE_HANDLER( jack_videoram_w );
 	extern WRITE_HANDLER( jack_colorram_w );
 	extern WRITE_HANDLER( jack_paletteram_w );
-	extern READ_HANDLER( jack_flipscreen_r );
-	extern WRITE_HANDLER( jack_flipscreen_w );
+	extern extern WRITE_HANDLER( jack_flipscreen_w );
 	
 	extern extern 
 	static int timer_rate;
 	
-	static READ_HANDLER( timer_r )
-	{
+	public static ReadHandlerPtr timer_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* wrong! there should be no need for timer_rate, the same function */
 		/* should work for both games */
 		return activecpu_gettotalcycles() / timer_rate;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( jack_sh_command_w )

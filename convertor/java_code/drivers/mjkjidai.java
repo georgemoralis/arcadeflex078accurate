@@ -46,8 +46,7 @@ public class mjkjidai
 	
 	static int keyb,nvram_init_count;
 	
-	static READ_HANDLER( keyboard_r )
-	{
+	public static ReadHandlerPtr keyboard_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = 0x3f,i;
 	
 	//	logerror("%04x: keyboard_r\n",activecpu_get_pc());
@@ -70,7 +69,7 @@ public class mjkjidai
 		}
 	
 		return res;
-	}
+	} };
 	
 	static WRITE_HANDLER( keyboard_select_w )
 	{

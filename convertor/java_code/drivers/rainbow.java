@@ -319,10 +319,9 @@ public class rainbow
 		cpu_setbank(5, memory_region(REGION_CPU2) + ((data - 1) & 3) * 0x4000 + 0x10000);
 	}
 	
-	static READ_HANDLER( jumping_latch_r )
-	{
+	public static ReadHandlerPtr jumping_latch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return jumping_latch;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( rainbow_s_readmem )

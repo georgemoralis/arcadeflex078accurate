@@ -12,15 +12,11 @@ extern void sega_security(int chip);
 WRITE_HANDLER( sega_w );
 
 
-READ_HANDLER( sega_mult_r );
 WRITE_HANDLER( sega_mult1_w );
 WRITE_HANDLER( sega_mult2_w );
 WRITE_HANDLER( sega_switch_w );
 WRITE_HANDLER( sega_coin_counter_w );
 
-READ_HANDLER( sega_ports_r );
-READ_HANDLER( sega_IN4_r );
-READ_HANDLER( elim4_IN4_r );
 
 
 /*----------- defined in sndhrdw/sega.c -----------*/

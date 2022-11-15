@@ -65,10 +65,9 @@ public class blueprnt
 		dipsw = data;
 	}
 	
-	static READ_HANDLER( blueprnt_sh_dipsw_r )
-	{
+	public static ReadHandlerPtr blueprnt_sh_dipsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return dipsw;
-	}
+	} };
 	
 	static WRITE_HANDLER( blueprnt_sound_command_w )
 	{

@@ -252,8 +252,7 @@ public class homedata
 	
 	static int keyb;
 	
-	static READ_HANDLER( mrokumei_keyboard_r )
-	{
+	public static ReadHandlerPtr mrokumei_keyboard_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = 0x3f,i;
 	
 		/* offset 0 is player 1, offset 1 player 2 (not supported) */
@@ -283,7 +282,7 @@ public class homedata
 		}
 	
 		return res;
-	}
+	} };
 	
 	static WRITE_HANDLER( mrokumei_keyboard_select_w )
 	{
@@ -294,13 +293,12 @@ public class homedata
 	
 	static int sndbank;
 	
-	static READ_HANDLER( mrokumei_sound_io_r )
-	{
+	public static ReadHandlerPtr mrokumei_sound_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (sndbank & 4)
 			return(soundlatch_r(0));
 		else
 			return memory_region(REGION_CPU2)[0x10000 + offset + (sndbank & 1) * 0x10000];
-	}
+	} };
 	
 	static WRITE_HANDLER( mrokumei_sound_bank_w )
 	{
@@ -340,10 +338,9 @@ public class homedata
 	
 	static int upd7807_porta,upd7807_portc;
 	
-	static READ_HANDLER( reikaids_upd7807_porta_r )
-	{
+	public static ReadHandlerPtr reikaids_upd7807_porta_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return upd7807_porta;
-	}
+	} };
 	
 	static WRITE_HANDLER( reikaids_upd7807_porta_w )
 	{
@@ -394,8 +391,7 @@ public class homedata
 		reikaids_upd7807_portc_w(0,0xff);
 	} };
 	
-	READ_HANDLER( reikaids_io_r )
-	{
+	public static ReadHandlerPtr reikaids_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = readinputport(2);	// bit 4 = coin, bit 5 = service
 	
 		res |= BIT(upd7807_portc,2) * 0x01;		// bit 0 = upd7807 status
@@ -408,15 +404,14 @@ public class homedata
 	//logerror("%04x: io_r %02x\n",activecpu_get_pc(),res);
 	
 		return res;
-	}
+	} };
 	
 	static int snd_command;
 	
-	static READ_HANDLER( reikaids_snd_command_r )
-	{
+	public static ReadHandlerPtr reikaids_snd_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//logerror("%04x: sndmcd_r (%02x)\n",activecpu_get_pc(),snd_command);
 		return snd_command;
-	}
+	} };
 	
 	static WRITE_HANDLER( reikaids_snd_command_w )
 	{
@@ -442,14 +437,12 @@ public class homedata
 		from_cpu = data;
 	}
 	
-	static READ_HANDLER( pteacher_snd_r )
-	{
+	public static ReadHandlerPtr pteacher_snd_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//logerror("%04x: pteacher_snd_r %02x\n",activecpu_get_pc(),to_cpu);
 		return to_cpu;
-	}
+	} };
 	
-	static READ_HANDLER( pteacher_io_r )
-	{
+	public static ReadHandlerPtr pteacher_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 6: !vblank
 		 * bit 7: visible page
 		 * other bits seem unused
@@ -462,10 +455,9 @@ public class homedata
 		vblank = 0;
 	
 		return res;
-	}
+	} };
 	
-	static READ_HANDLER( pteacher_keyboard_r )
-	{
+	public static ReadHandlerPtr pteacher_keyboard_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int dips = readinputport(0);
 	
 	//	logerror("%04x: keyboard_r with port A = %02x\n",activecpu_get_pc(),upd7807_porta);
@@ -484,17 +476,16 @@ public class homedata
 		}
 	
 		return 0xff;
-	}
+	} };
 	
-	static READ_HANDLER( pteacher_upd7807_porta_r )
-	{
+	public static ReadHandlerPtr pteacher_upd7807_porta_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (!BIT(upd7807_portc,6))
 			upd7807_porta = from_cpu;
 		else
 	logerror("%04x: read PA with PC *not* clear\n",activecpu_get_pc());
 	
 		return upd7807_porta;
-	}
+	} };
 	
 	static WRITE_HANDLER( pteacher_snd_answer_w )
 	{

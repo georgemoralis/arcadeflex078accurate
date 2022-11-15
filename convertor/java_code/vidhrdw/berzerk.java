@@ -167,8 +167,7 @@ public class berzerk
 	}
 	
 	
-	READ_HANDLER( berzerk_port_4e_r )
-	{
+	public static ReadHandlerPtr berzerk_port_4e_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return input_port_3_r(0) | collision;
-	}
+	} };
 }

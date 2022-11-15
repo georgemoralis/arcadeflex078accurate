@@ -96,8 +96,7 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	READ_HANDLER( crgolf_videoram_bit0_r )
-	{
+	public static ReadHandlerPtr crgolf_videoram_bit0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		struct mame_bitmap *screen = (*crgolf_screen_select & 1) ? screenb : screena;
 		int x = (offset % 32) * 8;
 		int y = offset / 32;
@@ -111,11 +110,10 @@ public class crgolf
 				((source[5] & 0x01) << 2) |
 				((source[6] & 0x01) << 1) |
 				((source[7] & 0x01) << 0);
-	}
+	} };
 	
 	
-	READ_HANDLER( crgolf_videoram_bit1_r )
-	{
+	public static ReadHandlerPtr crgolf_videoram_bit1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		struct mame_bitmap *screen = (*crgolf_screen_select & 1) ? screenb : screena;
 		int x = (offset % 32) * 8;
 		int y = offset / 32;
@@ -129,11 +127,10 @@ public class crgolf
 				((source[5] & 0x02) << 1) |
 				((source[6] & 0x02) << 0) |
 				((source[7] & 0x02) >> 1);
-	}
+	} };
 	
 	
-	READ_HANDLER( crgolf_videoram_bit2_r )
-	{
+	public static ReadHandlerPtr crgolf_videoram_bit2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		struct mame_bitmap *screen = (*crgolf_screen_select & 1) ? screenb : screena;
 		int x = (offset % 32) * 8;
 		int y = offset / 32;
@@ -147,7 +144,7 @@ public class crgolf
 				((source[5] & 0x04) << 0) |
 				((source[6] & 0x04) >> 1) |
 				((source[7] & 0x04) >> 2);
-	}
+	} };
 	
 	
 	

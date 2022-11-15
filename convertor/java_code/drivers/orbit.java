@@ -119,10 +119,9 @@ public class orbit
 	}
 	
 	
-	READ_HANDLER( orbit_zeropage_r )
-	{
+	public static ReadHandlerPtr orbit_zeropage_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_CPU1)[offset & 0xff];
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( orbit_readmem )

@@ -98,30 +98,25 @@ public class tsamurai
 		if (nmi_enabled) cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
 	}
 	
-	READ_HANDLER( unknown_d803_r )
-	{
+	public static ReadHandlerPtr unknown_d803_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x6b;
-	}
+	} };
 	
-	READ_HANDLER( unknown_d803_m660_r )
-	{
+	public static ReadHandlerPtr unknown_d803_m660_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x53;     // this is what the bootleg patches in.
-	}
+	} };
 	
-	READ_HANDLER( unknown_d806_r )
-	{
+	public static ReadHandlerPtr unknown_d806_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x40;
-	}
+	} };
 	
-	READ_HANDLER( unknown_d900_r )
-	{
+	public static ReadHandlerPtr unknown_d900_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x6a;
-	}
+	} };
 	
-	READ_HANDLER( unknown_d938_r )
-	{
+	public static ReadHandlerPtr unknown_d938_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xfb;
-	}
+	} };
 	
 	static WRITE_HANDLER( sound_command1_w )
 	{
@@ -261,17 +256,16 @@ public class tsamurai
 		{ 0x02, 0x02, MWA_NOP },               /* Always follows above with 0x01 data */
 	PORT_END
 	
-	static READ_HANDLER( sound_command1_r )
-	{
+	public static ReadHandlerPtr sound_command1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sound_command1;
-	}
+	} };
 	
 	static WRITE_HANDLER( sound_out1_w )
 	{
 		DAC_data_w(0,data);
 	}
 	
-	static READ_HANDLER( sound_command2_r ){
+	public static ReadHandlerPtr sound_command2_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return sound_command2;
 	}
 	
@@ -280,7 +274,7 @@ public class tsamurai
 		DAC_data_w(1,data);
 	}
 	
-	static READ_HANDLER( sound_command3_r ){
+	public static ReadHandlerPtr sound_command3_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return sound_command3;
 	}
 	
@@ -378,7 +372,7 @@ public class tsamurai
 	
 	/* what are these, protection of some kind? */
 	
-	static READ_HANDLER( vsgongf_a006_r ){
+	public static ReadHandlerPtr vsgongf_a006_r  = new ReadHandlerPtr() { public int handler(int offset)
 		/* sound CPU busy? */
 		if (!strcmp(Machine->gamedrv->name,"vsgongf"))  return 0x80;
 		if (!strcmp(Machine->gamedrv->name,"ringfgt"))  return 0x80;
@@ -388,7 +382,7 @@ public class tsamurai
 		return 0x00;
 	}
 	
-	static READ_HANDLER( vsgongf_a100_r ){
+	public static ReadHandlerPtr vsgongf_a100_r  = new ReadHandlerPtr() { public int handler(int offset)
 		/* protection? */
 		if (!strcmp(Machine->gamedrv->name,"vsgongf"))  return 0xaa;
 		if (!strcmp(Machine->gamedrv->name,"ringfgt"))  return 0x63;

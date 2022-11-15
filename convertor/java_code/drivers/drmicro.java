@@ -23,7 +23,6 @@ public class drmicro
 	WRITE_HANDLER( drmicro_flipscreen_w );
 	WRITE_HANDLER( drmicro_priority_w );
 	
-	READ_HANDLER( drmicro_videoram_r );
 	WRITE_HANDLER( drmicro_videoram_w );
 	
 	extern void drmicro_flip_w( int flip );

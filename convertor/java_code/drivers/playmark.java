@@ -150,8 +150,7 @@ public class playmark
 		}
 	}
 	
-	static READ_HANDLER( playmark_snd_command_r )
-	{
+	public static ReadHandlerPtr playmark_snd_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = 0;
 	
 		if ((playmark_oki_control & 0x38) == 0x30) {
@@ -164,17 +163,16 @@ public class playmark
 		}
 	
 		return data;
-	}
+	} };
 	
-	static READ_HANDLER( playmark_snd_flag_r )
-	{
+	public static ReadHandlerPtr playmark_snd_flag_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (playmark_snd_flag) {
 			playmark_snd_flag = 0;
 			return 0x00;
 		}
 	
 		return 0x40;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( playmark_oki_w )
@@ -208,10 +206,9 @@ public class playmark
 	}
 	
 	
-	static READ_HANDLER( PIC16C5X_T0_clk_r )
-	{
+	public static ReadHandlerPtr PIC16C5X_T0_clk_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0;
-	}
+	} };
 	
 	
 	

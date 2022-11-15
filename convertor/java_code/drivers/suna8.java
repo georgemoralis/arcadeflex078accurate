@@ -52,8 +52,6 @@ public class suna8
 	WRITE_HANDLER( suna8_spriteram_w );			// for debug
 	WRITE_HANDLER( suna8_banked_spriteram_w );	// for debug
 	
-	READ_HANDLER( suna8_banked_paletteram_r );
-	READ_HANDLER( suna8_banked_spriteram_r );
 	
 	WRITE_HANDLER( suna8_banked_paletteram_w );
 	WRITE_HANDLER( brickzn_banked_paletteram_w );
@@ -825,8 +823,7 @@ public class suna8
 	
 	static data8_t protection_val;
 	
-	static READ_HANDLER( hardhead_protection_r )
-	{
+	public static ReadHandlerPtr hardhead_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (protection_val & 0x80)
 			return	((~offset & 0x20)			?	0x20 : 0) |
 					((protection_val & 0x04)	?	0x80 : 0) |
@@ -834,7 +831,7 @@ public class suna8
 		else
 			return	((~offset & 0x20)					?	0x20 : 0) |
 					(((offset ^ protection_val) & 0x01)	?	0x84 : 0);
-	}
+	} };
 	
 	static WRITE_HANDLER( hardhead_protection_w )
 	{
@@ -857,8 +854,7 @@ public class suna8
 	
 	static data8_t *hardhead_ip;
 	
-	static READ_HANDLER( hardhead_ip_r )
-	{
+	public static ReadHandlerPtr hardhead_ip_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (*hardhead_ip)
 		{
 			case 0:	return readinputport(0);
@@ -869,7 +865,7 @@ public class suna8
 				logerror("CPU #0 - PC %04X: Unknown IP read: %02X\n",activecpu_get_pc(),*hardhead_ip);
 				return 0xff;
 		}
-	}
+	} };
 	
 	/*
 		765- ----	Unused (eg. they go into hardhead_flipscreen_w)
@@ -972,10 +968,9 @@ public class suna8
 		---- --1-	1 -> Interlude screens
 		---- ---0
 	*/
-	static READ_HANDLER( rranger_soundstatus_r )
-	{
+	public static ReadHandlerPtr rranger_soundstatus_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0x02;
-	}
+	} };
 	
 	static MEMORY_READ_START( rranger_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM				},	// ROM
@@ -1019,10 +1014,9 @@ public class suna8
 	/*
 	?
 	*/
-	static READ_HANDLER( brickzn_c140_r )
-	{
+	public static ReadHandlerPtr brickzn_c140_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	/*
 	*/
@@ -1145,10 +1139,9 @@ public class suna8
 		if (data & ~0x02) 	logerror("CPU #0 - PC %04X: unknown spritebank bits: %02X\n",activecpu_get_pc(),data);
 	}
 	
-	static READ_HANDLER( hardhea2_c080_r )
-	{
+	public static ReadHandlerPtr hardhea2_c080_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	/*
 		7654 ----
@@ -1308,10 +1301,9 @@ public class suna8
 		suna8_rombank = data;
 	}
 	
-	static READ_HANDLER( sparkman_c0a3_r )
-	{
+	public static ReadHandlerPtr sparkman_c0a3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (cpu_getcurrentframe() & 1) ? 0x80 : 0;
-	}
+	} };
 	
 	static MEMORY_READ_START( sparkman_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM					},	// ROM

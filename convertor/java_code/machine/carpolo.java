@@ -167,64 +167,56 @@ public class carpolo
 	}
 	
 	
-	READ_HANDLER( carpolo_ball_screen_collision_cause_r )
-	{
+	public static ReadHandlerPtr carpolo_ball_screen_collision_cause_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 0 - 0=ball collided with border
 		   bit 1 - 0=ball collided with goal
 		   bit 2 - 0=ball collided with score area
 		   bit 3 - which goal/score collided (0=left, 1=right) */
 		return ball_screen_collision_cause;
-	}
+	} };
 	
-	READ_HANDLER( carpolo_car_ball_collision_x_r )
-	{
+	public static ReadHandlerPtr carpolo_car_ball_collision_x_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* the x coordinate of the colliding pixel */
 		return car_ball_collision_x;
-	}
+	} };
 	
-	READ_HANDLER( carpolo_car_ball_collision_y_r )
-	{
+	public static ReadHandlerPtr carpolo_car_ball_collision_y_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* the y coordinate of the colliding pixel */
 		return car_ball_collision_y;
-	}
+	} };
 	
-	READ_HANDLER( carpolo_car_car_collision_cause_r )
-	{
+	public static ReadHandlerPtr carpolo_car_car_collision_cause_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 0 - car 4 collided
 		   bit 1 - car 3 collided
 		   bit 2 - car 2 collided
 		   bit 3 - car 1 collided */
 		return car_car_collision_cause;
-	}
+	} };
 	
-	READ_HANDLER( carpolo_car_goal_collision_cause_r )
-	{
+	public static ReadHandlerPtr carpolo_car_goal_collision_cause_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 0-1 - which car collided
 		   bit 2   - horizontal timing bit 1TEC4 (not accessed)
 		   bit 3   - which goal collided (0=left, 1=right) */
 		return car_goal_collision_cause;
-	}
+	} };
 	
-	READ_HANDLER( carpolo_car_ball_collision_cause_r )
-	{
+	public static ReadHandlerPtr carpolo_car_ball_collision_cause_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 0-1 - which car collided
 		   bit 2-3 - unconnected */
 		return car_ball_collision_cause;
-	}
+	} };
 	
-	READ_HANDLER( carpolo_car_border_collision_cause_r )
-	{
+	public static ReadHandlerPtr carpolo_car_border_collision_cause_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 0-1 - which car collided
 		   bit 2   - 0=vertical border, 1=horizontal border */
 		return car_border_collision_cause;
-	}
+	} };
 	
 	
-	READ_HANDLER( carpolo_interrupt_cause_r )
-	{
+	public static ReadHandlerPtr carpolo_interrupt_cause_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* the output of the 148 goes to bits 1-3 (which is priority ^ 7) */
 		return (TTL74148_output_r(TTL74148_3S) << 1) | priority_0_extension;
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr carpolo_timer_interrupt = new InterruptHandlerPtr() {public void handler(){
@@ -418,18 +410,16 @@ public class carpolo
 		TTL74153_update(TTL74153_1K);
 	}
 	
-	static READ_HANDLER( pia_0_port_b_r )
-	{
+	public static ReadHandlerPtr pia_0_port_b_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 4 - Pedal bit 0
 		   bit 5 - Pedal bit 1 */
 	
 		return (TTL74153_output_r(TTL74153_1K, 0) << 5) |
 			   (TTL74153_output_r(TTL74153_1K, 1) << 4);
-	}
+	} };
 	
 	
-	static READ_HANDLER( pia_1_port_a_r )
-	{
+	public static ReadHandlerPtr pia_1_port_a_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t ret;
 	
 		/* bit 0 - Player 4 steering input (left or right)
@@ -448,11 +438,10 @@ public class carpolo
 			  (readinputport(7) & 0xf0);
 	
 		return ret;
-	}
+	} };
 	
 	
-	static READ_HANDLER( pia_1_port_b_r )
-	{
+	public static ReadHandlerPtr pia_1_port_b_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t ret;
 	
 		/* bit 4 - Player 4 steering input (wheel moving or stopped)
@@ -466,7 +455,7 @@ public class carpolo
 			  (TTL7474_output_r(TTL7474_1F_1) ? 0x80 : 0x00);
 	
 		return ret;
-	}
+	} };
 	
 	
 	static struct pia6821_interface pia_0_intf =

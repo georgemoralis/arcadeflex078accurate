@@ -30,8 +30,6 @@ package drivers;
 public class dynduke
 {
 	
-	READ_HANDLER( dynduke_background_r );
-	READ_HANDLER( dynduke_foreground_r );
 	WRITE_HANDLER( dynduke_background_w );
 	WRITE_HANDLER( dynduke_foreground_w );
 	WRITE_HANDLER( dynduke_text_w );
@@ -44,7 +42,7 @@ public class dynduke
 	
 	/***************************************************************************/
 	
-	static READ_HANDLER( dynduke_shared_r ) { return dynduke_shared_ram[offset]; }
+	public static ReadHandlerPtr dynduke_shared_r  = new ReadHandlerPtr() { public int handler(int offset) return dynduke_shared_ram[offset]; }
 	static WRITE_HANDLER( dynduke_shared_w ) { dynduke_shared_ram[offset]=data; }
 	
 	
@@ -176,7 +174,7 @@ public class dynduke
 		{ 0,1,2,3,8,9,10,11 },
 		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		128
-	};
+	} };;
 	
 	static struct GfxLayout spritelayout =
 	{

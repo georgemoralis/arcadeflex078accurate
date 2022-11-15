@@ -86,22 +86,17 @@ public class route16
 	WRITE_HANDLER( route16_out1_w );
 	WRITE_HANDLER( route16_videoram1_w );
 	WRITE_HANDLER( route16_videoram2_w );
-	READ_HANDLER( route16_videoram1_r );
-	READ_HANDLER( route16_videoram2_r );
 	WRITE_HANDLER( route16_sharedram_w );
-	READ_HANDLER( route16_sharedram_r );
 	WRITE_HANDLER( stratvox_sn76477_w );
-	READ_HANDLER ( speakres_in3_r );
 	WRITE_HANDLER ( speakres_out2_w );
 	
-	READ_HANDLER( routex_prot_read )
-	{
+	public static ReadHandlerPtr routex_prot_read  = new ReadHandlerPtr() { public int handler(int offset){
 		if (activecpu_get_pc()==0x2f) return 0xFB;
 	
 		logerror ("cpu #%d (PC=%08X): unmapped prot read\n", cpu_getactivecpu(), activecpu_get_pc());
 		return 0x00;
 	
-	}
+	} };
 	
 	static MEMORY_READ_START( cpu1_readmem )
 		{ 0x0000, 0x2fff, MRA_ROM },

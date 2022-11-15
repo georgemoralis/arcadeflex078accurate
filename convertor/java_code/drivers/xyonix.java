@@ -82,8 +82,7 @@ public class xyonix
 	}
 	
 	
-	READ_HANDLER ( xyonix_io_r )
-	{
+	public static ReadHandlerPtr xyonix_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int regPC = activecpu_get_pc();
 	
 		if (regPC == 0x27ba)
@@ -140,7 +139,7 @@ public class xyonix
 	//	usrintf_showmessage("%02x",e0_data);
 	
 		return 0xff;
-	}
+	} };
 	
 	WRITE_HANDLER ( xyonix_io_w )
 	{

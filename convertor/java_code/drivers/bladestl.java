@@ -48,8 +48,7 @@ public class bladestl
 		}
 	} };
 	
-	static READ_HANDLER( trackball_r )
-	{
+	public static ReadHandlerPtr trackball_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int last[4];
 		int curr,delta;
 	
@@ -58,7 +57,7 @@ public class bladestl
 		delta = (curr - last[offset]) & 0xff;
 		last[offset] = curr;
 		return (delta & 0x80) | (curr >> 1);
-	}
+	} };
 	
 	static WRITE_HANDLER( bladestl_bankswitch_w )
 	{

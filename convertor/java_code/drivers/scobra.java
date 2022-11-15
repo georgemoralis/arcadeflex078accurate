@@ -200,10 +200,9 @@ public class scobra
 	
 	static UINT8 *scobra_soundram;
 	
-	static READ_HANDLER(scobra_soundram_r)
-	{
+	public static ReadHandlerPtr scobra_soundram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return scobra_soundram[offset & 0x03ff];
-	}
+	} };
 	
 	static WRITE_HANDLER(scobra_soundram_w)
 	{

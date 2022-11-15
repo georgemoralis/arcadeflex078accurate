@@ -175,8 +175,7 @@ public class gsword
 	}
 	#endif
 	
-	static READ_HANDLER( gsword_8741_2_r )
-	{
+	public static ReadHandlerPtr gsword_8741_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 		case 0x01: /* start button , coins */
@@ -190,10 +189,9 @@ public class gsword
 		}
 		/* unknown */
 		return 0;
-	}
+	} };
 	
-	static READ_HANDLER( gsword_8741_3_r )
-	{
+	public static ReadHandlerPtr gsword_8741_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (offset)
 		{
 		case 0x01: /* start button  */
@@ -206,7 +204,7 @@ public class gsword
 		/* unknown */
 		logerror("8741-3 unknown read %d PC=%04x\n",offset,activecpu_get_pc());
 		return 0;
-	}
+	} };
 	
 	static struct TAITO8741interface gsword_8741interface=
 	{
@@ -268,14 +266,12 @@ public class gsword
 		fake8910_1 = data;
 	}
 	
-	static READ_HANDLER( gsword_fake_0_r )
-	{
+	public static ReadHandlerPtr gsword_fake_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return fake8910_0+1;
-	}
-	static READ_HANDLER( gsword_fake_1_r )
-	{
+	} };
+	public static ReadHandlerPtr gsword_fake_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return fake8910_1+1;
-	}
+	} };
 	
 	WRITE_HANDLER( gsword_adpcm_data_w )
 	{

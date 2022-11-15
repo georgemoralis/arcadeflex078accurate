@@ -68,16 +68,11 @@ public class ladyfrog
 	WRITE_HANDLER( ladyfrog_gfxctrl2_w );
 	WRITE_HANDLER( ladyfrog_scrlram_w );
 	
-	READ_HANDLER( ladyfrog_spriteram_r );
-	READ_HANDLER( ladyfrog_palette_r );
-	READ_HANDLER( ladyfrog_scrlram_r );
-	READ_HANDLER( ladyfrog_videoram_r );
 	
-	static READ_HANDLER( from_snd_r )
-	{
+	public static ReadHandlerPtr from_snd_r  = new ReadHandlerPtr() { public int handler(int offset){
 		snd_flag=0;
 		return snd_data;
-	}
+	} };
 	
 	static WRITE_HANDLER( to_main_w )
 	{
@@ -142,10 +137,9 @@ public class ladyfrog
 		{ 100 }
 	};
 	
-	static READ_HANDLER( snd_flag_r )
-	{
+	public static ReadHandlerPtr snd_flag_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return snd_flag | 0xfd;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0xbfff, MRA_ROM },

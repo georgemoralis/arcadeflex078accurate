@@ -23,8 +23,7 @@ public class crtc6845
 {
 	
 	
-	READ_HANDLER( crtc6845_register_r )
-	{
+	public static ReadHandlerPtr crtc6845_register_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int retval=0;
 	
 		switch(crtc6845_address_latch)
@@ -87,7 +86,7 @@ public class crtc6845
 				break;
 		}
 	        return retval;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( crtc6845_address_w )

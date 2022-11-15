@@ -269,8 +269,7 @@ public class gauntlet
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( switch_6502_r )
-	{
+	public static ReadHandlerPtr switch_6502_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int temp = 0x30;
 	
 		if (atarigen_cpu_to_sound_ready) temp ^= 0x80;
@@ -279,7 +278,7 @@ public class gauntlet
 		if (!(readinputport(4) & 0x0008)) temp ^= 0x10;
 	
 		return temp;
-	}
+	} };
 	
 	
 	

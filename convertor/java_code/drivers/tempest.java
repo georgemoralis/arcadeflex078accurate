@@ -190,8 +190,7 @@ public class tempest
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( tempest_IN0_r )
-	{
+	public static ReadHandlerPtr tempest_IN0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = readinputport(0);
 	
 		if (avgdvg_done())
@@ -202,19 +201,17 @@ public class tempest
 			res |= 0x80;
 	
 		return res;
-	}
+	} };
 	
 	
-	static READ_HANDLER( input_port_1_bit_r )
-	{
+	public static ReadHandlerPtr input_port_1_bit_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(1) & (1 << offset)) ? 0 : 228;
-	}
+	} };
 	
 	
-	static READ_HANDLER( input_port_2_bit_r )
-	{
+	public static ReadHandlerPtr input_port_2_bit_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(2) & (1 << offset)) ? 0 : 228;
-	}
+	} };
 	
 	
 	

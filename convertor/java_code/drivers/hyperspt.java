@@ -24,8 +24,7 @@ public class hyperspt
 	
 	extern extern extern extern extern 
 	extern WRITE_HANDLER( konami_sh_irqtrigger_w );
-	extern READ_HANDLER( hyperspt_sh_timer_r );
-	extern WRITE_HANDLER( hyperspt_sound_w );
+	extern extern WRITE_HANDLER( hyperspt_sound_w );
 	
 	/* these routines lurk in sndhrdw/trackfld.c */
 	extern struct VLM5030interface konami_vlm5030_interface;
@@ -41,8 +40,7 @@ public class hyperspt
 	}
 	
 	/* handle fake button for speed cheat */
-	static READ_HANDLER( konami_IN1_r )
-	{
+	public static ReadHandlerPtr konami_IN1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 		static int cheat = 0;
 		static int bits[] = { 0xee, 0xff, 0xbb, 0xaa };
@@ -56,7 +54,7 @@ public class hyperspt
 			cheat = (cheat+1)%4;
 		}
 		return res;
-	}
+	} };
 	
 	
 	

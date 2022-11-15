@@ -85,10 +85,9 @@ public class mustache
 	
 	static int read_coins=0;
 	
-	READ_HANDLER ( mustache_coin_hack_r )
-	{
+	public static ReadHandlerPtr mustache_coin_hack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (read_coins)?((offset&1	)?(input_port_5_r(0)<<5)|(input_port_5_r(0)<<7):(input_port_5_r(0)<<4)):0;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

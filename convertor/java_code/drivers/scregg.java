@@ -23,9 +23,7 @@ public class scregg
 	
 	/* from vidhrdw/btime.c */
 	
-	READ_HANDLER( btime_mirrorvideoram_r );
 	WRITE_HANDLER( btime_mirrorvideoram_w );
-	READ_HANDLER( btime_mirrorcolorram_r );
 	WRITE_HANDLER( btime_mirrorcolorram_w );
 	WRITE_HANDLER( btime_video_control_w );
 	

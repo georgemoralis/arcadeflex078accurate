@@ -29,10 +29,8 @@ public class jcross
 	
 	WRITE_HANDLER( snkwave_w );
 	
-	READ_HANDLER( jcross_background_ram_r );
 	WRITE_HANDLER( jcross_background_ram_w );
 	
-	READ_HANDLER( jcross_text_ram_r );
 	WRITE_HANDLER( jcross_text_ram_w );
 	
 	extern extern extern int jcross_vregs[5];
@@ -41,7 +39,7 @@ public class jcross
 	static int sound_cpu_busy=0;
 	
 	data8_t *jcr_sharedram;
-	static READ_HANDLER(sharedram_r){	return jcr_sharedram[offset];}
+	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)return jcr_sharedram[offset];}
 	static WRITE_HANDLER(sharedram_w){	jcr_sharedram[offset]=data;}
 	
 	static struct namco_interface snkwave_interface =
@@ -56,7 +54,7 @@ public class jcross
 	{
 		2,
 		2000000,
-		{ 35,35 },
+		{ 35,35 } };,
 		{ 0 },
 		{ 0 },
 		{ 0 },
@@ -70,22 +68,19 @@ public class jcross
 		cpu_set_irq_line(2, IRQ_LINE_NMI, PULSE_LINE);
 	}
 	
-	static READ_HANDLER( sound_command_r )
-	{
+	public static ReadHandlerPtr sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sound_cpu_busy = 0;
 		return(soundlatch_r(0));
-	}
+	} };
 	
-	static READ_HANDLER( sound_nmi_ack_r )
-	{
+	public static ReadHandlerPtr sound_nmi_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_nmi_line(2, CLEAR_LINE);
 		return 0;
-	}
+	} };
 	
-	static READ_HANDLER( jcross_port_0_r )
-	{
+	public static ReadHandlerPtr jcross_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return(input_port_0_r(0) | sound_cpu_busy);
-	}
+	} };
 	
 	static WRITE_HANDLER(jcross_vregs0_w){jcross_vregs[0]=data;}
 	static WRITE_HANDLER(jcross_vregs1_w){jcross_vregs[1]=data;}

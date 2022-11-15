@@ -1385,15 +1385,13 @@ public class seta
 	
 	/* DSW reading for 8 bit CPUs */
 	
-	static READ_HANDLER( dsw1_r )
-	{
+	public static ReadHandlerPtr dsw1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(3) >> 8) & 0xff;
-	}
+	} };
 	
-	static READ_HANDLER( dsw2_r )
-	{
+	public static ReadHandlerPtr dsw2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(3) >> 0) & 0xff;
-	}
+	} };
 	
 	
 	/*
@@ -2620,7 +2618,7 @@ public class seta
 									Thundercade
 	***************************************************************************/
 	
-	static READ_HANDLER( ff_r )	{return 0xff;}
+	public static ReadHandlerPtr ff_r  = new ReadHandlerPtr() { public int handler(int offset)return 0xff;}
 	
 	static MEMORY_READ_START( tndrcade_sub_readmem )
 		{ 0x0000, 0x01ff, MRA_RAM				},	// RAM
@@ -2678,8 +2676,7 @@ public class seta
 									DownTown
 	***************************************************************************/
 	
-	READ_HANDLER( downtown_ip_r )
-	{
+	public static ReadHandlerPtr downtown_ip_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int dir1 = readinputport(4);	// analog port
 		int dir2 = readinputport(5);	// analog port
 	
@@ -2699,7 +2696,7 @@ public class seta
 		}
 	
 		return 0;
-	}
+	} };
 	
 	static MEMORY_READ_START( downtown_sub_readmem )
 		{ 0x0000, 0x01ff, MRA_RAM			},	// RAM

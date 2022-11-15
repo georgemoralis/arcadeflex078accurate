@@ -49,8 +49,7 @@ public class popeye
 	/* by a variable amount. */
 	static int prot0,prot1,prot_shift;
 	
-	static READ_HANDLER( protection_r )
-	{
+	public static ReadHandlerPtr protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset == 0)
 		{
 			return ((prot1 << prot_shift) | (prot0 >> (8-prot_shift))) & 0xff;
@@ -60,7 +59,7 @@ public class popeye
 			/* the game just checks if bit 2 is clear. Returning 0 seems to be enough. */
 			return 0;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( protection_w )
 	{
@@ -457,8 +456,7 @@ public class popeye
 		dswbit = (data & 0x0e) >> 1;
 	}
 	
-	static READ_HANDLER( popeye_portA_r )
-	{
+	public static ReadHandlerPtr popeye_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 	
@@ -466,7 +464,7 @@ public class popeye
 		res |= (input_port_4_r(offset) << (7-dswbit)) & 0x80;
 	
 		return res;
-	}
+	} };
 	
 	static struct AY8910interface ay8910_interface =
 	{

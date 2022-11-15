@@ -117,8 +117,7 @@ public class taitosnd
 	
 	}
 	
-	READ_HANDLER( taitosound_comm_r )
-	{
+	public static ReadHandlerPtr taitosound_comm_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch( tc0140syt.mainmode )
 		{
 			case 0x00:		// mode #0
@@ -152,7 +151,7 @@ public class taitosnd
 				logerror("tc0140syt : Master cpu read in mode [%02x]\n", tc0140syt.mainmode);
 				return 0;
 		}
-	}
+	} };
 	
 	//SLAVE SIDE
 	
@@ -216,8 +215,7 @@ public class taitosnd
 	
 	}
 	
-	READ_HANDLER( taitosound_slave_comm_r )
-	{
+	public static ReadHandlerPtr taitosound_slave_comm_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char res = 0;
 	
 		switch ( tc0140syt.submode )
@@ -257,7 +255,7 @@ public class taitosnd
 		Interrupt_Controller();
 	
 	    return res;
-	}
+	} };
 	
 	
 	

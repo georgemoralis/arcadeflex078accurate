@@ -835,10 +835,9 @@ public class galaxian
 		}
 	}
 	
-	READ_HANDLER( galaxian_videoram_r )
-	{
+	public static ReadHandlerPtr galaxian_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return galaxian_videoram[offset];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( galaxian_attributesram_w )
@@ -983,10 +982,9 @@ public class galaxian
 	}
 	
 	
-	READ_HANDLER( rockclim_videoram_r )
-	{
+	public static ReadHandlerPtr rockclim_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return rockclim_videoram[offset];
-	}
+	} };
 	
 	
 	

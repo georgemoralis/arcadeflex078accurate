@@ -36,7 +36,6 @@ public class skykid
 	extern unsigned char *skykid_textram, *spriteram, *skykid_videoram;
 	
 	/* from vidhrdw/skykid.c */
-	READ_HANDLER( skykid_videoram_r );
 	WRITE_HANDLER( skykid_videoram_w );
 	WRITE_HANDLER( skykid_scroll_x_w );
 	WRITE_HANDLER( skykid_scroll_y_w );
@@ -71,8 +70,7 @@ public class skykid
 	#define reverse_bitstrm(data) ((data & 0x01) << 4) | ((data & 0x02) << 2) | (data & 0x04) \
 								| ((data & 0x08) >> 2) | ((data & 0x10) >> 4)
 	
-	static READ_HANDLER( inputport_r )
-	{
+	public static ReadHandlerPtr inputport_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = 0;
 	
 		switch (inputport_selected){
@@ -95,7 +93,7 @@ public class skykid
 		}
 	
 		return data;
-	}
+	} };
 	
 	static WRITE_HANDLER( skykid_led_w )
 	{
@@ -114,10 +112,9 @@ public class skykid
 		}
 	}
 	
-	READ_HANDLER( skykid_sharedram_r )
-	{
+	public static ReadHandlerPtr skykid_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram[offset];
-	}
+	} };
 	WRITE_HANDLER( skykid_sharedram_w )
 	{
 		sharedram[offset] = data;
@@ -186,10 +183,9 @@ public class skykid
 	MEMORY_END
 	
 	
-	static READ_HANDLER( readFF )
-	{
+	public static ReadHandlerPtr readFF  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	static PORT_READ_START( mcu_readport )
 		{ HD63701_PORT1, HD63701_PORT1, inputport_r },			/* input ports read */

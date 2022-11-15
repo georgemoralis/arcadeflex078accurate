@@ -50,8 +50,7 @@ public class mosaic
 		}
 	}
 	
-	static READ_HANDLER( protection_r )
-	{
+	public static ReadHandlerPtr protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = (prot_val >> 8) & 0xff;
 	
 		logerror("%06x: protection_r %02x\n",activecpu_get_pc(),res);
@@ -59,7 +58,7 @@ public class mosaic
 		prot_val <<= 8;
 	
 		return res;
-	}
+	} };
 	
 	static WRITE_HANDLER( gfire2_protection_w )
 	{
@@ -88,14 +87,13 @@ public class mosaic
 		}
 	}
 	
-	static READ_HANDLER( gfire2_protection_r )
-	{
+	public static ReadHandlerPtr gfire2_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = prot_val & 0xff;
 	
 		prot_val >>= 8;
 	
 		return res;
-	}
+	} };
 	
 	
 	

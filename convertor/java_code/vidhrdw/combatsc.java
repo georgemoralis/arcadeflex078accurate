@@ -284,10 +284,9 @@ public class combatsc
 	
 	***************************************************************************/
 	
-	READ_HANDLER( combasc_video_r )
-	{
+	public static ReadHandlerPtr combasc_video_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( combasc_video_w )
 	{
@@ -328,8 +327,7 @@ public class combatsc
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);
 	}
 	
-	READ_HANDLER( combasc_io_r )
-	{
+	public static ReadHandlerPtr combasc_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((offset <= 0x403) && (offset >= 0x400))
 		{
 			switch (offset)
@@ -341,7 +339,7 @@ public class combatsc
 			}
 		}
 		return banked_area[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( combasc_io_w )
 	{
@@ -458,10 +456,9 @@ public class combatsc
 		}
 	}
 	
-	READ_HANDLER( combasc_scrollram_r )
-	{
+	public static ReadHandlerPtr combasc_scrollram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return combasc_scrollram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( combasc_scrollram_w )
 	{

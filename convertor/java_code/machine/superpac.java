@@ -31,10 +31,9 @@ public class superpac
 	} };
 	
 	
-	READ_HANDLER( superpac_sharedram_r )
-	{
+	public static ReadHandlerPtr superpac_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return superpac_sharedram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( superpac_sharedram_w )
 	{
@@ -79,8 +78,7 @@ public class superpac
 	}
 	
 	
-	READ_HANDLER( superpac_customio_1_r )
-	{
+	public static ReadHandlerPtr superpac_customio_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val, temp;
 	
 		/* default return value */
@@ -168,11 +166,10 @@ public class superpac
 		}
 	
 		return val;
-	}
+	} };
 	
 	
-	READ_HANDLER( superpac_customio_2_r )
-	{
+	public static ReadHandlerPtr superpac_customio_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val;
 	
 		/* default return value */
@@ -258,7 +255,7 @@ public class superpac
 		}
 	
 		return val;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( superpac_interrupt_enable_w )

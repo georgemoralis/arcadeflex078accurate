@@ -40,18 +40,13 @@ public class matmania
 	WRITE_HANDLER( matmania_videoram3_w );
 	WRITE_HANDLER( matmania_colorram3_w );
 	
-	READ_HANDLER( maniach_68705_portA_r );
 	WRITE_HANDLER( maniach_68705_portA_w );
-	READ_HANDLER( maniach_68705_portB_r );
 	WRITE_HANDLER( maniach_68705_portB_w );
-	READ_HANDLER( maniach_68705_portC_r );
 	WRITE_HANDLER( maniach_68705_portC_w );
 	WRITE_HANDLER( maniach_68705_ddrA_w );
 	WRITE_HANDLER( maniach_68705_ddrB_w );
 	WRITE_HANDLER( maniach_68705_ddrC_w );
 	WRITE_HANDLER( maniach_mcu_w );
-	READ_HANDLER( maniach_mcu_r );
-	READ_HANDLER( maniach_mcu_status_r );
 	
 	
 	

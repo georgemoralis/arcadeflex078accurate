@@ -140,14 +140,12 @@ public class destroyr
 	}
 	
 	
-	READ_HANDLER( destroyr_ram_r )
-	{
+	public static ReadHandlerPtr destroyr_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return destroyr_zero_page[offset & 0xff];
-	}
+	} };
 	
 	
-	READ_HANDLER( destroyr_input_r )
-	{
+	public static ReadHandlerPtr destroyr_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset &= 15;
 	
 		if (offset == 0)
@@ -170,13 +168,12 @@ public class destroyr
 		logerror("unmapped input port %d\n", offset);
 	
 		return 0;
-	}
+	} };
 	
 	
-	READ_HANDLER( destroyr_scanline_r )
-	{
+	public static ReadHandlerPtr destroyr_scanline_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cpu_getscanline();
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( destroyr_readmem )

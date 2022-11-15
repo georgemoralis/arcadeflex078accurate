@@ -971,22 +971,20 @@ public class halleys
 	}
 	
 	
-	static READ_HANDLER( blitter_status_r )
-	{
+	public static ReadHandlerPtr blitter_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (game_id==GAME_HALLEYS && activecpu_get_pc()==0x8017) return(0x55); // HACK: trick SRAM test on startup
 	
 		return(0);
-	}
+	} };
 	
 	
-	static READ_HANDLER( blitter_r )
-	{
+	public static ReadHandlerPtr blitter_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int i = offset & 0xf;
 	
 		if (i==0 || i==4) return(1);
 	
 		return(blitter_ram[offset]);
-	}
+	} };
 	
 	
 	static void blitter_reset(int param)
@@ -1019,8 +1017,7 @@ public class halleys
 	}
 	
 	
-	static READ_HANDLER( collision_id_r )
-	{
+	public static ReadHandlerPtr collision_id_r  = new ReadHandlerPtr() { public int handler(int offset){
 	/*
 		Collision detection abstract:
 	
@@ -1051,7 +1048,7 @@ public class halleys
 		}
 	
 		return(io_ram[0x66]);
-	}
+	} };
 	
 	
 	//**************************************************************************
@@ -1529,9 +1526,9 @@ public class halleys
 	
 	#if HALLEYS_DEBUG
 	
-	static READ_HANDLER( zero_r ) { return(0); }
+	public static ReadHandlerPtr zero_r  = new ReadHandlerPtr() { public int handler(int offset) return(0); }
 	
-	static READ_HANDLER( debug_r ) { return(io_ram[offset]); }
+	public static ReadHandlerPtr debug_r  = new ReadHandlerPtr() { public int handler(int offset) return(io_ram[offset]); }
 	
 	#endif
 	
@@ -1623,10 +1620,9 @@ public class halleys
 	} };
 	
 	
-	static READ_HANDLER( vector_r )
-	{
+	public static ReadHandlerPtr vector_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return(cpu1_base[0xffe0 + (offset^(mVectorType<<4))]);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( firq_ack_w )
@@ -1655,8 +1651,7 @@ public class halleys
 	}
 	
 	
-	static READ_HANDLER( coin_lockout_r )
-	{
+	public static ReadHandlerPtr coin_lockout_r  = new ReadHandlerPtr() { public int handler(int offset){
 		// This is a hack, but it lets you coin up when COIN1 or COIN2 are signaled.
 		// See NMI for the twisted logic that is involved in handling coin input.
 		int inp = readinputport(3);
@@ -1666,13 +1661,12 @@ public class halleys
 		if (inp & 0x40) result |= 0x04;
 	
 		return(result);
-	}
+	} };
 	
 	
-	static READ_HANDLER( io_mirror_r )
-	{
+	public static ReadHandlerPtr io_mirror_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return(readinputport(offset + 3));
-	}
+	} };
 	
 	
 	//**************************************************************************

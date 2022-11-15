@@ -80,10 +80,9 @@ public class skydiver
 	}
 	
 	
-	READ_HANDLER( skydiver_wram_r )
-	{
+	public static ReadHandlerPtr skydiver_wram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return skydiver_videoram[offset | 0x380];
-	}
+	} };
 	
 	WRITE_HANDLER( skydiver_wram_w )
 	{

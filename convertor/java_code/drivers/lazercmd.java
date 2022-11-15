@@ -279,11 +279,10 @@ public class lazercmd
 	}
 	
 	/* triggered by REDC,r opcode */
-	static READ_HANDLER( lazercmd_ctrl_port_r )
-	{
+	public static ReadHandlerPtr lazercmd_ctrl_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = 0;
 		return data;
-	}
+	} };
 	
 	/* triggered by WRTD,r opcode */
 	static WRITE_HANDLER( lazercmd_data_port_w )
@@ -291,12 +290,11 @@ public class lazercmd
 	}
 	
 	/* triggered by REDD,r opcode */
-	static READ_HANDLER( lazercmd_data_port_r )
-	{
+	public static ReadHandlerPtr lazercmd_data_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data;
 		data = input_port_2_r(0) & 0x0f;
 		return data;
-	}
+	} };
 	
 	static WRITE_HANDLER( lazercmd_hardware_w )
 	{
@@ -386,8 +384,7 @@ public class lazercmd
 		}
 	}
 	
-	static READ_HANDLER( lazercmd_hardware_r )
-	{
+	public static ReadHandlerPtr lazercmd_hardware_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = 0;
 	
 		switch (offset)
@@ -418,7 +415,7 @@ public class lazercmd
 				break;
 		}
 		return data;
-	}
+	} };
 	
 	
 	/*************************************************************

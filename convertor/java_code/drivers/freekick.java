@@ -63,10 +63,9 @@ public class freekick
 		romaddr = (romaddr & 0x00ff) | (data << 8);
 	}
 	
-	static READ_HANDLER( snd_rom_r )
-	{
+	public static ReadHandlerPtr snd_rom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_USER1)[romaddr & 0x7fff];
-	}
+	} };
 	
 	static ppi8255_interface ppi8255_intf =
 	{
@@ -106,15 +105,13 @@ public class freekick
 		spinner = data & 1;
 	}
 	
-	static READ_HANDLER( spinner_r )
-	{
+	public static ReadHandlerPtr spinner_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(5 + spinner);
-	}
+	} };
 	
-	static READ_HANDLER( gigas_spinner_r )
-	{
+	public static ReadHandlerPtr gigas_spinner_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport( spinner );
-	}
+	} };
 	
 	
 	
@@ -182,8 +179,7 @@ public class freekick
 		}
 	}
 	
-	static READ_HANDLER(oigas_3_r)
-	{
+	public static ReadHandlerPtr oigas_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch(++oigas_cnt)
 		{
 		  case 2: return ~(oigas_inval>>8);
@@ -216,12 +212,11 @@ public class freekick
 		   case 5: oigas_cnt=0;return oigas_outval&0xff;
 		}
 		return 0;
-	}
+	} };
 	
-	static READ_HANDLER(oigas_2_r)
-	{
+	public static ReadHandlerPtr oigas_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 1;
-	}
+	} };
 	
 	static PORT_READ_START( oigas_readport )
 		{ 0x00, 0x00, gigas_spinner_r },
@@ -297,10 +292,9 @@ public class freekick
 	
 	static int ff_data;
 	
-	static READ_HANDLER (freekick_ff_r)
-	{
+	public static ReadHandlerPtr freekick_ff_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ff_data;
-	}
+	} };
 	
 	static WRITE_HANDLER (freekick_ff_w)
 	{

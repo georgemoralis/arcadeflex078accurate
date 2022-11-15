@@ -96,15 +96,14 @@ public class bombjack
 		timer_set(TIME_NOW,data,soundlatch_callback);
 	}
 	
-	READ_HANDLER( bombjack_soundlatch_r )
-	{
+	public static ReadHandlerPtr bombjack_soundlatch_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 	
 		res = latch;
 		latch = 0;
 		return res;
-	}
+	} };
 	
 	
 	

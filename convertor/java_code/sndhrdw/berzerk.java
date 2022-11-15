@@ -306,13 +306,12 @@ public class berzerk
 	}
 	
 	
-	READ_HANDLER( berzerk_voiceboard_r )
-	{
+	public static ReadHandlerPtr berzerk_voiceboard_r  = new ReadHandlerPtr() { public int handler(int offset){
 	   if (!voice_playing)
 	      return 0x00;
 	   else
 	      return 0x40;
-	}
+	} };
 	
 	
 	struct Samplesinterface berzerk_samples_interface =

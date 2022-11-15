@@ -18,25 +18,21 @@ public class segasnd
 	static UINT8 sega_speechboard_latch, sega_speechboard_t0, sega_speechboard_p2, sega_speechboard_drq;
 	
 	
-	static READ_HANDLER( speechboard_t0_r )
-	{
+	public static ReadHandlerPtr speechboard_t0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sega_speechboard_t0;
-	}
+	} };
 	
-	static READ_HANDLER( speechboard_t1_r )
-	{
+	public static ReadHandlerPtr speechboard_t1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sega_speechboard_drq;
-	}
+	} };
 	
-	static READ_HANDLER( speechboard_p1_r )
-	{
+	public static ReadHandlerPtr speechboard_p1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sega_speechboard_latch;
-	}
+	} };
 	
-	static READ_HANDLER( speechboard_rom_r )
-	{
+	public static ReadHandlerPtr speechboard_rom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return memory_region(REGION_CPU2)[0x800 + 0x100*(sega_speechboard_p2 & 0x3f) + offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( speechboard_p1_w )
 	{

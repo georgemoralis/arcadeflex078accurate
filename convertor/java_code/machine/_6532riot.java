@@ -222,8 +222,8 @@ public class _6532riot
 	WRITE_HANDLER( r6532_1_w ) { r6532_write(1, offset, data); }
 	
 	
-	READ_HANDLER( r6532_0_r ) { return r6532_read(0, offset); }
-	READ_HANDLER( r6532_1_r ) { return r6532_read(1, offset); }
+	public static ReadHandlerPtr r6532_0_r  = new ReadHandlerPtr() { public int handler(int offset) return r6532_read(0, offset); }
+	public static ReadHandlerPtr r6532_1_r  = new ReadHandlerPtr() { public int handler(int offset) return r6532_read(1, offset); }
 	
 	
 	void r6532_init(int n, const struct R6532interface* intf)

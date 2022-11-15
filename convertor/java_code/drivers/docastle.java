@@ -127,17 +127,13 @@ public class docastle
 	
 	
 	
-	extern READ_HANDLER( docastle_shared0_r );
-	extern READ_HANDLER( docastle_shared1_r );
-	extern WRITE_HANDLER( docastle_shared0_w );
+	extern extern extern WRITE_HANDLER( docastle_shared0_w );
 	extern WRITE_HANDLER( docastle_shared1_w );
 	extern WRITE_HANDLER( docastle_nmitrigger_w );
 	
 	extern WRITE_HANDLER( docastle_videoram_w );
 	extern WRITE_HANDLER( docastle_colorram_w );
-	extern READ_HANDLER( docastle_flipscreen_off_r );
-	extern READ_HANDLER( docastle_flipscreen_on_r );
-	extern WRITE_HANDLER( docastle_flipscreen_off_w );
+	extern extern extern WRITE_HANDLER( docastle_flipscreen_off_w );
 	extern WRITE_HANDLER( docastle_flipscreen_on_w );
 	
 	extern extern extern extern 
@@ -180,11 +176,10 @@ public class docastle
 	MEMORY_END
 	
 	/* what is this really, sound related? */
-	static READ_HANDLER(idsoccer_c000_r)
-	{
+	public static ReadHandlerPtr idsoccer_c000_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int i = 0x00;
 		i ^= 0x80; return i;
-	}
+	} };
 	
 	static MEMORY_READ_START( idsoccer_readmem )
 		{ 0x0000, 0x3fff, MRA_ROM },

@@ -139,10 +139,9 @@ public class route16
 	/***************************************************************************
 	  route16_sharedram_r
 	***************************************************************************/
-	READ_HANDLER( route16_sharedram_r )
-	{
+	public static ReadHandlerPtr route16_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return route16_sharedram[offset];
-	}
+	} };
 	
 	/***************************************************************************
 	  route16_sharedram_w
@@ -169,8 +168,7 @@ public class route16
 	***************************************************************************/
 	static int speakres_vrx;
 	
-	READ_HANDLER ( speakres_in3_r )
-	{
+	public static ReadHandlerPtr speakres_in3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int bit2=4, bit1=2, bit0=1;
 	
 		/* just using a counter, the constants are the number of reads
@@ -182,7 +180,7 @@ public class route16
 		if(speakres_vrx>0x300) bit2=0;		/* VR2 100k ohm - explosion */
 	
 		return 0xf8|bit2|bit1|bit0;
-	}
+	} };
 	
 	WRITE_HANDLER ( speakres_out2_w )
 	{
@@ -193,18 +191,16 @@ public class route16
 	/***************************************************************************
 	  route16_videoram1_r
 	***************************************************************************/
-	READ_HANDLER( route16_videoram1_r )
-	{
+	public static ReadHandlerPtr route16_videoram1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return route16_videoram1[offset];
-	}
+	} };
 	
 	/***************************************************************************
 	  route16_videoram2_r
 	***************************************************************************/
-	READ_HANDLER( route16_videoram2_r )
-	{
+	public static ReadHandlerPtr route16_videoram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return route16_videoram1[offset];
-	}
+	} };
 	
 	/***************************************************************************
 	  route16_videoram1_w

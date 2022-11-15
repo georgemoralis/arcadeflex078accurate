@@ -73,10 +73,9 @@ public class safarir
 		}
 	}
 	
-	READ_HANDLER( safarir_ram_r )
-	{
+	public static ReadHandlerPtr safarir_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return safarir_ram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( safarir_scroll_w )
 	{

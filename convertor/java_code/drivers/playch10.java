@@ -309,13 +309,7 @@ public class playch10
 	extern WRITE_HANDLER( playch10_videoram_w );
 	extern extern extern 
 	/* from machine */
-	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern READ_HANDLER( pc10_port_0_r );
-	extern READ_HANDLER( pc10_instrom_r );
-	extern READ_HANDLER( pc10_prot_r );
-	extern READ_HANDLER( pc10_detectclr_r );
-	extern READ_HANDLER( pc10_in0_r );
-	extern READ_HANDLER( pc10_in1_r );
-	extern WRITE_HANDLER( pc10_SDCS_w );
+	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern WRITE_HANDLER( pc10_SDCS_w );
 	extern WRITE_HANDLER( pc10_CNTRLMASK_w );
 	extern WRITE_HANDLER( pc10_DISPMASK_w );
 	extern WRITE_HANDLER( pc10_SOUNDMASK_w );
@@ -343,13 +337,12 @@ public class playch10
 		up_8w = data & 1;
 	}
 	
-	static READ_HANDLER( ram_8w_r )
-	{
+	public static ReadHandlerPtr ram_8w_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ( offset >= 0x400 && up_8w )
 			return ram_8w[offset];
 	
 		return ram_8w[offset & 0x3ff];
-	}
+	} };
 	
 	static WRITE_HANDLER( ram_8w_w )
 	{
@@ -359,10 +352,9 @@ public class playch10
 			ram_8w[offset & 0x3ff] = data;
 	}
 	
-	static READ_HANDLER( mirror_ram_r )
-	{
+	public static ReadHandlerPtr mirror_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return work_ram[ offset & 0x7ff ];
-	}
+	} };
 	
 	static WRITE_HANDLER( mirror_ram_w )
 	{

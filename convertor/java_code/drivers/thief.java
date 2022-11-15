@@ -37,17 +37,14 @@ public class thief
 	
 	static UINT8 thief_input_select;
 	
-	READ_HANDLER( thief_context_ram_r );
 	WRITE_HANDLER( thief_context_ram_w );
 	WRITE_HANDLER( thief_context_bank_w );
 	WRITE_HANDLER( thief_video_control_w );
 	WRITE_HANDLER( thief_vtcsel_w );
 	WRITE_HANDLER( thief_color_map_w );
 	WRITE_HANDLER( thief_color_plane_w );
-	READ_HANDLER( thief_videoram_r );
 	WRITE_HANDLER( thief_videoram_w );
 	WRITE_HANDLER( thief_blit_w );
-	READ_HANDLER( thief_coprocessor_r );
 	WRITE_HANDLER( thief_coprocessor_w );
 	
 	
@@ -142,8 +139,7 @@ public class thief
 		}
 	}
 	
-	static READ_HANDLER( thief_io_r )
-	{
+	public static ReadHandlerPtr thief_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch( thief_input_select )
 		{
 			case 0x01: return readinputport(0); /* dsw#1 */
@@ -152,7 +148,7 @@ public class thief
 			case 0x08: return readinputport(3); /* inp#2 */
 		}
 		return 0x00;
-	}
+	} };
 	
 	static MEMORY_READ_START( sharkatt_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

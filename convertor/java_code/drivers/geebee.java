@@ -76,8 +76,6 @@ public class geebee
 {
 	
 	/* from machine/geebee.c */
-	READ_HANDLER( geebee_in_r );
-	READ_HANDLER( navalone_in_r );
 	WRITE_HANDLER( geebee_out6_w );
 	WRITE_HANDLER( geebee_out7_w );
 	

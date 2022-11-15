@@ -36,7 +36,6 @@ public class aeroboto
 	extern data8_t *aeroboto_starx, *aeroboto_stary, *aeroboto_bgcolor;
 	
 	
-	READ_HANDLER( aeroboto_in0_r );
 	WRITE_HANDLER( aeroboto_3000_w );
 	WRITE_HANDLER( aeroboto_videoram_w );
 	WRITE_HANDLER( aeroboto_tilecolor_w );
@@ -45,15 +44,14 @@ public class aeroboto
 	static int disable_irq = 0;
 	
 	
-	static READ_HANDLER( aeroboto_201_r )
-	{
+	public static ReadHandlerPtr aeroboto_201_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* if you keep a button pressed during boot, the game will expect this */
 		/* serie of values to be returned from 3004, and display "PASS 201" if it is */
 		int res[4] = { 0xff,0x9f,0x1b,0x03};
 		static int count;
 		logerror("PC %04x: read 3004\n",activecpu_get_pc());
 		return res[(count++)&3];
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr aeroboto_interrupt = new InterruptHandlerPtr() {public void handler(){
@@ -63,11 +61,10 @@ public class aeroboto
 			disable_irq--;
 	} };
 	
-	static READ_HANDLER( aeroboto_2973_r )
-	{
+	public static ReadHandlerPtr aeroboto_2973_r  = new ReadHandlerPtr() { public int handler(int offset){
 		aeroboto_mainram[0x02be] = 0;
 		return(0xff);
-	}
+	} };
 	
 	static WRITE_HANDLER ( aeroboto_1a2_w )
 	{

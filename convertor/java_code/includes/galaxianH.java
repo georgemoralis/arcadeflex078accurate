@@ -46,11 +46,9 @@ extern size_t galaxian_bulletsram_size;
 
 
 WRITE_HANDLER( galaxian_videoram_w );
-READ_HANDLER( galaxian_videoram_r );
 
 WRITE_HANDLER( rockclim_videoram_w );
 WRITE_HANDLER( rockclim_scroll_w );
-READ_HANDLER( rockclim_videoram_r );
 
 
 WRITE_HANDLER( galaxian_attributesram_w );
@@ -76,33 +74,21 @@ WRITE_HANDLER( gteikob2_flip_screen_y_w );
 /* defined in machine/scramble.c */
 
 
-READ_HANDLER(scobra_type2_ppi8255_0_r);
-READ_HANDLER(scobra_type2_ppi8255_1_r);
 WRITE_HANDLER(scobra_type2_ppi8255_0_w);
 WRITE_HANDLER(scobra_type2_ppi8255_1_w);
 
-READ_HANDLER(hustler_ppi8255_0_r);
-READ_HANDLER(hustler_ppi8255_1_r);
 WRITE_HANDLER(hustler_ppi8255_0_w);
 WRITE_HANDLER(hustler_ppi8255_1_w);
 
-READ_HANDLER(amidar_ppi8255_0_r);
-READ_HANDLER(amidar_ppi8255_1_r);
 WRITE_HANDLER(amidar_ppi8255_0_w);
 WRITE_HANDLER(amidar_ppi8255_1_w);
 
-READ_HANDLER(frogger_ppi8255_0_r);
-READ_HANDLER(frogger_ppi8255_1_r);
 WRITE_HANDLER(frogger_ppi8255_0_w);
 WRITE_HANDLER(frogger_ppi8255_1_w);
 
-READ_HANDLER(mars_ppi8255_0_r);
-READ_HANDLER(mars_ppi8255_1_r);
 WRITE_HANDLER(mars_ppi8255_0_w);
 WRITE_HANDLER(mars_ppi8255_1_w);
 
-READ_HANDLER( triplep_pip_r );
-READ_HANDLER( triplep_pap_r );
 
 WRITE_HANDLER( galaxian_coin_lockout_w );
 WRITE_HANDLER( galaxian_coin_counter_w );
@@ -111,28 +97,19 @@ WRITE_HANDLER( galaxian_coin_counter_1_w );
 WRITE_HANDLER( galaxian_coin_counter_2_w );
 WRITE_HANDLER( galaxian_leds_w );
 
-READ_HANDLER( scramblb_protection_1_r );
-READ_HANDLER( scramblb_protection_2_r );
 
-READ_HANDLER( jumpbug_protection_r );
 
 WRITE_HANDLER( kingball_speech_dip_w );
 WRITE_HANDLER( kingball_sound1_w );
 WRITE_HANDLER( kingball_sound2_w );
 
 WRITE_HANDLER( _4in1_bank_w );
-READ_HANDLER( _4in1_input_port_1_r );
-READ_HANDLER( _4in1_input_port_2_r );
 
-READ_HANDLER( hunchbks_mirror_r );
 WRITE_HANDLER( hunchbks_mirror_w );
 
 WRITE_HANDLER( zigzag_sillyprotection_w );
 
 
-READ_HANDLER( gmgalax_input_port_0_r );
-READ_HANDLER( gmgalax_input_port_1_r );
-READ_HANDLER( gmgalax_input_port_2_r );
 
 
 /* defined in sndhrdw/galaxian.c */
@@ -152,8 +129,6 @@ void sfx_sh_init(void);
 WRITE_HANDLER( scramble_filter_w );
 WRITE_HANDLER( frogger_filter_w );
 
-READ_HANDLER( scramble_portB_r );
-READ_HANDLER( frogger_portB_r );
 
 WRITE_HANDLER( scramble_sh_irqtrigger_w );
 WRITE_HANDLER( sfx_sh_irqtrigger_w );

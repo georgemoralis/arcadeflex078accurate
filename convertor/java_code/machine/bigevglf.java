@@ -25,10 +25,9 @@ public class bigevglf
 	static unsigned char portB_in,portB_out,ddrB;
 	static unsigned char portC_in,portC_out,ddrC;
 	
-	READ_HANDLER( bigevglf_68705_portA_r )
-	{
+	public static ReadHandlerPtr bigevglf_68705_portA_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (portA_out & ddrA) | (portA_in & ~ddrA);
-	}
+	} };
 	
 	WRITE_HANDLER( bigevglf_68705_portA_w )
 	{
@@ -41,10 +40,9 @@ public class bigevglf
 		
 	}
 	
-	READ_HANDLER( bigevglf_68705_portB_r )
-	{
+	public static ReadHandlerPtr bigevglf_68705_portB_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (portB_out & ddrB) | (portB_in & ~ddrB);
-	}
+	} };
 	
 	WRITE_HANDLER( bigevglf_68705_portB_w )
 	{
@@ -69,14 +67,13 @@ public class bigevglf
 		ddrB = data;
 	}
 	
-	READ_HANDLER( bigevglf_68705_portC_r )
-	{
+	public static ReadHandlerPtr bigevglf_68705_portC_r  = new ReadHandlerPtr() { public int handler(int offset){
 		portC_in = 0;
 		if (main_sent) portC_in |= 0x01;
 		if (mcu_sent)  portC_in |= 0x02;
 	
 		return (portC_out & ddrC) | (portC_in & ~ddrC);
-	}
+	} };
 	
 	WRITE_HANDLER( bigevglf_68705_portC_w )
 	{
@@ -96,20 +93,18 @@ public class bigevglf
 	}
 	
 	
-	READ_HANDLER( bigevglf_mcu_r )
-	{
+	public static ReadHandlerPtr bigevglf_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		mcu_sent = 1;
 		return from_mcu;
-	}
+	} };
 	
-	READ_HANDLER( bigevglf_mcu_status_r )
-	{
+	public static ReadHandlerPtr bigevglf_mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res = 0;
 	
 		if (!main_sent) res |= 0x08;
 		if (!mcu_sent) res |= 0x10;
 	
 		return res;
-	}
+	} };
 	
 }

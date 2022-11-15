@@ -182,10 +182,7 @@ public class segasyse
 	static WRITE_HANDLER (segae_mem_8000_w);
 	
 	static WRITE_HANDLER (segae_port_f7_w);
-	static READ_HANDLER (segae_port_7e_7f_r);
 	
-	static READ_HANDLER (segae_port_ba_bb_r);
-	static READ_HANDLER (segae_port_be_bf_r);
 	
 	static WRITE_HANDLER (segae_port_ba_bb_w);
 	static WRITE_HANDLER (segae_port_be_bf_w);
@@ -307,8 +304,7 @@ public class segasyse
 	
 	/*- Beam Position -*/
 	
-	static READ_HANDLER (segae_port_7e_7f_r)
-	{
+	public static ReadHandlerPtr segae_port_7e_7f_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 temp = 0;
 		UINT16 sline;
 	
@@ -324,12 +320,11 @@ public class segasyse
 				break;
 		}
 		return temp;
-	}
+	} };
 	
 	/*- VDP Related -*/
 	
-	static READ_HANDLER (segae_port_ba_bb_r)
-	{
+	public static ReadHandlerPtr segae_port_ba_bb_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* These Addresses access the Back Layer VDP (0) */
 		UINT8 temp = 0;
 	
@@ -341,10 +336,9 @@ public class segasyse
 				temp = segae_vdp_ctrl_r(0); break;
 		}
 		return temp;
-	}
+	} };
 	
-	static READ_HANDLER (segae_port_be_bf_r)
-	{
+	public static ReadHandlerPtr segae_port_be_bf_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* These Addresses access the Front Layer VDP (1) */
 		UINT8 temp = 0;
 	
@@ -356,7 +350,7 @@ public class segasyse
 				temp = segae_vdp_ctrl_r(1); break ;
 		}
 		return temp;
-	}
+	} };
 	
 	static WRITE_HANDLER (segae_port_ba_bb_w)
 	{
@@ -384,8 +378,7 @@ public class segasyse
 	
 	/*- Hang On Jr. Specific -*/
 	
-	static READ_HANDLER (segae_hangonjr_port_f8_r)
-	{
+	public static ReadHandlerPtr segae_hangonjr_port_f8_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 temp;
 	
 		temp = 0;
@@ -397,7 +390,7 @@ public class segasyse
 			temp = readinputport(5);
 	
 		return temp;
-	}
+	} };
 	
 	static WRITE_HANDLER (segae_hangonjr_port_fa_w)
 	{
@@ -409,8 +402,7 @@ public class segasyse
 	
 	static int port_to_read,last1,last2,diff1,diff2;
 	
-	static READ_HANDLER (segae_ridleofp_port_f8_r)
-	{
+	public static ReadHandlerPtr segae_ridleofp_port_f8_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (port_to_read)
 		{
 			default:
@@ -419,7 +411,7 @@ public class segasyse
 			case 2:	return diff2 & 0xff;
 			case 3:	return diff2 >> 8;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER (segae_ridleofp_port_fa_w)
 	{

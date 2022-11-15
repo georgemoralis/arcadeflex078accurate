@@ -187,13 +187,7 @@ public class tnzs
 	/* prototypes for functions in ../machine/tnzs.c */
 	unsigned char *tnzs_objram, *tnzs_workram;
 	unsigned char *tnzs_vdcram, *tnzs_scrollram;
-	READ_HANDLER( arknoid2_sh_f000_r );
-	READ_HANDLER( tnzs_port1_r );
-	READ_HANDLER( tnzs_port2_r );
 	WRITE_HANDLER( tnzs_port2_w );
-	READ_HANDLER( tnzs_mcu_r );
-	READ_HANDLER( tnzs_workram_r );
-	READ_HANDLER( tnzs_workram_sub_r );
 	WRITE_HANDLER( tnzs_workram_w );
 	WRITE_HANDLER( tnzs_workram_sub_w );
 	WRITE_HANDLER( tnzs_mcu_w );
@@ -262,8 +256,7 @@ public class tnzs
 	
 	
 	static int kageki_csport_sel = 0;
-	static READ_HANDLER( kageki_csport_r )
-	{
+	public static ReadHandlerPtr kageki_csport_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int	dsw, dsw1, dsw2;
 	
 		dsw1 = readinputport(0); 		// DSW1
@@ -289,7 +282,7 @@ public class tnzs
 		}
 	
 		return (dsw & 0xff);
-	}
+	} };
 	
 	static WRITE_HANDLER( kageki_csport_w )
 	{

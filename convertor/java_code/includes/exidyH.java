@@ -12,12 +12,8 @@ WRITE_HANDLER( exidy_shriot_w );
 WRITE_HANDLER( exidy_sfxctrl_w );
 WRITE_HANDLER( exidy_sh8253_w );
 WRITE_HANDLER( exidy_sh6840_w );
-READ_HANDLER( exidy_shriot_r );
-READ_HANDLER( exidy_sh8253_r );
-READ_HANDLER( exidy_sh6840_r );
 
 WRITE_HANDLER( mtrap_voiceio_w );
-READ_HANDLER( mtrap_voiceio_r );
 
 
 /*----------- defined in sndhrdw/targ.c -----------*/
@@ -60,4 +56,3 @@ extern UINT8 exidy_collision_invert;
 WRITE_HANDLER( exidy_characterram_w );
 WRITE_HANDLER( exidy_color_w );
 
-READ_HANDLER( exidy_interrupt_r );

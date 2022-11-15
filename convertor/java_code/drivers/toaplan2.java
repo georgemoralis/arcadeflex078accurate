@@ -898,12 +898,11 @@ public class toaplan2
 		if (offset == 0) cpu_yield();	/* Command issued so switch control */
 	}
 	
-	static READ_HANDLER( battleg_commram_check_r0 )
-	{
+	public static ReadHandlerPtr battleg_commram_check_r0  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *battleg_common_RAM = (data8_t *)battleg_commram16;
 	
 		return battleg_common_RAM[BYTE_XOR_BE(offset * 2 + 1)];
-	}
+	} };
 	
 	static WRITE_HANDLER( battleg_commram_check_w0 )
 	{
@@ -1151,20 +1150,18 @@ public class toaplan2
 	}
 	
 	/****** Battle Bakraid Z80 handlers ******/
-	static READ_HANDLER ( raizing_command_r )
-	{
+	public static ReadHandlerPtr raizing_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *raizing_cpu_comm = (data8_t *)raizing_cpu_comm16;
 	
 		logerror("Z80 (PC:%04x) reading %02x from $48\n",activecpu_get_pc(),raizing_cpu_comm[BYTE_XOR_BE(1)]);
 		return raizing_cpu_comm[BYTE_XOR_BE(1)];
-	}
-	static READ_HANDLER ( raizing_request_r )
-	{
+	} };
+	public static ReadHandlerPtr raizing_request_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *raizing_cpu_comm = (data8_t *)raizing_cpu_comm16;
 	
 		logerror("Z80 (PC:%04x) reading %02x from $4A\n",activecpu_get_pc(),raizing_cpu_comm[BYTE_XOR_BE(3)]);
 		return raizing_cpu_comm[BYTE_XOR_BE(3)];
-	}
+	} };
 	static WRITE_HANDLER ( raizing_command_ack_w )
 	{
 	//	logerror("Z80 (PC:%04x) writing %02x to $40\n",activecpu_get_pc(),data);

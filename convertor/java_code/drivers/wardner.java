@@ -136,7 +136,6 @@ public class wardner
 	
 	
 	/******************** Machine stuff **********************/
-	READ_HANDLER( wardner_mainram_r );
 	WRITE_HANDLER( wardner_mainram_w );
 	WRITE_HANDLER( wardner_control_w );
 	WRITE_HANDLER( wardner_coin_dsp_w );
@@ -155,7 +154,6 @@ public class wardner
 	
 	/******************** Video stuff **********************/
 	WRITE_HANDLER( wardner_videoram_w );
-	READ_HANDLER ( wardner_videoram_r );
 	WRITE_HANDLER( wardner_bglayer_w );
 	WRITE_HANDLER( wardner_fglayer_w );
 	WRITE_HANDLER( wardner_txlayer_w );
@@ -188,11 +186,10 @@ public class wardner
 		twincobr_display_on = 1;
 	}
 	
-	static READ_HANDLER( wardner_sprite_r )
-	{
+	public static ReadHandlerPtr wardner_sprite_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int shift = (offset & 1) * 8;
 		return spriteram16[offset/2] >> shift;
-	}
+	} };
 	
 	static WRITE_HANDLER( wardner_sprite_w )
 	{
@@ -202,28 +199,25 @@ public class wardner
 			spriteram16[offset/2] = (spriteram16[offset/2] & 0xff00) | data;
 	}
 	
-	static READ_HANDLER( wardner_sharedram_r )
-	{
+	public static ReadHandlerPtr wardner_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return wardner_sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( wardner_sharedram_w )
 	{
 		wardner_sharedram[offset] = data;
 	}
 	
-	static READ_HANDLER( wardner_spare_pal_ram_r )
-	{
+	public static ReadHandlerPtr wardner_spare_pal_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return wardner_spare_pal_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( wardner_spare_pal_ram_w )
 	{
 		wardner_spare_pal_ram[offset] = data;
 	}
 	
-	static READ_HANDLER( wardner_ram_rom_r )
-	{
+	public static ReadHandlerPtr wardner_ram_rom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int wardner_data = 0;
 	
 		if (wardner_membank == 0)
@@ -250,7 +244,7 @@ public class wardner
 			wardner_data = wardner_rom[wardner_rombank + offset];
 		}
 		return wardner_data;
-	}
+	} };
 	
 	static WRITE_HANDLER( wardner_ramrom_banks_w )
 	{

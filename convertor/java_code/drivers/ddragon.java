@@ -165,8 +165,7 @@ public class ddragon
 	//	logerror("Bank %05x %02x %02x\n",activecpu_get_pc(),darktowr_bank,data);
 	}
 	
-	static READ_HANDLER( darktowr_bank_r )
-	{
+	public static ReadHandlerPtr darktowr_bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		const data8_t *RAM = memory_region(REGION_CPU1);
 	
 		/* MCU is mapped into main cpu memory as a bank */
@@ -181,7 +180,7 @@ public class ddragon
 		}
 	
 		return RAM[offset + 0x10000 + (0x4000*darktowr_bank)];
-	}
+	} };
 	
 	static WRITE_HANDLER( darktowr_bank_w )
 	{
@@ -202,10 +201,9 @@ public class ddragon
 		logerror("ROM write! %04x %02x\n",offset,data);
 	}
 	
-	static READ_HANDLER( darktowr_mcu_r )
-	{
+	public static ReadHandlerPtr darktowr_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return darktowr_mcu_ports[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( darktowr_mcu_w )
 	{
@@ -237,11 +235,10 @@ public class ddragon
 		};
 	}
 	
-	static READ_HANDLER( ddragon_hd63701_internal_registers_r )
-	{
+	public static ReadHandlerPtr ddragon_hd63701_internal_registers_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("%04x: read %d\n",activecpu_get_pc(),offset);
 		return 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( ddragon_hd63701_internal_registers_w )
 	{
@@ -267,17 +264,15 @@ public class ddragon
 		cpu_set_irq_line(0,M6809_IRQ_LINE,ASSERT_LINE);
 	}
 	
-	static READ_HANDLER( port4_r )
-	{
+	public static ReadHandlerPtr port4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int port = readinputport( 4 );
 	
 		return port | dd_sub_cpu_busy | VBLK;
-	}
+	} };
 	
-	static READ_HANDLER( ddragon_spriteram_r )
-	{
+	public static ReadHandlerPtr ddragon_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ddragon_spriteram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( ddragon_spriteram_w )
 	{
@@ -344,10 +339,9 @@ public class ddragon
 		}
 	}
 	
-	static READ_HANDLER( dd_adpcm_status_r )
-	{
+	public static ReadHandlerPtr dd_adpcm_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return adpcm_idle[0] + (adpcm_idle[1] << 1);
-	}
+	} };
 	
 	/*****************************************************************************/
 	

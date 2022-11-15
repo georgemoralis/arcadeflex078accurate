@@ -143,25 +143,25 @@ public class mrflea
 		cpu_set_irq_line( 1, 0, HOLD_LINE );
 	}
 	
-	static READ_HANDLER( mrflea_main_r ){
+	public static ReadHandlerPtr mrflea_main_r  = new ReadHandlerPtr() { public int handler(int offset)
 		mrflea_status &= ~0x01; // main CPU command read
 		return mrflea_main;
 	}
 	
-	static READ_HANDLER( mrflea_io_r ){
+	public static ReadHandlerPtr mrflea_io_r  = new ReadHandlerPtr() { public int handler(int offset)
 		mrflea_status &= ~0x08; // IO CPU command read
 		return mrflea_io;
 	}
 	
 	/*******************************************************/
 	
-	static READ_HANDLER( mrflea_main_status_r ){
+	public static ReadHandlerPtr mrflea_main_status_r  = new ReadHandlerPtr() { public int handler(int offset)
 		/*	0x01: main CPU command pending
 			0x08: io cpu ready */
 		return mrflea_status^0x08;
 	}
 	
-	static READ_HANDLER( mrflea_io_status_r ){
+	public static ReadHandlerPtr mrflea_io_status_r  = new ReadHandlerPtr() { public int handler(int offset)
 		/*	0x08: IO CPU command pending
 			0x01: main cpu ready */
 		return mrflea_status^0x01;
@@ -172,7 +172,7 @@ public class mrflea
 			cpu_set_irq_line(1, 0, HOLD_LINE);
 	}
 	
-	static READ_HANDLER( mrflea_interrupt_type_r ){
+	public static ReadHandlerPtr mrflea_interrupt_type_r  = new ReadHandlerPtr() { public int handler(int offset)
 	/* there are two interrupt types:
 		1. triggered (in response to sound command)
 		2. heartbeat (for music timing)
@@ -215,23 +215,23 @@ public class mrflea
 	
 	/*******************************************************/
 	
-	static READ_HANDLER( mrflea_input0_r ){
+	public static ReadHandlerPtr mrflea_input0_r  = new ReadHandlerPtr() { public int handler(int offset)
 		if( mrflea_select0 == 0x0f ) return readinputport(0);
 		if( mrflea_select0 == 0x0e ) return readinputport(1);
 		return 0x00;
 	}
 	
-	static READ_HANDLER( mrflea_input1_r ){
+	public static ReadHandlerPtr mrflea_input1_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return 0x00;
 	}
 	
-	static READ_HANDLER( mrflea_input2_r ){
+	public static ReadHandlerPtr mrflea_input2_r  = new ReadHandlerPtr() { public int handler(int offset)
 		if( mrflea_select2 == 0x0f ) return readinputport(2);
 		if( mrflea_select2 == 0x0e ) return readinputport(3);
 		return 0x00;
 	}
 	
-	static READ_HANDLER( mrflea_input3_r ){
+	public static ReadHandlerPtr mrflea_input3_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return 0x00;
 	}
 	

@@ -157,10 +157,9 @@ public class mcr
 		ssio_status = data;
 	}
 	
-	static READ_HANDLER( ssio_data_r )
-	{
+	public static ReadHandlerPtr ssio_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ssio_data[offset];
-	}
+	} };
 	
 	static void ssio_delayed_data_w(int param)
 	{
@@ -208,10 +207,9 @@ public class mcr
 		timer_set(TIME_NOW, (offset << 8) | (data & 0xff), ssio_delayed_data_w);
 	}
 	
-	READ_HANDLER( ssio_status_r )
-	{
+	public static ReadHandlerPtr ssio_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ssio_status;
-	}
+	} };
 	
 	void ssio_reset_w(int state)
 	{
@@ -415,10 +413,9 @@ public class mcr
 		timer_set(TIME_NOW, data, soundsgood_delayed_data_w);
 	}
 	
-	READ_HANDLER( soundsgood_status_r )
-	{
+	public static ReadHandlerPtr soundsgood_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return soundsgood_status;
-	}
+	} };
 	
 	void soundsgood_reset_w(int state)
 	{
@@ -511,10 +508,9 @@ public class mcr
 		timer_set(TIME_NOW, data, turbocs_delayed_data_w);
 	}
 	
-	READ_HANDLER( turbocs_status_r )
-	{
+	public static ReadHandlerPtr turbocs_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return turbocs_status;
-	}
+	} };
 	
 	void turbocs_reset_w(int state)
 	{

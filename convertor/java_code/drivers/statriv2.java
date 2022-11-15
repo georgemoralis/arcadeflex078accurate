@@ -166,15 +166,14 @@ public class statriv2
 		question_offset_high = data;
 	}
 	
-	static READ_HANDLER (statriv2_questions_read)
-	{
+	public static ReadHandlerPtr statriv2_questions_read  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *question_data    = memory_region       ( REGION_USER1 );
 		int offs;
 	
 		question_offset_low++;
 		offs = (question_offset_high << 8) | question_offset_low;
 		return question_data[offs];
-	}
+	} };
 	
 	/***************************************************\
 	*                                                   *
@@ -238,8 +237,7 @@ public class statriv2
 	*                                                   *
 	\***************************************************/
 	
-	static READ_HANDLER (supertr2_questions_read)
-	{
+	public static ReadHandlerPtr supertr2_questions_read  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *question_data = memory_region( REGION_USER1 );
 		int offs;
 		int XORval;
@@ -253,7 +251,7 @@ public class statriv2
 		offs = (question_offset_high << 16) | (question_offset_med << 8) | question_offset_low;
 	
 		return (question_data[offs] ^ 0xFF) ^ XORval;
-	}
+	} };
 	
 	static MEMORY_READ_START( statriv2_readmem )
 		{ 0x0000, 0x2fff, MRA_ROM },

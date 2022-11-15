@@ -87,10 +87,9 @@ public class cbasebal
 		}
 	}
 	
-	READ_HANDLER( cbasebal_textram_r )
-	{
+	public static ReadHandlerPtr cbasebal_textram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cbasebal_textram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( cbasebal_scrollram_w )
 	{
@@ -101,10 +100,9 @@ public class cbasebal
 		}
 	}
 	
-	READ_HANDLER( cbasebal_scrollram_r )
-	{
+	public static ReadHandlerPtr cbasebal_scrollram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cbasebal_scrollram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( cbasebal_gfxctrl_w )
 	{

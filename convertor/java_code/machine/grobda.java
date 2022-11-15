@@ -28,10 +28,9 @@ public class grobda
 	} };
 	
 	/* memory handlers */
-	READ_HANDLER( grobda_snd_sharedram_r )
-	{
+	public static ReadHandlerPtr grobda_snd_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    return grobda_snd_sharedram[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( grobda_snd_sharedram_w )
 	{
@@ -81,8 +80,7 @@ public class grobda
 	static int credmoned [] = { 1, 1, 1, 1, 2, 2, 3, 4 };
 	static int monedcred [] = { 3, 4, 2, 1, 1, 3, 1, 1 };
 	
-	READ_HANDLER( grobda_customio_1_r )
-	{
+	public static ReadHandlerPtr grobda_customio_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    int mode, val, temp1, temp2;
 	
 	    mode = grobda_customio_1[8];
@@ -174,7 +172,7 @@ public class grobda
 	            default:
 	                return 0x0f;
 	        }
-	    } };
+	    }
 	    else if (mode == 5)  /* IO tests chip 1 */
 	    {
 	        switch (offset)
@@ -206,10 +204,9 @@ public class grobda
 	        }
 	    }
 	    return grobda_customio_1[offset];
-	}
+	} };
 	
-	READ_HANDLER( grobda_customio_2_r )
-	{
+	public static ReadHandlerPtr grobda_customio_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    int val, mode;
 	
 	    mode = grobda_customio_2[8];
@@ -260,5 +257,5 @@ public class grobda
 	    }
 		else
 			return grobda_customio_2[offset];
-	}
+	} };
 }

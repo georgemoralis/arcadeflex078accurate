@@ -339,12 +339,11 @@ public class itech8
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( special_port0_r )
-	{
+	public static ReadHandlerPtr special_port0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t result = readinputport(0);
 		result = (result & 0xfe) | (pia_portb_data & 0x01);
 		return result;
-	}
+	} };
 	
 	
 	
@@ -420,11 +419,10 @@ public class itech8
 	}
 	
 	
-	static READ_HANDLER( sound_data_r )
-	{
+	public static ReadHandlerPtr sound_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_irq_line(1, M6809_IRQ_LINE, CLEAR_LINE);
 		return sound_data;
-	}
+	} };
 	
 	
 	
@@ -486,8 +484,7 @@ public class itech8
 	}
 	
 	
-	static READ_HANDLER( via6522_r )
-	{
+	public static ReadHandlerPtr via6522_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int result = 0;
 	
 		/* switch off the offset */
@@ -506,7 +503,7 @@ public class itech8
 	
 		if (FULL_LOGGING) logerror("VIA read(%02x) = %02x\n", offset, result);
 		return result;
-	}
+	} };
 	
 	
 	

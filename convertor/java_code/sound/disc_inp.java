@@ -40,8 +40,7 @@ WRITE_HANDLER(discrete_sound_w)
 	}
 }
 
-READ_HANDLER(discrete_sound_r)
-{
+public static ReadHandlerPtr discrete_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 	int data=0;
 
 	discrete_sh_update();
@@ -53,7 +52,7 @@ READ_HANDLER(discrete_sound_r)
 		data=dss_input_map[offset]->input[0];
 	}
     return data;
-}
+} };
 
 
 /************************************************************************/

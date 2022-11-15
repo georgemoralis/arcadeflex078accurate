@@ -24,9 +24,7 @@ public class suprloco
 	
 	WRITE_HANDLER( suprloco_videoram_w );
 	WRITE_HANDLER( suprloco_scrollram_w );
-	READ_HANDLER( suprloco_scrollram_r );
 	WRITE_HANDLER( suprloco_control_w );
-	READ_HANDLER( suprloco_control_r );
 	
 	
 	static WRITE_HANDLER( suprloco_soundport_w )

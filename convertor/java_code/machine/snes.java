@@ -165,8 +165,7 @@ public class snes
 	
 	/* Handle reading of Mode 20 SRAM */
 	/* 0x700000 - 0x77ffff */
-	READ_HANDLER( snes_r_sram )
-	{
+	public static ReadHandlerPtr snes_r_sram  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 value = 0xff;
 	
 		if( cart.sram > 0 )
@@ -175,11 +174,10 @@ public class snes
 		}
 	
 		return value;
-	}
+	} };
 	
 	/* 0x000000 - 0x2fffff */
-	READ_HANDLER( snes_r_bank1 )
-	{
+	public static ReadHandlerPtr snes_r_bank1  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT16 address = offset & 0xffff;
 	
 		if( address <= 0x1fff )								/* Mirror of Low RAM */
@@ -197,11 +195,10 @@ public class snes
 		}
 	
 		return 0xff;
-	}
+	} };
 	
 	/* 0x300000 - 0x3fffff */
-	READ_HANDLER( snes_r_bank2 )
-	{
+	public static ReadHandlerPtr snes_r_bank2  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT16 address = offset & 0xffff;
 	
 		if( address <= 0x1fff )								/* Mirror of Low RAM */
@@ -224,11 +221,10 @@ public class snes
 		}
 	
 		return 0xff;
-	}
+	} };
 	
 	/* 0x400000 - 0x5fffff */
-	READ_HANDLER( snes_r_bank3 )
-	{
+	public static ReadHandlerPtr snes_r_bank3  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT16 address = offset & 0xffff;
 	
 		if( cart.mode == SNES_MODE_20 )
@@ -244,11 +240,10 @@ public class snes
 		}
 	
 		return 0xff;
-	}
+	} };
 	
 	/* 0x800000 - 0xffffff */
-	READ_HANDLER( snes_r_bank4 )
-	{
+	public static ReadHandlerPtr snes_r_bank4  = new ReadHandlerPtr() { public int handler(int offset){
 		if( cart.mode == SNES_MODE_20 )
 		{
 			if( offset <= 0x5fffff )
@@ -265,7 +260,7 @@ public class snes
 		}
 	
 		return 0xff;
-	}
+	} };
 	
 	/* 0x000000 - 0x2fffff */
 	WRITE_HANDLER( snes_w_bank1 )
@@ -329,8 +324,7 @@ public class snes
 	 * mid  - This is the middle byte of a 24 bit value
 	 * high - This is the high byte of a 16 or 24 bit value
 	 */
-	READ_HANDLER( snes_r_io )
-	{
+	public static ReadHandlerPtr snes_r_io  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 value = 0;
 	
 		/* offset is from 0x000000 */
@@ -632,7 +626,7 @@ public class snes
 	
 		/* Unsupported reads return 0xff */
 		return 0xff;
-	}
+	} };
 	
 	/*
 	 * DW   - Double write : address is written twice to set a 16bit value.

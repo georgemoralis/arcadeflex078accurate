@@ -23,18 +23,13 @@ public class msisaac
 	*/
 	
 	/* in machine/buggychl.c */
-	READ_HANDLER( buggychl_68705_portA_r );
 	WRITE_HANDLER( buggychl_68705_portA_w );
 	WRITE_HANDLER( buggychl_68705_ddrA_w );
-	READ_HANDLER( buggychl_68705_portB_r );
 	WRITE_HANDLER( buggychl_68705_portB_w );
 	WRITE_HANDLER( buggychl_68705_ddrB_w );
-	READ_HANDLER( buggychl_68705_portC_r );
 	WRITE_HANDLER( buggychl_68705_portC_w );
 	WRITE_HANDLER( buggychl_68705_ddrC_w );
 	WRITE_HANDLER( buggychl_mcu_w );
-	READ_HANDLER( buggychl_mcu_r );
-	READ_HANDLER( buggychl_mcu_status_r );
 	
 	
 	//not used
@@ -121,8 +116,7 @@ public class msisaac
 	#endif
 	
 	
-	static READ_HANDLER( msisaac_mcu_r )
-	{
+	public static ReadHandlerPtr msisaac_mcu_r  = new ReadHandlerPtr() { public int handler(int offset){
 	#ifdef USE_MCU
 		return buggychl_mcu_r(offset);
 	#else
@@ -195,16 +189,15 @@ public class msisaac
 	 		break;
 		}
 	#endif
-	}
+	} };
 	
-	static READ_HANDLER( msisaac_mcu_status_r )
-	{
+	public static ReadHandlerPtr msisaac_mcu_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 	#ifdef USE_MCU
 		return buggychl_mcu_status_r(offset);
 	#else
 		return 3;	//mcu ready / cpu data ready
 	#endif
-	}
+	} };
 	
 	static WRITE_HANDLER( msisaac_mcu_w )
 	{

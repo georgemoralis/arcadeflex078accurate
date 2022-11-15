@@ -4,6 +4,5 @@ extern int iqblock_videoenable;
 extern int iqblock_vidhrdw_type;
 WRITE_HANDLER( iqblock_fgvideoram_w );
 WRITE_HANDLER( iqblock_bgvideoram_w );
-READ_HANDLER( iqblock_bgvideoram_r );
 WRITE_HANDLER( iqblock_fgscroll_w );
 

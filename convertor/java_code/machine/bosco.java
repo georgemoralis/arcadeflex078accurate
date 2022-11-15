@@ -121,10 +121,9 @@ public class bosco
 	} };
 	
 	
-	READ_HANDLER( bosco_sharedram_r )
-	{
+	public static ReadHandlerPtr bosco_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bosco_sharedram[offset];
-	}
+	} };
 	
 	
 	
@@ -135,8 +134,7 @@ public class bosco
 	
 	
 	
-	READ_HANDLER( bosco_dsw_r )
-	{
+	public static ReadHandlerPtr bosco_dsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int bit0,bit1;
 	
 	
@@ -144,7 +142,7 @@ public class bosco
 		bit1 = (input_port_1_r(0) >> offset) & 1;
 	
 		return bit0 | (bit1 << 1);
-	}
+	} };
 	
 	
 	
@@ -299,8 +297,7 @@ public class bosco
 	}
 	
 	
-	READ_HANDLER( bosco_customio_data_1_r )
-	{
+	public static ReadHandlerPtr bosco_customio_data_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (customio_command_1)
 		{
 			case 0x71:
@@ -430,13 +427,12 @@ public class bosco
 		}
 	
 		return -1;
-	}
+	} };
 	
 	
-	READ_HANDLER( bosco_customio_1_r )
-	{
+	public static ReadHandlerPtr bosco_customio_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return customio_command_1;
-	}
+	} };
 	
 	void bosco_nmi_generate_1 (int param)
 	{
@@ -531,8 +527,7 @@ public class bosco
 	}
 	
 	
-	READ_HANDLER( bosco_customio_data_2_r )
-	{
+	public static ReadHandlerPtr bosco_customio_data_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (customio_command_2)
 		{
 			case 0x91:
@@ -544,13 +539,12 @@ public class bosco
 		}
 	
 		return -1;
-	}
+	} };
 	
 	
-	READ_HANDLER( bosco_customio_2_r )
-	{
+	public static ReadHandlerPtr bosco_customio_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return customio_command_2;
-	}
+	} };
 	
 	void bosco_nmi_generate_2 (int param)
 	{

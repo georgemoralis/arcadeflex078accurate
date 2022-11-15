@@ -186,8 +186,7 @@ public class strtheat
 	}
 	
 	
-	READ_HANDLER( strtheat_decrypt_rom )
-	{
+	public static ReadHandlerPtr strtheat_decrypt_rom  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		if (offset & 0x01)
@@ -213,7 +212,7 @@ public class strtheat
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	public static MachineInitHandlerPtr machine_init_strtheat  = new MachineInitHandlerPtr() { public void handler(){

@@ -66,8 +66,7 @@ public class tagteam
 		}
 	}
 	
-	READ_HANDLER( tagteam_mirrorvideoram_r )
-	{
+	public static ReadHandlerPtr tagteam_mirrorvideoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int x,y;
 	
 		/* swap x and y coordinates */
@@ -76,10 +75,9 @@ public class tagteam
 		offset = 32 * y + x;
 	
 		return videoram_r(offset);
-	}
+	} };
 	
-	READ_HANDLER( tagteam_mirrorcolorram_r )
-	{
+	public static ReadHandlerPtr tagteam_mirrorcolorram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int x,y;
 	
 		/* swap x and y coordinates */
@@ -88,7 +86,7 @@ public class tagteam
 		offset = 32 * y + x;
 	
 		return colorram_r(offset);
-	}
+	} };
 	
 	WRITE_HANDLER( tagteam_mirrorvideoram_w )
 	{

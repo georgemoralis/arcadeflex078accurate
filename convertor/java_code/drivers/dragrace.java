@@ -118,8 +118,7 @@ public class dragrace
 		dragrace_update_misc_flags();
 	}
 	
-	READ_HANDLER( dragrace_input_r )
-	{
+	public static ReadHandlerPtr dragrace_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int val = readinputport(2);
 	
 		UINT8 maskA = 1 << (offset % 8);
@@ -143,11 +142,10 @@ public class dragrace
 		}
 	
 		return (val & maskB) ? 0xFF : 0x7F;
-	}
+	} };
 	
 	
-	READ_HANDLER( dragrace_steering_r )
-	{
+	public static ReadHandlerPtr dragrace_steering_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int bitA[2];
 		int bitB[2];
 	
@@ -164,13 +162,12 @@ public class dragrace
 		return
 			(bitA[0] << 0) | (bitB[0] << 1) |
 			(bitA[1] << 2) | (bitB[1] << 3);
-	}
+	} };
 	
 	
-	READ_HANDLER( dragrace_scanline_r )
-	{
+	public static ReadHandlerPtr dragrace_scanline_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (cpu_getscanline() ^ 0xf0) | 0x0f;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( dragrace_readmem )

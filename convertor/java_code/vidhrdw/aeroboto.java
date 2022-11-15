@@ -84,10 +84,9 @@ public class aeroboto
 	
 	***************************************************************************/
 	
-	READ_HANDLER( aeroboto_in0_r )
-	{
+	public static ReadHandlerPtr aeroboto_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(flip_screen ? 1 : 0);
-	}
+	} };
 	
 	WRITE_HANDLER( aeroboto_3000_w )
 	{

@@ -30,13 +30,10 @@ public class battlera
 {
 	
 	
-	READ_HANDLER( HuC6270_register_r );
 	WRITE_HANDLER( HuC6270_register_w );
-	READ_HANDLER( HuC6270_data_r );
 	WRITE_HANDLER( HuC6270_data_w );
 	WRITE_HANDLER( battlera_palette_w );
 	
-	READ_HANDLER( HuC6270_debug_r );
 	WRITE_HANDLER( HuC6270_debug_w );
 	
 	static int control_port_select;
@@ -58,8 +55,7 @@ public class battlera
 		control_port_select=data;
 	}
 	
-	static READ_HANDLER( control_data_r )
-	{
+	public static ReadHandlerPtr control_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (control_port_select) {
 			case 0xfe: return readinputport(0); /* Player 1 */
 			case 0xfd: return readinputport(1); /* Player 2 */
@@ -69,7 +65,7 @@ public class battlera
 		}
 	
 	    return 0xff;
-	}
+	} };
 	
 	/******************************************************************************/
 	

@@ -45,27 +45,18 @@ public class williams
 	/* input port mapping */
 	static UINT8 port_select;
 	static WRITE_HANDLER( williams_port_select_w );
-	static READ_HANDLER( williams_input_port_0_3_r );
-	static READ_HANDLER( williams_input_port_49way_0_5_r );
-	static READ_HANDLER( williams_input_port_1_4_r );
-	static READ_HANDLER( williams_49way_port_0_r );
 	
 	/* newer-Williams routines */
 	static WRITE_HANDLER( williams2_snd_cmd_w );
 	
 	/* Defender-specific code */
-	READ_HANDLER( defender_input_port_0_r );
-	static READ_HANDLER( defender_io_r );
 	static WRITE_HANDLER( defender_io_w );
 	
 	/* Stargate-specific code */
-	READ_HANDLER( stargate_input_port_0_r );
 	
 	/* Lotto Fun-specific code */
-	static READ_HANDLER( lottofun_input_port_0_r );
 	
 	/* Turkey Shoot-specific code */
-	static READ_HANDLER( tshoot_input_port_0_3_r );
 	static WRITE_HANDLER( tshoot_lamp_w );
 	static WRITE_HANDLER( tshoot_maxvol_w );
 	
@@ -419,16 +410,14 @@ public class williams
 	}
 	
 	
-	READ_HANDLER( williams_input_port_0_3_r )
-	{
+	public static ReadHandlerPtr williams_input_port_0_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(port_select ? 3 : 0);
-	}
+	} };
 	
 	
-	READ_HANDLER( williams_input_port_1_4_r )
-	{
+	public static ReadHandlerPtr williams_input_port_1_4_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(port_select ? 4 : 1);
-	}
+	} };
 	
 	
 	/*
@@ -456,8 +445,7 @@ public class williams
 	 *
 	 */
 	
-	READ_HANDLER( williams_49way_port_0_r )
-	{
+	public static ReadHandlerPtr williams_49way_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int joy_x, joy_y;
 		int bits_x, bits_y;
 	
@@ -468,16 +456,15 @@ public class williams
 		bits_y = (0x70 >> (7 - joy_y)) & 0x0f;
 	
 		return (bits_x << 4) | bits_y;
-	}
+	} };
 	
 	
-	READ_HANDLER( williams_input_port_49way_0_5_r )
-	{
+	public static ReadHandlerPtr williams_input_port_49way_0_5_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (port_select)
 			return williams_49way_port_0_r(0);
 		else
 			return readinputport(5);
-	}
+	} };
 	
 	
 	
@@ -689,8 +676,7 @@ public class williams
 	}
 	
 	
-	READ_HANDLER( defender_input_port_0_r )
-	{
+	public static ReadHandlerPtr defender_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int keys, altkeys;
 	
 		/* read the standard keys and the cheat keys */
@@ -711,11 +697,10 @@ public class williams
 		}
 	
 		return keys;
-	}
+	} };
 	
 	
-	READ_HANDLER( defender_io_r )
-	{
+	public static ReadHandlerPtr defender_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* PIAs */
 		if (offset >= 0x0c00 && offset < 0x0c04)
 			return pia_1_r(offset & 3);
@@ -728,7 +713,7 @@ public class williams
 	
 		/* If not bank 0 then return banked RAM */
 		return defender_bank_base[offset];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( defender_io_w )
@@ -759,15 +744,14 @@ public class williams
 	 *
 	 *************************************/
 	
-	READ_HANDLER( mayday_protection_r )
-	{
+	public static ReadHandlerPtr mayday_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Mayday does some kind of protection check that is not currently understood  */
 		/* However, the results of that protection check are stored at $a190 and $a191 */
 		/* These are compared against $a193 and $a194, respectively. Thus, to prevent  */
 		/* the protection from resetting the machine, we just return $a193 for $a190,  */
 		/* and $a194 for $a191. */
 		return mayday_protection[offset + 3];
-	}
+	} };
 	
 	
 	
@@ -777,8 +761,7 @@ public class williams
 	 *
 	 *************************************/
 	
-	READ_HANDLER( stargate_input_port_0_r )
-	{
+	public static ReadHandlerPtr stargate_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int keys, altkeys;
 	
 		/* read the standard keys and the cheat keys */
@@ -799,7 +782,7 @@ public class williams
 		}
 	
 		return keys;
-	}
+	} };
 	
 	
 	
@@ -859,11 +842,10 @@ public class williams
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( lottofun_input_port_0_r )
-	{
+	public static ReadHandlerPtr lottofun_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* merge in the ticket dispenser status */
 		return input_port_0_r(offset) | ticket_dispenser_r(offset);
-	}
+	} };
 	
 	
 	
@@ -873,13 +855,12 @@ public class williams
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( tshoot_input_port_0_3_r )
-	{
+	public static ReadHandlerPtr tshoot_input_port_0_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* merge in the gun inputs with the standard data */
 		int data = williams_input_port_0_3_r(offset);
 		int gun = (data & 0x3f) ^ ((data & 0x3f) >> 1);
 		return (data & 0xc0) | gun;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( tshoot_maxvol_w )

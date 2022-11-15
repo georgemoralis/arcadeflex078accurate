@@ -61,10 +61,9 @@ public class bigevglf
 		plot_pixel(tmp_bitmap[plane_selected],x,y,data );
 	}
 	
-	READ_HANDLER( bigevglf_vidram_r )
-	{
+	public static ReadHandlerPtr bigevglf_vidram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return vidram[ 0x10000 * plane_selected + vidram_bank + offset];
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_bigevglf  = new VideoStartHandlerPtr() { public int handler(){
 		tmp_bitmap[0] = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height);

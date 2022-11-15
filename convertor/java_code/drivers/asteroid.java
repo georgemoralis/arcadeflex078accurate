@@ -191,10 +191,9 @@ public class asteroid
 	
 	static data8_t *llander_zeropage;
 	
-	static READ_HANDLER( llander_zeropage_r )
-	{
+	public static ReadHandlerPtr llander_zeropage_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return llander_zeropage[offset & 0xff];
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( llander_zeropage_w )

@@ -60,7 +60,7 @@ public class metlclsh
 	
 	static data8_t *sharedram;
 	
-	static READ_HANDLER ( sharedram_r )	{ return sharedram[offset]; }
+	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset) return sharedram[offset]; }
 	static WRITE_HANDLER( sharedram_w )	{ sharedram[offset] = data; }
 	
 	static WRITE_HANDLER( metlclsh_cause_irq )
@@ -251,7 +251,7 @@ public class metlclsh
 		{ STEP8(8*8*2,1), STEP8(8*8*0,1) },
 		{ STEP8(8*8*0,8), STEP8(8*8*1,8) },
 		16*16
-	};
+	} };;
 	
 	static struct GfxLayout tilelayout16 =
 	{

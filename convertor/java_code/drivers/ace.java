@@ -60,10 +60,9 @@ public class ace
 	}
 	
 	#if 0
-	static READ_HANDLER( ace_objpos_r )
-	{
+	public static ReadHandlerPtr ace_objpos_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return objpos[offset];
-	}
+	} };
 	#endif
 	
 	public static VideoUpdateHandlerPtr video_update_ace  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
@@ -121,10 +120,9 @@ public class ace
 	} };
 	
 	
-	static READ_HANDLER( ace_characterram_r )
-	{
+	public static ReadHandlerPtr ace_characterram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ace_characterram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( ace_characterram_w )
 	{
@@ -140,10 +138,9 @@ public class ace
 	}
 	
 	
-	static READ_HANDLER( unk_r )
-	{
+	public static ReadHandlerPtr unk_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return rand()&0xff;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem )

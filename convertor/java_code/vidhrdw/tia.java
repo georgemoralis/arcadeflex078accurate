@@ -800,16 +800,14 @@ public class tia
 	}
 	
 	
-	static READ_HANDLER( INPT_r )
-	{
+	public static ReadHandlerPtr INPT_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT32 elapsed = activecpu_gettotalcycles() - paddle_cycles;
 	
 		return elapsed > 76 * readinputport(offset & 3) ? 0x80 : 0x00;
-	}
+	} };
 	
 	
-	READ_HANDLER( tia_r )
-	{
+	public static ReadHandlerPtr tia_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 data = 0;
 	
 		if (!(offset & 0x8))
@@ -850,7 +848,7 @@ public class tia
 		}
 	
 		return 0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( tia_w )

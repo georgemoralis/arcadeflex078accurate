@@ -81,7 +81,7 @@ public class djboy
 	extern WRITE_HANDLER( djboy_paletteram_w );
 	extern extern 
 	static data8_t *sharedram;
-	static READ_HANDLER( sharedram_r )	{ return sharedram[offset]; }
+	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset) return sharedram[offset]; }
 	static WRITE_HANDLER( sharedram_w )	{ sharedram[offset] = data; }
 	
 	static int prot_offs;
@@ -103,7 +103,7 @@ public class djboy
 		if( data < 4 )
 		{
 			RAM = &RAM[0x2000 * data];
-		}
+		} };
 		else
 		{
 			RAM = &RAM[0x10000 + 0x2000 * (data-4)];
@@ -208,8 +208,7 @@ public class djboy
 		logerror( "pc == %04x; data_w(%02x)\n", activecpu_get_pc(), data );
 	} /* cpu2_data_w */
 	
-	static READ_HANDLER( cpu2_data_r )
-	{
+	public static ReadHandlerPtr cpu2_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t result = 0x00;
 		static int which;
 	
@@ -271,10 +270,9 @@ public class djboy
 		}
 		logerror( "pc == %04x; data_r() == 0x%02x\n", activecpu_get_pc(), result );
 		return result;
-	} /* cpu2_data_r */
+	} }; /* cpu2_data_r */
 	
-	static READ_HANDLER( cpu2_status_r )
-	{
+	public static ReadHandlerPtr cpu2_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch( activecpu_get_pc() )
 		{
 		case 0x27b3: return 0;//!0x02
@@ -334,7 +332,7 @@ public class djboy
 		}
 		logerror( "pc == %04x; status_r\n", activecpu_get_pc() );
 		return 0x02|(rand()&0x0c);
-	}
+	} };
 	
 	/******************************************************************************/
 	

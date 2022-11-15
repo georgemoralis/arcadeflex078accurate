@@ -224,10 +224,9 @@ public class namcos21
 		}
 	}
 	
-	static READ_HANDLER( namcos2_dualportram_byte_r )
-	{
+	public static ReadHandlerPtr namcos2_dualportram_byte_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return mpDualPortRAM[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( namcos2_dualportram_byte_w )
 	{

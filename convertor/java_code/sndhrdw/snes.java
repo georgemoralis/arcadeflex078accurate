@@ -166,11 +166,10 @@ public class snes
 		/* FIXME: Need to fill this in! */
 		}
 	
-	READ_HANDLER( snes_dsp_io_r )
-	{
+	public static ReadHandlerPtr snes_dsp_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* FIXME: Need to fill this in! */
 		return 0xff;
-	}
+	} };
 	
 	WRITE_HANDLER( snes_dsp_io_w )
 	{
@@ -376,8 +375,7 @@ public class snes
 	/***************************
 	 *     I/O for SPC700      *
 	 ***************************/
-	READ_HANDLER( spc_io_r )
-	{
+	public static ReadHandlerPtr spc_io_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch( offset )	/* Offset is from 0x00f0 */
 		{
 			case 0x2:		/* Register address */
@@ -403,7 +401,7 @@ public class snes
 		}
 		}
 		return 0xff;
-	}
+	} };
 	
 	WRITE_HANDLER( spc_io_w )
 	{
@@ -465,8 +463,7 @@ public class snes
 				spc_ram[0xf0 + offset] = data;
 	}
 	
-	READ_HANDLER( spc_bank_r )
-	{
+	public static ReadHandlerPtr spc_bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if( spc_showrom )
 		{
 			return spc_iplrom[offset];
@@ -475,7 +472,7 @@ public class snes
 		{
 			return spc_ram[0xffc0 + offset];
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( spc_bank_w )
 	{
@@ -499,8 +496,7 @@ public class snes
 		fakeapu_port[offset] = data;
 	}
 	
-	READ_HANDLER( fakespc_port_r )
-	{
+	public static ReadHandlerPtr fakespc_port_r  = new ReadHandlerPtr() { public int handler(int offset){
 	/*  G65816_PC=1, G65816_S, G65816_P, G65816_A, G65816_X, G65816_Y,
 	 *  G65816_PB, G65816_DB, G65816_D, G65816_E,
 	 *  G65816_NMI_STATE, G65816_IRQ_STATE
@@ -592,5 +588,5 @@ public class snes
 		}
 	
 		return fakeapu_port[offset];
-	}
+	} };
 }

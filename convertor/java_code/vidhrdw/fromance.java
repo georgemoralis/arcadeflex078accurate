@@ -156,12 +156,11 @@ public class fromance
 	 *
 	 *************************************/
 	
-	READ_HANDLER( fromance_paletteram_r )
-	{
+	public static ReadHandlerPtr fromance_paletteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* adjust for banking and read */
 		offset |= selected_paletteram << 11;
 		return local_paletteram[offset];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( fromance_paletteram_w )
@@ -194,10 +193,9 @@ public class fromance
 	 *
 	 *************************************/
 	
-	READ_HANDLER( fromance_videoram_r )
-	{
+	public static ReadHandlerPtr fromance_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return local_videoram[selected_videoram][offset];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( fromance_videoram_w )

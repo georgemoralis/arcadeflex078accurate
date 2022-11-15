@@ -35,14 +35,13 @@ public class kopunch
 		cpu_set_irq_line_and_vector(0,0,HOLD_LINE,0xff);	/* RST 38h */
 	} };
 	
-	static READ_HANDLER( kopunch_in_r )
-	{
+	public static ReadHandlerPtr kopunch_in_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* port 31 + low 3 bits of port 32 contain the punch strength */
 		if (offset == 0)
 			return rand();
 		else
 			return (rand() & 0x07) | input_port_1_r(0);
-	}
+	} };
 	
 	static WRITE_HANDLER( kopunch_lamp_w )
 	{
@@ -76,10 +75,9 @@ public class kopunch
 		{ 0x7100, 0x7aff, MWA_RAM },	// ???
 	MEMORY_END
 	
-	static READ_HANDLER( pip_r )
-	{
+	public static ReadHandlerPtr pip_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return rand();
-	}
+	} };
 	
 	static PORT_READ_START( readport )
 		{ 0x30, 0x30, input_port_0_r },

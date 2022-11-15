@@ -71,15 +71,13 @@ public class pitnrun
 	}
 	
 	
-	READ_HANDLER( pitnrun_videoram_r )
-	{
+	public static ReadHandlerPtr pitnrun_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
-	}
+	} };
 	
-	READ_HANDLER( pitnrun_videoram2_r )
-	{
+	public static ReadHandlerPtr pitnrun_videoram2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram2[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( pitnrun_char_bank_select )
 	{

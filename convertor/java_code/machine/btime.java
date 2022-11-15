@@ -18,8 +18,7 @@ public class btime
 	static int protection_ret = 0;
 	
 	
-	READ_HANDLER( mmonkey_protection_r )
-	{
+	public static ReadHandlerPtr mmonkey_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		int ret = 0;
@@ -30,7 +29,7 @@ public class btime
 		else logerror("Unknown protection read.  PC=%04X  Offset=%04X\n", activecpu_get_pc(), offset);
 	
 		return ret;
-	}
+	} };
 	
 	
 	

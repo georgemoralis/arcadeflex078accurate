@@ -100,8 +100,7 @@ public class starshp1
 	} };
 	
 	
-	READ_HANDLER( starshp1_rng_r )
-	{
+	public static ReadHandlerPtr starshp1_rng_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int x = cpu_gethorzbeampos();
 		int y = cpu_getscanline();
 	
@@ -111,7 +110,7 @@ public class starshp1
 			y = Machine->drv->screen_height - 1;
 	
 		return LSFR[x + (UINT16) (512 * y)];
-	}
+	} };
 	
 	
 	WRITE_HANDLER( starshp1_ssadd_w )

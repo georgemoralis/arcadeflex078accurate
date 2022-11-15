@@ -42,17 +42,13 @@ public class marvins
 	**
 	***************************************************************************/
 	
-	extern READ_HANDLER( marvins_background_ram_r );
-	extern WRITE_HANDLER( marvins_background_ram_w );
+	extern extern WRITE_HANDLER( marvins_background_ram_w );
 	
-	extern READ_HANDLER( marvins_foreground_ram_r );
-	extern WRITE_HANDLER( marvins_foreground_ram_w );
+	extern extern WRITE_HANDLER( marvins_foreground_ram_w );
 	
-	extern READ_HANDLER( marvins_text_ram_r );
-	extern WRITE_HANDLER( marvins_text_ram_w );
+	extern extern WRITE_HANDLER( marvins_text_ram_w );
 	
-	extern READ_HANDLER( marvins_spriteram_r );
-	extern WRITE_HANDLER( marvins_spriteram_w );
+	extern extern WRITE_HANDLER( marvins_spriteram_w );
 	
 	
 	/***************************************************************************
@@ -133,23 +129,20 @@ public class marvins
 		cpu_set_irq_line(2, 0, HOLD_LINE);
 	}
 	
-	static READ_HANDLER( sound_command_r )
-	{
+	public static ReadHandlerPtr sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		sound_cpu_busy = 0;
 		return(soundlatch_r(0));
-	}
+	} };
 	
-	static READ_HANDLER( sound_nmi_ack_r )
-	{
+	public static ReadHandlerPtr sound_nmi_ack_r  = new ReadHandlerPtr() { public int handler(int offset){
 		cpu_set_nmi_line(2, CLEAR_LINE);
 		return 0;
-	}
+	} };
 	
 	/* this input port has one of its bits mapped to sound CPU status */
-	static READ_HANDLER( marvins_port_0_r )
-	{
+	public static ReadHandlerPtr marvins_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return(input_port_0_r(0) | sound_cpu_busy);
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem_sound )
 		{ 0x0000, 0x3fff, MRA_ROM },

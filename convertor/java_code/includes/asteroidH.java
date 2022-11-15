@@ -7,18 +7,12 @@
 /*----------- defined in machine/asteroid.c -----------*/
 
 
-READ_HANDLER( asteroid_IN0_r );
-READ_HANDLER( asteroib_IN0_r );
-READ_HANDLER( asterock_IN0_r );
-READ_HANDLER( asteroid_IN1_r );
-READ_HANDLER( asteroid_DSW1_r );
 
 WRITE_HANDLER( asteroid_bank_switch_w );
 WRITE_HANDLER( astdelux_bank_switch_w );
 WRITE_HANDLER( astdelux_led_w );
 
 
-READ_HANDLER( llander_IN0_r );
 
 
 /*----------- defined in sndhrdw/asteroid.c -----------*/

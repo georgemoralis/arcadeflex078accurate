@@ -54,12 +54,11 @@ public class sspeedr
 	} };
 	
 	
-	static READ_HANDLER( sspeedr_steering_r )
-	{
+	public static ReadHandlerPtr sspeedr_steering_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 val = readinputport(0);
 	
 		return 0x3f ^ (val >> 2) ^ (val >> 3);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( sspeedr_int_ack_w )

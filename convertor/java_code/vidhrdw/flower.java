@@ -145,7 +145,7 @@ public class flower
 	} };
 	
 	
-	READ_HANDLER( flower_sharedram_r ) { return flower_sharedram[offset]; }
+	public static ReadHandlerPtr flower_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset) return flower_sharedram[offset]; }
 	
 	WRITE_HANDLER( flower_sharedram_w )
 	{
@@ -154,7 +154,7 @@ public class flower
 		if ((offset >= 0x3000) && (offset <= 0x31ff)) // bg0 layer
 		{
 			tilemap_mark_tile_dirty(flower_bg0_tilemap,offset&0x1ff);
-		}
+		} };
 	
 		if ((offset >= 0x3800) && (offset <= 0x39ff)) // bg1 layer
 		{

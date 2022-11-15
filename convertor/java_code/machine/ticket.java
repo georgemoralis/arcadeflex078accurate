@@ -70,26 +70,23 @@ public class ticket
 	/***************************************************************************
 	  ticket_dispenser_r
 	***************************************************************************/
-	READ_HANDLER( ticket_dispenser_r )
-	{
+	public static ReadHandlerPtr ticket_dispenser_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return ticket_dispenser_0_r(offset);
-	}
+	} };
 	
-	READ_HANDLER( ticket_dispenser_0_r )
-	{
+	public static ReadHandlerPtr ticket_dispenser_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 	#ifdef DEBUG_TICKET
 		logerror("PC: %04X  Ticket Status Read = %02X\n", activecpu_get_pc(), status);
 	#endif
 		return dispenser[0].status;
-	}
+	} };
 	
-	READ_HANDLER( ticket_dispenser_1_r )
-	{
+	public static ReadHandlerPtr ticket_dispenser_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 	#ifdef DEBUG_TICKET
 		logerror("PC: %04X  Ticket Status Read = %02X\n", activecpu_get_pc(), status);
 	#endif
 		return dispenser[1].status;
-	}
+	} };
 	
 	/***************************************************************************
 	  ticket_dispenser_w

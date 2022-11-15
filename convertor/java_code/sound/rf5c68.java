@@ -117,10 +117,9 @@ public class rf5c68
 			return (rpcm.sel & 15) << 12;
 	}
 	
-	READ_HANDLER( RF5C68_r )
-	{
+	public static ReadHandlerPtr RF5C68_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return rpcm.ram[(RF5C68_pcm_bank() + offset) & 0xffff];
-	}
+	} };
 	
 	WRITE_HANDLER( RF5C68_w )
 	{

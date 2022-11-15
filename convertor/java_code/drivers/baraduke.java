@@ -24,8 +24,6 @@ public class baraduke
 	extern unsigned char *baraduke_textram, *spriteram, *baraduke_videoram;
 	
 	/* from vidhrdw/baraduke.c */
-	READ_HANDLER( baraduke_textlayer_r );
-	READ_HANDLER( baraduke_videoram_r );
 	WRITE_HANDLER( baraduke_textlayer_w );
 	WRITE_HANDLER( baraduke_videoram_w );
 	WRITE_HANDLER( baraduke_scroll0_w );
@@ -48,8 +46,7 @@ public class baraduke
 	#define reverse_bitstrm(data) ((data & 0x01) << 4) | ((data & 0x02) << 2) | (data & 0x04) \
 								| ((data & 0x08) >> 2) | ((data & 0x10) >> 4)
 	
-	static READ_HANDLER( inputport_r )
-	{
+	public static ReadHandlerPtr inputport_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int data = 0;
 	
 		switch (inputport_selected){
@@ -72,7 +69,7 @@ public class baraduke
 		}
 	
 		return data;
-	}
+	} };
 	
 	static WRITE_HANDLER( baraduke_lamps_w )
 	{
@@ -80,10 +77,9 @@ public class baraduke
 		set_led_status(1,data & 0x10);
 	}
 	
-	READ_HANDLER( baraduke_sharedram_r )
-	{
+	public static ReadHandlerPtr baraduke_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram[offset];
-	}
+	} };
 	WRITE_HANDLER( baraduke_sharedram_w )
 	{
 		sharedram[offset] = data;
@@ -113,12 +109,11 @@ public class baraduke
 		{ 0x6000, 0xffff, MWA_ROM },				/* ROM */
 	MEMORY_END
 	
-	READ_HANDLER( soundkludge_r )
-	{
+	public static ReadHandlerPtr soundkludge_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int counter;
 	
 		return ((counter++) >> 4) & 0xff;
-	}
+	} };
 	
 	static MEMORY_READ_START( mcu_readmem )
 		{ 0x0000, 0x001f, hd63701_internal_registers_r },/* internal registers */

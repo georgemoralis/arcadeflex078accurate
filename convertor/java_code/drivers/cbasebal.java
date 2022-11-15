@@ -27,9 +27,7 @@ public class cbasebal
 	
 	
 	WRITE_HANDLER( cbasebal_textram_w );
-	READ_HANDLER( cbasebal_textram_r );
 	WRITE_HANDLER( cbasebal_scrollram_w );
-	READ_HANDLER( cbasebal_scrollram_r );
 	WRITE_HANDLER( cbasebal_gfxctrl_w );
 	WRITE_HANDLER( cbasebal_scrollx_w );
 	WRITE_HANDLER( cbasebal_scrolly_w );
@@ -54,8 +52,7 @@ public class cbasebal
 	}
 	
 	
-	static READ_HANDLER( bankedram_r )
-	{
+	public static ReadHandlerPtr bankedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (rambank == 2)
 			return cbasebal_textram_r(offset);	/* VRAM */
 		else if (rambank == 1)
@@ -68,7 +65,7 @@ public class cbasebal
 		{
 			return cbasebal_scrollram_r(offset);	/* SCROLL */
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( bankedram_w )
 	{
@@ -121,14 +118,13 @@ public class cbasebal
 		}
 	} };
 	
-	static READ_HANDLER( eeprom_r )
-	{
+	public static ReadHandlerPtr eeprom_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int bit;
 	
 		bit = EEPROM_read_bit() << 7;
 	
 		return (input_port_2_r(0) & 0x7f) | bit;
-	}
+	} };
 	
 	static WRITE_HANDLER( eeprom_cs_w )
 	{

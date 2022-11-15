@@ -299,8 +299,7 @@ public class mazerbla
 		cpu_set_irq_line(0, 0, ASSERT_LINE);	/* main cpu interrupt (comes from CFB (generated at the start of INT routine on CFB) - vblank?) */
 	}
 	
-	static READ_HANDLER( cfb_zpu_int_req_clr )
-	{
+	public static ReadHandlerPtr cfb_zpu_int_req_clr  = new ReadHandlerPtr() { public int handler(int offset){
 		zpu_int_vector |= 2;
 	
 		/* clear the INT line when there are no more interrupt requests */
@@ -308,7 +307,7 @@ public class mazerbla
 			cpu_set_irq_line(0, 0, CLEAR_LINE);
 	
 		return 0;
-	}
+	} };
 	
 	
 	static int irq_callback(int irqline)
@@ -335,23 +334,21 @@ public class mazerbla
 	{
 		cfb_zpu_sharedram[offset] = data;
 	}
-	static READ_HANDLER ( sharedram_CFB_ZPU_r )
-	{
+	public static ReadHandlerPtr sharedram_CFB_ZPU_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cfb_zpu_sharedram[offset];
-	}
+	} };
 	
 	
 	
 	static UINT8 ls670_0[4];
 	static UINT8 ls670_1[4];
 	
-	static READ_HANDLER( ls670_0_r )
-	{
+	public static ReadHandlerPtr ls670_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* set a timer to force synchronization after the read */
 		timer_set(TIME_NOW, 0, NULL);
 	
 		return ls670_0[offset];
-	}
+	} };
 	
 	static void deferred_ls670_0_w(int param )
 	{
@@ -369,13 +366,12 @@ public class mazerbla
 	
 	
 	
-	static READ_HANDLER( ls670_1_r )
-	{
+	public static ReadHandlerPtr ls670_1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* set a timer to force synchronization after the read */
 		timer_set(TIME_NOW, 0, NULL);
 	
 		return ls670_1[offset];
-	}
+	} };
 	
 	static void deferred_ls670_1_w(int param )
 	{
@@ -446,8 +442,7 @@ public class mazerbla
 		bcd_7445 = data & 15;
 	}
 	
-	static READ_HANDLER( zpu_inputs_r )
-	{
+	public static ReadHandlerPtr zpu_inputs_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 ret = 0;
 	
 		if (bcd_7445<10)
@@ -455,7 +450,7 @@ public class mazerbla
 			ret = readinputport( bcd_7445 );
 		}
 		return ret;
-	}
+	} };
 	
 	
 	
@@ -552,10 +547,9 @@ public class mazerbla
 	{
 		cfb_ram[offset] = data;
 	}
-	static READ_HANDLER ( cfb_ram_r )
-	{
+	public static ReadHandlerPtr cfb_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return cfb_ram[offset];
-	}
+	} };
 	
 	
 	static WRITE_HANDLER(cfb_led_w)
@@ -625,11 +619,10 @@ public class mazerbla
 	
 	/* ????????????? */
 	static UINT8 port02_status = 0;
-	static READ_HANDLER( cfb_port_02_r )
-	{
+	public static ReadHandlerPtr cfb_port_02_r  = new ReadHandlerPtr() { public int handler(int offset){
 		port02_status ^= 0xff;
 		return (port02_status);
-	}
+	} };
 	
 	static PORT_READ_START( readport_cpu3 )
 		{ 0x02, 0x02, cfb_port_02_r },	/* VCU status ? */
@@ -666,8 +659,7 @@ public class mazerbla
 		}
 	}
 	
-	static READ_HANDLER( VCU_set_cmd_param_r )
-	{
+	public static ReadHandlerPtr VCU_set_cmd_param_r  = new ReadHandlerPtr() { public int handler(int offset){
 		VCU_gfx_param_addr = offset;
 	
 									/* offset  = 0 is not known */
@@ -682,11 +674,10 @@ public class mazerbla
 		plane = mode & 3;
 	
 		return 0;
-	}
+	} };
 	
 	
-	static READ_HANDLER( VCU_set_gfx_addr_r )
-	{
+	public static ReadHandlerPtr VCU_set_gfx_addr_r  = new ReadHandlerPtr() { public int handler(int offset){
 	int offs;
 	int x,y;
 	int bits = 0;
@@ -848,10 +839,9 @@ public class mazerbla
 		break;
 		}
 		return 0;
-	}
+	} };
 	
-	static READ_HANDLER( VCU_set_clr_addr_r )
-	{
+	public static ReadHandlerPtr VCU_set_clr_addr_r  = new ReadHandlerPtr() { public int handler(int offset){
 	int offs;
 	int x,y;
 	int bits = 0;
@@ -1045,7 +1035,7 @@ public class mazerbla
 		}
 	
 		return 0;
-	}
+	} };
 	
 	static MEMORY_READ_START( readmem_cpu3 )
 		{ 0x0000, 0x37ff, MRA_ROM },
@@ -1074,10 +1064,9 @@ public class mazerbla
 	
 	static UINT8 soundlatch;
 	
-	static READ_HANDLER( soundcommand_r )
-	{
+	public static ReadHandlerPtr soundcommand_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return soundlatch;
-	}
+	} };
 	
 	static void delayed_sound_w(int param)
 	{

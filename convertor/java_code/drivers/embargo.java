@@ -41,14 +41,12 @@ public class embargo
 	}
 	
 	
-	static READ_HANDLER( embargo_input_r )
-	{
+	public static ReadHandlerPtr embargo_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return (readinputport(1) << (7 - input_select)) & 0x80;
-	}
+	} };
 	
 	
-	static READ_HANDLER( embargo_dial_r )
-	{
+	public static ReadHandlerPtr embargo_dial_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 lo = 0;
 		UINT8 hi = 0;
 	
@@ -92,7 +90,7 @@ public class embargo
 		}
 	
 		return 16 * mapped_hi + mapped_lo;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( embargo_port1_w )

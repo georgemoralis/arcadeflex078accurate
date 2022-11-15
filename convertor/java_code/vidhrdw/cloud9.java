@@ -130,8 +130,7 @@ public class cloud9
 	/***************************************************************************
 	  cloud9_bitmap_regs_r
 	***************************************************************************/
-	READ_HANDLER( cloud9_bitmap_regs_r )
-	{
+	public static ReadHandlerPtr cloud9_bitmap_regs_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *vptr;
 		int vpixel;
 		unsigned int x, y;
@@ -160,7 +159,7 @@ public class cloud9
 		}
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	  cloud9_bitmap_regs_w

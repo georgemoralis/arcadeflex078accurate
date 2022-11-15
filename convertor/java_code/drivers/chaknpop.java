@@ -15,9 +15,6 @@ public class chaknpop
 {
 	
 	/* machine/chaknpop.c */
-	READ_HANDLER( chaknpop_mcu_portA_r );
-	READ_HANDLER( chaknpop_mcu_portB_r );
-	READ_HANDLER( chaknpop_mcu_portC_r );
 	WRITE_HANDLER( chaknpop_mcu_portA_w );
 	WRITE_HANDLER( chaknpop_mcu_portB_w );
 	WRITE_HANDLER( chaknpop_mcu_portC_w );
@@ -31,7 +28,6 @@ public class chaknpop
 	
 	
 	
-	READ_HANDLER( chaknpop_gfxmode_r );
 	WRITE_HANDLER( chaknpop_gfxmode_w );
 	
 	WRITE_HANDLER( chaknpop_txram_w );

@@ -1401,8 +1401,7 @@ public class segac2
 		}
 	}
 	
-	static READ_HANDLER ( genesis_z80_r )
-	{
+	public static ReadHandlerPtr genesis_z80_r  = new ReadHandlerPtr() { public int handler(int offset){
 		offset += 0x4000;
 	
 		/* YM2610 */
@@ -1436,7 +1435,7 @@ public class segac2
 		}
 	
 		return 0x00;
-	}
+	} };
 	
 	static WRITE_HANDLER ( genesis_z80_w )
 	{
@@ -1477,8 +1476,7 @@ public class segac2
 		}
 	}
 	
-	static READ_HANDLER ( genesis_z80_bank_r )
-	{
+	public static ReadHandlerPtr genesis_z80_bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int address = (z80_68000_latch) + (offset & 0x7fff);
 	
 		if (!z80running) logerror("undead Z80->68000 read!\n");
@@ -1493,7 +1491,7 @@ public class segac2
 	// 	else if (address > 0xff0000) return genesis_68k_ram[BYTE_XOR(offset)];
 	
 		return -1;
-	}
+	} };
 	
 	static WRITE16_HANDLER ( genesis_z80_ram_w )
 	{
@@ -1520,8 +1518,7 @@ public class segac2
 	
 	/* MEGATECH specific */
 	
-	static READ_HANDLER( megatech_instr_r )
-	{
+	public static ReadHandlerPtr megatech_instr_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char* instr = memory_region(REGION_USER1);
 		unsigned char* ram = memory_region(REGION_CPU3);
 	
@@ -1529,7 +1526,7 @@ public class segac2
 			return instr[offset/2];
 		else
 			return 0xFF;
-	}
+	} };
 	
 	unsigned char bios_ctrl[6];
 	unsigned char bios_6600;
@@ -1537,15 +1534,14 @@ public class segac2
 	unsigned char bios_6403;
 	unsigned char bios_6404;
 	
-	static READ_HANDLER( bios_ctrl_r )
-	{
+	public static ReadHandlerPtr bios_ctrl_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if(offset == 0)
 			return 0;
 		if(offset == 2)
 			return bios_ctrl[offset] & 0xfe;
 	
 		return bios_ctrl[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( bios_ctrl_w )
 	{
@@ -1556,10 +1552,9 @@ public class segac2
 		bios_ctrl[offset] = data;
 	}
 	
-	static READ_HANDLER( megaplay_bios_banksel_r )
-	{
+	public static ReadHandlerPtr megaplay_bios_banksel_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bios_bank;
-	}
+	} };
 	
 	static WRITE_HANDLER( megaplay_bios_banksel_w )
 	{
@@ -1568,10 +1563,9 @@ public class segac2
 		logerror("BIOS: ROM bank %i selected [0x%02x]\n",bios_bank >> 6, data);
 	}
 	
-	static READ_HANDLER( megaplay_bios_gamesel_r )
-	{
+	public static ReadHandlerPtr megaplay_bios_gamesel_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bios_6403;
-	}
+	} };
 	
 	static WRITE_HANDLER( megaplay_bios_gamesel_w )
 	{
@@ -1581,8 +1575,7 @@ public class segac2
 	}
 	
 	
-	static READ_HANDLER( bank_r )
-	{
+	public static ReadHandlerPtr bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char* bank = memory_region(REGION_CPU3);
 	//	unsigned char* instr = memory_region(REGION_USER1);
 		unsigned char* game = memory_region(REGION_CPU1);
@@ -1611,7 +1604,7 @@ public class segac2
 			else
 				return game[(game_banksel*0x8000 + (offset ^ 0x01))];
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER ( bank_w )
 	{
@@ -1622,10 +1615,9 @@ public class segac2
 	}
 	
 	
-	static READ_HANDLER( megaplay_bios_6402_r )
-	{
+	public static ReadHandlerPtr megaplay_bios_6402_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bios_6402;// & 0xfe;
-	}
+	} };
 	
 	static WRITE_HANDLER( megaplay_bios_6402_w )
 	{
@@ -1633,11 +1625,10 @@ public class segac2
 		logerror("BIOS: 0x6402 write: 0x%02x\n",data);
 	}
 	
-	static READ_HANDLER( megaplay_bios_6404_r )
-	{
+	public static ReadHandlerPtr megaplay_bios_6404_r  = new ReadHandlerPtr() { public int handler(int offset){
 		logerror("BIOS: 0x6404 read: returned 0x%02x\n",bios_6404 | (bios_6403 & 0x10) >> 4);
 		return bios_6404 | (bios_6403 & 0x10) >> 4;
-	}
+	} };
 	
 	static WRITE_HANDLER( megaplay_bios_6404_w )
 	{
@@ -1651,10 +1642,9 @@ public class segac2
 	//	usrintf_showmessage("Width write: %02x",data);
 	}
 	
-	static READ_HANDLER( megaplay_bios_6600_r )
-	{
+	public static ReadHandlerPtr megaplay_bios_6600_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return bios_6600;// & 0xfe;
-	}
+	} };
 	
 	static WRITE_HANDLER( megaplay_bios_6600_w )
 	{
@@ -1754,8 +1744,7 @@ public class segac2
 	void segae_vdp_ctrl_w ( UINT8 chip, UINT8 data );
 	void segae_vdp_data_w ( UINT8 chip, UINT8 data );
 	
-	static READ_HANDLER (megatech_bios_port_be_bf_r)
-	{
+	public static ReadHandlerPtr megatech_bios_port_be_bf_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 temp = 0;
 	
 		switch (offset)
@@ -1766,7 +1755,7 @@ public class segac2
 				temp = segae_vdp_ctrl_r(0); break ;
 		}
 		return temp;
-	}
+	} };
 	static WRITE_HANDLER (megatech_bios_port_be_bf_w)
 	{
 		switch (offset)
@@ -1783,21 +1772,19 @@ public class segac2
 		bios_port_ctrl = data;
 	}
 	
-	static READ_HANDLER (megatech_bios_port_dc_r)
-	{
+	public static ReadHandlerPtr megatech_bios_port_dc_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if(bios_port_ctrl == 0x55)
 			return readinputport(12);
 		else
 			return readinputport(9);
-	}
+	} };
 	
-	static READ_HANDLER (megatech_bios_port_dd_r)
-	{
+	public static ReadHandlerPtr megatech_bios_port_dd_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if(bios_port_ctrl == 0x55)
 			return readinputport(12);
 		else
 			return readinputport(8);
-	}
+	} };
 	
 	static WRITE_HANDLER (megatech_bios_port_7f_w)
 	{
@@ -4476,7 +4463,7 @@ public class segac2
 	
 	/* Mega Play - needs kludge to boot, 68k side of things not working yet, communication not complete. */
 	
-	static READ_HANDLER ( megaplay_kludge_r) { return 0xff; }
+	public static ReadHandlerPtr megaplay_kludge_r  = new ReadHandlerPtr() { public int handler(int offset) return 0xff; }
 	public static DriverInitHandlerPtr init_megaplay  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *src = memory_region(REGION_CPU3);
 	

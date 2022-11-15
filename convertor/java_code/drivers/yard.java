@@ -28,7 +28,6 @@ public class yard
 	
 	
 	
-	READ_HANDLER( mpatrol_input_port_3_r );
 	
 	
 	

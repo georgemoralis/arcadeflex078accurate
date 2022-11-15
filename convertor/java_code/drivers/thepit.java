@@ -68,7 +68,6 @@ public class thepit
 	extern unsigned char *intrepid_sprite_bank_select;
 	WRITE_HANDLER( thepit_attributes_w );
 	
-	READ_HANDLER( thepit_input_port_0_r );
 	WRITE_HANDLER( thepit_sound_enable_w );
 	WRITE_HANDLER( intrepid_graphics_bank_select_w );
 	

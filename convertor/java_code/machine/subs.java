@@ -114,8 +114,7 @@ public class subs
 	/***************************************************************************
 	subs_control_r
 	***************************************************************************/
-	READ_HANDLER( subs_control_r )
-	{
+	public static ReadHandlerPtr subs_control_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int inport = input_port_1_r(offset);
 	
 		switch (offset & 0x07)
@@ -131,13 +130,12 @@ public class subs
 		}
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	subs_coin_r
 	***************************************************************************/
-	READ_HANDLER( subs_coin_r )
-	{
+	public static ReadHandlerPtr subs_coin_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int inport = input_port_2_r(offset);
 	
 		switch (offset & 0x07)
@@ -153,13 +151,12 @@ public class subs
 		}
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	subs_options_r
 	***************************************************************************/
-	READ_HANDLER( subs_options_r )
-	{
+	public static ReadHandlerPtr subs_options_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int opts = input_port_0_r(offset);
 	
 		switch (offset & 0x03)
@@ -171,7 +168,7 @@ public class subs
 		}
 	
 		return 0;
-	}
+	} };
 	
 	/***************************************************************************
 	subs_lamp1_w

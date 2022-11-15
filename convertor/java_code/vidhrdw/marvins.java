@@ -98,15 +98,13 @@ public class marvins
 	{
 		spriteram[offset] = data;
 	}
-	READ_HANDLER( marvins_spriteram_r )
-	{
+	public static ReadHandlerPtr marvins_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return spriteram[offset];
-	}
+	} };
 	
-	READ_HANDLER( marvins_foreground_ram_r )
-	{
+	public static ReadHandlerPtr marvins_foreground_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return spriteram_2[offset];
-	}
+	} };
 	WRITE_HANDLER( marvins_foreground_ram_w )
 	{
 		if (offset < 0x800 && spriteram_2[offset] != data) tilemap_mark_tile_dirty(fg_tilemap,offset);
@@ -114,10 +112,9 @@ public class marvins
 		spriteram_2[offset] = data;
 	}
 	
-	READ_HANDLER( marvins_background_ram_r )
-	{
+	public static ReadHandlerPtr marvins_background_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return spriteram_3[offset];
-	}
+	} };
 	WRITE_HANDLER( marvins_background_ram_w )
 	{
 		if (offset < 0x800 && spriteram_3[offset] != data) tilemap_mark_tile_dirty(bg_tilemap,offset);
@@ -125,10 +122,9 @@ public class marvins
 		spriteram_3[offset] = data;
 	}
 	
-	READ_HANDLER( marvins_text_ram_r )
-	{
+	public static ReadHandlerPtr marvins_text_ram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return videoram[offset];
-	}
+	} };
 	WRITE_HANDLER( marvins_text_ram_w )
 	{
 		if (offset < 0x400 && videoram[offset] != data) tilemap_mark_tile_dirty(tx_tilemap,offset);

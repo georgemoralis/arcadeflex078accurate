@@ -74,8 +74,7 @@ public class capbowl
 	}
 	
 	
-	READ_HANDLER( capbowl_tms34061_r )
-	{
+	public static ReadHandlerPtr capbowl_tms34061_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int func = (offset >> 8) & 3;
 		int col = offset & 0xff;
 	
@@ -86,7 +85,7 @@ public class capbowl
 	
 		/* Row address (RA0-RA8) is not dependent on the offset */
 		return tms34061_r(col, *capbowl_rowaddress, func);
-	}
+	} };
 	
 	
 	

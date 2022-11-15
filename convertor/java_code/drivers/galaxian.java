@@ -142,8 +142,7 @@ public class galaxian
 		cpu_set_irq_line (1, IRQ_LINE_NMI, PULSE_LINE);
 	}
 	
-	static READ_HANDLER( drivfrcg_port0_r )
-	{
+	public static ReadHandlerPtr drivfrcg_port0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (activecpu_get_pc())
 		{
 			case 0x002e:
@@ -152,7 +151,7 @@ public class galaxian
 		}
 	
 	    return 0;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( galaxian_readmem )

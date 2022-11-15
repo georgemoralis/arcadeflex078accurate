@@ -316,10 +316,9 @@ public class turbo
 	
 	*******************************************/
 	
-	static READ_HANDLER( buckrog_cpu2_status_r )
-	{
+	public static ReadHandlerPtr buckrog_cpu2_status_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return buckrog_status;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( buckrog_cpu2_command_w )
@@ -458,8 +457,7 @@ public class turbo
 	
 	*******************************************/
 	
-	READ_HANDLER( turbo_8279_r )
-	{
+	public static ReadHandlerPtr turbo_8279_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((offset & 1) == 0)
 			return readinputport(1);  /* DSW 1 */
 		else
@@ -467,7 +465,7 @@ public class turbo
 			logerror("read 0xfc%02x\n", offset);
 			return 0x10;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( turbo_8279_w )
 	{
@@ -533,10 +531,9 @@ public class turbo
 	
 	*******************************************/
 	
-	READ_HANDLER( turbo_collision_r )
-	{
+	public static ReadHandlerPtr turbo_collision_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(3) | (turbo_collision & 15);
-	}
+	} };
 	
 	
 	WRITE_HANDLER( turbo_collision_clear_w )
@@ -699,15 +696,13 @@ public class turbo
 	
 	*******************************************/
 	
-	READ_HANDLER( buckrog_cpu2_command_r )
-	{
+	public static ReadHandlerPtr buckrog_cpu2_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		buckrog_status |= 0x80;
 		return buckrog_command;
-	}
+	} };
 	
 	
-	READ_HANDLER( buckrog_port_2_r )
-	{
+	public static ReadHandlerPtr buckrog_port_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int inp1 = readinputport(2);
 		int inp2 = readinputport(3);
 	
@@ -719,11 +714,10 @@ public class turbo
 				(((inp1 >> 4) & 1) << 2) |
 				(((inp1 >> 3) & 1) << 1) |
 				(((inp1 >> 0) & 1) << 0);
-	}
+	} };
 	
 	
-	READ_HANDLER( buckrog_port_3_r )
-	{
+	public static ReadHandlerPtr buckrog_port_3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int inp1 = readinputport(2);
 		int inp2 = readinputport(3);
 	
@@ -735,5 +729,5 @@ public class turbo
 				(((inp1 >> 5) & 1) << 2) |
 				(((inp1 >> 2) & 1) << 1) |
 				(((inp1 >> 1) & 1) << 0);
-	}
+	} };
 }

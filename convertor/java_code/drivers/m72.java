@@ -81,12 +81,8 @@ public class m72
 	
 	/* in vidhrdw/m72.c */
 	extern unsigned char *m72_videoram1,*m72_videoram2,*majtitle_rowscrollram;
-	READ_HANDLER( m72_palette1_r );
-	READ_HANDLER( m72_palette2_r );
 	WRITE_HANDLER( m72_palette1_w );
 	WRITE_HANDLER( m72_palette2_w );
-	READ_HANDLER( m72_videoram1_r );
-	READ_HANDLER( m72_videoram2_r );
 	WRITE_HANDLER( m72_videoram1_w );
 	WRITE_HANDLER( m72_videoram2_w );
 	WRITE_HANDLER( m72_irq_line_w );
@@ -398,13 +394,12 @@ public class m72
 	
 	unsigned char *protection_code,*protection_crc;
 	
-	static READ_HANDLER( protection_r )
-	{
+	public static ReadHandlerPtr protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (offset == 0xffb)
 			memcpy(protection_ram,protection_code,CODE_LEN);
 	
 		return protection_ram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( protection_w )
 	{
@@ -496,10 +491,9 @@ public class m72
 	static unsigned char *soundram;
 	
 	
-	static READ_HANDLER( soundram_r )
-	{
+	public static ReadHandlerPtr soundram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return soundram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( soundram_w )
 	{
@@ -507,8 +501,7 @@ public class m72
 	}
 	
 	
-	static READ_HANDLER( poundfor_trackball_r )
-	{
+	public static ReadHandlerPtr poundfor_trackball_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int prev[4],diff[4];
 	
 		if (offset == 0)
@@ -543,7 +536,7 @@ public class m72
 			case 7:
 				return ((diff[3] >> 8) & 0x1f);
 		}
-	}
+	} };
 	
 	
 	#define CPU1_MEMORY(NAME,ROMSIZE,WORKRAM) 						\

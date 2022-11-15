@@ -69,10 +69,9 @@ public class skyarmy
 	}
 	
 	
-	READ_HANDLER( skyarmy_scrollram_r )
-	{
+	public static ReadHandlerPtr skyarmy_scrollram_r  = new ReadHandlerPtr() { public int handler(int offset){
 	        return skyarmy_scrollram[offset];
-	}
+	} };
 	
 	
 	public static PaletteInitHandlerPtr palette_init_skyarmy  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){

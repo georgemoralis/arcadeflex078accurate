@@ -135,7 +135,6 @@ package drivers;
 public class angelkds
 {
 	
-	static READ_HANDLER( angelkds_sound_r );
 	static WRITE_HANDLER( angelkds_sound_w );
 	
 	extern data8_t *angelkds_txvideoram, *angelkds_bgtopvideoram, *angelkds_bgbotvideoram;
@@ -178,19 +177,17 @@ public class angelkds
 	
 	#if FAKEINPUTS
 	
-	static READ_HANDLER( angelkds_input_r )
-	{
+	public static ReadHandlerPtr angelkds_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int fake = readinputport(6+offset);
 	
 		return ((fake & 0x01) ? fake  : readinputport(4+offset));
-	}
+	} };
 	
 	#else
 	
-	static READ_HANDLER( angelkds_input_r )
-	{
+	public static ReadHandlerPtr angelkds_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return readinputport(4+offset);
-	}
+	} };
 	
 	#endif
 	
@@ -438,10 +435,9 @@ public class angelkds
 		angelkds_sound[offset]=data;
 	}
 	
-	static READ_HANDLER( angelkds_sound_r )
-	{
+	public static ReadHandlerPtr angelkds_sound_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return angelkds_sound[offset];
-	}
+	} };
 	
 	static void irqhandler(int irq)
 	{

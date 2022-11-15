@@ -607,17 +607,15 @@ public class multi32
 	
 	static UINT8 *sys32_SoundMemBank;
 	
-	static READ_HANDLER( system32_bank_r )
-	{
+	public static ReadHandlerPtr system32_bank_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sys32_SoundMemBank[offset];
-	}
+	} };
 	
-	static READ_HANDLER( sys32_shared_snd_r )
-	{
+	public static ReadHandlerPtr sys32_shared_snd_r  = new ReadHandlerPtr() { public int handler(int offset){
 		data8_t *RAM = (data8_t *)system32_shared_ram;
 	
 		return RAM[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( sys32_shared_snd_w )
 	{

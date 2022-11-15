@@ -375,14 +375,13 @@ public class exidy440
 	 *
 	 *************************************/
 	
-	READ_HANDLER( exidy440_sound_command_r )
-	{
+	public static ReadHandlerPtr exidy440_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* clear the FIRQ that got us here and acknowledge the read to the main CPU */
 		cpu_set_irq_line(1, 1, CLEAR_LINE);
 		exidy440_sound_command_ack = 1;
 	
 		return exidy440_sound_command;
-	}
+	} };
 	
 	
 	
@@ -456,8 +455,7 @@ public class exidy440
 	 *
 	 *************************************/
 	
-	READ_HANDLER( exidy440_m6844_r )
-	{
+	public static ReadHandlerPtr exidy440_m6844_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int result = 0;
 	
 		/* first update the current state of the DMA transfers */
@@ -534,7 +532,7 @@ public class exidy440
 		}
 	
 		return result;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( exidy440_m6844_w )

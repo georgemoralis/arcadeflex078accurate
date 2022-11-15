@@ -54,10 +54,9 @@ public class redalert
 			cpu_set_irq_line(2,I8085_RST75_LINE,HOLD_LINE);
 	}
 	
-	READ_HANDLER( redalert_voicecommand_r )
-	{
+	public static ReadHandlerPtr redalert_voicecommand_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return c030_data;
-	}
+	} };
 	
 	WRITE_HANDLER( redalert_soundlatch_w )
 	{
@@ -69,10 +68,9 @@ public class redalert
 			cpu_set_irq_line(1,IRQ_LINE_NMI,PULSE_LINE);
 	}
 	
-	READ_HANDLER( redalert_AY8910_A_r )
-	{
+	public static ReadHandlerPtr redalert_AY8910_A_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return AY8910_A_input_data;
-	}
+	} };
 	
 	WRITE_HANDLER( redalert_AY8910_w )
 	{
@@ -100,10 +98,9 @@ public class redalert
 		}
 	}
 	
-	READ_HANDLER( redalert_sound_register_IC1_r )
-	{
+	public static ReadHandlerPtr redalert_sound_register_IC1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sound_register_IC1;
-	}
+	} };
 	
 	WRITE_HANDLER( redalert_sound_register_IC2_w )
 	{

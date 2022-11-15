@@ -20,7 +20,6 @@ public class hcastle
 	
 	WRITE_HANDLER( hcastle_pf1_video_w );
 	WRITE_HANDLER( hcastle_pf2_video_w );
-	READ_HANDLER( hcastle_gfxbank_r );
 	WRITE_HANDLER( hcastle_gfxbank_w );
 	WRITE_HANDLER( hcastle_pf1_control_w );
 	WRITE_HANDLER( hcastle_pf2_control_w );
@@ -45,8 +44,7 @@ public class hcastle
 		coin_counter_w(1,data & 0x80);
 	}
 	
-	static READ_HANDLER( speedup_r )
-	{
+	public static ReadHandlerPtr speedup_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		int data = ( RAM[0x18dc] << 8 ) | RAM[0x18dd];
@@ -60,7 +58,7 @@ public class hcastle
 		}
 	
 		return RAM[0x18dc];
-	}
+	} };
 	
 	
 	

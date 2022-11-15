@@ -36,8 +36,7 @@ public class asteroid
 	} };
 	
 	
-	READ_HANDLER( asteroid_IN0_r )
-	{
+	public static ReadHandlerPtr asteroid_IN0_r  = new ReadHandlerPtr() { public int handler(int offset){
 	
 		int res;
 		int bitmask;
@@ -57,11 +56,10 @@ public class asteroid
 			res = ~0x80;
 	
 		return res;
-	}
+	} };
 	
 	
-	READ_HANDLER( asteroib_IN0_r )
-	{
+	public static ReadHandlerPtr asteroib_IN0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 		res=readinputport(0);
@@ -72,10 +70,9 @@ public class asteroid
 			res |= 0x80;
 	
 		return res;
-	}
+	} };
 	
-	READ_HANDLER( asterock_IN0_r )
-	{
+	public static ReadHandlerPtr asterock_IN0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 		int bitmask;
 	
@@ -94,15 +91,14 @@ public class asteroid
 			res = 0x80;
 	
 		return res;
-	}
+	} };
 	
 	/*
 	 * These 7 memory locations are used to read the player's controls.
 	 * Typically, only the high bit is used. This is handled by one input port.
 	 */
 	
-	READ_HANDLER( asteroid_IN1_r )
-	{
+	public static ReadHandlerPtr asteroid_IN1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 		int bitmask;
 	
@@ -114,11 +110,10 @@ public class asteroid
 		else
 		 	res = ~0x80;
 		return (res);
-	}
+	} };
 	
 	
-	READ_HANDLER( asteroid_DSW1_r )
-	{
+	public static ReadHandlerPtr asteroid_DSW1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 		int res1;
 	
@@ -126,7 +121,7 @@ public class asteroid
 	
 		res = 0xfc | ((res1 >> (2 * (3 - (offset & 0x3)))) & 0x3);
 		return res;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( asteroid_bank_switch_w )
@@ -191,8 +186,7 @@ public class asteroid
 	/*
 	 * This is Lunar Lander's Inputport 0.
 	 */
-	READ_HANDLER( llander_IN0_r )
-	{
+	public static ReadHandlerPtr llander_IN0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int res;
 	
 		res = readinputport(0);
@@ -203,5 +197,5 @@ public class asteroid
 			res |= 0x40;
 	
 		return res;
-	}
+	} };
 }

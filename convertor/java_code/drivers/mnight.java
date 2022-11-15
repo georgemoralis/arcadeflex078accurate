@@ -41,10 +41,9 @@ public class mnight
 		cpu_set_irq_line_and_vector(0,0,HOLD_LINE,0xd7);	/* RST 10h */
 	} };
 	
-	READ_HANDLER( mnight_bankselect_r )
-	{
+	public static ReadHandlerPtr mnight_bankselect_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return mnight_bank_latch;
-	}
+	} };
 	
 	WRITE_HANDLER( mnight_bankselect_w )
 	{

@@ -66,18 +66,16 @@ public class simpsons
 	
 	***************************************************************************/
 	
-	static READ_HANDLER( simpsons_K052109_r )
-	{
+	public static ReadHandlerPtr simpsons_K052109_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return K052109_r(offset + 0x2000);
-	}
+	} };
 	
 	static WRITE_HANDLER( simpsons_K052109_w )
 	{
 		K052109_w(offset + 0x2000,data);
 	}
 	
-	static READ_HANDLER( simpsons_K053247_r )
-	{
+	public static ReadHandlerPtr simpsons_K053247_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int offs;
 	
 		if (offset < 0x1000)
@@ -90,7 +88,7 @@ public class simpsons
 				return(spriteram16[offs] >> 8);
 		}
 		else return simpsons_xtraram[offset - 0x1000];
-	}
+	} };
 	
 	static WRITE_HANDLER( simpsons_K053247_w )
 	{

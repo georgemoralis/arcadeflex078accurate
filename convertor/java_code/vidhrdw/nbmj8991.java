@@ -216,10 +216,9 @@ public class nbmj8991
 		pstadium_paltblnum = data;
 	}
 	
-	READ_HANDLER( pstadium_paltbl_r )
-	{
+	public static ReadHandlerPtr pstadium_paltbl_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return pstadium_paltbl[offset];
-	}
+	} };
 	
 	WRITE_HANDLER( pstadium_paltbl_w )
 	{

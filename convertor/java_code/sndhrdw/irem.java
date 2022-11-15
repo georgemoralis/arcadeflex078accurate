@@ -52,20 +52,18 @@ public class irem
 	}
 	
 	
-	static READ_HANDLER( irem_port1_r )
-	{
+	public static ReadHandlerPtr irem_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* PSG 0 or 1? */
 		if (port2 & 0x08)
 			return AY8910_read_port_0_r(0);
 		if (port2 & 0x10)
 			return AY8910_read_port_1_r(0);
 		return 0xff;
-	}
+	} };
 	
-	static READ_HANDLER( irem_port2_r )
-	{
+	public static ReadHandlerPtr irem_port2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0;
-	}
+	} };
 	
 	
 	

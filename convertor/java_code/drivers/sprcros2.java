@@ -75,10 +75,9 @@ public class sprcros2
 	int sprcros2_m_port7 = 0;
 	static int sprcros2_s_port3 = 0;
 	
-	static READ_HANDLER( sprcros2_sharedram_r )
-	{
+	public static ReadHandlerPtr sprcros2_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sprcros2_sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( sprcros2_sharedram_w )
 	{

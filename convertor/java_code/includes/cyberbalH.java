@@ -13,9 +13,6 @@ int cyberbal_samples_start(const struct MachineSound *msound);
 void cyberbal_samples_stop(void);
 
 
-READ_HANDLER( cyberbal_special_port3_r );
-READ_HANDLER( cyberbal_sound_6502_stat_r );
-READ_HANDLER( cyberbal_sound_68k_6502_r );
 WRITE_HANDLER( cyberbal_sound_bank_select_w );
 WRITE_HANDLER( cyberbal_sound_68k_6502_w );
 

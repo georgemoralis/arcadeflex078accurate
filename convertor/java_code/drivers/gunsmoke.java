@@ -67,7 +67,6 @@ public class gunsmoke
 	#define GUNSMOKE_HACK	0
 	
 	
-	READ_HANDLER( gunsmoke_bankedrom_r );
 	extern 
 	extern unsigned char *gunsmoke_bg_scrollx;
 	extern unsigned char *gunsmoke_bg_scrolly;
@@ -77,8 +76,7 @@ public class gunsmoke
 	
 	
 	#if GUNSMOKE_HACK
-	static READ_HANDLER( gunsmoke_input_r )
-	{
+	public static ReadHandlerPtr gunsmoke_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if ((activecpu_get_pc() == 0x0173) || (activecpu_get_pc() == 0x0181))	// to get correct coinage
 			return (readinputport(4));
 	
@@ -86,12 +84,11 @@ public class gunsmoke
 			return ((readinputport(4) & 0xc0) | (readinputport(5) & 0x3f));
 		else
 			return (readinputport(4));
-	}
+	} };
 	#endif
 	
 	
-	static READ_HANDLER( gunsmoke_unknown_r )
-	{
+	public static ReadHandlerPtr gunsmoke_unknown_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    static int gunsmoke_fixed_data[]={ 0xff, 0x00, 0x00 };
 	    /*
 	    The routine at 0x0e69 tries to read data starting at 0xc4c9.
@@ -108,7 +105,7 @@ public class gunsmoke
 	    arcade game.  It's hard to tell without pulling the code apart.
 	    */
 	    return gunsmoke_fixed_data[offset];
-	}
+	} };
 	
 	
 	

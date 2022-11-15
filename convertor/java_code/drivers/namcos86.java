@@ -33,9 +33,7 @@ public class namcos86
 	
 	/*******************************************************************/
 	
-	READ_HANDLER( rthunder_videoram1_r );
 	WRITE_HANDLER( rthunder_videoram1_w );
-	READ_HANDLER( rthunder_videoram2_r );
 	WRITE_HANDLER( rthunder_videoram2_w );
 	WRITE_HANDLER( rthunder_scroll0_w );
 	WRITE_HANDLER( rthunder_scroll1_w );
@@ -288,7 +286,7 @@ public class namcos86
 	
 	/* shared memory area with the mcu */
 	static unsigned char *shared1;
-	static READ_HANDLER( shared1_r ) { return shared1[offset]; }
+	public static ReadHandlerPtr shared1_r  = new ReadHandlerPtr() { public int handler(int offset) return shared1[offset]; }
 	static WRITE_HANDLER( shared1_w ) { shared1[offset] = data; }
 	
 	
@@ -297,10 +295,9 @@ public class namcos86
 	{
 		spriteram[offset] = data;
 	}
-	static READ_HANDLER( spriteram_r )
-	{
+	public static ReadHandlerPtr spriteram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return spriteram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( bankswitch1_w )
 	{
@@ -330,8 +327,7 @@ public class namcos86
 	}
 	
 	/* Stubs to pass the correct Dip Switch setup to the MCU */
-	static READ_HANDLER( dsw0_r )
-	{
+	public static ReadHandlerPtr dsw0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int rhi, rlo;
 	
 		rhi = ( readinputport( 2 ) & 0x01 ) << 4;
@@ -345,10 +341,9 @@ public class namcos86
 		rlo |= ( readinputport( 3 ) & 0x40 ) >> 3;
 	
 		return ~( rhi | rlo ) & 0xff; /* Active Low */
-	}
+	} };
 	
-	static READ_HANDLER( dsw1_r )
-	{
+	public static ReadHandlerPtr dsw1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int rhi, rlo;
 	
 		rhi = ( readinputport( 2 ) & 0x02 ) << 3;
@@ -362,7 +357,7 @@ public class namcos86
 		rlo |= ( readinputport( 3 ) & 0x80 ) >> 4;
 	
 		return ~( rhi | rlo ) & 0xff; /* Active Low */
-	}
+	} };
 	
 	static int int_enabled[2];
 	
@@ -536,10 +531,9 @@ public class namcos86
 	#undef UNUSED
 	
 	
-	static READ_HANDLER( readFF )
-	{
+	public static ReadHandlerPtr readFF  = new ReadHandlerPtr() { public int handler(int offset){
 		return 0xff;
-	}
+	} };
 	
 	static PORT_READ_START( mcu_readport )
 		{ HD63701_PORT1, HD63701_PORT1, input_port_4_r },

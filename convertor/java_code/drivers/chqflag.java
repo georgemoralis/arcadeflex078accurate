@@ -124,8 +124,7 @@ public class chqflag
 		analog_ctrl = data;
 	}
 	
-	static READ_HANDLER( analog_read_r )
-	{
+	public static ReadHandlerPtr analog_read_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int accel, wheel;
 	
 		switch (analog_ctrl & 0x03){
@@ -136,7 +135,7 @@ public class chqflag
 		}
 	
 		return 0xff;
-	}
+	} };
 	
 	WRITE_HANDLER( chqflag_sh_irqtrigger_w )
 	{

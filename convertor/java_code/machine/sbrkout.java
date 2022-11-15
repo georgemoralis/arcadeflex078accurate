@@ -44,19 +44,17 @@ public class sbrkout
 	    cpu_set_irq_line(0, 0, HOLD_LINE);
 	} };
 	
-	READ_HANDLER( sbrkout_select1_r )
-	{
+	public static ReadHandlerPtr sbrkout_select1_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    if (sbrkout_game_switch==SBRKOUT_CAVITY)
 	        return 0x80;
 	    else return 0x00;
-	}
+	} };
 	
-	READ_HANDLER( sbrkout_select2_r )
-	{
+	public static ReadHandlerPtr sbrkout_select2_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    if (sbrkout_game_switch==SBRKOUT_DOUBLE)
 	        return 0x80;
 	    else return 0x00;
-	}
+	} };
 	
 	WRITE_HANDLER( sbrkout_irq_w )
 	{
@@ -73,8 +71,7 @@ public class sbrkout
 	bytes, and MAME doesn't currently support that.
 	***************************************************************************/
 	
-	READ_HANDLER( sbrkout_read_DIPs_r )
-	{
+	public static ReadHandlerPtr sbrkout_read_DIPs_r  = new ReadHandlerPtr() { public int handler(int offset){
 	        switch (offset)
 	        {
 	                /* DSW */
@@ -86,7 +83,7 @@ public class sbrkout
 	                /* Just in case */
 	                default:        return 0xFF;
 	        }
-	}
+	} };
 	
 	/***************************************************************************
 	Lamps

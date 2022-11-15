@@ -79,8 +79,6 @@ public class vastar
 	WRITE_HANDLER( vastar_bg1videoram_w );
 	WRITE_HANDLER( vastar_bg2videoram_w );
 	WRITE_HANDLER( vastar_fgvideoram_w );
-	READ_HANDLER( vastar_bg1videoram_r );
-	READ_HANDLER( vastar_bg2videoram_r );
 	
 	static unsigned char *vastar_sharedram;
 	
@@ -100,10 +98,9 @@ public class vastar
 			cpu_set_reset_line(1,ASSERT_LINE);
 	}
 	
-	static READ_HANDLER( vastar_sharedram_r )
-	{
+	public static ReadHandlerPtr vastar_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return vastar_sharedram[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( vastar_sharedram_w )
 	{

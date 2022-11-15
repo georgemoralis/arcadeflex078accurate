@@ -49,20 +49,14 @@ public class mitchell
 	
 	
 	WRITE_HANDLER( mgakuen_paletteram_w );
-	READ_HANDLER( mgakuen_paletteram_r );
 	WRITE_HANDLER( mgakuen_videoram_w );
-	READ_HANDLER( mgakuen_videoram_r );
 	WRITE_HANDLER( mgakuen_objram_w );
-	READ_HANDLER( mgakuen_objram_r );
 	
 	WRITE_HANDLER( pang_video_bank_w );
 	WRITE_HANDLER( pang_videoram_w );
-	READ_HANDLER( pang_videoram_r );
 	WRITE_HANDLER( pang_colorram_w );
-	READ_HANDLER( pang_colorram_r );
 	WRITE_HANDLER( pang_gfxctrl_w );
 	WRITE_HANDLER( pang_paletteram_w );
-	READ_HANDLER( pang_paletteram_r );
 	
 	extern unsigned char *pang_videoram;
 	extern unsigned char *pang_colorram;
@@ -125,8 +119,7 @@ public class mitchell
 		}
 	} };
 	
-	static READ_HANDLER( pang_port5_r )
-	{
+	public static ReadHandlerPtr pang_port5_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int bit;
 		extern const struct GameDriver driver_mgakuen2;
 	
@@ -143,7 +136,7 @@ public class mitchell
 		bit ^= 0x08;
 	
 		return (input_port_0_r(0) & 0x76) | bit;
-	}
+	} };
 	
 	static WRITE_HANDLER( eeprom_cs_w )
 	{
@@ -170,8 +163,7 @@ public class mitchell
 	
 	static int dial[2],dial_selected;
 	
-	static READ_HANDLER( block_input_r )
-	{
+	public static ReadHandlerPtr block_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		static int dir[2];
 	
 		if (dial_selected)
@@ -210,7 +202,7 @@ public class mitchell
 	
 			return res;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( block_dial_control_w )
 	{
@@ -229,15 +221,14 @@ public class mitchell
 	
 	static int keymatrix;
 	
-	static READ_HANDLER( mahjong_input_r )
-	{
+	public static ReadHandlerPtr mahjong_input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int i;
 	
 		for (i = 0;i < 5;i++)
 			if (keymatrix & (0x80 >> i)) return readinputport(2 + 5 * offset + i);
 	
 		return 0xff;
-	}
+	} };
 	
 	static WRITE_HANDLER( mahjong_input_select_w )
 	{
@@ -247,8 +238,7 @@ public class mitchell
 	
 	static int input_type;
 	
-	static READ_HANDLER( input_r )
-	{
+	public static ReadHandlerPtr input_r  = new ReadHandlerPtr() { public int handler(int offset){
 		switch (input_type)
 		{
 			case 0:
@@ -272,7 +262,7 @@ public class mitchell
 				}
 				break;
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( input_w )
 	{

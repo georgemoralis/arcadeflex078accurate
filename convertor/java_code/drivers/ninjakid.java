@@ -30,10 +30,8 @@ public class ninjakid
 	
 	extern WRITE_HANDLER( ninjakid_bg_videoram_w );
 	extern WRITE_HANDLER( ninjakid_fg_videoram_w );
-	extern READ_HANDLER( ninjakid_bg_videoram_r );
-	
-	extern READ_HANDLER( ninjakun_io_8000_r );
-	extern WRITE_HANDLER( ninjakun_io_8000_w );
+	extern 
+	extern extern WRITE_HANDLER( ninjakun_io_8000_w );
 	
 	extern extern extern WRITE_HANDLER( ninjakun_flipscreen_w );
 	
@@ -43,7 +41,7 @@ public class ninjakid
 	
 	static UINT8 *ninjakid_gfx_rom;
 	
-	static READ_HANDLER( ninjakid_shared_rom_r ){
+	public static ReadHandlerPtr ninjakid_shared_rom_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return ninjakid_gfx_rom[offset];
 	}
 	
@@ -53,7 +51,7 @@ public class ninjakid
 	static WRITE_HANDLER( shareram_w ){
 		shareram[offset^0x400] = data;
 	}
-	static READ_HANDLER( shareram_r ){
+	public static ReadHandlerPtr shareram_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return shareram[offset^0x400];
 	}
 	
@@ -63,7 +61,7 @@ public class ninjakid
 	
 	static UINT8 ninjakun_io_a002_ctrl;
 	
-	static READ_HANDLER( ninjakun_io_A002_r ){
+	public static ReadHandlerPtr ninjakun_io_A002_r  = new ReadHandlerPtr() { public int handler(int offset)
 		return ninjakun_io_a002_ctrl | readinputport(2); /* vblank */
 	}
 	
@@ -142,7 +140,7 @@ public class ninjakid
 		8,8,	/* tile size */
 		0x400,	/* number of tiles */
 		4,		/* bits per pixel */
-		{ 0, 1, 2, 3 }, /* plane offsets */
+		{ 0, 1, 2, 3 } };, /* plane offsets */
 		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 }, /* x offsets */
 		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 }, /* y offsets */
 		256

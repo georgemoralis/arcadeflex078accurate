@@ -77,10 +77,8 @@ public class mexico86
 	
 	/* in machine/mexico86.c */
 	extern unsigned char *mexico86_protection_ram;
-	READ_HANDLER( mexico86_68705_portA_r );
 	WRITE_HANDLER( mexico86_68705_portA_w );
 	WRITE_HANDLER( mexico86_68705_ddrA_w );
-	READ_HANDLER( mexico86_68705_portB_r );
 	WRITE_HANDLER( mexico86_68705_portB_w );
 	WRITE_HANDLER( mexico86_68705_ddrB_w );
 	
@@ -90,18 +88,16 @@ public class mexico86
 	WRITE_HANDLER( mexico86_bankswitch_w );
 	
 	//AT
-	static READ_HANDLER( kiki_2203_r )
-	{
+	public static ReadHandlerPtr kiki_2203_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return(YM2203Read(0,0) & 0x7f);
-	}
+	} };
 	//ZT
 	
 	static unsigned char *shared;
 	
-	static READ_HANDLER( shared_r )
-	{
+	public static ReadHandlerPtr shared_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return shared[offset];
-	}
+	} };
 	
 	static WRITE_HANDLER( shared_w )
 	{

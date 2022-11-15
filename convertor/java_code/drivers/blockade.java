@@ -118,13 +118,12 @@ public class blockade
 		}
 	} };
 	
-	READ_HANDLER( blockade_input_port_0_r )
-	{
+	public static ReadHandlerPtr blockade_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    /* coin latch is bit 7 */
 	
 	    int temp = (input_port_0_r(0)&0x7f);
 	    return (coin_latch<<7) | (temp);
-	}
+	} };
 	
 	WRITE_HANDLER( blockade_coin_latch_w )
 	{

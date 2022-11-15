@@ -47,8 +47,7 @@ public class crimfght
 	
 	/********************************************/
 	
-	static READ_HANDLER( speedup_r )
-	{
+	public static ReadHandlerPtr speedup_r  = new ReadHandlerPtr() { public int handler(int offset){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		int data = ( RAM[0x0414] << 8 ) | RAM[0x0415];
@@ -62,7 +61,7 @@ public class crimfght
 		}
 	
 		return RAM[0x0414];
-	}
+	} };
 	
 	static MEMORY_READ_START( crimfght_readmem )
 		{ 0x0000, 0x03ff, MRA_BANK1 },			/* banked RAM */

@@ -30,22 +30,20 @@ public class exerion
 	 *
 	 *************************************/
 	
-	static READ_HANDLER( exerion_port01_r )
-	{
+	public static ReadHandlerPtr exerion_port01_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* the cocktail flip bit muxes between ports 0 and 1 */
 		return exerion_cocktail_flip ? input_port_1_r(offset) : input_port_0_r(offset);
-	}
+	} };
 	
 	
-	static READ_HANDLER( exerion_port3_r )
-	{
+	public static ReadHandlerPtr exerion_port3_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* bit 0 is VBLANK, which we simulate manually */
 		int result = input_port_3_r(offset);
 		int ybeam = cpu_getscanline();
 		if (ybeam > Machine->visible_area.max_y)
 			result |= 1;
 		return result;
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr exerion_interrupt = new InterruptHandlerPtr() {public void handler(){
@@ -67,11 +65,10 @@ public class exerion
 	static UINT8 porta;
 	static UINT8 portb;
 	
-	static READ_HANDLER( exerion_porta_r )
-	{
+	public static ReadHandlerPtr exerion_porta_r  = new ReadHandlerPtr() { public int handler(int offset){
 		porta ^= 0x40;
 		return porta;
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( exerion_portb_w )
@@ -84,15 +81,14 @@ public class exerion
 	}
 	
 	
-	static READ_HANDLER( exerion_protection_r )
-	{
+	public static ReadHandlerPtr exerion_protection_r  = new ReadHandlerPtr() { public int handler(int offset){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 	
 		if (activecpu_get_pc() == 0x4143)
 			return RAM[0x33c0 + (RAM[0x600d] << 2) + offset];
 		else
 			return RAM[0x6008 + offset];
-	}
+	} };
 	
 	
 	
