@@ -113,8 +113,8 @@ public class xevious
 	public static ReadHandlerPtr xevious_dsw_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int bit0,bit1;
 	
-		bit0 = (input_port_0_r(0) >> offset) & 1;
-		bit1 = (input_port_1_r(0) >> offset) & 1;
+		bit0 = (input_port_0_r.handler(0) >> offset) & 1;
+		bit1 = (input_port_1_r.handler(0) >> offset) & 1;
 	
 		return bit0 | (bit1 << 1);
 	} };

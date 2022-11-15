@@ -61,10 +61,10 @@ public class portrait
 		switch( offset )
 		{
 		case 0x00: /*Dipswitch 1*/
-			return input_port_2_r(0)^0xff;
+			return input_port_2_r.handler(0)^0xff;
 	
 		case 0x04: /*Dipswitch 2*/
-			return input_port_3_r(0)^0xff;
+			return input_port_3_r.handler(0)^0xff;
 	
 		/*Service Switches? Coin Inputs, Player 1 & 2 Start, and more?*/
 		case 0x08:
@@ -78,8 +78,8 @@ public class portrait
 			  Bit 6 = Service Switch 1? (Inverted?) (If 0, then switch is on!)
 			  Bit 7 = Service Switch 2? (Inverted?) (If 0, then switch is on!)
 			*/
-			return	((input_port_4_r(0)^0x03)<<6)|	//Grab cab switches
-					(input_port_0_r(0) & 0x3f);		//Grab player inputs
+			return	((input_port_4_r.handler(0)^0x03)<<6)|	//Grab cab switches
+					(input_port_0_r.handler(0) & 0x3f);		//Grab player inputs
 	
 		/*Player Inputs and Camera ready status? Note: it's inverted, but perhaps it works if I change to ACTIVE_LOW signal*/
 		case 0x10:
@@ -93,7 +93,7 @@ public class portrait
 			  Bit 6 = Camera status? Ready flag?
 			  Bit 7 = Unused??
 			*/
-			return input_port_1_r(0)^0xff;
+			return input_port_1_r.handler(0)^0xff;
 	
 		case 0x18:
 			return portrait_scrollx_hi;

@@ -210,7 +210,7 @@ public class gorf
 	public static ReadHandlerPtr gorf_port_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 	    int Ans;
 	
-	    Ans = (input_port_2_r(0) & 0x7F);
+	    Ans = (input_port_2_r.handler(0) & 0x7F);
 	    if (gorf_status_r() != 0) Ans += 128;
 	    return Ans;
 	} };

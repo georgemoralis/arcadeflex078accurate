@@ -50,7 +50,7 @@ public class ssrj
 	} };
 	
 	public static ReadHandlerPtr ssrj_wheel_r  = new ReadHandlerPtr() { public int handler(int offset){
-		int port= input_port_1_r(0) -0x80;
+		int port= input_port_1_r.handler(0) -0x80;
 		int retval=port-oldport;
 		oldport=port;
 		return retval;

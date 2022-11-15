@@ -124,7 +124,7 @@ public class nitedrvr
 	public static ReadHandlerPtr nitedrvr_in0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int gear;
 	
-		gear=input_port_2_r(0);
+		gear=input_port_2_r.handler(0);
 		if (gear & 0x10)				nitedrvr_gear=1;
 		else if (gear & 0x20)			nitedrvr_gear=2;
 		else if (gear & 0x40)			nitedrvr_gear=3;
@@ -133,16 +133,16 @@ public class nitedrvr
 		switch (offset & 0x03)
 		{
 			case 0x00:						/* No remapping necessary */
-				return input_port_0_r(0);
+				return input_port_0_r.handler(0);
 			case 0x01:						/* No remapping necessary */
-				return input_port_1_r(0);
+				return input_port_1_r.handler(0);
 			case 0x02:						/* Remap our gear shift */
 				if (nitedrvr_gear==1)		return 0xE0;
 				else if (nitedrvr_gear==2)	return 0xD0;
 				else if (nitedrvr_gear==3)	return 0xB0;
 				else						return 0x70;
 			case 0x03:						/* Remap our steering */
-				return (input_port_3_r(0) | nitedrvr_steering());
+				return (input_port_3_r.handler(0) | nitedrvr_steering());
 			default:
 				return 0xFF;
 		}
@@ -186,7 +186,7 @@ public class nitedrvr
 	
 		ac_line=(ac_line+1) % 3;
 	
-		port=input_port_4_r(0);
+		port=input_port_4_r.handler(0);
 		if (port & 0x10)				nitedrvr_track=0;
 		else if (port & 0x20)			nitedrvr_track=1;
 		else if (port & 0x40)			nitedrvr_track=2;

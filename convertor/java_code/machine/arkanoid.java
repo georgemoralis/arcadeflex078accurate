@@ -98,7 +98,7 @@ public class arkanoid
 	
 	
 	public static ReadHandlerPtr arkanoid_68705_input_0_r  = new ReadHandlerPtr() { public int handler(int offset){
-		int res = input_port_0_r(offset) & 0x3f;
+		int res = input_port_0_r.handler(offset) & 0x3f;
 	
 		/* bit 0x40 comes from the sticky bit */
 		if (!z80write) res |= 0x40;
@@ -112,11 +112,11 @@ public class arkanoid
 	public static ReadHandlerPtr arkanoid_input_2_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (arkanoid_paddle_select)
 		{
-			return input_port_3_r(offset);
+			return input_port_3_r.handler(offset);
 		}
 		else
 		{
-			return input_port_2_r(offset);
+			return input_port_2_r.handler(offset);
 		}
 	} };
 	

@@ -100,9 +100,9 @@ public class homerun
 	
 	public static ReadHandlerPtr homerun_40_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if(cpu_getscanline()>116)
-			return input_port_0_r(0)|0x40;
+			return input_port_0_r.handler(0)|0x40;
 		else
-			return input_port_0_r(0);
+			return input_port_0_r.handler(0);
 	} };
 	
 	

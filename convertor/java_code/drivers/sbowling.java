@@ -170,9 +170,9 @@ public class sbowling
 	
 	public static ReadHandlerPtr controls_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if(sbw_system&2)
-			return input_port_2_r(0);
+			return input_port_2_r.handler(0);
 		else
-			return input_port_3_r(0);
+			return input_port_3_r.handler(0);
 	} };
 	
 	public static Memory_ReadAddress readmem[]={

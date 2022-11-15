@@ -114,7 +114,7 @@ public class subs
 	subs_control_r
 	***************************************************************************/
 	public static ReadHandlerPtr subs_control_r  = new ReadHandlerPtr() { public int handler(int offset){
-		int inport = input_port_1_r(offset);
+		int inport = input_port_1_r.handler(offset);
 	
 		switch (offset & 0x07)
 		{
@@ -135,7 +135,7 @@ public class subs
 	subs_coin_r
 	***************************************************************************/
 	public static ReadHandlerPtr subs_coin_r  = new ReadHandlerPtr() { public int handler(int offset){
-		int inport = input_port_2_r(offset);
+		int inport = input_port_2_r.handler(offset);
 	
 		switch (offset & 0x07)
 		{
@@ -156,7 +156,7 @@ public class subs
 	subs_options_r
 	***************************************************************************/
 	public static ReadHandlerPtr subs_options_r  = new ReadHandlerPtr() { public int handler(int offset){
-		int opts = input_port_0_r(offset);
+		int opts = input_port_0_r.handler(offset);
 	
 		switch (offset & 0x03)
 		{

@@ -73,7 +73,7 @@ public class jcross
 	} };
 	
 	public static ReadHandlerPtr jcross_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
-		return(input_port_0_r(0) | sound_cpu_busy);
+		return(input_port_0_r.handler(0) | sound_cpu_busy);
 	} };
 	
 	public static WriteHandlerPtr jcross_vregs0_w = new WriteHandlerPtr() {public void handler(int offset, int data)cross_vregs[0]=data;}
