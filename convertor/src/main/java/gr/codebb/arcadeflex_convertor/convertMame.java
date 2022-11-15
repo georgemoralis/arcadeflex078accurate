@@ -41,6 +41,7 @@ public class convertMame {
     static final int GFXDECODE = 19;
     static final int AY8910INTF = 20;
     static final int SAMPLESINTF = 21;
+    static final int DACINTF = 22;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -794,6 +795,20 @@ public class convertMame {
                                 continue;
                             }
                         }
+                        if (sUtil.getToken("DACinterface")) {
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '=') {
+                                Convertor.inpos = i;
+                            } else {
+                                sUtil.skipSpace();
+                                sUtil.putString("static DACinterface " + Convertor.token[0] + " = new DACinterface");
+                                type = DACINTF;
+                                i3 = -1;
+                                continue;
+                            }
+                        }
                     }
                 }
                 Convertor.inpos = i;
@@ -1064,6 +1079,20 @@ public class convertMame {
                             continue;
                         }
                     }
+                    if (type == DACINTF) {
+                        i3++;
+                        insideagk[i3] = 0;
+                        if (i3 == 0) {
+                            Convertor.outbuf[(Convertor.outpos++)] = '(';
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                        if ((i3 == 1) && ((insideagk[0] == 1))) {
+                            sUtil.putString("new int[] {");
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -1127,11 +1156,20 @@ public class convertMame {
                             continue;
                         }
                     }
+                    if (type == DACINTF) {
+                        i3--;
+                        if (i3 == -1) {
+                            Convertor.outbuf[(Convertor.outpos++)] = 41;
+                            Convertor.inpos += 1;
+                            type = -1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
                 case ',': {
-                    if (type == GFXLAYOUT || type == GFXDECODE || type == AY8910INTF) {
+                    if (type == GFXLAYOUT || type == GFXDECODE || type == AY8910INTF || type == DACINTF) {
                         if ((type != -1)) {
                             if (i3 != -1) {
                                 insideagk[i3] += 1;
