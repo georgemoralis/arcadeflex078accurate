@@ -117,16 +117,16 @@ public class munchmo
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static struct AY8910interface ay8910_interface =
-	{
+	static AY8910interface ay8910_interface = new AY8910interface
+	(
 		2,	/* 2 chips */
 		1500000,	/* 1.5 MHz? */
-		{ 50, 50 },
-		{ 0 },
-		{ 0 },
-		{ 0 },
-		{ 0 }
-	};
+		new int[] { 50, 50 },
+		new ReadHandlerPtr[] { 0 },
+		new ReadHandlerPtr[] { 0 },
+		new WriteHandlerPtr[] { 0 },
+		new WriteHandlerPtr[] { 0 }
+	);
 	
 	static InputPortHandlerPtr input_ports_mnchmobl = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( mnchmobl )
 		PORT_START(); 
