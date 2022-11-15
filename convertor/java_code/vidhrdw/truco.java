@@ -18,7 +18,7 @@ public class truco
 	public static PaletteInitHandlerPtr palette_init_truco  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int	r = ( i & 0x8 ) ? 0xff : 0x00;
 			int g = ( i & 0x4 ) ? 0xff : 0x00;
@@ -50,7 +50,7 @@ public class truco
 					pixel = ( vid[x>>1] >> 4 ) & 0x0f;
 				}
 	
-				plot_pixel(bitmap,x,y,Machine->pens[pixel]);
+				plot_pixel(bitmap,x,y,Machine.pens[pixel]);
 			}
 	
 			vid += 0x80;

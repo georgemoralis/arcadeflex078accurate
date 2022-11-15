@@ -687,15 +687,15 @@ public class nbmj9195
 	
 	******************************************************************************/
 	public static VideoStartHandlerPtr video_start_sailorws  = new VideoStartHandlerPtr() { public int handler(){
-		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((sailorws_tmpbitmap1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((sailorws_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
-		if ((sailorws_videoram1 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
+		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((sailorws_tmpbitmap1 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((sailorws_videoram0 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
+		if ((sailorws_videoram1 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
 		if ((sailorws_palette = auto_malloc(0x200 * sizeof(char))) == 0) return 1;
 		if ((sailorws_paltbl0 = auto_malloc(0x1000 * sizeof(char))) == 0) return 1;
 		if ((sailorws_paltbl1 = auto_malloc(0x1000 * sizeof(char))) == 0) return 1;
-		memset(sailorws_videoram0, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
-		memset(sailorws_videoram1, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
+		memset(sailorws_videoram0, 0x0000, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short)));
+		memset(sailorws_videoram1, 0x0000, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short)));
 	#if RASTER_SCROLL
 		sailorws_scanline[0] = sailorws_scanline[1] = SCANLINE_MIN;
 	#endif
@@ -704,11 +704,11 @@ public class nbmj9195
 	} };
 	
 	public static VideoStartHandlerPtr video_start_mjkoiura  = new VideoStartHandlerPtr() { public int handler(){
-		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((sailorws_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
+		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((sailorws_videoram0 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
 		if ((sailorws_palette = auto_malloc(0x200 * sizeof(char))) == 0) return 1;
 		if ((sailorws_paltbl0 = auto_malloc(0x1000 * sizeof(char))) == 0) return 1;
-		memset(sailorws_videoram0, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
+		memset(sailorws_videoram0, 0x0000, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short)));
 	#if RASTER_SCROLL
 		sailorws_scanline[0] = sailorws_scanline[1] = SCANLINE_MIN;
 	#endif
@@ -717,19 +717,19 @@ public class nbmj9195
 	} };
 	
 	public static VideoStartHandlerPtr video_start_mscoutm  = new VideoStartHandlerPtr() { public int handler(){
-		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((sailorws_tmpbitmap1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((sailorws_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
-		if ((sailorws_videoram1 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
-		if ((sailorws_videoworkram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
-		if ((sailorws_videoworkram1 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
+		if ((sailorws_tmpbitmap0 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((sailorws_tmpbitmap1 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((sailorws_videoram0 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
+		if ((sailorws_videoram1 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
+		if ((sailorws_videoworkram0 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
+		if ((sailorws_videoworkram1 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
 		if ((mscoutm_palette = auto_malloc(0xc00 * sizeof(char))) == 0) return 1;
 		if ((sailorws_paltbl0 = auto_malloc(0x1000 * sizeof(char))) == 0) return 1;
 		if ((sailorws_paltbl1 = auto_malloc(0x1000 * sizeof(char))) == 0) return 1;
-		memset(sailorws_videoram0, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
-		memset(sailorws_videoram1, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
-		memset(sailorws_videoworkram0, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
-		memset(sailorws_videoworkram1, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
+		memset(sailorws_videoram0, 0x0000, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short)));
+		memset(sailorws_videoram1, 0x0000, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short)));
+		memset(sailorws_videoworkram0, 0x0000, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short)));
+		memset(sailorws_videoworkram1, 0x0000, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short)));
 		gfxdraw_mode = 2;
 		return 0;
 	} };
@@ -746,24 +746,24 @@ public class nbmj9195
 		{
 			sailorws_screen_refresh = 0;
 	
-			Machine->pens[0xff] = 0;	/* palette_transparent_pen */
+			Machine.pens[0xff] = 0;	/* palette_transparent_pen */
 	
-			for (y = 0; y < Machine->drv->screen_height; y++)
+			for (y = 0; y < Machine.drv.screen_height; y++)
 			{
-				for (x = 0; x < Machine->drv->screen_width; x++)
+				for (x = 0; x < Machine.drv.screen_width; x++)
 				{
-					color = sailorws_videoram0[(y * Machine->drv->screen_width) + x];
-					plot_pixel(sailorws_tmpbitmap0, x, y, Machine->pens[color]);
+					color = sailorws_videoram0[(y * Machine.drv.screen_width) + x];
+					plot_pixel(sailorws_tmpbitmap0, x, y, Machine.pens[color]);
 				}
 			}
 			if (gfxdraw_mode)
 			{
-				for (y = 0; y < Machine->drv->screen_height; y++)
+				for (y = 0; y < Machine.drv.screen_height; y++)
 				{
-					for (x = 0; x < Machine->drv->screen_width; x++)
+					for (x = 0; x < Machine.drv.screen_width; x++)
 					{
-						color = sailorws_videoram1[(y * Machine->drv->screen_width) + x];
-						plot_pixel(sailorws_tmpbitmap1, x, y, Machine->pens[color]);
+						color = sailorws_videoram1[(y * Machine.drv.screen_width) + x];
+						plot_pixel(sailorws_tmpbitmap1, x, y, Machine.pens[color]);
 					}
 				}
 			}
@@ -798,14 +798,14 @@ public class nbmj9195
 		if (sailorws_dispflag[0])
 		{
 	#if RASTER_SCROLL
-			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, SCANLINE_MAX, sailorws_scrollx_raster[0], 1, &sailorws_scrolly[0], Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, SCANLINE_MAX, sailorws_scrollx_raster[0], 1, &sailorws_scrolly[0], Machine.visible_area, TRANSPARENCY_NONE, 0);
 	#else
-			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, 1, &sailorws_scrollx[0], 1, &sailorws_scrolly[0], Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, 1, &sailorws_scrollx[0], 1, &sailorws_scrolly[0], Machine.visible_area, TRANSPARENCY_NONE, 0);
 	#endif
 		}
 		else
 		{
-			fillbitmap(bitmap, Machine->pens[0x0ff], 0);
+			fillbitmap(bitmap, Machine.pens[0x0ff], 0);
 		}
 	
 		if (gfxdraw_mode)
@@ -813,9 +813,9 @@ public class nbmj9195
 			if (sailorws_dispflag[1])
 			{
 	#if RASTER_SCROLL
-				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, SCANLINE_MAX, sailorws_scrollx_raster[1], 1, &sailorws_scrolly[1], Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x0ff]);
+				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, SCANLINE_MAX, sailorws_scrollx_raster[1], 1, &sailorws_scrolly[1], Machine.visible_area, TRANSPARENCY_PEN, Machine.pens[0x0ff]);
 	#else
-				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x0ff]);
+				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], Machine.visible_area, TRANSPARENCY_PEN, Machine.pens[0x0ff]);
 	#endif
 			}
 		}
@@ -829,25 +829,25 @@ public class nbmj9195
 		{
 			sailorws_screen_refresh = 0;
 	
-			Machine->pens[0x0ff] = 0;	/* palette_transparent_pen */
-			Machine->pens[0x1ff] = 0;	/* palette_transparent_pen */
+			Machine.pens[0x0ff] = 0;	/* palette_transparent_pen */
+			Machine.pens[0x1ff] = 0;	/* palette_transparent_pen */
 	
-			for (y = 0; y < Machine->drv->screen_height; y++)
+			for (y = 0; y < Machine.drv.screen_height; y++)
 			{
-				for (x = 0; x < Machine->drv->screen_width; x++)
+				for (x = 0; x < Machine.drv.screen_width; x++)
 				{
-					color = sailorws_videoram0[(y * Machine->drv->screen_width) + x];
-					plot_pixel(sailorws_tmpbitmap0, x, y, Machine->pens[color]);
+					color = sailorws_videoram0[(y * Machine.drv.screen_width) + x];
+					plot_pixel(sailorws_tmpbitmap0, x, y, Machine.pens[color]);
 				}
 			}
 			if (gfxdraw_mode)
 			{
-				for (y = 0; y < Machine->drv->screen_height; y++)
+				for (y = 0; y < Machine.drv.screen_height; y++)
 				{
-					for (x = 0; x < Machine->drv->screen_width; x++)
+					for (x = 0; x < Machine.drv.screen_width; x++)
 					{
-						color = sailorws_videoram1[(y * Machine->drv->screen_width) + x];
-						plot_pixel(sailorws_tmpbitmap1, x, y, Machine->pens[color]);
+						color = sailorws_videoram1[(y * Machine.drv.screen_width) + x];
+						plot_pixel(sailorws_tmpbitmap1, x, y, Machine.pens[color]);
 					}
 				}
 			}
@@ -855,18 +855,18 @@ public class nbmj9195
 	
 		if (sailorws_dispflag[0])
 		{
-			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, 1, &sailorws_scrollx[0], 1, &sailorws_scrolly[0], Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, 1, &sailorws_scrollx[0], 1, &sailorws_scrolly[0], Machine.visible_area, TRANSPARENCY_NONE, 0);
 		}
 		else
 		{
-			fillbitmap(bitmap, Machine->pens[0x0ff], 0);
+			fillbitmap(bitmap, Machine.pens[0x0ff], 0);
 		}
 	
 		if (gfxdraw_mode)
 		{
 			if (sailorws_dispflag[1])
 			{
-				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x1ff]);
+				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], Machine.visible_area, TRANSPARENCY_PEN, Machine.pens[0x1ff]);
 			}
 		}
 	} };

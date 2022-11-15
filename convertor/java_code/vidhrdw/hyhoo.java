@@ -355,11 +355,11 @@ public class hyhoo
 	
 	******************************************************************************/
 	public static VideoStartHandlerPtr video_start_hyhoo  = new VideoStartHandlerPtr() { public int handler(){
-		if ((hyhoo_tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((hyhoo_videoram = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
-		if ((hyhoo_videoworkram = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short))) == 0) return 1;
+		if ((hyhoo_tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((hyhoo_videoram = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
+		if ((hyhoo_videoworkram = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short))) == 0) return 1;
 		if ((hyhoo_palette = auto_malloc(0x10 * sizeof(char))) == 0) return 1;
-		memset(hyhoo_videoram, 0x0000, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(short)));
+		memset(hyhoo_videoram, 0x0000, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(short)));
 		return 0;
 	} };
 	
@@ -374,23 +374,23 @@ public class hyhoo
 		if (get_vh_global_attribute_changed() || hyhoo_screen_refresh)
 		{
 			hyhoo_screen_refresh = 0;
-			for (y = 0; y < Machine->drv->screen_height; y++)
+			for (y = 0; y < Machine.drv.screen_height; y++)
 			{
-				for (x = 0; x < Machine->drv->screen_width; x++)
+				for (x = 0; x < Machine.drv.screen_width; x++)
 				{
-					color = hyhoo_videoram[(y * Machine->drv->screen_width) + x];
-					plot_pixel(hyhoo_tmpbitmap, x, y, Machine->pens[color]);
+					color = hyhoo_videoram[(y * Machine.drv.screen_width) + x];
+					plot_pixel(hyhoo_tmpbitmap, x, y, Machine.pens[color]);
 				}
 			}
 		}
 	
 		if (hyhoo_dispflag)
 		{
-			copyscrollbitmap(bitmap, hyhoo_tmpbitmap, 0, 0, 1, &hyhoo_scrolly, Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, hyhoo_tmpbitmap, 0, 0, 1, &hyhoo_scrolly, Machine.visible_area, TRANSPARENCY_NONE, 0);
 		}
 		else
 		{
-			fillbitmap(bitmap, Machine->pens[0x0000], 0);
+			fillbitmap(bitmap, Machine.pens[0x0000], 0);
 		}
 	} };
 }

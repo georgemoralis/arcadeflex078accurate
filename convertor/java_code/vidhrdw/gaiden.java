@@ -99,8 +99,8 @@ public class gaiden
 	
 	public static VideoStartHandlerPtr video_start_raiga  = new VideoStartHandlerPtr() { public int handler(){
 		/* set up tile layers */
-		tile_bitmap_bg = auto_bitmap_alloc_depth(Machine->drv->screen_width, Machine->drv->screen_height, 16);
-		tile_bitmap_fg = auto_bitmap_alloc_depth(Machine->drv->screen_width, Machine->drv->screen_height, 16);
+		tile_bitmap_bg = auto_bitmap_alloc_depth(Machine.drv.screen_width, Machine.drv.screen_height, 16);
+		tile_bitmap_fg = auto_bitmap_alloc_depth(Machine.drv.screen_width, Machine.drv.screen_height, 16);
 	
 		if (!tile_bitmap_bg || !tile_bitmap_fg)
 			return 1;
@@ -117,7 +117,7 @@ public class gaiden
 		tilemap_set_transparent_pen(text_layer,0);
 	
 		/* set up sprites */
-		sprite_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width, Machine->drv->screen_height, 16);
+		sprite_bitmap = auto_bitmap_alloc_depth(Machine.drv.screen_width, Machine.drv.screen_height, 16);
 	
 		if (!sprite_bitmap)
 			return 1;
@@ -483,7 +483,7 @@ public class gaiden
 	
 	public static VideoUpdateHandlerPtr video_update_gaiden  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap,                    0, cliprect);
-		fillbitmap(bitmap,          Machine->pens[0x200], cliprect);
+		fillbitmap(bitmap,          Machine.pens[0x200], cliprect);
 	
 		tilemap_draw(bitmap, cliprect, background, 0, 1);
 		tilemap_draw(bitmap, cliprect, foreground, 0, 2);

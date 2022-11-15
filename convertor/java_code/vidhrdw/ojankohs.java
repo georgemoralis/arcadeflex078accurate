@@ -39,7 +39,7 @@ public class ojankohs
 		int i;
 		int bit0, bit1, bit2, bit3, bit4, r, g, b;
 	
-		for (i = 0; i < Machine->drv->total_colors; i++) {
+		for (i = 0; i < Machine.drv.total_colors; i++) {
 			bit0 = (color_prom.read(0)>> 2) & 0x01;
 			bit1 = (color_prom.read(0)>> 3) & 0x01;
 			bit2 = (color_prom.read(0)>> 4) & 0x01;
@@ -306,7 +306,7 @@ public class ojankohs
 	} };
 	
 	public static VideoStartHandlerPtr video_start_ojankoc  = new VideoStartHandlerPtr() { public int handler(){
-		ojankoc_tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		ojankoc_tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 		ojankohs_videoram = auto_malloc(0x8000);
 		ojankohs_paletteram = auto_malloc(0x20);
 	

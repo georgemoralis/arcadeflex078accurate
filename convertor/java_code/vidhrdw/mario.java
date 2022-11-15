@@ -41,11 +41,11 @@ public class mario
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_mario  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -156,7 +156,7 @@ public class mario
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_mario  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		mario_draw_sprites(bitmap);
 	} };
 }

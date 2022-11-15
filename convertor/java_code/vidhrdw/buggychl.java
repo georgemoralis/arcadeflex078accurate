@@ -256,13 +256,13 @@ public class buggychl
 		if (sky_on)
 			draw_sky(bitmap);
 		else
-			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+			fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	
 		/* decode modified characters */
 		for (code = 0;code < 256;code++)
 		{
 			if (dirtychar[code])
-				decodechar(Machine->gfx[0],code,buggychl_character_ram,Machine->drv->gfxdecodeinfo[0].gfxlayout);
+				decodechar(Machine.gfx[0],code,buggychl_character_ram,Machine.drv.gfxdecodeinfo[0].gfxlayout);
 		}
 	
 		if (bg_on)

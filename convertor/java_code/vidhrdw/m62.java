@@ -60,7 +60,7 @@ public class m62
 		int i;
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -88,7 +88,7 @@ public class m62
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the sprite height table */
 	
 		sprite_height_prom = color_prom;	/* we'll need this at run time */

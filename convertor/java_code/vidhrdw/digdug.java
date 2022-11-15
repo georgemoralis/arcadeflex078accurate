@@ -224,37 +224,37 @@ public class digdug
 				{
 					/* first draw the playfield */
 					pfval = pf[offs];
-					drawgfx(tmpbitmap,Machine->gfx[2],
+					drawgfx(tmpbitmap,Machine.gfx[2],
 							pfval,
 							(pfval >> 4) + pfcolor,
 							flipscreen,flipscreen,
 							8*sx,8*sy,
-							Machine->visible_area,TRANSPARENCY_NONE,0);
+							Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 					/* overlay with the character */
 					if ((vrval & 0x7f) != 0x7f)
-						drawgfx(tmpbitmap,Machine->gfx[0],
+						drawgfx(tmpbitmap,Machine.gfx[0],
 								vrval,
 								(vrval >> 5) | ((vrval >> 4) & 1),
 								flipscreen,flipscreen,
 								8*sx,8*sy,
-								Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine.visible_area,TRANSPARENCY_PEN,0);
 				}
 				else
 				{
 					/* just draw the character */
-					drawgfx(tmpbitmap,Machine->gfx[0],
+					drawgfx(tmpbitmap,Machine.gfx[0],
 							vrval,
 							(vrval >> 5) | ((vrval >> 4) & 1),
 							flipscreen,flipscreen,
 							8*sx,8*sy,
-							Machine->visible_area,TRANSPARENCY_NONE,0);
+							Machine.visible_area,TRANSPARENCY_NONE,0);
 				}
 			}
 		}
 	
 		/* copy the temporary bitmap to the screen */
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 		/* Draw the sprites. */
 		for (offs = 0;offs < spriteram_size[0];offs += 2)

@@ -944,34 +944,34 @@ public class voodoo
 	
 	#if DISPLAY_STATISTICS
 		totalframes++;
-		if (totalframes == (int)Machine->drv->frames_per_second)
+		if (totalframes == (int)Machine.drv.frames_per_second)
 		{
 			lastfps = framecount;
 			framecount = totalframes = 0;
 		}
 	#endif
 	
-		logerror("--- video update (%d-%d) ---\n", cliprect->min_y, cliprect->max_y);
+		logerror("--- video update (%d-%d) ---\n", cliprect.min_y, cliprect.max_y);
 	
 	#if (DISPLAY_DEPTHBUF)
 		if (keyboard_pressed(KEYCODE_D))
 		{
-			for (y = cliprect->min_y; y <= cliprect->max_y; y++)
+			for (y = cliprect.min_y; y <= cliprect.max_y; y++)
 			{
-				UINT16 *dest = (UINT16 *)bitmap->line[y];
+				UINT16 *dest = (UINT16 *)bitmap.line[y];
 				UINT16 *source = &depthbuf[1024 * y];
-				for (x = cliprect->min_x; x <= cliprect->max_x; x++)
+				for (x = cliprect.min_x; x <= cliprect.max_x; x++)
 					*dest++ = pen_lookup[~*source++ & 0xf800];
 			}
 			return;
 		}
 	#endif
 	
-		for (y = cliprect->min_y; y <= cliprect->max_y; y++)
+		for (y = cliprect.min_y; y <= cliprect.max_y; y++)
 		{
-			UINT16 *dest = (UINT16 *)bitmap->line[y];
+			UINT16 *dest = (UINT16 *)bitmap.line[y];
 			UINT16 *source = &frontbuf[1024 * y];
-			for (x = cliprect->min_x; x <= cliprect->max_x; x++)
+			for (x = cliprect.min_x; x <= cliprect.max_x; x++)
 				*dest++ = pen_lookup[*source++];
 		}
 	} };

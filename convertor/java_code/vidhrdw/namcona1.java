@@ -257,13 +257,13 @@ public class namcona1
 			gfx1 = decodegfx( (UINT8 *)shaperam,&shape_layout );
 			if( gfx0 && gfx1 )
 			{
-				gfx0->colortable = Machine->remapped_colortable;
-				gfx0->total_colors = Machine->drv->total_colors/256;
-				Machine->gfx[0] = gfx0;
+				gfx0.colortable = Machine.remapped_colortable;
+				gfx0.total_colors = Machine.drv.total_colors/256;
+				Machine.gfx[0] = gfx0;
 	
-				gfx1->colortable = Machine->remapped_colortable;
-				gfx1->total_colors = Machine->drv->total_colors/2;
-				Machine->gfx[1] = gfx1;
+				gfx1.colortable = Machine.remapped_colortable;
+				gfx1.total_colors = Machine.drv.total_colors/2;
+				Machine.gfx[1] = gfx1;
 	
 				return 0;
 			}

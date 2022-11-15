@@ -50,7 +50,7 @@ public class snk
 		int i;
 		palette_init_RRRR_GGGG_BBBB(colortable, color_prom);
 	
-		if(!(Machine->drv->video_attributes & VIDEO_HAS_SHADOWS))
+		if(!(Machine.drv.video_attributes & VIDEO_HAS_SHADOWS))
 			usrintf_showmessage("driver should use VIDEO_HAS_SHADOWS");
 	
 		/* prepare shadow draw table */
@@ -64,7 +64,7 @@ public class snk
 		int i;
 		palette_init_RRRR_GGGG_BBBB(colortable, color_prom);
 	
-		if(!(Machine->drv->video_attributes & VIDEO_HAS_SHADOWS))
+		if(!(Machine.drv.video_attributes & VIDEO_HAS_SHADOWS))
 			usrintf_showmessage("driver should use VIDEO_HAS_SHADOWS");
 	
 		/* prepare shadow draw table */

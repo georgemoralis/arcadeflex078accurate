@@ -42,7 +42,7 @@ public class tnzs
 	public static PaletteInitHandlerPtr palette_init_arknoid2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,col,r,g,b;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			col = (color_prom.read(i)<<8)+color_prom.read(i+512);
 			r =  (col & 0x7c00)>>7;	/* Red */
@@ -187,7 +187,7 @@ public class tnzs
 	
 	
 		/* Blank the background */
-		fillbitmap(bitmap, Machine->pens[0], Machine->visible_area);
+		fillbitmap(bitmap, Machine.pens[0], Machine.visible_area);
 	
 		/* Redraw the background tiles (c400-c5ff) */
 		tnzs_vh_draw_background(bitmap, tnzs_objram + 0x400);

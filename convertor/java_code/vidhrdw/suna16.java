@@ -221,7 +221,7 @@ public class suna16
 	
 	public static VideoUpdateHandlerPtr video_update_suna16  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* I believe background is black */
-		fillbitmap(bitmap,get_black_pen(),Machine->visible_area);
+		fillbitmap(bitmap,get_black_pen(),Machine.visible_area);
 		suna16_draw_sprites(bitmap);
 	} };
 }

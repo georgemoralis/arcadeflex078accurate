@@ -106,7 +106,7 @@ public class wolfpack
 			return 1;
 		}
 	
-		if ((helper = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == NULL)
+		if ((helper = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == NULL)
 		{
 			return 1;
 		}
@@ -273,7 +273,7 @@ public class wolfpack
 			{
 				int code = wolfpack_alpha_num_ram[32 * i + j];
 	
-				drawgfx(bitmap, Machine->gfx[0],
+				drawgfx(bitmap, Machine.gfx[0],
 					code,
 					wolfpack_video_invert,
 					0, 0,

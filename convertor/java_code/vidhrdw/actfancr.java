@@ -219,7 +219,7 @@ public class actfancr
 	
 			while (multi >= 0)
 			{
-				drawgfx(bitmap,Machine->gfx[1],
+				drawgfx(bitmap,Machine.gfx[1],
 						sprite - multi * inc,
 						colour,
 						fx,fy,
@@ -302,7 +302,7 @@ public class actfancr
 	
 			while (multi >= 0)
 			{
-				drawgfx(bitmap,Machine->gfx[1],
+				drawgfx(bitmap,Machine.gfx[1],
 						sprite - multi * inc,
 						colour,
 						fx,fy,

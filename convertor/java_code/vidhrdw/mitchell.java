@@ -75,10 +75,10 @@ public class mitchell
 		/*
 			Palette RAM
 		*/
-		paletteram = auto_malloc(2*Machine->drv->total_colors);
+		paletteram = auto_malloc(2*Machine.drv.total_colors);
 		if (!paletteram)
 			return 1;
-		memset(paletteram, 0, 2*Machine->drv->total_colors);
+		memset(paletteram, 0, 2*Machine.drv.total_colors);
 	
 		return 0;
 	} };
@@ -243,7 +243,7 @@ public class mitchell
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_pang  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);
 	} };

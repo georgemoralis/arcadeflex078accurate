@@ -36,7 +36,7 @@ public class spcforce
 	
 		/* draw the characters as sprites because they could be overlapping */
 	
-		fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	
 	
 		for (offs = 0; offs < videoram_size[0]; offs++)
@@ -56,11 +56,11 @@ public class spcforce
 				sy = 248 - sy;
 			}
 	
-			drawgfx(bitmap,Machine->gfx[0],
+			drawgfx(bitmap,Machine.gfx[0],
 					code, col,
 					flip_screen(), flip_screen(),
 					sx, sy,
-					Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	} };
 }

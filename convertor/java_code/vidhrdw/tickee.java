@@ -119,15 +119,15 @@ public class tickee
 	
 		/* determine the base of the videoram */
 		offset = (~tms34010_get_DPYSTRT(0) & 0xfff0) << 5;
-		offset += TOBYTE(0x1000) * (cliprect->min_y - Machine->visible_area.min_y);
+		offset += TOBYTE(0x1000) * (cliprect.min_y - Machine.visible_area.min_y);
 	
 		/* determine how many pixels to copy */
-		xoffs = cliprect->min_x;
-		width = cliprect->max_x - xoffs + 1;
+		xoffs = cliprect.min_x;
+		width = cliprect.max_x - xoffs + 1;
 		offset += xoffs;
 	
 		/* loop over rows */
-		for (v = cliprect->min_y; v <= cliprect->max_y; v++)
+		for (v = cliprect.min_y; v <= cliprect.max_y; v++)
 		{
 			UINT8 scanline[512];
 	

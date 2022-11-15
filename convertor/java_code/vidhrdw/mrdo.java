@@ -55,8 +55,8 @@ public class mrdo
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_mrdo  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 		const int R1 = 150;
 		const int R2 = 120;
@@ -242,7 +242,7 @@ public class mrdo
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_mrdo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
 		draw_sprites(bitmap,cliprect);

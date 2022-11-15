@@ -90,7 +90,7 @@ public class starshp1
 			val = (val << 1) | (bit & 1);
 		}
 	
-		if ((helper = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0)
+		if ((helper = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0)
 		{
 			return 1;
 		}
@@ -387,7 +387,7 @@ public class starshp1
 	
 	
 	public static VideoUpdateHandlerPtr video_update_starshp1  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 	
 		if (starshp1_starfield_kill == 0)
 			draw_starfield(bitmap);

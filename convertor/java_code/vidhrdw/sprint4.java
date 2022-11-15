@@ -37,7 +37,7 @@ public class sprint4
 	
 	
 	public static VideoStartHandlerPtr video_start_sprint4  = new VideoStartHandlerPtr() { public int handler(){
-		helper = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		helper = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 	
 		if (helper == NULL)
 		{
@@ -84,7 +84,7 @@ public class sprint4
 				bank = 32;
 			}
 	
-			drawgfx(bitmap, Machine->gfx[1],
+			drawgfx(bitmap, Machine.gfx[1],
 				(rot >> 3) | bank,
 				(col & 0x80) ? 4 : i,
 				0, 0,

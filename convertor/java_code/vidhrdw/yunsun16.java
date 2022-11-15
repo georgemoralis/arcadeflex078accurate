@@ -233,15 +233,15 @@ public class yunsun16
 		yunsun16_draw_sprites(bitmap,cliprect);
 	
 		/* tilemap.c only copes with screen widths which are a multiple of 8 pixels */
-		if ( (Machine->drv->screen_width-1-Machine->visible_area.max_x) & 7 )
+		if ( (Machine.drv.screen_width-1-Machine.visible_area.max_x) & 7 )
 		{
 			struct rectangle clip;
-			clip.min_x = Machine->visible_area.max_x+1;
-			clip.max_x = Machine->drv->screen_width-1;
-			clip.min_y = Machine->visible_area.min_y;
-			clip.max_y = Machine->visible_area.max_y;
+			clip.min_x = Machine.visible_area.max_x+1;
+			clip.max_x = Machine.drv.screen_width-1;
+			clip.min_y = Machine.visible_area.min_y;
+			clip.max_y = Machine.visible_area.max_y;
 			sect_rect(&clip,cliprect);
-			fillbitmap(bitmap,Machine->pens[0],&clip);
+			fillbitmap(bitmap,Machine.pens[0],&clip);
 		}
 	} };
 }

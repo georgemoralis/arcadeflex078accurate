@@ -601,12 +601,12 @@ public class namcos1
 	
 		for (i = 0;i < TILECOLORS;i++)
 		{
-			palette_shadow_table[Machine->pens[i+SPRITECOLORS]] = Machine->pens[i+SPRITECOLORS+TILECOLORS];
+			palette_shadow_table[Machine.pens[i+SPRITECOLORS]] = Machine.pens[i+SPRITECOLORS+TILECOLORS];
 		}
 	
 		update_status = 0 | USE_SP_BUFFER;
 		idle_counter = 0;
-		idle_threshold = Machine->drv->frames_per_second / 2;
+		idle_threshold = Machine.drv.frames_per_second / 2;
 	
 		switch (namcos1_game_id) // custom settings
 		{

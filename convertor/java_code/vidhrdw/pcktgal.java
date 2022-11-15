@@ -12,7 +12,7 @@ public class pcktgal
 	public static PaletteInitHandlerPtr palette_init_pcktgal  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -104,7 +104,7 @@ public class pcktgal
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_pcktgal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		pcktgal_draw_sprites(bitmap);
 	} };
 }

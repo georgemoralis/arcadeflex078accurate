@@ -85,8 +85,8 @@ public class cvs
 	public static PaletteInitHandlerPtr palette_init_cvs  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int attr,col,map;
 	
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	    /* Colour Mapping Prom */
 	
@@ -395,24 +395,24 @@ public class cvs
 	
 	    /* Need 3 bitmaps for 2636 chips */
 	
-		if ((s2636_1_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
+		if ((s2636_1_bitmap = auto_bitmap_alloc_depth(Machine.drv.screen_width,Machine.drv.screen_height,8)) == 0)
 			return 1;
 	
-		if ((s2636_2_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
+		if ((s2636_2_bitmap = auto_bitmap_alloc_depth(Machine.drv.screen_width,Machine.drv.screen_height,8)) == 0)
 			return 1;
 	
-		if ((s2636_3_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
+		if ((s2636_3_bitmap = auto_bitmap_alloc_depth(Machine.drv.screen_width,Machine.drv.screen_height,8)) == 0)
 			return 1;
 	
 	    /* 3 bitmaps for collision detection */
 	
-		if ((collision_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
+		if ((collision_bitmap = auto_bitmap_alloc_depth(Machine.drv.screen_width,Machine.drv.screen_height,8)) == 0)
 			return 1;
 	
-		if ((collision_background = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
+		if ((collision_background = auto_bitmap_alloc_depth(Machine.drv.screen_width,Machine.drv.screen_height,8)) == 0)
 			return 1;
 	
-		if ((scrolled_background = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
+		if ((scrolled_background = auto_bitmap_alloc_depth(Machine.drv.screen_width,Machine.drv.screen_height,8)) == 0)
 			return 1;
 	
 		return 0;
@@ -475,7 +475,7 @@ public class cvs
 	                if(dirty_character[character]==1)
 	                {
 	                	dirty_character[character]=2;
-			   			decodechar(Machine->gfx[1],character,character_1_ram-1024,Machine->drv->gfxdecodeinfo[1].gfxlayout);
+			   			decodechar(Machine.gfx[1],character,character_1_ram-1024,Machine.drv.gfxdecodeinfo[1].gfxlayout);
 	                }
 	
 	            	character_bank=1;
@@ -487,7 +487,7 @@ public class cvs
 	
 	            /* Main Screen */
 	
-	 			drawgfx(tmpbitmap,Machine->gfx[character_bank],
+	 			drawgfx(tmpbitmap,Machine.gfx[character_bank],
 					    character,
 						colorram.read(offs),
 					    0,0,
@@ -509,7 +509,7 @@ public class cvs
 	            }
 	
 	            if(forecolor)
-	 			    drawgfx(collision_background,Machine->gfx[character_bank],
+	 			    drawgfx(collision_background,Machine.gfx[character_bank],
 					        character,
 						    forecolor,
 					        0,0,
@@ -525,8 +525,8 @@ public class cvs
 	
 	    /* Update screen - 8 regions, fixed scrolling area */
 	
-		copyscrollbitmap(bitmap,tmpbitmap,0,0,8,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
-		copyscrollbitmap(scrolled_background,collision_background,0,0,8,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copyscrollbitmap(bitmap,tmpbitmap,0,0,8,scroll,Machine.visible_area,TRANSPARENCY_NONE,0);
+		copyscrollbitmap(scrolled_background,collision_background,0,0,8,scroll,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 	    /* 2636's */
 	
@@ -564,28 +564,28 @@ public class cvs
 	
 	                if((CollisionRegister & 0x80) == 0)
 	                {
-						if (read_pixel(scrolled_background, bx, offs) != Machine->pens[0])
+						if (read_pixel(scrolled_background, bx, offs) != Machine.pens[0])
 	                    	CollisionRegister |= 0x80;
 	                }
 	
-		            plot_pixel(bitmap,bx,offs,Machine->pens[7]);
+		            plot_pixel(bitmap,bx,offs,Machine.pens[7]);
 	            }
 	        }
 	    }
 	
 	    /* Update 2636 images */
 	
-		if (bitmap->depth == 16)
+		if (bitmap.depth == 16)
 	    {
 	        UINT32 S1,S2,S3,SB,pen;
 	
 	        for(sx=255;sx>7;sx--)
 	        {
-	        	UINT32 *sp1 = (UINT32 *)s2636_1_bitmap->line[sx];
-		    	UINT32 *sp2 = (UINT32 *)s2636_2_bitmap->line[sx];
-			    UINT32 *sp3 = (UINT32 *)s2636_3_bitmap->line[sx];
-		        UINT64 *dst = (UINT64 *)bitmap->line[sx];
-			    UINT8  *spb = (UINT8  *)scrolled_background->line[sx];
+	        	UINT32 *sp1 = (UINT32 *)s2636_1_bitmap.line[sx];
+		    	UINT32 *sp2 = (UINT32 *)s2636_2_bitmap.line[sx];
+			    UINT32 *sp3 = (UINT32 *)s2636_3_bitmap.line[sx];
+		        UINT64 *dst = (UINT64 *)bitmap.line[sx];
+			    UINT8  *spb = (UINT8  *)scrolled_background.line[sx];
 	
 	            for(offs=0;offs<62;offs++)
 	            {
@@ -598,18 +598,18 @@ public class cvs
 	                 if(pen)
 	                 {
 	             	    UINT16 *address = (UINT16 *)dst;
-					    if (pen & 0xff000000) address[BL3] = Machine->pens[(pen >> 24) & 15];
-					    if (pen & 0x00ff0000) address[BL2] = Machine->pens[(pen >> 16) & 15];
-					    if (pen & 0x0000ff00) address[BL1] = Machine->pens[(pen >>  8) & 15];
-					    if (pen & 0x000000ff) address[BL0] = Machine->pens[(pen & 15)];
+					    if (pen & 0xff000000) address[BL3] = Machine.pens[(pen >> 24) & 15];
+					    if (pen & 0x00ff0000) address[BL2] = Machine.pens[(pen >> 16) & 15];
+					    if (pen & 0x0000ff00) address[BL1] = Machine.pens[(pen >>  8) & 15];
+					    if (pen & 0x000000ff) address[BL0] = Machine.pens[(pen & 15)];
 	
 	                    /* Collision Detection */
 	
 	                    SB = 0;
-					    if (spb[BL3] != Machine->pens[0]) SB =  0x08000000;
-					    if (spb[BL2] != Machine->pens[0]) SB |= 0x00080000;
-					    if (spb[BL1] != Machine->pens[0]) SB |= 0x00000800;
-					    if (spb[BL0] != Machine->pens[0]) SB |= 0x00000008;
+					    if (spb[BL3] != Machine.pens[0]) SB =  0x08000000;
+					    if (spb[BL2] != Machine.pens[0]) SB |= 0x00080000;
+					    if (spb[BL1] != Machine.pens[0]) SB |= 0x00000800;
+					    if (spb[BL0] != Machine.pens[0]) SB |= 0x00000008;
 	
 	       	            if (S1 & S2) CollisionRegister |= 1;
 	       	            if (S2 & S3) CollisionRegister |= 2;
@@ -632,11 +632,11 @@ public class cvs
 		{
 	        for(sx=255;sx>7;sx--)
 	        {
-		        UINT32 *sp1 = (UINT32 *)s2636_1_bitmap->line[sx];
-		        UINT32 *sp2 = (UINT32 *)s2636_2_bitmap->line[sx];
-		        UINT32 *sp3 = (UINT32 *)s2636_3_bitmap->line[sx];
-	            UINT32 *dst = (UINT32 *)bitmap->line[sx];
-		        UINT8  *spb = (UINT8  *)scrolled_background->line[sx];
+		        UINT32 *sp1 = (UINT32 *)s2636_1_bitmap.line[sx];
+		        UINT32 *sp2 = (UINT32 *)s2636_2_bitmap.line[sx];
+		        UINT32 *sp3 = (UINT32 *)s2636_3_bitmap.line[sx];
+	            UINT32 *dst = (UINT32 *)bitmap.line[sx];
+		        UINT8  *spb = (UINT8  *)scrolled_background.line[sx];
 	
 	            UINT32 S1,S2,S3,SB,pen;
 	
@@ -651,18 +651,18 @@ public class cvs
 	                 if(pen)
 	                 {
 	             	    UINT8 *address = (UINT8 *)dst;
-					    if (pen & 0xff000000) address[BL3] = Machine->pens[(pen >> 24) & 15];
-					    if (pen & 0x00ff0000) address[BL2] = Machine->pens[(pen >> 16) & 15];
-					    if (pen & 0x0000ff00) address[BL1] = Machine->pens[(pen >>  8) & 15];
-					    if (pen & 0x000000ff) address[BL0] = Machine->pens[(pen & 15)];
+					    if (pen & 0xff000000) address[BL3] = Machine.pens[(pen >> 24) & 15];
+					    if (pen & 0x00ff0000) address[BL2] = Machine.pens[(pen >> 16) & 15];
+					    if (pen & 0x0000ff00) address[BL1] = Machine.pens[(pen >>  8) & 15];
+					    if (pen & 0x000000ff) address[BL0] = Machine.pens[(pen & 15)];
 	
 	                    /* Collision Detection */
 	
 	                    SB = 0;
-					    if (spb[BL3] != Machine->pens[0]) SB =  0x08000000;
-					    if (spb[BL2] != Machine->pens[0]) SB |= 0x00080000;
-					    if (spb[BL1] != Machine->pens[0]) SB |= 0x00000800;
-					    if (spb[BL0] != Machine->pens[0]) SB |= 0x00000008;
+					    if (spb[BL3] != Machine.pens[0]) SB =  0x08000000;
+					    if (spb[BL2] != Machine.pens[0]) SB |= 0x00080000;
+					    if (spb[BL1] != Machine.pens[0]) SB |= 0x00000800;
+					    if (spb[BL0] != Machine.pens[0]) SB |= 0x00000008;
 	
 	       	            if (S1 & S2) CollisionRegister |= 1;
 	       	            if (S2 & S3) CollisionRegister |= 2;
@@ -694,8 +694,8 @@ public class cvs
 				x = ((stars[offs].x + stars_scroll) % 512) / 2;
 				y = (stars[offs].y + (stars_scroll + stars[offs].x) / 512) % 256;
 	
-				if (y >= Machine->visible_area.min_y &&
-					y <= Machine->visible_area.max_y)
+				if (y >= Machine.visible_area.min_y &&
+					y <= Machine.visible_area.max_y)
 				{
 					if ((y & 1) ^ ((x >> 4) & 1))
 					{

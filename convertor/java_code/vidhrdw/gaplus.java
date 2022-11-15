@@ -29,11 +29,11 @@ public class gaplus
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_gaplus  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -61,7 +61,7 @@ public class gaplus
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the lookup table */
 	
 	
@@ -282,7 +282,7 @@ public class gaplus
 				int number = spriteram.read(offs)+4*(spriteram_3.read(offs)& 0x40);
 				int color = spriteram.read(offs+1)& 0x3f;
 	            int sx = (spriteram_2.read(offs+1)-71) + 0x100*(spriteram_3.read(offs+1)& 1);
-				int sy = ( Machine->drv->screen_height ) - spriteram_2.read(offs)-24;
+				int sy = ( Machine.drv.screen_height ) - spriteram_2.read(offs)-24;
 				int flipy = spriteram_3.read(offs)& 2;
 				int flipx = spriteram_3.read(offs)& 1;
 				int width, height;
@@ -296,12 +296,12 @@ public class gaplus
 				}
 	
 				if ((spriteram_3.read(offs)& 0xa8) == 0xa0){ /* draw the sprite twice in a row */
-	                    drawgfx(bitmap,Machine->gfx[2+(number >> 7)],
+	                    drawgfx(bitmap,Machine.gfx[2+(number >> 7)],
 									number,color,flipx,flipy,sx,sy,
-									Machine->visible_area,TRANSPARENCY_COLOR,255);
-						drawgfx(bitmap,Machine->gfx[2+(number >> 7)],
+									Machine.visible_area,TRANSPARENCY_COLOR,255);
+						drawgfx(bitmap,Machine.gfx[2+(number >> 7)],
 									number,color,flipx,flipy,sx,sy+16,
-									Machine->visible_area,TRANSPARENCY_COLOR,255);
+									Machine.visible_area,TRANSPARENCY_COLOR,255);
 				}
 				else{
 					switch (spriteram_3.read(offs)& 0x28){
@@ -324,12 +324,12 @@ public class gaplus
 								ex = flipx ? (width-1-x) : x;
 								ey = flipy ? (height-1-y) : y;
 	
-								drawgfx(bitmap,Machine->gfx[2+(number >> 7)],
+								drawgfx(bitmap,Machine.gfx[2+(number >> 7)],
 									(number)+x_offset[ex]+y_offset[ey],
 									color,
 									flipx, flipy,
 									sx+x*16,sy+y*16,
-									Machine->visible_area,
+									Machine.visible_area,
 									TRANSPARENCY_COLOR,255);
 							}
 						}
@@ -342,7 +342,7 @@ public class gaplus
 	public static VideoUpdateHandlerPtr video_update_gaplus  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
-		fillbitmap( bitmap, Machine->pens[0], Machine->visible_area );
+		fillbitmap( bitmap, Machine.pens[0], Machine.visible_area );
 	
 		starfield_render( bitmap );
 	
@@ -389,15 +389,15 @@ public class gaplus
 				sy = 35 - sy;
 			}
 	
-			sx = ( ( Machine->drv->screen_height - 1 ) / 8 ) - sx;
+			sx = ( ( Machine.drv.screen_height - 1 ) / 8 ) - sx;
 	
 			bank = ( colorram.read(offs)& 0x80 ) ? 1 : 0;
 	
-	        drawgfx(bitmap,Machine->gfx[bank],
+	        drawgfx(bitmap,Machine.gfx[bank],
 	                videoram.read(offs),
 	                colorram.read(offs)& 0x3f,
 	                flip_screen(),flip_screen(),8*sy,8*sx,
-	                Machine->visible_area,TRANSPARENCY_PEN,0);
+	                Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 		gaplus_draw_sprites(bitmap);

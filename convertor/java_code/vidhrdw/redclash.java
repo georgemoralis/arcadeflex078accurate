@@ -244,9 +244,9 @@ public class redclash
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_redclash  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, get_black_pen(), Machine->visible_area);
+		fillbitmap(bitmap, get_black_pen(), Machine.visible_area);
 		redclash_draw_sprites(bitmap);
 		redclash_draw_bullets(bitmap);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 	} };
 }

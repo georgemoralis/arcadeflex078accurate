@@ -182,8 +182,8 @@ public class spbactn
 	
 	public static VideoStartHandlerPtr video_start_spbactn  = new VideoStartHandlerPtr() { public int handler(){
 		/* allocate bitmaps */
-		tile_bitmap_bg = auto_bitmap_alloc_depth(Machine->drv->screen_width, Machine->drv->screen_height, 16);
-		tile_bitmap_fg = auto_bitmap_alloc_depth(Machine->drv->screen_width, Machine->drv->screen_height, 16);
+		tile_bitmap_bg = auto_bitmap_alloc_depth(Machine.drv.screen_width, Machine.drv.screen_height, 16);
+		tile_bitmap_fg = auto_bitmap_alloc_depth(Machine.drv.screen_width, Machine.drv.screen_height, 16);
 	
 		if (!tile_bitmap_bg || !tile_bitmap_fg)
 			return 1;
@@ -206,12 +206,12 @@ public class spbactn
 	
 			colour = ((attr & 0x00f0) >> 4) | 0x80;
 	
-			drawgfx(tile_bitmap_bg, Machine->gfx[1],
+			drawgfx(tile_bitmap_bg, Machine.gfx[1],
 						code,
 						colour,
 						0, 0,
 						16 * sx, 8 * sy,
-						Machine->visible_area, TRANSPARENCY_NONE, 0);
+						Machine.visible_area, TRANSPARENCY_NONE, 0);
 	
 			sx++;
 			if (sx > 63)
@@ -233,12 +233,12 @@ public class spbactn
 	
 				colour = ((attr & 0x00f0) >> 4) | 0x80;
 	
-				drawgfx(tile_bitmap_bg, Machine->gfx[1],
+				drawgfx(tile_bitmap_bg, Machine.gfx[1],
 						code,
 						colour,
 						0, 0,
 						16 * sx, 8 * sy,
-						Machine->visible_area, TRANSPARENCY_PEN, 0);
+						Machine.visible_area, TRANSPARENCY_PEN, 0);
 	
 				sx++;
 				if (sx > 63)
@@ -267,12 +267,12 @@ public class spbactn
 			else
 				colour |= 0x0080;
 	
-			drawgfx(tile_bitmap_fg, Machine->gfx[0],
+			drawgfx(tile_bitmap_fg, Machine.gfx[0],
 						code,
 						colour,
 						0, 0,
 						16 * sx, 8 * sy,
-						Machine->visible_area,TRANSPARENCY_PEN, 0);
+						Machine.visible_area,TRANSPARENCY_PEN, 0);
 	
 			sx++;
 			if (sx > 63)

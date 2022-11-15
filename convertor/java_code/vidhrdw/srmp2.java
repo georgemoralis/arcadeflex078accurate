@@ -27,7 +27,7 @@ public class srmp2
 	public static PaletteInitHandlerPtr palette_init_srmp2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0; i < Machine->drv->total_colors; i++)
+		for (i = 0; i < Machine.drv.total_colors; i++)
 		{
 			int col, r, g, b;
 	
@@ -44,7 +44,7 @@ public class srmp2
 			palette_set_color(i,r,g,b);
 		}
 	
-		for (i = 0; i < Machine->drv->total_colors; i++)
+		for (i = 0; i < Machine.drv.total_colors; i++)
 		{
 			colortable[i] = i ^ 0x0f;
 		}
@@ -54,7 +54,7 @@ public class srmp2
 	public static PaletteInitHandlerPtr palette_init_srmp3  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0; i < Machine->drv->total_colors; i++)
+		for (i = 0; i < Machine.drv.total_colors; i++)
 		{
 			int col, r, g, b;
 	
@@ -461,19 +461,19 @@ public class srmp2
 	
 	
 	public static VideoUpdateHandlerPtr video_update_srmp2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, Machine->pens[0x1f0], Machine->visible_area);
+		fillbitmap(bitmap, Machine.pens[0x1f0], Machine.visible_area);
 		srmp2_draw_sprites(bitmap);
 	} };
 	
 	
 	public static VideoUpdateHandlerPtr video_update_srmp3  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, Machine->pens[0x1f0], Machine->visible_area);
+		fillbitmap(bitmap, Machine.pens[0x1f0], Machine.visible_area);
 		srmp3_draw_sprites(bitmap);
 	} };
 	
 	
 	public static VideoUpdateHandlerPtr video_update_mjyuugi  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, Machine->pens[0x1f0], Machine->visible_area);
+		fillbitmap(bitmap, Machine.pens[0x1f0], Machine.visible_area);
 		mjyuugi_draw_sprites(bitmap);
 	} };
 }

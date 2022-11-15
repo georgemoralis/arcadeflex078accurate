@@ -165,7 +165,7 @@ public class alpha68k
 		last_bank=bank_base;
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 	
-		fillbitmap(bitmap,Machine->pens[2047],cliprect);
+		fillbitmap(bitmap,Machine.pens[2047],cliprect);
 	//AT
 	/*
 		draw_sprites(bitmap,cliprect,1,0x000);
@@ -320,7 +320,7 @@ public class alpha68k
 		last_bank=bank_base;
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 	
-		fillbitmap(bitmap,Machine->pens[4095],cliprect);
+		fillbitmap(bitmap,Machine.pens[4095],cliprect);
 	
 		/* This appears to be correct priority */
 		if (microcontroller_id == 0x8814) /* Sky Adventure */
@@ -354,7 +354,7 @@ public class alpha68k
 		last_bank=bank_base;
 		tilemap_set_flip(ALL_TILEMAPS,flipscreen ? (TILEMAP_FLIPY | TILEMAP_FLIPX) : 0);
 	
-		fillbitmap(bitmap,Machine->pens[4095],cliprect);
+		fillbitmap(bitmap,Machine.pens[4095],cliprect);
 	
 		/* This appears to be correct priority */
 		draw_sprites_V(bitmap,cliprect,0,0x07c0,0x0800,0x4000,0x8000,0x3fff);
@@ -429,7 +429,7 @@ public class alpha68k
 	public static VideoUpdateHandlerPtr video_update_alpha68k_I  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int yshift = (microcontroller_id == 0x890a) ? 1 : 0; // The Next Space is 1 pixel off
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		/* This appears to be correct priority */
 		draw_sprites2(bitmap,cliprect,2,0x0800,yshift);
@@ -487,7 +487,7 @@ public class alpha68k
 	
 		color_prom += 0x200;
 	//AT: fill Super Stingray CLUT(bad ic5.5)
-		if (!strcmp(Machine->gamedrv->name, "sstingry")) {
+		if (!strcmp(Machine.gamedrv.name, "sstingry")) {
 			for (i=0; i<256; i++) colortable[i] = temp_clut[i];
 			return; }
 	//ZT
@@ -586,7 +586,7 @@ public class alpha68k
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_kyros  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		//fillbitmap(bitmap,Machine->pens[0],cliprect);
+		//fillbitmap(bitmap,Machine.pens[0],cliprect);
 		fillbitmap(bitmap,*videoram16&0xff,cliprect); //AT
 	
 		kyros_draw_sprites(bitmap,cliprect,2,0x0800);
@@ -651,7 +651,7 @@ public class alpha68k
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_sstingry  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		//fillbitmap(bitmap,Machine->pens[0],cliprect);
+		//fillbitmap(bitmap,Machine.pens[0],cliprect);
 		fillbitmap(bitmap,*videoram16&0xff,cliprect); //AT
 	
 		sstingry_draw_sprites(bitmap,cliprect,2,0x0800);

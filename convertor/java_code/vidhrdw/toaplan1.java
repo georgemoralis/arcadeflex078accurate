@@ -1163,7 +1163,7 @@ public class toaplan1
 	
 		mark_rallybik_sprite_priority();
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,TILEMAP_IGNORE_TRANSPARENCY | 0,0);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,TILEMAP_IGNORE_TRANSPARENCY | 1,0);
@@ -1188,7 +1188,7 @@ public class toaplan1
 	
 		mark_toaplan1_sprite_priority();
 	
-		fillbitmap(bitmap,Machine->pens[0x120],cliprect);
+		fillbitmap(bitmap,Machine.pens[0x120],cliprect);
 	
 		tilemap_draw(bitmap,cliprect,pf4_tilemap,TILEMAP_IGNORE_TRANSPARENCY,0);
 		for (priority = 8; priority < 16; priority++)
@@ -1218,7 +1218,7 @@ public class toaplan1
 	
 		mark_toaplan1_sprite_priority();
 	
-		fillbitmap(bitmap,Machine->pens[0x120],cliprect);
+		fillbitmap(bitmap,Machine.pens[0x120],cliprect);
 	
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,TILEMAP_IGNORE_TRANSPARENCY | 0,0);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,TILEMAP_IGNORE_TRANSPARENCY | 1,0);

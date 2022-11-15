@@ -37,8 +37,8 @@ public class kingobox
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_kingofb  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		for (i = 0;i < 256;i++)
@@ -93,8 +93,8 @@ public class kingobox
 	/* Ring King has one 256x8 PROM instead of two 256x4 */
 	public static PaletteInitHandlerPtr palette_init_ringking  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		for (i = 0;i < 256;i++)
@@ -263,9 +263,9 @@ public class kingobox
 	
 	public static VideoUpdateHandlerPtr video_update_kingofb  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrolly(bg_tilemap, 0, -(*kingofb_scroll_y));
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		kingofb_draw_sprites(bitmap);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 	} };
 	
 	/* Ring King */
@@ -328,8 +328,8 @@ public class kingobox
 	
 	public static VideoUpdateHandlerPtr video_update_ringking  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrolly(bg_tilemap, 0, -(*kingofb_scroll_y));
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		ringking_draw_sprites(bitmap);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 	} };
 }

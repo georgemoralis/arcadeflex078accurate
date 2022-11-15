@@ -171,7 +171,7 @@ public class flstory
 				}
 				code = videoram.read(offs)+ ((videoram.read(offs + 1)& 0xc0) << 2) + 0x400 + 0x800 * char_bank;
 	
-				drawgfx(bitmap,Machine->gfx[0],
+				drawgfx(bitmap,Machine.gfx[0],
 					code,
 					(videoram.read(offs + 1)& 0x0f),
 					( ( videoram.read(offs + 1)& 0x08 ) >> 3 ) ^ flipscreen,

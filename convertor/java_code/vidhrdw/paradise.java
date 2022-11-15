@@ -164,7 +164,7 @@ public class paradise
 									TILEMAP_TRANSPARENT, 8,8, 0x20,0x20 );
 	
 		/* pixmap */
-		tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height);
+		tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height);
 	
 		/* paletteram and videoram (pixmap) are accessed through CPU ports, that don't
 		   get memory automatically allocated for them */

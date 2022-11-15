@@ -42,11 +42,11 @@ public class retofinv
 	
 	public static PaletteInitHandlerPtr palette_init_retofinv  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -72,7 +72,7 @@ public class retofinv
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the lookup table */
 	
 		/* foreground colors */
@@ -99,7 +99,7 @@ public class retofinv
 		if ((bg_dirtybuffer = auto_malloc(retofinv_videoram_size)) == 0)
 			return 1;
 	
-		if ((bitmap_bg = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((bitmap_bg = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		memset(bg_dirtybuffer,1,retofinv_videoram_size);

@@ -251,7 +251,7 @@ public class battlane
 	public static VideoUpdateHandlerPtr video_update_battlane  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_mark_all_tiles_dirty(bg_tilemap); // HACK
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		battlane_draw_sprites(bitmap);
 		battlane_draw_fg_bitmap(bitmap);
 	} };

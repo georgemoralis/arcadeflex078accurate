@@ -19,7 +19,7 @@ public class sprcros2
 	public static PaletteInitHandlerPtr palette_init_sprcros2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,bit0,bit1,bit2,r,g,b;
 	
-		for (i = 0;i < Machine->drv->total_colors; i++)
+		for (i = 0;i < Machine.drv.total_colors; i++)
 		{
 			/* red component */
 			bit0 = (color_prom.read(i)>> 0) & 0x01;

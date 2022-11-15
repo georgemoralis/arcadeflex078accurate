@@ -150,10 +150,10 @@ public class zac2650
 		if ( !bg_tilemap )
 			return 1;
 	
-		if ((spritebitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((spritebitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		return 0;
@@ -248,7 +248,7 @@ public class zac2650
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_tinvader  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		tinvader_draw_sprites(bitmap);
 	} };
 }

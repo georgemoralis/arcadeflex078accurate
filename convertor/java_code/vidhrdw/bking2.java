@@ -60,11 +60,11 @@ public class bking2
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_bking2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -248,11 +248,11 @@ public class bking2
 		{
 			return 1;
 		}
-		if ((helper0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == NULL)
+		if ((helper0 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == NULL)
 		{
 			return 1;
 		}
-		if ((helper1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == NULL)
+		if ((helper1 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == NULL)
 		{
 			return 1;
 		}
@@ -266,14 +266,14 @@ public class bking2
 	
 		/* draw the balls */
 	
-		drawgfx(bitmap, Machine->gfx[2],
+		drawgfx(bitmap, Machine.gfx[2],
 			ball1_pic,
 			palette_bank,
 			0, 0,
 			xld1, yld1,
 			cliprect, TRANSPARENCY_PEN, 0);
 	
-		drawgfx(bitmap, Machine->gfx[3],
+		drawgfx(bitmap, Machine.gfx[3],
 			ball2_pic,
 			palette_bank,
 			0, 0,
@@ -282,7 +282,7 @@ public class bking2
 	
 		/* draw the crow */
 	
-		drawgfx(bitmap, Machine->gfx[1],
+		drawgfx(bitmap, Machine.gfx[1],
 			crow_pic,
 			palette_bank,
 			crow_flip, crow_flip,

@@ -79,7 +79,7 @@ public class shangha3
 	
 	
 	public static VideoStartHandlerPtr video_start_shangha3  = new VideoStartHandlerPtr() { public int handler(){
-		if ((rawbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((rawbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		if (shangha3_do_shadows)
@@ -87,12 +87,12 @@ public class shangha3
 			int i;
 	
 			/* Prepare the shadow table */
-			/* We draw in a raw bitmap so we don't have to remap pens through Machine->pens */
+			/* We draw in a raw bitmap so we don't have to remap pens through Machine.pens */
 			for (i = 0;i < 14;i++)
 				gfx_drawmode_table[i] = DRAWMODE_SOURCE;
 			gfx_drawmode_table[14] = DRAWMODE_SHADOW;
 			for (i = 0;i < 128;i++)
-				palette_shadow_table[Machine->pens[i]] = Machine->pens[i+128];
+				palette_shadow_table[Machine.pens[i]] = Machine.pens[i+128];
 		}
 	
 		return 0;
@@ -270,6 +270,6 @@ public class shangha3
 	
 	
 	public static VideoUpdateHandlerPtr video_update_shangha3  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		copybitmap(bitmap,rawbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,rawbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	} };
 }

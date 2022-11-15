@@ -88,7 +88,7 @@ public class segasyse
 		/*- Draw from cache_bitmap to screen -*/
 	
 		for (i = 0;i < 192;i++)
-			draw_scanline8(bitmap,0,i,256,&cache_bitmap[i * (16+256+16) +16],Machine->pens[segasyse_palettebase],-1);
+			draw_scanline8(bitmap,0,i,256,&cache_bitmap[i * (16+256+16) +16],Machine.pens[segasyse_palettebase],-1);
 	} };
 	
 	/* these are used by megatech */

@@ -342,7 +342,7 @@ public class taito_l
 			tilemap_draw(bitmap,cliprect,ch1a_tilemap,0,0);
 		}
 		else
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 	} };
 	
 	

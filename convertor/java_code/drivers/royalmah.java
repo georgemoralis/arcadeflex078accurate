@@ -89,7 +89,7 @@ public class royalmah
 	public static PaletteInitHandlerPtr palette_init_royalmah  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -119,7 +119,7 @@ public class royalmah
 	public static PaletteInitHandlerPtr palette_init_mjderngr  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int x =	(color_prom.read(i)<<8) + color_prom.read(0x200+i);
 			/* The bits are in reverse order! */
@@ -194,7 +194,7 @@ public class royalmah
 				royalmah_videoram_w(offs, videoram.read(offs));
 			}
 		}
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	} };
 	
 	

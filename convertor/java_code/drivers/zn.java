@@ -711,37 +711,37 @@ public class zn
 				scode_last = scode;
 			}
 	
-			fillbitmap( bitmap, 0, Machine->visible_area );
+			fillbitmap( bitmap, 0, Machine.visible_area );
 	
-			sprintf( text1, "%s", Machine->gamedrv->description );
-			if( strlen( text1 ) > Machine->uiwidth / Machine->uifontwidth )
+			sprintf( text1, "%s", Machine.gamedrv.description );
+			if( strlen( text1 ) > Machine.uiwidth / Machine.uifontwidth )
 			{
-				text1[ Machine->uiwidth / Machine->uifontwidth ] = 0;
+				text1[ Machine.uiwidth / Machine.uifontwidth ] = 0;
 			}
 			sprintf( text2, "SOUND CODE=%02x/%02x", scode >> 8, scode & 0xff );
-			if( strlen( text2 ) > Machine->uiwidth / Machine->uifontwidth )
+			if( strlen( text2 ) > Machine.uiwidth / Machine.uifontwidth )
 			{
-				text2[ Machine->uiwidth / Machine->uifontwidth ] = 0;
+				text2[ Machine.uiwidth / Machine.uifontwidth ] = 0;
 			}
 			sprintf( text3, "SELECT WITH RIGHT&LEFT/UP&DN" );
-			if( strlen( text3 ) > Machine->uiwidth / Machine->uifontwidth )
+			if( strlen( text3 ) > Machine.uiwidth / Machine.uifontwidth )
 			{
-				text3[ Machine->uiwidth / Machine->uifontwidth ] = 0;
+				text3[ Machine.uiwidth / Machine.uifontwidth ] = 0;
 			}
 			dt[ 0 ].text = text1;
 			dt[ 0 ].color = UI_COLOR_NORMAL;
-			dt[ 0 ].x = ( Machine->uiwidth - Machine->uifontwidth * strlen( dt[ 0 ].text ) ) / 2;
-			dt[ 0 ].y = Machine->uiheight - Machine->uifontheight * 5;
+			dt[ 0 ].x = ( Machine.uiwidth - Machine.uifontwidth * strlen( dt[ 0 ].text ) ) / 2;
+			dt[ 0 ].y = Machine.uiheight - Machine.uifontheight * 5;
 			dt[ 1 ].text = text2;
 			dt[ 1 ].color = UI_COLOR_NORMAL;
-			dt[ 1 ].x = ( Machine->uiwidth - Machine->uifontwidth * strlen( dt[ 1 ].text ) ) / 2;
-			dt[ 1 ].y = Machine->uiheight - Machine->uifontheight * 3;
+			dt[ 1 ].x = ( Machine.uiwidth - Machine.uifontwidth * strlen( dt[ 1 ].text ) ) / 2;
+			dt[ 1 ].y = Machine.uiheight - Machine.uifontheight * 3;
 			dt[ 2 ].text = text3;
 			dt[ 2 ].color = UI_COLOR_NORMAL;
-			dt[ 2 ].x = ( Machine->uiwidth - Machine->uifontwidth * strlen( dt[ 2 ].text ) ) / 2;
-			dt[ 2 ].y = Machine->uiheight - Machine->uifontheight * 1;
+			dt[ 2 ].x = ( Machine.uiwidth - Machine.uifontwidth * strlen( dt[ 2 ].text ) ) / 2;
+			dt[ 2 ].y = Machine.uiheight - Machine.uifontheight * 1;
 			dt[ 3 ].text = 0; /* terminate array */
-			displaytext( Machine->scrbitmap, dt );
+			displaytext( Machine.scrbitmap, dt );
 		}
 	} };
 	

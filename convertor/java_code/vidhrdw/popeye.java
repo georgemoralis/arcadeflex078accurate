@@ -401,6 +401,6 @@ public class popeye
 	public static VideoUpdateHandlerPtr video_update_popeye  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		popeye_draw_background(bitmap);
 		popeye_draw_sprites(bitmap);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 	} };
 }

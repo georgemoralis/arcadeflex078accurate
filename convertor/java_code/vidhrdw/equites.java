@@ -234,9 +234,9 @@ public class equites
 		unsigned char *buf8ptr;
 		int i;
 	
-		if (Machine->color_depth > 16) return(-1);
+		if (Machine.color_depth > 16) return(-1);
 	
-		halfclip = Machine->visible_area;
+		halfclip = Machine.visible_area;
 		i = halfclip.max_y - halfclip.min_y + 1;
 		halfclip.max_y = halfclip.min_y + (i >> 1) - 1;
 	
@@ -260,7 +260,7 @@ public class equites
 		memset(dirtybuf, 1, 0x800);
 	
 		if ((prestep = (struct PRESTEP_TYPE *)auto_malloc(i * sizeof(struct PRESTEP_TYPE))) == NULL) return(-1);
-		splndrbt_prestep(prestep, Machine->visible_area, BMW, 434, 96, 480);
+		splndrbt_prestep(prestep, Machine.visible_area, BMW, 434, 96, 480);
 	
 		defcharram = videoram16 + videoram_size[0] / 2;
 	
@@ -390,8 +390,8 @@ public class equites
 		equites_update_clut();
 		equites_draw_scroll(bitmap);
 		equites_draw_sprites(bitmap);
-		plot_box(bitmap, cliprect->min_x, cliprect->min_y, maskwidth, maskheight, maskcolor);
-		plot_box(bitmap, cliprect->max_x-maskwidth+1, cliprect->min_y, maskwidth, maskheight, maskcolor);
+		plot_box(bitmap, cliprect.min_x, cliprect.min_y, maskwidth, maskheight, maskcolor);
+		plot_box(bitmap, cliprect.max_x-maskwidth+1, cliprect.min_y, maskwidth, maskheight, maskcolor);
 		tilemap_draw(bitmap, cliprect, charmap0, 0, 0);
 	} };
 	

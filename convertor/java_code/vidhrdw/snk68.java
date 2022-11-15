@@ -223,7 +223,7 @@ public class snk68
 	
 	
 	public static VideoUpdateHandlerPtr video_update_pow  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[2047],cliprect);
+		fillbitmap(bitmap,Machine.pens[2047],cliprect);
 	
 		/* This appears to be correct priority */
 		draw_sprites(bitmap,cliprect,1,0x000);
@@ -303,7 +303,7 @@ public class snk68
 	
 	
 	public static VideoUpdateHandlerPtr video_update_searchar  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[2047],cliprect);
+		fillbitmap(bitmap,Machine.pens[2047],cliprect);
 	
 		/* This appears to be correct priority */
 		draw_sprites2(bitmap,cliprect,8,0x2000,0x000);

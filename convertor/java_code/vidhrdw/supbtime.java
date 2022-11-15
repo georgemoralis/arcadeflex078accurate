@@ -182,7 +182,7 @@ public class supbtime
 		/* The filled bitmap is unusual for Data East, but without this the title screen
 		background colour is incorrect.  This also explains why the game initialises
 		the previously unused palette ram to zero */
-		fillbitmap(bitmap,Machine->pens[768],cliprect);
+		fillbitmap(bitmap,Machine.pens[768],cliprect);
 		tilemap_draw(bitmap,cliprect,pf2_tilemap,0,0);
 		supbtime_drawsprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,0,0);
@@ -203,7 +203,7 @@ public class supbtime
 		/* The filled bitmap is unusual for Data East, but without this the title screen
 		background colour is incorrect.  This also explains why the game initialises
 		the previously unused palette ram to zero */
-		fillbitmap(bitmap,Machine->pens[768],cliprect);
+		fillbitmap(bitmap,Machine.pens[768],cliprect);
 		tilemap_draw(bitmap,cliprect,pf2_tilemap,0,0);
 		supbtime_drawsprites(bitmap,cliprect);
 		tilemap_draw(bitmap,cliprect,pf1_tilemap,0,0);

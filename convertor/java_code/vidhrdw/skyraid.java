@@ -156,7 +156,7 @@ public class skyraid
 	
 	
 	public static VideoUpdateHandlerPtr video_update_skyraid  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 	
 		draw_terrain(helper);
 		draw_sprites(helper, cliprect);

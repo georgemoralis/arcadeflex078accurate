@@ -593,7 +593,7 @@ public class slapshot
 		spritepri[3] = TC0360PRI_regs[7] >> 4;
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 	#ifdef MAME_DEBUG
 		if (dislayer[layer[0]]==0)

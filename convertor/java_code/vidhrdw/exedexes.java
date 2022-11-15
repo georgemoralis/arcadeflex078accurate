@@ -45,11 +45,11 @@ public class exedexes
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_exedexes  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -74,7 +74,7 @@ public class exedexes
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the lookup table */
 	
 		/* characters use colors 192-207 */
@@ -240,11 +240,11 @@ public class exedexes
 		if (sc2on)
 		{
 			tilemap_set_scrollx(bg_tilemap, 0, ((exedexes_bg_scroll[1]) << 8) + exedexes_bg_scroll[0]);
-			tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+			tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		}
 		else
 		{
-			fillbitmap(bitmap, Machine->pens[0], Machine->visible_area);
+			fillbitmap(bitmap, Machine.pens[0], Machine.visible_area);
 		}
 	
 		exedexes_draw_sprites(bitmap, 1);
@@ -253,14 +253,14 @@ public class exedexes
 		{
 			tilemap_set_scrollx(fg_tilemap, 0, ((exedexes_nbg_yscroll[1]) << 8) + exedexes_nbg_yscroll[0]);
 			tilemap_set_scrolly(fg_tilemap, 0, ((exedexes_nbg_xscroll[1]) << 8) + exedexes_nbg_xscroll[0]);
-			tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+			tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 		}
 		
 		exedexes_draw_sprites(bitmap, 0);
 	
 		if (chon)
 		{
-			tilemap_draw(bitmap, Machine->visible_area, tx_tilemap, 0, 0);
+			tilemap_draw(bitmap, Machine.visible_area, tx_tilemap, 0, 0);
 		}
 	} };
 	

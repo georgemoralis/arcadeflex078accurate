@@ -63,7 +63,7 @@ public class exidy440
 		topsecex_last_yscroll = 0;
 	
 		/* allocate a bitmap */
-		tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 		if (!tmpbitmap)
 			return 1;
 	

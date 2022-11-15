@@ -62,10 +62,10 @@ public class bigevglf
 	} };
 	
 	public static VideoStartHandlerPtr video_start_bigevglf  = new VideoStartHandlerPtr() { public int handler(){
-		tmp_bitmap[0] = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height);
-		tmp_bitmap[1] = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height);
-		tmp_bitmap[2] = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height);
-		tmp_bitmap[3] = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height);
+		tmp_bitmap[0] = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height);
+		tmp_bitmap[1] = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height);
+		tmp_bitmap[2] = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height);
+		tmp_bitmap[3] = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height);
 		vidram = auto_malloc(0x100*0x100 * 4);
 		return 0;
 	} };

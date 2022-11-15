@@ -1810,7 +1810,7 @@ public class cps1
 	
 		flip_screen_set(videocontrol & 0x8000);
 	
-		layercontrol = cps1_output[cps1_game_config->layer_control/2];
+		layercontrol = cps1_output[cps1_game_config.layer_control/2];
 	
 		/* Get video memory base registers */
 		cps1_get_video_base();
@@ -1852,7 +1852,7 @@ public class cps1
 	
 	
 		/* Blank screen */
-		fillbitmap(bitmap,Machine->pens[4095],cliprect);
+		fillbitmap(bitmap,Machine.pens[4095],cliprect);
 	
 		cps1_render_stars(bitmap,cliprect);
 	

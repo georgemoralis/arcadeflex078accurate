@@ -184,12 +184,12 @@ public class thunderj
 		/* draw and merge the MO */
 		mobitmap = atarimo_render(0, cliprect, &rectlist);
 		for (r = 0; r < rectlist.numrects; r++, rectlist.rect++)
-			for (y = rectlist.rect->min_y; y <= rectlist.rect->max_y; y++)
+			for (y = rectlist.rect.min_y; y <= rectlist.rect.max_y; y++)
 			{
-				UINT16 *mo = (UINT16 *)mobitmap->base + mobitmap->rowpixels * y;
-				UINT16 *pf = (UINT16 *)bitmap->base + bitmap->rowpixels * y;
-				UINT8 *pri = (UINT8 *)priority_bitmap->base + priority_bitmap->rowpixels * y;
-				for (x = rectlist.rect->min_x; x <= rectlist.rect->max_x; x++)
+				UINT16 *mo = (UINT16 *)mobitmap.base + mobitmap.rowpixels * y;
+				UINT16 *pf = (UINT16 *)bitmap.base + bitmap.rowpixels * y;
+				UINT8 *pri = (UINT8 *)priority_bitmap.base + priority_bitmap.rowpixels * y;
+				for (x = rectlist.rect.min_x; x <= rectlist.rect.max_x; x++)
 					if (mo[x])
 					{
 						/* verified from the GALs on the real PCB; equations follow
@@ -283,11 +283,11 @@ public class thunderj
 		/* now go back and process the upper bit of MO priority */
 		rectlist.rect -= rectlist.numrects;
 		for (r = 0; r < rectlist.numrects; r++, rectlist.rect++)
-			for (y = rectlist.rect->min_y; y <= rectlist.rect->max_y; y++)
+			for (y = rectlist.rect.min_y; y <= rectlist.rect.max_y; y++)
 			{
-				UINT16 *mo = (UINT16 *)mobitmap->base + mobitmap->rowpixels * y;
-				UINT16 *pf = (UINT16 *)bitmap->base + bitmap->rowpixels * y;
-				for (x = rectlist.rect->min_x; x <= rectlist.rect->max_x; x++)
+				UINT16 *mo = (UINT16 *)mobitmap.base + mobitmap.rowpixels * y;
+				UINT16 *pf = (UINT16 *)bitmap.base + bitmap.rowpixels * y;
+				for (x = rectlist.rect.min_x; x <= rectlist.rect.max_x; x++)
 					if (mo[x])
 					{
 						int mopriority = mo[x] >> ATARIMO_PRIORITY_SHIFT;

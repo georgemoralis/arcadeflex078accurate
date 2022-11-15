@@ -27,8 +27,8 @@ public class tankbatt
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_tankbatt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 		#define RES_1	0xc0 /* this is a guess */
 		#define RES_2	0x3f /* this is a guess */
@@ -39,7 +39,7 @@ public class tankbatt
 		/* ? Skip the first byte ? */
 		color_prom++;
 	
-		for (i = 1;i < Machine->drv->total_colors;i++)
+		for (i = 1;i < Machine.drv.total_colors;i++)
 		{
 			int bit0, bit1, bit2, bit3, r, g, b;
 	
@@ -117,7 +117,7 @@ public class tankbatt
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_tankbatt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		tankbatt_draw_bullets(bitmap);
 	} };
 }

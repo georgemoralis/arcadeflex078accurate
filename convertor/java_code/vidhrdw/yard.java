@@ -68,8 +68,8 @@ public class yard
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_yard  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		/* character palette */
@@ -181,10 +181,10 @@ public class yard
 			return 1;
 		memset(dirtybuffer,1,videoram_size[0]);
 	
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width*2,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width*2,Machine.drv.screen_height)) == 0)
 			return 1;
 	
-		if ((scroll_panel_bitmap = auto_bitmap_alloc(SCROLL_PANEL_WIDTH,Machine->drv->screen_height)) == 0)
+		if ((scroll_panel_bitmap = auto_bitmap_alloc(SCROLL_PANEL_WIDTH,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		return 0;
@@ -272,7 +272,7 @@ public class yard
 					flipx = NOT(flipx);
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs)+ ((videoram.read(offs+1)& 0xc0) << 2),
 						videoram.read(offs+1)& 0x1f,
 						flipx,flip_screen(),
@@ -298,7 +298,7 @@ public class yard
 				scroll_y = -*yard_scroll_y_low ;
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap,1,&scroll_x,1,&scroll_y,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,1,&scroll_x,1,&scroll_y,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -337,19 +337,19 @@ public class yard
 				sy2 = sy1 + 0x10;
 			}
 	
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 					code1 + 256 * bank,
 					spriteram.read(offs + 1)& 0x1f,
 					flipx,flipy,
 					sx, sy1,
-					Machine->visible_area,TRANSPARENCY_COLOR,256);
+					Machine.visible_area,TRANSPARENCY_COLOR,256);
 	
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 					code2 + 256 * bank,
 					spriteram.read(offs + 1)& 0x1f,
 					flipx,flipy,
 					sx, sy2,
-					Machine->visible_area,TRANSPARENCY_COLOR,256);
+					Machine.visible_area,TRANSPARENCY_COLOR,256);
 		}
 	
 	
@@ -358,8 +358,8 @@ public class yard
 		{
 			int xpos;
 	
-			xpos = flip_screen() ? Machine->visible_area.min_x - 8 :
-			                     Machine->visible_area.max_x + 1 - SCROLL_PANEL_WIDTH;
+			xpos = flip_screen() ? Machine.visible_area.min_x - 8 :
+			                     Machine.visible_area.max_x + 1 - SCROLL_PANEL_WIDTH;
 	
 			copybitmap(bitmap,scroll_panel_bitmap,flip_screen(),flip_screen(),
 			           xpos,0,

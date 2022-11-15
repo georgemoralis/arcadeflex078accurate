@@ -79,7 +79,7 @@ public class boxer
 			{
 				UINT8 code = boxer_tile_ram[32 * i + j];
 	
-				drawgfx(bitmap, Machine->gfx[2],
+				drawgfx(bitmap, Machine.gfx[2],
 					code,
 					0,
 					code & 0x40, code & 0x40,

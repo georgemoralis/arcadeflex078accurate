@@ -7318,13 +7318,13 @@ public class konamiic
 		chip_ptr = &K053250_info.chip[chip];
 	
 		current_frame = cpu_getcurrentframe();
-		last_frame = chip_ptr->frame;
+		last_frame = chip_ptr.frame;
 	
 		if (limiter && current_frame == last_frame) return; // make sure we only do DMA transfer once per frame
 	
-		chip_ptr->frame = current_frame;
-		memcpy(chip_ptr->buffer[chip_ptr->page[chip]], chip_ptr->ram, 0x1000);
-		chip_ptr->page[chip] ^= 1;
+		chip_ptr.frame = current_frame;
+		memcpy(chip_ptr.buffer[chip_ptr.page[chip]], chip_ptr.ram, 0x1000);
+		chip_ptr.page[chip] ^= 1;
 	} };
 	
 	// Pixel data of the K053250 is nibble packed. It's preferable to be unpacked into byte format.

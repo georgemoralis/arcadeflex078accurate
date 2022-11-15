@@ -1249,7 +1249,7 @@ public class victory
 			}
 	
 			/* draw the scanline */
-			draw_scanline8(bitmap, 0, y, 256, scanline, Machine->pens, -1);
+			draw_scanline8(bitmap, 0, y, 256, scanline, Machine.pens, -1);
 		}
 	
 		/* indicate that we already did collision detection */

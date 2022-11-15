@@ -37,7 +37,7 @@ public class gomoku
 	public static PaletteInitHandlerPtr palette_init_gomoku  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0; i < Machine->drv->total_colors; i++)
+		for (i = 0; i < Machine.drv.total_colors; i++)
 		{
 			int bit0, bit1, bit2, r, g, b;
 	
@@ -117,7 +117,7 @@ public class gomoku
 		int bgdata;
 		int color;
 	
-		gomoku_bg_bitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		gomoku_bg_bitmap = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 	
 		gomoku_bg_dirty = auto_malloc(0x100);
 	
@@ -266,7 +266,7 @@ public class gomoku
 					//	sprintf(buf, "%02X", spriteram.read(((y * 16) + x))& 0xff);
 					//	sprintf(buf, "%02X", videoram.read(((y * 16) + x))& 0xff);
 					//	sprintf(buf, "%02X", colorram.read(((y * 16) + x))& 0xff);
-						ui_text(Machine->scrbitmap, buf, (16 + (x * 14)), (24 + (y * 8)));
+						ui_text(Machine.scrbitmap, buf, (16 + (x * 14)), (24 + (y * 8)));
 					}
 				}
 			}
@@ -285,7 +285,7 @@ public class gomoku
 				{
 					// 0x6000 - 0x601f
 					sprintf(buf, "%02X", RAM[0x6000 + ((y * 8) + x)] & 0xff);
-					ui_text(Machine->scrbitmap, buf, (0 + (x * 14)), (0 + (y * 8)));
+					ui_text(Machine.scrbitmap, buf, (0 + (x * 14)), (0 + (y * 8)));
 				}
 			}
 			for (y = 0; y < 4; y++)
@@ -294,7 +294,7 @@ public class gomoku
 				{
 					// 0x6800 - 0x681f
 					sprintf(buf, "%02X", RAM[0x6800 + ((y * 8) + x)] & 0xff);
-					ui_text(Machine->scrbitmap, buf, (0 + (x * 14)), (40 + (y * 8)));
+					ui_text(Machine.scrbitmap, buf, (0 + (x * 14)), (40 + (y * 8)));
 				}
 			}
 		}

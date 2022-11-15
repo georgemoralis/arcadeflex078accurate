@@ -82,13 +82,13 @@ public class fastfred
 	
 	public static PaletteInitHandlerPtr palette_init_fastfred  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		pen_t i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		fastfred_color_prom = color_prom;	/* we'll need this later */
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			set_color(i, i);
 		}

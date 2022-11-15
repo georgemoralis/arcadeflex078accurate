@@ -44,7 +44,7 @@ public class mappy
 	public static PaletteInitHandlerPtr palette_init_mappy  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -70,7 +70,7 @@ public class mappy
 			colortable[i] = (color_prom.read((i^3))& 0x0f) + 0x10;
 	
 		/* sprites */
-		for (i = 64*4;i < Machine->drv->color_table_len;i++)
+		for (i = 64*4;i < Machine.drv.color_table_len;i++)
 			colortable[i] = color_prom.read(i)& 0x0f;
 	} };
 	
@@ -220,7 +220,7 @@ public class mappy
 					sy = 59 - sy;
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs),
 						colorram.read(offs)& 0x3f,
 						flipscreen,flipscreen,8*sx,8*sy,
@@ -245,7 +245,7 @@ public class mappy
 					scroll[offs] = 224 - scroll[offs];
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap,0,0,36,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,0,0,36,scroll,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 		/* Draw the sprites. */
@@ -383,7 +383,7 @@ public class mappy
 						sy = 216 - sy;
 					}
 	
-					drawgfx(bitmap,Machine->gfx[0],
+					drawgfx(bitmap,Machine.gfx[0],
 							videoram.read(offs),
 							colorram.read(offs)& 0x3f,
 							flipscreen,flipscreen,8*sx,sy,

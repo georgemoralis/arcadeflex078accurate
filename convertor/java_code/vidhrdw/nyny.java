@@ -24,7 +24,7 @@ public class nyny
 	public static PaletteInitHandlerPtr palette_init_nyny  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			palette_set_color(i,((i >> 0) & 1) * 0xff,((i >> 1) & 1) * 0xff,((i >> 2) & 1) * 0xff);
 		}
@@ -38,10 +38,10 @@ public class nyny
 	***************************************************************************/
 	
 	public static VideoStartHandlerPtr video_start_nyny  = new VideoStartHandlerPtr() { public int handler(){
-		if ((tmpbitmap1 = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap1 = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
-		if ((tmpbitmap2 = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap2 = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		nyny_videoram = auto_malloc(0x4000);
@@ -142,7 +142,7 @@ public class nyny
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_nyny  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		copybitmap(bitmap,tmpbitmap2,flip_screen(),flip_screen(),0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
-		copybitmap(bitmap,tmpbitmap1,flip_screen(),flip_screen(),0,0,Machine->visible_area,TRANSPARENCY_COLOR,0);
+		copybitmap(bitmap,tmpbitmap2,flip_screen(),flip_screen(),0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap1,flip_screen(),flip_screen(),0,0,Machine.visible_area,TRANSPARENCY_COLOR,0);
 	} };
 }

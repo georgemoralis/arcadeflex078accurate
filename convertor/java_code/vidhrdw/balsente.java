@@ -45,7 +45,7 @@ public class balsente
 		palettebank_vis = 0;
 		
 		/* allocate a bitmap */
-		tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 		if (!tmpbitmap)
 			return 1;
 	
@@ -285,7 +285,7 @@ public class balsente
 		for (y = 0; y < 240; y++)
 			if (scanline_dirty[y] || update_all)
 			{
-				pen_t *pens = Machine->pens[scanline_palette[y] * 256];
+				pen_t *pens = Machine.pens[scanline_palette[y] * 256];
 				draw_scanline8(tmpbitmap, 0, y, 256, &local_videoram[y * 256], pens, -1);
 				scanline_dirty[y] = 0;
 			}

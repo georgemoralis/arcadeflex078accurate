@@ -109,13 +109,13 @@ public class mjsister
 			for (i=0; i<256; i++)
 			{
 				for (j=0; j<4; j++)
-					plot_pixel(bitmap, 256+j, i, Machine->pens[colorbank * 0x20] );
+					plot_pixel(bitmap, 256+j, i, Machine.pens[colorbank * 0x20] );
 			}
 	
 			copybitmap(bitmap,mjsister_tmpbitmap0,f,f,0,0,cliprect,TRANSPARENCY_NONE,0);
 			copybitmap(bitmap,mjsister_tmpbitmap1,f,f,2,0,cliprect,TRANSPARENCY_PEN,0);
 		}
 		else
-			fillbitmap(bitmap, get_black_pen(), Machine->visible_area);
+			fillbitmap(bitmap, get_black_pen(), Machine.visible_area);
 	} };
 }

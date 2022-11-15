@@ -720,7 +720,7 @@ public class psx
 	
 			for( n_y = 0; n_y < m_n_screenheight; n_y++ )
 			{
-				draw_scanline16( bitmap, 0, n_y, m_n_screenwidth, m_p_p_vram[ n_y + m_n_displaystarty ] + n_x, Machine->pens, -1 );
+				draw_scanline16( bitmap, 0, n_y, m_n_screenwidth, m_p_p_vram[ n_y + m_n_displaystarty ] + n_x, Machine.pens, -1 );
 			}
 		}
 	} };

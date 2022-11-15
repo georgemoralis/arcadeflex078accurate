@@ -63,10 +63,10 @@ public class galivan
 	
 	public static PaletteInitHandlerPtr palette_init_galivan  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -90,7 +90,7 @@ public class galivan
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the lookup tables */
 	
 	
@@ -402,7 +402,7 @@ public class galivan
 		tilemap_set_scrolly(bg_tilemap,0,scrolly[0] + 256 * (scrolly[1] & 0x07));
 	
 		if (layers & 0x40)
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 		else
 			tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 	
@@ -419,7 +419,7 @@ public class galivan
 		tilemap_set_scrolly(bg_tilemap,0,scrolly[0] + 256 * (scrolly[1] & 0xff));
 	
 		if (ninjemak_dispdisable)
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 		else
 			tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 	

@@ -209,10 +209,10 @@ public class magmax
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_magmax  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn, offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn, offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
-		for (i = 0; i < Machine->drv->total_colors; i++)
+		for (i = 0; i < Machine.drv.total_colors; i++)
 		{
 			int bit0, bit1, bit2, bit3, r, g, b;
 	
@@ -236,7 +236,7 @@ public class magmax
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the lookup tables */
 	
 		/* characters use colors 0-15 */
@@ -287,7 +287,7 @@ public class magmax
 		/* copy the background graphics */
 		if (magmax_vreg & 0x40)		/* background disable */
 		{
-			fillbitmap(bitmap, Machine->pens[0], Machine->visible_area);
+			fillbitmap(bitmap, Machine.pens[0], Machine.visible_area);
 		}
 		else
 		{
@@ -297,7 +297,7 @@ public class magmax
 			UINT32 scroll_v = (*magmax_scroll_y) & 0xff;
 	
 			/*clear background-over-sprites bitmap*/
-			fillbitmap(tmpbitmap, 0, Machine->visible_area);
+			fillbitmap(tmpbitmap, 0, Machine.visible_area);
 	
 			for (v = 2*8; v < 30*8; v++) /*only for visible area*/
 			{
@@ -306,7 +306,7 @@ public class magmax
 				UINT32 rom15F_addr   = (((scroll_v + v) & 0x07)<<2) + (map_v_scr_100<<5);
 				UINT32 map_v_scr_1fe_6 =((scroll_v + v) & 0x1fe)<<6;
 	
-				pen_t *pens = Machine->pens[2*16 + (map_v_scr_100>>1)];
+				pen_t *pens = Machine.pens[2*16 + (map_v_scr_100>>1)];
 	
 				if (!map_v_scr_100)
 				{
@@ -494,17 +494,17 @@ public class magmax
 					code += (magmax_vreg & 0x30) * 0x8;
 				}
 	
-				drawgfx(bitmap, Machine->gfx[1],
+				drawgfx(bitmap, Machine.gfx[1],
 						code,
 						color,
 						flipx, flipy,
 						sx, sy,
-						Machine->visible_area, TRANSPARENCY_COLOR, 31);
+						Machine.visible_area, TRANSPARENCY_COLOR, 31);
 			}
 		}
 		if (!(magmax_vreg & 0x40))		/* background disable */
 		{
-			copybitmap(bitmap, tmpbitmap, flipscreen,flipscreen,0,0, Machine->visible_area, TRANSPARENCY_PEN, 0);
+			copybitmap(bitmap, tmpbitmap, flipscreen,flipscreen,0,0, Machine.visible_area, TRANSPARENCY_PEN, 0);
 		}
 	
 	
@@ -526,12 +526,12 @@ public class magmax
 					sy = 31 - sy;
 				}
 	
-				drawgfx(bitmap, Machine->gfx[0],
+				drawgfx(bitmap, Machine.gfx[0],
 						code,
 						0,
 						flipscreen, flipscreen,
 						8 * sx, 8 * sy,
-						Machine->visible_area, TRANSPARENCY_PEN, 15);
+						Machine.visible_area, TRANSPARENCY_PEN, 15);
 			}
 		}
 	} };

@@ -1200,17 +1200,17 @@ public class midvunit
 	#endif
 	
 		/* determine how many pixels to copy */
-		xoffs = cliprect->min_x;
-		width = cliprect->max_x - xoffs + 1;
+		xoffs = cliprect.min_x;
+		width = cliprect.max_x - xoffs + 1;
 	
 		/* adjust the offset */
 		offset += xoffs;
-		offset += 512 * cliprect->min_y;
+		offset += 512 * cliprect.min_y;
 	
 		/* loop over rows */
-		for (y = cliprect->min_y; y <= cliprect->max_y; y++)
+		for (y = cliprect.min_y; y <= cliprect.max_y; y++)
 		{
-			UINT16 *dest = (UINT16 *)bitmap->base + y * bitmap->rowpixels + cliprect->min_x;
+			UINT16 *dest = (UINT16 *)bitmap.base + y * bitmap.rowpixels + cliprect.min_x;
 			for (x = 0; x < width; x++)
 				*dest++ = midvunit_videoram[offset + x] & 0x7fff;
 			offset += 512;

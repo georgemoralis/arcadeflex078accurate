@@ -51,10 +51,10 @@ public class route16
 	
 	***************************************************************************/
 	public static VideoStartHandlerPtr video_start_route16  = new VideoStartHandlerPtr() { public int handler(){
-		if ((tmpbitmap1 = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap1 = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
-		if ((tmpbitmap2 = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap2 = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		video_flip = 0;
@@ -296,15 +296,15 @@ public class route16
 	
 		if (!video_disable_2)
 		{
-			copybitmap(bitmap,tmpbitmap2,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copybitmap(bitmap,tmpbitmap2,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 		if (!video_disable_1)
 		{
 			if (video_disable_2)
-				copybitmap(bitmap,tmpbitmap1,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+				copybitmap(bitmap,tmpbitmap1,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 			else
-				copybitmap(bitmap,tmpbitmap1,0,0,0,0,Machine->visible_area,TRANSPARENCY_COLOR,0);
+				copybitmap(bitmap,tmpbitmap1,0,0,0,0,Machine.visible_area,TRANSPARENCY_COLOR,0);
 		}
 	} };
 	

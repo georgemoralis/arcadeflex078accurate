@@ -884,7 +884,7 @@ public class taito_f2
 		/* SSI only uses sprites, the tilemap registers are not even initialized.
 		   (they are in Majestic 12, but the tilemaps are not used anyway) */
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 		draw_sprites(bitmap,cliprect,NULL);
 	} };
 	
@@ -895,7 +895,7 @@ public class taito_f2
 		TC0100SCN_tilemap_update();
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* wrong color? */
+		fillbitmap(bitmap,Machine.pens[0],cliprect);	/* wrong color? */
 		draw_sprites(bitmap,cliprect,NULL);
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,TC0100SCN_bottomlayer(0),0,0);
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,TC0100SCN_bottomlayer(0)^1,0,0);
@@ -909,7 +909,7 @@ public class taito_f2
 		TC0100SCN_tilemap_update();
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* wrong color? */
+		fillbitmap(bitmap,Machine.pens[0],cliprect);	/* wrong color? */
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,TC0100SCN_bottomlayer(0),0,0);
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,TC0100SCN_bottomlayer(0)^1,0,0);
 		draw_sprites(bitmap,cliprect,NULL);
@@ -940,7 +940,7 @@ public class taito_f2
 		spritepri[3] = TC0360PRI_regs[7] >> 4;
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* wrong color? */
+		fillbitmap(bitmap,Machine.pens[0],cliprect);	/* wrong color? */
 	
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[0],0,1);
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,layer[1],0,2);
@@ -1018,7 +1018,7 @@ public class taito_f2
 		rozpri = (TC0360PRI_regs[8 + rozpri/2] >> 4*(rozpri & 1)) & 0x0f;
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* wrong color? */
+		fillbitmap(bitmap,Machine.pens[0],cliprect);	/* wrong color? */
 	
 		drawn = 0;
 		lastpri = 0;
@@ -1087,7 +1087,7 @@ public class taito_f2
 	
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* wrong color? */
+		fillbitmap(bitmap,Machine.pens[0],cliprect);	/* wrong color? */
 	
 	
 		/*
@@ -1215,7 +1215,7 @@ public class taito_f2
 		spritepri[3] = TC0360PRI_regs[7] >> 4;
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[0],0,1);
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[1],0,2);
@@ -1280,7 +1280,7 @@ public class taito_f2
 		spritepri[3] = TC0360PRI_regs[7] >> 4;
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[0],0,1);
 		TC0480SCP_tilemap_draw(bitmap,cliprect,layer[1],0,2);

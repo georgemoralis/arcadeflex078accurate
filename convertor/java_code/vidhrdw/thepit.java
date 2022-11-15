@@ -62,7 +62,7 @@ public class thepit
 			palette_set_color(i,r,g,b);
 		}
 	
-		for (i = 0;i < Machine->drv->total_colors-8;i++)
+		for (i = 0;i < Machine.drv.total_colors-8;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -82,7 +82,7 @@ public class thepit
 			palette_set_color(i+8,r,g,b);
 		}
 	
-		for (i = 0;i < Machine->drv->color_table_len;i++)
+		for (i = 0;i < Machine.drv.color_table_len;i++)
 		{
 			colortable[i] = i + 8;
 		}
@@ -110,7 +110,7 @@ public class thepit
 			palette_set_color(i,r,g,b);
 		}
 	
-		for (i = 0;i < Machine->drv->total_colors-8;i++)
+		for (i = 0;i < Machine.drv.total_colors-8;i++)
 		{
 			int bit0,bit1,bit2,bit3,bit4,r,g,b;
 	
@@ -136,7 +136,7 @@ public class thepit
 			palette_set_color(i+8,r,g,b);
 		}
 	
-		for (i = 0;i < Machine->drv->color_table_len;i++)
+		for (i = 0;i < Machine.drv.color_table_len;i++)
 		{
 			colortable[i] = i + 8;
 		}

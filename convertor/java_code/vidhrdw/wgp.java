@@ -746,7 +746,7 @@ public class wgp
 	
 		TC0100SCN_tilemap_update();
 	
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 	
 		layer[0] = 0;
 		layer[1] = 1;

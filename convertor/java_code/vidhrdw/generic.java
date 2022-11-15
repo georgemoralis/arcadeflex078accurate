@@ -73,7 +73,7 @@ public class generic
 			return 1;
 		memset(dirtybuffer,1,videoram_size[0]);
 	
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		state_save_register_func_postload(video_generic_postload);
@@ -83,7 +83,7 @@ public class generic
 	
 	
 	public static VideoStartHandlerPtr video_start_generic_bitmapped  = new VideoStartHandlerPtr() { public int handler(){
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		return 0;
@@ -97,7 +97,7 @@ public class generic
 	
 	***************************************************************************/
 	public static VideoUpdateHandlerPtr video_update_generic_bitmapped  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	} };
 	
 	

@@ -159,8 +159,8 @@ public class sauro
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_sauro  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 		sauro_draw_sprites(bitmap);
 	} };
 	
@@ -235,7 +235,7 @@ public class sauro
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_trckydoc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		trckydoc_draw_sprites(bitmap);
 	} };
 }

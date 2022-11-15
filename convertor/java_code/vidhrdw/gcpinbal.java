@@ -334,7 +334,7 @@ public class gcpinbal
 		}
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 	
 		layer[0] = 0;
 		layer[1] = 1;

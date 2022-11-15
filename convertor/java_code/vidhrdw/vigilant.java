@@ -338,7 +338,7 @@ public class vigilant
 			{
 				dirtybuffer[offs] = dirtybuffer[offs+1] = 0;
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						tile_number,
 						color,
 						0,0,
@@ -347,8 +347,8 @@ public class vigilant
 			}
 		}
 	
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
-		draw_sprites(bitmap,Machine->visible_area);
+		draw_sprites(bitmap,Machine.visible_area);
 	} };
 }

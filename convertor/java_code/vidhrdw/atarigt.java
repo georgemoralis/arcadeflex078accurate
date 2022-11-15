@@ -157,8 +157,8 @@ public class atarigt
 			return 1;
 	
 		/* allocate temp bitmaps */
-		pf_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width, Machine->drv->screen_height, 16);
-		an_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width, Machine->drv->screen_height, 16);
+		pf_bitmap = auto_bitmap_alloc_depth(Machine.drv.screen_width, Machine.drv.screen_height, 16);
+		an_bitmap = auto_bitmap_alloc_depth(Machine.drv.screen_width, Machine.drv.screen_height, 16);
 		if (!pf_bitmap || !an_bitmap)
 			return 1;
 	
@@ -166,8 +166,8 @@ public class atarigt
 		expanded_mram = auto_malloc(sizeof(*expanded_mram) * MRAM_ENTRIES * 3);
 	
 		/* map pens 1:1 */
-		for (i = 0; i < Machine->drv->total_colors; i++)
-			Machine->pens[i] = i;
+		for (i = 0; i < Machine.drv.total_colors; i++)
+			Machine.pens[i] = i;
 	
 		/* compute shift values */
 		rshift = gshift = bshift = 0;
@@ -586,18 +586,18 @@ public class atarigt
 		mram = expanded_mram + 0x2000 * ((color_latch >> 6) & 3);
 	
 		/* now do the nasty blend */
-		for (y = cliprect->min_y; y <= cliprect->max_y; y++)
+		for (y = cliprect.min_y; y <= cliprect.max_y; y++)
 		{
-			UINT16 *an = (UINT16 *)an_bitmap->base + y * an_bitmap->rowpixels;
-			UINT16 *pf = (UINT16 *)pf_bitmap->base + y * pf_bitmap->rowpixels;
-			UINT16 *mo = (UINT16 *)mo_bitmap->base + y * mo_bitmap->rowpixels;
-			UINT16 *tm = (UINT16 *)tm_bitmap->base + y * tm_bitmap->rowpixels;
-			UINT32 *dst = (UINT32 *)bitmap->base + y * bitmap->rowpixels;
+			UINT16 *an = (UINT16 *)an_bitmap.base + y * an_bitmap.rowpixels;
+			UINT16 *pf = (UINT16 *)pf_bitmap.base + y * pf_bitmap.rowpixels;
+			UINT16 *mo = (UINT16 *)mo_bitmap.base + y * mo_bitmap.rowpixels;
+			UINT16 *tm = (UINT16 *)tm_bitmap.base + y * tm_bitmap.rowpixels;
+			UINT32 *dst = (UINT32 *)bitmap.base + y * bitmap.rowpixels;
 	
 			/* Primal Rage: no TRAM, slightly different priorities */
 			if (atarigt_is_primrage)
 			{
-				for (x = cliprect->min_x; x <= cliprect->max_x; x++)
+				for (x = cliprect.min_x; x <= cliprect.max_x; x++)
 				{
 					UINT8 pfpri = (pf[x] >> 10) & 7;
 					UINT8 mopri = mo[x] >> ATARIRLE_PRIORITY_SHIFT;
@@ -631,7 +631,7 @@ public class atarigt
 			/* T-Mek: full TRAM and all effects */
 			else
 			{
-				for (x = cliprect->min_x; x <= cliprect->max_x; x++)
+				for (x = cliprect.min_x; x <= cliprect.max_x; x++)
 				{
 					UINT8 pfpri = (pf[x] >> 10) & 7;
 					UINT8 mopri = mo[x] >> ATARIRLE_PRIORITY_SHIFT;

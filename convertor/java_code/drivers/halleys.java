@@ -1184,7 +1184,7 @@ public class halleys
 		if (!init_success) return(1);
 	
 		// abort on unsupported bit depths
-		if (Machine->scrbitmap->depth != 15 && Machine->scrbitmap->depth != 16) return(1);
+		if (Machine.scrbitmap.depth != 15 && Machine.scrbitmap.depth != 16) return(1);
 	
 		// create short cuts to scroll registers
 		scrolly0 = io_ram + HALLEYS_Y0;

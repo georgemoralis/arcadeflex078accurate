@@ -95,7 +95,7 @@ public class sbowling
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_sbowling  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[0x18],cliprect);
+		fillbitmap(bitmap,Machine.pens[0x18],cliprect);
 		tilemap_draw(bitmap,cliprect,sb_tilemap,0,0);
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,cliprect, TRANSPARENCY_PEN, color_prom_address);
 	} };
@@ -328,7 +328,7 @@ public class sbowling
 				3,	resistances_rg,	weights_g,	0,	100,
 				2,	resistances_b,	weights_b,	0,	100);
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	

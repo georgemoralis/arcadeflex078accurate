@@ -22,7 +22,7 @@ public class tagteam
 	public static PaletteInitHandlerPtr palette_init_tagteam  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -188,7 +188,7 @@ public class tagteam
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_tagteam  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		tagteam_draw_sprites(bitmap);
 	} };
 }

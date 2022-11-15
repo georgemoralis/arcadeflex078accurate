@@ -87,10 +87,10 @@ public class aztarac
 	
 	
 	public static VideoStartHandlerPtr video_start_aztarac  = new VideoStartHandlerPtr() { public int handler(){
-		int xmin = Machine->visible_area.min_x;
-		int ymin = Machine->visible_area.min_y;
-		int xmax = Machine->visible_area.max_x;
-		int ymax = Machine->visible_area.max_y;
+		int xmin = Machine.visible_area.min_x;
+		int ymin = Machine.visible_area.min_y;
+		int xmax = Machine.visible_area.max_x;
+		int ymax = Machine.visible_area.max_y;
 	
 		xcenter=((xmax + xmin) / 2) << 16;
 		ycenter=((ymax + ymin) / 2) << 16;

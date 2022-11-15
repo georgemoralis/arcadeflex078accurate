@@ -24,7 +24,7 @@ public class markham
 	public static PaletteInitHandlerPtr palette_init_markham  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int r = color_prom.read(0)*0x11;
 			int g = color_prom.read(Machine.drv.total_colors)*0x11;
@@ -34,7 +34,7 @@ public class markham
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 	
 		/* color_prom now points to the beginning of the lookup table */
 	
@@ -142,7 +142,7 @@ public class markham
 				tilemap_set_scrollx(bg_tilemap, i, markham_xscroll[1]);
 		}
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		markham_draw_sprites(bitmap);
 	} };
 }

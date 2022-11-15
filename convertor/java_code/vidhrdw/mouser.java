@@ -25,7 +25,7 @@ public class mouser
 	public static PaletteInitHandlerPtr palette_init_mouser  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -114,7 +114,7 @@ public class mouser
 				/* Note: this is _not_ dependant on flipping */
 				color_offs = offs%32 + ((256 + 8*(offs/32) - spriteram.read(offs%32))%256)/8*32;
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs)| (colorram.read(color_offs)>>5)*256 | ((colorram.read(color_offs)>>4)&1)*512,
 						colorram.read(color_offs)%16,
 						flip_screen_x,flip_screen_y,
@@ -123,7 +123,7 @@ public class mouser
 			}
 		}
 	
-		copyscrollbitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copyscrollbitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 		/* There seem to be two sets of sprites, each decoded identically */
 	
@@ -149,12 +149,12 @@ public class mouser
 			}
 	
 			if ((spriteram.read(offs+1)&0x10)>>4)
-				drawgfx(bitmap,Machine->gfx[1+((spriteram.read(offs+1)&0x20)>>5)],
+				drawgfx(bitmap,Machine.gfx[1+((spriteram.read(offs+1)&0x20)>>5)],
 						spriteram.read(offs)&0x3f,
 						spriteram.read(offs+1)%16,
 						flipx,flipy,
 						sx,sy,
-						Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 		/* This is the second set of 8 sprites */
@@ -179,12 +179,12 @@ public class mouser
 			}
 	
 			if ((spriteram.read(offs+1)&0x10)>>4)
-				drawgfx(bitmap,Machine->gfx[1+((spriteram.read(offs+1)&0x20)>>5)],
+				drawgfx(bitmap,Machine.gfx[1+((spriteram.read(offs+1)&0x20)>>5)],
 						spriteram.read(offs)&0x3f,
 						spriteram.read(offs+1)%16,
 						flipx,flipy,
 						sx,sy,
-						Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	} };

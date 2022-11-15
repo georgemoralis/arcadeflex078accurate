@@ -203,7 +203,7 @@ public class crshrace
 			return;
 		}
 	
-		fillbitmap(bitmap,Machine->pens[0x1ff],cliprect);
+		fillbitmap(bitmap,Machine.pens[0x1ff],cliprect);
 	
 		switch (gfxctrl & 0xfb)
 		{

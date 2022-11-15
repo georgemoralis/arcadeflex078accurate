@@ -415,7 +415,7 @@ public class tetrisp2
 		flipscreen = (tetrisp2_systemregs[0x00] & 0x02);
 	
 		/* Black background color */
-		fillbitmap(bitmap, Machine->pens[0x0000], cliprect);
+		fillbitmap(bitmap, Machine.pens[0x0000], cliprect);
 		fillbitmap(priority_bitmap, 0, NULL);
 	
 		/* Flip Screen */
@@ -498,7 +498,7 @@ public class tetrisp2
 		flipscreen = (tetrisp2_systemregs[0x00] & 0x02);
 	
 		/* Black background color */
-		fillbitmap(bitmap, Machine->pens[0x0000], cliprect);
+		fillbitmap(bitmap, Machine.pens[0x0000], cliprect);
 		fillbitmap(priority_bitmap, 0, NULL);
 	
 		/* Flip Screen */

@@ -23,8 +23,8 @@ public class jackal
 	
 	public static PaletteInitHandlerPtr palette_init_jackal  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		for (i = 0;i < TOTAL_COLORS(0);i++)
@@ -58,7 +58,7 @@ public class jackal
 			return 1;
 	
 		memset(dirtybuffer,1,videoram_size[0]);
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		return 0;
@@ -227,7 +227,7 @@ public class jackal
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 					videoram.read(offs)+ ((colorram.read(offs)& 0xc0) << 2) + ((colorram.read(offs)& 0x30) << 6),
 					colorram.read(offs)& 0x0f,
 					colorram.read(offs)& 0x10,colorram.read(offs)& 0x20,
@@ -265,9 +265,9 @@ public class jackal
 			}
 	
 			if ((h_scroll_num == 0) && (v_scroll_num == 0))
-				copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+				copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 			else
-				copyscrollbitmap(bitmap,tmpbitmap,h_scroll_num,h_scroll,v_scroll_num,v_scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
+				copyscrollbitmap(bitmap,tmpbitmap,h_scroll_num,h_scroll,v_scroll_num,v_scroll,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 		/* Draw the sprites. */

@@ -200,7 +200,7 @@ public class centiped
 	public static PaletteInitHandlerPtr palette_init_warlords  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i, j;
 	
-		for (i = 0; i < Machine->drv->total_colors; i++)
+		for (i = 0; i < Machine.drv.total_colors; i++)
 		{
 			int r = ((color_prom.read()>> 2) & 0x01) * 0xff;
 			int g = ((color_prom.read()>> 1) & 0x01) * 0xff;
@@ -208,7 +208,7 @@ public class centiped
 	
 			/* Colors 0x40-0x7f are converted to grey scale as it's used on the
 			   upright version that had an overlay */
-			if (i >= Machine->drv->total_colors / 2)
+			if (i >= Machine.drv.total_colors / 2)
 			{
 				/* Use the standard ratios: r = 30%, g = 59%, b = 11% */
 				int grey = (r * 0x4d / 0xff) + (g * 0x96 / 0xff) + (b * 0x1c / 0xff);
@@ -325,7 +325,7 @@ public class centiped
 			int x = spriteram.read(offs + 0x20);
 			int y = 240 - spriteram.read(offs + 0x10);
 	
-			drawgfx(bitmap, Machine->gfx[1], code, color & 0x3f, centiped_flipscreen, flipy, x, y,
+			drawgfx(bitmap, Machine.gfx[1], code, color & 0x3f, centiped_flipscreen, flipy, x, y,
 					&spriteclip, TRANSPARENCY_PEN, 0);
 		}
 	} };
@@ -368,7 +368,7 @@ public class centiped
 				flipx = NOT(flipx);
 			}
 	
-			drawgfx(bitmap, Machine->gfx[1], code, color, flipx, flipy, x, y,
+			drawgfx(bitmap, Machine.gfx[1], code, color, flipx, flipy, x, y,
 					cliprect, TRANSPARENCY_PEN, 0);
 		}
 	} };

@@ -49,7 +49,7 @@ public class nova2001
 		int i,j;
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int intensity,r,g,b;
 	
@@ -204,8 +204,8 @@ public class nova2001
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_nova2001  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		nova2001_draw_sprites(bitmap);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 	} };
 }

@@ -208,7 +208,7 @@ public class vector
 		old_index = 0;
 		vector_runs = 0;
 	
-		switch(Machine->color_depth)
+		switch(Machine.color_depth)
 		{
 		case 15:
 			vector_draw_aa_pixel = vector_draw_aa_pixel_15;
@@ -736,8 +736,8 @@ public class vector
 	
 		/* copy parameters */
 		vecbitmap = bitmap;
-		vecwidth  = bitmap->width;
-		vecheight = bitmap->height;
+		vecwidth  = bitmap.width;
+		vecheight = bitmap.height;
 	
 		/* reset clipping area */
 		xmin = 0;
@@ -746,15 +746,15 @@ public class vector
 		ymax = vecheight;
 	
 		/* setup scaling */
-		vector_scale_x = ((float)vecwidth)/(Machine->visible_area.max_x - Machine->visible_area.min_x);
-		vector_scale_y = ((float)vecheight)/(Machine->visible_area.max_y - Machine->visible_area.min_y);
+		vector_scale_x = ((float)vecwidth)/(Machine.visible_area.max_x - Machine.visible_area.min_x);
+		vector_scale_y = ((float)vecheight)/(Machine.visible_area.max_y - Machine.visible_area.min_y);
 	
 		/* next call to vector_clear_list() is allowed to swap the lists */
 		vector_runs = 0;
 	
 		/* mark pixels which are not idential in newlist and oldlist dirty */
 		/* the old pixels which get removed are marked dirty immediately,  */
-		/* new pixels are recognized by setting new->dirty */
+		/* new pixels are recognized by setting new.dirty */
 		dirty_index = 0;
 		clever_mark_dirty();
 	
@@ -762,21 +762,21 @@ public class vector
 		vector_clear_pixels();
 	
 		/* Draw ALL lines into the hidden map. Mark only those lines with */
-		/* new->dirty = 1 as dirty. Remember the pixel start/end indices  */
+		/* new.dirty = 1 as dirty. Remember the pixel start/end indices  */
 		curpoint = new_list;
 	
 		for (i = 0; i < new_index; i++)
 		{
-			if (curpoint->status == VCLIP)
+			if (curpoint.status == VCLIP)
 			{
-				vector_set_clip(curpoint->x, curpoint->y, curpoint->arg1, curpoint->arg2);
+				vector_set_clip(curpoint.x, curpoint.y, curpoint.arg1, curpoint.arg2);
 			}
 			else
 			{
-				curpoint->arg1 = p_index;
-				vector_draw_to(curpoint->x, curpoint->y, curpoint->col, Tgamma[curpoint->intensity], curpoint->status, curpoint->callback);
+				curpoint.arg1 = p_index;
+				vector_draw_to(curpoint.x, curpoint.y, curpoint.col, Tgamma[curpoint.intensity], curpoint.status, curpoint.callback);
 	
-				curpoint->arg2 = p_index;
+				curpoint.arg2 = p_index;
 			}
 			curpoint++;
 		}

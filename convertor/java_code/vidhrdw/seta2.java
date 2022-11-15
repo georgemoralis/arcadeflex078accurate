@@ -360,10 +360,10 @@ public class seta2
 	***************************************************************************/
 	
 	public static VideoStartHandlerPtr video_start_seta2  = new VideoStartHandlerPtr() { public int handler(){
-		Machine->gfx[2]->color_granularity = 16;
-		Machine->gfx[3]->color_granularity = 16;
-		Machine->gfx[4]->color_granularity = 16;
-		Machine->gfx[5]->color_granularity = 16;
+		Machine.gfx[2].color_granularity = 16;
+		Machine.gfx[3].color_granularity = 16;
+		Machine.gfx[4].color_granularity = 16;
+		Machine.gfx[5].color_granularity = 16;
 	
 		buffered_spriteram16 = auto_malloc(spriteram_size[0]);
 	
@@ -380,7 +380,7 @@ public class seta2
 	
 	public static VideoUpdateHandlerPtr video_update_seta2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* Black or pens[0]? */
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		if (seta2_vregs[0x30/2] & 1)	return;		// BLANK SCREEN
 	

@@ -174,10 +174,10 @@ public class macrossp
 		tilemap_set_transparent_pen(macrossp_scrb_tilemap,0);
 		tilemap_set_transparent_pen(macrossp_scrc_tilemap,0);
 	
-		Machine->gfx[0]->color_granularity=64;
-		Machine->gfx[1]->color_granularity=64;
-		Machine->gfx[2]->color_granularity=64;
-		Machine->gfx[3]->color_granularity=64;
+		Machine.gfx[0].color_granularity=64;
+		Machine.gfx[1].color_granularity=64;
+		Machine.gfx[2].color_granularity=64;
+		Machine.gfx[3].color_granularity=64;
 	
 		alpha_set_level(0x80); /* guess */
 	

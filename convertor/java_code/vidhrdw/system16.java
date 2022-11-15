@@ -1176,7 +1176,7 @@ public class system16
 		if(sys18_bg2_active)
 			tilemap_draw( bitmap,cliprect, background2, 0, 0 );
 		else
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		tilemap_draw( bitmap,cliprect, background, TILEMAP_IGNORE_TRANSPARENCY, 0 );
 		tilemap_draw( bitmap,cliprect, background, TILEMAP_IGNORE_TRANSPARENCY | 1, 0 );	//??
@@ -1214,8 +1214,8 @@ public class system16
 		int yflip=0, ypos;
 		int dx=1,xoff=0;
 	
-		pen_t *paldata1 = Machine->gfx[0]->colortable + sys16_gr_palette;
-		pen_t *paldata2 = Machine->gfx[0]->colortable + sys16_gr_palette_default;
+		pen_t *paldata1 = Machine.gfx[0].colortable + sys16_gr_palette;
+		pen_t *paldata2 = Machine.gfx[0].colortable + sys16_gr_palette_default;
 	
 	#if 0
 	if( keyboard_pressed( KEYCODE_S ) ){
@@ -1413,24 +1413,24 @@ public class system16
 	
 		int second_road = sys16_gr_second_road[0];
 	
-		pen_t *paldata1 = Machine->gfx[0]->colortable + sys16_gr_palette;
-		pen_t *paldata2 = Machine->gfx[0]->colortable + sys16_gr_palette_default;
+		pen_t *paldata1 = Machine.gfx[0].colortable + sys16_gr_palette;
+		pen_t *paldata2 = Machine.gfx[0].colortable + sys16_gr_palette_default;
 	
 		priority=priority << 11;
 	
-		if (Machine->scrbitmap->depth == 16) /* 16 bit */
+		if (Machine.scrbitmap.depth == 16) /* 16 bit */
 		{
-			if( Machine->orientation & ORIENTATION_SWAP_XY )
+			if( Machine.orientation & ORIENTATION_SWAP_XY )
 			{
-				if( Machine->orientation & ORIENTATION_FLIP_Y ){
+				if( Machine.orientation & ORIENTATION_FLIP_Y ){
 					dx=-1;
 					xoff=319;
 				}
-				if( Machine->orientation & ORIENTATION_FLIP_X ){
+				if( Machine.orientation & ORIENTATION_FLIP_X ){
 					yflip=1;
 				}
 	
-				for(i=cliprect->min_y;i<=cliprect->max_y;i++)
+				for(i=cliprect.min_y;i<=cliprect.max_y;i++)
 				{
 					if(yflip) ypos=223-i;
 					else ypos=i;
@@ -1442,9 +1442,9 @@ public class system16
 						{
 							colors[0] = paldata1[ ver_data&0x3f ];
 							// fill line
-							for(j=cliprect->min_x;j<=cliprect->max_x;j++)
+							for(j=cliprect.min_x;j<=cliprect.max_x;j++)
 							{
-								line16=(UINT16 *)bitmap->line[j]+ypos;
+								line16=(UINT16 *)bitmap.line[j]+ypos;
 								*line16=colors[0];
 							}
 						}
@@ -1482,9 +1482,9 @@ public class system16
 	
 							source2++;
 	
-							for(j=cliprect->min_x;j<=cliprect->max_x;j++)
+							for(j=cliprect.min_x;j<=cliprect.max_x;j++)
 							{
-								line16=(UINT16 *)bitmap->line[xoff+j*dx]+ypos;
+								line16=(UINT16 *)bitmap.line[xoff+j*dx]+ypos;
 								if(*source2 <= *source)
 									*line16 = colors[*source];
 								else
@@ -1499,15 +1499,15 @@ public class system16
 			}
 			else
 			{
-				if( Machine->orientation & ORIENTATION_FLIP_X ){
+				if( Machine.orientation & ORIENTATION_FLIP_X ){
 					dx=-1;
 					xoff=319;
 				}
-				if( Machine->orientation & ORIENTATION_FLIP_Y ){
+				if( Machine.orientation & ORIENTATION_FLIP_Y ){
 					yflip=1;
 				}
 	
-				for(i=cliprect->min_y;i<=cliprect->max_y;i++){
+				for(i=cliprect.min_y;i<=cliprect.max_y;i++){
 					if(yflip) ypos=223-i;
 					else ypos=i;
 					ver_data= *data_ver;
@@ -1515,14 +1515,14 @@ public class system16
 						if(ver_data & 0x800){
 							colors[0] = paldata1[ ver_data&0x3f ];
 							// fill line
-							line16 = (UINT16 *)bitmap->line[ypos];
-							for(j=cliprect->min_x;j<=cliprect->max_x;j++){
+							line16 = (UINT16 *)bitmap.line[ypos];
+							for(j=cliprect.min_x;j<=cliprect.max_x;j++){
 								*line16++ = colors[0];
 							}
 						}
 						else {
 							// copy line
-							line16 = (UINT16 *)bitmap->line[ypos]+xoff;
+							line16 = (UINT16 *)bitmap.line[ypos]+xoff;
 							ver_data &= 0x01ff;		//???
 							colorflip_info = sys16_gr_flip[ver_data];
 							colors[0] = paldata2[ ((colorflip_info >> 8) & 0x1f) + 0x20 ];		//??
@@ -1544,7 +1544,7 @@ public class system16
 								case 3:	source=source2;	break;
 							}
 							source2++;
-							for(j=cliprect->min_x;j<=cliprect->max_x;j++){
+							for(j=cliprect.min_x;j<=cliprect.max_x;j++){
 								if(*source2 <= *source) *line16 = colors[*source]; else *line16 = colors[*source2];
 								source++;
 								source2++;

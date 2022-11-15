@@ -372,7 +372,7 @@ public class unico
 	#endif
 	
 		/* The background color is the first of the last palette */
-		fillbitmap(bitmap,Machine->pens[0x1f00],cliprect);
+		fillbitmap(bitmap,Machine.pens[0x1f00],cliprect);
 		fillbitmap(priority_bitmap,0,cliprect);
 	
 		if (layers_ctrl & 1)	tilemap_draw(bitmap,cliprect,tilemap_0,0,1);
@@ -421,7 +421,7 @@ public class unico
 	#endif
 	
 		/* The background color is the first of the last palette */
-		fillbitmap(bitmap,Machine->pens[0x1f00],cliprect);
+		fillbitmap(bitmap,Machine.pens[0x1f00],cliprect);
 		fillbitmap(priority_bitmap,0,cliprect);
 	
 		if (layers_ctrl & 1)	tilemap_draw(bitmap,cliprect,tilemap_0,0,1);

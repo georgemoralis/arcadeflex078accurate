@@ -87,8 +87,8 @@ public class sprint8
 	
 	
 	public static VideoStartHandlerPtr video_start_sprint8  = new VideoStartHandlerPtr() { public int handler(){
-		helper1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
-		helper2 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		helper1 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
+		helper2 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 	
 		if (helper1 == NULL)
 		{

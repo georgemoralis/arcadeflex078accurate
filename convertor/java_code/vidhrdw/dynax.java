@@ -39,7 +39,7 @@ public class dynax
 	public static PaletteInitHandlerPtr palette_init_sprtmtch  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int x =	(color_prom.read(i)<<8) + color_prom.read(0x200+i);
 			/* The bits are in reverse order! */
@@ -798,7 +798,7 @@ public class dynax
 	
 		fillbitmap(
 			bitmap,
-			Machine->pens[(dynax_blit_backpen & 0xff) + (dynax_blit_palbank & 1) * 256],
+			Machine.pens[(dynax_blit_backpen & 0xff) + (dynax_blit_palbank & 1) * 256],
 			cliprect);
 	
 		/* bit 4 = display enable? */
@@ -837,7 +837,7 @@ public class dynax
 	
 		fillbitmap(
 			bitmap,
-			Machine->pens[(dynax_blit_backpen & 0xff) + (dynax_blit_palbank & 0x0f) * 256],
+			Machine.pens[(dynax_blit_backpen & 0xff) + (dynax_blit_palbank & 0x0f) * 256],
 			cliprect);
 	
 		int pri = hanamai_priority >> 4;
@@ -870,7 +870,7 @@ public class dynax
 	
 		fillbitmap(
 			bitmap,
-			Machine->pens[(dynax_blit_backpen & 0xff) + (dynax_blit_palbank & 1) * 256],
+			Machine.pens[(dynax_blit_backpen & 0xff) + (dynax_blit_palbank & 1) * 256],
 			cliprect);
 	
 		if (layers_ctrl & 1)	hanamai_copylayer( bitmap, cliprect, 0 );
@@ -886,7 +886,7 @@ public class dynax
 	
 		fillbitmap(
 			bitmap,
-			Machine->pens[(dynax_blit_backpen & 0xff) + (dynax_blit_palbank & 1) * 256],
+			Machine.pens[(dynax_blit_backpen & 0xff) + (dynax_blit_palbank & 1) * 256],
 			cliprect);
 	
 		if (layers_ctrl & 1)	mjdialq2_copylayer( bitmap, cliprect, 0 );

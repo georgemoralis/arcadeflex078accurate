@@ -28,7 +28,7 @@ public class taxidrvr
 	
 		if (taxidrvr_bghide)
 		{
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 	
 			/* kludge to fix scroll after death */
@@ -42,7 +42,7 @@ public class taxidrvr
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				drawgfx(bitmap,Machine->gfx[3],
+				drawgfx(bitmap,Machine.gfx[3],
 						taxidrvr_vram3[offs],
 						0,
 						0,0,
@@ -55,7 +55,7 @@ public class taxidrvr
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				drawgfx(bitmap,Machine->gfx[2],
+				drawgfx(bitmap,Machine.gfx[2],
 						taxidrvr_vram2[offs]+256*taxidrvr_vram2[offs+0x400],
 						0,
 						0,0,
@@ -122,7 +122,7 @@ public class taxidrvr
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				drawgfx(bitmap,Machine->gfx[1],
+				drawgfx(bitmap,Machine.gfx[1],
 						taxidrvr_vram1[offs],
 						0,
 						0,0,
@@ -150,7 +150,7 @@ public class taxidrvr
 			sx = offs % 32;
 			sy = offs / 32;
 	
-			drawgfx(bitmap,Machine->gfx[0],
+			drawgfx(bitmap,Machine.gfx[0],
 					taxidrvr_vram0[offs],
 					0,
 					0,0,

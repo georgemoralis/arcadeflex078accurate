@@ -39,7 +39,7 @@ public class seicross
 		int i;
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -156,7 +156,7 @@ public class seicross
 			tilemap_set_scrolly(bg_tilemap, col, seicross_row_scroll[col]);
 		}
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		seicross_draw_sprites(bitmap);
 	} };
 }

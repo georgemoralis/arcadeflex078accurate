@@ -66,7 +66,7 @@ public class malzak
 	public static VideoStartHandlerPtr video_start_malzak  = new VideoStartHandlerPtr() { public int handler(){
 		video_start_generic.handler();
 	
-		if ((collision_bitmap = auto_bitmap_alloc_depth(Machine->drv->screen_width,Machine->drv->screen_height,8)) == 0)
+		if ((collision_bitmap = auto_bitmap_alloc_depth(Machine.drv.screen_width,Machine.drv.screen_height,8)) == 0)
 			return 1;
 	
 		saa5050_vidram = auto_malloc(0x800);
@@ -175,15 +175,15 @@ public class malzak
 					colour = saa5050_state.saa5050_forecol | (saa5050_state.saa5050_backcol << 3);
 				if (saa5050_state.saa5050_flags & SAA5050_DBLHI)
 				{
-					drawgfx (bitmap, Machine->gfx[4], code, colour, 0, 0,
-						sx * 6, sy * 10, Machine->visible_area, TRANSPARENCY_NONE, 0);
-					drawgfx (bitmap, Machine->gfx[5], code, colour, 0, 0,
-						sx * 6, (sy + 1) * 10, Machine->visible_area, TRANSPARENCY_NONE, 0);
+					drawgfx (bitmap, Machine.gfx[4], code, colour, 0, 0,
+						sx * 6, sy * 10, Machine.visible_area, TRANSPARENCY_NONE, 0);
+					drawgfx (bitmap, Machine.gfx[5], code, colour, 0, 0,
+						sx * 6, (sy + 1) * 10, Machine.visible_area, TRANSPARENCY_NONE, 0);
 				}
 				else
 				{
-					drawgfx (bitmap, Machine->gfx[3], code, colour, 0, 0,
-						sx * 6, sy * 10, Machine->visible_area, TRANSPARENCY_NONE, 0);
+					drawgfx (bitmap, Machine.gfx[3], code, colour, 0, 0,
+						sx * 6, sy * 10, Machine.visible_area, TRANSPARENCY_NONE, 0);
 				}
 			}
 			if (saa5050_state.saa5050_flags & SAA5050_DBLHI)
@@ -209,8 +209,8 @@ public class malzak
 				if(sx < -15)
 					sx+=256;
 	
-				drawgfx(bitmap,Machine->gfx[0],field[x*16 + y].code,7,0,0,
-				sx, sy, Machine->visible_area, TRANSPARENCY_COLOR, 0);
+				drawgfx(bitmap,Machine.gfx[0],field[x*16 + y].code,7,0,0,
+				sx, sy, Machine.visible_area, TRANSPARENCY_COLOR, 0);
 			}
 	
 		// S2636 - Sprites / Collision detection (x2)

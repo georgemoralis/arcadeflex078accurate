@@ -300,7 +300,7 @@ public class undrfire
 		pivlayer[2] = 2;
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* wrong color? */
+		fillbitmap(bitmap,Machine.pens[0],cliprect);	/* wrong color? */
 	
 	
 	/* The "PIV" chip seems to be a renamed TC0100SCN. It has a
@@ -373,7 +373,7 @@ public class undrfire
 			for (i = 0; i < 8; i += 1)
 			{
 				sprintf (buf, "%02x: %04x", i, undrfire_rotate_ctrl[i]);
-				ui_text (Machine->scrbitmap, buf, 0, i*8);
+				ui_text (Machine.scrbitmap, buf, 0, i*8);
 			}
 		}
 	#endif

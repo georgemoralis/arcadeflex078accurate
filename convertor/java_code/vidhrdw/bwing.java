@@ -217,10 +217,10 @@ public class bwing
 		for (i=0; i<4; i++) srbase[i] = fgdata + i * 0x2000;
 		for (i=0; i<8; i++) sreg[i] = 0;
 	
-		fgfx = Machine->gfx[2];
-		bgfx = Machine->gfx[3];
+		fgfx = Machine.gfx[2];
+		bgfx = Machine.gfx[3];
 	
-		if ((dwptr = fgfx->pen_usage))
+		if ((dwptr = fgfx.pen_usage))
 		{
 			dwptr[0] = 0;
 			for(i=1; i<BW_NTILES; i++) dwptr[i] = -1;

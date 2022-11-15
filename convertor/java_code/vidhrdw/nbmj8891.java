@@ -391,24 +391,24 @@ public class nbmj8891
 	
 	******************************************************************************/
 	public static VideoStartHandlerPtr video_start_gionbana  = new VideoStartHandlerPtr() { public int handler(){
-		if ((gionbana_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((gionbana_tmpbitmap1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((gionbana_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char))) == 0) return 1;
-		if ((gionbana_videoram1 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char))) == 0) return 1;
+		if ((gionbana_tmpbitmap0 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((gionbana_tmpbitmap1 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((gionbana_videoram0 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(char))) == 0) return 1;
+		if ((gionbana_videoram1 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(char))) == 0) return 1;
 		if ((gionbana_palette = auto_malloc(0x200 * sizeof(char))) == 0) return 1;
 		if ((gionbana_paltbl = auto_malloc(0x800 * sizeof(char))) == 0) return 1;
-		memset(gionbana_videoram0, 0x00, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char)));
-		memset(gionbana_videoram1, 0x00, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char)));
+		memset(gionbana_videoram0, 0x00, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(char)));
+		memset(gionbana_videoram1, 0x00, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(char)));
 		gfxdraw_mode = 1;
 		return 0;
 	} };
 	
 	public static VideoStartHandlerPtr video_start_hanamomo  = new VideoStartHandlerPtr() { public int handler(){
-		if ((gionbana_tmpbitmap0 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height)) == 0) return 1;
-		if ((gionbana_videoram0 = auto_malloc(Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char))) == 0) return 1;
+		if ((gionbana_tmpbitmap0 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height)) == 0) return 1;
+		if ((gionbana_videoram0 = auto_malloc(Machine.drv.screen_width * Machine.drv.screen_height * sizeof(char))) == 0) return 1;
 		if ((gionbana_palette = auto_malloc(0x200 * sizeof(char))) == 0) return 1;
 		if ((gionbana_paltbl = auto_malloc(0x800 * sizeof(char))) == 0) return 1;
-		memset(gionbana_videoram0, 0x00, (Machine->drv->screen_width * Machine->drv->screen_height * sizeof(char)));
+		memset(gionbana_videoram0, 0x00, (Machine.drv.screen_width * Machine.drv.screen_height * sizeof(char)));
 		gfxdraw_mode = 0;
 		return 0;
 	} };
@@ -425,24 +425,24 @@ public class nbmj8891
 		{
 			gionbana_screen_refresh = 0;
 	
-			Machine->pens[0xff] = 0;	/* palette_transparent_pen */
+			Machine.pens[0xff] = 0;	/* palette_transparent_pen */
 	
-			for (y = 0; y < Machine->drv->screen_height; y++)
+			for (y = 0; y < Machine.drv.screen_height; y++)
 			{
-				for (x = 0; x < Machine->drv->screen_width; x++)
+				for (x = 0; x < Machine.drv.screen_width; x++)
 				{
-					color = gionbana_videoram0[(y * Machine->drv->screen_width) + x];
-					plot_pixel(gionbana_tmpbitmap0, x, y, Machine->pens[color]);
+					color = gionbana_videoram0[(y * Machine.drv.screen_width) + x];
+					plot_pixel(gionbana_tmpbitmap0, x, y, Machine.pens[color]);
 				}
 			}
 			if (gfxdraw_mode)
 			{
-				for (y = 0; y < Machine->drv->screen_height; y++)
+				for (y = 0; y < Machine.drv.screen_height; y++)
 				{
-					for (x = 0; x < Machine->drv->screen_width; x++)
+					for (x = 0; x < Machine.drv.screen_width; x++)
 					{
-						color = gionbana_videoram1[(y * Machine->drv->screen_width) + x];
-						plot_pixel(gionbana_tmpbitmap1, x, y, Machine->pens[color]);
+						color = gionbana_videoram1[(y * Machine.drv.screen_width) + x];
+						plot_pixel(gionbana_tmpbitmap1, x, y, Machine.pens[color]);
 					}
 				}
 			}
@@ -452,17 +452,17 @@ public class nbmj8891
 		{
 			if (gfxdraw_mode)
 			{
-				copyscrollbitmap(bitmap, gionbana_tmpbitmap0, 0, 0, 1, &gionbana_scrolly1, Machine->visible_area, TRANSPARENCY_NONE, 0);
-				copyscrollbitmap(bitmap, gionbana_tmpbitmap1, 0, 0, 1, &gionbana_scrolly2, Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0xff]);
+				copyscrollbitmap(bitmap, gionbana_tmpbitmap0, 0, 0, 1, &gionbana_scrolly1, Machine.visible_area, TRANSPARENCY_NONE, 0);
+				copyscrollbitmap(bitmap, gionbana_tmpbitmap1, 0, 0, 1, &gionbana_scrolly2, Machine.visible_area, TRANSPARENCY_PEN, Machine.pens[0xff]);
 			}
 			else
 			{
-				copyscrollbitmap(bitmap, gionbana_tmpbitmap0, 0, 0, 1, &gionbana_scrolly2, Machine->visible_area, TRANSPARENCY_NONE, 0);
+				copyscrollbitmap(bitmap, gionbana_tmpbitmap0, 0, 0, 1, &gionbana_scrolly2, Machine.visible_area, TRANSPARENCY_NONE, 0);
 			}
 		}
 		else
 		{
-			fillbitmap(bitmap, Machine->pens[0xff], 0);
+			fillbitmap(bitmap, Machine.pens[0xff], 0);
 		}
 	} };
 }

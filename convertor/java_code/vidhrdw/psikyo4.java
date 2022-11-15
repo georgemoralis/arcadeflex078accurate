@@ -144,18 +144,18 @@ public class psikyo4
 	
 			clip.min_x = 0;
 			clip.max_x = 40*8-1;
-			clip.min_y = Machine->visible_area.min_y;
-			clip.max_y = Machine->visible_area.max_y;
+			clip.min_y = Machine.visible_area.min_y;
+			clip.max_y = Machine.visible_area.max_y;
 	
-			fillbitmap(bitmap, Machine->pens[0x1000], &clip);
+			fillbitmap(bitmap, Machine.pens[0x1000], &clip);
 			psikyo4_drawsprites(bitmap, &clip, 0x0000);
 	
 			clip.min_x = 40*8;
 			clip.max_x = 80*8-1;
-			clip.min_y = Machine->visible_area.min_y;
-			clip.max_y = Machine->visible_area.max_y;
+			clip.min_y = Machine.visible_area.min_y;
+			clip.max_y = Machine.visible_area.max_y;
 	
-			fillbitmap(bitmap, Machine->pens[0x1001], &clip);
+			fillbitmap(bitmap, Machine.pens[0x1001], &clip);
 			psikyo4_drawsprites(bitmap, &clip, 0x2000);
 		}
 	#else
@@ -163,7 +163,7 @@ public class psikyo4
 			if (readinputport(9) & 1) screen = 0x0000; /* change screens from false dip, is this ok? */
 			else if (readinputport(9) & 2) screen = 0x2000;
 	
-			fillbitmap(bitmap, Machine->pens[(screen==0x0000)?0x1000:0x1001], cliprect);
+			fillbitmap(bitmap, Machine.pens[(screen==0x0000)?0x1000:0x1001], cliprect);
 			psikyo4_drawsprites(bitmap, cliprect, screen);
 		}
 	#endif
@@ -183,7 +183,7 @@ public class psikyo4
 	} };
 	
 	public static VideoStartHandlerPtr video_start_psikyo4  = new VideoStartHandlerPtr() { public int handler(){
-		Machine->gfx[0]->color_granularity=32; /* 256 colour sprites with palette selectable on 32 colour boundaries */
+		Machine.gfx[0].color_granularity=32; /* 256 colour sprites with palette selectable on 32 colour boundaries */
 		screen = 0;
 		return 0;
 	} };

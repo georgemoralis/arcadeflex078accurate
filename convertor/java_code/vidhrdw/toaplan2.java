@@ -1458,7 +1458,7 @@ public class toaplan2
 		mark_sprite_priority(0);
 		mark_tile_priority(0);
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		for (priority = 0; priority < 16; priority++)
 		{
@@ -1483,7 +1483,7 @@ public class toaplan2
 		mark_tile_priority(0);
 		mark_tile_priority(1);
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		for (priority = 0; priority < 16; priority++)
 		{
@@ -1516,7 +1516,7 @@ public class toaplan2
 		mark_tile_priority(0);
 		mark_tile_priority(1);
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		for (priority = 0; priority < 16; priority++)
 		{
@@ -1565,7 +1565,7 @@ public class toaplan2
 			objectbank_dirty = 0;
 		}
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		for (priority = 0; priority < 16; priority++)
 		{
@@ -1576,10 +1576,10 @@ public class toaplan2
 				draw_sprites(bitmap,cliprect,0,priority,1);	/* consider bank select */
 		}
 	
-		clip.min_x = Machine->visible_area.min_x;
-		clip.max_x = Machine->visible_area.max_x;
-		clip.min_y = Machine->visible_area.min_y;
-		clip.max_y = Machine->visible_area.max_y;
+		clip.min_x = Machine.visible_area.min_x;
+		clip.max_x = Machine.visible_area.max_x;
+		clip.min_y = Machine.visible_area.min_y;
+		clip.max_y = Machine.visible_area.max_y;
 	
 		/* used for 'for use in' and '8ing' screen on bbakraid, raizing on batrider */
 		for (line = 0; line < 256;line++)
@@ -1602,7 +1602,7 @@ public class toaplan2
 		mark_sprite_priority(0);
 		mark_tile_priority(0);
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		if (bg_tile_priority[0][0]) tilemap_draw(bitmap,cliprect,bg_tilemap[0],0,0);
 		if (fg_tile_priority[0][0]) tilemap_draw(bitmap,cliprect,fg_tilemap[0],0,0);

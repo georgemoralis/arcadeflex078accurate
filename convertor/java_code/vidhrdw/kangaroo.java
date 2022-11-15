@@ -46,7 +46,7 @@ public class kangaroo
 	public static PaletteInitHandlerPtr palette_init_kangaroo  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int r = ((i & 4) >> 2) * 0xff;
 			int g = ((i & 2) >> 1) * 0xff;
@@ -64,13 +64,13 @@ public class kangaroo
 	***************************************************************************/
 	
 	public static VideoStartHandlerPtr video_start_kangaroo  = new VideoStartHandlerPtr() { public int handler(){
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
-		if ((tmpbitmap2 = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap2 = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
-		if ((videoram = auto_malloc(Machine->drv->screen_width*Machine->drv->screen_height)) == 0)
+		if ((videoram = auto_malloc(Machine.drv.screen_width*Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		return 0;
@@ -312,14 +312,14 @@ public class kangaroo
 		if (*kangaroo_bank_select & 0x01)
 		{
 			/* Plane B is primary */
-			copybitmap(bitmap,tmpbitmap2,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
-			copyscrollbitmap(bitmap,tmpbitmap,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_COLOR,8);
+			copybitmap(bitmap,tmpbitmap2,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,1,&scrollx,1,&scrolly,Machine.visible_area,TRANSPARENCY_COLOR,8);
 		}
 		else
 		{
 			/* Plane A is primary */
-			copyscrollbitmap(bitmap,tmpbitmap,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
-			copybitmap(bitmap,tmpbitmap2,0,0,0,0,Machine->visible_area,TRANSPARENCY_COLOR,16);
+			copyscrollbitmap(bitmap,tmpbitmap,1,&scrollx,1,&scrolly,Machine.visible_area,TRANSPARENCY_NONE,0);
+			copybitmap(bitmap,tmpbitmap2,0,0,0,0,Machine.visible_area,TRANSPARENCY_COLOR,16);
 		}
 	} };
 }

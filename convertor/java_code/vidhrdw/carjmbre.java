@@ -19,7 +19,7 @@ public class carjmbre
 	public static PaletteInitHandlerPtr palette_init_carjmbre  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,bit0,bit1,bit2,r,g,b;
 	
-		for (i = 0;i < Machine->drv->total_colors; i++)
+		for (i = 0;i < Machine.drv.total_colors; i++)
 		{
 			/* red component */
 			bit0 = (color_prom.read()>> 0) & 0x01;
@@ -138,7 +138,7 @@ public class carjmbre
 						flipy = NOT(flipy);
 					}
 	
-					drawgfx(bitmap,Machine->gfx[1],
+					drawgfx(bitmap,Machine.gfx[1],
 							spriteram.read(troffs+1),
 							spriteram.read(troffs+2)&0x07,
 							flipx,flipy,

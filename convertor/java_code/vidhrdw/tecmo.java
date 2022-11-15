@@ -255,7 +255,7 @@ public class tecmo
 	
 	public static VideoUpdateHandlerPtr video_update_tecmo  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0x100],cliprect);
+		fillbitmap(bitmap,Machine.pens[0x100],cliprect);
 		tilemap_draw(bitmap,cliprect,bg_tilemap,0,1);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,2);
 		tilemap_draw(bitmap,cliprect,tx_tilemap,0,4);

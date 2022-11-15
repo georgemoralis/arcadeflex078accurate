@@ -818,7 +818,7 @@ public class galaxian
 		spritevisiblearea      = &_spritevisiblearea;
 		spritevisibleareaflipx = &_spritevisibleareaflipx;
 	
-		color_mask = (Machine->gfx[0]->color_granularity == 4) ? 7 : 3;
+		color_mask = (Machine.gfx[0].color_granularity == 4) ? 7 : 3;
 	
 		return 0;
 	} };

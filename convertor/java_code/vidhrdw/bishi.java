@@ -29,7 +29,7 @@ public class bishi
 	}
 	
 	public static VideoStartHandlerPtr video_start_bishi  = new VideoStartHandlerPtr() { public int handler(){
-		if (Machine->color_depth != 32) return 1; // ensure correct bpp to avoid crashing in-game
+		if (Machine.color_depth != 32) return 1; // ensure correct bpp to avoid crashing in-game
 	
 		K055555_vh_start();
 		K054338_vh_start();

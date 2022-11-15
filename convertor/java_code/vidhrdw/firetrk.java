@@ -295,8 +295,8 @@ public class firetrk
 	
 	
 	public static VideoStartHandlerPtr video_start_firetrk  = new VideoStartHandlerPtr() { public int handler(){
-		helper1 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
-		helper2 = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		helper1 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
+		helper2 = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 	
 		if (helper1 == NULL || helper2 == NULL)
 		{
@@ -401,7 +401,7 @@ public class firetrk
 			}
 	
 			drawgfx(bitmap,
-				Machine->gfx[car[i].layout],
+				Machine.gfx[car[i].layout],
 				car[i].number,
 				car[i].color,
 				car[i].flipx,

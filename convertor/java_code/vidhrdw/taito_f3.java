@@ -613,7 +613,7 @@ public class taito_f3
 		spritelist=0;
 		spriteram32_buffered=0;
 		pivot_dirty=0;
-		pixel_layer_clip=Machine->visible_area;
+		pixel_layer_clip=Machine.visible_area;
 		line_inf=0;
 		pri_alp_bitmap=0;
 		tile_opaque_sp=0;
@@ -621,16 +621,16 @@ public class taito_f3
 	
 		/* Setup individual game */
 		do {
-			if (pCFG->name==f3_game)
+			if (pCFG.name==f3_game)
 			{
 				break;
 			}
 			pCFG++;
-		} while(pCFG->name);
+		} while(pCFG.name);
 	
 		f3_game_config=pCFG;
 	
-		if (f3_game_config->extend) {
+		if (f3_game_config.extend) {
 			pf1_tilemap = tilemap_create(get_tile_info1,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64,32);
 			pf2_tilemap = tilemap_create(get_tile_info2,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64,32);
 			pf3_tilemap = tilemap_create(get_tile_info3,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64,32);
@@ -667,9 +667,9 @@ public class taito_f3
 		pixel_layer = tilemap_create(get_tile_info_pixel,tilemap_scan_cols,TILEMAP_TRANSPARENT,8,8,64,32);
 		pivot_dirty = (UINT8 *)auto_malloc(2048);
 		line_inf = auto_malloc(4 * sizeof(struct f3_line_inf));
-		pri_alp_bitmap = auto_bitmap_alloc_depth( Machine->scrbitmap->width, Machine->scrbitmap->height, -8 );
-		tile_opaque_sp = (UINT8 *)auto_malloc(Machine->gfx[2]->total_elements);
-		tile_opaque_pf = (UINT8 *)auto_malloc(Machine->gfx[1]->total_elements);
+		pri_alp_bitmap = auto_bitmap_alloc_depth( Machine.scrbitmap.width, Machine.scrbitmap.height, -8 );
+		tile_opaque_sp = (UINT8 *)auto_malloc(Machine.gfx[2].total_elements);
+		tile_opaque_pf = (UINT8 *)auto_malloc(Machine.gfx[1].total_elements);
 	
 		if (!pf1_tilemap || !pf2_tilemap || !pf3_tilemap || !pf4_tilemap || !line_inf || !pri_alp_bitmap
 			 || !spritelist || !pixel_layer || !spriteram32_buffered || !pivot_dirty || !tile_opaque_sp || !tile_opaque_pf)
@@ -687,12 +687,12 @@ public class taito_f3
 		tilemap_set_scroll_rows(pf4_tilemap,512);
 	
 		/* Y Offset is related to the first visible line in line ram in some way */
-		scroll_kludge_y=f3_game_config->sy;
-		scroll_kludge_x=f3_game_config->sx;
+		scroll_kludge_y=f3_game_config.sy;
+		scroll_kludge_x=f3_game_config.sx;
 	
 		/* Palettes have 4 bpp indexes despite up to 6 bpp data */
-		Machine->gfx[1]->color_granularity=16;
-		Machine->gfx[2]->color_granularity=16;
+		Machine.gfx[1].color_granularity=16;
+		Machine.gfx[2].color_granularity=16;
 	
 		flipscreen = 0;
 		memset(spriteram32_buffered,0,spriteram_size[0]);
@@ -715,30 +715,30 @@ public class taito_f3
 		scroll_dirty=1;
 		skip_this_frame=0;
 	
-		sprite_lag=f3_game_config->sprite_lag;
+		sprite_lag=f3_game_config.sprite_lag;
 	
 		init_alpha_blend_func();
 	
 		{
-			const struct GfxElement *sprite_gfx = Machine->gfx[2];
+			const struct GfxElement *sprite_gfx = Machine.gfx[2];
 			int c;
 	#if DEBUG_F3
 			int deb_count_opa=0,deb_count_tra=0,deb_tra_code=-1;
 	#endif	//DEBUG_F3
 	
-			for (c = 0;c < sprite_gfx->total_elements;c++)
+			for (c = 0;c < sprite_gfx.total_elements;c++)
 			{
 				int x,y;
 				int chk_trans_or_opa=0;
-				UINT8 *dp = sprite_gfx->gfxdata + c * sprite_gfx->char_modulo;
-				for (y = 0;y < sprite_gfx->height;y++)
+				UINT8 *dp = sprite_gfx.gfxdata + c * sprite_gfx.char_modulo;
+				for (y = 0;y < sprite_gfx.height;y++)
 				{
-					for (x = 0;x < sprite_gfx->width;x++)
+					for (x = 0;x < sprite_gfx.width;x++)
 					{
 						if(!dp[x]) chk_trans_or_opa|=2;
 						else	   chk_trans_or_opa|=1;
 					}
-					dp += sprite_gfx->line_modulo;
+					dp += sprite_gfx.line_modulo;
 				}
 				if(chk_trans_or_opa==1) tile_opaque_sp[c]=1;
 				else					tile_opaque_sp[c]=0;
@@ -749,31 +749,31 @@ public class taito_f3
 			}
 	#if DEBUG_F3
 			printf("tile_opaque_sp: t=%d o=%d total=%d tra_code=%d\n",deb_count_tra,deb_count_opa,
-			sprite_gfx->total_elements,deb_tra_code);
+			sprite_gfx.total_elements,deb_tra_code);
 	#endif	//DEBUG_F3
 		}
 	
 	
 		{
-			const struct GfxElement *pf_gfx = Machine->gfx[1];
+			const struct GfxElement *pf_gfx = Machine.gfx[1];
 			int c;
 	#if DEBUG_F3
 			int deb_count_opa=0,deb_count_tra=0,deb_tra_code=-1;
 	#endif	//DEBUG_F3
 	
-			for (c = 0;c < pf_gfx->total_elements;c++)
+			for (c = 0;c < pf_gfx.total_elements;c++)
 			{
 				int x,y;
 				int chk_trans_or_opa=0;
-				UINT8 *dp = pf_gfx->gfxdata + c * pf_gfx->char_modulo;
-				for (y = 0;y < pf_gfx->height;y++)
+				UINT8 *dp = pf_gfx.gfxdata + c * pf_gfx.char_modulo;
+				for (y = 0;y < pf_gfx.height;y++)
 				{
-					for (x = 0;x < pf_gfx->width;x++)
+					for (x = 0;x < pf_gfx.width;x++)
 					{
 						if(!dp[x]) chk_trans_or_opa|=2;
 						else	   chk_trans_or_opa|=1;
 					}
-					dp += pf_gfx->line_modulo;
+					dp += pf_gfx.line_modulo;
 				}
 				tile_opaque_pf[c]=chk_trans_or_opa;
 	#if DEBUG_F3
@@ -783,7 +783,7 @@ public class taito_f3
 			}
 	#if DEBUG_F3
 			printf("tile_opaque_pf: t=%d o=%d total=%d tra_code=%d\n",deb_count_tra,deb_count_opa,
-			pf_gfx->total_elements,deb_tra_code);
+			pf_gfx.total_elements,deb_tra_code);
 	#endif	//DEBUG_F3
 		}
 	
@@ -3197,7 +3197,7 @@ public class taito_f3
 		if (vram_changed)
 			for (tile = 0;tile < 256;tile++)
 				if (vram_dirty[tile]) {
-					decodechar(Machine->gfx[0],tile,(UINT8 *)f3_vram,Machine->drv->gfxdecodeinfo[0].gfxlayout);
+					decodechar(Machine.gfx[0],tile,(UINT8 *)f3_vram,Machine.drv.gfxdecodeinfo[0].gfxlayout);
 					vram_dirty[tile]=0;
 				}
 		vram_changed=0;
@@ -3491,15 +3491,15 @@ public class taito_f3
 					}
 				}
 	
-				ui_text(bitmap,deb_buf[0],0,Machine->uifontheight*0);
-				ui_text(bitmap,deb_buf[1],0,Machine->uifontheight*1);
-				ui_text(bitmap,deb_buf[2],0,Machine->uifontheight*2);
-				ui_text(bitmap,deb_buf[3],0,Machine->uifontheight*3);
-				ui_text(bitmap,deb_buf[4],0,Machine->uifontheight*4);
-				ui_text(bitmap,deb_buf[5],0,Machine->uifontheight*5);
-				ui_text(bitmap,deb_buf[6],0,Machine->uifontheight*6);
-				ui_text(bitmap,deb_buf[7],0,Machine->uifontheight*7);
-				ui_text(bitmap,deb_buf[8],0,Machine->uifontheight*8);
+				ui_text(bitmap,deb_buf[0],0,Machine.uifontheight*0);
+				ui_text(bitmap,deb_buf[1],0,Machine.uifontheight*1);
+				ui_text(bitmap,deb_buf[2],0,Machine.uifontheight*2);
+				ui_text(bitmap,deb_buf[3],0,Machine.uifontheight*3);
+				ui_text(bitmap,deb_buf[4],0,Machine.uifontheight*4);
+				ui_text(bitmap,deb_buf[5],0,Machine.uifontheight*5);
+				ui_text(bitmap,deb_buf[6],0,Machine.uifontheight*6);
+				ui_text(bitmap,deb_buf[7],0,Machine.uifontheight*7);
+				ui_text(bitmap,deb_buf[8],0,Machine.uifontheight*8);
 				memset(deb_buf, 0x00, sizeof(deb_buf));
 			}
 		}

@@ -95,7 +95,7 @@ public class fuukifg2
 	
 		/* The game does not initialise the palette at startup. It should
 		   be totally black */
-		for (pen = 0; pen < Machine->drv->total_colors; pen++)
+		for (pen = 0; pen < Machine.drv.total_colors; pen++)
 			palette_set_color(pen,0,0,0);
 	} };
 	
@@ -120,7 +120,7 @@ public class fuukifg2
 		tilemap_set_transparent_pen(tilemap_2,0x0f);	// 4 bits
 		tilemap_set_transparent_pen(tilemap_3,0x0f);	// 4 bits
 	
-		Machine->gfx[2]->color_granularity=16; /* 256 colour tiles with palette selectable on 16 colour boundaries */
+		Machine.gfx[2].color_granularity=16; /* 256 colour tiles with palette selectable on 16 colour boundaries */
 	
 		return 0;
 	} };
@@ -358,7 +358,7 @@ public class fuukifg2
 		fuuki16_draw_layer(bitmap,cliprect, tm_front,  0, 4);
 	
 		// don't do the rasters on the sprites . its very slow and the hw might not anyway.
-		if (cliprect->max_y == Machine->visible_area.max_y)
-			fuuki16_draw_sprites(bitmap,Machine->visible_area);
+		if (cliprect.max_y == Machine.visible_area.max_y)
+			fuuki16_draw_sprites(bitmap,Machine.visible_area);
 	} };
 }

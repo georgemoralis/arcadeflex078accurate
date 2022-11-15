@@ -30,7 +30,7 @@ public class ambush
 	public static PaletteInitHandlerPtr palette_init_ambush  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0;i < Machine->drv->total_colors; i++)
+		for (i = 0;i < Machine.drv.total_colors; i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -108,7 +108,7 @@ public class ambush
 		int offs;
 	
 	
-		fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	
 	
 		/* Draw the background priority characters */
@@ -172,11 +172,11 @@ public class ambush
 				flipy = NOT(flipy);
 			}
 	
-			drawgfx(bitmap,Machine->gfx[gfx],
+			drawgfx(bitmap,Machine.gfx[gfx],
 					code, col | ((*ambush_colorbank & 0x03) << 4),
 					flipx, flipy,
 					sx,sy,
-					Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	

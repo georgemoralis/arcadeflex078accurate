@@ -696,7 +696,7 @@ public class namcos2
 	
 		UpdatePalette();
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		for(pri=0;pri<16;pri++)
 		{
@@ -730,7 +730,7 @@ public class namcos2
 	
 		UpdatePalette();
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		for(pri=0;pri<16;pri++)
 		{
@@ -761,7 +761,7 @@ public class namcos2
 	
 		UpdatePalette();
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		for(pri=0;pri<16;pri++)
 		{
@@ -787,7 +787,7 @@ public class namcos2
 	
 		UpdatePalette();
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		for(pri=0;pri<16;pri++)
 		{

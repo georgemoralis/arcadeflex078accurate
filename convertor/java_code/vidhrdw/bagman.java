@@ -69,7 +69,7 @@ public class bagman
 				2,	resistances_b,	weights_b,	470,	0);
 	
 	
-		for (i = 0; i < Machine->drv->total_colors; i++)
+		for (i = 0; i < Machine.drv.total_colors; i++)
 		{
 			int bit0, bit1, bit2, r, g, b;
 	
@@ -164,7 +164,7 @@ public class bagman
 		if (*bagman_video_enable == 0)
 			return;
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		bagman_draw_sprites(bitmap);
 	} };
 }

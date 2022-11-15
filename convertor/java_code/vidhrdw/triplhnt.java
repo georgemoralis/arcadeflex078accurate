@@ -42,7 +42,7 @@ public class triplhnt
 	
 	
 	public static VideoStartHandlerPtr video_start_triplhnt  = new VideoStartHandlerPtr() { public int handler(){
-		helper = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		helper = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 	
 		if (helper == NULL)
 			return 1;

@@ -84,7 +84,7 @@ public class twincobr
 			return 1;
 		memset(dirtybuffer,1,twincobr_bgvideoram_size*2);
 	
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,2*Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,2*Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		state_save_register_UINT16("toaplan0", 0, "Text_Field", videoram16, videoram_size[0]);
@@ -291,7 +291,7 @@ public class twincobr
 	
 		if (twincobr_display_on != 1)
 		{
-			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+			fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 			return;
 		}
 	
@@ -312,7 +312,7 @@ public class twincobr
 				tile  = (code & 0x0fff);
 				color = (code & 0xf000) >> 12;
 				if (twincobr_flip_screen) { sx=63-sx; sy=63-sy; }
-				drawgfx(tmpbitmap,Machine->gfx[2],
+				drawgfx(tmpbitmap,Machine.gfx[2],
 					tile,
 					color,
 					twincobr_flip_screen,twincobr_flip_screen,
@@ -331,7 +331,7 @@ public class twincobr
 				scroll_x = (0x1c9 - bgscrollx) & 0x1ff;
 				scroll_y = (- 0x1e - bgscrolly) & 0x1ff;
 			}
-			copyscrollbitmap(bitmap,tmpbitmap,1,&scroll_x,1,&scroll_y,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,1,&scroll_x,1,&scroll_y,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -360,12 +360,12 @@ public class twincobr
 			color = (code & 0xf000) >> 12;
 			if (twincobr_flip_screen) { sx=40-sx; sy=30-sy; xpos=(sx*8) - (7-(scroll_x&7)); ypos=(sy*8) - (7-(scroll_y&7)); }
 			else { xpos=(sx*8) - (scroll_x&7); ypos=(sy*8) - (scroll_y&7); }
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 				tile,
 				color,
 				twincobr_flip_screen,twincobr_flip_screen,
 				xpos,ypos,
-				Machine->visible_area,TRANSPARENCY_PEN,0);
+				Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	/*********  Begin ugly sprite hack for Wardner when hero is in shop *********/
@@ -417,12 +417,12 @@ public class twincobr
 			color = (code & 0xf800) >> 11;
 			if (twincobr_flip_screen) { sx=40-sx; sy=30-sy; xpos=(sx*8) - (7-(scroll_x&7)); ypos=(sy*8) - (7-(scroll_y&7)); }
 			else { xpos=(sx*8) - (scroll_x&7); ypos=(sy*8) - (scroll_y&7); }
-			drawgfx(bitmap,Machine->gfx[0],
+			drawgfx(bitmap,Machine.gfx[0],
 				tile,
 				color,
 				twincobr_flip_screen,twincobr_flip_screen,
 				xpos,ypos,
-				Machine->visible_area,TRANSPARENCY_PEN,0);
+				Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 		/* draw the sprites in high priority */

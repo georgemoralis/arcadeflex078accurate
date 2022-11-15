@@ -97,12 +97,12 @@ public class carpolo
 	
 	
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		/* the -1 is for the fake score color */
-		for (i = 0; i < Machine->drv->total_colors - 1; i++)
+		for (i = 0; i < Machine.drv.total_colors - 1; i++)
 		{
 			UINT8 r,g,b;
 			int bit0,bit1,bit2;
@@ -268,10 +268,10 @@ public class carpolo
 		/* draw the playfield elements, in the correct priority order */
 	
 		/* score area - position determined by bit 4 of the vertical timing PROM */
-		plot_box(bitmap,0,0,RIGHT_BORDER+1,TOP_BORDER,Machine->pens[BACKGROUND_COLOR]);
+		plot_box(bitmap,0,0,RIGHT_BORDER+1,TOP_BORDER,Machine.pens[BACKGROUND_COLOR]);
 	
 		/* field */
-		plot_box(bitmap,0,TOP_BORDER,RIGHT_BORDER+1,BOTTOM_BORDER-TOP_BORDER+1,Machine->pens[FIELD_COLOR]);
+		plot_box(bitmap,0,TOP_BORDER,RIGHT_BORDER+1,BOTTOM_BORDER-TOP_BORDER+1,Machine.pens[FIELD_COLOR]);
 	
 		/* car 1 */
 		draw_sprite(bitmap, cliprect,
@@ -279,10 +279,10 @@ public class carpolo
 					0, carpolo_spriteram[0x0c] & 0x0f, CAR1_COLOR);
 	
 		/* border - position determined by bit 4 and 7 of the vertical timing PROM */
-		plot_box(bitmap,0,TOP_BORDER,   RIGHT_BORDER+1,1,Machine->pens[LINE_COLOR]);
-		plot_box(bitmap,0,BOTTOM_BORDER,RIGHT_BORDER+1,1,Machine->pens[LINE_COLOR]);
-		plot_box(bitmap,LEFT_BORDER,TOP_BORDER, 1,BOTTOM_BORDER-TOP_BORDER+1,Machine->pens[LINE_COLOR]);
-		plot_box(bitmap,RIGHT_BORDER,TOP_BORDER,1,BOTTOM_BORDER-TOP_BORDER+1,Machine->pens[LINE_COLOR]);
+		plot_box(bitmap,0,TOP_BORDER,   RIGHT_BORDER+1,1,Machine.pens[LINE_COLOR]);
+		plot_box(bitmap,0,BOTTOM_BORDER,RIGHT_BORDER+1,1,Machine.pens[LINE_COLOR]);
+		plot_box(bitmap,LEFT_BORDER,TOP_BORDER, 1,BOTTOM_BORDER-TOP_BORDER+1,Machine.pens[LINE_COLOR]);
+		plot_box(bitmap,RIGHT_BORDER,TOP_BORDER,1,BOTTOM_BORDER-TOP_BORDER+1,Machine.pens[LINE_COLOR]);
 	
 		/* car 4 */
 		draw_sprite(bitmap, cliprect,
@@ -306,7 +306,7 @@ public class carpolo
 	
 		/* left goal - position determined by bit 6 of the
 		   horizontal and vertical timing PROMs */
-		drawgfxzoom(bitmap,Machine->gfx[1],
+		drawgfxzoom(bitmap,Machine.gfx[1],
 					0,0,
 					0,0,
 					LEFT_GOAL_X,GOAL_Y,
@@ -314,7 +314,7 @@ public class carpolo
 					0x20000,0x20000);
 	
 		/* right goal */
-		drawgfxzoom(bitmap,Machine->gfx[1],
+		drawgfxzoom(bitmap,Machine.gfx[1],
 					0,1,
 					1,0,
 					RIGHT_GOAL_X,GOAL_Y,

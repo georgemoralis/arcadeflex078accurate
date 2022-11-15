@@ -461,7 +461,7 @@ public class exidy
 			sx = 236 - *exidy_sprite2_xpos - 4;
 			sy = 244 - *exidy_sprite2_ypos - 4;
 	
-			drawgfx(bitmap, Machine->gfx[1],
+			drawgfx(bitmap, Machine.gfx[1],
 				((*exidy_sprite_no >> 4) & 0x0f) + 32, 1,
 				0, 0, sx, sy, cliprect, TRANSPARENCY_PEN, 0);
 		}
@@ -476,7 +476,7 @@ public class exidy
 	
 			if (sy < 0) sy = 0;
 	
-			drawgfx(bitmap, Machine->gfx[1],
+			drawgfx(bitmap, Machine.gfx[1],
 				(*exidy_sprite_no & 0x0f) + 16 * enable_set, 0,
 				0, 0, sx, sy, cliprect, TRANSPARENCY_PEN, 0);
 		}

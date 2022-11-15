@@ -286,8 +286,8 @@ public class williams
 		xtileoffset = *williams2_xscroll_high >> 1;
 	
 		/* adjust the offset for the row and compute the palette index */
-		tileram += cliprect->min_y / 16;
-		for (y = cliprect->min_y / 16; y < cliprect->max_y / 16 + 1; y++, tileram++)
+		tileram += cliprect.min_y / 16;
+		for (y = cliprect.min_y / 16; y < cliprect.max_y / 16 + 1; y++, tileram++)
 		{
 			color = williams2_row_to_palette[y];
 	
@@ -296,7 +296,7 @@ public class williams
 			{
 				unsigned int map = tileram[((col + xtileoffset) * 16) & 0x07ff];
 	
-				drawgfx(bitmap, Machine->gfx[0], map & williams2_tilemap_mask,
+				drawgfx(bitmap, Machine.gfx[0], map & williams2_tilemap_mask,
 						color, map & williams2_M7_flip, 0, col * 24 - xpixeloffset, y * 16,
 						cliprect, TRANSPARENCY_NONE, 0);
 			}

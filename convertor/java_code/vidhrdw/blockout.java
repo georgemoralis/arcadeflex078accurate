@@ -67,7 +67,7 @@ public class blockout
 	***************************************************************************/
 	public static VideoStartHandlerPtr video_start_blockout  = new VideoStartHandlerPtr() { public int handler(){
 		/* Allocate temporary bitmaps */
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		return 0;
@@ -115,13 +115,13 @@ public class blockout
 	
 	
 	public static VideoUpdateHandlerPtr video_update_blockout  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 		{
 			int x,y,color;
 	
 	
-			color = Machine->pens[512];
+			color = Machine.pens[512];
 	
 			for (y = 0;y < 256;y++)
 			{

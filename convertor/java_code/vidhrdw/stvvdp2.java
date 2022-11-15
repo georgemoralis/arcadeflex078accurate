@@ -2674,41 +2674,41 @@ public class stvvdp2
 	
 			for (tilecode = 0;tilecode<0x8000;tilecode++)
 			{
-				decodechar(Machine->gfx[0], tilecode,  (data8_t*)memory_region(REGION_GFX1), Machine->drv->gfxdecodeinfo[0].gfxlayout); ;
+				decodechar(Machine.gfx[0], tilecode,  (data8_t*)memory_region(REGION_GFX1), Machine.drv.gfxdecodeinfo[0].gfxlayout); ;
 			}
 	
 			for (tilecode = 0;tilecode<0x2000;tilecode++)
 			{
-				decodechar(Machine->gfx[1], tilecode,  (data8_t*)memory_region(REGION_GFX1), Machine->drv->gfxdecodeinfo[1].gfxlayout); ;
+				decodechar(Machine.gfx[1], tilecode,  (data8_t*)memory_region(REGION_GFX1), Machine.drv.gfxdecodeinfo[1].gfxlayout); ;
 			}
 	
 			for (tilecode = 0;tilecode<0x4000;tilecode++)
 			{
-				decodechar(Machine->gfx[2], tilecode,  (data8_t*)memory_region(REGION_GFX1), Machine->drv->gfxdecodeinfo[2].gfxlayout); ;
+				decodechar(Machine.gfx[2], tilecode,  (data8_t*)memory_region(REGION_GFX1), Machine.drv.gfxdecodeinfo[2].gfxlayout); ;
 			}
 	
 			for (tilecode = 0;tilecode<0x1000;tilecode++)
 			{
-				decodechar(Machine->gfx[3], tilecode,  (data8_t*)memory_region(REGION_GFX1), Machine->drv->gfxdecodeinfo[3].gfxlayout); ;
+				decodechar(Machine.gfx[3], tilecode,  (data8_t*)memory_region(REGION_GFX1), Machine.drv.gfxdecodeinfo[3].gfxlayout); ;
 			}
 	
 			/* vdp 1 ... doesn't have to be tile based */
 	
 			for (tilecode = 0;tilecode<0x8000;tilecode++)
 			{
-				decodechar(Machine->gfx[4], tilecode,  (data8_t*)memory_region(REGION_GFX2), Machine->drv->gfxdecodeinfo[4].gfxlayout); ;
+				decodechar(Machine.gfx[4], tilecode,  (data8_t*)memory_region(REGION_GFX2), Machine.drv.gfxdecodeinfo[4].gfxlayout); ;
 			}
 			for (tilecode = 0;tilecode<0x2000;tilecode++)
 			{
-				decodechar(Machine->gfx[5], tilecode,  (data8_t*)memory_region(REGION_GFX2), Machine->drv->gfxdecodeinfo[5].gfxlayout); ;
+				decodechar(Machine.gfx[5], tilecode,  (data8_t*)memory_region(REGION_GFX2), Machine.drv.gfxdecodeinfo[5].gfxlayout); ;
 			}
 			for (tilecode = 0;tilecode<0x4000;tilecode++)
 			{
-				decodechar(Machine->gfx[6], tilecode,  (data8_t*)memory_region(REGION_GFX2), Machine->drv->gfxdecodeinfo[6].gfxlayout); ;
+				decodechar(Machine.gfx[6], tilecode,  (data8_t*)memory_region(REGION_GFX2), Machine.drv.gfxdecodeinfo[6].gfxlayout); ;
 			}
 			for (tilecode = 0;tilecode<0x1000;tilecode++)
 			{
-				decodechar(Machine->gfx[7], tilecode,  (data8_t*)memory_region(REGION_GFX2), Machine->drv->gfxdecodeinfo[7].gfxlayout); ;
+				decodechar(Machine.gfx[7], tilecode,  (data8_t*)memory_region(REGION_GFX2), Machine.drv.gfxdecodeinfo[7].gfxlayout); ;
 			}
 		}
 	#endif

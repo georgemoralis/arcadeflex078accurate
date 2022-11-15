@@ -1145,7 +1145,7 @@ public class wecleman
 		UINT8 *buffer;
 		int i, j;
 	
-		if (Machine->color_depth > 16) return(1);
+		if (Machine.color_depth > 16) return(1);
 		if (!(buffer = auto_malloc(0x12c00))) return(1);	// working buffer for sprite operations
 	
 		gameid = 0;
@@ -1216,7 +1216,7 @@ public class wecleman
 		tilemap_set_scrolly(txt_tilemap, 0, -BMP_PAD );
 	
 		// patches out a mysterious pixel floating in the sky (tile decoding bug?)
-		*(Machine->gfx[0]->gfxdata + (Machine->gfx[0]->char_modulo*0xaca+7)) = 0;
+		*(Machine.gfx[0].gfxdata + (Machine.gfx[0].char_modulo*0xaca+7)) = 0;
 	
 		return 0;
 	} };
@@ -1289,7 +1289,7 @@ public class wecleman
 		int cloud_sx, cloud_sy;
 		int i, j, k;
 	
-		mrct = Machine->remapped_colortable;
+		mrct = Machine.remapped_colortable;
 	
 		video_on = wecleman_irqctrl & 0x40;
 	
@@ -1337,7 +1337,7 @@ public class wecleman
 	
 			if (video_on) wecleman_draw_cloud(
 				bitmap,
-				Machine->gfx[0],
+				Machine.gfx[0],
 				wecleman_pageram+0x1800,
 				BMP_PAD, BMP_PAD,
 				41, 20,

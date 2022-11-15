@@ -72,7 +72,7 @@ public class wiz
 		int i;
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -270,18 +270,18 @@ public class wiz
 	***************************************************************************/
 	
 	public static VideoUpdateHandlerPtr video_update_kungfut  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[bgpen],Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[bgpen],Machine.visible_area);
 		draw_background(bitmap, 2 + char_bank[0] , 0);
 		draw_foreground(bitmap, 0);
-		draw_sprites(bitmap, spriteram_2, 4, Machine->visible_area);
-		draw_sprites(bitmap, spriteram  , 5, Machine->visible_area);
+		draw_sprites(bitmap, spriteram_2, 4, Machine.visible_area);
+		draw_sprites(bitmap, spriteram  , 5, Machine.visible_area);
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_wiz  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int bank;
 		const struct rectangle* visible_area;
 	
-		fillbitmap(bitmap,Machine->pens[bgpen],Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[bgpen],Machine.visible_area);
 		draw_background(bitmap, 2 + ((char_bank[0] << 1) | char_bank[1]), 0);
 		draw_foreground(bitmap, 0);
 	
@@ -295,10 +295,10 @@ public class wiz
 	
 	
 	public static VideoUpdateHandlerPtr video_update_stinger  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[bgpen],Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[bgpen],Machine.visible_area);
 		draw_background(bitmap, 2 + char_bank[0], 1);
 		draw_foreground(bitmap, 1);
-		draw_sprites(bitmap, spriteram_2, 4, Machine->visible_area);
-		draw_sprites(bitmap, spriteram  , 5, Machine->visible_area);
+		draw_sprites(bitmap, spriteram_2, 4, Machine.visible_area);
+		draw_sprites(bitmap, spriteram  , 5, Machine.visible_area);
 	} };
 }

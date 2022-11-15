@@ -432,7 +432,7 @@ public class rohga
 	
 		/* Draw playfields */
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[512],cliprect);
+		fillbitmap(bitmap,Machine.pens[512],cliprect);
 	
 		if (!keyboard_pressed(KEYCODE_Z))
 		deco16_tilemap_4_draw(bitmap,cliprect,TILEMAP_IGNORE_TRANSPARENCY,1);
@@ -454,7 +454,7 @@ public class rohga
 		deco16_pf34_update(deco16_pf3_rowscroll,deco16_pf4_rowscroll);
 	
 		/* Draw playfields - Palette of 2nd playfield chip visible if playfields turned off */
-		fillbitmap(bitmap,Machine->pens[512],Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[512],Machine.visible_area);
 	
 		deco16_tilemap_4_draw(bitmap,cliprect,TILEMAP_IGNORE_TRANSPARENCY,0);
 		wizdfire_drawsprites(bitmap,buffered_spriteram16,4,3);
@@ -481,7 +481,7 @@ public class rohga
 		deco16_pf34_update(deco16_pf3_rowscroll,deco16_pf4_rowscroll);
 	
 		/* Draw playfields - Palette of 2nd playfield chip visible if playfields turned off */
-		fillbitmap(bitmap,Machine->pens[512],Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[512],Machine.visible_area);
 		fillbitmap(priority_bitmap,0,NULL);
 		deco16_clear_sprite_priority_bitmap(); 
 		deco16_tilemap_4_draw(bitmap,cliprect,TILEMAP_IGNORE_TRANSPARENCY,0);

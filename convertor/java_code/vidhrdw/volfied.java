@@ -27,7 +27,7 @@ public class volfied
 	******************************************************/
 	
 	public static VideoStartHandlerPtr video_start_volfied  = new VideoStartHandlerPtr() { public int handler(){
-		pixel_layer = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		pixel_layer = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 		if (pixel_layer == NULL)
 			return 1;
 	

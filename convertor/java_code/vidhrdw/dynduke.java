@@ -202,7 +202,7 @@ public class dynduke
 		if (back_enable)
 			tilemap_draw(bitmap,cliprect,bg_layer,TILEMAP_BACK,0);
 		else
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		draw_sprites(bitmap,cliprect,0); /* Untested: does anything use it? Could be behind background */
 		draw_sprites(bitmap,cliprect,1);

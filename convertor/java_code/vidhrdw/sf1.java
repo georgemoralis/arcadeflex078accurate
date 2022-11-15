@@ -240,7 +240,7 @@ public class sf1
 		if (sf1_active & 0x20)
 			tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		else
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,0);
 	

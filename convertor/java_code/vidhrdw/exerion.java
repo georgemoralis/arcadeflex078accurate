@@ -61,7 +61,7 @@ public class exerion
 	public static PaletteInitHandlerPtr palette_init_exerion  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		for (i = 0; i < Machine->drv->total_colors; i++)
+		for (i = 0; i < Machine.drv.total_colors; i++)
 		{
 			int bit0, bit1, bit2, r, g, b;
 	
@@ -126,7 +126,7 @@ public class exerion
 		background_mixer = memory_region(REGION_PROMS) + 0x320;
 	
 		/* allocate memory to track the background latches */
-		background_latches = auto_malloc(Machine->drv->screen_height * 16);
+		background_latches = auto_malloc(Machine.drv.screen_height * 16);
 		if (!background_latches)
 			return 1;
 	
@@ -412,13 +412,13 @@ public class exerion
 			int code2 = code;
 	
 			int color = ((flags >> 1) & 0x03) | ((code >> 5) & 0x04) | (code & 0x08) | (sprite_palette * 16);
-			const struct GfxElement *gfx = doubled ? Machine->gfx[2] : Machine->gfx[1];
+			const struct GfxElement *gfx = doubled ? Machine.gfx[2] : Machine.gfx[1];
 	
 			if (exerion_cocktail_flip)
 			{
-				x = 64*8 - gfx->width - x;
-				y = 32*8 - gfx->height - y;
-				if (wide) y -= gfx->height;
+				x = 64*8 - gfx.width - x;
+				y = 32*8 - gfx.height - y;
+				if (wide) y -= gfx.height;
 				xflip = !xflip;
 				yflip = !yflip;
 			}
@@ -430,7 +430,7 @@ public class exerion
 				else
 					code &= ~0x10, code2 |= 0x10;
 	
-				drawgfx(bitmap, gfx, code2, color, xflip, yflip, x, y + gfx->height,
+				drawgfx(bitmap, gfx, code2, color, xflip, yflip, x, y + gfx.height,
 				        cliprect, TRANSPARENCY_COLOR, 16);
 			}
 	
@@ -448,7 +448,7 @@ public class exerion
 				int y = exerion_cocktail_flip ? (31*8 - 8*sy) : 8*sy;
 	
 				offs = sx + sy * 64;
-				drawgfx(bitmap, Machine->gfx[0],
+				drawgfx(bitmap, Machine.gfx[0],
 					videoram.read(offs)+ 256 * char_bank,
 					((videoram.read(offs)& 0xf0) >> 4) + char_palette * 16,
 					exerion_cocktail_flip, exerion_cocktail_flip, x, y,

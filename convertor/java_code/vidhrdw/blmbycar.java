@@ -265,7 +265,7 @@ public class blmbycar
 		if (layers_ctrl&1)
 			for (i = 0; i <= 1; i++)
 				tilemap_draw(bitmap, cliprect, tilemap_0, i, i);
-		else	fillbitmap(bitmap,Machine->pens[0],cliprect);
+		else	fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		if (layers_ctrl&2)
 			for (i = 0; i <= 1; i++)

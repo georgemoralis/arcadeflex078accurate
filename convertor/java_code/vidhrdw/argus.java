@@ -1312,7 +1312,7 @@ public class argus
 		/* scroll BG0 and render tile at proper position */
 		argus_bg0_scroll_handle();
 	
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 	
 		tilemap_draw(bitmap, cliprect, bg0_tilemap, 0, 0);
 		argus_draw_sprites(bitmap, cliprect, 0);
@@ -1322,7 +1322,7 @@ public class argus
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_valtric  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 	
 		tilemap_draw(bitmap, cliprect, bg1_tilemap, 0, 0);
 		valtric_draw_sprites(bitmap, cliprect);
@@ -1330,7 +1330,7 @@ public class argus
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_butasan  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 	
 		tilemap_draw(bitmap, cliprect, bg1_tilemap, 0, 0);
 		tilemap_draw(bitmap, cliprect, bg0_tilemap, 0, 0);

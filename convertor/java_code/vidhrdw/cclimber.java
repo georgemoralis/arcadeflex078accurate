@@ -44,11 +44,11 @@ public class cclimber
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_cclimber  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + (offs)])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + (offs)])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -134,8 +134,8 @@ public class cclimber
 	
 	public static PaletteInitHandlerPtr palette_init_swimmer  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + (offs)])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + (offs)])
 	
 	
 		for (i = 0;i < 256;i++)
@@ -388,7 +388,7 @@ public class cclimber
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[(colorram.read(offs)& 0x10) ? 1 : 0],
+				drawgfx(tmpbitmap,Machine.gfx[(colorram.read(offs)& 0x10) ? 1 : 0],
 						videoram.read(offs)+ 8 * (colorram.read(offs)& 0x20),
 						colorram.read(offs)& 0x0f,
 						flipx,flipy,
@@ -420,7 +420,7 @@ public class cclimber
 				}
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -451,12 +451,12 @@ public class cclimber
 				flipy = NOT(flipy);
 			}
 	
-			drawgfx(bitmap,Machine->gfx[spriteram.read(offs + 1)& 0x10 ? 4 : 3],
+			drawgfx(bitmap,Machine.gfx[spriteram.read(offs + 1)& 0x10 ? 4 : 3],
 					(spriteram.read(offs)& 0x3f) + 2 * (spriteram.read(offs + 1)& 0x20),
 					spriteram.read(offs + 1)& 0x0f,
 					flipx,flipy,
 					sx,sy,
-					Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	
@@ -511,7 +511,7 @@ public class cclimber
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs)+ ((colorram.read(offs)& 0x10) << 4),
 						color,
 						flipx,flipy,
@@ -537,7 +537,7 @@ public class cclimber
 					scroll[offs] = -cclimber_column_scroll[offs];
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -568,12 +568,12 @@ public class cclimber
 				flipy = NOT(flipy);
 			}
 	
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)& 0x3f) | (spriteram.read(offs + 1)& 0x10) << 2,
 					(spriteram.read(offs + 1)& 0x0f) + 0x10 * palettebank,
 					flipx,flipy,
 					sx,sy,
-					Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	

@@ -132,7 +132,7 @@ public class shougi
 				3,	resistances_rg,	weights_g,	0,	1000+1000,
 				2,	resistances_b,	weights_b,	0,	1000+1000);
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -189,7 +189,7 @@ public class shougi
 			}
 		}
 		/* copy the character mapped graphics */
-		//copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		//copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	} };
 	
 	

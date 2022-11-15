@@ -216,7 +216,7 @@ public class dcon
 		if ((dcon_enable&1)!=1)
 			tilemap_draw(bitmap,cliprect,background_layer,0,0);
 		else
-			fillbitmap(bitmap,Machine->pens[15],cliprect); /* Should always be black, not pen 15 */
+			fillbitmap(bitmap,Machine.pens[15],cliprect); /* Should always be black, not pen 15 */
 	
 		draw_sprites(bitmap,cliprect,2);
 		tilemap_draw(bitmap,cliprect,midground_layer,0,0);
@@ -248,7 +248,7 @@ public class dcon
 		if ((dcon_enable&1)!=1)
 			tilemap_draw(bitmap,cliprect,background_layer,0,0);
 		else
-			fillbitmap(bitmap,Machine->pens[15],cliprect); /* Should always be black, not pen 15 */
+			fillbitmap(bitmap,Machine.pens[15],cliprect); /* Should always be black, not pen 15 */
 	
 		draw_sprites(bitmap,cliprect,2);
 		tilemap_draw(bitmap,cliprect,midground_layer,0,0);

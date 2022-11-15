@@ -153,8 +153,8 @@ public class kaneko16
 			return 1;
 	
 		{
-			int dx, xdim = Machine->drv->screen_width;
-			int dy, ydim = Machine->drv->screen_height;
+			int dx, xdim = Machine.drv.screen_width;
+			int dy, ydim = Machine.drv.screen_height;
 	
 			switch (xdim)
 			{
@@ -162,7 +162,7 @@ public class kaneko16
 				case 256:	dx = 0x5b;	break;
 				default:	dx = 0;
 			}
-			switch (Machine->visible_area.max_y - Machine->visible_area.min_y + 1)
+			switch (Machine.visible_area.max_y - Machine.visible_area.min_y + 1)
 			{
 				case 240- 8:	dy = +0x08;	break;	/* blazeon */
 				case 240-16:	dy = -0x08;	break;	/* berlwall, bakubrk */
@@ -197,8 +197,8 @@ public class kaneko16
 		if (	!kaneko16_tmap_2 || !kaneko16_tmap_3	)
 			return 1;
 		{
-			int dx, xdim = Machine->drv->screen_width;
-			int dy, ydim = Machine->drv->screen_height;
+			int dx, xdim = Machine.drv.screen_width;
+			int dy, ydim = Machine.drv.screen_height;
 	
 			switch (xdim)
 			{
@@ -206,7 +206,7 @@ public class kaneko16
 				case 256:	dx = 0x5b;	break;
 				default:	dx = 0;
 			}
-			switch (Machine->visible_area.max_y - Machine->visible_area.min_y + 1)
+			switch (Machine.visible_area.max_y - Machine.visible_area.min_y + 1)
 			{
 				case 240- 8:	dy = +0x08;	break;
 				case 240-16:	dy = -0x08;	break;
@@ -305,7 +305,7 @@ public class kaneko16
 	
 				plot_pixel( kaneko16_bg15_bitmap,
 							sx * 256 + x, y,
-							Machine->pens[2048 + ((g << 10) | (r << 5) | b)] );
+							Machine.pens[2048 + ((g << 10) | (r << 5) | b)] );
 		  }
 	
 		return video_start_kaneko16_1xVIEW2();
@@ -927,7 +927,7 @@ public class kaneko16
 		   the times. To do it right, each pixel should be drawn with pen 0
 		   of the bottomost tile that covers it (which is pretty tricky to do) */
 	
-		if (flag!=0)	fillbitmap(bitmap,Machine->pens[0],cliprect);
+		if (flag!=0)	fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		fillbitmap(priority_bitmap,0,cliprect);
 	

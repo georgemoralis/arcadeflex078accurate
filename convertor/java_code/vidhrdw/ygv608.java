@@ -667,9 +667,9 @@ public class ygv608
 	
 		// clip to the current bitmap
 		finalclip.min_x = 0;
-		finalclip.max_x = Machine->drv->screen_width - 1;
+		finalclip.max_x = Machine.drv.screen_width - 1;
 		finalclip.min_y = 0;
-		finalclip.max_y = Machine->drv->screen_height - 1;
+		finalclip.max_y = Machine.drv.screen_height - 1;
 		sect_rect(&finalclip, cliprect);
 		cliprect = &finalclip;
 	
@@ -692,9 +692,9 @@ public class ygv608
 	#ifdef _ENABLE_ROTATE_ZOOM
 			if( work_bitmap )
 				bitmap_free( work_bitmap );
-			work_bitmap = bitmap_alloc_depth( Machine->drv->screen_width,
-											  Machine->drv->screen_height,
-											  Machine->color_depth );
+			work_bitmap = bitmap_alloc_depth( Machine.drv.screen_width,
+											  Machine.drv.screen_height,
+											  Machine.color_depth );
 	#else
 			work_bitmap = bitmap;
 	#endif
@@ -751,7 +751,7 @@ public class ygv608
 			tilemap_set_scroll_cols( tilemap_B, ygv608.page_x );
 	
 			// now clear the screen in case we change to 1-plane mode
-			fillbitmap( work_bitmap, Machine->pens[0], cliprect );
+			fillbitmap( work_bitmap, Machine.pens[0], cliprect );
 	
 			// reset resize flag
 			ygv608.tilemap_resize = 0;
@@ -804,8 +804,8 @@ public class ygv608
 		if ((ygv608.regs.s.r7 & r7_md) & MD_1PLANE)
 		{
 			// If the background tilemap is disabled, we need to clear the bitmap to black
-			fillbitmap (work_bitmap,Machine->pens[0],cliprect);
-	//		fillbitmap (work_bitmap,1,Machine->visible_area);
+			fillbitmap (work_bitmap,Machine.pens[0],cliprect);
+	//		fillbitmap (work_bitmap,1,Machine.visible_area);
 		}
 		else
 	#endif
@@ -826,10 +826,10 @@ public class ygv608
 	
 	  if( ygv608.regs.s.zron )
 	    copyrozbitmap( bitmap, work_bitmap,
-	                   ( Machine->visible_area.min_x << 16 ) +
+	                   ( Machine.visible_area.min_x << 16 ) +
 	                    ygv608.ax + 0x10000 * r *
 	                    ( -sin( alpha ) * cos_theta + cos( alpha ) * sin_theta ),
-	                   ( Machine->visible_area.min_y << 16 ) +
+	                   ( Machine.visible_area.min_y << 16 ) +
 	                    ygv608.ay + 0x10000 * r *
 	                    ( cos( alpha ) * cos_theta + sin( alpha ) * sin_theta ),
 	                   ygv608.dx, ygv608.dxy, ygv608.dyx, ygv608.dy, 0,
@@ -844,8 +844,8 @@ public class ygv608
 	  // so use a transparent but clear the work bitmap first
 	  // - look at why this is the case?!?
 	  fillbitmap( work_bitmap,
-	              Machine->pens[0],
-	              Machine->visible_area );
+	              Machine.pens[0],
+	              Machine.visible_area );
 	#endif
 	
 		if ((ygv608.regs.s.r11 & r11_prm) == PRM_ASBDEX ||
@@ -857,15 +857,15 @@ public class ygv608
 	#ifdef _ENABLE_ROTATE_ZOOM
 	  if( ygv608.regs.s.zron )
 	    copyrozbitmap( bitmap, work_bitmap,
-	                   ygv608.ax, // + ( Machine->visible_area.min_x << 16 ),
-	                   ygv608.ay, // + ( Machine->visible_area.min_y << 16 ),
+	                   ygv608.ax, // + ( Machine.visible_area.min_x << 16 ),
+	                   ygv608.ay, // + ( Machine.visible_area.min_y << 16 ),
 	                   ygv608.dx, ygv608.dxy, ygv608.dyx, ygv608.dy, 0,
 	                   cliprect,
-	                   TRANSPARENCY_PEN, Machine->pens[0], 0 );
+	                   TRANSPARENCY_PEN, Machine.pens[0], 0 );
 	  else
 	    copybitmap( bitmap, work_bitmap, 0, 0, 0, 0,
 	                cliprect,
-	                TRANSPARENCY_PEN, Machine->pens[0] );
+	                TRANSPARENCY_PEN, Machine.pens[0] );
 	#endif
 	
 		if ((ygv608.regs.s.r11 & r11_prm) == PRM_SABDEX ||

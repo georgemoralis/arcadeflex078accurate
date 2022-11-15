@@ -333,18 +333,18 @@ public class hal21
 	
 		if (snk_gamegroup)
 		{
-			hal21_draw_background(bitmap, bgsx+(msbs<<7 & 0x100), bgsy, attr, Machine->gfx[1]);
+			hal21_draw_background(bitmap, bgsx+(msbs<<7 & 0x100), bgsy, attr, Machine.gfx[1]);
 	
 			attr = snk_blink_parity;
 			snk_blink_parity ^= 0xdf;
 			for (i=6; i<0x80; i+=8) { palette_set_color(i, attr, attr, attr); }
 	
-			hal21_draw_sprites(bitmap, spsx, spsy, Machine->gfx[2]);
+			hal21_draw_sprites(bitmap, spsx, spsy, Machine.gfx[2]);
 		}
 		else
 		{
-			aso_draw_background(bitmap, bgsx+(~msbs<<7 & 0x100), bgsy, attr, Machine->gfx[1]);
-			aso_draw_sprites(bitmap, spsx, spsy, Machine->gfx[2]);
+			aso_draw_background(bitmap, bgsx+(~msbs<<7 & 0x100), bgsy, attr, Machine.gfx[1]);
+			aso_draw_sprites(bitmap, spsx, spsy, Machine.gfx[2]);
 		}
 	
 		bank = msbs>>6 & 1;

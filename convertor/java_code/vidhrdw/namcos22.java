@@ -1418,9 +1418,9 @@ public class namcos22
 				struct GfxElement *pGfx = decodegfx( (UINT8 *)namcos22_cgram,&cg_layout );
 				if( pGfx )
 				{
-					Machine->gfx[NAMCOS22_ALPHA_GFX] = pGfx;
-					pGfx->colortable = Machine->remapped_colortable;
-					pGfx->total_colors = NAMCOS22_PALETTE_SIZE/16;
+					Machine.gfx[NAMCOS22_ALPHA_GFX] = pGfx;
+					pGfx.colortable = Machine.remapped_colortable;
+					pGfx.total_colors = NAMCOS22_PALETTE_SIZE/16;
 					tilemap = tilemap_create( TextTilemapGetInfo,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64,64 );
 					if( tilemap )
 					{

@@ -245,7 +245,7 @@ public class gaelco
 		gaelco_sort_sprites();
 	
 	
-		fillbitmap( bitmap, Machine->pens[0], cliprect );
+		fillbitmap( bitmap, Machine.pens[0], cliprect );
 	
 		tilemap_draw(bitmap,cliprect,pant[1],3,0);
 		tilemap_draw(bitmap,cliprect,pant[0],3,0);
@@ -274,7 +274,7 @@ public class gaelco
 		gaelco_sort_sprites();
 	
 	
-		fillbitmap( bitmap, Machine->pens[0], cliprect );
+		fillbitmap( bitmap, Machine.pens[0], cliprect );
 	
 		tilemap_draw(bitmap,cliprect,pant[1],TILEMAP_BACK | 3,0);
 		tilemap_draw(bitmap,cliprect,pant[0],TILEMAP_BACK | 3,0);

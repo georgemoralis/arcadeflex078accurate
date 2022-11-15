@@ -30,11 +30,11 @@ public class speedbal
 	
 	public static PaletteInitHandlerPtr palette_init_speedbal  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -89,11 +89,11 @@ public class speedbal
 			return 1;
 	
 		/* foreground bitmap */
-		if ((bitmap_ch = auto_bitmap_alloc (Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((bitmap_ch = auto_bitmap_alloc (Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		/* background bitmap */
-		if ((bitmap_bg = auto_bitmap_alloc (Machine->drv->screen_width*2,Machine->drv->screen_height*2)) == 0)
+		if ((bitmap_bg = auto_bitmap_alloc (Machine.drv.screen_width*2,Machine.drv.screen_height*2)) == 0)
 			return 1;
 	
 		memset (ch_dirtybuffer,1,speedbal_foreground_videoram_size / 2);

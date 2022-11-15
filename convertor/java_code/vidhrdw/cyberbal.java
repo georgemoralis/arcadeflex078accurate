@@ -436,14 +436,14 @@ public class cyberbal
 	#if (CYBERBALL_DUAL_MODE)
 		struct rectangle rect;
 		
-		if (cliprect->min_x < SCREEN_WIDTH)
+		if (cliprect.min_x < SCREEN_WIDTH)
 		{
 			rect = *cliprect;
 			if (rect.max_x >= SCREEN_WIDTH)
 				rect.max_x = SCREEN_WIDTH;
 			update_one_screen(0, bitmap, &rect);
 		}
-		if (cliprect->max_x >= SCREEN_WIDTH)
+		if (cliprect.max_x >= SCREEN_WIDTH)
 		{
 			rect = *cliprect;
 			if (rect.min_x < SCREEN_WIDTH)

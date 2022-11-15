@@ -57,11 +57,11 @@ public class tp84
 	*/
 	public static PaletteInitHandlerPtr palette_init_tp84  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -89,7 +89,7 @@ public class tp84
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the lookup table */
 	
 	
@@ -285,23 +285,23 @@ public class tp84
 	public static VideoUpdateHandlerPtr video_update_tp84  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		struct rectangle clip;
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		tp84_draw_sprites(bitmap);
 	
 		/* draw top fg_tilemap status layer part */
-		clip.min_x = Machine->visible_area.min_x;
-		clip.max_x = Machine->visible_area.min_x+15;
-		clip.min_y = Machine->visible_area.min_y;
-		clip.max_y = Machine->visible_area.max_y;
+		clip.min_x = Machine.visible_area.min_x;
+		clip.max_x = Machine.visible_area.min_x+15;
+		clip.min_y = Machine.visible_area.min_y;
+		clip.max_y = Machine.visible_area.max_y;
 		tilemap_draw(bitmap, &clip, fg_tilemap, 0, 0);
 	
 		/* the middle part of fg_tilemap seems to be used as normal ram and is skipped */
 	
 		/* draw bottom fg_tilemap status layer part */
-		clip.min_x = Machine->visible_area.max_x-15;
-		clip.max_x = Machine->visible_area.max_x;
-		clip.min_y = Machine->visible_area.min_y;
-		clip.max_y = Machine->visible_area.max_y;
+		clip.min_x = Machine.visible_area.max_x-15;
+		clip.max_x = Machine.visible_area.max_x;
+		clip.min_y = Machine.visible_area.min_y;
+		clip.max_y = Machine.visible_area.max_y;
 		tilemap_draw(bitmap, &clip, fg_tilemap, 0, 0);
 	} };
 	

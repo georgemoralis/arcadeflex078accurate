@@ -631,7 +631,7 @@ public class taito_b
 	public static VideoUpdateHandlerPtr video_update_taitob  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 	  if ((video_control & 0x20) == 0)
 	  {
-	    fillbitmap(bitmap,Machine->pens[0],cliprect);
+	    fillbitmap(bitmap,Machine.pens[0],cliprect);
 	    return;
 	  }
 	

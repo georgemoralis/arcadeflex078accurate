@@ -63,11 +63,11 @@ public class rallyx
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_rallyx  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -109,11 +109,11 @@ public class rallyx
 	
 	public static PaletteInitHandlerPtr palette_init_locomotn  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -256,7 +256,7 @@ public class rallyx
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap1,Machine->gfx[0],
+				drawgfx(tmpbitmap1,Machine.gfx[0],
 						rallyx_videoram2[offs],
 						rallyx_colorram2[offs] & 0x3f,
 						flipx,flipy,
@@ -287,7 +287,7 @@ public class rallyx
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs),
 						colorram.read(offs)& 0x3f,
 						flipx,flipy,
@@ -298,7 +298,7 @@ public class rallyx
 	
 	
 		/* copy the temporary bitmap to the screen */
-		copyscrollbitmap(bitmap,tmpbitmap1,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copyscrollbitmap(bitmap,tmpbitmap1,1,&scrollx,1,&scrolly,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 	
 		/* draw the sprites */
@@ -307,12 +307,12 @@ public class rallyx
 			sx = spriteram.read(offs + 1)+ ((spriteram_2.read(offs + 1)& 0x80) << 1) - displacement;
 			sy = 225 - spriteram_2.read(offs)- displacement;
 	
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)& 0xfc) >> 2,
 					spriteram_2.read(offs + 1)& 0x3f,
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
-					Machine->visible_area,TRANSPARENCY_COLOR,0);
+					Machine.visible_area,TRANSPARENCY_COLOR,0);
 		}
 	
 	
@@ -336,13 +336,13 @@ public class rallyx
 				flipy = NOT(flipy);
 			}
 	
-			drawgfx(bitmap,Machine->gfx[0],
+			drawgfx(bitmap,Machine.gfx[0],
 					rallyx_videoram2[offs],
 					rallyx_colorram2[offs] & 0x3f,
 					flipx,flipy,
 					(8*sx + scrollx) & 0xff,(8*sy + scrolly) & 0xff,
 					0,TRANSPARENCY_NONE,0);
-			drawgfx(bitmap,Machine->gfx[0],
+			drawgfx(bitmap,Machine.gfx[0],
 					rallyx_videoram2[offs],
 					rallyx_colorram2[offs] & 0x3f,
 					flipx,flipy,
@@ -367,12 +367,12 @@ public class rallyx
 			y = 237 - rallyx_radary[offs];
 			if (flip_screen()) x -= 3;
 	
-			drawgfx(bitmap,Machine->gfx[2],
+			drawgfx(bitmap,Machine.gfx[2],
 					((rallyx_radarattr[offs] & 0x0e) >> 1) ^ 0x07,
 					0,
 					0,0,
 					x,y,
-					Machine->visible_area,TRANSPARENCY_PEN,3);
+					Machine.visible_area,TRANSPARENCY_PEN,3);
 		}
 	} };
 	
@@ -417,7 +417,7 @@ public class rallyx
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap1,Machine->gfx[0],
+				drawgfx(tmpbitmap1,Machine.gfx[0],
 						rallyx_videoram2[offs],
 						rallyx_colorram2[offs] & 0x3f,
 						flipx,flipy,
@@ -448,7 +448,7 @@ public class rallyx
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs),
 						colorram.read(offs)& 0x3f,
 						flipx,flipy,
@@ -459,7 +459,7 @@ public class rallyx
 	
 	
 		/* copy the temporary bitmap to the screen */
-		copyscrollbitmap(bitmap,tmpbitmap1,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copyscrollbitmap(bitmap,tmpbitmap1,1,&scrollx,1,&scrolly,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 	
 		/* draw the sprites */
@@ -468,12 +468,12 @@ public class rallyx
 			sx = spriteram.read(offs + 1)+ ((spriteram_2.read(offs + 1)& 0x80) << 1) - displacement;
 			sy = 225 - spriteram_2.read(offs)- displacement;
 	
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)& 0xfc) >> 2,
 					spriteram_2.read(offs + 1)& 0x3f,
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
-					Machine->visible_area,TRANSPARENCY_COLOR,0);
+					Machine.visible_area,TRANSPARENCY_COLOR,0);
 		}
 	
 	
@@ -492,12 +492,12 @@ public class rallyx
 			x = rallyx_radarx[offs] + ((~rallyx_radarattr[offs] & 0x08) << 5);
 			y = 237 - rallyx_radary[offs];
 	
-			drawgfx(bitmap,Machine->gfx[2],
+			drawgfx(bitmap,Machine.gfx[2],
 					(rallyx_radarattr[offs] & 0x07) ^ 0x07,
 					0,
 					0,0,
 					x,y,
-					Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	} };
 	
@@ -532,7 +532,7 @@ public class rallyx
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap1,Machine->gfx[0],
+				drawgfx(tmpbitmap1,Machine.gfx[0],
 						(rallyx_videoram2[offs]&0x7f) + 2*(rallyx_colorram2[offs]&0x40) + 2*(rallyx_videoram2[offs]&0x80),
 						rallyx_colorram2[offs] & 0x3f,
 						flipx,flipy,
@@ -564,7 +564,7 @@ public class rallyx
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						(videoram.read(offs)&0x7f) + 2*(colorram.read(offs)&0x40) + 2*(videoram.read(offs)&0x80),
 						colorram.read(offs)& 0x3f,
 						flipx,flipy,
@@ -590,7 +590,7 @@ public class rallyx
 				scrolly = -(*rallyx_scrolly + 16);
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap1,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap1,1,&scrollx,1,&scrolly,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -608,14 +608,14 @@ public class rallyx
 			sy = 225 - spriteram_2.read(offs)- displacement;
 	
 			/* handle reduced visible area in some games */
-			if (flip_screen() && Machine->drv->default_visible_area.max_x == 32*8-1) sx += 32;
+			if (flip_screen() && Machine.drv.default_visible_area.max_x == 32*8-1) sx += 32;
 	
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 					((spriteram.read(offs)& 0x7c) >> 2) + 0x20*(spriteram.read(offs)& 0x01) + ((spriteram.read(offs)& 0x80) >> 1),
 					spriteram_2.read(offs + 1)& 0x3f,
 					spriteram.read(offs)& 2,spriteram.read(offs)& 2,
 					sx,sy,
-					Machine->visible_area,TRANSPARENCY_COLOR,0);
+					Machine.visible_area,TRANSPARENCY_COLOR,0);
 		}
 	
 	
@@ -629,14 +629,14 @@ public class rallyx
 			if (flip_screen()) x -= 3;
 	
 			/* handle reduced visible area in some games */
-			if (flip_screen() && Machine->drv->default_visible_area.max_x == 32*8-1) x += 32;
+			if (flip_screen() && Machine.drv.default_visible_area.max_x == 32*8-1) x += 32;
 	
-			drawgfx(bitmap,Machine->gfx[2],
+			drawgfx(bitmap,Machine.gfx[2],
 					(rallyx_radarattr[offs & 0x0f] & 0x07) ^ 0x07,
 					0,
 					0,0,
 					x,y,
-					Machine->visible_area,TRANSPARENCY_PEN,3);
+					Machine.visible_area,TRANSPARENCY_PEN,3);
 		}
 	} };
 	
@@ -670,7 +670,7 @@ public class rallyx
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap1,Machine->gfx[0],
+				drawgfx(tmpbitmap1,Machine.gfx[0],
 						(rallyx_videoram2[offs]&0x7f) + 2*(rallyx_colorram2[offs]&0x40) + 2*(rallyx_videoram2[offs]&0x80),
 						rallyx_colorram2[offs] & 0x3f,
 						flipx,flipy,
@@ -702,7 +702,7 @@ public class rallyx
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						(videoram.read(offs)&0x7f) + 2*(colorram.read(offs)&0x40) + 2*(videoram.read(offs)&0x80),
 						colorram.read(offs)& 0x3f,
 						flipx,flipy,
@@ -728,7 +728,7 @@ public class rallyx
 				scrolly = -(*rallyx_scrolly + 16);
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap1,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap1,1,&scrollx,1,&scrolly,Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -757,12 +757,12 @@ public class rallyx
 			}
 	
 			if (spriteram.read(offs)& 0x01)	/* ??? */
-				drawgfx(bitmap,Machine->gfx[1],
+				drawgfx(bitmap,Machine.gfx[1],
 						((spriteram.read(offs)& 0x7c) >> 2) + 0x20*(spriteram.read(offs)& 0x01) + ((spriteram.read(offs)& 0x80) >> 1),
 						spriteram_2.read(offs + 1)& 0x3f,
 						flipx,flipy,
 						sx,sy,
-						Machine->visible_area,TRANSPARENCY_COLOR,0);
+						Machine.visible_area,TRANSPARENCY_COLOR,0);
 		}
 	
 	
@@ -784,12 +784,12 @@ public class rallyx
 			y = 237 - rallyx_radary[offs];
 	
 	
-			drawgfx(bitmap,Machine->gfx[2],
+			drawgfx(bitmap,Machine.gfx[2],
 					(rallyx_radarattr[offs & 0x0f] & 0x07) ^ 0x07,
 					0,
 					0,0,
 					x,y,
-					Machine->visible_area,TRANSPARENCY_PEN,3);
+					Machine.visible_area,TRANSPARENCY_PEN,3);
 		}
 	} };
 }

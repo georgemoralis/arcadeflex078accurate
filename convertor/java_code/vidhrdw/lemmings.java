@@ -186,13 +186,13 @@ public class lemmings
 	public static VideoUpdateHandlerPtr video_update_lemmings  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int x1=-lemmings_control_data[0],x0=-lemmings_control_data[2],i,y=0;
 		struct rectangle rect;
-		rect.max_y=cliprect->max_y;
-		rect.min_y=cliprect->min_y;
+		rect.max_y=cliprect.max_y;
+		rect.min_y=cliprect.min_y;
 	
 		/* Decode any characters that have changed in vram */
 		for (i=0; i<2048; i++) {
 			if (vram_dirty[i]) {
-				decodechar(Machine->gfx[2],i,vram_buffer,Machine->drv->gfxdecodeinfo[2].gfxlayout);
+				decodechar(Machine.gfx[2],i,vram_buffer,Machine.drv.gfxdecodeinfo[2].gfxlayout);
 				tilemap_mark_tile_dirty(vram_tilemap,i);
 				vram_dirty[i]=0;
 			}
@@ -203,7 +203,7 @@ public class lemmings
 	
 		/* Pixel layer can be windowed in hardware (two player mode) */
 		if ((lemmings_control_data[6]&2)==0) {
-			copyscrollbitmap(bitmap,bitmap0,1,&x1,1,&y,Machine->visible_area,TRANSPARENCY_PEN,0x100);
+			copyscrollbitmap(bitmap,bitmap0,1,&x1,1,&y,Machine.visible_area,TRANSPARENCY_PEN,0x100);
 		} else {
 			rect.max_x=159;
 			rect.min_x=0;

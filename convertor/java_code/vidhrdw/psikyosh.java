@@ -1060,10 +1060,10 @@ public class psikyosh
 			return 1;
 	
 		/* Need 16-bit z-buffer */
-		if ((z_bitmap = auto_bitmap_alloc_depth(Machine->scrbitmap->width, Machine->scrbitmap->height, 16)) == 0)
+		if ((z_bitmap = auto_bitmap_alloc_depth(Machine.scrbitmap.width, Machine.scrbitmap.height, 16)) == 0)
 			return 1;
 	
-		Machine->gfx[1]->color_granularity=16; /* 256 colour sprites with palette selectable on 16 colour boundaries */
+		Machine.gfx[1].color_granularity=16; /* 256 colour sprites with palette selectable on 16 colour boundaries */
 	
 		{ /* Pens 0xc0-0xff have a gradient of alpha values associated with them */
 			int i;

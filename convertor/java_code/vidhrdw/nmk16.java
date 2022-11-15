@@ -572,7 +572,7 @@ public class nmk16
 					int numtile = data&0xfff;
 					int color = (data&0xf000)>>12;
 	
-					drawgfx(background_bitmap,Machine->gfx[3],
+					drawgfx(background_bitmap,Machine.gfx[3],
 							numtile,
 							color,
 							0,0,   /* no flip */
@@ -582,7 +582,7 @@ public class nmk16
 					data = tilerom[offs+0x1000+bank];
 					numtile = data&0xfff;
 					color = (data&0xf000)>>12;
-					drawgfx(background_bitmap,Machine->gfx[3],
+					drawgfx(background_bitmap,Machine.gfx[3],
 							numtile,
 							color,
 							0,0,   /* no flip */

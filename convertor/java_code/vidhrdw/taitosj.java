@@ -111,7 +111,7 @@ public class taitosj
 	
 	public static PaletteInitHandlerPtr palette_init_taitosj  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 		/* all gfx elements use the same palette */
 		for (i = 0;i < 64;i++)
@@ -217,10 +217,10 @@ public class taitosj
 	
 		for (i = 0; i < 3; i++)
 		{
-			if ((taitosj_tmpbitmap[i] = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+			if ((taitosj_tmpbitmap[i] = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 				return 1;
 	
-			if ((sprite_plane_collbitmap2[i] = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+			if ((sprite_plane_collbitmap2[i] = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 				return 1;
 		}
 	
@@ -758,13 +758,13 @@ public class taitosj
 		{
 			if (dirtycharacter1[offs] == 1)
 			{
-				decodechar(Machine->gfx[0],offs,taitosj_characterram,Machine->drv->gfxdecodeinfo[0].gfxlayout);
+				decodechar(Machine.gfx[0],offs,taitosj_characterram,Machine.drv.gfxdecodeinfo[0].gfxlayout);
 				dirtycharacter1[offs] = 0;
 				alldirty = 1;
 			}
 			if (dirtycharacter2[offs] == 1)
 			{
-				decodechar(Machine->gfx[2],offs,taitosj_characterram + 0x1800,Machine->drv->gfxdecodeinfo[2].gfxlayout);
+				decodechar(Machine.gfx[2],offs,taitosj_characterram + 0x1800,Machine.drv.gfxdecodeinfo[2].gfxlayout);
 				dirtycharacter2[offs] = 0;
 				alldirty = 1;
 			}
@@ -783,12 +783,12 @@ public class taitosj
 		{
 			if (dirtysprite1[offs] == 1)
 			{
-				decodechar(Machine->gfx[1],offs,taitosj_characterram,Machine->drv->gfxdecodeinfo[1].gfxlayout);
+				decodechar(Machine.gfx[1],offs,taitosj_characterram,Machine.drv.gfxdecodeinfo[1].gfxlayout);
 				dirtysprite1[offs] = 0;
 			}
 			if (dirtysprite2[offs] == 1)
 			{
-				decodechar(Machine->gfx[3],offs,taitosj_characterram + 0x1800,Machine->drv->gfxdecodeinfo[3].gfxlayout);
+				decodechar(Machine.gfx[3],offs,taitosj_characterram + 0x1800,Machine.drv.gfxdecodeinfo[3].gfxlayout);
 				dirtysprite2[offs] = 0;
 			}
 		}
@@ -810,7 +810,7 @@ public class taitosj
 				if (flipscreen[0]) sx = 31 - sx;
 				if (flipscreen[1]) sy = 31 - sy;
 	
-				drawgfx(taitosj_tmpbitmap[0],Machine->gfx[taitosj_colorbank[0] & 0x08 ? 2 : 0],
+				drawgfx(taitosj_tmpbitmap[0],Machine.gfx[taitosj_colorbank[0] & 0x08 ? 2 : 0],
 						videoram.read(offs),
 						(taitosj_colorbank[0] & 0x07) + 8,	/* use transparent pen 0 */
 						flipscreen[0],flipscreen[1],
@@ -830,7 +830,7 @@ public class taitosj
 				if (flipscreen[0]) sx = 31 - sx;
 				if (flipscreen[1]) sy = 31 - sy;
 	
-				drawgfx(taitosj_tmpbitmap[1],Machine->gfx[taitosj_colorbank[0] & 0x80 ? 2 : 0],
+				drawgfx(taitosj_tmpbitmap[1],Machine.gfx[taitosj_colorbank[0] & 0x80 ? 2 : 0],
 						taitosj_videoram2[offs],
 						((taitosj_colorbank[0] >> 4) & 0x07) + 8,	/* use transparent pen 0 */
 						flipscreen[0],flipscreen[1],
@@ -850,7 +850,7 @@ public class taitosj
 				if (flipscreen[0]) sx = 31 - sx;
 				if (flipscreen[1]) sy = 31 - sy;
 	
-				drawgfx(taitosj_tmpbitmap[2],Machine->gfx[taitosj_colorbank[1] & 0x08 ? 2 : 0],
+				drawgfx(taitosj_tmpbitmap[2],Machine.gfx[taitosj_colorbank[1] & 0x08 ? 2 : 0],
 						taitosj_videoram3[offs],
 						(taitosj_colorbank[1] & 0x07) + 8,	/* use transparent pen 0 */
 						flipscreen[0],flipscreen[1],
@@ -864,8 +864,8 @@ public class taitosj
 		calculate_sprites_areas();
 	
 		/* first of all, fill the screen with the background color */
-		fillbitmap(bitmap,Machine->pens[8 * (taitosj_colorbank[1] & 0x07)],
-				Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[8 * (taitosj_colorbank[1] & 0x07)],
+				Machine.visible_area);
 	
 		for (i = 0;i < 4;i++)
 			drawplane(draworder[*taitosj_video_priority & 0x1f][i],bitmap);

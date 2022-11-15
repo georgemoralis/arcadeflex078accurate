@@ -798,7 +798,7 @@ public class seta
 	
 	/* For games without tilemaps */
 	public static VideoUpdateHandlerPtr video_update_seta_no_layers  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 		seta_draw_sprites(bitmap,cliprect);
 	} };
 	
@@ -811,7 +811,7 @@ public class seta
 		int order	= 	0;
 		int flip	=	(spriteram16[ 0x600/2 ] & 0x40) >> 6;
 	
-		int vis_dimy = Machine->visible_area.max_y - Machine->visible_area.min_y + 1;
+		int vis_dimy = Machine.visible_area.max_y - Machine.visible_area.min_y + 1;
 	
 		flip ^= tilemaps_flip;
 	
@@ -833,7 +833,7 @@ public class seta
 						fff0 0260 = -$10, $400-$190 -$10
 						ffe8 0272 = -$18, $400-$190 -$18 + $1a		*/
 	
-		x_0 += 0x10 - global_offsets->tilemap_offs[flip ? 1 : 0];
+		x_0 += 0x10 - global_offsets.tilemap_offs[flip ? 1 : 0];
 		y_0 -= (256 - vis_dimy)/2;
 		if (flip)
 		{
@@ -855,7 +855,7 @@ public class seta
 			tilemap_set_enable(tilemap_2, (!(enab_1 & 0x0008)) /*&& (enab_1 & 0x0001)*/ );
 			tilemap_set_enable(tilemap_3, ( (enab_1 & 0x0008)) /*&& (enab_1 & 0x0001)*/ );
 	
-			x_1 += 0x10 - global_offsets->tilemap_offs[flip ? 1 : 0];
+			x_1 += 0x10 - global_offsets.tilemap_offs[flip ? 1 : 0];
 			y_1 -= (256 - vis_dimy)/2;
 			if (flip)
 			{
@@ -885,7 +885,7 @@ public class seta
 	}
 	#endif
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		if (order & 1)	// swap the layers?
 		{
@@ -935,7 +935,7 @@ public class seta
 			}
 		}
 	
-		if (!(strcmp(Machine->gamedrv->name,"zombraid")))
+		if (!(strcmp(Machine.gamedrv.name,"zombraid")))
 		{
 			zombraid_drawcrosshairs(bitmap,cliprect);
 		}

@@ -74,8 +74,8 @@ public class naughtyb
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_naughtyb  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 		/* note: there is no resistor on second PROM so we define second resistance as 0 */
 		const int resistances[2] = { 270, 0 };
@@ -88,7 +88,7 @@ public class naughtyb
 				2,	resistances,	weights_b,	270,	270);
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,r,g,b;
 	
@@ -287,14 +287,14 @@ public class naughtyb
 					sy = (offs - 0x700) / 4;
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[0],
+				drawgfx(tmpbitmap,Machine.gfx[0],
 						naughtyb_videoram2[offs] + 256 * bankreg,
 						(naughtyb_videoram2[offs] >> 5) + 8 * palreg,
 						0,0,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);
 	
-				drawgfx(tmpbitmap,Machine->gfx[1],
+				drawgfx(tmpbitmap,Machine.gfx[1],
 						videoram.read(offs)+ 256*bankreg,
 						(videoram.read(offs)>> 5) + 8 * palreg,
 						0,0,

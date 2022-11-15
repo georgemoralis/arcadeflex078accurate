@@ -39,12 +39,12 @@ public class gameplan
 	
 	
 	public static VideoStartHandlerPtr video_start_gameplan  = new VideoStartHandlerPtr() { public int handler(){
-		if (strcmp(Machine->gamedrv->name, "kaos") == 0)
+		if (strcmp(Machine.gamedrv.name, "kaos") == 0)
 			gameplan_this_is_kaos = 1;
 		else
 			gameplan_this_is_kaos = 0;
 	
-		if (strcmp(Machine->gamedrv->name, "megatack") == 0)
+		if (strcmp(Machine.gamedrv.name, "megatack") == 0)
 			gameplan_this_is_megatack = 1;
 		else
 			gameplan_this_is_megatack = 0;

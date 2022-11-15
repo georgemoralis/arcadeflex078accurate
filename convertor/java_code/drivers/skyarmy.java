@@ -131,7 +131,7 @@ public class skyarmy
 			sy = 242-spriteram.read(offs);
 			flipy = (spriteram.read(offs+1)&0x80)>>7;
 			flipx = (spriteram.read(offs+1)&0x40)>>6;
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 			spriteram.read(offs+1)&0x3f,
 			pal,
 			flipx,flipy,

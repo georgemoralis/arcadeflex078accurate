@@ -594,11 +594,11 @@ public class decocass
 		tilemap_set_transparent_pen( bg_tilemap_r, 0 );
 		tilemap_set_transparent_pen( fg_tilemap, 0 );
 	
-		bg_tilemap_l_clip = Machine->visible_area;
-		bg_tilemap_l_clip.max_y = Machine->drv->screen_height / 2;
+		bg_tilemap_l_clip = Machine.visible_area;
+		bg_tilemap_l_clip.max_y = Machine.drv.screen_height / 2;
 	
-		bg_tilemap_r_clip = Machine->visible_area;
-		bg_tilemap_r_clip.min_y = Machine->drv->screen_height / 2;
+		bg_tilemap_r_clip = Machine.visible_area;
+		bg_tilemap_r_clip.min_y = Machine.drv.screen_height / 2;
 	
 		/* background videroam bits D0-D3 are shared with the tileram */
 		decocass_bgvideoram = decocass_tileram;
@@ -668,7 +668,7 @@ public class decocass
 		}
 	#endif
 	
-		fillbitmap( bitmap, Machine->pens[0], cliprect );
+		fillbitmap( bitmap, Machine.pens[0], cliprect );
 	
 		decode_modified( decocass_fgvideoram, 0x20 );
 	

@@ -196,7 +196,7 @@ public class circus
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_circus  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		circus_draw_fg(bitmap);
 	} };
 	
@@ -244,7 +244,7 @@ public class circus
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_robotbwl  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		robotbwl_draw_scoreboard(bitmap);
 		robotbwl_draw_bowling_alley(bitmap);
 		robotbwl_draw_ball(bitmap);
@@ -261,7 +261,7 @@ public class circus
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_crash  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		crash_draw_car(bitmap);
 	} };
 	
@@ -346,7 +346,7 @@ public class circus
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_ripcord  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		ripcord_draw_skydiver(bitmap);
 	} };
 }

@@ -32,10 +32,10 @@ public class mnight
 		if ((bg_dirtybuffer = auto_malloc(1024)) == 0)
 			return 1;
 	
-		if ((bitmap_bg = auto_bitmap_alloc (Machine->drv->screen_width*2,Machine->drv->screen_height*2)) == 0)
+		if ((bitmap_bg = auto_bitmap_alloc (Machine.drv.screen_width*2,Machine.drv.screen_height*2)) == 0)
 			return 1;
 	
-		if ((bitmap_sp = auto_bitmap_alloc (Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((bitmap_sp = auto_bitmap_alloc (Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		memset(bg_dirtybuffer,1,1024);
@@ -202,14 +202,14 @@ public class mnight
 	
 		if (sp_overdraw)	/* overdraw sprite mode */
 		{
-			copyscrollbitmap(bitmap,bitmap_bg,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,bitmap_bg,1,&scrollx,1,&scrolly,Machine.visible_area,TRANSPARENCY_NONE,0);
 			mnight_draw_sprites(bitmap_sp);
 			mnight_draw_foreground(bitmap_sp);
-			copybitmap(bitmap,bitmap_sp,0,0,0,0,Machine->visible_area,TRANSPARENCY_PEN, 15);
+			copybitmap(bitmap,bitmap_sp,0,0,0,0,Machine.visible_area,TRANSPARENCY_PEN, 15);
 		}
 		else			/* normal sprite mode */
 		{
-			copyscrollbitmap(bitmap,bitmap_bg,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,bitmap_bg,1,&scrollx,1,&scrolly,Machine.visible_area,TRANSPARENCY_NONE,0);
 			mnight_draw_sprites(bitmap);
 			mnight_draw_foreground(bitmap);
 		}

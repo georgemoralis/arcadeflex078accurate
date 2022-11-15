@@ -30,7 +30,7 @@ public class sprint2
 	
 	
 	public static VideoStartHandlerPtr video_start_sprint2  = new VideoStartHandlerPtr() { public int handler(){
-		helper = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		helper = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 	
 		if (helper == NULL)
 		{
@@ -125,7 +125,7 @@ public class sprint2
 	
 		for (i = 0; i < 4; i++)
 		{
-			drawgfx(bitmap, Machine->gfx[1],
+			drawgfx(bitmap, Machine.gfx[1],
 				get_sprite_code(i),
 				i,
 				0, 0,

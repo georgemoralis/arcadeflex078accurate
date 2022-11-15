@@ -329,8 +329,8 @@ public class nemesis
 		if (!blank_characterdata)
 			return 1;
 		memset(blank_characterdata,0x00,32*8/8*(2048+1));
-		decodechar(Machine->gfx[0],0x800,(unsigned char *)blank_characterdata,
-						Machine->drv->gfxdecodeinfo[0].gfxlayout);
+		decodechar(Machine.gfx[0],0x800,(unsigned char *)blank_characterdata,
+						Machine.drv.gfxdecodeinfo[0].gfxlayout);
 	
 		flipscreen = 0;
 		tilemap_flip = 0;
@@ -610,7 +610,7 @@ public class nemesis
 		update_gfx();
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		tilemap_set_scrolly( background, 0, (nemesis_yscroll[0x180] & 0xff) );
 	
@@ -637,7 +637,7 @@ public class nemesis
 		update_gfx();
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);
+		fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		clip.min_x = 0;
 		clip.max_x = 255;
@@ -653,7 +653,7 @@ public class nemesis
 			tilemap_set_scrolly( foreground, offs, nemesis_yscroll2[offs] );
 		}
 	
-		for (offs = cliprect->min_y; offs <= cliprect->max_y; offs++)
+		for (offs = cliprect.min_y; offs <= cliprect.max_y; offs++)
 		{
 			clip.min_y = offs;
 			clip.max_y = offs;

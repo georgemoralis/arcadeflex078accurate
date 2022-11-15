@@ -301,14 +301,14 @@ public class pgm
 	public static VideoUpdateHandlerPtr video_update_pgm  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int y;
 	
-		fillbitmap(bitmap,get_black_pen(),Machine->visible_area);
+		fillbitmap(bitmap,get_black_pen(),Machine.visible_area);
 	
 		pgm_sprite_source = pgm_spritebufferram;
 		pgm_drawsprites(1);
 	
 		/* copy the sprite bitmap to the screen */
 		for (y = 0; y < 224; y++)
-			draw_scanline16(bitmap, 0, y, 448, &sprite_bitmap[y * (448+32+32)+32], Machine->pens, 0x400);
+			draw_scanline16(bitmap, 0, y, 448, &sprite_bitmap[y * (448+32+32)+32], Machine.pens, 0x400);
 	
 		tilemap_set_scrolly(pgm_bg_tilemap,0, pgm_videoregs[0x2000/2]);
 	
@@ -320,7 +320,7 @@ public class pgm
 		pgm_drawsprites(0);
 		/* copy the sprite bitmap to the screen */
 		for (y = 0; y < 224; y++)
-			draw_scanline16(bitmap, 0, y, 448, &sprite_bitmap[y * (448+32+32)+32], Machine->pens, 0x400);
+			draw_scanline16(bitmap, 0, y, 448, &sprite_bitmap[y * (448+32+32)+32], Machine.pens, 0x400);
 	
 		tilemap_set_scrolly(pgm_tx_tilemap,0, pgm_videoregs[0x5000/2]);
 		tilemap_set_scrollx(pgm_tx_tilemap,0, pgm_videoregs[0x6000/2]); // Check

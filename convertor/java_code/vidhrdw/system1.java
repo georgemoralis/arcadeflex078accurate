@@ -129,7 +129,7 @@ public class system1
 		if ((wbml_paged_videoram = auto_malloc(0x4000)) == 0)			/* Allocate 16k for background banked ram */
 			return 1;
 		memset(wbml_paged_videoram,0,0x4000);
-		if ((tmp_bitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmp_bitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		return 0;
@@ -518,7 +518,7 @@ public class system1
 	
 		/* even if screen is off, sprites must still be drawn to update the collision table */
 		if (system1_video_mode & 0x10)  /* screen off */
-			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+			fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	} };
 	
 	
@@ -656,7 +656,7 @@ public class system1
 	
 		/* even if screen is off, sprites must still be drawn to update the collision table */
 		if (system1_video_mode & 0x10)  /* screen off */
-			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+			fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	
 	
 	#ifdef MAME_DEBUG
@@ -782,7 +782,7 @@ public class system1
 	
 		/* even if screen is off, sprites must still be drawn to update the collision table */
 		if (system1_video_mode & 0x10)  /* screen off */
-			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+			fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_blockgal  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
@@ -801,7 +801,7 @@ public class system1
 	
 		/* even if screen is off, sprites must still be drawn to update the collision table */
 		if (system1_video_mode & 0x10)  /* screen off */
-			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+			fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	
 		blockgal_kludgeoffset = 0;
 	} };

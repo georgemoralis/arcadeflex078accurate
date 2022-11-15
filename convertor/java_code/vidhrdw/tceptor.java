@@ -50,8 +50,8 @@ public class tceptor
 		int totcolors, totlookup;
 		int i;
 	
-		totcolors = Machine->drv->total_colors;
-		totlookup = Machine->drv->color_table_len;
+		totcolors = Machine.drv.total_colors;
+		totlookup = Machine.drv.color_table_len;
 	
 		for (i = 0; i < totcolors; i++)
 		{
@@ -441,7 +441,7 @@ public class tceptor
 	
 		/* find first empty slot to decode gfx */
 		for (gfx_index = 0; gfx_index < MAX_GFX_ELEMENTS; gfx_index++)
-			if (Machine->gfx[gfx_index] == 0)
+			if (Machine.gfx[gfx_index] == 0)
 				break;
 		if (gfx_index + 4 > MAX_GFX_ELEMENTS)
 			return 1;
@@ -459,14 +459,14 @@ public class tceptor
 			return 1;
 	
 		/* allocate temp bitmaps */
-		temp_bitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		temp_bitmap = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 		if (!temp_bitmap)
 			return 1;
 	
 		if (namco_road_init(gfx_index))
 			return 1;
 	
-		namco_road_set_transparent_color(Machine->remapped_colortable[0xfff]);
+		namco_road_set_transparent_color(Machine.remapped_colortable[0xfff]);
 	
 		tx_tilemap = tilemap_create(get_tx_tile_info, tilemap_scan_cols, TILEMAP_TRANSPARENT_COLOR, 8, 8, 34, 28);
 		if (!tx_tilemap)
@@ -617,7 +617,7 @@ public class tceptor
 	
 		// right background
 		rect.min_x = bg_center;
-		rect.max_x = cliprect->max_x;
+		rect.max_x = cliprect.max_x;
 		tilemap_set_scrollx(bg2_tilemap, 0, bg2_scroll_x + 20);
 		tilemap_set_scrolly(bg2_tilemap, 0, bg2_scroll_y + 20); // 32?
 		tilemap_draw(bitmap, &rect, bg2_tilemap, 0, 0);

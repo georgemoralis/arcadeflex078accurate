@@ -172,7 +172,7 @@ public class wrally
 		tilemap_set_scrolly(pant[1], 0, wrally_vregs[2]);
 		tilemap_set_scrollx(pant[1], 0, wrally_vregs[3]);
 	
-		fillbitmap( bitmap, Machine->pens[0], cliprect );
+		fillbitmap( bitmap, Machine.pens[0], cliprect );
 	
 		tilemap_draw(bitmap,cliprect,pant[1],0,0);
 		tilemap_draw(bitmap,cliprect,pant[0],0,0);

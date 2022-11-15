@@ -210,7 +210,7 @@ public class yunsung8
 	#endif
 	
 		if (layers_ctrl&1)	tilemap_draw(bitmap,cliprect, tilemap_0, 0,0);
-		else				fillbitmap(bitmap,Machine->pens[0],cliprect);
+		else				fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		if (layers_ctrl&2)	tilemap_draw(bitmap,cliprect, tilemap_1, 0,0);
 	} };

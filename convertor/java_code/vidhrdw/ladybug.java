@@ -196,7 +196,7 @@ public class ladybug
 				tilemap_set_scrollx(bg_tilemap, offs, videoram.read(32 * sx + sy));
 		}
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		ladybug_draw_sprites(bitmap);
 	} };
 }

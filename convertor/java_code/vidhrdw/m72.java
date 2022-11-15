@@ -646,7 +646,7 @@ public class m72
 	public static VideoUpdateHandlerPtr video_update_m72  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		if (video_off)
 		{
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 			return;
 		}
 	
@@ -663,7 +663,7 @@ public class m72
 	
 		if (video_off)
 		{
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 			return;
 		}
 	

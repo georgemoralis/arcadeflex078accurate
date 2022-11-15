@@ -285,19 +285,19 @@ public class segac2
 	
 			 	/* find first empty slot to decode gfx */
 			for (gfx_index = 0; gfx_index < MAX_GFX_ELEMENTS; gfx_index++)
-				if (Machine->gfx[gfx_index] == 0)
+				if (Machine.gfx[gfx_index] == 0)
 					break;
 			if (gfx_index == MAX_GFX_ELEMENTS)
 				return 1;
 	
 				/* create the char set (gfx will then be updated dynamically from RAM) */
-				Machine->gfx[gfx_index] = decodegfx((UINT8 *)vdp_vram,&genvdp_charlayout);
-				if (!Machine->gfx[gfx_index])
+				Machine.gfx[gfx_index] = decodegfx((UINT8 *)vdp_vram,&genvdp_charlayout);
+				if (!Machine.gfx[gfx_index])
 					return 1;
 	
 				/* set the color information */
-				Machine->gfx[gfx_index]->colortable = Machine->remapped_colortable;
-				Machine->gfx[gfx_index]->total_colors = 64;
+				Machine.gfx[gfx_index].colortable = Machine.remapped_colortable;
+				Machine.gfx[gfx_index].total_colors = 64;
 	
 			scrolla_tilemap = tilemap_create(get_scrolla_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,64,64);
 			scrollb_tilemap = tilemap_create(get_scrollb_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT, 8, 8,64,64);
@@ -447,8 +447,8 @@ public class segac2
 	
 	
 		/* generate the final screen */
-		for (y = cliprect->min_y; y <= cliprect->max_y; y++)
-			drawline((UINT16 *)bitmap->line[y], y);
+		for (y = cliprect.min_y; y <= cliprect.max_y; y++)
+			drawline((UINT16 *)bitmap.line[y], y);
 	
 		segac2_bg_palbase = old_bg;
 		segac2_sp_palbase = old_sp;
@@ -484,8 +484,8 @@ public class segac2
 	
 	
 		/* generate the final screen */
-		for (y = cliprect->min_y+192; y <= cliprect->max_y; y++)
-			drawline((UINT16 *)bitmap->line[y], y-192);
+		for (y = cliprect.min_y+192; y <= cliprect.max_y; y++)
+			drawline((UINT16 *)bitmap.line[y], y-192);
 	
 		segac2_bg_palbase = old_bg;
 		segac2_sp_palbase = old_sp;
@@ -530,8 +530,8 @@ public class segac2
 		   shown by a keystroke for now */
 		if(keyboard_pressed(KEYCODE_G))
 		{
-			for (y = cliprect->min_y; y <= cliprect->max_y; y++)
-				drawline((UINT16 *)bitmap->line[y], y);
+			for (y = cliprect.min_y; y <= cliprect.max_y; y++)
+				drawline((UINT16 *)bitmap.line[y], y);
 		}
 		else 
 			update_megatech_video_normal(bitmap, cliprect);

@@ -236,7 +236,7 @@ public class m90
 		fillbitmap(priority_bitmap,0,cliprect);
 	
 		if (!pf2_enable)
-			fillbitmap(bitmap,Machine->pens[0],cliprect);
+			fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		if (pf2_enable)
 		{

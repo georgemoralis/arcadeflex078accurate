@@ -162,7 +162,7 @@ public class galpanic
 	
 	public static VideoUpdateHandlerPtr video_update_galpanic  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* copy the temporary bitmap to the screen */
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 		draw_fgbitmap(bitmap);
 	
@@ -171,7 +171,7 @@ public class galpanic
 	
 	public static VideoUpdateHandlerPtr video_update_comad  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* copy the temporary bitmap to the screen */
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 		draw_fgbitmap(bitmap);
 	

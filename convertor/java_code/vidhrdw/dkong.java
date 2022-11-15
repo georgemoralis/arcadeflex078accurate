@@ -52,8 +52,8 @@ public class dkong
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_dkong  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		for (i = 0;i < 256;i++)
@@ -117,8 +117,8 @@ public class dkong
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_dkong3  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		for (i = 0;i < 256;i++)
@@ -330,38 +330,38 @@ public class dkong
 	public static VideoUpdateHandlerPtr video_update_radarscp  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		palette_set_color(256,0xff,0x00,0x00);	/* stars */
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		draw_grid(bitmap);
 		draw_sprites(bitmap, 0x40, 1);
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_dkong  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		draw_sprites(bitmap, 0x40, 1);
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_pestplce  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 	
 		/* Draw the sprites. */
 		for (offs = 0;offs < spriteram_size[0];offs += 4)
 		{
 			if (spriteram.read(offs))
 			{
-				drawgfx(bitmap,Machine->gfx[1],
+				drawgfx(bitmap,Machine.gfx[1],
 						spriteram.read(offs + 2),
 						(spriteram.read(offs + 1)& 0x0f) + 16 * palette_bank,
 						spriteram.read(offs + 1)& 0x80,spriteram.read(offs + 1)& 0x40,
 						spriteram.read(offs + 3)- 8,240 - spriteram.read(offs)+ 8,
-						Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine.visible_area,TRANSPARENCY_PEN,0);
 			}
 		}
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_spclforc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 	
 		/* it uses spriteram.read(offs + 2)& 0x10 for sprite bank */
 		draw_sprites(bitmap, 0x10, 3);

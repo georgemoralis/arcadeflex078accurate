@@ -203,10 +203,10 @@ public class tehkanwc
 	
 	public static VideoUpdateHandlerPtr video_update_tehkanwc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap, 0, scroll_x[0] + 256 * scroll_x[1]);
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 		tehkanwc_draw_sprites(bitmap);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 1, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 1, 0);
 		gridiron_drawled(bitmap, led0, 0);
 		gridiron_drawled(bitmap, led1, 1);
 	} };

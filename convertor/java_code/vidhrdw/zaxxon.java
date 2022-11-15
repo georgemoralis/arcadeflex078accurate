@@ -61,10 +61,10 @@ public class zaxxon
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_zaxxon  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -396,14 +396,14 @@ public class zaxxon
 			sy = 8 * (offs / 32);
 			sx = 8 * (offs % 32);
 	
-			drawgfx(backgroundbitmap1,Machine->gfx[1],
+			drawgfx(backgroundbitmap1,Machine.gfx[1],
 					memory_region(REGION_GFX4)[offs] + 256 * (memory_region(REGION_GFX4)[0x4000 + offs] & 3),
 					memory_region(REGION_GFX4)[0x4000 + offs] >> 4,
 					0,0,
 					sx,sy,
 					0,TRANSPARENCY_NONE,0);
 	
-			drawgfx(backgroundbitmap2,Machine->gfx[1],
+			drawgfx(backgroundbitmap2,Machine.gfx[1],
 					memory_region(REGION_GFX4)[offs] + 256 * (memory_region(REGION_GFX4)[0x4000 + offs] & 3),
 					16 + (memory_region(REGION_GFX4)[0x4000 + offs] >> 4),
 					0,0,

@@ -32,10 +32,10 @@ public class gsword
 						0xD5,0x7A,0x85,0x8D,0x27,0x1A,0x03,0x0F };
 		int i;
 	
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -63,7 +63,7 @@ public class gsword
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the sprite lookup table */
 	
 		/* characters */
@@ -82,10 +82,10 @@ public class gsword
 						0xD5,0x7A,0x85,0x8D,0x27,0x1A,0x03,0x0F };
 		int i;
 	
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -109,7 +109,7 @@ public class gsword
 			color_prom++;
 		}
 	
-		color_prom += Machine->drv->total_colors;
+		color_prom += Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the sprite lookup table */
 	
 		/* characters */
@@ -230,7 +230,7 @@ public class gsword
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_gsword  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
 		gsword_draw_sprites(bitmap);
 	} };
 }

@@ -249,7 +249,7 @@ public class metlclsh
 	***************************************************************************/
 	
 	public static VideoUpdateHandlerPtr video_update_metlclsh  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[0x10],cliprect);
+		fillbitmap(bitmap,Machine.pens[0x10],cliprect);
 	
 		tilemap_draw(bitmap,cliprect,fg_tilemap,1,0);	// low priority tiles of foreground
 		if (metlclsh_scrollx[0] & 0x08)					// background (if enabled)

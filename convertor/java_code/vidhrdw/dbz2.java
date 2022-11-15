@@ -154,7 +154,7 @@ public class dbz2
 	
 	public static VideoUpdateHandlerPtr video_update_dbz2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap, 0, NULL);
-		fillbitmap(bitmap, get_black_pen(), Machine->visible_area);
+		fillbitmap(bitmap, get_black_pen(), Machine.visible_area);
 	
 		K053936_0_zoom_draw(bitmap,cliprect,dbz2_bg2_tilemap,0,0);
 		K053936_1_zoom_draw(bitmap,cliprect,dbz2_bg_tilemap,0,0);
@@ -168,7 +168,7 @@ public class dbz2
 	
 	public static VideoUpdateHandlerPtr video_update_dbz  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap, 0, NULL);
-		fillbitmap(bitmap, get_black_pen(), Machine->visible_area);
+		fillbitmap(bitmap, get_black_pen(), Machine.visible_area);
 	
 	
 		K054157_tilemap_update();

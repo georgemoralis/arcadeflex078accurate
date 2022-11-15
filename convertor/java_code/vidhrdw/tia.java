@@ -203,8 +203,8 @@ public class tia
 	
 	
 	public static VideoStartHandlerPtr video_start_tia  = new VideoStartHandlerPtr() { public int handler(){
-		int cx = Machine->drv->screen_width;
-		int cy = Machine->drv->screen_height;
+		int cx = Machine.drv.screen_width;
+		int cy = Machine.drv.screen_height;
 	
 		helper[0] = auto_bitmap_alloc(cx, cy);
 		helper[1] = auto_bitmap_alloc(cx, cy);

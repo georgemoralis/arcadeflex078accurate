@@ -464,19 +464,19 @@ public class namcos21
 			for( i=0; i<4; i++ )
 			{
 				data = 0xf&(namcos21_polyattr0[i/4]>>(4*(3-(i&3))));
-				drawgfx( bitmap, Machine->uifont, "0123456789abcdef"[data], 0,0,0,
+				drawgfx( bitmap, Machine.uifont, "0123456789abcdef"[data], 0,0,0,
 					i*12,16*0,cliprect,TRANSPARENCY_NONE,0 );
 			}
 			for( i=0; i<4; i++ )
 			{
 				data = 0xf&(namcos21_polyattr1[i/4]>>(4*(3-(i&3))));
-				drawgfx( bitmap, Machine->uifont, "0123456789abcdef"[data], 0,0,0,
+				drawgfx( bitmap, Machine.uifont, "0123456789abcdef"[data], 0,0,0,
 					i*12,16*1,cliprect,TRANSPARENCY_NONE,0 );
 			}
 			for( i=0; i<4*8; i++ )
 			{
 				data = 0xf&(namcos21_objattr[i/4]>>(4*(3-(i&3))));
-				drawgfx( bitmap, Machine->uifont, "0123456789abcdef"[data], 0,0,0,
+				drawgfx( bitmap, Machine.uifont, "0123456789abcdef"[data], 0,0,0,
 					i*12,16*2,cliprect,TRANSPARENCY_NONE,0 );
 			}
 		}

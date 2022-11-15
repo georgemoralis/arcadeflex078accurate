@@ -1166,8 +1166,8 @@ public class deco32
 			struct rectangle clip;
 			int overflow=deco32_raster_display_position;
 	
-			clip.min_x = cliprect->min_x;
-			clip.max_x = cliprect->max_x;
+			clip.min_x = cliprect.min_x;
+			clip.max_x = cliprect.max_x;
 	
 			/* Finish list up to end of visible display */
 			deco32_raster_display_list[overflow++]=255;
@@ -1236,7 +1236,7 @@ public class deco32
 		deco16_clear_sprite_priority_bitmap();
 		fillbitmap(priority_bitmap,0,cliprect);
 		if ((deco32_pf34_control[5]&0x8000)==0)
-			fillbitmap(bitmap,Machine->pens[0x200],cliprect);
+			fillbitmap(bitmap,Machine.pens[0x200],cliprect);
 	
 		/* Draw playfields & sprites */
 		if (deco32_pri&2) {
@@ -1291,7 +1291,7 @@ public class deco32
 		/* Draw screen */
 		fillbitmap(priority_bitmap,0,cliprect);
 		if ((deco32_pf34_control[5]&0x8000)==0)
-			fillbitmap(bitmap,Machine->pens[0x200],cliprect); //TODO - pf4 palette entry 0 is shown
+			fillbitmap(bitmap,Machine.pens[0x200],cliprect); //TODO - pf4 palette entry 0 is shown
 		else
 			tilemap_draw(bitmap,cliprect,pf4_tilemap,0,1);
 	if (!keyboard_pressed(KEYCODE_Q))	tilemap_draw(bitmap,cliprect,pf3_tilemap,0,2);

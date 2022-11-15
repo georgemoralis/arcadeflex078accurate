@@ -878,11 +878,11 @@ public class metro
 			free(dirtyindex);
 		}
 	
-		metro_sprite_xoffs	=	metro_videoregs[0x06/2] - Machine->drv->screen_width  / 2;
-		metro_sprite_yoffs	=	metro_videoregs[0x04/2] - Machine->drv->screen_height / 2;
+		metro_sprite_xoffs	=	metro_videoregs[0x06/2] - Machine.drv.screen_width  / 2;
+		metro_sprite_yoffs	=	metro_videoregs[0x04/2] - Machine.drv.screen_height / 2;
 	
 		/* The background color is selected by a register */
-		fillbitmap(bitmap,Machine->pens[((metro_videoregs[0x12/2] & 0x0fff) ^ 0x0ff) + 0x1000],cliprect);
+		fillbitmap(bitmap,Machine.pens[((metro_videoregs[0x12/2] & 0x0fff) ^ 0x0ff) + 0x1000],cliprect);
 	
 		/*	Screen Control Register:
 	

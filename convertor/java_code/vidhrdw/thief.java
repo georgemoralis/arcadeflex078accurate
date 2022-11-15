@@ -145,7 +145,7 @@ public class thief
 	public static VideoUpdateHandlerPtr video_update_thief  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect)
 		unsigned int offs;
 		int flipscreen = thief_video_control&1;
-		const pen_t *pal_data = Machine->pens;
+		const pen_t *pal_data = Machine.pens;
 		UINT8 *dirty = dirtybuffer;
 		const UINT8 *source = videoram;
 		struct mame_bitmap *page;

@@ -368,7 +368,7 @@ public class taitoair
 	public static VideoUpdateHandlerPtr video_update_taitoair  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		TC0080VCO_tilemap_update();
 	
-		fillbitmap(bitmap, Machine->pens[0x41], cliprect);
+		fillbitmap(bitmap, Machine.pens[0x41], cliprect);
 	
 	#ifdef MAME_DEBUG
 		if ( !keyboard_pressed(KEYCODE_A) )
@@ -391,10 +391,10 @@ public class taitoair
 		if(taitoair_line_ram[0x3fff]) {
 			int adr = 0x3fff;
 			struct poly q;
-			view.x1 = cliprect->min_x;
-			view.y1 = cliprect->min_y;
-			view.x2 = cliprect->max_x;
-			view.y2 = cliprect->max_y;
+			view.x1 = cliprect.min_x;
+			view.y1 = cliprect.min_y;
+			view.x2 = cliprect.max_x;
+			view.y2 = cliprect.max_y;
 	
 			while(adr>=0 && taitoair_line_ram[adr] && taitoair_line_ram[adr] != 0x4000) {
 				int pcount;

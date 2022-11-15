@@ -497,49 +497,49 @@ public class starcrus
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_starcrus  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-	    fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+	    fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	
 		/* Draw ship 1 */
 	    drawgfx(bitmap,
-	            Machine->gfx[8+((s1_sprite&0x04)>>2)],
+	            Machine.gfx[8+((s1_sprite&0x04)>>2)],
 	            (s1_sprite&0x03)^0x03,
 	            0,
 	            (s1_sprite&0x08)>>3,(s1_sprite&0x10)>>4,
 	            s1_x,s1_y,
-	            Machine->visible_area,
+	            Machine.visible_area,
 	            TRANSPARENCY_PEN,
 	            0);
 	
 		/* Draw ship 2 */
 	    drawgfx(bitmap,
-	            Machine->gfx[10+((s2_sprite&0x04)>>2)],
+	            Machine.gfx[10+((s2_sprite&0x04)>>2)],
 	            (s2_sprite&0x03)^0x03,
 	            0,
 	            (s2_sprite&0x08)>>3,(s2_sprite&0x10)>>4,
 	            s2_x,s2_y,
-	            Machine->visible_area,
+	            Machine.visible_area,
 	            TRANSPARENCY_PEN,
 	            0);
 	
 		/* Draw score/projectile 1 */
 		drawgfx(bitmap,
-	            Machine->gfx[(p1_sprite&0x0c)>>2],
+	            Machine.gfx[(p1_sprite&0x0c)>>2],
 	            (p1_sprite&0x03)^0x03,
 	            0,
 	            0,0,
 	            p1_x,p1_y,
-	            Machine->visible_area,
+	            Machine.visible_area,
 	            TRANSPARENCY_PEN,
 	            0);
 	
 		/* Draw score/projectile 2 */
 		drawgfx(bitmap,
-	            Machine->gfx[4+((p2_sprite&0x0c)>>2)],
+	            Machine.gfx[4+((p2_sprite&0x0c)>>2)],
 	            (p2_sprite&0x03)^0x03,
 	            0,
 	            0,0,
 	            p2_x,p2_y,
-	            Machine->visible_area,
+	            Machine.visible_area,
 	            TRANSPARENCY_PEN,
 	            0);
 	

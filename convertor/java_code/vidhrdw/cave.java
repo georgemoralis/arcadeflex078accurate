@@ -203,8 +203,8 @@ public class cave
 			for( pen = 0; pen < 16; pen++ )
 				colortable[color * 256 + pen] = color * 16 + pen;
 	
-		for( color = 0x8000; color < Machine->drv->color_table_len; color++ )
-				colortable[color] = (color - 0x8000) % Machine->drv->total_colors;
+		for( color = 0x8000; color < Machine.drv.color_table_len; color++ )
+				colortable[color] = (color - 0x8000) % Machine.drv.total_colors;
 	} };
 	
 	/***************************************************************************
@@ -1506,7 +1506,7 @@ public class cave
 	
 		cave_sprite_check(cliprect);
 	
-		fillbitmap(bitmap,Machine->remapped_colortable[background_color],cliprect);
+		fillbitmap(bitmap,Machine.remapped_colortable[background_color],cliprect);
 	
 		/*
 			Tiles and sprites are ordered by priority (0 back, 3 front) with

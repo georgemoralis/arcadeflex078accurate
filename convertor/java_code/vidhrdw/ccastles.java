@@ -89,10 +89,10 @@ public class ccastles
 	
 	***************************************************************************/
 	public static VideoStartHandlerPtr video_start_ccastles  = new VideoStartHandlerPtr() { public int handler(){
-		if ((tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
-		if ((maskbitmap = auto_bitmap_alloc(Machine->drv->screen_width,Machine->drv->screen_height)) == 0)
+		if ((maskbitmap = auto_bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 			return 1;
 	
 		if ((sprite_bm = auto_bitmap_alloc(8,16)) == 0)
@@ -306,7 +306,7 @@ public class ccastles
 	
 			if (spriteaddr[offs+2] & 0x80)	/* background can have priority over the sprite */
 			{
-				drawgfx(sprite_bm,Machine->gfx[0],
+				drawgfx(sprite_bm,Machine.gfx[0],
 						spriteaddr[offs],
 						0,
 						flip_screen(),flip_screen(),
@@ -326,17 +326,17 @@ public class ccastles
 	
 							/* if background has priority over sprite, make the */
 							/* temporary bitmap transparent */
-							if (pixb != 0 && (pixa != Machine->pens[0]))
-								plot_pixel(sprite_bm, i, j, Machine->pens[7]);
+							if (pixb != 0 && (pixa != Machine.pens[0]))
+								plot_pixel(sprite_bm, i, j, Machine.pens[7]);
 						}
 					}
 				}
 	
-				copybitmap(bitmap,sprite_bm,0,0,x,y,cliprect,TRANSPARENCY_PEN,Machine->pens[7]);
+				copybitmap(bitmap,sprite_bm,0,0,x,y,cliprect,TRANSPARENCY_PEN,Machine.pens[7]);
 			}
 			else
 			{
-				drawgfx(bitmap,Machine->gfx[0],
+				drawgfx(bitmap,Machine.gfx[0],
 						spriteaddr[offs],
 						0,
 						flip_screen(),flip_screen(),

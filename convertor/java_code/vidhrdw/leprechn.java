@@ -39,7 +39,7 @@ public class leprechn
 	
 	
 	public static VideoStartHandlerPtr video_start_leprechn  = new VideoStartHandlerPtr() { public int handler(){
-		videoram_size[0] = Machine->drv->screen_width * Machine->drv->screen_height;
+		videoram_size[0] = Machine.drv.screen_width * Machine.drv.screen_height;
 	
 		/* allocate our own dirty buffer */
 		videoram = auto_malloc(videoram_size[0]);

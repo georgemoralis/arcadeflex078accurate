@@ -361,7 +361,7 @@ public class realbrk
 			return;
 		}
 		else
-			fillbitmap(bitmap,Machine->pens[realbrk_vregs[0xc/2] & 0x7fff],cliprect);
+			fillbitmap(bitmap,Machine.pens[realbrk_vregs[0xc/2] & 0x7fff],cliprect);
 	
 		if (layers_ctrl & 2)	tilemap_draw(bitmap,cliprect,tilemap_1,0,0);
 		if (layers_ctrl & 1)	tilemap_draw(bitmap,cliprect,tilemap_0,0,0);

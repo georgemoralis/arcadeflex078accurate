@@ -101,16 +101,16 @@ public class mcr68
 	
 	public static PaletteInitHandlerPtr palette_init_zwackery  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		const UINT8 *colordatabase = (const UINT8 *)memory_region(REGION_GFX3);
-		struct GfxElement *gfx0 = Machine->gfx[0];
-		struct GfxElement *gfx2 = Machine->gfx[2];
+		struct GfxElement *gfx0 = Machine.gfx[0];
+		struct GfxElement *gfx2 = Machine.gfx[2];
 		int code, y, x;
 	
 		/* "colorize" each code */
-		for (code = 0; code < gfx0->total_elements; code++)
+		for (code = 0; code < gfx0.total_elements; code++)
 		{
 			const UINT8 *coldata = colordatabase + code * 32;
-			UINT8 *gfxdata0 = gfx0->gfxdata + code * gfx0->char_modulo;
-			UINT8 *gfxdata2 = gfx2->gfxdata + code * gfx2->char_modulo;
+			UINT8 *gfxdata0 = gfx0.gfxdata + code * gfx0.char_modulo;
+			UINT8 *gfxdata2 = gfx2.gfxdata + code * gfx2.char_modulo;
 	
 			/* assume 16 rows */
 			for (y = 0; y < 16; y++)
@@ -136,8 +136,8 @@ public class mcr68
 				}
 	
 				/* advance */
-				gfxdata0 += gfx0->line_modulo;
-				gfxdata2 += gfx2->line_modulo;
+				gfxdata0 += gfx0.line_modulo;
+				gfxdata2 += gfx2.line_modulo;
 			}
 		}
 	} };

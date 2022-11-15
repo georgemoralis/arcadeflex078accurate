@@ -289,14 +289,14 @@ public class megasys1
 		megasys1_8x8_scroll_1_factor = 1;	megasys1_16x16_scroll_1_factor = 4;
 		megasys1_8x8_scroll_2_factor = 1;	megasys1_16x16_scroll_2_factor = 4;
 	
-		if (Machine->gamedrv == &driver_soldamj)
+		if (Machine.gamedrv == &driver_soldamj)
 		{
 			megasys1_8x8_scroll_1_factor = 4;	megasys1_16x16_scroll_1_factor = 4;
 		}
 	
 		hardware_type_z = 0;
-		if (Machine->gamedrv			==	&driver_lomakai ||
-			Machine->gamedrv->clone_of	==	&driver_lomakai )
+		if (Machine.gamedrv			==	&driver_lomakai ||
+			Machine.gamedrv.clone_of	==	&driver_lomakai )
 			hardware_type_z = 1;
 	
 	 	return 0;
@@ -792,8 +792,8 @@ public class megasys1
 	
 		i = 0;
 		while (	priorities[i].driver &&
-				priorities[i].driver != Machine->gamedrv &&
-				priorities[i].driver != Machine->gamedrv->clone_of)
+				priorities[i].driver != Machine.gamedrv &&
+				priorities[i].driver != Machine.gamedrv.clone_of)
 			i++;
 	
 		if (priorities[i].driver)
@@ -1023,7 +1023,7 @@ public class megasys1
 					if (flag != 0)
 					{
 						flag = 0;
-						fillbitmap(bitmap,Machine->pens[0],cliprect);
+						fillbitmap(bitmap,Machine.pens[0],cliprect);
 					}
 	
 					if (megasys1_sprite_flag & 0x100)	/* sprites are split */

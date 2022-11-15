@@ -673,15 +673,15 @@ public class spdbuggy
 	#if 0
 		unsigned char *RAM = memory_region( REGION_CPU1 );
 	
-		fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+		fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 		for (i = 0; i < 0x1000; i+=2)
 		{
-			drawgfx(bitmap,Machine->gfx[1],
+			drawgfx(bitmap,Machine.gfx[1],
 					RAM[0x8000+i],
 					0,
 					0, 0,
 					((i/2)%FG_NX)*8,((i/2)/FG_NX)*8,
-					Machine->drv->visible_area,TRANSPARENCY_PEN,0);
+					Machine.drv.visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	
@@ -706,7 +706,7 @@ public class spdbuggy
 	
 		/* Draw the background */
 		if (layers_ctrl & 1)	tilemap_draw(bitmap, cliprect, bg_tilemap,  0, 0);
-		else					fillbitmap(bitmap,Machine->pens[0],cliprect);
+		else					fillbitmap(bitmap,Machine.pens[0],cliprect);
 	
 		/* Draw the sprites */
 		if (layers_ctrl & 8)	draw_sprites(bitmap, cliprect);

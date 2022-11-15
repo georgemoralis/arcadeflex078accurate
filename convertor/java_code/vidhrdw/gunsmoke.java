@@ -42,11 +42,11 @@ public class gunsmoke
 	***************************************************************************/
 	public static PaletteInitHandlerPtr palette_init_gunsmoke  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
-		for (i = 0;i < Machine->drv->total_colors;i++)
+		for (i = 0;i < Machine.drv.total_colors;i++)
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -71,7 +71,7 @@ public class gunsmoke
 			color_prom++;
 		}
 	
-		color_prom += 2*Machine->drv->total_colors;
+		color_prom += 2*Machine.drv.total_colors;
 		/* color_prom now points to the beginning of the lookup table */
 	
 		/* characters use colors 64-79 */
@@ -213,7 +213,7 @@ public class gunsmoke
 							flipy = NOT(flipy);
 						}
 	
-						drawgfx(bgbitmap,Machine->gfx[1],
+						drawgfx(bgbitmap,Machine.gfx[1],
 								code,col,
 								flipx,flipy,
 								(8-ty)*32, tx*32,
@@ -235,11 +235,11 @@ public class gunsmoke
 					yscroll = 256 - yscroll;
 				}
 	
-				copyscrollbitmap(bitmap,bgbitmap,1,&xscroll,1,&yscroll,Machine->visible_area,TRANSPARENCY_NONE,0);
+				copyscrollbitmap(bitmap,bgbitmap,1,&xscroll,1,&yscroll,Machine.visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 		else
-			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
+			fillbitmap(bitmap,Machine.pens[0],Machine.visible_area);
 	
 	
 	
@@ -266,12 +266,12 @@ public class gunsmoke
 					flipy = NOT(flipy);
 				}
 	
-				drawgfx(bitmap,Machine->gfx[2],
+				drawgfx(bitmap,Machine.gfx[2],
 						spriteram.read(offs)+ 256 * bank,
 						spriteram.read(offs + 1)& 0x0f,
 						flipx,flipy,
 						sx,sy,
-						Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine.visible_area,TRANSPARENCY_PEN,0);
 			}
 		}
 	
@@ -289,12 +289,12 @@ public class gunsmoke
 					sy = 31 - sy;
 				}
 	
-				drawgfx(bitmap,Machine->gfx[0],
+				drawgfx(bitmap,Machine.gfx[0],
 						videoram.read(offs)+ ((colorram.read(offs)& 0xc0) << 2),
 						colorram.read(offs)& 0x1f,
 						!flip_screen(),!flip_screen(),
 						8*sx,8*sy,
-						Machine->visible_area,TRANSPARENCY_COLOR,79);
+						Machine.visible_area,TRANSPARENCY_COLOR,79);
 			}
 		}
 	} };

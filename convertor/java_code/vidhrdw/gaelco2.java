@@ -506,7 +506,7 @@ public class gaelco2
 		}
 	
 		/* draw screen */
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 	
 		tilemap_draw(bitmap, cliprect, pant[1], 0, 0);
 		tilemap_draw(bitmap, cliprect, pant[0], 0, 0);
@@ -573,7 +573,7 @@ public class gaelco2
 	
 		/* read scroll values */
 		int scroll0x = gaelco2_videoram[0x2802/2] + 0x14;
-		int scroll1x = gaelco2_videoram[0x2806/2] + 0x10 - ((Machine->visible_area.max_x/2) + 1);
+		int scroll1x = gaelco2_videoram[0x2806/2] + 0x10 - ((Machine.visible_area.max_x/2) + 1);
 		int scroll0y = gaelco2_videoram[0x2800/2] + 0x01;
 		int scroll1y = gaelco2_videoram[0x2804/2] + 0x01;
 	
@@ -588,22 +588,22 @@ public class gaelco2
 		}
 	
 		/* draw screen */
-		fillbitmap(bitmap, Machine->pens[0], cliprect);
+		fillbitmap(bitmap, Machine.pens[0], cliprect);
 		{
 			struct rectangle cliprect1, cliprect2;
 			cliprect1.min_x = 0;
-			cliprect1.max_x = Machine->visible_area.max_x/2;
+			cliprect1.max_x = Machine.visible_area.max_x/2;
 			cliprect1.min_y = 16;
 			cliprect1.max_y = 256-1;
 	
-			cliprect2.min_x = (Machine->visible_area.max_x/2) + 1;
-			cliprect2.max_x = Machine->visible_area.max_x;
+			cliprect2.min_x = (Machine.visible_area.max_x/2) + 1;
+			cliprect2.max_x = Machine.visible_area.max_x;
 			cliprect2.min_y = 16;
 			cliprect2.max_y = 256-1;
 	
 			/* monitor 2 output */
 			tilemap_draw(bitmap,&cliprect2,pant[1], 0, 0);
-			gaelco2_draw_sprites(bitmap,&cliprect2, 0x8000, (Machine->visible_area.max_x/2) + 1);
+			gaelco2_draw_sprites(bitmap,&cliprect2, 0x8000, (Machine.visible_area.max_x/2) + 1);
 	
 			/* monitor 1 output */
 			tilemap_draw(bitmap,&cliprect1,pant[0], 0, 0);

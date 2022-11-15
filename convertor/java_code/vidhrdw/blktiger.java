@@ -225,7 +225,7 @@ public class blktiger
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_blktiger  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap,Machine->pens[1023],cliprect);
+		fillbitmap(bitmap,Machine.pens[1023],cliprect);
 	
 		if (bgon)
 			tilemap_draw(bitmap,cliprect,screen_layout ? bg_tilemap8x4 : bg_tilemap4x8,TILEMAP_BACK,0);

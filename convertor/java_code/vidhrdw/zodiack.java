@@ -65,11 +65,11 @@ public class zodiack
 	public static PaletteInitHandlerPtr palette_init_zodiack  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 		/* first, the character/sprite palette */
-		for (i = 0;i < Machine->drv->total_colors-1; i++)
+		for (i = 0;i < Machine.drv.total_colors-1; i++)
 		{
 			int bit0,bit1,bit2,r,g,b;
 	
@@ -104,7 +104,7 @@ public class zodiack
 	
 		/* white for bullets */
 	
-		palette_set_color(Machine->drv->total_colors-1,0xff,0xff,0xff);
+		palette_set_color(Machine.drv.total_colors-1,0xff,0xff,0xff);
 	
 		for (i = 0;i < TOTAL_COLORS(0);i+=2)
 		{
@@ -225,8 +225,8 @@ public class zodiack
 			tilemap_set_scrolly(fg_tilemap, i, zodiack_attributesram[i * 2]);
 		}
 	
-		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
-		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine.visible_area, fg_tilemap, 0, 0);
 		zodiack_draw_bullets(bitmap);
 		zodiack_draw_sprites(bitmap);
 	} };

@@ -33,7 +33,7 @@ public class starfire
 	
 	public static VideoStartHandlerPtr video_start_starfire  = new VideoStartHandlerPtr() { public int handler(){
 		/* make a temporary bitmap */
-		tmpbitmap = auto_bitmap_alloc(Machine->drv->screen_width, Machine->drv->screen_height);
+		tmpbitmap = auto_bitmap_alloc(Machine.drv.screen_width, Machine.drv.screen_height);
 		if (!tmpbitmap)
 			return 1;
 	
@@ -282,7 +282,7 @@ public class starfire
 	
 	public static VideoUpdateHandlerPtr video_update_starfire  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		/* copy the bitmap, remapping the colors */
-		copybitmap_remap(bitmap, tmpbitmap, 0, 0, 0, 0, Machine->visible_area, TRANSPARENCY_NONE, 0);
+		copybitmap_remap(bitmap, tmpbitmap, 0, 0, 0, 0, Machine.visible_area, TRANSPARENCY_NONE, 0);
 	} };
 	
 	

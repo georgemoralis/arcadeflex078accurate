@@ -22,16 +22,16 @@ public class beezer
 		int x, y;
 	
 		if (get_vh_global_attribute_changed())
-			for (y = Machine->visible_area.min_y; y <= Machine->visible_area.max_y; y+=2)
+			for (y = Machine.visible_area.min_y; y <= Machine.visible_area.max_y; y+=2)
 			{
-				for (x = Machine->visible_area.min_x; x <= Machine->visible_area.max_x; x++)
+				for (x = Machine.visible_area.min_x; x <= Machine.visible_area.max_x; x++)
 				{
-					plot_pixel (tmpbitmap, x, y+1, Machine->pens[videoram.read(0x80*y+x)& 0x0f]);
-					plot_pixel (tmpbitmap, x, y, Machine->pens[(videoram.read(0x80*y+x)>> 4)& 0x0f]);
+					plot_pixel (tmpbitmap, x, y+1, Machine.pens[videoram.read(0x80*y+x)& 0x0f]);
+					plot_pixel (tmpbitmap, x, y, Machine.pens[(videoram.read(0x80*y+x)>> 4)& 0x0f]);
 				}
 			}
 		
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine.visible_area,TRANSPARENCY_NONE,0);
 	} };
 	
 	public static WriteHandlerPtr beezer_map_w = new WriteHandlerPtr() {public void handler(int offset, int data){

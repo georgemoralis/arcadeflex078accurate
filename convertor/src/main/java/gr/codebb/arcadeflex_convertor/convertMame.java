@@ -1669,6 +1669,17 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case '-': {
+                    if (type == VIDEO_UPDATE || type == PALETTE_INIT || type == VIDEO_START) {
+                        char c3 = sUtil.getNextChar();
+                        if (c3 != '>') {
+                            break;
+                        }
+                        Convertor.outbuf[Convertor.outpos++] = '.';
+                        Convertor.inpos += 2;
+                    }
+                }
+                break;
             }
 
             Convertor.outbuf[Convertor.outpos++] = Convertor.inbuf[Convertor.inpos++];//grapse to inputbuffer sto output

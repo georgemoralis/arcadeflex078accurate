@@ -578,8 +578,8 @@ public class suprnova
 		skns_tilemap_B = tilemap_create(get_tilemap_B_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,16,16,64, 64);
 			tilemap_set_transparent_pen(skns_tilemap_B,0);
 	
-		Machine->gfx[2]->color_granularity=256;
-		Machine->gfx[3]->color_granularity=256;
+		Machine.gfx[2].color_granularity=256;
+		Machine.gfx[3].color_granularity=256;
 	
 		return 0;
 	} };
@@ -716,7 +716,7 @@ public class suprnova
 				{
 					if (skns_v3t_dirty[i] == 1)
 					{
-						decodechar(Machine->gfx[1], i, (data8_t*)btiles, Machine->drv->gfxdecodeinfo[0].gfxlayout);
+						decodechar(Machine.gfx[1], i, (data8_t*)btiles, Machine.drv.gfxdecodeinfo[0].gfxlayout);
 	
 						skns_v3t_dirty[i] = 0;
 					}
@@ -742,7 +742,7 @@ public class suprnova
 				{
 					if (skns_v3t_4bppdirty[i] == 1)
 					{
-						decodechar(Machine->gfx[3], i, (data8_t*)btiles, Machine->drv->gfxdecodeinfo[3].gfxlayout);
+						decodechar(Machine.gfx[3], i, (data8_t*)btiles, Machine.drv.gfxdecodeinfo[3].gfxlayout);
 	
 						skns_v3t_4bppdirty[i] = 0;
 					}
@@ -762,10 +762,10 @@ public class suprnova
 	
 	
 			/* needed until we have the per tile priorities sorted out */
-			if (!strcmp(Machine->gamedrv->name,"vblokbrk") ||
-				!strcmp(Machine->gamedrv->name,"sarukani") ||
-				!strcmp(Machine->gamedrv->name,"sengekis") ||
-				!strcmp(Machine->gamedrv->name,"sengekij"))
+			if (!strcmp(Machine.gamedrv.name,"vblokbrk") ||
+				!strcmp(Machine.gamedrv.name,"sarukani") ||
+				!strcmp(Machine.gamedrv.name,"sengekis") ||
+				!strcmp(Machine.gamedrv.name,"sengekij"))
 			{
 				supernova_pri_b = 0;
 				supernova_pri_a = 1;

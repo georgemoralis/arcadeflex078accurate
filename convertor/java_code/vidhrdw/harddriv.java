@@ -479,7 +479,7 @@ public class harddriv
 	 *************************************/
 	
 	public static VideoUpdateHandlerPtr video_update_harddriv  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		pen_t *pens = Machine->pens[gfx_palettebank * 256];
+		pen_t *pens = Machine.pens[gfx_palettebank * 256];
 		pen_t black = get_black_pen();
 		offs_t adjusted_offs;
 		int start, end, x, y;
@@ -499,9 +499,9 @@ public class harddriv
 		cpuintrf_pop_context();
 	
 		/* compute how many pixels to blank and render */
-		lzero = start - cliprect->min_x;
+		lzero = start - cliprect.min_x;
 		draw = end - start;
-		rzero = cliprect->max_x + 1 - end;
+		rzero = cliprect.max_x + 1 - end;
 		adjusted_offs = gfx_offset;
 	
 		/* clip as necessary */
@@ -518,10 +518,10 @@ public class harddriv
 		}
 	
 		/* loop over scanlines */
-		for (y = cliprect->min_y; y <= cliprect->max_y; y++)
+		for (y = cliprect.min_y; y <= cliprect.max_y; y++)
 		{
 			UINT32 offset = adjusted_offs + gfx_rowbytes * (y - gfx_offsetscan);
-			UINT16 *dest = (UINT16 *)bitmap->base + y * bitmap->rowpixels + cliprect->min_x;
+			UINT16 *dest = (UINT16 *)bitmap.base + y * bitmap.rowpixels + cliprect.min_x;
 	
 			/* render */
 			for (x = 0; x < lzero; x++)
@@ -534,7 +534,7 @@ public class harddriv
 	
 		/* update the speedup counts */
 	#if DISPLAY_SPEEDUPS
-	if (cliprect->min_y < 30)
+	if (cliprect.min_y < 30)
 	{
 		char temp[200];
 		sprintf(temp, "GSP:%d/%d/%d/%d",

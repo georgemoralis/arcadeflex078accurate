@@ -251,7 +251,7 @@ public class groundfx
 		pivlayer[2] = 2;
 	
 		fillbitmap(priority_bitmap,0,cliprect);
-		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* wrong color? */
+		fillbitmap(bitmap,Machine.pens[0],cliprect);	/* wrong color? */
 	
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,pivlayer[0],0,0);
 		TC0100SCN_tilemap_draw(bitmap,cliprect,0,pivlayer[1],0,0);

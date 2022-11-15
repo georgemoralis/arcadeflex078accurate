@@ -46,8 +46,8 @@ public class stfight
 	
 	public static PaletteInitHandlerPtr palette_init_stfight  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
-		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
-		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
+		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
+		#define COLOR(gfxn,offs) (colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	
 		/* unique color for transparency */
@@ -298,7 +298,7 @@ public class stfight
 	public static VideoUpdateHandlerPtr video_update_stfight  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		fillbitmap(priority_bitmap,0,cliprect);
 	
-		fillbitmap(bitmap,Machine->pens[0],cliprect);	/* in case bg_tilemap is disabled */
+		fillbitmap(bitmap,Machine.pens[0],cliprect);	/* in case bg_tilemap is disabled */
 	    tilemap_draw(bitmap,cliprect,bg_tilemap,0,0);
 		tilemap_draw(bitmap,cliprect,fg_tilemap,0,1);
 	

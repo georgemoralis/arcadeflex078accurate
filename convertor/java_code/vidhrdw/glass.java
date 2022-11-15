@@ -215,7 +215,7 @@ public class glass
 		tilemap_set_scrollx(pant[1], 0, glass_vregs[3]);
 	
 		/* draw layers + sprites */
-		fillbitmap(bitmap, get_black_pen(), Machine->visible_area);
+		fillbitmap(bitmap, get_black_pen(), Machine.visible_area);
 		copybitmap(bitmap,screen,0,0,0x18,0x24,cliprect,TRANSPARENCY_NONE,0);
 		tilemap_draw(bitmap,cliprect,pant[1],0,0);
 		tilemap_draw(bitmap,cliprect,pant[0],0,0);
