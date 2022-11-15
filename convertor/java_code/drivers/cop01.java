@@ -600,8 +600,7 @@ public class cop01
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( mightguy )
-	{
+	public static DriverInitHandlerPtr init_mightguy  = new DriverInitHandlerPtr() { public void handler(){
 	#if MIGHTGUY_HACK
 		/* This is a hack to fix the game code to get a fully working
 		   "Starting Area" fake Dip Switch */
@@ -613,7 +612,7 @@ public class cop01
 		RAM[0x027f] = 0x00;
 		RAM[0x0280] = 0x00;
 	#endif
-	}
+	} };
 	
 	
 	public static GameDriver driver_cop01	   = new GameDriver("1985"	,"cop01"	,"cop01.java"	,rom_cop01,null	,machine_driver_cop01	,input_ports_cop01	,null	,ROT0,   "Nichibutsu", "Cop 01 (set 1)" )

@@ -1061,33 +1061,30 @@ public class cyberbal
 	};
 	
 	
-	static DRIVER_INIT( cyberbal )
-	{
+	public static DriverInitHandlerPtr init_cyberbal  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = default_eeprom;
 		atarigen_slapstic_init(0, 0x018000, 0);
 	
 		/* make sure the banks are pointing to the correct location */
 		cpu_setbank(1, atarigen_playfield2);
 		cpu_setbank(3, atarigen_playfield);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( cyberbt )
-	{
+	public static DriverInitHandlerPtr init_cyberbt  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = default_eeprom;
 		atarigen_slapstic_init(0, 0x018000, 116);
 	
 		/* make sure the banks are pointing to the correct location */
 		cpu_setbank(1, atarigen_playfield2);
 		cpu_setbank(3, atarigen_playfield);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( cyberb2p )
-	{
+	public static DriverInitHandlerPtr init_cyberb2p  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = default_eeprom;
 		atarijsa_init(1, 3, 2, 0x8000);
-	}
+	} };
 	
 	
 	

@@ -20,7 +20,6 @@ public class beezer
 	WRITE_HANDLER( beezer_ram_w );
 	
 	/* from machine/beezer.c */
-	DRIVER_INIT( beezer );
 	WRITE_HANDLER( beezer_bankswitch_w );
 	
 	static MEMORY_READ_START( readmem )

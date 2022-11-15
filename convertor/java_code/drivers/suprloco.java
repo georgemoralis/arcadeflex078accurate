@@ -256,8 +256,7 @@ public class suprloco
 	
 	
 	
-	DRIVER_INIT( suprloco )
-	{
+	public static DriverInitHandlerPtr init_suprloco  = new DriverInitHandlerPtr() { public void handler(){
 		/* convert graphics to 4bpp from 3bpp */
 	
 		int i, j, k, color_source, color_dest;
@@ -292,7 +291,7 @@ public class suprloco
 	
 		/* decrypt program ROMs */
 		suprloco_decode();
-	}
+	} };
 	
 	
 	

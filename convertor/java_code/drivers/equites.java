@@ -1118,8 +1118,7 @@ public class equites
 		equites_8404init();
 	}
 	
-	static DRIVER_INIT( equites )
-	{
+	public static DriverInitHandlerPtr init_equites  = new DriverInitHandlerPtr() { public void handler(){
 		equites_id = 0x8400;
 	
 		equites_init_common();
@@ -1148,29 +1147,26 @@ public class equites
 		equites_8404rule(0x916a, 0x47f,-0x02); // player y
 		equites_8404rule(0x9170, 0x481,-0x30); // exit location hi
 		equites_8404rule(0x9176, 0x483,-0x03); // exit location lo
-	}
+	} };
 	
-	static DRIVER_INIT( bullfgtr )
-	{
+	public static DriverInitHandlerPtr init_bullfgtr  = new DriverInitHandlerPtr() { public void handler(){
 		equites_id = 0x8401;
 	
 		equites_init_common();
 	
 		equites_8404rule(0x0e7a, 0x601, 0x00); // boot up
 		equites_8404rule(0x3da4, 0x201, 0x0c); // goal in
-	}
+	} };
 	
-	static DRIVER_INIT( kouyakyu )
-	{
+	public static DriverInitHandlerPtr init_kouyakyu  = new DriverInitHandlerPtr() { public void handler(){
 		equites_id = 0x8500;
 	
 		equites_init_common();
 	
 		equites_8404rule(0x5582, 0x603, 0x05); // home run
-	}
+	} };
 	
-	static DRIVER_INIT( splndrbt )
-	{
+	public static DriverInitHandlerPtr init_splndrbt  = new DriverInitHandlerPtr() { public void handler(){
 		equites_id = 0x8510;
 	
 		splndrbt_init_common();
@@ -1234,10 +1230,9 @@ public class equites
 		equites_8404rule(0x0c12, 0x5f5,-0x07); // game over/respawn addr lo
 		equites_8404rule(0x0c0c, 0x5f7,-0x70); // game over/respawn addr hi
 		equites_8404rule(0x0c12, 0x5f9,-0x07); // game over/respawn addr lo
-	}
+	} };
 	
-	static DRIVER_INIT( hvoltage )
-	{
+	public static DriverInitHandlerPtr init_hvoltage  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 	#if HVOLTAGE_HACK
@@ -1275,7 +1270,7 @@ public class equites
 		equites_8404rule(0x0f9c, 0x49d,-0x06); // addr lo
 		equites_8404rule(0x0f96, 0x49f,-0x60); // addr hi
 		equites_8404rule(0x0f9c, 0x4a1,-0x06); // addr lo
-	}
+	} };
 	
 	/******************************************************************************/
 	

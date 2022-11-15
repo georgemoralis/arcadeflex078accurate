@@ -638,14 +638,13 @@ public class thief
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( thief )
-	{
+	public static DriverInitHandlerPtr init_thief  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *dest = memory_region( REGION_CPU1 );
 		const UINT8 *source = memory_region( REGION_CPU2 );
 	
 		/* C8 is mapped (banked) in CPU1's address space; it contains Z80 code */
 		memcpy( &dest[0xe010], &source[0x290], 0x20 );
-	}
+	} };
 	
 	
 	public static GameDriver driver_sharkatt	   = new GameDriver("1980"	,"sharkatt"	,"thief.java"	,rom_sharkatt,null	,machine_driver_sharkatt	,input_ports_sharkatt	,null	,ROT0, "Pacific Novelty", "Shark Attack" )

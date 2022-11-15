@@ -2710,30 +2710,26 @@ public class taitosj
 	
 	
 	
-	static DRIVER_INIT( alpine )
-	{
+	public static DriverInitHandlerPtr init_alpine  = new DriverInitHandlerPtr() { public void handler(){
 		/* install protection handlers */
 		install_mem_read_handler (0, 0xd40b, 0xd40b, alpine_port_2_r);
 		install_mem_write_handler(0, 0xd50f, 0xd50f, alpine_protection_w);
-	}
+	} };
 	
-	static DRIVER_INIT( alpinea )
-	{
+	public static DriverInitHandlerPtr init_alpinea  = new DriverInitHandlerPtr() { public void handler(){
 		/* install protection handlers */
 		install_mem_read_handler (0, 0xd40b, 0xd40b, alpine_port_2_r);
 		install_mem_write_handler(0, 0xd50e, 0xd50e, alpinea_bankswitch_w);
-	}
+	} };
 	
-	static DRIVER_INIT( junglhbr )
-	{
+	public static DriverInitHandlerPtr init_junglhbr  = new DriverInitHandlerPtr() { public void handler(){
 		/* inverter on bits 0 and 1 */
 		install_mem_write_handler (0, 0x9000, 0xbfff, junglhbr_characterram_w);
-	}
+	} };
 	
-	static DRIVER_INIT( kikstart )
-	{
+	public static DriverInitHandlerPtr init_kikstart  = new DriverInitHandlerPtr() { public void handler(){
 		kikstart_gear = 1;
-	}
+	} };
 	
 	public static GameDriver driver_spaceskr	   = new GameDriver("1981"	,"spaceskr"	,"taitosj.java"	,rom_spaceskr,null	,machine_driver_nomcu	,input_ports_spaceskr	,null	,ROT180, "Taito Corporation", "Space Seeker" )
 	public static GameDriver driver_spacecr	   = new GameDriver("1981"	,"spacecr"	,"taitosj.java"	,rom_spacecr,null	,machine_driver_nomcu	,input_ports_spacecr	,null	,ROT90,  "Taito Corporation", "Space Cruiser" )

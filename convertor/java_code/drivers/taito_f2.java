@@ -6577,14 +6577,12 @@ public class taito_f2
 	ROM_END(); }}; 
 	
 	
-	DRIVER_INIT( f2 )
-	{
+	public static DriverInitHandlerPtr init_f2  = new DriverInitHandlerPtr() { public void handler(){
 		state_save_register_int("taitof2", 0, "sound region", &banknum);
 		state_save_register_func_postload(reset_sound_region);
-	}
+	} };
 	
-	DRIVER_INIT( finalb )
-	{
+	public static DriverInitHandlerPtr init_finalb  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 		unsigned char data;
 		unsigned int offset;
@@ -6610,10 +6608,9 @@ public class taito_f2
 		}
 	
 		init_f2();
-	}
+	} };
 	
-	DRIVER_INIT( mjnquest )
-	{
+	public static DriverInitHandlerPtr init_mjnquest  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 		UINT8 *gfx = memory_region(REGION_GFX2);
 	
@@ -6629,22 +6626,20 @@ public class taito_f2
 		}
 	
 		init_f2();
-	}
+	} };
 	
-	DRIVER_INIT( yesnoj )
-	{
+	public static DriverInitHandlerPtr init_yesnoj  = new DriverInitHandlerPtr() { public void handler(){
 		yesnoj_dsw = 0;
 		state_save_register_int("yesnoj_dsw", 0, "control", &yesnoj_dsw);
 		init_f2();
-	}
+	} };
 	
-	DRIVER_INIT( driveout )
-	{
+	public static DriverInitHandlerPtr init_driveout  = new DriverInitHandlerPtr() { public void handler(){
 		state_save_register_int("driveout_sound1", 0, "sound", &driveout_sound_latch);
 		state_save_register_int("driveout_sound2", 0, "sound region", &oki_bank);
 		state_save_register_func_postload(reset_driveout_sound_region);
 		init_f2();
-	}
+	} };
 	
 	
 	public static GameDriver driver_finalb	   = new GameDriver("1988"	,"finalb"	,"taito_f2.java"	,rom_finalb,null	,machine_driver_finalb	,input_ports_finalb	,init_finalb	,ROT0,   "Taito Corporation Japan", "Final Blow (World)" )

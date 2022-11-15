@@ -187,14 +187,6 @@ public class tnzs
 	/* prototypes for functions in ../machine/tnzs.c */
 	unsigned char *tnzs_objram, *tnzs_workram;
 	unsigned char *tnzs_vdcram, *tnzs_scrollram;
-	DRIVER_INIT( extrmatn );
-	DRIVER_INIT( arknoid2 );
-	DRIVER_INIT( drtoppel );
-	DRIVER_INIT( chukatai );
-	DRIVER_INIT( tnzs );
-	DRIVER_INIT( tnzsb );
-	DRIVER_INIT( insectx );
-	DRIVER_INIT( kageki );
 	READ_HANDLER( arknoid2_sh_f000_r );
 	READ_HANDLER( tnzs_port1_r );
 	READ_HANDLER( tnzs_port2_r );

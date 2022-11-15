@@ -775,18 +775,15 @@ public class rainbow
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( rainbow )
-	{
+	public static DriverInitHandlerPtr init_rainbow  = new DriverInitHandlerPtr() { public void handler(){
 		rainbow_cchip_init(0);
-	}
+	} };
 	
-	static DRIVER_INIT( rainbowe )
-	{
+	public static DriverInitHandlerPtr init_rainbowe  = new DriverInitHandlerPtr() { public void handler(){
 		rainbow_cchip_init(1);
-	}
+	} };
 	
-	static DRIVER_INIT( jumping )
-	{
+	public static DriverInitHandlerPtr init_jumping  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		/* Sprite colour map is reversed - switch to normal */
@@ -795,7 +792,7 @@ public class rainbow
 			memory_region(REGION_GFX2)[i] ^= 0xff;
 	
 		state_save_register_int("jumping", 0, "sound", &jumping_latch);
-	}
+	} };
 	
 	
 	public static GameDriver driver_rainbow	   = new GameDriver("1987"	,"rainbow"	,"rainbow.java"	,rom_rainbow,null	,machine_driver_rainbow	,input_ports_rainbow	,init_rainbow	,ROT0, "Taito Corporation", "Rainbow Islands (new version)" )

@@ -64,8 +64,7 @@ public class grchamp
 	
 	/* from machine */
 	extern int grchamp_cpu_irq_enable[2];
-	extern DRIVER_INIT( grchamp );
-	extern READ_HANDLER( grchamp_port_0_r );
+	extern extern READ_HANDLER( grchamp_port_0_r );
 	extern READ_HANDLER( grchamp_port_1_r );
 	extern WRITE_HANDLER( grchamp_port_1_w );
 	

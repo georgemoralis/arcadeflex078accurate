@@ -438,15 +438,13 @@ public class ohmygod
 	
 	
 	
-	static DRIVER_INIT( ohmygod )
-	{
+	public static DriverInitHandlerPtr init_ohmygod  = new DriverInitHandlerPtr() { public void handler(){
 		adpcm_bank_shift = 4;
-	}
+	} };
 	
-	static DRIVER_INIT( naname )
-	{
+	public static DriverInitHandlerPtr init_naname  = new DriverInitHandlerPtr() { public void handler(){
 		adpcm_bank_shift = 0;
-	}
+	} };
 	
 	
 	public static GameDriver driver_ohmygod	   = new GameDriver("1993"	,"ohmygod"	,"ohmygod.java"	,rom_ohmygod,null	,machine_driver_ohmygod	,input_ports_ohmygod	,init_ohmygod	,ROT0, "Atlus", "Oh My God! (Japan)", GAME_NO_COCKTAIL )

@@ -411,10 +411,9 @@ public class bombjack
 		ROM_LOAD( "02_p04t.bin",  0x0000, 0x1000, CRC(398d4a02) SHA1(ac18a8219f99ba9178b96c9564de3978e39c59fd) )
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT( bombjack )
-	{
+	public static DriverInitHandlerPtr init_bombjack  = new DriverInitHandlerPtr() { public void handler(){
 		state_save_register_int ("main", 0, "sound latch", &latch);
-	}
+	} };
 	
 	
 	public static GameDriver driver_bombjack	   = new GameDriver("1984"	,"bombjack"	,"bombjack.java"	,rom_bombjack,null	,machine_driver_bombjack	,input_ports_bombjack	,init_bombjack	,ROT90, "Tehkan", "Bomb Jack (set 1)" )

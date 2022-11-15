@@ -1835,8 +1835,7 @@ public class mystwarr
 		state_save_register_func_postload(reset_sound_region);
 	}
 	
-	static DRIVER_INIT(mystwarr)
-	{
+	public static DriverInitHandlerPtr init_mystwarr  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		init_common();
@@ -1854,10 +1853,9 @@ public class mystwarr
 	
 		// soften percussions(chip 1 channel 0-7)
 		for (i=0; i<=7; i++) K054539_set_gain(1, i, 0.5);
-	}
+	} };
 	
-	static DRIVER_INIT(dadandrn)
-	{
+	public static DriverInitHandlerPtr init_dadandrn  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		init_common();
@@ -1868,10 +1866,9 @@ public class mystwarr
 	
 		// boost voice(chip 0 channel 4-7)
 		for (i=4; i<=7; i++) K054539_set_gain(0, i, 2.0);
-	}
+	} };
 	
-	static DRIVER_INIT(viostorm)
-	{
+	public static DriverInitHandlerPtr init_viostorm  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		init_common();
@@ -1882,10 +1879,9 @@ public class mystwarr
 	
 		// boost voice(chip 0 channel 4-7)
 		for (i=4; i<=7; i++) K054539_set_gain(0, i, 2.0);
-	}
+	} };
 	
-	static DRIVER_INIT(metamrph)
-	{
+	public static DriverInitHandlerPtr init_metamrph  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		init_common();
@@ -1900,10 +1896,9 @@ public class mystwarr
 			K054539_set_gain(1, i,   0.8);
 			K054539_set_gain(1, i+4, 0.8);
 		}
-	}
+	} };
 	
-	static DRIVER_INIT(martchmp)
-	{
+	public static DriverInitHandlerPtr init_martchmp  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		init_common();
@@ -1912,10 +1907,9 @@ public class mystwarr
 	
 		// boost voice(chip 0 channel 4-7)
 		for (i=4; i<=7; i++) K054539_set_gain(0, i, 1.4);
-	}
+	} };
 	
-	static DRIVER_INIT(gaiapols)
-	{
+	public static DriverInitHandlerPtr init_gaiapols  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		init_common();
@@ -1926,7 +1920,7 @@ public class mystwarr
 	
 		// boost voice(chip 0 channel 5-7)
 		for (i=5; i<=7; i++) K054539_set_gain(0, i, 2.0);
-	}
+	} };
 	
 	
 	/*           ROM       parent    machine   inp       init */

@@ -694,8 +694,7 @@ public class hyprduel
 									ROMs Loading
 	***************************************************************************/
 	
-	static DRIVER_INIT( hyprduel )
-	{
+	public static DriverInitHandlerPtr init_hyprduel  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		/*
@@ -717,7 +716,7 @@ public class hyprduel
 		requested_int = 0x00;
 		blitter_bit = 2;
 		*hypr_irq_enable = 0xff;
-	}
+	} };
 	
 	
 	static RomLoadHandlerPtr rom_hyprduel = new RomLoadHandlerPtr(){ public void handler(){ 

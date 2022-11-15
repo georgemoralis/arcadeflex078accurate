@@ -412,8 +412,7 @@ public class iqblock
 	
 	
 	
-	static DRIVER_INIT( iqblock )
-	{
+	public static DriverInitHandlerPtr init_iqblock  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *rom = memory_region(REGION_CPU1);
 		int i;
 	
@@ -432,10 +431,9 @@ public class iqblock
 		iqblock_bgvideoram = rom + 0x17000;
 		install_mem_write_handler( 0, 0xfe26, 0xfe26, iqblock_prot_w);
 		iqblock_vidhrdw_type=1;
-	}
+	} };
 	
-	static DRIVER_INIT( grndtour )
-	{
+	public static DriverInitHandlerPtr init_grndtour  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *rom = memory_region(REGION_CPU1);
 		int i;
 	
@@ -454,11 +452,10 @@ public class iqblock
 		iqblock_bgvideoram = rom + 0x17000;
 		install_mem_write_handler( 0, 0xfe39, 0xfe39, grndtour_prot_w);
 		iqblock_vidhrdw_type=0;
-	}
+	} };
 	
 	
-	static DRIVER_INIT( cabaret )
-	{
+	public static DriverInitHandlerPtr init_cabaret  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *rom = memory_region(REGION_CPU1);
 		int i;
 	
@@ -474,7 +471,7 @@ public class iqblock
 		iqblock_fgvideoram = rom + 0x16800;
 		iqblock_bgvideoram = rom + 0x17000;
 		iqblock_vidhrdw_type=0;
-	}
+	} };
 	
 	
 	

@@ -535,8 +535,7 @@ public class exprraid
 	}
 	
 	
-	static DRIVER_INIT( wexpress )
-	{
+	public static DriverInitHandlerPtr init_wexpress  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *rom = memory_region(REGION_CPU1);
 		int i;
 	
@@ -555,10 +554,9 @@ public class exprraid
 				rom[i] = 0xff;
 			}
 		}
-	}
+	} };
 	
-	static DRIVER_INIT( exprraid )
-	{
+	public static DriverInitHandlerPtr init_exprraid  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *rom = memory_region(REGION_CPU1);
 	
 	
@@ -574,19 +572,17 @@ public class exprraid
 	
 		/* HACK!: Implement custom opcode as regular with a mapped io read */
 		init_wexpress();
-	}
+	} };
 	
-	static DRIVER_INIT( wexpresb )
-	{
+	public static DriverInitHandlerPtr init_wexpresb  = new DriverInitHandlerPtr() { public void handler(){
 		install_mem_read_handler(0, 0x3800, 0x3800, vblank_r);
 		exprraid_gfx_expand();
-	}
+	} };
 	
-	static DRIVER_INIT( wexpresc )
-	{
+	public static DriverInitHandlerPtr init_wexpresc  = new DriverInitHandlerPtr() { public void handler(){
 		install_mem_read_handler(0, 0xFFC0, 0xFFC0, vblank_r);
 		exprraid_gfx_expand();
-	}
+	} };
 	
 	
 	public static GameDriver driver_exprraid	   = new GameDriver("1986"	,"exprraid"	,"exprraid.java"	,rom_exprraid,null	,machine_driver_exprraid	,input_ports_exprraid	,init_exprraid	,ROT0, "Data East USA", "Express Raider (US)" )

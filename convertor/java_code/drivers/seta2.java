@@ -1604,13 +1604,12 @@ public class seta2
 		ROM_LOAD( "u18.bin", 0x100000, 0x200000, CRC(de4e65e2) SHA1(82d4e590c714b3e9bf0ffaf1500deb24fd315595) )
 	ROM_END(); }}; 
 	
-	DRIVER_INIT( gundamex )
-	{
+	public static DriverInitHandlerPtr init_gundamex  = new DriverInitHandlerPtr() { public void handler(){
 		data16_t *ROM = (data16_t *)memory_region( REGION_CPU1 );
 	
 		/* ??? doesn't boot otherwise */
 		ROM[0x0f98/2] = 0x4e71;
-	}
+	} };
 	
 	public static GameDriver driver_gundamex	   = new GameDriver("1994"	,"gundamex"	,"seta2.java"	,rom_gundamex,null	,machine_driver_gundamex	,input_ports_gundamex	,init_gundamex	,ROT0, "Banpresto",           "Mobile Suit Gundam EX Revue" )
 	public static GameDriver driver_grdians	   = new GameDriver("1995"	,"grdians"	,"seta2.java"	,rom_grdians,null	,machine_driver_grdians	,input_ports_grdians	,null	,ROT0, "Banpresto",           "Guardians / Denjin Makai II",                  GAME_NO_COCKTAIL | GAME_IMPERFECT_GRAPHICS )	// Displays (c) Winky Soft at game's end.

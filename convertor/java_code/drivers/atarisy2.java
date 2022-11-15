@@ -3036,8 +3036,7 @@ public class atarisy2
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( paperboy )
-	{
+	public static DriverInitHandlerPtr init_paperboy  = new DriverInitHandlerPtr() { public void handler(){
 		static const data16_t compressed_default_eeprom[] =
 		{
 			0x0000,0x4300,0x0113,0x0124,0x0150,0x0153,0x0154,0x0100,
@@ -3082,17 +3081,16 @@ public class atarisy2
 	
 		pedal_count = 0;
 		has_tms5220 = 1;
-	}
+	} };
 	
 	
-	static DRIVER_INIT( 720 )
-	{
+	public static DriverInitHandlerPtr init_720  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = NULL;
 		slapstic_init(107);
 	
 		pedal_count = -1;
 		has_tms5220 = 1;
-	}
+	} };
 	
 	
 	static void ssprint_init_common(const data16_t *default_eeprom)
@@ -3110,8 +3108,7 @@ public class atarisy2
 		has_tms5220 = 0;
 	}	
 	
-	static DRIVER_INIT( ssprint )
-	{
+	public static DriverInitHandlerPtr init_ssprint  = new DriverInitHandlerPtr() { public void handler(){
 		static const data16_t compressed_default_eeprom[] =
 		{
 			0x0000,0x01FF,0x0E00,0x01FF,0x0100,0x0120,0x0100,0x0120,
@@ -3140,10 +3137,9 @@ public class atarisy2
 			0xFF00,0xFF00,0xFF00,0xFF00,0xFF00,0x0800,0x0000
 		};
 		ssprint_init_common(compressed_default_eeprom);
-	}
+	} };
 	
-	static DRIVER_INIT( ssprint1 )
-	{
+	public static DriverInitHandlerPtr init_ssprint1  = new DriverInitHandlerPtr() { public void handler(){
 		static const data16_t compressed_default_eeprom[] =
 		{
 			0x0000,0x1e00,0x01ff,0x2500,0x0103,0x01e8,0x0152,0x0157,
@@ -3185,11 +3181,10 @@ public class atarisy2
 			0x011d,0x011f,0x0200,0x0000
 		};
 		ssprint_init_common(compressed_default_eeprom);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( csprint )
-	{
+	public static DriverInitHandlerPtr init_csprint  = new DriverInitHandlerPtr() { public void handler(){
 		static const data16_t compressed_default_eeprom[] =
 		{
 			0x0000,0x01FF,0x0E00,0x0128,0x01D0,0x0127,0x0100,0x0120,
@@ -3231,17 +3226,16 @@ public class atarisy2
 	
 		pedal_count = 2;
 		has_tms5220 = 0;
-	}
+	} };
 	
 	
-	static DRIVER_INIT( apb )
-	{
+	public static DriverInitHandlerPtr init_apb  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = NULL;
 		slapstic_init(110);
 	
 		pedal_count = 2;
 		has_tms5220 = 1;
-	}
+	} };
 	
 	
 	

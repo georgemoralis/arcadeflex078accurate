@@ -997,10 +997,10 @@ public class sidearms
 	
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT( sidearms ) { sidearms_gameid = 0; }
-	static DRIVER_INIT( turtship ) { sidearms_gameid = 1; }
-	static DRIVER_INIT( dyger    ) { sidearms_gameid = 2; }
-	static DRIVER_INIT( whizz    ) { sidearms_gameid = 3; }
+	public static DriverInitHandlerPtr init_sidearms  = new DriverInitHandlerPtr() { public void handler() sidearms_gameid = 0; }
+	public static DriverInitHandlerPtr init_turtship  = new DriverInitHandlerPtr() { public void handler() sidearms_gameid = 1; }
+	public static DriverInitHandlerPtr init_dyger  = new DriverInitHandlerPtr() { public void handler() sidearms_gameid = 2; }
+	public static DriverInitHandlerPtr init_whizz  = new DriverInitHandlerPtr() { public void handler() sidearms_gameid = 3; }
 	
 	public static GameDriver driver_sidearms	   = new GameDriver("1986"	,"sidearms"	,"sidearms.java"	,rom_sidearms,null	,machine_driver_sidearms	,input_ports_sidearms	,init_sidearms	,ROT0,   "Capcom", "Side Arms - Hyper Dyne (World)", GAME_IMPERFECT_GRAPHICS )
 	public static GameDriver driver_sidearmr	   = new GameDriver("1986"	,"sidearmr"	,"sidearms.java"	,rom_sidearmr,driver_sidearms	,machine_driver_sidearms	,input_ports_sidearms	,init_sidearms	,ROT0,   "Capcom (Romstar license)", "Side Arms - Hyper Dyne (US)", GAME_IMPERFECT_GRAPHICS )

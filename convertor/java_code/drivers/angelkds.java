@@ -626,7 +626,7 @@ public class angelkds
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( spcpostn )	{ spcpostn_decode(); }
+	public static DriverInitHandlerPtr init_spcpostn  = new DriverInitHandlerPtr() { public void handler() spcpostn_decode(); }
 	
 	
 	public static GameDriver driver_angelkds	   = new GameDriver("1988"	,"angelkds"	,"angelkds.java"	,rom_angelkds,null	,machine_driver_angelkds	,input_ports_angelkds	,null	,ROT90,  "Sega / Nasco?", "Angel Kids (Japan)" ) /* Nasco not displayed but 'Exa Planning' is */

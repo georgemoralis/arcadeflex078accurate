@@ -770,13 +770,11 @@ public class trackfld
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( trackfld )
-	{
+	public static DriverInitHandlerPtr init_trackfld  = new DriverInitHandlerPtr() { public void handler(){
 		konami1_decode();
-	}
+	} };
 	
-	static DRIVER_INIT( mastkin )
-	{
+	public static DriverInitHandlerPtr init_mastkin  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *prom = memory_region(REGION_PROMS);
 		int i;
 	
@@ -794,7 +792,7 @@ public class trackfld
 			else
 				prom[i + 0x20] = (i + i / 16) & 0x0f;
 		}
-	}
+	} };
 	
 	
 	public static GameDriver driver_trackfld	   = new GameDriver("1983"	,"trackfld"	,"trackfld.java"	,rom_trackfld,null	,machine_driver_trackfld	,input_ports_trackfld	,init_trackfld	,ROT0, "Konami", "Track & Field" )

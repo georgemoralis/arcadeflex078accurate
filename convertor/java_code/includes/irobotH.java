@@ -11,7 +11,6 @@ extern UINT8 irobot_bufsel;
 extern UINT8 irobot_alphamap;
 extern UINT8 *irobot_combase;
 
-DRIVER_INIT( irobot );
 
 READ_HANDLER( irobot_status_r );
 WRITE_HANDLER( irobot_statwr_w );

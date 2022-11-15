@@ -607,8 +607,7 @@ public class _40love
 	
 	/***************************************************************************/
 	
-	static DRIVER_INIT( undoukai )
-	{
+	public static DriverInitHandlerPtr init_undoukai  = new DriverInitHandlerPtr() { public void handler(){
 		from_mcu = 0xff;
 		mcu_cmd = -1;
 	
@@ -616,10 +615,9 @@ public class _40love
 		fortyl_pix_color[1] = 0x1e3;
 		fortyl_pix_color[2] = 0x16c;
 		fortyl_pix_color[3] = 0x1ec;
-	}
+	} };
 	
-	static DRIVER_INIT( 40love )
-	{
+	public static DriverInitHandlerPtr init_40love  = new DriverInitHandlerPtr() { public void handler(){
 		#if 0
 			/* character ROM hack
 				to show a white line on the opponent side */
@@ -636,7 +634,7 @@ public class _40love
 		fortyl_pix_color[1] = 0x1e3;
 		fortyl_pix_color[2] = 0x16c;
 		fortyl_pix_color[3] = 0x1ec;
-	}
+	} };
 	
 	/***************************************************************************/
 	

@@ -857,8 +857,7 @@ public class moo
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( moo )
-	{
+	public static DriverInitHandlerPtr init_moo  = new DriverInitHandlerPtr() { public void handler(){
 		konami_rom_deinterleave_2(REGION_GFX1);
 		konami_rom_deinterleave_4(REGION_GFX2);
 	
@@ -866,7 +865,7 @@ public class moo
 		state_save_register_UINT16("Moo", 0, "protram", (UINT16 *)protram, 1);
 	
 		game_type = (!strcmp(Machine->gamedrv->name, "bucky") || !strcmp(Machine->gamedrv->name, "buckyua"));
-	}
+	} };
 	
 	static RomLoadHandlerPtr rom_moobl = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x180000, REGION_CPU1, 0 )

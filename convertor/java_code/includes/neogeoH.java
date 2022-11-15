@@ -28,7 +28,6 @@ extern UINT8 *neogeo_memcard;
 
 extern data8_t *neogeo_game_vectors;
 
-DRIVER_INIT( neogeo );
 
 WRITE16_HANDLER( neogeo_sram16_lock_w );
 WRITE16_HANDLER( neogeo_sram16_unlock_w );

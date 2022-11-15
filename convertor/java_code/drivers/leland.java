@@ -1922,8 +1922,7 @@ public class leland
 	}
 	
 	
-	static DRIVER_INIT( cerberus )
-	{
+	public static DriverInitHandlerPtr init_cerberus  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 cerberus_eeprom_data[] =
 		{
@@ -1952,11 +1951,10 @@ public class leland
 		/* set up additional input ports */
 		install_port_read_handler(0, 0x80, 0x80, cerberus_dial_1_r);
 		install_port_read_handler(0, 0x90, 0x90, cerberus_dial_2_r);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( mayhem )
-	{
+	public static DriverInitHandlerPtr init_mayhem  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 mayhem_eeprom_data[] =
 		{
@@ -1993,11 +1991,10 @@ public class leland
 	
 		/* set up the master CPU I/O ports */
 		init_master_ports(0x00, 0xc0);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( powrplay )
-	{
+	public static DriverInitHandlerPtr init_powrplay  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 powrplay_eeprom_data[] =
 		{
@@ -2022,11 +2019,10 @@ public class leland
 	
 		/* set up the master CPU I/O ports */
 		init_master_ports(0x40, 0x80);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( wseries )
-	{
+	public static DriverInitHandlerPtr init_wseries  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 wseries_eeprom_data[] =
 		{
@@ -2043,11 +2039,10 @@ public class leland
 	
 		/* set up the master CPU I/O ports */
 		init_master_ports(0x40, 0x80);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( alleymas )
-	{
+	public static DriverInitHandlerPtr init_alleymas  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 alleymas_eeprom_data[] =
 		{
@@ -2071,11 +2066,10 @@ public class leland
 		/* it gets cleared by the code, but there is no obvious way for the value to be set to a */
 		/* non-zero value. If the value is zero, the joystick is never read. */
 		alleymas_kludge_mem = install_mem_write_handler(0, 0xe0ca, 0xe0ca, alleymas_joystick_kludge);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( dangerz )
-	{
+	public static DriverInitHandlerPtr init_dangerz  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 dangerz_eeprom_data[] =
 		{
@@ -2101,11 +2095,10 @@ public class leland
 		install_port_read_handler(0, 0xf4, 0xf4, dangerz_input_upper_r);
 		install_port_read_handler(0, 0xf8, 0xf8, dangerz_input_y_r);
 		install_port_read_handler(0, 0xfc, 0xfc, dangerz_input_x_r);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( basebal2 )
-	{
+	public static DriverInitHandlerPtr init_basebal2  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 basebal2_eeprom_data[] =
 		{
@@ -2122,11 +2115,10 @@ public class leland
 	
 		/* set up the master CPU I/O ports */
 		init_master_ports(0x00, 0xc0);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( dblplay )
-	{
+	public static DriverInitHandlerPtr init_dblplay  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 dblplay_eeprom_data[] =
 		{
@@ -2144,11 +2136,10 @@ public class leland
 	
 		/* set up the master CPU I/O ports */
 		init_master_ports(0x80, 0x40);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( strkzone )
-	{
+	public static DriverInitHandlerPtr init_strkzone  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 strkzone_eeprom_data[] =
 		{
@@ -2166,11 +2157,10 @@ public class leland
 	
 		/* set up the master CPU I/O ports */
 		init_master_ports(0x00, 0x40);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( redlin2p )
-	{
+	public static DriverInitHandlerPtr init_redlin2p  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 redlin2p_eeprom_data[] =
 		{
@@ -2198,11 +2188,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x828);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( quarterb )
-	{
+	public static DriverInitHandlerPtr init_quarterb  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 quarterb_eeprom_data[] =
 		{
@@ -2226,11 +2215,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x9bc);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( viper )
-	{
+	public static DriverInitHandlerPtr init_viper  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 viper_eeprom_data[] =
 		{
@@ -2261,11 +2249,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x788);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( teamqb )
-	{
+	public static DriverInitHandlerPtr init_teamqb  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 teamqb_eeprom_data[] =
 		{
@@ -2294,11 +2281,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x788);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( aafb )
-	{
+	public static DriverInitHandlerPtr init_aafb  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 aafb_eeprom_data[] =
 		{
@@ -2327,11 +2313,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x788);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( aafbb )
-	{
+	public static DriverInitHandlerPtr init_aafbb  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 aafb_eeprom_data[] =
 		{
@@ -2360,11 +2345,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x788);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( aafbd2p )
-	{
+	public static DriverInitHandlerPtr init_aafbd2p  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 aafb_eeprom_data[] =
 		{
@@ -2393,11 +2377,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x788);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( offroad )
-	{
+	public static DriverInitHandlerPtr init_offroad  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 offroad_eeprom_data[] =
 		{
@@ -2433,11 +2416,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x788);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( offroadt )
-	{
+	public static DriverInitHandlerPtr init_offroadt  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 offroadt_eeprom_data[] =
 		{
@@ -2472,11 +2454,10 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x788);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( pigout )
-	{
+	public static DriverInitHandlerPtr init_pigout  = new DriverInitHandlerPtr() { public void handler(){
 		/* initialize the default EEPROM state */
 		static const UINT16 pigout_eeprom_data[] =
 		{
@@ -2507,7 +2488,7 @@ public class leland
 	
 		/* optimize the sound */
 		leland_i86_optimize_address(0x788);
-	}
+	} };
 	
 	
 	

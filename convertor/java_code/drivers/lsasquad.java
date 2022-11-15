@@ -460,8 +460,8 @@ public class lsasquad
 	}
 	
 	/* coin inputs are inverted in storming */
-	static DRIVER_INIT( lsasquad ) { lsasquad_invertcoin = 0x00; init_common(); }
-	static DRIVER_INIT( storming ) { lsasquad_invertcoin = 0x0c; init_common(); }
+	public static DriverInitHandlerPtr init_lsasquad  = new DriverInitHandlerPtr() { public void handler() lsasquad_invertcoin = 0x00; init_common(); }
+	public static DriverInitHandlerPtr init_storming  = new DriverInitHandlerPtr() { public void handler() lsasquad_invertcoin = 0x0c; init_common(); }
 	
 	
 	public static GameDriver driver_lsasquad	   = new GameDriver("1986"	,"lsasquad"	,"lsasquad.java"	,rom_lsasquad,null	,machine_driver_lsasquad	,input_ports_lsasquad	,init_lsasquad	,ROT270, "Taito", "Land Sea Air Squad / Riku Kai Kuu Saizensen", GAME_IMPERFECT_GRAPHICS )

@@ -507,8 +507,7 @@ public class zn
 		{ 0xf200, 0xf200, fx1a_sound_bankswitch_w },
 	MEMORY_END
 	
-	static DRIVER_INIT( zn )
-	{
+	public static DriverInitHandlerPtr init_zn  = new DriverInitHandlerPtr() { public void handler(){
 		cpu_setbank( 1, memory_region( REGION_USER1 ) ); /* game rom */
 		cpu_setbank( 3, memory_region( REGION_CPU1 ) + 0x0480000 ); /* scratch pad */
 		cpu_setbank( 4, memory_region( REGION_CPU1 ) ); /* ram mirror */
@@ -592,13 +591,12 @@ public class zn
 		}
 	#endif
 		psx_driver_init();
-	}
+	} };
 	
-	static DRIVER_INIT( fx1b )
-	{
+	public static DriverInitHandlerPtr init_fx1b  = new DriverInitHandlerPtr() { public void handler(){
 		cpu_setbank( 10, memory_region( REGION_CPU2 ) );
 		init_zn();
-	}
+	} };
 	
 	/* sound player */
 	

@@ -1144,23 +1144,19 @@ public class armedf
 	ROM_END(); }}; 
 	
 	
-	DRIVER_INIT( terraf )
-	{
+	public static DriverInitHandlerPtr init_terraf  = new DriverInitHandlerPtr() { public void handler(){
 		armedf_setgfxtype(0);
-	}
+	} };
 	
-	DRIVER_INIT( armedf )
-	{
+	public static DriverInitHandlerPtr init_armedf  = new DriverInitHandlerPtr() { public void handler(){
 		armedf_setgfxtype(1);
-	}
+	} };
 	
-	DRIVER_INIT( kodure )
-	{
+	public static DriverInitHandlerPtr init_kodure  = new DriverInitHandlerPtr() { public void handler(){
 		armedf_setgfxtype(2);
-	}
+	} };
 	
-	DRIVER_INIT( legion )
-	{
+	public static DriverInitHandlerPtr init_legion  = new DriverInitHandlerPtr() { public void handler(){
 	#if LEGION_HACK
 		/* This is a hack to allow you to use the extra features
 	         of 3 of the "Unused" Dip Switches (see notes above). */
@@ -1171,10 +1167,9 @@ public class armedf
 	#endif
 	
 		armedf_setgfxtype(3);
-	}
+	} };
 	
-	DRIVER_INIT( legiono )
-	{
+	public static DriverInitHandlerPtr init_legiono  = new DriverInitHandlerPtr() { public void handler(){
 	#if LEGION_HACK
 		/* This is a hack to allow you to use the extra features
 	         of 3 of the "Unused" Dip Switches (see notes above). */
@@ -1184,12 +1179,11 @@ public class armedf
 	#endif
 	
 		armedf_setgfxtype(3);
-	}
+	} };
 	
-	DRIVER_INIT( cclimbr2 )
-	{
+	public static DriverInitHandlerPtr init_cclimbr2  = new DriverInitHandlerPtr() { public void handler(){
 		armedf_setgfxtype(4);
-	}
+	} };
 	
 	
 	/*     YEAR, NAME,   PARENT,   MACHINE,  INPUT,    INIT,     MONITOR, COMPANY,     FULLNAME, FLAGS */

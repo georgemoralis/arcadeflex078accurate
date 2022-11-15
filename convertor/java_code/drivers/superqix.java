@@ -301,8 +301,7 @@ public class superqix
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT(perestro)
-	{
+	public static DriverInitHandlerPtr init_perestro  = new DriverInitHandlerPtr() { public void handler(){
 		data8_t *src;
 		int len;
 		data8_t temp[16];
@@ -361,7 +360,7 @@ public class superqix
 				src[i+j] = temp[BITSWAP8(j,7,6,5,4,1,0,3,2)];
 			}
 		}
-	}
+	} };
 	
 	
 	public static GameDriver driver_superqix	   = new GameDriver("1987"	,"superqix"	,"superqix.java"	,rom_superqix,null	,machine_driver_superqix	,input_ports_superqix	,null	,ROT90, "Taito", "Super Qix", GAME_NOT_WORKING )

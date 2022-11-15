@@ -458,13 +458,12 @@ public class chqflag
 	
 	
 	
-	static DRIVER_INIT( chqflag )
-	{
+	public static DriverInitHandlerPtr init_chqflag  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		konami_rom_deinterleave_2(REGION_GFX1);
 		paletteram = &RAM[0x58000];
-	}
+	} };
 	
 	public static GameDriver driver_chqflag	   = new GameDriver("1988"	,"chqflag"	,"chqflag.java"	,rom_chqflag,null	,machine_driver_chqflag	,input_ports_chqflag	,init_chqflag	,ROT90, "Konami", "Chequered Flag", GAME_UNEMULATED_PROTECTION | GAME_IMPERFECT_SOUND )
 	public static GameDriver driver_chqflagj	   = new GameDriver("1988"	,"chqflagj"	,"chqflag.java"	,rom_chqflagj,driver_chqflag	,machine_driver_chqflag	,input_ports_chqflag	,init_chqflag	,ROT90, "Konami", "Chequered Flag (Japan)", GAME_UNEMULATED_PROTECTION | GAME_IMPERFECT_SOUND )

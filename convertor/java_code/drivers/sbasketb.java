@@ -381,10 +381,9 @@ public class sbasketb
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( sbasketb )
-	{
+	public static DriverInitHandlerPtr init_sbasketb  = new DriverInitHandlerPtr() { public void handler(){
 		konami1_decode();
-	}
+	} };
 	
 	
 	public static GameDriver driver_sbasketb	   = new GameDriver("1984"	,"sbasketb"	,"sbasketb.java"	,rom_sbasketb,null	,machine_driver_sbasketb	,input_ports_sbasketb	,init_sbasketb	,ROT90, "Konami", "Super Basketball (version G)" )

@@ -451,15 +451,14 @@ public class gijoe
 		ROM_LOAD( "069a04", 0x000000, 0x200000, CRC(11d6dcd6) SHA1(04cbff9f61cd8641db538db809ddf20da29fd5ac) )
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT( gijoe )
-	{
+	public static DriverInitHandlerPtr init_gijoe  = new DriverInitHandlerPtr() { public void handler(){
 		konami_rom_deinterleave_2(REGION_GFX1);
 		konami_rom_deinterleave_4(REGION_GFX2);
 	
 		state_save_register_UINT16("main", 0, "control2", &cur_control2, 1);
 	
 		dmadelay_timer = timer_alloc(dmaend_callback);
-	}
+	} };
 	
 	public static GameDriver driver_gijoe	   = new GameDriver("1992"	,"gijoe"	,"gijoe.java"	,rom_gijoe,null	,machine_driver_gijoe	,input_ports_gijoe	,init_gijoe	,ROT0, "Konami", "GI Joe (World)")
 	public static GameDriver driver_gijoeu	   = new GameDriver("1992"	,"gijoeu"	,"gijoe.java"	,rom_gijoeu,driver_gijoe	,machine_driver_gijoe	,input_ports_gijoe	,init_gijoe	,ROT0, "Konami", "GI Joe (US)")

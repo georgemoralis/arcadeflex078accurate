@@ -619,8 +619,7 @@ public class seicross
 	
 	
 	
-	static DRIVER_INIT( friskyt )
-	{
+	public static DriverInitHandlerPtr init_friskyt  = new DriverInitHandlerPtr() { public void handler(){
 		int A;
 		UINT8 *src,*dest;
 	
@@ -631,7 +630,7 @@ public class seicross
 		dest = memory_region(REGION_CPU2);
 		for (A = 0;A < 0x8000;A++)
 			 dest[A + 0x8000] = src[A];
-	}
+	} };
 	
 	
 	

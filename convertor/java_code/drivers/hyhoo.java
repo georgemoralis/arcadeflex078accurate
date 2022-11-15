@@ -47,15 +47,13 @@ public class hyhoo
 	void hyhoo_romsel_w(int data);
 	
 	
-	static DRIVER_INIT( hyhoo )
-	{
+	public static DriverInitHandlerPtr init_hyhoo  = new DriverInitHandlerPtr() { public void handler(){
 		nb1413m3_type = NB1413M3_HYHOO;
-	}
+	} };
 	
-	static DRIVER_INIT( hyhoo2 )
-	{
+	public static DriverInitHandlerPtr init_hyhoo2  = new DriverInitHandlerPtr() { public void handler(){
 		nb1413m3_type = NB1413M3_HYHOO2;
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( readmem_hyhoo )

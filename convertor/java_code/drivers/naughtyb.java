@@ -527,11 +527,10 @@ public class naughtyb
 	
 	
 	
-	DRIVER_INIT( popflame )
-	{
+	public static DriverInitHandlerPtr init_popflame  = new DriverInitHandlerPtr() { public void handler(){
 		/* install a handler to catch protection checks */
 		install_mem_read_handler(0, 0x9000, 0x9000, popflame_protection_r);
-	}
+	} };
 	
 	
 	public static GameDriver driver_naughtyb	   = new GameDriver("1982"	,"naughtyb"	,"naughtyb.java"	,rom_naughtyb,null	,machine_driver_naughtyb	,input_ports_naughtyb	,null	,ROT90, "Jaleco", "Naughty Boy", GAME_NO_COCKTAIL )

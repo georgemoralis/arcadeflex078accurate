@@ -465,12 +465,11 @@ public class plygonet
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_START2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static DRIVER_INIT(polygonet)
-	{
+	public static DriverInitHandlerPtr init_polygonet  = new DriverInitHandlerPtr() { public void handler(){
 		/* set default bankswitch */
 		cur_sound_region = 2;
 		reset_sound_region();
-	}
+	} };
 	
 	static RomLoadHandlerPtr rom_plygonet = new RomLoadHandlerPtr(){ public void handler(){ 
 		/* main program */

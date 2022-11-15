@@ -2245,68 +2245,60 @@ public class ms32
 	
 	
 	/* SS91022-10: desertwr, gratiaa, tp2m32, gametngk */
-	static DRIVER_INIT (ss91022_10)
-	{
+	public static DriverInitHandlerPtr init_ss91022_10  = new DriverInitHandlerPtr() { public void handler(){
 		rearrange_sprites();
 		decrypt_ms32_tx(0x00000,0x35);
 		decrypt_ms32_bg(0x00000,0xa3);
-	}
+	} };
 	
 	/* SS92046_01: bbbxing, f1superb, tetrisp, hayaosi1 */
-	static DRIVER_INIT (ss92046_01)
-	{
+	public static DriverInitHandlerPtr init_ss92046_01  = new DriverInitHandlerPtr() { public void handler(){
 		rearrange_sprites();
 		decrypt_ms32_tx(0x00020,0x7e);
 		decrypt_ms32_bg(0x00001,0x9b);
-	}
+	} };
 	
 	/* SS92047-01: gratia, kirarast */
-	static DRIVER_INIT (ss92047_01)
-	{
+	public static DriverInitHandlerPtr init_ss92047_01  = new DriverInitHandlerPtr() { public void handler(){
 		rearrange_sprites();
 		decrypt_ms32_tx(0x24000,0x18);
 		decrypt_ms32_bg(0x24000,0x55);
-	}
+	} };
 	
 	/* SS92048-01: p47aces, 47pie2, 47pie2o */
-	static DRIVER_INIT (ss92048_01)
-	{
+	public static DriverInitHandlerPtr init_ss92048_01  = new DriverInitHandlerPtr() { public void handler(){
 		rearrange_sprites();
 		decrypt_ms32_tx(0x20400,0xd6);
 		decrypt_ms32_bg(0x20400,0xd4);
-	}
+	} };
 	
-	static DRIVER_INIT (kirarast)
-	{
+	public static DriverInitHandlerPtr init_kirarast  = new DriverInitHandlerPtr() { public void handler(){
 	//	{ 0xfcc00004, 0xfcc00007, ms32_mahjong_read_inputs1 }
 		install_mem_read32_handler(0, 0xfcc00004, 0xfcc00007, ms32_mahjong_read_inputs1 );
 	
 		init_ss92047_01();
-	}
+	} };
 	
-	static DRIVER_INIT (47pie2)
-	{
+	public static DriverInitHandlerPtr init_47pie2  = new DriverInitHandlerPtr() { public void handler(){
 	//	{ 0xfcc00004, 0xfcc00007, ms32_mahjong_read_inputs1 }
 		install_mem_read32_handler(0, 0xfcc00004, 0xfcc00007, ms32_mahjong_read_inputs1 );
 	
 		init_ss92048_01();
-	}
+	} };
 	
-	static DRIVER_INIT (tp2m32)
-	{
+	public static DriverInitHandlerPtr init_tp2m32  = new DriverInitHandlerPtr() { public void handler(){
 		data32_t *pROM = (data32_t *)memory_region(REGION_CPU1);
 		/* fix SBR register */
 		pROM[0x1b848/4] &= 0x0000ffff;
 	
 		init_ss91022_10();
-	}
+	} };
 	
-	static DRIVER_INIT (f1superb)
-	{
+	public static DriverInitHandlerPtr init_f1superb  = new DriverInitHandlerPtr() { public void handler(){
 		data32_t *pROM = (data32_t *)memory_region(REGION_CPU1);
 		pROM[0x19d04/4]=0x167a021a; // bne->br  : sprite Y offset table is always copied to RAM
 		init_ss92046_01();
-	}
+	} };
 	
 	/********** GAME DRIVERS **********/
 	

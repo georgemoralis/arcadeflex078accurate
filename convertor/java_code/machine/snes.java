@@ -1376,8 +1376,7 @@ public class snes
 		return INIT_PASS;
 	}
 	#else /* for mame we use an init, maybe we will need more for the different games */
-	DRIVER_INIT( snes )
-	{
+	public static DriverInitHandlerPtr init_snes  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 		UINT16 totalblocks, readblocks;
 		UINT8  *rom;
@@ -1427,7 +1426,7 @@ public class snes
 		}
 	
 		free_memory_region(REGION_USER3);
-	}
+	} };
 	#endif	/* MESS */
 	
 	public static InterruptHandlerPtr snes_scanline_interrupt = new InterruptHandlerPtr() {public void handler(){

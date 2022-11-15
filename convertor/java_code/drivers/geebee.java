@@ -622,10 +622,9 @@ public class geebee
 	
 	
 	
-	static DRIVER_INIT( geebee )
-	{
+	public static DriverInitHandlerPtr init_geebee  = new DriverInitHandlerPtr() { public void handler(){
 		artwork_set_overlay(geebee_overlay);
-	}
+	} };
 	
 	
 	public static GameDriver driver_geebee	   = new GameDriver("1978"	,"geebee"	,"geebee.java"	,rom_geebee,null	,machine_driver_geebee	,input_ports_geebee	,init_geebee	,ROT90, "Namco", "Gee Bee" )

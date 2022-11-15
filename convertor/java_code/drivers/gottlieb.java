@@ -1936,10 +1936,9 @@ public class gottlieb
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( gottlieb )
-	{
+	public static DriverInitHandlerPtr init_gottlieb  = new DriverInitHandlerPtr() { public void handler(){
 		gottlieb_sound_init();
-	}
+	} };
 	
 	
 	public static GameDriver driver_reactor	   = new GameDriver("1982"	,"reactor"	,"gottlieb.java"	,rom_reactor,null	,machine_driver_reactor	,input_ports_reactor	,null	,ROT0,   "Gottlieb", "Reactor" )

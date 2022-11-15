@@ -477,10 +477,9 @@ public class circus
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( circus )
-	{
+	public static DriverInitHandlerPtr init_circus  = new DriverInitHandlerPtr() { public void handler(){
 		artwork_set_overlay(circus_overlay);
-	}
+	} };
 	
 	
 	public static GameDriver driver_circus	   = new GameDriver("1977"	,"circus"	,"circus.java"	,rom_circus,null	,machine_driver_circus	,input_ports_circus	,init_circus	,ROT0, "Exidy", "Circus" )

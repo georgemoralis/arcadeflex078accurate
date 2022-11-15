@@ -525,8 +525,7 @@ public class tecmosys
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( deroon )
-	{
+	public static DriverInitHandlerPtr init_deroon  = new DriverInitHandlerPtr() { public void handler(){
 		data16_t *ROM = (data16_t *)memory_region(REGION_CPU1);
 	
 		memcpy(protram, ROM+0xC46/2, 0x10);
@@ -536,7 +535,7 @@ public class tecmosys
 	
 	//	ROM[0x448/2] = 0x4E71;
 	//	ROM[0x44A/2] = 0x4E71;
-	}
+	} };
 	
 	public static GameDriver driver_deroon	   = new GameDriver("1996"	,"deroon"	,"tecmosys.java"	,rom_deroon,null	,machine_driver_deroon	,input_ports_deroon	,init_deroon	,ROT0, "Tecmo", "Deroon DeroDero", GAME_NOT_WORKING | GAME_NO_SOUND )
 	public static GameDriver driver_tkdensho	   = new GameDriver("1996"	,"tkdensho"	,"tecmosys.java"	,rom_tkdensho,null	,machine_driver_deroon	,input_ports_deroon	,null	,ROT0, "Tecmo", "Touki Denshou -Angel Eyes-", GAME_NOT_WORKING | GAME_NO_SOUND )

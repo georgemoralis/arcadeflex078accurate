@@ -810,15 +810,14 @@ public class kingobox
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( ringkin3 )
-	{
+	public static DriverInitHandlerPtr init_ringkin3  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 		UINT8 *RAM = memory_region(REGION_PROMS);
 	
 		/* expand the first color PROM to look like the kingofb ones... */
 		for (i = 0;i < 0x100;i++)
 			RAM[i] = RAM[i + 0x100] >> 4;
-	}
+	} };
 	
 	
 	

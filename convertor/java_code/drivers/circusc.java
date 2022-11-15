@@ -410,10 +410,9 @@ public class circusc
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( circusc )
-	{
+	public static DriverInitHandlerPtr init_circusc  = new DriverInitHandlerPtr() { public void handler(){
 		konami1_decode();
-	}
+	} };
 	
 	
 	public static GameDriver driver_circusc	   = new GameDriver("1984"	,"circusc"	,"circusc.java"	,rom_circusc,null	,machine_driver_circusc	,input_ports_circusc	,init_circusc	,ROT90, "Konami", "Circus Charlie" )

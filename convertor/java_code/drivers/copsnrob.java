@@ -322,10 +322,9 @@ public class copsnrob
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( copsnrob )
-	{
+	public static DriverInitHandlerPtr init_copsnrob  = new DriverInitHandlerPtr() { public void handler(){
 		artwork_set_overlay(copsnrob_overlay);
-	}
+	} };
 	
 	
 	

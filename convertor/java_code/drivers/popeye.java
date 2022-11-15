@@ -664,8 +664,7 @@ public class popeye
 	
 	
 	
-	DRIVER_INIT( skyskipr )
-	{
+	public static DriverInitHandlerPtr init_skyskipr  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *buffer;
 		UINT8 *rom = memory_region(REGION_CPU1);
 		int len = 0x10000;
@@ -679,10 +678,9 @@ public class popeye
 			memcpy(rom,buffer,len);
 			free(buffer);
 		}
-	}
+	} };
 	
-	DRIVER_INIT( popeye )
-	{
+	public static DriverInitHandlerPtr init_popeye  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *buffer;
 		UINT8 *rom = memory_region(REGION_CPU1);
 		int len = 0x10000;
@@ -696,7 +694,7 @@ public class popeye
 			memcpy(rom,buffer,len);
 			free(buffer);
 		}
-	}
+	} };
 	
 	
 	public static GameDriver driver_skyskipr	   = new GameDriver("1981"	,"skyskipr"	,"popeye.java"	,rom_skyskipr,null	,machine_driver_skyskipr	,input_ports_skyskipr	,init_skyskipr	,ROT0, "Nintendo", "Sky Skipper" )

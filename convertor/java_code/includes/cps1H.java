@@ -26,8 +26,6 @@ READ16_HANDLER( cps2_objram2_r );
 WRITE16_HANDLER( cps2_objram1_w );
 WRITE16_HANDLER( cps2_objram2_w );
 
-DRIVER_INIT( cps1 );
-DRIVER_INIT( cps2 );
 
 
 extern struct QSound_interface qsound_interface;

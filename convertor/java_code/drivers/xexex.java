@@ -582,8 +582,7 @@ public class xexex
 		suspension_active = 0;
 	} };
 	
-	static DRIVER_INIT( xexex )
-	{
+	public static DriverInitHandlerPtr init_xexex  = new DriverInitHandlerPtr() { public void handler(){
 		if (!strcmp(Machine->gamedrv->name, "xexex"))
 		{
 			// Invulnerability
@@ -606,7 +605,7 @@ public class xexex
 		dmadelay_timer = timer_alloc(dmaend_callback);
 	
 		K054539_init_flags(K054539_REVERSE_STEREO);
-	}
+	} };
 	
 	
 	public static GameDriver driver_xexex	   = new GameDriver("1991"	,"xexex"	,"xexex.java"	,rom_xexex,null	,machine_driver_xexex	,input_ports_xexex	,init_xexex	,ROT0, "Konami", "Xexex (World)" )

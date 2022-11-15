@@ -3194,8 +3194,7 @@ public class konamigx
 		cpu_set_halt_line(1, ASSERT_LINE);
 	} };
 	
-	static DRIVER_INIT(konamigx)
-	{
+	public static DriverInitHandlerPtr init_konamigx  = new DriverInitHandlerPtr() { public void handler(){
 	#define BPP5  1
 	#define BPP6  2
 	#define BPP66 3
@@ -3407,7 +3406,7 @@ public class konamigx
 	#undef BPP5
 	#undef BPP6
 	#undef BPP66
-	}
+	} };
 	
 	/**********************************************************************************/
 	/*     year  ROM       parent    machine   inp    	 init */

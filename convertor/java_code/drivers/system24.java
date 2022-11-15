@@ -814,54 +814,47 @@ public class system24
 		{ 0xfc0000, 0xffffff, ramhi_w },
 	MEMORY_END
 	
-	static DRIVER_INIT(qgh)
-	{
+	public static DriverInitHandlerPtr init_qgh  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = gqh_mlt;
 		track_size = 0;
-	}
+	} };
 	
-	static DRIVER_INIT(dcclub)
-	{
+	public static DriverInitHandlerPtr init_dcclub  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(dcclub_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = dcclub_mlt;
 		track_size = 0;
-	}
+	} };
 	
-	static DRIVER_INIT(qrouka)
-	{
+	public static DriverInitHandlerPtr init_qrouka  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = qrouka_mlt;
 		track_size = 0;
-	}
+	} };
 	
-	static DRIVER_INIT(quizmeku)
-	{
+	public static DriverInitHandlerPtr init_quizmeku  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = quizmeku_mlt;
 		track_size = 0;
-	}
+	} };
 	
-	static DRIVER_INIT(mahmajn)
-	{
+	public static DriverInitHandlerPtr init_mahmajn  = new DriverInitHandlerPtr() { public void handler(){
 	
 		system24temp_sys16_io_set_callbacks(mahmajn_io_r, mahmajn_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = mahmajn_mlt;
 		track_size = 0;
 		cur_input_line = 0;
-	}
+	} };
 	
-	static DRIVER_INIT(mahmajn2)
-	{
+	public static DriverInitHandlerPtr init_mahmajn2  = new DriverInitHandlerPtr() { public void handler(){
 	
 		system24temp_sys16_io_set_callbacks(mahmajn_io_r, mahmajn_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = mahmajn2_mlt;
 		track_size = 0;
 		cur_input_line = 0;
-	}
+	} };
 	
-	static DRIVER_INIT(hotrod)
-	{
+	public static DriverInitHandlerPtr init_hotrod  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = 0;
 	
@@ -874,10 +867,9 @@ public class system24
 		// 6        256
 	
 		track_size = 0x2f00;
-	}
+	} };
 	
-	static DRIVER_INIT(bnzabros)
-	{
+	public static DriverInitHandlerPtr init_bnzabros  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = bnzabros_mlt;
 	
@@ -891,42 +883,37 @@ public class system24
 		// 7        256
 	
 		track_size = 0x2d00;
-	}
+	} };
 	
-	static DRIVER_INIT(sspirits)
-	{
+	public static DriverInitHandlerPtr init_sspirits  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = 0;
 		track_size = 0x2d00;
-	}
+	} };
 	
-	static DRIVER_INIT(sgmast)
-	{
+	public static DriverInitHandlerPtr init_sgmast  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = 0;
 		track_size = 0x2d00;
-	}
+	} };
 	
-	static DRIVER_INIT(qsww)
-	{
+	public static DriverInitHandlerPtr init_qsww  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = 0;
 		track_size = 0x2d00;
-	}
+	} };
 	
-	static DRIVER_INIT(gground)
-	{
+	public static DriverInitHandlerPtr init_gground  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = 0;
 		track_size = 0x2d00;
-	}
+	} };
 	
-	static DRIVER_INIT(crkdown)
-	{
+	public static DriverInitHandlerPtr init_crkdown  = new DriverInitHandlerPtr() { public void handler(){
 		system24temp_sys16_io_set_callbacks(hotrod_io_r, hotrod_io_w, resetcontrol_w, iod_r, iod_w);
 		mlatch_table = 0;
 		track_size = 0x2d00;
-	}
+	} };
 	
 	static NVRAM_HANDLER(system24)
 	{

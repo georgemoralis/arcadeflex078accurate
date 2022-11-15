@@ -2872,26 +2872,23 @@ public class system32
 	//	printf("Write %x to magic (mask=%x) at PC=%x\n", data, mem_mask, activecpu_get_pc());
 	}
 	
-	static DRIVER_INIT ( s32 )
-	{
+	public static DriverInitHandlerPtr init_s32  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_temp_kludge = 0;
 		system32_mixerShift = 4;
 	
 		install_mem_write16_handler(0, 0x20f4e0, 0x20f4e1, trap_w);
-	}
+	} };
 	
-	static DRIVER_INIT ( driving )
-	{
+	public static DriverInitHandlerPtr init_driving  = new DriverInitHandlerPtr() { public void handler(){
 		multi32 = 0;
 	
 		install_mem_read16_handler (0, 0xc00050, 0xc00057, system32_io_analog_r);
 		install_mem_write16_handler(0, 0xc00050, 0xc00057, system32_io_analog_w);
-	}
+	} };
 	
-	static DRIVER_INIT ( alien3 )
-	{
+	public static DriverInitHandlerPtr init_alien3  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_ALIEN3;
 		multi32 = 0;
 		system32_temp_kludge = 0;
@@ -2906,10 +2903,9 @@ public class system32
 		install_mem_write16_handler(0, 0xc00052, 0xc00053, sys32_gun_p1_y_c00052_w);
 		install_mem_write16_handler(0, 0xc00054, 0xc00055, sys32_gun_p2_x_c00054_w);
 		install_mem_write16_handler(0, 0xc00056, 0xc00057, sys32_gun_p2_y_c00056_w);
-	}
+	} };
 	
-	static DRIVER_INIT ( brival )
-	{
+	public static DriverInitHandlerPtr init_brival  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_temp_kludge = 0;
@@ -2917,10 +2913,9 @@ public class system32
 	
 		install_mem_read16_handler (0, 0x20ba00, 0x20ba07, brival_protection_r);
 		install_mem_write16_handler(0, 0xa000000, 0xa00fff, brival_protboard_w);
-	}
+	} };
 	
-	static DRIVER_INIT ( ga2 )
-	{
+	public static DriverInitHandlerPtr init_ga2  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_temp_kludge = 0;
@@ -2930,25 +2925,22 @@ public class system32
 		/* still problems with enemies in level2, protection related? */
 		install_mem_read16_handler (0, 0xa00000, 0xa0001f, ga2_sprite_protection_r); /* main sprite colours */
 		install_mem_read16_handler (0, 0xa00100, 0xa0015f, ga2_wakeup_protection_r);
-	}
+	} };
 	
-	static DRIVER_INIT ( spidey )
-	{
+	public static DriverInitHandlerPtr init_spidey  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_mixerShift = 3;
-	}
+	} };
 	
-	static DRIVER_INIT ( f1sl )
-	{
+	public static DriverInitHandlerPtr init_f1sl  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_mixerShift = 6;
 		init_driving();
-	}
+	} };
 	
-	static DRIVER_INIT ( arf )
-	{
+	public static DriverInitHandlerPtr init_arf  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_temp_kludge = 0;
@@ -2957,55 +2949,49 @@ public class system32
 		install_mem_read16_handler (0, 0xa00000, 0xa000ff, arabfgt_protboard_r);
 		install_mem_read16_handler (0, 0xa00100, 0xa0011f, arf_wakeup_protection_r);
 		install_mem_write16_handler(0, 0xa00000, 0xa00fff, arabfgt_protboard_w);
-	}
+	} };
 	
-	static DRIVER_INIT ( holo )
-	{
+	public static DriverInitHandlerPtr init_holo  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_mixerShift = 4;
 		system32_temp_kludge = 1;	// holoseum requires the tx tilemap to be flipped
-	}
+	} };
 	
-	static DRIVER_INIT ( sonic )
-	{
+	public static DriverInitHandlerPtr init_sonic  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_mixerShift = 5;
 	
 		install_mem_write16_handler(0, 0xc00040, 0xc00055, sonic_track_reset_w);
 		install_mem_read16_handler (0, 0xc00040, 0xc00055, sonic_track_r);
-	}
+	} };
 	
-	static DRIVER_INIT ( radm )
-	{
+	public static DriverInitHandlerPtr init_radm  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_RADM;
 		multi32 = 0;
 		system32_mixerShift = 5;
 	
 		init_driving();
-	}
+	} };
 	
-	static DRIVER_INIT ( radr )
-	{
+	public static DriverInitHandlerPtr init_radr  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_RADR;
 		multi32 = 0;
 		system32_mixerShift = 5;
 	
 		init_driving();
-	}
+	} };
 	
-	static DRIVER_INIT ( f1en )
-	{
+	public static DriverInitHandlerPtr init_f1en  = new DriverInitHandlerPtr() { public void handler(){
 		system32_use_default_eeprom = EEPROM_SYS32_0;
 		multi32 = 0;
 		system32_mixerShift = 5;
 	
 		init_driving();
-	}
+	} };
 	
-	static DRIVER_INIT ( jpark )
-	{
+	public static DriverInitHandlerPtr init_jpark  = new DriverInitHandlerPtr() { public void handler(){
 		/* Temp. Patch until we emulate the 'Drive Board', thanks to Malice */
 		data16_t *pROM = (data16_t *)memory_region(REGION_CPU1);
 		pROM[0xC15A8/2] = 0xCD70;
@@ -3023,7 +3009,7 @@ public class system32
 		install_mem_write16_handler(0, 0xc00052, 0xc00053, sys32_gun_p1_y_c00052_w);
 		install_mem_write16_handler(0, 0xc00054, 0xc00055, sys32_gun_p2_x_c00054_w);
 		install_mem_write16_handler(0, 0xc00056, 0xc00057, sys32_gun_p2_y_c00056_w);
-	}
+	} };
 	
 	/* this one is pretty much ok since it doesn't use backgrounds tilemaps */
 	public static GameDriver driver_holo	   = new GameDriver("1992"	,"holo"	,"system32.java"	,rom_holo,null	,machine_driver_system32	,input_ports_holo	,init_holo	,ROT0, "Sega", "Holosseum" )

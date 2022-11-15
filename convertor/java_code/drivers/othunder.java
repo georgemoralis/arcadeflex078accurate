@@ -648,11 +648,10 @@ public class othunder
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( othunder )
-	{
+	public static DriverInitHandlerPtr init_othunder  = new DriverInitHandlerPtr() { public void handler(){
 		state_save_register_int("sound1", 0, "sound region", &banknum);
 		state_save_register_func_postload(reset_sound_region);
-	}
+	} };
 	
 	
 	public static GameDriver driver_othunder	   = new GameDriver("1988"	,"othunder"	,"othunder.java"	,rom_othunder,null	,machine_driver_othunder	,input_ports_othunder	,init_othunder	,ORIENTATION_FLIP_X, "Taito Corporation Japan", "Operation Thunderbolt (World)" )

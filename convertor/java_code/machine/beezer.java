@@ -116,13 +116,12 @@ public class beezer
 	{
 	}
 	
-	DRIVER_INIT( beezer )
-	{
+	public static DriverInitHandlerPtr init_beezer  = new DriverInitHandlerPtr() { public void handler(){
 		via_config(0, &b_via_0_interface);
 		via_config(1, &b_via_1_interface);
 		via_reset();
 		pbus = 0;
-	}
+	} };
 	
 	WRITE_HANDLER( beezer_bankswitch_w )
 	{

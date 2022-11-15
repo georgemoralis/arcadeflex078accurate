@@ -220,29 +220,7 @@ public class namcos1
 	WRITE_HANDLER( namcos1_mcu_patch_w );
 	
 	extern 
-	extern DRIVER_INIT( shadowld );
-	extern DRIVER_INIT( dspirit );
-	extern DRIVER_INIT( quester );
-	extern DRIVER_INIT( blazer );
-	extern DRIVER_INIT( pacmania );
-	extern DRIVER_INIT( galaga88 );
-	extern DRIVER_INIT( ws );
-	extern DRIVER_INIT( berabohm );
-	extern DRIVER_INIT( alice );
-	extern DRIVER_INIT( bakutotu );
-	extern DRIVER_INIT( wldcourt );
-	extern DRIVER_INIT( splatter );
-	extern DRIVER_INIT( faceoff );
-	extern DRIVER_INIT( rompers );
-	extern DRIVER_INIT( blastoff );
-	extern DRIVER_INIT( ws89 );
-	extern DRIVER_INIT( dangseed );
-	extern DRIVER_INIT( ws90 );
-	extern DRIVER_INIT( pistoldm );
-	extern DRIVER_INIT( soukobdx );
-	extern DRIVER_INIT( puzlclub );
-	extern DRIVER_INIT( tankfrce );
-	
+	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
 	
 	/**********************************************************************/
 	

@@ -735,26 +735,23 @@ public class multi32
 		MDRV_SOUND_ADD(MULTIPCM, scross_multipcm_interface)
 	MACHINE_DRIVER_END
 	
-	static DRIVER_INIT(orunners)
-	{
+	public static DriverInitHandlerPtr init_orunners  = new DriverInitHandlerPtr() { public void handler(){
 		multi32=1;
 		system32_temp_kludge = 0;
 		system32_mixerShift = 4;
-	}
+	} };
 	
-	static DRIVER_INIT(titlef)
-	{
+	public static DriverInitHandlerPtr init_titlef  = new DriverInitHandlerPtr() { public void handler(){
 		multi32=1;
 		system32_temp_kludge = 0;
 		system32_mixerShift = 4;
-	}
+	} };
 	
-	static DRIVER_INIT(harddunk)
-	{
+	public static DriverInitHandlerPtr init_harddunk  = new DriverInitHandlerPtr() { public void handler(){
 		multi32=1;
 		system32_temp_kludge = 0;
 		system32_mixerShift = 5;
-	}
+	} };
 	
 	#define SYSTEM32_PLAYER_INPUTS(_n_, _b1_, _b2_, _b3_, _b4_) \
 		PORT_BIT( 0x01, IP_ACTIVE_LOW, IPT_##_b1_         | IPF_PLAYER##_n_ );\

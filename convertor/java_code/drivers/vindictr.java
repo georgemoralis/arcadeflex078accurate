@@ -579,11 +579,10 @@ public class vindictr
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( vindictr )
-	{
+	public static DriverInitHandlerPtr init_vindictr  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = NULL;
 		atarijsa_init(1, 5, 1, 0x0002);
-	}
+	} };
 	
 	
 	

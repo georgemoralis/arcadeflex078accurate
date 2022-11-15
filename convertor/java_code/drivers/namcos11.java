@@ -606,8 +606,7 @@ public class namcos11
 		{ NULL, NULL }
 	};
 	
-	static DRIVER_INIT( namcos11 )
-	{
+	public static DriverInitHandlerPtr init_namcos11  = new DriverInitHandlerPtr() { public void handler(){
 		int n_game;
 	
 		cpu_setbank( 1, memory_region( REGION_USER1 ) );
@@ -661,7 +660,7 @@ public class namcos11
 		}
 	
 		psx_driver_init();
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_namcos11  = new MachineInitHandlerPtr() { public void handler(){
 		memset( namcos11_keycus, 0, namcos11_keycus_size );

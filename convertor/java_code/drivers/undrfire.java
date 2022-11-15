@@ -755,8 +755,7 @@ public class undrfire
 		return undrfire_ram[0x4f8/4];
 	}
 	
-	DRIVER_INIT( undrfire )
-	{
+	public static DriverInitHandlerPtr init_undrfire  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned int offset,i;
 		UINT8 *gfx = memory_region(REGION_GFX3);
 		int size=memory_region_length(REGION_GFX3);
@@ -784,7 +783,7 @@ public class undrfire
 			gfx[offset] = (d3<<2) | (d4<<6);
 			offset++;
 		}
-	}
+	} };
 	
 	
 	public static GameDriver driver_undrfire	   = new GameDriver("1993"	,"undrfire"	,"undrfire.java"	,rom_undrfire,null	,machine_driver_undrfire	,input_ports_undrfire	,init_undrfire	,ROT0, "Taito Corporation Japan", "Under Fire (World)" )

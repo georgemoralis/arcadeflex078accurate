@@ -500,8 +500,7 @@ public class rampart
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( rampart )
-	{
+	public static DriverInitHandlerPtr init_rampart  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT16 compressed_default_eeprom[] =
 		{
 			0x0001,0x01FF,0x0E00,0x01FF,0x0E00,0x01FF,0x0150,0x0101,
@@ -530,7 +529,7 @@ public class rampart
 		atarigen_eeprom_default = compressed_default_eeprom;
 		memcpy(&memory_region(REGION_CPU1)[0x140000], &memory_region(REGION_CPU1)[0x40000], 0x8000);
 		atarigen_slapstic_init(0, 0x140000, 118);
-	}
+	} };
 	
 	
 	

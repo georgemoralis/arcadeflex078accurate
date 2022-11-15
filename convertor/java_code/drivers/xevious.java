@@ -1380,8 +1380,7 @@ public class xevious
 	
 	
 	
-	static DRIVER_INIT( xevios )
-	{
+	public static DriverInitHandlerPtr init_xevios  = new DriverInitHandlerPtr() { public void handler(){
 		int A;
 	
 	
@@ -1400,7 +1399,7 @@ public class xevious
 	
 			rom[A] = BITSWAP8(rom[A],3,7,5,1,2,6,4,0);
 		}
-	}
+	} };
 	
 	
 	

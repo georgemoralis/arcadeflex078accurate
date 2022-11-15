@@ -778,15 +778,13 @@ public class meadows
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( deadeye )
-	{
+	public static DriverInitHandlerPtr init_deadeye  = new DriverInitHandlerPtr() { public void handler(){
 		artwork_set_overlay(deadeye_overlay);
-	}
+	} };
 	
 	
 	/* A fake for the missing ball sprites #3 and #4 */
-	static DRIVER_INIT( gypsyjug )
-	{
+	public static DriverInitHandlerPtr init_gypsyjug  = new DriverInitHandlerPtr() { public void handler(){
 		static unsigned char ball[16*2] =
 		{
 			0x00,0x00, 0x00,0x00, 0x00,0x00, 0x00,0x00,
@@ -805,12 +803,11 @@ public class meadows
 		}
 	
 		artwork_set_overlay(gypsyjug_overlay);
-	}
+	} };
 	
 	
 	/* A fake for inverting the data bus */
-	static DRIVER_INIT( minferno )
-	{
+	public static DriverInitHandlerPtr init_minferno  = new DriverInitHandlerPtr() { public void handler(){
 		int i, length;
 		unsigned char *mem;
 	
@@ -819,7 +816,7 @@ public class meadows
 		length = memory_region_length(REGION_GFX1);
 		for (i = 0; i < length/2; i++)
 			mem[i] = ~mem[i + length/2];
-	}
+	} };
 	
 	
 	

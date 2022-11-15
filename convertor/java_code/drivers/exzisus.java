@@ -139,8 +139,7 @@ public class exzisus
 	
 	**************************************************************************/
 	
-	static DRIVER_INIT( exzisus )
-	{
+	public static DriverInitHandlerPtr init_exzisus  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *RAM = memory_region(REGION_CPU4);
 	
 		/* Fix ROM 1 error */
@@ -148,7 +147,7 @@ public class exzisus
 	
 		/* Fix WORK RAM error */
 		RAM[0x67fd] = 0x18;
-	}
+	} };
 	
 	static void irqhandler(int irq)
 	{

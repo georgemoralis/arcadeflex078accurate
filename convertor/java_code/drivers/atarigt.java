@@ -1136,8 +1136,7 @@ public class atarigt
 		atarigen_playfield32_w(offset, data, mem_mask);
 	}
 	
-	static DRIVER_INIT( tmek )
-	{
+	public static DriverInitHandlerPtr init_tmek  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = NULL;
 		atarigt_is_primrage = 0;
 	
@@ -1150,7 +1149,7 @@ public class atarigt
 	
 		/* temp hack */
 		install_mem_write32_handler(0, 0xd72000, 0xd75fff, tmek_pf_w);
-	}
+	} };
 	
 	
 	static void primrage_init_common(offs_t cage_speedup)
@@ -1166,8 +1165,8 @@ public class atarigt
 		protection_w = primrage_protection_w;
 	}
 	
-	static DRIVER_INIT( primrage ) { primrage_init_common(0x42f2); }
-	static DRIVER_INIT( primraga ) { primrage_init_common(0x48a4); }
+	public static DriverInitHandlerPtr init_primrage  = new DriverInitHandlerPtr() { public void handler() primrage_init_common(0x42f2); }
+	public static DriverInitHandlerPtr init_primraga  = new DriverInitHandlerPtr() { public void handler() primrage_init_common(0x48a4); }
 	
 	
 	

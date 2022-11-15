@@ -644,8 +644,7 @@ public class atarig42
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( roadriot )
-	{
+	public static DriverInitHandlerPtr init_roadriot  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT16 default_eeprom[] =
 		{
 			0x0001,0x01B7,0x01AF,0x01E4,0x0100,0x0130,0x0300,0x01CC,
@@ -690,11 +689,10 @@ public class atarig42
 		   +AN.VID7								or (alpha)
 		   +!AN.0
 	*/
-	}
+	} };
 	
 	
-	static DRIVER_INIT( guardian )
-	{
+	public static DriverInitHandlerPtr init_guardian  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT16 default_eeprom[] =
 		{
 			0x0001,0x01FD,0x01FF,0x01EF,0x0100,0x01CD,0x0300,0x0104,
@@ -744,7 +742,7 @@ public class atarig42
 		   +AN.VID7								or (alpha)
 		   +!AN.0
 	*/
-	}
+	} };
 	
 	
 	

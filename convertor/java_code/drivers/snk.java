@@ -3793,7 +3793,7 @@ public class snk
 		/* c080 */ SNK_UNUSED
 	};
 	
-	static DRIVER_INIT( ikari ){
+	public static DriverInitHandlerPtr init_ikari  = new DriverInitHandlerPtr() { public void handler()
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		/*  Hack ROM test */
 		RAM[0x11a6] = 0x00;
@@ -3812,7 +3812,7 @@ public class snk
 		snk_gamegroup = 1;
 	}
 	
-	static DRIVER_INIT( ikarijp ){
+	public static DriverInitHandlerPtr init_ikarijp  = new DriverInitHandlerPtr() { public void handler()
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		RAM[0x190b] = 0xc9; /* faster test */
 	
@@ -3823,7 +3823,7 @@ public class snk
 		snk_gamegroup = 1;
 	}
 	
-	static DRIVER_INIT( ikarijpb ){
+	public static DriverInitHandlerPtr init_ikarijpb  = new DriverInitHandlerPtr() { public void handler()
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		RAM[0x190b] = 0xc9; /* faster test */
 	
@@ -3834,7 +3834,7 @@ public class snk
 		snk_gamegroup = 1;
 	}
 	
-	static DRIVER_INIT( victroad ){
+	public static DriverInitHandlerPtr init_victroad  = new DriverInitHandlerPtr() { public void handler()
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		/* Hack ROM test */
 		RAM[0x17bd] = 0x00;
@@ -3853,7 +3853,7 @@ public class snk
 		snk_gamegroup = 1;
 	}
 	
-	static DRIVER_INIT( dogosoke ){
+	public static DriverInitHandlerPtr init_dogosoke  = new DriverInitHandlerPtr() { public void handler()
 		unsigned char *RAM = memory_region(REGION_CPU1);
 		/* Hack ROM test */
 		RAM[0x179f] = 0x00;
@@ -3872,7 +3872,7 @@ public class snk
 		snk_gamegroup = 1;
 	}
 	
-	static DRIVER_INIT( gwar ){
+	public static DriverInitHandlerPtr init_gwar  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x01;
 		snk_io = ikari_io;
 		hard_flags = 0;
@@ -3880,7 +3880,7 @@ public class snk
 		snk_gamegroup = 2;
 	}
 	
-	static DRIVER_INIT( gwara ){
+	public static DriverInitHandlerPtr init_gwara  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x01;
 		snk_io = ikari_io;
 		hard_flags = 0;
@@ -3888,7 +3888,7 @@ public class snk
 		snk_gamegroup = 4;
 	}
 	
-	static DRIVER_INIT( chopper ){
+	public static DriverInitHandlerPtr init_chopper  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x01;
 		snk_io = athena_io;
 		hard_flags = 0;
@@ -3896,7 +3896,7 @@ public class snk
 		snk_gamegroup = 0;
 	}
 	
-	static DRIVER_INIT( choppera ){
+	public static DriverInitHandlerPtr init_choppera  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x01;
 		snk_io = choppera_io;
 		hard_flags = 0;
@@ -3904,7 +3904,7 @@ public class snk
 		snk_gamegroup = 2;
 	}
 	
-	static DRIVER_INIT( bermudat ){
+	public static DriverInitHandlerPtr init_bermudat  = new DriverInitHandlerPtr() { public void handler()
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		// Patch "Turbo Error"
@@ -3919,7 +3919,7 @@ public class snk
 		snk_gamegroup = 0;
 	}
 	
-	static DRIVER_INIT( worldwar ){
+	public static DriverInitHandlerPtr init_worldwar  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x01;
 		snk_io = ikari_io;
 		hard_flags = 0;
@@ -3927,7 +3927,7 @@ public class snk
 		snk_gamegroup = 0;
 	}
 	
-	static DRIVER_INIT( tdfever ){
+	public static DriverInitHandlerPtr init_tdfever  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x08;
 		snk_io = tdfever_io;
 		hard_flags = 0;
@@ -3936,7 +3936,7 @@ public class snk
 		snk_irq_delay = 1000;
 	}
 	
-	static DRIVER_INIT( tdfever2 ){
+	public static DriverInitHandlerPtr init_tdfever2  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x08;
 		snk_io = tdfever_io;
 		hard_flags = 0;
@@ -3945,7 +3945,7 @@ public class snk
 		snk_irq_delay = 1000;
 	}
 	
-	static DRIVER_INIT( ftsoccer ){
+	public static DriverInitHandlerPtr init_ftsoccer  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x08;
 		snk_io = tdfever_io;
 		hard_flags = 0;
@@ -3953,7 +3953,7 @@ public class snk
 		snk_gamegroup = 7;
 	}
 	
-	static DRIVER_INIT( tnk3 ){
+	public static DriverInitHandlerPtr init_tnk3  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x20;
 		snk_io = ikari_io;
 		hard_flags = 0;
@@ -3961,7 +3961,7 @@ public class snk
 		snk_gamegroup = 1;
 	}
 	
-	static DRIVER_INIT( athena ){
+	public static DriverInitHandlerPtr init_athena  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x01;
 		snk_io = athena_io;
 		hard_flags = 0;
@@ -3969,7 +3969,7 @@ public class snk
 		snk_gamegroup = 1;
 	}
 	
-	static DRIVER_INIT( fitegolf ){
+	public static DriverInitHandlerPtr init_fitegolf  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x01;
 		snk_io = athena_io;
 		hard_flags = 0;
@@ -3977,7 +3977,7 @@ public class snk
 		snk_gamegroup = 1;
 	}
 	
-	static DRIVER_INIT( psychos ){
+	public static DriverInitHandlerPtr init_psychos  = new DriverInitHandlerPtr() { public void handler()
 		snk_sound_busy_bit = 0x01;
 		snk_io = athena_io;
 		hard_flags = 0;

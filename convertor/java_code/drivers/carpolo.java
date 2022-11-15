@@ -315,8 +315,7 @@ public class carpolo
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( carpolo )
-	{
+	public static DriverInitHandlerPtr init_carpolo  = new DriverInitHandlerPtr() { public void handler(){
 		size_t i;
 		UINT8 *ROM;
 	
@@ -325,7 +324,7 @@ public class carpolo
 		ROM = memory_region(REGION_GFX2);
 		for (i = 0;i < memory_region_length(REGION_GFX2); i++)
 			ROM[i] ^= 0x0f;
-	}
+	} };
 	
 	public static GameDriver driver_carpolo	   = new GameDriver("1977"	,"carpolo"	,"carpolo.java"	,rom_carpolo,null	,machine_driver_carpolo	,input_ports_carpolo	,init_carpolo	,ROT0, "Exidy", "Car Polo", GAME_NO_SOUND)
 }

@@ -730,8 +730,7 @@ public class hnayayoi
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( hnfubuki )
-	{
+	public static DriverInitHandlerPtr init_hnfubuki  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *rom = memory_region(REGION_GFX1);
 		int len = memory_region_length(REGION_GFX1);
 		int i,j;
@@ -754,7 +753,7 @@ public class hnayayoi
 		{
 			rom[i] = BITSWAP8(rom[i],7,6,5,4,3,2,0,1);
 		}
-	}
+	} };
 	
 	
 	public static GameDriver driver_hnayayoi	   = new GameDriver("1987"	,"hnayayoi"	,"hnayayoi.java"	,rom_hnayayoi,null	,machine_driver_hnayayoi	,input_ports_hnayayoi	,null	,ROT0, "Dyna Electronics", "Hana Yayoi (Japan)" )

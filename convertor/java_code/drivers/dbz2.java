@@ -568,13 +568,11 @@ public class dbz2
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT(dbz2)
-	{
+	public static DriverInitHandlerPtr init_dbz2  = new DriverInitHandlerPtr() { public void handler(){
 		konami_rom_deinterleave_2(REGION_GFX1);
-	}
+	} };
 	
-	static DRIVER_INIT(dbz)
-	{
+	public static DriverInitHandlerPtr init_dbz  = new DriverInitHandlerPtr() { public void handler(){
 		data16_t *ROM;
 	
 		konami_rom_deinterleave_2(REGION_GFX1);
@@ -594,7 +592,7 @@ public class dbz2
 		ROM[0x98c/2] = 0x4e71;
 		ROM[0x98e/2] = 0x4e71;
 		ROM[0x990/2] = 0x4e71;
-	}
+	} };
 	
 	public static GameDriver driver_dbz	   = new GameDriver("1993"	,"dbz"	,"dbz2.java"	,rom_dbz,null	,machine_driver_dbz	,input_ports_dbz	,init_dbz	,ROT0, "Banpresto", "Dragonball Z" , GAME_IMPERFECT_GRAPHICS )
 	public static GameDriver driver_dbz2	   = new GameDriver("1994"	,"dbz2"	,"dbz2.java"	,rom_dbz2,null	,machine_driver_dbz2	,input_ports_dbz2	,init_dbz2	,ROT0, "Banpresto", "Dragonball Z 2 Super Battle" , GAME_IMPERFECT_GRAPHICS )

@@ -309,21 +309,7 @@ public class playch10
 	extern WRITE_HANDLER( playch10_videoram_w );
 	extern extern extern 
 	/* from machine */
-	extern extern DRIVER_INIT( playch10 );	/* standard games */
-	extern DRIVER_INIT( pc_gun );	/* gun games */
-	extern DRIVER_INIT( pc_hrz );	/* horizontal games */
-	extern DRIVER_INIT( pcaboard );	/* a-board games */
-	extern DRIVER_INIT( pcbboard );	/* b-board games */
-	extern DRIVER_INIT( pccboard );	/* c-board games */
-	extern DRIVER_INIT( pcdboard );	/* d-board games */
-	extern DRIVER_INIT( pceboard );	/* e-board games */
-	extern DRIVER_INIT( pcfboard );	/* f-board games */
-	extern DRIVER_INIT( pcgboard );	/* g-board games */
-	extern DRIVER_INIT( pcgboard_type2 ); /* g-board games with 4 screen mirror */
-	extern DRIVER_INIT( pchboard );	/* h-board games */
-	extern DRIVER_INIT( pciboard );	/* i-board games */
-	extern DRIVER_INIT( pckboard );	/* k-board games */
-	extern READ_HANDLER( pc10_port_0_r );
+	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern READ_HANDLER( pc10_port_0_r );
 	extern READ_HANDLER( pc10_instrom_r );
 	extern READ_HANDLER( pc10_prot_r );
 	extern READ_HANDLER( pc10_detectclr_r );

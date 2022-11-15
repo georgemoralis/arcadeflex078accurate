@@ -863,8 +863,7 @@ public class snowbros
 		ROM_LOAD( "cookbib2.03", 0x100000, 0x40000, CRC(e1604821) SHA1(bede6bdd8331128b9f2b229d718133470bf407c9) )
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT( cookbib2 )
-	{
+	public static DriverInitHandlerPtr init_cookbib2  = new DriverInitHandlerPtr() { public void handler(){
 	//	data16_t *HCROM = (data16_t*)memory_region(REGION_CPU1);
 		data16_t *PROTDATA = (data16_t*)memory_region(REGION_USER1);
 		int i;
@@ -1203,11 +1202,10 @@ public class snowbros
 			}
 		}
 	#endif
-	}
+	} };
 	
 	
-	static DRIVER_INIT( hyperpac )
-	{
+	public static DriverInitHandlerPtr init_hyperpac  = new DriverInitHandlerPtr() { public void handler(){
 		/* simulate RAM initialization done by the protection MCU */
 		/* not verified on real hardware */
 		hyperpac_ram[0xe000/2] = 0x4ef9;
@@ -1218,15 +1216,14 @@ public class snowbros
 		hyperpac_ram[0xe082/2] = 0xba98;
 		hyperpac_ram[0xe084/2] = 0x7654;
 		hyperpac_ram[0xe086/2] = 0x3210;
-	}
+	} };
 	
 	READ16_HANDLER ( _4in1_02_read )
 	{
 		return 0x0202;
 	}
 	
-	static DRIVER_INIT(4in1boot)
-	{
+	public static DriverInitHandlerPtr init_4in1boot  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *buffer;
 		data8_t *src = memory_region(REGION_CPU1);
 		int len = memory_region_length(REGION_CPU1);
@@ -1259,7 +1256,7 @@ public class snowbros
 		install_mem_read16_handler (0, 0x200000, 0x200001, _4in1_02_read );
 	
 	
-	}
+	} };
 	
 	public static GameDriver driver_snowbros	   = new GameDriver("1990"	,"snowbros"	,"snowbros.java"	,rom_snowbros,null	,machine_driver_snowbros	,input_ports_snowbros	,null	,ROT0, "Toaplan", "Snow Bros. - Nick & Tom (set 1)" )
 	public static GameDriver driver_snowbroa	   = new GameDriver("1990"	,"snowbroa"	,"snowbros.java"	,rom_snowbroa,driver_snowbros	,machine_driver_snowbros	,input_ports_snowbros	,null	,ROT0, "Toaplan", "Snow Bros. - Nick & Tom (set 2)" )

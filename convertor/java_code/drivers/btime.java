@@ -1813,8 +1813,7 @@ public class btime
 		return RAM[0xc15f];
 	}
 	
-	static DRIVER_INIT( btime )
-	{
+	public static DriverInitHandlerPtr init_btime  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
@@ -1824,10 +1823,9 @@ public class btime
 		/* at run time, since the CPU applies the decryption only if the previous */
 		/* instruction did a memory write. */
 		memcpy(rom+diff,rom,0x10000);
-	}
+	} };
 	
-	static DRIVER_INIT( zoar )
-	{
+	public static DriverInitHandlerPtr init_zoar  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *rom = memory_region(REGION_CPU1);
 	
 	
@@ -1838,24 +1836,21 @@ public class btime
 		memset(&rom[0xd50a],0xea,8);
 	
 	    init_btime();
-	}
+	} };
 	
-	static DRIVER_INIT( lnc )
-	{
+	public static DriverInitHandlerPtr init_lnc  = new DriverInitHandlerPtr() { public void handler(){
 		decrypt_C10707_cpu(0, REGION_CPU1);
-	}
+	} };
 	
-	static DRIVER_INIT( wtennis )
-	{
+	public static DriverInitHandlerPtr init_wtennis  = new DriverInitHandlerPtr() { public void handler(){
 		install_mem_read_handler(0, 0xc15f, 0xc15f, wtennis_reset_hack_r);
 		init_lnc();
-	}
+	} };
 	
-	static DRIVER_INIT( sdtennis )
-	{
+	public static DriverInitHandlerPtr init_sdtennis  = new DriverInitHandlerPtr() { public void handler(){
 		decrypt_C10707_cpu(0, REGION_CPU1);
 		decrypt_C10707_cpu(1, REGION_CPU2);
-	}
+	} };
 	
 	
 	public static GameDriver driver_btime	   = new GameDriver("1982"	,"btime"	,"btime.java"	,rom_btime,null	,machine_driver_btime	,input_ports_btime	,init_btime	,ROT270, "Data East Corporation", "Burger Time (Data East set 1)" )

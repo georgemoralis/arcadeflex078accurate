@@ -314,8 +314,7 @@ public class batman
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( batman )
-	{
+	public static DriverInitHandlerPtr init_batman  = new DriverInitHandlerPtr() { public void handler(){
 		static const data16_t default_eeprom[] =
 		{
 			0x0001,0x01F1,0x0154,0x01C5,0x0100,0x0113,0x0300,0x0173,
@@ -335,7 +334,7 @@ public class batman
 		atarijsa_init(1, 3, 2, 0x0040);
 		atarijsa3_init_adpcm(REGION_SOUND1);
 		atarigen_init_6502_speedup(1, 0x4163, 0x417b);
-	}
+	} };
 	
 	
 	

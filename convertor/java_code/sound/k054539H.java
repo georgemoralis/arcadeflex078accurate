@@ -25,7 +25,7 @@ READ_HANDLER( K054539_0_r );
 WRITE_HANDLER( K054539_1_w );
 READ_HANDLER( K054539_1_r );
 
-//* control flags, may be set at DRIVER_INIT().
+//* control flags, may be set at public static DriverInitHandlerPtr init_  = new DriverInitHandlerPtr() { public void handler()
 #define K054539_RESET_FLAGS     0
 #define K054539_REVERSE_STEREO  1
 #define K054539_DISABLE_REVERB  2
@@ -38,7 +38,7 @@ void K054539_init_flags(int flags);
 	volume controls. Considering the global attenuation equation may not
 	be entirely accurate, K054539_set_gain() provides means to control
 	channel gain. It can be called anywhere but preferrably from
-	DRIVER_INIT().
+	public static DriverInitHandlerPtr init_  = new DriverInitHandlerPtr() { public void handler()
 
 	Parameters:
 		chip    : 0 / 1

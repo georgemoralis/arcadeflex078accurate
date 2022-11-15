@@ -383,14 +383,13 @@ public class raiden2
 	/* INIT */
 	
 	
-	static DRIVER_INIT (raiden2)
-	{
+	public static DriverInitHandlerPtr init_raiden2  = new DriverInitHandlerPtr() { public void handler(){
 		/* wrong , there must be some banking this just stops it crashing */
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1,&RAM[0x100000]);
 		cpu_setbank(2,&RAM[0x140000]);
-	}
+	} };
 	
 	/* GAME DRIVERS */
 	

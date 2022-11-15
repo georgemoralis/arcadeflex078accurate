@@ -666,8 +666,7 @@ public class m107
 	
 	/***************************************************************************/
 	
-	static DRIVER_INIT( firebarr )
-	{
+	public static DriverInitHandlerPtr init_firebarr  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		memcpy(RAM+0xffff0,RAM+0x7fff0,0x10); /* Start vector */
@@ -682,10 +681,9 @@ public class m107
 		m107_spritesystem = 1;
 	
 		raster_enable=1;
-	}
+	} };
 	
-	static DRIVER_INIT( dsoccr94 )
-	{
+	public static DriverInitHandlerPtr init_dsoccr94  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		memcpy(RAM+0xffff0,RAM+0x7fff0,0x10); /* Start vector */
@@ -701,10 +699,9 @@ public class m107
 	
 		/* This game doesn't use raster IRQ's */
 		raster_enable=0;
-	}
+	} };
 	
-	static DRIVER_INIT( wpksoc )
-	{
+	public static DriverInitHandlerPtr init_wpksoc  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		memcpy(RAM+0xffff0,RAM+0x7fff0,0x10); /* Start vector */
@@ -719,7 +716,7 @@ public class m107
 		m107_spritesystem = 0;
 	
 		raster_enable=0;
-	}
+	} };
 	
 	/***************************************************************************/
 	

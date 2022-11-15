@@ -29,6 +29,7 @@ public class convertMame {
     static final int PALETTE_INIT = 7;
     static final int MACHINE_INIT = 8;
     static final int MACHINE_STOP = 9;
+    static final int DRIVER_INIT = 10;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -97,6 +98,30 @@ public class convertMame {
                             sUtil.putString((new StringBuilder()).append("DEF_STR( \"").append(Convertor.token[0]).append("\")").toString());
                             i3 = -1;
 
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("DRIVER_INIT")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static DriverInitHandlerPtr init_" + Convertor.token[0] + "  = new DriverInitHandlerPtr() { public void handler()");
+                            type = DRIVER_INIT;
+                            i3 = -1;
+                            Convertor.inpos += 1;
                             continue;
                         }
                     }
@@ -406,37 +431,34 @@ public class convertMame {
                                 continue;
                             }
                         }
+                        if (sUtil.getToken("DRIVER_INIT")) {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '(') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != ')') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            if (sUtil.parseChar() == ';') {
+                                sUtil.skipLine();
+                                continue;
+                            } else {
+                                sUtil.putString("public static DriverInitHandlerPtr init_" + Convertor.token[0] + "  = new DriverInitHandlerPtr() { public void handler()");
+                                type = DRIVER_INIT;
+                                i3 = -1;
+                                Convertor.inpos += 1;
+                                continue;
+                            }
+                        }
                     } // end of static but not static struct
                 }
                 Convertor.inpos = i;
-                break;
-                case ')': {
-                    i = Convertor.inpos;
-                    if (type2 == INPUTPORTS) {
-                        i8--;
-                        i = Convertor.inpos;
-                        Convertor.inpos += 1;
-                        if (sUtil.parseChar() == '\"') {
-                            Convertor.outbuf[(Convertor.outpos++)] = '\"';
-                            Convertor.outbuf[(Convertor.outpos++)] = ')';
-                            Convertor.outbuf[(Convertor.outpos++)] = ')';
-                            Convertor.outbuf[(Convertor.outpos++)] = ';';
-                            Convertor.inpos += 3;
-                        } else {
-                            Convertor.inpos = i;
-                            Convertor.outbuf[(Convertor.outpos++)] = ')';
-                            Convertor.outbuf[(Convertor.outpos++)] = ';';
-                            Convertor.inpos += 2;
-                        }
-                        if (sUtil.getChar() == ')') {
-                            Convertor.inpos += 1;
-                        }
-                        type2 = -1;
-                        continue;
-                    }
-                }
-                Convertor.inpos = i;
-                break;
+                break;   
                 case 'V': {
                     i = Convertor.inpos;
                     if (sUtil.getToken("VIDEO_START")) {
@@ -538,10 +560,38 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case ')': {
+                    i = Convertor.inpos;
+                    if (type2 == INPUTPORTS) {
+                        i8--;
+                        i = Convertor.inpos;
+                        Convertor.inpos += 1;
+                        if (sUtil.parseChar() == '\"') {
+                            Convertor.outbuf[(Convertor.outpos++)] = '\"';
+                            Convertor.outbuf[(Convertor.outpos++)] = ')';
+                            Convertor.outbuf[(Convertor.outpos++)] = ')';
+                            Convertor.outbuf[(Convertor.outpos++)] = ';';
+                            Convertor.inpos += 3;
+                        } else {
+                            Convertor.inpos = i;
+                            Convertor.outbuf[(Convertor.outpos++)] = ')';
+                            Convertor.outbuf[(Convertor.outpos++)] = ';';
+                            Convertor.inpos += 2;
+                        }
+                        if (sUtil.getChar() == ')') {
+                            Convertor.inpos += 1;
+                        }
+                        type2 = -1;
+                        continue;
+                    }
+                }
+                Convertor.inpos = i;
+                break;
                 case '{': {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
-                            || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP) {
+                            || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP
+                            || type == DRIVER_INIT) {
                         i3++;
                     }
                 }
@@ -550,7 +600,8 @@ public class convertMame {
                 case '}': {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
-                            || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP) {
+                            || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP
+                            || type == DRIVER_INIT) {
                         i3--;
                         if (i3 == -1) {
                             sUtil.putString("} };");

@@ -1663,8 +1663,7 @@ public class psikyo
 	
 	ROM_END(); }}; 
 	
-	DRIVER_INIT( sngkace )
-	{
+	public static DriverInitHandlerPtr init_sngkace  = new DriverInitHandlerPtr() { public void handler(){
 		{
 			unsigned char *RAM	=	memory_region(REGION_SOUND1);
 			int len				=	memory_region_length(REGION_SOUND1);
@@ -1700,7 +1699,7 @@ public class psikyo
 	
 		}
 	#endif
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -1844,8 +1843,7 @@ public class psikyo
 	
 	
 	
-	DRIVER_INIT( gunbird )
-	{
+	public static DriverInitHandlerPtr init_gunbird  = new DriverInitHandlerPtr() { public void handler(){
 		/* input ports */
 		install_mem_read32_handler(0, 0xc00000, 0xc0000b, gunbird_input_r);
 	
@@ -1853,7 +1851,7 @@ public class psikyo
 		install_mem_write32_handler(0, 0xc00010, 0xc00013, psikyo_soundlatch_w);
 	
 		psikyo_ka302c_banking = 1;
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -1902,8 +1900,7 @@ public class psikyo
 	
 	ROM_END(); }}; 
 	
-	DRIVER_INIT( s1945jn )
-	{
+	public static DriverInitHandlerPtr init_s1945jn  = new DriverInitHandlerPtr() { public void handler(){
 		/* input ports */
 		install_mem_read32_handler(0, 0xc00000, 0xc0000b, gunbird_input_r);
 	
@@ -1911,7 +1908,7 @@ public class psikyo
 		install_mem_write32_handler(0, 0xc00010, 0xc00013, s1945_soundlatch_w);
 	
 		psikyo_ka302c_banking = 1;
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -1997,8 +1994,7 @@ public class psikyo
 	
 	ROM_END(); }}; 
 	
-	DRIVER_INIT( s1945 )
-	{
+	public static DriverInitHandlerPtr init_s1945  = new DriverInitHandlerPtr() { public void handler(){
 		/* input ports */
 		install_mem_read32_handler(0, 0xc00000, 0xc0000b, s1945_input_r);
 	
@@ -2010,10 +2006,9 @@ public class psikyo
 		s1945_mcu_init(s1945_table);
 	
 		psikyo_ka302c_banking = 0; // Banking is controlled by mcu
-	}
+	} };
 	
-	DRIVER_INIT( s1945j )
-	{
+	public static DriverInitHandlerPtr init_s1945j  = new DriverInitHandlerPtr() { public void handler(){
 		/* input ports*/
 		install_mem_read32_handler(0, 0xc00000, 0xc0000b, s1945_input_r);
 	
@@ -2025,7 +2020,7 @@ public class psikyo
 		s1945_mcu_init(s1945j_table);
 	
 		psikyo_ka302c_banking = 0; // Banking is controlled by mcu
-	}
+	} };
 	
 	/***************************************************************************
 	
@@ -2078,8 +2073,7 @@ public class psikyo
 	
 	ROM_END(); }}; 
 	
-	DRIVER_INIT( tengai )
-	{
+	public static DriverInitHandlerPtr init_tengai  = new DriverInitHandlerPtr() { public void handler(){
 		/* input ports */
 		install_mem_read32_handler(0, 0xc00000, 0xc0000b, s1945_input_r);
 	
@@ -2091,7 +2085,7 @@ public class psikyo
 		s1945_mcu_init(0);
 	
 		psikyo_ka302c_banking = 0; // Banking is controlled by mcu
-	}
+	} };
 	
 	
 	/***************************************************************************

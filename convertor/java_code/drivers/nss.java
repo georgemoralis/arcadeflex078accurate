@@ -40,8 +40,7 @@ package drivers;
 public class nss
 {
 	
-	extern DRIVER_INIT( snes );
-	
+	extern 
 	static MEMORY_READ_START( snes_readmem )
 		{ 0x000000, 0x2fffff, snes_r_bank1 },	/* I/O and ROM (repeats for each bank) */
 		{ 0x300000, 0x3fffff, snes_r_bank2 },	/* I/O and ROM (repeats for each bank) */

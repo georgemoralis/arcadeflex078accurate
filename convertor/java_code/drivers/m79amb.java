@@ -127,15 +127,14 @@ public class m79amb
 		cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xcf);  /* RST 08h */
 	} };
 	
-	static DRIVER_INIT( m79amb )
-	{
+	public static DriverInitHandlerPtr init_m79amb  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *rom = memory_region(REGION_CPU1);
 		int i;
 	
 		/* PROM data is active low */
 	 	for (i = 0;i < 0x2000;i++)
 			rom[i] = ~rom[i];
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( m79amb )
 	

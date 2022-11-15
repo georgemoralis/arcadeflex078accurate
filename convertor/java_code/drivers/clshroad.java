@@ -470,8 +470,7 @@ public class clshroad
 		ROM_LOAD( "clashrd.g7",  0x0100, 0x0100, CRC(4017a2a6) SHA1(dadef2de7a1119758c8e6d397aa42815b0218889) )	/* high 4 bits */
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT ( firebatl )
-	{
+	public static DriverInitHandlerPtr init_firebatl  = new DriverInitHandlerPtr() { public void handler(){
 	/*
 	Pugsy> firebatl:0:05C6:C3:100:Fix the Game:It's a hack but seems to make it work!
 	Pugsy> firebatl:0:05C7:8D:600:Fix the Game (2/3)
@@ -486,7 +485,7 @@ public class clshroad
 		ROM[0x05C6] = 0xc3;
 		ROM[0x05C7] = 0x8d;
 		ROM[0x05C8] = 0x23;
-	}
+	} };
 	
 	public static GameDriver driver_firebatl	   = new GameDriver("1984"	,"firebatl"	,"clshroad.java"	,rom_firebatl,null	,machine_driver_firebatl	,input_ports_firebatl	,init_firebatl	,ROT90, "Taito", "Fire Battle", GAME_IMPERFECT_GRAPHICS )
 	public static GameDriver driver_clshroad	   = new GameDriver("1986"	,"clshroad"	,"clshroad.java"	,rom_clshroad,null	,machine_driver_clshroad	,input_ports_clshroad	,null	,ROT0,  "Woodplace Inc.", "Clash-Road" )

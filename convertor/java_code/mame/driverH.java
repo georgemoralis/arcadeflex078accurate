@@ -16,7 +16,7 @@
 
 ***************************************************************************/
 
-#define DRIVER_INIT(name)		void init_##name(void)
+#define public static DriverInitHandlerPtr init_name  = new DriverInitHandlerPtr() { public void handler()void init_##name(void)
 
 #define public static InterruptHandlerPtr func = new InterruptHandlerPtr() {public void handler()void func(void)
 

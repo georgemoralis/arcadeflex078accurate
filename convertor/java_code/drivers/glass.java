@@ -279,8 +279,7 @@ public class glass
 		}
 	}
 	
-	static DRIVER_INIT( glass )
-	{
+	public static DriverInitHandlerPtr init_glass  = new DriverInitHandlerPtr() { public void handler(){
 		/*
 		For REGION_GFX2 we have this memory map:
 			0x000000-0x1fffff ROM H13
@@ -298,7 +297,7 @@ public class glass
 	
 		/* split ROM H11 */
 		glass_ROM16_split(REGION_GFX2, REGION_GFX1, 0x0200000, 0x0200000, 0x0200000, 0x0300000);
-	}
+	} };
 	
 	public static GameDriver driver_glass	   = new GameDriver("1993"	,"glass"	,"glass.java"	,rom_glass,null	,machine_driver_glass	,input_ports_glass	,init_glass	,ROT0, "Gaelco", "Glass", GAME_UNEMULATED_PROTECTION )
 }

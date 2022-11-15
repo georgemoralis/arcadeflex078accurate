@@ -70,8 +70,7 @@ public class xorworld
 	
 	/*	patch some strange protection (without this, strange characters appear
 		after level 5 and some pieces don't rotate properly some times) */
-	static DRIVER_INIT( xorworld )
-	{
+	public static DriverInitHandlerPtr init_xorworld  = new DriverInitHandlerPtr() { public void handler(){
 		data16_t *rom = (data16_t *)(memory_region(REGION_CPU1) + 0x1390);
 	
 		PATCH(0x4239); PATCH(0x00ff); PATCH(0xe196);	/* clr.b $ffe196 */
@@ -84,7 +83,7 @@ public class xorworld
 		PATCH(0x4e75);									/* rts */
 	
 		PATCH(0x31ff);									/* adjust checksum */
-	}
+	} };
 	
 	
 	/****************************************************************

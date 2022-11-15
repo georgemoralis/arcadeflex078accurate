@@ -400,10 +400,9 @@ public class compgolf
 		}
 	}
 	
-	DRIVER_INIT( compgolf )
-	{
+	public static DriverInitHandlerPtr init_compgolf  = new DriverInitHandlerPtr() { public void handler(){
 		compgolf_expand_bg();
-	}
+	} };
 	
 	public static GameDriver driver_compgolf	   = new GameDriver("1985"	,"compgolf"	,"compgolf.java"	,rom_compgolf,null	,machine_driver_compgolf	,input_ports_compgolf	,init_compgolf	,ROT0, "Data East", "Competition Golf Final Round (Japan)", GAME_NOT_WORKING )
 }

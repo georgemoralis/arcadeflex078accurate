@@ -297,10 +297,9 @@ public class safarir
 	ROM_END(); }}; 
 	
 	
-	DRIVER_INIT( safarir )
-	{
+	public static DriverInitHandlerPtr init_safarir  = new DriverInitHandlerPtr() { public void handler(){
 		safarir_ram = safarir_ram1;
-	}
+	} };
 	
 	
 	public static GameDriver driver_safarir	   = new GameDriver("1979"	,"safarir"	,"safarir.java"	,rom_safarir,null	,machine_driver_safarir	,input_ports_safarir	,init_safarir	,ROT90, "SNK", "Safari Rally (Japan)", GAME_NO_SOUND | GAME_WRONG_COLORS )

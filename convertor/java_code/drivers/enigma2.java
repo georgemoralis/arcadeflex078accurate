@@ -294,8 +294,8 @@ public class enigma2
 		ROM_LOAD( "8.13f",        0x0000, 0x0800, CRC(e9cb116d) SHA1(41da4f46c5614ec3345c233467ebad022c6b0bf5) )
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT(enigma2) {	cmap=1;}
-	static DRIVER_INIT(enigma2a){	cmap=0;}
+	public static DriverInitHandlerPtr init_enigma2  = new DriverInitHandlerPtr() { public void handler()	cmap=1;}
+	public static DriverInitHandlerPtr init_enigma2a  = new DriverInitHandlerPtr() { public void handler()cmap=0;}
 	
 	public static GameDriver driver_enigma2	   = new GameDriver("1981"	,"enigma2"	,"enigma2.java"	,rom_enigma2,null	,machine_driver_enigma2	,input_ports_enigma2	,init_enigma2	,ROT90, "GamePlan (Zilec Electronics license)", "Enigma 2", GAME_NO_SOUND | GAME_WRONG_COLORS )
 	public static GameDriver driver_enigma2a	   = new GameDriver("1984"	,"enigma2a"	,"enigma2.java"	,rom_enigma2a,driver_enigma2	,machine_driver_enigma2a	,input_ports_enigma2a	,init_enigma2a	,ROT90, "Zilec Electronics", "Enigma 2 (Space Invaders Hardware)", GAME_NO_SOUND | GAME_WRONG_COLORS )

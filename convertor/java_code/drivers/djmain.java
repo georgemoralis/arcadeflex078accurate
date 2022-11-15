@@ -1225,12 +1225,11 @@ public class djmain
 		state_save_register_func_postload(sndram_set_bank);
 	}
 	
-	static DRIVER_INIT( beatmania )
-	{
+	public static DriverInitHandlerPtr init_beatmania  = new DriverInitHandlerPtr() { public void handler(){
 		init_djmain_common();
 	
 		game_type = BEATMANIA;
-	}
+	} };
 	
 	static UINT8 beatmania_master_password[2 + 32] =
 	{
@@ -1241,8 +1240,7 @@ public class djmain
 		0x53, 0x45, 0x52, 0x45, 0x45, 0x56, 0x2e, 0x44
 	};
 	
-	static DRIVER_INIT( hmcompmx )
-	{
+	public static DriverInitHandlerPtr init_hmcompmx  = new DriverInitHandlerPtr() { public void handler(){
 		static UINT8 hmcompmx_user_password[2 + 32] =
 		{
 			0x00, 0x00,
@@ -1256,10 +1254,9 @@ public class djmain
 	
 		ide_set_master_password(0, beatmania_master_password);
 		ide_set_user_password(0, hmcompmx_user_password);
-	}
+	} };
 	
-	static DRIVER_INIT( bm4thmix )
-	{
+	public static DriverInitHandlerPtr init_bm4thmix  = new DriverInitHandlerPtr() { public void handler(){
 		static UINT8 bm4thmix_user_password[2 + 32] =
 		{
 			0x00, 0x00,
@@ -1272,10 +1269,9 @@ public class djmain
 		init_beatmania();
 	
 		ide_set_user_password(0, bm4thmix_user_password);
-	}
+	} };
 	
-	static DRIVER_INIT( hmcompm2 )
-	{
+	public static DriverInitHandlerPtr init_hmcompm2  = new DriverInitHandlerPtr() { public void handler(){
 		static UINT8 hmcompm2_user_password[2 + 32] =
 		{
 			0x00, 0x00,
@@ -1289,10 +1285,9 @@ public class djmain
 	
 		ide_set_master_password(0, beatmania_master_password);
 		ide_set_user_password(0, hmcompm2_user_password);
-	}
+	} };
 	
-	static DRIVER_INIT( bmdct )
-	{
+	public static DriverInitHandlerPtr init_bmdct  = new DriverInitHandlerPtr() { public void handler(){
 		static UINT8 bmdct_user_password[2 + 32] =
 		{
 			0x00, 0x00,
@@ -1306,10 +1301,9 @@ public class djmain
 	
 		ide_set_master_password(0, beatmania_master_password);
 		ide_set_user_password(0, bmdct_user_password);
-	}
+	} };
 	
-	static DRIVER_INIT( bmcorerm )
-	{
+	public static DriverInitHandlerPtr init_bmcorerm  = new DriverInitHandlerPtr() { public void handler(){
 		static UINT8 bmcorerm_user_password[2 + 32] =
 		{
 			0x00, 0x00,
@@ -1323,7 +1317,7 @@ public class djmain
 	
 		ide_set_master_password(0, beatmania_master_password);
 		ide_set_user_password(0, bmcorerm_user_password);
-	}
+	} };
 	
 	
 	

@@ -411,7 +411,7 @@ public class supertnk
 	ROM_END(); }}; 
 	
 	
-	DRIVER_INIT( supertnk ){
+	public static DriverInitHandlerPtr init_supertnk  = new DriverInitHandlerPtr() { public void handler()
 		/* decode the TMS9980 ROMs */
 		UINT8 *pMem = memory_region( REGION_CPU1 );
 		UINT8 raw, code;
@@ -429,7 +429,7 @@ public class supertnk
 			if( raw&0x40 ) code |= 0x02;
 			if( raw&0x80 ) code |= 0x01;
 			pMem[i] = code;
-		};
+		} };;
 	
 		supertnk_rom_bank = 0;
 		supertnk_video_bitplane = 0;

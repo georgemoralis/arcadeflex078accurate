@@ -774,14 +774,12 @@ public class marvins
 	
 	/*******************************************************************************************/
 	
-	static DRIVER_INIT( marvins )
-	{
+	public static DriverInitHandlerPtr init_marvins  = new DriverInitHandlerPtr() { public void handler(){
 		init_sound( 0x40 );
 		snk_gamegroup = 0;
-	}
+	} };
 	
-	static DRIVER_INIT( madcrash )
-	{
+	public static DriverInitHandlerPtr init_madcrash  = new DriverInitHandlerPtr() { public void handler(){
 	/*
 		The following lines patch out the ROM test (which fails - probably
 		because of bit rot, so the rest of the test mode (what little there
@@ -793,13 +791,12 @@ public class marvins
 		init_sound( 0x20 );
 		snk_gamegroup = 1;
 		snk_irq_delay = 1700;
-	}
+	} };
 	
-	static DRIVER_INIT( vangrd2 )
-	{
+	public static DriverInitHandlerPtr init_vangrd2  = new DriverInitHandlerPtr() { public void handler(){
 		init_sound( 0x20 );
 		snk_gamegroup = 2;
-	}
+	} };
 	
 	
 	public static GameDriver driver_marvins	   = new GameDriver("1983"	,"marvins"	,"marvins.java"	,rom_marvins,null	,machine_driver_marvins	,input_ports_marvins	,init_marvins	,ROT270, "SNK", "Marvin's Maze", GAME_NO_COCKTAIL )

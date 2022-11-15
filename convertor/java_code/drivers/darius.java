@@ -1104,8 +1104,7 @@ public class darius
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( darius )
-	{
+	public static DriverInitHandlerPtr init_darius  = new DriverInitHandlerPtr() { public void handler(){
 	//	taitosnd_setz80_soundcpu( 2 );
 	
 		cpua_ctrl = 0xff;
@@ -1118,7 +1117,7 @@ public class darius
 		state_save_register_int("sound2", 0, "sound region", &adpcm_command);
 		state_save_register_int("sound3", 0, "sound region", &nmi_enable);
 		state_save_register_func_postload(reset_sound_region);
-	}
+	} };
 	
 	
 	public static MachineInitHandlerPtr machine_init_darius  = new MachineInitHandlerPtr() { public void handler(){

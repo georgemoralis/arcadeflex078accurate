@@ -436,8 +436,7 @@ public class sshangha
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( sshangha )
-	{
+	public static DriverInitHandlerPtr init_sshangha  = new DriverInitHandlerPtr() { public void handler(){
 	#if SSHANGHA_HACK
 		/* This is a hack to allow you to use the extra features
 	         of the first "Unused" Dip Switch (see notes above). */
@@ -450,7 +449,7 @@ public class sshangha
 		RAM[0x000428/2] = 0x4e71;
 		RAM[0x00042a/2] = 0x4e71;
 	#endif
-	}
+	} };
 	
 	
 	public static GameDriver driver_sshangha	   = new GameDriver("1992"	,"sshangha"	,"sshangha.java"	,rom_sshangha,null	,machine_driver_sshangha	,input_ports_sshangha	,init_sshangha	,ROT0, "Hot-B.",   "Super Shanghai Dragon's Eye (Japan)", GAME_UNEMULATED_PROTECTION | GAME_NO_SOUND )

@@ -76,14 +76,13 @@ public class leprechn
 	};
 	
 	
-	DRIVER_INIT( leprechn )
-	{
+	public static DriverInitHandlerPtr init_leprechn  = new DriverInitHandlerPtr() { public void handler(){
 		via_config(0, &leprechn_via_0_interface);
 		via_config(1, &leprechn_via_1_interface);
 		via_config(2, &leprechn_via_2_interface);
 	
 		via_reset();
-	}
+	} };
 	
 	
 	READ_HANDLER( leprechn_sh_0805_r )

@@ -20,7 +20,7 @@ public class grchamp
 	
 	***************************************************************************/
 	
-	DRIVER_INIT( grchamp ) {
+	public static DriverInitHandlerPtr init_grchamp  = new DriverInitHandlerPtr() { public void handler()
 		/* clear the irq latches */
 		grchamp_cpu_irq_enable[0] = grchamp_cpu_irq_enable[1] = 0;
 	
@@ -133,6 +133,6 @@ public class grchamp
 			/* OUTE - Page 48: goes to connector Q-27 */
 			/* OUTF - unused */
 			break;
-		}
+		} };
 	}
 }

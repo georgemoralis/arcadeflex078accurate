@@ -565,8 +565,7 @@ public class epos
 		ppi8255_init(&ppi8255_intf);
 	} };
 	
-	DRIVER_INIT( dealer )
-	{
+	public static DriverInitHandlerPtr init_dealer  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *ROM = memory_region(REGION_CPU1);
 		int A;
 		int oldbyte,newbyte;
@@ -719,7 +718,7 @@ public class epos
 	
 			ROM[A + 0x40000 ] = newbyte;
 		}
-	}
+	} };
 	
 	/*************************************
 	 *

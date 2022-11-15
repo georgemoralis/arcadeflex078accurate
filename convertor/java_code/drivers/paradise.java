@@ -338,10 +338,9 @@ public class paradise
 		return rand();
 	}
 	
-	DRIVER_INIT (tgtball)
-	{
+	public static DriverInitHandlerPtr init_tgtball  = new DriverInitHandlerPtr() { public void handler(){
 		install_port_read_handler(0, 0x2000, 0x2fff, tgt_ball_unk);
-	}
+	} };
 	
 	static RomLoadHandlerPtr rom_tgtball = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x44000, REGION_CPU1, 0 )		/* Z80 Code */

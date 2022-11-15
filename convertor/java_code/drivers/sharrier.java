@@ -313,7 +313,7 @@ public class sharrier
 		sys16_gr_colorflip[1][3]=0x02 / 2;
 	}
 	
-	static DRIVER_INIT( hangon ){
+	public static DriverInitHandlerPtr init_hangon  = new DriverInitHandlerPtr() { public void handler()
 		machine_init_sys16_onetime();
 		generate_gr_screen(512,1024,8,0,4,0x8000);
 	}
@@ -504,13 +504,12 @@ public class sharrier
 		sys16_sh_shadowpal=0;
 	}
 	
-	static DRIVER_INIT( sharrier )
-	{
+	public static DriverInitHandlerPtr init_sharrier  = new DriverInitHandlerPtr() { public void handler(){
 		machine_init_sys16_onetime();
 		sys16_MaxShadowColors=NumOfShadowColors / 2;
 		sys16_interleave_sprite_data( 0x100000 );
 		generate_gr_screen(512,512,0,0,4,0x8000);
-	}
+	} };
 	/***************************************************************************/
 	
 	static MACHINE_DRIVER_START( sharrier )
@@ -580,7 +579,7 @@ public class sharrier
 			case 12:	// handle
 				return input_port_0_r( offset );
 	
-		} };
+		}
 		return 0;
 	}
 	
@@ -802,34 +801,31 @@ public class sharrier
 		rom[(0x186a + diff)/2] = 0x0000;
 	}
 	
-	static DRIVER_INIT( enduror )
-	{
+	public static DriverInitHandlerPtr init_enduror  = new DriverInitHandlerPtr() { public void handler(){
 		machine_init_sys16_onetime();
 		sys16_MaxShadowColors=NumOfShadowColors / 2;
 	//	sys16_MaxShadowColors=0;
 	
 		enduror_sprite_decode();
-	}
+	} };
 	
-	static DRIVER_INIT( endurobl )
-	{
+	public static DriverInitHandlerPtr init_endurobl  = new DriverInitHandlerPtr() { public void handler(){
 		machine_init_sys16_onetime();
 		sys16_MaxShadowColors=NumOfShadowColors / 2;
 	//	sys16_MaxShadowColors=0;
 	
 		endurob_sprite_decode();
 		endurora_opcode_decode();
-	}
+	} };
 	
-	static DRIVER_INIT( endurob2 )
-	{
+	public static DriverInitHandlerPtr init_endurob2  = new DriverInitHandlerPtr() { public void handler(){
 		machine_init_sys16_onetime();
 		sys16_MaxShadowColors=NumOfShadowColors / 2;
 	//	sys16_MaxShadowColors=0;
 	
 		endurob_sprite_decode();
 		endurob2_opcode_decode();
-	}
+	} };
 	
 	/***************************************************************************/
 	

@@ -1044,8 +1044,7 @@ public class cclimber
 		ROM_LOAD( "canballs.5p",  0x1000, 0x1000, CRC(9003ffbd) SHA1(fd016056aabc23957643f37230f03842294f795e) )
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT( cannonb )
-	{
+	public static DriverInitHandlerPtr init_cannonb  = new DriverInitHandlerPtr() { public void handler(){
 		int A;
 		unsigned char *rom = memory_region(REGION_CPU1);
 	
@@ -1064,7 +1063,7 @@ public class cclimber
 	
 			rom[A] = src;
 		}
-	}
+	} };
 	
 	
 	
@@ -1559,8 +1558,7 @@ public class cclimber
 		}
 	}
 	
-	static DRIVER_INIT( cclimber )
-	{
+	public static DriverInitHandlerPtr init_cclimber  = new DriverInitHandlerPtr() { public void handler(){
 		static const unsigned char convtable[8][16] =
 		{
 			/* -1 marks spots which are unused and therefore unknown */
@@ -1575,10 +1573,9 @@ public class cclimber
 		};
 	
 		cclimber_decode(convtable);
-	}
+	} };
 	
-	DRIVER_INIT( cclimbrj )
-	{
+	public static DriverInitHandlerPtr init_cclimbrj  = new DriverInitHandlerPtr() { public void handler(){
 		static const unsigned char convtable[8][16] =
 		{
 			{ 0x41,0x54,0x51,0x14,0x05,0x10,0x01,0x55,0x44,0x11,0x00,0x50,0x15,0x40,0x04,0x45 },
@@ -1592,7 +1589,7 @@ public class cclimber
 		};
 	
 		cclimber_decode(convtable);
-	}
+	} };
 	
 	
 	

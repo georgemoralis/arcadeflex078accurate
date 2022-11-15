@@ -554,8 +554,7 @@ public class exterm
 	 *
 	 *************************************/
 	
-	DRIVER_INIT( exterm )
-	{
+	public static DriverInitHandlerPtr init_exterm  = new DriverInitHandlerPtr() { public void handler(){
 		memcpy(exterm_code_rom, memory_region(REGION_USER1), code_rom_size);
 	
 		/* install speedups */
@@ -567,7 +566,7 @@ public class exterm
 		/* set up mirrored ROM access */
 		cpu_setbank(1, exterm_code_rom);
 		cpu_setbank(2, exterm_code_rom);
-	}
+	} };
 	
 	
 	

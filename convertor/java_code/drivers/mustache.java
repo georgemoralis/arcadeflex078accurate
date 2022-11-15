@@ -274,8 +274,7 @@ public class mustache
 		ROM_LOAD( "mustache.b6",0x0300, 0x1000, CRC(5f83fa35) SHA1(cb13e63577762d818e5dcbb52b8a53f66e284e8f) ) /* 63S281N near SEI0070BU */
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT( mustache )
-	{
+	public static DriverInitHandlerPtr init_mustache  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 	
 		#define G1 (memory_region_length(REGION_GFX1)/3)
@@ -320,7 +319,7 @@ public class mustache
 		seibu_sound_decrypt(REGION_CPU1,0x8000);
 	
 		install_mem_read_handler( 0, 0xd400, 0xd401, mustache_coin_hack_r);
-	}
+	} };
 	
 	
 	public static GameDriver driver_mustache	   = new GameDriver("1987"	,"mustache"	,"mustache.java"	,rom_mustache,null	,machine_driver_mustache	,input_ports_mustache	,init_mustache	,ROT90, "[Seibu Kaihatsu] (March license)", "Mustache Boy", GAME_NO_SOUND )

@@ -15,7 +15,6 @@ public class chaknpop
 {
 	
 	/* machine/chaknpop.c */
-	DRIVER_INIT( chaknpop );
 	READ_HANDLER( chaknpop_mcu_portA_r );
 	READ_HANDLER( chaknpop_mcu_portB_r );
 	READ_HANDLER( chaknpop_mcu_portC_r );

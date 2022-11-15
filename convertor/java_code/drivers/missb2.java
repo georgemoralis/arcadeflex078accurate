@@ -506,15 +506,14 @@ public class missb2
 		ROM_LOAD( "a71-25.bin",  0x0000, 0x0100, CRC(2d0f8545) SHA1(089c31e2f614145ef2743164f7b52ae35bc06808) )	/* video timing - taken from bublbobl */
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT( missb2 )
-	{
+	public static DriverInitHandlerPtr init_missb2  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *ROM = memory_region(REGION_CPU1);
 	
 		/* in Bubble Bobble, bank 0 has code falling from 7fff to 8000, */
 		/* so I have to copy it there because bank switching wouldn't catch it */
 		memcpy(ROM+0x08000,ROM+0x10000,0x4000);
 	
-	}
+	} };
 	
 	public static GameDriver driver_missb2	   = new GameDriver("1996"	,"missb2"	,"missb2.java"	,rom_missb2,driver_bublbobl	,machine_driver_missb2	,input_ports_missb2	,init_missb2	,ROT0,  "Alpha Co", "Miss Bubble 2", GAME_IMPERFECT_GRAPHICS | GAME_NO_SOUND )
 }

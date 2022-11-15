@@ -885,8 +885,7 @@ public class airbustr
 	
 	
 	
-	DRIVER_INIT( airbustr )
-	{
+	public static DriverInitHandlerPtr init_airbustr  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 		unsigned char *RAM;
 	
@@ -905,10 +904,9 @@ public class airbustr
 		RAM = memory_region(REGION_CPU2);
 		RAM[0x0258] = 0x53; 					// include EI in the busy loop.
 										// It's an hack to repair nested nmi troubles
-	}
+	} };
 	
-	DRIVER_INIT( airbustj )
-	{
+	public static DriverInitHandlerPtr init_airbustj  = new DriverInitHandlerPtr() { public void handler(){
 		int i;
 		unsigned char *RAM;
 	
@@ -927,7 +925,7 @@ public class airbustr
 		RAM = memory_region(REGION_CPU2);
 		RAM[0x0258] = 0x53; 					// include EI in the busy loop.
 										// It's an hack to repair nested nmi troubles
-	}
+	} };
 	
 	
 	

@@ -417,11 +417,10 @@ public class ajax
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( ajax )
-	{
+	public static DriverInitHandlerPtr init_ajax  = new DriverInitHandlerPtr() { public void handler(){
 		konami_rom_deinterleave_2(REGION_GFX1);
 		konami_rom_deinterleave_2(REGION_GFX2);
-	}
+	} };
 	
 	
 	

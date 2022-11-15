@@ -495,8 +495,7 @@ public class offtwall
 	};
 	
 	
-	static DRIVER_INIT( offtwall )
-	{
+	public static DriverInitHandlerPtr init_offtwall  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = default_eeprom;
 		atarijsa_init(1, 2, 3, 0x0040);
 		atarigen_init_6502_speedup(1, 0x41dd, 0x41f5);
@@ -505,11 +504,10 @@ public class offtwall
 		spritecache_count = install_mem_read16_handler(0, 0x3fde42, 0x3fde43, spritecache_count_r);
 		bankswitch_base = install_mem_read16_handler(0, 0x037ec2, 0x037f39, bankswitch_r);
 		unknown_verify_base = install_mem_read16_handler(0, 0x3fdf1e, 0x3fdf1f, unknown_verify_r);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( offtwalc )
-	{
+	public static DriverInitHandlerPtr init_offtwalc  = new DriverInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_default = default_eeprom;
 		atarijsa_init(1, 2, 3, 0x0040);
 		atarigen_init_6502_speedup(1, 0x41dd, 0x41f5);
@@ -518,7 +516,7 @@ public class offtwall
 		spritecache_count = install_mem_read16_handler(0, 0x3fde42, 0x3fde43, spritecache_count_r);
 		bankswitch_base = install_mem_read16_handler(0, 0x037eca, 0x037f43, bankswitch_r);
 		unknown_verify_base = install_mem_read16_handler(0, 0x3fdf24, 0x3fdf25, unknown_verify_r);
-	}
+	} };
 	
 	
 	

@@ -736,10 +736,9 @@ public class galaga
 		ROM_LOAD( "1d.bin",       0x0000, 0x0100, CRC(86d92b24) SHA1(6bef9102b97c83025a2cf84e89d95f2d44c3d2ed) )
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT (gatsbee)
-	{
+	public static DriverInitHandlerPtr init_gatsbee  = new DriverInitHandlerPtr() { public void handler(){
 		install_mem_write_handler(0, 0x1000, 0x1000, gatsbee_bank_w);
-	}
+	} };
 	
 	public static GameDriver driver_galaga	   = new GameDriver("1981"	,"galaga"	,"galaga.java"	,rom_galaga,null	,machine_driver_galaga	,input_ports_galaganm	,null	,ROT90, "Namco", "Galaga (Namco)", GAME_IMPERFECT_GRAPHICS )
 	public static GameDriver driver_galagamw	   = new GameDriver("1981"	,"galagamw"	,"galaga.java"	,rom_galagamw,driver_galaga	,machine_driver_galaga	,input_ports_galaga	,null	,ROT90, "[Namco] (Midway license)", "Galaga (Midway)", GAME_IMPERFECT_GRAPHICS )

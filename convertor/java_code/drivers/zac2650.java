@@ -398,10 +398,9 @@ public class zac2650
 	ROM_END(); }}; 
 	
 	
-	static DRIVER_INIT( tinvader )
-	{
+	public static DriverInitHandlerPtr init_tinvader  = new DriverInitHandlerPtr() { public void handler(){
 		artwork_set_overlay(tinv2650_overlay);
-	}
+	} };
 	
 	
 	public static GameDriver driver_sia2650	   = new GameDriver("1978"	,"sia2650"	,"zac2650.java"	,rom_sia2650,null	,machine_driver_tinvader	,input_ports_sinvader	,null	,ROT270, "Zaccaria/Zelco", "Super Invader Attack", GAME_NO_SOUND )

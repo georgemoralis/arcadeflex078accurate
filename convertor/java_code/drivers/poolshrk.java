@@ -21,8 +21,7 @@ public class poolshrk
 	static int poolshrk_da_latch;
 	
 	
-	static DRIVER_INIT( poolshrk )
-	{
+	public static DriverInitHandlerPtr init_poolshrk  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8* pSprite = memory_region(REGION_GFX1);
 		UINT8* pOffset = memory_region(REGION_PROMS);
 	
@@ -51,7 +50,7 @@ public class poolshrk
 				pSprite += 4;
 			}
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( poolshrk_scratch_sound_w ) {}

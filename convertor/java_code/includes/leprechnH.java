@@ -6,7 +6,6 @@
 
 /*----------- defined in machine/leprechn.c -----------*/
 
-DRIVER_INIT( leprechn );
 READ_HANDLER( leprechn_sh_0805_r );
 
 

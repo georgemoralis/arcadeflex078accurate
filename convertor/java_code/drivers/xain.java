@@ -522,8 +522,7 @@ public class xain
 	
 	
 	
-	DRIVER_INIT( xsleena )
-	{
+	public static DriverInitHandlerPtr init_xsleena  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		/* do the same patch as the bootleg xsleena */
@@ -533,10 +532,9 @@ public class xain
 		RAM[0xd48b] = 0x12;
 		RAM[0xd48c] = 0x12;
 		RAM[0xd48d] = 0x12;
-	}
+	} };
 	
-	DRIVER_INIT( solarwar )
-	{
+	public static DriverInitHandlerPtr init_solarwar  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		/* do the same patch as the bootleg xsleena */
@@ -546,7 +544,7 @@ public class xain
 		RAM[0xd481] = 0x12;
 		RAM[0xd482] = 0x12;
 		RAM[0xd483] = 0x12;
-	}
+	} };
 	
 	
 	

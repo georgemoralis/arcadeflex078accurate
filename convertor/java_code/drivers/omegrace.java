@@ -601,10 +601,9 @@ public class omegrace
 	 *
 	 *************************************/
 	
-	static DRIVER_INIT( omegrace )
-	{
+	public static DriverInitHandlerPtr init_omegrace  = new DriverInitHandlerPtr() { public void handler(){
 		artwork_set_overlay(omegrace_overlay);
-	}
+	} };
 	
 	
 	

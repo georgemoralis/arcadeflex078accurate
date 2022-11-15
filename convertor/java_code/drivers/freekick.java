@@ -1077,12 +1077,11 @@ public class freekick
 		ROM_LOAD( "3.pr",    0x0500, 0x0100, CRC(28b5ee4c) SHA1(e21b9c38f433dca1e8894619b1d9f0389a81b48a) )
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT(gigas)
-	{
+	public static DriverInitHandlerPtr init_gigas  = new DriverInitHandlerPtr() { public void handler(){
 		unsigned char *rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 		memory_set_opcode_base(0,rom+diff);
-	}
+	} };
 	
 	public static GameDriver driver_gigasb	   = new GameDriver("1986"	,"gigasb"	,"freekick.java"	,rom_gigasb,null	,machine_driver_gigas	,input_ports_gigas	,init_gigas	,ROT270, "bootleg", "Gigas (bootleg)", GAME_NO_COCKTAIL )
 	public static GameDriver driver_oigas	   = new GameDriver("1986"	,"oigas"	,"freekick.java"	,rom_oigas,driver_gigasb	,machine_driver_oigas	,input_ports_gigas	,init_gigas	,ROT270, "bootleg", "Oigas (bootleg)", GAME_NO_COCKTAIL )

@@ -475,8 +475,7 @@ public class drgnmst
 	}
 	
 	
-	static DRIVER_INIT( drgnmst )
-	{
+	public static DriverInitHandlerPtr init_drgnmst  = new DriverInitHandlerPtr() { public void handler(){
 		data8_t *drgnmst_PICROM_HEX = memory_region(REGION_USER1);
 		data8_t *drgnmst_PICROM = memory_region(REGION_CPU2);
 		data8_t *drgnmst_PCM = memory_region(REGION_SOUND1);
@@ -548,7 +547,7 @@ public class drgnmst
 			}
 			src_pos += 1;
 		} while (src_pos < 0x0b7b);		/* 0x0b7b is the size of the HEX rom loaded */
-	}
+	} };
 	
 	
 	public static GameDriver driver_drgnmst	   = new GameDriver("1994"	,"drgnmst"	,"drgnmst.java"	,rom_drgnmst,null	,machine_driver_drgnmst	,input_ports_drgnmst	,init_drgnmst	,ROT0, "Unico", "Dragon Master" )

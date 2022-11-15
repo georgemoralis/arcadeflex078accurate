@@ -4043,20 +4043,17 @@ public class segac2
 		state_save_register_UINT16 ("C2 Protection", 0, "Read Buffer", &prot_read_buf, 1);
 	}
 	
-	static DRIVER_INIT( segac2 )
-	{
+	public static DriverInitHandlerPtr init_segac2  = new DriverInitHandlerPtr() { public void handler(){
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( bloxeedc )
-	{
+	public static DriverInitHandlerPtr init_bloxeedc  = new DriverInitHandlerPtr() { public void handler(){
 		init_saves();
 		bloxeed_sound = 1;
-	}
+	} };
 	
-	static DRIVER_INIT( columns )
-	{
+	public static DriverInitHandlerPtr init_columns  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 columns_table[256/8] =
 		{
 			0x20a41397, 0x64e057d3, 0x20a41397, 0x64e057d3,
@@ -4071,10 +4068,9 @@ public class segac2
 		prot_table = columns_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( columns2 )
-	{
+	public static DriverInitHandlerPtr init_columns2  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 columns2_table[256/8] =
 		{
 			0x0015110c, 0x0015110c, 0x889d9984, 0xcedb9b86,
@@ -4089,10 +4085,9 @@ public class segac2
 		prot_table = columns2_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( borench )
-	{
+	public static DriverInitHandlerPtr init_borench  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 borench_table[256/8] =
 		{
 			0x12fe56ba, 0x56ba56ba, 0x00aa44ee, 0xcceeccee,
@@ -4107,10 +4102,9 @@ public class segac2
 		prot_table = borench_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( tfrceac )
-	{
+	public static DriverInitHandlerPtr init_tfrceac  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 tfrceac_table[256/8] =
 		{
 			0x3a3a6f6f, 0x38386d6d, 0x3a3a6f6f, 0x28287d7d,
@@ -4125,16 +4119,14 @@ public class segac2
 		prot_table = tfrceac_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( tfrceacb )
-	{
+	public static DriverInitHandlerPtr init_tfrceacb  = new DriverInitHandlerPtr() { public void handler(){
 		/* disable the palette bank switching from the protection chip */
 		install_mem_write16_handler(0, 0x800000, 0x800001, MWA16_NOP);
-	}
+	} };
 	
-	static DRIVER_INIT( ribbit )
-	{
+	public static DriverInitHandlerPtr init_ribbit  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 ribbit_table[256/8] =
 		{
 			0xffeeddcc, 0xffeeddcc, 0xfeeffeef, 0xfeeffeef,
@@ -4157,10 +4149,9 @@ public class segac2
 		install_mem_read16_handler(0, 0x8c0000, 0x8c0fff, ribbit_palette_r);
 		install_mem_write16_handler(0, 0x8c0000, 0x8c0fff, ribbit_palette_w);
 		ribbit_palette_select = install_mem_read16_handler(0, 0x2000, 0x27ff, ribbit_palette_select_r);
-	}
+	} };
 	
-	static DRIVER_INIT( tantr )
-	{
+	public static DriverInitHandlerPtr init_tantr  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 tantr_table[256/8] =
 		{
 			0x91ddd19d, 0x91ddd19d, 0xd4dc949c, 0xf6feb6be,
@@ -4175,10 +4166,9 @@ public class segac2
 		prot_table = tantr_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( ichidant )
-	{
+	public static DriverInitHandlerPtr init_ichidant  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 ichidant_table[256/8] =
 		{
 			0x55116622, 0x55116622, 0x55117733, 0x55117733,
@@ -4193,10 +4183,9 @@ public class segac2
 		prot_table = ichidant_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( ichidnte )
-	{
+	public static DriverInitHandlerPtr init_ichidnte  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 ichidnte_table[256/8] =
 		{
 			0x4c4c4c4c, 0x08080808, 0x5d5d4c4c, 0x19190808,
@@ -4211,11 +4200,10 @@ public class segac2
 		prot_table = ichidnte_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
 	
-	static DRIVER_INIT( potopoto )
-	{
+	public static DriverInitHandlerPtr init_potopoto  = new DriverInitHandlerPtr() { public void handler(){
 		/* note: this is not the real table; Poto Poto only tests one  */
 		/* very specific case, so we don't have enough data to provide */
 		/* the correct table in its entirety */
@@ -4233,10 +4221,9 @@ public class segac2
 		prot_table = potopoto_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( puyopuyo )
-	{
+	public static DriverInitHandlerPtr init_puyopuyo  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 puyopuyo_table[256/8] =
 		{
 			0x33aa55cc, 0x33aa55cc, 0xba22fe66, 0xba22fe66,
@@ -4251,10 +4238,9 @@ public class segac2
 		prot_table = puyopuyo_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( puyopuy2 )
-	{
+	public static DriverInitHandlerPtr init_puyopuy2  = new DriverInitHandlerPtr() { public void handler(){
 		/* note: this is not the real table; Puyo Puyo 2 doesn't  */
 		/* store the original table; instead it loops through all */
 		/* combinations 0-255 and expects the following results;  */
@@ -4275,10 +4261,9 @@ public class segac2
 	
 		install_mem_read16_handler(0, 0x800000, 0x800001, puyopuy2_prot_r);
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( stkclmns )
-	{
+	public static DriverInitHandlerPtr init_stkclmns  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 stkclmns_table[256/8] =
 		{
 			0xcc88cc88, 0xcc88cc88, 0xcc99cc99, 0xcc99cc99,
@@ -4302,10 +4287,9 @@ public class segac2
 				main_ram[i] = mame_rand();
 		}
 		init_saves();
-	}
+	} };
 	
-	static DRIVER_INIT( zunkyou )
-	{
+	public static DriverInitHandlerPtr init_zunkyou  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 zunkyou_table[256/8] =
 		{
 			0xa0a06c6c, 0x82820a0a, 0xecec2020, 0xecec6464,
@@ -4320,7 +4304,7 @@ public class segac2
 		prot_table = zunkyou_table;
 		bloxeed_sound = 0;
 		init_saves();
-	}
+	} };
 	
 	/* Print Club hardware (C2 with a printer) */
 	
@@ -4336,8 +4320,7 @@ public class segac2
 		cam_data = data;
 	}
 	
-	static DRIVER_INIT( pclub )
-	{
+	public static DriverInitHandlerPtr init_pclub  = new DriverInitHandlerPtr() { public void handler(){
 		static const UINT32 printc1_table[256/8] =
 		{
 			0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
@@ -4356,12 +4339,11 @@ public class segac2
 		install_mem_read16_handler(0,  0x880120, 0x880121, printer_r );/*Print Club Vol.1*/
 		install_mem_read16_handler(0,  0x880124, 0x880125, printer_r );/*Print Club Vol.2*/
 		install_mem_write16_handler(0, 0x880124, 0x880125, print_club_camera_w);
-	}
+	} };
 	
 	/* Genie's Hardware (contains no real sega parts) */
 	
-	DRIVER_INIT( puckpkmn )
-	{
+	public static DriverInitHandlerPtr init_puckpkmn  = new DriverInitHandlerPtr() { public void handler(){
 		data8_t *rom	=	memory_region(REGION_CPU1);
 		size_t len		=	memory_region_length(REGION_CPU1);
 		int i;
@@ -4372,7 +4354,7 @@ public class segac2
 		cpu_setbank(2, main_ram );						// VDP reads the ram from here
 	
 		init_segac2();
-	}
+	} };
 	
 	
 	/******************************************************************************
@@ -4495,8 +4477,7 @@ public class segac2
 	/* Mega Play - needs kludge to boot, 68k side of things not working yet, communication not complete. */
 	
 	static READ_HANDLER ( megaplay_kludge_r) { return 0xff; }
-	static DRIVER_INIT (megaplay)
-	{
+	public static DriverInitHandlerPtr init_megaplay  = new DriverInitHandlerPtr() { public void handler(){
 		UINT8 *src = memory_region(REGION_CPU3);
 	
 		memcpy(src+0x10000,src+0x8000,0x18000);
@@ -4505,7 +4486,7 @@ public class segac2
 	
 		init_segac2();
 	
-	}
+	} };
 	
 	GAMEBX( 1993, megaplay, 0,        megaplay, megaplay, megaplay, megaplay, ROT0, "Sega",                  "MegaPlay: Bios", NOT_A_DRIVER )
 	GAMEBX( 1993, mp_sonic, megaplay, megaplay, megaplay, mp_sonic, megaplay, ROT0, "Sega",                  "MegaPlay: Sonic The Hedgehog", GAME_NOT_WORKING  )

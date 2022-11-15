@@ -445,8 +445,7 @@ public class sauro
 		ROM_LOAD( "tdprm.prm",    0x0000, 0x0200,  CRC(5261bc11) SHA1(1cc7a9a7376e65f4587b75ef9382049458656372) )
 	ROM_END(); }}; 
 	
-	static DRIVER_INIT( tecfri )
-	{
+	public static DriverInitHandlerPtr init_tecfri  = new DriverInitHandlerPtr() { public void handler(){
 		/* This game doesn't like all memory to be initialized to zero, it won't
 		   initialize the high scores */
 	
@@ -454,7 +453,7 @@ public class sauro
 	
 		memset(&RAM[0xe000], 0, 0x100);
 		RAM[0xe000] = 1;
-	}
+	} };
 	
 	public static GameDriver driver_sauro	   = new GameDriver("1987"	,"sauro"	,"sauro.java"	,rom_sauro,null	,machine_driver_sauro	,input_ports_tecfri	,init_tecfri	,ROT0, "Tecfri", "Sauro", GAME_IMPERFECT_SOUND )
 	public static GameDriver driver_trckydoc	   = new GameDriver("1987"	,"trckydoc"	,"sauro.java"	,rom_trckydoc,null	,machine_driver_trckydoc	,input_ports_tecfri	,init_tecfri	,ROT0, "Tecfri", "Tricky Doc" )

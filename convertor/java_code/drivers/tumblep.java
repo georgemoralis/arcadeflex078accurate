@@ -1142,35 +1142,31 @@ public class tumblep
 		}
 	}
 	
-	static DRIVER_INIT( tumblep )
-	{
+	public static DriverInitHandlerPtr init_tumblep  = new DriverInitHandlerPtr() { public void handler(){
 		deco56_decrypt(REGION_GFX1);
 	
 		#if TUMBLEP_HACK
 		tumblep_patch_code(0x000132);
 		#endif
-	}
+	} };
 	
-	static DRIVER_INIT( tumblepb )
-	{
+	public static DriverInitHandlerPtr init_tumblepb  = new DriverInitHandlerPtr() { public void handler(){
 		tumblepb_gfx1_decrypt();
 	
 		#if TUMBLEP_HACK
 		tumblep_patch_code(0x000132);
 		#endif
-	}
+	} };
 	
-	static DRIVER_INIT( jumpkids )
-	{
+	public static DriverInitHandlerPtr init_jumpkids  = new DriverInitHandlerPtr() { public void handler(){
 		tumblepb_gfx1_decrypt();
 	
 		#if TUMBLEP_HACK
 		tumblep_patch_code(0x00013a);
 		#endif
-	}
+	} };
 	
-	static DRIVER_INIT( fncywld )
-	{
+	public static DriverInitHandlerPtr init_fncywld  = new DriverInitHandlerPtr() { public void handler(){
 		#if FNCYWLD_HACK
 		/* This is a hack to allow you to use the extra features
 	         of the 2 first "Unused" Dip Switch (see notes above). */
@@ -1180,10 +1176,9 @@ public class tumblep
 		#endif
 	
 		tumblepb_gfx1_decrypt();
-	}
+	} };
 	
-	static DRIVER_INIT( htchctch )
-	{
+	public static DriverInitHandlerPtr init_htchctch  = new DriverInitHandlerPtr() { public void handler(){
 	
 	//	data16_t *HCROM = (data16_t*)memory_region(REGION_CPU1);
 		data16_t *PROTDATA = (data16_t*)memory_region(REGION_USER1);
@@ -1434,7 +1429,7 @@ public class tumblep
 		}
 	#endif
 	
-	}
+	} };
 	
 	/******************************************************************************/
 	

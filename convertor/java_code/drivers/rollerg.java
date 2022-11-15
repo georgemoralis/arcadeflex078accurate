@@ -355,10 +355,9 @@ public class rollerg
 		readzoomroms = 0;
 	} };
 	
-	static DRIVER_INIT( rollerg )
-	{
+	public static DriverInitHandlerPtr init_rollerg  = new DriverInitHandlerPtr() { public void handler(){
 		konami_rom_deinterleave_2(REGION_GFX1);
-	}
+	} };
 	
 	
 	

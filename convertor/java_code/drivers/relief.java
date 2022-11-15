@@ -474,8 +474,7 @@ public class relief
 	}
 	
 	
-	static DRIVER_INIT( relief )
-	{
+	public static DriverInitHandlerPtr init_relief  = new DriverInitHandlerPtr() { public void handler(){
 		static const data16_t default_eeprom[] =
 		{
 			0x0001,0x0166,0x0128,0x01E6,0x0100,0x012C,0x0300,0x0144,
@@ -487,11 +486,10 @@ public class relief
 			0x9500,0x0000
 		};
 		init_common(default_eeprom);
-	}
+	} };
 	
 	
-	static DRIVER_INIT( relief2 )
-	{
+	public static DriverInitHandlerPtr init_relief2  = new DriverInitHandlerPtr() { public void handler(){
 		static const data16_t default_eeprom[] =
 		{
 			0x0001,0x01FD,0x019F,0x015E,0x01FF,0x019E,0x03FF,0x015F,
@@ -510,7 +508,7 @@ public class relief
 			0x01AA,0x0149,0x60FF,0x3300,0x0000
 		};
 		init_common(default_eeprom);
-	}
+	} };
 	
 	
 	

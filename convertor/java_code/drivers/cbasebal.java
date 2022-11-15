@@ -340,10 +340,9 @@ public class cbasebal
 	ROM_END(); }}; 
 	
 	
-	DRIVER_INIT( cbasebal )
-	{
+	public static DriverInitHandlerPtr init_cbasebal  = new DriverInitHandlerPtr() { public void handler(){
 		pang_decode();
-	}
+	} };
 	
 	
 	public static GameDriver driver_cbasebal	   = new GameDriver("1989"	,"cbasebal"	,"cbasebal.java"	,rom_cbasebal,null	,machine_driver_cbasebal	,input_ports_cbasebal	,init_cbasebal	,ROT0, "Capcom", "Capcom Baseball (Japan)" )

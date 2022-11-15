@@ -429,8 +429,7 @@ public class silkroad
 	  Game driver(s)
 	
 	***************************************************************************/
-	DRIVER_INIT( silkroad )
-	{
+	public static DriverInitHandlerPtr init_silkroad  = new DriverInitHandlerPtr() { public void handler(){
 	
 		/* why? rom04.bin looks like a bad dump, but it seems not since it was
 		   verified as correct... problem with the original which the gfx
@@ -452,7 +451,7 @@ public class silkroad
 			memcpy(src,buffer,len);
 			free(buffer);
 		}
-	}
+	} };
 	
 	static RomLoadHandlerPtr rom_silkroad = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x200000, REGION_CPU1, 0 )

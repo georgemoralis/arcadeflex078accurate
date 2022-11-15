@@ -94,9 +94,6 @@ public class senjyo
 	WRITE_HANDLER( senjyo_bg3videoram_w );
 	WRITE_HANDLER( senjyo_bgstripes_w );
 	
-	DRIVER_INIT( starforc );
-	DRIVER_INIT( starfore );
-	DRIVER_INIT( senjyo );
 	
 	
 	int senjyo_sh_start(const struct MachineSound *msound);

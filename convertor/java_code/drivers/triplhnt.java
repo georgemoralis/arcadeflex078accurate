@@ -32,11 +32,10 @@ public class triplhnt
 	static UINT8 triplhnt_hit_code;
 	
 	
-	static DRIVER_INIT( triplhnt )
-	{
+	public static DriverInitHandlerPtr init_triplhnt  = new DriverInitHandlerPtr() { public void handler(){
 		generic_nvram = triplhnt_cmos;
 		generic_nvram_size = sizeof triplhnt_cmos;
-	}
+	} };
 	
 	
 	void triplhnt_hit_callback(int code)

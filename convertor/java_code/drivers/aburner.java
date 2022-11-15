@@ -829,13 +829,13 @@ public class aburner
 		sys16_textlayer_hi_max=0xff;
 	}
 	
-	static DRIVER_INIT( thndrbdj ){
+	public static DriverInitHandlerPtr init_thndrbdj  = new DriverInitHandlerPtr() { public void handler()
 		machine_init_sys16_onetime();
 		sys16_bg1_trans = 1;
 		sys16_interleave_sprite_data( 0x200000 );
 	}
 	
-	static DRIVER_INIT( aburner ){
+	public static DriverInitHandlerPtr init_aburner  = new DriverInitHandlerPtr() { public void handler()
 		/* reset hack for AfterBurner */
 		sys16_patch_code(0xe76c,0x4a);
 		sys16_patch_code(0xe76d,0x79);
@@ -849,7 +849,7 @@ public class aburner
 		sys16_interleave_sprite_data( 0x200000 );
 	}
 	
-	static DRIVER_INIT( aburner2 ){
+	public static DriverInitHandlerPtr init_aburner2  = new DriverInitHandlerPtr() { public void handler()
 		/* reset hack for AfterBurner2 */
 		sys16_patch_code(0x1483c,0x4a);
 		sys16_patch_code(0x1483d,0x79);
