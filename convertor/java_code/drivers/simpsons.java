@@ -28,7 +28,6 @@ public class simpsons
 	READ_HANDLER( simpsons_sound_r );
 	READ_HANDLER( simpsons_speedup1_r );
 	READ_HANDLER( simpsons_speedup2_r );
-	MACHINE_INIT( simpsons );
 	NVRAM_HANDLER( simpsons );
 	extern int simpsons_firq_enabled;
 	

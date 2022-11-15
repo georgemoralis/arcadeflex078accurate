@@ -939,7 +939,7 @@ public class namcos1
 		namcos1_install_rom_bank(0x3c0,0x3ff,0x20000 , 0x00000);
 	}
 	
-	MACHINE_INIT( namcos1 ) {
+	public static MachineInitHandlerPtr machine_init_namcos1  = new MachineInitHandlerPtr() { public void handler()
 	
 		int bank;
 	
@@ -949,7 +949,7 @@ public class namcos1
 			/* set bank pointer & handler for cpu interface */
 			memory_set_bankhandler_r( bank+1,0,unknown_r);
 			memory_set_bankhandler_w( bank+1,0,unknown_w);
-		}
+		} };
 	
 		/* Prepare code for Cpu 0 */
 		namcos1_bankswitch(0, 0x0e00, 0x03 ); /* bank7 = 0x3ff(PRG7) */

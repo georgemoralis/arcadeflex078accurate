@@ -54,8 +54,7 @@ public class midvunit
 	 *
 	 *************************************/
 	
-	static MACHINE_INIT( midvunit )
-	{
+	public static MachineInitHandlerPtr machine_init_midvunit  = new MachineInitHandlerPtr() { public void handler(){
 		dcs_reset_w(1);
 		dcs_reset_w(0);
 	
@@ -64,11 +63,10 @@ public class midvunit
 	
 		timer[0] = timer_alloc(NULL);
 		timer[1] = timer_alloc(NULL);
-	}
+	} };
 	
 	
-	static MACHINE_INIT( midvplus )
-	{
+	public static MachineInitHandlerPtr machine_init_midvplus  = new MachineInitHandlerPtr() { public void handler(){
 		dcs_reset_w(1);
 		dcs_reset_w(0);
 	
@@ -79,7 +77,7 @@ public class midvunit
 		timer[1] = timer_alloc(NULL);
 	
 		ide_controller_reset(0);
-	}
+	} };
 	
 	
 	

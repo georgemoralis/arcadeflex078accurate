@@ -199,7 +199,6 @@ public class twincobr
 	
 	
 	/**************** Machine stuff ******************/
-	MACHINE_INIT( fsharkbt_reset_8741_mcu );
 	READ16_HANDLER ( fsharkbt_dsp_r );
 	READ16_HANDLER ( twincobr_dsp_r );
 	WRITE16_HANDLER( twincobr_dsp_w );

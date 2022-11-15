@@ -142,9 +142,7 @@ public class vsnes
 	/* from vidhrdw */
 	extern extern extern extern extern extern 
 	/* from machine */
-	extern MACHINE_INIT( vsnes );
-	extern MACHINE_INIT( vsdual );
-	extern DRIVER_INIT( vsnes );
+	extern extern extern DRIVER_INIT( vsnes );
 	extern DRIVER_INIT( suprmrio );
 	extern DRIVER_INIT( excitebk );
 	extern DRIVER_INIT( excitbkj );

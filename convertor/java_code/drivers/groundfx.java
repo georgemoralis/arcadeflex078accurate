@@ -429,8 +429,7 @@ public class groundfx
 				     MACHINE DRIVERS
 	***********************************************************/
 	
-	static MACHINE_INIT( groundfx )
-	{
+	public static MachineInitHandlerPtr machine_init_groundfx  = new MachineInitHandlerPtr() { public void handler(){
 		/* Sound cpu program loads to 0xc00000 so we use a bank */
 		data16_t *RAM = (data16_t *)memory_region(REGION_CPU2);
 		cpu_setbank(1,&RAM[0x80000]);
@@ -441,7 +440,7 @@ public class groundfx
 		RAM[3]=RAM[0x80003];
 	
 		f3_68681_reset();
-	}
+	} };
 	
 	static struct ES5505interface es5505_interface =
 	{

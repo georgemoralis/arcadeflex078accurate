@@ -222,7 +222,6 @@ public class xevious
 	WRITE_HANDLER( xevious_customio_w );
 	WRITE_HANDLER( xevious_customio_data_w );
 	WRITE_HANDLER( xevious_halt_w );
-	MACHINE_INIT( xevious );
 	
 	WRITE_HANDLER( xevious_vh_latch_w );
 	
@@ -256,7 +255,6 @@ public class xevious
 	WRITE_HANDLER( battles_noise_sound_w );
 	
 	
-	MACHINE_INIT( battles );
 	
 	
 	

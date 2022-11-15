@@ -8,7 +8,6 @@
 
 extern data8_t *skydiver_videoram;
 
-MACHINE_INIT( skydiver );
 WRITE_HANDLER( skydiver_videoram_w );
 WRITE_HANDLER( skydiver_wram_w );	/* the signal is WRAM, presumably Work RAM */
 READ_HANDLER( skydiver_wram_r );

@@ -280,8 +280,7 @@ public class msisaac
 	
 	static int vol_ctrl[16];
 	
-	static MACHINE_INIT( ta7630 )
-	{
+	public static MachineInitHandlerPtr machine_init_ta7630  = new MachineInitHandlerPtr() { public void handler(){
 		int i;
 	
 		double db			= 0.0;
@@ -303,7 +302,7 @@ public class msisaac
 	  channels 3-5 AY#1
 	  channels 6,7 MSM5232 group1,group2
 	*/
-	}
+	} };
 	
 	static UINT8 snd_ctrl0=0;
 	static UINT8 snd_ctrl1=0;

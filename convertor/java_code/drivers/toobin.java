@@ -60,12 +60,11 @@ public class toobin
 	}
 	
 	
-	static MACHINE_INIT( toobin )
-	{
+	public static MachineInitHandlerPtr machine_init_toobin  = new MachineInitHandlerPtr() { public void handler(){
 		atarigen_eeprom_reset();
 		atarigen_interrupt_reset(update_interrupts);
 		atarijsa_reset();
-	}
+	} };
 	
 	
 	

@@ -91,7 +91,6 @@ public class bosco
 	READ_HANDLER( bosco_customio_data_2_r );
 	WRITE_HANDLER( bosco_customio_data_1_w );
 	WRITE_HANDLER( bosco_customio_data_2_w );
-	MACHINE_INIT( bosco );
 	
 	WRITE_HANDLER( bosco_cpu_reset_w );
 	

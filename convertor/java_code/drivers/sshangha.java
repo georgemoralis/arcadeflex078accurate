@@ -136,8 +136,7 @@ public class sshangha
 	
 	/******************************************************************************/
 	
-	static MACHINE_INIT( sshangha )
-	{
+	public static MachineInitHandlerPtr machine_init_sshangha  = new MachineInitHandlerPtr() { public void handler(){
 		/* Such thing is needed as there is no code to turn the screen
 		   to normal orientation when the game is reset.
 		   I'm using the value that forces the screen to be in normal
@@ -145,7 +144,7 @@ public class sshangha
 	         (check the game code from 0x0006b8 to 0x0006f0).
 		   I can't tell however if this is accurate or not. */
 		sshangha_control_0_w(0, 0x10, 0xff00);
-	}
+	} };
 	
 	/******************************************************************************/
 	

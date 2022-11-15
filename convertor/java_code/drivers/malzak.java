@@ -345,11 +345,10 @@ public class malzak
 	} };
 	
 	
-	MACHINE_INIT(malzak)
-	{
+	public static MachineInitHandlerPtr machine_init_malzak  = new MachineInitHandlerPtr() { public void handler(){
 		val++;
 		printf("val = %X\n",val);
-	}
+	} };
 	
 	static struct SN76477interface sn76477_intf =
 	{  /* probably not correct */

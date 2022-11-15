@@ -60,7 +60,6 @@ extern kaneko16_priority_t kaneko16_priority;
 
 
 
-MACHINE_INIT( kaneko16 );
 
 
 /* in drivers/galpani2.c */

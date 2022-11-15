@@ -19,9 +19,6 @@ extern UINT8 mcr_cocktail_flip;
 extern struct GfxLayout mcr_bg_layout;
 extern struct GfxLayout mcr_sprite_layout;
 
-MACHINE_INIT( mcr );
-MACHINE_INIT( mcr68 );
-MACHINE_INIT( zwackery );
 
 
 WRITE_HANDLER( mcr_control_port_w );

@@ -326,8 +326,7 @@ public class psychic5
 	extern READ_HANDLER( psychic5_paged_ram_r );
 	extern READ_HANDLER( psychic5_vram_page_select_r );
 	
-	extern MACHINE_INIT( psychic5 );
-	
+	extern 
 	extern extern 
 	static int psychic5_bank_latch = 0x0;
 	

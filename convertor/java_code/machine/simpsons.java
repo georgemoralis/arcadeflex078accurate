@@ -204,8 +204,7 @@ public class simpsons
 		cpu_setbank( 1, &RAM[offs] );
 	}
 	
-	MACHINE_INIT( simpsons )
-	{
+	public static MachineInitHandlerPtr machine_init_simpsons  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = simpsons_banking;
@@ -224,5 +223,5 @@ public class simpsons
 		cpu_setbank( 2, &RAM[0x10000] );
 	
 		simpsons_video_banking( 0 );
-	}
+	} };
 }

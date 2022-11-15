@@ -18,7 +18,6 @@ public class surpratk
 {
 	
 	/* prototypes */
-	static MACHINE_INIT( surpratk );
 	static void surpratk_banking( int lines );
 	
 	
@@ -302,12 +301,11 @@ public class surpratk
 		cpu_setbank(1,&RAM[offs]);
 	}
 	
-	static MACHINE_INIT( surpratk )
-	{
+	public static MachineInitHandlerPtr machine_init_surpratk  = new MachineInitHandlerPtr() { public void handler(){
 		konami_cpu_setlines_callback = surpratk_banking;
 	
 		paletteram = &memory_region(REGION_CPU1)[0x48000];
-	}
+	} };
 	
 	static DRIVER_INIT( surpratk )
 	{

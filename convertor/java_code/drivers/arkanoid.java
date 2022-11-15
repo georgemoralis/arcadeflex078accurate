@@ -56,8 +56,7 @@ public class arkanoid
 	
 	extern WRITE_HANDLER( arkanoid_videoram_w );
 	extern extern 
-	extern MACHINE_INIT( arkanoid );
-	
+	extern 
 	extern WRITE_HANDLER( arkanoid_d008_w );
 	
 	extern READ_HANDLER( arkanoid_Z80_mcu_r );

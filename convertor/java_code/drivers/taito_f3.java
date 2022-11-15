@@ -438,8 +438,7 @@ public class taito_f3
 		else cpu_set_irq_line(0, 2, HOLD_LINE);
 	} };
 	
-	static MACHINE_INIT( f3 )
-	{
+	public static MachineInitHandlerPtr machine_init_f3  = new MachineInitHandlerPtr() { public void handler(){
 		/* Sound cpu program loads to 0xc00000 so we use a bank */
 		data16_t *RAM = (data16_t *)memory_region(REGION_CPU2);
 		cpu_setbank(1,&RAM[0x80000]);
@@ -453,7 +452,7 @@ public class taito_f3
 	
 		cpu_set_reset_line(1, ASSERT_LINE);
 		f3_68681_reset();
-	}
+	} };
 	
 	static struct ES5505interface es5505_interface =
 	{

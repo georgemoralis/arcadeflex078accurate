@@ -109,8 +109,7 @@ public class bosco
 	static void bosco_nmi_generate_1(int);
 	static void bosco_nmi_generate_2(int);
 	
-	MACHINE_INIT( bosco )
-	{
+	public static MachineInitHandlerPtr machine_init_bosco  = new MachineInitHandlerPtr() { public void handler(){
 		credits = 0;
 		HiScore = 20000;
 		nmi_timer_1 = timer_alloc(bosco_nmi_generate_1);
@@ -119,7 +118,7 @@ public class bosco
 	
 		memory_region(REGION_CPU1)[0x8c00] = 1;
 		memory_region(REGION_CPU1)[0x8c01] = 1;
-	}
+	} };
 	
 	
 	READ_HANDLER( bosco_sharedram_r )

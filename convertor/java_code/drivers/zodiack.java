@@ -40,22 +40,19 @@ public class zodiack
 	extern extern extern 
 	int percuss_hardware;
 	
-	extern MACHINE_INIT( espial );
-	extern WRITE_HANDLER( zodiac_master_interrupt_enable_w );
+	extern extern WRITE_HANDLER( zodiac_master_interrupt_enable_w );
 	extern extern WRITE_HANDLER( zodiac_master_soundlatch_w );
 	
 	
-	static MACHINE_INIT( zodiack )
-	{
+	public static MachineInitHandlerPtr machine_init_zodiack  = new MachineInitHandlerPtr() { public void handler(){
 		percuss_hardware = 0;
 		machine_init_espial();
-	}
+	} };
 	
-	static MACHINE_INIT( percuss )
-	{
+	public static MachineInitHandlerPtr machine_init_percuss  = new MachineInitHandlerPtr() { public void handler(){
 		percuss_hardware = 1;
 		machine_init_espial();
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( zodiack_control_w )

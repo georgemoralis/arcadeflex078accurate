@@ -75,8 +75,7 @@ extern READ16_HANDLER( SYS16_MRA16_WORKINGRAM2_SHARE );
 extern WRITE16_HANDLER( SYS16_MWA16_WORKINGRAM2_SHARE );
 
 extern void (*sys16_custom_irq)(void);
-extern MACHINE_INIT( sys16_onetime );
-
+extern 
 #define SYS16_MRA16_SPRITERAM		MRA16_RAM
 #define SYS16_MWA16_SPRITERAM		MWA16_RAM,&sys16_spriteram
 

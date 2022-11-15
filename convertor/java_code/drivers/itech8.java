@@ -283,8 +283,7 @@ public class itech8
 	
 	static void via6522_timer_callback(int which);
 	
-	static MACHINE_INIT( itech8 )
-	{
+	public static MachineInitHandlerPtr machine_init_itech8  = new MachineInitHandlerPtr() { public void handler(){
 		/* make sure bank 0 is selected */
 		if (Machine->drv->cpu[0].cpu_type == CPU_M6809)
 			cpu_setbank(1, &memory_region(REGION_CPU1)[0x4000]);
@@ -305,7 +304,7 @@ public class itech8
 	
 		/* reset the palette chip */
 		tlc34076_reset(6);
-	}
+	} };
 	
 	
 	

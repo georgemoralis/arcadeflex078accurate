@@ -221,8 +221,7 @@ public class vsnes
 	 *
 	 *************************************/
 	
-	MACHINE_INIT( vsnes )
-	{
+	public static MachineInitHandlerPtr machine_init_vsnes  = new MachineInitHandlerPtr() { public void handler(){
 		input_latch[0] = input_latch[1] = 0;
 		input_latch[2] = input_latch[3] = 0;
 	
@@ -232,15 +231,14 @@ public class vsnes
 		/* if we need to remap, install the callback */
 		if ( remapped_colortable )
 			ppu2c03b_set_vidaccess_callback( 0, remap_colors );
-	}
+	} };
 	
 	/*************************************
 	 *
 	 *	Init machine
 	 *
 	 *************************************/
-	MACHINE_INIT( vsdual )
-	{
+	public static MachineInitHandlerPtr machine_init_vsdual  = new MachineInitHandlerPtr() { public void handler(){
 		input_latch[0] = input_latch[1] = 0;
 		input_latch[2] = input_latch[3] = 0;
 	
@@ -254,7 +252,7 @@ public class vsnes
 			ppu2c03b_set_vidaccess_callback( 0, remap_colors );
 			ppu2c03b_set_vidaccess_callback( 1, remap_colors );
 		}
-	}
+	} };
 	
 	/*************************************
 	 *

@@ -33,10 +33,9 @@ public class mnight
 	
 	static int mnight_bank_latch = 255, main_cpu_num;
 	
-	MACHINE_INIT( mnight )
-	{
+	public static MachineInitHandlerPtr machine_init_mnight  = new MachineInitHandlerPtr() { public void handler(){
 		main_cpu_num = 0;
-	}
+	} };
 	
 	public static InterruptHandlerPtr mnight_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line_and_vector(0,0,HOLD_LINE,0xd7);	/* RST 10h */

@@ -49,13 +49,12 @@ public class galivan
 	
 	
 	
-	static MACHINE_INIT( galivan )
-	{
+	public static MachineInitHandlerPtr machine_init_galivan  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1,&RAM[0x10000]);
 	//	layers = 0x60;
-	}
+	} };
 	
 	static WRITE_HANDLER( galivan_sound_command_w )
 	{

@@ -101,8 +101,7 @@ public class atetris
 	 *
 	 *************************************/
 	
-	static MACHINE_INIT( atetris )
-	{
+	public static MachineInitHandlerPtr machine_init_atetris  = new MachineInitHandlerPtr() { public void handler(){
 		/* reset the slapstic */
 		slapstic_reset();
 		current_bank = slapstic_bank() & 1;
@@ -110,7 +109,7 @@ public class atetris
 	
 		/* start interrupts going (32V clocked by 16V) */
 		timer_set(cpu_getscanlinetime(48), 48, interrupt_gen);
-	}
+	} };
 	
 	
 	

@@ -40,33 +40,7 @@ extern WRITE_HANDLER( type3_w );
 extern READ_HANDLER( decocass_e5xx_r );
 extern WRITE_HANDLER( decocass_e5xx_w );
 
-extern MACHINE_INIT( decocass );
-extern MACHINE_INIT( ctsttape );
-extern MACHINE_INIT( clocknch );
-extern MACHINE_INIT( ctisland );
-extern MACHINE_INIT( csuperas );
-extern MACHINE_INIT( castfant );
-extern MACHINE_INIT( cluckypo );
-extern MACHINE_INIT( cterrani );
-extern MACHINE_INIT( cexplore );
-extern MACHINE_INIT( cprogolf );
-extern MACHINE_INIT( cmissnx );
-extern MACHINE_INIT( cdiscon1 );
-extern MACHINE_INIT( cptennis );
-extern MACHINE_INIT( ctornado );
-extern MACHINE_INIT( cbnj );
-extern MACHINE_INIT( cburnrub );
-extern MACHINE_INIT( cbtime );
-extern MACHINE_INIT( cgraplop );
-extern MACHINE_INIT( clapapa );
-extern MACHINE_INIT( cfghtice );
-extern MACHINE_INIT( cprobowl );
-extern MACHINE_INIT( cnightst );
-extern MACHINE_INIT( cprosocc );
-extern MACHINE_INIT( cppicf );
-extern MACHINE_INIT( cscrtry );
-extern MACHINE_INIT( cbdash );
-
+extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
 extern WRITE_HANDLER( i8041_p1_w );
 extern READ_HANDLER( i8041_p1_r );
 extern WRITE_HANDLER( i8041_p2_w );

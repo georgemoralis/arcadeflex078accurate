@@ -553,8 +553,7 @@ public class multi32
 	MEMORY_END
 	
 	
-	static MACHINE_INIT( system32 )
-	{
+	public static MachineInitHandlerPtr machine_init_system32  = new MachineInitHandlerPtr() { public void handler(){
 		cpu_setbank(1, memory_region(REGION_CPU1));
 		irq_init();
 	
@@ -562,7 +561,7 @@ public class multi32
 		system32_allow_high_resolution = 0;
 		system32_screen_mode = 0;
 		system32_screen_old_mode = 1;
-	}
+	} };
 	
 	public static InterruptHandlerPtr system32_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if(cpu_getiloops())

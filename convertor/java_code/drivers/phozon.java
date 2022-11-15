@@ -67,8 +67,7 @@ public class phozon
 	WRITE_HANDLER( phozon_cpu2_enable_w );
 	WRITE_HANDLER( phozon_cpu3_enable_w );
 	WRITE_HANDLER( phozon_cpu3_reset_w );
-	extern MACHINE_INIT( phozon );
-	
+	extern 
 	/* video functions */
 	extern extern extern 
 		/* CPU 1 (MAIN CPU) read addresses */

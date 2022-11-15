@@ -875,11 +875,10 @@ public class galpanic
 		{ 100 }
 	};
 	
-	static MACHINE_INIT( galpanib )
-	{
+	public static MachineInitHandlerPtr machine_init_galpanib  = new MachineInitHandlerPtr() { public void handler(){
 		/* init watchdog */
 		watchdog_reset_r(0);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( galpanic )
 	

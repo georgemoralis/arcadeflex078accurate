@@ -136,7 +136,6 @@ public class wardner
 	
 	
 	/******************** Machine stuff **********************/
-	MACHINE_INIT( wardner );
 	READ_HANDLER( wardner_mainram_r );
 	WRITE_HANDLER( wardner_mainram_w );
 	WRITE_HANDLER( wardner_control_w );

@@ -306,15 +306,14 @@ public class centiped
 	}
 	
 	
-	static MACHINE_INIT( centiped )
-	{
+	public static MachineInitHandlerPtr machine_init_centiped  = new MachineInitHandlerPtr() { public void handler(){
 		timer_set(cpu_getscanlinetime(0), 0, generate_interrupt);
 		cpu_set_irq_line(0, 0, CLEAR_LINE);
 		dsw_select = 0;
 	
 		/* kludge: clear RAM so that magworm can be reset cleanly */
 		memset(memory_region(REGION_CPU1), 0, 0x400);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( irq_ack_w )

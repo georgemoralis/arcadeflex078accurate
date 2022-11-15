@@ -208,7 +208,7 @@ public class system18
 		}
 	}
 	
-	static MACHINE_INIT( shdancer ){
+	public static MachineInitHandlerPtr machine_init_shdancer  = new MachineInitHandlerPtr() { public void handler()
 		sys16_spritelist_end=0x8000;
 		sys16_update_proc = shdancer_update_proc;
 	}
@@ -228,7 +228,7 @@ public class system18
 	
 	/*
 	static READ_HANDLER( shdancer_skip_r ){
-		if (activecpu_get_pc()==0x2f76) {cpu_spinuntil_int(); return 0xffff;}
+		if (activecpu_get_pc()==0x2f76) {cpu_spinuntil_int(); return 0xffff;} };
 		return (*(UINT16 *)(&sys16_workingram[0x0000]));
 	}
 	*/
@@ -301,7 +301,7 @@ public class system18
 	}
 	
 	
-	static MACHINE_INIT( shdancbl ){
+	public static MachineInitHandlerPtr machine_init_shdancbl  = new MachineInitHandlerPtr() { public void handler()
 		sys16_spritelist_end=0x8000;
 		sys16_sprxoffset = -0xbc+0x77;
 	
@@ -328,12 +328,12 @@ public class system18
 	/***************************************************************************/
 	#if 0
 	static READ16_HANDLER( shdancrj_skip_r ){
-		if (activecpu_get_pc()==0x2f70) {cpu_spinuntil_int(); return 0xffff;}
+		if (activecpu_get_pc()==0x2f70) {cpu_spinuntil_int(); return 0xffff;} };
 		return sys16_workingram[0xc000/2];
 	}
 	#endif
 	
-	static MACHINE_INIT( shdancrj ){
+	public static MachineInitHandlerPtr machine_init_shdancrj  = new MachineInitHandlerPtr() { public void handler()
 		sys16_spritelist_end=0x8000;
 		sys16_patch_code(0x6821, 0xdf);
 		sys16_update_proc = shdancer_update_proc;
@@ -352,7 +352,7 @@ public class system18
 	/***************************************************************************/
 	
 	static READ16_HANDLER( moonwlkb_skip_r ){
-		if (activecpu_get_pc()==0x308a) {cpu_spinuntil_int(); return 0xffff;}
+		if (activecpu_get_pc()==0x308a) {cpu_spinuntil_int(); return 0xffff;} };
 		return sys16_workingram[0x202c/2];
 	}
 	
@@ -425,7 +425,7 @@ public class system18
 		}
 	}
 	
-	static MACHINE_INIT( moonwalk ){
+	public static MachineInitHandlerPtr machine_init_moonwalk  = new MachineInitHandlerPtr() { public void handler()
 		sys16_bg_priority_value=0x1000;
 		sys16_sprxoffset = -0x238;
 		sys16_spritelist_end=0x8000;
@@ -484,7 +484,7 @@ public class system18
 	/***************************************************************************/
 	
 	static READ16_HANDLER( astorm_skip_r ){
-		if (activecpu_get_pc()==0x3d4c) {cpu_spinuntil_int(); return 0xffff;}
+		if (activecpu_get_pc()==0x3d4c) {cpu_spinuntil_int(); return 0xffff;} };
 		return sys16_workingram[0x2c2c/2];
 	}
 	
@@ -575,7 +575,7 @@ public class system18
 		}
 	}
 	
-	static MACHINE_INIT( astorm ){
+	public static MachineInitHandlerPtr machine_init_astorm  = new MachineInitHandlerPtr() { public void handler()
 		sys16_fgxoffset = sys16_bgxoffset = -9;
 	
 		sys16_patch_code( 0x2D6E, 0x32 );

@@ -67,8 +67,7 @@ public class bagman
 	
 	
 	extern READ_HANDLER( bagman_pal16r6_r );
-	extern MACHINE_INIT( bagman );
-	extern WRITE_HANDLER( bagman_pal16r6_w );
+	extern extern WRITE_HANDLER( bagman_pal16r6_w );
 	
 	
 	extern UINT8 *bagman_video_enable;

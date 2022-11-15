@@ -206,8 +206,7 @@ public class equites
 	extern WRITE16_HANDLER(equites_bgcolor_w);
 	
 	// Splendor Blast Hareware
-	extern MACHINE_INIT( splndrbt );
-	extern extern extern extern READ16_HANDLER(splndrbt_bankedchar_r);
+	extern extern extern extern extern READ16_HANDLER(splndrbt_bankedchar_r);
 	extern WRITE16_HANDLER(splndrbt_charram_w);
 	extern WRITE16_HANDLER(splndrbt_bankedchar_w);
 	extern WRITE16_HANDLER(splndrbt_selchar0_w);

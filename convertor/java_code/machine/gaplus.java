@@ -24,11 +24,10 @@ public class gaplus
 	
 	extern void gaplus_starfield_update( void );
 	
-	MACHINE_INIT( gaplus )
-	{
+	public static MachineInitHandlerPtr machine_init_gaplus  = new MachineInitHandlerPtr() { public void handler(){
 	    int_enable_2 = int_enable_3 = 1;
 	    credits = coincounter1 = coincounter2 = 0;
-	}
+	} };
 	
 	/* shared ram functions */
 	READ_HANDLER( gaplus_sharedram_r )

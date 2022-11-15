@@ -7,7 +7,6 @@
 /* defined in machine/kyugo.c */
 extern data8_t *kyugo_sharedram;
 
-MACHINE_INIT( kyugo );
 
 READ_HANDLER( kyugo_sharedram_r );
 

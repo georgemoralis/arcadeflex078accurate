@@ -67,10 +67,9 @@ public class jalmah
 		return res;
 	}
 	
-	static MACHINE_INIT (daireika)
-	{
+	public static MachineInitHandlerPtr machine_init_daireika  = new MachineInitHandlerPtr() { public void handler(){
 		respcount = 0;
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_jalmah  = new VideoStartHandlerPtr() { public int handler(){
 		return 0;

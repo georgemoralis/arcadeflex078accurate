@@ -9,7 +9,6 @@
 typedef void (*cinemat_sound_handler_proc)(UINT8, UINT8);
 extern cinemat_sound_handler_proc cinemat_sound_handler;
 
-MACHINE_INIT( cinemat_sound );
 
 READ16_HANDLER( cinemat_output_port_r );
 WRITE16_HANDLER( cinemat_output_port_w );

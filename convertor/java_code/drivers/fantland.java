@@ -334,10 +334,9 @@ public class fantland
 	
 	***************************************************************************/
 	
-	static MACHINE_INIT( fantland )
-	{
+	public static MachineInitHandlerPtr machine_init_fantland  = new MachineInitHandlerPtr() { public void handler(){
 		fantland_nmi_enable = 0;
-	}
+	} };
 	
 	public static InterruptHandlerPtr fantland_irq = new InterruptHandlerPtr() {public void handler(){
 		if (fantland_nmi_enable & 8)

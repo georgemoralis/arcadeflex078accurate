@@ -30,7 +30,6 @@ public class ajax
 	WRITE_HANDLER( ajax_sharedram_w );
 	READ_HANDLER( ajax_ls138_f10_r );
 	WRITE_HANDLER( ajax_ls138_f10_w );
-	MACHINE_INIT( ajax );
 	
 	/* from vidhrdw/ajax.c */
 	

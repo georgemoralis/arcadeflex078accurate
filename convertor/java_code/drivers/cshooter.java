@@ -136,10 +136,9 @@ public class cshooter
 	
 	static int cshooter_counter;
 	
-	static MACHINE_INIT( cshooter )
-	{
+	public static MachineInitHandlerPtr machine_init_cshooter  = new MachineInitHandlerPtr() { public void handler(){
 		cshooter_counter = 0;
-	}
+	} };
 	
 	READ_HANDLER ( cshooter_coin_r )
 	{

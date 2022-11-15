@@ -327,9 +327,7 @@
 #define DSP_FIR_C6		0x6F
 #define DSP_FIR_C7		0x7F
 
-extern MACHINE_INIT( snes );
-extern MACHINE_STOP( snes );
-
+extern extern 
 extern READ_HANDLER( snes_r_bank1 );
 extern READ_HANDLER( snes_r_bank2 );
 extern READ_HANDLER( snes_r_bank3 );

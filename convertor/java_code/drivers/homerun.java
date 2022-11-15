@@ -48,10 +48,9 @@ public class homerun
 	};
 	
 	
-	MACHINE_INIT( homerun )
-	{
+	public static MachineInitHandlerPtr machine_init_homerun  = new MachineInitHandlerPtr() { public void handler(){
 		ppi8255_init(&ppi8255_intf);
-	}
+	} };
 	
 	static struct GfxLayout gfxlayout =
 	{

@@ -457,14 +457,13 @@ public class suprnova
 		cpu_set_irq_line(0,param,HOLD_LINE);
 	}
 	
-	static MACHINE_INIT(skns)
-	{
+	public static MachineInitHandlerPtr machine_init_skns  = new MachineInitHandlerPtr() { public void handler(){
 		timer_pulse(TIME_IN_MSEC(2), 15, interrupt_callback);
 		timer_pulse(TIME_IN_MSEC(8), 11, interrupt_callback);
 		timer_pulse(TIME_IN_CYCLES(0,1824), 9, interrupt_callback);
 	
 		cpu_setbank(1,memory_region(REGION_USER1));
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr skns_interrupt = new InterruptHandlerPtr() {public void handler(){

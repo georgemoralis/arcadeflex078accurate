@@ -240,7 +240,6 @@ public class stfight
 	// machine
 	DRIVER_INIT( empcity );
 	DRIVER_INIT( stfight );
-	MACHINE_INIT( stfight );
 	READ_HANDLER( stfight_dsw_r );
 	WRITE_HANDLER( stfight_fm_w );
 	WRITE_HANDLER( stfight_voice_w );

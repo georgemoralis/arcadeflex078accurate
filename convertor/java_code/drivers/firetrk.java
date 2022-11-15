@@ -200,8 +200,7 @@ public class firetrk
 	}
 	
 	
-	static MACHINE_INIT( firetrk )
-	{
+	public static MachineInitHandlerPtr machine_init_firetrk  = new MachineInitHandlerPtr() { public void handler(){
 		timer_pulse(1. / 60, 0, frame_callback);
 	
 		if (GAME_IS_MONTECARLO)
@@ -210,7 +209,7 @@ public class firetrk
 		}
 	
 		timer_set(0, 0, periodic_callback);
-	}
+	} };
 	
 	
 	public static PaletteInitHandlerPtr palette_init_firetrk  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){

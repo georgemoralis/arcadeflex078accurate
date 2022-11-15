@@ -437,11 +437,10 @@ public class konamigq
 		state_save_register_UINT8( "konamigq", 0, "sector buffer", sector_buffer, 512);
 	}
 	
-	static MACHINE_INIT( konamigq )
-	{
+	public static MachineInitHandlerPtr machine_init_konamigq  = new MachineInitHandlerPtr() { public void handler(){
 		psx_machine_init();
 		tms57002_init();
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( konamigq )
 		/* basic machine hardware */

@@ -3562,8 +3562,7 @@ public class stv
 	 	smpc_ram[0x5f] = 0x10;
 	}
 	
-	MACHINE_INIT( stv )
-	{
+	public static MachineInitHandlerPtr machine_init_stv  = new MachineInitHandlerPtr() { public void handler(){
 	
 		unsigned char *SH2ROM = memory_region(REGION_USER1);
 		unsigned char *SNDRAM = memory_region(REGION_CPU3);
@@ -3591,7 +3590,7 @@ public class stv
 		}
 	
 	
-	}
+	} };
 	
 	static struct GfxLayout tiles8x8x4_layout =
 	{

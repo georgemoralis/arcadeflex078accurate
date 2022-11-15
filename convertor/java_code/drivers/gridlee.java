@@ -152,15 +152,14 @@ public class gridlee
 	}
 	
 	
-	static MACHINE_INIT( gridlee )
-	{
+	public static MachineInitHandlerPtr machine_init_gridlee  = new MachineInitHandlerPtr() { public void handler(){
 		/* start timers to generate interrupts */
 		timer_set(cpu_getscanlinetime(0), 0, irq_timer);
 		timer_set(cpu_getscanlinetime(FIRQ_SCANLINE), 0, firq_timer);
 	
 		/* create the polynomial tables */
 		poly17_init();
-	}
+	} };
 	
 	
 	

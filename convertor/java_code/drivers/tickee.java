@@ -34,15 +34,14 @@ public class tickee
 	 *
 	 *************************************/
 	
-	static MACHINE_INIT( tickee )
-	{
+	public static MachineInitHandlerPtr machine_init_tickee  = new MachineInitHandlerPtr() { public void handler(){
 		/* mirror the ROM into bank 1 */
 		cpu_setbank(1, code_rom);
 	
 		ticket_dispenser_init(100, 0, 1);
 	
 		tlc34076_reset(6);
-	}
+	} };
 	
 	
 	

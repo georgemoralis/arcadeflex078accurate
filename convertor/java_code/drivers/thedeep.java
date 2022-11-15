@@ -56,8 +56,7 @@ public class thedeep
 	static int protection_index, protection_irq;
 	static int rombank;
 	
-	static MACHINE_INIT( thedeep )
-	{
+	public static MachineInitHandlerPtr machine_init_thedeep  = new MachineInitHandlerPtr() { public void handler(){
 		cpu_setbank(1, memory_region(REGION_CPU1) + 0x10000 + 0 * 0x4000);
 		thedeep_scroll[0] = 0;
 		thedeep_scroll[1] = 0;
@@ -67,7 +66,7 @@ public class thedeep
 		protection_index = -1;
 		protection_irq = 0;
 		rombank = -1;
-	}
+	} };
 	
 	static WRITE_HANDLER( thedeep_protection_w )
 	{

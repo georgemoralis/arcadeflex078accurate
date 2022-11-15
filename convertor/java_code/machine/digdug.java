@@ -28,13 +28,12 @@ public class digdug
 	void digdug_nmi_generate (int param);
 	
 	
-	MACHINE_INIT( digdig )
-	{
+	public static MachineInitHandlerPtr machine_init_digdig  = new MachineInitHandlerPtr() { public void handler(){
 		credits = 0;
 		nmi_timer = timer_alloc(digdug_nmi_generate);
 		interrupt_enable_1 = interrupt_enable_2 = interrupt_enable_3 = 0;
 		digdug_halt_w (0, 0);
-	}
+	} };
 	
 	
 	READ_HANDLER( digdug_sharedram_r )

@@ -192,8 +192,7 @@ public class irobot
 	}
 	
 	static void irmb_done_callback (int param);
-	MACHINE_INIT( irobot )
-	{
+	public static MachineInitHandlerPtr machine_init_irobot  = new MachineInitHandlerPtr() { public void handler(){
 		UINT8 *MB = memory_region(REGION_CPU2);
 	
 		/* initialize the memory regions */
@@ -216,7 +215,7 @@ public class irobot
 		irobot_combase = comRAM[0];
 		irobot_combase_mb = comRAM[1];
 		irobot_outx = 0;
-	}
+	} };
 	
 	WRITE_HANDLER( irobot_control_w )
 	{

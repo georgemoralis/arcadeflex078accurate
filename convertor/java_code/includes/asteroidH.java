@@ -17,7 +17,6 @@ WRITE_HANDLER( asteroid_bank_switch_w );
 WRITE_HANDLER( astdelux_bank_switch_w );
 WRITE_HANDLER( astdelux_led_w );
 
-MACHINE_INIT( asteroid );
 
 READ_HANDLER( llander_IN0_r );
 

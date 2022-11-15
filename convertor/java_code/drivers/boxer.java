@@ -88,12 +88,11 @@ public class boxer
 	} };
 	
 	
-	static MACHINE_INIT( boxer )
-	{
+	public static MachineInitHandlerPtr machine_init_boxer  = new MachineInitHandlerPtr() { public void handler(){
 		timer_set(cpu_getscanlinetime(0), 0, periodic_callback);
 	
 		pot_latch = 0;
-	}
+	} };
 	
 	
 	static READ_HANDLER( boxer_input_r )

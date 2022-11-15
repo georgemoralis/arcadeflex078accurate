@@ -51,11 +51,10 @@ public class srumbler
 		}
 	}
 	
-	static MACHINE_INIT( srumbler )
-	{
+	public static MachineInitHandlerPtr machine_init_srumbler  = new MachineInitHandlerPtr() { public void handler(){
 		/* initialize banked ROM pointers */
 		srumbler_bankswitch_w(0,0);
-	}
+	} };
 	
 	public static InterruptHandlerPtr srumbler_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops()==0)

@@ -24,7 +24,6 @@ public class balsenteH
 	extern UINT8 balsente_adc_shift;
 	extern data16_t *shrike_shared;
 	
-	MACHINE_INIT( balsente );
 	
 	void balsente_noise_gen(int chip, int count, short *buffer);
 	

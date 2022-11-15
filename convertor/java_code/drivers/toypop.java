@@ -21,7 +21,6 @@ public class toypop
 {
 	
 	// machine\toypop.c
-	MACHINE_INIT( toypop );
 	WRITE_HANDLER( toypop_main_interrupt_enable_w );
 	WRITE_HANDLER( toypop_main_interrupt_disable_w );
 	WRITE_HANDLER( toypop_sound_interrupt_enable_w );

@@ -125,13 +125,12 @@ public class sprint8
 	} };
 	
 	
-	static MACHINE_INIT( sprint8 )
-	{
+	public static MachineInitHandlerPtr machine_init_sprint8  = new MachineInitHandlerPtr() { public void handler(){
 		collision_reset = 0;
 		collision_index = 0;
 	
 		timer_pulse(TIME_IN_HZ(60), 0, input_callback);
-	}
+	} };
 	
 	
 	static READ_HANDLER( sprint8_collision_r )

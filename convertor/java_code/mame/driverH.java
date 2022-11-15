@@ -20,8 +20,8 @@
 
 #define public static InterruptHandlerPtr func = new InterruptHandlerPtr() {public void handler()void func(void)
 
-#define MACHINE_INIT(name)		void machine_init_##name(void)
-#define MACHINE_STOP(name)		void machine_stop_##name(void)
+#define public static MachineInitHandlerPtr machine_init_name  = new MachineInitHandlerPtr() { public void handler()void machine_init_##name(void)
+#define public static MachineStopHandlerPtr machine_stop_name  = new MachineStopHandlerPtr() { public void handler()void machine_stop_##name(void)
 
 #define NVRAM_HANDLER(name)		void nvram_handler_##name(mame_file *file, int read_or_write)
 

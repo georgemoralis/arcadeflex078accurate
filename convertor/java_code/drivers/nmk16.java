@@ -167,16 +167,14 @@ public class nmk16
 	
 	static int respcount; // used with mcu function
 	
-	static MACHINE_INIT( nmk16 )
-	{
+	public static MachineInitHandlerPtr machine_init_nmk16  = new MachineInitHandlerPtr() { public void handler(){
 		respcount = 0;
-	}
+	} };
 	
-	static MACHINE_INIT( mustang_sound )
-	{
+	public static MachineInitHandlerPtr machine_init_mustang_sound  = new MachineInitHandlerPtr() { public void handler(){
 		respcount = 0;
 		machine_init_seibu_sound_1();
-	}
+	} };
 	
 	WRITE16_HANDLER ( ssmissin_sound_w )
 	{

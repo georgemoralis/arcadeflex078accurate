@@ -309,8 +309,7 @@ public class playch10
 	extern WRITE_HANDLER( playch10_videoram_w );
 	extern extern extern 
 	/* from machine */
-	extern MACHINE_INIT( pc10 );
-	extern DRIVER_INIT( playch10 );	/* standard games */
+	extern extern DRIVER_INIT( playch10 );	/* standard games */
 	extern DRIVER_INIT( pc_gun );	/* gun games */
 	extern DRIVER_INIT( pc_hrz );	/* horizontal games */
 	extern DRIVER_INIT( pcaboard );	/* a-board games */

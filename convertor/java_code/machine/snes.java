@@ -145,8 +145,7 @@ public class snes
 	}
 	#endif	/* MESS */
 	
-	MACHINE_INIT( snes )
-	{
+	public static MachineInitHandlerPtr machine_init_snes  = new MachineInitHandlerPtr() { public void handler(){
 		snes_init_ram();
 	
 		/* Set STAT78 to NTSC or PAL */
@@ -154,15 +153,14 @@ public class snes
 			snes_ram[STAT78] = SNES_NTSC;
 		else /* if( Machine->drv->frames_per_second == 50 ) */
 			snes_ram[STAT78] = SNES_PAL;
-	}
+	} };
 	
 	#ifdef MESS
-	MACHINE_STOP( snes )
-	{
+	public static MachineStopHandlerPtr machine_stop_snes  = new MachineStopHandlerPtr() { public void handler(){
 		/* Save SRAM */
 		if( cart.sram > 0 )
 			snes_save_sram();
-	}
+	} };
 	#endif	/* MESS */
 	
 	/* Handle reading of Mode 20 SRAM */

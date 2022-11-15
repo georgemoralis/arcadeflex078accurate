@@ -27,10 +27,9 @@ public class arkanoid
 	
 	FILE *thelog;
 	
-	MACHINE_INIT( arkanoid )
-	{
+	public static MachineInitHandlerPtr machine_init_arkanoid  = new MachineInitHandlerPtr() { public void handler(){
 		portA_in = portA_out = z80write = m68705write = 0;
-	}
+	} };
 	
 	READ_HANDLER( arkanoid_Z80_mcu_r )
 	{

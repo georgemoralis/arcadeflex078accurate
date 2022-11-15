@@ -75,7 +75,6 @@ public class polepos
 	
 	
 	/* from machine */
-	MACHINE_INIT( polepos );
 	WRITE_HANDLER( polepos_z80_irq_enable_w );
 	WRITE16_HANDLER( polepos_z8002_nvi_enable_w );
 	WRITE_HANDLER( polepos_z8002_enable_w );

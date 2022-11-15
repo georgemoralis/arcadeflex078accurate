@@ -17,8 +17,6 @@ package drivers;
 public class thunderx
 {
 	
-	static MACHINE_INIT( scontra );
-	static MACHINE_INIT( thunderx );
 	static void thunderx_banking(int lines);
 	
 	extern int scontra_priority;
@@ -956,15 +954,13 @@ public class thunderx
 		cpu_setbank( 1, &RAM[offs] );
 	}
 	
-	static MACHINE_INIT( scontra )
-	{
+	public static MachineInitHandlerPtr machine_init_scontra  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		paletteram = &RAM[0x30000];
-	}
+	} };
 	
-	static MACHINE_INIT( thunderx )
-	{
+	public static MachineInitHandlerPtr machine_init_thunderx  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = thunderx_banking;
@@ -972,7 +968,7 @@ public class thunderx
 	
 		paletteram = &RAM[0x28000];
 		pmcram = &RAM[0x28800];
-	}
+	} };
 	
 	static DRIVER_INIT( scontra )
 	{

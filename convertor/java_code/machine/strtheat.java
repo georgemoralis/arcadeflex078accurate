@@ -216,8 +216,7 @@ public class strtheat
 	}
 	
 	
-	MACHINE_INIT( strtheat )
-	{
+	public static MachineInitHandlerPtr machine_init_strtheat  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		/* While the PAL supports up to 16 decryption methods, only four
@@ -233,7 +232,7 @@ public class strtheat
 		cpu_setbank (1, &RAM[0x10000]);
 	
 		/*machine_init_pacman();*/
-	}
+	} };
 	
 	/*
 	WRITE_HANDLER( strtheat_writeport)

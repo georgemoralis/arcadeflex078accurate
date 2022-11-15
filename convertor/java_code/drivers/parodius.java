@@ -16,7 +16,6 @@ public class parodius
 {
 	
 	/* prototypes */
-	static MACHINE_INIT( parodius );
 	static void parodius_banking( int lines );
 	
 	static int videobank;
@@ -416,8 +415,7 @@ public class parodius
 		cpu_setbank( 1, &RAM[offs] );
 	}
 	
-	static MACHINE_INIT( parodius )
-	{
+	public static MachineInitHandlerPtr machine_init_parodius  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = parodius_banking;
@@ -428,7 +426,7 @@ public class parodius
 	
 		/* init the default bank */
 		cpu_setbank(1,&RAM[0x10000]);
-	}
+	} };
 	
 	
 	static DRIVER_INIT( parodius )

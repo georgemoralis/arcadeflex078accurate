@@ -6,7 +6,6 @@
 
 /*----------- defined in vidhrdw/capbowl.c -----------*/
 
-MACHINE_INIT( capbowl );
 
 
 extern unsigned char *capbowl_rowaddress;

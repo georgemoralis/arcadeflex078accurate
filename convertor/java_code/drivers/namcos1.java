@@ -219,8 +219,7 @@ public class namcos1
 	WRITE_HANDLER( namcos1_mcu_bankswitch_w );
 	WRITE_HANDLER( namcos1_mcu_patch_w );
 	
-	extern MACHINE_INIT( namcos1 );
-	
+	extern 
 	extern DRIVER_INIT( shadowld );
 	extern DRIVER_INIT( dspirit );
 	extern DRIVER_INIT( quester );

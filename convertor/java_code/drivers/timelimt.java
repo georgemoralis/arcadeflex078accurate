@@ -34,11 +34,10 @@ public class timelimt
 	
 	static int nmi_enabled = 0;
 	
-	static MACHINE_INIT( timelimt )
-	{
+	public static MachineInitHandlerPtr machine_init_timelimt  = new MachineInitHandlerPtr() { public void handler(){
 		soundlatch_setclearedvalue( 0 );
 		nmi_enabled = 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( nmi_enable_w )
 	{

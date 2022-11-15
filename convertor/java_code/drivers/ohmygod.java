@@ -33,8 +33,7 @@ public class ohmygod
 	static int sndbank;
 	static int nosound_kludge_step;
 	
-	static MACHINE_INIT( ohmygod )
-	{
+	public static MachineInitHandlerPtr machine_init_ohmygod  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *rom = memory_region(REGION_SOUND1);
 	
 		/* the game requires the watchdog to fire during boot, so we have
@@ -45,7 +44,7 @@ public class ohmygod
 		memcpy(rom + 0x20000,rom + 0x40000 + 0x20000 * sndbank,0x20000);
 	
 		nosound_kludge_step = 0;
-	}
+	} };
 	
 	WRITE16_HANDLER( ohmygod_ctrl_w )
 	{

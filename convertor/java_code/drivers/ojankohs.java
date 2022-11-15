@@ -61,14 +61,13 @@ public class ojankohs
 	static int ojankohs_vclk_left;
 	
 	
-	static MACHINE_INIT( ojankohs )
-	{
+	public static MachineInitHandlerPtr machine_init_ojankohs  = new MachineInitHandlerPtr() { public void handler(){
 		ojankohs_portselect = 0;
 	
 		ojankohs_adpcm_reset = 0;
 		ojankohs_adpcm_data = 0;
 		ojankohs_vclk_left = 0;
-	}
+	} };
 	
 	static WRITE_HANDLER( ojankohs_rombank_w )
 	{

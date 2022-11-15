@@ -46,10 +46,6 @@ extern UINT16 sinistar_clip;
 extern UINT8 williams_cocktail;
 
 /* initialization */
-MACHINE_INIT( defender );
-MACHINE_INIT( williams );
-MACHINE_INIT( williams2 );
-MACHINE_INIT( joust2 );
 
 /* banking */
 WRITE_HANDLER( williams_vram_select_w );

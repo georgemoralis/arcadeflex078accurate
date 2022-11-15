@@ -86,11 +86,10 @@ public class vastar
 	
 	
 	
-	static MACHINE_INIT( vastar )
-	{
+	public static MachineInitHandlerPtr machine_init_vastar  = new MachineInitHandlerPtr() { public void handler(){
 		/* we must start with the second CPU halted */
 		cpu_set_reset_line(1,ASSERT_LINE);
-	}
+	} };
 	
 	static WRITE_HANDLER( vastar_hold_cpu2_w )
 	{

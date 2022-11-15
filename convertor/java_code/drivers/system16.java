@@ -530,7 +530,7 @@ public class system16
 		sys16_bg_scrolly = sys16_textram[0x793] & 0x01ff;
 	}
 	
-	static MACHINE_INIT( alexkidd ){
+	public static MachineInitHandlerPtr machine_init_alexkidd  = new MachineInitHandlerPtr() { public void handler()
 		sys16_textmode=1;
 		sys16_spritesystem = sys16_sprite_quartet2;
 		sys16_sprxoffset = -0xbc;
@@ -721,7 +721,7 @@ public class system16
 	/***************************************************************************/
 	
 	static MEMORY_READ16_START( aliensyn_readmem )
-		{ 0x000000, 0x02ffff, MRA16_ROM },
+		{ 0x000000, 0x02ffff, MRA16_ROM } };,
 		{ 0x400000, 0x40ffff, SYS16_MRA16_TILERAM },
 		{ 0x410000, 0x410fff, SYS16_MRA16_TEXTRAM },
 		{ 0x440000, 0x440fff, SYS16_MRA16_SPRITERAM },
@@ -756,13 +756,13 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( aliensyn ){
+	public static MachineInitHandlerPtr machine_init_aliensyn  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,0,0,0,
 			0,0,0,3,
 			0,0,0,2,
 			0,1,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 	
 		sys16_bg_priority_mode=1;
@@ -959,11 +959,11 @@ public class system16
 		set_tile_bank( sys16_workingram[0x3094/2] );
 	}
 	
-	static MACHINE_INIT( altbeast ){
+	public static MachineInitHandlerPtr machine_init_altbeast  = new MachineInitHandlerPtr() { public void handler()
 		sys16_update_proc = altbeast_update_proc;
 	}
 	
-	static MACHINE_INIT( altbeas2 ){
+	public static MachineInitHandlerPtr machine_init_altbeas2  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0x00,0x00,
 			0x01,0x00,
@@ -973,7 +973,7 @@ public class system16
 			0x05,0x00,
 			0x06,0x00,
 			0x07,0x00
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_update_proc = altbeast_update_proc;
 	}
@@ -1111,7 +1111,7 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( atomicp ){
+	public static MachineInitHandlerPtr machine_init_atomicp  = new MachineInitHandlerPtr() { public void handler()
 		sys16_update_proc = atomicp_update_proc;
 	}
 	
@@ -1364,7 +1364,7 @@ public class system16
 		set_tile_bank( sys16_extraram3[0x0002/2] );
 	}
 	
-	static MACHINE_INIT( aurail ){
+	public static MachineInitHandlerPtr machine_init_aurail  = new MachineInitHandlerPtr() { public void handler()
 		sys16_spritesystem = sys16_sprite_aurail;
 		sys16_spritelist_end=0x8000;
 		sys16_bg_priority_mode=1;
@@ -1560,7 +1560,7 @@ public class system16
 	/***************************************************************************/
 	
 	static MEMORY_READ16_START( bayroute_readmem )
-		{ 0x000000, 0x0bffff, MRA16_ROM },
+		{ 0x000000, 0x0bffff, MRA16_ROM } };,
 		{ 0x500000, 0x503fff, SYS16_MRA16_EXTRAM3 },
 		{ 0x600000, 0x600fff, SYS16_MRA16_SPRITERAM },
 		{ 0x700000, 0x70ffff, SYS16_MRA16_TILERAM },
@@ -1595,13 +1595,13 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( bayroute ){
+	public static MachineInitHandlerPtr machine_init_bayroute  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,0,0,0,
 			0,0,0,3,
 			0,0,0,2,
 			0,1,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_update_proc = bayroute_update_proc;
 		sys16_spritesystem = sys16_sprite_aurail;
@@ -1789,7 +1789,7 @@ public class system16
 		set_bg_page1( sys16_textram[0x0e9c/2] );
 	}
 	
-	static MACHINE_INIT( bodyslam ){
+	public static MachineInitHandlerPtr machine_init_bodyslam  = new MachineInitHandlerPtr() { public void handler()
 		sys16_textmode=1;
 		sys16_spritesystem = sys16_sprite_quartet2;
 		sys16_sprxoffset = -0xbc;
@@ -1846,7 +1846,7 @@ public class system16
 			}
 			else
 				tick--;
-		}
+		} };
 		sys16_workingram[0x200/2] = (flag<<8)+tick;
 		sys16_workingram[0x202/2] = (sec<<8)+min;
 	}
@@ -2009,13 +2009,13 @@ public class system16
 		}
 	}
 	
-	static MACHINE_INIT( dduxbl ){
+	public static MachineInitHandlerPtr machine_init_dduxbl  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = { //*
 			0,0,0,0,
 			0,0,0,4,
 			0,0,0,3,
 			0,2,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 	
 		sys16_patch_code( 0x1eb2e, 0x01 );
@@ -2199,13 +2199,13 @@ public class system16
 		sys16_tile_bank0 = eswat_tilebank0;
 	}
 	
-	static MACHINE_INIT( eswat ){
+	public static MachineInitHandlerPtr machine_init_eswat  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[] = {
 			0,1,	4,5,
 			8,9,	12,13,
 			2,3,	6,7,
 			10,11,	14,15
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_sprxoffset = -0x23c;
 	
@@ -2393,7 +2393,7 @@ public class system16
 		sys16_bg_scrolly = sys16_textram[0x793] & 0x01ff;
 	}
 	
-	static MACHINE_INIT( fantzono ){
+	public static MachineInitHandlerPtr machine_init_fantzono  = new MachineInitHandlerPtr() { public void handler()
 		sys16_textmode=1;
 		sys16_spritesystem = sys16_sprite_fantzone;
 		sys16_sprxoffset = -0xbe;
@@ -2427,7 +2427,7 @@ public class system16
 		sys16_update_proc = fantzone_update_proc;
 	}
 	
-	static MACHINE_INIT( fantzone ){
+	public static MachineInitHandlerPtr machine_init_fantzone  = new MachineInitHandlerPtr() { public void handler()
 		sys16_textmode=1;
 		sys16_spritesystem = sys16_sprite_fantzone;
 		sys16_sprxoffset = -0xbe;
@@ -2577,7 +2577,7 @@ public class system16
 	static READ16_HANDLER( fp_io_service_dummy_r ){
 		int data = readinputport( 2 ) & 0xff;
 		return (data << 8) + data;
-	}
+	} };
 	
 	static MEMORY_READ16_START( fpoint_readmem )
 		{ 0x000000, 0x01ffff, MRA16_ROM },
@@ -2617,7 +2617,7 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( fpoint ){
+	public static MachineInitHandlerPtr machine_init_fpoint  = new MachineInitHandlerPtr() { public void handler()
 		sys16_patch_code( 0x454, 0x33 );
 		sys16_patch_code( 0x455, 0xf8 );
 		sys16_patch_code( 0x456, 0xe0 );
@@ -2874,7 +2874,7 @@ public class system16
 	static READ16_HANDLER( goldnaxe_skip_r ){
 		if (activecpu_get_pc()==0x3cb0) {cpu_spinuntil_int(); return 0xffff;}
 		return sys16_workingram[0x2c1c/2];
-	}
+	} };
 	
 	static READ16_HANDLER( ga_io_players_r ) {
 		return (readinputport(0) << 8) | readinputport(1);
@@ -2946,13 +2946,13 @@ public class system16
 		set_tile_bank( sys16_workingram[0x2c94/2] );
 	}
 	
-	static MACHINE_INIT( goldnaxe ){
+	public static MachineInitHandlerPtr machine_init_goldnaxe  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,1,4,5,
 			8,9,0,0,
 			2,3,6,7,
 			10,11,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 	
 	// protection patch; no longer needed
@@ -3188,13 +3188,13 @@ public class system16
 		set_tile_bank( sys16_workingram[0x2c94/2] );
 	}
 	
-	static MACHINE_INIT( goldnaxa ){
+	public static MachineInitHandlerPtr machine_init_goldnaxa  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,1,4,5,
 			8,9,0,0,
 			2,3,6,7,
 			10,11,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 		//?
 		sys16_patch_code( 0x3CA2, 0x60 );
@@ -3375,7 +3375,7 @@ public class system16
 		sys16_tile_bank1 = sys16_extraram[1]&0xf;
 	}
 	
-	static MACHINE_INIT( hwchamp ){
+	public static MachineInitHandlerPtr machine_init_hwchamp  = new MachineInitHandlerPtr() { public void handler()
 		sys16_spritelist_end=0xc000;
 		sys16_update_proc = hwchamp_update_proc;
 		sys16_wwfix = 1; //*
@@ -3495,7 +3495,7 @@ public class system16
 			data|=(input_port_6_r( offset ) & 0x3f) << 1;
 	
 		return data;
-	}
+	} };
 	
 	static READ16_HANDLER( mjl_io_service_r ){
 		data16_t data=input_port_2_r( offset ) & 0x3f;
@@ -3585,7 +3585,7 @@ public class system16
 		sys16_bg_scrolly = sys16_textram[0x793] & 0x01ff;
 	}
 	
-	static MACHINE_INIT( mjleague ){
+	public static MachineInitHandlerPtr machine_init_mjleague  = new MachineInitHandlerPtr() { public void handler()
 		sys16_textmode=1;
 		sys16_spritesystem = sys16_sprite_quartet2;
 		sys16_sprxoffset = -0xbd;
@@ -3760,7 +3760,7 @@ public class system16
 	/***************************************************************************/
 	
 	static MEMORY_READ16_START( passsht_readmem )
-		{ 0x000000, 0x01ffff, MRA16_ROM },
+		{ 0x000000, 0x01ffff, MRA16_ROM } };,
 		{ 0x400000, 0x40ffff, SYS16_MRA16_TILERAM },
 		{ 0x410000, 0x410fff, SYS16_MRA16_TEXTRAM },
 		{ 0x440000, 0x440fff, SYS16_MRA16_SPRITERAM },
@@ -3879,7 +3879,7 @@ public class system16
 		set_bg_page( sys16_textram[0x0ff4/2] );
 	}
 	
-	static MACHINE_INIT( passsht ){
+	public static MachineInitHandlerPtr machine_init_passsht  = new MachineInitHandlerPtr() { public void handler()
 		sys16_sprxoffset = -0x48;
 		sys16_spritesystem = sys16_sprite_passshot;
 	
@@ -3889,7 +3889,7 @@ public class system16
 		sys16_update_proc = passsht_update_proc;
 	}
 	
-	static MACHINE_INIT( passht4b ){
+	public static MachineInitHandlerPtr machine_init_passht4b  = new MachineInitHandlerPtr() { public void handler()
 		sys16_sprxoffset = -0xb8;
 		sys16_spritesystem = sys16_sprite_passshot;
 	
@@ -4150,7 +4150,7 @@ public class system16
 	static READ16_HANDLER( quartet_skip_r ){
 		if (activecpu_get_pc()==0x89b2) {cpu_spinuntil_int(); return 0xffff;}
 		return sys16_workingram[0x0800/2];
-	}
+	} };
 	#endif
 	
 	static MEMORY_READ16_START( quartet_readmem )
@@ -4198,7 +4198,7 @@ public class system16
 		set_bg_page1( sys16_workingram[0x0d1e/2] );
 	}
 	
-	static MACHINE_INIT( quartet ){
+	public static MachineInitHandlerPtr machine_init_quartet  = new MachineInitHandlerPtr() { public void handler()
 		sys16_textmode=1;
 		sys16_spritesystem = sys16_sprite_quartet2;
 		sys16_sprxoffset = -0xbc;
@@ -4378,7 +4378,7 @@ public class system16
 	static READ16_HANDLER( quartet2_skip_r ){
 		if (activecpu_get_pc()==0x8f6c) {cpu_spinuntil_int(); return 0xffff;}
 		return sys16_workingram[0x0800/2];
-	}
+	} };
 	#endif
 	
 	static MEMORY_READ16_START( quartet2_readmem )
@@ -4426,7 +4426,7 @@ public class system16
 		set_bg_page1( sys16_workingram[0x0d1e/2] );
 	}
 	
-	static MACHINE_INIT( quartet2 ){
+	public static MachineInitHandlerPtr machine_init_quartet2  = new MachineInitHandlerPtr() { public void handler()
 		sys16_textmode=1;
 		sys16_spritesystem = sys16_sprite_quartet2;
 		sys16_sprxoffset = -0xbc;
@@ -4524,7 +4524,7 @@ public class system16
 	static READ16_HANDLER( riotcity_skip_r ){
 		if (activecpu_get_pc()==0x3ce) {cpu_spinuntil_int(); return 0;}
 		return sys16_workingram[0x2cde/2];
-	}
+	} };
 	
 	static MEMORY_READ16_START( riotcity_readmem )
 		{ 0x000000, 0x0bffff, MRA16_ROM },
@@ -4572,13 +4572,13 @@ public class system16
 		sys16_tile_bank0 = sys16_extraram3[0x0000/2] & 0xf;
 	}
 	
-	static MACHINE_INIT( riotcity ){
+	public static MachineInitHandlerPtr machine_init_riotcity  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0x0,0x1,0x4,0x5,
 			0x8,0x9,0x0,0x0,
 			0x2,0x3,0x6,0x7,
 			0xa,0xb,0x0,0x0
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_spritesystem = sys16_sprite_aurail;
 		sys16_spritelist_end=0x8000;
@@ -4751,13 +4751,13 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( sdi ){
+	public static MachineInitHandlerPtr machine_init_sdi  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,0,0,0,
 			0,0,0,3,
 			0,0,0,2,
 			0,1,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 	
 		sys16_patch_code( 0x102f2, 0x00 );
@@ -4957,13 +4957,13 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( shinobi ){
+	public static MachineInitHandlerPtr machine_init_shinobi  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,0,0,0,
 			0,0,0,3,
 			0,0,0,2,
 			0,1,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_dactype = 1;
 		sys16_update_proc = shinobi_update_proc;
@@ -5134,11 +5134,11 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x7fd] & 0x01ff;
 	}
 	
-	static MACHINE_INIT( shinobl ){
+	public static MachineInitHandlerPtr machine_init_shinobl  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[] = {
 			0,2,4,6,
 			1,3,5,7
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_textmode=1;
 		sys16_spritesystem = sys16_sprite_quartet2;
@@ -5268,7 +5268,7 @@ public class system16
 		set_bg_page( sys16_extraram2[0x28/2] );
 	}
 	
-	static MACHINE_INIT( tetris ){
+	public static MachineInitHandlerPtr machine_init_tetris  = new MachineInitHandlerPtr() { public void handler()
 		sys16_patch_code( 0xba6, 0x4e );
 		sys16_patch_code( 0xba7, 0x71 );
 	
@@ -5366,7 +5366,7 @@ public class system16
 	static READ16_HANDLER( timscanr_skip_r ){
 		if (activecpu_get_pc()==0x1044c) {cpu_spinuntil_int(); return 0;}
 		return sys16_workingram[0x000c/2];
-	}
+	} };
 	
 	static MEMORY_READ16_START( timscanr_readmem )
 		{ 0x000000, 0x02ffff, MRA16_ROM },
@@ -5406,13 +5406,13 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( timscanr ){
+	public static MachineInitHandlerPtr machine_init_timscanr  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,0,0,0,
 			0,0,0,3,
 			0,0,0,2,
 			0,1,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 	
 		sys16_textmode=1;
@@ -5575,7 +5575,7 @@ public class system16
 		sys16_tile_bank1 = sys16_extraram[1]&0xf;
 	}
 	
-	static MACHINE_INIT( toryumon ){
+	public static MachineInitHandlerPtr machine_init_toryumon  = new MachineInitHandlerPtr() { public void handler()
 		sys16_update_proc = toryumon_update_proc;
 	}
 	
@@ -5693,7 +5693,7 @@ public class system16
 	ROM_END(); }}; 
 	
 	/***************************************************************************/
-	static READ16_HANDLER( tt_io_player1_r ){ return input_port_0_r( offset ) << 8; }
+	static READ16_HANDLER( tt_io_player1_r ){ return input_port_0_r( offset ) << 8; } };
 	static READ16_HANDLER( tt_io_player2_r ){ return input_port_1_r( offset ) << 8; }
 	static READ16_HANDLER( tt_io_service_r ){ return input_port_2_r( offset ) << 8; }
 	
@@ -5732,20 +5732,20 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( tturf ){
-		static int bank[16] = { 0,0,1,0,2,0,3,0 };
+	public static MachineInitHandlerPtr machine_init_tturf  = new MachineInitHandlerPtr() { public void handler()
+		static int bank[16] = { 0,0,1,0,2,0,3,0 } };;
 		sys16_obj_bank = bank;
 		sys16_spritelist_end=0xc000;
 		sys16_update_proc = tturf_update_proc;
 	}
 	
-	static MACHINE_INIT( tturfu ){
+	public static MachineInitHandlerPtr machine_init_tturfu  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,0,0,0,
 			0,0,0,0,
 			0,0,0,1,
 			0,2,3,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_spritelist_end=0xc000;
 	
@@ -5899,13 +5899,13 @@ public class system16
 		}
 	}
 	
-	static MACHINE_INIT( tturfbl ){
+	public static MachineInitHandlerPtr machine_init_tturfbl  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			0,0,0,0,
 			0,0,0,3,
 			0,0,0,2,
 			0,1,0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_sprxoffset = -0x48;
 		sys16_spritelist_end=0xc000;
@@ -6029,7 +6029,7 @@ public class system16
 		sys16_bg_scrollx = sys16_textram[0x74d];
 	}
 	
-	static MACHINE_INIT( wb3 ){
+	public static MachineInitHandlerPtr machine_init_wb3  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			2,0,
 			1,0,
@@ -6039,7 +6039,7 @@ public class system16
 			0,2,
 			0,1,
 			0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 		sys16_update_proc = wb3_update_proc;
 	}
@@ -6165,7 +6165,7 @@ public class system16
 		set_bg_page( sys16_textram[0x0ff4/2] );
 	}
 	
-	static MACHINE_INIT( wb3bl ){
+	public static MachineInitHandlerPtr machine_init_wb3bl  = new MachineInitHandlerPtr() { public void handler()
 		static int bank[16] = {
 			2,0,
 			1,0,
@@ -6175,7 +6175,7 @@ public class system16
 			0,2,
 			0,1,
 			0,0
-		};
+		} };;
 		sys16_obj_bank = bank;
 	
 		sys16_patch_code( 0x17058, 0x4e );
@@ -6340,7 +6340,7 @@ public class system16
 		set_tile_bank( sys16_extraram[1] );
 	}
 	
-	static MACHINE_INIT( wrestwar ){
+	public static MachineInitHandlerPtr machine_init_wrestwar  = new MachineInitHandlerPtr() { public void handler()
 		sys16_bg_priority_mode=2;
 		sys16_bg_priority_value=0x0a00;
 		sys16_update_proc = wrestwar_update_proc;
@@ -6406,7 +6406,7 @@ public class system16
 	/*****************************************************************************/
 	
 	static MEMORY_READ16_START( sys16_dummy_readmem )
-		{ 0x000000, 0x0fffff, MRA16_ROM },
+		{ 0x000000, 0x0fffff, MRA16_ROM } };,
 		{ 0xff0000, 0xffffff, SYS16_MRA16_WORKINGRAM },
 	MEMORY_END
 	
@@ -6415,7 +6415,7 @@ public class system16
 		{ 0xff0000, 0xffffff, SYS16_MWA16_WORKINGRAM },
 	MEMORY_END
 	
-	static MACHINE_INIT( sys16_dummy ){
+	public static MachineInitHandlerPtr machine_init_sys16_dummy  = new MachineInitHandlerPtr() { public void handler()
 	}
 	
 	static DRIVER_INIT( s16dummy )

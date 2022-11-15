@@ -93,10 +93,9 @@ public class exterm
 	WRITE_HANDLER( exterm_dac_data_w );
 	
 	
-	static MACHINE_INIT( exterm )
-	{
+	public static MachineInitHandlerPtr machine_init_exterm  = new MachineInitHandlerPtr() { public void handler(){
 		gottlieb_sound_init();
-	}
+	} };
 	
 	
 	/*************************************

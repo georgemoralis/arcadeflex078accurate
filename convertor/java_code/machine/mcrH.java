@@ -29,9 +29,6 @@ public class mcrH
 	extern Z80_DaisyChain mcr_daisy_chain[];
 	extern UINT8 mcr_cocktail_flip;
 	
-	MACHINE_INIT( mcr );
-	MACHINE_INIT( mcr68 );
-	MACHINE_INIT( zwackery );
 	
 	
 	WRITE_HANDLER( mcr_control_port_w );

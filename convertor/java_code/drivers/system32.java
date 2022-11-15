@@ -1042,8 +1042,7 @@ public class system32
 		{ 0xf1, 0xf1, sys32_sound_prot_w },
 	PORT_END
 	
-	static MACHINE_INIT( system32 )
-	{
+	public static MachineInitHandlerPtr machine_init_system32  = new MachineInitHandlerPtr() { public void handler(){
 		cpu_setbank(1, memory_region(REGION_CPU1));
 		irq_init();
 	
@@ -1051,10 +1050,9 @@ public class system32
 		system32_allow_high_resolution = 0;
 		system32_screen_mode = 0;
 		system32_screen_old_mode = 1;
-	}
+	} };
 	
-	static MACHINE_INIT( s32hi )
-	{
+	public static MachineInitHandlerPtr machine_init_s32hi  = new MachineInitHandlerPtr() { public void handler(){
 		cpu_setbank(1, memory_region(REGION_CPU1));
 		irq_init();
 	
@@ -1062,7 +1060,7 @@ public class system32
 		system32_allow_high_resolution = 1;
 		system32_screen_mode = 0;
 		system32_screen_old_mode = 1;
-	}
+	} };
 	
 	
 	public static InterruptHandlerPtr system32_interrupt = new InterruptHandlerPtr() {public void handler(){

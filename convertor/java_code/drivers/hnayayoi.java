@@ -95,11 +95,10 @@ public class hnayayoi
 		MSM5205_reset_w(0,~data & 1);
 	}
 	
-	static MACHINE_INIT( hnayayoi )
-	{
+	public static MachineInitHandlerPtr machine_init_hnayayoi  = new MachineInitHandlerPtr() { public void handler(){
 		/* start with the MSM5205 reset */
 		MSM5205_reset_w(0,1);
-	}
+	} };
 	
 	
 	

@@ -6564,8 +6564,8 @@ public class seta
 		cpu_set_irq_line( 0, 2, HOLD_LINE );
 	} };
 	
-	MACHINE_INIT( wrofaero ) { uPD71054_timer_init(); }
-	MACHINE_STOP( wrofaero ) { uPD71054_timer_stop(); }
+	public static MachineInitHandlerPtr machine_init_wrofaero  = new MachineInitHandlerPtr() { public void handler() uPD71054_timer_init(); }
+	public static MachineStopHandlerPtr machine_stop_wrofaero  = new MachineStopHandlerPtr() { public void handler() uPD71054_timer_stop(); }
 	#endif	// __uPD71054_TIMER
 	
 	
@@ -6835,7 +6835,7 @@ public class seta
 	static struct OKIM6295interface okim6295_interface =
 	{
 		1,						/* 1 chip */
-		{ 6000 },	/* ???? */
+		{ 6000 } };,	/* ???? */
 		{ REGION_SOUND1 },		/* memory region */
 		{ 100 }
 	};

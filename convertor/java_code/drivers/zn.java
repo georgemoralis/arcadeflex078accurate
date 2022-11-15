@@ -735,12 +735,11 @@ public class zn
 		}
 	} };
 	
-	static MACHINE_INIT( zn )
-	{
+	public static MachineInitHandlerPtr machine_init_zn  = new MachineInitHandlerPtr() { public void handler(){
 		n_playermode = 0;
 		player_reset();
 		psx_machine_init();
-	}
+	} };
 	
 	public static InterruptHandlerPtr qsound_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if( queue_len == 4 )

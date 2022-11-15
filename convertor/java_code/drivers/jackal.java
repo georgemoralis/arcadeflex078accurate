@@ -32,7 +32,6 @@ public class jackal
 	
 	extern unsigned char *jackal_videoctrl;
 	
-	MACHINE_INIT( jackal );
 	
 	READ_HANDLER( jackal_zram_r );
 	READ_HANDLER( jackal_commonram_r );

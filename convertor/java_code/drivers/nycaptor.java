@@ -240,8 +240,7 @@ public class nycaptor
 	
 	static int vol_ctrl[16];
 	
-	static MACHINE_INIT( ta7630 )
-	{
+	public static MachineInitHandlerPtr machine_init_ta7630  = new MachineInitHandlerPtr() { public void handler(){
 		int i;
 	
 		double db			= 0.0;
@@ -255,7 +254,7 @@ public class nycaptor
 			db += db_step;
 			db_step += db_step_inc;
 		}
-	}
+	} };
 	
 	static void nmi_callback(int param)
 	{

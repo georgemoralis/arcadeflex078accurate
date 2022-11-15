@@ -50,12 +50,11 @@ public class ssrj
 	
 	static int oldport=0x80;
 	
-	MACHINE_INIT(ssrj)
-	{
+	public static MachineInitHandlerPtr machine_init_ssrj  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *rom = memory_region(REGION_CPU1);
 		memset(&rom[0xc000],0,0x3fff); /* req for some control types */
 		oldport=0x80;
-	}
+	} };
 	
 	static READ_HANDLER(ssrj_wheel_r)
 	{

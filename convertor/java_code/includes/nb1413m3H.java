@@ -204,7 +204,6 @@ enum {
 	PORT_BIT ( 0x40, IP_ACTIVE_LOW, IPT_UNKNOWN );\
 	PORT_BIT ( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 
-MACHINE_INIT( nb1413m3 );
 WRITE_HANDLER( nb1413m3_nmi_clock_w );
 NVRAM_HANDLER( nb1413m3 );
 int nb1413m3_sndrom_r(int offset);

@@ -89,40 +89,35 @@ public class scramble
 		timer_set(cpu_getscanlinetime(0), 0, interrupt_timer);
 	}
 	
-	MACHINE_INIT( galaxian )
-	{
+	public static MachineInitHandlerPtr machine_init_galaxian  = new MachineInitHandlerPtr() { public void handler(){
 		machine_init_common(IRQ_LINE_NMI);
-	}
+	} };
 	
-	MACHINE_INIT( devilfsg )
-	{
+	public static MachineInitHandlerPtr machine_init_devilfsg  = new MachineInitHandlerPtr() { public void handler(){
 		machine_init_common(0);
-	}
+	} };
 	
-	MACHINE_INIT( scramble )
-	{
+	public static MachineInitHandlerPtr machine_init_scramble  = new MachineInitHandlerPtr() { public void handler(){
 		machine_init_galaxian();
 	
 		if (cpu_gettotalcpu() > 1)
 		{
 			scramble_sh_init();
 		}
-	}
+	} };
 	
-	MACHINE_INIT( sfx )
-	{
+	public static MachineInitHandlerPtr machine_init_sfx  = new MachineInitHandlerPtr() { public void handler(){
 		machine_init_scramble();
 	
 		sfx_sh_init();
-	}
+	} };
 	
-	MACHINE_INIT( explorer )
-	{
+	public static MachineInitHandlerPtr machine_init_explorer  = new MachineInitHandlerPtr() { public void handler(){
 		UINT8 *RAM = memory_region(REGION_CPU1);
 		RAM[0x47ff] = 0; /* If not set, it doesn't reset after the 1st time */
 	
 		machine_init_scramble();
-	}
+	} };
 	
 	WRITE_HANDLER( galaxian_coin_lockout_w )
 	{

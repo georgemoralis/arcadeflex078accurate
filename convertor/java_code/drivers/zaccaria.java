@@ -239,15 +239,14 @@ public class zaccaria
 	};
 	
 	
-	static MACHINE_INIT( zaccaria )
-	{
+	public static MachineInitHandlerPtr machine_init_zaccaria  = new MachineInitHandlerPtr() { public void handler(){
 		ppi8255_init(&ppi8255_intf);
 	
 		pia_unconfig();
 		pia_config(0, PIA_STANDARD_ORDERING, &pia_0_intf);
 		pia_config(1, PIA_STANDARD_ORDERING, &pia_1_intf);
 		pia_reset();
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( sound_command_w )

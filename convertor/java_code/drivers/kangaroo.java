@@ -133,8 +133,7 @@ public class kangaroo
 	 *
 	 *************************************/
 	
-	static MACHINE_INIT( kangaroo )
-	{
+	public static MachineInitHandlerPtr machine_init_kangaroo  = new MachineInitHandlerPtr() { public void handler(){
 		/* I think there is a bug in the startup checks of the game. At the very */
 		/* beginning, during the RAM check, it goes one byte too far, and ends up */
 		/* trying to write, and re-read, location dfff. To the best of my knowledge, */
@@ -147,7 +146,7 @@ public class kangaroo
 		/* Anyway, what I do here is just immediately generate the NMI, so the game */
 		/* properly starts. */
 		cpu_set_irq_line(0, IRQ_LINE_NMI, PULSE_LINE);
-	}
+	} };
 	
 	
 	

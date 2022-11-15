@@ -108,7 +108,6 @@ public class konamigx
 	
 	
 	
-	MACHINE_INIT(konamigx);
 	
 	WRITE32_HANDLER( konamigx_palette_w );
 	WRITE32_HANDLER( konamigx_palette2_w );
@@ -3173,8 +3172,7 @@ public class konamigx
 	/**********************************************************************************/
 	/* initializers */
 	
-	MACHINE_INIT(konamigx)
-	{
+	public static MachineInitHandlerPtr machine_init_konamigx  = new MachineInitHandlerPtr() { public void handler(){
 		konamigx_wrport1_0 = konamigx_wrport1_1 = 0;
 		konamigx_wrport2 = 0;
 	
@@ -3194,7 +3192,7 @@ public class konamigx
 	
 		// sound CPU initially disabled?
 		cpu_set_halt_line(1, ASSERT_LINE);
-	}
+	} };
 	
 	static DRIVER_INIT(konamigx)
 	{

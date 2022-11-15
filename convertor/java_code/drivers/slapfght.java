@@ -205,7 +205,6 @@ public class slapfght
 	WRITE_HANDLER( slapfight_colorram_w );
 	
 	/* MACHINE */
-	MACHINE_INIT( slapfight );
 	extern unsigned char *slapfight_dpram;
 	extern size_t slapfight_dpram_size;
 	WRITE_HANDLER( slapfight_dpram_w );

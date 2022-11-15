@@ -81,9 +81,6 @@ public class m72
 	
 	/* in vidhrdw/m72.c */
 	extern unsigned char *m72_videoram1,*m72_videoram2,*majtitle_rowscrollram;
-	MACHINE_INIT( m72 );
-	MACHINE_INIT( xmultipl );
-	MACHINE_INIT( kengo );
 	READ_HANDLER( m72_palette1_r );
 	READ_HANDLER( m72_palette2_r );
 	WRITE_HANDLER( m72_palette1_w );

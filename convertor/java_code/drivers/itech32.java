@@ -143,8 +143,7 @@ public class itech32
 	
 	static void via6522_timer_callback(int which);
 	
-	static MACHINE_INIT( itech32 )
-	{
+	public static MachineInitHandlerPtr machine_init_itech32  = new MachineInitHandlerPtr() { public void handler(){
 		vint_state = xint_state = qint_state = 0;
 		sound_data = 0;
 		sound_int_state = 0;
@@ -161,7 +160,7 @@ public class itech32
 		/* map the mirrored RAM in Driver's Edge */
 		if (is_drivedge)
 			cpu_setbank(2, main_ram);
-	}
+	} };
 	
 	
 	

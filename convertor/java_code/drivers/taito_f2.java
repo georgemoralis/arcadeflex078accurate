@@ -4744,11 +4744,10 @@ public class taito_f2
 	                      MACHINE DRIVERS
 	***********************************************************/
 	
-	MACHINE_INIT( qcrayon )
-	{
+	public static MachineInitHandlerPtr machine_init_qcrayon  = new MachineInitHandlerPtr() { public void handler(){
 		/* point to the extra ROM */
 		cpu_setbank(1,memory_region(REGION_USER1));
-	}
+	} };
 	
 	
 	static MACHINE_DRIVER_START( taito_f2 )

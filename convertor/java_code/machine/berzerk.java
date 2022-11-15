@@ -22,14 +22,13 @@ public class berzerk
 	static int int_count;
 	
 	
-	MACHINE_INIT( berzerk )
-	{
+	public static MachineInitHandlerPtr machine_init_berzerk  = new MachineInitHandlerPtr() { public void handler(){
 		memory_set_unmap_value(0xff);
 	
 		irq_enabled = 0;
 		nmi_enabled = 0;
 		int_count = 0;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( berzerk_irq_enable_w )

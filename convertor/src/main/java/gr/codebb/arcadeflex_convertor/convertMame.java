@@ -27,6 +27,8 @@ public class convertMame {
     static final int VIDEO_UPDATE = 5;
     static final int VIDEO_EOF = 6;
     static final int PALETTE_INIT = 7;
+    static final int MACHINE_INIT = 8;
+    static final int MACHINE_STOP = 9;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -207,6 +209,59 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case 'M': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("MACHINE_INIT")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static MachineInitHandlerPtr machine_init_" + Convertor.token[0] + "  = new MachineInitHandlerPtr() { public void handler()");
+                            type = MACHINE_INIT;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("MACHINE_STOP")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static MachineStopHandlerPtr machine_stop_" + Convertor.token[0] + "  = new MachineStopHandlerPtr() { public void handler()");
+                            type = MACHINE_STOP;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                }
+                Convertor.inpos = i;
+                break;
                 case 'P': {
                     i = Convertor.inpos;
                     if (sUtil.getToken("PORT_START")) {
@@ -322,6 +377,30 @@ public class convertMame {
                             } else {
                                 sUtil.putString("public static PaletteInitHandlerPtr palette_init_" + Convertor.token[0] + "  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom)");
                                 type = PALETTE_INIT;
+                                i3 = -1;
+                                Convertor.inpos += 1;
+                                continue;
+                            }
+                        }
+                        if (sUtil.getToken("MACHINE_INIT")) {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '(') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != ')') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            if (sUtil.parseChar() == ';') {
+                                sUtil.skipLine();
+                                continue;
+                            } else {
+                                sUtil.putString("public static MachineInitHandlerPtr machine_init_" + Convertor.token[0] + "  = new MachineInitHandlerPtr() { public void handler()");
+                                type = MACHINE_INIT;
                                 i3 = -1;
                                 Convertor.inpos += 1;
                                 continue;
@@ -462,7 +541,7 @@ public class convertMame {
                 case '{': {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
-                            || type == VIDEO_EOF || type == PALETTE_INIT) {
+                            || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP) {
                         i3++;
                     }
                 }
@@ -471,7 +550,7 @@ public class convertMame {
                 case '}': {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
-                            || type == VIDEO_EOF || type == PALETTE_INIT) {
+                            || type == VIDEO_EOF || type == PALETTE_INIT || type == MACHINE_INIT || type == MACHINE_STOP) {
                         i3--;
                         if (i3 == -1) {
                             sUtil.putString("} };");

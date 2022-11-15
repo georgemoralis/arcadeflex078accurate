@@ -133,7 +133,6 @@ public class taitosj
 	
 	
 	
-	MACHINE_INIT( taitosj );
 	WRITE_HANDLER( taitosj_bankswitch_w );
 	READ_HANDLER( taitosj_fake_data_r );
 	READ_HANDLER( taitosj_fake_status_r );

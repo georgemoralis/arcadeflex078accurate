@@ -205,9 +205,8 @@ public class bishi
 		PORT_DIPSETTING(    0x00, "7 Kinds");
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_INIT( bishi )
-	{
-	}
+	public static MachineInitHandlerPtr machine_init_bishi  = new MachineInitHandlerPtr() { public void handler(){
+	} };
 	
 	static void sound_irq_gen(int state)
 	{

@@ -59,7 +59,7 @@ public class system16
 	
 	extern int sys16_wwfix, sys16_alienfix;
 	
-	MACHINE_INIT( sys16_onetime ){
+	public static MachineInitHandlerPtr machine_init_sys16_onetime  = new MachineInitHandlerPtr() { public void handler()
 		sys16_wwfix = sys16_alienfix = 0;
 		sys16_bg1_trans=0;
 		sys16_rowscroll_scroll=0;
@@ -84,7 +84,7 @@ public class system16
 		8,8,
 		RGN_FRAC(1,3),
 		3,
-		{ RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3) },
+		{ RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3) } };,
 		{ 0, 1, 2, 3, 4, 5, 6, 7 },
 		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8

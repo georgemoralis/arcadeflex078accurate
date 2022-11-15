@@ -1,6 +1,5 @@
 /* defined in machine/berzerk.c */
 
-MACHINE_INIT( berzerk );
 WRITE_HANDLER( berzerk_irq_enable_w );
 WRITE_HANDLER( berzerk_nmi_enable_w );
 WRITE_HANDLER( berzerk_nmi_disable_w );

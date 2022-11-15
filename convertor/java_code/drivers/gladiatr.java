@@ -193,8 +193,7 @@ public class gladiatr
 		{gladiator_dsw1_r,gladiator_dsw2_r,gladiator_button3_r,gladiator_controll_r}	/* port handler */
 	};
 	
-	static MACHINE_INIT( gladiator )
-	{
+	public static MachineInitHandlerPtr machine_init_gladiator  = new MachineInitHandlerPtr() { public void handler(){
 		TAITO8741_start(&gsword_8741interface);
 		/* 6809 bank memory set */
 		{
@@ -203,7 +202,7 @@ public class gladiatr
 			cpu_setbank(4,&RAM[0x18000]);
 			cpu_setbank(5,&RAM[0x20000]);
 		}
-	}
+	} };
 	
 	#if 1
 	/* !!!!! patch to IRQ timming for 2nd CPU !!!!! */

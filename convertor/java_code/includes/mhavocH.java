@@ -20,7 +20,6 @@
 WRITE_HANDLER( mhavoc_alpha_irq_ack_w );
 WRITE_HANDLER( mhavoc_gamma_irq_ack_w );
 
-MACHINE_INIT( mhavoc );
 
 WRITE_HANDLER( mhavoc_gamma_w );
 READ_HANDLER( mhavoc_alpha_r );

@@ -196,7 +196,6 @@ public class tnzs
 	DRIVER_INIT( insectx );
 	DRIVER_INIT( kageki );
 	READ_HANDLER( arknoid2_sh_f000_r );
-	MACHINE_INIT( tnzs );
 	READ_HANDLER( tnzs_port1_r );
 	READ_HANDLER( tnzs_port2_r );
 	WRITE_HANDLER( tnzs_port2_w );

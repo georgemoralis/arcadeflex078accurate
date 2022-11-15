@@ -230,10 +230,9 @@ public class niyanpai
 		z80ctc_init(&ctc_intf);
 	}
 	
-	static MACHINE_INIT( niyanpai )
-	{
+	public static MachineInitHandlerPtr machine_init_niyanpai  = new MachineInitHandlerPtr() { public void handler(){
 		//
-	}
+	} };
 	
 	static void initialize_driver(void)
 	{

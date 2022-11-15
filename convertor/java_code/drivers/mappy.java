@@ -56,8 +56,6 @@ public class mappy
 	/* machine driver data & functions */
 	extern unsigned char *mappy_sharedram;
 	extern unsigned char *mappy_customio_1,*mappy_customio_2;
-	MACHINE_INIT( mappy );
-	MACHINE_INIT( motos );
 	READ_HANDLER( mappy_sharedram_r );
 	WRITE_HANDLER( mappy_sharedram_w );
 	WRITE_HANDLER( mappy_customio_1_w );

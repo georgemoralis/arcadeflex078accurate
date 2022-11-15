@@ -531,12 +531,11 @@ public class tceptor
 	
 	/*******************************************************************/
 	
-	static MACHINE_INIT( tceptor )
-	{
+	public static MachineInitHandlerPtr machine_init_tceptor  = new MachineInitHandlerPtr() { public void handler(){
 		m6809_irq_enable = 0;
 		m68k_irq_enable = 0;
 		mcu_irq_enable = 0;
-	}
+	} };
 	
 	/*******************************************************************/
 	

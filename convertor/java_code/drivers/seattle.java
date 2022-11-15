@@ -84,8 +84,7 @@ public class seattle
 	 *
 	 *************************************/
 	
-	static MACHINE_INIT( seattle )
-	{
+	public static MachineInitHandlerPtr machine_init_seattle  = new MachineInitHandlerPtr() { public void handler(){
 		cpu_setbank(1, rambase);
 		cpu_setbank(2, rambase);
 		cpu_setbank(3, rombase);
@@ -111,7 +110,7 @@ public class seattle
 		vblank_irq = 0;
 	
 		voodoo_reset();
-	}
+	} };
 	
 	
 	

@@ -68,8 +68,7 @@ public class flyball
 	}
 	
 	
-	static MACHINE_INIT( flyball )
-	{
+	public static MachineInitHandlerPtr machine_init_flyball  = new MachineInitHandlerPtr() { public void handler(){
 		int i;
 	
 		/* address bits 0 through 8 are inverted */
@@ -85,7 +84,7 @@ public class flyball
 		timer_set(cpu_getscanlinetime(0), 0, flyball_quarter_callback);
 	
 		flyball_zero_page = auto_malloc(0x100);
-	}
+	} };
 	
 	
 	/* two physical buttons (start game and stop runner) share the same port bit */

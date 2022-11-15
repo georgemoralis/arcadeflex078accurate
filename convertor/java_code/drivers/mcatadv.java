@@ -421,10 +421,9 @@ public class mcatadv
 		{ YM3012_VOL(100,MIXER_PAN_LEFT,100,MIXER_PAN_RIGHT) }
 	};
 	
-	static MACHINE_INIT( mcatadv )
-	{
+	public static MachineInitHandlerPtr machine_init_mcatadv  = new MachineInitHandlerPtr() { public void handler(){
 		watchdog_reset_r(0);
-	}
+	} };
 	
 	
 	static MACHINE_DRIVER_START( mcatadv )

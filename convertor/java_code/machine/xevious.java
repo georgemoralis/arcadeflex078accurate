@@ -50,8 +50,7 @@ public class xevious
 	
 	
 	
-	MACHINE_INIT( xevious )
-	{
+	public static MachineInitHandlerPtr machine_init_xevious  = new MachineInitHandlerPtr() { public void handler(){
 		rom2a = memory_region(REGION_GFX4);
 		rom2b = memory_region(REGION_GFX4)+0x1000;
 		rom2c = memory_region(REGION_GFX4)+0x3000;
@@ -59,7 +58,7 @@ public class xevious
 		nmi_timer = timer_alloc(xevious_nmi_generate);
 	
 		xevious_halt_w (0, 0);
-	}
+	} };
 	
 	/* emulation for schematic 9B */
 	WRITE_HANDLER( xevious_bs_w )
@@ -453,8 +452,7 @@ public class xevious
 	void battles_nmi_generate(int param);
 	
 	
-	MACHINE_INIT( battles )
-	{
+	public static MachineInitHandlerPtr machine_init_battles  = new MachineInitHandlerPtr() { public void handler(){
 		rom2a = memory_region(REGION_GFX4);
 		rom2b = memory_region(REGION_GFX4)+0x1000;
 		rom2c = memory_region(REGION_GFX4)+0x3000;
@@ -467,7 +465,7 @@ public class xevious
 		nmi_timer = timer_alloc(battles_nmi_generate);
 	
 		xevious_halt_w (0, 0);
-	}
+	} };
 	
 	
 	void battles_nmi_generate(int param)

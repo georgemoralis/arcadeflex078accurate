@@ -217,13 +217,12 @@ public class airbustr
 	static WRITE_HANDLER( bankswitch2_w );
 	static WRITE_HANDLER( sound_bankswitch_w );
 	
-	static MACHINE_INIT( airbustr )
-	{
+	public static MachineInitHandlerPtr machine_init_airbustr  = new MachineInitHandlerPtr() { public void handler(){
 		soundlatch_status = soundlatch2_status = 0;
 		bankswitch_w(0,2);
 		bankswitch2_w(0,2);
 		sound_bankswitch_w(0,2);
-	}
+	} };
 	
 	
 	/*

@@ -67,8 +67,7 @@ public class aquarium
 	
 	
 	#if AQUARIUS_HACK
-	static MACHINE_INIT( aquarium )
-	{
+	public static MachineInitHandlerPtr machine_init_aquarium  = new MachineInitHandlerPtr() { public void handler(){
 		data16_t *RAM = (data16_t *)memory_region(REGION_CPU1);
 		int data = readinputport(3);
 	
@@ -76,7 +75,7 @@ public class aquarium
 	
 		RAM[0x000a5c/2] = data;
 	
-	}
+	} };
 	#endif
 	
 	READ16_HANDLER( aquarium_coins_r )

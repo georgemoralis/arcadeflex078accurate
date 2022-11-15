@@ -1445,16 +1445,14 @@ public class mazerbla
 	
 	
 	
-	static MACHINE_INIT( mazerbla )
-	{
+	public static MachineInitHandlerPtr machine_init_mazerbla  = new MachineInitHandlerPtr() { public void handler(){
 		game_id = MAZERBLA;
 		zpu_int_vector = 0xff;
 		cpu_set_irq_callback(0, irq_callback);
-	}
+	} };
 	
 	
-	static MACHINE_INIT( greatgun )
-	{
+	public static MachineInitHandlerPtr machine_init_greatgun  = new MachineInitHandlerPtr() { public void handler(){
 		game_id = GREATGUN;
 		zpu_int_vector = 0xff;
 		cpu_set_irq_callback(0, irq_callback);
@@ -1467,7 +1465,7 @@ public class mazerbla
 	//so we also need to patch ROM checksum test
 		memory_region(REGION_CPU3)[0x037f] = 0;
 		memory_region(REGION_CPU3)[0x0380] = 0;
-	}
+	} };
 	
 	
 	/* only Great Guns */

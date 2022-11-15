@@ -134,7 +134,6 @@ public class combatsc
 	
 	WRITE_HANDLER( combascb_bankselect_w );
 	WRITE_HANDLER( combasc_bankselect_w );
-	MACHINE_INIT( combasc );
 	WRITE_HANDLER( combasc_pf_control_w );
 	READ_HANDLER( combasc_scrollram_r );
 	WRITE_HANDLER( combasc_scrollram_w );

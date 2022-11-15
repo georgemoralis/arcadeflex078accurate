@@ -117,10 +117,9 @@ public class aerofgt
 		cpu_setbank(1,rom + (data & 0x03) * 0x8000);
 	}
 	
-	static MACHINE_INIT( aerofgt )
-	{
+	public static MachineInitHandlerPtr machine_init_aerofgt  = new MachineInitHandlerPtr() { public void handler(){
 		aerofgt_sh_bankswitch_w(0,0);	/* needed by spinlbrk */
-	}
+	} };
 	
 	
 	

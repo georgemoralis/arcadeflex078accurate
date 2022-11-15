@@ -44,8 +44,6 @@ READ_HANDLER( indyheat_wheel_r );
 READ_HANDLER( indyheat_analog_r );
 WRITE_HANDLER( indyheat_analog_w );
 
-MACHINE_INIT( leland );
-MACHINE_INIT( ataxx );
 
 
 WRITE_HANDLER( leland_master_alt_bankswitch_w );

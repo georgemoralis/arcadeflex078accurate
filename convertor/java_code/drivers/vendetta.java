@@ -96,7 +96,6 @@ public class vendetta
 {
 	
 	/* prototypes */
-	static MACHINE_INIT( vendetta );
 	static void vendetta_banking( int lines );
 	static void vendetta_video_banking( int select );
 	
@@ -781,8 +780,7 @@ public class vendetta
 			cpu_setbank( 1, &RAM[ 0x10000 + ( lines * 0x2000 ) ] );
 	}
 	
-	static MACHINE_INIT( vendetta )
-	{
+	public static MachineInitHandlerPtr machine_init_vendetta  = new MachineInitHandlerPtr() { public void handler(){
 		konami_cpu_setlines_callback = vendetta_banking;
 	
 		paletteram = &memory_region(REGION_CPU1)[0x48000];
@@ -791,7 +789,7 @@ public class vendetta
 		/* init banks */
 		cpu_setbank( 1, &memory_region(REGION_CPU1)[0x10000] );
 		vendetta_video_banking( 0 );
-	}
+	} };
 	
 	
 	static DRIVER_INIT( vendetta )

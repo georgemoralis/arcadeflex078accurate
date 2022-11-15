@@ -124,8 +124,7 @@ public class pipedrm
 	 *
 	 *************************************/
 	
-	MACHINE_INIT( pipedrm )
-	{
+	public static MachineInitHandlerPtr machine_init_pipedrm  = new MachineInitHandlerPtr() { public void handler(){
 		UINT8 *ram;
 	
 		/* initialize main Z80 bank */
@@ -135,7 +134,7 @@ public class pipedrm
 		/* initialize sound bank */
 		ram = memory_region(REGION_CPU2);
 		cpu_setbank(2, &ram[0x10000]);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( pipedrm_bankswitch_w )

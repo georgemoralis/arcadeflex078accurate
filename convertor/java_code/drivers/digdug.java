@@ -132,7 +132,6 @@ public class digdug
 	WRITE_HANDLER( digdug_customio_w );
 	READ_HANDLER( digdug_customio_data_r );
 	WRITE_HANDLER( digdug_customio_data_w );
-	MACHINE_INIT( digdig );
 	
 	WRITE_HANDLER( digdug_flipscreen_w );
 	extern unsigned char *digdug_vlatches;

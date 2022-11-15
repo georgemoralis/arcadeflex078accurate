@@ -98,7 +98,6 @@ extern data16_t *namcos21_dspram16;
 
 /* MACHINE */
 
-MACHINE_INIT( namcos2 );
 
 WRITE16_HANDLER( namcos2_gfx_ctrl_w );
 READ16_HANDLER( namcos2_gfx_ctrl_r );

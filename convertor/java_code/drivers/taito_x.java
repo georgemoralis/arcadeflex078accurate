@@ -232,7 +232,6 @@ package drivers;
 public class taito_x
 {
 	
-	MACHINE_INIT( cchip1 );
 	READ16_HANDLER ( cchip1_word_r );
 	WRITE16_HANDLER( cchip1_word_w );
 	

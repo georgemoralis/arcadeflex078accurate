@@ -62,7 +62,6 @@ public class btime
 	extern unsigned char *deco_charram;
 	
 	
-	MACHINE_INIT( lnc );
 	
 	
 	

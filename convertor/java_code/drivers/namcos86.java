@@ -1195,14 +1195,13 @@ public class namcos86
 	};
 	
 	
-	static MACHINE_INIT( namco86 )
-	{
+	public static MachineInitHandlerPtr machine_init_namco86  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *base = memory_region(REGION_CPU1) + 0x10000;
 	
 		cpu_setbank(1,base);
 	
 		int_enabled[0] = int_enabled[1] = 1;
-	}
+	} };
 	
 	
 	static MACHINE_DRIVER_START( hopmappy )

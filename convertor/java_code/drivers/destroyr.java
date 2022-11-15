@@ -59,10 +59,9 @@ public class destroyr
 	}
 	
 	
-	static MACHINE_INIT( destroyr )
-	{
+	public static MachineInitHandlerPtr machine_init_destroyr  = new MachineInitHandlerPtr() { public void handler(){
 		timer_pulse(cpu_getscanlinetime(0), 0, destroyr_frame_callback);
-	}
+	} };
 	
 	
 	WRITE_HANDLER( destroyr_ram_w )

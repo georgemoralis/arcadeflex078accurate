@@ -58,10 +58,9 @@ public class crgolf
 	}
 	
 	
-	static MACHINE_INIT( crgolf )
-	{
+	public static MachineInitHandlerPtr machine_init_crgolf  = new MachineInitHandlerPtr() { public void handler(){
 		rom_bank_select_w(0, 0);
-	}
+	} };
 	
 	
 	

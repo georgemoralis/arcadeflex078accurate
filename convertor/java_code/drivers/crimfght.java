@@ -18,7 +18,6 @@ public class crimfght
 	
 	
 	/* prototypes */
-	static MACHINE_INIT( crimfght );
 	static void crimfght_banking( int lines );
 	
 	
@@ -520,15 +519,14 @@ public class crimfght
 		cpu_setbank( 2, &RAM[offs] );
 	}
 	
-	static MACHINE_INIT( crimfght )
-	{
+	public static MachineInitHandlerPtr machine_init_crimfght  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = crimfght_banking;
 	
 		/* init the default bank */
 		cpu_setbank( 2, &RAM[0x10000] );
-	}
+	} };
 	
 	static DRIVER_INIT( crimfght )
 	{

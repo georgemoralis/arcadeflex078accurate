@@ -103,12 +103,11 @@ public class sprint4
 	}
 	
 	
-	static MACHINE_INIT( sprint4 )
-	{
+	public static MachineInitHandlerPtr machine_init_sprint4  = new MachineInitHandlerPtr() { public void handler(){
 		timer_set(cpu_getscanlinetime(32), 32, nmi_callback);
 	
 		timer_pulse(TIME_IN_HZ(60), 0, input_callback);
-	}
+	} };
 	
 	
 	static READ_HANDLER( sprint4_wram_r )

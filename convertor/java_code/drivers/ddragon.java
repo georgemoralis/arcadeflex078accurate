@@ -68,8 +68,7 @@ public class ddragon
 	static int VBLK;
 	/* end of private globals */
 	
-	static MACHINE_INIT( ddragon )
-	{
+	public static MachineInitHandlerPtr machine_init_ddragon  = new MachineInitHandlerPtr() { public void handler(){
 		sprite_irq = IRQ_LINE_NMI;
 		sound_irq = M6809_IRQ_LINE;
 		ym_irq = M6809_FIRQ_LINE;
@@ -77,20 +76,18 @@ public class ddragon
 		dd_sub_cpu_busy = 0x10;
 		adpcm_idle[0] = adpcm_idle[1] = 1;
 		snd_cpu = 2;
-	}
+	} };
 	
-	static MACHINE_INIT( toffy )
-	{
+	public static MachineInitHandlerPtr machine_init_toffy  = new MachineInitHandlerPtr() { public void handler(){
 		sound_irq = M6809_IRQ_LINE;
 		ym_irq = M6809_FIRQ_LINE;
 		technos_video_hw = 0;
 		dd_sub_cpu_busy = 0x10;
 		adpcm_idle[0] = adpcm_idle[1] = 1;
 		snd_cpu = 1;
-	}
+	} };
 	
-	static MACHINE_INIT( ddragonb )
-	{
+	public static MachineInitHandlerPtr machine_init_ddragonb  = new MachineInitHandlerPtr() { public void handler(){
 		sprite_irq = IRQ_LINE_NMI;
 		sound_irq = M6809_IRQ_LINE;
 		ym_irq = M6809_FIRQ_LINE;
@@ -98,17 +95,16 @@ public class ddragon
 		dd_sub_cpu_busy = 0x10;
 		adpcm_idle[0] = adpcm_idle[1] = 1;
 		snd_cpu = 2;
-	}
+	} };
 	
-	static MACHINE_INIT( ddragon2 )
-	{
+	public static MachineInitHandlerPtr machine_init_ddragon2  = new MachineInitHandlerPtr() { public void handler(){
 		sprite_irq = IRQ_LINE_NMI;
 		sound_irq = IRQ_LINE_NMI;
 		ym_irq = 0;
 		technos_video_hw = 2;
 		dd_sub_cpu_busy = 0x10;
 		snd_cpu = 2;
-	}
+	} };
 	
 	/*****************************************************************************/
 	

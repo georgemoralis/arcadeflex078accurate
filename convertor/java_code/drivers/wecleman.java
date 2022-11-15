@@ -1142,10 +1142,9 @@ public class wecleman
 		{0}
 	};
 	
-	MACHINE_INIT( wecleman )
-	{
+	public static MachineInitHandlerPtr machine_init_wecleman  = new MachineInitHandlerPtr() { public void handler(){
 		K007232_set_bank( 0, 0, 1 );
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( wecleman )
 	

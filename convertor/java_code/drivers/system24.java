@@ -938,8 +938,7 @@ public class system24
 			mame_fread(file, memory_region(REGION_USER2), 2*track_size);
 	}
 	
-	static MACHINE_INIT(system24)
-	{
+	public static MachineInitHandlerPtr machine_init_system24  = new MachineInitHandlerPtr() { public void handler(){
 		cpu_set_halt_line(1, ASSERT_LINE);
 		prev_resetcontrol = resetcontrol = 0x06;
 		fdc_init();
@@ -947,7 +946,7 @@ public class system24
 		reset_bank();
 		irq_init();
 		mlatch = 0x00;
-	}
+	} };
 	
 	static InputPortHandlerPtr input_ports_hotrod = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hotrod )
 		PORT_START(); 

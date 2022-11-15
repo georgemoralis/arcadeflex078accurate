@@ -663,11 +663,10 @@ public class namcos11
 		psx_driver_init();
 	}
 	
-	MACHINE_INIT( namcos11 )
-	{
+	public static MachineInitHandlerPtr machine_init_namcos11  = new MachineInitHandlerPtr() { public void handler(){
 		memset( namcos11_keycus, 0, namcos11_keycus_size );
 		psx_machine_init();
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( coh100 )
 		/* basic machine hardware */

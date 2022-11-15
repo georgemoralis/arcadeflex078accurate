@@ -647,10 +647,9 @@ public class moo
 		{ 100 }
 	};
 	
-	static MACHINE_INIT( moo )
-	{
+	public static MachineInitHandlerPtr machine_init_moo  = new MachineInitHandlerPtr() { public void handler(){
 		init_nosound_count = 0;
-	}
+	} };
 	
 	
 	static MACHINE_DRIVER_START( moo )

@@ -79,10 +79,9 @@ public class freekick
 		{ NULL,             NULL },				/* Port C write */
 	};
 	
-	MACHINE_INIT( freekckb )
-	{
+	public static MachineInitHandlerPtr machine_init_freekckb  = new MachineInitHandlerPtr() { public void handler(){
 		ppi8255_init(&ppi8255_intf);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( flipscreen_w )

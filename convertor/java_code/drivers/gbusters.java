@@ -17,7 +17,6 @@ public class gbusters
 {
 	
 	/* prototypes */
-	static MACHINE_INIT( gbusters );
 	static void gbusters_banking( int lines );
 	
 	
@@ -408,8 +407,7 @@ public class gbusters
 		/* other bits unknown */
 	}
 	
-	static MACHINE_INIT( gbusters )
-	{
+	public static MachineInitHandlerPtr machine_init_gbusters  = new MachineInitHandlerPtr() { public void handler(){
 		unsigned char *RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = gbusters_banking;
@@ -418,7 +416,7 @@ public class gbusters
 		memcpy(&RAM[0x18000], &RAM[0x10000], 0x08000 );
 	
 		paletteram = &RAM[0x30000];
-	}
+	} };
 	
 	
 	static DRIVER_INIT( gbusters )

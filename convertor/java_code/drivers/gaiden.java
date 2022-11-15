@@ -300,10 +300,9 @@ public class gaiden
 	
 	static int *raiga_jumppoints = jumppoints_00;
 	
-	static MACHINE_INIT ( raiga )
-	{
+	public static MachineInitHandlerPtr machine_init_raiga  = new MachineInitHandlerPtr() { public void handler(){
 		raiga_jumppoints = jumppoints_00;
-	}
+	} };
 	
 	static WRITE16_HANDLER( raiga_protection_w )
 	{

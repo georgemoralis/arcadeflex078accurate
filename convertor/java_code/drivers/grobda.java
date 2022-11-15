@@ -33,7 +33,6 @@ public class grobda
 	WRITE_HANDLER( grobda_cpu2_enable_w );
 	WRITE_HANDLER( grobda_interrupt_ctrl_1_w );
 	WRITE_HANDLER( grobda_interrupt_ctrl_2_w );
-	MACHINE_INIT( grobda );
 	
 	/* video functions */
 	

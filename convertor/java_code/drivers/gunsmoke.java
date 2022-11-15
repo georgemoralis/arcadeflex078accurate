@@ -68,8 +68,7 @@ public class gunsmoke
 	
 	
 	READ_HANDLER( gunsmoke_bankedrom_r );
-	extern MACHINE_INIT( gunsmoke );
-	
+	extern 
 	extern unsigned char *gunsmoke_bg_scrollx;
 	extern unsigned char *gunsmoke_bg_scrolly;
 	

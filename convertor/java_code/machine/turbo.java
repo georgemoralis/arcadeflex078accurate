@@ -421,17 +421,15 @@ public class turbo
 	
 	*******************************************/
 	
-	MACHINE_INIT( turbo )
-	{
+	public static MachineInitHandlerPtr machine_init_turbo  = new MachineInitHandlerPtr() { public void handler(){
 		ppi8255_init(&turbo_8255_intf);
 		segment_address = segment_increment = 0;
 		segment_init = 1;
 		port_8279 = 1;
-	}
+	} };
 	
 	
-	MACHINE_INIT( subroc3d )
-	{
+	public static MachineInitHandlerPtr machine_init_subroc3d  = new MachineInitHandlerPtr() { public void handler(){
 		ppi8255_init(&subroc3d_8255_intf);
 		segment_address = segment_increment = 0;
 		segment_init = 1;
@@ -439,18 +437,17 @@ public class turbo
 		sample_start(1, 1, 1);
 		sample_start(2, 2, 1);
 		sample_start(7, 8, 1);
-	}
+	} };
 	
 	
-	MACHINE_INIT( buckrog )
-	{
+	public static MachineInitHandlerPtr machine_init_buckrog  = new MachineInitHandlerPtr() { public void handler(){
 		ppi8255_init(&buckrog_8255_intf);
 		segment_address = segment_increment = 0;
 		segment_init = 1;
 		buckrog_status = 0x80;
 		buckrog_command = 0x00;
 		port_8279 = 1;
-	}
+	} };
 	
 	
 	
