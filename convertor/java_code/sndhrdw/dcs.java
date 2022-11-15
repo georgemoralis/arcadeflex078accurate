@@ -282,37 +282,53 @@ public class dcs
 		MACHINE DRIVERS
 	****************************************************************************/
 	
-	MACHINE_DRIVER_START( dcs_audio )
+	public static MachineHandlerPtr machine_driver_dcs_audio = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD_TAG("dcs", ADSP2105, 10000000)
 		MDRV_CPU_FLAGS(CPU_AUDIO_CPU)
 		MDRV_CPU_MEMORY(dcs_readmem,dcs_writemem)
 	
 		MDRV_SOUND_ADD(CUSTOM, dcs_custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( dcs_audio_uart )
+	public static MachineHandlerPtr machine_driver_dcs_audio_uart = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(dcs_audio)
 	
 		MDRV_CPU_MODIFY("dcs")
 		MDRV_CPU_MEMORY(dcs_uart_readmem,dcs_uart_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( dcs2_audio )
+	public static MachineHandlerPtr machine_driver_dcs2_audio = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD_TAG("dcs2", ADSP2115, 16000000)
 		MDRV_CPU_FLAGS(CPU_AUDIO_CPU)
 		MDRV_CPU_MEMORY(dcs2_readmem,dcs2_writemem)
 	
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(CUSTOM, dcs2_custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( dcs2_audio_2104 )
+	public static MachineHandlerPtr machine_driver_dcs2_audio_2104 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(dcs2_audio)
 		MDRV_CPU_REPLACE("dcs2", ADSP2104, 16000000)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

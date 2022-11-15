@@ -885,7 +885,9 @@ public class mystwarr
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static MACHINE_DRIVER_START( mystwarr )
+	public static MachineHandlerPtr machine_driver_mystwarr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M68000, 16000000)	/* 16 MHz (confirmed) */
@@ -915,9 +917,13 @@ public class mystwarr
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD_TAG("539", K054539, k054539_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( viostorm )
+	public static MachineHandlerPtr machine_driver_viostorm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(mystwarr)
 	
 		/* basic machine hardware */
@@ -931,9 +937,13 @@ public class mystwarr
 		MDRV_VIDEO_UPDATE(metamrph)
 		MDRV_SCREEN_SIZE(64*8, 32*8)
 		MDRV_VISIBLE_AREA(40, 40+384-1, 16, 16+224-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( metamrph )
+	public static MachineHandlerPtr machine_driver_metamrph = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(mystwarr)
 	
 		/* basic machine hardware */
@@ -947,9 +957,13 @@ public class mystwarr
 		MDRV_VIDEO_UPDATE(metamrph)
 		MDRV_SCREEN_SIZE(64*8, 32*8)
 		MDRV_VISIBLE_AREA(24, 24+288-1, 17, 17+224-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( dadandrn )
+	public static MachineHandlerPtr machine_driver_dadandrn = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(mystwarr)
 	
 		/* basic machine hardware */
@@ -965,9 +979,13 @@ public class mystwarr
 		MDRV_VIDEO_UPDATE(dadandrn)
 		MDRV_SCREEN_SIZE(64*8, 32*8)
 		MDRV_VISIBLE_AREA(24, 24+288-1, 17, 17+224-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( gaiapols )
+	public static MachineHandlerPtr machine_driver_gaiapols = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(mystwarr)
 	
 		/* basic machine hardware */
@@ -985,9 +1003,13 @@ public class mystwarr
 		MDRV_VIDEO_UPDATE(dadandrn)
 		MDRV_SCREEN_SIZE(64*8, 32*8)
 		MDRV_VISIBLE_AREA(40, 40+376-1, 16, 16+224-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( martchmp )
+	public static MachineHandlerPtr machine_driver_martchmp = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(mystwarr)
 	
 		/* basic machine hardware */
@@ -1002,7 +1024,9 @@ public class mystwarr
 		MDRV_VIDEO_UPDATE(martchmp)
 		MDRV_SCREEN_SIZE(64*8, 32*8)
 		MDRV_VISIBLE_AREA(32, 32+384-1, 16, 16+224-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/**********************************************************************************/
 	
@@ -1796,7 +1820,7 @@ public class mystwarr
 	ROM_END(); }}; 
 	
 	static void init_common(void)
-	{
+	(
 		unsigned char *s = memory_region(REGION_GFX1);
 		unsigned char *pFinish = s+memory_region_length(REGION_GFX1)-3;
 	
@@ -1834,7 +1858,7 @@ public class mystwarr
 		state_save_register_int("Mystwarr", 0, "IRQ control", &mw_irq_control);
 		state_save_register_int("Mystwarr", 0, "sound region", &cur_sound_region);
 		state_save_register_func_postload(reset_sound_region);
-	}
+	)
 	
 	public static DriverInitHandlerPtr init_mystwarr  = new DriverInitHandlerPtr() { public void handler(){
 		int i;

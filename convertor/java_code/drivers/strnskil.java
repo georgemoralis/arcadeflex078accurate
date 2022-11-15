@@ -342,7 +342,9 @@ public class strnskil
 	};
 	
 	
-	static MACHINE_DRIVER_START( strnskil )
+	public static MachineHandlerPtr machine_driver_strnskil = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,8000000/2) /* 4.000MHz */
@@ -371,7 +373,9 @@ public class strnskil
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(SN76496, sn76496_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/****************************************************************************/
 	

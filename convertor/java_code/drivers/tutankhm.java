@@ -342,7 +342,9 @@ public class tutankhm
 	
 	
 	
-	static MACHINE_DRIVER_START( tutankhm )
+	public static MachineHandlerPtr machine_driver_tutankhm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 1500000)			/* 1.5 MHz ??? */
@@ -367,7 +369,9 @@ public class tutankhm
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, timeplt_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_tutankhm = new RomLoadHandlerPtr(){ public void handler(){ 

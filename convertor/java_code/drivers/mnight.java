@@ -349,7 +349,9 @@ public class mnight
 	};
 	
 	
-	static MACHINE_DRIVER_START( mnight )
+	public static MachineHandlerPtr machine_driver_mnight = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 6000000)		/* 12000000/2 ??? */
@@ -380,7 +382,9 @@ public class mnight
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_mnight = new RomLoadHandlerPtr(){ public void handler(){ 

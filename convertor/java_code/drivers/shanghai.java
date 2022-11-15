@@ -1012,7 +1012,9 @@ public class shanghai
 	
 	
 	
-	static MACHINE_DRIVER_START( shanghai )
+	public static MachineHandlerPtr machine_driver_shanghai = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V30,16000000/2)	/* ? */
@@ -1035,10 +1037,14 @@ public class shanghai
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( shangha2 )
+	public static MachineHandlerPtr machine_driver_shangha2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V30,16000000/2)	/* ? */
@@ -1060,7 +1066,9 @@ public class shanghai
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

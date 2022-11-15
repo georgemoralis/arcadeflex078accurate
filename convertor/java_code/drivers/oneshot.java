@@ -387,7 +387,9 @@ public class oneshot
 		{ 100 }
 	};
 	
-	static MACHINE_DRIVER_START( oneshot )
+	public static MachineHandlerPtr machine_driver_oneshot = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)
@@ -413,16 +415,22 @@ public class oneshot
 	
 		MDRV_SOUND_ADD(YM3812, ym3812_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( maddonna )
+	public static MachineHandlerPtr machine_driver_maddonna = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(oneshot)
 	
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(maddonna) // no crosshair
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_oneshot = new RomLoadHandlerPtr(){ public void handler(){ 

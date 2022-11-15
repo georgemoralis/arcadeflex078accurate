@@ -320,7 +320,9 @@ public class goindol
 	
 	
 	
-	static MACHINE_DRIVER_START( goindol )
+	public static MachineHandlerPtr machine_driver_goindol = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 6000000)        /* 6 MHz (?) */
@@ -348,7 +350,9 @@ public class goindol
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

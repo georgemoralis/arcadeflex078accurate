@@ -1950,7 +1950,9 @@ public class alpha68k
 	/******************************************************************************/
 	
 	
-	static MACHINE_DRIVER_START( sstingry )
+	public static MachineHandlerPtr machine_driver_sstingry = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 6000000) /* 24MHz/4? */
@@ -1991,9 +1993,13 @@ public class alpha68k
 		MDRV_SOUND_ADD(YM2203, sstingry_ym2203_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
 	//ZT
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( kyros )
+	public static MachineHandlerPtr machine_driver_kyros = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 6000000) /* 24MHz/4? */
@@ -2033,9 +2039,13 @@ public class alpha68k
 		MDRV_SOUND_ADD(DAC, dac_interface)
 	//ZT
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( alpha68k_I )
+	public static MachineHandlerPtr machine_driver_alpha68k_I = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 6000000) /* 24MHz/4? */
@@ -2065,9 +2075,13 @@ public class alpha68k
 		/* sound hardware */
 		//MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(YM3812, ym3812_interface) //AT
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( alpha68k_II )
+	public static MachineHandlerPtr machine_driver_alpha68k_II = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 8000000) /* Correct */
@@ -2100,10 +2114,14 @@ public class alpha68k
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(YM2413, ym2413_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	//AT
-	static MACHINE_DRIVER_START( alpha68k_II_gm )
+	public static MachineHandlerPtr machine_driver_alpha68k_II_gm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 8000000)
@@ -2135,10 +2153,14 @@ public class alpha68k
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(YM2413, ym2413_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	//ZT
 	
-	static MACHINE_DRIVER_START( alpha68k_V )
+	public static MachineHandlerPtr machine_driver_alpha68k_V = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000) /* ? */
@@ -2171,9 +2193,13 @@ public class alpha68k
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(YM2413, ym2413_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( alpha68k_V_sb )
+	public static MachineHandlerPtr machine_driver_alpha68k_V_sb = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000) /* ? */
@@ -2206,9 +2232,13 @@ public class alpha68k
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(YM2413, ym2413_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( tnexspce )
+	public static MachineHandlerPtr machine_driver_tnexspce = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 9000000) /* Confirmed 18 MHz/2 */
@@ -2238,7 +2268,9 @@ public class alpha68k
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3812, ym3812_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/******************************************************************************/

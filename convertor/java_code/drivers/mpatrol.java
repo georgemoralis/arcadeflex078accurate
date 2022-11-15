@@ -356,7 +356,9 @@ public class mpatrol
 	
 	
 	
-	static MACHINE_DRIVER_START( mpatrol )
+	public static MachineHandlerPtr machine_driver_mpatrol = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3072000)        /* 3.072 MHz ? */
@@ -383,7 +385,9 @@ public class mpatrol
 	
 		/* sound hardware */
 		MDRV_IMPORT_FROM(irem_audio)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

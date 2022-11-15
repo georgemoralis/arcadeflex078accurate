@@ -305,7 +305,9 @@ public class starfire
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( starfire )
+	public static MachineHandlerPtr machine_driver_starfire = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 2500000)
@@ -327,7 +329,9 @@ public class starfire
 		MDRV_VIDEO_UPDATE(starfire)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

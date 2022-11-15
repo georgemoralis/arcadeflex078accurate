@@ -433,7 +433,9 @@ public class warpwarp
 	};
 	
 	
-	static MACHINE_DRIVER_START( bombbee )
+	public static MachineHandlerPtr machine_driver_bombbee = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", 8080, 2048000)	/* 3 MHz? */
@@ -457,16 +459,22 @@ public class warpwarp
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(CUSTOM, custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( warpwarp )
+	public static MachineHandlerPtr machine_driver_warpwarp = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(bombbee)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(warpwarp_readmem,warpwarp_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

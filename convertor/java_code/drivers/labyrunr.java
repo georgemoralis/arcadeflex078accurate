@@ -237,7 +237,9 @@ public class labyrunr
 	
 	
 	
-	static MACHINE_DRIVER_START( labyrunr )
+	public static MachineHandlerPtr machine_driver_labyrunr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(HD6309, 3000000)		/* 24MHz/8? */
@@ -261,7 +263,9 @@ public class labyrunr
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

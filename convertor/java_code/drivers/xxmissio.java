@@ -327,7 +327,9 @@ public class xxmissio
 		{ 0,xxmissio_scroll_y_w }
 	};
 	
-	static MACHINE_DRIVER_START( xxmissio )
+	public static MachineHandlerPtr machine_driver_xxmissio = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,12000000/4)	/* 3.0MHz */
@@ -354,7 +356,9 @@ public class xxmissio
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/****************************************************************************/
 	

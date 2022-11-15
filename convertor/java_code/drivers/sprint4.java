@@ -349,7 +349,9 @@ public class sprint4
 	};
 	
 	
-	static MACHINE_DRIVER_START( sprint4 )
+	public static MachineHandlerPtr machine_driver_sprint4 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6502, 12096000 / 16)
@@ -373,7 +375,9 @@ public class sprint4
 		MDRV_VIDEO_EOF(sprint4)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_sprint4 = new RomLoadHandlerPtr(){ public void handler(){ 

@@ -443,7 +443,9 @@ public class cop01
 	
 	
 	
-	static MACHINE_DRIVER_START( cop01 )
+	public static MachineHandlerPtr machine_driver_cop01 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 4000000)	/* ???? */
@@ -473,9 +475,13 @@ public class cop01
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( mightguy )
+	public static MachineHandlerPtr machine_driver_mightguy = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 4000000)	/* ???? */
@@ -505,7 +511,9 @@ public class cop01
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3526, YM3526_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

@@ -424,7 +424,9 @@ public class missb2
 	};
 	
 	
-	static MACHINE_DRIVER_START( missb2 )
+	public static MachineHandlerPtr machine_driver_missb2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, MAIN_XTAL/4)	/* 6 MHz */
@@ -457,7 +459,9 @@ public class missb2
 		MDRV_SOUND_ADD(YM2203, ym2203_interface) // ?
 		MDRV_SOUND_ADD(YM3526, ym3526_interface) // ?
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

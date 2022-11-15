@@ -349,7 +349,9 @@ public class cshooter
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static MACHINE_DRIVER_START( cshooter )
+	public static MachineHandlerPtr machine_driver_cshooter = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(Z80,6000000)		 /* ? MHz */
 		MDRV_CPU_MEMORY(readmem,writemem)
 		MDRV_CPU_PORTS(readport,writeport)
@@ -376,7 +378,9 @@ public class cshooter
 		MDRV_VIDEO_UPDATE(cshooter)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*

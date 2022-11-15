@@ -843,7 +843,9 @@ public class sega
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( elim2 )
+	public static MachineHandlerPtr machine_driver_elim2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3867120)
@@ -864,10 +866,14 @@ public class sega
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("samples", SAMPLES, elim2_samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( zektor )
+	public static MachineHandlerPtr machine_driver_zektor = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(elim2)
@@ -883,10 +889,14 @@ public class sega
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("samples", SAMPLES, zektor_samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( tacscan )
+	public static MachineHandlerPtr machine_driver_tacscan = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(elim2)
@@ -897,10 +907,14 @@ public class sega
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("samples", SAMPLES, tacscan_samples_interface)
 		MDRV_SOUND_ADD_TAG("custom",  CUSTOM,  tacscan_custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( spacfury )
+	public static MachineHandlerPtr machine_driver_spacfury = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(elim2)
@@ -916,10 +930,14 @@ public class sega
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("samples", SAMPLES, spacfury_samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( startrek )
+	public static MachineHandlerPtr machine_driver_startrek = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(elim2)
@@ -935,7 +953,9 @@ public class sega
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("samples", SAMPLES, startrek_samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

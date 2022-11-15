@@ -1278,7 +1278,9 @@ public class homedata
 	);
 	
 	
-	static MACHINE_DRIVER_START( mrokumei )
+	public static MachineHandlerPtr machine_driver_mrokumei = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 16000000/4)	/* 4MHz ? */
@@ -1309,7 +1311,9 @@ public class homedata
 		/* sound hardware */
 		MDRV_SOUND_ADD(SN76496, sn76496_interface)	// SN76489 actually
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/**************************************************************************/
@@ -1342,7 +1346,9 @@ public class homedata
 	};
 	
 	
-	static MACHINE_DRIVER_START( reikaids )
+	public static MachineHandlerPtr machine_driver_reikaids = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 16000000/4)	/* 4MHz ? */
@@ -1377,12 +1383,16 @@ public class homedata
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(DAC, reikaids_dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/**************************************************************************/
 	
-	static MACHINE_DRIVER_START( pteacher )
+	public static MachineHandlerPtr machine_driver_pteacher = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 16000000/4)	/* 4MHz ? */
@@ -1418,16 +1428,24 @@ public class homedata
 		/* sound hardware */
 		MDRV_SOUND_ADD(SN76496, sn76496_interface)	// SN76489 actually
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( mjkinjas )
+	public static MachineHandlerPtr machine_driver_mjkinjas = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_IMPORT_FROM(pteacher)
 	
 		MDRV_CPU_REPLACE("sound", UPD7807, 11000000)	/* 11MHz ? */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( lemnangl )
+	public static MachineHandlerPtr machine_driver_lemnangl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_IMPORT_FROM(pteacher)
 	
@@ -1435,7 +1453,9 @@ public class homedata
 		MDRV_GFXDECODE(lemnangl_gfxdecodeinfo)
 	
 		MDRV_VIDEO_START(lemnangl)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

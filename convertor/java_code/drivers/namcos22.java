@@ -1008,7 +1008,9 @@ public class namcos22
 		}
 	} };
 	
-	static MACHINE_DRIVER_START( namcos22s )
+	public static MachineHandlerPtr machine_driver_namcos22s = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68EC020,25000000) /* 25 MHz? */
 		MDRV_CPU_MEMORY(namcos22s_readmem,namcos22s_writemem)
@@ -1026,7 +1028,9 @@ public class namcos22
 	
 		MDRV_VIDEO_START(namcos22s)
 		MDRV_VIDEO_UPDATE(namcos22s)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/*********************************************************************************/
 	
@@ -1121,7 +1125,9 @@ public class namcos22
 	
 	} };
 	
-	static MACHINE_DRIVER_START( namcos22 )
+	public static MachineHandlerPtr machine_driver_namcos22 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68020,25000000) /* 25 MHz? */
 		MDRV_CPU_MEMORY(namcos22_readmem,namcos22_writemem)
@@ -1139,7 +1145,9 @@ public class namcos22
 	
 		MDRV_VIDEO_START(namcos22s)
 		MDRV_VIDEO_UPDATE(namcos22)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/*********************************************************************************/
 	
@@ -2268,13 +2276,13 @@ public class namcos22
 	 */
 	static unsigned
 	GetPolyData( unsigned addr )
-	{
+	(
 		size_t ptRomSize = memory_region_length(REGION_GFX4)/3;
 		data8_t *pPolyL = memory_region(REGION_GFX4);
 		data8_t *pPolyM = pPolyL + ptRomSize;
 		data8_t *pPolyH = pPolyM + ptRomSize;
 		return (pPolyH[addr]*256+pPolyM[addr])*256+pPolyL[addr];
-	}
+	)
 	
 	/**
 	 * helper function for FixQuads

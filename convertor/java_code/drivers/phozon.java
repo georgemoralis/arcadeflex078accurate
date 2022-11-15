@@ -250,7 +250,9 @@ public class phozon
 		REGION_SOUND1	/* memory region */
 	};
 	
-	static MACHINE_DRIVER_START( phozon )
+	public static MachineHandlerPtr machine_driver_phozon = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809,	1536000)	/* MAIN CPU, same as Gaplus? */
@@ -285,7 +287,9 @@ public class phozon
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(NAMCO, namco_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

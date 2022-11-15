@@ -765,7 +765,9 @@ public class macrossp
 	};
 	
 	
-	static MACHINE_DRIVER_START( macrossp )
+	public static MachineHandlerPtr machine_driver_macrossp = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68EC020, 50000000/2)	/* 25 MHz */
 		MDRV_CPU_MEMORY(readmem,writemem)
@@ -793,13 +795,19 @@ public class macrossp
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(ES5506, es5506_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( quizmoon )
+	public static MachineHandlerPtr machine_driver_quizmoon = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(macrossp)
 	
 		MDRV_VISIBLE_AREA(0, 24*16-1, 0*8, 14*16-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

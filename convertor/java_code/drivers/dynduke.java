@@ -251,7 +251,9 @@ public class dynduke
 		buffer_spriteram_w(0,0); /* Could be a memory location instead */
 	} };
 	
-	static MACHINE_DRIVER_START( dynduke )
+	public static MachineHandlerPtr machine_driver_dynduke = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V30,16000000/2) /* NEC V30-8 CPU */
@@ -283,7 +285,9 @@ public class dynduke
 	
 		/* sound hardware */
 		SEIBU_SOUND_SYSTEM_YM3812_INTERFACE
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************/
 	

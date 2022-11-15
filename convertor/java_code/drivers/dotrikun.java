@@ -73,7 +73,9 @@ public class dotrikun
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static MACHINE_DRIVER_START( dotrikun )
+	public static MachineHandlerPtr machine_driver_dotrikun = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 4000000)		 /* 4 MHz */
@@ -94,7 +96,9 @@ public class dotrikun
 		MDRV_VIDEO_UPDATE(dotrikun)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

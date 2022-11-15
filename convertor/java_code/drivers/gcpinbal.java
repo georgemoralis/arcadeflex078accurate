@@ -392,7 +392,9 @@ public class gcpinbal
 	//	buffer_spriteram16_w(0,0,0);
 	} };
 	
-	static MACHINE_DRIVER_START( gcpinbal )
+	public static MachineHandlerPtr machine_driver_gcpinbal = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M68000, 32000000/2)	/* 16 MHz ? */
@@ -416,7 +418,9 @@ public class gcpinbal
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, m6295_interface)
 		MDRV_SOUND_ADD(ADPCM, adpcm_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

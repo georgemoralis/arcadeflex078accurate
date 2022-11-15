@@ -387,7 +387,9 @@ public class taotaido
 		{ YM3012_VOL(100,MIXER_PAN_LEFT,100,MIXER_PAN_RIGHT) }
 	};
 	
-	static MACHINE_DRIVER_START( taotaido )
+	public static MachineHandlerPtr machine_driver_taotaido = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68000, 32000000/2)
 		MDRV_CPU_MEMORY(taotaido_readmem,taotaido_writemem)
 		MDRV_CPU_VBLANK_INT(irq1_line_hold,1)
@@ -415,7 +417,9 @@ public class taotaido
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2610, ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_taotaido = new RomLoadHandlerPtr(){ public void handler(){ 

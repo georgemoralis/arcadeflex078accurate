@@ -273,7 +273,9 @@ public class skyfox
 		{ 0, 0 }
 	};
 	
-	static MACHINE_DRIVER_START( skyfox )
+	public static MachineHandlerPtr machine_driver_skyfox = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 4000000)
@@ -299,7 +301,9 @@ public class skyfox
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, skyfox_ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

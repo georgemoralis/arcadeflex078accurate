@@ -377,7 +377,9 @@ public class spdbuggy
 	};
 	
 	
-	static MACHINE_DRIVER_START( spdbuggy )
+	public static MachineHandlerPtr machine_driver_spdbuggy = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V20, 4000000)	/* ?? */
@@ -401,7 +403,9 @@ public class spdbuggy
 		MDRV_VIDEO_UPDATE(spdbuggy)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

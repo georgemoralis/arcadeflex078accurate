@@ -1026,7 +1026,9 @@ public class midvunit
 	 *
 	 *************************************/
 	
-	MACHINE_DRIVER_START( midvcommon )
+	public static MachineHandlerPtr machine_driver_midvcommon = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", TMS32031, 50000000)
@@ -1046,18 +1048,26 @@ public class midvunit
 	
 		MDRV_VIDEO_START(midvunit)
 		MDRV_VIDEO_UPDATE(midvunit)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( midvunit )
+	public static MachineHandlerPtr machine_driver_midvunit = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(midvcommon)
 	
 		/* sound hardware */
 		MDRV_IMPORT_FROM(dcs_audio)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( midvplus )
+	public static MachineHandlerPtr machine_driver_midvplus = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(midvcommon)
 	
 		/* basic machine hardware */
@@ -1070,7 +1080,9 @@ public class midvunit
 		
 		/* sound hardware */
 		MDRV_IMPORT_FROM(dcs2_audio)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

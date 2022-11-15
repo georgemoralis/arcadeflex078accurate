@@ -354,7 +354,9 @@ public class runaway
 	};
 	
 	
-	static MACHINE_DRIVER_START( runaway )
+	public static MachineHandlerPtr machine_driver_runaway = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6502, 12096000 / 8) /* ? */
@@ -378,10 +380,14 @@ public class runaway
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(POKEY, pokey_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( qwak )
+	public static MachineHandlerPtr machine_driver_qwak = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(runaway)
@@ -392,7 +398,9 @@ public class runaway
 		MDRV_VIDEO_START(qwak)
 		MDRV_VIDEO_UPDATE(qwak)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_runaway = new RomLoadHandlerPtr(){ public void handler(){ 

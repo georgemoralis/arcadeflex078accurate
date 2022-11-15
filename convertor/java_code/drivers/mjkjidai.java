@@ -307,7 +307,9 @@ public class mjkjidai
 	
 	
 	
-	static MACHINE_DRIVER_START( mjkjidai )
+	public static MachineHandlerPtr machine_driver_mjkjidai = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,10000000/2)	/* 5 MHz ??? */
@@ -334,7 +336,9 @@ public class mjkjidai
 		/* sound hardware */
 		MDRV_SOUND_ADD(SN76496, sn76496_interface)
 		MDRV_SOUND_ADD(ADPCM, adpcm_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

@@ -301,7 +301,9 @@ public class lethalj
 	 *
 	 *************************************/
 	
-	MACHINE_DRIVER_START( lethalj )
+	public static MachineHandlerPtr machine_driver_lethalj = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(TMS34010, 40000000/TMS34010_CLOCK_DIVIDER)
@@ -324,10 +326,14 @@ public class lethalj
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( eggventr )
+	public static MachineHandlerPtr machine_driver_eggventr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(lethalj)
@@ -338,7 +344,9 @@ public class lethalj
 		MDRV_SCREEN_SIZE(512, 239)
 		MDRV_VISIBLE_AREA(0, 511, 0, 238)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*************************************

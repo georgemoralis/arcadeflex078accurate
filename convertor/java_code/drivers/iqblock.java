@@ -299,7 +299,9 @@ public class iqblock
 	};
 	
 	
-	static MACHINE_DRIVER_START( iqblock )
+	public static MachineHandlerPtr machine_driver_iqblock = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,12000000/2)	/* 6 MHz */
@@ -324,9 +326,13 @@ public class iqblock
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2413, ym2413_interface) // UM3567
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( cabaret )
+	public static MachineHandlerPtr machine_driver_cabaret = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z180,12000000/2)	/* 6 MHz , appears to use Z180 instructions */
@@ -351,7 +357,9 @@ public class iqblock
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2413, ym2413_interface) // UM3567
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

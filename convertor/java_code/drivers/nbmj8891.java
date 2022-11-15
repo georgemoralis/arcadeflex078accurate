@@ -2266,7 +2266,9 @@ public class nbmj8891
 	
 	
 	
-	static MACHINE_DRIVER_START( gionbana )
+	public static MachineHandlerPtr machine_driver_gionbana = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, 20000000/4)	/* 5.00 MHz ? */
@@ -2292,11 +2294,15 @@ public class nbmj8891
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("3812", YM3812, ym3812_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* NBMJDRV2 */
-	static MACHINE_DRIVER_START( mmcamera )
+	public static MachineHandlerPtr machine_driver_mmcamera = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(gionbana)
@@ -2309,9 +2315,13 @@ public class nbmj8891
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0, 512-1, 15, 239-1)
 		MDRV_VIDEO_START(hanamomo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( hanamomo )
+	public static MachineHandlerPtr machine_driver_hanamomo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(gionbana)
@@ -2323,10 +2333,14 @@ public class nbmj8891
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0, 512-1, 15, 239-1)
 		MDRV_VIDEO_START(hanamomo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( msjiken )
+	public static MachineHandlerPtr machine_driver_msjiken = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(hanamomo)
@@ -2334,12 +2348,16 @@ public class nbmj8891
 		MDRV_CPU_MEMORY(readmem_gionbana,writemem_gionbana)
 		MDRV_CPU_PORTS(readport_gionbana,writeport_msjiken)
 		MDRV_CPU_VBLANK_INT(nb1413m3_interrupt,142)	// nmiclock = 70
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
 	/* NBMJDRV3 */
-	static MACHINE_DRIVER_START( telmahjn )
+	public static MachineHandlerPtr machine_driver_telmahjn = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(gionbana)
@@ -2348,20 +2366,28 @@ public class nbmj8891
 	
 		/* video hardware */
 		MDRV_VIDEO_START(hanamomo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( mgmen89 )
+	public static MachineHandlerPtr machine_driver_mgmen89 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(telmahjn)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_VBLANK_INT(nb1413m3_interrupt,128)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* NBMJDRV4 */
-	static MACHINE_DRIVER_START( mjfocus )
+	public static MachineHandlerPtr machine_driver_mjfocus = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(gionbana)
@@ -2371,30 +2397,42 @@ public class nbmj8891
 	
 		/* video hardware */
 		MDRV_VIDEO_START(hanamomo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* NBMJDRV5 */
-	static MACHINE_DRIVER_START( mjnanpas )
+	public static MachineHandlerPtr machine_driver_mjnanpas = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(gionbana)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(readmem_club90s,writemem_club90s)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( maiko )
+	public static MachineHandlerPtr machine_driver_maiko = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(mjnanpas)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(readmem_maiko,writemem_maiko)
 		MDRV_CPU_PORTS(readport_maiko,writeport_maiko)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( hanaoji )
+	public static MachineHandlerPtr machine_driver_hanaoji = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(maiko)
@@ -2402,20 +2440,28 @@ public class nbmj8891
 		MDRV_CPU_MEMORY(readmem_hanaoji,writemem_hanaoji)
 	
 		MDRV_NVRAM_HANDLER(nb1413m3)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( scandal )
+	public static MachineHandlerPtr machine_driver_scandal = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(hanamomo)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(readmem_scandalm,writemem_scandalm)
 		MDRV_CPU_PORTS(readport_gionbana,writeport_scandal)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( bananadr )
+	public static MachineHandlerPtr machine_driver_bananadr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(mjnanpas)
@@ -2424,11 +2470,15 @@ public class nbmj8891
 		MDRV_CPU_PORTS(readport_gionbana,writeport_bananadr)
 	
 		MDRV_NVRAM_HANDLER(nb1413m3)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* NBMJDRV6 */
-	static MACHINE_DRIVER_START( mjfocusm )
+	public static MachineHandlerPtr machine_driver_mjfocusm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(gionbana)
@@ -2445,7 +2495,9 @@ public class nbmj8891
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("3812", AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

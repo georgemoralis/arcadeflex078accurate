@@ -470,7 +470,9 @@ public class quizdna
 	};
 	
 	
-	static MACHINE_DRIVER_START( quizdna )
+	public static MachineHandlerPtr machine_driver_quizdna = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, MCLK/2) /* 8.000 MHz */
@@ -495,9 +497,13 @@ public class quizdna
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( gakupara )
+	public static MachineHandlerPtr machine_driver_gakupara = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(quizdna)
@@ -505,9 +511,13 @@ public class quizdna
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_PORTS(quizdna_readport,gakupara_writeport)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( gekiretu )
+	public static MachineHandlerPtr machine_driver_gekiretu = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(quizdna)
@@ -516,7 +526,9 @@ public class quizdna
 		MDRV_CPU_MEMORY(quizdna_readmem,gekiretu_writemem)
 		MDRV_CPU_PORTS(quizdna_readport,gekiretu_writeport)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/****************************************************************************/

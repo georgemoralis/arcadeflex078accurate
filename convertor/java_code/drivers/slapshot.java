@@ -558,7 +558,9 @@ public class slapshot
 				     MACHINE DRIVERS
 	***********************************************************/
 	
-	static MACHINE_DRIVER_START( slapshot )
+	public static MachineHandlerPtr machine_driver_slapshot = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 14346000)	/* 28.6860 MHz / 2 ??? */
@@ -589,9 +591,13 @@ public class slapshot
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2610B, ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( opwolf3 )
+	public static MachineHandlerPtr machine_driver_opwolf3 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 14346000)	/* 28.6860 MHz / 2 ??? */
@@ -622,7 +628,9 @@ public class slapshot
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2610B, ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 						DRIVERS

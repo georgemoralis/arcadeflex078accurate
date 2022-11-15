@@ -381,7 +381,9 @@ public class plygonet
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	MACHINE_DRIVER_START( plygonet )
+	public static MachineHandlerPtr machine_driver_plygonet = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68EC020, 16000000)	/* 16 MHz (xtal is 32.0 MHz) */
 		MDRV_CPU_MEMORY(polygonet_readmem,polygonet_writemem)
 		MDRV_CPU_VBLANK_INT(polygonet_interrupt, 2)
@@ -410,7 +412,9 @@ public class plygonet
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(K054539, k054539_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static InputPortHandlerPtr input_ports_polygonet = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( polygonet )
 		PORT_START(); 

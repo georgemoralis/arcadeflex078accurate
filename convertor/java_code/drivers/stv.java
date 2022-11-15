@@ -3673,7 +3673,9 @@ public class stv
 		{ scsp_irq, },
 	};
 	
-	static MACHINE_DRIVER_START( stv )
+	public static MachineHandlerPtr machine_driver_stv = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(SH2, 28000000) // 28MHz
@@ -3706,7 +3708,9 @@ public class stv
 	
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(SCSP, scsp_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	#define ROM_LOAD16_WORD_SWAP_BIOS(bios,name,offset,length,hash) \
 			ROMX_LOAD(name, offset, length, hash, ROM_GROUPWORD | ROM_REVERSE | ROM_BIOS(bios+1)) /* Note '+1' */

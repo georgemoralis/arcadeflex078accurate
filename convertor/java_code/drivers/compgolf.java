@@ -334,7 +334,9 @@ public class compgolf
 		{ sound_irq }
 	};
 	
-	static MACHINE_DRIVER_START( compgolf )
+	public static MachineHandlerPtr machine_driver_compgolf = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M6809, 2000000)
 		MDRV_CPU_MEMORY(readmem,writemem)
 		MDRV_CPU_VBLANK_INT(nmi_line_pulse,1)
@@ -354,7 +356,9 @@ public class compgolf
 		MDRV_VIDEO_UPDATE(compgolf)
 	
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************/
 	

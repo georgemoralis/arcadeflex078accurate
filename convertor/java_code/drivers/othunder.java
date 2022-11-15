@@ -546,7 +546,9 @@ public class othunder
 				     MACHINE DRIVERS
 	***********************************************************/
 	
-	static MACHINE_DRIVER_START( othunder )
+	public static MachineHandlerPtr machine_driver_othunder = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000 )	/* 12 MHz ??? */
@@ -575,7 +577,9 @@ public class othunder
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2610, ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

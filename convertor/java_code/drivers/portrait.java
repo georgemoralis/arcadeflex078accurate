@@ -246,7 +246,9 @@ public class portrait
 		new int[] { 100 }
 	);
 	
-	static MACHINE_DRIVER_START( portrait )
+	public static MachineHandlerPtr machine_driver_portrait = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(Z80, 4000000)     /* 4 MHz ? */
 		MDRV_CPU_MEMORY(readmem,writemem)
 		MDRV_CPU_VBLANK_INT(irq0_line_hold,1)
@@ -269,7 +271,9 @@ public class portrait
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(DAC, dac_interface) /* ? */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_portrait = new RomLoadHandlerPtr(){ public void handler(){ 

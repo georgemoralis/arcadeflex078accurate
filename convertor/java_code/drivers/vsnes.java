@@ -2058,7 +2058,9 @@ public class vsnes
 		new int[] { 25, 25 },
 	);
 	
-	static MACHINE_DRIVER_START( vsnes )
+	public static MachineHandlerPtr machine_driver_vsnes = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(N2A03,N2A03_DEFAULTCLOCK)
@@ -2084,10 +2086,14 @@ public class vsnes
 		/* sound hardware */
 		MDRV_SOUND_ADD(NES, nes_interface)
 		MDRV_SOUND_ADD(DAC, nes_dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( vsdual )
+	public static MachineHandlerPtr machine_driver_vsdual = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(N2A03,N2A03_DEFAULTCLOCK)
@@ -2117,7 +2123,9 @@ public class vsnes
 		/* sound hardware */
 		MDRV_SOUND_ADD(NES, nes_dual_interface)
 		MDRV_SOUND_ADD(DAC, nes_dual_dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/******************************************************************************/

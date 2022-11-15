@@ -334,7 +334,9 @@ public class capbowl
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( capbowl )
+	public static MachineHandlerPtr machine_driver_capbowl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M6809, 2000000)
@@ -363,10 +365,14 @@ public class capbowl
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(DAC,    dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( bowlrama )
+	public static MachineHandlerPtr machine_driver_bowlrama = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(capbowl)
@@ -376,7 +382,9 @@ public class capbowl
 		
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0, 359, 0, 239)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

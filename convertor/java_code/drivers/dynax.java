@@ -1989,7 +1989,9 @@ public class dynax
 	
 	
 	
-	static MACHINE_DRIVER_START( hanamai )
+	public static MachineHandlerPtr machine_driver_hanamai = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main",Z80,22000000 / 4)	/* 5.5MHz */
@@ -2017,7 +2019,9 @@ public class dynax
 		MDRV_SOUND_ADD(AY8910, hanamai_ay8910_interface)
 		MDRV_SOUND_ADD(YM2203, hanamai_ym2203_interface)
 		MDRV_SOUND_ADD(MSM5205, hanamai_msm5205_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -2043,7 +2047,9 @@ public class dynax
 		{ YM2413_VOL(100,MIXER_PAN_CENTER,100,MIXER_PAN_CENTER) }
 	};
 	
-	static MACHINE_DRIVER_START( hnoridur )
+	public static MachineHandlerPtr machine_driver_hnoridur = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main",Z80,22000000 / 4)	/* 5.5MHz */
@@ -2070,7 +2076,9 @@ public class dynax
 		MDRV_SOUND_ADD(AY8910, hnoridur_ay8910_interface)
 		MDRV_SOUND_ADD(YM2413, hnoridur_ym2413_interface)
 		MDRV_SOUND_ADD(MSM5205, hanamai_msm5205_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
@@ -2089,7 +2097,9 @@ public class dynax
 		{ sprtmtch_sound_callback },	/* IRQ handler */
 	};
 	
-	static MACHINE_DRIVER_START( sprtmtch )
+	public static MachineHandlerPtr machine_driver_sprtmtch = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,22000000 / 4)	/* 5.5MHz */
@@ -2114,14 +2124,18 @@ public class dynax
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, sprtmtch_ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 									Lady Frog
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( roldfrog )
+	public static MachineHandlerPtr machine_driver_roldfrog = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,22000000 / 4)	/* 5.5MHz */
@@ -2154,7 +2168,9 @@ public class dynax
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, sprtmtch_ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -2169,7 +2185,9 @@ public class dynax
 		{ YM2413_VOL(100,MIXER_PAN_CENTER,100,MIXER_PAN_CENTER) }
 	};
 	
-	static MACHINE_DRIVER_START( mjfriday )
+	public static MachineHandlerPtr machine_driver_mjfriday = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main",Z80,24000000/4)	/* 6 MHz? */
@@ -2194,20 +2212,26 @@ public class dynax
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2413, mjfriday_ym2413_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 								Mahjong Dial Q2
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( mjdialq2 )
+	public static MachineHandlerPtr machine_driver_mjdialq2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( mjfriday )
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(mjdialq2_readmem,mjdialq2_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
@@ -2222,7 +2246,9 @@ public class dynax
 		sprtmtch_update_irq();
 	} };
 	
-	static MACHINE_DRIVER_START( yarunara )
+	public static MachineHandlerPtr machine_driver_yarunara = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( hnoridur )
@@ -2233,14 +2259,18 @@ public class dynax
 	
 		MDRV_VIDEO_ATTRIBUTES(VIDEO_TYPE_RASTER)
 		MDRV_VISIBLE_AREA(0, 336-1, 8, 256-1-8-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 								Mahjong Campus Hunting
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( mcnpshnt )
+	public static MachineHandlerPtr machine_driver_mcnpshnt = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_IMPORT_FROM( hnoridur )
 		MDRV_CPU_MODIFY("main")
@@ -2248,20 +2278,26 @@ public class dynax
 		MDRV_CPU_PORTS(mcnpshnt_readport,mcnpshnt_writeport)
 	
 		MDRV_VIDEO_START(mcnpshnt)	// different priorities
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 								7jigen
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( nanajign )
+	public static MachineHandlerPtr machine_driver_nanajign = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_IMPORT_FROM( hnoridur )
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(nanajign_readmem,nanajign_writemem)
 		MDRV_CPU_PORTS(nanajign_readport,nanajign_writeport)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

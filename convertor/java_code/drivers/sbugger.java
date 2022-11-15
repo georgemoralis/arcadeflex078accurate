@@ -198,7 +198,9 @@ public class sbugger
 	
 	/* machine driver */
 	
-	static MACHINE_DRIVER_START( sbugger )
+	public static MachineHandlerPtr machine_driver_sbugger = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(8085A, 6000000/2)        /* 3.00 MHz??? */
 		MDRV_CPU_MEMORY(readmem,writemem)
 		MDRV_CPU_PORTS(readport,0)
@@ -219,7 +221,9 @@ public class sbugger
 		MDRV_VIDEO_UPDATE(sbugger)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/* rom loading */
 	

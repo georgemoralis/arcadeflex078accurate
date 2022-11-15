@@ -721,7 +721,9 @@ public class mainevt
 		{ 0 }
 	};
 	
-	static MACHINE_DRIVER_START( mainevt )
+	public static MachineHandlerPtr machine_driver_mainevt = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(HD6309, 3000000)	/* ?? */
@@ -748,10 +750,14 @@ public class mainevt
 		/* sound hardware */
 		MDRV_SOUND_ADD(K007232, k007232_interface)
 		MDRV_SOUND_ADD(UPD7759, upd7759_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( devstors )
+	public static MachineHandlerPtr machine_driver_devstors = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(HD6309, 3000000)	/* ?? */
@@ -778,7 +784,9 @@ public class mainevt
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(K007232, k007232_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

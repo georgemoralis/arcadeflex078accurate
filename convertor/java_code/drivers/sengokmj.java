@@ -208,7 +208,9 @@ public class sengokmj
 	} };
 	
 	/***************************************************************************************/
-	static MACHINE_DRIVER_START( sengokmj )
+	public static MachineHandlerPtr machine_driver_sengokmj = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V30, 16000000/2) /* V30-8 */
@@ -235,7 +237,9 @@ public class sengokmj
 	
 		/* sound hardware */
 		SEIBU_SOUND_SYSTEM_YM3812_INTERFACE
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************************/
 	

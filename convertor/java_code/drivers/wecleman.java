@@ -1146,7 +1146,9 @@ public class wecleman
 		K007232_set_bank( 0, 0, 1 );
 	} };
 	
-	static MACHINE_DRIVER_START( wecleman )
+	public static MachineHandlerPtr machine_driver_wecleman = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)	/* Schems show 10MHz */
@@ -1181,7 +1183,9 @@ public class wecleman
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(K007232, wecleman_k007232_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
@@ -1192,7 +1196,9 @@ public class wecleman
 		cpu_set_irq_line( 2, M6809_FIRQ_LINE, PULSE_LINE );
 	} };
 	
-	static MACHINE_DRIVER_START( hotchase )
+	public static MachineHandlerPtr machine_driver_hotchase = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)	/* 10 MHz - PCB is drawn in one set's readme */
@@ -1224,7 +1230,9 @@ public class wecleman
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(K007232, hotchase_k007232_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

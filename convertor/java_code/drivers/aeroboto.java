@@ -258,7 +258,9 @@ public class aeroboto
 		new WriteHandlerPtr[] { 0, 0 }
 	);
 	
-	static MACHINE_DRIVER_START( formatz )
+	public static MachineHandlerPtr machine_driver_formatz = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 1250000) // 1.25MHz
@@ -287,7 +289,9 @@ public class aeroboto
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

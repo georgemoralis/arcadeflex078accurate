@@ -414,7 +414,9 @@ public class pandoras
 		new int[] { 25 }
 	);
 	
-	static MACHINE_DRIVER_START( pandoras )
+	public static MachineHandlerPtr machine_driver_pandoras = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809,18432000/6)	/* CPU A */
@@ -455,7 +457,9 @@ public class pandoras
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

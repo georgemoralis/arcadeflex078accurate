@@ -317,7 +317,9 @@ public class wallc
 	);
 	
 	
-	static MACHINE_DRIVER_START( wallc )
+	public static MachineHandlerPtr machine_driver_wallc = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 12288000 / 4)	/* 3.072 MHz ? */
 		MDRV_CPU_MEMORY(readmem,writemem)
@@ -339,7 +341,9 @@ public class wallc
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8912_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

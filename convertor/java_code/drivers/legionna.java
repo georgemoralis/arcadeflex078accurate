@@ -1444,7 +1444,9 @@ public class legionna
 	
 	/*****************************************************************************/
 	
-	static MACHINE_DRIVER_START( legionna )
+	public static MachineHandlerPtr machine_driver_legionna = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,20000000/2) 	/* ??? */
@@ -1470,10 +1472,14 @@ public class legionna
 	
 		/* sound hardware */
 		SEIBU_SOUND_SYSTEM_YM3812_INTERFACE
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( heatbrl )
+	public static MachineHandlerPtr machine_driver_heatbrl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,20000000/2) 	/* ??? */
@@ -1499,9 +1505,13 @@ public class legionna
 	
 		/* sound hardware */
 		SEIBU_SOUND_SYSTEM_YM3812_INTERFACE
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( godzilla )
+	public static MachineHandlerPtr machine_driver_godzilla = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 20000000/2)
@@ -1527,9 +1537,13 @@ public class legionna
 	
 		/* sound hardware */
 		SEIBU_SOUND_SYSTEM_YM2151_INTERFACE
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( sdgndmrb )
+	public static MachineHandlerPtr machine_driver_sdgndmrb = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 20000000/2)
@@ -1555,9 +1569,13 @@ public class legionna
 	
 		/* sound hardware */
 		SEIBU_SOUND_SYSTEM_YM2151_INTERFACE
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( cupsoc )
+	public static MachineHandlerPtr machine_driver_cupsoc = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,20000000/2)
@@ -1583,7 +1601,9 @@ public class legionna
 	
 		/* sound hardware */
 		SEIBU_SOUND_SYSTEM_YM3812_INTERFACE
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

@@ -616,7 +616,9 @@ public class snowbros
 	};
 	
 	
-	static MACHINE_DRIVER_START( snowbros )
+	public static MachineHandlerPtr machine_driver_snowbros = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M68000, 8000000) /* 8 Mhz - confirmed */
@@ -642,10 +644,14 @@ public class snowbros
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("3812", YM3812, ym3812_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( wintbob )
+	public static MachineHandlerPtr machine_driver_wintbob = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(snowbros)
 		MDRV_CPU_REPLACE("main", M68000, 10000000) /* faster cpu on bootleg? otherwise the gfx break up */
@@ -653,10 +659,14 @@ public class snowbros
 		/* video hardware */
 		MDRV_GFXDECODE(gfxdecodeinfo_wb)
 		MDRV_VIDEO_UPDATE(wintbob)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( hyperpac )
+	public static MachineHandlerPtr machine_driver_hyperpac = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(snowbros)
@@ -672,13 +682,19 @@ public class snowbros
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("3812",YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( _4in1 )
+	public static MachineHandlerPtr machine_driver__4in1 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(hyperpac)
 		MDRV_GFXDECODE(gfxdecodeinfo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

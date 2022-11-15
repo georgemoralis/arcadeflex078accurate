@@ -327,7 +327,9 @@ public class digdug
 	
 	
 	
-	static MACHINE_DRIVER_START( digdug )
+	public static MachineHandlerPtr machine_driver_digdug = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3125000)	/* 3.125 MHz */
@@ -362,7 +364,9 @@ public class digdug
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(NAMCO, namco_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

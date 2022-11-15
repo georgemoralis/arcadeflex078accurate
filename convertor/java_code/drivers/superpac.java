@@ -367,7 +367,9 @@ public class superpac
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( superpac )
+	public static MachineHandlerPtr machine_driver_superpac = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 18432000/12)	/* 1.536 MHz */
@@ -398,7 +400,9 @@ public class superpac
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(NAMCO, namco_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

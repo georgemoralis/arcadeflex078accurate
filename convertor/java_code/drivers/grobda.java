@@ -204,7 +204,9 @@ public class grobda
 		new int[] { 55 }
 	);
 	
-	static MACHINE_DRIVER_START( grobda )
+	public static MachineHandlerPtr machine_driver_grobda = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 18432000/12)	/* 1.536 MHz */
@@ -236,7 +238,9 @@ public class grobda
 		/* sound hardware */
 		MDRV_SOUND_ADD(NAMCO, namco_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

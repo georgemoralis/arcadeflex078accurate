@@ -349,7 +349,9 @@ public class shangkid
 	
 	/***************************************************************************************/
 	
-	static MACHINE_DRIVER_START( chinhero )
+	public static MachineHandlerPtr machine_driver_chinhero = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3000000) /* ? */
@@ -384,17 +386,23 @@ public class shangkid
 		/* sound hardware */
 		MDRV_SOUND_ADD(DAC, dac_interface)
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( shangkid )
+	public static MachineHandlerPtr machine_driver_shangkid = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(chinhero)
 	
 		/* video hardware */
 		MDRV_GFXDECODE(shangkid_gfxdecodeinfo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -435,7 +443,9 @@ public class shangkid
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static MACHINE_DRIVER_START( dynamski )
+	public static MachineHandlerPtr machine_driver_dynamski = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3000000) /* ? */
@@ -459,7 +469,9 @@ public class shangkid
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************************/
 	

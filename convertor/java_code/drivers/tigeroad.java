@@ -563,7 +563,9 @@ public class tigeroad
 	};
 	
 	
-	static MACHINE_DRIVER_START( tigeroad )
+	public static MachineHandlerPtr machine_driver_tigeroad = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 6000000) /* ? Main clock is 24MHz */
@@ -591,11 +593,15 @@ public class tigeroad
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* same as above but with additional Z80 for samples playback */
-	static MACHINE_DRIVER_START( toramich )
+	public static MachineHandlerPtr machine_driver_toramich = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(tigeroad)
@@ -608,7 +614,9 @@ public class tigeroad
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(MSM5205, msm5205_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

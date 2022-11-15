@@ -664,7 +664,9 @@ public class asteroid
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( asteroid )
+	public static MachineHandlerPtr machine_driver_asteroid = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M6502, 1500000)
@@ -686,18 +688,26 @@ public class asteroid
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("disc", DISCRETE, asteroid_sound_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( asterock )
+	public static MachineHandlerPtr machine_driver_asterock = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(asteroid)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_VBLANK_INT(asterock_interrupt,4)	/* 250 Hz */	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( astdelux )
+	public static MachineHandlerPtr machine_driver_astdelux = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(asteroid)
@@ -709,10 +719,14 @@ public class asteroid
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("disc", DISCRETE, astdelux_sound_interface)
 		MDRV_SOUND_ADD(POKEY, pokey_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( llander )
+	public static MachineHandlerPtr machine_driver_llander = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(asteroid)
@@ -732,7 +746,9 @@ public class asteroid
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("disc", DISCRETE, llander_sound_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

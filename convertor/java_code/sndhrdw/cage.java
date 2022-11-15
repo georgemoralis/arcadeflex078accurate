@@ -742,7 +742,9 @@ public class cage
 	};
 	
 	
-	MACHINE_DRIVER_START( cage )
+	public static MachineHandlerPtr machine_driver_cage = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("cage", TMS32031, 33868800)
@@ -753,13 +755,19 @@ public class cage
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(CUSTOM, cage_custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( cage_seattle )
+	public static MachineHandlerPtr machine_driver_cage_seattle = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(cage)
 		
 		MDRV_CPU_MODIFY("cage")
 		MDRV_CPU_MEMORY(readmem_cage_seattle,writemem_cage_seattle)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 }

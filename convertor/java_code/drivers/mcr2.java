@@ -623,7 +623,9 @@ public class mcr2
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( mcr2 )
+	public static MachineHandlerPtr machine_driver_mcr2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, 2500000)
@@ -649,18 +651,26 @@ public class mcr2
 	
 		/* sound hardware */
 		MDRV_IMPORT_FROM(mcr_ssio)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( twotigra )
+	public static MachineHandlerPtr machine_driver_twotigra = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(mcr2)
 	
 		/* video hardware */
 		MDRV_VIDEO_START(twotigra)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( journey )
+	public static MachineHandlerPtr machine_driver_journey = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(mcr2)
@@ -669,7 +679,9 @@ public class mcr2
 		/* video hardware */
 		MDRV_VIDEO_START(journey)
 		MDRV_VIDEO_UPDATE(journey)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

@@ -703,7 +703,9 @@ public class jack
 	);
 	
 	
-	static MACHINE_DRIVER_START( jack )
+	public static MachineHandlerPtr machine_driver_jack = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, 18000000/6)	/* 3 MHz */
@@ -730,15 +732,21 @@ public class jack
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( tripool )
+	public static MachineHandlerPtr machine_driver_tripool = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(jack)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_VBLANK_INT(irq0_line_hold,2) /* tripool needs 2 or the palette is broken */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

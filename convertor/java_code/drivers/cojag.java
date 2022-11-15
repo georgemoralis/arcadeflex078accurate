@@ -799,7 +799,9 @@ public class cojag
 	};
 	
 	
-	MACHINE_DRIVER_START( cojagr3k )
+	public static MachineHandlerPtr machine_driver_cojagr3k = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(R3000BE, 66000000/2)
@@ -833,18 +835,26 @@ public class cojag
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( r3knarrow )
+	public static MachineHandlerPtr machine_driver_r3knarrow = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(cojagr3k)
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0*8, 40*8-1, 0*8, 30*8-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( cojag68k )
+	public static MachineHandlerPtr machine_driver_cojag68k = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68EC020, 50000000/2)
@@ -877,7 +887,9 @@ public class cojag
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

@@ -347,7 +347,9 @@ public class destroyr
 	} };
 	
 	
-	static MACHINE_DRIVER_START( destroyr )
+	public static MachineHandlerPtr machine_driver_destroyr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6800, 12096000 / 16)
@@ -369,7 +371,9 @@ public class destroyr
 		MDRV_VIDEO_UPDATE(destroyr)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_destroyr = new RomLoadHandlerPtr(){ public void handler(){ 

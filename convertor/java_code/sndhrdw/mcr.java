@@ -269,7 +269,9 @@ public class mcr
 		
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD_TAG("ssio", AY8910, ssio_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -359,7 +361,9 @@ public class mcr
 		MDRV_CPU_MEMORY(csdeluxe_readmem,csdeluxe_writemem)
 		
 		MDRV_SOUND_ADD_TAG("csd", DAC, mcr_dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -451,7 +455,9 @@ public class mcr
 		MDRV_CPU_MEMORY(soundsgood_readmem,soundsgood_writemem)
 		
 		MDRV_SOUND_ADD_TAG("sg", DAC, mcr_dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -538,7 +544,9 @@ public class mcr
 		MDRV_CPU_MEMORY(turbocs_readmem,turbocs_writemem)
 		
 		MDRV_SOUND_ADD_TAG("tcs", DAC, mcr_dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	MACHINE_DRIVER_START(turbo_chip_squeak_plus_sounds_good)
@@ -547,7 +555,9 @@ public class mcr
 		
 		MDRV_SOUND_REPLACE("tcs", DAC, mcr_dual_dac_interface)
 		MDRV_SOUND_REMOVE("sg")
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -671,5 +681,7 @@ public class mcr
 		MDRV_CPU_MEMORY(squawkntalk_readmem,squawkntalk_writemem)
 		
 		MDRV_SOUND_ADD_TAG("snt", TMS5220, squawkntalk_tms5220_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 }

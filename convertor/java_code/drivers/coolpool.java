@@ -584,7 +584,9 @@ public class coolpool
 	
 	
 	
-	MACHINE_DRIVER_START( amerdart )
+	public static MachineHandlerPtr machine_driver_amerdart = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(TMS34010, 40000000/TMS34010_CLOCK_DIVIDER)
@@ -612,9 +614,13 @@ public class coolpool
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( coolpool )
+	public static MachineHandlerPtr machine_driver_coolpool = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(TMS34010, 40000000/TMS34010_CLOCK_DIVIDER)
@@ -643,9 +649,13 @@ public class coolpool
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( 9ballsht )
+	public static MachineHandlerPtr machine_driver_9ballsht = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(TMS34010, 40000000/TMS34010_CLOCK_DIVIDER)
@@ -674,7 +684,9 @@ public class coolpool
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

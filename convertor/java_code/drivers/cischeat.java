@@ -1496,7 +1496,9 @@ public class cischeat
 	
 	
 	
-	static MACHINE_DRIVER_START( bigrun )
+	public static MachineHandlerPtr machine_driver_bigrun = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("cpu1", M68000, 10000000)
@@ -1534,10 +1536,14 @@ public class cischeat
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, ym2151_intf)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( cischeat )
+	public static MachineHandlerPtr machine_driver_cischeat = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(bigrun)
@@ -1560,10 +1566,14 @@ public class cischeat
 	
 		MDRV_VIDEO_START(cischeat)
 		MDRV_VIDEO_UPDATE(cischeat)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( f1gpstar )
+	public static MachineHandlerPtr machine_driver_f1gpstar = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(bigrun)
@@ -1585,10 +1595,14 @@ public class cischeat
 	
 		MDRV_VIDEO_START(f1gpstar)
 		MDRV_VIDEO_UPDATE(f1gpstar)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( f1gpstr2 )
+	public static MachineHandlerPtr machine_driver_f1gpstr2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(f1gpstar)
@@ -1601,7 +1615,9 @@ public class cischeat
 	
 		MDRV_CPU_ADD_TAG("cpu5", M68000, 10000000)
 		MDRV_CPU_MEMORY(f1gpstr2_io_readmem,f1gpstr2_io_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/**************************************************************************
@@ -1633,7 +1649,9 @@ public class cischeat
 	} };
 	
 	
-	static MACHINE_DRIVER_START( scudhamm )
+	public static MachineHandlerPtr machine_driver_scudhamm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)
@@ -1656,7 +1674,9 @@ public class cischeat
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(OKIM6295, scudhamm_okim6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

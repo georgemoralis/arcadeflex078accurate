@@ -448,7 +448,9 @@ public class seicross
 	);
 	
 	
-	static MACHINE_DRIVER_START( nvram )
+	public static MachineHandlerPtr machine_driver_nvram = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3072000)	/* 3.072 MHz? */
@@ -480,10 +482,14 @@ public class seicross
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( no_nvram )
+	public static MachineHandlerPtr machine_driver_no_nvram = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(nvram)
@@ -491,7 +497,9 @@ public class seicross
 		MDRV_CPU_MEMORY(mcu_no_nvram_readmem,mcu_no_nvram_writemem)
 	
 		MDRV_NVRAM_HANDLER(NULL)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

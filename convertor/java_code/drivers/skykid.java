@@ -459,7 +459,9 @@ public class skykid
 		0					/* stereo */
 	};
 	
-	static MACHINE_DRIVER_START( skykid )
+	public static MachineHandlerPtr machine_driver_skykid = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809,49152000/32)	/* ??? */
@@ -489,7 +491,9 @@ public class skykid
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(NAMCO, namco_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_skykid = new RomLoadHandlerPtr(){ public void handler(){ 

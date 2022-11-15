@@ -2149,7 +2149,9 @@ public class system1
 	
 	
 	
-	static MACHINE_DRIVER_START( system1 )
+	public static MachineHandlerPtr machine_driver_system1 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, 4000000)	/* My Hero has 2 OSCs 8 & 20 MHz (Cabbe Info) */
@@ -2181,10 +2183,14 @@ public class system1
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(SN76496, sn76496_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/* driver with reduced visible area for scrolling games */
-	static MACHINE_DRIVER_START( small )
+	public static MachineHandlerPtr machine_driver_small = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( system1 )
@@ -2192,19 +2198,27 @@ public class system1
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0*8+8, 32*8-1-8, 0*8, 28*8-1)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( pitfall2 )
+	public static MachineHandlerPtr machine_driver_pitfall2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( system1 )
 		MDRV_CPU_REPLACE( "main", Z80, 3600000 )/* should be 4 MHz but that value makes the title screen disappear */
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( hvymetal )
+	public static MachineHandlerPtr machine_driver_hvymetal = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( system1 )
@@ -2212,10 +2226,14 @@ public class system1
 		MDRV_CPU_MEMORY(brain_readmem,writemem)
 		MDRV_CPU_PORTS(wbml_readport,hvymetal_writeport)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( chplft )
+	public static MachineHandlerPtr machine_driver_chplft = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( system1 )
@@ -2226,10 +2244,14 @@ public class system1
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(choplifter)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( brain )
+	public static MachineHandlerPtr machine_driver_brain = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( system1 )
@@ -2237,10 +2259,14 @@ public class system1
 		MDRV_CPU_MEMORY(brain_readmem,writemem)
 		MDRV_CPU_PORTS(readport,brain_writeport)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( wbml )
+	public static MachineHandlerPtr machine_driver_wbml = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( system1 )
@@ -2253,9 +2279,13 @@ public class system1
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(wbml)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( noboranb )
+	public static MachineHandlerPtr machine_driver_noboranb = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( system1 )
@@ -2266,9 +2296,13 @@ public class system1
 		/* video hardware */
 		MDRV_VISIBLE_AREA(1*8, 31*8-1, 0*8, 28*8-1)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( blockgal )
+	public static MachineHandlerPtr machine_driver_blockgal = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( system1 )
@@ -2278,7 +2312,9 @@ public class system1
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(blockgal)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

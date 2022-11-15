@@ -284,7 +284,9 @@ public class munchmo
 		new GfxDecodeInfo( -1 )
 	};
 	
-	static MACHINE_DRIVER_START( munchmo )
+	public static MachineHandlerPtr machine_driver_munchmo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3750000) /* ? */
@@ -312,7 +314,9 @@ public class munchmo
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_joyfulr = new RomLoadHandlerPtr(){ public void handler(){ 

@@ -334,7 +334,9 @@ public class r2dtank
 		cpu_set_irq_line(0, 0, HOLD_LINE);
 	} };
 	
-	static MACHINE_DRIVER_START( r2dtank )
+	public static MachineHandlerPtr machine_driver_r2dtank = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M6809,3000000)		 /* ?? too fast ? */
 		MDRV_CPU_MEMORY(readmem,writemem)
 		MDRV_CPU_VBLANK_INT(r2dtank_interrupt,2)
@@ -362,7 +364,9 @@ public class r2dtank
 		MDRV_VIDEO_UPDATE(r2dtank)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static RomLoadHandlerPtr rom_r2dtank = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )

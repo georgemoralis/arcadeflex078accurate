@@ -896,7 +896,9 @@ public class fitfight
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static MACHINE_DRIVER_START( fitfight )
+	public static MachineHandlerPtr machine_driver_fitfight = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68000, 12000000)
 		MDRV_CPU_MEMORY(fitfight_readmem,fitfight_writemem)
 		MDRV_CPU_VBLANK_INT(irq2_line_hold,1)
@@ -915,9 +917,13 @@ public class fitfight
 		MDRV_VIDEO_UPDATE(fitfight)
 	
 	//	MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( bbprot )
+	public static MachineHandlerPtr machine_driver_bbprot = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68000, 12000000)
 		MDRV_CPU_MEMORY(bbprot_readmem,bbprot_writemem)
 		MDRV_CPU_VBLANK_INT(irq2_line_hold,1)
@@ -936,7 +942,9 @@ public class fitfight
 		MDRV_VIDEO_UPDATE(fitfight)
 	
 	//	MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***
 	

@@ -422,7 +422,9 @@ public class crospang
 		draw_sprites(bitmap,cliprect);
 	} };
 	
-	static MACHINE_DRIVER_START( crospang )
+	public static MachineHandlerPtr machine_driver_crospang = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 14318180/2) /* ??? */
 		MDRV_CPU_MEMORY(crospang_readmem,crospang_writemem)
@@ -452,7 +454,9 @@ public class crospang
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_crospang = new RomLoadHandlerPtr(){ public void handler(){ 

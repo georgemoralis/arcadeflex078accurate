@@ -573,7 +573,9 @@ public class fastfred
 	);
 	
 	
-	static MACHINE_DRIVER_START( fastfred )
+	public static MachineHandlerPtr machine_driver_fastfred = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, CLOCK/6)     /* 3.072 MHz */
@@ -602,9 +604,13 @@ public class fastfred
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("ay8910", AY8910, fastfred_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( jumpcoas )
+	public static MachineHandlerPtr machine_driver_jumpcoas = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(fastfred)
@@ -618,9 +624,13 @@ public class fastfred
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("ay8910", AY8910, jumpcoas_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( imago )
+	public static MachineHandlerPtr machine_driver_imago = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(fastfred)
@@ -632,7 +642,9 @@ public class fastfred
 	
 		MDRV_VIDEO_START(imago)
 		MDRV_VIDEO_UPDATE(imago)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	#undef CLOCK
 	

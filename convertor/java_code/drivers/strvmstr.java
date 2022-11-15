@@ -267,7 +267,9 @@ public class strvmstr
 	#undef CLOCK
 	#define CLOCK 12000000/4-50000
 	
-	static MACHINE_DRIVER_START( strvmstr )
+	public static MachineHandlerPtr machine_driver_strvmstr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(Z80,CLOCK) //should be ok, it gives the 300 interrupts expected
 		MDRV_CPU_FLAGS(CPU_16BIT_PORT)
 		MDRV_CPU_MEMORY(readmem,writemem)
@@ -291,7 +293,9 @@ public class strvmstr
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8912_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static RomLoadHandlerPtr rom_strvmstr = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )

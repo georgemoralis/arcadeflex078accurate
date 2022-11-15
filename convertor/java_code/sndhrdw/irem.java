@@ -150,7 +150,9 @@ public class irem
 	};
 	
 	
-	MACHINE_DRIVER_START( irem_audio )
+	public static MachineHandlerPtr machine_driver_irem_audio = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6803, 3579545/4)
@@ -161,5 +163,7 @@ public class irem
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, irem_ay8910_interface)
 		MDRV_SOUND_ADD(MSM5205, irem_msm5205_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 }

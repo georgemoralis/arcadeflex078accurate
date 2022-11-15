@@ -311,7 +311,9 @@ public class wiping
 	
 	
 	
-	static MACHINE_DRIVER_START( wiping )
+	public static MachineHandlerPtr machine_driver_wiping = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,18432000/6)	/* 3.072 MHz */
@@ -340,7 +342,9 @@ public class wiping
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(CUSTOM, custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

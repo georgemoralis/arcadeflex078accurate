@@ -293,7 +293,9 @@ public class dribling
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( dribling )
+	public static MachineHandlerPtr machine_driver_dribling = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 5000000)
@@ -316,7 +318,9 @@ public class dribling
 		MDRV_VIDEO_UPDATE(dribling)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

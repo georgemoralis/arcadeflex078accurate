@@ -304,7 +304,9 @@ public class timeplt
 	
 	
 	
-	static MACHINE_DRIVER_START( timeplt )
+	public static MachineHandlerPtr machine_driver_timeplt = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3072000)	/* 3.072 MHz (?) */
@@ -332,7 +334,9 @@ public class timeplt
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, timeplt_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

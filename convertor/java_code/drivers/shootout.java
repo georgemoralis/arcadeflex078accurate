@@ -307,7 +307,9 @@ public class shootout
 			coin = 0;
 	} };
 	
-	static MACHINE_DRIVER_START( shootout )
+	public static MachineHandlerPtr machine_driver_shootout = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6502, 2000000)	/* 2 MHz? */
@@ -334,10 +336,14 @@ public class shootout
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( shootouj )
+	public static MachineHandlerPtr machine_driver_shootouj = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6502, 2000000)	/* 2 MHz? */
@@ -360,7 +366,9 @@ public class shootout
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface2)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_shootout = new RomLoadHandlerPtr(){ public void handler(){ 

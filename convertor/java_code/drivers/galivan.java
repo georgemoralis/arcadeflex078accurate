@@ -570,7 +570,9 @@ public class galivan
 	);
 	
 	
-	static MACHINE_DRIVER_START( galivan )
+	public static MachineHandlerPtr machine_driver_galivan = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,12000000/2)		/* 6 MHz? */
@@ -604,9 +606,13 @@ public class galivan
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3526, YM3526_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( ninjemak )
+	public static MachineHandlerPtr machine_driver_ninjemak = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,12000000/2)		/* 6 MHz? */
@@ -640,7 +646,9 @@ public class galivan
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3526, YM3526_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

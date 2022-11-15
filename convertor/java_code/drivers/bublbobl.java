@@ -694,7 +694,9 @@ public class bublbobl
 	
 	
 	
-	static MACHINE_DRIVER_START( bublbobl )
+	public static MachineHandlerPtr machine_driver_bublbobl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, MAIN_XTAL/4)	/* 6 MHz */
@@ -731,9 +733,13 @@ public class bublbobl
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(YM3526, ym3526_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( boblbobl )
+	public static MachineHandlerPtr machine_driver_boblbobl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, MAIN_XTAL/4)	/* 6 MHz */
@@ -765,9 +771,13 @@ public class bublbobl
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(YM3526, ym3526_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( tokio )
+	public static MachineHandlerPtr machine_driver_tokio = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, MAIN_XTAL/4)	/* 6 MHz */
@@ -800,7 +810,9 @@ public class bublbobl
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, tokio_ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

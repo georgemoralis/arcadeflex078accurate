@@ -534,7 +534,9 @@ public class spy
 	
 	
 	
-	static MACHINE_DRIVER_START( spy )
+	public static MachineHandlerPtr machine_driver_spy = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 3000000) /* ? */
@@ -560,7 +562,9 @@ public class spy
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3812, ym3812_interface)
 		MDRV_SOUND_ADD(K007232, k007232_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

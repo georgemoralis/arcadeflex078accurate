@@ -398,7 +398,9 @@ public class psikyo4
 		{ irqhandler }
 	};
 	
-	static MACHINE_DRIVER_START( ps4big )
+	public static MachineHandlerPtr machine_driver_ps4big = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", SH2, MASTER_CLOCK/2)
 		MDRV_CPU_MEMORY(ps4_readmem,ps4_writemem)
@@ -430,9 +432,13 @@ public class psikyo4
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YMF278B, ymf278b_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( ps4small )
+	public static MachineHandlerPtr machine_driver_ps4small = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(ps4big)
 	
@@ -441,7 +447,9 @@ public class psikyo4
 	#else
 		MDRV_VISIBLE_AREA(0, 40*8-1, 0, 30*8-1)
 	#endif
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -842,7 +850,7 @@ public class psikyo4
 	*/
 	
 	static READ32_HANDLER( loderndf_speedup_r )
-	{
+	(
 	/*
 	PC  :00001B3C: MOV.L   @R14,R3  R14 = 0x6000020
 	PC  :00001B3E: ADD     #$01,R3
@@ -855,7 +863,7 @@ public class psikyo4
 	
 		if (activecpu_get_pc()==0x00001B3E) cpu_spinuntil_int();
 		return ps4_ram[0x000020/4];
-	}
+	)
 	
 	static READ32_HANDLER( loderdfa_speedup_r )
 	{

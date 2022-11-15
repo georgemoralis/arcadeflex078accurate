@@ -168,7 +168,9 @@ public class sg1000a
 		vdp_interrupt
 	};
 	
-	static MACHINE_DRIVER_START( sg1000a )
+	public static MachineHandlerPtr machine_driver_sg1000a = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(Z80, 3579545)       /* 3.579545 Mhz */
 		MDRV_CPU_MEMORY(readmem,writemem)
 		MDRV_CPU_PORTS(readport,writeport)
@@ -177,7 +179,9 @@ public class sg1000a
 		MDRV_VBLANK_DURATION(DEFAULT_REAL_60HZ_VBLANK_DURATION)
 		MDRV_TMS9928A( &tms9928a_interface )
 		MDRV_SOUND_ADD(SN76496, sn76496_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_chwrestl = new RomLoadHandlerPtr(){ public void handler(){ 

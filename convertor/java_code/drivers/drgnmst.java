@@ -398,7 +398,9 @@ public class drgnmst
 	};
 	
 	
-	static MACHINE_DRIVER_START( drgnmst )
+	public static MachineHandlerPtr machine_driver_drgnmst = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68000, 12000000) /* Confirmed */
 		MDRV_CPU_MEMORY(drgnmst_readmem,drgnmst_writemem)
 		MDRV_CPU_VBLANK_INT(irq2_line_hold,1)
@@ -423,7 +425,9 @@ public class drgnmst
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(OKIM6295, dual_okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_drgnmst = new RomLoadHandlerPtr(){ public void handler(){ 

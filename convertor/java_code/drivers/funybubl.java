@@ -365,7 +365,9 @@ public class funybubl
 	
 	} };
 	
-	static MACHINE_DRIVER_START( funybubl )
+	public static MachineHandlerPtr machine_driver_funybubl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,8000000)		 /* ? MHz */
 		MDRV_CPU_MEMORY(readmem,writemem)
@@ -394,7 +396,9 @@ public class funybubl
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

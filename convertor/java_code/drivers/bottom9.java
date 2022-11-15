@@ -393,7 +393,9 @@ public class bottom9
 	
 	
 	
-	static MACHINE_DRIVER_START( bottom9 )
+	public static MachineHandlerPtr machine_driver_bottom9 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 2000000) /* ? */
@@ -419,7 +421,9 @@ public class bottom9
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(K007232, k007232_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

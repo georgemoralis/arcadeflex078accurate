@@ -365,7 +365,9 @@ public class kinst
 	};
 	
 	
-	MACHINE_DRIVER_START( kinst )
+	public static MachineHandlerPtr machine_driver_kinst = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(R4600LE, MASTER_CLOCK*2)
@@ -390,7 +392,9 @@ public class kinst
 	
 		/* sound hardware */
 		MDRV_IMPORT_FROM(dcs_audio)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

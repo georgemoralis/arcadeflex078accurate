@@ -662,7 +662,9 @@ public class megasys1
 		{ MIXER(30,MIXER_PAN_LEFT), MIXER(30,MIXER_PAN_RIGHT) }
 	};
 	
-	static MACHINE_DRIVER_START( system_A )
+	public static MachineHandlerPtr machine_driver_system_A = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M68000, 12000000)
@@ -693,17 +695,25 @@ public class megasys1
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( system_A_iganinju )
+	public static MachineHandlerPtr machine_driver_system_A_iganinju = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(system_A)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_VBLANK_INT(interrupt_A_iganinju,INTERRUPT_NUM_A)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( system_B )
+	public static MachineHandlerPtr machine_driver_system_B = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(system_A)
@@ -713,10 +723,14 @@ public class megasys1
 	
 		MDRV_CPU_MODIFY("sound")
 		MDRV_CPU_MEMORY(sound_readmem_B,sound_writemem_B)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( system_C )
+	public static MachineHandlerPtr machine_driver_system_C = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(system_A)
@@ -726,7 +740,9 @@ public class megasys1
 	
 		MDRV_CPU_MODIFY("sound")
 		MDRV_CPU_MEMORY(sound_readmem_C,sound_writemem_C)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
@@ -748,7 +764,9 @@ public class megasys1
 		{ 100 }
 	};
 	
-	static MACHINE_DRIVER_START( system_D )
+	public static MachineHandlerPtr machine_driver_system_D = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)	/* ? */
@@ -773,7 +791,9 @@ public class megasys1
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface_D)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -807,7 +827,9 @@ public class megasys1
 		{ irq_handler }
 	};
 	
-	static MACHINE_DRIVER_START( system_Z )
+	public static MachineHandlerPtr machine_driver_system_Z = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 6000000) /* ??? */
@@ -834,7 +856,9 @@ public class megasys1
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -2564,7 +2588,7 @@ public class megasys1
 	
 	/* Read the input ports, through a protection device */
 	static READ16_HANDLER( protection_peekaboo_r )
-	{
+	(
 		switch (protection_val)
 		{
 			case 0x02:	return 0x03;
@@ -2572,7 +2596,7 @@ public class megasys1
 			case 0x52:	return player2_r(0,0);
 			default:	return protection_val;
 		}
-	}
+	)
 	
 	static WRITE16_HANDLER( protection_peekaboo_w )
 	{

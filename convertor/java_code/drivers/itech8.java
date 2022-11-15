@@ -1445,7 +1445,9 @@ public class itech8
 	
 	/************* core pieces ******************/
 	
-	static MACHINE_DRIVER_START( itech8_core_lo )
+	public static MachineHandlerPtr machine_driver_itech8_core_lo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M6809, CLOCK_8MHz/4)
@@ -1469,19 +1471,27 @@ public class itech8
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("oki", OKIM6295, oki6295_interface_high)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( itech8_core_hi )
+	public static MachineHandlerPtr machine_driver_itech8_core_hi = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_lo)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(tmshi_readmem,tmshi_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( itech8_sound_ym2203 )
+	public static MachineHandlerPtr machine_driver_itech8_sound_ym2203 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("sound", M6809, CLOCK_8MHz/4)
@@ -1489,10 +1499,14 @@ public class itech8
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("ym", YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( itech8_sound_ym3812 )
+	public static MachineHandlerPtr machine_driver_itech8_sound_ym3812 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("sound", M6809, CLOCK_8MHz/4)
@@ -1500,28 +1514,40 @@ public class itech8
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("ym", YM3812, ym3812_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/************* full drivers ******************/
 	
-	static MACHINE_DRIVER_START( tmslo2203 )
+	public static MachineHandlerPtr machine_driver_tmslo2203 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_lo)
 		MDRV_IMPORT_FROM(itech8_sound_ym2203)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( tmshi2203 )
+	public static MachineHandlerPtr machine_driver_tmshi2203 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_hi)
 		MDRV_IMPORT_FROM(itech8_sound_ym2203)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( gtg2 )
+	public static MachineHandlerPtr machine_driver_gtg2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_lo)
@@ -1529,10 +1555,14 @@ public class itech8
 	
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(gtg2_readmem,gtg2_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( peggle )
+	public static MachineHandlerPtr machine_driver_peggle = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_lo)
@@ -1540,10 +1570,14 @@ public class itech8
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(18, 367, 0, 239)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( arlingtn )
+	public static MachineHandlerPtr machine_driver_arlingtn = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_hi)
@@ -1554,10 +1588,14 @@ public class itech8
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("oki", OKIM6295, oki6295_interface_low)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( neckneck )
+	public static MachineHandlerPtr machine_driver_neckneck = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_lo)
@@ -1565,10 +1603,14 @@ public class itech8
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(8, 375, 0, 239)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( hstennis )
+	public static MachineHandlerPtr machine_driver_hstennis = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_hi)
@@ -1576,10 +1618,14 @@ public class itech8
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0, 375, 0, 239)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( rimrockn )
+	public static MachineHandlerPtr machine_driver_rimrockn = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_hi)
@@ -1589,10 +1635,14 @@ public class itech8
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(24, 375, 0, 239)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( ninclown )
+	public static MachineHandlerPtr machine_driver_ninclown = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_hi)
@@ -1603,10 +1653,14 @@ public class itech8
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(64, 423, 0, 239)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( slikshot )
+	public static MachineHandlerPtr machine_driver_slikshot = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_hi)
@@ -1621,10 +1675,14 @@ public class itech8
 		MDRV_PALETTE_LENGTH(256+1)
 	
 		MDRV_VIDEO_START(slikshot)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( sstrike )
+	public static MachineHandlerPtr machine_driver_sstrike = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(itech8_core_lo)
@@ -1639,7 +1697,9 @@ public class itech8
 		MDRV_PALETTE_LENGTH(256+1)
 	
 		MDRV_VIDEO_START(slikshot)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

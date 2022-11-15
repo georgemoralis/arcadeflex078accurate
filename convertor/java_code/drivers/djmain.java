@@ -973,7 +973,9 @@ public class djmain
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( djmain )
+	public static MachineHandlerPtr machine_driver_djmain = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		// popn3 works 9.6 MHz or slower in some songs */
@@ -999,7 +1001,9 @@ public class djmain
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(K054539, k054539_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

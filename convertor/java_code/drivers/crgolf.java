@@ -318,7 +318,9 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( crgolf )
+	public static MachineHandlerPtr machine_driver_crgolf = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,MASTER_CLOCK/3/2)
@@ -347,7 +349,9 @@ public class crgolf
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

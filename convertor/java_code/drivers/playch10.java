@@ -733,7 +733,9 @@ public class playch10
 	);
 	
 	
-	static MACHINE_DRIVER_START( playch10 )
+	public static MachineHandlerPtr machine_driver_playch10 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 8000000 / 2)        /* 8 MHz / 2 */
 		MDRV_CPU_MEMORY(readmem, writemem)
@@ -764,12 +766,18 @@ public class playch10
 		/* sound hardware */
 		MDRV_SOUND_ADD(NES, nes_interface)
 		MDRV_SOUND_ADD(DAC, nes_dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( playchnv )
+	public static MachineHandlerPtr machine_driver_playchnv = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(playch10)
 		MDRV_NVRAM_HANDLER(playch10)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

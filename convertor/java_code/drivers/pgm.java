@@ -492,7 +492,9 @@ public class pgm
 			cpu_set_irq_line(0, 4, HOLD_LINE);
 	}
 	
-	static MACHINE_DRIVER_START( pgm )
+	public static MachineHandlerPtr machine_driver_pgm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 20000000) /* 20 mhz! verified on real board */
@@ -514,7 +516,9 @@ public class pgm
 		MDRV_VIDEO_START(pgm)
 		MDRV_VIDEO_EOF(pgm)
 		MDRV_VIDEO_UPDATE(pgm)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/*** Init Stuff **************************************************************/
 	
@@ -538,7 +542,7 @@ public class pgm
 			pix =  ((src[3+5*cnt] >> 1)& 0x1f );							  dst[5+8*cnt]=pix;
 			pix =  ((src[3+5*cnt] >> 6)& 0x03) | ((src[4+5*cnt] << 2) & 0x1c);dst[6+8*cnt]=pix;
 			pix =  ((src[4+5*cnt] >> 3)& 0x1f );							  dst[7+8*cnt]=pix;
-		} };
+		}
 	}
 	
 	/* This function expands the sprite colour data (in the A Roms) from 3 pixels

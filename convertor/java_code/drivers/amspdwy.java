@@ -265,7 +265,9 @@ public class amspdwy
 	};
 	
 	
-	static MACHINE_DRIVER_START( amspdwy )
+	public static MachineHandlerPtr machine_driver_amspdwy = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,3000000)
@@ -293,7 +295,9 @@ public class amspdwy
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, amspdwy_ym2151_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

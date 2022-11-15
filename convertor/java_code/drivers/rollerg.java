@@ -255,7 +255,9 @@ public class rollerg
 		{ 0 }
 	};
 	
-	static MACHINE_DRIVER_START( rollerg )
+	public static MachineHandlerPtr machine_driver_rollerg = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(KONAMI, 3000000)		/* ? */
@@ -282,7 +284,9 @@ public class rollerg
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3812, ym3812_interface)
 		MDRV_SOUND_ADD(K053260, k053260_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

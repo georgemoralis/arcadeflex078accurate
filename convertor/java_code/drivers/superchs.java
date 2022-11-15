@@ -461,7 +461,9 @@ public class superchs
 		}
 	} };
 	
-	static MACHINE_DRIVER_START( superchs )
+	public static MachineHandlerPtr machine_driver_superchs = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68EC020, 16000000)	/* 16 MHz */
@@ -496,7 +498,9 @@ public class superchs
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(ES5505, es5505_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************/
 	

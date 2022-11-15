@@ -256,7 +256,9 @@ public class quantum
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( quantum )
+	public static MachineHandlerPtr machine_driver_quantum = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,6000000)
@@ -278,7 +280,9 @@ public class quantum
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(POKEY, pokey_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

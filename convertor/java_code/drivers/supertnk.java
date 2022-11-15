@@ -285,7 +285,9 @@ public class supertnk
 	
 	
 	
-	static MACHINE_DRIVER_START( supertnk )
+	public static MachineHandlerPtr machine_driver_supertnk = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(TMS9980, 2598750) /* ? to which frequency is the 20.79 Mhz crystal mapped down? */
@@ -309,7 +311,9 @@ public class supertnk
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

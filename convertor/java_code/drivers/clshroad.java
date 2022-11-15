@@ -321,7 +321,9 @@ public class clshroad
 	
 	
 	
-	static MACHINE_DRIVER_START( firebatl )
+	public static MachineHandlerPtr machine_driver_firebatl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3000000)	/* ? */
@@ -352,9 +354,13 @@ public class clshroad
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(CUSTOM, custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( clshroad )
+	public static MachineHandlerPtr machine_driver_clshroad = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 18432000/6)	/* ? */
@@ -384,7 +390,9 @@ public class clshroad
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(CUSTOM, custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

@@ -99,7 +99,9 @@ public class chindrag
 	static InputPortHandlerPtr input_ports_chindrag = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( chindrag )
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( chindrag )
+	public static MachineHandlerPtr machine_driver_chindrag = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68000, 12000000)
 		MDRV_CPU_MEMORY(chindrag_readmem,chindrag_writemem)
 	//	MDRV_CPU_VBLANK_INT(irq6_line_hold,1)
@@ -118,7 +120,9 @@ public class chindrag
 		MDRV_VIDEO_UPDATE(chindrag)
 	
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	void dw_decrypt(void)

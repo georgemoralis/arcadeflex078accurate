@@ -598,7 +598,9 @@ public class marinedt
 	//	plot_pixel(bitmap, 256-32-marinedt_obj1_x+i, 256-marinedt_obj1_y+j-1,Machine.pens[1]);
 	} };
 	
-	static MACHINE_DRIVER_START( marinedt )
+	public static MachineHandlerPtr machine_driver_marinedt = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,10000000/4)
@@ -622,7 +624,9 @@ public class marinedt
 	
 		/* sound hardware */
 		//discrete sound
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

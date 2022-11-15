@@ -230,7 +230,9 @@ public class tickee
 	 *
 	 *************************************/
 	
-	MACHINE_DRIVER_START( tickee )
+	public static MachineHandlerPtr machine_driver_tickee = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(TMS34010, 40000000/TMS34010_CLOCK_DIVIDER)
@@ -255,7 +257,9 @@ public class tickee
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

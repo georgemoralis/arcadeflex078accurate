@@ -365,7 +365,9 @@ public class grchamp
 		}
 	} };
 	
-	static MACHINE_DRIVER_START( grchamp )
+	public static MachineHandlerPtr machine_driver_grchamp = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 6000000) /* ? */
@@ -401,7 +403,9 @@ public class grchamp
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static InputPortHandlerPtr input_ports_grchamp = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( grchamp )
 		PORT_START();  /* DSW A */

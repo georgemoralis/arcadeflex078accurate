@@ -1344,7 +1344,9 @@ public class seta2
 	};
 	
 	
-	static MACHINE_DRIVER_START( mj4simai )
+	public static MachineHandlerPtr machine_driver_mj4simai = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main",M68000,32530400 / 2)			/* !! TMP68301 !! */
@@ -1370,9 +1372,13 @@ public class seta2
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(X1_010, x1_010_sound_intf_16MHz)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( gundamex )
+	public static MachineHandlerPtr machine_driver_gundamex = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(mj4simai)
@@ -1382,9 +1388,13 @@ public class seta2
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0x00, 0x180-1, 0x100, 0x1e0-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( grdians )
+	public static MachineHandlerPtr machine_driver_grdians = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_IMPORT_FROM(mj4simai)
 		MDRV_CPU_MODIFY("main")
@@ -1392,10 +1402,14 @@ public class seta2
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0x80, 0x80 + 0x130 -1, 0x80, 0x80 + 0xe8 -1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( myangel )
+	public static MachineHandlerPtr machine_driver_myangel = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(mj4simai)
@@ -1406,10 +1420,14 @@ public class seta2
 		MDRV_VISIBLE_AREA(0, 0x178-1, 0x00, 0xf0-1)
 	
 		MDRV_VIDEO_START(seta2_offset)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( myangel2 )
+	public static MachineHandlerPtr machine_driver_myangel2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(mj4simai)
@@ -1420,10 +1438,14 @@ public class seta2
 		MDRV_VISIBLE_AREA(0, 0x178-1, 0x00, 0xf0-1)
 	
 		MDRV_VIDEO_START(seta2_offset)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( pzlbowl )
+	public static MachineHandlerPtr machine_driver_pzlbowl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(mj4simai)
@@ -1432,10 +1454,14 @@ public class seta2
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0x10, 0x190-1, 0x100, 0x1f0-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( penbros )
+	public static MachineHandlerPtr machine_driver_penbros = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(mj4simai)
@@ -1444,7 +1470,9 @@ public class seta2
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(0, 0x140-1, 0x80, 0x160-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

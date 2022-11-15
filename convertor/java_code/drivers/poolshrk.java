@@ -214,7 +214,9 @@ public class poolshrk
 	} };
 	
 	
-	static MACHINE_DRIVER_START( poolshrk )
+	public static MachineHandlerPtr machine_driver_poolshrk = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6800, 11055000 / 8) /* ? */
@@ -235,7 +237,9 @@ public class poolshrk
 		MDRV_VIDEO_UPDATE(poolshrk)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_poolshrk = new RomLoadHandlerPtr(){ public void handler(){ 

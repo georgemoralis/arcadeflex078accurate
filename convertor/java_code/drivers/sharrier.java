@@ -328,7 +328,9 @@ public class sharrier
 	
 	/***************************************************************************/
 	
-	static MACHINE_DRIVER_START( hangon )
+	public static MachineHandlerPtr machine_driver_hangon = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)
@@ -365,7 +367,9 @@ public class sharrier
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2203, sys16_ym2203_interface)
 		MDRV_SOUND_ADD(SEGAPCM, sys16_segapcm_interface_32k)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -528,7 +532,9 @@ public class sharrier
 	} };
 	/***************************************************************************/
 	
-	static MACHINE_DRIVER_START( sharrier )
+	public static MachineHandlerPtr machine_driver_sharrier = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)
@@ -565,7 +571,9 @@ public class sharrier
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2203, sys16_ym2203_interface)
 		MDRV_SOUND_ADD(SEGAPCM, sys16_segapcm_interface_32k)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -861,7 +869,9 @@ public class sharrier
 	
 	/***************************************************************************/
 	
-	static MACHINE_DRIVER_START( enduror )
+	public static MachineHandlerPtr machine_driver_enduror = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)
@@ -898,10 +908,14 @@ public class sharrier
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2203, sys16_ym2203_interface)
 		MDRV_SOUND_ADD(SEGAPCM, sys16_segapcm_interface_32k)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( endurob2 )
+	public static MachineHandlerPtr machine_driver_endurob2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)
@@ -937,7 +951,9 @@ public class sharrier
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2203, sys16_3xym2203_interface)
 		MDRV_SOUND_ADD(SEGAPCM, sys16_segapcm_interface_15k)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/*****************************************************************************/
 	

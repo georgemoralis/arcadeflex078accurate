@@ -348,7 +348,9 @@ public class eprom
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( eprom )
+	public static MachineHandlerPtr machine_driver_eprom = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, ATARI_CLOCK_14MHz/2)
@@ -377,10 +379,14 @@ public class eprom
 		
 		/* sound hardware */
 		MDRV_IMPORT_FROM(jsa_i_mono_speech)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( klaxp )
+	public static MachineHandlerPtr machine_driver_klaxp = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, ATARI_CLOCK_14MHz/2)
@@ -406,7 +412,9 @@ public class eprom
 		
 		/* sound hardware */
 		MDRV_IMPORT_FROM(jsa_ii_mono)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

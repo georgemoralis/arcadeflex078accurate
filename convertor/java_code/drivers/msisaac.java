@@ -511,7 +511,9 @@ public class msisaac
 	
 	/*******************************************************************************/
 	
-	static MACHINE_DRIVER_START( msisaac )
+	public static MachineHandlerPtr machine_driver_msisaac = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 4000000)
@@ -546,7 +548,9 @@ public class msisaac
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 		MDRV_SOUND_ADD(MSM5232, msm5232_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************************************/

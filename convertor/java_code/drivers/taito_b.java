@@ -2653,7 +2653,9 @@ public class taito_b
 	} };
 	
 	
-	static MACHINE_DRIVER_START( rastsag2 )
+	public static MachineHandlerPtr machine_driver_rastsag2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2680,10 +2682,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_rsaga2)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( ashura )
+	public static MachineHandlerPtr machine_driver_ashura = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2710,10 +2716,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( crimec )
+	public static MachineHandlerPtr machine_driver_crimec = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2740,10 +2750,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( tetrist )
+	public static MachineHandlerPtr machine_driver_tetrist = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz ???*/
@@ -2770,10 +2784,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_rsaga2)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( hitice )
+	public static MachineHandlerPtr machine_driver_hitice = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2801,10 +2819,14 @@ public class taito_b
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( rambo3 )
+	public static MachineHandlerPtr machine_driver_rambo3 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2831,10 +2853,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( rambo3a )
+	public static MachineHandlerPtr machine_driver_rambo3a = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2861,10 +2887,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( pbobble )
+	public static MachineHandlerPtr machine_driver_pbobble = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2894,10 +2924,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610B, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( spacedx )
+	public static MachineHandlerPtr machine_driver_spacedx = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2927,10 +2961,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( spacedxo )
+	public static MachineHandlerPtr machine_driver_spacedxo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -2957,10 +2995,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( qzshowby )
+	public static MachineHandlerPtr machine_driver_qzshowby = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)	/* 16 MHz according to the readme*/
@@ -2990,10 +3032,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610B, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( viofight )
+	public static MachineHandlerPtr machine_driver_viofight = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -3021,7 +3067,9 @@ public class taito_b
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface_viofight)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	#if 0
 	static void masterw_patch(void)
@@ -3031,7 +3079,9 @@ public class taito_b
 	}
 	#endif
 	
-	static MACHINE_DRIVER_START( masterw )
+	public static MachineHandlerPtr machine_driver_masterw = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -3058,10 +3108,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( silentd )
+	public static MachineHandlerPtr machine_driver_silentd = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)	/* 16 MHz ??? */
@@ -3088,10 +3142,14 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_rsaga2)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( selfeena )
+	public static MachineHandlerPtr machine_driver_selfeena = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -3118,7 +3176,9 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	#if 0
 	static void ryujin_patch(void)
@@ -3130,7 +3190,9 @@ public class taito_b
 	}
 	#endif
 	
-	static MACHINE_DRIVER_START( ryujin )
+	public static MachineHandlerPtr machine_driver_ryujin = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -3157,7 +3219,9 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	#if 0
 	static void sbm_patch(void)
@@ -3167,7 +3231,9 @@ public class taito_b
 	}
 	#endif
 	
-	static MACHINE_DRIVER_START( sbm )
+	public static MachineHandlerPtr machine_driver_sbm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz */
@@ -3194,7 +3260,9 @@ public class taito_b
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610B, ym2610_interface_crimec)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

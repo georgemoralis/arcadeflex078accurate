@@ -420,7 +420,9 @@ public class tempest
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( tempest )
+	public static MachineHandlerPtr machine_driver_tempest = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6502, 12096000/8)			/* 1.512 MHz */
@@ -442,7 +444,9 @@ public class tempest
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(POKEY, pokey_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

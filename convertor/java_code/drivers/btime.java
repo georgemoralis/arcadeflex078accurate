@@ -1313,7 +1313,9 @@ public class btime
 	);
 	
 	
-	static MACHINE_DRIVER_START( btime )
+	public static MachineHandlerPtr machine_driver_btime = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M6502, 1500000)
@@ -1341,10 +1343,14 @@ public class btime
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( cookrace )
+	public static MachineHandlerPtr machine_driver_cookrace = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(btime)
@@ -1360,10 +1366,14 @@ public class btime
 		MDRV_PALETTE_LENGTH(16)
 	
 		MDRV_VIDEO_UPDATE(cookrace)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( lnc )
+	public static MachineHandlerPtr machine_driver_lnc = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(btime)
@@ -1382,10 +1392,14 @@ public class btime
 	
 		MDRV_PALETTE_INIT(lnc)
 		MDRV_VIDEO_UPDATE(lnc)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( wtennis )
+	public static MachineHandlerPtr machine_driver_wtennis = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(lnc)
@@ -1394,19 +1408,27 @@ public class btime
 	
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(eggs)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( mmonkey )
+	public static MachineHandlerPtr machine_driver_mmonkey = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(wtennis)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(mmonkey_readmem,mmonkey_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( bnj )
+	public static MachineHandlerPtr machine_driver_bnj = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(btime)
@@ -1420,10 +1442,14 @@ public class btime
 	
 		MDRV_VIDEO_START(bnj)
 		MDRV_VIDEO_UPDATE(bnj)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( zoar )
+	public static MachineHandlerPtr machine_driver_zoar = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(btime)
@@ -1436,10 +1462,14 @@ public class btime
 		MDRV_PALETTE_LENGTH(64)
 	
 		MDRV_VIDEO_UPDATE(zoar)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( disco )
+	public static MachineHandlerPtr machine_driver_disco = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(btime)
@@ -1454,7 +1484,9 @@ public class btime
 		MDRV_PALETTE_LENGTH(32)
 	
 		MDRV_VIDEO_UPDATE(disco)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

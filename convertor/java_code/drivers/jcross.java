@@ -295,7 +295,9 @@ public class jcross
 	**
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( jcross )
+	public static MachineHandlerPtr machine_driver_jcross = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_CPU_ADD(Z80, 3360000)
 		MDRV_CPU_MEMORY(readmem_CPUA,writemem_CPUA)
@@ -327,7 +329,9 @@ public class jcross
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 		MDRV_SOUND_ADD(NAMCO, snkwave_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_jcross = new RomLoadHandlerPtr(){ public void handler(){ 

@@ -429,7 +429,9 @@ public class starwars
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( starwars )
+	public static MachineHandlerPtr machine_driver_starwars = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809,1500000)
@@ -457,7 +459,9 @@ public class starwars
 		/* sound hardware */
 		MDRV_SOUND_ADD(POKEY, pokey_interface)
 		MDRV_SOUND_ADD(TMS5220, tms5220_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

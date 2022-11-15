@@ -230,7 +230,9 @@ public class gaelco
 	};
 	
 	
-	static MACHINE_DRIVER_START( bigkarnk )
+	public static MachineHandlerPtr machine_driver_bigkarnk = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)	/* MC68000P10, 10 MHz */
@@ -258,7 +260,9 @@ public class gaelco
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3812, bigkarnk_ym3812_interface)
 		MDRV_SOUND_ADD(OKIM6295, bigkarnk_okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_bigkarnk = new RomLoadHandlerPtr(){ public void handler(){ 
@@ -474,14 +478,16 @@ public class gaelco
 	
 	
 	static struct OKIM6295interface maniacsq_okim6295_interface =
-	{
+	(
 		1,                  /* 1 chip */
-		{ 8000 },			/* 8000 KHz? */
+		new int[] { 8000 },			/* 8000 KHz? */
 		{ REGION_SOUND1 },  /* memory region */
 		{ 100 }				/* volume */
-	};
+	);
 	
-	static MACHINE_DRIVER_START( maniacsq )
+	public static MachineHandlerPtr machine_driver_maniacsq = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,24000000/2)			/* 12 MHz */
@@ -503,7 +509,9 @@ public class gaelco
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, maniacsq_okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_maniacsp = new RomLoadHandlerPtr(){ public void handler(){ 

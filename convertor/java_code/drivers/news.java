@@ -118,7 +118,9 @@ public class news
 	
 	
 	
-	static MACHINE_DRIVER_START( news )
+	public static MachineHandlerPtr machine_driver_news = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,8000000)		 /* ? MHz */
 		MDRV_CPU_MEMORY(readmem,writemem)
@@ -139,7 +141,9 @@ public class news
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

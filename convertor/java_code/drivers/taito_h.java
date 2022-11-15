@@ -588,7 +588,9 @@ public class taito_h
 	};
 	
 	
-	static MACHINE_DRIVER_START( syvalion )
+	public static MachineHandlerPtr machine_driver_syvalion = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,24000000 / 2)		/* 12 MHz */
@@ -614,10 +616,14 @@ public class taito_h
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, syvalion_ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( recordbr )
+	public static MachineHandlerPtr machine_driver_recordbr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,24000000 / 2)		/* 12 MHz */
@@ -643,10 +649,14 @@ public class taito_h
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, syvalion_ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( dleague )
+	public static MachineHandlerPtr machine_driver_dleague = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,24000000 / 2)		/* 12 MHz */
@@ -672,7 +682,9 @@ public class taito_h
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, dleague_ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

@@ -384,7 +384,9 @@ public class missile
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( missile )
+	public static MachineHandlerPtr machine_driver_missile = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6502,1000000)		/* 1 MHz ???? */
@@ -407,7 +409,9 @@ public class missile
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(POKEY, pokey_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

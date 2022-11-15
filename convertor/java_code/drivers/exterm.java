@@ -461,7 +461,9 @@ public class exterm
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( exterm )
+	public static MachineHandlerPtr machine_driver_exterm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(TMS34010,40000000/TMS34010_CLOCK_DIVIDER)
@@ -501,7 +503,9 @@ public class exterm
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(DAC, dac_interface)
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

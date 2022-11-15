@@ -764,7 +764,9 @@ public class welltris
 	
 	
 	
-	static MACHINE_DRIVER_START( welltris )
+	public static MachineHandlerPtr machine_driver_welltris = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,20000000/2)	/* 10 MHz */
@@ -791,15 +793,21 @@ public class welltris
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2610, ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( quiz18k )
+	public static MachineHandlerPtr machine_driver_quiz18k = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM( welltris )
 	
 		MDRV_VISIBLE_AREA(15, 335-1, 0, 224-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

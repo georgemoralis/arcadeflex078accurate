@@ -140,7 +140,9 @@ public class _8080bw
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 	
-	static MACHINE_DRIVER_START( 8080bw )
+	public static MachineHandlerPtr machine_driver_8080bw = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main",8080,2000000)        /* 2 MHz? */
@@ -160,7 +162,9 @@ public class _8080bw
 		MDRV_VIDEO_UPDATE(8080bw)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -213,7 +217,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0x01, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( invaders )
+	public static MachineHandlerPtr machine_driver_invaders = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -226,7 +232,9 @@ public class _8080bw
 		/* sound hardware */
 		MDRV_SOUND_ADD(SAMPLES, invaders_samples_interface)
 		MDRV_SOUND_ADD(SN76477, invaders_sn76477_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -339,7 +347,9 @@ public class _8080bw
 	
 	/* same as regular invaders, but with a color board added */
 	
-	static MACHINE_DRIVER_START( invadpt2 )
+	public static MachineHandlerPtr machine_driver_invadpt2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(invaders)
@@ -347,7 +357,9 @@ public class _8080bw
 		/* video hardware */
 		MDRV_PALETTE_LENGTH(8)
 		MDRV_PALETTE_INIT(invadpt2)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/*******************************************************/
 	/*                                                     */
@@ -431,7 +443,9 @@ public class _8080bw
 		new IO_WritePort(MEMPORT_MARKER, 0)
 	};
 		
-	static MACHINE_DRIVER_START( cosmo )
+	public static MachineHandlerPtr machine_driver_cosmo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(invaders)
 		MDRV_CPU_MODIFY("main")
@@ -441,7 +455,9 @@ public class _8080bw
 		/* video hardware */
 		MDRV_PALETTE_LENGTH(8)
 		MDRV_PALETTE_INIT(cosmo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -604,7 +620,9 @@ public class _8080bw
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static MACHINE_DRIVER_START( invrvnge )
+	public static MachineHandlerPtr machine_driver_invrvnge = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -612,7 +630,9 @@ public class _8080bw
 	
 		/* video hardware */
 		MDRV_VISIBLE_AREA(1*8, 31*8-1, 4*8, 32*8-1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -663,7 +683,9 @@ public class _8080bw
 		PORT_BIT( 0xff, IP_ACTIVE_HIGH, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( invad2ct )
+	public static MachineHandlerPtr machine_driver_invad2ct = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -673,7 +695,9 @@ public class _8080bw
 		/* sound hardware */
 		MDRV_SOUND_ADD(SAMPLES, invad2ct_samples_interface)
 		MDRV_SOUND_ADD(SN76477, invad2ct_sn76477_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -747,7 +771,9 @@ public class _8080bw
 		PORT_BITX(0,  0x02, IPT_DIPSWITCH_SETTING | IPF_CHEAT, "Fast", IP_KEY_NONE, IP_JOY_NONE );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( sstrangr )
+	public static MachineHandlerPtr machine_driver_sstrangr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -762,7 +788,9 @@ public class _8080bw
 		/* sound hardware */
 		MDRV_SOUND_ADD(SAMPLES, invaders_samples_interface)
 		MDRV_SOUND_ADD(SN76477, invaders_sn76477_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -823,7 +851,9 @@ public class _8080bw
 		PORT_BITX(0,  0x02, IPT_DIPSWITCH_SETTING | IPF_CHEAT, "Fast", IP_KEY_NONE, IP_JOY_NONE );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( sstrngr2 )
+	public static MachineHandlerPtr machine_driver_sstrngr2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -840,7 +870,9 @@ public class _8080bw
 		/* sound hardware */
 		MDRV_SOUND_ADD(SAMPLES, invaders_samples_interface)
 		MDRV_SOUND_ADD(SN76477, invaders_sn76477_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -1185,7 +1217,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0x01, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( rollingc )
+	public static MachineHandlerPtr machine_driver_rollingc = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -1197,7 +1231,9 @@ public class _8080bw
 		MDRV_PALETTE_INIT(invadpt2)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -1382,7 +1418,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0x00, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( sheriff )
+	public static MachineHandlerPtr machine_driver_sheriff = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -1404,7 +1442,9 @@ public class _8080bw
 		/* sound hardware */
 		MDRV_SOUND_ADD(DAC, sheriff_dac_interface)
 		MDRV_SOUND_ADD(SN76477, sheriff_sn76477_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -1457,7 +1497,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0xc0, "90" );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( spcenctr )
+	public static MachineHandlerPtr machine_driver_spcenctr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -1465,7 +1507,9 @@ public class _8080bw
 		MDRV_CPU_PORTS(spcenctr_readport,0)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -1547,7 +1591,9 @@ public class _8080bw
 		PORT_ANALOGX( 0xff, 0x00, IPT_PADDLE, 50, 10, 1, 255, KEYCODE_Z, KEYCODE_A, IP_JOY_NONE, IP_JOY_NONE );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( gunfight )
+	public static MachineHandlerPtr machine_driver_gunfight = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -1556,7 +1602,9 @@ public class _8080bw
 		MDRV_MACHINE_INIT(gunfight)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -1603,7 +1651,9 @@ public class _8080bw
 		PORT_BIT( 0x80, IP_ACTIVE_LOW, IPT_UNKNOWN );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( m4 )
+	public static MachineHandlerPtr machine_driver_m4 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -1611,7 +1661,9 @@ public class _8080bw
 		MDRV_CPU_PORTS(gunfight_readport,writeport_1_2)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -1659,7 +1711,9 @@ public class _8080bw
 		PORT_ANALOGX( 0xff, 0x00, IPT_PADDLE, 50, 10, 1, 255, KEYCODE_Z, KEYCODE_A, IP_JOY_NONE, IP_JOY_NONE );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( boothill )
+	public static MachineHandlerPtr machine_driver_boothill = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -1669,7 +1723,9 @@ public class _8080bw
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(SAMPLES, boothill_samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -1747,7 +1803,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0x01, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( schaser )
+	public static MachineHandlerPtr machine_driver_schaser = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -1766,7 +1824,9 @@ public class _8080bw
 		MDRV_SOUND_ADD(SN76477, schaser_sn76477_interface)
 		MDRV_SOUND_ADD(DAC, schaser_dac_interface)
 		MDRV_SOUND_ADD(CUSTOM, schaser_custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -1860,7 +1920,9 @@ public class _8080bw
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
-	static MACHINE_DRIVER_START( sflush )
+	public static MachineHandlerPtr machine_driver_sflush = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -1873,7 +1935,9 @@ public class _8080bw
 		MDRV_PALETTE_INIT(sflush)
 		MDRV_VISIBLE_AREA(0*8, 31*8-1, 4*8, 30*8-1)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static InputPortHandlerPtr input_ports_sflush = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( sflush )
 		PORT_START(); 
@@ -1990,7 +2054,9 @@ public class _8080bw
 		PORT_SERVICE( 0x80, IP_ACTIVE_HIGH );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( clowns )
+	public static MachineHandlerPtr machine_driver_clowns = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2000,7 +2066,9 @@ public class _8080bw
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(SAMPLES, circus_samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2092,7 +2160,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0xc0, "Spanish" );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( 280zzzap )
+	public static MachineHandlerPtr machine_driver_280zzzap = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2100,7 +2170,9 @@ public class _8080bw
 		MDRV_CPU_PORTS(c8080bw_readport,writeport_4_3)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2152,7 +2224,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( lupin3 )
+	public static MachineHandlerPtr machine_driver_lupin3 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2165,7 +2239,9 @@ public class _8080bw
 		MDRV_VISIBLE_AREA(1*8, 31*8-1, 4*8, 32*8-1)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2322,7 +2398,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0x07, "07" );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( helifire )
+	public static MachineHandlerPtr machine_driver_helifire = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2344,7 +2422,9 @@ public class _8080bw
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(DAC, sheriff_dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2454,7 +2534,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0x01, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( polaris )
+	public static MachineHandlerPtr machine_driver_polaris = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2472,7 +2554,9 @@ public class _8080bw
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("disc", DISCRETE, polaris_sound_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2563,7 +2647,9 @@ public class _8080bw
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( phantom2 )
+	public static MachineHandlerPtr machine_driver_phantom2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2579,7 +2665,9 @@ public class _8080bw
 		MDRV_PALETTE_INIT(phantom2)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2682,7 +2770,9 @@ public class _8080bw
 		PORT_ANALOG( 0xff, 0, IPT_TRACKBALL_X, 10, 10, 0, 0);
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( bowler )
+	public static MachineHandlerPtr machine_driver_bowler = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 	
 		/* basic machine hardware */
@@ -2696,7 +2786,9 @@ public class _8080bw
 		MDRV_VISIBLE_AREA(0*8, 35*8-1, 4*8, 32*8-1)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2754,7 +2846,9 @@ public class _8080bw
 		PORT_ANALOG( 0xff, 0, IPT_TRACKBALL_X | IPF_REVERSE, 10, 10, 0, 0);
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( shuffle )
+	public static MachineHandlerPtr machine_driver_shuffle = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2762,7 +2856,9 @@ public class _8080bw
 		MDRV_CPU_PORTS(shuffle_readport,writeport_1_2)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2810,7 +2906,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0xe0, "Test Mode" );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( seawolf )
+	public static MachineHandlerPtr machine_driver_seawolf = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2820,7 +2918,9 @@ public class _8080bw
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(SAMPLES, seawolf_samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2847,7 +2947,9 @@ public class _8080bw
 		PORT_SERVICE( 0x80, IP_ACTIVE_LOW );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( blueshrk )
+	public static MachineHandlerPtr machine_driver_blueshrk = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2855,7 +2957,9 @@ public class _8080bw
 		MDRV_CPU_PORTS(seawolf_readport,writeport_1_2)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -2891,7 +2995,9 @@ public class _8080bw
 		PORT_ANALOG( 0x7f, 0x45, IPT_LIGHTGUN_Y, 70, 10, 0xf, 0x7f);
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( desertgu )
+	public static MachineHandlerPtr machine_driver_desertgu = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -2900,7 +3006,9 @@ public class _8080bw
 		MDRV_MACHINE_INIT(desertgu)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -3129,7 +3237,9 @@ public class _8080bw
 		PORT_BIT( 0x80, IP_ACTIVE_HIGH, IPT_COIN1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( checkmat )
+	public static MachineHandlerPtr machine_driver_checkmat = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -3137,7 +3247,9 @@ public class _8080bw
 		MDRV_CPU_PORTS(checkmat_readport,0)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -3392,7 +3504,9 @@ public class _8080bw
 		PORT_DIPSETTING(    0x01, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static MACHINE_DRIVER_START( ballbomb )
+	public static MachineHandlerPtr machine_driver_ballbomb = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -3405,7 +3519,9 @@ public class _8080bw
 		MDRV_VISIBLE_AREA(1*8, 31*8-1, 4*8, 32*8-1)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*******************************************************/
@@ -3414,7 +3530,9 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static MACHINE_DRIVER_START( yosakdon )
+	public static MachineHandlerPtr machine_driver_yosakdon = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(8080bw)
@@ -3424,7 +3542,9 @@ public class _8080bw
 		MDRV_VISIBLE_AREA(1*8, 31*8-1, 4*8, 32*8-1)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static InputPortHandlerPtr input_ports_spceking = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( spceking )

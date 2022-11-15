@@ -428,7 +428,9 @@ public class policetr
 	};
 	
 	
-	MACHINE_DRIVER_START( policetr )
+	public static MachineHandlerPtr machine_driver_policetr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", R3000BE, MASTER_CLOCK/2)
@@ -453,16 +455,22 @@ public class policetr
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(BSMT2000, bsmt2000_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( sshooter )
+	public static MachineHandlerPtr machine_driver_sshooter = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(policetr)
 	
 		/* basic machine hardware */
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(policetr_readmem,sshooter_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

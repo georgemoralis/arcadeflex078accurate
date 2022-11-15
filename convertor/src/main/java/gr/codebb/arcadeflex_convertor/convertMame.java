@@ -43,6 +43,7 @@ public class convertMame {
     static final int SAMPLESINTF = 21;
     static final int DACINTF = 22;
     static final int TILEINFO = 23;
+    static final int MACHINEDRIVER = 22;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -450,6 +451,10 @@ public class convertMame {
                 break;
                 case 'M': {
                     i = Convertor.inpos;
+                    if (sUtil.getToken("MACHINE_DRIVER_END")) {
+                        sUtil.putString((new StringBuilder()).append("MACHINE_DRIVER_END();\n }\n};").toString());
+                        continue;
+                    }
                     if (sUtil.getToken("MACHINE_INIT")) {
                         sUtil.skipSpace();
                         if (sUtil.parseChar() != '(') {
@@ -494,6 +499,18 @@ public class convertMame {
                             sUtil.putString("public static MachineStopHandlerPtr machine_stop_" + Convertor.token[0] + "  = new MachineStopHandlerPtr() { public void handler()");
                             type = MACHINE_STOP;
                             i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                    if (sUtil.getToken("MACHINE_DRIVER_START(")) {
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.getToken(")")) {
+                            sUtil.putString("public static MachineHandlerPtr machine_driver_" + Convertor.token[0] + " = new MachineHandlerPtr() {\n" + "        public void handler(InternalMachineDriver machine) { \n\tMACHINE_DRIVER_START(machine);");
+                            type = MACHINEDRIVER;
+                            i3 = 1;
                             Convertor.inpos += 1;
                             continue;
                         }
@@ -1125,6 +1142,18 @@ public class convertMame {
                                     i3 = -1;
                                     continue;
                                 }
+                            }
+                        }
+                        if (sUtil.getToken("MACHINE_DRIVER_START(")) {
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.getToken(")")) {
+                                sUtil.putString("public static MachineHandlerPtr machine_driver_" + Convertor.token[0] + " = new MachineHandlerPtr() {\n" + "        public void handler(InternalMachineDriver machine) { \n\tMACHINE_DRIVER_START(machine);");
+                                type = MACHINEDRIVER;
+                                i3 = 1;
+                                Convertor.inpos += 1;
+                                continue;
                             }
                         }
                     } // end of static but not static struct

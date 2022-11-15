@@ -283,7 +283,9 @@ public class battlane
 	};
 	
 	
-	static MACHINE_DRIVER_START( battlane )
+	public static MachineHandlerPtr machine_driver_battlane = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 1250000)        /* 1.25 MHz ? */
@@ -309,7 +311,9 @@ public class battlane
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3526, ym3526_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

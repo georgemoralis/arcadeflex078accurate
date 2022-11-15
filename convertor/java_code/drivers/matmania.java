@@ -348,7 +348,9 @@ public class matmania
 	
 	
 	
-	static MACHINE_DRIVER_START( matmania )
+	public static MachineHandlerPtr machine_driver_matmania = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6502, 1500000)	/* 1.5 MHz ???? */
@@ -379,7 +381,9 @@ public class matmania
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	
@@ -398,7 +402,9 @@ public class matmania
 	};
 	
 	
-	static MACHINE_DRIVER_START( maniach )
+	public static MachineHandlerPtr machine_driver_maniach = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6502, 1500000)	/* 1.5 MHz ???? */
@@ -431,7 +437,9 @@ public class matmania
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3526, ym3526_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

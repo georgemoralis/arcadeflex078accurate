@@ -423,7 +423,9 @@ public class yunsun16
 		{ 80 }
 	};
 	
-	static MACHINE_DRIVER_START( magicbub )
+	public static MachineHandlerPtr machine_driver_magicbub = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -452,7 +454,9 @@ public class yunsun16
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM3812, magicbub_ym3812_intf)
 		MDRV_SOUND_ADD(OKIM6295, magicbub_okim6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
@@ -467,7 +471,9 @@ public class yunsun16
 		{ 100 }
 	};
 	
-	static MACHINE_DRIVER_START( shocking )
+	public static MachineHandlerPtr machine_driver_shocking = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -490,7 +496,9 @@ public class yunsun16
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(OKIM6295, shocking_okim6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

@@ -842,7 +842,9 @@ public class atarijsa
 	 *************************************/
 	
 	/* Used by Blasteroids */
-	MACHINE_DRIVER_START( jsa_i_stereo )
+	public static MachineHandlerPtr machine_driver_jsa_i_stereo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("jsa", M6502, ATARI_CLOCK_3MHz/2)
@@ -852,33 +854,45 @@ public class atarijsa
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD_TAG("ym", YM2151, ym2151_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* Used by Xybots */
-	MACHINE_DRIVER_START( jsa_i_stereo_swapped )
+	public static MachineHandlerPtr machine_driver_jsa_i_stereo_swapped = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(jsa_i_stereo)
 		
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("ym", YM2151, ym2151_interface_swapped)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* Used by Toobin', Vindicators */
-	MACHINE_DRIVER_START( jsa_i_stereo_pokey )
+	public static MachineHandlerPtr machine_driver_jsa_i_stereo_pokey = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(jsa_i_stereo)
 		
 		/* sound hardware */
 		MDRV_SOUND_ADD(POKEY, pokey_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* Used by Escape from the Planet of the Robot Monsters */
-	MACHINE_DRIVER_START( jsa_i_mono_speech )
+	public static MachineHandlerPtr machine_driver_jsa_i_mono_speech = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(jsa_i_stereo)
@@ -886,11 +900,15 @@ public class atarijsa
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(0)
 		MDRV_SOUND_ADD(TMS5220, tms5220_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* Used by Cyberball 2072, STUN Runner, Skull & Crossbones, ThunderJaws, Hydra, Pit Fighter */
-	MACHINE_DRIVER_START( jsa_ii_mono )
+	public static MachineHandlerPtr machine_driver_jsa_ii_mono = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(jsa_i_stereo)
@@ -900,32 +918,44 @@ public class atarijsa
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(0)
 		MDRV_SOUND_ADD_TAG("adpcm", OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* Used by Batman, Guardians of the 'Hood, Road Riot 4WD */
-	MACHINE_DRIVER_START( jsa_iii_mono )
+	public static MachineHandlerPtr machine_driver_jsa_iii_mono = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(jsa_ii_mono)
 		MDRV_CPU_MODIFY("jsa")
 		MDRV_CPU_MEMORY(atarijsa3_readmem,atarijsa3_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* Used by Off the Wall */
-	MACHINE_DRIVER_START( jsa_iii_mono_noadpcm )
+	public static MachineHandlerPtr machine_driver_jsa_iii_mono_noadpcm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(jsa_iii_mono)
 	
 		/* sound hardware */
 		MDRV_SOUND_REMOVE("adpcm")
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* Used by Space Lords, Moto Frenzy, Steel Talons, Road Riot's Revenge Rally */
-	MACHINE_DRIVER_START( jsa_iiis_stereo )
+	public static MachineHandlerPtr machine_driver_jsa_iiis_stereo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(jsa_iii_mono)
@@ -935,5 +965,7 @@ public class atarijsa
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_REPLACE("adpcm", OKIM6295, okim6295s_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 }

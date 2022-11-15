@@ -1920,7 +1920,9 @@ public class seattle
 		16384	/* data cache size */
 	};
 	
-	MACHINE_DRIVER_START( seattle_flagstaff_common )
+	public static MachineHandlerPtr machine_driver_seattle_flagstaff_common = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", R5000LE, 50000000*3)
@@ -1945,31 +1947,47 @@ public class seattle
 		MDRV_VIDEO_UPDATE(voodoo)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( seattle150 )
+	public static MachineHandlerPtr machine_driver_seattle150 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(seattle_flagstaff_common)
 	
 		/* sound hardware */
 		MDRV_IMPORT_FROM(dcs2_audio)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( seattle200 )
+	public static MachineHandlerPtr machine_driver_seattle200 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(seattle150)
 		MDRV_CPU_REPLACE("main", R5000LE, 50000000*4)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( carnevil )
+	public static MachineHandlerPtr machine_driver_carnevil = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(seattle150)
 		MDRV_FRAMES_PER_SECOND(54)
 		MDRV_VIDEO_UPDATE(carnevil)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( flagstaff )
+	public static MachineHandlerPtr machine_driver_flagstaff = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(seattle_flagstaff_common)
 		MDRV_CPU_REPLACE("main", R5000LE, 50000000*4)
 	
@@ -1978,7 +1996,9 @@ public class seattle
 	
 		/* sound hardware */
 		MDRV_IMPORT_FROM(cage_seattle)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

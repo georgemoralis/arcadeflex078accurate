@@ -252,7 +252,9 @@ public class mainsnk
 		MDRV_SOUND_ADD(NAMCO, snkwave_interface)
 	
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_mainsnk = new RomLoadHandlerPtr(){ public void handler(){ 

@@ -549,7 +549,9 @@ public class afega
 		cpu_setbank( 1, spriteram16 );
 	} };
 	
-	static MACHINE_DRIVER_START( stagger1 )
+	public static MachineHandlerPtr machine_driver_stagger1 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main",M68000,10000000)	/* 3.072 MHz */
@@ -579,18 +581,26 @@ public class afega
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, afega_ym2151_intf)
 		MDRV_SOUND_ADD(OKIM6295, afega_m6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( redhawk )
+	public static MachineHandlerPtr machine_driver_redhawk = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(stagger1)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(redhawk_readmem,redhawk_writemem)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( grdnstrm )
+	public static MachineHandlerPtr machine_driver_grdnstrm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 10000000)
@@ -622,16 +632,22 @@ public class afega
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, afega_ym2151_intf)
 		MDRV_SOUND_ADD(OKIM6295, afega_m6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( bubl2000 )
+	public static MachineHandlerPtr machine_driver_bubl2000 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(grdnstrm)
 	
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(bubl2000)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

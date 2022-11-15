@@ -843,7 +843,9 @@ public class artmagic
 			derived frame rate = 15685/312 = 50.27Hz
 	*/
 	
-	MACHINE_DRIVER_START( artmagic )
+	public static MachineHandlerPtr machine_driver_artmagic = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M68000, 25000000/2)
@@ -870,10 +872,14 @@ public class artmagic
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( stonebal )
+	public static MachineHandlerPtr machine_driver_stonebal = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(artmagic)
 	
 		MDRV_CPU_MODIFY("main")
@@ -881,7 +887,9 @@ public class artmagic
 	
 		MDRV_CPU_MODIFY("tms")
 		MDRV_CPU_MEMORY(stonebal_tms_readmem,stonebal_tms_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

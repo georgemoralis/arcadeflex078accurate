@@ -178,7 +178,9 @@ public class kopunch
 	};
 	
 	
-	static MACHINE_DRIVER_START( kopunch )
+	public static MachineHandlerPtr machine_driver_kopunch = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(8080, 4000000)	/* 4 MHz ???? appears to use 8080 instructions, not z80 */
@@ -201,7 +203,9 @@ public class kopunch
 		MDRV_VIDEO_UPDATE(kopunch)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

@@ -796,7 +796,9 @@ public class slapfght
 		buffer_spriteram_w(0,0);
 	} };
 	
-	static MACHINE_DRIVER_START( perfrman )
+	public static MachineHandlerPtr machine_driver_perfrman = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,16000000/4)			/* 4MHz ???, 16MHz Oscillator */
@@ -828,10 +830,14 @@ public class slapfght
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, perfrman_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( tigerhb )
+	public static MachineHandlerPtr machine_driver_tigerhb = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 6000000)
@@ -863,9 +869,13 @@ public class slapfght
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( tigerh )
+	public static MachineHandlerPtr machine_driver_tigerh = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 6000000)
@@ -901,9 +911,13 @@ public class slapfght
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( slapfigh )
+	public static MachineHandlerPtr machine_driver_slapfigh = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main",Z80, 6000000)
@@ -935,17 +949,23 @@ public class slapfght
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/* identical to slapfigh_ but writemem has different scroll registers */
-	static MACHINE_DRIVER_START( slapbtuk )
+	public static MachineHandlerPtr machine_driver_slapbtuk = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(slapfigh)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(readmem,slapbtuk_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_perfrman = new RomLoadHandlerPtr(){ public void handler(){ 

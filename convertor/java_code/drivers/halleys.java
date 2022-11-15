@@ -2015,7 +2015,9 @@ public class halleys
 	);
 	
 	
-	static MACHINE_DRIVER_START( halleys )
+	public static MachineHandlerPtr machine_driver_halleys = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD_TAG("main", M6809, 19968000/4) // 5Mhz?(19.968MHz XTAL)
 		MDRV_CPU_MEMORY(readmem, writemem)
 		MDRV_CPU_VBLANK_INT(halleys_interrupt, 4)
@@ -2042,15 +2044,21 @@ public class halleys
 	
 		// sound hardware
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( benberob )
+	public static MachineHandlerPtr machine_driver_benberob = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM(halleys)
 		MDRV_CPU_REPLACE("main", M6809, 1000000) // 19.968MHz/20? (CAUTION: timing critical)
 		MDRV_CPU_VBLANK_INT(benberob_interrupt, 4)
 		MDRV_VIDEO_UPDATE(benberob)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	//**************************************************************************

@@ -348,7 +348,9 @@ public class aquarium
 		{ 47 }
 	};
 	
-	static MACHINE_DRIVER_START( aquarium )
+	public static MachineHandlerPtr machine_driver_aquarium = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 32000000/2)
@@ -381,7 +383,9 @@ public class aquarium
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static RomLoadHandlerPtr rom_aquarium = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x080000, REGION_CPU1, 0 )     /* 68000 code */

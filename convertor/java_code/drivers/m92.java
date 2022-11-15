@@ -1165,7 +1165,9 @@ public class m92
 		cpu_set_irq_line_and_vector(0,0,HOLD_LINE,M92_IRQ_1);
 	}
 	
-	static MACHINE_DRIVER_START( raster )
+	public static MachineHandlerPtr machine_driver_raster = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V33,18000000/2)	/* NEC V33, 18 MHz clock */
@@ -1192,10 +1194,14 @@ public class m92
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(IREMGA20, iremGA20_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( nonraster )
+	public static MachineHandlerPtr machine_driver_nonraster = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V33, 18000000/2)	 /* NEC V33, 18 MHz clock */
@@ -1223,10 +1229,14 @@ public class m92
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(IREMGA20, iremGA20_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( lethalth )
+	public static MachineHandlerPtr machine_driver_lethalth = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V33, 18000000/2)	/* NEC V33, 18 MHz clock */
@@ -1254,10 +1264,14 @@ public class m92
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(IREMGA20, iremGA20_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( psoldier )
+	public static MachineHandlerPtr machine_driver_psoldier = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(V33, 18000000/2)		/* NEC V33, 18 MHz clock */
@@ -1285,7 +1299,9 @@ public class m92
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(IREMGA20, iremGA20_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************/
 	

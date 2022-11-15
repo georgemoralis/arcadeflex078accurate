@@ -2026,7 +2026,9 @@ public class cave
 									Dangun Feveron
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( dfeveron )
+	public static MachineHandlerPtr machine_driver_dfeveron = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2054,14 +2056,18 @@ public class cave
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YMZ280B, ymz280b_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 									Dodonpachi
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( ddonpach )
+	public static MachineHandlerPtr machine_driver_ddonpach = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2089,14 +2095,18 @@ public class cave
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YMZ280B, ymz280b_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 										Donpachi
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( donpachi )
+	public static MachineHandlerPtr machine_driver_donpachi = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2124,14 +2134,18 @@ public class cave
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_intf_8kHz_16kHz)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 									Esprade
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( esprade )
+	public static MachineHandlerPtr machine_driver_esprade = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2157,14 +2171,18 @@ public class cave
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YMZ280B, ymz280b_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 										Gaia Crusaders
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( gaia )
+	public static MachineHandlerPtr machine_driver_gaia = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2189,14 +2207,18 @@ public class cave
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YMZ280B, ymz280b_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 										Guwange
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( guwange )
+	public static MachineHandlerPtr machine_driver_guwange = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2222,13 +2244,17 @@ public class cave
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YMZ280B, ymz280b_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 									Hotdog Storm
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( hotdogst )
+	public static MachineHandlerPtr machine_driver_hotdogst = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2262,14 +2288,18 @@ public class cave
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2203, ym2203_intf_4MHz)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_intf_8kHz)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 									Mazinger Z
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( mazinger )
+	public static MachineHandlerPtr machine_driver_mazinger = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2303,14 +2333,18 @@ public class cave
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2203, ym2203_intf_4MHz)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_intf_8kHz)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 									Metamoqester
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( metmqstr )
+	public static MachineHandlerPtr machine_driver_metmqstr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,32000000 / 2)
@@ -2344,7 +2378,9 @@ public class cave
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, ym2151_intf_4MHz)	// 32/8 ?
 		MDRV_SOUND_ADD(OKIM6295, metmqstr_okim6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
@@ -2376,7 +2412,9 @@ public class cave
 		{ irqhandler }
 	};
 	
-	static MACHINE_DRIVER_START( pwrinst2 )
+	public static MachineHandlerPtr machine_driver_pwrinst2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2410,14 +2448,18 @@ public class cave
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2203, ym2203_intf_pwrinst2)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_intf_pwrinst2)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 							Sailor Moon / Air Gallet
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( sailormn )
+	public static MachineHandlerPtr machine_driver_sailormn = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2452,14 +2494,18 @@ public class cave
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, ym2151_intf_4MHz)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_intf_16kHz_16kHz)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************
 									Uo Poko
 	***************************************************************************/
 	
-	static MACHINE_DRIVER_START( uopoko )
+	public static MachineHandlerPtr machine_driver_uopoko = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -2484,7 +2530,9 @@ public class cave
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YMZ280B, ymz280b_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

@@ -559,7 +559,9 @@ public class fuukifg2
 		}
 	} };
 	
-	static MACHINE_DRIVER_START( fuuki16 )
+	public static MachineHandlerPtr machine_driver_fuuki16 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 16000000)
@@ -589,7 +591,9 @@ public class fuukifg2
 		MDRV_SOUND_ADD(YM2203, fuuki16_ym2203_intf)
 		MDRV_SOUND_ADD(YM3812, fuuki16_ym3812_intf)
 		MDRV_SOUND_ADD(OKIM6295, fuuki16_m6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

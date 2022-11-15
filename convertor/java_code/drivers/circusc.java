@@ -247,7 +247,9 @@ public class circusc
 	
 	
 	
-	static MACHINE_DRIVER_START( circusc )
+	public static MachineHandlerPtr machine_driver_circusc = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 2048000)        /* 2 MHz */
@@ -276,7 +278,9 @@ public class circusc
 		/* sound hardware */
 		MDRV_SOUND_ADD(SN76496, sn76496_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

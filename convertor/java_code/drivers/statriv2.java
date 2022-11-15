@@ -432,7 +432,9 @@ public class statriv2
 		cpu_set_irq_line(0, I8085_RST75_LINE, HOLD_LINE);
 	} };
 	
-	static MACHINE_DRIVER_START( statriv2 )
+	public static MachineHandlerPtr machine_driver_statriv2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(8085A,12400000)              /* 12.4MHz / 4? */
 		MDRV_CPU_MEMORY(statriv2_readmem,statriv2_writemem)
@@ -458,9 +460,13 @@ public class statriv2
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( supertr2 )
+	public static MachineHandlerPtr machine_driver_supertr2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(8085A,12400000)              /* 12.4MHz / 4? */
 		MDRV_CPU_MEMORY(supertr2_readmem,supertr2_writemem)
@@ -486,9 +492,13 @@ public class statriv2
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( trivquiz )
+	public static MachineHandlerPtr machine_driver_trivquiz = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(8085A,12400000)              /* 12.4MHz / 4? */
 		MDRV_CPU_MEMORY(supertr2_readmem,supertr2_writemem)
@@ -514,7 +524,9 @@ public class statriv2
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static RomLoadHandlerPtr rom_statriv2 = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )

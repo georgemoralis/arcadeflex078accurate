@@ -411,7 +411,9 @@ public class route16
 	);
 	
 	
-	static MACHINE_DRIVER_START( route16 )
+	public static MachineHandlerPtr machine_driver_route16 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("cpu1", Z80, 2500000)	/* 10MHz / 4 = 2.5MHz */
@@ -438,17 +440,25 @@ public class route16
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( routex )
+	public static MachineHandlerPtr machine_driver_routex = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(route16)
 		MDRV_CPU_MODIFY("cpu1")
 		MDRV_CPU_MEMORY(routex_cpu1_readmem,routex_cpu1_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( stratvox )
+	public static MachineHandlerPtr machine_driver_stratvox = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(route16)
@@ -456,25 +466,35 @@ public class route16
 		/* sound hardware */
 		MDRV_SOUND_ADD(SN76477, sn76477_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( speakres )
+	public static MachineHandlerPtr machine_driver_speakres = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(stratvox)
 		MDRV_CPU_MODIFY("cpu1")
 		MDRV_CPU_MEMORY(altcpu1_readmem,altcpu1_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( spacecho )
+	public static MachineHandlerPtr machine_driver_spacecho = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(speakres)
 		MDRV_CPU_MODIFY("cpu2")
 		MDRV_CPU_VBLANK_INT(irq0_line_hold,48)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

@@ -250,7 +250,9 @@ public class gotcha
 	
 	
 	
-	static MACHINE_DRIVER_START( gotcha )
+	public static MachineHandlerPtr machine_driver_gotcha = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,12000000)	/* 12 MHz ? */
@@ -278,7 +280,9 @@ public class gotcha
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, m6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

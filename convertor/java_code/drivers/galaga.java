@@ -384,7 +384,9 @@ public class galaga
 	);
 	
 	
-	static MACHINE_DRIVER_START( galaga )
+	public static MachineHandlerPtr machine_driver_galaga = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3125000)        /* 3.125 MHz */
@@ -420,7 +422,9 @@ public class galaga
 		/* sound hardware */
 		MDRV_SOUND_ADD(NAMCO, namco_interface)
 		MDRV_SOUND_ADD(SAMPLES, samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

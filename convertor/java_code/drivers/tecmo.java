@@ -576,7 +576,9 @@ public class tecmo
 	
 	
 	
-	static MACHINE_DRIVER_START( rygar )
+	public static MachineHandlerPtr machine_driver_rygar = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, 4000000)
@@ -603,10 +605,14 @@ public class tecmo
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3812, ym3812_interface)
 		MDRV_SOUND_ADD(MSM5205, msm5205_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( gemini )
+	public static MachineHandlerPtr machine_driver_gemini = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(rygar)
@@ -615,16 +621,22 @@ public class tecmo
 	
 		MDRV_CPU_MODIFY("sound")
 		MDRV_CPU_MEMORY(tecmo_sound_readmem,tecmo_sound_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( silkworm )
+	public static MachineHandlerPtr machine_driver_silkworm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(gemini)
 		MDRV_CPU_REPLACE("main", Z80, 6000000)
 		MDRV_CPU_MEMORY(readmem,silkworm_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

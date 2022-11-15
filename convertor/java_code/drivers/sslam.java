@@ -245,7 +245,9 @@ public class sslam
 	
 	/* Machine Driver */
 	
-	static MACHINE_DRIVER_START( sslam )
+	public static MachineHandlerPtr machine_driver_sslam = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)	/* 12 MHz? */
@@ -267,7 +269,9 @@ public class sslam
 	
 		/* sound hardware */
 	//	MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static RomLoadHandlerPtr rom_sslam = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0xD00000, REGION_CPU1, 0 ) /* 68000 Code */

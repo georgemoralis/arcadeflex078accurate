@@ -942,7 +942,9 @@ public class dooyong
 	
 	
 	
-	static MACHINE_DRIVER_START( lastday )
+	public static MachineHandlerPtr machine_driver_lastday = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 8000000)	/* ??? */
@@ -968,9 +970,13 @@ public class dooyong
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( gulfstrm )
+	public static MachineHandlerPtr machine_driver_gulfstrm = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 8000000)	/* ??? */
@@ -996,9 +1002,13 @@ public class dooyong
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( pollux )
+	public static MachineHandlerPtr machine_driver_pollux = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 8000000)	/* ??? */
@@ -1024,9 +1034,13 @@ public class dooyong
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( bluehawk )
+	public static MachineHandlerPtr machine_driver_bluehawk = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 8000000)	/* ??? */
@@ -1053,9 +1067,13 @@ public class dooyong
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, bluehawk_ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( primella )
+	public static MachineHandlerPtr machine_driver_primella = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 8000000)	/* ??? */
@@ -1082,7 +1100,9 @@ public class dooyong
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, primella_ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	public static InterruptHandlerPtr rshark_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)
@@ -1091,7 +1111,9 @@ public class dooyong
 			cpu_set_irq_line(0, 6, HOLD_LINE);
 	} };
 	
-	static MACHINE_DRIVER_START( rshark )
+	public static MachineHandlerPtr machine_driver_rshark = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 8000000)	/* measured on super-x */
@@ -1118,9 +1140,13 @@ public class dooyong
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, primella_ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( superx ) // dif mem map
+	public static MachineHandlerPtr machine_driver_superx = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);// dif mem map
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 8000000)	/* measured on super-x */
@@ -1147,7 +1173,9 @@ public class dooyong
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2151, primella_ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static RomLoadHandlerPtr rom_lastday = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x30000, REGION_CPU1, 0 )	/* 64k for code + 128k for banks */

@@ -481,7 +481,9 @@ public class esd16
 		{ 80 }
 	};
 	
-	static MACHINE_DRIVER_START( multchmp )
+	public static MachineHandlerPtr machine_driver_multchmp = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main",M68000, 16000000)
@@ -510,9 +512,13 @@ public class esd16
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3812, esd16_ym3812_intf)
 		MDRV_SOUND_ADD(OKIM6295, esd16_m6295_intf)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( hedpanic )
+	public static MachineHandlerPtr machine_driver_hedpanic = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(multchmp)
@@ -527,7 +533,9 @@ public class esd16
 		MDRV_GFXDECODE(hedpanic_gfxdecodeinfo)
 		MDRV_VIDEO_UPDATE(hedpanic)
 	
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

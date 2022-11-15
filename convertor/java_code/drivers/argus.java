@@ -793,7 +793,9 @@ public class argus
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static MACHINE_DRIVER_START( argus )
+	public static MachineHandlerPtr machine_driver_argus = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 5000000)			/* 4 MHz */
@@ -821,9 +823,13 @@ public class argus
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, argus_ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( valtric )
+	public static MachineHandlerPtr machine_driver_valtric = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 5000000)			/* 5 MHz */
@@ -851,9 +857,13 @@ public class argus
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, valtric_ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( butasan )
+	public static MachineHandlerPtr machine_driver_butasan = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 5000000)			/* 5 MHz */
@@ -881,7 +891,9 @@ public class argus
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, butasan_ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

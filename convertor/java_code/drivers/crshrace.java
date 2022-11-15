@@ -637,7 +637,9 @@ public class crshrace
 	
 	
 	
-	static MACHINE_DRIVER_START( crshrace )
+	public static MachineHandlerPtr machine_driver_crshrace = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,16000000)	/* 16 MHz ??? */
@@ -665,7 +667,9 @@ public class crshrace
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2610, ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_crshrace = new RomLoadHandlerPtr(){ public void handler(){ 

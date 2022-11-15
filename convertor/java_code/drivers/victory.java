@@ -355,7 +355,9 @@ public class victory
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( victory )
+	public static MachineHandlerPtr machine_driver_victory = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 4000000)
@@ -385,7 +387,9 @@ public class victory
 		/* sound hardware */
 		MDRV_SOUND_ADD(CUSTOM, custom_interface)
 		MDRV_SOUND_ADD(TMS5220, tms5220_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

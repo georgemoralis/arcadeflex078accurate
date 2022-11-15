@@ -173,7 +173,9 @@ public class pkunwar
 	
 	
 	
-	static MACHINE_DRIVER_START( pkunwar )
+	public static MachineHandlerPtr machine_driver_pkunwar = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 12000000/4)	/* 3 MHz */
@@ -198,7 +200,9 @@ public class pkunwar
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

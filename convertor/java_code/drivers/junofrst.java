@@ -363,7 +363,9 @@ public class junofrst
 	);
 	
 	
-	static MACHINE_DRIVER_START( junofrst )
+	public static MachineHandlerPtr machine_driver_junofrst = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 1500000)			/* 1.5 MHz ??? */
@@ -394,7 +396,9 @@ public class junofrst
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_junofrst = new RomLoadHandlerPtr(){ public void handler(){ 

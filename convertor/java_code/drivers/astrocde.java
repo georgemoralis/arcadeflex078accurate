@@ -613,7 +613,9 @@ public class astrocde
 	
 	
 	
-	static MACHINE_DRIVER_START( seawolf2 )
+	public static MachineHandlerPtr machine_driver_seawolf2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 1789773)	/* 1.789 MHz */
@@ -635,9 +637,13 @@ public class astrocde
 		MDRV_VIDEO_UPDATE(seawolf2)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( spacezap )
+	public static MachineHandlerPtr machine_driver_spacezap = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 1789773)	/* 1.789 MHz */
@@ -660,9 +666,13 @@ public class astrocde
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(ASTROCADE, astrocade_2chip_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( ebases )
+	public static MachineHandlerPtr machine_driver_ebases = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 1789773)	/* 1.789 MHz */
@@ -685,9 +695,13 @@ public class astrocde
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(ASTROCADE, astrocade_1chip_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( wow )
+	public static MachineHandlerPtr machine_driver_wow = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 1789773)	/* 1.789 MHz */
@@ -712,9 +726,13 @@ public class astrocde
 		MDRV_SOUND_ADD(ASTROCADE, astrocade_2chip_interface)
 		MDRV_SOUND_ADD(SAMPLES, wow_samples_interface)
 		MDRV_SOUND_ADD(CUSTOM, wow_custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( gorf )
+	public static MachineHandlerPtr machine_driver_gorf = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 1789773)	/* 1.789 MHz */
@@ -742,9 +760,13 @@ public class astrocde
 		MDRV_SOUND_ADD(ASTROCADE, astrocade_2chip_interface)
 		MDRV_SOUND_ADD(SAMPLES, gorf_samples_interface)
 		MDRV_SOUND_ADD(CUSTOM, gorf_custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( robby )
+	public static MachineHandlerPtr machine_driver_robby = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 1789773)	/* 1.789 MHz */
@@ -767,9 +789,13 @@ public class astrocde
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(ASTROCADE, astrocade_2chip_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( profpac )
+	public static MachineHandlerPtr machine_driver_profpac = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 1789773)	/* 1.789 MHz */
@@ -792,7 +818,9 @@ public class astrocde
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(ASTROCADE, astrocade_2chip_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

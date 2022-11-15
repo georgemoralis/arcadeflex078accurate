@@ -89,7 +89,9 @@ public class namcos10
 		psx_machine_init();
 	} };
 	
-	static MACHINE_DRIVER_START( namcos10 )
+	public static MachineHandlerPtr machine_driver_namcos10 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD( PSXCPU, 33868800 / 2 ) /* 33MHz ?? */
 		MDRV_CPU_MEMORY( namcos10_readmem, namcos10_writemem )
@@ -119,7 +121,9 @@ public class namcos10
 	
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES( SOUND_SUPPORTS_STEREO )
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static InputPortHandlerPtr input_ports_namcos10 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( namcos10 )
 		/* IN 0 */

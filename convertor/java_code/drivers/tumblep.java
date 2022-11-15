@@ -747,7 +747,9 @@ public class tumblep
 		{ 0 }
 	};
 	
-	static MACHINE_DRIVER_START( tumblep )
+	public static MachineHandlerPtr machine_driver_tumblep = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 14000000)
@@ -775,10 +777,14 @@ public class tumblep
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( tumblepb )
+	public static MachineHandlerPtr machine_driver_tumblepb = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 14000000)
@@ -800,9 +806,13 @@ public class tumblep
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface2)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( jumpkids )
+	public static MachineHandlerPtr machine_driver_jumpkids = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 14000000)
@@ -826,9 +836,13 @@ public class tumblep
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface2)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( fncywld )
+	public static MachineHandlerPtr machine_driver_fncywld = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)
 		MDRV_CPU_MEMORY(fncywld_readmem,fncywld_writemem)
@@ -851,7 +865,9 @@ public class tumblep
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, fncy_ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, fncy_okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static void semicom_irqhandler(int irq)
 	{
@@ -876,7 +892,9 @@ public class tumblep
 	};
 	
 	
-	static MACHINE_DRIVER_START( htchctch )
+	public static MachineHandlerPtr machine_driver_htchctch = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 15000000) /* verified */
 		MDRV_CPU_MEMORY(htchctch_readmem,htchctch_writemem)
@@ -904,7 +922,9 @@ public class tumblep
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, semicom_ym2151_interface)
 		MDRV_SOUND_ADD(OKIM6295, semicom_okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/******************************************************************************/
 	

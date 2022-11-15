@@ -667,7 +667,9 @@ public class namcos11
 		psx_machine_init();
 	} };
 	
-	static MACHINE_DRIVER_START( coh100 )
+	public static MachineHandlerPtr machine_driver_coh100 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD( PSXCPU, 33868800 / 2 ) /* 33MHz ?? */
 		MDRV_CPU_MEMORY( namcos11_readmem, namcos11_writemem )
@@ -697,12 +699,18 @@ public class namcos11
 	
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES( SOUND_SUPPORTS_STEREO )
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( coh110 )
+	public static MachineHandlerPtr machine_driver_coh110 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_IMPORT_FROM( coh100 )
 		MDRV_VIDEO_START( psx_type2_1024x1024 )
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static InputPortHandlerPtr input_ports_namcos11 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( namcos11 )
 		/* IN 0 */

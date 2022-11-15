@@ -349,7 +349,9 @@ public class starshp1
 	};
 	
 	
-	static MACHINE_DRIVER_START( starshp1 )
+	public static MachineHandlerPtr machine_driver_starshp1 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 	
@@ -375,7 +377,9 @@ public class starshp1
 		MDRV_VIDEO_EOF(starshp1)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

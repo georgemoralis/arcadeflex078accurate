@@ -361,7 +361,9 @@ public class redclash
 	
 	
 	
-	static MACHINE_DRIVER_START( zerohour )
+	public static MachineHandlerPtr machine_driver_zerohour = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 4000000)  /* 4 MHz */
@@ -384,10 +386,14 @@ public class redclash
 		MDRV_VIDEO_UPDATE(redclash)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( redclash )
+	public static MachineHandlerPtr machine_driver_redclash = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 4000000)  /* 4 MHz */
@@ -410,7 +416,9 @@ public class redclash
 		MDRV_VIDEO_UPDATE(redclash)
 	
 		/* sound hardware */
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

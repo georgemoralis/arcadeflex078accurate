@@ -250,7 +250,9 @@ public class contra
 	
 	
 	
-	static MACHINE_DRIVER_START( contra )
+	public static MachineHandlerPtr machine_driver_contra = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 	 	MDRV_CPU_ADD(M6809, 1500000)
@@ -280,7 +282,9 @@ public class contra
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

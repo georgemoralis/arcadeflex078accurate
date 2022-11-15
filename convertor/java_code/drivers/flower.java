@@ -255,7 +255,9 @@ public class flower
 	
 	
 	
-	static MACHINE_DRIVER_START( flower )
+	public static MachineHandlerPtr machine_driver_flower = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,8000000)
@@ -288,7 +290,9 @@ public class flower
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(CUSTOM, custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_flower = new RomLoadHandlerPtr(){ public void handler(){ 

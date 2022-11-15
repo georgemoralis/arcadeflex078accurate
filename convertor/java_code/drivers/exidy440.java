@@ -1089,7 +1089,9 @@ public class exidy440
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( exidy440 )
+	public static MachineHandlerPtr machine_driver_exidy440 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809,12979200/8)
@@ -1120,7 +1122,9 @@ public class exidy440
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(CUSTOM, custom_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

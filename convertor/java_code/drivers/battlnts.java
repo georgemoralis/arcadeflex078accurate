@@ -342,7 +342,9 @@ public class battlnts
 		{ 0, 0 },
 	};
 	
-	static MACHINE_DRIVER_START( battlnts )
+	public static MachineHandlerPtr machine_driver_battlnts = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(HD6309, 3000000)		/* ? */
@@ -368,7 +370,9 @@ public class battlnts
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3812, ym3812_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

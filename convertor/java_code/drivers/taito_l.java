@@ -2248,7 +2248,9 @@ public class taito_l
 	};
 	
 	
-	static MACHINE_DRIVER_START( fhawk )
+	public static MachineHandlerPtr machine_driver_fhawk = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("cpu1", Z80, 6000000)	/* ? xtal is 13.33056 */
@@ -2282,10 +2284,14 @@ public class taito_l
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("2203", YM2203, ym2203_interface_triple)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( champwr )
+	public static MachineHandlerPtr machine_driver_champwr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(fhawk)
@@ -2302,10 +2308,14 @@ public class taito_l
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(ADPCM, adpcm_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( raimais )
+	public static MachineHandlerPtr machine_driver_raimais = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(fhawk)
@@ -2322,10 +2332,14 @@ public class taito_l
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("2203", YM2610, ym2610_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( kurikint )
+	public static MachineHandlerPtr machine_driver_kurikint = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 6000000)	/* ? xtal is 13.33056 */
@@ -2355,20 +2369,28 @@ public class taito_l
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface_double)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( kurikina )
+	public static MachineHandlerPtr machine_driver_kurikina = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(kurikint)
 	
 		/* video hardware */
 		MDRV_GFXDECODE(gfxdecodeinfo1)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( plotting )
+	public static MachineHandlerPtr machine_driver_plotting = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, 6000000)	/* ? xtal is 13.33056 */
@@ -2393,10 +2415,14 @@ public class taito_l
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface_single)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( puzznic )
+	public static MachineHandlerPtr machine_driver_puzznic = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(plotting)
@@ -2404,10 +2430,14 @@ public class taito_l
 		MDRV_CPU_MEMORY(puzznic_readmem,puzznic_writemem)
 	
 		MDRV_MACHINE_INIT(puzznic)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( horshoes )
+	public static MachineHandlerPtr machine_driver_horshoes = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(plotting)
@@ -2415,10 +2445,14 @@ public class taito_l
 		MDRV_CPU_MEMORY(horshoes_readmem,horshoes_writemem)
 	
 		MDRV_MACHINE_INIT(horshoes)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( palamed )
+	public static MachineHandlerPtr machine_driver_palamed = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(plotting)
@@ -2426,10 +2460,14 @@ public class taito_l
 		MDRV_CPU_MEMORY(palamed_readmem,palamed_writemem)
 	
 		MDRV_MACHINE_INIT(palamed)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( cachat )
+	public static MachineHandlerPtr machine_driver_cachat = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(plotting)
@@ -2437,9 +2475,13 @@ public class taito_l
 		MDRV_CPU_MEMORY(cachat_readmem,cachat_writemem)
 	
 		MDRV_MACHINE_INIT(cachat)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( evilston )
+	public static MachineHandlerPtr machine_driver_evilston = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 6000000)
@@ -2469,7 +2511,9 @@ public class taito_l
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface_evilston)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

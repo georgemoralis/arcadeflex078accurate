@@ -440,7 +440,9 @@ public class konamigq
 		tms57002_init();
 	} };
 	
-	static MACHINE_DRIVER_START( konamigq )
+	public static MachineHandlerPtr machine_driver_konamigq = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		/* basic machine hardware */
 		MDRV_CPU_ADD( PSXCPU, 33868800 / 2 ) /* 33MHz ?? */
 		MDRV_CPU_MEMORY( konamigq_readmem, konamigq_writemem )
@@ -476,7 +478,9 @@ public class konamigq
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES( SOUND_SUPPORTS_STEREO )
 		MDRV_SOUND_ADD( K054539, k054539_interface )
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static InputPortHandlerPtr input_ports_konamigq = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( konamigq )
 		/* IN 0 */

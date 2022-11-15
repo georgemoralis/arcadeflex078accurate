@@ -417,7 +417,9 @@ public class gng
 	
 	
 	
-	static MACHINE_DRIVER_START( gng )
+	public static MachineHandlerPtr machine_driver_gng = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M6809, 1500000)			/* 1.5 MHz ? */
@@ -445,7 +447,9 @@ public class gng
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

@@ -272,7 +272,9 @@ public class tail2nos
 	
 	
 	
-	static MACHINE_DRIVER_START( tail2nos )
+	public static MachineHandlerPtr machine_driver_tail2nos = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,20000000/2)	/* 10 MHz (?) */
@@ -302,7 +304,9 @@ public class tail2nos
 		/* sound hardware */
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2608, ym2608_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

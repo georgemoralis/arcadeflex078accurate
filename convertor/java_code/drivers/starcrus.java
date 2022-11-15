@@ -174,7 +174,9 @@ public class starcrus
 	);
 	
 	
-	static MACHINE_DRIVER_START( starcrus )
+	public static MachineHandlerPtr machine_driver_starcrus = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(8080,9750000/9)  /* 8224 chip is a divide by 9 */
@@ -199,7 +201,9 @@ public class starcrus
 	
 	    /* sound hardware */
 		MDRV_SOUND_ADD(SAMPLES, samples_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

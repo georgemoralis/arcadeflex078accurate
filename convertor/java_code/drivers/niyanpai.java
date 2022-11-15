@@ -517,7 +517,9 @@ public class niyanpai
 	);
 	
 	
-	static MACHINE_DRIVER_START( niyanpai )
+	public static MachineHandlerPtr machine_driver_niyanpai = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,12288000/2)		/* TMP68301, 6.144 MHz */
@@ -548,7 +550,9 @@ public class niyanpai
 		/* sound hardware */
 		MDRV_SOUND_ADD(YM3812, ym3812_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_niyanpai = new RomLoadHandlerPtr(){ public void handler(){ 

@@ -734,7 +734,9 @@ public class lasso
 		new WriteHandlerPtr[] { 0, 0 }
 	);
 	
-	static MACHINE_DRIVER_START( lasso )
+	public static MachineHandlerPtr machine_driver_lasso = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M6502, 2000000)	/* 2 MHz (?) */
@@ -765,9 +767,13 @@ public class lasso
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("sn76496", SN76496, sn76496_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( chameleo )
+	public static MachineHandlerPtr machine_driver_chameleo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(lasso)
@@ -781,9 +787,13 @@ public class lasso
 	
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(chameleo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( wwjgtin )
+	public static MachineHandlerPtr machine_driver_wwjgtin = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(lasso)
@@ -807,9 +817,13 @@ public class lasso
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( pinbo )
+	public static MachineHandlerPtr machine_driver_pinbo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(lasso)
@@ -833,7 +847,9 @@ public class lasso
 		/* sound hardware */
 		MDRV_SOUND_REMOVE("sn76496")
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_lasso = new RomLoadHandlerPtr(){ public void handler(){ 

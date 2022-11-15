@@ -410,7 +410,9 @@ public class liberatr
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( liberatr )
+	public static MachineHandlerPtr machine_driver_liberatr = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M6502, 1250000)
@@ -433,16 +435,22 @@ public class liberatr
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(POKEY, pokey_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( liberat2 )
+	public static MachineHandlerPtr machine_driver_liberat2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(liberatr)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(liberat2_readmem,liberat2_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

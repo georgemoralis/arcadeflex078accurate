@@ -302,7 +302,9 @@ public class fcombat
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( fcombat )
+	public static MachineHandlerPtr machine_driver_fcombat = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_CPU_ADD(Z80, 10000000/3)
 		MDRV_CPU_MEMORY(fcombat_readmem,fcombat_writemem)
@@ -327,7 +329,9 @@ public class fcombat
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/*************************************
 	 *

@@ -370,7 +370,9 @@ public class arcadecl
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( arcadecl )
+	public static MachineHandlerPtr machine_driver_arcadecl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000,	ATARI_CLOCK_14MHz)
@@ -395,7 +397,9 @@ public class arcadecl
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

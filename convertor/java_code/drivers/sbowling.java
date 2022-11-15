@@ -353,7 +353,9 @@ public class sbowling
 		}
 	} };
 	
-	static MACHINE_DRIVER_START( sbowling )
+	public static MachineHandlerPtr machine_driver_sbowling = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_CPU_ADD(8080, 19968000/10 )
 		MDRV_CPU_MEMORY(readmem,writemem)
@@ -372,7 +374,9 @@ public class sbowling
 		MDRV_VIDEO_START(sbowling)
 		MDRV_VIDEO_UPDATE(sbowling)
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static RomLoadHandlerPtr rom_sbowling = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x10000, REGION_CPU1, 0 )	

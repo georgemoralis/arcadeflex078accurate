@@ -265,7 +265,9 @@ public class spcforce
 	};
 	
 	
-	static MACHINE_DRIVER_START( spcforce )
+	public static MachineHandlerPtr machine_driver_spcforce = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(8085A, 4000000)        /* 4.00 MHz??? */
@@ -294,7 +296,9 @@ public class spcforce
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(SN76496, sn76496_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

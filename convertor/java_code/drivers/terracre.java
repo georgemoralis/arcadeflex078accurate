@@ -591,7 +591,9 @@ public class terracre
 		new int[] { 50, 50 }
 	);
 	
-	static MACHINE_DRIVER_START( amazon )
+	public static MachineHandlerPtr machine_driver_amazon = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68000, 8000000 )
 		MDRV_CPU_MEMORY(amazon_readmem,amazon_writemem)
 		MDRV_CPU_VBLANK_INT(irq1_line_hold,1)
@@ -618,9 +620,13 @@ public class terracre
 	
 		MDRV_SOUND_ADD(YM3526, ym3526_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( ym3526 )
+	public static MachineHandlerPtr machine_driver_ym3526 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68000, 8000000 )
 		MDRV_CPU_MEMORY(terracre_readmem,terracre_writemem)
 		MDRV_CPU_VBLANK_INT(irq1_line_hold,1)
@@ -647,9 +653,13 @@ public class terracre
 	
 		MDRV_SOUND_ADD(YM3526, ym3526_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( ym2203 )
+	public static MachineHandlerPtr machine_driver_ym2203 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD(M68000, 8000000) /* 8 MHz?? */
 		MDRV_CPU_MEMORY(terracre_readmem,terracre_writemem)
 		MDRV_CPU_VBLANK_INT(irq1_line_hold,1)
@@ -676,7 +686,9 @@ public class terracre
 	
 		MDRV_SOUND_ADD(YM2203, ym2203_interface)
 		MDRV_SOUND_ADD(DAC, dac_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	static RomLoadHandlerPtr rom_terracre = new RomLoadHandlerPtr(){ public void handler(){ 
 		ROM_REGION( 0x20000, REGION_CPU1, 0 )	/* 128K for 68000 code */

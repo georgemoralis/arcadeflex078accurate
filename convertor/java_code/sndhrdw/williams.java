@@ -248,7 +248,9 @@ public class williams
 		MACHINE DRIVERS
 	****************************************************************************/
 	
-	MACHINE_DRIVER_START( williams_cvsd_sound )
+	public static MachineHandlerPtr machine_driver_williams_cvsd_sound = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD_TAG("cvsd", M6809, 8000000/4)
 		MDRV_CPU_FLAGS(CPU_AUDIO_CPU)
 		MDRV_CPU_MEMORY(williams_cvsd_readmem,williams_cvsd_writemem)
@@ -257,10 +259,14 @@ public class williams
 		MDRV_SOUND_ADD(YM2151, cvsd_ym2151_interface)
 		MDRV_SOUND_ADD(DAC,    single_dac_interface)
 		MDRV_SOUND_ADD(HC55516,cvsd_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( williams_adpcm_sound )
+	public static MachineHandlerPtr machine_driver_williams_adpcm_sound = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD_TAG("adpcm", M6809, 8000000/4)
 		MDRV_CPU_FLAGS(CPU_AUDIO_CPU)
 		MDRV_CPU_MEMORY(williams_adpcm_readmem,williams_adpcm_writemem)
@@ -269,10 +275,14 @@ public class williams
 		MDRV_SOUND_ADD(YM2151,  adpcm_ym2151_interface)
 		MDRV_SOUND_ADD(DAC,     single_dac_interface)
 		MDRV_SOUND_ADD(OKIM6295,adpcm_6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	MACHINE_DRIVER_START( williams_narc_sound )
+	public static MachineHandlerPtr machine_driver_williams_narc_sound = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 		MDRV_CPU_ADD_TAG("narc1", M6809, 8000000/4)
 		MDRV_CPU_FLAGS(CPU_AUDIO_CPU)
 		MDRV_CPU_MEMORY(williams_narc_master_readmem,williams_narc_master_writemem)
@@ -285,7 +295,9 @@ public class williams
 		MDRV_SOUND_ADD(YM2151, adpcm_ym2151_interface)
 		MDRV_SOUND_ADD(DAC,    double_dac_interface)
 		MDRV_SOUND_ADD(HC55516,cvsd_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	

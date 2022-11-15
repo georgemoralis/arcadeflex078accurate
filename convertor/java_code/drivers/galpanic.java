@@ -878,7 +878,9 @@ public class galpanic
 		watchdog_reset_r(0);
 	} };
 	
-	static MACHINE_DRIVER_START( galpanic )
+	public static MachineHandlerPtr machine_driver_galpanic = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M68000, 8000000)
@@ -902,10 +904,14 @@ public class galpanic
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(OKIM6295, okim6295_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( galpanib )
+	public static MachineHandlerPtr machine_driver_galpanib = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(galpanic)
@@ -914,10 +920,14 @@ public class galpanic
 	
 		/* arm watchdog */
 		MDRV_MACHINE_INIT(galpanib)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( comad )
+	public static MachineHandlerPtr machine_driver_comad = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(galpanic)
@@ -926,10 +936,14 @@ public class galpanic
 	
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(comad)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( fantsia2 )
+	public static MachineHandlerPtr machine_driver_fantsia2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(comad)
@@ -938,9 +952,13 @@ public class galpanic
 	
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(comad)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( galhustl )
+	public static MachineHandlerPtr machine_driver_galhustl = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(comad)
@@ -950,7 +968,9 @@ public class galpanic
 	
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(comad)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

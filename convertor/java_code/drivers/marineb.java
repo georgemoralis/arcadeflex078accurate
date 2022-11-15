@@ -562,7 +562,9 @@ public class marineb
 	);
 	
 	
-	static MACHINE_DRIVER_START( marineb )
+	public static MachineHandlerPtr machine_driver_marineb = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", Z80, 3072000)	/* 3.072 MHz */
@@ -588,10 +590,14 @@ public class marineb
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD_TAG("8910", AY8910, marineb_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( changes )
+	public static MachineHandlerPtr machine_driver_changes = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(marineb)
@@ -599,10 +605,14 @@ public class marineb
 		/* video hardware */
 		MDRV_GFXDECODE(changes_gfxdecodeinfo)
 		MDRV_VIDEO_UPDATE(changes)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( springer )
+	public static MachineHandlerPtr machine_driver_springer = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(marineb)
@@ -610,10 +620,14 @@ public class marineb
 	
 		/* video hardware */
 		MDRV_VIDEO_UPDATE(springer)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( hoccer )
+	public static MachineHandlerPtr machine_driver_hoccer = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(marineb)
@@ -621,10 +635,14 @@ public class marineb
 		/* video hardware */
 		MDRV_GFXDECODE(hoccer_gfxdecodeinfo)
 		MDRV_VIDEO_UPDATE(hoccer)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( wanted )
+	public static MachineHandlerPtr machine_driver_wanted = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(marineb)
@@ -638,10 +656,14 @@ public class marineb
 	
 		/* sound hardware */
 		MDRV_SOUND_REPLACE("8910", AY8910, wanted_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( hopprobo )
+	public static MachineHandlerPtr machine_driver_hopprobo = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(marineb)
@@ -649,10 +671,14 @@ public class marineb
 		/* video hardware */
 		MDRV_GFXDECODE(hopprobo_gfxdecodeinfo)
 		MDRV_VIDEO_UPDATE(hopprobo)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( bcruzm12 )
+	public static MachineHandlerPtr machine_driver_bcruzm12 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80, 3072000)	/* 3.072 MHz  */
@@ -677,7 +703,9 @@ public class marineb
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, wanted_ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	/***************************************************************************
 	

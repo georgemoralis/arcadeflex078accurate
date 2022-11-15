@@ -182,7 +182,9 @@ public class hanaawas
 	);
 	
 	
-	static MACHINE_DRIVER_START( hanaawas )
+	public static MachineHandlerPtr machine_driver_hanaawas = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(Z80,18432000/6)	/* 3.072 MHz ??? */
@@ -207,7 +209,9 @@ public class hanaawas
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/***************************************************************************

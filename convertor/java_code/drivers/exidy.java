@@ -951,7 +951,9 @@ public class exidy
 	 *
 	 *************************************/
 	
-	static MACHINE_DRIVER_START( targ )
+	public static MachineHandlerPtr machine_driver_targ = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD_TAG("main", M6502, 11289000/16)
@@ -978,19 +980,27 @@ public class exidy
 		MDRV_SOUND_ADD_TAG("custom", CUSTOM,  targ_custom_interface)
 		MDRV_SOUND_ADD_TAG("sample", SAMPLES, targ_samples_interface)
 		MDRV_SOUND_ADD_TAG("dac",    DAC,     targ_DAC_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
-	static MACHINE_DRIVER_START( rallys )
+	public static MachineHandlerPtr machine_driver_rallys = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		MDRV_IMPORT_FROM(targ)
 	
 		/* basic machine hardware */
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(main_readmem,rallys_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( venture )
+	public static MachineHandlerPtr machine_driver_venture = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(targ)
@@ -1005,10 +1015,14 @@ public class exidy
 		MDRV_SOUND_REPLACE("custom", CUSTOM, exidy_custom_interface)
 		MDRV_SOUND_REMOVE("sample")
 		MDRV_SOUND_REMOVE("dac")
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( mtrap )
+	public static MachineHandlerPtr machine_driver_mtrap = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(venture)
@@ -1022,10 +1036,14 @@ public class exidy
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(HC55516, cvsd_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( pepper2 )
+	public static MachineHandlerPtr machine_driver_pepper2 = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(venture)
@@ -1033,25 +1051,35 @@ public class exidy
 	
 		/* video hardware */
 		MDRV_GFXDECODE(gfxdecodeinfo_2bpp)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( fax )
+	public static MachineHandlerPtr machine_driver_fax = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(pepper2)
 		MDRV_CPU_MODIFY("main")
 		MDRV_CPU_MEMORY(fax_readmem,fax_writemem)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
-	static MACHINE_DRIVER_START( phantoma )
+	public static MachineHandlerPtr machine_driver_phantoma = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_IMPORT_FROM(rallys)
 	
 		MDRV_GFXDECODE(gfxdecodeinfo_2bpp)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	/*************************************

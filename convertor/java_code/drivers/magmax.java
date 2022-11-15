@@ -347,7 +347,9 @@ public class magmax
 	);
 	
 	
-	static MACHINE_DRIVER_START( magmax )
+	public static MachineHandlerPtr machine_driver_magmax = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 8000000)	/* 8 MHz */
@@ -379,7 +381,9 @@ public class magmax
 	
 		/* sound hardware */
 		MDRV_SOUND_ADD(AY8910, ay8910_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_magmax = new RomLoadHandlerPtr(){ public void handler(){ 

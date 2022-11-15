@@ -294,7 +294,9 @@ public class asterix
 		{ 0 }
 	};
 	
-	static MACHINE_DRIVER_START( asterix )
+	public static MachineHandlerPtr machine_driver_asterix = new MachineHandlerPtr() {
+        public void handler(InternalMachineDriver machine) { 
+	MACHINE_DRIVER_START(machine);
 	
 		/* basic machine hardware */
 		MDRV_CPU_ADD(M68000, 12000000)
@@ -323,7 +325,9 @@ public class asterix
 		MDRV_SOUND_ATTRIBUTES(SOUND_SUPPORTS_STEREO)
 		MDRV_SOUND_ADD(YM2151, ym2151_interface)
 		MDRV_SOUND_ADD(K053260, k053260_interface)
-	MACHINE_DRIVER_END
+	MACHINE_DRIVER_END();
+ }
+};
 	
 	
 	static RomLoadHandlerPtr rom_asterix = new RomLoadHandlerPtr(){ public void handler(){ 
