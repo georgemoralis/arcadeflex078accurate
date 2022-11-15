@@ -214,9 +214,9 @@ public class batman
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0, &pfmolayout,  512, 64 ),		/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX2, 0, &pfmolayout,  256, 64 ),		/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX1, 0, &anlayout,      0, 64 ),		/* characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX3, 0, pfmolayout,  512, 64 ),		/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, pfmolayout,  256, 64 ),		/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, anlayout,      0, 64 ),		/* characters 8x8 */
 		new GfxDecodeInfo( -1 )
 	};
 	

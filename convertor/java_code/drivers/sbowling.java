@@ -187,7 +187,7 @@ public class sbowling
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0xbfff, sbw_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x8000, 0xbfff, sbw_videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xf800, 0xf800, AY8910_control_port_0_w ),
 		new Memory_WriteAddress( 0xf801, 0xf801, AY8910_write_port_0_w ),
 		new Memory_WriteAddress( 0xfc00, 0xffff, MWA_RAM ),	
@@ -300,7 +300,7 @@ public class sbowling
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0x18, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0x18, 1 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

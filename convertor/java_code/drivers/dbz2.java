@@ -449,8 +449,8 @@ public class dbz2
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0, &bglayout,     0x400, 64 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &bglayout,	 0x800, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, bglayout,     0x400, 64 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, bglayout,	 0x800, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

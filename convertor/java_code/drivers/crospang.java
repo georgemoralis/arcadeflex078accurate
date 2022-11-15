@@ -249,8 +249,8 @@ public class crospang
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4a, 0x0000, 0x40 ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4,  0x0000, 0x40 ), // [1] Tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4a, 0x0000, 0x40 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4,  0x0000, 0x40 ), // [1] Tiles
 		new GfxDecodeInfo( -1 )
 	};
 	

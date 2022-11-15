@@ -174,8 +174,8 @@ public class xorworld
 	
 	static GfxDecodeInfo xorworld_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &xorworld_tilelayout,	0,64 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &xorworld_spritelayout,0,64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, xorworld_tilelayout,	0,64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, xorworld_spritelayout,0,64 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -1415,23 +1415,23 @@ public class legionna
 	
 	static GfxDecodeInfo legionna_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &legionna_charlayout,   48*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &legionna_tilelayout,    0*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &legionna_char2layout,  32*16, 16 ),	/* example BK3 decode */
-		new GfxDecodeInfo( REGION_GFX2, 0, &legionna_spritelayout,  0*16, 8*16 ),
-		new GfxDecodeInfo( REGION_GFX5, 0, &legionna_tilelayout,   32*16, 16 ),	/* this should be the BK3 decode */
-		new GfxDecodeInfo( REGION_GFX6, 0, &legionna_tilelayout,   16*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, legionna_charlayout,   48*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, legionna_tilelayout,    0*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, legionna_char2layout,  32*16, 16 ),	/* example BK3 decode */
+		new GfxDecodeInfo( REGION_GFX2, 0, legionna_spritelayout,  0*16, 8*16 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, legionna_tilelayout,   32*16, 16 ),	/* this should be the BK3 decode */
+		new GfxDecodeInfo( REGION_GFX6, 0, legionna_tilelayout,   16*16, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo heatbrl_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &heatbrl_charlayout,    48*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &legionna_tilelayout,    0*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &legionna_char2layout,  32*16, 16 ),	/* unused */
-		new GfxDecodeInfo( REGION_GFX2, 0, &legionna_spritelayout,  0*16, 8*16 ),
-		new GfxDecodeInfo( REGION_GFX5, 0, &legionna_tilelayout,   32*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX6, 0, &legionna_tilelayout,   16*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, heatbrl_charlayout,    48*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, legionna_tilelayout,    0*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, legionna_char2layout,  32*16, 16 ),	/* unused */
+		new GfxDecodeInfo( REGION_GFX2, 0, legionna_spritelayout,  0*16, 8*16 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, legionna_tilelayout,   32*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX6, 0, legionna_tilelayout,   16*16, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

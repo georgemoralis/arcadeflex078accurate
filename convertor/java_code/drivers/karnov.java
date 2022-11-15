@@ -677,9 +677,9 @@ public class karnov
 	
 	static GfxDecodeInfo karnov_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &chars,     0,  4 ),	/* colors 0-31 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tiles,   512, 16 ),	/* colors 512-767 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &sprites, 256, 16 ),	/* colors 256-511 */
+		new GfxDecodeInfo( REGION_GFX1, 0, chars,     0,  4 ),	/* colors 0-31 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tiles,   512, 16 ),	/* colors 512-767 */
+		new GfxDecodeInfo( REGION_GFX3, 0, sprites, 256, 16 ),	/* colors 256-511 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -123,10 +123,10 @@ public class skyraid
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x00ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x0100, 0x03ff, skyraid_zeropage_w ),
-		new Memory_WriteAddress( 0x0400, 0x040f, MWA_RAM, &skyraid_pos_ram ),
-		new Memory_WriteAddress( 0x0800, 0x087f, MWA_RAM, &skyraid_alpha_num_ram ),
+		new Memory_WriteAddress( 0x0400, 0x040f, MWA_RAM, skyraid_pos_ram ),
+		new Memory_WriteAddress( 0x0800, 0x087f, MWA_RAM, skyraid_alpha_num_ram ),
 		new Memory_WriteAddress( 0x0880, 0x0bff, skyraid_alpha_num_w ),
-		new Memory_WriteAddress( 0x1c00, 0x1c0f, MWA_RAM, &skyraid_obj_ram ),
+		new Memory_WriteAddress( 0x1c00, 0x1c0f, MWA_RAM, skyraid_obj_ram ),
 		new Memory_WriteAddress( 0x4000, 0x4000, skyraid_scroll_w ),
 		new Memory_WriteAddress( 0x4400, 0x4400, skyraid_sound_w ),
 		new Memory_WriteAddress( 0x4800, 0x4800, skyraid_range_w ),
@@ -262,9 +262,9 @@ public class skyraid
 	
 	static GfxDecodeInfo skyraid_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &skyraid_text_layout, 18, 1 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &skyraid_sprite_layout, 8, 2 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &skyraid_missile_layout, 16, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, skyraid_text_layout, 18, 1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, skyraid_sprite_layout, 8, 2 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, skyraid_missile_layout, 16, 1 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -119,7 +119,7 @@ public class marineb
 				for (;offs < 32;offs++)
 					scroll[offs] = 0;
 			}
-			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,&Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	}
 	
@@ -186,7 +186,7 @@ public class marineb
 					col,
 					flipx,flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	} };
 	
@@ -229,7 +229,7 @@ public class marineb
 					col,
 					flipx,flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 		/* draw the big sprite */
@@ -259,7 +259,7 @@ public class marineb
 				col,
 				flipx,flipy,
 				sx,sy,
-				&Machine->visible_area,TRANSPARENCY_PEN,0);
+				Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 		/* draw again for wrap around */
 	
@@ -268,7 +268,7 @@ public class marineb
 				col,
 				flipx,flipy,
 				sx-256,sy,
-				&Machine->visible_area,TRANSPARENCY_PEN,0);
+				Machine->visible_area,TRANSPARENCY_PEN,0);
 	} };
 	
 	
@@ -328,7 +328,7 @@ public class marineb
 					col,
 					flipx,flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	} };
 	
@@ -373,7 +373,7 @@ public class marineb
 					col,
 					flipx,flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	} };
 	
@@ -433,7 +433,7 @@ public class marineb
 					col,
 					flipx,flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	} };
 }

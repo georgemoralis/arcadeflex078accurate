@@ -510,8 +510,8 @@ public class othunder
 	
 	static GfxDecodeInfo othunder_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile16x8_layout, 0, 256 ),	/* sprite parts */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,      0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, tile16x8_layout, 0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,      0, 256 ),	/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

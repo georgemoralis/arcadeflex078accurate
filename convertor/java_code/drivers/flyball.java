@@ -177,7 +177,7 @@ public class flyball
 		new Memory_WriteAddress( 0x0807, 0x0807, flyball_pitcher_horz_w ),
 		new Memory_WriteAddress( 0x0900, 0x0900, flyball_potmask_w ),
 		new Memory_WriteAddress( 0x0a00, 0x0a07, flyball_misc_w ),
-		new Memory_WriteAddress( 0x0d00, 0x0eff, MWA_RAM, &flyball_playfield_ram ),
+		new Memory_WriteAddress( 0x0d00, 0x0eff, MWA_RAM, flyball_playfield_ram ),
 		new Memory_WriteAddress( 0x1000, 0x1fff, MWA_ROM ), /* program */
 		new Memory_WriteAddress( 0xf000, 0xffff, MWA_ROM ), /* program mirror */
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -254,8 +254,8 @@ public class flyball
 	
 	static GfxDecodeInfo flyball_gfx_decode_info[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &flyball_tiles_layout, 0, 2 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &flyball_sprites_layout, 2, 2 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, flyball_tiles_layout, 0, 2 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, flyball_sprites_layout, 2, 2 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

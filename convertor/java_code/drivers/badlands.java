@@ -445,8 +445,8 @@ public class badlands
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pflayout,    0, 8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &molayout,  128, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, pflayout,    0, 8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, molayout,  128, 8 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

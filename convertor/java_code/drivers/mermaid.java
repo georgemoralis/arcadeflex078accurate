@@ -68,13 +68,13 @@ public class mermaid
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xc800, 0xcbff, MWA_RAM, &mermaid_background_videoram, &videoram_size ),
-		new Memory_WriteAddress( 0xd000, 0xd3ff, MWA_RAM, &mermaid_foreground_videoram ),
-		new Memory_WriteAddress( 0xd800, 0xd81f, MWA_RAM, &mermaid_background_scrollram ),
-		new Memory_WriteAddress( 0xd840, 0xd85f, MWA_RAM, &mermaid_foreground_scrollram ),
-		new Memory_WriteAddress( 0xd880, 0xd8bf, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xdc00, 0xdfff, MWA_RAM, &mermaid_foreground_colorram ),
-		new Memory_WriteAddress( 0xe000, 0xe001, MWA_RAM, &mermaid_AY8910_enable ),
+		new Memory_WriteAddress( 0xc800, 0xcbff, MWA_RAM, mermaid_background_videoram, videoram_size ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, MWA_RAM, mermaid_foreground_videoram ),
+		new Memory_WriteAddress( 0xd800, 0xd81f, MWA_RAM, mermaid_background_scrollram ),
+		new Memory_WriteAddress( 0xd840, 0xd85f, MWA_RAM, mermaid_foreground_scrollram ),
+		new Memory_WriteAddress( 0xd880, 0xd8bf, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xdc00, 0xdfff, MWA_RAM, mermaid_foreground_colorram ),
+		new Memory_WriteAddress( 0xe000, 0xe001, MWA_RAM, mermaid_AY8910_enable ),
 		new Memory_WriteAddress( 0xe005, 0xe005, mermaid_flip_screen_x_w ),
 		new Memory_WriteAddress( 0xe006, 0xe006, mermaid_flip_screen_y_w ),
 		new Memory_WriteAddress( 0xe007, 0xe007, interrupt_enable_w ),
@@ -197,9 +197,9 @@ public class mermaid
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &foreground_charlayout,     0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,              0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &background_charlayout,  4*16, 2  ),
+		new GfxDecodeInfo( REGION_GFX1, 0, foreground_charlayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout,              0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, background_charlayout,  4*16, 2  ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

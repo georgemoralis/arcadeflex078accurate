@@ -286,8 +286,8 @@ public class mitchell
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, mgakuen_paletteram_w ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, pang_colorram_w, &pang_colorram ),
-		new Memory_WriteAddress( 0xd000, 0xdfff, mgakuen_videoram_w, &pang_videoram, &pang_videoram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, pang_colorram_w, pang_colorram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, mgakuen_videoram_w, pang_videoram, pang_videoram_size ),
 		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAMROM ),
 		new Memory_WriteAddress( 0xf000, 0xffff, mgakuen_objram_w ),	/* OBJ RAM */
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -308,8 +308,8 @@ public class mitchell
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, pang_paletteram_w ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, pang_colorram_w, &pang_colorram ),
-		new Memory_WriteAddress( 0xd000, 0xdfff, pang_videoram_w, &pang_videoram, &pang_videoram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, pang_colorram_w, pang_colorram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, pang_videoram_w, pang_videoram, pang_videoram_size ),
 		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAMROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -953,22 +953,22 @@ public class mitchell
 	
 	static GfxDecodeInfo mgakuen_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &marukin_charlayout, 0,  64 ), /* colors 0-1023 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,       0,  16 ), /* colors 0- 255 */
+		new GfxDecodeInfo( REGION_GFX1, 0, marukin_charlayout, 0,  64 ), /* colors 0-1023 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout,       0,  16 ), /* colors 0- 255 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo marukin_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &marukin_charlayout, 0, 128 ), /* colors 0-2047 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,       0,  16 ), /* colors 0- 255 */
+		new GfxDecodeInfo( REGION_GFX1, 0, marukin_charlayout, 0, 128 ), /* colors 0-2047 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout,       0,  16 ), /* colors 0- 255 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 128 ), /* colors 0-2047 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,   0,  16 ), /* colors 0- 255 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 128 ), /* colors 0-2047 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout,   0,  16 ), /* colors 0- 255 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -65,11 +65,11 @@ public class paradise
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM		),	// ROM
 		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_ROM		),	// ROM (banked)
-		new Memory_WriteAddress( 0xc000, 0xc7ff, paradise_vram_2_w,&paradise_vram_2	),	// Background
-		new Memory_WriteAddress( 0xc800, 0xcfff, paradise_vram_1_w,&paradise_vram_1	),	// Midground
-		new Memory_WriteAddress( 0xd000, 0xd7ff, paradise_vram_0_w,&paradise_vram_0	),	// Foreground
+		new Memory_WriteAddress( 0xc000, 0xc7ff, paradise_vram_2_w,paradise_vram_2	),	// Background
+		new Memory_WriteAddress( 0xc800, 0xcfff, paradise_vram_1_w,paradise_vram_1	),	// Midground
+		new Memory_WriteAddress( 0xd000, 0xd7ff, paradise_vram_0_w,paradise_vram_0	),	// Foreground
 		new Memory_WriteAddress( 0xd800, 0xd8ff, MWA_RAM								),	// RAM
-		new Memory_WriteAddress( 0xd900, 0xe0ff, MWA_RAM, &spriteram, &spriteram_size	),	// Sprites
+		new Memory_WriteAddress( 0xd900, 0xe0ff, MWA_RAM, spriteram, spriteram_size	),	// Sprites
 		new Memory_WriteAddress( 0xe100, 0xffff, MWA_RAM								),	// RAM
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -237,10 +237,10 @@ public class paradise
 	
 	static GfxDecodeInfo paradise_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8,	0x100, 1  ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	0x400, 16 ), // [1] Background
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x8,	0x300, 1  ), // [2] Midground
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x8,	0x000, 1  ), // [3] Foreground
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x8,	0x100, 1  ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	0x400, 16 ), // [1] Background
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x8,	0x300, 1  ), // [2] Midground
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x8,	0x000, 1  ), // [3] Foreground
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -67,13 +67,13 @@ public class espial
 		new Memory_WriteAddress( 0x7000, 0x7000, watchdog_reset_w ),
 		new Memory_WriteAddress( 0x7100, 0x7100, zodiac_master_interrupt_enable_w ),
 		new Memory_WriteAddress( 0x7200, 0x7200, espial_flipscreen_w ),
-		new Memory_WriteAddress( 0x8000, 0x801f, MWA_RAM, &espial_spriteram_1 ),
-		new Memory_WriteAddress( 0x8400, 0x87ff, espial_videoram_w, &espial_videoram ),
-		new Memory_WriteAddress( 0x8800, 0x880f, MWA_RAM, &espial_spriteram_3 ),
-		new Memory_WriteAddress( 0x8c00, 0x8fff, espial_attributeram_w, &espial_attributeram ),
-		new Memory_WriteAddress( 0x9000, 0x901f, MWA_RAM, &espial_spriteram_2 ),
-		new Memory_WriteAddress( 0x9020, 0x903f, espial_scrollram_w, &espial_scrollram ),
-		new Memory_WriteAddress( 0x9400, 0x97ff, espial_colorram_w, &espial_colorram ),
+		new Memory_WriteAddress( 0x8000, 0x801f, MWA_RAM, espial_spriteram_1 ),
+		new Memory_WriteAddress( 0x8400, 0x87ff, espial_videoram_w, espial_videoram ),
+		new Memory_WriteAddress( 0x8800, 0x880f, MWA_RAM, espial_spriteram_3 ),
+		new Memory_WriteAddress( 0x8c00, 0x8fff, espial_attributeram_w, espial_attributeram ),
+		new Memory_WriteAddress( 0x9000, 0x901f, MWA_RAM, espial_spriteram_2 ),
+		new Memory_WriteAddress( 0x9020, 0x903f, espial_scrollram_w, espial_scrollram ),
+		new Memory_WriteAddress( 0x9400, 0x97ff, espial_colorram_w, espial_colorram ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -103,13 +103,13 @@ public class espial
 		new Memory_WriteAddress( 0x7000, 0x7000, watchdog_reset_w ),
 		new Memory_WriteAddress( 0x7100, 0x7100, zodiac_master_interrupt_enable_w ),
 		new Memory_WriteAddress( 0x7200, 0x7200, espial_flipscreen_w ),
-		new Memory_WriteAddress( 0x8000, 0x801f, MWA_RAM, &espial_spriteram_1 ),
-		new Memory_WriteAddress( 0x8000, 0x87ff, espial_videoram_w, &espial_videoram ),
-		new Memory_WriteAddress( 0x8800, 0x880f, MWA_RAM, &espial_spriteram_3 ),
-		new Memory_WriteAddress( 0x8800, 0x8fff, espial_attributeram_w, &espial_attributeram ),
-		new Memory_WriteAddress( 0x9000, 0x901f, MWA_RAM, &espial_spriteram_2 ),
-		new Memory_WriteAddress( 0x9020, 0x903f, espial_scrollram_w, &espial_scrollram ),
-		new Memory_WriteAddress( 0x9000, 0x97ff, espial_colorram_w, &espial_colorram ),
+		new Memory_WriteAddress( 0x8000, 0x801f, MWA_RAM, espial_spriteram_1 ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, espial_videoram_w, espial_videoram ),
+		new Memory_WriteAddress( 0x8800, 0x880f, MWA_RAM, espial_spriteram_3 ),
+		new Memory_WriteAddress( 0x8800, 0x8fff, espial_attributeram_w, espial_attributeram ),
+		new Memory_WriteAddress( 0x9000, 0x901f, MWA_RAM, espial_spriteram_2 ),
+		new Memory_WriteAddress( 0x9020, 0x903f, espial_scrollram_w, espial_scrollram ),
+		new Memory_WriteAddress( 0x9000, 0x97ff, espial_colorram_w, espial_colorram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -292,8 +292,8 @@ public class espial
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,    0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,  0, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,    0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout,  0, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

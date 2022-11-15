@@ -241,10 +241,10 @@ public class firetrap
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd000, 0xd7ff, firetrap_bg1videoram_w, &firetrap_bg1videoram ),
-		new Memory_WriteAddress( 0xd800, 0xdfff, firetrap_bg2videoram_w, &firetrap_bg2videoram ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, firetrap_fgvideoram_w,  &firetrap_fgvideoram ),
-		new Memory_WriteAddress( 0xe800, 0xe97f, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, firetrap_bg1videoram_w, firetrap_bg1videoram ),
+		new Memory_WriteAddress( 0xd800, 0xdfff, firetrap_bg2videoram_w, firetrap_bg2videoram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, firetrap_fgvideoram_w,  firetrap_fgvideoram ),
+		new Memory_WriteAddress( 0xe800, 0xe97f, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xf000, 0xf000, MWA_NOP ),	/* IRQ acknowledge */
 		new Memory_WriteAddress( 0xf001, 0xf001, firetrap_sound_command_w ),
 		new Memory_WriteAddress( 0xf002, 0xf002, firetrap_bankselect_w ),
@@ -277,10 +277,10 @@ public class firetrap
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd000, 0xd7ff, firetrap_bg1videoram_w, &firetrap_bg1videoram ),
-		new Memory_WriteAddress( 0xd800, 0xdfff, firetrap_bg2videoram_w, &firetrap_bg2videoram ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, firetrap_fgvideoram_w,  &firetrap_fgvideoram ),
-		new Memory_WriteAddress( 0xe800, 0xe97f, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, firetrap_bg1videoram_w, firetrap_bg1videoram ),
+		new Memory_WriteAddress( 0xd800, 0xdfff, firetrap_bg2videoram_w, firetrap_bg2videoram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, firetrap_fgvideoram_w,  firetrap_fgvideoram ),
+		new Memory_WriteAddress( 0xe800, 0xe97f, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xf000, 0xf000, MWA_NOP ),	/* IRQ acknowledge */
 		new Memory_WriteAddress( 0xf001, 0xf001, firetrap_sound_command_w ),
 		new Memory_WriteAddress( 0xf002, 0xf002, firetrap_bankselect_w ),
@@ -517,10 +517,10 @@ public class firetrap
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0x00, 16 ),	/* colors 0x00-0x3f */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   0x80,  4 ),	/* colors 0x80-0xbf */
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,   0xc0,  4 ),	/* colors 0xc0-0xff */
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout, 0x40,  4 ),	/* colors 0x40-0x7f */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0x00, 16 ),	/* colors 0x00-0x3f */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,   0x80,  4 ),	/* colors 0x80-0xbf */
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout,   0xc0,  4 ),	/* colors 0xc0-0xff */
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout, 0x40,  4 ),	/* colors 0x40-0x7f */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

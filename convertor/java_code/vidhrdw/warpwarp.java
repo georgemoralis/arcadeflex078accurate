@@ -125,7 +125,7 @@ public class warpwarp
 						colorram.read(offs),
 						0,0,
 						8*sx,8*sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 				dirtybuffer[offs] = 0;
 			}
@@ -133,7 +133,7 @@ public class warpwarp
 	
 	
 		/* copy the character mapped graphics */
-		copybitmap(bitmap,tmpbitmap,flip_screen(),flip_screen(),0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,flip_screen(),flip_screen(),0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 	
 		if (warpwarp_bulletsram[0] > 1)

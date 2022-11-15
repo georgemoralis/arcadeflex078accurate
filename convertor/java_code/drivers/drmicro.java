@@ -214,10 +214,10 @@ public class drmicro
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout4,     0, 64 ), /* tiles */
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &charlayout8,   256, 32 ), /* tiles */
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout4,   0, 64 ), /* sprites */
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout8, 256, 32 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, charlayout4,     0, 64 ), /* tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, charlayout8,   256, 32 ), /* tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, spritelayout4,   0, 64 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, spritelayout8, 256, 32 ), /* sprites */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

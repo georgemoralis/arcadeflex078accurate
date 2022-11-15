@@ -265,11 +265,11 @@ public class dcon
 	
 	static GfxDecodeInfo dcon_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &dcon_charlayout,    1024+768, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &dcon_tilelayout,    1024+0,   16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &dcon_tilelayout,    1024+512, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &dcon_tilelayout,    1024+256, 16 ),
-		new GfxDecodeInfo( REGION_GFX5, 0, &dcon_tilelayout,           0, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, dcon_charlayout,    1024+768, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, dcon_tilelayout,    1024+0,   16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, dcon_tilelayout,    1024+512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, dcon_tilelayout,    1024+256, 16 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, dcon_tilelayout,           0, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -410,8 +410,8 @@ public class mcatadv
 	
 	static GfxDecodeInfo mcatadv_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &mcatadv_tiles16x16x4_layout, 0, 0x200 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &mcatadv_tiles16x16x4_layout, 0, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, mcatadv_tiles16x16x4_layout, 0, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, mcatadv_tiles16x16x4_layout, 0, 0x200 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

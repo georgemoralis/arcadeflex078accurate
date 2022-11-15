@@ -212,9 +212,9 @@ public class mcr2
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
-		new Memory_WriteAddress( 0xf000, 0xf1ff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xf800, 0xffff, mcr2_videoram_w, &videoram, &videoram_size ),	/* also palette */
+		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM, generic_nvram, generic_nvram_size ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xf800, 0xffff, mcr2_videoram_w, videoram, videoram_size ),	/* also palette */
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -610,8 +610,8 @@ public class mcr2
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &mcr_bg_layout,     0, 4 ),	/* colors 0-63 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &mcr_sprite_layout, 0, 4 ),	/* colors 0-63 */
+		new GfxDecodeInfo( REGION_GFX1, 0, mcr_bg_layout,     0, 4 ),	/* colors 0-63 */
+		new GfxDecodeInfo( REGION_GFX2, 0, mcr_sprite_layout, 0, 4 ),	/* colors 0-63 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

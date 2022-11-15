@@ -50,7 +50,7 @@ public class snowbros
 	
 		/* This clears & redraws the entire screen each pass */
 	
-		fillbitmap(bitmap,0xf0,&Machine->visible_area);
+		fillbitmap(bitmap,0xf0,Machine->visible_area);
 	
 		for (offs = 0;offs < spriteram_size[0]/2;offs += 8)
 		{
@@ -96,14 +96,14 @@ public class snowbros
 					(tilecolour & 0xf0) >> 4,
 					flipx, flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_wintbob  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
-		fillbitmap(bitmap,get_black_pen(),&Machine->visible_area);
+		fillbitmap(bitmap,get_black_pen(),Machine->visible_area);
 	
 		for (offs = 0;offs < spriteram_size[0]/2;offs += 8)
 		{
@@ -135,7 +135,7 @@ public class snowbros
 						colr,
 						flipx, flipy,
 						xpos,ypos,
-						&Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine->visible_area,TRANSPARENCY_PEN,0);
 			}
 		}
 	} };

@@ -847,9 +847,9 @@ public class cps2
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout8x8,   0, 0x100 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout16x16, 0, 0x100 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout32x32, 0, 0x100 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, layout8x8,   0, 0x100 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, layout16x16, 0, 0x100 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, layout32x32, 0, 0x100 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

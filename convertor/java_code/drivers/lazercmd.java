@@ -437,7 +437,7 @@ public class lazercmd
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x0bff, MWA_ROM ),
 		new Memory_WriteAddress( 0x1c00, 0x1c1f, MWA_RAM ),
-		new Memory_WriteAddress( 0x1c20, 0x1eff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x1c20, 0x1eff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x1f00, 0x1f03, lazercmd_hardware_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -456,7 +456,7 @@ public class lazercmd
 		new Memory_WriteAddress( 0x0000, 0x0bff, MWA_ROM ),
 		new Memory_WriteAddress( 0x1000, 0x1800, MWA_ROM ),
 		new Memory_WriteAddress( 0x1c00, 0x1c1f, MWA_RAM ),
-		new Memory_WriteAddress( 0x1c20, 0x1eff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x1c20, 0x1eff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x1f00, 0x1f03, medlanes_hardware_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -475,7 +475,7 @@ public class lazercmd
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x0bff, MWA_ROM ),
 		new Memory_WriteAddress( 0x1c00, 0x1c1f, MWA_RAM ),
-		new Memory_WriteAddress( 0x1c20, 0x1eff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x1c20, 0x1eff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x1f00, 0x1f03, bbonk_hardware_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -652,7 +652,7 @@ public class lazercmd
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 2 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0, 2 ),
 		new GfxDecodeInfo( -1 )					 /* end of array */
 	};
 	

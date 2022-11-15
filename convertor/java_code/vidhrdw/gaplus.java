@@ -298,10 +298,10 @@ public class gaplus
 				if ((spriteram_3.read(offs)& 0xa8) == 0xa0){ /* draw the sprite twice in a row */
 	                    drawgfx(bitmap,Machine->gfx[2+(number >> 7)],
 									number,color,flipx,flipy,sx,sy,
-									&Machine->visible_area,TRANSPARENCY_COLOR,255);
+									Machine->visible_area,TRANSPARENCY_COLOR,255);
 						drawgfx(bitmap,Machine->gfx[2+(number >> 7)],
 									number,color,flipx,flipy,sx,sy+16,
-									&Machine->visible_area,TRANSPARENCY_COLOR,255);
+									Machine->visible_area,TRANSPARENCY_COLOR,255);
 				}
 				else{
 					switch (spriteram_3.read(offs)& 0x28){
@@ -329,7 +329,7 @@ public class gaplus
 									color,
 									flipx, flipy,
 									sx+x*16,sy+y*16,
-									&Machine->visible_area,
+									Machine->visible_area,
 									TRANSPARENCY_COLOR,255);
 							}
 						}
@@ -342,7 +342,7 @@ public class gaplus
 	public static VideoUpdateHandlerPtr video_update_gaplus  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs;
 	
-		fillbitmap( bitmap, Machine->pens[0], &Machine->visible_area );
+		fillbitmap( bitmap, Machine->pens[0], Machine->visible_area );
 	
 		starfield_render( bitmap );
 	
@@ -397,7 +397,7 @@ public class gaplus
 	                videoram.read(offs),
 	                colorram.read(offs)& 0x3f,
 	                flip_screen(),flip_screen(),8*sy,8*sx,
-	                &Machine->visible_area,TRANSPARENCY_PEN,0);
+	                Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 		gaplus_draw_sprites(bitmap);

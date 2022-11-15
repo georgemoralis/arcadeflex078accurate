@@ -69,8 +69,8 @@ public class redclash
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x3000, 0x37ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x3800, 0x3bff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0x4000, 0x43ff, redclash_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x3800, 0x3bff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0x4000, 0x43ff, redclash_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x5000, 0x5007, MWA_NOP ),	/* to sound board */
 		new Memory_WriteAddress( 0x5800, 0x5800, redclash_star0_w ),
 		new Memory_WriteAddress( 0x5801, 0x5804, MWA_NOP ),	/* to sound board */
@@ -99,7 +99,7 @@ public class redclash
 		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),
 	//	new Memory_WriteAddress( 0x3000, 0x3000, MWA_NOP ),
 	//	new Memory_WriteAddress( 0x3800, 0x3800, MWA_NOP ),
-		new Memory_WriteAddress( 0x4000, 0x43ff, redclash_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x4000, 0x43ff, redclash_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x5000, 0x5007, MWA_NOP ),	/* to sound board */
 		new Memory_WriteAddress( 0x5800, 0x5800, redclash_star0_w ),
 		new Memory_WriteAddress( 0x5801, 0x5801, redclash_gfxbank_w ),
@@ -107,7 +107,7 @@ public class redclash
 		new Memory_WriteAddress( 0x5806, 0x5806, redclash_star2_w ),
 		new Memory_WriteAddress( 0x5807, 0x5807, redclash_flipscreen_w ),
 		new Memory_WriteAddress( 0x6000, 0x67ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x6800, 0x6bff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0x6800, 0x6bff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0x7000, 0x7000, redclash_star_reset_w ),
 		new Memory_WriteAddress( 0x7800, 0x7800, irqack_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -350,12 +350,12 @@ public class redclash
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,          0,  8 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0000, &spritelayout8x8,   4*8, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout16x16, 4*8, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout24x24, 4*8, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout16x16bis, 4*8, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0004, &spritelayout16x16bis, 4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, charlayout,          0,  8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0000, spritelayout8x8,   4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, spritelayout16x16, 4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, spritelayout24x24, 4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, spritelayout16x16bis, 4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0004, spritelayout16x16bis, 4*8, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

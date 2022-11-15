@@ -189,8 +189,8 @@ public class blstroid
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pflayout,  256, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &molayout,    0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, pflayout,  256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, molayout,    0, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

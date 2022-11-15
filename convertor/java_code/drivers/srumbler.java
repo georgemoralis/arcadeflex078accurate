@@ -98,15 +98,15 @@ public class srumbler
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x1dff, MWA_RAM ),
-		new Memory_WriteAddress( 0x1e00, 0x1fff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0x2000, 0x3fff, srumbler_background_w, &srumbler_backgroundram ),
+		new Memory_WriteAddress( 0x1e00, 0x1fff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0x2000, 0x3fff, srumbler_background_w, srumbler_backgroundram ),
 		new Memory_WriteAddress( 0x4008, 0x4008, srumbler_bankswitch_w ),
 		new Memory_WriteAddress( 0x4009, 0x4009, srumbler_4009_w ),
 		new Memory_WriteAddress( 0x400a, 0x400d, srumbler_scroll_w ),
 		new Memory_WriteAddress( 0x400e, 0x400e, soundlatch_w ),
-		new Memory_WriteAddress( 0x5000, 0x5fff, srumbler_foreground_w, &srumbler_foregroundram ),
+		new Memory_WriteAddress( 0x5000, 0x5fff, srumbler_foreground_w, srumbler_foregroundram ),
 		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_RAM ), /* Video RAM 2 ??? (not used) */
-		new Memory_WriteAddress( 0x7000, 0x73ff, paletteram_RRRRGGGGBBBBxxxx_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0x7000, 0x73ff, paletteram_RRRRGGGGBBBBxxxx_swap_w, paletteram ),
 		new Memory_WriteAddress( 0x7400, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -252,9 +252,9 @@ public class srumbler
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   448, 16 ), /* colors 448 - 511 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   128,  8 ), /* colors 128 - 255 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 256,  8 ), /* colors 256 - 383 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   448, 16 ), /* colors 448 - 511 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,   128,  8 ), /* colors 128 - 255 */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout, 256,  8 ), /* colors 256 - 383 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

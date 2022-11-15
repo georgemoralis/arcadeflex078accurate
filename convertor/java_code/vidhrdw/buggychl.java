@@ -147,7 +147,7 @@ public class buggychl
 		for (offs = 0;offs < 256;offs++)
 			scroll[offs] = -buggychl_scrollh[offs];
 	
-		copyscrollbitmap(bitmap,tmpbitmap2,256,scroll,0,0,&Machine->visible_area,TRANSPARENCY_COLOR,32);
+		copyscrollbitmap(bitmap,tmpbitmap2,256,scroll,0,0,Machine->visible_area,TRANSPARENCY_COLOR,32);
 	}
 	
 	
@@ -173,7 +173,7 @@ public class buggychl
 					0,
 					flip_screen_x,flip_screen_y,
 					8*sx,8*sy,
-					&Machine->visible_area,transp,0);
+					Machine->visible_area,transp,0);
 		}
 	}
 	
@@ -256,7 +256,7 @@ public class buggychl
 		if (sky_on)
 			draw_sky(bitmap);
 		else
-			fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
+			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
 	
 		/* decode modified characters */
 		for (code = 0;code < 256;code++)

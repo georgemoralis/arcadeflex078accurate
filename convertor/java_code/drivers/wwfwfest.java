@@ -365,10 +365,10 @@ public class wwfwfest
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles8x8_layout, 0x0000, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout,   0x0400, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &tile_layout,     0x1000, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &tile_layout,     0x0c00, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles8x8_layout, 0x0000, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, sprite_layout,   0x0400, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, tile_layout,     0x1000, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, tile_layout,     0x0c00, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

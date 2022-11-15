@@ -213,8 +213,8 @@ public class sspeedr
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &car_layout, 0, 1 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &car_layout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, car_layout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, car_layout, 0, 1 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

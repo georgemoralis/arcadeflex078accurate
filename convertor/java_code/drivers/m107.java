@@ -139,10 +139,10 @@ public class m107
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x00000, 0xbffff, MWA_ROM ),
-		new Memory_WriteAddress( 0xd0000, 0xdffff, m107_vram_w, &m107_vram_data ),
-		new Memory_WriteAddress( 0xe0000, 0xeffff, MWA_RAM, &m107_ram ), /* System ram */
-		new Memory_WriteAddress( 0xf8000, 0xf8fff, MWA_RAM, &spriteram ),
-		new Memory_WriteAddress( 0xf9000, 0xf9fff, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram ),
+		new Memory_WriteAddress( 0xd0000, 0xdffff, m107_vram_w, m107_vram_data ),
+		new Memory_WriteAddress( 0xe0000, 0xeffff, MWA_RAM, m107_ram ), /* System ram */
+		new Memory_WriteAddress( 0xf8000, 0xf8fff, MWA_RAM, spriteram ),
+		new Memory_WriteAddress( 0xf9000, 0xf9fff, paletteram_xBBBBBGGGGGRRRRR_w, paletteram ),
 		new Memory_WriteAddress( 0xffff0, 0xfffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -419,15 +419,15 @@ public class m107
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 0, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo firebarr_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout2,0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout2,0, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

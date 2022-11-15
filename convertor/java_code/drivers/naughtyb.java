@@ -179,10 +179,10 @@ public class naughtyb
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x7fff, MWA_RAM ),
-		new Memory_WriteAddress( 0x8000, 0x87ff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0x8800, 0x8fff, naughtyb_videoram2_w, &naughtyb_videoram2 ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0x8800, 0x8fff, naughtyb_videoram2_w, naughtyb_videoram2 ),
 		new Memory_WriteAddress( 0x9000, 0x97ff, naughtyb_videoreg_w ),
-		new Memory_WriteAddress( 0x9800, 0x9fff, MWA_RAM, &naughtyb_scrollreg ),
+		new Memory_WriteAddress( 0x9800, 0x9fff, MWA_RAM, naughtyb_scrollreg ),
 		new Memory_WriteAddress( 0xa000, 0xa7ff, pleiads_sound_control_a_w ),
 		new Memory_WriteAddress( 0xa800, 0xafff, pleiads_sound_control_b_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -192,10 +192,10 @@ public class naughtyb
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x7fff, MWA_RAM ),
-		new Memory_WriteAddress( 0x8000, 0x87ff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0x8800, 0x8fff, naughtyb_videoram2_w, &naughtyb_videoram2 ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0x8800, 0x8fff, naughtyb_videoram2_w, naughtyb_videoram2 ),
 		new Memory_WriteAddress( 0x9000, 0x97ff, popflame_videoreg_w ),
-		new Memory_WriteAddress( 0x9800, 0x9fff, MWA_RAM, &naughtyb_scrollreg ),
+		new Memory_WriteAddress( 0x9800, 0x9fff, MWA_RAM, naughtyb_scrollreg ),
 		new Memory_WriteAddress( 0xa000, 0xa7ff, pleiads_sound_control_a_w ),
 		new Memory_WriteAddress( 0xa800, 0xafff, pleiads_sound_control_b_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -276,8 +276,8 @@ public class naughtyb
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,	  0, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 32*4, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,	  0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout, 32*4, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

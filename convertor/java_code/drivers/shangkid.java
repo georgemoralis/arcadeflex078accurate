@@ -230,23 +230,23 @@ public class shangkid
 	);
 	
 	static GfxDecodeInfo chinhero_gfxdecodeinfo[] ={
-		new GfxDecodeInfo( REGION_GFX1, 0, &shangkid_char_layout,	0, 0x40 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &chinhero_sprite_layout1,	0, 0x20 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &chinhero_sprite_layout2,	0, 0x20 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &chinhero_sprite_layout1,	0, 0x20 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &chinhero_sprite_layout2,	0, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, shangkid_char_layout,	0, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, chinhero_sprite_layout1,	0, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, chinhero_sprite_layout2,	0, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, chinhero_sprite_layout1,	0, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, chinhero_sprite_layout2,	0, 0x20 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo shangkid_gfxdecodeinfo[] ={
-		new GfxDecodeInfo( REGION_GFX1, 0, &shangkid_char_layout,	0, 0x40 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &shangkid_sprite_layout,	0, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, shangkid_char_layout,	0, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, shangkid_sprite_layout,	0, 0x40 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo dynamski_gfxdecodeinfo[] ={
-		new GfxDecodeInfo( REGION_GFX1, 0, &shangkid_char_layout,	   0, 0x10 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &shangkid_sprite_layout,	0x40, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, shangkid_char_layout,	   0, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, shangkid_sprite_layout,	0x40, 0x10 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -275,10 +275,10 @@ public class shangkid
 		new Memory_WriteAddress( 0xb004, 0xb004, shangkid_cpu_reset_w ),
 		new Memory_WriteAddress( 0xb006, 0xb006, MWA_NOP ),		/* coin counter */
 		new Memory_WriteAddress( 0xb007, 0xb007, shangkid_maincpu_bank_w ),
-		new Memory_WriteAddress( 0xc000, 0xc002, MWA_RAM, &shangkid_videoreg ),
-		new Memory_WriteAddress( 0xd000, 0xdfff, shangkid_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xe000, 0xfdff, MWA_RAM, &shareram ),
-		new Memory_WriteAddress( 0xfe00, 0xffff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0xc000, 0xc002, MWA_RAM, shangkid_videoreg ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, shangkid_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xe000, 0xfdff, MWA_RAM, shareram ),
+		new Memory_WriteAddress( 0xfe00, 0xffff, MWA_RAM, spriteram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -417,7 +417,7 @@ public class shangkid
 	public static Memory_WriteAddress dynamski_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM, &videoram ), /* tilemap */
+		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM, videoram ), /* tilemap */
 		new Memory_WriteAddress( 0xc800, 0xcbff, MWA_RAM ),
 		new Memory_WriteAddress( 0xd000, 0xd3ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xd800, 0xdbff, MWA_RAM ),

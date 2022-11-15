@@ -137,8 +137,8 @@ public class gumbo
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &gumbo_layout,   0x0, 2  ), /* bg tiles */
-		new GfxDecodeInfo( REGION_GFX2, 0, &gumbo2_layout,  0x0, 2  ), /* fg tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, gumbo_layout,   0x0, 2  ), /* bg tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0, gumbo2_layout,  0x0, 2  ), /* fg tiles */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

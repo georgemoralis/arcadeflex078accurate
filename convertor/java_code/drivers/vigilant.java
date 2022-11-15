@@ -66,9 +66,9 @@ public class vigilant
 	public static Memory_WriteAddress vigilant_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc020, 0xc0df, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, vigilant_paletteram_w, &paletteram ),
-		new Memory_WriteAddress( 0xd000, 0xdfff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xc020, 0xc0df, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, vigilant_paletteram_w, paletteram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -108,9 +108,9 @@ public class vigilant
 	public static Memory_WriteAddress kikcubic_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xc800, 0xcaff, vigilant_paletteram_w, &paletteram ),
-		new Memory_WriteAddress( 0xd000, 0xdfff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcaff, vigilant_paletteram_w, paletteram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -391,9 +391,9 @@ public class vigilant
 	
 	static GfxDecodeInfo vigilant_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &text_layout,   256, 16 ),	/* colors 256-511 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout,   0, 16 ),	/* colors   0-255 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &back_layout,   512,  2 ),	/* actually the background uses colors */
+		new GfxDecodeInfo( REGION_GFX1, 0, text_layout,   256, 16 ),	/* colors 256-511 */
+		new GfxDecodeInfo( REGION_GFX2, 0, sprite_layout,   0, 16 ),	/* colors   0-255 */
+		new GfxDecodeInfo( REGION_GFX3, 0, back_layout,   512,  2 ),	/* actually the background uses colors */
 														/* 256-511, but giving it exclusive */
 														/* pens we can handle it more easily. */
 		new GfxDecodeInfo( -1 ) /* end of array */
@@ -401,8 +401,8 @@ public class vigilant
 	
 	static GfxDecodeInfo kikcubic_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &text_layout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, text_layout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, sprite_layout, 0, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

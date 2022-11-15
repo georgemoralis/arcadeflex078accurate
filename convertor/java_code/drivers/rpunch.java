@@ -581,9 +581,9 @@ public class rpunch
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &bglayout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &bglayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &splayout,   0, 16*4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, bglayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, bglayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, splayout,   0, 16*4 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

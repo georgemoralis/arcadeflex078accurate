@@ -192,7 +192,7 @@ public class hal21
 		struct rectangle *cliprect;
 		int bankbase, c, x, y, offsx, offsy, dx, dy, sx, sy, offs, tile_number;
 	
-		cliprect = &Machine->visible_area;
+		cliprect = Machine->visible_area;
 		bankbase = attrs<<3 & 0x100;
 		c = attrs & 0x0f;
 		if (c > 11) { fillbitmap(bitmap,Machine->pens[(c<<4)+8], cliprect); return; }
@@ -232,7 +232,7 @@ public class hal21
 		UINT8 *sprptr, *endptr;
 		int attrs, tile, x, y, color, fy;
 	
-		cliprect = &Machine->visible_area;
+		cliprect = Machine->visible_area;
 		sprptr = spriteram;
 		endptr = spriteram + 0x100;
 	
@@ -263,7 +263,7 @@ public class hal21
 		struct rectangle *cliprect;
 		int bankbase, c, x, y, offsx, offsy, dx, dy, sx, sy, offs, tile_number;
 	
-		cliprect = &Machine->visible_area;
+		cliprect = Machine->visible_area;
 		bankbase = attrs<<4 & 0x300;
 		c = attrs & 0x0f;
 		if (c == 7) c = 15;
@@ -296,7 +296,7 @@ public class hal21
 		UINT8 *sprptr, *endptr;
 		int attrs, tile, x, y, color;
 	
-		cliprect = &Machine->visible_area;
+		cliprect = Machine->visible_area;
 		sprptr = spriteram;
 		endptr = spriteram + 0x100;
 	
@@ -555,9 +555,9 @@ public class hal21
 	static GfxDecodeInfo aso_gfxdecodeinfo[] =
 	{
 		/* colors 512-1023 are currently unused, I think they are a second bank */
-		new GfxDecodeInfo( REGION_GFX1, 0, &char256,    128*3,  8 ), /* colors 384..511 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &char1024,   128*1, 16 ), /* colors 128..383 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &sprite1024, 128*0, 16 ), /* colors   0..127 */
+		new GfxDecodeInfo( REGION_GFX1, 0, char256,    128*3,  8 ), /* colors 384..511 */
+		new GfxDecodeInfo( REGION_GFX2, 0, char1024,   128*1, 16 ), /* colors 128..383 */
+		new GfxDecodeInfo( REGION_GFX3, 0, sprite1024, 128*0, 16 ), /* colors   0..127 */
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -696,10 +696,10 @@ public class hal21
 		new Memory_WriteAddress( 0xce00, 0xce00, hal21_vreg7_w ),
 		new Memory_WriteAddress( 0xcf00, 0xcf00, hal21_vreg0_w ),
 		new Memory_WriteAddress( 0xdcf8, 0xdcf8, aso_scroll_sync_w ),
-		new Memory_WriteAddress( 0xd800, 0xdfff, MWA_RAM, &shared_auxram ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, MWA_RAM, &spriteram ),
-		new Memory_WriteAddress( 0xe800, 0xf7ff, MWA_RAM, &videoram ),
-		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &shared_ram ),
+		new Memory_WriteAddress( 0xd800, 0xdfff, MWA_RAM, shared_auxram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, MWA_RAM, spriteram ),
+		new Memory_WriteAddress( 0xe800, 0xf7ff, MWA_RAM, videoram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, shared_ram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -751,8 +751,8 @@ public class hal21
 		new Memory_WriteAddress( 0xd500, 0xd500, hal21_vreg3_w ),
 		new Memory_WriteAddress( 0xd600, 0xd600, hal21_vreg4_w ),
 		new Memory_WriteAddress( 0xd700, 0xd700, hal21_vreg5_w ),
-		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM, &spriteram ),
-		new Memory_WriteAddress( 0xf000, 0xffff, MWA_RAM, &shared_ram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM, spriteram ),
+		new Memory_WriteAddress( 0xf000, 0xffff, MWA_RAM, shared_ram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -770,7 +770,7 @@ public class hal21
 		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
 		new Memory_WriteAddress( 0xa000, 0xa000, snk_cpuB_nmi_ack_w ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, hal21_spriteram_w ),
-		new Memory_WriteAddress( 0xd000, 0xdfff, MWA_RAM, &videoram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, MWA_RAM, videoram ),
 		new Memory_WriteAddress( 0xe000, 0xefff, shared_ram_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};

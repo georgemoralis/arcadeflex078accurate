@@ -318,10 +318,10 @@ public class zaccaria
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x6000, 0x67ff, zaccaria_videoram_w, &zaccaria_videoram ),	/* 6400-67ff is 4 bits wide */
-		new Memory_WriteAddress( 0x6800, 0x683f, zaccaria_attributes_w, &zaccaria_attributesram ),
-		new Memory_WriteAddress( 0x6840, 0x685f, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0x6881, 0x68bc, MWA_RAM, &spriteram_2, &spriteram_2_size ),
+		new Memory_WriteAddress( 0x6000, 0x67ff, zaccaria_videoram_w, zaccaria_videoram ),	/* 6400-67ff is 4 bits wide */
+		new Memory_WriteAddress( 0x6800, 0x683f, zaccaria_attributes_w, zaccaria_attributesram ),
+		new Memory_WriteAddress( 0x6840, 0x685f, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0x6881, 0x68bc, MWA_RAM, spriteram_2, spriteram_2_size ),
 		new Memory_WriteAddress( 0x6c00, 0x6c00, zaccaria_flip_screen_x_w ),
 		new Memory_WriteAddress( 0x6c01, 0x6c01, zaccaria_flip_screen_y_w ),
 		new Memory_WriteAddress( 0x6c02, 0x6c02, MWA_NOP ),    /* sound reset */
@@ -622,8 +622,8 @@ public class zaccaria
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,      0, 32 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 32*8, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,      0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 32*8, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

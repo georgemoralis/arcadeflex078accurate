@@ -49,9 +49,9 @@ public class quizdna
 		new Memory_WriteAddress( 0x8000, 0x9fff, quizdna_fg_ram_w ),
 		new Memory_WriteAddress( 0xa000, 0xbfff, quizdna_bg_ram_w ),
 		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe000, 0xe1ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xe000, 0xe1ff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xe200, 0xefff, MWA_RAM ),
-		new Memory_WriteAddress( 0xf000, 0xffff, paletteram_xBGR_RRRR_GGGG_BBBB_w, &paletteram ),
+		new Memory_WriteAddress( 0xf000, 0xffff, paletteram_xBGR_RRRR_GGGG_BBBB_w, paletteram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -61,8 +61,8 @@ public class quizdna
 		new Memory_WriteAddress( 0x8000, 0x9fff, quizdna_fg_ram_w ),
 		new Memory_WriteAddress( 0xa000, 0xbfff, quizdna_bg_ram_w ),
 		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe000, 0xefff, paletteram_xBGR_RRRR_GGGG_BBBB_w, &paletteram ),
-		new Memory_WriteAddress( 0xf000, 0xf1ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xe000, 0xefff, paletteram_xBGR_RRRR_GGGG_BBBB_w, paletteram ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xf200, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -443,9 +443,9 @@ public class quizdna
 	
 	static GfxDecodeInfo quizdna_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &fglayout,  0x7e0,  16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &bglayout,  0x000, 128 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0000, &objlayout, 0x600,  32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, fglayout,  0x7e0,  16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, bglayout,  0x000, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0000, objlayout, 0x600,  32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

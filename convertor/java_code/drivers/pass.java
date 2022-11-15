@@ -269,8 +269,8 @@ public class pass
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles4x4_fg_layout, 256, 2 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tiles8x8_layout, 0, 2 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles4x4_fg_layout, 256, 2 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tiles8x8_layout, 0, 2 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

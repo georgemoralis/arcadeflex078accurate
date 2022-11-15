@@ -252,12 +252,12 @@ public class wardner
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x6fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x7000, 0x7fff, wardner_mainram_w, &wardner_mainram ),
-		new Memory_WriteAddress( 0x8000, 0x8fff, wardner_sprite_w, (data8_t **)&spriteram16, &spriteram_size ),
+		new Memory_WriteAddress( 0x7000, 0x7fff, wardner_mainram_w, wardner_mainram ),
+		new Memory_WriteAddress( 0x8000, 0x8fff, wardner_sprite_w, (data8_t **)spriteram16, spriteram_size ),
 		new Memory_WriteAddress( 0x9000, 0x9fff, MWA_ROM ),
-		new Memory_WriteAddress( 0xa000, 0xadff, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram ),
-		new Memory_WriteAddress( 0xae00, 0xafff, wardner_spare_pal_ram_w, &wardner_spare_pal_ram ),
-		new Memory_WriteAddress( 0xc000, 0xc7ff, wardner_sharedram_w, &wardner_sharedram ),
+		new Memory_WriteAddress( 0xa000, 0xadff, paletteram_xBBBBBGGGGGRRRRR_w, paletteram ),
+		new Memory_WriteAddress( 0xae00, 0xafff, wardner_spare_pal_ram_w, wardner_spare_pal_ram ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, wardner_sharedram_w, wardner_sharedram ),
 		new Memory_WriteAddress( 0xb000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc800, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -555,10 +555,10 @@ public class wardner
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout,   1536, 32 ),	/* colors 1536-1791 */
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &tilelayout,   1280, 16 ),	/* colors 1280-1535 */
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &tilelayout,   1024, 16 ),	/* colors 1024-1079 */
-		new GfxDecodeInfo( REGION_GFX4, 0x00000, &spritelayout,    0, 64 ),	/* colors    0-1023 */
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout,   1536, 32 ),	/* colors 1536-1791 */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, tilelayout,   1280, 16 ),	/* colors 1280-1535 */
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, tilelayout,   1024, 16 ),	/* colors 1024-1079 */
+		new GfxDecodeInfo( REGION_GFX4, 0x00000, spritelayout,    0, 64 ),	/* colors    0-1023 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

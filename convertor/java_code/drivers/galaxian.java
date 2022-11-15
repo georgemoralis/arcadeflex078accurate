@@ -165,10 +165,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x5000, 0x53ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x5800, 0x583f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x5840, 0x585f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x5860, 0x587f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x5000, 0x53ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x5800, 0x583f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x5840, 0x585f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x5860, 0x587f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x5880, 0x58ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x6000, 0x6001, galaxian_leds_w ),
 		new Memory_WriteAddress( 0x6002, 0x6002, galaxian_coin_lockout_w ),
@@ -220,10 +220,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x9880, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa003, 0xa003, galaxian_coin_counter_w ),
 		new Memory_WriteAddress( 0xa004, 0xa007, galaxian_lfo_freq_w ),
@@ -260,15 +260,15 @@ public class galaxian
 	public static Memory_WriteAddress rockclim_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x4000, 0x47ff, rockclim_videoram_w,&rockclim_videoram  ),//4800 - 4803 = bg scroll ?
+		new Memory_WriteAddress( 0x4000, 0x47ff, rockclim_videoram_w,rockclim_videoram  ),//4800 - 4803 = bg scroll ?
 		new Memory_WriteAddress( 0x4800, 0x4803, rockclim_scroll_w ),
 		new Memory_WriteAddress( 0x5000, 0x53ff, MWA_RAM ),//?
 		new Memory_WriteAddress( 0x6000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x9880, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa000, 0xa002, galaxian_gfxbank_w ),// a002 - sprite bank
 		new Memory_WriteAddress( 0xa003, 0xa003, galaxian_coin_counter_w ),
@@ -289,10 +289,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x4fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x9880, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa000, 0xa000, galaxian_nmi_enable_w ),
 		new Memory_WriteAddress( 0xa001, 0xa001, galaxian_flip_screen_x_w ),
@@ -321,10 +321,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x9880, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa002, 0xa002, galaxian_gfxbank_w ),
 		new Memory_WriteAddress( 0xa004, 0xa007, galaxian_lfo_freq_w ),
@@ -359,10 +359,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x4800, 0x4bff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x5000, 0x503f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x5040, 0x505f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x5060, 0x507f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x4800, 0x4bff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x5000, 0x503f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x5040, 0x505f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x5060, 0x507f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x5080, 0x50ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x6000, 0x6001, MWA_NOP ),  /* sound triggers */
 		new Memory_WriteAddress( 0x6003, 0x6003, galaxian_coin_counter_w ),
@@ -400,11 +400,11 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x4800, 0x4bff, galaxian_videoram_w, &galaxian_videoram ),
+		new Memory_WriteAddress( 0x4800, 0x4bff, galaxian_videoram_w, galaxian_videoram ),
 		new Memory_WriteAddress( 0x4c00, 0x4fff, galaxian_videoram_w ),
-		new Memory_WriteAddress( 0x5000, 0x503f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x5040, 0x505f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x5060, 0x507f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x5000, 0x503f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x5040, 0x505f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x5060, 0x507f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x5080, 0x50ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x5800, 0x5800, AY8910_write_port_0_w ),
 		new Memory_WriteAddress( 0x5900, 0x5900, AY8910_control_port_0_w ),
@@ -423,10 +423,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x9880, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa004, 0xa007, galaxian_lfo_freq_w ),
 		new Memory_WriteAddress( 0xa800, 0xa802, galaxian_background_enable_w ),
@@ -445,10 +445,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x5000, 0x53ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x5800, 0x583f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x5840, 0x585f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x5860, 0x587f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x5000, 0x53ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x5800, 0x583f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x5840, 0x585f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x5860, 0x587f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x5880, 0x58ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x7001, 0x7001, galaxian_nmi_enable_w ),
 		new Memory_WriteAddress( 0x7006, 0x7006, galaxian_flip_screen_x_w ),
@@ -517,10 +517,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x9880, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa000, 0xa001, galaxian_leds_w ),
 		new Memory_WriteAddress( 0xa002, 0xa002, galaxian_coin_lockout_w ),
@@ -585,10 +585,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),	/* banked game code */
 		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x5000, 0x53ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x5800, 0x583f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x5840, 0x585f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x5860, 0x587f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x5000, 0x53ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x5800, 0x583f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x5840, 0x585f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x5860, 0x587f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x5880, 0x58ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x6000, 0x6001, galaxian_leds_w ),
 	//	new Memory_WriteAddress( 0x6002, 0x6002, galaxian_coin_lockout_w ),
@@ -627,10 +627,10 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x6000, 0x67ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x9880, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa003, 0xa003, galaxian_coin_counter_w ),
 		new Memory_WriteAddress( 0xa803, 0xa803, galaxian_noise_enable_w ),
@@ -646,9 +646,9 @@ public class galaxian
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
 		new Memory_WriteAddress( 0x9860, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa800, 0xa800, soundlatch_w ),
 		new Memory_WriteAddress( 0xb000, 0xb000, galaxian_nmi_enable_w ),
@@ -683,9 +683,9 @@ public class galaxian
 		new Memory_WriteAddress( 0x4803, 0x4803, zigzag_8910_control_trigger_w ),
 		new Memory_WriteAddress( 0x4900, 0x49ff, zigzag_8910_latch_w ),
 		new Memory_WriteAddress( 0x4a00, 0x4a00, MWA_NOP ),	/* part of the 8910 interface */
-		new Memory_WriteAddress( 0x5000, 0x53ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x5800, 0x583f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x5840, 0x587f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),	/* no bulletsram, all sprites */
+		new Memory_WriteAddress( 0x5000, 0x53ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x5800, 0x583f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x5840, 0x587f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),	/* no bulletsram, all sprites */
 		new Memory_WriteAddress( 0x5880, 0x58ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x7001, 0x7001, galaxian_nmi_enable_w ),
 		new Memory_WriteAddress( 0x7002, 0x7002, zigzag_sillyprotection_w ),
@@ -716,10 +716,10 @@ public class galaxian
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x5000, 0x67ff, MWA_ROM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, &galaxian_bulletsram, &galaxian_bulletsram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x985f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x9860, 0x987f, MWA_RAM, galaxian_bulletsram, galaxian_bulletsram_size ),
 		new Memory_WriteAddress( 0x9880, 0x98ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa003, 0xa003, galaxian_coin_counter_w ),
 		new Memory_WriteAddress( 0xa004, 0xa007, galaxian_lfo_freq_w ),
@@ -754,10 +754,10 @@ public class galaxian
 		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x7000, 0x7fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, &galaxian_videoram ),
-		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x9840, 0x987f, MWA_RAM, &galaxian_spriteram,  &galaxian_spriteram_size ),
-		new Memory_WriteAddress( 0x98c0, 0x98ff, MWA_RAM, &galaxian_spriteram2, &galaxian_spriteram2_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, galaxian_videoram_w, galaxian_videoram ),
+		new Memory_WriteAddress( 0x9800, 0x983f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x9840, 0x987f, MWA_RAM, galaxian_spriteram,  galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x98c0, 0x98ff, MWA_RAM, galaxian_spriteram2, galaxian_spriteram2_size ),
 		new Memory_WriteAddress( 0xa003, 0xa003, galaxian_coin_counter_w ),
 	  //new Memory_WriteAddress( 0xa004, 0xa007, galaxian_lfo_freq_w ),
 		new Memory_WriteAddress( 0xa800, 0xa802, galaxian_background_enable_w ),
@@ -793,12 +793,12 @@ public class galaxian
 		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x4200, MWA_RAM ),
 		new Memory_WriteAddress( 0x4300, 0x43ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x4800, 0x4bff, galaxian_videoram_w, &galaxian_videoram ),
+		new Memory_WriteAddress( 0x4800, 0x4bff, galaxian_videoram_w, galaxian_videoram ),
 		new Memory_WriteAddress( 0x4c18, 0x4c1f, MWA_NOP ),
 		new Memory_WriteAddress( 0x4c38, 0x4c3f, MWA_NOP ),
 		new Memory_WriteAddress( 0x4de0, 0x4fe0, MWA_NOP ), //writes every 0x20
-		new Memory_WriteAddress( 0x5000, 0x503f, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x5040, 0x505f, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x5000, 0x503f, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x5040, 0x505f, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
 		new Memory_WriteAddress( 0x5060, 0x5060, MWA_NOP ), //after this, it writes 0x4fe0 - 0x4de0
 		new Memory_WriteAddress( 0x6801, 0x6801, MWA_NOP ), //continuosly 0 and 1
 		new Memory_WriteAddress( 0x6802, 0x6802, galaxian_coin_counter_w ),
@@ -836,8 +836,8 @@ public class galaxian
 	public static Memory_WriteAddress drivfrcg_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x0fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x1480, 0x14bf, galaxian_attributesram_w, &galaxian_attributesram ),
-		new Memory_WriteAddress( 0x14c0, 0x14ff, MWA_RAM, &galaxian_spriteram, &galaxian_spriteram_size ),
+		new Memory_WriteAddress( 0x1480, 0x14bf, galaxian_attributesram_w, galaxian_attributesram ),
+		new Memory_WriteAddress( 0x14c0, 0x14ff, MWA_RAM, galaxian_spriteram, galaxian_spriteram_size ),
 		new Memory_WriteAddress( 0x1503, 0x1503, galaxian_coin_counter_w ),
 		new Memory_WriteAddress( 0x1580, 0x1582, galaxian_background_enable_w ),
 		new Memory_WriteAddress( 0x1583, 0x1583, MWA_NOP ),
@@ -847,7 +847,7 @@ public class galaxian
 		new Memory_WriteAddress( 0x1700, 0x1700, MWA_NOP ),
 		new Memory_WriteAddress( 0x1701, 0x1701, MWA_NOP ),
 		new Memory_WriteAddress( 0x1704, 0x1707, galaxian_vol_w ),
-		new Memory_WriteAddress( 0x1800, 0x1bff, galaxian_videoram_w, &galaxian_videoram ),
+		new Memory_WriteAddress( 0x1800, 0x1bff, galaxian_videoram_w, galaxian_videoram ),
 		new Memory_WriteAddress( 0x1c00, 0x1fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x2000, 0x2fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x3000, 0x3fff, hunchbks_mirror_w ),
@@ -3360,9 +3360,9 @@ public class galaxian
 	
 	static GfxDecodeInfo rockclim_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &galaxian_charlayout,   32, 8 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &galaxian_spritelayout, 32, 8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &rockclim_charlayout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, galaxian_charlayout,   32, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, galaxian_spritelayout, 32, 8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, rockclim_charlayout, 0, 1 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
@@ -3371,37 +3371,37 @@ public class galaxian
 	
 	static GfxDecodeInfo galaxian_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &galaxian_charlayout,   0, 8 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &galaxian_spritelayout, 0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, galaxian_charlayout,   0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, galaxian_spritelayout, 0, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gmgalax_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &galaxian_charlayout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &galaxian_spritelayout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, galaxian_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, galaxian_spritelayout, 0, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/* separate character and sprite ROMs */
 	static GfxDecodeInfo pacmanbl_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &pacmanbl_charlayout,   0, 8 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x1000, &pacmanbl_spritelayout, 0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, pacmanbl_charlayout,   0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x1000, pacmanbl_spritelayout, 0, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo bagmanmc_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &bagmanmc_charlayout,    0, 8 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x2000, &pacmanbl_spritelayout, 0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, bagmanmc_charlayout,    0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x2000, pacmanbl_spritelayout, 0, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo _4in1_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &_4in1_charlayout,      0, 8 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x4000, &_4in1_spritelayout,    0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, _4in1_charlayout,      0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x4000, _4in1_spritelayout,    0, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

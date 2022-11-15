@@ -718,8 +718,8 @@ public class welltris
 	
 	static GfxDecodeInfo welltris_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &welltris_charlayout,   16* 0, 4*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &welltris_spritelayout, 16*96, 2*16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, welltris_charlayout,   16* 0, 4*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, welltris_spritelayout, 16*96, 2*16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

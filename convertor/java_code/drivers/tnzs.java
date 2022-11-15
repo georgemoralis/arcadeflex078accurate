@@ -317,16 +317,16 @@ public class tnzs
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_BANK1 ),	/* ROM + RAM */
-		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM, &tnzs_objram ),
-		new Memory_WriteAddress( 0xe000, 0xefff, tnzs_workram_w, &tnzs_workram ),
-		new Memory_WriteAddress( 0xf000, 0xf1ff, MWA_RAM, &tnzs_vdcram ),
-		new Memory_WriteAddress( 0xf200, 0xf3ff, MWA_RAM, &tnzs_scrollram ), /* scrolling info */
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM, tnzs_objram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, tnzs_workram_w, tnzs_workram ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, MWA_RAM, tnzs_vdcram ),
+		new Memory_WriteAddress( 0xf200, 0xf3ff, MWA_RAM, tnzs_scrollram ), /* scrolling info */
 		new Memory_WriteAddress( 0xf400, 0xf400, MWA_NOP ),	/* ? */
 		new Memory_WriteAddress( 0xf600, 0xf600, tnzs_bankswitch_w ),
 		/* arknoid2, extrmatn, plumppop and drtoppel have PROMs instead of RAM */
 		/* drtoppel writes here anyway! (maybe leftover from tests during development) */
 		/* so the handler is patched out in init_drtopple() */
-		new Memory_WriteAddress( 0xf800, 0xfbff, paletteram_xRRRRRGGGGGBBBBB_w, &paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xfbff, paletteram_xRRRRRGGGGGBBBBB_w, paletteram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -412,7 +412,7 @@ public class tnzs
 		new Memory_WriteAddress( 0xb004, 0xb004, tnzsb_sound_command_w ),
 		new Memory_WriteAddress( 0xd000, 0xdfff, MWA_RAM ),
 		new Memory_WriteAddress( 0xe000, 0xefff, tnzs_workram_sub_w ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, paletteram_xRRRRRGGGGGBBBBB_w, &paletteram ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, paletteram_xRRRRRGGGGGBBBBB_w, paletteram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -1614,19 +1614,19 @@ public class tnzs
 	
 	static GfxDecodeInfo arknoid2_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &arknoid2_charlayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, arknoid2_charlayout, 0, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo tnzs_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tnzs_charlayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tnzs_charlayout, 0, 32 ),
 		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	
 	static GfxDecodeInfo insectx_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &insectx_charlayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, insectx_charlayout, 0, 32 ),
 		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	

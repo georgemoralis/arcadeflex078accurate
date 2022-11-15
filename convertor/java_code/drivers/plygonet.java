@@ -377,7 +377,7 @@ public class plygonet
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &bglayout,     0x0000, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, bglayout,     0x0000, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

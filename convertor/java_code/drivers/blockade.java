@@ -190,7 +190,7 @@ public class blockade
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 	    new Memory_WriteAddress( 0x0000, 0x07ff, MWA_ROM ),
 	    new Memory_WriteAddress( 0x4000, 0x47ff, MWA_ROM ),  /* same image */
-	    new Memory_WriteAddress( 0xe000, 0xe3ff, blockade_videoram_w, &videoram ),
+	    new Memory_WriteAddress( 0xe000, 0xe3ff, blockade_videoram_w, videoram ),
 	    new Memory_WriteAddress( 0xff00, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -416,13 +416,13 @@ public class blockade
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &blockade_layout, 0, 2 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, blockade_layout, 0, 2 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo blasto_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &blasto_layout,   0, 2 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, blasto_layout,   0, 2 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

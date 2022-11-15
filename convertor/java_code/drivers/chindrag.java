@@ -88,10 +88,10 @@ public class chindrag
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &chindrag_charlayout,   0, 1  ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &chindrag_charlayout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &chindrag2_charlayout,   0, 1  ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &chindrag2_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, chindrag_charlayout,   0, 1  ),
+		new GfxDecodeInfo( REGION_GFX2, 0, chindrag_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, chindrag2_charlayout,   0, 1  ),
+		new GfxDecodeInfo( REGION_GFX2, 0, chindrag2_charlayout,   0, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

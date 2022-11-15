@@ -251,8 +251,8 @@ public class quizpani
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0x100, 16 ), /* Background */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout, 0x000, 16 ), /* Text */
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout, 0x100, 16 ), /* Background */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout, 0x000, 16 ), /* Text */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

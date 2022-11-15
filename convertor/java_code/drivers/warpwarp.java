@@ -131,10 +131,10 @@ public class warpwarp
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x1fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x2000, 0x23ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x4000, 0x43ff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0x4400, 0x47ff, colorram_w, &colorram ),
+		new Memory_WriteAddress( 0x4000, 0x43ff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0x4400, 0x47ff, colorram_w, colorram ),
 		new Memory_WriteAddress( 0x4800, 0x4fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x6000, 0x6001, MWA_RAM, &warpwarp_bulletsram ),
+		new Memory_WriteAddress( 0x6000, 0x6001, MWA_RAM, warpwarp_bulletsram ),
 		new Memory_WriteAddress( 0x6002, 0x6002, warpwarp_sound_w ),
 		new Memory_WriteAddress( 0x6003, 0x6003, watchdog_reset_w ),
 		new Memory_WriteAddress( 0x6010, 0x6010, warpwarp_music1_w ),
@@ -160,11 +160,11 @@ public class warpwarp
 	public static Memory_WriteAddress warpwarp_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x37ff, MWA_ROM ),
-		new Memory_WriteAddress( 0x4000, 0x43ff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0x4400, 0x47ff, colorram_w, &colorram ),
+		new Memory_WriteAddress( 0x4000, 0x43ff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0x4400, 0x47ff, colorram_w, colorram ),
 		new Memory_WriteAddress( 0x4800, 0x4fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xc000, 0xc001, MWA_RAM, &warpwarp_bulletsram ),
+		new Memory_WriteAddress( 0xc000, 0xc001, MWA_RAM, warpwarp_bulletsram ),
 		new Memory_WriteAddress( 0xc002, 0xc002, warpwarp_sound_w ),
 		new Memory_WriteAddress( 0xc003, 0xc003, watchdog_reset_w ),
 		new Memory_WriteAddress( 0xc010, 0xc010, warpwarp_music1_w ),
@@ -420,8 +420,8 @@ public class warpwarp
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_CPU1, 0x4800, &charlayout,   0, 256 ),
-		new GfxDecodeInfo( REGION_CPU1, 0x4800, &spritelayout, 0, 256 ),
+		new GfxDecodeInfo( REGION_CPU1, 0x4800, charlayout,   0, 256 ),
+		new GfxDecodeInfo( REGION_CPU1, 0x4800, spritelayout, 0, 256 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

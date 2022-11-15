@@ -269,8 +269,8 @@ public class vindictr
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pfmolayout,  256, 32 ),		/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX2, 0, &anlayout,      0, 64 ),		/* characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, pfmolayout,  256, 32 ),		/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, anlayout,      0, 64 ),		/* characters 8x8 */
 		new GfxDecodeInfo( -1 )
 	};
 	

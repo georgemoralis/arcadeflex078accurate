@@ -227,9 +227,9 @@ public class toobin
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pflayout,     0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &molayout,   256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &anlayout,   512, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, pflayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, molayout,   256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, anlayout,   512, 64 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

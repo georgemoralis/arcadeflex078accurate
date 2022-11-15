@@ -95,7 +95,7 @@ public class spacefb
 	
 	
 		/* Clear the bitmap */
-		fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
+		fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
 	
 		/* Draw the sprite/chars */
 		spriteno = (video_control & 0x20) ? 0x80 : 0x00;
@@ -135,7 +135,7 @@ public class spacefb
 							col,
 							flip_screen(),flip_screen(),
 							sx,sy,
-							&Machine->visible_area,TRANSPARENCY_PEN,0);
+							Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 				}
 				else if (cnt & 0x40)
@@ -153,7 +153,7 @@ public class spacefb
 							col,
 							flip_screen(),flip_screen(),
 							sx,sy,
-							&Machine->visible_area,TRANSPARENCY_NONE,0);
+							Machine->visible_area,TRANSPARENCY_NONE,0);
 				}
 			}
 		}

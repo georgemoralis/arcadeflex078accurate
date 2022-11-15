@@ -684,19 +684,19 @@ public class tumblep
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tcharlayout, 256, 16 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tlayout,     512, 16 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tlayout,     256, 16 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tlayout,       0, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tcharlayout, 256, 16 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tlayout,     512, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tlayout,     256, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tlayout,       0, 16 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo fncywld_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tcharlayout, 0x400, 0x40 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tlayout,     0x400, 0x40 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tlayout,     0x200, 0x40 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tlayout,       0, 0x40 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tcharlayout, 0x400, 0x40 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tlayout,     0x400, 0x40 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tlayout,     0x200, 0x40 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tlayout,       0, 0x40 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -1041,8 +1041,8 @@ public class fromance
 	
 	static GfxDecodeInfo fromance_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &bglayout,   0, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &bglayout,   0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, bglayout,   0, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, bglayout,   0, 128 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -173,7 +173,7 @@ public class opwolf
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x9000, 0x9000, MWA_NOP ),	/* unknown write, 0 then 1 each interrupt */
 		new Memory_WriteAddress( 0xa000, 0xa000, MWA_NOP ),	/* unknown write, once per interrupt */
-		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM, &cchip_ram ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM, cchip_ram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -401,15 +401,15 @@ public class opwolf
 	
 	static GfxDecodeInfo opwolf_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* sprites */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),	/* scr tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  0, 256 ),	/* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 256 ),	/* scr tiles */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo opwolfb_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout_b,  0, 256 ),	/* sprites */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout_b,  0, 256 ),	/* scr tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout_b,  0, 256 ),	/* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout_b,  0, 256 ),	/* scr tiles */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

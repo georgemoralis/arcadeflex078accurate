@@ -144,7 +144,7 @@ public class finalizr
 	
 			scroll = -*finalizr_scroll + 16;
 	
-			copyscrollbitmap(bitmap,tmpbitmap,1,&scroll,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,1,&scroll,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -182,25 +182,25 @@ public class finalizr
 								color,
 								flipx,flipy,
 								flipx?sx+16:sx,flipy?sy+16:sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						drawgfx(bitmap,Machine->gfx[1],
 								code + 1,
 								color,
 								flipx,flipy,
 								flipx?sx:sx+16,flipy?sy+16:sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						drawgfx(bitmap,Machine->gfx[1],
 								code + 2,
 								color,
 								flipx,flipy,
 								flipx?sx+16:sx,flipy?sy:sy+16,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						drawgfx(bitmap,Machine->gfx[1],
 								code + 3,
 								color,
 								flipx,flipy,
 								flipx?sx:sx+16,flipy?sy:sy+16,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						break;
 	
 					case 0x00:	/* 16x16 */
@@ -209,7 +209,7 @@ public class finalizr
 								color,
 								flipx,flipy,
 								sx,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						break;
 	
 					case 0x04:	/* 16x8 */
@@ -219,13 +219,13 @@ public class finalizr
 								color,
 								flipx,flipy,
 								flipx?sx+8:sx,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						drawgfx(bitmap,Machine->gfx[2],
 								code | 1,
 								color,
 								flipx,flipy,
 								flipx?sx:sx+8,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						break;
 	
 					case 0x08:	/* 8x16 */
@@ -235,13 +235,13 @@ public class finalizr
 								color,
 								flipx,flipy,
 								sx,flipy?sy+8:sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						drawgfx(bitmap,Machine->gfx[2],
 								code | 2,
 								color,
 								flipx,flipy,
 								sx,flipy?sy:sy+8,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						break;
 	
 					case 0x0c:	/* 8x8 */
@@ -251,7 +251,7 @@ public class finalizr
 								color,
 								flipx,flipy,
 								sx,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						break;
 				}
 			}
@@ -273,7 +273,7 @@ public class finalizr
 						(finalizr_colorram2[offs] & 0x0f),
 						finalizr_colorram2[offs] & 0x10,finalizr_colorram2[offs] & 0x20,
 						8*sx,8*sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	} };

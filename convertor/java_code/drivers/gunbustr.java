@@ -363,8 +363,8 @@ public class gunbustr
 	
 	static GfxDecodeInfo gunbustr_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile16x16_layout,  0, 512 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &charlayout,        0, 512 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile16x16_layout,  0, 512 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, charlayout,        0, 512 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

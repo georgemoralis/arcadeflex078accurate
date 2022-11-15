@@ -51,9 +51,9 @@ public class mrdo
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0x87ff, mrdo_bgvideoram_w, &mrdo_bgvideoram ),
-		new Memory_WriteAddress( 0x8800, 0x8fff, mrdo_fgvideoram_w, &mrdo_fgvideoram ),
-		new Memory_WriteAddress( 0x9000, 0x90ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, mrdo_bgvideoram_w, mrdo_bgvideoram ),
+		new Memory_WriteAddress( 0x8800, 0x8fff, mrdo_fgvideoram_w, mrdo_fgvideoram ),
+		new Memory_WriteAddress( 0x9000, 0x90ff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0x9800, 0x9800, mrdo_flipscreen_w ),	/* screen flip + playfield priority */
 		new Memory_WriteAddress( 0x9801, 0x9801, SN76496_0_w ),
 		new Memory_WriteAddress( 0x9802, 0x9802, SN76496_1_w ),
@@ -167,9 +167,9 @@ public class mrdo
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,      0, 64 ),	/* colors 0-255 directly mapped */
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout,      0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 4*64, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,      0, 64 ),	/* colors 0-255 directly mapped */
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout,      0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout, 4*64, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

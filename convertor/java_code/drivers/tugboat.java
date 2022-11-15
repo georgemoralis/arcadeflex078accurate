@@ -191,7 +191,7 @@ public class tugboat
 	
 	public static Memory_WriteAddress tugboat_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x0000, 0x01ff, MWA_RAM, &tugboat_ram ),
+		new Memory_WriteAddress( 0x0000, 0x01ff, MWA_RAM, tugboat_ram ),
 		new Memory_WriteAddress( 0x1060, 0x1060, AY8910_control_port_0_w ),
 		new Memory_WriteAddress( 0x1061, 0x1061, AY8910_write_port_0_w ),
 		new Memory_WriteAddress( 0x10a0, 0x10a1, tugboat_hd46505_0_w ),	// scrolling is performed changing the start_addr register (0C/0D)
@@ -292,10 +292,10 @@ public class tugboat
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0x80, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 0x80, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout, 0x00, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &charlayout, 0x00, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0x80, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout, 0x80, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, charlayout, 0x00, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, charlayout, 0x00, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -393,7 +393,7 @@ public class nbmj8991
 	
 		if (nb1413m3_inputport & 0x20)
 		{
-			copyscrollbitmap(bitmap, pstadium_tmpbitmap, 1, &pstadium_scrollx, 1, &pstadium_scrolly, &Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, pstadium_tmpbitmap, 1, &pstadium_scrollx, 1, &pstadium_scrolly, Machine->visible_area, TRANSPARENCY_NONE, 0);
 		}
 		else
 		{
@@ -424,7 +424,7 @@ public class nbmj8991
 	
 		if (pstadium_dispflag)
 		{
-			copyscrollbitmap(bitmap, pstadium_tmpbitmap, 1, &pstadium_scrollx, 1, &pstadium_scrolly, &Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, pstadium_tmpbitmap, 1, &pstadium_scrollx, 1, &pstadium_scrolly, Machine->visible_area, TRANSPARENCY_NONE, 0);
 		}
 		else
 		{

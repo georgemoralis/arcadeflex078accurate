@@ -372,7 +372,7 @@ public class fuukifg3
 	
 		// don't do the rasters on the sprites . its very slow and the hw might not anyway.
 		if (cliprect->max_y == Machine->visible_area.max_y)
-			fuuki32_draw_sprites(bitmap,&Machine->visible_area);
+			fuuki32_draw_sprites(bitmap,Machine->visible_area);
 	} };
 	
 	public static VideoEofHandlerPtr video_eof_fuuki32  = new VideoEofHandlerPtr() { public void handler(){

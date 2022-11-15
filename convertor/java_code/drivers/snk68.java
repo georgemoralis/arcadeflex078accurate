@@ -771,22 +771,22 @@ public class snk68
 	
 	static GfxDecodeInfo pow_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,		 0, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &pow_spritelayout, 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,		 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, pow_spritelayout, 0, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo searchar_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,			  0,  16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &searchar_spritelayout, 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,			  0,  16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, searchar_spritelayout, 0, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo ikari3_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,			0,	16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &ikari3_spritelayout, 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,			0,	16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, ikari3_spritelayout, 0, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

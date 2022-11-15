@@ -306,7 +306,7 @@ public class deniam
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 128 ),	/* colors 0-1023 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0, 128 ),	/* colors 0-1023 */
 													/* sprites use colors 1024-2047 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};

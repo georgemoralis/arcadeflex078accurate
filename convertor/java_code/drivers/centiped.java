@@ -461,10 +461,10 @@ public class centiped
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		MEMORY_ADDRESS_BITS(14)
 		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0400, 0x07bf, centiped_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0x07c0, 0x07ff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0x0400, 0x07bf, centiped_videoram_w, videoram ),
+		new Memory_WriteAddress( 0x07c0, 0x07ff, MWA_RAM, spriteram ),
 		new Memory_WriteAddress( 0x1000, 0x100f, pokey1_w ),
-		new Memory_WriteAddress( 0x1400, 0x140f, centiped_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0x1400, 0x140f, centiped_paletteram_w, paletteram ),
 		new Memory_WriteAddress( 0x1600, 0x163f, atari_vg_earom_w ),
 		new Memory_WriteAddress( 0x1680, 0x1680, atari_vg_earom_ctrl_w ),
 		new Memory_WriteAddress( 0x1800, 0x1800, irq_ack_w ),
@@ -500,11 +500,11 @@ public class centiped
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		MEMORY_ADDRESS_BITS(15)
 		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0400, 0x07bf, centiped_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0x07c0, 0x07ff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0x0400, 0x07bf, centiped_videoram_w, videoram ),
+		new Memory_WriteAddress( 0x07c0, 0x07ff, MWA_RAM, spriteram ),
 		new Memory_WriteAddress( 0x1000, 0x1000, AY8910_write_port_0_w ),
 		new Memory_WriteAddress( 0x1001, 0x1001, AY8910_control_port_0_w ),
-		new Memory_WriteAddress( 0x1400, 0x140f, centiped_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0x1400, 0x140f, centiped_paletteram_w, paletteram ),
 		new Memory_WriteAddress( 0x1600, 0x163f, atari_vg_earom_w ),
 		new Memory_WriteAddress( 0x1680, 0x1680, atari_vg_earom_ctrl_w ),
 		new Memory_WriteAddress( 0x1800, 0x1800, irq_ack_w ),
@@ -548,9 +548,9 @@ public class centiped
 		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x0400, 0x040f, pokey1_w ),
 		new Memory_WriteAddress( 0x0800, 0x080f, pokey2_w ),
-		new Memory_WriteAddress( 0x1000, 0x13ff, centiped_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0x13c0, 0x13ff, MWA_RAM, &spriteram ),
-		new Memory_WriteAddress( 0x2480, 0x249f, milliped_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0x1000, 0x13ff, centiped_videoram_w, videoram ),
+		new Memory_WriteAddress( 0x13c0, 0x13ff, MWA_RAM, spriteram ),
+		new Memory_WriteAddress( 0x2480, 0x249f, milliped_paletteram_w, paletteram ),
 		new Memory_WriteAddress( 0x2500, 0x2502, coin_count_w ),
 		new Memory_WriteAddress( 0x2503, 0x2504, led_w ),
 		new Memory_WriteAddress( 0x2505, 0x2505, input_select_w ),
@@ -589,8 +589,8 @@ public class centiped
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		MEMORY_ADDRESS_BITS(15)
 		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0400, 0x07bf, centiped_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0x07c0, 0x07ff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0x0400, 0x07bf, centiped_videoram_w, videoram ),
+		new Memory_WriteAddress( 0x07c0, 0x07ff, MWA_RAM, spriteram ),
 		new Memory_WriteAddress( 0x1000, 0x100f, pokey1_w ),
 		new Memory_WriteAddress( 0x1800, 0x1800, irq_ack_w ),
 		new Memory_WriteAddress( 0x1c00, 0x1c02, coin_count_w ),
@@ -1100,15 +1100,15 @@ public class centiped
 	
 	static GfxDecodeInfo centiped_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 1 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,   4, 4*4*4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout,   4, 4*4*4 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo milliped_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 4 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 4*4, 4*4*4*4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 4*4, 4*4*4*4 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1133,8 +1133,8 @@ public class centiped
 	
 	static GfxDecodeInfo warlords_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000, &warlords_charlayout, 0,   8 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x200, &warlords_charlayout, 8*4, 8*4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000, warlords_charlayout, 0,   8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x200, warlords_charlayout, 8*4, 8*4 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

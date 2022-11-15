@@ -54,11 +54,11 @@ public class kncljoe
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xcfff, kncljoe_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xd000, 0xd001, kncljoe_scroll_w, &kncljoe_scrollregs ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, kncljoe_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xd000, 0xd001, kncljoe_scroll_w, kncljoe_scrollregs ),
 		new Memory_WriteAddress( 0xd800, 0xd800, irem_sound_cmd_w ),
 		new Memory_WriteAddress( 0xd801, 0xd803, kncljoe_control_w ),
-		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xf000, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -172,9 +172,9 @@ public class kncljoe
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0x00, 16 ),	/* colors 0x00-0x7f direct mapped */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 0x80, 16 ),	/* colors 0x80-0x8f with lookup table */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 0x80, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0x00, 16 ),	/* colors 0x00-0x7f direct mapped */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 0x80, 16 ),	/* colors 0x80-0x8f with lookup table */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout, 0x80, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

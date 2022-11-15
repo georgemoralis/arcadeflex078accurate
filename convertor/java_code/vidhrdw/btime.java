@@ -372,7 +372,7 @@ public class btime
 	                color,
 	                flip_screen(),flip_screen(),
 	                8*sx,8*sy,
-	                &Machine->visible_area,transparency,0);
+	                Machine->visible_area,transparency,0);
 	    }
 	}
 	
@@ -411,7 +411,7 @@ public class btime
 	                color,
 	                flipx,flipy,
 	                sx,sy,
-	                &Machine->visible_area,TRANSPARENCY_PEN,0);
+	                Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 	        sy += (flip_screen() ? -256 : 256);
 	
@@ -421,7 +421,7 @@ public class btime
 	                color,
 	                flipx,flipy,
 	                sx,sy,
-	                &Machine->visible_area,TRANSPARENCY_PEN,0);
+	                Machine->visible_area,TRANSPARENCY_PEN,0);
 	    }
 	}
 	
@@ -543,7 +543,7 @@ public class btime
 	        drawchars(tmpbitmap, TRANSPARENCY_NONE, 0, -1);
 	
 	        /* copy the temporary bitmap to the screen */
-	        copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+	        copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	    }
 	
 	    drawsprites(bitmap, 0, 1, 0, videoram, 0x20);
@@ -557,7 +557,7 @@ public class btime
 	    drawchars(tmpbitmap, TRANSPARENCY_NONE, 0, -1);
 	
 	    /* copy the temporary bitmap to the screen */
-	    copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+	    copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 	    drawsprites(bitmap, 0, 0, 0, videoram, 0x20);
 	} };
@@ -570,7 +570,7 @@ public class btime
 	    drawchars(tmpbitmap, TRANSPARENCY_NONE, 0, -1);
 	
 	    /* copy the temporary bitmap to the screen */
-	    copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+	    copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 	    drawsprites(bitmap, 0, 1, 2, videoram, 0x20);
 	} };
@@ -591,7 +591,7 @@ public class btime
 	        drawchars(tmpbitmap, TRANSPARENCY_NONE, btime_palette + 1, -1);
 	
 	        /* copy the temporary bitmap to the screen */
-	        copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+	        copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	    }
 	
 	    /* The order is important for correct priorities */
@@ -645,7 +645,7 @@ public class btime
 	        scroll = (bnj_scroll1 & 0x02) * 128 + 511 - bnj_scroll2;
 	        if (!flip_screen())
 	            scroll = 767-scroll;
-	        copyscrollbitmap (bitmap, background_bitmap, 1, &scroll, 0, 0, &Machine->visible_area,TRANSPARENCY_NONE, 0);
+	        copyscrollbitmap (bitmap, background_bitmap, 1, &scroll, 0, 0, Machine->visible_area,TRANSPARENCY_NONE, 0);
 	
 	        /* copy the low priority characters followed by the sprites
 	           then the high priority characters */
@@ -658,7 +658,7 @@ public class btime
 	        drawchars(tmpbitmap, TRANSPARENCY_NONE, 0, -1);
 	
 	        /* copy the temporary bitmap to the screen */
-	        copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+	        copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 	        drawsprites(bitmap, 0, 0, 0, videoram, 0x20);
 	    }
@@ -712,7 +712,7 @@ public class btime
 	    drawchars(tmpbitmap, TRANSPARENCY_NONE, btime_palette, -1);
 	
 	    /* copy the temporary bitmap to the screen */
-	    copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+	    copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 	    drawsprites(bitmap, btime_palette, 0, 0, spriteram, 1);
 	} };

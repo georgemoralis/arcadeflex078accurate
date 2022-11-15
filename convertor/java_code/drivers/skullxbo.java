@@ -241,9 +241,9 @@ public class skullxbo
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &molayout, 0x000, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &pflayout, 0x200, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &anlayout, 0x300, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, molayout, 0x000, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, pflayout, 0x200, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, anlayout, 0x300, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

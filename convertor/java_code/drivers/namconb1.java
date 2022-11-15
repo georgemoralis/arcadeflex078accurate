@@ -522,16 +522,16 @@ public class namconb1
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( NAMCONB1_TILEGFXREGION,	0, &tile_layout,	0x1000, 0x10 ),
-		new GfxDecodeInfo( NAMCONB1_SPRITEGFXREGION,	0, &obj_layout,		0x0000, 0x10 ),
+		new GfxDecodeInfo( NAMCONB1_TILEGFXREGION,	0, tile_layout,	0x1000, 0x10 ),
+		new GfxDecodeInfo( NAMCONB1_SPRITEGFXREGION,	0, obj_layout,		0x0000, 0x10 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo2[] =
 	{
-		new GfxDecodeInfo( NAMCONB1_TILEGFXREGION,	0, &tile_layout,	0x1000, 0x08 ),
-		new GfxDecodeInfo( NAMCONB1_SPRITEGFXREGION,	0, &obj_layout,		0x0000, 0x10 ),
-		new GfxDecodeInfo( NAMCONB1_ROTGFXREGION,	0, &roz_layout,		0x1800, 0x08 ),
+		new GfxDecodeInfo( NAMCONB1_TILEGFXREGION,	0, tile_layout,	0x1000, 0x08 ),
+		new GfxDecodeInfo( NAMCONB1_SPRITEGFXREGION,	0, obj_layout,		0x0000, 0x10 ),
+		new GfxDecodeInfo( NAMCONB1_ROTGFXREGION,	0, roz_layout,		0x1800, 0x08 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

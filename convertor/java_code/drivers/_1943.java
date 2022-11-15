@@ -50,14 +50,14 @@ public class _1943
 		new Memory_WriteAddress( 0xc804, 0xc804, c1943_c804_w ),	/* ROM bank switch, screen flip */
 		new Memory_WriteAddress( 0xc806, 0xc806, watchdog_reset_w ),
 		new Memory_WriteAddress( 0xc807, 0xc807, MWA_NOP ), 	/* protection chip write (we don't emulate it) */
-		new Memory_WriteAddress( 0xd000, 0xd3ff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0xd400, 0xd7ff, colorram_w, &colorram ),
-		new Memory_WriteAddress( 0xd800, 0xd801, MWA_RAM, &c1943_scrolly ),
-		new Memory_WriteAddress( 0xd802, 0xd802, MWA_RAM, &c1943_scrollx ),
-		new Memory_WriteAddress( 0xd803, 0xd804, MWA_RAM, &c1943_bgscrolly ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0xd400, 0xd7ff, colorram_w, colorram ),
+		new Memory_WriteAddress( 0xd800, 0xd801, MWA_RAM, c1943_scrolly ),
+		new Memory_WriteAddress( 0xd802, 0xd802, MWA_RAM, c1943_scrollx ),
+		new Memory_WriteAddress( 0xd803, 0xd804, MWA_RAM, c1943_bgscrolly ),
 		new Memory_WriteAddress( 0xd806, 0xd806, c1943_d806_w ),	/* sprites, bg1, bg2 enable */
 		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
-		new Memory_WriteAddress( 0xf000, 0xffff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xf000, 0xffff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -231,10 +231,10 @@ public class _1943
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,                  0, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &fgtilelayout,             32*4, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &bgtilelayout,       32*4+16*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout, 32*4+16*16+16*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,                  0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, fgtilelayout,             32*4, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, bgtilelayout,       32*4+16*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout, 32*4+16*16+16*16, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -1388,12 +1388,12 @@ public class cischeat
 	
 	static GfxDecodeInfo bigrun_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles_8x8,	0x0000, 16 ), // [0] Scroll 0
-		new GfxDecodeInfo( REGION_GFX2, 0, &tiles_8x8,	0x0100, 16 ), // [1] Scroll 1
-		new GfxDecodeInfo( REGION_GFX3, 0, &tiles_8x8,	0x0e00, 16 ), // [2] Scroll 2
-		new GfxDecodeInfo( REGION_GFX4, 0, &tiles_16x16,	0x0a00, 64 ), // [3] Sprites
-		new GfxDecodeInfo( REGION_GFX5, 0, &road_layout,	0x0600, 64 ), // [4] Road 0
-		new GfxDecodeInfo( REGION_GFX6, 0, &road_layout,	0x0200, 64 ), // [5] Road 1
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles_8x8,	0x0000, 16 ), // [0] Scroll 0
+		new GfxDecodeInfo( REGION_GFX2, 0, tiles_8x8,	0x0100, 16 ), // [1] Scroll 1
+		new GfxDecodeInfo( REGION_GFX3, 0, tiles_8x8,	0x0e00, 16 ), // [2] Scroll 2
+		new GfxDecodeInfo( REGION_GFX4, 0, tiles_16x16,	0x0a00, 64 ), // [3] Sprites
+		new GfxDecodeInfo( REGION_GFX5, 0, road_layout,	0x0600, 64 ), // [4] Road 0
+		new GfxDecodeInfo( REGION_GFX6, 0, road_layout,	0x0200, 64 ), // [5] Road 1
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1403,12 +1403,12 @@ public class cischeat
 	
 	static GfxDecodeInfo cischeat_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles_8x8,	0x0000, 32  ), // [0] Scroll 0
-		new GfxDecodeInfo( REGION_GFX2, 0, &tiles_8x8,	0x0200, 32  ), // [1] Scroll 1
-		new GfxDecodeInfo( REGION_GFX3, 0, &tiles_8x8,	0x0400, 32  ), // [2] Scroll 2
-		new GfxDecodeInfo( REGION_GFX4, 0, &tiles_16x16,	0x0e00, 128 ), // [3] Sprites
-		new GfxDecodeInfo( REGION_GFX5, 0, &road_layout,	0x0600, 64  ), // [4] Road 0
-		new GfxDecodeInfo( REGION_GFX6, 0, &road_layout,	0x0a00, 64  ), // [5] Road 1
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles_8x8,	0x0000, 32  ), // [0] Scroll 0
+		new GfxDecodeInfo( REGION_GFX2, 0, tiles_8x8,	0x0200, 32  ), // [1] Scroll 1
+		new GfxDecodeInfo( REGION_GFX3, 0, tiles_8x8,	0x0400, 32  ), // [2] Scroll 2
+		new GfxDecodeInfo( REGION_GFX4, 0, tiles_16x16,	0x0e00, 128 ), // [3] Sprites
+		new GfxDecodeInfo( REGION_GFX5, 0, road_layout,	0x0600, 64  ), // [4] Road 0
+		new GfxDecodeInfo( REGION_GFX6, 0, road_layout,	0x0a00, 64  ), // [5] Road 1
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1418,12 +1418,12 @@ public class cischeat
 	
 	static GfxDecodeInfo f1gpstar_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles_8x8,	0x0000, 16  ), // [0] Scroll 0
-		new GfxDecodeInfo( REGION_GFX2, 0, &tiles_8x8,	0x0100, 16  ), // [1] Scroll 1
-		new GfxDecodeInfo( REGION_GFX3, 0, &tiles_8x8,	0x0200, 16  ), // [2] Scroll 2
-		new GfxDecodeInfo( REGION_GFX4, 0, &tiles_16x16,	0x0b00, 128 ), // [3] Sprites
-		new GfxDecodeInfo( REGION_GFX5, 0, &road_layout,	0x0300, 64  ), // [4] Road 0
-		new GfxDecodeInfo( REGION_GFX6, 0, &road_layout,	0x0700, 64  ), // [5] Road 1
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles_8x8,	0x0000, 16  ), // [0] Scroll 0
+		new GfxDecodeInfo( REGION_GFX2, 0, tiles_8x8,	0x0100, 16  ), // [1] Scroll 1
+		new GfxDecodeInfo( REGION_GFX3, 0, tiles_8x8,	0x0200, 16  ), // [2] Scroll 2
+		new GfxDecodeInfo( REGION_GFX4, 0, tiles_16x16,	0x0b00, 128 ), // [3] Sprites
+		new GfxDecodeInfo( REGION_GFX5, 0, road_layout,	0x0300, 64  ), // [4] Road 0
+		new GfxDecodeInfo( REGION_GFX6, 0, road_layout,	0x0700, 64  ), // [5] Road 1
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1433,10 +1433,10 @@ public class cischeat
 	
 	static GfxDecodeInfo gfxdecodeinfo_scudhamm[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles_8x8,			0x0000, 16  ),	// [0] Scroll 0
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles_8x8,			0x0000, 16  ),	// [1] UNUSED
-		new GfxDecodeInfo( REGION_GFX3, 0, &tiles_8x8,			0x0100, 16  ),	// [2] Scroll 2
-		new GfxDecodeInfo( REGION_GFX4, 0, &tiles_16x16_quad,	0x0200, 128 ),	// [3] sprites
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles_8x8,			0x0000, 16  ),	// [0] Scroll 0
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles_8x8,			0x0000, 16  ),	// [1] UNUSED
+		new GfxDecodeInfo( REGION_GFX3, 0, tiles_8x8,			0x0100, 16  ),	// [2] Scroll 2
+		new GfxDecodeInfo( REGION_GFX4, 0, tiles_16x16_quad,	0x0200, 128 ),	// [3] sprites
 		// No Road Layers
 		new GfxDecodeInfo( -1 )
 	};

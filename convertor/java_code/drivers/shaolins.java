@@ -61,9 +61,9 @@ public class shaolins
 		new Memory_WriteAddress( 0x2000, 0x2000, shaolins_scroll_w ),
 		new Memory_WriteAddress( 0x2800, 0x2bff, MWA_RAM ),	/* RAM BANK 2 */
 		new Memory_WriteAddress( 0x3000, 0x30ff, MWA_RAM ),	/* RAM BANK 1 */
-		new Memory_WriteAddress( 0x3100, 0x33ff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0x3800, 0x3bff, shaolins_colorram_w, &colorram ),
-		new Memory_WriteAddress( 0x3c00, 0x3fff, shaolins_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x3100, 0x33ff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0x3800, 0x3bff, shaolins_colorram_w, colorram ),
+		new Memory_WriteAddress( 0x3c00, 0x3fff, shaolins_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x6000, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -210,8 +210,8 @@ public class shaolins
 	
 	static GfxDecodeInfo shaolins_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &shaolins_charlayout,         0, 16*8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &shaolins_spritelayout, 16*8*16, 16*8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, shaolins_charlayout,         0, 16*8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, shaolins_spritelayout, 16*8*16, 16*8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

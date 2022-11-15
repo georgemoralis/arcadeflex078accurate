@@ -193,13 +193,13 @@ public class gyruss
 						colorram.read(offs)& 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	
 	
 		/* copy the character mapped graphics */
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 	
 		draw_sprites(bitmap);
@@ -229,7 +229,7 @@ public class gyruss
 						colorram.read(offs)& 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	} };
 	

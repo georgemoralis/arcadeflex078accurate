@@ -143,7 +143,7 @@ public class momoko
 						col,
 						flip,flip,
 						px,py,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 				}
 			}
 		}
@@ -178,7 +178,7 @@ public class momoko
 				col,
 				!fx,fy,
 				px,py,
-				&Machine->visible_area,TRANSPARENCY_PEN,0);
+				Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	
@@ -242,7 +242,7 @@ public class momoko
 				col,
 				!fx,fy,
 				px,py,
-				&Machine->visible_area,TRANSPARENCY_PEN,0);
+				Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	
@@ -277,7 +277,7 @@ public class momoko
 					col,
 					flip,0,
 					px,py,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 			}
 		}
 	
@@ -312,7 +312,7 @@ public class momoko
 						0, /* color */
 						flip,flip, /* flip */
 						px,py,
-						&Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine->visible_area,TRANSPARENCY_PEN,0);
 				}
 			}
 		}

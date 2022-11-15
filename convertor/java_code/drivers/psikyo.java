@@ -1420,8 +1420,8 @@ public class psikyo
 	
 	static GfxDecodeInfo psikyo_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0x000, 0x20 ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4, 0x800, 0x48 ), // [1] Layer 0 + 1
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4, 0x000, 0x20 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4, 0x800, 0x48 ), // [1] Layer 0 + 1
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -299,7 +299,7 @@ public class tceptor
 			return 1;
 	
 		/* set the color information */
-		Machine->gfx[gfx_index]->colortable = &Machine->remapped_colortable[2048];
+		Machine->gfx[gfx_index]->colortable = Machine->remapped_colortable[2048];
 		Machine->gfx[gfx_index]->total_colors = 64;
 	
 		return 0;
@@ -313,7 +313,7 @@ public class tceptor
 			return 1;
 	
 		/* set the color information */
-		Machine->gfx[gfx_index]->colortable = &Machine->remapped_colortable[1024];
+		Machine->gfx[gfx_index]->colortable = Machine->remapped_colortable[1024];
 		Machine->gfx[gfx_index]->total_colors = 64;
 	
 		return 0;

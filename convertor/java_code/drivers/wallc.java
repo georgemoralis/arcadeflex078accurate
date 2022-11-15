@@ -145,7 +145,7 @@ public class wallc
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_wallc  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
 	} };
 	
 	static int wcb0=-1;
@@ -196,7 +196,7 @@ public class wallc
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 	
-		new Memory_WriteAddress( 0x8000, 0x83ff, wallc_videoram_w, &videoram ),	/* 2114, 2114 */
+		new Memory_WriteAddress( 0x8000, 0x83ff, wallc_videoram_w, videoram ),	/* 2114, 2114 */
 		new Memory_WriteAddress( 0x8400, 0x87ff, wallc_videoram_w ),	/* mirror */
 		new Memory_WriteAddress( 0x8800, 0x8bff, wallc_videoram_w ),	/* mirror */
 		new Memory_WriteAddress( 0x8c00, 0x8fff, wallc_videoram_w ),	/* mirror */
@@ -285,7 +285,7 @@ public class wallc
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0     , &charlayout, 0, 4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0     , charlayout, 0, 4 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

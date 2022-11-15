@@ -258,7 +258,7 @@ public class segar
 				drawgfx(tmpbitmap,Machine->gfx[0],
 						charcode,charcode>>4,
 						sv.flip,sv.flip,sx,sy,
-						&Machine->visible_area,sprite_transparency,0);
+						Machine->visible_area,sprite_transparency,0);
 	
 				dirtybuffer[offs] = 0;
 	
@@ -270,7 +270,7 @@ public class segar
 				sv.dirtychar[offs]=0;
 	
 		/* copy the character mapped graphics */
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,copy_transparency,Machine->pens[0]);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,copy_transparency,Machine->pens[0]);
 	
 		sv.char_refresh=0;
 		sv.refresh=0;
@@ -477,7 +477,7 @@ public class segar
 				else
 					scrolly = -sv.backshift;
 	
-				copyscrollbitmap(bitmap,sv.vertbackbitmap,0,0,1,&scrolly,&Machine->visible_area,TRANSPARENCY_NONE,0);
+				copyscrollbitmap(bitmap,sv.vertbackbitmap,0,0,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 			else
 			{
@@ -488,13 +488,13 @@ public class segar
 	
 				scrolly = -32;
 	
-				copyscrollbitmap(bitmap,sv.horizbackbitmap,1,&scrollx,1,&scrolly,&Machine->visible_area,TRANSPARENCY_NONE,0);
+				copyscrollbitmap(bitmap,sv.horizbackbitmap,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	
 		if (sv.fill_background==1)
 		{
-			fillbitmap(bitmap,Machine->pens[sv.backfill],&Machine->visible_area);
+			fillbitmap(bitmap,Machine->pens[sv.backfill],Machine->visible_area);
 		}
 	
 		/* Refresh the "standard" graphics */
@@ -597,7 +597,7 @@ public class segar
 					drawgfx(tmpbitmap,Machine->gfx[1 + sv.back_charset],
 						charcode,((charcode & 0xF0)>>4),
 						sv.flip,sv.flip,sx,sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 				}
 			}
 			sprite_transparency=TRANSPARENCY_PEN;
@@ -775,7 +775,7 @@ public class segar
 					drawgfx(tmpbitmap,Machine->gfx[1 + sv.back_charset],
 						charcode,((charcode & 0xF0)>>4),
 						sv.flip,sv.flip,sx,sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 				}
 			}
 			sprite_transparency=TRANSPARENCY_PEN;

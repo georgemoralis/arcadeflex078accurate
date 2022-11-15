@@ -305,8 +305,8 @@ public class namcos1
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),    /* Banked ROMs */
 		new Memory_WriteAddress( 0x4000, 0x4000, YM2151_register_port_0_w ),
 		new Memory_WriteAddress( 0x4001, 0x4001, YM2151_data_port_0_w ),
-		new Memory_WriteAddress( 0x5000, 0x50ff, namcos1_wavedata_w,&namco_wavedata ), /* PSG ( Shared ) */
-		new Memory_WriteAddress( 0x5100, 0x513f, namcos1_sound_w,&namco_soundregs ),   /* PSG ( Shared ) */
+		new Memory_WriteAddress( 0x5000, 0x50ff, namcos1_wavedata_w,namco_wavedata ), /* PSG ( Shared ) */
+		new Memory_WriteAddress( 0x5100, 0x513f, namcos1_sound_w,namco_soundregs ),   /* PSG ( Shared ) */
 		new Memory_WriteAddress( 0x5140, 0x54ff, MWA_RAM ),    /* Sound RAM 1 - ( Shared ) */
 		new Memory_WriteAddress( 0x7000, 0x77ff, MWA_BANK18 ), /* Sound RAM 2 - ( Shared ) */
 		new Memory_WriteAddress( 0x8000, 0x9fff, MWA_RAM ),    /* Sound RAM 3 */
@@ -441,7 +441,7 @@ public class namcos1
 		new Memory_WriteAddress( 0x4000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc000, namcos1_mcu_patch_w ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_BANK19 ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, MWA_RAM, &generic_nvram, &generic_nvram_size ), /* EEPROM */
+		new Memory_WriteAddress( 0xc800, 0xcfff, MWA_RAM, generic_nvram, generic_nvram_size ), /* EEPROM */
 		new Memory_WriteAddress( 0xd000, 0xd000, namcos1_dac0_w ),
 		new Memory_WriteAddress( 0xd400, 0xd400, namcos1_dac1_w ),
 		new Memory_WriteAddress( 0xd800, 0xd800, namcos1_mcu_bankswitch_w ), /* BANK selector */
@@ -1105,8 +1105,8 @@ public class namcos1
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  128*16,   6 ),  /* characters */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,     0, 128 ),  /* sprites 32/16/8/4 dots */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  128*16,   6 ),  /* characters */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout,     0, 128 ),  /* sprites 32/16/8/4 dots */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

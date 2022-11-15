@@ -291,7 +291,7 @@ public class volfied
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 4096, 256 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout, 4096, 256 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

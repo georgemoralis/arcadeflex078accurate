@@ -90,7 +90,7 @@ public class system16
 	);
 	
 	static GfxDecodeInfo sys16_gfxdecodeinfo[] ={
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,	0, 1024 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,	0, 1024 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -136,7 +136,7 @@ public class bking2
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x9000, 0x97ff, bking2_playfield_w, &bking2_playfield_ram ),
+		new Memory_WriteAddress( 0x9000, 0x97ff, bking2_playfield_w, bking2_playfield_ram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -481,10 +481,10 @@ public class bking2
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0,           4  ), /* playfield */
-		new GfxDecodeInfo( REGION_GFX2, 0, &crowlayout, 4*8,         4  ), /* crow */
-		new GfxDecodeInfo( REGION_GFX3, 0, &balllayout, 4*8+4*4,     4  ), /* ball 1 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &balllayout, 4*8+4*4+4*2, 4  ), /* ball 2 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0,           4  ), /* playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, crowlayout, 4*8,         4  ), /* crow */
+		new GfxDecodeInfo( REGION_GFX3, 0, balllayout, 4*8+4*4,     4  ), /* ball 1 */
+		new GfxDecodeInfo( REGION_GFX4, 0, balllayout, 4*8+4*4+4*2, 4  ), /* ball 2 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

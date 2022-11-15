@@ -415,9 +415,9 @@ public class groundfx
 	
 	static GfxDecodeInfo groundfx_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile16x16_layout,  4096, 512 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &charlayout,        0, 512 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &pivlayout,         0, 512 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile16x16_layout,  4096, 512 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, charlayout,        0, 512 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, pivlayout,         0, 512 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

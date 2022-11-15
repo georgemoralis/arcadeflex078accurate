@@ -168,7 +168,7 @@ public class spbactn
 							color,
 							flipx, flipy,
 							x, y,
-							&Machine->visible_area, TRANSPARENCY_PEN, 0);
+							Machine->visible_area, TRANSPARENCY_PEN, 0);
 					}
 				}
 	
@@ -211,7 +211,7 @@ public class spbactn
 						colour,
 						0, 0,
 						16 * sx, 8 * sy,
-						&Machine->visible_area, TRANSPARENCY_NONE, 0);
+						Machine->visible_area, TRANSPARENCY_NONE, 0);
 	
 			sx++;
 			if (sx > 63)
@@ -238,7 +238,7 @@ public class spbactn
 						colour,
 						0, 0,
 						16 * sx, 8 * sy,
-						&Machine->visible_area, TRANSPARENCY_PEN, 0);
+						Machine->visible_area, TRANSPARENCY_PEN, 0);
 	
 				sx++;
 				if (sx > 63)
@@ -272,7 +272,7 @@ public class spbactn
 						colour,
 						0, 0,
 						16 * sx, 8 * sy,
-						&Machine->visible_area,TRANSPARENCY_PEN, 0);
+						Machine->visible_area,TRANSPARENCY_PEN, 0);
 	
 			sx++;
 			if (sx > 63)

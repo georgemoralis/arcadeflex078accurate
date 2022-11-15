@@ -79,10 +79,10 @@ public class dday
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x4000, dday_sl_control_w ),
-		new Memory_WriteAddress( 0x5000, 0x53ff, dday_textvideoram_w, &dday_textvideoram ),
-		new Memory_WriteAddress( 0x5400, 0x57ff, dday_fgvideoram_w, &dday_fgvideoram ),
-		new Memory_WriteAddress( 0x5800, 0x5bff, dday_bgvideoram_w, &dday_bgvideoram ),
-		new Memory_WriteAddress( 0x5c00, 0x5fff, dday_colorram_w, &dday_colorram ),
+		new Memory_WriteAddress( 0x5000, 0x53ff, dday_textvideoram_w, dday_textvideoram ),
+		new Memory_WriteAddress( 0x5400, 0x57ff, dday_fgvideoram_w, dday_fgvideoram ),
+		new Memory_WriteAddress( 0x5800, 0x5bff, dday_bgvideoram_w, dday_bgvideoram ),
+		new Memory_WriteAddress( 0x5c00, 0x5fff, dday_colorram_w, dday_colorram ),
 		new Memory_WriteAddress( 0x6000, 0x63ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x6400, 0x6400, AY8910_control_port_0_w ),
 		new Memory_WriteAddress( 0x6401, 0x6401, AY8910_write_port_0_w ),
@@ -290,10 +290,10 @@ public class dday
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_3bpp, 0,       256/8 ),	/* background */
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_2bpp, 8*4,     8 ),		/* foreground */
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_2bpp, 8*4+8*4, 8 ),		/* text */
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_1bpp, 254,     1 ),		/* searchlight */
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_3bpp, 0,       256/8 ),	/* background */
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_2bpp, 8*4,     8 ),		/* foreground */
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_2bpp, 8*4+8*4, 8 ),		/* text */
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_1bpp, 254,     1 ),		/* searchlight */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

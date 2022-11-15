@@ -1439,22 +1439,22 @@ public class konamigx
 	/* type 1 (opengolf + racinfrc) use 6 and 8 bpp planar layouts for the 53936 */
 	static GfxDecodeInfo gfxdecodeinfo_opengolf[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0, &t1_charlayout8, 0x0000, 8 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &t1_charlayout6, 0x0000, 8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, t1_charlayout8, 0x0000, 8 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, t1_charlayout6, 0x0000, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_racinfrc[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0, &t1_charlayout6, 0x0000, 8 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &t1_charlayout6, 0x0000, 8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, t1_charlayout6, 0x0000, 8 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, t1_charlayout6, 0x0000, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/* type 3 & 4 games use a simple 8bpp decode for the 53936 */
 	static GfxDecodeInfo gfxdecodeinfo_type34[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0, &bglayout_8bpp, 0x0000, 8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, bglayout_8bpp, 0x0000, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

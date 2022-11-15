@@ -524,7 +524,7 @@ public class omegaf
 		if (sprite_overdraw_enabled != (data & 1))
 		{
 			sprite_overdraw_enabled = data & 1;
-			fillbitmap(bitmap_sp, 15, &Machine -> visible_area);
+			fillbitmap(bitmap_sp, 15, Machine -> visible_area);
 		}
 	} };
 	
@@ -567,7 +567,7 @@ public class omegaf
 						color,
 						flipx,flipy,
 						sx,sy,
-						&Machine->visible_area,
+						Machine->visible_area,
 						TRANSPARENCY_PEN, 15);
 			}
 		}

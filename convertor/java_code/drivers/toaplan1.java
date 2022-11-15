@@ -390,7 +390,7 @@ public class toaplan1
 	public static Memory_WriteAddress sound_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0xffff, MWA_RAM, &toaplan1_sharedram ),
+		new Memory_WriteAddress( 0x8000, 0xffff, MWA_RAM, toaplan1_sharedram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -1560,29 +1560,29 @@ public class toaplan1
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &tilelayout,		0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &tilelayout,	64*16, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, tilelayout,		0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, tilelayout,	64*16, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo rallybik_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &tilelayout,			  0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &rallybik_spr_layout, 64*16, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, tilelayout,			  0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, rallybik_spr_layout, 64*16, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo outzone_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &vm_tilelayout, 	0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &tilelayout,	64*16, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, vm_tilelayout, 	0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, tilelayout,	64*16, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo vm_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &tilelayout,		0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &vm_tilelayout, 64*16, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, tilelayout,		0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, vm_tilelayout, 64*16, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

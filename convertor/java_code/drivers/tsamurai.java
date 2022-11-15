@@ -161,11 +161,11 @@ public class tsamurai
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
 	
-		new Memory_WriteAddress( 0xe000, 0xe3ff, tsamurai_fg_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xe400, 0xe43f, tsamurai_fg_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0xe000, 0xe3ff, tsamurai_fg_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xe400, 0xe43f, tsamurai_fg_colorram_w, colorram ),
 		new Memory_WriteAddress( 0xe440, 0xe7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe800, 0xefff, tsamurai_bg_videoram_w, &tsamurai_videoram ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, tsamurai_bg_videoram_w, tsamurai_videoram ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, MWA_RAM, spriteram ),
 	
 		new Memory_WriteAddress( 0xf400, 0xf400, MWA_NOP ),
 		new Memory_WriteAddress( 0xf401, 0xf401, sound_command1_w ),
@@ -211,13 +211,13 @@ public class tsamurai
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
 	
-		new Memory_WriteAddress( 0xe000, 0xe3ff, tsamurai_fg_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xe400, 0xe43f, tsamurai_fg_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0xe000, 0xe3ff, tsamurai_fg_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xe400, 0xe43f, tsamurai_fg_colorram_w, colorram ),
 		new Memory_WriteAddress( 0xe440, 0xe7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe800, 0xefff, tsamurai_bg_videoram_w, &tsamurai_videoram ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, tsamurai_bg_videoram_w, tsamurai_videoram ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, MWA_RAM, spriteram ),
 	
-		new Memory_WriteAddress( 0xf400, 0xf400, MWA_NOP ),/* This is always written with F401, F402 & F403 data */
+		new Memory_WriteAddress( 0xf400, 0xf400, MWA_NOP ),/* This is always written with F401, F402  F403 data */
 		new Memory_WriteAddress( 0xf401, 0xf401, sound_command3_w ),
 		new Memory_WriteAddress( 0xf402, 0xf402, sound_command2_w ),
 		new Memory_WriteAddress( 0xf403, 0xf403, sound_command1_w ),
@@ -439,8 +439,8 @@ public class tsamurai
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ), /* work ram */
-		new Memory_WriteAddress( 0xe000, 0xe3ff, tsamurai_fg_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xe400, 0xe43f, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0xe000, 0xe3ff, tsamurai_fg_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xe400, 0xe43f, MWA_RAM, spriteram ),
 		new Memory_WriteAddress( 0xe440, 0xe47b, MWA_RAM ),
 		new Memory_WriteAddress( 0xe800, 0xe800, vsgongf_sound_command_w ),
 		new Memory_WriteAddress( 0xec00, 0xec06, MWA_RAM ),
@@ -931,9 +931,9 @@ public class tsamurai
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout,   0, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &char_layout,   0, 32 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &sprite_layout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, char_layout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, sprite_layout, 0, 32 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -614,9 +614,9 @@ public class ninjaw
 	
 	static GfxDecodeInfo ninjaw_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* sprites */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),	/* scr tiles (screen 1) */
-		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout,  0, 256 ),	/* scr tiles (screens 2+) */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  0, 256 ),	/* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 256 ),	/* scr tiles (screen 1) */
+		new GfxDecodeInfo( REGION_GFX3, 0, charlayout,  0, 256 ),	/* scr tiles (screens 2+) */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

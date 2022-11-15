@@ -279,21 +279,21 @@ public class goal92
 	
 	static GfxDecodeInfo goal92_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4,		   0*16, 8*16 ), // Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,		  48*16,   16 ), // Text Layer
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4,		   0*16,   16 ), // BG Layer
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4,		  16*16,   16 ), // Mid Layer
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4,		  32*16,   16 ), // FG Layer
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4,		   0*16, 8*16 ), // Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,		  48*16,   16 ), // Text Layer
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4,		   0*16,   16 ), // BG Layer
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4,		  16*16,   16 ), // Mid Layer
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4,		  32*16,   16 ), // FG Layer
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo cupsocbl_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4_2,	   0*16, 8*16 ), // Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	      48*16,   16 ), // Text Layer
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_16x16x4,	       0*16,   16 ), // BG Layer
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_16x16x4,	      16*16,   16 ), // Mid Layer
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_16x16x4,  	  32*16,   16 ), // FG Layer
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4_2,	   0*16, 8*16 ), // Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	      48*16,   16 ), // Text Layer
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_16x16x4,	       0*16,   16 ), // BG Layer
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_16x16x4,	      16*16,   16 ), // Mid Layer
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_16x16x4,  	  32*16,   16 ), // FG Layer
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

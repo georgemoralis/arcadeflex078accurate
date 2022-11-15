@@ -373,16 +373,16 @@ public class punchout
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xc3ff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
+		new Memory_WriteAddress( 0xc000, 0xc3ff, MWA_RAM, generic_nvram, generic_nvram_size ),
 		new Memory_WriteAddress( 0xd000, 0xd7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xdff0, 0xdff7, MWA_RAM, &punchout_bigsprite1 ),
-		new Memory_WriteAddress( 0xdff8, 0xdffc, MWA_RAM, &punchout_bigsprite2 ),
-		new Memory_WriteAddress( 0xdffd, 0xdffd, punchout_palettebank_w, &punchout_palettebank ),
-		new Memory_WriteAddress( 0xd800, 0xdfff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, punchout_bigsprite1ram_w, &punchout_bigsprite1ram, &punchout_bigsprite1ram_size ),
-		new Memory_WriteAddress( 0xe800, 0xefff, punchout_bigsprite2ram_w, &punchout_bigsprite2ram, &punchout_bigsprite2ram_size ),
-		new Memory_WriteAddress( 0xf000, 0xf03f, MWA_RAM, &punchout_scroll ),
-		new Memory_WriteAddress( 0xf000, 0xffff, punchout_videoram2_w, &punchout_videoram2, &punchout_videoram2_size ),
+		new Memory_WriteAddress( 0xdff0, 0xdff7, MWA_RAM, punchout_bigsprite1 ),
+		new Memory_WriteAddress( 0xdff8, 0xdffc, MWA_RAM, punchout_bigsprite2 ),
+		new Memory_WriteAddress( 0xdffd, 0xdffd, punchout_palettebank_w, punchout_palettebank ),
+		new Memory_WriteAddress( 0xd800, 0xdfff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, punchout_bigsprite1ram_w, punchout_bigsprite1ram, punchout_bigsprite1ram_size ),
+		new Memory_WriteAddress( 0xe800, 0xefff, punchout_bigsprite2ram_w, punchout_bigsprite2ram, punchout_bigsprite2ram_size ),
+		new Memory_WriteAddress( 0xf000, 0xf03f, MWA_RAM, punchout_scroll ),
+		new Memory_WriteAddress( 0xf000, 0xffff, punchout_videoram2_w, punchout_videoram2, punchout_videoram2_size ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -722,19 +722,19 @@ public class punchout
 	
 	static GfxDecodeInfo punchout_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,                 0, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout,             128*4, 128 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout1,      128*4+128*4,  64 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &charlayout2, 128*4+128*4+64*8, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,                 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout,             128*4, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, charlayout1,      128*4+128*4,  64 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, charlayout2, 128*4+128*4+64*8, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo armwrest_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &armwrest_charlayout,        0, 256 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &armwrest_charlayout2,   256*4,  64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout1,       256*4+64*8,  64 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &charlayout2,  256*4+64*8+64*8, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, armwrest_charlayout,        0, 256 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, armwrest_charlayout2,   256*4,  64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, charlayout1,       256*4+64*8,  64 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, charlayout2,  256*4+64*8+64*8, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -116,8 +116,8 @@ public class battlane
 	public static Memory_WriteAddress battlane_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x0fff, battlane_shared_ram_w ),
-	    new Memory_WriteAddress( 0x1000, 0x17ff, battlane_tileram_w, &battlane_tileram ),
-	    new Memory_WriteAddress( 0x1800, 0x18ff, battlane_spriteram_w, &battlane_spriteram ),
+	    new Memory_WriteAddress( 0x1000, 0x17ff, battlane_tileram_w, battlane_tileram ),
+	    new Memory_WriteAddress( 0x1800, 0x18ff, battlane_spriteram_w, battlane_spriteram ),
 		new Memory_WriteAddress( 0x1c00, 0x1c00, battlane_video_ctrl_w ),
 	    new Memory_WriteAddress( 0x1c01, 0x1c01, battlane_scrollx_w ),
 	    new Memory_WriteAddress( 0x1c02, 0x1c02, battlane_scrolly_w ),
@@ -262,9 +262,9 @@ public class battlane
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,  0, 2 ),	/* colors 0x00-0x0f */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   32, 4 ),	/* colors 0x20-0x3f */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout2,  32, 4 ),	/* colors 0x20-0x3f */
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout,  0, 2 ),	/* colors 0x00-0x0f */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,   32, 4 ),	/* colors 0x20-0x3f */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout2,  32, 4 ),	/* colors 0x20-0x3f */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -1023,13 +1023,13 @@ public class taito_x
 	
 	static GfxDecodeInfo superman_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &tilelayout,    0, 256 ),	 /* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, tilelayout,    0, 256 ),	 /* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo ballbros_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &ballbros_tilelayout,    0, 256 ),	 /* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, ballbros_tilelayout,    0, 256 ),	 /* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

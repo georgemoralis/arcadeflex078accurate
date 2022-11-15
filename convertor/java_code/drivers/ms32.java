@@ -1409,10 +1409,10 @@ public class ms32
 	
 	static GfxDecodeInfo ms32_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 0x0000, 0x10 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &bglayout,     0x2000, 0x10 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &bglayout,     0x1000, 0x10 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &txlayout,     0x6000, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 0x0000, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, bglayout,     0x2000, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, bglayout,     0x1000, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, txlayout,     0x6000, 0x10 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

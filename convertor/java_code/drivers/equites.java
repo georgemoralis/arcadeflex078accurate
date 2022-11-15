@@ -612,11 +612,11 @@ public class equites
 	
 	static GfxDecodeInfo equites_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &eq_charlayout,     0, 32 ), // chars
-		new GfxDecodeInfo( REGION_GFX2, 0, &eq_tilelayout,   128, 16 ), // tile set0
-		new GfxDecodeInfo( REGION_GFX3, 0, &eq_tilelayout,   128, 16 ), // tile set1
-		new GfxDecodeInfo( REGION_GFX4, 0, &eq_spritelayout, 256, 16 ), // sprite set0
-		new GfxDecodeInfo( REGION_GFX5, 0, &eq_spritelayout, 256, 16 ), // sprite set1
+		new GfxDecodeInfo( REGION_GFX1, 0, eq_charlayout,     0, 32 ), // chars
+		new GfxDecodeInfo( REGION_GFX2, 0, eq_tilelayout,   128, 16 ), // tile set0
+		new GfxDecodeInfo( REGION_GFX3, 0, eq_tilelayout,   128, 16 ), // tile set1
+		new GfxDecodeInfo( REGION_GFX4, 0, eq_spritelayout, 256, 16 ), // sprite set0
+		new GfxDecodeInfo( REGION_GFX5, 0, eq_spritelayout, 256, 16 ), // sprite set1
 		new GfxDecodeInfo( -1 ) // end of array
 	};
 	
@@ -671,10 +671,10 @@ public class equites
 	
 	static GfxDecodeInfo splndrbt_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &sp_charlayout,     0, 256/4 ), // 512 4-color chars
-		new GfxDecodeInfo( REGION_GFX2, 0, &sp_tilelayout,   256, 256/4 ), // 256 4-color tiles
-		new GfxDecodeInfo( REGION_GFX3, 0, &sp_tilelayout,   256, 256/4 ), // 256 4-color tiles
-		new GfxDecodeInfo( REGION_GFX4, 0, &sp_spritelayout, 512, 256/8 ), // 256 8-color sprites
+		new GfxDecodeInfo( REGION_GFX1, 0, sp_charlayout,     0, 256/4 ), // 512 4-color chars
+		new GfxDecodeInfo( REGION_GFX2, 0, sp_tilelayout,   256, 256/4 ), // 256 4-color tiles
+		new GfxDecodeInfo( REGION_GFX3, 0, sp_tilelayout,   256, 256/4 ), // 256 4-color tiles
+		new GfxDecodeInfo( REGION_GFX4, 0, sp_spritelayout, 512, 256/8 ), // 256 8-color sprites
 		new GfxDecodeInfo( -1 ) // end of array
 	};
 	

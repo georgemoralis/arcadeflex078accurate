@@ -121,8 +121,8 @@ public class speedspn
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0x87ff, paletteram_xxxxRRRRGGGGBBBB_w, &paletteram ),	/* RAM COLOUR */
-		new Memory_WriteAddress( 0x8800, 0x8fff, speedspn_attram_w, &speedspn_attram ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, paletteram_xxxxRRRRGGGGBBBB_w, paletteram ),	/* RAM COLOUR */
+		new Memory_WriteAddress( 0x8800, 0x8fff, speedspn_attram_w, speedspn_attram ),
 		new Memory_WriteAddress( 0x9000, 0x9fff, speedspn_vidram_w ),	/* RAM FIX / RAM OBJECTS (selected by bit 0 of port 17)*/
 		new Memory_WriteAddress( 0xa000, 0xa7ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa800, 0xafff, MWA_RAM ),
@@ -292,8 +292,8 @@ public class speedspn
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &speedspn_charlayout,   0x000, 0x40 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &speedspn_spritelayout, 0x000, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, speedspn_charlayout,   0x000, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, speedspn_spritelayout, 0x000, 0x40 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

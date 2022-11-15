@@ -298,9 +298,9 @@ public class wwfsstar
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles8x8_layout,    0, 16 ),	/* colors   0-255 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tiles16x16_layout,   128, 16 ),	/* colors   128-383 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &tiles16x16_layout,   256, 8 ),	/* colors   256-383 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles8x8_layout,    0, 16 ),	/* colors   0-255 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tiles16x16_layout,   128, 16 ),	/* colors   128-383 */
+		new GfxDecodeInfo( REGION_GFX3, 0, tiles16x16_layout,   256, 8 ),	/* colors   256-383 */
 		new GfxDecodeInfo( -1 )
 	};
 	

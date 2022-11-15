@@ -671,10 +671,10 @@ public class tetrisp2
 	
 	static GfxDecodeInfo tetrisp2_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8,   0x0000, 0x10 ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x8, 0x1000, 0x10 ), // [1] Background
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_16x16x8, 0x2000, 0x10 ), // [2] Rotation
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x8,   0x6000, 0x10 ), // [3] Foreground
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_8x8x8,   0x0000, 0x10 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x8, 0x1000, 0x10 ), // [1] Background
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_16x16x8, 0x2000, 0x10 ), // [2] Rotation
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x8,   0x6000, 0x10 ), // [3] Foreground
 		new GfxDecodeInfo( -1 )
 	};
 	

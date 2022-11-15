@@ -194,8 +194,8 @@ public class diverboy
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &diverboy_spritelayout, 0, 4*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &diverboy_spritelayout, 0, 4*16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, diverboy_spritelayout, 0, 4*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, diverboy_spritelayout, 0, 4*16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

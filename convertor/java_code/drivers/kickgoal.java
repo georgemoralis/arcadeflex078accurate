@@ -204,9 +204,9 @@ public class kickgoal
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &fg816_charlayout,   0x000, 0x40 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &bg1632_charlayout,  0x000, 0x40 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &bg3264_charlayout,  0x000, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, fg816_charlayout,   0x000, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, bg1632_charlayout,  0x000, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, bg3264_charlayout,  0x000, 0x40 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -539,8 +539,8 @@ public class rainbow
 	
 	static GfxDecodeInfo rainbow_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0x000000, &spritelayout, 0, 0x80 ),	/* OBJ 16x16 */
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &tilelayout,   0, 0x80 ),	/* SCR 8x8 */
+		new GfxDecodeInfo( REGION_GFX2, 0x000000, spritelayout, 0, 0x80 ),	/* OBJ 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, tilelayout,   0, 0x80 ),	/* SCR 8x8 */
 		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	
@@ -569,8 +569,8 @@ public class rainbow
 	
 	static GfxDecodeInfo jumping_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &jumping_spritelayout, 0, 0x80 ),	/* OBJ 16x16 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &jumping_tilelayout,   0, 0x80 ),	/* SCR 8x8 */
+		new GfxDecodeInfo( REGION_GFX2, 0, jumping_spritelayout, 0, 0x80 ),	/* OBJ 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, jumping_tilelayout,   0, 0x80 ),	/* SCR 8x8 */
 		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	

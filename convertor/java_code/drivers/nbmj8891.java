@@ -329,7 +329,7 @@ public class nbmj8891
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf000, 0xf00f, gionbana_paltbl_w ),
 		new Memory_WriteAddress( 0xf400, 0xf5ff, gionbana_palette_w ),
-		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, nb1413m3_nvram, nb1413m3_nvram_size ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -363,7 +363,7 @@ public class nbmj8891
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf400, 0xf5ff, gionbana_palette_w ),
-		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, nb1413m3_nvram, nb1413m3_nvram_size ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -417,7 +417,7 @@ public class nbmj8891
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf200, 0xf3ff, maiko_palette_w ),
 		new Memory_WriteAddress( 0xf700, 0xf70f, gionbana_paltbl_w ),
-		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, nb1413m3_nvram, nb1413m3_nvram_size ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	

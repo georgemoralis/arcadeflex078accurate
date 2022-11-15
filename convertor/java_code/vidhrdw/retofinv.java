@@ -202,7 +202,7 @@ public class retofinv
 								palette,
 								flipx,flipy,
 								sx,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 				}
 				if (size & 4)
 				{
@@ -212,14 +212,14 @@ public class retofinv
 								palette,
 								flipx,flipy,
 								sx,sy+16,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 					drawgfx(bitmap,Machine->gfx[2],
 								tile+tileofs2,
 								palette,
 								flipx,flipy,
 								sx,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 				}
 				if (size & 8)
 				{
@@ -229,14 +229,14 @@ public class retofinv
 								palette,
 								flipx,flipy,
 								sx-16,sy+16,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 					drawgfx(bitmap,Machine->gfx[2],
 								tile+tileofs3,
 								palette,
 								flipx,flipy,
 								sx-16,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 				}
 			}
 		}
@@ -284,12 +284,12 @@ public class retofinv
 							palette,
 							flipscreen,flipscreen,
 							8*sx+16,8*sy,
-							&Machine->visible_area,TRANSPARENCY_NONE,0);
+							Machine->visible_area,TRANSPARENCY_NONE,0);
 				}
 			}
 		}
 	
-		copybitmap(bitmap,bitmap_bg,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,bitmap_bg,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	}
 	
 	
@@ -324,7 +324,7 @@ public class retofinv
 							  palette,
 							  flipx,flipy,
 							  sx,sy,
-							  &Machine->visible_area,TRANSPARENCY_NONE,0);
+							  Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	
@@ -353,7 +353,7 @@ public class retofinv
 							  palette,
 							  flipx,flipy,
 							  sx,sy,
-							  &Machine->visible_area,TRANSPARENCY_PEN,0);
+							  Machine->visible_area,TRANSPARENCY_PEN,0);
 			}
 		}
 	
@@ -382,7 +382,7 @@ public class retofinv
 							  palette,
 							  flipx,flipy,
 							  sx,sy,
-							  &Machine->visible_area,TRANSPARENCY_NONE,0);
+							  Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	}

@@ -276,8 +276,8 @@ public class pirates
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
 	
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0x0000, 3*128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 0x1800,   128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0x0000, 3*128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 0x1800,   128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

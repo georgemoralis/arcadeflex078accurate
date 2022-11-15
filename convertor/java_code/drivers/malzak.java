@@ -310,12 +310,12 @@ public class malzak
 	//add s2636 decodes here (i.e. from zac2650) and maybe re-arrange them
 	static GfxDecodeInfo malzak_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 16 ),
-	  	new GfxDecodeInfo( REGION_CPU1, 0x0000, &s2636_character10, 0, 8 ),	/* s2636 #1  */
-		new GfxDecodeInfo( REGION_CPU1, 0x0000, &s2636_character10, 0, 8 ),	/* s2636 #2  */
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &saa5050_charlayout, 0, 128),
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &saa5050_hilayout, 0, 128),
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &saa5050_lolayout, 0, 128),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 16 ),
+	  	new GfxDecodeInfo( REGION_CPU1, 0x0000, s2636_character10, 0, 8 ),	/* s2636 #1  */
+		new GfxDecodeInfo( REGION_CPU1, 0x0000, s2636_character10, 0, 8 ),	/* s2636 #2  */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, saa5050_charlayout, 0, 128),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, saa5050_hilayout, 0, 128),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, saa5050_lolayout, 0, 128),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

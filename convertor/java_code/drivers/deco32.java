@@ -1455,39 +1455,39 @@ public class deco32
 	
 	static GfxDecodeInfo gfxdecodeinfo_captaven[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,        512, 32 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,        512, 32 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout2,      1024,  4 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,        0, 32 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,        512, 32 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,        512, 32 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout2,      1024,  4 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout,        0, 32 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_fghthist[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0,  16 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,        256,  16 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,        512,  32 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,     1024, 128 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,          0,  16 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,        256,  16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,        512,  32 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout,     1024, 128 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_dragngun[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,        512, 16 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,        768, 16 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout2,      1024,  4 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout4,       0, 32 ),	/* Sprites 16x16 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout5,       0, 32 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,        512, 16 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,        768, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout2,      1024,  4 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout4,       0, 32 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout5,       0, 32 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_tattass[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 16 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,        256, 16 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,        512, 32 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout2,    1536, 16 ),	/* Sprites 16x16 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout,     1024+256, 32 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,          0, 16 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,        256, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,        512, 32 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout2,    1536, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout,     1024+256, 32 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

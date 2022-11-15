@@ -96,13 +96,13 @@ public class mainsnk
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xC600, 0xC600, me_c600_w ),
 		new Memory_WriteAddress( 0xc700, 0xc700, sound_command_w ),
-		new Memory_WriteAddress( 0xd800, 0xdbff, me_bgram_w, &me_bgram ),
+		new Memory_WriteAddress( 0xd800, 0xdbff, me_bgram_w, me_bgram ),
 		new Memory_WriteAddress( 0xdc00, 0xdfff, MWA_RAM ),
 		new Memory_WriteAddress( 0xe000, 0xe3ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xe400, 0xe7ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xe800, 0xebff, MWA_RAM ),
 		new Memory_WriteAddress( 0xec00, 0xefff, MWA_RAM ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, me_fgram_w, &me_fgram ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, me_fgram_w, me_fgram ),
 		new Memory_WriteAddress( 0xf400, 0xf7ff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -221,8 +221,8 @@ public class mainsnk
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &tile_layout,	0,  8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &sprite_layout,	0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, tile_layout,	0,  8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, sprite_layout,	0, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

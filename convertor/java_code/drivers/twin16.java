@@ -910,7 +910,7 @@ public class twin16
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &alpha_layout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, alpha_layout, 0, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

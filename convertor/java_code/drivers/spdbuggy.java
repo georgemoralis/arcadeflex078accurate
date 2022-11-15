@@ -122,8 +122,8 @@ public class spdbuggy
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x00000, 0x023ff, MWA_RAM ),
 	
-		new Memory_WriteAddress( 0x08000, 0x08fff, spdbuggy_fgram_w, &spdbuggy_fgram	),	// fg
-		new Memory_WriteAddress( 0x18000, 0x18fff, spdbuggy_bgram_w, &spdbuggy_bgram	),	// bg
+		new Memory_WriteAddress( 0x08000, 0x08fff, spdbuggy_fgram_w, spdbuggy_fgram	),	// fg
+		new Memory_WriteAddress( 0x18000, 0x18fff, spdbuggy_bgram_w, spdbuggy_bgram	),	// bg
 		new Memory_WriteAddress( 0x0a000, 0x0afff, MWA_RAM ),	// shared?
 	
 		new Memory_WriteAddress( 0x10000, 0x17fff, MWA_ROM ),
@@ -172,7 +172,7 @@ public class spdbuggy
 	
 	public static Memory_WriteAddress spdbuggy_writemem2[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_RAM, &spdbuggy_ram2 ),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_RAM, spdbuggy_ram2 ),
 		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -370,9 +370,9 @@ public class spdbuggy
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &tilelayout,   256*0, 16 ), // [0] bg
-		new GfxDecodeInfo( REGION_GFX1, 0x030000, &charlayout,   256*1, 16 ), // [1] txt
-		new GfxDecodeInfo( REGION_GFX1, 0x038000, &spritelayout, 256*2, 16 ), // [2] sprites
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, tilelayout,   256*0, 16 ), // [0] bg
+		new GfxDecodeInfo( REGION_GFX1, 0x030000, charlayout,   256*1, 16 ), // [1] txt
+		new GfxDecodeInfo( REGION_GFX1, 0x038000, spritelayout, 256*2, 16 ), // [2] sprites
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -673,7 +673,7 @@ public class spdbuggy
 	#if 0
 		unsigned char *RAM = memory_region( REGION_CPU1 );
 	
-		fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
+		fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
 		for (i = 0; i < 0x1000; i+=2)
 		{
 			drawgfx(bitmap,Machine->gfx[1],
@@ -681,7 +681,7 @@ public class spdbuggy
 					0,
 					0, 0,
 					((i/2)%FG_NX)*8,((i/2)/FG_NX)*8,
-					&Machine->drv->visible_area,TRANSPARENCY_PEN,0);
+					Machine->drv->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	

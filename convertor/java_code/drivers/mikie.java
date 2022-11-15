@@ -81,10 +81,10 @@ public class mikie
 		new Memory_WriteAddress( 0x2100, 0x2100, watchdog_reset_w ),
 		new Memory_WriteAddress( 0x2200, 0x2200, mikie_palettebank_w ),
 		new Memory_WriteAddress( 0x2400, 0x2400, soundlatch_w ),
-		new Memory_WriteAddress( 0x2800, 0x288f, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0x2800, 0x288f, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0x2890, 0x37ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x3800, 0x3bff, mikie_colorram_w, &colorram ),
-		new Memory_WriteAddress( 0x3c00, 0x3fff, mikie_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x3800, 0x3bff, mikie_colorram_w, colorram ),
+		new Memory_WriteAddress( 0x3c00, 0x3fff, mikie_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x6000, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -242,9 +242,9 @@ public class mikie
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,         0, 16*8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout, 16*8*16, 16*8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0001, &spritelayout, 16*8*16, 16*8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, charlayout,         0, 16*8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, spritelayout, 16*8*16, 16*8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0001, spritelayout, 16*8*16, 16*8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

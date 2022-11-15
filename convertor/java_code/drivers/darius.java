@@ -790,9 +790,9 @@ public class darius
 	
 	static GfxDecodeInfo darius_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   0, 256 ),	/* sprites */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0, 256 ),	/* scr tiles */
-		new GfxDecodeInfo( REGION_GFX3, 0, &char2layout,  0, 256 ),	/* top layer scr tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,   0, 256 ),	/* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0, 256 ),	/* scr tiles */
+		new GfxDecodeInfo( REGION_GFX3, 0, char2layout,  0, 256 ),	/* top layer scr tiles */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

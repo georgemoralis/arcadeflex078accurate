@@ -121,9 +121,9 @@ public class exprraid
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 	    new Memory_WriteAddress( 0x0000, 0x05ff, MWA_RAM ),
-	    new Memory_WriteAddress( 0x0600, 0x07ff, MWA_RAM, &spriteram, &spriteram_size ), /* sprites */
-	    new Memory_WriteAddress( 0x0800, 0x0bff, exprraid_videoram_w, &videoram ),
-	    new Memory_WriteAddress( 0x0c00, 0x0fff, exprraid_colorram_w, &colorram ),
+	    new Memory_WriteAddress( 0x0600, 0x07ff, MWA_RAM, spriteram, spriteram_size ), /* sprites */
+	    new Memory_WriteAddress( 0x0800, 0x0bff, exprraid_videoram_w, videoram ),
+	    new Memory_WriteAddress( 0x0c00, 0x0fff, exprraid_colorram_w, colorram ),
 	    new Memory_WriteAddress( 0x2001, 0x2001, sound_cpu_command_w ),
 		new Memory_WriteAddress( 0x2002, 0x2002, exprraid_flipscreen_w ),
 	    new Memory_WriteAddress( 0x2800, 0x2803, exprraid_bgselect_w ),
@@ -282,16 +282,16 @@ public class exprraid
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout,   128, 2 ), /* characters */
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &spritelayout,  64, 8 ), /* sprites */
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &tile1,          0, 4 ), /* background tiles */
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &tile2,          0, 4 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x04000, &tile1,          0, 4 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x04000, &tile2,          0, 4 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x08000, &tile1,          0, 4 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x08000, &tile2,          0, 4 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0c000, &tile1,          0, 4 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0c000, &tile2,          0, 4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout,   128, 2 ), /* characters */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, spritelayout,  64, 8 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, tile1,          0, 4 ), /* background tiles */
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, tile2,          0, 4 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x04000, tile1,          0, 4 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x04000, tile2,          0, 4 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x08000, tile1,          0, 4 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x08000, tile2,          0, 4 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0c000, tile1,          0, 4 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0c000, tile2,          0, 4 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

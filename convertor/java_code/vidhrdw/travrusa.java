@@ -299,7 +299,7 @@ public class travrusa
 		if (flip_screen())
 			sect_rect(&clip, &spritevisibleareaflip);
 		else
-			sect_rect(&clip, &spritevisiblearea);
+			sect_rect(&clip, spritevisiblearea);
 	
 	
 		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)

@@ -519,30 +519,30 @@ public class rohga
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 32 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,          0, 32 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,        512, 32 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout_6bpp,1024, 32 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,          0, 32 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,          0, 32 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout,        512, 32 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout_6bpp,1024, 32 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_wizdfire[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,        0, 32 ),	/* Gfx chip 1 as 8x8 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,        0, 32 ),	/* Gfx chip 1 as 16x16 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,      512, 32 ),  /* Gfx chip 2 as 16x16 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout,   1024, 32 ), /* Sprites 16x16 */
-		new GfxDecodeInfo( REGION_GFX5, 0, &spritelayout,   1536, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,        0, 32 ),	/* Gfx chip 1 as 8x8 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,        0, 32 ),	/* Gfx chip 1 as 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout,      512, 32 ),  /* Gfx chip 2 as 16x16 */
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout,   1024, 32 ), /* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX5, 0, spritelayout,   1536, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_nitrobal[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,        0, 32 ),	/* Gfx chip 1 as 8x8 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,        0, 32 ),	/* Gfx chip 1 as 16x16 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout_8bpp, 512,  2 ),  /* Gfx chip 2 as 16x16 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout,   1024, 32 ),  /* Sprites 16x16 */
-		new GfxDecodeInfo( REGION_GFX5, 0, &spritelayout,   1536, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,        0, 32 ),	/* Gfx chip 1 as 8x8 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,        0, 32 ),	/* Gfx chip 1 as 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout_8bpp, 512,  2 ),  /* Gfx chip 2 as 16x16 */
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout,   1024, 32 ),  /* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX5, 0, spritelayout,   1536, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -71,7 +71,7 @@ public class vamphalf
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &vamphalf_layout,   0x0, 1  ), /* bg tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, vamphalf_layout,   0x0, 1  ), /* bg tiles */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

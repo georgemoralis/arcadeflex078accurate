@@ -537,7 +537,7 @@ public class snowbros
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,  0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,  0, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
@@ -556,7 +556,7 @@ public class snowbros
 	
 	static GfxDecodeInfo gfxdecodeinfo_wb[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout_wb,  0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout_wb,  0, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -577,7 +577,7 @@ public class snowbros
 	
 	static GfxDecodeInfo hyperpac_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &hyperpac_tilelayout,  0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, hyperpac_tilelayout,  0, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

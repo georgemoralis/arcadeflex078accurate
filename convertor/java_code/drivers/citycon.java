@@ -25,7 +25,7 @@ public class citycon
 	public static Memory_ReadAddress readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_RAM ),
-		new Memory_ReadAddress( 0x3000, 0x3000, citycon_in_r ),	/* player 1 & 2 inputs multiplexed */
+		new Memory_ReadAddress( 0x3000, 0x3000, citycon_in_r ),	/* player 1  2 inputs multiplexed */
 		new Memory_ReadAddress( 0x3001, 0x3001, input_port_2_r ),
 		new Memory_ReadAddress( 0x3002, 0x3002, input_port_3_r ),
 		new Memory_ReadAddress( 0x3007, 0x3007, watchdog_reset_r ),	/* ? */
@@ -36,14 +36,14 @@ public class citycon
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x0fff, MWA_RAM ),
-		new Memory_WriteAddress( 0x1000, 0x1fff, citycon_videoram_w, &citycon_videoram ),
-		new Memory_WriteAddress( 0x2000, 0x20ff, citycon_linecolor_w, &citycon_linecolor ),
-		new Memory_WriteAddress( 0x2800, 0x28ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0x1000, 0x1fff, citycon_videoram_w, citycon_videoram ),
+		new Memory_WriteAddress( 0x2000, 0x20ff, citycon_linecolor_w, citycon_linecolor ),
+		new Memory_WriteAddress( 0x2800, 0x28ff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0x3000, 0x3000, citycon_background_w ),
 		new Memory_WriteAddress( 0x3001, 0x3001, soundlatch_w ),
 		new Memory_WriteAddress( 0x3002, 0x3002, soundlatch2_w ),
-		new Memory_WriteAddress( 0x3004, 0x3005, MWA_RAM, &citycon_scroll ),
-		new Memory_WriteAddress( 0x3800, 0x3cff, paletteram_RRRRGGGGBBBBxxxx_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0x3004, 0x3005, MWA_RAM, citycon_scroll ),
+		new Memory_WriteAddress( 0x3800, 0x3cff, paletteram_RRRRGGGGBBBBxxxx_swap_w, paletteram ),
 		new Memory_WriteAddress( 0x4000, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -181,22 +181,22 @@ public class citycon
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-	//	new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout, 512, 32 ),	/* colors 512-639 */
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout, 640, 32 ),	/* colors 512-639 */
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &spritelayout, 0, 16 ),	/* colors 0-255 */
-		new GfxDecodeInfo( REGION_GFX2, 0x01000, &spritelayout, 0, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &tilelayout, 256, 16 ),	/* colors 256-511 */
-		new GfxDecodeInfo( REGION_GFX3, 0x01000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x02000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x03000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x04000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x05000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x06000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x07000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x08000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x09000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0a000, &tilelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0b000, &tilelayout, 256, 16 ),
+	//	new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout, 512, 32 ),	/* colors 512-639 */
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout, 640, 32 ),	/* colors 512-639 */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, spritelayout, 0, 16 ),	/* colors 0-255 */
+		new GfxDecodeInfo( REGION_GFX2, 0x01000, spritelayout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, tilelayout, 256, 16 ),	/* colors 256-511 */
+		new GfxDecodeInfo( REGION_GFX3, 0x01000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x02000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x03000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x04000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x05000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x06000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x07000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x08000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x09000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0a000, tilelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0b000, tilelayout, 256, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

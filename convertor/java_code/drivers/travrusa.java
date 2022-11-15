@@ -76,10 +76,10 @@ public class travrusa
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0x8fff, travrusa_videoram_w, &travrusa_videoram ),
+		new Memory_WriteAddress( 0x8000, 0x8fff, travrusa_videoram_w, travrusa_videoram ),
 		new Memory_WriteAddress( 0x9000, 0x9000, travrusa_scroll_x_low_w ),
 		new Memory_WriteAddress( 0xa000, 0xa000, travrusa_scroll_x_high_w ),
-		new Memory_WriteAddress( 0xc800, 0xc9ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xc9ff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xd000, 0xd000, irem_sound_cmd_w ),
 		new Memory_WriteAddress( 0xd001, 0xd001, travrusa_flipscreen_w ),	/* + coin counters - not written by shtrider */
 		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
@@ -388,15 +388,15 @@ public class travrusa
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,      0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 16*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,      0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 16*8, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo sht_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &sht_spritelayout, 16*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,          0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, sht_spritelayout, 16*8, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

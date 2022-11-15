@@ -1310,12 +1310,12 @@ public class seta2
 		some bitplanes and use the low 4 bits only, or the high 4 bits only	*/
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_4bpp_lo, 0, 0x8000/16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_4bpp_hi, 0, 0x8000/16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_6bpp,    0, 0x8000/16 ),	/* 6bpp, but 4bpp granularity */
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8bpp,    0, 0x8000/16 ),	/* 8bpp, but 4bpp granularity */
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_3bpp_lo, 0, 0x8000/16 ),	/* 3bpp, but 4bpp granularity */
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_2bpp_hi, 0, 0x8000/16 ),	/* ??? */
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_4bpp_lo, 0, 0x8000/16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_4bpp_hi, 0, 0x8000/16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_6bpp,    0, 0x8000/16 ),	/* 6bpp, but 4bpp granularity */
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_8bpp,    0, 0x8000/16 ),	/* 8bpp, but 4bpp granularity */
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_3bpp_lo, 0, 0x8000/16 ),	/* 3bpp, but 4bpp granularity */
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_2bpp_hi, 0, 0x8000/16 ),	/* ??? */
 		new GfxDecodeInfo( -1 )
 	};
 	

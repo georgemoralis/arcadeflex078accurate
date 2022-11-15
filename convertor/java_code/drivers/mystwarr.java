@@ -875,13 +875,13 @@ public class mystwarr
 	
 	static GfxDecodeInfo gfxdecodeinfo_gaiapols[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0, &bglayout_4bpp, 0x0000, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, bglayout_4bpp, 0x0000, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_dadandrn[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0, &bglayout_8bpp, 0x0000, 8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, bglayout_8bpp, 0x0000, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

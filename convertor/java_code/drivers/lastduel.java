@@ -221,19 +221,19 @@ public class lastduel
 	
 	static GfxDecodeInfo lastduel_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0,&sprite_layout, 0x200, 16 ),	/* colors 0x200-0x2ff */
-		new GfxDecodeInfo( REGION_GFX2, 0,&text_layout,   0x300, 16 ),	/* colors 0x300-0x33f */
-		new GfxDecodeInfo( REGION_GFX3, 0,&tile_layout,   0x000, 16 ),	/* colors 0x000-0x0ff */
-		new GfxDecodeInfo( REGION_GFX4, 0,&tile_layout,   0x100, 16 ),	/* colors 0x100-0x1ff */
+		new GfxDecodeInfo( REGION_GFX1, 0,sprite_layout, 0x200, 16 ),	/* colors 0x200-0x2ff */
+		new GfxDecodeInfo( REGION_GFX2, 0,text_layout,   0x300, 16 ),	/* colors 0x300-0x33f */
+		new GfxDecodeInfo( REGION_GFX3, 0,tile_layout,   0x000, 16 ),	/* colors 0x000-0x0ff */
+		new GfxDecodeInfo( REGION_GFX4, 0,tile_layout,   0x100, 16 ),	/* colors 0x100-0x1ff */
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo madgear_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0,&sprite_layout, 0x200, 16 ),	/* colors 0x200-0x2ff */
-		new GfxDecodeInfo( REGION_GFX2, 0,&text_layout,   0x300, 16 ),	/* colors 0x300-0x33f */
-		new GfxDecodeInfo( REGION_GFX3, 0,&madgear_tile,  0x000, 16 ),	/* colors 0x000-0x0ff */
-		new GfxDecodeInfo( REGION_GFX4, 0,&madgear_tile2, 0x100, 16 ),	/* colors 0x100-0x1ff */
+		new GfxDecodeInfo( REGION_GFX1, 0,sprite_layout, 0x200, 16 ),	/* colors 0x200-0x2ff */
+		new GfxDecodeInfo( REGION_GFX2, 0,text_layout,   0x300, 16 ),	/* colors 0x300-0x33f */
+		new GfxDecodeInfo( REGION_GFX3, 0,madgear_tile,  0x000, 16 ),	/* colors 0x000-0x0ff */
+		new GfxDecodeInfo( REGION_GFX4, 0,madgear_tile2, 0x100, 16 ),	/* colors 0x100-0x1ff */
 		new GfxDecodeInfo( -1 )
 	};
 	

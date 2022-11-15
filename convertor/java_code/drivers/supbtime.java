@@ -370,9 +370,9 @@ public class supbtime
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   256, 16 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout,  512, 16 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout,  0, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   256, 16 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout,  512, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, sprite_layout,  0, 16 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -75,10 +75,10 @@ public class fastfred
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd000, 0xd3ff, fastfred_videoram_w, &fastfred_videoram ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, fastfred_videoram_w, fastfred_videoram ),
 		new Memory_WriteAddress( 0xd400, 0xd7ff, fastfred_videoram_w ),  // Mirrored for above
-		new Memory_WriteAddress( 0xd800, 0xd83f, fastfred_attributes_w, &fastfred_attributesram ),
-		new Memory_WriteAddress( 0xd840, 0xd85f, MWA_RAM, &fastfred_spriteram, &fastfred_spriteram_size ),
+		new Memory_WriteAddress( 0xd800, 0xd83f, fastfred_attributes_w, fastfred_attributesram ),
+		new Memory_WriteAddress( 0xd840, 0xd85f, MWA_RAM, fastfred_spriteram, fastfred_spriteram_size ),
 		new Memory_WriteAddress( 0xd860, 0xdbff, MWA_RAM ), // Unused, but initialized
 		new Memory_WriteAddress( 0xe000, 0xe000, fastfred_background_color_w ),
 		new Memory_WriteAddress( 0xf000, 0xf000, MWA_NOP ), // Unused, but initialized
@@ -116,10 +116,10 @@ public class fastfred
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd000, 0xd03f, fastfred_attributes_w, &fastfred_attributesram ),
-		new Memory_WriteAddress( 0xd040, 0xd05f, MWA_RAM, &fastfred_spriteram, &fastfred_spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xd03f, fastfred_attributes_w, fastfred_attributesram ),
+		new Memory_WriteAddress( 0xd040, 0xd05f, MWA_RAM, fastfred_spriteram, fastfred_spriteram_size ),
 		new Memory_WriteAddress( 0xd060, 0xd3ff, MWA_NOP ),
-		new Memory_WriteAddress( 0xd800, 0xdbff, fastfred_videoram_w, &fastfred_videoram ),
+		new Memory_WriteAddress( 0xd800, 0xdbff, fastfred_videoram_w, fastfred_videoram ),
 		new Memory_WriteAddress( 0xdc00, 0xdfff, fastfred_videoram_w ),	/* mirror address, used in the name entry screen */
 		new Memory_WriteAddress( 0xe000, 0xe000, fastfred_background_color_w ),
 		new Memory_WriteAddress( 0xf000, 0xf000, MWA_NOP ), // Unused, but initialized
@@ -159,10 +159,10 @@ public class fastfred
 		new Memory_WriteAddress( 0x2000, 0x6fff, MWA_ROM ),
 		new Memory_WriteAddress( 0xb000, 0xb3ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xc800, 0xcbff, imago_fg_videoram_w, &imago_fg_videoram ),
-		new Memory_WriteAddress( 0xd000, 0xd3ff, fastfred_videoram_w, &fastfred_videoram ),
-		new Memory_WriteAddress( 0xd800, 0xd83f, fastfred_attributes_w, &fastfred_attributesram ),
-		new Memory_WriteAddress( 0xd840, 0xd85f, MWA_RAM, &fastfred_spriteram, &fastfred_spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcbff, imago_fg_videoram_w, imago_fg_videoram ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, fastfred_videoram_w, fastfred_videoram ),
+		new Memory_WriteAddress( 0xd800, 0xd83f, fastfred_attributes_w, fastfred_attributesram ),
+		new Memory_WriteAddress( 0xd840, 0xd85f, MWA_RAM, fastfred_spriteram, fastfred_spriteram_size ),
 		new Memory_WriteAddress( 0xd860, 0xd8ff, MWA_RAM ), // Unused, but initialized
 		new Memory_WriteAddress( 0xf000, 0xf000, MWA_NOP ), // writes 1 when level starts, 0 when game over
 		new Memory_WriteAddress( 0xf001, 0xf001, interrupt_enable_w ),
@@ -528,23 +528,23 @@ public class fastfred
 	
 	static GfxDecodeInfo fastfred_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 0, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo jumpcoas_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0, 32 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 0, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo imago_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,	 0, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 0, 32 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout,	 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,	 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, charlayout,	 0, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

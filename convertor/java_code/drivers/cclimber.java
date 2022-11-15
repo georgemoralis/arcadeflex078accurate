@@ -179,17 +179,17 @@ public class cclimber
 		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x6000, 0x6bff, MWA_RAM ),    /* Crazy Kong only */
 		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x8800, 0x88ff, cclimber_bigsprite_videoram_w, &cclimber_bsvideoram, &cclimber_bsvideoram_size ),
+		new Memory_WriteAddress( 0x8800, 0x88ff, cclimber_bigsprite_videoram_w, cclimber_bsvideoram, cclimber_bsvideoram_size ),
 		new Memory_WriteAddress( 0x8900, 0x8bff, MWA_RAM ),  /* not used, but initialized */
-		new Memory_WriteAddress( 0x9000, 0x93ff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x9400, 0x97ff, videoram_w ), /* mirror address, used by Crazy Climber to draw windows */
 		/* 9800-9bff and 9c00-9fff share the same RAM, interleaved */
 		/* (9800-981f for scroll, 9c20-9c3f for color RAM, and so on) */
-		new Memory_WriteAddress( 0x9800, 0x981f, MWA_RAM, &cclimber_column_scroll ),
-		new Memory_WriteAddress( 0x9880, 0x989f, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0x98dc, 0x98df, MWA_RAM, &cclimber_bigspriteram ),
+		new Memory_WriteAddress( 0x9800, 0x981f, MWA_RAM, cclimber_column_scroll ),
+		new Memory_WriteAddress( 0x9880, 0x989f, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0x98dc, 0x98df, MWA_RAM, cclimber_bigspriteram ),
 		new Memory_WriteAddress( 0x9800, 0x9bff, MWA_RAM ),  /* not used, but initialized */
-		new Memory_WriteAddress( 0x9c00, 0x9fff, cclimber_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0x9c00, 0x9fff, cclimber_colorram_w, colorram ),
 		new Memory_WriteAddress( 0xa000, 0xa000, interrupt_enable_w ),
 		new Memory_WriteAddress( 0xa001, 0xa001, flip_screen_x_w ),
 		new Memory_WriteAddress( 0xa002, 0xa002, flip_screen_y_w ),
@@ -231,17 +231,17 @@ public class cclimber
 		new Memory_WriteAddress( 0x6000, 0x6bff, MWA_RAM ),    /* Crazy Kong only, Cannon Ball also */
 		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ),
 	
-		new Memory_WriteAddress( 0x8800, 0x88ff, cclimber_bigsprite_videoram_w, &cclimber_bsvideoram, &cclimber_bsvideoram_size ),
+		new Memory_WriteAddress( 0x8800, 0x88ff, cclimber_bigsprite_videoram_w, cclimber_bsvideoram, cclimber_bsvideoram_size ),
 	//new Memory_WriteAddress( 0x8900, 0x8bff, MWA_RAM ),  /* not used, but initialized */
-		new Memory_WriteAddress( 0x9000, 0x93ff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x9400, 0x97ff, videoram_w ), /* mirror address, used by Crazy Climber to draw windows */
 		/* 9800-9bff and 9c00-9fff share the same RAM, interleaved */
 		/* (9800-981f for scroll, 9c20-9c3f for color RAM, and so on) */
-		new Memory_WriteAddress( 0x9800, 0x981f, MWA_RAM, &cclimber_column_scroll ),
-		new Memory_WriteAddress( 0x9880, 0x989f, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0x98dc, 0x98df, MWA_RAM, &cclimber_bigspriteram ),
+		new Memory_WriteAddress( 0x9800, 0x981f, MWA_RAM, cclimber_column_scroll ),
+		new Memory_WriteAddress( 0x9880, 0x989f, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0x98dc, 0x98df, MWA_RAM, cclimber_bigspriteram ),
 		new Memory_WriteAddress( 0x9800, 0x9bff, MWA_RAM ),  /* not used, but initialized */
-		new Memory_WriteAddress( 0x9c00, 0x9fff, cclimber_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0x9c00, 0x9fff, cclimber_colorram_w, colorram ),
 		new Memory_WriteAddress( 0xa000, 0xa000, interrupt_enable_w ),
 		new Memory_WriteAddress( 0xa001, 0xa001, flip_screen_x_w ),
 		new Memory_WriteAddress( 0xa002, 0xa002, flip_screen_y_w ),
@@ -564,11 +564,11 @@ public class cclimber
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,      0, 16 ), /* char set #1 */
-		new GfxDecodeInfo( REGION_GFX1, 0x2000, &charlayout,      0, 16 ), /* char set #2 */
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &bscharlayout, 16*4,  8 ), /* big sprite char set */
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout,    0, 16 ), /* sprite set #1 */
-		new GfxDecodeInfo( REGION_GFX1, 0x2000, &spritelayout,    0, 16 ), /* sprite set #2 */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, charlayout,      0, 16 ), /* char set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0x2000, charlayout,      0, 16 ), /* char set #2 */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, bscharlayout, 16*4,  8 ), /* big sprite char set */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, spritelayout,    0, 16 ), /* sprite set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0x2000, spritelayout,    0, 16 ), /* sprite set #2 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
@@ -1102,14 +1102,14 @@ public class cclimber
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x8800, 0x88ff, cclimber_bigsprite_videoram_w, &cclimber_bsvideoram, &cclimber_bsvideoram_size ),
+		new Memory_WriteAddress( 0x8800, 0x88ff, cclimber_bigsprite_videoram_w, cclimber_bsvideoram, cclimber_bsvideoram_size ),
 		new Memory_WriteAddress( 0x8900, 0x89ff, cclimber_bigsprite_videoram_w ),      /* mirror for the above (Guzzler writes to both) */
-		new Memory_WriteAddress( 0x9000, 0x93ff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x9000, 0x93ff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x9400, 0x97ff, videoram_w ), /* mirror address (used by Guzzler) */
-		new Memory_WriteAddress( 0x9800, 0x981f, MWA_RAM, &cclimber_column_scroll ),
-		new Memory_WriteAddress( 0x9880, 0x989f, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0x98fc, 0x98ff, MWA_RAM, &cclimber_bigspriteram ),
-		new Memory_WriteAddress( 0x9c00, 0x9fff, cclimber_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0x9800, 0x981f, MWA_RAM, cclimber_column_scroll ),
+		new Memory_WriteAddress( 0x9880, 0x989f, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0x98fc, 0x98ff, MWA_RAM, cclimber_bigspriteram ),
+		new Memory_WriteAddress( 0x9c00, 0x9fff, cclimber_colorram_w, colorram ),
 		new Memory_WriteAddress( 0xa000, 0xa000, interrupt_enable_w ),
 		new Memory_WriteAddress( 0xa001, 0xa001, flip_screen_x_w ),
 		new Memory_WriteAddress( 0xa002, 0xa002, flip_screen_y_w ),
@@ -1362,9 +1362,9 @@ public class cclimber
 	
 	static GfxDecodeInfo swimmer_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &swimmer_charlayout,      0, 64 ), /* characters */
-		new GfxDecodeInfo( REGION_GFX1, 0, &swimmer_spritelayout,    0, 32 ), /* sprite set #1 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &swimmer_charlayout,   64*8, 4 ),  /* big sprite set */
+		new GfxDecodeInfo( REGION_GFX1, 0, swimmer_charlayout,      0, 64 ), /* characters */
+		new GfxDecodeInfo( REGION_GFX1, 0, swimmer_spritelayout,    0, 32 ), /* sprite set #1 */
+		new GfxDecodeInfo( REGION_GFX2, 0, swimmer_charlayout,   64*8, 4 ),  /* big sprite set */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

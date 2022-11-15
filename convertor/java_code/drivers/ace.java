@@ -77,7 +77,7 @@ public class ace
 		}
 	
 		/* first of all, fill the screen with the background color */
-		fillbitmap(bitmap, Machine->pens[0], &Machine->visible_area);
+		fillbitmap(bitmap, Machine->pens[0], Machine->visible_area);
 	
 	
 			drawgfx(bitmap,Machine->gfx[1],
@@ -85,21 +85,21 @@ public class ace
 					0,
 					0,0,
 					objpos[0],objpos[1],
-					&Machine->visible_area,TRANSPARENCY_NONE,0);
+					Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 			drawgfx(bitmap,Machine->gfx[2],
 					0,
 					0,
 					0,0,
 					objpos[2],objpos[3],
-					&Machine->visible_area,TRANSPARENCY_NONE,0);
+					Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 			drawgfx(bitmap,Machine->gfx[3],
 					0,
 					0,
 					0,0,
 					objpos[4],objpos[5],
-					&Machine->visible_area,TRANSPARENCY_NONE,0);
+					Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 		for (offs = 0; offs < 8; offs++)
 		{
@@ -108,7 +108,7 @@ public class ace
 					0,
 					0,0,
 					10*8+offs*16,256-16, /* ?? */
-					&Machine->visible_area,TRANSPARENCY_NONE,0);
+					Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	} };
 	
@@ -196,9 +196,9 @@ public class ace
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x09ff, MWA_ROM ),
 	
-		new Memory_WriteAddress( 0x2000, 0x20ff, MWA_RAM, &ace_scoreram ),	/* 2x2101 */
-		new Memory_WriteAddress( 0x8300, 0x83ff, MWA_RAM, &ace_ram2 ),		/* 2x2101 */
-		new Memory_WriteAddress( 0x8000, 0x80ff, ace_characterram_w, &ace_characterram ),	/* 3x3101 (3bits: 0, 1, 2) */
+		new Memory_WriteAddress( 0x2000, 0x20ff, MWA_RAM, ace_scoreram ),	/* 2x2101 */
+		new Memory_WriteAddress( 0x8300, 0x83ff, MWA_RAM, ace_ram2 ),		/* 2x2101 */
+		new Memory_WriteAddress( 0x8000, 0x80ff, ace_characterram_w, ace_characterram ),	/* 3x3101 (3bits: 0, 1, 2) */
 	
 		new Memory_WriteAddress( 0xc000, 0xc005, ace_objpos_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -309,11 +309,11 @@ public class ace
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0     , &charlayout,  0, 2 ),
-		new GfxDecodeInfo( 0          , 0x8000, &charlayout0, 0, 2 ),    /* the game dynamically modifies this */
-		new GfxDecodeInfo( 0          , 0x8000, &charlayout1, 0, 2 ),    /* the game dynamically modifies this */
-		new GfxDecodeInfo( 0          , 0x8000, &charlayout2, 0, 2 ),    /* the game dynamically modifies this */
-		new GfxDecodeInfo( 0          , 0x8000, &scorelayout, 0, 2 ),    /* the game dynamically modifies this */
+		new GfxDecodeInfo( REGION_GFX1, 0     , charlayout,  0, 2 ),
+		new GfxDecodeInfo( 0          , 0x8000, charlayout0, 0, 2 ),    /* the game dynamically modifies this */
+		new GfxDecodeInfo( 0          , 0x8000, charlayout1, 0, 2 ),    /* the game dynamically modifies this */
+		new GfxDecodeInfo( 0          , 0x8000, charlayout2, 0, 2 ),    /* the game dynamically modifies this */
+		new GfxDecodeInfo( 0          , 0x8000, scorelayout, 0, 2 ),    /* the game dynamically modifies this */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

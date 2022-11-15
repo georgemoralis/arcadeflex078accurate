@@ -965,35 +965,35 @@ public class aerofgt
 	
 	static GfxDecodeInfo pspikes_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pspikes_charlayout,      0, 64 ),	/* colors    0-1023 in 8 banks */
-		new GfxDecodeInfo( REGION_GFX2, 0, &pspikes_spritelayout, 1024, 64 ),	/* colors 1024-2047 in 4 banks */
+		new GfxDecodeInfo( REGION_GFX1, 0, pspikes_charlayout,      0, 64 ),	/* colors    0-1023 in 8 banks */
+		new GfxDecodeInfo( REGION_GFX2, 0, pspikes_spritelayout, 1024, 64 ),	/* colors 1024-2047 in 4 banks */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo turbofrc_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pspikes_charlayout,     0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &pspikes_charlayout,   256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &pspikes_spritelayout, 512, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &pspikes_spritelayout, 768, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, pspikes_charlayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, pspikes_charlayout,   256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, pspikes_spritelayout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, pspikes_spritelayout, 768, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo aerofgtb_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pspikes_charlayout,      0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &pspikes_charlayout,    256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &aerofgtb_spritelayout, 512, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &aerofgtb_spritelayout, 768, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, pspikes_charlayout,      0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, pspikes_charlayout,    256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, aerofgtb_spritelayout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, aerofgtb_spritelayout, 768, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo aerofgt_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &aerofgt_charlayout,     0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &aerofgt_charlayout,   256, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &aerofgt_spritelayout, 512, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &aerofgt_spritelayout, 768, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, aerofgt_charlayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, aerofgt_charlayout,   256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, aerofgt_spritelayout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, aerofgt_spritelayout, 768, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

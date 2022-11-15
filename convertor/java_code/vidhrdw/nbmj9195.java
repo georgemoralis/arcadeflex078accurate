@@ -798,9 +798,9 @@ public class nbmj9195
 		if (sailorws_dispflag[0])
 		{
 	#if RASTER_SCROLL
-			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, SCANLINE_MAX, sailorws_scrollx_raster[0], 1, &sailorws_scrolly[0], &Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, SCANLINE_MAX, sailorws_scrollx_raster[0], 1, &sailorws_scrolly[0], Machine->visible_area, TRANSPARENCY_NONE, 0);
 	#else
-			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, 1, &sailorws_scrollx[0], 1, &sailorws_scrolly[0], &Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, 1, &sailorws_scrollx[0], 1, &sailorws_scrolly[0], Machine->visible_area, TRANSPARENCY_NONE, 0);
 	#endif
 		}
 		else
@@ -813,9 +813,9 @@ public class nbmj9195
 			if (sailorws_dispflag[1])
 			{
 	#if RASTER_SCROLL
-				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, SCANLINE_MAX, sailorws_scrollx_raster[1], 1, &sailorws_scrolly[1], &Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x0ff]);
+				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, SCANLINE_MAX, sailorws_scrollx_raster[1], 1, &sailorws_scrolly[1], Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x0ff]);
 	#else
-				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], &Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x0ff]);
+				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x0ff]);
 	#endif
 			}
 		}
@@ -855,7 +855,7 @@ public class nbmj9195
 	
 		if (sailorws_dispflag[0])
 		{
-			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, 1, &sailorws_scrollx[0], 1, &sailorws_scrolly[0], &Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, sailorws_tmpbitmap0, 1, &sailorws_scrollx[0], 1, &sailorws_scrolly[0], Machine->visible_area, TRANSPARENCY_NONE, 0);
 		}
 		else
 		{
@@ -866,7 +866,7 @@ public class nbmj9195
 		{
 			if (sailorws_dispflag[1])
 			{
-				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], &Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x1ff]);
+				copyscrollbitmap(bitmap, sailorws_tmpbitmap1, 1, &sailorws_scrollx[1], 1, &sailorws_scrolly[1], Machine->visible_area, TRANSPARENCY_PEN, Machine->pens[0x1ff]);
 			}
 		}
 	} };

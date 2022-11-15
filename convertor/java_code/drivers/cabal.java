@@ -515,9 +515,9 @@ public class cabal
 	
 	static GfxDecodeInfo cabal_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &text_layout,		0, 1024/4 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout,		32*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &sprite_layout,	16*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, text_layout,		0, 1024/4 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout,		32*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, sprite_layout,	16*16, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

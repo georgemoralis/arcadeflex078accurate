@@ -205,9 +205,9 @@ public class msisaac
 		new Memory_WriteAddress( 0x0000, 0xdfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xe000, 0xe7ff, MWA_RAM ),
 	
-		new Memory_WriteAddress( 0xe800, 0xefff, paletteram_xxxxRRRRGGGGBBBB_w, &paletteram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, paletteram_xxxxRRRRGGGGBBBB_w, paletteram ),
 	
-	//new Memory_WriteAddress( 0xf400, 0xf43f, msisaac_fg_colorram_w, &colorram ),
+	//new Memory_WriteAddress( 0xf400, 0xf43f, msisaac_fg_colorram_w, colorram ),
 	
 		new Memory_WriteAddress( 0xf0a3, 0xf0a3, ms_unknown_w ),			//???? written in interrupt routine
 	
@@ -227,10 +227,10 @@ public class msisaac
 	
 		new Memory_WriteAddress( 0xf0e0, 0xf0e0, msisaac_mcu_w ),
 	
-		new Memory_WriteAddress( 0xf100, 0xf17f, MWA_RAM, &spriteram ),	//sprites
-		new Memory_WriteAddress( 0xf400, 0xf7ff, msisaac_fg_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xf800, 0xfbff, msisaac_bg2_videoram_w,&msisaac_videoram2 ),
-		new Memory_WriteAddress( 0xfc00, 0xffff, msisaac_bg_videoram_w, &msisaac_videoram ),
+		new Memory_WriteAddress( 0xf100, 0xf17f, MWA_RAM, spriteram ),	//sprites
+		new Memory_WriteAddress( 0xf400, 0xf7ff, msisaac_fg_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xf800, 0xfbff, msisaac_bg2_videoram_w,msisaac_videoram2 ),
+		new Memory_WriteAddress( 0xfc00, 0xffff, msisaac_bg_videoram_w, msisaac_videoram ),
 	
 	
 	//	new Memory_WriteAddress( 0xf801, 0xf801, msisaac_bgcolor_w ),
@@ -482,10 +482,10 @@ public class msisaac
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &char_layout, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &char_layout, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, char_layout, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, char_layout, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout, 0, 64 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

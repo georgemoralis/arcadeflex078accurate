@@ -521,8 +521,8 @@ public class slapshot
 	
 	static GfxDecodeInfo slapshot_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tilelayout,  0, 256 ),	/* sprite parts */
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &slapshot_charlayout,  0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tilelayout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, slapshot_charlayout,  0, 256 ),	/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

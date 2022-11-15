@@ -259,7 +259,7 @@ public class blmbycar
 	/* Layers both use the first $20 color codes. Sprites the next $10 */
 	static GfxDecodeInfo blmbycar_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0x0, 0x30 ), // [0] Layers + Sprites
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4, 0x0, 0x30 ), // [0] Layers + Sprites
 		new GfxDecodeInfo( -1 )
 	};
 	

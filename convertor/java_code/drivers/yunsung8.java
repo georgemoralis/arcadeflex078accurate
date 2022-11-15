@@ -406,8 +406,8 @@ public class yunsung8
 	
 	static GfxDecodeInfo yunsung8_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8, 0, 0x08 ), // [0] Tiles (Background)
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4, 0,	0x40 ), // [1] Tiles (Text)
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_8x8x8, 0, 0x08 ), // [0] Tiles (Background)
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4, 0,	0x40 ), // [1] Tiles (Text)
 		new GfxDecodeInfo( -1 )
 	};
 	

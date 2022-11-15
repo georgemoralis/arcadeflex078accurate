@@ -252,10 +252,10 @@ public class realbrk
 	
 	static GfxDecodeInfo realbrk_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8,		0, 0x80		),	// [0] Backgrounds
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,		0, 0x800	),	// [1] Text
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_16x16x8,		0, 0x80		),	// [2] Sprites (256 colors)
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_16x16x4,		0, 0x800	),	// [3] Sprites (16 colors)
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x8,		0, 0x80		),	// [0] Backgrounds
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,		0, 0x800	),	// [1] Text
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_16x16x8,		0, 0x80		),	// [2] Sprites (256 colors)
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_16x16x4,		0, 0x800	),	// [3] Sprites (16 colors)
 		new GfxDecodeInfo( -1 )
 	};
 	

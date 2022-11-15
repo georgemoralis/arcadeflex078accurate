@@ -40,13 +40,13 @@ public class yard
 	
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x8000, 0x8fff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x8000, 0x8fff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x9000, 0x9fff, yard_scroll_panel_w ),
-		new Memory_WriteAddress( 0xc820, 0xc87f, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xa000, 0xa000, MWA_RAM, &yard_scroll_x_low ),
-		new Memory_WriteAddress( 0xa200, 0xa200, MWA_RAM, &yard_scroll_x_high ),
-		new Memory_WriteAddress( 0xa400, 0xa400, MWA_RAM, &yard_scroll_y_low ),
-		new Memory_WriteAddress( 0xa800, 0xa800, MWA_RAM, &yard_score_panel_disabled ),
+		new Memory_WriteAddress( 0xc820, 0xc87f, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xa000, 0xa000, MWA_RAM, yard_scroll_x_low ),
+		new Memory_WriteAddress( 0xa200, 0xa200, MWA_RAM, yard_scroll_x_high ),
+		new Memory_WriteAddress( 0xa400, 0xa400, MWA_RAM, yard_scroll_y_low ),
+		new Memory_WriteAddress( 0xa800, 0xa800, MWA_RAM, yard_score_panel_disabled ),
 		new Memory_WriteAddress( 0xd000, 0xd000, irem_sound_cmd_w ),
 		new Memory_WriteAddress( 0xd001, 0xd001, yard_flipscreen_w ),	/* + coin counters */
 		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
@@ -285,8 +285,8 @@ public class yard
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,       0, 32 ),	/* use colors 0-255 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,  32*8, 32 ),	/* use colors 256-271 with lookup table */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,       0, 32 ),	/* use colors 0-255 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout,  32*8, 32 ),	/* use colors 256-271 with lookup table */
 		/* bitmapped radar uses colors 272-527 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};

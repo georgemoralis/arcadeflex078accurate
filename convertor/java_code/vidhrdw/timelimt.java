@@ -153,7 +153,7 @@ public class timelimt
 					attr & 7,
 					flipx,flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	}
 	
@@ -168,10 +168,10 @@ public class timelimt
 	public static VideoUpdateHandlerPtr video_update_timelimt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		tilemap_set_scrollx(bg_tilemap, 0, scrollx);
 		tilemap_set_scrolly(bg_tilemap, 0, scrolly);
-		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
 	
 		drawsprites( bitmap );
 	
-		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
 	} };
 }

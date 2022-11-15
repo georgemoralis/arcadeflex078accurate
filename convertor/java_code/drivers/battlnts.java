@@ -63,7 +63,7 @@ public class battlnts
 		new Memory_WriteAddress( 0x0000, 0x1fff, K007342_w ),				/* Color RAM + Video RAM */
 		new Memory_WriteAddress( 0x2000, 0x21ff, K007420_w ),				/* Sprite RAM */
 		new Memory_WriteAddress( 0x2200, 0x23ff, K007342_scroll_w ),		/* Scroll RAM */
-		new Memory_WriteAddress( 0x2400, 0x24ff, paletteram_xBBBBBGGGGGRRRRR_swap_w, &paletteram ),/* palette */
+		new Memory_WriteAddress( 0x2400, 0x24ff, paletteram_xBBBBBGGGGGRRRRR_swap_w, paletteram ),/* palette */
 		new Memory_WriteAddress( 0x2600, 0x2607, K007342_vreg_w ), 		/* Video Registers */
 		new Memory_WriteAddress( 0x2e08, 0x2e08, battlnts_bankswitch_w ),	/* bankswitch control */
 		new Memory_WriteAddress( 0x2e0c, 0x2e0c, battlnts_spritebank_w ),	/* sprite bank select */
@@ -323,8 +323,8 @@ public class battlnts
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,		0, 1 ), /* colors  0-15 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 4*16, 1 ), /* colors 64-79 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,		0, 1 ), /* colors  0-15 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 4*16, 1 ), /* colors 64-79 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

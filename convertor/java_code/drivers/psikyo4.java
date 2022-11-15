@@ -93,7 +93,7 @@ public class psikyo4
 	
 	static GfxDecodeInfo gfxdecodeinfops4[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8, 0x000, 0x80 ), // 8bpp tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x8, 0x000, 0x80 ), // 8bpp tiles
 		new GfxDecodeInfo( -1 )
 	};
 	

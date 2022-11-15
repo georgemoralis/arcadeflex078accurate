@@ -189,7 +189,7 @@ public class shougi
 			}
 		}
 		/* copy the character mapped graphics */
-		//copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		//copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	} };
 	
 	
@@ -290,8 +290,8 @@ public class shougi
 		new Memory_WriteAddress( 0x6000, 0x6000, AY8910_control_port_0_w ),
 		new Memory_WriteAddress( 0x6800, 0x6800, AY8910_write_port_0_w ),
 		new Memory_WriteAddress( 0x7000, 0x73ff, MWA_RAM ),						/* sharedram main/MCU */
-		new Memory_WriteAddress( 0x7800, 0x7bff, cpu_sharedram_main_w, &cpu_sharedram ),/* sharedram main/sub */
-		new Memory_WriteAddress( 0x8000, 0xffff, videoram_w, &videoram, &videoram_size ),	/* 4116 x 16 (32K) */
+		new Memory_WriteAddress( 0x7800, 0x7bff, cpu_sharedram_main_w, cpu_sharedram ),/* sharedram main/sub */
+		new Memory_WriteAddress( 0x8000, 0xffff, videoram_w, videoram, videoram_size ),	/* 4116 x 16 (32K) */
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	

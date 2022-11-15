@@ -81,8 +81,8 @@ public class funkybee
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x4fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xa000, 0xbfff, funkybee_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xc000, 0xdfff, funkybee_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0xa000, 0xbfff, funkybee_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, funkybee_colorram_w, colorram ),
 		new Memory_WriteAddress( 0xe000, 0xe000, funkybee_scroll_w ),
 		new Memory_WriteAddress( 0xe800, 0xe800, funkybee_flipscreen_w ),
 		new Memory_WriteAddress( 0xe802, 0xe803, funkybee_coin_counter_w ),
@@ -234,10 +234,10 @@ public class funkybee
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,	  0, 8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout,	  0, 8 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 16, 4 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 16, 4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,	  0, 8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout,	  0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 16, 4 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 16, 4 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

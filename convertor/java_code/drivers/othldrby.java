@@ -238,8 +238,8 @@ public class othldrby
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 0, 0x80 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,   0, 0x80 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 0, 0x80 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,   0, 0x80 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

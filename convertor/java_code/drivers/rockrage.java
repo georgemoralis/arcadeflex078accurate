@@ -75,7 +75,7 @@ public class rockrage
 		new Memory_WriteAddress( 0x0000, 0x1fff, K007342_w ),				/* Color RAM + Video RAM */
 		new Memory_WriteAddress( 0x2000, 0x21ff, K007420_w ),				/* Sprite RAM */
 		new Memory_WriteAddress( 0x2200, 0x23ff, K007342_scroll_w ),		/* Scroll RAM */
-		new Memory_WriteAddress( 0x2400, 0x247f, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram ),/* palette */
+		new Memory_WriteAddress( 0x2400, 0x247f, paletteram_xBBBBBGGGGGRRRRR_w, paletteram ),/* palette */
 		new Memory_WriteAddress( 0x2600, 0x2607, K007342_vreg_w ),			/* Video Registers */
 		new Memory_WriteAddress( 0x2e80, 0x2e80, rockrage_sh_irqtrigger_w ),/* cause interrupt on audio CPU */
 		new Memory_WriteAddress( 0x2ec0, 0x2ec0, watchdog_reset_w ),		/* watchdog reset */
@@ -236,8 +236,8 @@ public class rockrage
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   64, 32 ),	/* colors 00..31, but using 2 lookup tables */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 32,  1 ),	/* colors 32..63 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   64, 32 ),	/* colors 00..31, but using 2 lookup tables */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 32,  1 ),	/* colors 32..63 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

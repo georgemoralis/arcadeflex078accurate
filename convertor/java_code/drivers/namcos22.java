@@ -590,7 +590,7 @@ public class namcos22
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &sprite_layout,  0, 0x80 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, sprite_layout,  0, 0x80 ),
 		new GfxDecodeInfo( -1 ),
 	};
 	

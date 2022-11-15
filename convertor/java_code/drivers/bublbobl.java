@@ -163,16 +163,16 @@ public class bublbobl
 	public static Memory_WriteAddress bublbobl_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xdcff, MWA_RAM, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0xdd00, 0xdfff, MWA_RAM, &bublbobl_objectram, &bublbobl_objectram_size ),
-		new Memory_WriteAddress( 0xe000, 0xf7ff, bublbobl_sharedram1_w, &bublbobl_sharedram1 ),
-		new Memory_WriteAddress( 0xf800, 0xf9ff, paletteram_RRRRGGGGBBBBxxxx_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xc000, 0xdcff, MWA_RAM, videoram, videoram_size ),
+		new Memory_WriteAddress( 0xdd00, 0xdfff, MWA_RAM, bublbobl_objectram, bublbobl_objectram_size ),
+		new Memory_WriteAddress( 0xe000, 0xf7ff, bublbobl_sharedram1_w, bublbobl_sharedram1 ),
+		new Memory_WriteAddress( 0xf800, 0xf9ff, paletteram_RRRRGGGGBBBBxxxx_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xfa00, 0xfa00, bublbobl_sound_command_w ),
 	//	new Memory_WriteAddress( 0xfa03, 0xfa03,  ), clocks reset to sound cpu
 		new Memory_WriteAddress( 0xfa80, 0xfa80, watchdog_reset_w ),
 		new Memory_WriteAddress( 0xfb00, 0xfb00, bublbobl_nmitrigger_w ),	/* not used by Bubble Bobble, only by Tokio */
 		new Memory_WriteAddress( 0xfb40, 0xfb40, bublbobl_bankswitch_w ),
-		new Memory_WriteAddress( 0xfc00, 0xffff, bublbobl_sharedram2_w, &bublbobl_sharedram2 ),
+		new Memory_WriteAddress( 0xfc00, 0xffff, bublbobl_sharedram2_w, bublbobl_sharedram2 ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -216,15 +216,15 @@ public class bublbobl
 	public static Memory_WriteAddress boblbobl_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xdcff, MWA_RAM, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0xdd00, 0xdfff, MWA_RAM, &bublbobl_objectram, &bublbobl_objectram_size ),
-		new Memory_WriteAddress( 0xe000, 0xf7ff, bublbobl_sharedram1_w, &bublbobl_sharedram1 ),
-		new Memory_WriteAddress( 0xf800, 0xf9ff, paletteram_RRRRGGGGBBBBxxxx_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xc000, 0xdcff, MWA_RAM, videoram, videoram_size ),
+		new Memory_WriteAddress( 0xdd00, 0xdfff, MWA_RAM, bublbobl_objectram, bublbobl_objectram_size ),
+		new Memory_WriteAddress( 0xe000, 0xf7ff, bublbobl_sharedram1_w, bublbobl_sharedram1 ),
+		new Memory_WriteAddress( 0xf800, 0xf9ff, paletteram_RRRRGGGGBBBBxxxx_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xfa00, 0xfa00, bublbobl_sound_command_w ),
 		new Memory_WriteAddress( 0xfa80, 0xfa80, MWA_NOP ),
 		new Memory_WriteAddress( 0xfb00, 0xfb00, bublbobl_nmitrigger_w ),	/* not used by Bubble Bobble, only by Tokio */
 		new Memory_WriteAddress( 0xfb40, 0xfb40, bublbobl_bankswitch_w ),
-		new Memory_WriteAddress( 0xfc00, 0xfcff, bublbobl_sharedram2_w, &bublbobl_sharedram2 ),
+		new Memory_WriteAddress( 0xfc00, 0xfcff, bublbobl_sharedram2_w, bublbobl_sharedram2 ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -292,10 +292,10 @@ public class bublbobl
 	public static Memory_WriteAddress tokio_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xdcff, MWA_RAM, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0xdd00, 0xdfff, MWA_RAM, &bublbobl_objectram, &bublbobl_objectram_size ),
-		new Memory_WriteAddress( 0xe000, 0xf7ff, bublbobl_sharedram1_w, &bublbobl_sharedram1 ),
-		new Memory_WriteAddress( 0xf800, 0xf9ff, paletteram_RRRRGGGGBBBBxxxx_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xc000, 0xdcff, MWA_RAM, videoram, videoram_size ),
+		new Memory_WriteAddress( 0xdd00, 0xdfff, MWA_RAM, bublbobl_objectram, bublbobl_objectram_size ),
+		new Memory_WriteAddress( 0xe000, 0xf7ff, bublbobl_sharedram1_w, bublbobl_sharedram1 ),
+		new Memory_WriteAddress( 0xf800, 0xf9ff, paletteram_RRRRGGGGBBBBxxxx_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xfa00, 0xfa00, MWA_NOP ),
 		new Memory_WriteAddress( 0xfa80, 0xfa80, tokio_bankswitch_w ),
 		new Memory_WriteAddress( 0xfb00, 0xfb00, tokio_videoctrl_w ),
@@ -645,7 +645,7 @@ public class bublbobl
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
 		/* read all graphics into one big graphics region */
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout, 0, 16 ),
 		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	

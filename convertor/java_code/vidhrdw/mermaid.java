@@ -149,7 +149,7 @@ public class mermaid
 			}
 	
 	
-			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,&Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -186,7 +186,7 @@ public class mermaid
 					mermaid_foreground_colorram[offs] & 0x0f,
 					flipx,flipy,
 					8*sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	
@@ -239,7 +239,7 @@ public class mermaid
 					flipx, flipy,
 					sx, sy,
 					(flip_screen_x ? &flip_spritevisiblearea :
-					    &spritevisiblearea),
+					    spritevisiblearea),
 					TRANSPARENCY_PEN,0);
 		}
 	} };

@@ -71,8 +71,8 @@ public class homerun
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &gfxlayout,   0, 16 ), 
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,   0, 16 ), 
+		new GfxDecodeInfo( REGION_GFX1, 0, gfxlayout,   0, 16 ), 
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout,   0, 16 ), 
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -89,8 +89,8 @@ public class homerun
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),		
-		new Memory_WriteAddress( 0x8000, 0x9fff, homerun_videoram_w, &homerun_videoram ),
-		new Memory_WriteAddress( 0xa000, 0xa0ff, MWA_RAM, &spriteram,  &spriteram_size ),	
+		new Memory_WriteAddress( 0x8000, 0x9fff, homerun_videoram_w, homerun_videoram ),
+		new Memory_WriteAddress( 0xa000, 0xa0ff, MWA_RAM, spriteram,  spriteram_size ),	
 		new Memory_WriteAddress( 0xb000, 0xb0ff, homerun_color_w),
 		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM ),		
 	

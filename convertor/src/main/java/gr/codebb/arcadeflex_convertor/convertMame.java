@@ -1624,6 +1624,21 @@ public class convertMame {
                     }
                 }
                 break;
+                case '&': {
+                    if (type == MEMORY_READ8 || type == MEMORY_WRITE8 || type == PORT_READ8 || type == PORT_WRITE8 || type == GFXDECODE) {
+                        Convertor.inpos += 1;
+                        continue;
+                    }
+                    if (sUtil.getToken("&Machine")) {
+                        sUtil.putString((new StringBuilder()).append("Machine").toString());
+                        continue;
+                    }
+                    if (sUtil.getToken("&spritevisiblearea")) {
+                        sUtil.putString((new StringBuilder()).append("spritevisiblearea").toString());
+                        continue;
+                    }
+                }
+                break;
             }
 
             Convertor.outbuf[Convertor.outpos++] = Convertor.inbuf[Convertor.inpos++];//grapse to inputbuffer sto output

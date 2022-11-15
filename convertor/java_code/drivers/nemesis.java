@@ -526,7 +526,7 @@ public class nemesis
 	public static Memory_WriteAddress gx400_sound_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x1fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x4000, 0x87ff, MWA_RAM, &gx400_shared_ram ),
+		new Memory_WriteAddress( 0x4000, 0x87ff, MWA_RAM, gx400_shared_ram ),
 		new Memory_WriteAddress( 0xa000, 0xafff, k005289_pitch_A_w ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, k005289_pitch_B_w ),
 		new Memory_WriteAddress( 0xe000, 0xe000, VLM5030_data_w ),
@@ -1924,14 +1924,14 @@ public class nemesis
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-	    new GfxDecodeInfo( 0, 0x0, &charlayout,   0, 0x80 ),	/* the game dynamically modifies this */
-	    new GfxDecodeInfo( 0, 0x0, &spritelayout, 0, 0x80 ),	/* the game dynamically modifies this */
-	    new GfxDecodeInfo( 0, 0x0, &spritelayout3216, 0, 0x80 ),	/* the game dynamically modifies this */
-	    new GfxDecodeInfo( 0, 0x0, &spritelayout816, 0, 0x80 ),	/* the game dynamically modifies this */
-	    new GfxDecodeInfo( 0, 0x0, &spritelayout3232, 0, 0x80 ),	/* the game dynamically modifies this */
-	    new GfxDecodeInfo( 0, 0x0, &spritelayout1632, 0, 0x80 ),	/* the game dynamically modifies this */
-	    new GfxDecodeInfo( 0, 0x0, &spritelayout168, 0, 0x80 ),	/* the game dynamically modifies this */
-	    new GfxDecodeInfo( 0, 0x0, &spritelayout6464, 0, 0x80 ),	/* the game dynamically modifies this */
+	    new GfxDecodeInfo( 0, 0x0, charlayout,   0, 0x80 ),	/* the game dynamically modifies this */
+	    new GfxDecodeInfo( 0, 0x0, spritelayout, 0, 0x80 ),	/* the game dynamically modifies this */
+	    new GfxDecodeInfo( 0, 0x0, spritelayout3216, 0, 0x80 ),	/* the game dynamically modifies this */
+	    new GfxDecodeInfo( 0, 0x0, spritelayout816, 0, 0x80 ),	/* the game dynamically modifies this */
+	    new GfxDecodeInfo( 0, 0x0, spritelayout3232, 0, 0x80 ),	/* the game dynamically modifies this */
+	    new GfxDecodeInfo( 0, 0x0, spritelayout1632, 0, 0x80 ),	/* the game dynamically modifies this */
+	    new GfxDecodeInfo( 0, 0x0, spritelayout168, 0, 0x80 ),	/* the game dynamically modifies this */
+	    new GfxDecodeInfo( 0, 0x0, spritelayout6464, 0, 0x80 ),	/* the game dynamically modifies this */
 		new GfxDecodeInfo( -1 )
 	};
 	

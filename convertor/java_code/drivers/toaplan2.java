@@ -1826,7 +1826,7 @@ public class toaplan2
 	public static Memory_WriteAddress sound_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM, &toaplan2_shared_ram ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM, toaplan2_shared_ram ),
 		new Memory_WriteAddress( 0xe000, 0xe000, YM3812_control_port_0_w ),
 		new Memory_WriteAddress( 0xe001, 0xe001, YM3812_write_port_0_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -1844,7 +1844,7 @@ public class toaplan2
 	public static Memory_WriteAddress raizing_sound_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM, &raizing_shared_ram ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM, raizing_shared_ram ),
 		new Memory_WriteAddress( 0xe000, 0xe000, YM2151_register_port_0_w ),
 		new Memory_WriteAddress( 0xe001, 0xe001, YM2151_data_port_0_w ),
 		new Memory_WriteAddress( 0xe004, 0xe004, OKIM6295_data_0_w ),
@@ -1866,7 +1866,7 @@ public class toaplan2
 	public static Memory_WriteAddress battleg_sound_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM, &raizing_shared_ram ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM, raizing_shared_ram ),
 		new Memory_WriteAddress( 0xe000, 0xe000, YM2151_register_port_0_w ),
 		new Memory_WriteAddress( 0xe001, 0xe001, YM2151_data_port_0_w ),
 		new Memory_WriteAddress( 0xe004, 0xe004, OKIM6295_data_0_w ),
@@ -1995,7 +1995,7 @@ public class toaplan2
 		new Memory_WriteAddress( 0x04004, 0x04004, oki_bankswitch_w ),
 		new Memory_WriteAddress( 0x0400e, 0x0400e, toaplan2_coin_w ),
 		new Memory_WriteAddress( 0x0fe00, 0x0ffff, MWA_RAM ),			/* Internal 512 bytes of RAM */
-		new Memory_WriteAddress( 0x80000, 0x87fff, MWA_RAM, &Zx80_sharedram ),	/* External shared RAM (ROM for KBASH) */
+		new Memory_WriteAddress( 0x80000, 0x87fff, MWA_RAM, Zx80_sharedram ),	/* External shared RAM (ROM for KBASH) */
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -3711,44 +3711,44 @@ public class toaplan2
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,   0, 128 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 0,  64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,   0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 0,  64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_2[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,   0, 128 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 0,  64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   0, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 0,  64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,   0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 0,  64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,   0, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 0,  64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo truxton2_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0,       &tilelayout            , 0, 128 ),
-		new GfxDecodeInfo( REGION_GFX1, 0,       &spritelayout          , 0,  64 ),
-	//	new GfxDecodeInfo( REGION_CPU1, 0x40000, &truxton2_tx_tilelayout, 0, 128 ),	/* Truxton 2 */
-	//	new GfxDecodeInfo( REGION_CPU1, 0x68000, &truxton2_tx_tilelayout, 0, 128 ),	/* Fix Eight */
-		new GfxDecodeInfo( 0, 0, &truxton2_tx_tilelayout,  0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0,       tilelayout            , 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0,       spritelayout          , 0,  64 ),
+	//	new GfxDecodeInfo( REGION_CPU1, 0x40000, truxton2_tx_tilelayout, 0, 128 ),	/* Truxton 2 */
+	//	new GfxDecodeInfo( REGION_CPU1, 0x68000, truxton2_tx_tilelayout, 0, 128 ),	/* Fix Eight */
+		new GfxDecodeInfo( 0, 0, truxton2_tx_tilelayout,  0, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo raizing_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,         0, 128 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,       0,  64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &raizing_textlayout, 0, 128 ),		/* Extra-text layer */
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,         0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout,       0,  64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, raizing_textlayout, 0, 128 ),		/* Extra-text layer */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/* This is wrong a bit. Text layer is dynamically changed. */
 	static GfxDecodeInfo batrider_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,             0, 128 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,           0,  64 ),
-		new GfxDecodeInfo( 0,           0, &batrider_tx_tilelayout, 0,  16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,             0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout,           0,  64 ),
+		new GfxDecodeInfo( 0,           0, batrider_tx_tilelayout, 0,  16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

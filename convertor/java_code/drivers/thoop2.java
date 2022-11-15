@@ -50,8 +50,8 @@ public class thoop2
 	
 	static GfxDecodeInfo thoop2_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &thoop2_tilelayout, 0,		64 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &thoop2_tilelayout_16, 0,	64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, thoop2_tilelayout, 0,		64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, thoop2_tilelayout_16, 0,	64 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

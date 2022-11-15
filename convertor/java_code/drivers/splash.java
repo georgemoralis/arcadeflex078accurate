@@ -208,8 +208,8 @@ public class splash
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &tilelayout8 ,0,128 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &tilelayout16,0,128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, tilelayout8 ,0,128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, tilelayout16,0,128 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

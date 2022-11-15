@@ -134,13 +134,13 @@ public class pooyan
 				spriteram_2.read(offs)& 0x0f,
 				spriteram_2.read(offs)& 0x40, ~spriteram_2.read(offs)& 0x80,
 				240-spriteram.read(offs), spriteram_2.read(offs + 1),
-				&Machine->visible_area,
+				Machine->visible_area,
 				TRANSPARENCY_COLOR, 0);
 		}
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_pooyan  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
 		pooyan_draw_sprites(bitmap);
 	} };
 }

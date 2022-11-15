@@ -2937,8 +2937,8 @@ public class taito_z
 	
 	static GfxDecodeInfo taitoz_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile16x8_layout,  0, 256 ),	/* sprite parts */
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &charlayout,  0, 256 ),		/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile16x8_layout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, charlayout,  0, 256 ),		/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
@@ -2947,16 +2947,16 @@ public class taito_z
 	
 	static GfxDecodeInfo chasehq_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile16x16_layout,  0, 256 ),	/* sprite parts */
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &charlayout,  0, 256 ),		/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX4, 0x0, &tile16x16_layout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile16x16_layout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, charlayout,  0, 256 ),		/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX4, 0x0, tile16x16_layout,  0, 256 ),	/* sprite parts */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo dblaxle_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile16x8_layout,  0, 256 ),	/* sprite parts */
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &dblaxle_charlayout,  0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile16x8_layout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, dblaxle_charlayout,  0, 256 ),	/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

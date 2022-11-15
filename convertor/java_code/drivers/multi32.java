@@ -583,8 +583,8 @@ public class multi32
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &s32_bgcharlayout,   0x00, 0x3ff  ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &s32_fgcharlayout,   0x00, 0x3ff  ),
+		new GfxDecodeInfo( REGION_GFX1, 0, s32_bgcharlayout,   0x00, 0x3ff  ),
+		new GfxDecodeInfo( REGION_GFX3, 0, s32_fgcharlayout,   0x00, 0x3ff  ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

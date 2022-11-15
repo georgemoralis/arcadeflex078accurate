@@ -2567,22 +2567,22 @@ public class kaneko16
 	
 	static GfxDecodeInfo kaneko16_gfx_1x4bit_1x4bit[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0,			0x40 ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4, 0x40 * 16,	0x40 ), // [1] Layers
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4, 0,			0x40 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4, 0x40 * 16,	0x40 ), // [1] Layers
 		new GfxDecodeInfo( -1 )
 	};
 	static GfxDecodeInfo kaneko16_gfx_1x4bit_2x4bit[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0,			0x40 ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4, 0x40 * 16,	0x40 ), // [1] Layers
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_16x16x4, 0x40 * 16,	0x40 ), // [2] Layers
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4, 0,			0x40 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4, 0x40 * 16,	0x40 ), // [1] Layers
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_16x16x4, 0x40 * 16,	0x40 ), // [2] Layers
 		new GfxDecodeInfo( -1 )
 	};
 	static GfxDecodeInfo kaneko16_gfx_1x8bit_2x4bit[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8,	0x40 * 256,	0x40 ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4,	0,			0x40 ), // [1] Layers
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_16x16x4,	0,			0x40 ), // [2] Layers
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x8,	0x40 * 256,	0x40 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4,	0,			0x40 ), // [1] Layers
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_16x16x4,	0,			0x40 ), // [2] Layers
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -2600,8 +2600,8 @@ public class kaneko16
 	);
 	static GfxDecodeInfo sandscrp_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4,   0x000, 0x10 ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4_2, 0x400, 0x40 ), // [1] Layers
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4,   0x000, 0x10 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4_2, 0x400, 0x40 ), // [1] Layers
 		new GfxDecodeInfo( -1 )
 	};
 	

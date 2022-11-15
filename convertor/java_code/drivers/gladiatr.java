@@ -257,16 +257,16 @@ public class gladiatr
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xcbff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0xc000, 0xcbff, MWA_RAM, spriteram ),
 		new Memory_WriteAddress( 0xcc00, 0xcfff, gladiatr_video_registers_w ),
-		new Memory_WriteAddress( 0xd000, 0xd1ff, gladiatr_paletteram_rg_w, &paletteram ),
+		new Memory_WriteAddress( 0xd000, 0xd1ff, gladiatr_paletteram_rg_w, paletteram ),
 		new Memory_WriteAddress( 0xd200, 0xd3ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd400, 0xd5ff, gladiatr_paletteram_b_w, &paletteram_2 ),
+		new Memory_WriteAddress( 0xd400, 0xd5ff, gladiatr_paletteram_b_w, paletteram_2 ),
 		new Memory_WriteAddress( 0xd600, 0xd7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd800, 0xdfff, videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, colorram_w, &colorram ),
-		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM, &gladiator_text ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, MWA_RAM, &generic_nvram, &generic_nvram_size ), /* battery backed RAM */
+		new Memory_WriteAddress( 0xd800, 0xdfff, videoram_w, videoram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, colorram_w, colorram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM, gladiator_text ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, MWA_RAM, generic_nvram, generic_nvram_size ), /* battery backed RAM */
 		new Memory_WriteAddress( 0xf400, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -492,31 +492,31 @@ public class gladiatr
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
 		/* monochrome text layer */
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &gladiator_text_layout, 512, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, gladiator_text_layout, 512, 1 ),
 	
 		/* background tiles */
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gladiator_tile0, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gladiator_tile1, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gladiator_tile2, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gladiator_tile3, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gladiator_tile4, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gladiator_tile5, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gladiator_tile6, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gladiator_tile7, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gladiator_tile0, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gladiator_tile1, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gladiator_tile2, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gladiator_tile3, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gladiator_tile4, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gladiator_tile5, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gladiator_tile6, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gladiator_tile7, 0, 64 ),
 	
 		/* sprites */
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &gladiator_tile0, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &gladiator_tileB, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &gladiator_tileA, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &gladiator_tile3, 0, 64 ), /* "GLAD..." */
-		new GfxDecodeInfo( REGION_GFX3, 0x18000, &gladiator_tile0, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x18000, &gladiator_tileB, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x18000, &gladiator_tileA, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x18000, &gladiator_tile3, 0, 64 ), /* ...DIATOR */
-		new GfxDecodeInfo( REGION_GFX3, 0x18000, &gladiator_tile4, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x18000, &gladiator_tileD, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x18000, &gladiator_tileC, 0, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x18000, &gladiator_tile7, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, gladiator_tile0, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, gladiator_tileB, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, gladiator_tileA, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, gladiator_tile3, 0, 64 ), /* "GLAD..." */
+		new GfxDecodeInfo( REGION_GFX3, 0x18000, gladiator_tile0, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x18000, gladiator_tileB, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x18000, gladiator_tileA, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x18000, gladiator_tile3, 0, 64 ), /* ...DIATOR */
+		new GfxDecodeInfo( REGION_GFX3, 0x18000, gladiator_tile4, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x18000, gladiator_tileD, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x18000, gladiator_tileC, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x18000, gladiator_tile7, 0, 64 ),
 	
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};

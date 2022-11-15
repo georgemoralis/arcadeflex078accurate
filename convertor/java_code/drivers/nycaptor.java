@@ -304,18 +304,18 @@ public class nycaptor
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xc7ff, nycaptor_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, nycaptor_videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xd000, 0xd000, nycaptor_mcu_w ),
 		new Memory_WriteAddress( 0xd001, 0xd001, sub_cpu_halt_w ),
 		new Memory_WriteAddress( 0xd002, 0xd002, nycaptor_generic_control_w ),	/* bit 3 - memory bank at 0x8000-0xbfff */
 		new Memory_WriteAddress( 0xd400, 0xd400, sound_command_w ),
 		new Memory_WriteAddress( 0xd403, 0xd403, sound_cpu_reset_w ),
 		new Memory_WriteAddress( 0xdc00, 0xdc9f, nycaptor_spriteram_w),
-		new Memory_WriteAddress( 0xdca0, 0xdcbf, nycaptor_scrlram_w, &nycaptor_scrlram ),
+		new Memory_WriteAddress( 0xdca0, 0xdcbf, nycaptor_scrlram_w, nycaptor_scrlram ),
 		new Memory_WriteAddress( 0xdce1, 0xdce1, MWA_NOP),
 		new Memory_WriteAddress( 0xdd00, 0xdeff, nycaptor_palette_w ),
 		new Memory_WriteAddress( 0xdf03, 0xdf03, nycaptor_gfxctrl_w ),
-		new Memory_WriteAddress( 0xe000, 0xffff, nycaptor_sharedram_w,&nycaptor_sharedram ),
+		new Memory_WriteAddress( 0xe000, 0xffff, nycaptor_sharedram_w,nycaptor_sharedram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -342,9 +342,9 @@ public class nycaptor
 	public static Memory_WriteAddress writemem_sub[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xc7ff, nycaptor_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, nycaptor_videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xdc00, 0xdc9f, nycaptor_spriteram_w),
-		new Memory_WriteAddress( 0xdca0, 0xdcbf, nycaptor_scrlram_w, &nycaptor_scrlram ),
+		new Memory_WriteAddress( 0xdca0, 0xdcbf, nycaptor_scrlram_w, nycaptor_scrlram ),
 		new Memory_WriteAddress( 0xdd00, 0xdeff, nycaptor_palette_w ),
 		new Memory_WriteAddress( 0xdf03, 0xdf03, MWA_NOP ),/* ? gfx control ? */
 		new Memory_WriteAddress( 0xe000, 0xffff, nycaptor_sharedram_w ),
@@ -447,18 +447,18 @@ public class nycaptor
 	public static Memory_WriteAddress cyclshtg_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xcfff, nycaptor_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, nycaptor_videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xd000, 0xd000, cyclshtg_mcu_w ),
 		new Memory_WriteAddress( 0xd001, 0xd001, sub_cpu_halt_w ),
 		new Memory_WriteAddress( 0xd002, 0xd002, nycaptor_generic_control_w ),
 		new Memory_WriteAddress( 0xd400, 0xd400, sound_command_w ),
 		new Memory_WriteAddress( 0xd403, 0xd403, sound_cpu_reset_w ),
 		new Memory_WriteAddress( 0xdc00, 0xdc9f, nycaptor_spriteram_w),
-		new Memory_WriteAddress( 0xdca0, 0xdcbf, nycaptor_scrlram_w, &nycaptor_scrlram ),
+		new Memory_WriteAddress( 0xdca0, 0xdcbf, nycaptor_scrlram_w, nycaptor_scrlram ),
 		new Memory_WriteAddress( 0xdce1, 0xdce1, MWA_NOP),
 		new Memory_WriteAddress( 0xdd00, 0xdeff, nycaptor_palette_w ),
 		//new Memory_WriteAddress( 0xdf03, 0xdf03, nycaptor_gfxctrl_w ),
-		new Memory_WriteAddress( 0xe000, 0xffff, nycaptor_sharedram_w,&nycaptor_sharedram ),
+		new Memory_WriteAddress( 0xe000, 0xffff, nycaptor_sharedram_w,nycaptor_sharedram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -484,9 +484,9 @@ public class nycaptor
 	public static Memory_WriteAddress cyclshtg_writemem_sub[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xc7ff, nycaptor_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, nycaptor_videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xdc00, 0xdc9f, nycaptor_spriteram_w),
-		new Memory_WriteAddress( 0xdca0, 0xdcbf, nycaptor_scrlram_w, &nycaptor_scrlram ),
+		new Memory_WriteAddress( 0xdca0, 0xdcbf, nycaptor_scrlram_w, nycaptor_scrlram ),
 		new Memory_WriteAddress( 0xdd00, 0xdeff, nycaptor_palette_w ),
 		new Memory_WriteAddress( 0xdf03, 0xdf03, MWA_NOP ),
 		new Memory_WriteAddress( 0xe000, 0xffff, nycaptor_sharedram_w ),
@@ -669,8 +669,8 @@ public class nycaptor
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 16 ),//16 kolorow
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 256, 16 ),//paleta 2, 16 kolorow
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 16 ),//16 kolorow
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 256, 16 ),//paleta 2, 16 kolorow
 		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	

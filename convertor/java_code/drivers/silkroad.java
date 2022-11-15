@@ -378,7 +378,7 @@ public class silkroad
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles16x16x6_layout,  0x0000, 256 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles16x16x6_layout,  0x0000, 256 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

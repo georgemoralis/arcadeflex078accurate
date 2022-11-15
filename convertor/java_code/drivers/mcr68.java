@@ -879,16 +879,16 @@ public class mcr68
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &mcr_bg_layout,     0, 4 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &mcr_sprite_layout, 0, 4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, mcr_bg_layout,     0, 4 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, mcr_sprite_layout, 0, 4 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo zwackery_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &zwackery_layout,       0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &mcr_sprite_layout, 0x800, 32 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &zwackery_layout,       0, 16 ),	/* yes, an extra copy */
+		new GfxDecodeInfo( REGION_GFX1, 0, zwackery_layout,       0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, mcr_sprite_layout, 0x800, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, zwackery_layout,       0, 16 ),	/* yes, an extra copy */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

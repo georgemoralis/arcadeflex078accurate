@@ -41,8 +41,8 @@ public class scregg
 	public static Memory_WriteAddress dommy_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x2000, 0x23ff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0x2400, 0x27ff, colorram_w, &colorram ),
+		new Memory_WriteAddress( 0x2000, 0x23ff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0x2400, 0x27ff, colorram_w, colorram ),
 		new Memory_WriteAddress( 0x2800, 0x2bff, btime_mirrorvideoram_w ),
 		new Memory_WriteAddress( 0x4000, 0x4000, MWA_NOP ),
 		new Memory_WriteAddress( 0x4001, 0x4001, btime_video_control_w ),
@@ -72,8 +72,8 @@ public class scregg
 	public static Memory_WriteAddress eggs_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x1000, 0x13ff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0x1400, 0x17ff, colorram_w, &colorram ),
+		new Memory_WriteAddress( 0x1000, 0x13ff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0x1400, 0x17ff, colorram_w, colorram ),
 		new Memory_WriteAddress( 0x1800, 0x1bff, btime_mirrorvideoram_w ),
 		new Memory_WriteAddress( 0x1c00, 0x1fff, btime_mirrorcolorram_w ),
 		new Memory_WriteAddress( 0x2000, 0x2000, btime_video_control_w ),
@@ -186,8 +186,8 @@ public class scregg
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 1 ),     /* char set #1 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,        0, 1 ),     /* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,          0, 1 ),     /* char set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout,        0, 1 ),     /* sprites */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

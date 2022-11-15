@@ -633,9 +633,9 @@ public class snk
 	public static Memory_WriteAddress tnk3_writemem_cpuA[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xcfff, cpuA_io_w, &io_ram ),
-		new Memory_WriteAddress( 0xd000, 0xf7ff, MWA_RAM, &shared_ram2 ),
-		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &shared_ram ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, cpuA_io_w, io_ram ),
+		new Memory_WriteAddress( 0xd000, 0xf7ff, MWA_RAM, shared_ram2 ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, shared_ram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -671,8 +671,8 @@ public class snk
 	public static Memory_WriteAddress writemem_cpuA[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xcfff, cpuA_io_w, &io_ram ),
-		new Memory_WriteAddress( 0xd000, 0xffff, MWA_RAM, &shared_ram ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, cpuA_io_w, io_ram ),
+		new Memory_WriteAddress( 0xd000, 0xffff, MWA_RAM, shared_ram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -891,70 +891,70 @@ public class snk
 	
 	static GfxDecodeInfo tnk3_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &char512,	128*3,  8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &char1024,	128*1, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &sprite512,	128*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, char512,	128*3,  8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, char1024,	128*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, sprite512,	128*0, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo athena_gfxdecodeinfo[] =
 	{
 		/* colors 512-1023 are currently unused, I think they are a second bank */
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &char512,	128*3,  8 ),	/* colors 384..511 */
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &char1024,   128*1, 16 ),	/* colors 128..383 */
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &sprite1024,		0, 16 ),	/* colors   0..127 */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, char512,	128*3,  8 ),	/* colors 384..511 */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, char1024,   128*1, 16 ),	/* colors 128..383 */
+		new GfxDecodeInfo( REGION_GFX3, 0x0, sprite1024,		0, 16 ),	/* colors   0..127 */
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo ikari_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &char512,             256, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile1024,            256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &sprite1024,            0, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0x0, &big_sprite512,       128, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, char512,             256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile1024,            256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, sprite1024,            0, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0x0, big_sprite512,       128, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo gwar_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,             256*0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile2048,             256*3, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &gwar_sprite2048,      256*1, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, char1024,             256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile2048,             256*3, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, gwar_sprite2048,      256*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0x0, gwar_big_sprite1024,  256*2, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo bermudat_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,             256*0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile2048,             256*3, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &gwar_sprite1024,      256*1, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, char1024,             256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile2048,             256*3, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, gwar_sprite1024,      256*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0x0, gwar_big_sprite1024,  256*2, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo psychos_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,             256*0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile2048,             256*3, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &gwar_sprite1024,      256*1, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, char1024,             256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tile2048,             256*3, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, gwar_sprite1024,      256*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0x0, gwar_big_sprite1024,  256*2, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo tdfever_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,					256*0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tdfever_tiles,				256*2, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &tdfever_big_sprite1024,	256*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, char1024,					256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tdfever_tiles,				256*2, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, tdfever_big_sprite1024,	256*1, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo tdfever2_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,					256*0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &tdfever2_tiles,				256*2, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &tdfever_big_sprite1024,	256*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0, char1024,					256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, tdfever2_tiles,				256*2, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, tdfever_big_sprite1024,	256*1, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

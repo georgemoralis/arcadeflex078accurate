@@ -2192,7 +2192,7 @@ public class leland
 	
 	public static Memory_WriteAddress leland_i86_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x00000, 0x03fff, MWA_RAM, &ram_base ),
+		new Memory_WriteAddress( 0x00000, 0x03fff, MWA_RAM, ram_base ),
 		new Memory_WriteAddress( 0x0c000, 0x0ffff, MWA_BANK6 ),
 		new Memory_WriteAddress( 0x1c000, 0x1ffff, MWA_BANK7 ),
 		new Memory_WriteAddress( 0x20000, 0xfffff, MWA_ROM ),

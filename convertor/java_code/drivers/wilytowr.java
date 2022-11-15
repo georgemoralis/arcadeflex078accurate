@@ -192,7 +192,7 @@ public class wilytowr
 				code, color,
 				flipx, flipy,
 				sx, sy,
-				&Machine->visible_area,
+				Machine->visible_area,
 				TRANSPARENCY_PEN, 0);
 		}
 	}
@@ -203,9 +203,9 @@ public class wilytowr
 		for (col = 0; col < 32; col++)
 			tilemap_set_scrolly(bg_tilemap, col, wilytowr_scrollram[col * 8]);
 	
-		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
 		wilytowr_draw_sprites(bitmap);
-		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
 	} };
 	
 	
@@ -261,11 +261,11 @@ public class wilytowr
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xd000, 0xdfff, MWA_RAM ),
 		new Memory_WriteAddress( 0xe000, 0xe1ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe200, 0xe2ff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xe300, 0xe3ff, MWA_RAM, &wilytowr_scrollram ),
-		new Memory_WriteAddress( 0xe400, 0xe7ff, wilytowr_videoram2_w, &wilytowr_videoram2 ),
-		new Memory_WriteAddress( 0xe800, 0xebff, wilytowr_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xec00, 0xefff, wilytowr_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0xe200, 0xe2ff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xe300, 0xe3ff, MWA_RAM, wilytowr_scrollram ),
+		new Memory_WriteAddress( 0xe400, 0xe7ff, wilytowr_videoram2_w, wilytowr_videoram2 ),
+		new Memory_WriteAddress( 0xe800, 0xebff, wilytowr_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xec00, 0xefff, wilytowr_colorram_w, colorram ),
 		new Memory_WriteAddress( 0xf000, 0xf000, interrupt_enable_w ),	/* NMI enable */
 		new Memory_WriteAddress( 0xf002, 0xf002, wilytwr_flipscreen_w ),
 		new Memory_WriteAddress( 0xf003, 0xf003, wilytwr_palbank_w ),
@@ -423,9 +423,9 @@ public class wilytowr
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   256, 1 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,     0, 32 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   256, 1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,     0, 32 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout,   0, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

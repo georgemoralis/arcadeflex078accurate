@@ -615,8 +615,8 @@ public class hyprduel
 	
 	static GfxDecodeInfo gfxdecodeinfo_14220[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 ), // [0] 4 Bit Tiles
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 ), // [1] 8 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_8x8x4,    0x0, 0x200 ), // [0] 4 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_8x8x8h,   0x0,  0x20 ), // [1] 8 Bit Tiles
 		new GfxDecodeInfo( -1 )
 	};
 	

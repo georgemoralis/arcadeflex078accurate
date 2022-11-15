@@ -144,9 +144,9 @@ public class cbasebal
 	public static Memory_WriteAddress cbasebal_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xcfff, bankedram_w, &paletteram ),	/* palette + vram + scrollram */
+		new Memory_WriteAddress( 0xc000, 0xcfff, bankedram_w, paletteram ),	/* palette + vram + scrollram */
 		new Memory_WriteAddress( 0xe000, 0xfdff, MWA_RAM ),			/* work RAM */
-		new Memory_WriteAddress( 0xfe00, 0xffff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xfe00, 0xffff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -249,9 +249,9 @@ public class cbasebal
 	
 	static GfxDecodeInfo cbasebal_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &cbasebal_textlayout,   256,  8 ), /* colors 256- 287 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &cbasebal_tilelayout,   768, 16 ), /* colors 768-1023 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &cbasebal_spritelayout, 512,  8 ), /* colors 512- 639 */
+		new GfxDecodeInfo( REGION_GFX1, 0, cbasebal_textlayout,   256,  8 ), /* colors 256- 287 */
+		new GfxDecodeInfo( REGION_GFX2, 0, cbasebal_tilelayout,   768, 16 ), /* colors 768-1023 */
+		new GfxDecodeInfo( REGION_GFX3, 0, cbasebal_spritelayout, 512,  8 ), /* colors 512- 639 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

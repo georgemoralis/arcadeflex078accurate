@@ -38,10 +38,10 @@ public class superqix
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xe000, 0xe0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xe000, 0xe0ff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xe100, 0xe7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe800, 0xebff, superqix_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xec00, 0xefff, superqix_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0xe800, 0xebff, superqix_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xec00, 0xefff, superqix_colorram_w, colorram ),
 		new Memory_WriteAddress( 0xf000, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -181,12 +181,12 @@ public class superqix
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout,   0, 16 ),	/* Chars */
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &charlayout,   0, 16 ),	/* Background tiles */
-		new GfxDecodeInfo( REGION_GFX2, 0x08000, &charlayout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x10000, &charlayout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x18000, &charlayout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &spritelayout, 0, 16 ),	/* Sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout,   0, 16 ),	/* Chars */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, charlayout,   0, 16 ),	/* Background tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0x08000, charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x10000, charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x18000, charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, spritelayout, 0, 16 ),	/* Sprites */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

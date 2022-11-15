@@ -469,17 +469,17 @@ public class cyberbal
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &pfanlayout,     0, 128 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &molayout,   0x600, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &pfanlayout, 0x780, 8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, pfanlayout,     0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, molayout,   0x600, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, pfanlayout, 0x780, 8 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_interleaved[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &pfanlayout_interleaved,     0, 128 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &molayout,               0x600, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &pfanlayout_interleaved, 0x780, 8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, pfanlayout_interleaved,     0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, molayout,               0x600, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, pfanlayout_interleaved, 0x780, 8 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -167,14 +167,14 @@ public class redclash
 									color,
 									0,0,
 									sx,sy - 16,
-									&Machine->visible_area,TRANSPARENCY_PEN,0);
+									Machine->visible_area,TRANSPARENCY_PEN,0);
 							/* wraparound */
 							drawgfx(bitmap,Machine->gfx[3],
 									code,
 									color,
 									0,0,
 									sx - 256,sy - 16,
-									&Machine->visible_area,TRANSPARENCY_PEN,0);
+									Machine->visible_area,TRANSPARENCY_PEN,0);
 							break;
 						}
 	
@@ -189,7 +189,7 @@ public class redclash
 										color,
 										0,0,
 										sx,sy - 16,
-										&Machine->visible_area,TRANSPARENCY_PEN,0);
+										Machine->visible_area,TRANSPARENCY_PEN,0);
 							}
 							else
 							{
@@ -200,7 +200,7 @@ public class redclash
 										color,
 										0,0,
 										sx,sy - 16,
-										&Machine->visible_area,TRANSPARENCY_PEN,0);
+										Machine->visible_area,TRANSPARENCY_PEN,0);
 							}
 							break;
 	
@@ -210,7 +210,7 @@ public class redclash
 									color,
 									0,0,
 									sx,sy - 16,
-									&Machine->visible_area,TRANSPARENCY_PEN,0);
+									Machine->visible_area,TRANSPARENCY_PEN,0);
 							break;
 	
 						case 0:
@@ -244,9 +244,9 @@ public class redclash
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_redclash  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		fillbitmap(bitmap, get_black_pen(), &Machine->visible_area);
+		fillbitmap(bitmap, get_black_pen(), Machine->visible_area);
 		redclash_draw_sprites(bitmap);
 		redclash_draw_bullets(bitmap);
-		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
 	} };
 }

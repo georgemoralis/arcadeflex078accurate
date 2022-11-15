@@ -2511,8 +2511,8 @@ public class taito_b
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),  /* text */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,  0, 256 ),  /* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 256 ),  /* text */
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,  0, 256 ),  /* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
@@ -2541,8 +2541,8 @@ public class taito_b
 	
 	static GfxDecodeInfo rambo3_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &rambo3_charlayout,  0, 256 ),  /* text */
-		new GfxDecodeInfo( REGION_GFX1, 0, &rambo3_tilelayout,  0, 256 ),  /* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, rambo3_charlayout,  0, 256 ),  /* text */
+		new GfxDecodeInfo( REGION_GFX1, 0, rambo3_tilelayout,  0, 256 ),  /* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

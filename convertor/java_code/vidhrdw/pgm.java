@@ -301,7 +301,7 @@ public class pgm
 	public static VideoUpdateHandlerPtr video_update_pgm  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int y;
 	
-		fillbitmap(bitmap,get_black_pen(),&Machine->visible_area);
+		fillbitmap(bitmap,get_black_pen(),Machine->visible_area);
 	
 		pgm_sprite_source = pgm_spritebufferram;
 		pgm_drawsprites(1);

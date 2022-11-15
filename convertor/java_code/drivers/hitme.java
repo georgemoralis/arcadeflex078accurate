@@ -184,7 +184,7 @@ public class hitme
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0, 1  ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0, 1  ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
@@ -251,7 +251,7 @@ public class hitme
 	public static Memory_WriteAddress hitme_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_ROM ),
-		new Memory_WriteAddress( 0x0c00, 0x0eff, hitme_vidram_w, &hitme_vidram ),
+		new Memory_WriteAddress( 0x0c00, 0x0eff, hitme_vidram_w, hitme_vidram ),
 		new Memory_WriteAddress( 0x1000, 0x13ff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};

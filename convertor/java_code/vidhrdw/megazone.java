@@ -171,7 +171,7 @@ public class megazone
 			}
 	
 	
-			copyscrollbitmap(bitmap,tmpbitmap,1,&scrollx,1,&scrolly,&Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -195,7 +195,7 @@ public class megazone
 						spriteram.read(offs + 0)& 0x0f,
 						flipx,flipy,
 						sx,sy,
-						&Machine->visible_area,TRANSPARENCY_COLOR,0);
+						Machine->visible_area,TRANSPARENCY_COLOR,0);
 			}
 		}
 	

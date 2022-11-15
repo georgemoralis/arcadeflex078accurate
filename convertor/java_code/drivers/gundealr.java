@@ -169,9 +169,9 @@ public class gundealr
 		new Memory_WriteAddress( 0xc014, 0xc014, gundealr_flipscreen_w ),
 		new Memory_WriteAddress( 0xc016, 0xc016, yamyam_bankswitch_w ),
 		new Memory_WriteAddress( 0xc020, 0xc023, gundealr_fg_scroll_w ),	/* Gun Dealer only */
-		new Memory_WriteAddress( 0xc400, 0xc7ff, gundealr_paletteram_w, &paletteram ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, gundealr_bg_videoram_w, &gundealr_bg_videoram ),
-		new Memory_WriteAddress( 0xd000, 0xdfff, gundealr_fg_videoram_w, &gundealr_fg_videoram ),
+		new Memory_WriteAddress( 0xc400, 0xc7ff, gundealr_paletteram_w, paletteram ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, gundealr_bg_videoram_w, gundealr_bg_videoram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, gundealr_fg_videoram_w, gundealr_fg_videoram ),
 		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -463,8 +463,8 @@ public class gundealr
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 16 ),	/* colors 0-255 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 256, 16 ),	/* colors 256-511 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 16 ),	/* colors 0-255 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 256, 16 ),	/* colors 256-511 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -284,7 +284,7 @@ public class twincobr
 	public static Memory_WriteAddress sound_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM, &twincobr_sharedram ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM, twincobr_sharedram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -692,10 +692,10 @@ public class twincobr
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout,	1536, 32 ),	/* colors 1536-1791 */
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &tilelayout,	1280, 16 ),	/* colors 1280-1535 */
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &tilelayout,	1024, 16 ),	/* colors 1024-1079 */
-		new GfxDecodeInfo( REGION_GFX4, 0x00000, &spritelayout,	   0, 64 ),	/* colors    0-1023 */
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout,	1536, 32 ),	/* colors 1536-1791 */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, tilelayout,	1280, 16 ),	/* colors 1280-1535 */
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, tilelayout,	1024, 16 ),	/* colors 1024-1079 */
+		new GfxDecodeInfo( REGION_GFX4, 0x00000, spritelayout,	   0, 64 ),	/* colors    0-1023 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

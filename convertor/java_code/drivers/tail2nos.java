@@ -244,8 +244,8 @@ public class tail2nos
 	
 	static GfxDecodeInfo tail2nos_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tail2nos_charlayout,   0, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tail2nos_spritelayout, 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tail2nos_charlayout,   0, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tail2nos_spritelayout, 0, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -131,13 +131,13 @@ public class xxmissio
 	
 		new Memory_WriteAddress( 0xa003, 0xa003, xxmissio_flipscreen_w ),
 	
-		new Memory_WriteAddress( 0xc000, 0xc7ff, xxmissio_fgram_w, &xxmissio_fgram, &xxmissio_fgram_size ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, xxmissio_videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0xd000, 0xd7ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, xxmissio_fgram_w, xxmissio_fgram, xxmissio_fgram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, xxmissio_videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, MWA_RAM, spriteram, spriteram_size ),
 	
-		new Memory_WriteAddress( 0xd800, 0xdaff, xxmissio_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0xd800, 0xdaff, xxmissio_paletteram_w, paletteram ),
 	
-		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM, &shared_workram ),
+		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM, shared_workram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -308,9 +308,9 @@ public class xxmissio
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,   256,  8 ), /* FG */
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout,   0,  8 ), /* sprite */
-		new GfxDecodeInfo( REGION_GFX2, 0x0000, &bglayout,     512, 16 ), /* BG */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, charlayout,   256,  8 ), /* FG */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, spritelayout,   0,  8 ), /* sprite */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, bglayout,     512, 16 ), /* BG */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -167,7 +167,7 @@ public class wolfpack
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x00ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x0100, 0x01ff, wolfpack_zeropage_w ),
-		new Memory_WriteAddress( 0x1000, 0x10ff, MWA_RAM, &wolfpack_alpha_num_ram ),
+		new Memory_WriteAddress( 0x1000, 0x10ff, MWA_RAM, wolfpack_alpha_num_ram ),
 		new Memory_WriteAddress( 0x2000, 0x2000, wolfpack_high_explo_w ),
 		new Memory_WriteAddress( 0x2001, 0x2001, wolfpack_sonar_ping_w ),
 		new Memory_WriteAddress( 0x2002, 0x2002, wolfpack_sirlat_w ),
@@ -327,10 +327,10 @@ public class wolfpack
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout, 0, 2 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &ship_layout, 6, 1 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &pt_layout, 0, 1 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &torpedo_layout, 4, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout, 0, 2 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, ship_layout, 6, 1 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, pt_layout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, torpedo_layout, 4, 1 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

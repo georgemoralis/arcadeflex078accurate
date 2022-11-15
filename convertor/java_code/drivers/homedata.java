@@ -558,11 +558,11 @@ public class homedata
 	
 	public static Memory_WriteAddress mrokumei_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x0000, 0x3fff, mrokumei_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x0000, 0x3fff, mrokumei_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x4000, 0x5fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x7800, 0x7800, MWA_RAM ), /* only used to store the result of the ROM check */
-		new Memory_WriteAddress( 0x7ff0, 0x7ffd, MWA_RAM, &homedata_vreg ),
+		new Memory_WriteAddress( 0x7ff0, 0x7ffd, MWA_RAM, homedata_vreg ),
 		new Memory_WriteAddress( 0x8000, 0x8000, mrokumei_blitter_start_w ),	// in some games also ROM bank switch to access service ROM
 		new Memory_WriteAddress( 0x8001, 0x8001, mrokumei_keyboard_select_w ),
 		new Memory_WriteAddress( 0x8002, 0x8002, mrokumei_sound_cmd_w ),
@@ -615,11 +615,11 @@ public class homedata
 	
 	public static Memory_WriteAddress reikaids_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x0000, 0x3fff, reikaids_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x0000, 0x3fff, reikaids_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x4000, 0x5fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x7800, 0x7800, MWA_RAM ),	/* behaves as normal RAM */
-		new Memory_WriteAddress( 0x7ff0, 0x7ffd, MWA_RAM, &homedata_vreg ),
+		new Memory_WriteAddress( 0x7ff0, 0x7ffd, MWA_RAM, homedata_vreg ),
 		new Memory_WriteAddress( 0x7ffe, 0x7ffe, reikaids_blitter_bank_w ),
 		new Memory_WriteAddress( 0x7fff, 0x7fff, reikaids_blitter_start_w ),
 		new Memory_WriteAddress( 0x8000, 0x8000, bankswitch_w ),
@@ -678,12 +678,12 @@ public class homedata
 	
 	public static Memory_WriteAddress pteacher_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x0000, 0x3fff, pteacher_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x0000, 0x3fff, pteacher_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x4000, 0x5eff, MWA_RAM ),
 		new Memory_WriteAddress( 0x5f00, 0x5fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x7800, 0x7800, MWA_RAM ),	/* behaves as normal RAM */
-		new Memory_WriteAddress( 0x7ff0, 0x7ffd, MWA_RAM, &homedata_vreg ),
+		new Memory_WriteAddress( 0x7ff0, 0x7ffd, MWA_RAM, homedata_vreg ),
 		new Memory_WriteAddress( 0x7fff, 0x7fff, pteacher_blitter_start_w ),
 		new Memory_WriteAddress( 0x8000, 0x8000, bankswitch_w ),
 		new Memory_WriteAddress( 0x8002, 0x8002, pteacher_snd_command_w ),
@@ -1199,8 +1199,8 @@ public class homedata
 	
 	static GfxDecodeInfo mrokumei_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &char_layout, 0x6000, 0x100 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &char_layout, 0x7000, 0x100 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, char_layout, 0x6000, 0x100 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, char_layout, 0x7000, 0x100 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1217,17 +1217,17 @@ public class homedata
 	
 	static GfxDecodeInfo reikaids_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout, 0x6000, 0x20 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout, 0x4000, 0x20 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &tile_layout, 0x2000, 0x20 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &tile_layout, 0x0000, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout, 0x6000, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout, 0x4000, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, tile_layout, 0x2000, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, tile_layout, 0x0000, 0x20 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo pteacher_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout, 0x0000, 0x40 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout, 0x4000, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout, 0x0000, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout, 0x4000, 0x40 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1255,10 +1255,10 @@ public class homedata
 	
 	static GfxDecodeInfo lemnangl_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout_4bpp_hi, 0x0000, 0x200 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout_4bpp_lo, 0x2000, 0x200 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout_4bpp_lo, 0x4000, 0x200 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout_4bpp_hi, 0x6000, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout_4bpp_hi, 0x0000, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout_4bpp_lo, 0x2000, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout_4bpp_lo, 0x4000, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout_4bpp_hi, 0x6000, 0x200 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

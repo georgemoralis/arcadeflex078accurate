@@ -70,47 +70,47 @@ public class dlair
 						0,
 						0,0,
 						8*sx,16*sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	
 	
 		/* copy the character mapped graphics */
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 	if (led0 & 128)
 	{
 	if ((led0 & 1) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		8,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		8,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led0 & 2) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		16,8,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		16,8,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led0 & 4) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		16,24,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		16,24,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led0 & 8) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		8,32,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		8,32,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led0 & 16) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		0,24,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		0,24,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led0 & 32) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		0,8,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		0,8,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led0 & 64) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		8,16,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		8,16,Machine->visible_area,TRANSPARENCY_NONE,0);
 	}
 	if (led1 & 128)
 	{
 	if ((led1 & 1) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		32+8,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		32+8,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led1 & 2) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		32+16,8,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		32+16,8,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led1 & 4) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		32+16,24,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		32+16,24,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led1 & 8) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		32+8,32,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		32+8,32,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led1 & 16) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		32+0,24,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		32+0,24,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led1 & 32) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		32+0,8,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		32+0,8,Machine->visible_area,TRANSPARENCY_NONE,0);
 	if ((led1 & 64) == 0) drawgfx(bitmap,Machine->uifont,'x',0,0,0,
-		32+8,16,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		32+8,16,Machine->visible_area,TRANSPARENCY_NONE,0);
 	}
 	} };
 	
@@ -153,7 +153,7 @@ public class dlair
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0xa000, 0xa7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xc000, 0xc3ff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xc000, 0xc3ff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xc400, 0xc7ff, MWA_RAM ),
 		new Memory_WriteAddress( 0xe000, 0xe000, dlair_led0_w ),
 		new Memory_WriteAddress( 0xe008, 0xe008, dlair_led1_w ),
@@ -209,7 +209,7 @@ public class dlair
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,  0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, charlayout,  0, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

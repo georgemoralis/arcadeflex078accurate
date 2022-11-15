@@ -80,8 +80,8 @@ public class hanaawas
 		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x4fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0x83ff, hanaawas_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0x8400, 0x87ff, hanaawas_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0x8000, 0x83ff, hanaawas_videoram_w, videoram ),
+		new Memory_WriteAddress( 0x8400, 0x87ff, hanaawas_colorram_w, colorram ),
 		new Memory_WriteAddress( 0x8800, 0x8bff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -164,8 +164,8 @@ public class hanaawas
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout_1bpp, 0, 32 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout_3bpp, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout_1bpp, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout_3bpp, 0, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

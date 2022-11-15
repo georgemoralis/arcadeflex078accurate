@@ -561,9 +561,9 @@ public class terracre
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &char_layout,            0,   1 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout,         1*16,  16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &sprite_layout, 1*16+16*16, 256 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, char_layout,            0,   1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout,         1*16,  16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, sprite_layout, 1*16+16*16, 256 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

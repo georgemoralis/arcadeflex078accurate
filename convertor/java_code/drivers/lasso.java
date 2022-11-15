@@ -109,9 +109,9 @@ public class lasso
 	public static Memory_WriteAddress lasso_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0400, 0x07ff, lasso_videoram_w, &lasso_videoram ),
-		new Memory_WriteAddress( 0x0800, 0x0bff, lasso_colorram_w, &lasso_colorram ),
-		new Memory_WriteAddress( 0x0c00, 0x0c7f, MWA_RAM, &lasso_spriteram, &lasso_spriteram_size ),
+		new Memory_WriteAddress( 0x0400, 0x07ff, lasso_videoram_w, lasso_videoram ),
+		new Memory_WriteAddress( 0x0800, 0x0bff, lasso_colorram_w, lasso_colorram ),
+		new Memory_WriteAddress( 0x0c00, 0x0c7f, MWA_RAM, lasso_spriteram, lasso_spriteram_size ),
 		new Memory_WriteAddress( 0x1000, 0x17ff, lasso_sharedram_w	),
 		new Memory_WriteAddress( 0x1800, 0x1800, sound_command_w ),
 		new Memory_WriteAddress( 0x1801, 0x1801, lasso_backcolor_w	),
@@ -136,10 +136,10 @@ public class lasso
 	public static Memory_WriteAddress chameleo_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0400, 0x07ff, lasso_videoram_w, &lasso_videoram ),
-		new Memory_WriteAddress( 0x0800, 0x0bff, lasso_colorram_w, &lasso_colorram ),
+		new Memory_WriteAddress( 0x0400, 0x07ff, lasso_videoram_w, lasso_videoram ),
+		new Memory_WriteAddress( 0x0800, 0x0bff, lasso_colorram_w, lasso_colorram ),
 		new Memory_WriteAddress( 0x0c00, 0x0fff, MWA_RAM ),	//
-		new Memory_WriteAddress( 0x1000, 0x107f, MWA_RAM, &lasso_spriteram, &lasso_spriteram_size ),
+		new Memory_WriteAddress( 0x1000, 0x107f, MWA_RAM, lasso_spriteram, lasso_spriteram_size ),
 		new Memory_WriteAddress( 0x1080, 0x10ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x1800, 0x1800, sound_command_w ),
 		new Memory_WriteAddress( 0x1801, 0x1801, lasso_backcolor_w	),
@@ -164,14 +164,14 @@ public class lasso
 	public static Memory_WriteAddress wwjgtin_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0800, 0x0bff, lasso_videoram_w, &lasso_videoram ),
-		new Memory_WriteAddress( 0x0c00, 0x0fff, lasso_colorram_w, &lasso_colorram ),
-		new Memory_WriteAddress( 0x1000, 0x10ff, MWA_RAM, &lasso_spriteram, &lasso_spriteram_size ),
+		new Memory_WriteAddress( 0x0800, 0x0bff, lasso_videoram_w, lasso_videoram ),
+		new Memory_WriteAddress( 0x0c00, 0x0fff, lasso_colorram_w, lasso_colorram ),
+		new Memory_WriteAddress( 0x1000, 0x10ff, MWA_RAM, lasso_spriteram, lasso_spriteram_size ),
 		new Memory_WriteAddress( 0x1800, 0x1800, sound_command_w ),
 		new Memory_WriteAddress( 0x1801, 0x1801, lasso_backcolor_w	),
 		new Memory_WriteAddress( 0x1802, 0x1802, wwjgtin_video_control_w	),
 		new Memory_WriteAddress( 0x1c00, 0x1c03, wwjgtin_lastcolor_w ),
-		new Memory_WriteAddress( 0x1c04, 0x1c07, MWA_RAM, &wwjgtin_track_scroll ),
+		new Memory_WriteAddress( 0x1c04, 0x1c07, MWA_RAM, wwjgtin_track_scroll ),
 		new Memory_WriteAddress( 0x5000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xfffa, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -181,9 +181,9 @@ public class lasso
 	public static Memory_WriteAddress pinbo_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0400, 0x07ff, lasso_videoram_w, &lasso_videoram ),
-		new Memory_WriteAddress( 0x0800, 0x0bff, lasso_colorram_w, &lasso_colorram ),
-		new Memory_WriteAddress( 0x1000, 0x10ff, MWA_RAM, &lasso_spriteram, &lasso_spriteram_size ),
+		new Memory_WriteAddress( 0x0400, 0x07ff, lasso_videoram_w, lasso_videoram ),
+		new Memory_WriteAddress( 0x0800, 0x0bff, lasso_colorram_w, lasso_colorram ),
+		new Memory_WriteAddress( 0x1000, 0x10ff, MWA_RAM, lasso_spriteram, lasso_spriteram_size ),
 		new Memory_WriteAddress( 0x1800, 0x1800, sound_command_w ),
 		new Memory_WriteAddress( 0x1802, 0x1802, pinbo_video_control_w ),
 		new Memory_WriteAddress( 0x2000, 0xffff, MWA_ROM ),
@@ -202,8 +202,8 @@ public class lasso
 	
 	public static Memory_WriteAddress lasso_coprocessor_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_RAM, &lasso_sharedram),
-		new Memory_WriteAddress( 0x2000, 0x3fff, MWA_RAM, &lasso_bitmap_ram ),
+		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_RAM, lasso_sharedram),
+		new Memory_WriteAddress( 0x2000, 0x3fff, MWA_RAM, lasso_bitmap_ram ),
 		new Memory_WriteAddress( 0x8000, 0x8fff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf000, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -688,23 +688,23 @@ public class lasso
 	
 	static GfxDecodeInfo lasso_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &lasso_charlayout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &lasso_spritelayout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, lasso_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, lasso_spritelayout, 0, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo wwjgtin_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &lasso_charlayout,       0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &lasso_spritelayout,     0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &wwjgtin_tracklayout,	4*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, lasso_charlayout,       0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, lasso_spritelayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, wwjgtin_tracklayout,	4*16, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo pinbo_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pinbo_charlayout,   0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &pinbo_spritelayout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, pinbo_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, pinbo_spritelayout, 0, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

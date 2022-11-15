@@ -2536,8 +2536,8 @@ public class ssv
 	
 	static GfxDecodeInfo ssv_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x8x8, 0, 0x8000/64 ), // [0] Sprites (256 colors)
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x8x6, 0, 0x8000/64 ), // [1] Sprites (64 colors)
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x8x8, 0, 0x8000/64 ), // [0] Sprites (256 colors)
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x8x6, 0, 0x8000/64 ), // [1] Sprites (64 colors)
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -2565,8 +2565,8 @@ public class ssv
 	
 	static GfxDecodeInfo eaglshot_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x8x8_2, 0, 0x8000/64 ), // [0] Sprites (256 colors)
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x8x6_2, 0, 0x8000/64 ), // [1] Sprites (64 colors)
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x8x8_2, 0, 0x8000/64 ), // [0] Sprites (256 colors)
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x8x6_2, 0, 0x8000/64 ), // [1] Sprites (64 colors)
 		new GfxDecodeInfo( -1 )
 	};
 	

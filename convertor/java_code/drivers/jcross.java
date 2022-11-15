@@ -94,7 +94,7 @@ public class jcross
 	
 	public static Memory_WriteAddress writemem_sound[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM, &namco_wavedata ),
+		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM, namco_wavedata ),
 		new Memory_WriteAddress( 0x8000, 0x87ff,MWA_RAM ),
 		new Memory_WriteAddress( 0xe000, 0xe000, AY8910_control_port_0_w ),
 		new Memory_WriteAddress( 0xe001, 0xe001, AY8910_write_port_0_w ),
@@ -132,9 +132,9 @@ public class jcross
 		new Memory_WriteAddress( 0xd500, 0xd500, jcross_vregs2_w),
 		new Memory_WriteAddress( 0xd600, 0xd600, jcross_vregs3_w),
 		new Memory_WriteAddress( 0xd700, 0xd700, jcross_vregs4_w),
-	 	new Memory_WriteAddress( 0xd800, 0xdfff, sharedram_w, &jcr_sharedram ),
-		new Memory_WriteAddress( 0xe000, 0xefff, jcross_background_ram_w, &videoram ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, jcross_text_ram_w, &jcr_textram),
+	 	new Memory_WriteAddress( 0xd800, 0xdfff, sharedram_w, jcr_sharedram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, jcross_background_ram_w, videoram ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, jcross_text_ram_w, jcr_textram),
 		new Memory_WriteAddress( 0xf400, 0xffff, MWA_RAM ),
 	
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -281,10 +281,10 @@ public class jcross
 	
 	static GfxDecodeInfo jcross_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout,	0x080, 8  ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout,	0x110, 1  ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &tile_layout,	0x100, 1  ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &sprite_layout,	0x000, 16 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout,	0x080, 8  ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout,	0x110, 1  ),
+		new GfxDecodeInfo( REGION_GFX3, 0, tile_layout,	0x100, 1  ),
+		new GfxDecodeInfo( REGION_GFX4, 0, sprite_layout,	0x000, 16 ), /* sprites */
 		new GfxDecodeInfo( -1 )
 	};
 	

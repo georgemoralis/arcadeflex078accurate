@@ -934,8 +934,8 @@ public class asuka
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* OBJ */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),	/* SCR */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  0, 256 ),	/* OBJ */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 256 ),	/* SCR */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

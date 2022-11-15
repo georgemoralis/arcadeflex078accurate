@@ -55,8 +55,8 @@ public class shisen
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc800, 0xcaff, sichuan2_paletteram_w, &paletteram ),
-		new Memory_WriteAddress( 0xd000, 0xdfff, sichuan2_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0xc800, 0xcaff, sichuan2_paletteram_w, paletteram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, sichuan2_videoram_w, videoram ),
 		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -229,7 +229,7 @@ public class shisen
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout,  0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout,  0, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

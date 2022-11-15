@@ -537,7 +537,7 @@ public class stactics
 	                    color_code,
 	                    0,0,
 	                    sx*8,sy*8,
-	                    &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                    Machine->visible_area,TRANSPARENCY_NONE,0);
 	            dirty_videoram_d[offs] = 0;
 	        }
 	
@@ -566,7 +566,7 @@ public class stactics
 	                    color_code,
 	                    0,0,
 	                    sx*8,sy*8,
-	                    &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                    Machine->visible_area,TRANSPARENCY_NONE,0);
 	            dirty_videoram_e[offs] = 0;
 	        }
 	
@@ -595,7 +595,7 @@ public class stactics
 	                    color_code,
 	                    0,0,
 	                    sx*8,sy*8,
-	                    &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                    Machine->visible_area,TRANSPARENCY_NONE,0);
 	            dirty_videoram_f[offs] = 0;
 	        }
 	
@@ -624,7 +624,7 @@ public class stactics
 	                    color_code,
 	                    0,0,
 	                    sx*8,sy*8,
-	                    &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                    Machine->visible_area,TRANSPARENCY_NONE,0);
 	            dirty_videoram_b[offs] = 0;
 	        }
 	
@@ -633,16 +633,16 @@ public class stactics
 	    /* Now, composite the four layers together */
 	
 	    copyscrollbitmap(tmpbitmap2,bitmap_D,0,0,1,&d_offset,
-	                     &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                     Machine->visible_area,TRANSPARENCY_NONE,0);
 	    copyscrollbitmap(tmpbitmap2,bitmap_E,0,0,1,&e_offset,
-	                     &Machine->visible_area,TRANSPARENCY_COLOR,0);
+	                     Machine->visible_area,TRANSPARENCY_COLOR,0);
 	    copyscrollbitmap(tmpbitmap2,bitmap_F,0,0,1,&f_offset,
-	                     &Machine->visible_area,TRANSPARENCY_COLOR,0);
+	                     Machine->visible_area,TRANSPARENCY_COLOR,0);
 	    copybitmap(tmpbitmap2,bitmap_B,0,0,0,0,
-	                     &Machine->visible_area,TRANSPARENCY_COLOR,0);
+	                     Machine->visible_area,TRANSPARENCY_COLOR,0);
 	
 	    /* Now flip X & simulate the monitor motion */
-	    fillbitmap(bitmap, Machine->pens[0], &Machine->visible_area);
+	    fillbitmap(bitmap, Machine->pens[0], Machine->visible_area);
 	    copybitmap(bitmap,tmpbitmap2,1,0,stactics_horiz_pos,stactics_vert_pos,
 	                &visible_screen_area,TRANSPARENCY_NONE,0);
 	
@@ -659,7 +659,7 @@ public class stactics
 	            0,
 	            0,0,
 	            pixel_x,pixel_y,
-	            &Machine->visible_area,TRANSPARENCY_NONE,0);
+	            Machine->visible_area,TRANSPARENCY_NONE,0);
 	    pixel_x+=6;
 	    /* Draw a colon */
 	    drawgfx(bitmap,Machine->gfx[5],
@@ -667,7 +667,7 @@ public class stactics
 	            0,
 	            0,0,
 	            pixel_x,pixel_y,
-	            &Machine->visible_area,TRANSPARENCY_NONE,0);
+	            Machine->visible_area,TRANSPARENCY_NONE,0);
 	    pixel_x+=6;
 	    /* Draw the digits */
 	    for(i=1;i<7;i++)
@@ -677,7 +677,7 @@ public class stactics
 	                16,
 	                0,0,
 	                pixel_x,pixel_y,
-	                &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                Machine->visible_area,TRANSPARENCY_NONE,0);
 	        pixel_x+=6;
 	    }
 	
@@ -691,7 +691,7 @@ public class stactics
 	            0,
 	            0,0,
 	            pixel_x,pixel_y,
-	            &Machine->visible_area,TRANSPARENCY_NONE,0);
+	            Machine->visible_area,TRANSPARENCY_NONE,0);
 	    pixel_x+=6;
 	    /* Draw a colon */
 	    drawgfx(bitmap,Machine->gfx[5],
@@ -699,7 +699,7 @@ public class stactics
 	            0,
 	            0,0,
 	            pixel_x,pixel_y,
-	            &Machine->visible_area,TRANSPARENCY_NONE,0);
+	            Machine->visible_area,TRANSPARENCY_NONE,0);
 	    pixel_x+=6;
 	    /* Draw the pips */
 	    for(i=7;i<9;i++)
@@ -709,7 +709,7 @@ public class stactics
 	                16,
 	                0,0,
 	                pixel_x,pixel_y,
-	                &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                Machine->visible_area,TRANSPARENCY_NONE,0);
 	        pixel_x+=2;
 	    }
 	
@@ -723,7 +723,7 @@ public class stactics
 	            0,
 	            0,0,
 	            pixel_x,pixel_y,
-	            &Machine->visible_area,TRANSPARENCY_NONE,0);
+	            Machine->visible_area,TRANSPARENCY_NONE,0);
 	    pixel_x+=6;
 	    /* Draw a colon */
 	    drawgfx(bitmap,Machine->gfx[5],
@@ -731,7 +731,7 @@ public class stactics
 	            0,
 	            0,0,
 	            pixel_x,pixel_y,
-	            &Machine->visible_area,TRANSPARENCY_NONE,0);
+	            Machine->visible_area,TRANSPARENCY_NONE,0);
 	    pixel_x+=6;
 	    /* Draw the pips */
 	    for(i=9;i<12;i++)
@@ -741,7 +741,7 @@ public class stactics
 	                16,
 	                0,0,
 	                pixel_x,pixel_y,
-	                &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                Machine->visible_area,TRANSPARENCY_NONE,0);
 	        pixel_x+=2;
 	    }
 	
@@ -754,7 +754,7 @@ public class stactics
 	            0,
 	            0,0,
 	            pixel_x,pixel_y,
-	            &Machine->visible_area,TRANSPARENCY_NONE,0);
+	            Machine->visible_area,TRANSPARENCY_NONE,0);
 	    pixel_x+=6;
 	    /* Draw a colon */
 	    drawgfx(bitmap,Machine->gfx[5],
@@ -762,7 +762,7 @@ public class stactics
 	            0,
 	            0,0,
 	            pixel_x,pixel_y,
-	            &Machine->visible_area,TRANSPARENCY_NONE,0);
+	            Machine->visible_area,TRANSPARENCY_NONE,0);
 	    pixel_x+=6;
 	    /* Draw the pips */
 	    for(i=12;i<16;i++)
@@ -772,7 +772,7 @@ public class stactics
 	                16,
 	                0,0,
 	                pixel_x,pixel_y,
-	                &Machine->visible_area,TRANSPARENCY_NONE,0);
+	                Machine->visible_area,TRANSPARENCY_NONE,0);
 	        pixel_x+=2;
 	    }
 	
@@ -819,13 +819,13 @@ public class stactics
 	                    16*2,  /* Make it green */
 	                    0,0,
 	                    pixel_x,pixel_y,
-	                    &Machine->visible_area,TRANSPARENCY_COLOR,0);
+	                    Machine->visible_area,TRANSPARENCY_COLOR,0);
 	            drawgfx(bitmap,Machine->gfx[4],
 	                    beamdata[firebeam_state*8+i]&0x7f,
 	                    16*2,  /* Make it green */
 	                    1,0,
 	                    255-pixel_x,pixel_y,
-	                    &Machine->visible_area,TRANSPARENCY_COLOR,0);
+	                    Machine->visible_area,TRANSPARENCY_COLOR,0);
 	            pixel_x+=14;
 	            pixel_y-=7;
 	        }
@@ -837,13 +837,13 @@ public class stactics
 	                    16*2,  /* Make it green */
 	                    0,0,
 	                    pixel_x,pixel_y,
-	                    &Machine->visible_area,TRANSPARENCY_COLOR,0);
+	                    Machine->visible_area,TRANSPARENCY_COLOR,0);
 	            drawgfx(bitmap,Machine->gfx[4],
 	                    beamdata[firebeam_state*8+i],
 	                    16*2,  /* Make it green */
 	                    1,0,
 	                    255-pixel_x,pixel_y,
-	                    &Machine->visible_area,TRANSPARENCY_COLOR,0);
+	                    Machine->visible_area,TRANSPARENCY_COLOR,0);
 	            pixel_x+=16;
 	            pixel_y-=8;
 	        }
@@ -862,7 +862,7 @@ public class stactics
 	                16, /* red */
 	                0,0,
 	                pixel_x,pixel_y,
-	                &Machine->visible_area,TRANSPARENCY_COLOR,0);
+	                Machine->visible_area,TRANSPARENCY_COLOR,0);
 	    }
 	
 	    /* Update vblank counter */

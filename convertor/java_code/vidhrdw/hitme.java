@@ -52,7 +52,7 @@ public class hitme
 			drawgfx(tmpbitmap,Machine->gfx[0],
 	        charcode, invert,
 			0,0,sx,sy,
-			&Machine->drv->visible_area,TRANSPARENCY_NONE,0);
+			Machine->drv->visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	*/

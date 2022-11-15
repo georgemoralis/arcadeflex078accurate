@@ -63,7 +63,7 @@ public class hexa
 		new Memory_WriteAddress( 0xd001, 0xd001, AY8910_write_port_0_w ),
 		new Memory_WriteAddress( 0xd008, 0xd008, hexa_d008_w ),
 		new Memory_WriteAddress( 0xd010, 0xd010, watchdog_reset_w ),	/* or IRQ acknowledge, or both */
-		new Memory_WriteAddress( 0xe000, 0xe7ff, hexa_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, hexa_videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -122,7 +122,7 @@ public class hexa
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,  0 , 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, charlayout,  0 , 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

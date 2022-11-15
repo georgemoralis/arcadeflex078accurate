@@ -483,9 +483,9 @@ public class midvunit
 		{
 			/* first tri is 0,1,2; second is 0,3,2 */
 			if (i == 0)
-				scans = setup_triangle_0(&vert[0], &vert[1], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_0(&vert[0], &vert[1], &vert[2], Machine->visible_area);
 			else
-				scans = setup_triangle_0(&vert[0], &vert[3], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_0(&vert[0], &vert[3], &vert[2], Machine->visible_area);
 	
 			/* skip if we're clipped out */
 			if (!scans)
@@ -518,9 +518,9 @@ public class midvunit
 		{
 			/* first tri is 0,1,2; second is 0,3,2 */
 			if (i == 0)
-				scans = setup_triangle_0(&vert[0], &vert[1], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_0(&vert[0], &vert[1], &vert[2], Machine->visible_area);
 			else
-				scans = setup_triangle_0(&vert[0], &vert[3], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_0(&vert[0], &vert[3], &vert[2], Machine->visible_area);
 	
 			/* skip if we're clipped out */
 			if (!scans)
@@ -571,9 +571,9 @@ public class midvunit
 		{
 			/* first tri is 0,1,2; second is 0,3,2 */
 			if (i == 0)
-				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], Machine->visible_area);
 			else
-				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], Machine->visible_area);
 	
 			/* skip if we're clipped out */
 			if (!scans)
@@ -623,9 +623,9 @@ public class midvunit
 		{
 			/* first tri is 0,1,2; second is 0,3,2 */
 			if (i == 0)
-				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], Machine->visible_area);
 			else
-				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], Machine->visible_area);
 	
 			/* skip if we're clipped out */
 			if (!scans)
@@ -676,9 +676,9 @@ public class midvunit
 		{
 			/* first tri is 0,1,2; second is 0,3,2 */
 			if (i == 0)
-				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], Machine->visible_area);
 			else
-				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], Machine->visible_area);
 	
 			/* skip if we're clipped out */
 			if (!scans)
@@ -736,9 +736,9 @@ public class midvunit
 		{
 			/* first tri is 0,1,2; second is 0,3,2 */
 			if (i == 0)
-				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], Machine->visible_area);
 			else
-				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], Machine->visible_area);
 	
 			/* skip if we're clipped out */
 			if (!scans)
@@ -799,9 +799,9 @@ public class midvunit
 		{
 			/* first tri is 0,1,2; second is 0,3,2 */
 			if (i == 0)
-				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], Machine->visible_area);
 			else
-				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], Machine->visible_area);
 	
 			/* skip if we're clipped out */
 			if (!scans)
@@ -863,9 +863,9 @@ public class midvunit
 		{
 			/* first tri is 0,1,2; second is 0,3,2 */
 			if (i == 0)
-				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[1], &vert[2], Machine->visible_area);
 			else
-				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], &Machine->visible_area);
+				scans = setup_triangle_2(&vert[0], &vert[3], &vert[2], Machine->visible_area);
 	
 			/* skip if we're clipped out */
 			if (!scans)

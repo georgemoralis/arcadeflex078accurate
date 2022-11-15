@@ -107,7 +107,7 @@ public class kchamp
 			}
 	
 	        drawgfx(bitmap, Machine->gfx[bank], code, color, flipx, flipy, sx, sy,
-	            &Machine->visible_area, TRANSPARENCY_PEN, 0);
+	            Machine->visible_area, TRANSPARENCY_PEN, 0);
 		}
 	}
 	
@@ -135,7 +135,7 @@ public class kchamp
 			}
 	
 	        drawgfx(bitmap, Machine->gfx[bank], code, color, flipx, flipy, sx, sy,
-	            &Machine->visible_area, TRANSPARENCY_PEN, 0);
+	            Machine->visible_area, TRANSPARENCY_PEN, 0);
 		}
 	}
 	

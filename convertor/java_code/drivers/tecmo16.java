@@ -323,9 +323,9 @@ public class tecmo16
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   1*16*16, 16   ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   2*16*16, 16*2 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 0*16*16, 16   ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   1*16*16, 16   ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,   2*16*16, 16*2 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout, 0*16*16, 16   ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

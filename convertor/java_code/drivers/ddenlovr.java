@@ -736,16 +736,16 @@ public class ddenlovr
 				usrintf_showmessage("priority = %02x",pri);
 				pri = 0;
 			}
-			fillbitmap(framebuffer,dynax_bgcolor,&Machine->visible_area);
+			fillbitmap(framebuffer,dynax_bgcolor,Machine->visible_area);
 	
 	//if (!keyboard_pressed(KEYCODE_Q))
-			copylayer(framebuffer,&Machine->visible_area,order[pri][0]);
+			copylayer(framebuffer,Machine->visible_area,order[pri][0]);
 	//if (!keyboard_pressed(KEYCODE_W))
-			copylayer(framebuffer,&Machine->visible_area,order[pri][1]);
+			copylayer(framebuffer,Machine->visible_area,order[pri][1]);
 	//if (!keyboard_pressed(KEYCODE_E))
-			copylayer(framebuffer,&Machine->visible_area,order[pri][2]);
+			copylayer(framebuffer,Machine->visible_area,order[pri][2]);
 	//if (!keyboard_pressed(KEYCODE_R))
-			copylayer(framebuffer,&Machine->visible_area,order[pri][3]);
+			copylayer(framebuffer,Machine->visible_area,order[pri][3]);
 	
 			if (extra_layers)
 			{
@@ -757,13 +757,13 @@ public class ddenlovr
 				pri = 0;
 			}
 	//if (!keyboard_pressed(KEYCODE_A))
-			copylayer(framebuffer,&Machine->visible_area,order[pri][0]+4);
+			copylayer(framebuffer,Machine->visible_area,order[pri][0]+4);
 	//if (!keyboard_pressed(KEYCODE_S))
-			copylayer(framebuffer,&Machine->visible_area,order[pri][1]+4);
+			copylayer(framebuffer,Machine->visible_area,order[pri][1]+4);
 	//if (!keyboard_pressed(KEYCODE_D))
-			copylayer(framebuffer,&Machine->visible_area,order[pri][2]+4);
+			copylayer(framebuffer,Machine->visible_area,order[pri][2]+4);
 	//if (!keyboard_pressed(KEYCODE_F))
-			copylayer(framebuffer,&Machine->visible_area,order[pri][3]+4);
+			copylayer(framebuffer,Machine->visible_area,order[pri][3]+4);
 			}
 		}
 	} };
@@ -1376,7 +1376,7 @@ public class ddenlovr
 		new IO_ReadPort( 0x7c, 0x7c, OKIM6295_status_0_r	),	// Sound
 		new IO_ReadPort( 0x94, 0x94, input_port_2_r		),	// DSW 1
 		new IO_ReadPort( 0x98, 0x98, input_port_3_r		),	// DSW 2
-		new IO_ReadPort( 0x9c, 0x9c, input_port_4_r		),	// DSW 1&2 high bits
+		new IO_ReadPort( 0x9c, 0x9c, input_port_4_r		),	// DSW 12 high bits
 		new IO_ReadPort(MEMPORT_MARKER, 0)
 	};
 	

@@ -78,7 +78,7 @@ public class circus
 		new Memory_WriteAddress( 0x1000, 0x1fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x2000, 0x2000, circus_clown_x_w ),
 		new Memory_WriteAddress( 0x3000, 0x3000, circus_clown_y_w ),
-		new Memory_WriteAddress( 0x4000, 0x43ff, circus_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x4000, 0x43ff, circus_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x8000, 0x8000, circus_clown_z_w ),
 		new Memory_WriteAddress( 0xf000, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -254,15 +254,15 @@ public class circus
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 1 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &clownlayout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, clownlayout, 0, 1 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo robotbwl_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 1 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &robotlayout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, robotlayout, 0, 1 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

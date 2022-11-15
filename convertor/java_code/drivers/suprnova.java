@@ -1028,10 +1028,10 @@ public class suprnova
 	static GfxDecodeInfo skns_bg_decode[] =
 	{
 	   /* REGION_GFX1 is sprites, RLE encoded */
-		new GfxDecodeInfo( REGION_GFX2, 0, &skns_tilemap_layout, 0x000, 128 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &skns_tilemap_layout, 0x000, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &skns_4bpptilemap_layout, 0x000, 128 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &skns_4bpptilemap_layout, 0x000, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, skns_tilemap_layout, 0x000, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, skns_tilemap_layout, 0x000, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, skns_4bpptilemap_layout, 0x000, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, skns_4bpptilemap_layout, 0x000, 128 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

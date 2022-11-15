@@ -277,7 +277,7 @@ public class twincobr
 						color,
 						flipx,flipy,
 						sx-32,sy-16,
-						&Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine->visible_area,TRANSPARENCY_PEN,0);
 				}
 			}
 		}
@@ -291,7 +291,7 @@ public class twincobr
 	
 		if (twincobr_display_on != 1)
 		{
-			fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
+			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
 			return;
 		}
 	
@@ -331,7 +331,7 @@ public class twincobr
 				scroll_x = (0x1c9 - bgscrollx) & 0x1ff;
 				scroll_y = (- 0x1e - bgscrolly) & 0x1ff;
 			}
-			copyscrollbitmap(bitmap,tmpbitmap,1,&scroll_x,1,&scroll_y,&Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,1,&scroll_x,1,&scroll_y,Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -365,7 +365,7 @@ public class twincobr
 				color,
 				twincobr_flip_screen,twincobr_flip_screen,
 				xpos,ypos,
-				&Machine->visible_area,TRANSPARENCY_PEN,0);
+				Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	/*********  Begin ugly sprite hack for Wardner when hero is in shop *********/
@@ -422,7 +422,7 @@ public class twincobr
 				color,
 				twincobr_flip_screen,twincobr_flip_screen,
 				xpos,ypos,
-				&Machine->visible_area,TRANSPARENCY_PEN,0);
+				Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 		/* draw the sprites in high priority */

@@ -115,8 +115,8 @@ public class exerion
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x6000, 0x67ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x8000, 0x87ff, videoram_w, &videoram, &videoram_size ),
-		new Memory_WriteAddress( 0x8800, 0x887f, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, videoram_w, videoram, videoram_size ),
+		new Memory_WriteAddress( 0x8800, 0x887f, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0x8800, 0x8bff, MWA_RAM ),
 		new Memory_WriteAddress( 0xc000, 0xc000, exerion_videoreg_w ),
 		new Memory_WriteAddress( 0xc800, 0xc800, soundlatch_w ),
@@ -282,9 +282,9 @@ public class exerion
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,         0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,     256, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &bigspritelayout,  256, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,         0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout,     256, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, bigspritelayout,  256, 64 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -89,9 +89,9 @@ public class ltcasino
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x8000, 0xcfff, MWA_ROM ),
 	
-		new Memory_WriteAddress( 0xd000, 0xd7ff, ltcasino_tile_num_w, &ltcasino_tile_num_ram ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, ltcasino_tile_num_w, ltcasino_tile_num_ram ),
 		new Memory_WriteAddress( 0xd800, 0xdfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, ltcasino_tile_atr_w, &ltcasino_tile_atr_ram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, ltcasino_tile_atr_w, ltcasino_tile_atr_ram ),
 		new Memory_WriteAddress( 0xe800, 0xebff, MWA_RAM ),
 	
 		new Memory_WriteAddress( 0xec20, 0xec20, AY8910_write_port_0_w ),
@@ -497,7 +497,7 @@ public class ltcasino
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tiles8x8_layout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tiles8x8_layout, 0, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

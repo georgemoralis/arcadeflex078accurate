@@ -188,9 +188,9 @@ public class stlforce
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &stlforce_bglayout, 0, 256  ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &stlforce_txlayout, 0, 256  ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &stlforce_splayout, 0, 256  ),
+		new GfxDecodeInfo( REGION_GFX1, 0, stlforce_bglayout, 0, 256  ),
+		new GfxDecodeInfo( REGION_GFX1, 0, stlforce_txlayout, 0, 256  ),
+		new GfxDecodeInfo( REGION_GFX2, 0, stlforce_splayout, 0, 256  ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

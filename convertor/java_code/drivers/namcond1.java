@@ -161,12 +161,12 @@ public class namcond1
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000000, &pts_8x8_4bits_layout,    0,  16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x00000000, &pts_16x16_4bits_layout,  0,  16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x00000000, &pts_32x32_4bits_layout,  0,  16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x00000000, &pts_64x64_4bits_layout,  0,  16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x00000000, &pts_8x8_8bits_layout,    0, 256 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x00000000, &pts_16x16_8bits_layout,  0, 256 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000000, pts_8x8_4bits_layout,    0,  16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000000, pts_16x16_4bits_layout,  0,  16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000000, pts_32x32_4bits_layout,  0,  16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000000, pts_64x64_4bits_layout,  0,  16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000000, pts_8x8_8bits_layout,    0, 256 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000000, pts_16x16_8bits_layout,  0, 256 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

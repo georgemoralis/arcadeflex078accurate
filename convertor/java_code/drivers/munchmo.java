@@ -75,15 +75,15 @@ public class munchmo
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 	 	new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ), /* working RAM */
-		new Memory_WriteAddress( 0xa000, 0xa3ff, MWA_RAM, &mnchmobl_sprite_xpos ),
+		new Memory_WriteAddress( 0xa000, 0xa3ff, MWA_RAM, mnchmobl_sprite_xpos ),
 		new Memory_WriteAddress( 0xa400, 0xa7ff, mnchmobl_sprite_xpos_w ),
-		new Memory_WriteAddress( 0xa800, 0xabff, MWA_RAM, &mnchmobl_sprite_tile ),
+		new Memory_WriteAddress( 0xa800, 0xabff, MWA_RAM, mnchmobl_sprite_tile ),
 		new Memory_WriteAddress( 0xac00, 0xafff, mnchmobl_sprite_tile_w ),
-		new Memory_WriteAddress( 0xb000, 0xb3ff, MWA_RAM, &mnchmobl_sprite_attr ),
+		new Memory_WriteAddress( 0xb000, 0xb3ff, MWA_RAM, mnchmobl_sprite_attr ),
 		new Memory_WriteAddress( 0xb400, 0xb7ff, mnchmobl_sprite_attr_w ),
-		new Memory_WriteAddress( 0xb800, 0xb9ff, mnchmobl_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0xb800, 0xb9ff, mnchmobl_videoram_w, videoram ),
 		new Memory_WriteAddress( 0xba00, 0xbbff, MWA_RAM ),
-		new Memory_WriteAddress( 0xbc00, 0xbc7f, MWA_RAM, &mnchmobl_status_vram ),
+		new Memory_WriteAddress( 0xbc00, 0xbc7f, MWA_RAM, mnchmobl_status_vram ),
 		new Memory_WriteAddress( 0xbe00, 0xbe00, mnchmobl_soundlatch_w ),
 		new Memory_WriteAddress( 0xbe01, 0xbe01, mnchmobl_palette_bank_w ),
 		new Memory_WriteAddress( 0xbe11, 0xbe11, MWA_RAM ), /* ? */
@@ -91,7 +91,7 @@ public class munchmo
 		new Memory_WriteAddress( 0xbe31, 0xbe31, MWA_RAM ), /* ? */
 		new Memory_WriteAddress( 0xbe41, 0xbe41, mnchmobl_flipscreen_w ),
 		new Memory_WriteAddress( 0xbe61, 0xbe61, mnchmobl_nmi_enable_w ), /* ENI 1-10C */
-		new Memory_WriteAddress( 0xbf00, 0xbf07, MWA_RAM, &mnchmobl_vreg ), /* MY0 1-8C */
+		new Memory_WriteAddress( 0xbf00, 0xbf07, MWA_RAM, mnchmobl_vreg ), /* MY0 1-8C */
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -277,10 +277,10 @@ public class munchmo
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0,      &char_layout,      0,  4 ),	/* colors   0- 63 */
-		new GfxDecodeInfo( REGION_GFX2, 0x1000, &tile_layout,     64,  4 ),	/* colors  64-127 */
-		new GfxDecodeInfo( REGION_GFX3, 0,      &sprite_layout1, 128, 16 ),	/* colors 128-255 */
-		new GfxDecodeInfo( REGION_GFX4, 0,      &sprite_layout2, 128, 16 ),	/* colors 128-255 */
+		new GfxDecodeInfo( REGION_GFX1, 0,      char_layout,      0,  4 ),	/* colors   0- 63 */
+		new GfxDecodeInfo( REGION_GFX2, 0x1000, tile_layout,     64,  4 ),	/* colors  64-127 */
+		new GfxDecodeInfo( REGION_GFX3, 0,      sprite_layout1, 128, 16 ),	/* colors 128-255 */
+		new GfxDecodeInfo( REGION_GFX4, 0,      sprite_layout2, 128, 16 ),	/* colors 128-255 */
 		new GfxDecodeInfo( -1 )
 	};
 	

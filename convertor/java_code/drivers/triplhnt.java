@@ -147,11 +147,11 @@ public class triplhnt
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x00ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x0100, 0x03ff, triplhnt_zeropage_w ),
-		new Memory_WriteAddress( 0x0400, 0x04ff, MWA_RAM, &triplhnt_playfield_ram ),
-		new Memory_WriteAddress( 0x0800, 0x080f, MWA_RAM, &triplhnt_vpos_ram ),
-		new Memory_WriteAddress( 0x0810, 0x081f, MWA_RAM, &triplhnt_hpos_ram ),
-		new Memory_WriteAddress( 0x0820, 0x082f, MWA_RAM, &triplhnt_orga_ram ),
-		new Memory_WriteAddress( 0x0830, 0x083f, MWA_RAM, &triplhnt_code_ram ),
+		new Memory_WriteAddress( 0x0400, 0x04ff, MWA_RAM, triplhnt_playfield_ram ),
+		new Memory_WriteAddress( 0x0800, 0x080f, MWA_RAM, triplhnt_vpos_ram ),
+		new Memory_WriteAddress( 0x0810, 0x081f, MWA_RAM, triplhnt_hpos_ram ),
+		new Memory_WriteAddress( 0x0820, 0x082f, MWA_RAM, triplhnt_orga_ram ),
+		new Memory_WriteAddress( 0x0830, 0x083f, MWA_RAM, triplhnt_code_ram ),
 		new Memory_WriteAddress( 0x0c30, 0x0c3f, triplhnt_misc_w ),
 		new Memory_WriteAddress( 0x7000, 0x7fff, MWA_ROM ), /* program */
 		new Memory_WriteAddress( 0xf800, 0xffff, MWA_ROM ), /* program mirror */
@@ -284,9 +284,9 @@ public class triplhnt
 	
 	static GfxDecodeInfo triplhnt_gfx_decode_info[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &triplhnt_small_sprite_layout, 0, 1 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &triplhnt_large_sprite_layout, 0, 1 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &triplhnt_tile_layout, 4, 2 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, triplhnt_small_sprite_layout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, triplhnt_large_sprite_layout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, triplhnt_tile_layout, 4, 2 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

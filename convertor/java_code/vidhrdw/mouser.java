@@ -123,7 +123,7 @@ public class mouser
 			}
 		}
 	
-		copyscrollbitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		copyscrollbitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 		/* There seem to be two sets of sprites, each decoded identically */
 	
@@ -154,7 +154,7 @@ public class mouser
 						spriteram.read(offs+1)%16,
 						flipx,flipy,
 						sx,sy,
-						&Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 		/* This is the second set of 8 sprites */
@@ -184,7 +184,7 @@ public class mouser
 						spriteram.read(offs+1)%16,
 						flipx,flipy,
 						sx,sy,
-						&Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	} };

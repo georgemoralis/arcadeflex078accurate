@@ -243,7 +243,7 @@ public class combatsc
 		new Memory_ReadAddress( 0x0401, 0x0401, input_port_1_r ),			/* DSW #3 */
 		new Memory_ReadAddress( 0x0402, 0x0402, input_port_2_r ),			/* DSW #1 */
 		new Memory_ReadAddress( 0x0403, 0x0403, input_port_3_r ),			/* DSW #2 */
-		new Memory_ReadAddress( 0x0404, 0x0407, trackball_r ),			/* 1P & 2P controls / trackball */
+		new Memory_ReadAddress( 0x0404, 0x0407, trackball_r ),			/* 1P  2P controls / trackball */
 		new Memory_ReadAddress( 0x0600, 0x06ff, MRA_RAM ),				/* palette */
 		new Memory_ReadAddress( 0x0800, 0x1fff, MRA_RAM ),
 		new Memory_ReadAddress( 0x2000, 0x3fff, combasc_video_r ),
@@ -265,7 +265,7 @@ public class combatsc
 		new Memory_WriteAddress( 0x0414, 0x0414, soundlatch_w ),
 		new Memory_WriteAddress( 0x0418, 0x0418, combasc_sh_irqtrigger_w ),
 		new Memory_WriteAddress( 0x041c, 0x041c, watchdog_reset_w ),			/* watchdog reset? */
-		new Memory_WriteAddress( 0x0600, 0x06ff, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram ),
+		new Memory_WriteAddress( 0x0600, 0x06ff, paletteram_xBBBBBGGGGGRRRRR_w, paletteram ),
 		new Memory_WriteAddress( 0x0800, 0x1fff, MWA_RAM ),					/* RAM */
 		new Memory_WriteAddress( 0x2000, 0x3fff, combasc_video_w ),
 		new Memory_WriteAddress( 0x4000, 0x7fff, MWA_ROM ),					/* banked ROM area */
@@ -288,10 +288,10 @@ public class combatsc
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x04ff, MWA_RAM ),
 		new Memory_WriteAddress( 0x0500, 0x0500, combascb_bankselect_w ),
-		new Memory_WriteAddress( 0x0600, 0x06ff, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram ),
+		new Memory_WriteAddress( 0x0600, 0x06ff, paletteram_xBBBBBGGGGGRRRRR_w, paletteram ),
 		new Memory_WriteAddress( 0x0800, 0x1fff, MWA_RAM ),
 		new Memory_WriteAddress( 0x2000, 0x3fff, combasc_video_w ),
-		new Memory_WriteAddress( 0x4000, 0x7fff, MWA_BANK1, &banked_area ),/* banked ROM/RAM area */
+		new Memory_WriteAddress( 0x4000, 0x7fff, MWA_BANK1, banked_area ),/* banked ROM/RAM area */
 		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM ),				/* ROM */
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -623,17 +623,17 @@ public class combatsc
 	
 	static GfxDecodeInfo combasc_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &gfx_layout, 0, 8*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &gfx_layout, 0, 8*16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, gfx_layout, 0, 8*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, gfx_layout, 0, 8*16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo combascb_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &tile_layout,   0, 8*16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x40000, &tile_layout,   0, 8*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &sprite_layout, 0, 8*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x40000, &sprite_layout, 0, 8*16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, tile_layout,   0, 8*16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x40000, tile_layout,   0, 8*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, sprite_layout, 0, 8*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x40000, sprite_layout, 0, 8*16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

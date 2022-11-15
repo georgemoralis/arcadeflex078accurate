@@ -393,7 +393,7 @@ public class psychic5
 		new Memory_WriteAddress( 0xf004, 0xf004, MWA_NOP ),	// ???
 		new Memory_WriteAddress( 0xf005, 0xf005, psychic5_title_screen_w ),
 		new Memory_WriteAddress( 0xf006, 0xf1ff, MWA_NOP ),
-		new Memory_WriteAddress( 0xf200, 0xf7ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xf200, 0xf7ff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -532,9 +532,9 @@ public class psychic5
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,  0*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 16*16, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout,   32*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout,  0*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 16*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, charlayout,   32*16, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -75,7 +75,7 @@ public class ultratnk
 				0,
 				0,0, /* no flip */
 				pMem[0x90]-16,pMem[0x98]-16,
-				&Machine->visible_area,
+				Machine->visible_area,
 				TRANSPARENCY_PEN, 0 );
 	
 			drawgfx( bitmap, Machine->gfx[1], /* tank */
@@ -83,7 +83,7 @@ public class ultratnk
 				1,
 				0,0, /* no flip */
 				pMem[0x92]-16,pMem[0x9a]-16,
-				&Machine->visible_area,
+				Machine->visible_area,
 				TRANSPARENCY_PEN, 0 );
 		}
 	
@@ -92,7 +92,7 @@ public class ultratnk
 			0,
 			0,0, /* no flip */
 			pMem[0x96]-16,pMem[0x9e]-16,
-			&Machine->visible_area,
+			Machine->visible_area,
 			TRANSPARENCY_PEN, 0 );
 	
 		drawgfx( bitmap, Machine->gfx[1], /* bullet */
@@ -100,7 +100,7 @@ public class ultratnk
 			1,
 			0,0, /* no flip */
 			pMem[0x94]-16,pMem[0x9c]-16,
-			&Machine->visible_area,
+			Machine->visible_area,
 			TRANSPARENCY_PEN, 0 );
 	}
 	
@@ -140,7 +140,7 @@ public class ultratnk
 	} };
 	
 	public static VideoUpdateHandlerPtr video_update_ultratnk  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
-		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
 		ultratnk_draw_sprites(bitmap);
 	
 		/* Weird, but we have to update our sound registers here. */
@@ -320,9 +320,9 @@ public class ultratnk
 	
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
-		new Memory_WriteAddress( 0x0000, 0x00ff, MWA_RAM, &mirror_ram ),
+		new Memory_WriteAddress( 0x0000, 0x00ff, MWA_RAM, mirror_ram ),
 		new Memory_WriteAddress( 0x0100, 0x01ff, mirror_w ),
-		new Memory_WriteAddress( 0x0800, 0x0bff, ultratnk_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x0800, 0x0bff, ultratnk_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x0c00, 0x0cff, MWA_RAM ), /* ? */
 		new Memory_WriteAddress( 0x2000, 0x201f, ultratnk_attract_w ), /* attract */
 		new Memory_WriteAddress( 0x2020, 0x203f, MWA_NOP ), /* collision reset 1-4, 2020-21=cr1, 22-23=cr2, 24-25=cr3, 26,27=cr4 */
@@ -438,8 +438,8 @@ public class ultratnk
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &playfield_layout, 0, 4 ), 	/* playfield graphics */
-		new GfxDecodeInfo( REGION_GFX2, 0, &motion_layout,    0, 4 ), 	/* motion graphics */
+		new GfxDecodeInfo( REGION_GFX1, 0, playfield_layout, 0, 4 ), 	/* playfield graphics */
+		new GfxDecodeInfo( REGION_GFX2, 0, motion_layout,    0, 4 ), 	/* motion graphics */
 		new GfxDecodeInfo( -1 )
 	};
 	

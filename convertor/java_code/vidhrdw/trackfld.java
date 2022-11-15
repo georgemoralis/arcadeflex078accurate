@@ -156,7 +156,7 @@ public class trackfld
 				code, color,
 				flipx, flipy,
 				sx, sy,
-				&Machine->visible_area,
+				Machine->visible_area,
 				TRANSPARENCY_COLOR, 0);
 	
 			/* redraw with wraparound */
@@ -164,7 +164,7 @@ public class trackfld
 				code, color,
 				flipx, flipy,
 				sx - 256, sy,
-				&Machine->visible_area,
+				Machine->visible_area,
 				TRANSPARENCY_COLOR, 0);
 		}
 	}
@@ -179,7 +179,7 @@ public class trackfld
 			tilemap_set_scrollx(bg_tilemap, row, scrollx);
 		}
 	
-		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
 		trackfld_draw_sprites(bitmap);
 	} };
 }

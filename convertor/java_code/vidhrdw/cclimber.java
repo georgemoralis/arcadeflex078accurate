@@ -420,7 +420,7 @@ public class cclimber
 				}
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,&Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -456,7 +456,7 @@ public class cclimber
 					spriteram.read(offs + 1)& 0x0f,
 					flipx,flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	
@@ -537,7 +537,7 @@ public class cclimber
 					scroll[offs] = -cclimber_column_scroll[offs];
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,&Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap,0,0,32,scroll,Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	
@@ -573,7 +573,7 @@ public class cclimber
 					(spriteram.read(offs + 1)& 0x0f) + 0x10 * palettebank,
 					flipx,flipy,
 					sx,sy,
-					&Machine->visible_area,TRANSPARENCY_PEN,0);
+					Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	
 	

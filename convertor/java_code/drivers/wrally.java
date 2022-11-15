@@ -222,7 +222,7 @@ public class wrally
 	
 	static GfxDecodeInfo wrally_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &wrally_tilelayout16, 0, 64*8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, wrally_tilelayout16, 0, 64*8 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

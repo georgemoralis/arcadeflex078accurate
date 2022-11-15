@@ -260,9 +260,9 @@ public class lemmings
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &sprite_layout,  32*16, 16 ),	/* Sprites 16x16 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout,  48*16, 16 ),	/* Sprites 16x16 */
-		new GfxDecodeInfo( 0,           0, &charlayout,         0, 16 ), /* Dynamically modified */
+		new GfxDecodeInfo( REGION_GFX1, 0, sprite_layout,  32*16, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, sprite_layout,  48*16, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( 0,           0, charlayout,         0, 16 ), /* Dynamically modified */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -122,7 +122,7 @@ public class grobda
 							color,
 							flipx, flipy,
 							sx+x*16,sy+y*16,
-							&Machine->visible_area,
+							Machine->visible_area,
 							TRANSPARENCY_PEN,0);
 					}
 				}
@@ -177,11 +177,11 @@ public class grobda
 						colorram.read(offs)& 0x3f,
 						flip_screen(),flip_screen(),
 						sx*8,sy*8,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 	        }
 		}
 	
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 		grobda_draw_sprites(bitmap);
 	} };

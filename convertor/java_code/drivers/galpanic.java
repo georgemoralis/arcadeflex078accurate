@@ -859,7 +859,7 @@ public class galpanic
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,  256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout,  256, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

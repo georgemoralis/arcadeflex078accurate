@@ -59,7 +59,7 @@ public class gaelco2
 	
 	#define GFXDECODEINFO(NUM,ENTRIES) static GfxDecodeInfo gfxdecodeinfo_##NUM[] =\
 	{																						\
-		new GfxDecodeInfo( REGION_GFX1, 0x0000000, &tilelayout16_##NUM,0,	ENTRIES ),						\
+		new GfxDecodeInfo( REGION_GFX1, 0x0000000, tilelayout16_##NUM,0,	ENTRIES ),						\
 		new GfxDecodeInfo( -1 )																				\
 	}
 	

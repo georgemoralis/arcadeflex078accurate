@@ -627,21 +627,21 @@ public class bbusters
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 512, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &tilelayout,   768, 16 ),
-		new GfxDecodeInfo( REGION_GFX5, 0, &tilelayout,  1024+256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, tilelayout,   768, 16 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, tilelayout,  1024+256, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_mechatt[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 512, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &tilelayout,   512, 16 ),
-		new GfxDecodeInfo( REGION_GFX5, 0, &tilelayout,   768, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, tilelayout,   512, 16 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, tilelayout,   768, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -222,7 +222,7 @@ public class tehkanwc
 		new Memory_ReadAddress( 0xec00, 0xec01, MRA_RAM ),
 		new Memory_ReadAddress( 0xec02, 0xec02, MRA_RAM ),
 		new Memory_ReadAddress( 0xf800, 0xf801, tehkanwc_track_0_r ), /* track 0 x/y */
-		new Memory_ReadAddress( 0xf802, 0xf802, input_port_9_r ), /* Coin & Start */
+		new Memory_ReadAddress( 0xf802, 0xf802, input_port_9_r ), /* Coin  Start */
 		new Memory_ReadAddress( 0xf803, 0xf803, input_port_5_r ), /* joy0 - button */
 		new Memory_ReadAddress( 0xf810, 0xf811, tehkanwc_track_1_r ), /* track 1 x/y */
 		new Memory_ReadAddress( 0xf813, 0xf813, input_port_8_r ), /* joy1 - button */
@@ -238,13 +238,13 @@ public class tehkanwc
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, shared_w, &shared_ram ),
-		new Memory_WriteAddress( 0xd000, 0xd3ff, tehkanwc_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xd400, 0xd7ff, tehkanwc_colorram_w, &colorram ),
-		new Memory_WriteAddress( 0xd800, 0xddff, paletteram_xxxxBBBBGGGGRRRR_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, shared_w, shared_ram ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, tehkanwc_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xd400, 0xd7ff, tehkanwc_colorram_w, colorram ),
+		new Memory_WriteAddress( 0xd800, 0xddff, paletteram_xxxxBBBBGGGGRRRR_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xde00, 0xdfff, MWA_RAM ),	/* unused part of the palette RAM, I think? Gridiron uses it */
-		new Memory_WriteAddress( 0xe000, 0xe7ff, tehkanwc_videoram2_w, &tehkanwc_videoram2 ),
-		new Memory_WriteAddress( 0xe800, 0xebff, spriteram_w, &spriteram, &spriteram_size ), /* sprites */
+		new Memory_WriteAddress( 0xe000, 0xe7ff, tehkanwc_videoram2_w, tehkanwc_videoram2 ),
+		new Memory_WriteAddress( 0xe800, 0xebff, spriteram_w, spriteram, spriteram_size ), /* sprites */
 		new Memory_WriteAddress( 0xec00, 0xec01, tehkanwc_scroll_x_w ),
 		new Memory_WriteAddress( 0xec02, 0xec02, tehkanwc_scroll_y_w ),
 		new Memory_WriteAddress( 0xf800, 0xf801, tehkanwc_track_0_reset_w ),
@@ -273,7 +273,7 @@ public class tehkanwc
 		new Memory_ReadAddress( 0xec00, 0xec01, MRA_RAM ),
 		new Memory_ReadAddress( 0xec02, 0xec02, MRA_RAM ),
 		new Memory_ReadAddress( 0xf800, 0xf801, tehkanwc_track_0_r ), /* track 0 x/y */
-		new Memory_ReadAddress( 0xf802, 0xf802, input_port_9_r ), /* Coin & Start */
+		new Memory_ReadAddress( 0xf802, 0xf802, input_port_9_r ), /* Coin  Start */
 		new Memory_ReadAddress( 0xf803, 0xf803, input_port_5_r ), /* joy0 - button */
 		new Memory_ReadAddress( 0xf810, 0xf811, tehkanwc_track_1_r ), /* track 1 x/y */
 		new Memory_ReadAddress( 0xf813, 0xf813, input_port_8_r ), /* joy1 - button */
@@ -289,13 +289,13 @@ public class tehkanwc
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, shared_w, &shared_ram ),
-		new Memory_WriteAddress( 0xd000, 0xd3ff, tehkanwc_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xd400, 0xd7ff, tehkanwc_colorram_w, &colorram ),
-		new Memory_WriteAddress( 0xd800, 0xddff, paletteram_xxxxBBBBGGGGRRRR_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, shared_w, shared_ram ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, tehkanwc_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xd400, 0xd7ff, tehkanwc_colorram_w, colorram ),
+		new Memory_WriteAddress( 0xd800, 0xddff, paletteram_xxxxBBBBGGGGRRRR_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xde00, 0xdfff, MWA_RAM ),	/* unused part of the palette RAM, I think? Gridiron uses it */
-		new Memory_WriteAddress( 0xe000, 0xe7ff, tehkanwc_videoram2_w, &tehkanwc_videoram2 ),
-		new Memory_WriteAddress( 0xe800, 0xebff, spriteram_w, &spriteram, &spriteram_size ), /* sprites */
+		new Memory_WriteAddress( 0xe000, 0xe7ff, tehkanwc_videoram2_w, tehkanwc_videoram2 ),
+		new Memory_WriteAddress( 0xe800, 0xebff, spriteram_w, spriteram, spriteram_size ), /* sprites */
 		new Memory_WriteAddress( 0xec00, 0xec01, tehkanwc_scroll_x_w ),
 		new Memory_WriteAddress( 0xec02, 0xec02, tehkanwc_scroll_y_w ),
 		new Memory_WriteAddress( 0xf800, 0xf801, tehkanwc_track_0_reset_w ),
@@ -340,13 +340,13 @@ public class tehkanwc
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, shared_w, &shared_ram ),
-		new Memory_WriteAddress( 0xd000, 0xd3ff, tehkanwc_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0xd400, 0xd7ff, tehkanwc_colorram_w, &colorram ),
-		new Memory_WriteAddress( 0xd800, 0xddff, paletteram_xxxxBBBBGGGGRRRR_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, shared_w, shared_ram ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, tehkanwc_videoram_w, videoram ),
+		new Memory_WriteAddress( 0xd400, 0xd7ff, tehkanwc_colorram_w, colorram ),
+		new Memory_WriteAddress( 0xd800, 0xddff, paletteram_xxxxBBBBGGGGRRRR_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xde00, 0xdfff, MWA_RAM ),	/* unused part of the palette RAM, I think? Gridiron uses it */
-		new Memory_WriteAddress( 0xe000, 0xe7ff, tehkanwc_videoram2_w, &tehkanwc_videoram2 ),
-		new Memory_WriteAddress( 0xe800, 0xebff, spriteram_w, &spriteram, &spriteram_size ), /* sprites */
+		new Memory_WriteAddress( 0xe000, 0xe7ff, tehkanwc_videoram2_w, tehkanwc_videoram2 ),
+		new Memory_WriteAddress( 0xe800, 0xebff, spriteram_w, spriteram, spriteram_size ), /* sprites */
 		new Memory_WriteAddress( 0xec00, 0xec01, tehkanwc_scroll_x_w ),
 		new Memory_WriteAddress( 0xec02, 0xec02, tehkanwc_scroll_y_w ),
 		new Memory_WriteAddress( 0xf800, 0xf801, tehkanwc_track_0_reset_w ),
@@ -385,7 +385,7 @@ public class tehkanwc
 		new Memory_WriteAddress( 0xc800, 0xcfff, shared_w ),
 		new Memory_WriteAddress( 0xd000, 0xd3ff, tehkanwc_videoram_w ),
 		new Memory_WriteAddress( 0xd400, 0xd7ff, tehkanwc_colorram_w ),
-		new Memory_WriteAddress( 0xd800, 0xddff, paletteram_xxxxBBBBGGGGRRRR_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xd800, 0xddff, paletteram_xxxxBBBBGGGGRRRR_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xde00, 0xdfff, MWA_RAM ),	/* unused part of the palette RAM, I think? Gridiron uses it */
 		new Memory_WriteAddress( 0xe000, 0xe7ff, tehkanwc_videoram2_w ),
 		new Memory_WriteAddress( 0xe800, 0xebff, spriteram_w ), /* sprites */
@@ -766,9 +766,9 @@ public class tehkanwc
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 16 ), /* Colors 0 - 255 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 256,  8 ), /* Colors 256 - 383 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,   512, 16 ), /* Colors 512 - 767 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 16 ), /* Colors 0 - 255 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 256,  8 ), /* Colors 256 - 383 */
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout,   512, 16 ), /* Colors 512 - 767 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

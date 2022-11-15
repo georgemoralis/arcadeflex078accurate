@@ -168,7 +168,7 @@ public class ladybug
 								spriteram.read(offs + i)& 0x20,spriteram.read(offs + i)& 0x10,
 								spriteram.read(offs + i + 3),
 								offs / 4 - 8 + (spriteram.read(offs + i)& 0x0f),
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 					else	/* 8x8 */
 						drawgfx(bitmap,Machine->gfx[2],
 								spriteram.read(offs + i + 1)+ 4 * (spriteram.read(offs + i + 2)& 0x10),
@@ -176,7 +176,7 @@ public class ladybug
 								spriteram.read(offs + i)& 0x20,spriteram.read(offs + i)& 0x10,
 								spriteram.read(offs + i + 3),
 								offs / 4 + (spriteram.read(offs + i)& 0x0f),
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 				}
 			}
 		}
@@ -196,7 +196,7 @@ public class ladybug
 				tilemap_set_scrollx(bg_tilemap, offs, videoram.read(32 * sx + sy));
 		}
 	
-		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
 		ladybug_draw_sprites(bitmap);
 	} };
 }

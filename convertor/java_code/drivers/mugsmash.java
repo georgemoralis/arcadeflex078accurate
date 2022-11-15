@@ -420,8 +420,8 @@ public class mugsmash
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &mugsmash_layout,   0x00, 16  ), /* sprites */
-		new GfxDecodeInfo( REGION_GFX2, 0, &mugsmash2_layout,  0x100, 256  ), /* bg tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, mugsmash_layout,   0x00, 16  ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0, mugsmash2_layout,  0x100, 256  ), /* bg tiles */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -294,9 +294,9 @@ public class funkyjet
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  256, 32 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout, 256, 32 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout,   0, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  256, 32 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, tile_layout, 256, 32 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_layout,   0, 16 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

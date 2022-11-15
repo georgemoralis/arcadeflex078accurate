@@ -386,7 +386,7 @@ public class hyhoo
 	
 		if (hyhoo_dispflag)
 		{
-			copyscrollbitmap(bitmap, hyhoo_tmpbitmap, 0, 0, 1, &hyhoo_scrolly, &Machine->visible_area, TRANSPARENCY_NONE, 0);
+			copyscrollbitmap(bitmap, hyhoo_tmpbitmap, 0, 0, 1, &hyhoo_scrolly, Machine->visible_area, TRANSPARENCY_NONE, 0);
 		}
 		else
 		{

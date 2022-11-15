@@ -260,9 +260,9 @@ public class stadhero
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 16 ),	/* Characters 8x8 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tile_3bpp,    512, 16 ),	/* Tiles 16x16 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 256, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 16 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tile_3bpp,    512, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout, 256, 16 ),	/* Sprites 16x16 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

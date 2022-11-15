@@ -775,7 +775,7 @@ public class atarisy1
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &anlayout,       0, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, anlayout,       0, 64 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

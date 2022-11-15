@@ -1359,7 +1359,7 @@ public class cave
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM					),	// ROM
 		new Memory_WriteAddress( 0x4000, 0x7fff, MWA_ROM					),	// ROM (Banked)
-		new Memory_WriteAddress( 0xc000, 0xdfff, mirror_ram_w, &mirror_ram	),	// RAM
+		new Memory_WriteAddress( 0xc000, 0xdfff, mirror_ram_w, mirror_ram	),	// RAM
 		new Memory_WriteAddress( 0xe000, 0xffff, mirror_ram_w				),	// Mirrored RAM (agallet)
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -1794,8 +1794,8 @@ public class cave
 		   A vh_init_palette function is thus needed for sprites */
 	
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	0x4400, 0x40 ), // [0] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x4,	0x4400, 0x40 ), // [1] Layer 1
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	0x4400, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x4,	0x4400, 0x40 ), // [1] Layer 1
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1805,16 +1805,16 @@ public class cave
 	
 	static GfxDecodeInfo ddonpach_gfxdecodeinfo[] =
 	{
-		/* Layers 0&1 are 4 bit deep and use the first 16 of every 256
+		/* Layers 01 are 4 bit deep and use the first 16 of every 256
 		   colors for any given color code (a vh_init_palette function
 		   is provided for these layers, filling the 8000-83ff entries
 		   in the color table). Layer 2 uses the whole 256 for any given
 		   color code and the 4000-7fff range in the color table.	*/
 	
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	0x8000, 0x40 ), // [0] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x4,	0x8000, 0x40 ), // [1] Layer 1
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x8,	0x4000, 0x40 ), // [2] Layer 2
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	0x8000, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x4,	0x8000, 0x40 ), // [1] Layer 1
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x8,	0x4000, 0x40 ), // [2] Layer 2
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1830,9 +1830,9 @@ public class cave
 		   A vh_init_palette function is thus needed for sprites */
 	
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	0x4400, 0x40 ), // [0] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x4,	0x4400, 0x40 ), // [1] Layer 1
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x4,	0x4400, 0x40 ), // [2] Layer 2
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	0x4400, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x4,	0x4400, 0x40 ), // [1] Layer 1
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x4,	0x4400, 0x40 ), // [2] Layer 2
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1843,9 +1843,9 @@ public class cave
 	static GfxDecodeInfo esprade_gfxdecodeinfo[] =
 	{
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x8,	0x4000, 0x40 ), // [0] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x8,	0x4000, 0x40 ), // [1] Layer 1
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x8,	0x4000, 0x40 ), // [2] Layer 2
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x8,	0x4000, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x8,	0x4000, 0x40 ), // [1] Layer 1
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x8,	0x4000, 0x40 ), // [2] Layer 2
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1861,9 +1861,9 @@ public class cave
 		   A vh_init_palette function is needed for sprites */
 	
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	0x4000, 0x40 ), // [0] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x4,	0x4000, 0x40 ), // [1] Layer 1
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x4,	0x4000, 0x40 ), // [2] Layer 2
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	0x4000, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x4,	0x4000, 0x40 ), // [1] Layer 1
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x4,	0x4000, 0x40 ), // [2] Layer 2
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1882,8 +1882,8 @@ public class cave
 			A vh_init_palette is thus needed for sprites and layer 0.	*/
 	
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	0x4000, 0x40 ), // [0] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x6,	0x4400, 0x40 ), // [1] Layer 1
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	0x4000, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x6,	0x4400, 0x40 ), // [1] Layer 1
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1895,10 +1895,10 @@ public class cave
 	static GfxDecodeInfo pwrinst2_gfxdecodeinfo[] =
 	{
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	0x0800+0x8000, 0x40 ), // [0] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x4,	0x1000+0x8000, 0x40 ), // [1] Layer 1
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x4,	0x1800+0x8000, 0x40 ), // [2] Layer 2
-		new GfxDecodeInfo( REGION_GFX5, 0, &layout_8x8x4,	0x2000+0x8000, 0x40 ), // [3] Layer 3
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	0x0800+0x8000, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x4,	0x1000+0x8000, 0x40 ), // [1] Layer 1
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x4,	0x1800+0x8000, 0x40 ), // [2] Layer 2
+		new GfxDecodeInfo( REGION_GFX5, 0, layout_8x8x4,	0x2000+0x8000, 0x40 ), // [3] Layer 3
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1911,9 +1911,9 @@ public class cave
 	{
 		/* 4 bit sprites ? */
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,	0x4400, 0x40 ), // [0] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x4,	0x4800, 0x40 ), // [1] Layer 1
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x6_2,	0x4c00, 0x40 ), // [2] Layer 2
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x4,	0x4400, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_8x8x4,	0x4800, 0x40 ), // [1] Layer 1
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x6_2,	0x4c00, 0x40 ), // [2] Layer 2
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -1925,7 +1925,7 @@ public class cave
 	static GfxDecodeInfo uopoko_gfxdecodeinfo[] =
 	{
 	//    REGION_GFX1										// Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x8,	0x4000, 0x40 ), // [0] Layer 0
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_8x8x8,	0x4000, 0x40 ), // [0] Layer 0
 		new GfxDecodeInfo( -1 )
 	};
 	

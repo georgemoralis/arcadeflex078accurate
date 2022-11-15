@@ -617,7 +617,7 @@ public class taito_l
 	public static Memory_WriteAddress fhawk_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		COMMON_BANKS_WRITE,
-		new Memory_WriteAddress( 0x8000, 0x9fff, MWA_RAM, &shared_ram ),
+		new Memory_WriteAddress( 0x8000, 0x9fff, MWA_RAM, shared_ram ),
 		new Memory_WriteAddress( 0xa000, 0xbfff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -686,7 +686,7 @@ public class taito_l
 	public static Memory_WriteAddress raimais_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		COMMON_BANKS_WRITE,
-		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM, &shared_ram ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM, shared_ram ),
 		new Memory_WriteAddress( 0x8800, 0x8800, mux_w ),
 		new Memory_WriteAddress( 0x8801, 0x8801, mux_ctrl_w ),
 		new Memory_WriteAddress( 0x8c00, 0x8c00, taitosound_port_w ),
@@ -764,7 +764,7 @@ public class taito_l
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		COMMON_BANKS_WRITE,
 		new Memory_WriteAddress( 0x8000, 0x9fff, MWA_RAM ),
-		new Memory_WriteAddress( 0xa000, 0xbfff, MWA_RAM, &shared_ram ),
+		new Memory_WriteAddress( 0xa000, 0xbfff, MWA_RAM, shared_ram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -839,7 +839,7 @@ public class taito_l
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		COMMON_BANKS_WRITE,
 		new Memory_WriteAddress( 0x8000, 0x9fff, MWA_RAM ),
-		new Memory_WriteAddress( 0xa000, 0xa7ff, MWA_RAM, &shared_ram ),
+		new Memory_WriteAddress( 0xa000, 0xa7ff, MWA_RAM, shared_ram ),
 		new Memory_WriteAddress( 0xa800, 0xa800, mux_w ),
 		new Memory_WriteAddress( 0xa801, 0xa801, mux_ctrl_w ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -1010,7 +1010,7 @@ public class taito_l
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		COMMON_BANKS_WRITE,
 		new Memory_WriteAddress( 0x8000, 0x9fff, MWA_RAM ),
-		new Memory_WriteAddress( 0xa000, 0xa7ff, MWA_RAM,&shared_ram),//shared2_w },
+		new Memory_WriteAddress( 0xa000, 0xa7ff, MWA_RAM,shared_ram),//shared2_w },
 		{ 0xa800, 0xa800, MWA_RAM },//watchdog ?
 		{ 0xa804, 0xa804, MWA_RAM}, //coin couters/locks ?
 	
@@ -2137,17 +2137,17 @@ public class taito_l
 	
 	static GfxDecodeInfo gfxdecodeinfo1[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &bg1_layout, 0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &sp1_layout, 0, 16 ),
-		new GfxDecodeInfo( 0,           0, &char_layout,  0, 16 ),  // Ram-based
+		new GfxDecodeInfo( REGION_GFX1, 0, bg1_layout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, sp1_layout, 0, 16 ),
+		new GfxDecodeInfo( 0,           0, char_layout,  0, 16 ),  // Ram-based
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo2[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &bg2_layout, 0, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &sp2_layout, 0, 16 ),
-		new GfxDecodeInfo( 0,           0, &char_layout,  0, 16 ),  // Ram-based
+		new GfxDecodeInfo( REGION_GFX1, 0, bg2_layout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, sp2_layout, 0, 16 ),
+		new GfxDecodeInfo( 0,           0, char_layout,  0, 16 ),  // Ram-based
 		new GfxDecodeInfo( -1 )
 	};
 	

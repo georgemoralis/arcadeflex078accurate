@@ -574,7 +574,7 @@ public class suna16
 	
 	static GfxDecodeInfo suna16_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x4, 0, 16*2 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_8x8x4, 0, 16*2 ), // [0] Sprites
 		new GfxDecodeInfo( -1 )
 	};
 	

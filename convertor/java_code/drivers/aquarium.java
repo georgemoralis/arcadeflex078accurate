@@ -320,10 +320,10 @@ public class aquarium
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,       0x300, 32 ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &char5bpplayout,   0x400, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &char_8x8_layout,  0x200, 32 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &char5bpplayout,   0x400, 32 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout,       0x300, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, char5bpplayout,   0x400, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, char_8x8_layout,  0x200, 32 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, char5bpplayout,   0x400, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

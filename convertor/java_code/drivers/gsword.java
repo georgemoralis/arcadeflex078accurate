@@ -285,13 +285,13 @@ public class gsword
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x8fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x9000, 0x9fff, MWA_RAM ),
-		new Memory_WriteAddress( 0xa380, 0xa3ff, MWA_RAM, &gsword_spritetile_ram ),
-		new Memory_WriteAddress( 0xa780, 0xa7ff, MWA_RAM, &gsword_spritexy_ram, &gsword_spritexy_size ),
+		new Memory_WriteAddress( 0xa380, 0xa3ff, MWA_RAM, gsword_spritetile_ram ),
+		new Memory_WriteAddress( 0xa780, 0xa7ff, MWA_RAM, gsword_spritexy_ram, gsword_spritexy_size ),
 		new Memory_WriteAddress( 0xa980, 0xa980, gsword_charbank_w ),
 		new Memory_WriteAddress( 0xaa80, 0xaa80, gsword_videoctrl_w ),	/* flip screen, char palette bank */
 		new Memory_WriteAddress( 0xab00, 0xab00, gsword_scroll_w ),
-		new Memory_WriteAddress( 0xab80, 0xabff, MWA_RAM, &gsword_spriteattrib_ram ),
-		new Memory_WriteAddress( 0xb000, 0xb7ff, gsword_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0xab80, 0xabff, MWA_RAM, gsword_spriteattrib_ram ),
+		new Memory_WriteAddress( 0xb000, 0xb7ff, gsword_videoram_w, videoram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -556,9 +556,9 @@ public class gsword
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &gsword_text,         0, 64 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &gsword_sprites1,  64*4, 64 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &gsword_sprites2,  64*4, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, gsword_text,         0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, gsword_sprites1,  64*4, 64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, gsword_sprites2,  64*4, 64 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

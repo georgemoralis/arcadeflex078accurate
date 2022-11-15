@@ -188,16 +188,16 @@ public class vball
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0800, 0x08ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0x0800, 0x08ff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0x1008, 0x1008, vb_scrollx_hi_w ),
 		new Memory_WriteAddress( 0x1009, 0x1009, vb_bankswitch_w ),
 		new Memory_WriteAddress( 0x100a, 0x100a, MWA_RAM ),
 		new Memory_WriteAddress( 0x100b, 0x100b, MWA_RAM ),		//Counts from 0 to 7 continuously
 		new Memory_WriteAddress( 0x100c, 0x100c, vb_scrollx_lo_w ),
 		new Memory_WriteAddress( 0x100d, 0x100d, cpu_sound_command_w ),
-		new Memory_WriteAddress( 0x100e, 0x100e, MWA_RAM, &vb_scrolly_lo ),
-		new Memory_WriteAddress( 0x2000, 0x2fff, vb_videoram_w, &vb_videoram ),
-		new Memory_WriteAddress( 0x3000, 0x3fff, vb_attrib_w, &vb_attribram ),
+		new Memory_WriteAddress( 0x100e, 0x100e, MWA_RAM, vb_scrolly_lo ),
+		new Memory_WriteAddress( 0x2000, 0x2fff, vb_videoram_w, vb_videoram ),
+		new Memory_WriteAddress( 0x3000, 0x3fff, vb_attrib_w, vb_attribram ),
 		new Memory_WriteAddress( 0x4000, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -374,8 +374,8 @@ public class vball
 	
 	static GfxDecodeInfo vb_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 8 ),	/* 8x8 chars */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 128, 8 ),	/* 16x16 sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 8 ),	/* 8x8 chars */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 128, 8 ),	/* 16x16 sprites */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

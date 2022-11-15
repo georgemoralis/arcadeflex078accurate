@@ -451,7 +451,7 @@ public class galpani2
 	
 	static GfxDecodeInfo galpani2_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8,	0,	0x40	), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x8,	0,	0x40	), // [0] Sprites
 		new GfxDecodeInfo( -1 )
 	};
 	

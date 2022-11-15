@@ -323,7 +323,7 @@ public class popeye
 	
 		if (popeye_background_pos[1] == 0)	/* no background */
 		{
-			fillbitmap(bitmap,Machine->pens[0],&Machine->visible_area);
+			fillbitmap(bitmap,Machine->pens[0],Machine->visible_area);
 		}
 		else
 		{
@@ -341,7 +341,7 @@ public class popeye
 				scrolly = -scrolly;
 			}
 	
-			copyscrollbitmap(bitmap,tmpbitmap2,1,&scrollx,1,&scrolly,&Machine->visible_area,TRANSPARENCY_NONE,0);
+			copyscrollbitmap(bitmap,tmpbitmap2,1,&scrollx,1,&scrolly,Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	}
 	
@@ -394,13 +394,13 @@ public class popeye
 						color,
 						flipx,flipy,
 						sx,sy,
-						&Machine->visible_area,TRANSPARENCY_PEN,0);
+						Machine->visible_area,TRANSPARENCY_PEN,0);
 		}
 	}
 	
 	public static VideoUpdateHandlerPtr video_update_popeye  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		popeye_draw_background(bitmap);
 		popeye_draw_sprites(bitmap);
-		tilemap_draw(bitmap, &Machine->visible_area, fg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, fg_tilemap, 0, 0);
 	} };
 }

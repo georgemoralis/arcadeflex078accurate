@@ -262,8 +262,8 @@ public class shuuz
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pfmolayout,  256, 16 ),		/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX2, 0, &pfmolayout,    0, 16 ),		/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, pfmolayout,  256, 16 ),		/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, pfmolayout,    0, 16 ),		/* sprites  playfield */
 		new GfxDecodeInfo( -1 )
 	};
 	

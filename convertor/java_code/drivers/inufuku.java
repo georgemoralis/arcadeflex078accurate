@@ -368,9 +368,9 @@ public class inufuku
 	
 	static GfxDecodeInfo inufuku_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,    0, 256*16 ),	// bg
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,    0, 256*16 ),	// text
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,  0, 256*16 ),	// sprite
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,    0, 256*16 ),	// bg
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,    0, 256*16 ),	// text
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout,  0, 256*16 ),	// sprite
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

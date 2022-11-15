@@ -128,7 +128,7 @@ public class ikki
 				col,
 				f,f,
 				px,py,
-				&Machine->visible_area,TRANSPARENCY_NONE,0);
+				Machine->visible_area,TRANSPARENCY_NONE,0);
 		}
 	
 	/* draw sprites */
@@ -165,10 +165,10 @@ public class ikki
 				col,
 				f,f,
 				px,py,
-				&Machine->visible_area,TRANSPARENCY_COLOR,0);
+				Machine->visible_area,TRANSPARENCY_COLOR,0);
 		}
 	
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_COLOR,256);
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_COLOR,256);
 	
 	
 		/* mask sprites */
@@ -202,7 +202,7 @@ public class ikki
 					col,
 					f,f,
 					px,py,
-					&Machine->visible_area,TRANSPARENCY_NONE,0);
+					Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	

@@ -164,8 +164,8 @@ public class psikyosh
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0x000, 0x100 ), // 4bpp tiles
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8, 0x000, 0x100 ), // 8bpp tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4, 0x000, 0x100 ), // 4bpp tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x8, 0x000, 0x100 ), // 8bpp tiles
 		new GfxDecodeInfo( -1 )
 	};
 	

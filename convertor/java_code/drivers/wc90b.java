@@ -131,8 +131,8 @@ public class wc90b
 		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ), /* tx video ram */
 		new Memory_ReadAddress( 0xf000, 0xf7ff, MRA_BANK1 ),
 		new Memory_ReadAddress( 0xf800, 0xfbff, wc90b_shared_r ),
-		new Memory_ReadAddress( 0xfd00, 0xfd00, input_port_0_r ), /* Stick 1, Coin 1 & Start 1 */
-		new Memory_ReadAddress( 0xfd02, 0xfd02, input_port_1_r ), /* Stick 2, Coin 2 & Start 2 */
+		new Memory_ReadAddress( 0xfd00, 0xfd00, input_port_0_r ), /* Stick 1, Coin 1  Start 1 */
+		new Memory_ReadAddress( 0xfd02, 0xfd02, input_port_1_r ), /* Stick 2, Coin 2  Start 2 */
 		new Memory_ReadAddress( 0xfd06, 0xfd06, input_port_2_r ), /* DIP Switch A */
 		new Memory_ReadAddress( 0xfd08, 0xfd08, input_port_3_r ), /* DIP Switch B */
 		new Memory_ReadAddress( 0xfd00, 0xffff, MRA_RAM ),
@@ -156,17 +156,17 @@ public class wc90b
 		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x8000, 0x8075, MWA_RAM ),
 		new Memory_WriteAddress( 0x807e, 0x9fff, MWA_RAM ),
-		new Memory_WriteAddress( 0xa000, 0xafff, wc90b_fgvideoram_w, &wc90b_fgvideoram ),
-		new Memory_WriteAddress( 0xc000, 0xcfff, wc90b_bgvideoram_w, &wc90b_bgvideoram ),
-		new Memory_WriteAddress( 0xe000, 0xefff, wc90b_txvideoram_w, &wc90b_txvideoram ),
+		new Memory_WriteAddress( 0xa000, 0xafff, wc90b_fgvideoram_w, wc90b_fgvideoram ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, wc90b_bgvideoram_w, wc90b_bgvideoram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, wc90b_txvideoram_w, wc90b_txvideoram ),
 		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_ROM ),
-		new Memory_WriteAddress( 0xf800, 0xfbff, wc90b_shared_w, &wc90b_shared ),
+		new Memory_WriteAddress( 0xf800, 0xfbff, wc90b_shared_w, wc90b_shared ),
 		new Memory_WriteAddress( 0xfc00, 0xfc00, wc90b_bankswitch_w ),
 		new Memory_WriteAddress( 0xfd00, 0xfd00, wc90b_sound_command_w ),
-		new Memory_WriteAddress( 0xfd04, 0xfd04, MWA_RAM, &wc90b_scroll1y ),
-		new Memory_WriteAddress( 0xfd06, 0xfd06, MWA_RAM, &wc90b_scroll1x ),
-		new Memory_WriteAddress( 0xfd08, 0xfd08, MWA_RAM, &wc90b_scroll2y ),
-		new Memory_WriteAddress( 0xfd0a, 0xfd0a, MWA_RAM, &wc90b_scroll2x ),
+		new Memory_WriteAddress( 0xfd04, 0xfd04, MWA_RAM, wc90b_scroll1y ),
+		new Memory_WriteAddress( 0xfd06, 0xfd06, MWA_RAM, wc90b_scroll1x ),
+		new Memory_WriteAddress( 0xfd08, 0xfd08, MWA_RAM, wc90b_scroll2y ),
+		new Memory_WriteAddress( 0xfd0a, 0xfd0a, MWA_RAM, wc90b_scroll2x ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -174,8 +174,8 @@ public class wc90b
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd000, 0xd7ff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, paletteram_xxxxBBBBGGGGRRRR_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, paletteram_xxxxBBBBGGGGRRRR_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xe800, 0xefff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf800, 0xfbff, wc90b_shared_w ),
@@ -326,24 +326,24 @@ public class wc90b
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout,      	1*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &tilelayout,			2*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x02000, &tilelayout,			2*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x04000, &tilelayout,			2*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x06000, &tilelayout,			2*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x08000, &tilelayout,			2*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0a000, &tilelayout,			2*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0c000, &tilelayout,			2*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x0e000, &tilelayout,			2*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x10000, &tilelayout,			3*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x12000, &tilelayout,			3*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x14000, &tilelayout,			3*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x16000, &tilelayout,			3*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x18000, &tilelayout,			3*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x1a000, &tilelayout,			3*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x1c000, &tilelayout,			3*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x1e000, &tilelayout,			3*16*16, 16*16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &spritelayout,		0*16*16, 16*16 ), // sprites
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout,      	1*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, tilelayout,			2*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x02000, tilelayout,			2*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x04000, tilelayout,			2*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x06000, tilelayout,			2*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x08000, tilelayout,			2*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0a000, tilelayout,			2*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0c000, tilelayout,			2*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0e000, tilelayout,			2*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x10000, tilelayout,			3*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x12000, tilelayout,			3*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x14000, tilelayout,			3*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x16000, tilelayout,			3*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x18000, tilelayout,			3*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x1a000, tilelayout,			3*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x1c000, tilelayout,			3*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x1e000, tilelayout,			3*16*16, 16*16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, spritelayout,		0*16*16, 16*16 ), // sprites
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

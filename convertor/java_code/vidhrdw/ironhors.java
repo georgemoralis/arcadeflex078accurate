@@ -207,7 +207,7 @@ public class ironhors
 							color,
 							flipx,flipy,
 							sx,sy,
-							&Machine->visible_area,TRANSPARENCY_PEN,0);
+							Machine->visible_area,TRANSPARENCY_PEN,0);
 					break;
 	
 				case 0x04:	/* 16x8 */
@@ -219,13 +219,13 @@ public class ironhors
 								color,
 								flipx,flipy,
 								flipx?sx+8:sx,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						drawgfx(bitmap,Machine->gfx[2],
 								code | 1,
 								color,
 								flipx,flipy,
 								flipx?sx:sx+8,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 					}
 					break;
 	
@@ -236,13 +236,13 @@ public class ironhors
 								color,
 								flipx,flipy,
 								sx,flipy?sy+8:sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 						drawgfx(bitmap,Machine->gfx[2],
 								code | 2,
 								color,
 								flipx,flipy,
 								sx,flipy?sy:sy+8,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 					}
 					break;
 	
@@ -253,7 +253,7 @@ public class ironhors
 								color,
 								flipx,flipy,
 								sx,sy,
-								&Machine->visible_area,TRANSPARENCY_PEN,0);
+								Machine->visible_area,TRANSPARENCY_PEN,0);
 					}
 					break;
 			}
@@ -266,7 +266,7 @@ public class ironhors
 		for (row = 0; row < 32; row++)
 			tilemap_set_scrollx(bg_tilemap, row, ironhors_scroll[row]);
 	
-		tilemap_draw(bitmap, &Machine->visible_area, bg_tilemap, 0, 0);
+		tilemap_draw(bitmap, Machine->visible_area, bg_tilemap, 0, 0);
 		ironhors_draw_sprites(bitmap);
 	} };
 }

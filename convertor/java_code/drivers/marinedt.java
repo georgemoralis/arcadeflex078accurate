@@ -118,7 +118,7 @@ public class marinedt
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x37ff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x4800, 0x4bff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x4800, 0x4bff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x4c00, 0x4c00, MWA_NOP ),	//?? maybe off by one error
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -362,9 +362,9 @@ public class marinedt
 	
 	static GfxDecodeInfo marinedt_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &marinedt_charlayout, 0,  4 ),	//really only 1 colour set?
-		new GfxDecodeInfo( REGION_GFX2, 0, &marinedt_objlayout,  48, 4 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &marinedt_objlayout,  32, 4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, marinedt_charlayout, 0,  4 ),	//really only 1 colour set?
+		new GfxDecodeInfo( REGION_GFX2, 0, marinedt_objlayout,  48, 4 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, marinedt_objlayout,  32, 4 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -63,8 +63,8 @@ public class grtwall
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &grtwall_charlayout,   0, 1  ),
-		new GfxDecodeInfo( REGION_GFX1, 0, &grtwall2_charlayout,   0, 1  ),
+		new GfxDecodeInfo( REGION_GFX1, 0, grtwall_charlayout,   0, 1  ),
+		new GfxDecodeInfo( REGION_GFX1, 0, grtwall2_charlayout,   0, 1  ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

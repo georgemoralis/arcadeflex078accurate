@@ -58,7 +58,7 @@ public class ataxx
 		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
 		new Memory_WriteAddress( 0xa000, 0xdfff, ataxx_battery_ram_w ),
 		new Memory_WriteAddress( 0xe000, 0xf7ff, MWA_RAM ),
-		new Memory_WriteAddress( 0xf800, 0xffff, ataxx_paletteram_and_misc_w, &paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, ataxx_paletteram_and_misc_w, paletteram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -341,7 +341,7 @@ public class ataxx
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &bklayout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, bklayout, 0, 1 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

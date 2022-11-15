@@ -83,9 +83,9 @@ public class subs
 		new Memory_WriteAddress( 0x006a, 0x006b, subs_crash_w ),
 		new Memory_WriteAddress( 0x006c, 0x006d, subs_invert1_w ),
 		new Memory_WriteAddress( 0x006e, 0x006f, subs_invert2_w ),
-		new Memory_WriteAddress( 0x0090, 0x009f, spriteram_w, &spriteram ),
+		new Memory_WriteAddress( 0x0090, 0x009f, spriteram_w, spriteram ),
 		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0800, 0x0bff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x0800, 0x0bff, videoram_w, videoram, videoram_size ),
 		new Memory_WriteAddress( 0x2000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -186,8 +186,8 @@ public class subs
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &playfield_layout, 0, 2 ), 	/* playfield graphics */
-		new GfxDecodeInfo( REGION_GFX2, 0, &motion_layout,    0, 2 ), 	/* motion graphics */
+		new GfxDecodeInfo( REGION_GFX1, 0, playfield_layout, 0, 2 ), 	/* playfield graphics */
+		new GfxDecodeInfo( REGION_GFX2, 0, motion_layout,    0, 2 ), 	/* motion graphics */
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -279,15 +279,15 @@ public class iqblock
 	
 	static GfxDecodeInfo gfxdecodeinfo_iqblock[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout1, 0, 16 ),	/* only odd color codes are used */
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout2, 0,  4 ),	/* only color codes 0 and 3 used */
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout1, 0, 16 ),	/* only odd color codes are used */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout2, 0,  4 ),	/* only color codes 0 and 3 used */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_cabaret[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout1, 0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout3, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout1, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout3, 0, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

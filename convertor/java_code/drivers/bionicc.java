@@ -320,10 +320,10 @@ public class bionicc
 	
 	static GfxDecodeInfo gfxdecodeinfo_bionicc[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &vramlayout_bionicc,    768, 64 ),	/* colors 768-1023 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &scroll2layout_bionicc,   0,  4 ),	/* colors   0-  63 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &scroll1layout_bionicc, 256,  4 ),	/* colors 256- 319 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout_bionicc,  512, 16 ),	/* colors 512- 767 */
+		new GfxDecodeInfo( REGION_GFX1, 0, vramlayout_bionicc,    768, 64 ),	/* colors 768-1023 */
+		new GfxDecodeInfo( REGION_GFX2, 0, scroll2layout_bionicc,   0,  4 ),	/* colors   0-  63 */
+		new GfxDecodeInfo( REGION_GFX3, 0, scroll1layout_bionicc, 256,  4 ),	/* colors 256- 319 */
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout_bionicc,  512, 16 ),	/* colors 512- 767 */
 		new GfxDecodeInfo( -1 )
 	};
 	

@@ -270,7 +270,7 @@ public class tecmosys
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tecmosys_charlayout,   0, 1  ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tecmosys_charlayout,   0, 1  ),
 		new GfxDecodeInfo( -1 )
 	};
 	*/

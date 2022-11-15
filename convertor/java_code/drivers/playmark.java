@@ -504,9 +504,9 @@ public class playmark
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 0x200, 16 ),	/* colors 0x200-0x2ff */
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,   0x000,  8 ),	/* colors 0x000-0x07f */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0x080,  8 ),	/* colors 0x080-0x0ff */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 0x200, 16 ),	/* colors 0x200-0x2ff */
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,   0x000,  8 ),	/* colors 0x000-0x07f */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,   0x080,  8 ),	/* colors 0x080-0x0ff */
 		/* background bitmap uses colors 0x100-0x1ff */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
@@ -552,9 +552,9 @@ public class playmark
 	
 	static GfxDecodeInfo wbeachvl_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &wspritelayout, 0x600, 16 ),	/* colors 0x600-0x7ff */
-		new GfxDecodeInfo( REGION_GFX1, 0, &wtilelayout,   0x000, 16 ),	/* colors 0x000-0x3ff */
-		new GfxDecodeInfo( REGION_GFX1, 0, &wcharlayout,   0x400,  8 ),	/* colors 0x400-0x5ff */
+		new GfxDecodeInfo( REGION_GFX1, 0, wspritelayout, 0x600, 16 ),	/* colors 0x600-0x7ff */
+		new GfxDecodeInfo( REGION_GFX1, 0, wtilelayout,   0x000, 16 ),	/* colors 0x000-0x3ff */
+		new GfxDecodeInfo( REGION_GFX1, 0, wcharlayout,   0x400,  8 ),	/* colors 0x400-0x5ff */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

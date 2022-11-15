@@ -329,8 +329,8 @@ public class magmax
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,           0,  1 ), /*no color codes*/
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,      1*16, 16 ), /*16 color codes*/
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,           0,  1 ), /*no color codes*/
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout,      1*16, 16 ), /*16 color codes*/
 		new GfxDecodeInfo( -1 )
 	};
 	

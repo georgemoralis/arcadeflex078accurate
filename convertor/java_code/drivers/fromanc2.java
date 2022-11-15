@@ -689,10 +689,10 @@ public class fromanc2
 	
 	static GfxDecodeInfo fromanc2_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &fromanc2_tilelayout, (  0 * 2), (256 * 2) ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &fromanc2_tilelayout, (256 * 2), (256 * 2) ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &fromanc2_tilelayout, (512 * 2), (256 * 2) ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &fromanc2_tilelayout, (768 * 2), (256 * 2) ),
+		new GfxDecodeInfo( REGION_GFX1, 0, fromanc2_tilelayout, (  0 * 2), (256 * 2) ),
+		new GfxDecodeInfo( REGION_GFX2, 0, fromanc2_tilelayout, (256 * 2), (256 * 2) ),
+		new GfxDecodeInfo( REGION_GFX3, 0, fromanc2_tilelayout, (512 * 2), (256 * 2) ),
+		new GfxDecodeInfo( REGION_GFX4, 0, fromanc2_tilelayout, (768 * 2), (256 * 2) ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
@@ -709,9 +709,9 @@ public class fromanc2
 	
 	static GfxDecodeInfo fromancr_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &fromancr_tilelayout, (512 * 2), 2 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &fromancr_tilelayout, (256 * 2), 2 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &fromancr_tilelayout, (  0 * 2), 2 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, fromancr_tilelayout, (512 * 2), 2 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, fromancr_tilelayout, (256 * 2), 2 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, fromancr_tilelayout, (  0 * 2), 2 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

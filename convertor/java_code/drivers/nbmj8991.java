@@ -229,8 +229,8 @@ public class nbmj8991
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf000, 0xf00f, pstadium_paltbl_w ),
-		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, &paletteram ),
-		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),	// finalbny
+		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, nb1413m3_nvram, nb1413m3_nvram_size ),	// finalbny
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -246,7 +246,7 @@ public class nbmj8991
 	public static Memory_WriteAddress writemem_triplew1[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
-		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, paletteram ),
 		new Memory_WriteAddress( 0xf200, 0xf20f, pstadium_paltbl_w ),
 		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -264,7 +264,7 @@ public class nbmj8991
 	public static Memory_WriteAddress writemem_triplew2[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
-		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, paletteram ),
 		new Memory_WriteAddress( 0xf400, 0xf40f, pstadium_paltbl_w ),
 		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -282,7 +282,7 @@ public class nbmj8991
 	public static Memory_WriteAddress writemem_mjlstory[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
-		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, paletteram ),
 		new Memory_WriteAddress( 0xf700, 0xf70f, pstadium_paltbl_w ),
 		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -301,8 +301,8 @@ public class nbmj8991
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf000, 0xf00f, pstadium_paltbl_w ),
-		new Memory_WriteAddress( 0xf400, 0xf5ff, galkoku_palette_w, &paletteram ),
-		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),	// hyouban
+		new Memory_WriteAddress( 0xf400, 0xf5ff, galkoku_palette_w, paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, nb1413m3_nvram, nb1413m3_nvram_size ),	// hyouban
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -319,8 +319,8 @@ public class nbmj8991
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf000, 0xf00f, pstadium_paltbl_w ),
-		new Memory_WriteAddress( 0xf400, 0xf5ff, galkaika_palette_w, &paletteram ),
-		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),	// tokimbsj
+		new Memory_WriteAddress( 0xf400, 0xf5ff, galkaika_palette_w, paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, nb1413m3_nvram, nb1413m3_nvram_size ),	// tokimbsj
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -336,7 +336,7 @@ public class nbmj8991
 	public static Memory_WriteAddress writemem_tokyogal[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
-		new Memory_WriteAddress( 0xf000, 0xf1ff, galkaika_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, galkaika_palette_w, paletteram ),
 		new Memory_WriteAddress( 0xf400, 0xf40f, pstadium_paltbl_w ),
 		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -354,7 +354,7 @@ public class nbmj8991
 	public static Memory_WriteAddress writemem_av2mj1bb[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
-		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, paletteram ),
 		new Memory_WriteAddress( 0xf500, 0xf50f, pstadium_paltbl_w ),
 		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -373,7 +373,7 @@ public class nbmj8991
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf000, 0xf00f, pstadium_paltbl_w ),
-		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, paletteram ),
 		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};

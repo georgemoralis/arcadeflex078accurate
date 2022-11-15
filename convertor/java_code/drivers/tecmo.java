@@ -133,11 +133,11 @@ public class tecmo
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd000, 0xd7ff, tecmo_txvideoram_w, &tecmo_txvideoram ),
-		new Memory_WriteAddress( 0xd800, 0xdbff, tecmo_fgvideoram_w, &tecmo_fgvideoram ),
-		new Memory_WriteAddress( 0xdc00, 0xdfff, tecmo_bgvideoram_w, &tecmo_bgvideoram ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xe800, 0xefff, paletteram_xxxxBBBBRRRRGGGG_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, tecmo_txvideoram_w, tecmo_txvideoram ),
+		new Memory_WriteAddress( 0xd800, 0xdbff, tecmo_fgvideoram_w, tecmo_fgvideoram ),
+		new Memory_WriteAddress( 0xdc00, 0xdfff, tecmo_bgvideoram_w, tecmo_bgvideoram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xe800, 0xefff, paletteram_xxxxBBBBRRRRGGGG_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf800, 0xf802, tecmo_fgscroll_w ),
 		new Memory_WriteAddress( 0xf803, 0xf805, tecmo_bgscroll_w ),
@@ -152,11 +152,11 @@ public class tecmo
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xd000, 0xd7ff, tecmo_txvideoram_w, &tecmo_txvideoram ),
-		new Memory_WriteAddress( 0xd800, 0xdbff, tecmo_fgvideoram_w, &tecmo_fgvideoram ),
-		new Memory_WriteAddress( 0xdc00, 0xdfff, tecmo_bgvideoram_w, &tecmo_bgvideoram ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, paletteram_xxxxBBBBRRRRGGGG_swap_w, &paletteram ),
-		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, tecmo_txvideoram_w, tecmo_txvideoram ),
+		new Memory_WriteAddress( 0xd800, 0xdbff, tecmo_fgvideoram_w, tecmo_fgvideoram ),
+		new Memory_WriteAddress( 0xdc00, 0xdfff, tecmo_bgvideoram_w, tecmo_bgvideoram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, paletteram_xxxxBBBBRRRRGGGG_swap_w, paletteram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf800, 0xf802, tecmo_fgscroll_w ),
 		new Memory_WriteAddress( 0xf803, 0xf805, tecmo_bgscroll_w ),
@@ -170,12 +170,12 @@ public class tecmo
 	public static Memory_WriteAddress silkworm_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
-		new Memory_WriteAddress( 0xc000, 0xc3ff, tecmo_bgvideoram_w, &tecmo_bgvideoram ),
-		new Memory_WriteAddress( 0xc400, 0xc7ff, tecmo_fgvideoram_w, &tecmo_fgvideoram ),
-		new Memory_WriteAddress( 0xc800, 0xcfff, tecmo_txvideoram_w, &tecmo_txvideoram ),
+		new Memory_WriteAddress( 0xc000, 0xc3ff, tecmo_bgvideoram_w, tecmo_bgvideoram ),
+		new Memory_WriteAddress( 0xc400, 0xc7ff, tecmo_fgvideoram_w, tecmo_fgvideoram ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, tecmo_txvideoram_w, tecmo_txvideoram ),
 		new Memory_WriteAddress( 0xd000, 0xdfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xe800, 0xefff, paletteram_xxxxBBBBRRRRGGGG_swap_w, &paletteram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xe800, 0xefff, paletteram_xxxxBBBBRRRRGGGG_swap_w, paletteram ),
 		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_ROM ),
 		new Memory_WriteAddress( 0xf800, 0xf802, tecmo_fgscroll_w ),
 		new Memory_WriteAddress( 0xf803, 0xf805, tecmo_bgscroll_w ),
@@ -543,10 +543,10 @@ public class tecmo
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 256, 16 ),	/* colors 256 - 511 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 0, 16 ),	/* colors   0 - 255 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout, 512, 16 ),	/* colors 512 - 767 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &tilelayout, 768, 16 ),	/* colors 768 - 1023 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 256, 16 ),	/* colors 256 - 511 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 0, 16 ),	/* colors   0 - 255 */
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout, 512, 16 ),	/* colors 512 - 767 */
+		new GfxDecodeInfo( REGION_GFX4, 0, tilelayout, 768, 16 ),	/* colors 768 - 1023 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

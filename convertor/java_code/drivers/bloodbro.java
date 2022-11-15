@@ -514,10 +514,10 @@ public class bloodbro
 	
 	static GfxDecodeInfo bloodbro_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &textlayout,   0x70*16,  0x10 ), /* Text */
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &backlayout,   0x40*16,  0x10 ), /* Background */
-		new GfxDecodeInfo( REGION_GFX2, 0x80000, &backlayout,   0x50*16,  0x10 ), /* Foreground */
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &spritelayout, 0x00*16,  0x10 ), /* Sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, textlayout,   0x70*16,  0x10 ), /* Text */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, backlayout,   0x40*16,  0x10 ), /* Background */
+		new GfxDecodeInfo( REGION_GFX2, 0x80000, backlayout,   0x50*16,  0x10 ), /* Foreground */
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, spritelayout, 0x00*16,  0x10 ), /* Sprites */
 		new GfxDecodeInfo( -1 )
 	};
 	
@@ -562,10 +562,10 @@ public class bloodbro
 	
 	static GfxDecodeInfo weststry_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &weststry_textlayout,     16*16,  0x10 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &weststry_backlayout,     48*16,  0x10 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x80000, &weststry_backlayout,     32*16,  0x10 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &weststry_spritelayout,    0*16,  0x10 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, weststry_textlayout,     16*16,  0x10 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, weststry_backlayout,     48*16,  0x10 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x80000, weststry_backlayout,     32*16,  0x10 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, weststry_spritelayout,    0*16,  0x10 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

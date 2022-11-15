@@ -570,20 +570,20 @@ public class taito_h
 	
 	static GfxDecodeInfo syvalion_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0,     32*16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout, 0,     32*16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo recordbr_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0,     32*16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout, 0,     32*16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo dleague_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0,     32*16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 32*16, 16    ),	// seems to be bogus...?
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout, 0,     32*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout, 32*16, 16    ),	// seems to be bogus...?
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

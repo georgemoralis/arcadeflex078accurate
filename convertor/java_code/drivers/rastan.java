@@ -280,8 +280,8 @@ public class rastan
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout2,  0, 0x80 ),	/* sprites 16x16*/
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout1,  0, 0x80 ),	/* sprites 8x8*/
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout2,  0, 0x80 ),	/* sprites 16x16*/
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout1,  0, 0x80 ),	/* sprites 8x8*/
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

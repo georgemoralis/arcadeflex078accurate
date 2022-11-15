@@ -101,7 +101,7 @@ public class flower
 		new Memory_WriteAddress( 0xa001, 0xa001, MWA_NOP ),	//flip screen - check code at 0x759f
 		new Memory_WriteAddress( 0xa002, 0xa002, flower_irq_ack ),	//irq ack / enable, maybe?
 		new Memory_WriteAddress( 0xa004, 0xa004, MWA_NOP ),	//nmi enable (routine is empty)
-		new Memory_WriteAddress( 0xc000, 0xffff, flower_sharedram_w, &flower_sharedram ),	//c23b-c62a cleared for something
+		new Memory_WriteAddress( 0xc000, 0xffff, flower_sharedram_w, flower_sharedram ),	//c23b-c62a cleared for something
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -137,8 +137,8 @@ public class flower
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x4000, 0x4000, sn_irq_enable_w ),
 		new Memory_WriteAddress( 0x4001, 0x4001, sn_nmi_enable_w ),
-		new Memory_WriteAddress( 0x8000, 0x803f, flower_sound1_w, &flower_soundregs1 ),
-		new Memory_WriteAddress( 0xa000, 0xa03f, flower_sound2_w, &flower_soundregs2 ),
+		new Memory_WriteAddress( 0x8000, 0x803f, flower_sound1_w, flower_soundregs1 ),
+		new Memory_WriteAddress( 0xa000, 0xa03f, flower_sound2_w, flower_soundregs2 ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -238,9 +238,9 @@ public class flower
 	
 	static GfxDecodeInfo flower_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &flower_charlayout,   0,  8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &flower_spritelayout, 0,  8 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &flower_spritelayout, 0,  8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, flower_charlayout,   0,  8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, flower_spritelayout, 0,  8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, flower_spritelayout, 0,  8 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

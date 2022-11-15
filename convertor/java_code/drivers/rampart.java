@@ -369,7 +369,7 @@ public class rampart
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &molayout,  256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, molayout,  256, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

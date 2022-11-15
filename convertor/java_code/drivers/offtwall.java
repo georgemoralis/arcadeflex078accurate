@@ -389,7 +389,7 @@ public class offtwall
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pfmolayout,  256, 32 ),		/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, pfmolayout,  256, 32 ),		/* sprites  playfield */
 		new GfxDecodeInfo( -1 )
 	};
 	

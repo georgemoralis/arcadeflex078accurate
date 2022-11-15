@@ -609,7 +609,7 @@ public class taitoair
 	
 	static GfxDecodeInfo airsys_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0, 32*16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout, 0, 32*16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -50,12 +50,12 @@ public class zac2650
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x17ff, MWA_ROM ),
-		new Memory_WriteAddress( 0x1800, 0x1bff, tinvader_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x1800, 0x1bff, tinvader_videoram_w, videoram ),
 		new Memory_WriteAddress( 0x1c00, 0x1cff, MWA_RAM ),
 	    new Memory_WriteAddress( 0x1d00, 0x1dff, MWA_RAM ),
 	    new Memory_WriteAddress( 0x1e80, 0x1e80, tinvader_sound_w ),
 		new Memory_WriteAddress( 0x1e86, 0x1e86, MWA_NOP ),				/* Dodgem Only */
-	    new Memory_WriteAddress( 0x1f00, 0x1fff, zac_s2636_w, &s2636ram ),
+	    new Memory_WriteAddress( 0x1f00, 0x1fff, zac_s2636_w, s2636ram ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -315,9 +315,9 @@ public class zac2650
 	
 	static GfxDecodeInfo tinvader_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tinvader_character,  0, 2 ),
-	  	new GfxDecodeInfo( REGION_CPU1, 0x1F00, &s2636_character8, 0, 2 ),	/* dynamic */
-	  	new GfxDecodeInfo( REGION_CPU1, 0x1F00, &s2636_character16, 0, 2 ),	/* dynamic */
+		new GfxDecodeInfo( REGION_GFX1, 0, tinvader_character,  0, 2 ),
+	  	new GfxDecodeInfo( REGION_CPU1, 0x1F00, s2636_character8, 0, 2 ),	/* dynamic */
+	  	new GfxDecodeInfo( REGION_CPU1, 0x1F00, s2636_character16, 0, 2 ),	/* dynamic */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

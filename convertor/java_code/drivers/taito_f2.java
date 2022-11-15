@@ -4646,38 +4646,38 @@ public class taito_f2
 	
 	static GfxDecodeInfo finalb_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &finalb_tilelayout,  0, 64 ),	/* sprites & playfield, 6-bit deep */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, finalb_tilelayout,  0, 64 ),	/* sprites  playfield, 6-bit deep */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 256 ),	/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo taitof2_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  0, 256 ),	/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 256 ),	/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo pivot_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),	/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX3, 0, &pivotlayout, 0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  0, 256 ),	/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 256 ),	/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX3, 0, pivotlayout, 0, 256 ),	/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo yuyugogo_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX1, 0, &yuyugogo_charlayout,  0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  0, 256 ),	/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, yuyugogo_charlayout,  0, 256 ),	/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo thundfox_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),	/* TC0100SCN #1 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout,  0, 256 ),	/* TC0100SCN #2 */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  0, 256 ),	/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,  0, 256 ),	/* TC0100SCN #1 */
+		new GfxDecodeInfo( REGION_GFX3, 0, charlayout,  0, 256 ),	/* TC0100SCN #2 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
@@ -4694,8 +4694,8 @@ public class taito_f2
 	
 	static GfxDecodeInfo deadconx_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX1, 0, &deadconx_charlayout,  0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,  0, 256 ),	/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, deadconx_charlayout,  0, 256 ),	/* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

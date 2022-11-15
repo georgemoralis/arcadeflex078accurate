@@ -120,10 +120,10 @@ public class jalmah
 	
 	static GfxDecodeInfo jalmah_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0x000, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout, 0x000, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout, 0x000, 16 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &tilelayout, 0x000, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0x000, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout, 0x000, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout, 0x000, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, tilelayout, 0x000, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

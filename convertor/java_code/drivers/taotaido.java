@@ -362,8 +362,8 @@ public class taotaido
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &taotaido_layout,  0x000, 256  ), /* sprites */
-		new GfxDecodeInfo( REGION_GFX2, 0, &taotaido_layout,  0x300, 256  ), /* bg tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, taotaido_layout,  0x000, 256  ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0, taotaido_layout,  0x300, 256  ), /* bg tiles */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

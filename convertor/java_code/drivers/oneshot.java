@@ -361,8 +361,8 @@ public class oneshot
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &oneshot16x16_layout,   0x00, 4  ), /* sprites */
-		new GfxDecodeInfo( REGION_GFX1, 0, &oneshot8x8_layout,     0x00, 4  ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, oneshot16x16_layout,   0x00, 4  ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, oneshot8x8_layout,     0x00, 4  ), /* sprites */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

@@ -285,12 +285,12 @@ public class lwings
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xddff, MWA_RAM ),
-		new Memory_WriteAddress( 0xde00, 0xdf7f, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xde00, 0xdf7f, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xdf80, 0xdfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, lwings_fgvideoram_w, &lwings_fgvideoram ),
-		new Memory_WriteAddress( 0xe800, 0xefff, lwings_bg1videoram_w, &lwings_bg1videoram ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, paletteram_RRRRGGGGBBBBxxxx_split2_w, &paletteram_2 ),
-		new Memory_WriteAddress( 0xf400, 0xf7ff, paletteram_RRRRGGGGBBBBxxxx_split1_w, &paletteram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, lwings_fgvideoram_w, lwings_fgvideoram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, lwings_bg1videoram_w, lwings_bg1videoram ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, paletteram_RRRRGGGGBBBBxxxx_split2_w, paletteram_2 ),
+		new Memory_WriteAddress( 0xf400, 0xf7ff, paletteram_RRRRGGGGBBBBxxxx_split1_w, paletteram ),
 		new Memory_WriteAddress( 0xf800, 0xf801, lwings_bg1_scrollx_w ),
 		new Memory_WriteAddress( 0xf802, 0xf803, lwings_bg1_scrolly_w ),
 		new Memory_WriteAddress( 0xf804, 0xf804, trojan_bg2_scrollx_w ),
@@ -320,11 +320,11 @@ public class lwings
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),/* lwings */
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xddff, MWA_RAM ),
-		new Memory_WriteAddress( 0xde00, 0xdfff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, lwings_fgvideoram_w, &lwings_fgvideoram ),
-		new Memory_WriteAddress( 0xe800, 0xefff, lwings_bg1videoram_w, &lwings_bg1videoram ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, paletteram_RRRRGGGGBBBBxxxx_split2_w, &paletteram_2 ),
-		new Memory_WriteAddress( 0xf400, 0xf7ff, paletteram_RRRRGGGGBBBBxxxx_split1_w, &paletteram ),
+		new Memory_WriteAddress( 0xde00, 0xdfff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, lwings_fgvideoram_w, lwings_fgvideoram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, lwings_bg1videoram_w, lwings_bg1videoram ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, paletteram_RRRRGGGGBBBBxxxx_split2_w, paletteram_2 ),
+		new Memory_WriteAddress( 0xf400, 0xf7ff, paletteram_RRRRGGGGBBBBxxxx_split1_w, paletteram ),
 		new Memory_WriteAddress( 0xf808, 0xf809, lwings_bg1_scrollx_w ),
 		new Memory_WriteAddress( 0xf80a, 0xf80b, lwings_bg1_scrolly_w ),
 		new Memory_WriteAddress( 0xf80c, 0xf80c, soundlatch_w ),
@@ -337,12 +337,12 @@ public class lwings
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		new Memory_WriteAddress( 0xc000, 0xddff, MWA_RAM ),
-		new Memory_WriteAddress( 0xde00, 0xdf7f, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xde00, 0xdf7f, MWA_RAM, spriteram, spriteram_size ),
 		new Memory_WriteAddress( 0xdf80, 0xdfff, MWA_RAM ),
-		new Memory_WriteAddress( 0xe000, 0xe7ff, lwings_fgvideoram_w, &lwings_fgvideoram ),
-		new Memory_WriteAddress( 0xe800, 0xefff, lwings_bg1videoram_w, &lwings_bg1videoram ),
-		new Memory_WriteAddress( 0xf000, 0xf3ff, paletteram_RRRRGGGGBBBBxxxx_split2_w, &paletteram_2 ),
-		new Memory_WriteAddress( 0xf400, 0xf7ff, paletteram_RRRRGGGGBBBBxxxx_split1_w, &paletteram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, lwings_fgvideoram_w, lwings_fgvideoram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, lwings_bg1videoram_w, lwings_bg1videoram ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, paletteram_RRRRGGGGBBBBxxxx_split2_w, paletteram_2 ),
+		new Memory_WriteAddress( 0xf400, 0xf7ff, paletteram_RRRRGGGGBBBBxxxx_split1_w, paletteram ),
 		new Memory_WriteAddress( 0xf800, 0xf801, lwings_bg1_scrollx_w ),
 		new Memory_WriteAddress( 0xf802, 0xf803, lwings_bg1_scrolly_w ),
 		new Memory_WriteAddress( 0xf804, 0xf804, trojan_bg2_scrollx_w ),
@@ -370,7 +370,7 @@ public class lwings
 		new Memory_WriteAddress( 0xe001, 0xe001, YM2203_write_port_0_w ),
 		new Memory_WriteAddress( 0xe002, 0xe002, YM2203_control_port_1_w ),
 		new Memory_WriteAddress( 0xe003, 0xe003, YM2203_write_port_1_w ),
-		new Memory_WriteAddress( 0xe006, 0xe006, MWA_RAM, &avengers_soundlatch2 ),
+		new Memory_WriteAddress( 0xe006, 0xe006, MWA_RAM, avengers_soundlatch2 ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
 	
@@ -855,18 +855,18 @@ public class lwings
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     512, 16 ), /* colors 512-575 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &bg1_tilelayout,   0,  8 ), /* colors   0-127 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,   384,  8 ), /* colors 384-511 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     512, 16 ), /* colors 512-575 */
+		new GfxDecodeInfo( REGION_GFX2, 0, bg1_tilelayout,   0,  8 ), /* colors   0-127 */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout,   384,  8 ), /* colors 384-511 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_trojan[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     768, 16 ), /* colors 768-831 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &bg1_tilelayout, 256,  8 ), /* colors 256-383 */
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,   640,  8 ), /* colors 640-767 */
-		new GfxDecodeInfo( REGION_GFX4, 0, &bg2_tilelayout,   0,  8 ), /* colors   0-127 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     768, 16 ), /* colors 768-831 */
+		new GfxDecodeInfo( REGION_GFX2, 0, bg1_tilelayout, 256,  8 ), /* colors 256-383 */
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout,   640,  8 ), /* colors 640-767 */
+		new GfxDecodeInfo( REGION_GFX4, 0, bg2_tilelayout,   0,  8 ), /* colors   0-127 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

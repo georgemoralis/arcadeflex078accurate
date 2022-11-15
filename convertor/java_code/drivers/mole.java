@@ -64,8 +64,8 @@ public class mole
 	);
 	
 	static GfxDecodeInfo gfx_decode[] ={
-		new GfxDecodeInfo( 1, 0x0000, &tile_layout, 0x00, 1 ),
-		new GfxDecodeInfo( 1, 0x3000, &tile_layout, 0x00, 1 ),
+		new GfxDecodeInfo( 1, 0x0000, tile_layout, 0x00, 1 ),
+		new GfxDecodeInfo( 1, 0x3000, tile_layout, 0x00, 1 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

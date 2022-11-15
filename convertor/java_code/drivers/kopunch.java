@@ -65,8 +65,8 @@ public class kopunch
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x1fff, MWA_ROM ),
 		new Memory_WriteAddress( 0x2000, 0x23ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x6000, 0x63ff, kopunch_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0x7000, 0x70ff, kopunch_videoram2_w, &kopunch_videoram2 ),
+		new Memory_WriteAddress( 0x6000, 0x63ff, kopunch_videoram_w, videoram ),
+		new Memory_WriteAddress( 0x7000, 0x70ff, kopunch_videoram2_w, kopunch_videoram2 ),
 		new Memory_WriteAddress( 0x7100, 0x7aff, MWA_RAM ),	// ???
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -172,8 +172,8 @@ public class kopunch
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 1 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout, 0, 1 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

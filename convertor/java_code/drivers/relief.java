@@ -321,9 +321,9 @@ public class relief
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pfmolayout,   0, 64 ),		/* alpha & playfield */
-		new GfxDecodeInfo( REGION_GFX1, 1, &pfmolayout, 256, 16 ),		/* sprites */
-		new GfxDecodeInfo( REGION_GFX2, 0, &moexlayout, 256, 16 ),		/* extra sprite bit */
+		new GfxDecodeInfo( REGION_GFX1, 0, pfmolayout,   0, 64 ),		/* alpha  playfield */
+		new GfxDecodeInfo( REGION_GFX1, 1, pfmolayout, 256, 16 ),		/* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0, moexlayout, 256, 16 ),		/* extra sprite bit */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

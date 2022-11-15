@@ -68,8 +68,8 @@ public class battlex
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0x8fff, battlex_videoram_w, &videoram ),
-		new Memory_WriteAddress( 0x9000, 0x91ff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0x8000, 0x8fff, battlex_videoram_w, videoram ),
+		new Memory_WriteAddress( 0x9000, 0x91ff, MWA_RAM, spriteram ),
 		new Memory_WriteAddress( 0xa000, 0xa3ff, MWA_RAM ), /* main */
 		new Memory_WriteAddress( 0xe000, 0xe03f, battlex_palette_w ), /* probably palette */
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -201,8 +201,8 @@ public class battlex
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &battlex_charlayout,      0, 8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &battlex_spritelayout, 16*8, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, battlex_charlayout,      0, 8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, battlex_spritelayout, 16*8, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

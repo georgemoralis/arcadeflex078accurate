@@ -908,7 +908,7 @@ public class namcos2
 		new Memory_WriteAddress( 0x4000, 0x4000, YM2151_register_port_0_w ),
 		new Memory_WriteAddress( 0x4001, 0x4001, YM2151_data_port_0_w ),
 		new Memory_WriteAddress( 0x5000, 0x6fff, C140_w ),
-		new Memory_WriteAddress( 0x7000, 0x77ff, namcos2_dpram_byte_w, &namcos2_dpram ),
+		new Memory_WriteAddress( 0x7000, 0x77ff, namcos2_dpram_byte_w, namcos2_dpram ),
 		new Memory_WriteAddress( 0x7800, 0x7fff, namcos2_dpram_byte_w ),	/* mirror */
 		new Memory_WriteAddress( 0x8000, 0x9fff, MWA_RAM ),
 		new Memory_WriteAddress( 0xa000, 0xbfff, MWA_NOP ),					/* Amplifier enable on 1st write */
@@ -957,7 +957,7 @@ public class namcos2
 		new Memory_WriteAddress( 0x0000, 0x003f, MWA_RAM ), /* Fill in register to stop logging */
 		new Memory_WriteAddress( 0x0040, 0x01bf, MWA_RAM ),
 		new Memory_WriteAddress( 0x01c0, 0x1fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x5000, 0x57ff, namcos2_dpram_byte_w, &namcos2_dpram ),
+		new Memory_WriteAddress( 0x5000, 0x57ff, namcos2_dpram_byte_w, namcos2_dpram ),
 		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -1675,42 +1675,42 @@ public class namcos2
 	*/
 	static GfxDecodeInfo metlhawk_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &metlhawk_sprite_layout,	 0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x000000, &luckywld_roz_layout,		 0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x000000, &chr_layout,				16*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, metlhawk_sprite_layout,	 0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x000000, luckywld_roz_layout,		 0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x000000, chr_layout,				16*256, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &obj_layout,  0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x200000, &obj_layout,  0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x000000, &chr_layout, 16*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x000000, &roz_layout,  0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, obj_layout,  0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x200000, obj_layout,  0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x000000, chr_layout, 16*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x000000, roz_layout,  0*256, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo finallap_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &obj_layout,  0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x200000, &obj_layout,  0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x000000, &chr_layout, 16*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, obj_layout,  0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x200000, obj_layout,  0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x000000, chr_layout, 16*256, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo sgunner_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &luckywld_sprite_layout,	 0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x000000, &luckywld_roz_layout,		 0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x000000, &chr_layout,				16*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, luckywld_sprite_layout,	 0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x000000, luckywld_roz_layout,		 0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x000000, chr_layout,				16*256, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo luckywld_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x000000, &luckywld_sprite_layout,	 0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x000000, &luckywld_roz_layout,		 0*256, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x000000, &chr_layout,				16*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, luckywld_sprite_layout,	 0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x000000, luckywld_roz_layout,		 0*256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x000000, chr_layout,				16*256, 16 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

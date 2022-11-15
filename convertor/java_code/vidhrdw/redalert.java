@@ -231,7 +231,7 @@ public class redalert
 							color,
 							0,0,
 							8*sx,8*sy,
-							&Machine->visible_area,TRANSPARENCY_NONE,0);
+							Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 					if( redalert_dirtycharacter2[charcode] != 0 )
 						drawgfx(tmpbitmap,Machine->gfx[3],
@@ -239,7 +239,7 @@ public class redalert
 								color,
 								0,0,
 								8*sx,8*sy,
-								&Machine->visible_area,TRANSPARENCY_COLOR,0);
+								Machine->visible_area,TRANSPARENCY_COLOR,0);
 	
 				}
 	
@@ -250,7 +250,7 @@ public class redalert
 						color,
 						0,0,
 						8*sx,8*sy,
-						&Machine->visible_area,stat_transparent,0);
+						Machine->visible_area,stat_transparent,0);
 	
 				/* Third layer - alphanumerics & sprites */
 				if (charcode < 0x80)
@@ -261,7 +261,7 @@ public class redalert
 							color,
 							0,0,
 							8*sx,8*sy,
-							&Machine->visible_area,TRANSPARENCY_COLOR,0);
+							Machine->visible_area,TRANSPARENCY_COLOR,0);
 				}
 				else if (charcode < 0xC0)
 				{
@@ -271,7 +271,7 @@ public class redalert
 							color,
 							0,0,
 							8*sx,8*sy,
-							&Machine->visible_area,TRANSPARENCY_COLOR,0);
+							Machine->visible_area,TRANSPARENCY_COLOR,0);
 	
 					if( redalert_dirtycharacter2[charcode] != 0 )
 						drawgfx(tmpbitmap,Machine->gfx[3],
@@ -279,7 +279,7 @@ public class redalert
 								color,
 								0,0,
 								8*sx,8*sy,
-								&Machine->visible_area,TRANSPARENCY_COLOR,0);
+								Machine->visible_area,TRANSPARENCY_COLOR,0);
 	
 				}
 	
@@ -302,7 +302,7 @@ public class redalert
 		}
 	
 		/* copy the character mapped graphics */
-		copybitmap(bitmap,tmpbitmap,flip,flip,0,0,&Machine->visible_area,TRANSPARENCY_NONE,0);
+		copybitmap(bitmap,tmpbitmap,flip,flip,0,0,Machine->visible_area,TRANSPARENCY_NONE,0);
 	
 	} };
 }

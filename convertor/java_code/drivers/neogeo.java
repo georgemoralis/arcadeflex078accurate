@@ -1397,9 +1397,9 @@ public class neogeo
 	
 	static GfxDecodeInfo neogeo_mvs_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 0, 16 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &dummy_mvs_tilelayout, 0, 256 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout, 0, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, dummy_mvs_tilelayout, 0, 256 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

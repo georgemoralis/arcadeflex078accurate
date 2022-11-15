@@ -478,8 +478,8 @@ public class pgm
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &pgm8_charlayout,    0x800, 32  ), /* 8x8x4 Tiles */
-		new GfxDecodeInfo( REGION_GFX2, 0, &pgm32_charlayout,   0x400, 32  ), /* 32x32x5 Tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, pgm8_charlayout,    0x800, 32  ), /* 8x8x4 Tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0, pgm32_charlayout,   0x400, 32  ), /* 32x32x5 Tiles */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

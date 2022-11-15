@@ -77,12 +77,12 @@ public class bogeyman
 	public static Memory_WriteAddress bogeyman_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x17ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x1800, 0x1bff, bogeyman_videoram2_w, &bogeyman_videoram2 ),
-		new Memory_WriteAddress( 0x1c00, 0x1fff, bogeyman_colorram2_w, &bogeyman_colorram2 ),
-	  	new Memory_WriteAddress( 0x2000, 0x20ff, bogeyman_videoram_w, &videoram ),
-	  	new Memory_WriteAddress( 0x2100, 0x21ff, bogeyman_colorram_w, &colorram ),
-		new Memory_WriteAddress( 0x2800, 0x2bff, MWA_RAM, &spriteram, &spriteram_size ),
-		new Memory_WriteAddress( 0x3000, 0x300f, bogeyman_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0x1800, 0x1bff, bogeyman_videoram2_w, bogeyman_videoram2 ),
+		new Memory_WriteAddress( 0x1c00, 0x1fff, bogeyman_colorram2_w, bogeyman_colorram2 ),
+	  	new Memory_WriteAddress( 0x2000, 0x20ff, bogeyman_videoram_w, videoram ),
+	  	new Memory_WriteAddress( 0x2100, 0x21ff, bogeyman_colorram_w, colorram ),
+		new Memory_WriteAddress( 0x2800, 0x2bff, MWA_RAM, spriteram, spriteram_size ),
+		new Memory_WriteAddress( 0x3000, 0x300f, bogeyman_paletteram_w, paletteram ),
 		new Memory_WriteAddress( 0x3800, 0x3800, bogeyman_8910_control_w ),
 		new Memory_WriteAddress( 0x3801, 0x3801, bogeyman_8910_latch_w ),
 		new Memory_WriteAddress( 0x3803, 0x3803, MWA_NOP ),	/* ?? This has something to do with sound */
@@ -219,13 +219,13 @@ public class bogeyman
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout1,     16, 32 ),
-		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout2,     16, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0x00000, &sprites,          0,  2 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &tiles1a,     16+128,  8 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x00000, &tiles1b,     16+128,  8 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x04000, &tiles1a,     16+128,  8 ),
-		new GfxDecodeInfo( REGION_GFX3, 0x04000, &tiles1b,     16+128,  8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout1,     16, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, charlayout2,     16, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, sprites,          0,  2 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, tiles1a,     16+128,  8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, tiles1b,     16+128,  8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x04000, tiles1a,     16+128,  8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x04000, tiles1b,     16+128,  8 ),
 		/* colors 16+192 to 16+255 are currently unassigned */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};

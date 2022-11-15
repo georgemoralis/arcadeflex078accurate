@@ -123,13 +123,13 @@ public class polepos
 	public static Memory_WriteAddress z80_writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),						/* ROM */
-		new Memory_WriteAddress( 0x3000, 0x37ff, MWA_RAM, &generic_nvram, &generic_nvram_size ),	/* Battery Backup */
+		new Memory_WriteAddress( 0x3000, 0x37ff, MWA_RAM, generic_nvram, generic_nvram_size ),	/* Battery Backup */
 		new Memory_WriteAddress( 0x4000, 0x47ff, polepos_sprite_w ),				/* Motion Object */
 		new Memory_WriteAddress( 0x4800, 0x4bff, polepos_road_w ), 				/* Road Memory */
 		new Memory_WriteAddress( 0x4c00, 0x4fff, polepos_alpha_w ),				/* Alphanumeric (char ram) */
 		new Memory_WriteAddress( 0x5000, 0x57ff, polepos_view_w ), 				/* Background Memory */
 		new Memory_WriteAddress( 0x8000, 0x83bf, MWA_RAM ),						/* Sound Memory */
-		new Memory_WriteAddress( 0x83c0, 0x83ff, polepos_sound_w, &polepos_soundregs ),/* Sound data */
+		new Memory_WriteAddress( 0x83c0, 0x83ff, polepos_sound_w, polepos_soundregs ),/* Sound data */
 		new Memory_WriteAddress( 0x9000, 0x90ff, polepos_mcu_data_w ), 			/* 4 bit CPU data */
 		new Memory_WriteAddress( 0x9100, 0x9100, polepos_mcu_control_w ),			/* 4 bit CPU control */
 		new Memory_WriteAddress( 0xa000, 0xa000, polepos_z80_irq_enable_w ),		/* NMI enable */
@@ -377,10 +377,10 @@ public class polepos
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout_2bpp,   0x0000, 128 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout_2bpp,   0x0200, 128 ),
-		new GfxDecodeInfo( REGION_GFX3, 0, &smallspritelayout, 0x0400, 128 ),
-		new GfxDecodeInfo( REGION_GFX4, 0, &bigspritelayout,   0x0400, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout_2bpp,   0x0000, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout_2bpp,   0x0200, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, smallspritelayout, 0x0400, 128 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, bigspritelayout,   0x0400, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

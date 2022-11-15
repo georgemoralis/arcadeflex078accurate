@@ -174,7 +174,7 @@ public class skydiver
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x007f, skydiver_wram_w ),
 		new Memory_WriteAddress( 0x0080, 0x00ff, MWA_RAM ),
-		new Memory_WriteAddress( 0x0400, 0x07ff, skydiver_videoram_w, &skydiver_videoram ),
+		new Memory_WriteAddress( 0x0400, 0x07ff, skydiver_videoram_w, skydiver_videoram ),
 		new Memory_WriteAddress( 0x0800, 0x0801, skydiver_lamp_s_w ),
 		new Memory_WriteAddress( 0x0802, 0x0803, skydiver_lamp_k_w ),
 		new Memory_WriteAddress( 0x0804, 0x0805, skydiver_start_lamp_1_w ),
@@ -330,8 +330,8 @@ public class skydiver
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,    0, 4 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &motion_layout, 0, 4 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,    0, 4 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, motion_layout, 0, 4 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

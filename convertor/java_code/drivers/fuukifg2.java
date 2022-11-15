@@ -472,11 +472,11 @@ public class fuukifg2
 	
 	static GfxDecodeInfo fuuki16_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0x400*2, 0x40 ), // [0] Sprites
-		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4, 0x400*0, 0x40 ), // [1] Layer 0
-		new GfxDecodeInfo( REGION_GFX3, 0, &layout_16x16x8, 0x400*1, 0x40 ), // [2] Layer 1
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x4,   0x400*3, 0x40 ), // [3] Layer 2
-		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x4,   0x400*3, 0x40 ), // [4] Layer 3 (GFX4!)
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_16x16x4, 0x400*2, 0x40 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, layout_16x16x4, 0x400*0, 0x40 ), // [1] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, layout_16x16x8, 0x400*1, 0x40 ), // [2] Layer 1
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x4,   0x400*3, 0x40 ), // [3] Layer 2
+		new GfxDecodeInfo( REGION_GFX4, 0, layout_8x8x4,   0x400*3, 0x40 ), // [4] Layer 3 (GFX4!)
 		new GfxDecodeInfo( -1 )
 	};
 	

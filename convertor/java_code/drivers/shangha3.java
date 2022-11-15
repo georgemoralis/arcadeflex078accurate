@@ -477,7 +477,7 @@ public class shangha3
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 128 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0, 128 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

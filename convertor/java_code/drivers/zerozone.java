@@ -203,7 +203,7 @@ public class zerozone
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 256 ),         /* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout, 0, 256 ),         /* sprites  playfield */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

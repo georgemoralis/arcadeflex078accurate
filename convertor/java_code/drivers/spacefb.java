@@ -172,7 +172,7 @@ public class spacefb
 	public static Memory_WriteAddress writemem[]={
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
-		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM, videoram, videoram_size ),
 		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
 	};
@@ -356,8 +356,8 @@ public class spacefb
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 0, 8 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &bulletlayout, 0, 8 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, spritelayout, 0, 8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, bulletlayout, 0, 8 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

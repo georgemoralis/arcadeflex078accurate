@@ -614,18 +614,18 @@ public class megasys1
 	
 	static GfxDecodeInfo gfxdecodeinfo_Z[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,   256*0, 16 ),	// [0] Scroll 0
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   256*2, 16 ),	// [1] Scroll 1
-		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 256*1, 16 ),	// [2] Sprites
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,   256*0, 16 ),	// [0] Scroll 0
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,   256*2, 16 ),	// [1] Scroll 1
+		new GfxDecodeInfo( REGION_GFX3, 0, spritelayout, 256*1, 16 ),	// [2] Sprites
 		new GfxDecodeInfo( -1 )
 	};
 	
 	static GfxDecodeInfo gfxdecodeinfo_ABC[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,   256*0, 16 ),	// [0] Scroll 0
-		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   256*1, 16 ),	// [1] Scroll 1
-		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,   256*2, 16 ),	// [2] Scroll 2 (unused in system D)
-		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout, 256*3, 16 ),	// [3] Sprites
+		new GfxDecodeInfo( REGION_GFX1, 0, tilelayout,   256*0, 16 ),	// [0] Scroll 0
+		new GfxDecodeInfo( REGION_GFX2, 0, tilelayout,   256*1, 16 ),	// [1] Scroll 1
+		new GfxDecodeInfo( REGION_GFX3, 0, tilelayout,   256*2, 16 ),	// [2] Scroll 2 (unused in system D)
+		new GfxDecodeInfo( REGION_GFX4, 0, spritelayout, 256*3, 16 ),	// [3] Sprites
 		new GfxDecodeInfo( -1 )
 	};
 	

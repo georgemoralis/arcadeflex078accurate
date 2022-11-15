@@ -557,15 +557,15 @@ public class phoenix
 	
 	static GfxDecodeInfo phoenix_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,	  0, 16 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 16*4, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,	  0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout, 16*4, 16 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static GfxDecodeInfo pleiads_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,	  0, 32 ),
-		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 32*4, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,	  0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, charlayout, 32*4, 32 ),
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

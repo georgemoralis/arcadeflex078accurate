@@ -672,13 +672,13 @@ public class tubep
 						((tubep_textram[offs+1]) & 0x0f) | color_A4,
 						0,0, /*flipscreen[0],flipscreen[1],*/
 						8*sx,8*sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	
 		/* draw background ram */
 		{
-			pen_t *pens = &Machine->pens[ 32 ]; //change it later
+			pen_t *pens = Machine->pens[ 32 ]; //change it later
 	
 			UINT32 h,v;
 			unsigned char * romBxx = memory_region(REGION_USER1) + 0x2000*background_romsel;
@@ -748,7 +748,7 @@ public class tubep
 		}
 	
 		/* copy the character mapped graphics */
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] );
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] );
 	} };
 	
 	
@@ -790,14 +790,14 @@ public class tubep
 						(tubep_textram[offs+1]) & 0x0f,
 						0,0, /*flipscreen[0],flipscreen[1],*/
 						8*sx,8*sy,
-						&Machine->visible_area,TRANSPARENCY_NONE,0);
+						Machine->visible_area,TRANSPARENCY_NONE,0);
 			}
 		}
 	
 	
 		/* draw background ram */
 		{
-			pen_t *pens = &Machine->pens[ 0x00 ];
+			pen_t *pens = Machine->pens[ 0x00 ];
 	
 			UINT32 h,v;
 			unsigned char * rom13D  = memory_region(REGION_USER1);
@@ -916,7 +916,7 @@ public class tubep
 		}
 	
 		/* copy the character mapped graphics */
-		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] );
+		copybitmap(bitmap,tmpbitmap,0,0,0,0,Machine->visible_area,TRANSPARENCY_PEN, Machine->pens[0] );
 	
 	} };
 	

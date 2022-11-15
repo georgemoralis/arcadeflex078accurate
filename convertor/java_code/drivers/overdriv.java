@@ -380,8 +380,8 @@ public class overdriv
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX4, 0, &charlayout, 0, 0x80 ),
-		new GfxDecodeInfo( REGION_GFX5, 0, &charlayout, 0, 0x80 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, charlayout, 0, 0x80 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, charlayout, 0, 0x80 ),
 		new GfxDecodeInfo( -1 )
 	};
 	

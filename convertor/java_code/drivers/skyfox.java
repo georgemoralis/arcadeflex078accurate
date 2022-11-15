@@ -61,7 +61,7 @@ public class skyfox
 		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM								),	// ROM
 		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM								),	// RAM
-		new Memory_WriteAddress( 0xd000, 0xd3ff, MWA_RAM, &spriteram, &spriteram_size	),	// Sprites
+		new Memory_WriteAddress( 0xd000, 0xd3ff, MWA_RAM, spriteram, spriteram_size	),	// Sprites
 		new Memory_WriteAddress( 0xd400, 0xdfff, MWA_RAM								),	// RAM?
 		new Memory_WriteAddress( 0xe008, 0xe00f, skyfox_vregs_w						),	// Video Regs
 		new Memory_WriteAddress(MEMPORT_MARKER, 0)
@@ -228,7 +228,7 @@ public class skyfox
 	
 	static GfxDecodeInfo skyfox_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8,   0, 1 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX1, 0, layout_8x8x8,   0, 1 ), // [0] Sprites
 		new GfxDecodeInfo( -1 )
 	};
 	

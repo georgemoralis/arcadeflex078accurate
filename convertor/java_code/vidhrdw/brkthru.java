@@ -244,13 +244,13 @@ public class brkthru
 							color,
 							flipscreen,flipscreen,
 							sx,flipscreen? sy + 16 : sy - 16,
-							&Machine->visible_area,TRANSPARENCY_PEN,0);
+							Machine->visible_area,TRANSPARENCY_PEN,0);
 					drawgfx(bitmap,Machine->gfx[9],
 							code | 1,
 							color,
 							flipscreen,flipscreen,
 							sx,sy,
-							&Machine->visible_area,TRANSPARENCY_PEN,0);
+							Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 					/* redraw with wraparound */
 					drawgfx(bitmap,Machine->gfx[9],
@@ -258,13 +258,13 @@ public class brkthru
 							color,
 							flipscreen,flipscreen,
 							sx,(flipscreen? sy + 16 : sy - 16) + 256,
-							&Machine->visible_area,TRANSPARENCY_PEN,0);
+							Machine->visible_area,TRANSPARENCY_PEN,0);
 					drawgfx(bitmap,Machine->gfx[9],
 							code | 1,
 							color,
 							flipscreen,flipscreen,
 							sx,sy + 256,
-							&Machine->visible_area,TRANSPARENCY_PEN,0);
+							Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 				}
 				else
@@ -274,7 +274,7 @@ public class brkthru
 							color,
 							flipscreen,flipscreen,
 							sx,sy,
-							&Machine->visible_area,TRANSPARENCY_PEN,0);
+							Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 					/* redraw with wraparound */
 					drawgfx(bitmap,Machine->gfx[9],
@@ -282,7 +282,7 @@ public class brkthru
 							color,
 							flipscreen,flipscreen,
 							sx,sy + 256,
-							&Machine->visible_area,TRANSPARENCY_PEN,0);
+							Machine->visible_area,TRANSPARENCY_PEN,0);
 	
 				}
 				}

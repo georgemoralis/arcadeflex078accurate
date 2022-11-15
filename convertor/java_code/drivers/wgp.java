@@ -1133,9 +1133,9 @@ public class wgp
 	
 	static GfxDecodeInfo wgp_gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX3, 0x0, &wgp_tilelayout,  0, 256 ),		/* sprites */
-		new GfxDecodeInfo( REGION_GFX1, 0x0, &charlayout,  0, 256 ),		/* sprites & playfield */
-		new GfxDecodeInfo( REGION_GFX2, 0x0, &wgp_tile2layout,  0, 256 ),	/* piv */
+		new GfxDecodeInfo( REGION_GFX3, 0x0, wgp_tilelayout,  0, 256 ),		/* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, charlayout,  0, 256 ),		/* sprites  playfield */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, wgp_tile2layout,  0, 256 ),	/* piv */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	

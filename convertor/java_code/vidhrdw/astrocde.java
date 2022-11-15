@@ -795,7 +795,7 @@ public class astrocde
 			if (centre<2)   centre=2;
 			if (centre>317) centre=317;
 	
-			draw_crosshair(bitmap,centre,35,&Machine->visible_area);
+			draw_crosshair(bitmap,centre,35,Machine->visible_area);
 	
 			/* Player 2 */
 	
@@ -806,7 +806,7 @@ public class astrocde
 				if (centre<1)   centre=1;
 				if (centre>316) centre=316;
 	
-				draw_crosshair(bitmap,centre,33,&Machine->visible_area);
+				draw_crosshair(bitmap,centre,33,Machine->visible_area);
 			}
 		}
 	} };

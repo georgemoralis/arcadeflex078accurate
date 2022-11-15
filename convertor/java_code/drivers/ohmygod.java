@@ -353,8 +353,8 @@ public class ohmygod
 	
 	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 16 ),	/* colors   0-255 */
-		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout, 512, 16 ),	/* colors 512-767 */
+		new GfxDecodeInfo( REGION_GFX1, 0, charlayout,     0, 16 ),	/* colors   0-255 */
+		new GfxDecodeInfo( REGION_GFX2, 0, spritelayout, 512, 16 ),	/* colors 512-767 */
 		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
