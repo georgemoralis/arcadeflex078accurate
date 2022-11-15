@@ -119,19 +119,19 @@ public class mcatadv
 	#if 0 // For Flipscreen/Cocktail
 			if(mcatadv_vidregs[0]&0x8000)
 			{
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 			if(mcatadv_vidregs[1]&0x8000)
 			{
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	#endif
 	
 			if (source[3] != source[0]) // 'hack' don't draw sprites while its testing the ram!
 			{
-				if(!flipx) { xstart = 0;        xend = width;  xinc = 1; }
+				if(NOT(flipx)) { xstart = 0;        xend = width;  xinc = 1; }
 				else       { xstart = width-1;  xend = -1;     xinc = -1; }
-				if(!flipy) { ystart = 0;        yend = height; yinc = 1; }
+				if(NOT(flipy)) { ystart = 0;        yend = height; yinc = 1; }
 				else       { ystart = height-1; yend = -1;     yinc = -1; }
 	
 				for (ycnt = ystart; ycnt != yend; ycnt += yinc) {

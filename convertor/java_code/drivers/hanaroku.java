@@ -61,8 +61,8 @@ public class hanaroku
 			if (flip_screen())
 			{
 				sy = 242 - sy;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap, Machine->gfx[0], code, color, flipx, flipy,

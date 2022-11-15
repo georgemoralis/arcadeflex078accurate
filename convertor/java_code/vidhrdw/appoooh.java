@@ -212,7 +212,7 @@ public class appoooh
 			{
 				sx = 239 - sx;
 				sy = 239 - sy;
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 			drawgfx( dest_bmp, gfx,
 					code,

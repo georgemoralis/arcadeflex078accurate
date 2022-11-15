@@ -188,8 +188,8 @@ public class yunsun16
 	
 			if (flip_screen())	// not used?
 			{
-				flipx = !flipx;		x = max_x - x - 16;
-				flipy = !flipy;		y = max_y - y - 16;
+				flipx = NOT(flipx);		x = max_x - x - 16;
+				flipy = NOT(flipy);		y = max_y - y - 16;
 			}
 	
 			pdrawgfx(	bitmap,Machine->gfx[1],

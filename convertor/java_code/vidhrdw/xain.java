@@ -175,7 +175,7 @@ public class xain
 			{
 				sx = 239 - sx;
 				sy = 240 - sy;
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 	
 			if (attr & 0x80)	/* double height */

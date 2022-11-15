@@ -113,7 +113,7 @@ public class superchs
 	
 			if (!tilenum) continue;
 	
-			flipy = !flipy;
+			flipy = NOT(flipy);
 			zoomx += 1;
 			zoomy += 1;
 	
@@ -164,14 +164,14 @@ public class superchs
 	
 						curx = 320 - curx - zx;
 						cury = 256 - cury - zy;
-						flipx = !flipx;
-						flipy = !flipy;
+						flipx = NOT(flipx);
+						flipy = NOT(flipy);
 					}
 	
 					sprite_ptr->gfx = 0;
 					sprite_ptr->code = code;
 					sprite_ptr->color = color;
-					sprite_ptr->flipx = !flipx;
+					sprite_ptr->flipx = NOT(flipx);
 					sprite_ptr->flipy = flipy;
 					sprite_ptr->x = curx;
 					sprite_ptr->y = cury;

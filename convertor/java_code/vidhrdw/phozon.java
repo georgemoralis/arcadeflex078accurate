@@ -176,7 +176,7 @@ public class phozon
 	
 					case 0x04:		/* 8x16 */
 						sprite = (sprite << 2) | ((spriteram_3.read(offs)& 0xc0) >> 6);
-						if (!flipy){
+						if (NOT(flipy)){
 							phozon_draw_sprite8(bitmap,2+sprite,color,flipx,flipy,x,y+8);
 							phozon_draw_sprite8(bitmap,sprite,color,flipx,flipy,x,y);
 						}
@@ -188,7 +188,7 @@ public class phozon
 	
 					case 0x24:		/* 8x32 */
 						sprite = (sprite << 2) | ((spriteram_3.read(offs)& 0xc0) >> 6);
-						if (!flipy){
+						if (NOT(flipy)){
 							phozon_draw_sprite8(bitmap,10+sprite,color,flipx,flipy,x,y+8);
 							phozon_draw_sprite8(bitmap,8+sprite,color,flipx,flipy,x,y);
 							phozon_draw_sprite8(bitmap,2+sprite,color,flipx,flipy,x,y-8);

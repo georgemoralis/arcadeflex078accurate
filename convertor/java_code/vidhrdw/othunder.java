@@ -187,8 +187,8 @@ public class othunder
 	
 					curx = 320 - curx - zx;
 					cury = 256 - cury - zy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				sprite_ptr->code = code;

@@ -1757,8 +1757,8 @@ public class konamiic
 			{
 				ox = 256 - ox - ((zoom * w + (1<<12)) >> 13);
 				oy = 256 - oy - ((zoom * h + (1<<12)) >> 13);
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			if (zoom == 0x10000)
@@ -2707,8 +2707,8 @@ public class konamiic
 			{
 				ox = 512 - (zoomx * w >> 12) - ox;
 				oy = 256 - (zoomy * h >> 12) - oy;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			if (zoomx == 0x10000 && zoomy == 0x10000)
@@ -3206,12 +3206,12 @@ public class konamiic
 			if (flipscreenX)
 			{
 				ox = 512 - ox;
-				if (!mirrorx) flipx = !flipx;
+				if (!mirrorx) flipx = NOT(flipx);
 			}
 			if (flipscreenY)
 			{
 				oy = -oy;
-				if (!mirrory) flipy = !flipy;
+				if (!mirrory) flipy = NOT(flipy);
 			}
 	
 			ox = (ox + 0x5d) & 0x3ff;
@@ -4091,12 +4091,12 @@ public class konamiic
 			if (flipscreenx)
 			{
 				ox = -ox;
-				if (!mirrorx) flipx = !flipx;
+				if (!mirrorx) flipx = NOT(flipx);
 			}
 			if (flipscreeny)
 			{
 				oy = -oy;
-				if (!mirrory) flipy = !flipy;
+				if (!mirrory) flipy = NOT(flipy);
 			}
 	
 			// apply wrapping and global offsets
@@ -6480,7 +6480,7 @@ public class konamiic
 			sy = ay;
 			ty = r * K056832_PAGE_HEIGHT;
 	
-			if (!flipy)
+			if (NOT(flipy))
 			{
 				// handle bottom-edge wraparoundness and cull off-screen tilemaps
 				if ((r == 0) && (sy > height - K056832_PAGE_HEIGHT)) sy -= height;
@@ -6536,7 +6536,7 @@ public class konamiic
 			cliph = line_endy = K056832_PAGE_HEIGHT;
 			clipy = line_starty = 0;
 	
-			if (!flipy)
+			if (NOT(flipy))
 				sdat_start = dy;
 			else
 				/*
@@ -6615,7 +6615,7 @@ public class konamiic
 					//tx = c * K056832_PAGE_WIDTH;
 					tx = c << 9;
 	
-					if (!flipx)
+					if (NOT(flipx))
 					{
 						// handle right-edge wraparoundness and cull off-screen tilemaps
 						if ((c == 0) && (sx > width - K056832_PAGE_WIDTH)) sx -= width;
@@ -6872,7 +6872,7 @@ public class konamiic
 					//tx = c * K056832_PAGE_WIDTH;
 					tx = c << 9;
 	
-					if (!flipx)
+					if (NOT(flipx))
 					{
 						// handle right-edge wraparoundness and cull off-screen tilemaps
 						if ((c == 0) && (sx > width - K056832_PAGE_WIDTH)) sx -= width;

@@ -203,7 +203,7 @@ public class zodiack
 			if (flip_screen() && percuss_hardware)
 			{
 				sy = 240 - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap, Machine->gfx[1],

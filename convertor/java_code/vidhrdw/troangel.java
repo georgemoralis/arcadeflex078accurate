@@ -153,7 +153,7 @@ public class troangel
 				{
 					sx = 31 - sx;
 					sy = 31 - sy;
-					flipx = !flipx;
+					flipx = NOT(flipx);
 				}
 	
 				drawgfx(tmpbitmap,gfx,
@@ -220,8 +220,8 @@ public class troangel
 			{
 				sx = 240 - sx;
 				sy = 224 - sy;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap,Machine->gfx[1+bank],

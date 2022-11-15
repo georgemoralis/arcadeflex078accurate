@@ -186,13 +186,13 @@ public class tehkanwc
 			if (flip_screen_x)
 			{
 				sx = 240 - sx;
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 	
 			if (flip_screen_y)
 			{
 				sy = 240 - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap, Machine->gfx[1],

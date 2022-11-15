@@ -79,13 +79,13 @@ public class marineb
 				if (flip_screen_y)
 				{
 					sy = 31 - sy;
-					flipy = !flipy;
+					flipy = NOT(flipy);
 				}
 	
 				if (flip_screen_x)
 				{
 					sx = 31 - sx;
-					flipx = !flipx;
+					flipx = NOT(flipx);
 				}
 	
 				drawgfx(_tmpbitmap,Machine->gfx[0],
@@ -173,7 +173,7 @@ public class marineb
 			if (!flip_screen_y)
 			{
 				sy = 256 - Machine->gfx[gfx]->width - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			if (flip_screen_x)
@@ -216,7 +216,7 @@ public class marineb
 			if (!flip_screen_y)
 			{
 				sy = 256 - Machine->gfx[1]->width - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			if (flip_screen_x)
@@ -244,7 +244,7 @@ public class marineb
 		if (!flip_screen_y)
 		{
 			sy = 256 - Machine->gfx[2]->width - sy;
-			flipy = !flipy;
+			flipy = NOT(flipy);
 		}
 	
 		if (flip_screen_x)
@@ -315,7 +315,7 @@ public class marineb
 			if (!flip_screen_y)
 			{
 				sy = 256 - Machine->gfx[gfx]->width - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			if (!flip_screen_x)
@@ -359,13 +359,13 @@ public class marineb
 			if (!flip_screen_y)
 			{
 				sy = 256 - Machine->gfx[1]->width - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			if (flip_screen_x)
 			{
 				sx = 256 - Machine->gfx[1]->width - sx;
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 	
 			drawgfx(bitmap,Machine->gfx[1],
@@ -420,7 +420,7 @@ public class marineb
 			if (!flip_screen_y)
 			{
 				sy = 256 - Machine->gfx[gfx]->width - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			if (!flip_screen_x)

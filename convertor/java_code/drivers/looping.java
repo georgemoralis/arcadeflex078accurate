@@ -176,12 +176,12 @@ public class looping
 			if (flip_screen_x)
 			{
 				sx = 240 - sx;
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 	
 			if (flip_screen_y)
 			{
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 			else
 			{

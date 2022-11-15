@@ -91,8 +91,8 @@ public class bublbobl
 					{
 						x = 248 - x;
 						y = 248 - y;
-						flipx = !flipx;
-						flipy = !flipy;
+						flipx = NOT(flipx);
+						flipy = NOT(flipy);
 					}
 	
 					drawgfx(bitmap,Machine->gfx[0],

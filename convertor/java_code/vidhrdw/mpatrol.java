@@ -454,8 +454,8 @@ public class mpatrol
 			flipy = spriteram_2.read(offs + 1)& 0x80;
 			if (flip_screen())
 			{
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 				sx = 240 - sx;
 				sy = 242 - sy;
 			}
@@ -477,8 +477,8 @@ public class mpatrol
 			flipy = spriteram.read(offs + 1)& 0x80;
 			if (flip_screen())
 			{
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 				sx = 240 - sx;
 				sy = 242 - sy;
 			}

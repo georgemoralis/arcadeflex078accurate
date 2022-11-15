@@ -1641,7 +1641,7 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
-                case '*':
+                case '*': {
                     i = Convertor.inpos;
                     if (type == PALETTE_INIT) {
                         if (sUtil.getToken("*color_prom")) {
@@ -1653,8 +1653,22 @@ public class convertMame {
                             continue;
                         }
                     }
-                    Convertor.inpos = i;
-                    break;
+                }
+                Convertor.inpos = i;
+                break;
+                case '!': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("!flipx")) {
+                        sUtil.putString((new StringBuilder()).append("NOT(flipx)").toString());
+                        continue;
+                    }
+                    if (sUtil.getToken("!flipy")) {
+                        sUtil.putString((new StringBuilder()).append("NOT(flipy)").toString());
+                        continue;
+                    }
+                }
+                Convertor.inpos = i;
+                break;
             }
 
             Convertor.outbuf[Convertor.outpos++] = Convertor.inbuf[Convertor.inpos++];//grapse to inputbuffer sto output

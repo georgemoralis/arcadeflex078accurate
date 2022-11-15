@@ -163,7 +163,7 @@ public class mikie
 			if (flip_screen())
 			{
 				sy = 242 - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap, Machine->gfx[gfxbank],

@@ -126,7 +126,7 @@ public class funkybee
 			if (flip_screen())
 			{
 				sy += 32;
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 	
 			drawgfx(bitmap,Machine->gfx[2+gfx_bank],

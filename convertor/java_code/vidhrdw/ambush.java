@@ -168,8 +168,8 @@ public class ambush
 	
 			if (flip_screen())
 			{
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap,Machine->gfx[gfx],

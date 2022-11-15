@@ -1124,7 +1124,7 @@ public class argus
 						{
 							int td;
 	
-							if ( !flipy )
+							if ( NOT(flipy) )
 								td = (flipx) ? (i * 2) + 1 - j : i * 2 + j;
 							else
 								td = (flipx) ? ( (1 - i) * 2 ) + 1 - j : (1 - i) * 2 + j;
@@ -1149,7 +1149,7 @@ public class argus
 						{
 							int td;
 	
-							if ( !flipy )
+							if ( NOT(flipy) )
 								td = (flipx) ? (i * 4) + 3 - j : i * 4 + j;
 							else
 								td = (flipx) ? ( (3 - i) * 4 ) + 3 - j : (3 - i) * 4 + j;
@@ -1211,7 +1211,7 @@ public class argus
 						{
 							int td;
 	
-							if ( !flipy )
+							if ( NOT(flipy) )
 								td = (flipx) ? (1 - i) * 2 + j : ( (1 - i) * 2 ) + 1 - j;
 							else
 								td = (flipx) ? i * 2 + j : (i * 2) + 1 - j;
@@ -1236,7 +1236,7 @@ public class argus
 						{
 							int td;
 	
-							if ( !flipy )
+							if ( NOT(flipy) )
 								td = (flipx) ? (3 - i) * 4 + j : ( (3 - i) * 4 ) + 3 - j;
 							else
 								td = (flipx) ? i * 4 + j : (i * 4) + 3 - j;

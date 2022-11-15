@@ -317,8 +317,8 @@ public class senjyo
 	
 				if (flip_screen())
 				{
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 	
 					if (big)
 					{

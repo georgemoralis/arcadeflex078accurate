@@ -136,7 +136,7 @@ public class yiear
 			if (flip_screen())
 			{
 				sy = 240 - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			if (offs < 0x26)

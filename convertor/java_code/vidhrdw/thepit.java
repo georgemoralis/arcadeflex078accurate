@@ -307,13 +307,13 @@ public class thepit
 				if (flip_screen_x)
 				{
 					sx = 242 - sx;
-					flipx = !flipx;
+					flipx = NOT(flipx);
 				}
 	
 				if (flip_screen_y)
 				{
 					sy = 240 - sy;
-					flipy = !flipy;
+					flipy = NOT(flipy);
 				}
 	
 				/* Sprites 0-3 are drawn one pixel to the left */

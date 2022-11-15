@@ -127,8 +127,8 @@ public class srmp2
 			if (flip)
 			{
 				y = max_y - y;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			code = code & 0x3fff;
@@ -194,8 +194,8 @@ public class srmp2
 				if (flip)
 				{
 					sy = max_y - 14 - sy - 0x100;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				code = code & 0x1fff;
@@ -288,8 +288,8 @@ public class srmp2
 			if (flip)
 			{
 				y = max_y - y;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap,Machine->gfx[0],
@@ -357,8 +357,8 @@ public class srmp2
 				if (flip)
 				{
 					sy = max_y - 16 - sy - 0x100;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				color	=	((color >> (16-5)) % total_color_codes);
@@ -445,8 +445,8 @@ public class srmp2
 			{
 				y = max_y - y
 					+(Machine->drv->screen_height-(Machine->visible_area.max_y + 1));
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap,Machine->gfx[0],

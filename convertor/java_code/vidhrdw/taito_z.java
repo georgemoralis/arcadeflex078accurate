@@ -250,8 +250,8 @@ public class taito_z
 	
 					curx = 320 - curx - zx;
 					cury = 256 - cury - zy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				pdrawgfxzoom(bitmap,Machine->gfx[0],
@@ -345,8 +345,8 @@ public class taito_z
 	
 						curx = 320 - curx - zx;
 						cury = 256 - cury - zy;
-						flipx = !flipx;
-						flipy = !flipy;
+						flipx = NOT(flipx);
+						flipy = NOT(flipy);
 					}
 	
 					pdrawgfxzoom(bitmap,Machine->gfx[0],
@@ -389,8 +389,8 @@ public class taito_z
 	
 						curx = 320 - curx - zx;
 						cury = 256 - cury - zy;
-						flipx = !flipx;
-						flipy = !flipy;
+						flipx = NOT(flipx);
+						flipy = NOT(flipy);
 					}
 	
 					pdrawgfxzoom(bitmap,Machine->gfx[2],
@@ -433,8 +433,8 @@ public class taito_z
 	
 						curx = 320 - curx - zx;
 						cury = 256 - cury - zy;
-						flipx = !flipx;
-						flipy = !flipy;
+						flipx = NOT(flipx);
+						flipy = NOT(flipy);
 					}
 	
 					pdrawgfxzoom(bitmap,Machine->gfx[2],
@@ -527,8 +527,8 @@ public class taito_z
 	
 					curx = 320 - curx - zx;
 					cury = 256 - cury - zy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				pdrawgfxzoom(bitmap,Machine->gfx[0],
@@ -629,8 +629,8 @@ public class taito_z
 	
 					curx = 320 - curx - zx;
 					cury = 256 - cury - zy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				pdrawgfxzoom(bitmap,Machine->gfx[0],
@@ -721,8 +721,8 @@ public class taito_z
 	
 					curx = 320 - curx - zx;
 					cury = 256 - cury - zy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				pdrawgfxzoom(bitmap,Machine->gfx[0],
@@ -813,8 +813,8 @@ public class taito_z
 	
 					curx = 320 - curx - zx;
 					cury = 256 - cury - zy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				pdrawgfxzoom(bitmap,Machine->gfx[0],

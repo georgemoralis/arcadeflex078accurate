@@ -335,8 +335,8 @@ public class clshroad
 			if (flip_screen())
 			{
 				y = 240 - y;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap,Machine->gfx[0],

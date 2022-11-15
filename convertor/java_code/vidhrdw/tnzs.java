@@ -123,8 +123,8 @@ public class tnzs
 					if (tnzs_screenflip)
 					{
 						sy = 240 - sy;
-						flipx = !flipx;
-						flipy = !flipy;
+						flipx = NOT(flipx);
+						flipy = NOT(flipy);
 					}
 	
 					drawgfx(bitmap,Machine->gfx[0],
@@ -165,8 +165,8 @@ public class tnzs
 			if (tnzs_screenflip)
 			{
 				sy = 240 - sy;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 				/* hack to hide Chuka Taisens grey line, top left corner */
 				if ((sy == 0) && (code == 0)) sy += 240;
 			}

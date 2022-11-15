@@ -620,7 +620,7 @@ public class megasys1
 	
 					if (megasys1_screen_flag & 1)
 					{
-						flipx = !flipx;		flipy = !flipy;
+						flipx = NOT(flipx);		flipy = NOT(flipy);
 						sx = 240-sx;		sy = 240-sy;
 					}
 	
@@ -664,7 +664,7 @@ public class megasys1
 	
 				if (megasys1_screen_flag & 1)
 				{
-					flipx = !flipx;		flipy = !flipy;
+					flipx = NOT(flipx);		flipy = NOT(flipy);
 					sx = 240-sx;		sy = 240-sy;
 				}
 	

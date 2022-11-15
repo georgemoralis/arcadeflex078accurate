@@ -177,7 +177,7 @@ public class bbusters
 				data8_t srcline=*scale_table_ptr;
 				const data8_t *srcptr=0;
 	
-				if (!flipy)
+				if (NOT(flipy))
 					srcline=size-srcline-1;
 	
 				if (flipx)

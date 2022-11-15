@@ -630,8 +630,8 @@ public class cave
 			sprite->line_offset		=	sprite->tile_width;
 			sprite->pal_data		=	base_pal + (attr & 0x3f00);	// first 0x4000 colors
 	
-			if (glob_flipx)	{ x = max_x - x - sprite->total_width;	flipx = !flipx; }
-			if (glob_flipy)	{ y = max_y - y - sprite->total_height;	flipy = !flipy; }
+			if (glob_flipx)	{ x = max_x - x - sprite->total_width;	flipx = NOT(flipx); }
+			if (glob_flipy)	{ y = max_y - y - sprite->total_height;	flipy = NOT(flipy); }
 	
 			sprite->x				=	x;
 			sprite->y				=	y;
@@ -709,8 +709,8 @@ public class cave
 			sprite->flags			=	SPRITE_VISIBLE_CAVE;
 			sprite->line_offset		=	sprite->tile_width;
 	
-			if (glob_flipx)	{ x = max_x - x - sprite->total_width;	flipx = !flipx; }
-			if (glob_flipy)	{ y = max_y - y - sprite->total_height;	flipy = !flipy; }
+			if (glob_flipx)	{ x = max_x - x - sprite->total_width;	flipx = NOT(flipx); }
+			if (glob_flipy)	{ y = max_y - y - sprite->total_height;	flipy = NOT(flipy); }
 	
 			sprite->x				=	x;
 			sprite->y				=	y;

@@ -120,8 +120,8 @@ public class shootout
 					int flipy = 0;
 	
 					if (flip_screen()) {
-						flipx = !flipx;
-						flipy = !flipy;
+						flipx = NOT(flipx);
+						flipy = NOT(flipy);
 					}
 	
 					if( attributes & 0x10 ){ /* double height */

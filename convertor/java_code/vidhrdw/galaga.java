@@ -274,8 +274,8 @@ public class galaga
 	
 				if (flip_screen())
 				{
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 					sfa = 16;
 					sfb = 0;
 				}

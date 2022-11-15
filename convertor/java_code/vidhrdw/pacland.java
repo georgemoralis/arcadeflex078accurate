@@ -237,8 +237,8 @@ public class pacland
 			if (flip_screen())
 			{
 				x += 8;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			switch ( spriteram_3.read(offs)& 0x0c )
@@ -249,7 +249,7 @@ public class pacland
 	
 				case 4:		/* 2x horizontal */
 					sprite &= ~1;
-					if (!flipx)
+					if (NOT(flipx))
 					{
 						DRAW_SPRITE( sprite, x, y )
 						DRAW_SPRITE( 1+sprite, x+16, y )
@@ -261,7 +261,7 @@ public class pacland
 	
 				case 8:		/* 2x vertical */
 					sprite &= ~2;
-					if (!flipy)
+					if (NOT(flipy))
 					{
 						DRAW_SPRITE( sprite, x, y-16 )
 						DRAW_SPRITE( 2+sprite, x, y )
@@ -273,7 +273,7 @@ public class pacland
 	
 				case 12:		/* 2x both ways */
 					sprite &= ~3;
-					if ( !flipy && !flipx )
+					if ( NOT(flipy) && NOT(flipx) )
 					{
 						DRAW_SPRITE( sprite, x, y-16 )
 						DRAW_SPRITE( 1+sprite, x+16, y-16 )

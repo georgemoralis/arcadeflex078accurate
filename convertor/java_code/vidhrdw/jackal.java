@@ -96,8 +96,8 @@ public class jackal
 	
 			if (flip_screen())
 			{
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 				sx = 240 - sx;
 				sy = 240 - sy;
 			}

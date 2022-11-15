@@ -157,8 +157,8 @@ public class sprcros2
 				{
 					sx = 224-sx;
 					sy = 224-sy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				drawgfx(bitmap,Machine->gfx[1],

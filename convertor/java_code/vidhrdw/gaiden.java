@@ -409,8 +409,8 @@ public class gaiden
 	
 				if (flip_screen())
 				{
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 	
 					xpos = 256 - (8 * sizex) - xpos;
 					ypos = 256 - (8 * sizey) - ypos;

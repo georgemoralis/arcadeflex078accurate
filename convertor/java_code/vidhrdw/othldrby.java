@@ -166,8 +166,8 @@ public class othldrby
 	
 			if (flip_screen())
 			{
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 				sx = 246 - sx;
 				sy = 16 - sy;
 			}

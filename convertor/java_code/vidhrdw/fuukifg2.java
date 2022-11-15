@@ -196,8 +196,8 @@ public class fuukifg2
 			sy = (sy & 0x1ff) - (sy & 0x200);
 	
 			if (flip_screen())
-			{	flipx = !flipx;		sx = max_x - sx - xnum * 16;
-				flipy = !flipy;		sy = max_y - sy - ynum * 16;	}
+			{	flipx = NOT(flipx);		sx = max_x - sx - xnum * 16;
+				flipy = NOT(flipy);		sy = max_y - sy - ynum * 16;	}
 	
 			if (flipx)	{ xstart = xnum-1;  xend = -1;    xinc = -1; }
 			else		{ xstart = 0;       xend = xnum;  xinc = +1; }

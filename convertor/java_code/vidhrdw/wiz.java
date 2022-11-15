@@ -250,7 +250,7 @@ public class wiz
 			if (!sx || !sy) continue;
 	
 			if ( flipx) sx = 240 - sx;
-			if (!flipy) sy = 240 - sy;
+			if (NOT(flipy)) sy = 240 - sy;
 	
 			drawgfx(bitmap,Machine->gfx[bank],
 					sprite_ram[offs + 1],

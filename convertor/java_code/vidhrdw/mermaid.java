@@ -172,13 +172,13 @@ public class mermaid
 			if (flip_screen_x)
 			{
 				sx = 31 - sx;
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 	
 			if (flip_screen_y)
 			{
 				sy = 248 - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			drawgfx(bitmap,Machine->gfx[0],
@@ -224,12 +224,12 @@ public class mermaid
 			code = (spriteram.read(offs + 0)& 0x3f) | (bank << 6);
 	
 			if (flip_screen_x) {
-				flipx = !flipx;
+				flipx = NOT(flipx);
 				sx = 240 - sx;
 			}
 	
 			if (flip_screen_y) {
-				flipy = !flipy;
+				flipy = NOT(flipy);
 				sy = spriteram.read(offs + 1);
 			}
 	

@@ -263,8 +263,8 @@ public class mappy
 	
 				if (flipscreen)
 				{
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				switch (spriteram_3.read(offs)& 0x0c)
@@ -275,7 +275,7 @@ public class mappy
 	
 					case 4:		/* 2x horizontal */
 						sprite &= ~1;
-						if (!flipx)
+						if (NOT(flipx))
 						{
 							mappy_draw_sprite(bitmap,sprite,color,flipx,flipy,x,y);
 							mappy_draw_sprite(bitmap,1+sprite,color,flipx,flipy,x+16,y);
@@ -289,7 +289,7 @@ public class mappy
 	
 					case 8:		/* 2x vertical */
 						sprite &= ~2;
-						if (!flipy)
+						if (NOT(flipy))
 						{
 							mappy_draw_sprite(bitmap,2+sprite,color,flipx,flipy,x,y);
 							mappy_draw_sprite(bitmap,sprite,color,flipx,flipy,x,y-16);
@@ -303,7 +303,7 @@ public class mappy
 	
 					case 12:		/* 2x both ways */
 						sprite &= ~3;
-						if (!flipx && !flipy)
+						if (NOT(flipx) && NOT(flipy))
 						{
 							mappy_draw_sprite(bitmap,2+sprite,color,flipx,flipy,x,y);
 							mappy_draw_sprite(bitmap,3+sprite,color,flipx,flipy,x+16,y);

@@ -216,8 +216,8 @@ public class gsword
 				}
 				if (flipscreen)
 				{
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 				drawgfx(bitmap,Machine->gfx[1+spritebank],
 						tile,

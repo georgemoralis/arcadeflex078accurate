@@ -154,8 +154,8 @@ public class vastar
 	
 			if (flip_screen())
 			{
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			if (spriteram_2.read(offs)& 0x08)	/* double width */

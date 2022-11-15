@@ -209,8 +209,8 @@ public class metlclsh
 	
 			if (flip_screen())
 			{
-				sx = 240 - sx;	flipx = !flipx;
-				sy = 240 - sy;	flipy = !flipy;		if (sizey)	sy+=16;
+				sx = 240 - sx;	flipx = NOT(flipx);
+				sy = 240 - sy;	flipy = NOT(flipy);		if (sizey)	sy+=16;
 				if (sy > 240)	sy -= 256;
 			}
 	

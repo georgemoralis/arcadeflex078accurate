@@ -136,7 +136,7 @@ public class lkage
 				if (flip_screen_x)
 				{
 					sx = 240 - sx - 6;
-					flipx = !flipx;
+					flipx = NOT(flipx);
 				}
 				else
 					sx -= 23;
@@ -144,11 +144,11 @@ public class lkage
 				if (flip_screen_y)
 				{
 					sy = 256 - 16*height - sy;
-					flipy = !flipy;
+					flipy = NOT(flipy);
 				}
 				sy -= 1;
 	
-				if (height == 2 && !flipy) sprite_number ^= 1;
+				if (height == 2 && NOT(flipy)) sprite_number ^= 1;
 	
 				for (y = 0;y < height;y++)
 				{

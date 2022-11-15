@@ -175,8 +175,8 @@ public class skykid
 			int width, height;
 	
 			if (flipscreen){
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 			}
 	
 			if (number >= 128*3) continue;

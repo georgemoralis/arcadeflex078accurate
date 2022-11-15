@@ -321,8 +321,8 @@ public class m62
 				{
 					sx = 496 - sx;
 					sy = 242 - i*16 - sy;	/* sprites are slightly misplaced by the hardware */
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				if (flipy)

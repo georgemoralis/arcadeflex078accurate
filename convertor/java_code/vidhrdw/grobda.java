@@ -87,8 +87,8 @@ public class grobda
 	
 			if (flip_screen())
 			{
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			if (spriteram.read(offs+0x1781)& 2) continue;

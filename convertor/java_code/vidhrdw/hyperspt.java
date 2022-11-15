@@ -138,7 +138,7 @@ public class hyperspt
 			if (flip_screen())
 			{
 				sy = 240 - sy;
-				flipy = !flipy;
+				flipy = NOT(flipy);
 			}
 	
 			/* Note that this adjustment must be done AFTER handling flip_screen(), thus */

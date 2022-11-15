@@ -365,7 +365,7 @@ public class centiped
 			if (upright_mode)
 			{
 				x = 248 - x;
-				flipx = !flipx;
+				flipx = NOT(flipx);
 			}
 	
 			drawgfx(bitmap, Machine->gfx[1], code, color, flipx, flipy, x, y,

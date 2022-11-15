@@ -610,13 +610,13 @@ public class konamigx
 		// calculate zoom factors and clip source
 		if (nozoom)
 		{
-			if (!flipx) src_fbx = 0; else { src_fbx = src_fw - 1; src_fdx = -src_fdx; }
-			if (!flipy) src_fby = 0; else { src_fby = src_fh - 1; src_fdy = -src_fdy; src_pitch = -src_pitch; }
+			if (NOT(flipx)) src_fbx = 0; else { src_fbx = src_fw - 1; src_fdx = -src_fdx; }
+			if (NOT(flipy)) src_fby = 0; else { src_fby = src_fh - 1; src_fdy = -src_fdy; src_pitch = -src_pitch; }
 		}
 		else
 		{
-			if (!flipx) src_fbx = FPENT; else { src_fbx = src_fw - FPENT - 1; src_fdx = -src_fdx; }
-			if (!flipy) src_fby = FPENT; else { src_fby = src_fh - FPENT - 1; src_fdy = -src_fdy; }
+			if (NOT(flipx)) src_fbx = FPENT; else { src_fbx = src_fw - FPENT - 1; src_fdx = -src_fdx; }
+			if (NOT(flipy)) src_fby = FPENT; else { src_fby = src_fh - FPENT - 1; src_fdy = -src_fdy; }
 		}
 		src_fbx += dst_skipx * src_fdx;
 		src_fby += dst_skipy * src_fdy;
@@ -1766,8 +1766,8 @@ public class konamigx
 				if (flipscreenx) ox += screenwidth;
 			}
 	
-			if (flipscreenx) { ox = -ox; if (!mirrorx) flipx = !flipx; }
-			if (flipscreeny) { oy = -oy; if (!mirrory) flipy = !flipy; }
+			if (flipscreenx) { ox = -ox; if (!mirrorx) flipx = NOT(flipx); }
+			if (flipscreeny) { oy = -oy; if (!mirrory) flipy = NOT(flipy); }
 	
 			// apply wrapping and global offsets
 			temp = wrapsize-1;
@@ -1800,7 +1800,7 @@ public class konamigx
 	
 					if (mirrorx)
 					{
-						if ((!flipx)^((i<<1)<k))
+						if ((NOT(flipx))^((i<<1)<k))
 						{
 							/* mirror left/right */
 							temp += xoffset[(k-1-i+xa)&7];
@@ -1821,7 +1821,7 @@ public class konamigx
 	
 					if (mirrory)
 					{
-						if ((!flipy)^((j<<1)>=l))
+						if ((NOT(flipy))^((j<<1)>=l))
 						{
 							/* mirror top/bottom */
 							temp += yoffset[(l-1-j+ya)&7];

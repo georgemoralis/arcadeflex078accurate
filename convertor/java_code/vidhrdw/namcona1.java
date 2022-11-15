@@ -298,12 +298,12 @@ public class namcona1
 		if( Machine->orientation & ORIENTATION_FLIP_X )
 		{
 			sx = bitmap->width - 1 - sx;
-			flipx = !flipx;
+			flipx = NOT(flipx);
 		}
 		if( Machine->orientation & ORIENTATION_FLIP_Y )
 		{
 			sy = bitmap->height - 1 - sy;
-			flipy = !flipy;
+			flipy = NOT(flipy);
 		}
 	
 		/*
@@ -410,7 +410,7 @@ public class namcona1
 								pri[x] = 0xff;
 							}
 						} /* next x */
-					} /* !flipx */
+					} /* NOT(flipx) */
 					gfx_addr += gfx_pitch;
 					mask_addr += mask_pitch;
 				} /* next y */
@@ -444,12 +444,12 @@ public class namcona1
 		if( Machine->orientation & ORIENTATION_FLIP_X )
 		{
 			sx = bitmap->width - 1 - sx;
-			flipx = !flipx;
+			flipx = NOT(flipx);
 		}
 		if( Machine->orientation & ORIENTATION_FLIP_Y )
 		{
 			sy = bitmap->height - 1 - sy;
-			flipy = !flipy;
+			flipy = NOT(flipy);
 		}
 	
 		if( sx > -8 &&
@@ -494,7 +494,7 @@ public class namcona1
 						}
 						pri[x] = 0xff;
 					} /* next x */
-				} /* !flipx */
+				} /* NOT(flipx) */
 				gfx_addr += gfx_pitch;
 			} /* next y */
 		}

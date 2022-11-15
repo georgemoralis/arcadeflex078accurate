@@ -526,8 +526,8 @@ public class m72
 			{
 				sx = 512 - 16*w - sx;
 				sy = 512 - 16*h - sy;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			for (x = 0;x < w;x++)
@@ -578,8 +578,8 @@ public class m72
 			{
 				sx = 512 - 16*w - sx;
 				sy = 512 - 16*h - sy;
-				flipx = !flipx;
-				flipy = !flipy;
+				flipx = NOT(flipx);
+				flipy = NOT(flipy);
 			}
 	
 			for (x = 0;x < w;x++)

@@ -211,8 +211,8 @@ public class kyugo
 	
 				if (flipscreen)
 				{
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 	

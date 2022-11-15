@@ -141,8 +141,8 @@ public class megazone
 				{
 					sx = 31 - sx;
 					sy = 31 - sy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
@@ -216,8 +216,8 @@ public class megazone
 				{
 					sx = 35 - sx;
 					sy = 31 - sy;
-					flipx = !flipx;
-					flipy = !flipy;
+					flipx = NOT(flipx);
+					flipy = NOT(flipy);
 				}
 	
 	
