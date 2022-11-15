@@ -71,8 +71,8 @@ public class grtwall
 	};
 	
 	
-	INPUT_PORTS_START( grtwall )
-	INPUT_PORTS_END
+	static InputPortHandlerPtr input_ports_grtwall = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( grtwall )
+	INPUT_PORTS_END(); }}; 
 	
 	static MACHINE_DRIVER_START( grtwall )
 		MDRV_CPU_ADD(M68000, 12000000)

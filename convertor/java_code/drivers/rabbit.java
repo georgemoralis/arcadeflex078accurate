@@ -83,8 +83,8 @@ public class rabbit
 		{ 0xff0000, 0xffffff, MWA32_RAM },
 	MEMORY_END
 	
-	INPUT_PORTS_START( rabbit )
-	INPUT_PORTS_END
+	static InputPortHandlerPtr input_ports_rabbit = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( rabbit )
+	INPUT_PORTS_END(); }}; 
 	
 	
 	VIDEO_START(rabbit)

@@ -186,9 +186,9 @@ public class dlair
 	
 	
 	
-	INPUT_PORTS_START( dlair )
-		PORT_START
-	INPUT_PORTS_END
+	static InputPortHandlerPtr input_ports_dlair = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( dlair )
+		PORT_START(); 
+	INPUT_PORTS_END(); }}; 
 	
 	
 	

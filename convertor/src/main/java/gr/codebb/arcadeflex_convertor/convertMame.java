@@ -20,6 +20,7 @@ public class convertMame {
     }
 
     public static final int GAMEDRIVER = 0;
+    public static final int INPUTPORTS = 1;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -79,7 +80,21 @@ public class convertMame {
                     line_change_flag = true;
                     continue;
                 }
+                case 'D': {
+                    i = Convertor.inpos;
+                    if (type2 == INPUTPORTS) {
+                        if (sUtil.getToken("DEF_STR(")) {
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.putString((new StringBuilder()).append("DEF_STR( \"").append(Convertor.token[0]).append("\")").toString());
+                            i3 = -1;
 
+                            continue;
+                        }
+                    }
+                }
+                Convertor.inpos = i;
+                break;
                 case 'G': {
                     i = Convertor.inpos;
                     if (sUtil.getToken("GAME") || sUtil.getToken("GAMEX")) {
@@ -139,6 +154,46 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case 'I': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("INPUT_PORTS_START")) {
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.putString((new StringBuilder()).append("static InputPortHandlerPtr input_ports_").append(Convertor.token[0]).append(" = new InputPortHandlerPtr(){ public void handler() { ").toString());
+                    }
+                    if (sUtil.getToken("INPUT_PORTS_END")) {
+                        sUtil.putString((new StringBuilder()).append("INPUT_PORTS_END(); }}; ").toString());
+                        continue;
+                    }
+                }
+                Convertor.inpos = i;
+                break;
+                case 'P': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("PORT_START")) {
+                        sUtil.putString((new StringBuilder()).append("PORT_START(); ").toString());
+                        continue;
+                    }
+                    if (sUtil.getToken("PORT_DIPNAME") || sUtil.getToken("PORT_BIT") || sUtil.getToken("PORT_DIPSETTING") || sUtil.getToken("PORT_BITX") || sUtil.getToken("PORT_SERVICE") || sUtil.getToken("PORT_BIT_IMPULSE") || sUtil.getToken("PORT_ANALOG") || sUtil.getToken("PORT_ANALOGX")) {
+                        i8++;
+                        type2 = INPUTPORTS;
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() == '(') {
+                            Convertor.inpos = i;
+                        }
+                    }
+                }
+                Convertor.inpos = i;
+                break;
                 case 'R': {
                     i = Convertor.inpos;
                     if (sUtil.getToken("ROM_START")) {
@@ -158,6 +213,33 @@ public class convertMame {
                     }
                     if (sUtil.getToken("ROM_END")) {
                         sUtil.putString((new StringBuilder()).append("ROM_END(); }}; ").toString());
+                        continue;
+                    }
+                }
+                Convertor.inpos = i;
+                break;
+                case ')': {
+                    i = Convertor.inpos;
+                    if (type2 == INPUTPORTS) {
+                        i8--;
+                        i = Convertor.inpos;
+                        Convertor.inpos += 1;
+                        if (sUtil.parseChar() == '\"') {
+                            Convertor.outbuf[(Convertor.outpos++)] = '\"';
+                            Convertor.outbuf[(Convertor.outpos++)] = ')';
+                            Convertor.outbuf[(Convertor.outpos++)] = ')';
+                            Convertor.outbuf[(Convertor.outpos++)] = ';';
+                            Convertor.inpos += 3;
+                        } else {
+                            Convertor.inpos = i;
+                            Convertor.outbuf[(Convertor.outpos++)] = ')';
+                            Convertor.outbuf[(Convertor.outpos++)] = ';';
+                            Convertor.inpos += 2;
+                        }
+                        if (sUtil.getChar() == ')') {
+                            Convertor.inpos += 1;
+                        }
+                        type2 = -1;
                         continue;
                     }
                 }
