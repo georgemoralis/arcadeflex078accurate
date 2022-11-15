@@ -180,8 +180,7 @@ public class gaelco2
 	//	"*10010xxxxxx", /* erase all */
 	};
 	
-	NVRAM_HANDLER( gaelco2 )
-	{
+	public static NVRAMHandlerPtr nvram_handler_gaelco2  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write){
 			EEPROM_save(file);
 		} else {
@@ -189,7 +188,7 @@ public class gaelco2
 	
 			if (file) EEPROM_load(file);
 		}
-	}
+	} };
 	
 	READ16_HANDLER( gaelco2_eeprom_r )
 	{

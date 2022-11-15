@@ -420,8 +420,7 @@ public class gunbustr
 		"0100110000",	/* lock command */
 	};
 	
-	static NVRAM_HANDLER( gunbustr )
-	{
+	public static NVRAMHandlerPtr nvram_handler_gunbustr  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else {
@@ -431,7 +430,7 @@ public class gunbustr
 			else
 				EEPROM_set_data(default_eeprom,128);  /* Default the gun setup values */
 		}
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( gunbustr )
 	

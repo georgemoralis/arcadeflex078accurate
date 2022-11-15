@@ -109,8 +109,7 @@ public class cbasebal
 	};
 	
 	
-	static NVRAM_HANDLER( cbasebal )
-	{
+	public static NVRAMHandlerPtr nvram_handler_cbasebal  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -120,7 +119,7 @@ public class cbasebal
 			if (file)
 				EEPROM_load(file);
 		}
-	}
+	} };
 	
 	static READ_HANDLER( eeprom_r )
 	{

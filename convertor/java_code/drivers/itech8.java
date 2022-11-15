@@ -597,8 +597,7 @@ public class itech8
 	 *
 	 *************************************/
 	
-	static NVRAM_HANDLER( itech8 )
-	{
+	public static NVRAMHandlerPtr nvram_handler_itech8  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		int i;
 	
 		if (read_or_write)
@@ -608,7 +607,7 @@ public class itech8
 		else
 			for (i = 0; i < main_ram_size; i++)
 				main_ram[i] = rand();
-	}
+	} };
 	
 	
 	

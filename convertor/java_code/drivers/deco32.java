@@ -1565,8 +1565,7 @@ public class deco32
 		8,				// data bits	8
 	};
 	
-	static NVRAM_HANDLER(tattass)
-	{
+	public static NVRAMHandlerPtr nvram_handler_tattass  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -1576,7 +1575,7 @@ public class deco32
 			if (file) EEPROM_load(file);
 			else memcpy(EEPROM_get_data_pointer(&len),tattass_default_eprom,0x160);
 		}
-	}
+	} };
 	
 	/**********************************************************************************/
 	

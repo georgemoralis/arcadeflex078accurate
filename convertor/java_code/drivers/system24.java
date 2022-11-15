@@ -915,15 +915,14 @@ public class system24
 		track_size = 0x2d00;
 	} };
 	
-	static NVRAM_HANDLER(system24)
-	{
+	public static NVRAMHandlerPtr nvram_handler_system24  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if(!track_size || !file)
 			return;
 		if(read_or_write)
 			mame_fwrite(file, memory_region(REGION_USER2), 2*track_size);
 		else
 			mame_fread(file, memory_region(REGION_USER2), 2*track_size);
-	}
+	} };
 	
 	public static MachineInitHandlerPtr machine_init_system24  = new MachineInitHandlerPtr() { public void handler(){
 		cpu_set_halt_line(1, ASSERT_LINE);

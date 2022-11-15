@@ -107,8 +107,7 @@ public class overdriv
 		"010011000000"	/* unlock command */
 	};
 	
-	static NVRAM_HANDLER( overdriv )
-	{
+	public static NVRAMHandlerPtr nvram_handler_overdriv  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -120,7 +119,7 @@ public class overdriv
 			else
 				EEPROM_set_data(default_eeprom,sizeof(default_eeprom));
 		}
-	}
+	} };
 	
 	static READ16_HANDLER( eeprom_r )
 	{

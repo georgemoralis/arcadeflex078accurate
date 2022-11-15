@@ -121,8 +121,7 @@ public class vendetta
 		"0100110000000" /* unlock command */
 	};
 	
-	static NVRAM_HANDLER( vendetta )
-	{
+	public static NVRAMHandlerPtr nvram_handler_vendetta  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -137,7 +136,7 @@ public class vendetta
 			else
 				init_eeprom_count = 1000;
 		}
-	}
+	} };
 	
 	static READ_HANDLER( vendetta_eeprom_r )
 	{

@@ -98,8 +98,7 @@ public class multi32
 		cpu_set_irq_callback(0, irq_callback);
 	}
 	
-	static NVRAM_HANDLER( system32 )
-	{
+	public static NVRAMHandlerPtr nvram_handler_system32  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else {
@@ -108,7 +107,7 @@ public class multi32
 			if (file)
 				EEPROM_load(file);
 		}
-	}
+	} };
 	
 	static READ16_HANDLER(system32_eeprom_r)
 	{

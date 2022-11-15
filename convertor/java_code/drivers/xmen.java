@@ -36,8 +36,7 @@ public class xmen
 		"0100110000000" /* unlock command */
 	};
 	
-	static NVRAM_HANDLER( xmen )
-	{
+	public static NVRAMHandlerPtr nvram_handler_xmen  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -52,7 +51,7 @@ public class xmen
 			else
 				init_eeprom_count = 10;
 		}
-	}
+	} };
 	
 	static READ16_HANDLER( eeprom_r )
 	{

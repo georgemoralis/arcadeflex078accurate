@@ -23,7 +23,7 @@
 #define public static MachineInitHandlerPtr machine_init_name  = new MachineInitHandlerPtr() { public void handler()void machine_init_##name(void)
 #define public static MachineStopHandlerPtr machine_stop_name  = new MachineStopHandlerPtr() { public void handler()void machine_stop_##name(void)
 
-#define NVRAM_HANDLER(name)		void nvram_handler_##name(mame_file *file, int read_or_write)
+#define public static NVRAMHandlerPtr nvram_handler_name  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write)void nvram_handler_##name(mame_file *file, int read_or_write)
 
 #define public static PaletteInitHandlerPtr palette_init_name  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom)void palette_init_##name(UINT16 *colortable, const UINT8 *color_prom)
 

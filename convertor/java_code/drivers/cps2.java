@@ -197,8 +197,7 @@ public class cps2
 		"0111"	/* erase command */
 	};
 	
-	static NVRAM_HANDLER( cps2 )
-	{
+	public static NVRAMHandlerPtr nvram_handler_cps2  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -208,7 +207,7 @@ public class cps2
 			if (file)
 				EEPROM_load(file);
 		}
-	}
+	} };
 	
 	READ16_HANDLER( cps2_eeprom_port_r )
 	{

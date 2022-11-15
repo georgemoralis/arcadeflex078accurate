@@ -860,8 +860,7 @@ public class taito_z
 		"0100111111" 	/* unlock command */
 	};
 	
-	static NVRAM_HANDLER( spacegun )
-	{
+	public static NVRAMHandlerPtr nvram_handler_spacegun  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -873,7 +872,7 @@ public class taito_z
 			else
 				EEPROM_set_data(default_eeprom,128);  /* Default the gun setup values */
 		}
-	}
+	} };
 	
 	static int eeprom_r(void)
 	{

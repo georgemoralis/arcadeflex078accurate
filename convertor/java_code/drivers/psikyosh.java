@@ -182,8 +182,7 @@ public class psikyosh
 	//	"*10010xxxx"	// erase all	1 00 10xxxx
 	};
 	
-	static NVRAM_HANDLER(93C56)
-	{
+	public static NVRAMHandlerPtr nvram_handler_93C56  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 		{
 			EEPROM_save(file);
@@ -225,7 +224,7 @@ public class psikyosh
 				}
 			}
 		}
-	}
+	} };
 	
 	static WRITE32_HANDLER( psh_eeprom_w )
 	{

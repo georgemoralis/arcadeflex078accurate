@@ -363,8 +363,7 @@ public class atarigen
 		nvram_handler_atarigen: Loads the EEPROM data.
 	---------------------------------------------------------------*/
 	
-	NVRAM_HANDLER( atarigen )
-	{
+	public static NVRAMHandlerPtr nvram_handler_atarigen  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			mame_fwrite(file, atarigen_eeprom, atarigen_eeprom_size);
 		else if (file)
@@ -383,7 +382,7 @@ public class atarigen
 					decompress_eeprom_word(atarigen_eeprom_default + 1);
 			}
 		}
-	}
+	} };
 	
 	
 	/*---------------------------------------------------------------

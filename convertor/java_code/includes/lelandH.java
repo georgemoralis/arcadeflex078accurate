@@ -64,8 +64,6 @@ WRITE_HANDLER( ataxx_eeprom_w );
 
 WRITE_HANDLER( leland_battery_ram_w );
 WRITE_HANDLER( ataxx_battery_ram_w );
-NVRAM_HANDLER( leland );
-NVRAM_HANDLER( ataxx );
 
 READ_HANDLER( leland_master_analog_key_r );
 WRITE_HANDLER( leland_master_analog_key_w );

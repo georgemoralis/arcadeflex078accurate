@@ -137,15 +137,14 @@ public class statriv2
 	
 	/* end video related */
 	
-	static NVRAM_HANDLER (statriv2)
-	{
+	public static NVRAMHandlerPtr nvram_handler_statriv2  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			mame_fwrite(file, generic_nvram, generic_nvram_size);
 		else if (file)
 			mame_fread(file, generic_nvram, generic_nvram_size);
 		else
 			memcpy ( generic_nvram, statriv2_default_eeprom, 0x100 );
-	}
+	} };
 	
 	
 	static data8_t  question_offset_low;

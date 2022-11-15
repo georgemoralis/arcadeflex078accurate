@@ -419,15 +419,14 @@ public class midwayic
 	}
 	
 	
-	NVRAM_HANDLER( midway_serial_pic2 )
-	{
+	public static NVRAMHandlerPtr nvram_handler_midway_serial_pic2  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			mame_fwrite(file, pic.nvram, sizeof(pic.nvram));
 		else if (file)
 			mame_fread(file, pic.nvram, sizeof(pic.nvram));
 		else
 			memcpy(pic.nvram, pic.default_nvram, sizeof(pic.nvram));
-	}
+	} };
 	
 	
 	

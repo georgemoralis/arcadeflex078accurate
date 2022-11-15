@@ -105,8 +105,7 @@ public class othunder
 		"0100111111" 	/* unlock command */
 	};
 	
-	static NVRAM_HANDLER( othunder )
-	{
+	public static NVRAMHandlerPtr nvram_handler_othunder  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -118,7 +117,7 @@ public class othunder
 			else
 				EEPROM_set_data(default_eeprom,128);  /* Default the gun setup values */
 		}
-	}
+	} };
 	
 	static int eeprom_r(void)
 	{

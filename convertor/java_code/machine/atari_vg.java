@@ -57,13 +57,12 @@ public class atari_vg
 	}
 	
 	
-	NVRAM_HANDLER( atari_vg )
-	{
+	public static NVRAMHandlerPtr nvram_handler_atari_vg  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			mame_fwrite(file,earom,EAROM_SIZE);
 		else if (file)
 			mame_fread(file,earom,EAROM_SIZE);
 		else
 			memset(earom,0,EAROM_SIZE);
-	}
+	} };
 }

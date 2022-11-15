@@ -68,8 +68,7 @@ public class plygonet
 		"0100110000000" /* unlock command */
 	};
 	
-	static NVRAM_HANDLER(nvram_handler)
-	{
+	public static NVRAMHandlerPtr nvram_handler_nvram_handler  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -84,7 +83,7 @@ public class plygonet
 			else
 				init_eeprom_count = 10;
 		}
-	}
+	} };
 	
 	static READ32_HANDLER( polygonet_eeprom_r )
 	{

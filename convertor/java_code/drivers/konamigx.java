@@ -457,8 +457,7 @@ public class konamigx
 	
 	static int init_eeprom_count;
 	
-	static NVRAM_HANDLER(konamigx_93C46)
-	{
+	public static NVRAMHandlerPtr nvram_handler_konamigx_93C46  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -473,7 +472,7 @@ public class konamigx
 			else
 				init_eeprom_count = 10;
 		}
-	}
+	} };
 	
 	static READ32_HANDLER( eeprom_r )
 	{

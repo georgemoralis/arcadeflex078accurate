@@ -55,15 +55,14 @@ public class kickgoal
 		"*10011xxxx"	/* unlock command */
 	};
 	
-	static NVRAM_HANDLER( kickgoal )
-	{
+	public static NVRAMHandlerPtr nvram_handler_kickgoal  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write) EEPROM_save(file);
 		else
 		{
 			EEPROM_init(&eeprom_interface);
 			if (file) EEPROM_load(file);
 		}
-	}
+	} };
 	
 	
 	static READ16_HANDLER( kickgoal_eeprom_r )

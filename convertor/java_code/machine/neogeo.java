@@ -739,8 +739,7 @@ public class neogeo
 		}
 	}
 	
-	NVRAM_HANDLER( neogeo )
-	{
+	public static NVRAMHandlerPtr nvram_handler_neogeo  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 		{
 			/* Save the SRAM settings */
@@ -760,7 +759,7 @@ public class neogeo
 			/* load the memory card */
 			neogeo_memcard_load(memcard_number);
 		}
-	}
+	} };
 	
 	
 	

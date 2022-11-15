@@ -150,8 +150,7 @@ public class nbmj9195
 	static size_t sailorws_nvram_size;
 	
 	
-	static NVRAM_HANDLER( sailorws )
-	{
+	public static NVRAMHandlerPtr nvram_handler_sailorws  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			mame_fwrite(file, sailorws_nvram, sailorws_nvram_size);
 		else
@@ -161,7 +160,7 @@ public class nbmj9195
 			else
 				memset(sailorws_nvram, 0, sailorws_nvram_size);
 		}
-	}
+	} };
 	
 	static void sailorws_soundbank_w(int data)
 	{

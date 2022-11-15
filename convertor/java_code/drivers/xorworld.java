@@ -49,8 +49,7 @@ public class xorworld
 	/****************************************************************
 					NVRAM load/save/init
 	****************************************************************/
-	static NVRAM_HANDLER( xorworld )
-	{
+	public static NVRAMHandlerPtr nvram_handler_xorworld  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write){
 			EEPROM_save(file);
 		} else {
@@ -60,7 +59,7 @@ public class xorworld
 				EEPROM_load(file);
 			}
 		}
-	}
+	} };
 	
 	/****************************************************************
 					Init machine

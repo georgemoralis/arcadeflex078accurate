@@ -70,8 +70,7 @@ public class mystwarr
 		"0100110000000" /* unlock command */
 	};
 	
-	static NVRAM_HANDLER(mystwarr)
-	{
+	public static NVRAMHandlerPtr nvram_handler_mystwarr  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -86,10 +85,9 @@ public class mystwarr
 			else
 				init_eeprom_count = 10;
 		}
-	}
+	} };
 	
-	static NVRAM_HANDLER(gaiapols)
-	{
+	public static NVRAMHandlerPtr nvram_handler_gaiapols  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -104,7 +102,7 @@ public class mystwarr
 			else
 				init_eeprom_count = 10;
 		}
-	}
+	} };
 	
 	static READ16_HANDLER( mweeprom_r )
 	{

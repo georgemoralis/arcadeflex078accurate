@@ -152,8 +152,7 @@ public class namcona1
 	
 	static data8_t namcona1_nvmem[NA1_NVRAM_SIZE];
 	
-	static NVRAM_HANDLER( namcosna1 )
-	{
+	public static NVRAMHandlerPtr nvram_handler_namcosna1  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if( read_or_write )
 		{
 			mame_fwrite( file, namcona1_nvmem, NA1_NVRAM_SIZE );
@@ -180,7 +179,7 @@ public class namcona1
 				}
 			}
 		}
-	} /* namcosna1_nvram_handler */
+	} }; /* namcosna1_nvram_handler */
 	
 	static READ16_HANDLER( namcona1_nvram_r )
 	{

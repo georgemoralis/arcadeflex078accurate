@@ -248,8 +248,7 @@ public class exidy440
 	 *
 	 *************************************/
 	
-	static NVRAM_HANDLER( exidy440 )
-	{
+	public static NVRAMHandlerPtr nvram_handler_exidy440  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			/* the EEROM lives in the uppermost 8k of the top bank */
 			mame_fwrite(file, &memory_region(REGION_CPU1)[0x10000 + 15 * 0x4000 + 0x2000], 0x2000);
@@ -260,7 +259,7 @@ public class exidy440
 			else
 				memset(&memory_region(REGION_CPU1)[0x10000 + 15 * 0x4000 + 0x2000], 0, 0x2000);
 		}
-	}
+	} };
 	
 	
 	/*************************************

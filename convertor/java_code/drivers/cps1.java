@@ -256,8 +256,7 @@ public class cps1
 		"0111"	/* erase command */
 	};
 	
-	static NVRAM_HANDLER( qsound )
-	{
+	public static NVRAMHandlerPtr nvram_handler_qsound  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -267,10 +266,9 @@ public class cps1
 			if (file)
 				EEPROM_load(file);
 		}
-	}
+	} };
 	
-	static NVRAM_HANDLER( pang3 )
-	{
+	public static NVRAMHandlerPtr nvram_handler_pang3  = new NVRAMHandlerPtr() { public void handler(mame_file file, int read_or_write){
 		if (read_or_write)
 			EEPROM_save(file);
 		else
@@ -280,7 +278,7 @@ public class cps1
 			if (file)
 				EEPROM_load(file);
 		}
-	}
+	} };
 	
 	READ16_HANDLER( cps1_eeprom_port_r )
 	{
