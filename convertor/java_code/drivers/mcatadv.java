@@ -397,22 +397,22 @@ public class mcatadv
 	
 	/*** GFX Decode ***/
 	
-	static struct GfxLayout mcatadv_tiles16x16x4_layout =
-	{
+	static GfxLayout mcatadv_tiles16x16x4_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ STEP4(0,1) },
-		{ STEP8(0,4), STEP8(32*8,4) },
-		{ STEP8(0,32), STEP8(64*8,32) },
+		new int[] { STEP4(0,1) },
+		new int[] { STEP8(0,4), STEP8(32*8,4) },
+		new int[] { STEP8(0,32), STEP8(64*8,32) },
 		128*8
-	};
+	);
 	
-	static struct GfxDecodeInfo mcatadv_gfxdecodeinfo[] =
+	static GfxDecodeInfo mcatadv_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX2, 0, &mcatadv_tiles16x16x4_layout, 0, 0x200 },
-		{ REGION_GFX3, 0, &mcatadv_tiles16x16x4_layout, 0, 0x200 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX2, 0, &mcatadv_tiles16x16x4_layout, 0, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &mcatadv_tiles16x16x4_layout, 0, 0x200 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

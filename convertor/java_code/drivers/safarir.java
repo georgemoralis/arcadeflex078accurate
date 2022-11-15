@@ -207,23 +207,23 @@ public class safarir
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 chars */
 		128,	/* 128 characters */
 		1,		/* 1 bit per pixel */
-		{ 0 },
-		{ 7, 6, 5, 4, 3, 2, 1, 0 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0 },
+		new int[] { 7, 6, 5, 4, 3, 2, 1, 0 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* every char takes 8 consecutive bytes */
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout, 0, 2 },
-		{ REGION_GFX2, 0, &charlayout, 0, 2 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 2 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 0, 2 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/* the following is copied from spaceinv */

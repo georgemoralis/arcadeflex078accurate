@@ -367,22 +367,22 @@ public class overdriv
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ STEP8(0,4) },
-		{ STEP8(7*8*4,-8*4) },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { STEP8(0,4) },
+		new int[] { STEP8(7*8*4,-8*4) },
 		8*8*4
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX4, 0, &charlayout, 0, 0x80 },
-		{ REGION_GFX5, 0, &charlayout, 0, 0x80 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX4, 0, &charlayout, 0, 0x80 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, &charlayout, 0, 0x80 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

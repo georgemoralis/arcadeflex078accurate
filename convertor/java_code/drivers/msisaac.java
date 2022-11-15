@@ -458,35 +458,35 @@ public class msisaac
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static struct GfxLayout char_layout =
-	{
+	static GfxLayout char_layout = new GfxLayout
+	(
 		8,8,
 		0x400,
 		4,
-		{ 0*0x2000*8, 1*0x2000*8, 2*0x2000*8, 3*0x2000*8 },
-		{ 7,6,5,4,3,2,1,0 },
-		{ 0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8 },
+		new int[] { 0*0x2000*8, 1*0x2000*8, 2*0x2000*8, 3*0x2000*8 },
+		new int[] { 7,6,5,4,3,2,1,0 },
+		new int[] { 0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8 },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout tile_layout =
-	{
+	static GfxLayout tile_layout = new GfxLayout
+	(
 		16,16,
 		0x100,
 		4,
-		{ 0*0x2000*8, 1*0x2000*8, 2*0x2000*8, 3*0x2000*8 },
-		{ 7,6,5,4,3,2,1,0,  64+7,64+6,64+5,64+4,64+3,64+2,64+1,64+0,},
-		{ 0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8, 16*8, 17*8, 18*8, 19*8, 20*8, 21*8, 22*8, 23*8 },
+		new int[] { 0*0x2000*8, 1*0x2000*8, 2*0x2000*8, 3*0x2000*8 },
+		new int[] { 7,6,5,4,3,2,1,0,  64+7,64+6,64+5,64+4,64+3,64+2,64+1,64+0,},
+		new int[] { 0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8, 16*8, 17*8, 18*8, 19*8, 20*8, 21*8, 22*8, 23*8 },
 		32*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &char_layout, 0, 64 },
-		{ REGION_GFX2, 0, &char_layout, 0, 64 },
-		{ REGION_GFX1, 0, &tile_layout, 0, 64 },
-		{ REGION_GFX2, 0, &tile_layout, 0, 64 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &char_layout, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &char_layout, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout, 0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout, 0, 64 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	static struct AY8910interface ay8910_interface =

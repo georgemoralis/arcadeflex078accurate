@@ -761,22 +761,22 @@ public class atarisy1
 	 *
 	 *************************************/
 	
-	static struct GfxLayout anlayout =
-	{
+	static GfxLayout anlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		2,
-		{ 0, 4 },
-		{ 0, 1, 2, 3, 8, 9, 10, 11 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { 0, 4 },
+		new int[] { 0, 1, 2, 3, 8, 9, 10, 11 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		8*16
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x00000, &anlayout,       0, 64 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, &anlayout,       0, 64 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

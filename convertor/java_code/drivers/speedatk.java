@@ -241,34 +241,34 @@ public class speedatk
 		PORT_BIT_IMPULSE( 0x0800, IP_ACTIVE_HIGH, IPT_COIN2, 2 );
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout charlayout_1bpp =
-	{
+	static GfxLayout charlayout_1bpp = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		3,
-		{ 0, 0, 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 0, 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout charlayout_3bpp =
-	{
+	static GfxLayout charlayout_3bpp = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,3),
 		3,
-		{ RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout_1bpp,   0, 32 },
-		{ REGION_GFX2, 0, &charlayout_3bpp,   0, 32 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout_1bpp,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout_3bpp,   0, 32 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	static struct AY8910interface ay8910_interface =

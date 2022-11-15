@@ -590,43 +590,43 @@ public class megasys1
 	
 	
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ STEP4(0,1)   },
-		{ STEP8(0,4)   },
-		{ STEP8(0,4*8) },
+		new int[] { STEP4(0,1)   },
+		new int[] { STEP8(0,4)   },
+		new int[] { STEP8(0,4*8) },
 		8*8*4
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ STEP4(0,1)   },
-		{ STEP8(8*8*4*0,4), STEP8(8*8*4*2,4) },
-		{ STEP16(0,4*8) },
+		new int[] { STEP4(0,1)   },
+		new int[] { STEP8(8*8*4*0,4), STEP8(8*8*4*2,4) },
+		new int[] { STEP16(0,4*8) },
 		16*16*4
+	);
+	
+	static GfxDecodeInfo gfxdecodeinfo_Z[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,   256*0, 16 ),	// [0] Scroll 0
+		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   256*2, 16 ),	// [1] Scroll 1
+		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout, 256*1, 16 ),	// [2] Sprites
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo_Z[] =
+	static GfxDecodeInfo gfxdecodeinfo_ABC[] =
 	{
-		{ REGION_GFX1, 0, &tilelayout,   256*0, 16 },	// [0] Scroll 0
-		{ REGION_GFX2, 0, &tilelayout,   256*2, 16 },	// [1] Scroll 1
-		{ REGION_GFX3, 0, &spritelayout, 256*1, 16 },	// [2] Sprites
-		{ -1 }
-	};
-	
-	static struct GfxDecodeInfo gfxdecodeinfo_ABC[] =
-	{
-		{ REGION_GFX1, 0, &tilelayout,   256*0, 16 },	// [0] Scroll 0
-		{ REGION_GFX2, 0, &tilelayout,   256*1, 16 },	// [1] Scroll 1
-		{ REGION_GFX3, 0, &tilelayout,   256*2, 16 },	// [2] Scroll 2 (unused in system D)
-		{ REGION_GFX4, 0, &spritelayout, 256*3, 16 },	// [3] Sprites
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout,   256*0, 16 ),	// [0] Scroll 0
+		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,   256*1, 16 ),	// [1] Scroll 1
+		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,   256*2, 16 ),	// [2] Scroll 2 (unused in system D)
+		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout, 256*3, 16 ),	// [3] Sprites
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

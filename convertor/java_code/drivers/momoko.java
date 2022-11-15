@@ -189,58 +189,58 @@ public class momoko
 	
 	/****************************************************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		256,    /* 256 characters */
 		2,      /* 2 bits per pixel */
-		{4, 0},
-		{0, 1, 2, 3, 256*8*8+0, 256*8*8+1, 256*8*8+2, 256*8*8+3},
-		{8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7},
+		new int[] {4, 0},
+		new int[] {0, 1, 2, 3, 256*8*8+0, 256*8*8+1, 256*8*8+2, 256*8*8+3},
+		new int[] {8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7},
 		8*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		8,16,     /* 8*16 characters */
 		2048-128, /* 1024 sprites ( ccc 0ccccccc ) */
 		4,        /* 4 bits per pixel */
-		{12,8,4,0},
-		{0, 1, 2, 3, 4096*8+0, 4096*8+1, 4096*8+2, 4096*8+3},
-		{0, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] {12,8,4,0},
+		new int[] {0, 1, 2, 3, 4096*8+0, 4096*8+1, 4096*8+2, 4096*8+3},
+		new int[] {0, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 		 8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16},
 		8*32
-	};
+	);
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		8,8,      /* 8*8 characters */
 		8192-256, /* 4096 tiles ( cccc0 cccccccc ) */
 		4,        /* 4 bits per pixel */
-		{4,0,12,8},
-		{0, 1, 2, 3, 4096*8+0, 4096*8+1, 4096*8+2, 4096*8+3},
-		{0, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16},
+		new int[] {4,0,12,8},
+		new int[] {0, 1, 2, 3, 4096*8+0, 4096*8+1, 4096*8+2, 4096*8+3},
+		new int[] {0, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16},
 		8*16
-	};
+	);
 	
-	static struct GfxLayout charlayout1 =
-	{
+	static GfxLayout charlayout1 = new GfxLayout
+	(
 		8,1,    /* 8*1 characters */
 		256*8,  /* 2048 characters */
 		2,      /* 2 bits per pixel */
-		{4, 0},
-		{0, 1, 2, 3, 256*8*8+0, 256*8*8+1, 256*8*8+2, 256*8*8+3},
-		{8*0},
+		new int[] {4, 0},
+		new int[] {0, 1, 2, 3, 256*8*8+0, 256*8*8+1, 256*8*8+2, 256*8*8+3},
+		new int[] {8*0},
 		8*1
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout1,      0,  24 }, /* TEXT */
-		{ REGION_GFX2, 0x0000, &tilelayout,     256,  16 }, /* BG */
-		{ REGION_GFX3, 0x0000, &charlayout,       0,   1 }, /* FG */
-		{ REGION_GFX4, 0x0000, &spritelayout,   128,   8 }, /* sprite */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout1,      0,  24 ), /* TEXT */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &tilelayout,     256,  16 ), /* BG */
+		new GfxDecodeInfo( REGION_GFX3, 0x0000, &charlayout,       0,   1 ), /* FG */
+		new GfxDecodeInfo( REGION_GFX4, 0x0000, &spritelayout,   128,   8 ), /* sprite */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/****************************************************************************/

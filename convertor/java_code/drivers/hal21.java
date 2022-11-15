@@ -516,49 +516,49 @@ public class hal21
 	
 	/**************************************************************************/
 	
-	static struct GfxLayout char256 = {
+	static GfxLayout char256 = new GfxLayout(
 		8,8,
 		0x100,
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24},
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24},
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		256
-	};
+	);
 	
-	static struct GfxLayout char1024 = {
+	static GfxLayout char1024 = new GfxLayout(
 		8,8,
 		0x400,
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24},
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24},
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		256
-	};
+	);
 	
-	static struct GfxLayout sprite1024 = {
+	static GfxLayout sprite1024 = new GfxLayout(
 		16,16,
 		0x400,
 		3,
-		{ 2*1024*256,1*1024*256,0*1024*256 },
-		{
+		new int[] { 2*1024*256,1*1024*256,0*1024*256 },
+		new int[] {
 			7,6,5,4,3,2,1,0,
 			15,14,13,12,11,10,9,8
 		},
-		{
+		new int[] {
 			0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 			8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16
 		},
 		256
-	};
+	);
 	
-	static struct GfxDecodeInfo aso_gfxdecodeinfo[] =
+	static GfxDecodeInfo aso_gfxdecodeinfo[] =
 	{
 		/* colors 512-1023 are currently unused, I think they are a second bank */
-		{ REGION_GFX1, 0, &char256,    128*3,  8 }, /* colors 384..511 */
-		{ REGION_GFX2, 0, &char1024,   128*1, 16 }, /* colors 128..383 */
-		{ REGION_GFX3, 0, &sprite1024, 128*0, 16 }, /* colors   0..127 */
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &char256,    128*3,  8 ), /* colors 384..511 */
+		new GfxDecodeInfo( REGION_GFX2, 0, &char1024,   128*1, 16 ), /* colors 128..383 */
+		new GfxDecodeInfo( REGION_GFX3, 0, &sprite1024, 128*0, 16 ), /* colors   0..127 */
+		new GfxDecodeInfo( -1 )
 	};
 	
 	/**************************************************************************/

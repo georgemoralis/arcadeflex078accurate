@@ -197,39 +197,39 @@ public class stactics
 	
 	/* For the character graphics */
 	
-	static struct GfxLayout gfxlayout =
-	{
+	static GfxLayout gfxlayout = new GfxLayout
+	(
 	    8,8,
 	    256,
 	    1,     /* 1 bit per pixel */
-	    { 0 },
-	    { 0, 1, 2, 3, 4, 5, 6, 7 },
-	    { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+	    new int[] { 0 },
+	    new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+	    new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 	    8*8
-	};
+	);
 	
 	/* For the LED Fire Beam (made up) */
 	
-	static struct GfxLayout firelayout =
-	{
+	static GfxLayout firelayout = new GfxLayout
+	(
 	    16,9,
 	    256,
 	    1,     /* 1 bit per pixel */
-	    { 0 },
-	    { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 },
-	    { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8, 8*8 },
+	    new int[] { 0 },
+	    new int[] { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 },
+	    new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8, 8*8 },
 	    8*9
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-	    { 0, 0, &gfxlayout,  0,      64*4 },    /* Dynamically decoded from RAM */
-	    { 0, 0, &gfxlayout,  1*2*16, 64*4 },    /* Dynamically decoded from RAM */
-	    { 0, 0, &gfxlayout,  2*2*16, 64*4 },    /* Dynamically decoded from RAM */
-	    { 0, 0, &gfxlayout,  3*2*16, 64*4 },    /* Dynamically decoded from RAM */
-	    { 0, 0, &firelayout, 0, 64*4 },         /* LED Fire beam (synthesized gfx) */
-	    { 0, 0, &gfxlayout,  0, 64*4 },         /* LED and Misc. Display characters */
-	    { -1 }
+	    new GfxDecodeInfo( 0, 0, &gfxlayout,  0,      64*4 ),    /* Dynamically decoded from RAM */
+	    new GfxDecodeInfo( 0, 0, &gfxlayout,  1*2*16, 64*4 ),    /* Dynamically decoded from RAM */
+	    new GfxDecodeInfo( 0, 0, &gfxlayout,  2*2*16, 64*4 ),    /* Dynamically decoded from RAM */
+	    new GfxDecodeInfo( 0, 0, &gfxlayout,  3*2*16, 64*4 ),    /* Dynamically decoded from RAM */
+	    new GfxDecodeInfo( 0, 0, &firelayout, 0, 64*4 ),         /* LED Fire beam (synthesized gfx) */
+	    new GfxDecodeInfo( 0, 0, &gfxlayout,  0, 64*4 ),         /* LED and Misc. Display characters */
+	    new GfxDecodeInfo( -1 )
 	};
 	
 	static MACHINE_DRIVER_START( stactics )

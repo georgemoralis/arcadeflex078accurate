@@ -192,38 +192,38 @@ public class bigstrkb
 	
 	/* GFX Decode */
 	
-	static struct GfxLayout bigstrkb_charlayout =
-	{
+	static GfxLayout bigstrkb_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		4,
-		{ RGN_FRAC(0,4), RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(0,4), RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout bigstrkb_char16layout =
-	{
+	static GfxLayout bigstrkb_char16layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		4,
-		{ RGN_FRAC(0,4), RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7,
+		new int[] { RGN_FRAC(0,4), RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7,
 		  8, 9,10,11,12,13,14,15 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 		  8*16, 9*16,10*16,11*16,12*16,13*16,14*16,15*16 },
 		16*16
-	};
+	);
 	
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &bigstrkb_charlayout,   0x200, 16 },
-		{ REGION_GFX2, 0, &bigstrkb_char16layout,   0, 32 },
-		{ REGION_GFX3, 0, &bigstrkb_char16layout,   0x300, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &bigstrkb_charlayout,   0x200, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &bigstrkb_char16layout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &bigstrkb_char16layout,   0x300, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

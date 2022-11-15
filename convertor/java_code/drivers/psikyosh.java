@@ -140,33 +140,33 @@ public class psikyosh
 	
 	data32_t *psikyosh_bgram, *psikyosh_zoomram, *psikyosh_vidregs, *psh_ram;
 	
-	static struct GfxLayout layout_16x16x4 =
-	{
+	static GfxLayout layout_16x16x4 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{STEP4(0,1)},
-		{STEP16(0,4)},
-		{STEP16(0,16*4)},
+		new int[] {STEP4(0,1)},
+		new int[] {STEP16(0,4)},
+		new int[] {STEP16(0,16*4)},
 		16*16*4
-	};
+	);
 	
-	static struct GfxLayout layout_16x16x8 =
-	{
+	static GfxLayout layout_16x16x8 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		8,
-		{STEP8(0,1)},
-		{STEP16(0,8)},
-		{STEP16(0,16*8)},
+		new int[] {STEP8(0,1)},
+		new int[] {STEP16(0,8)},
+		new int[] {STEP16(0,16*8)},
 		16*16*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x16x4, 0x000, 0x100 }, // 4bpp tiles
-		{ REGION_GFX1, 0, &layout_16x16x8, 0x000, 0x100 }, // 8bpp tiles
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0x000, 0x100 ), // 4bpp tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8, 0x000, 0x100 ), // 8bpp tiles
+		new GfxDecodeInfo( -1 )
 	};
 	
 	static struct EEPROM_interface eeprom_interface_93C56 =

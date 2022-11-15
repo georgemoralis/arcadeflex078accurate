@@ -543,48 +543,48 @@ public class taito_h
 	
 	***************************************************************************/
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		16,16,	/* 16x16 pixels */
 		32768,	/* 32768 tiles */
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 0x100000*8+4, 0x100000*8, 0x100000*8+12, 0x100000*8+8,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 0x100000*8+4, 0x100000*8, 0x100000*8+12, 0x100000*8+8,
 		    0x200000*8+4, 0x200000*8, 0x200000*8+12, 0x200000*8+8, 0x300000*8+4, 0x300000*8, 0x300000*8+12, 0x300000*8+8 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 			8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		16*16
-	};
+	);
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8, 8,	/* 8x8 pixels */
 		256,	/* 256 chars */
 		4,		/* 4 bit per pixel */
-		{ 0x1000*8 + 8, 0x1000*8, 8, 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 16*0, 16*1, 16*2, 16*3, 16*4, 16*5, 16*6, 16*7 },
+		new int[] { 0x1000*8 + 8, 0x1000*8, 8, 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 16*0, 16*1, 16*2, 16*3, 16*4, 16*5, 16*6, 16*7 },
 		16*8
+	);
+	
+	
+	static GfxDecodeInfo syvalion_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0,     32*16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	
-	static struct GfxDecodeInfo syvalion_gfxdecodeinfo[] =
+	static GfxDecodeInfo recordbr_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tilelayout, 0,     32*16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0,     32*16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo recordbr_gfxdecodeinfo[] =
+	static GfxDecodeInfo dleague_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tilelayout, 0,     32*16 },
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo dleague_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &tilelayout, 0,     32*16 },
-		{ REGION_GFX2, 0, &charlayout, 32*16, 16    },	// seems to be bogus...?
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0,     32*16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 32*16, 16    ),	// seems to be bogus...?
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

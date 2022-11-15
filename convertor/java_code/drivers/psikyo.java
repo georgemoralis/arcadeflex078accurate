@@ -1405,24 +1405,24 @@ public class psikyo
 	
 	***************************************************************************/
 	
-	static struct GfxLayout layout_16x16x4 =
-	{
+	static GfxLayout layout_16x16x4 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{0,1,2,3},
-		{2*4,3*4,0*4,1*4,6*4,7*4,4*4,5*4,
+		new int[] {0,1,2,3},
+		new int[] {2*4,3*4,0*4,1*4,6*4,7*4,4*4,5*4,
 		 10*4,11*4,8*4,9*4,14*4,15*4,12*4,13*4},
-		{0*64,1*64,2*64,3*64,4*64,5*64,6*64,7*64,
+		new int[] {0*64,1*64,2*64,3*64,4*64,5*64,6*64,7*64,
 		 8*64,9*64,10*64,11*64,12*64,13*64,14*64,15*64},
 		16*16*4
-	};
+	);
 	
-	static struct GfxDecodeInfo psikyo_gfxdecodeinfo[] =
+	static GfxDecodeInfo psikyo_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x16x4, 0x000, 0x20 }, // [0] Sprites
-		{ REGION_GFX2, 0, &layout_16x16x4, 0x800, 0x48 }, // [1] Layer 0 + 1
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0x000, 0x20 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4, 0x800, 0x48 ), // [1] Layer 0 + 1
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

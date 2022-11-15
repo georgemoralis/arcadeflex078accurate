@@ -290,34 +290,34 @@ public class thedeep
 	
 	***************************************************************************/
 	
-	static struct GfxLayout layout_8x8x2 =
-	{
+	static GfxLayout layout_8x8x2 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,2),
 		2,
-		{ 0, 4 },
-		{ STEP4(RGN_FRAC(1,2),1), STEP4(RGN_FRAC(0,2),1) },
-		{ STEP8(0,8) },
+		new int[] { 0, 4 },
+		new int[] { STEP4(RGN_FRAC(1,2),1), STEP4(RGN_FRAC(0,2),1) },
+		new int[] { STEP8(0,8) },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout layout_16x16x4 =
-	{
+	static GfxLayout layout_16x16x4 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		4,
-		{ RGN_FRAC(0,4),RGN_FRAC(1,4),RGN_FRAC(2,4),RGN_FRAC(3,4) },
-		{ STEP8(8*8*2,1), STEP8(0,1) },
-		{ STEP16(0,8) },
+		new int[] { RGN_FRAC(0,4),RGN_FRAC(1,4),RGN_FRAC(2,4),RGN_FRAC(3,4) },
+		new int[] { STEP8(8*8*2,1), STEP8(0,1) },
+		new int[] { STEP16(0,8) },
 		16*16
-	};
+	);
 	
-	static struct GfxDecodeInfo thedeep_gfxdecodeinfo[] =
+	static GfxDecodeInfo thedeep_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x16x4,	0x080,  8 }, // [0] Sprites
-		{ REGION_GFX2, 0, &layout_16x16x4,	0x100, 16 }, // [1] Background Layer
-		{ REGION_GFX3, 0, &layout_8x8x2,	0x000, 16 }, // [2] Text Layer
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4,	0x080,  8 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4,	0x100, 16 ), // [1] Background Layer
+		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x2,	0x000, 16 ), // [2] Text Layer
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

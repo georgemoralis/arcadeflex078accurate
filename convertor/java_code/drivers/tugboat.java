@@ -279,24 +279,24 @@ public class tugboat
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,3),
 		3,
-		{ RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout, 0x80, 16 },
-		{ REGION_GFX2, 0, &charlayout, 0x80, 16 },
-		{ REGION_GFX3, 0, &charlayout, 0x00, 16 },
-		{ REGION_GFX4, 0, &charlayout, 0x00, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0x80, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 0x80, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout, 0x00, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &charlayout, 0x00, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

@@ -529,47 +529,47 @@ public class cclimber
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		512,    /* 512 characters (256 in Crazy Climber) */
 		2,      /* 2 bits per pixel */
-		{ 0, 512*8*8 }, /* the two bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },     /* pretty straightforward layout */
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 512*8*8 }, /* the two bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },     /* pretty straightforward layout */
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8     /* every char takes 8 consecutive bytes */
-	};
-	static struct GfxLayout bscharlayout =
-	{
+	);
+	static GfxLayout bscharlayout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		256,    /* 256 characters */
 		2,      /* 2 bits per pixel */
-		{ 0, 256*8*8 }, /* the bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },     /* pretty straightforward layout */
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 256*8*8 }, /* the bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },     /* pretty straightforward layout */
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8     /* every char takes 8 consecutive bytes */
-	};
-	static struct GfxLayout spritelayout =
-	{
+	);
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,  /* 16*16 sprites */
 		128,    /* 128 sprites (64 in Crazy Climber) */
 		2,      /* 2 bits per pixel */
-		{ 0, 128*16*16 },       /* the bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7,       /* pretty straightforward layout */
+		new int[] { 0, 128*16*16 },       /* the bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7,       /* pretty straightforward layout */
 				8*8+0, 8*8+1, 8*8+2, 8*8+3, 8*8+4, 8*8+5, 8*8+6, 8*8+7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				16*8, 17*8, 18*8, 19*8, 20*8, 21*8, 22*8, 23*8 },
 		32*8    /* every sprite takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout,      0, 16 }, /* char set #1 */
-		{ REGION_GFX1, 0x2000, &charlayout,      0, 16 }, /* char set #2 */
-		{ REGION_GFX2, 0x0000, &bscharlayout, 16*4,  8 }, /* big sprite char set */
-		{ REGION_GFX1, 0x0000, &spritelayout,    0, 16 }, /* sprite set #1 */
-		{ REGION_GFX1, 0x2000, &spritelayout,    0, 16 }, /* sprite set #2 */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,      0, 16 ), /* char set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0x2000, &charlayout,      0, 16 ), /* char set #2 */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &bscharlayout, 16*4,  8 ), /* big sprite char set */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout,    0, 16 ), /* sprite set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0x2000, &spritelayout,    0, 16 ), /* sprite set #2 */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	
@@ -1336,36 +1336,36 @@ public class cclimber
 	
 	
 	
-	static struct GfxLayout swimmer_charlayout =
-	{
+	static GfxLayout swimmer_charlayout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		512,    /* 512 characters */
 		3,      /* 3 bits per pixel */
-		{ 0, 512*8*8, 512*2*8*8 },      /* the bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },	     /* characters are upside down */
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 512*8*8, 512*2*8*8 },      /* the bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },	     /* characters are upside down */
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8     /* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout swimmer_spritelayout =
-	{
+	static GfxLayout swimmer_spritelayout = new GfxLayout
+	(
 		16,16,  /* 16*16 sprites */
 		128,    /* 128 sprites */
 		3,	      /* 3 bits per pixel */
-		{ 0, 128*16*16, 128*2*16*16 },  /* the bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7,       /* pretty straightforward layout */
+		new int[] { 0, 128*16*16, 128*2*16*16 },  /* the bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7,       /* pretty straightforward layout */
 				8*8+0, 8*8+1, 8*8+2, 8*8+3, 8*8+4, 8*8+5, 8*8+6, 8*8+7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				16*8, 17*8, 18*8, 19*8, 20*8, 21*8, 22*8, 23*8 },
 		32*8    /* every sprite takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo swimmer_gfxdecodeinfo[] =
+	static GfxDecodeInfo swimmer_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &swimmer_charlayout,      0, 64 }, /* characters */
-		{ REGION_GFX1, 0, &swimmer_spritelayout,    0, 32 }, /* sprite set #1 */
-		{ REGION_GFX2, 0, &swimmer_charlayout,   64*8, 4 },  /* big sprite set */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &swimmer_charlayout,      0, 64 ), /* characters */
+		new GfxDecodeInfo( REGION_GFX1, 0, &swimmer_spritelayout,    0, 32 ), /* sprite set #1 */
+		new GfxDecodeInfo( REGION_GFX2, 0, &swimmer_charlayout,   64*8, 4 ),  /* big sprite set */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

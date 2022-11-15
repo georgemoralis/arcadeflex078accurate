@@ -188,22 +188,22 @@ public class strvmstr
 		PORT_BIT_IMPULSE( 0x01, IP_ACTIVE_HIGH, IPT_COIN1, 1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,2),
 		2,
-		{ RGN_FRAC(0,2), RGN_FRAC(1,2) },
-		{ 7, 6, 5, 4, 3, 2, 1, 0 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(0,2), RGN_FRAC(1,2) },
+		new int[] { 7, 6, 5, 4, 3, 2, 1, 0 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,   0, 8 },
-		{ REGION_GFX2, 0, &charlayout,   0, 8 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0, 8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout,   0, 8 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	static void get_tile_info_bg(int tile_index)

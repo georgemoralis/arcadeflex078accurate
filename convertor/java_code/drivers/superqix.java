@@ -155,39 +155,39 @@ public class superqix
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		1024,
 		4,
-		{ 0, 1, 2, 3 },
-		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4,
 				32*8+0*4, 32*8+1*4, 32*8+2*4, 32*8+3*4, 32*8+4*4, 32*8+5*4, 32*8+6*4, 32*8+7*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 				16*32, 17*32, 18*32, 19*32, 20*32, 21*32, 22*32, 23*32 },
 		128*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x00000, &charlayout,   0, 16 },	/* Chars */
-		{ REGION_GFX2, 0x00000, &charlayout,   0, 16 },	/* Background tiles */
-		{ REGION_GFX2, 0x08000, &charlayout,   0, 16 },
-		{ REGION_GFX2, 0x10000, &charlayout,   0, 16 },
-		{ REGION_GFX2, 0x18000, &charlayout,   0, 16 },
-		{ REGION_GFX3, 0x00000, &spritelayout, 0, 16 },	/* Sprites */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout,   0, 16 ),	/* Chars */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, &charlayout,   0, 16 ),	/* Background tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0x08000, &charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x10000, &charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x18000, &charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, &spritelayout, 0, 16 ),	/* Sprites */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

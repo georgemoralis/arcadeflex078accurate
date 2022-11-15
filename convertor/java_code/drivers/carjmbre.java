@@ -164,33 +164,33 @@ public class carjmbre
 		PORT_DIPSETTING(    0x00, DEF_STR( "Cocktail") );
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout carjmbre_charlayout =
-	{
+	static GfxLayout carjmbre_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(2,4),
 		2,
-		{ RGN_FRAC(0,4), RGN_FRAC(2,4) },
-		{ STEP8(0,1) },
-		{ STEP8(0,8) },
+		new int[] { RGN_FRAC(0,4), RGN_FRAC(2,4) },
+		new int[] { STEP8(0,1) },
+		new int[] { STEP8(0,8) },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout carjmbre_spritelayout =
-	{
+	static GfxLayout carjmbre_spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		2,
-		{ RGN_FRAC(2,4), RGN_FRAC(0,4) },
-		{ STEP8(0,1), STEP8(256*16*8,1) },
-		{ STEP16(0,8) },
+		new int[] { RGN_FRAC(2,4), RGN_FRAC(0,4) },
+		new int[] { STEP8(0,1), STEP8(256*16*8,1) },
+		new int[] { STEP16(0,8) },
 		16*8
-	};
+	);
 	
-	static struct GfxDecodeInfo carjmbre_gfxdecodeinfo[] =
+	static GfxDecodeInfo carjmbre_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &carjmbre_charlayout,   0, 16 },
-		{ REGION_GFX2, 0, &carjmbre_spritelayout, 0, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &carjmbre_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &carjmbre_spritelayout, 0, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static struct AY8910interface carjmbre_ay8910_interface =

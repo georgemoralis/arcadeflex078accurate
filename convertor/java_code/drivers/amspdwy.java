@@ -223,21 +223,21 @@ public class amspdwy
 	
 	***************************************************************************/
 	
-	static struct GfxLayout layout_8x8x2 =
-	{
+	static GfxLayout layout_8x8x2 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,2),
 		2,
-		{ RGN_FRAC(0,2), RGN_FRAC(1,2) },
-		{ STEP8(0,1) },
-		{ STEP8(0,8) },
+		new int[] { RGN_FRAC(0,2), RGN_FRAC(1,2) },
+		new int[] { STEP8(0,1) },
+		new int[] { STEP8(0,8) },
 		8*8
-	};
+	);
 	
-	static struct GfxDecodeInfo amspdwy_gfxdecodeinfo[] =
+	static GfxDecodeInfo amspdwy_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_8x8x2,   0, 8 }, // [0] Layer & Sprites
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x2,   0, 8 ), // [0] Layer & Sprites
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

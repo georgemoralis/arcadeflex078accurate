@@ -232,75 +232,75 @@ public class exctsccr
 	
 	***************************************************************************/
 	
-	static struct GfxLayout charlayout1 =
-	{
+	static GfxLayout charlayout1 = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		256,	/* 256 characters */
 		3,		/* 3 bits per pixel */
-		{ 0x4000*8+4, 0, 4 },	/* plane offset */
-		{ 8*8+0, 8*8+1, 8*8+2, 8*8+3, 0, 1, 2, 3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0x4000*8+4, 0, 4 },	/* plane offset */
+		new int[] { 8*8+0, 8*8+1, 8*8+2, 8*8+3, 0, 1, 2, 3 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		16*8	/* every char takes 16 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout charlayout2 =
-	{
+	static GfxLayout charlayout2 = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		256,	/* 256 characters */
 		3,		/* 3 bits per pixel */
-		{ 0x2000*8, 0, 4 },	/* plane offset */
-		{ 8*8+0, 8*8+1, 8*8+2, 8*8+3, 0, 1, 2, 3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0x2000*8, 0, 4 },	/* plane offset */
+		new int[] { 8*8+0, 8*8+1, 8*8+2, 8*8+3, 0, 1, 2, 3 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		16*8	/* every char takes 16 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout spritelayout1 =
-	{
+	static GfxLayout spritelayout1 = new GfxLayout
+	(
 		16,16,	    /* 16*16 sprites */
 		64,	        /* 64 sprites */
 		3,	        /* 3 bits per pixel */
-		{ 0x4000*8+4, 0, 4 },	/* plane offset */
-		{ 8*8, 8*8+1, 8*8+2, 8*8+3, 16*8+0, 16*8+1, 16*8+2, 16*8+3,
+		new int[] { 0x4000*8+4, 0, 4 },	/* plane offset */
+		new int[] { 8*8, 8*8+1, 8*8+2, 8*8+3, 16*8+0, 16*8+1, 16*8+2, 16*8+3,
 				24*8+0, 24*8+1, 24*8+2, 24*8+3, 0, 1, 2, 3  },
-		{ 0 * 8, 1 * 8, 2 * 8, 3 * 8, 4 * 8, 5 * 8, 6 * 8, 7 * 8,
+		new int[] { 0 * 8, 1 * 8, 2 * 8, 3 * 8, 4 * 8, 5 * 8, 6 * 8, 7 * 8,
 				32 * 8, 33 * 8, 34 * 8, 35 * 8, 36 * 8, 37 * 8, 38 * 8, 39 * 8 },
 		64*8	/* every sprite takes 64 bytes */
-	};
+	);
 	
-	static struct GfxLayout spritelayout2 =
-	{
+	static GfxLayout spritelayout2 = new GfxLayout
+	(
 		16,16,	    /* 16*16 sprites */
 		64,         /* 64 sprites */
 		3,	        /* 3 bits per pixel */
-		{ 0x2000*8, 0, 4 },	/* plane offset */
-		{ 8*8, 8*8+1, 8*8+2, 8*8+3, 16*8+0, 16*8+1, 16*8+2, 16*8+3,
+		new int[] { 0x2000*8, 0, 4 },	/* plane offset */
+		new int[] { 8*8, 8*8+1, 8*8+2, 8*8+3, 16*8+0, 16*8+1, 16*8+2, 16*8+3,
 				24*8+0, 24*8+1, 24*8+2, 24*8+3, 0, 1, 2, 3  },
-		{ 0 * 8, 1 * 8, 2 * 8, 3 * 8, 4 * 8, 5 * 8, 6 * 8, 7 * 8,
+		new int[] { 0 * 8, 1 * 8, 2 * 8, 3 * 8, 4 * 8, 5 * 8, 6 * 8, 7 * 8,
 				32 * 8, 33 * 8, 34 * 8, 35 * 8, 36 * 8, 37 * 8, 38 * 8, 39 * 8 },
 		64*8	/* every sprite takes 64 bytes */
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,		/* 16*16 sprites */
 		64,	    	/* 64 sprites */
 		3,	    	/* 2 bits per pixel */
-		{ 0x1000*8+4, 0, 4 },	/* plane offset */
-		{ 8*8, 8*8+1, 8*8+2, 8*8+3, 16*8+0, 16*8+1, 16*8+2, 16*8+3,
+		new int[] { 0x1000*8+4, 0, 4 },	/* plane offset */
+		new int[] { 8*8, 8*8+1, 8*8+2, 8*8+3, 16*8+0, 16*8+1, 16*8+2, 16*8+3,
 				24*8+0, 24*8+1, 24*8+2, 24*8+3, 0, 1, 2, 3  },
-		{ 0 * 8, 1 * 8, 2 * 8, 3 * 8, 4 * 8, 5 * 8, 6 * 8, 7 * 8,
+		new int[] { 0 * 8, 1 * 8, 2 * 8, 3 * 8, 4 * 8, 5 * 8, 6 * 8, 7 * 8,
 				32 * 8, 33 * 8, 34 * 8, 35 * 8, 36 * 8, 37 * 8, 38 * 8, 39 * 8 },
 		64*8	/* every sprite takes 64 bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout1,      0, 32 }, /* chars */
-		{ REGION_GFX1, 0x2000, &charlayout2,      0, 32 }, /* chars */
-		{ REGION_GFX1, 0x1000, &spritelayout1, 16*8, 32 }, /* sprites */
-		{ REGION_GFX1, 0x3000, &spritelayout2, 16*8, 32 }, /* sprites */
-		{ REGION_GFX2, 0x0000, &spritelayout,  16*8, 32 }, /* sprites */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout1,      0, 32 ), /* chars */
+		new GfxDecodeInfo( REGION_GFX1, 0x2000, &charlayout2,      0, 32 ), /* chars */
+		new GfxDecodeInfo( REGION_GFX1, 0x1000, &spritelayout1, 16*8, 32 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0x3000, &spritelayout2, 16*8, 32 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout,  16*8, 32 ), /* sprites */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/***************************************************************************

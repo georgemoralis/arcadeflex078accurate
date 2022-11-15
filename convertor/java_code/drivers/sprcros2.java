@@ -236,45 +236,45 @@ public class sprcros2
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout sprcros2_bglayout =
-	{
+	static GfxLayout sprcros2_bglayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,3),
 		3,
-		{ RGN_FRAC(0,3), RGN_FRAC(1,3), RGN_FRAC(2,3) },
-		{ STEP8(0,1) },
-		{ STEP8(0,8) },
+		new int[] { RGN_FRAC(0,3), RGN_FRAC(1,3), RGN_FRAC(2,3) },
+		new int[] { STEP8(0,1) },
+		new int[] { STEP8(0,8) },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout sprcros2_spritelayout =
-	{
+	static GfxLayout sprcros2_spritelayout = new GfxLayout
+	(
 		32,32,
 		RGN_FRAC(1,3),
 		3,
-		{ RGN_FRAC(0,3), RGN_FRAC(1,3), RGN_FRAC(2,3) },
-		{ STEP8(0,1), STEP8(256,1), STEP8(512,1), STEP8(768,1) },
-		{ STEP16(0,8), STEP16(128,8) },
+		new int[] { RGN_FRAC(0,3), RGN_FRAC(1,3), RGN_FRAC(2,3) },
+		new int[] { STEP8(0,1), STEP8(256,1), STEP8(512,1), STEP8(768,1) },
+		new int[] { STEP16(0,8), STEP16(128,8) },
 		32*32
-	};
+	);
 	
-	static struct GfxLayout sprcros2_fglayout =
-	{
+	static GfxLayout sprcros2_fglayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		2,
-		{ 0, 4 },
-		{ STEP4(64,1), STEP4(0,1) },
-		{ STEP8(0,8) },
+		new int[] { 0, 4 },
+		new int[] { STEP4(64,1), STEP4(0,1) },
+		new int[] { STEP8(0,8) },
 		8*8*2
-	};
+	);
 	
-	static struct GfxDecodeInfo sprcros2_gfxdecodeinfo[] =
+	static GfxDecodeInfo sprcros2_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &sprcros2_bglayout,     0,   16 },
-		{ REGION_GFX2, 0, &sprcros2_spritelayout, 256, 6  },
-		{ REGION_GFX3, 0, &sprcros2_fglayout,     512, 64 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &sprcros2_bglayout,     0,   16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &sprcros2_spritelayout, 256, 6  ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &sprcros2_fglayout,     512, 64 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static struct SN76496interface sprcros2_sn76496_interface =

@@ -267,34 +267,34 @@ public class espial
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(2,2),
 		2,
-		{ 0, 4 },
-		{ STEP4(0,1), STEP4(8*8,1) },
-		{ STEP8(0,8) },
+		new int[] { 0, 4 },
+		new int[] { STEP4(0,1), STEP4(8*8,1) },
+		new int[] { STEP8(0,8) },
 		16*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,2),
 		2,
-		{ RGN_FRAC(0,2), RGN_FRAC(1,2) },
-		{ STEP8(0,1), STEP8(8*8,1) },
-		{ STEP8(0,8), STEP8(16*8,8) },
+		new int[] { RGN_FRAC(0,2), RGN_FRAC(1,2) },
+		new int[] { STEP8(0,1), STEP8(8*8,1) },
+		new int[] { STEP8(0,8), STEP8(16*8,8) },
 		32*8
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,    0, 64 },
-		{ REGION_GFX2, 0, &spritelayout,  0, 64 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,    0, 64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,  0, 64 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

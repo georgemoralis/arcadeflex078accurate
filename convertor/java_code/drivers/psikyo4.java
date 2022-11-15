@@ -80,21 +80,21 @@ public class psikyo4
 	
 	/* defined in vidhrdw/psikyo4.c */
 	
-	static struct GfxLayout layout_16x16x8 =
-	{
+	static GfxLayout layout_16x16x8 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		8,
-		{STEP8(0,1)},
-		{STEP16(0,8)},
-		{STEP16(0,16*8)},
+		new int[] {STEP8(0,1)},
+		new int[] {STEP16(0,8)},
+		new int[] {STEP16(0,16*8)},
 		16*16*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfops4[] =
+	static GfxDecodeInfo gfxdecodeinfops4[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x16x8, 0x000, 0x80 }, // 8bpp tiles
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8, 0x000, 0x80 ), // 8bpp tiles
+		new GfxDecodeInfo( -1 )
 	};
 	
 	static struct EEPROM_interface eeprom_interface_93C56 =

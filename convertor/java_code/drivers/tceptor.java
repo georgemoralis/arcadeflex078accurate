@@ -470,26 +470,26 @@ public class tceptor
 	
 	/*******************************************************************/
 	
-	static struct GfxLayout tile_layout =
-	{
+	static GfxLayout tile_layout = new GfxLayout
+	(
 		8, 8,
 		512,
 		2,
-		{ 0x0000, 0x0004 }, //,  0x8000, 0x8004 },
+		new int[] { 0x0000, 0x0004 }, //,  0x8000, 0x8004 ),
 		{ 8*8, 8*8+1, 8*8+2, 8*8+3, 0*8+0, 0*8+1, 0*8+2, 0*8+3 },
 		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		2*8*8
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tile_layout,     0,  256 },
+		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout,     0,  256 ),
 	
 		/* decode in VIDEO_START */
-		//{ REGION_GFX2, 0, &bg_layout,    2048,   64 },
-		//{ REGION_GFX3, 0, &spr16_layout, 1024,   64 },
-		//{ REGION_GFX4, 0, &spr32_layout, 1024,   64 },
-		{ -1 }
+		//new GfxDecodeInfo( REGION_GFX2, 0, &bg_layout,    2048,   64 ),
+		//new GfxDecodeInfo( REGION_GFX3, 0, &spr16_layout, 1024,   64 ),
+		//new GfxDecodeInfo( REGION_GFX4, 0, &spr32_layout, 1024,   64 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

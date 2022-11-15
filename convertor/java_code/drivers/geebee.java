@@ -421,42 +421,42 @@ public class geebee
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout charlayout_1k =
-	{
+	static GfxLayout charlayout_1k = new GfxLayout
+	(
 		8, 8,							   /* 8x8 pixels */
 		128,							   /* 128 codes */
 		1,								   /* 1 bit per pixel */
-		{0},							   /* no bitplanes */
+		new int[] {0},							   /* no bitplanes */
 		/* x offsets */
-		{0,1,2,3,4,5,6,7},
+		new int[] {0,1,2,3,4,5,6,7},
 		/* y offsets */
-	    {0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8},
+	    new int[] {0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8},
 		8 * 8							   /* eight bytes per code */
+	);
+	
+	static GfxDecodeInfo gfxdecodeinfo_1k[] =
+	{
+		new GfxDecodeInfo( REGION_CPU1, 0x3000, &charlayout_1k, 0, 4 ),
+		new GfxDecodeInfo(-1)							   /* end of array */
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo_1k[] =
-	{
-		{ REGION_CPU1, 0x3000, &charlayout_1k, 0, 4 },
-		{-1}							   /* end of array */
-	};
-	
-	static struct GfxLayout charlayout_2k =
-	{
+	static GfxLayout charlayout_2k = new GfxLayout
+	(
 	    8, 8,                              /* 8x8 pixels */
 		256,							   /* 256 codes */
 	    1,                                 /* 1 bit per pixel */
-	    {0},                               /* no bitplanes */
+	    new int[] {0},                               /* no bitplanes */
 	    /* x offsets */
-	    {0,1,2,3,4,5,6,7},
+	    new int[] {0,1,2,3,4,5,6,7},
 	    /* y offsets */
-	    {0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8},
+	    new int[] {0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8},
 	    8 * 8                              /* eight bytes per code */
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo_2k[] =
+	static GfxDecodeInfo gfxdecodeinfo_2k[] =
 	{
-		{ REGION_CPU1, 0x3000, &charlayout_2k, 0, 4 },
-		{-1}							   /* end of array */
+		new GfxDecodeInfo( REGION_CPU1, 0x3000, &charlayout_2k, 0, 4 ),
+		new GfxDecodeInfo(-1)							   /* end of array */
 	};
 	
 	static struct CustomSound_interface custom_interface =

@@ -134,40 +134,40 @@ public class troangel
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8, /* character size */
 		1024, /* number of characters */
 		3, /* bits per pixel */
-		{ 0, 1024*8*8, 2*1024*8*8 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 1024*8*8, 2*1024*8*8 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* character offset */
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,32, /* sprite size */
 		64, /* number of sprites */
 		3, /* bits per pixel */
-		{ 0, 0x4000*8, 2*0x4000*8 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7,
+		new int[] { 0, 0x4000*8, 2*0x4000*8 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7,
 				16*8+0, 16*8+1, 16*8+2, 16*8+3, 16*8+4, 16*8+5, 16*8+6, 16*8+7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8,
 				256*64+0*8, 256*64+1*8, 256*64+2*8, 256*64+3*8, 256*64+4*8, 256*64+5*8, 256*64+6*8, 256*64+7*8,
 				256*64+8*8, 256*64+9*8, 256*64+10*8, 256*64+11*8, 256*64+12*8, 256*64+13*8, 256*64+14*8, 256*64+15*8 },
 		32*8	/* character offset */
-	};
+	);
 	
-	static struct GfxDecodeInfo troangel_gfxdecodeinfo[] =
+	static GfxDecodeInfo troangel_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout,      0, 32 },
-		{ REGION_GFX2, 0x0000, &spritelayout, 32*8, 32 },
-		{ REGION_GFX2, 0x1000, &spritelayout, 32*8, 32 },
-		{ REGION_GFX2, 0x2000, &spritelayout, 32*8, 32 },
-		{ REGION_GFX2, 0x3000, &spritelayout, 32*8, 32 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,      0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout, 32*8, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x1000, &spritelayout, 32*8, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x2000, &spritelayout, 32*8, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x3000, &spritelayout, 32*8, 32 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

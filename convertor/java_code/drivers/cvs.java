@@ -385,38 +385,38 @@ public class cvs
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout charlayout8colour =
-	{
+	static GfxLayout charlayout8colour = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		256,	/* 256 characters */
 		3,		/* 3 bits per pixel */
-		{ 0, 0x800*8, 0x1000*8 },	/* the bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 0x800*8, 0x1000*8 },	/* the bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* every char takes 8 consecutive bytes */
-	};
+	);
 	
 	/* S2636 Mappings */
 	
-	static struct GfxLayout s2636_character10 =
-	{
+	static GfxLayout s2636_character10 = new GfxLayout
+	(
 		8,10,
 		5,
 		1,
-		{ 0 },
-		{ 0,1,2,3,4,5,6,7 },
-	   	{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8, 8*8, 9*8 },
+		new int[] { 0 },
+		new int[] { 0,1,2,3,4,5,6,7 },
+	   	new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8, 8*8, 9*8 },
 		8*16
-	};
+	);
 	
-	static struct GfxDecodeInfo cvs_gfxdecodeinfo[] =
+	static GfxDecodeInfo cvs_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout8colour, 0, 259 },	/* Rom chars */
-		{ REGION_CPU1, 0x7c00, &charlayout8colour, 0, 259 },	/* Ram chars */
-	  	{ REGION_CPU1, 0x0000, &s2636_character10, 2072, 8 },	/* s2636 #1  */
-	  	{ REGION_CPU1, 0x0000, &s2636_character10, 2072, 8 },	/* s2636 #2  */
-	  	{ REGION_CPU1, 0x0000, &s2636_character10, 2072, 8 },	/* s2636 #3  */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout8colour, 0, 259 ),	/* Rom chars */
+		new GfxDecodeInfo( REGION_CPU1, 0x7c00, &charlayout8colour, 0, 259 ),	/* Ram chars */
+	  	new GfxDecodeInfo( REGION_CPU1, 0x0000, &s2636_character10, 2072, 8 ),	/* s2636 #1  */
+	  	new GfxDecodeInfo( REGION_CPU1, 0x0000, &s2636_character10, 2072, 8 ),	/* s2636 #2  */
+	  	new GfxDecodeInfo( REGION_CPU1, 0x0000, &s2636_character10, 2072, 8 ),	/* s2636 #3  */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static MACHINE_DRIVER_START( cvs )

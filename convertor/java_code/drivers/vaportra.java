@@ -230,64 +230,64 @@ public class vaportra
 	
 	/******************************************************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 chars */
 		4096,
 		4,		/* 4 bits per pixel  */
-		{ 8, 0,  0x40000*8+8, 0x40000*8 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { 8, 0,  0x40000*8+8, 0x40000*8 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		16*8	/* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout seallayout =
-	{
+	static GfxLayout seallayout = new GfxLayout
+	(
 		16,16,
 		4096,
 		4,
-		{ 0x80000*8+8, 0x80000*8, 8, 0 },
-		{ 32*8+0, 32*8+1, 32*8+2, 32*8+3, 32*8+4, 32*8+5, 32*8+6, 32*8+7,
+		new int[] { 0x80000*8+8, 0x80000*8, 8, 0 },
+		new int[] { 32*8+0, 32*8+1, 32*8+2, 32*8+3, 32*8+4, 32*8+5, 32*8+6, 32*8+7,
 			0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		64*8
-	};
+	);
 	
-	static struct GfxLayout seallayout3 =
-	{
+	static GfxLayout seallayout3 = new GfxLayout
+	(
 		16,16,
 		4096,
 		4,
-		{ 8, 0, 0x40000*8+8, 0x40000*8 },
-		{ 32*8+0, 32*8+1, 32*8+2, 32*8+3, 32*8+4, 32*8+5, 32*8+6, 32*8+7,
+		new int[] { 8, 0, 0x40000*8+8, 0x40000*8 },
+		new int[] { 32*8+0, 32*8+1, 32*8+2, 32*8+3, 32*8+4, 32*8+5, 32*8+6, 32*8+7,
 			0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		64*8
-	};
+	);
 	
-	static struct GfxLayout seallayout2 =
-	{
+	static GfxLayout seallayout2 = new GfxLayout
+	(
 		16,16,
 		4096*2,
 		4,
-		{ 8, 0, 0x80000*8+8, 0x80000*8 },
-		{ 32*8+0, 32*8+1, 32*8+2, 32*8+3, 32*8+4, 32*8+5, 32*8+6, 32*8+7,
+		new int[] { 8, 0, 0x80000*8+8, 0x80000*8 },
+		new int[] { 32*8+0, 32*8+1, 32*8+2, 32*8+3, 32*8+4, 32*8+5, 32*8+6, 32*8+7,
 			0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		64*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x000000, &charlayout,    0, 16 },	/* Characters 8x8 */
-		{ REGION_GFX2, 0x000000, &seallayout,  768, 16 },	/* Tiles 16x16 */
-		{ REGION_GFX1, 0x000000, &seallayout3, 512, 16 },	/* Tiles 16x16 */
-		{ REGION_GFX2, 0x040000, &seallayout, 1024, 16 },	/* Tiles 16x16 */
-		{ REGION_GFX3, 0x000000, &seallayout2, 256, 16 },	/* Sprites 16x16 */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, &charlayout,    0, 16 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX2, 0x000000, &seallayout,  768, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0x000000, &seallayout3, 512, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0x040000, &seallayout, 1024, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX3, 0x000000, &seallayout2, 256, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/******************************************************************************/

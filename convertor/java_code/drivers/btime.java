@@ -1179,124 +1179,124 @@ public class btime
 	      whatever the coinage Dip Switch are (they are not read in this case) */
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		1024,   /* 1024 characters */
 		3,      /* 3 bits per pixel */
-		{ 2*1024*8*8, 1024*8*8, 0 },    /* the bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 2*1024*8*8, 1024*8*8, 0 },    /* the bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8     /* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,  /* 16*16 sprites */
 		256,    /* 256 sprites */
 		3,      /* 3 bits per pixel */
-		{ 2*256*16*16, 256*16*16, 0 },  /* the bitplanes are separated */
-		{ 16*8+0, 16*8+1, 16*8+2, 16*8+3, 16*8+4, 16*8+5, 16*8+6, 16*8+7,
+		new int[] { 2*256*16*16, 256*16*16, 0 },  /* the bitplanes are separated */
+		new int[] { 16*8+0, 16*8+1, 16*8+2, 16*8+3, 16*8+4, 16*8+5, 16*8+6, 16*8+7,
 		  0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 		  8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
 		32*8    /* every sprite takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout zoar_spritelayout =
-	{
+	static GfxLayout zoar_spritelayout = new GfxLayout
+	(
 		16,16,  /* 16*16 sprites */
 		128,    /* 256 sprites */
 		3,      /* 3 bits per pixel */
-		{ 2*128*16*16, 128*16*16, 0 },  /* the bitplanes are separated */
-		{ 16*8+0, 16*8+1, 16*8+2, 16*8+3, 16*8+4, 16*8+5, 16*8+6, 16*8+7,
+		new int[] { 2*128*16*16, 128*16*16, 0 },  /* the bitplanes are separated */
+		new int[] { 16*8+0, 16*8+1, 16*8+2, 16*8+3, 16*8+4, 16*8+5, 16*8+6, 16*8+7,
 		  0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 		  8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
 		32*8    /* every sprite takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout btime_tilelayout =
-	{
+	static GfxLayout btime_tilelayout = new GfxLayout
+	(
 		16,16,  /* 16*16 characters */
 		64,    /* 64 characters */
 		3,      /* 3 bits per pixel */
-		{  2*64*16*16, 64*16*16, 0 },    /* the bitplanes are separated */
-		{ 16*8+0, 16*8+1, 16*8+2, 16*8+3, 16*8+4, 16*8+5, 16*8+6, 16*8+7,
+		new int[] {  2*64*16*16, 64*16*16, 0 },    /* the bitplanes are separated */
+		new int[] { 16*8+0, 16*8+1, 16*8+2, 16*8+3, 16*8+4, 16*8+5, 16*8+6, 16*8+7,
 		  0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 		  8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
 		32*8    /* every tile takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout cookrace_tilelayout =
-	{
+	static GfxLayout cookrace_tilelayout = new GfxLayout
+	(
 		8,8,  /* 8*8 characters */
 		256,    /* 256 characters */
 		3,      /* 3 bits per pixel */
-		{  2*256*8*8, 256*8*8, 0 },    /* the bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] {  2*256*8*8, 256*8*8, 0 },    /* the bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8    /* every tile takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout bnj_tilelayout =
-	{
+	static GfxLayout bnj_tilelayout = new GfxLayout
+	(
 		16,16,  /* 16*16 characters */
 		64, /* 64 characters */
 		3,  /* 3 bits per pixel */
-		{ 2*64*16*16+4, 0, 4 },
-		{ 3*16*8+0, 3*16*8+1, 3*16*8+2, 3*16*8+3, 2*16*8+0, 2*16*8+1, 2*16*8+2, 2*16*8+3,
+		new int[] { 2*64*16*16+4, 0, 4 },
+		new int[] { 3*16*8+0, 3*16*8+1, 3*16*8+2, 3*16*8+3, 2*16*8+0, 2*16*8+1, 2*16*8+2, 2*16*8+3,
 		  16*8+0, 16*8+1, 16*8+2, 16*8+3, 0, 1, 2, 3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 		  8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
 		64*8    /* every tile takes 64 consecutive bytes */
+	);
+	
+	static GfxDecodeInfo btime_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 1 ), /* char set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,        0, 1 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0, &btime_tilelayout,    8, 1 ), /* background tiles */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo btime_gfxdecodeinfo[] =
+	static GfxDecodeInfo cookrace_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,          0, 1 }, /* char set #1 */
-		{ REGION_GFX1, 0, &spritelayout,        0, 1 }, /* sprites */
-		{ REGION_GFX2, 0, &btime_tilelayout,    8, 1 }, /* background tiles */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 1 ), /* char set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,        0, 1 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0, &cookrace_tilelayout, 8, 1 ), /* background tiles */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo cookrace_gfxdecodeinfo[] =
+	static GfxDecodeInfo lnc_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,          0, 1 }, /* char set #1 */
-		{ REGION_GFX1, 0, &spritelayout,        0, 1 }, /* sprites */
-		{ REGION_GFX2, 0, &cookrace_tilelayout, 8, 1 }, /* background tiles */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 1 ),     /* char set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,        0, 1 ),     /* sprites */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo lnc_gfxdecodeinfo[] =
+	static GfxDecodeInfo bnj_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,          0, 1 },     /* char set #1 */
-		{ REGION_GFX1, 0, &spritelayout,        0, 1 },     /* sprites */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 1 ), /* char set #1 */
+		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout,        0, 1 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0, &bnj_tilelayout,      8, 1 ), /* background tiles */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo bnj_gfxdecodeinfo[] =
+	static GfxDecodeInfo zoar_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,          0, 1 }, /* char set #1 */
-		{ REGION_GFX1, 0, &spritelayout,        0, 1 }, /* sprites */
-		{ REGION_GFX2, 0, &bnj_tilelayout,      8, 1 }, /* background tiles */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,          0, 8 ), /* char set #1 */
+		new GfxDecodeInfo( REGION_GFX4, 0, &zoar_spritelayout,   0, 8 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0, &btime_tilelayout,    0, 8 ), /* background tiles */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo zoar_gfxdecodeinfo[] =
+	static GfxDecodeInfo disco_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,          0, 8 }, /* char set #1 */
-		{ REGION_GFX4, 0, &zoar_spritelayout,   0, 8 }, /* sprites */
-		{ REGION_GFX2, 0, &btime_tilelayout,    0, 8 }, /* background tiles */
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo disco_gfxdecodeinfo[] =
-	{
-		{ 0, 0x2000, &charlayout,          0, 4 }, /* char set #1 */
-		{ 0, 0x2000, &spritelayout,        0, 4 }, /* sprites */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( 0, 0x2000, &charlayout,          0, 4 ), /* char set #1 */
+		new GfxDecodeInfo( 0, 0x2000, &spritelayout,        0, 4 ), /* sprites */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

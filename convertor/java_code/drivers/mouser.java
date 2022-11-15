@@ -169,38 +169,38 @@ public class mouser
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,     /* 8*8 characters */
 		1024,    /* 1024 characters */
 		2,       /* 2 bits per pixel */
-		{ 8192*8, 0 },
-		{0, 1, 2, 3, 4, 5, 6, 7},
-		{8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7},
+		new int[] { 8192*8, 0 },
+		new int[] {0, 1, 2, 3, 4, 5, 6, 7},
+		new int[] {8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7},
 		8*8
-	};
+	);
 	
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,   /* 16*16 characters */
 		64,      /* 64 sprites (2 banks) */
 		2,       /* 2 bits per pixel */
-		{ 8192*8, 0 },
-		{0,  1,  2,  3,  4,  5,  6,  7,
+		new int[] { 8192*8, 0 },
+		new int[] {0,  1,  2,  3,  4,  5,  6,  7,
 		 64+0, 64+1, 64+2, 64+3, 64+4, 64+5, 64+6, 64+7},
-		{8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7,
+		new int[] {8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7,
 		 128+8*0, 128+8*1, 128+8*2, 128+8*3, 128+8*4, 128+8*5, 128+8*6, 128+8*7},
 		16*16
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout,       0, 16 },
-		{ REGION_GFX1, 0x1000, &spritelayout,     0, 16 },
-		{ REGION_GFX1, 0x1800, &spritelayout,     0, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,       0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x1000, &spritelayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x1800, &spritelayout,     0, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

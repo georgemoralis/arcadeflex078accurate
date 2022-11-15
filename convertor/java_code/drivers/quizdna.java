@@ -408,45 +408,45 @@ public class quizdna
 	
 	/****************************************************************************/
 	
-	static struct GfxLayout fglayout =
-	{
+	static GfxLayout fglayout = new GfxLayout
+	(
 		16,8,     /* 16*8 characters */
 		8192*2,   /* 16384 characters */
 		1,        /* 1 bit per pixel */
-		{0},
-		{ STEP16(0,1) },
-		{ STEP8(0,16) },
+		new int[] {0},
+		new int[] { STEP16(0,1) },
+		new int[] { STEP8(0,16) },
 		16*8
-	};
+	);
 	
-	static struct GfxLayout bglayout =
-	{
+	static GfxLayout bglayout = new GfxLayout
+	(
 		8,8,        /* 8*8 characters */
 		32768+1024, /* 32768+1024 characters */
 		4,          /* 4 bits per pixel */
-		{0,1,2,3},
-		{ STEP8(0,4) },
-		{ STEP8(0,32) },
+		new int[] {0,1,2,3},
+		new int[] { STEP8(0,4) },
+		new int[] { STEP8(0,32) },
 		8*8*4
-	};
+	);
 	
-	static struct GfxLayout objlayout =
-	{
+	static GfxLayout objlayout = new GfxLayout
+	(
 		16,16,    /* 16*16 characters */
 		8192+256, /* 8192+256 characters */
 		4,        /* 4 bits per pixel */
-		{0,1,2,3},
-		{ STEP16(0,4) },
-		{ STEP16(0,64) },
+		new int[] {0,1,2,3},
+		new int[] { STEP16(0,4) },
+		new int[] { STEP16(0,64) },
 		16*16*4
-	};
+	);
 	
-	static struct GfxDecodeInfo quizdna_gfxdecodeinfo[] =
+	static GfxDecodeInfo quizdna_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &fglayout,  0x7e0,  16 },
-		{ REGION_GFX2, 0x0000, &bglayout,  0x000, 128 },
-		{ REGION_GFX3, 0x0000, &objlayout, 0x600,  32 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &fglayout,  0x7e0,  16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &bglayout,  0x000, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0000, &objlayout, 0x600,  32 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

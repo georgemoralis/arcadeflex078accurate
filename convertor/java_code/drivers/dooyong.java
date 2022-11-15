@@ -786,109 +786,109 @@ public class dooyong
 	
 	
 	
-	static struct GfxLayout lastday_charlayout =
-	{
+	static GfxLayout lastday_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,2),
 		4,
-		{ 0, 4, RGN_FRAC(1,2)+0, RGN_FRAC(1,2)+4 },
-		{ 0, 1, 2, 3, 8+0, 8+1, 8+2, 8+3 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { 0, 4, RGN_FRAC(1,2)+0, RGN_FRAC(1,2)+4 },
+		new int[] { 0, 1, 2, 3, 8+0, 8+1, 8+2, 8+3 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		16*8
-	};
+	);
 	
-	static struct GfxLayout bluehawk_charlayout =
-	{
+	static GfxLayout bluehawk_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8
-	};
+	);
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		32,32,
 		RGN_FRAC(1,1),
 		4,
-		{ 0*4, 1*4, 2*4, 3*4 },
-		{ 0, 1, 2, 3, 16+0, 16+1, 16+2, 16+3,
+		new int[] { 0*4, 1*4, 2*4, 3*4 },
+		new int[] { 0, 1, 2, 3, 16+0, 16+1, 16+2, 16+3,
 				32*32+0, 32*32+1, 32*32+2, 32*32+3, 32*32+16+0, 32*32+16+1, 32*32+16+2, 32*32+16+3,
 				2*32*32+0, 2*32*32+1, 2*32*32+2, 2*32*32+3, 2*32*32+16+0, 2*32*32+16+1, 2*32*32+16+2, 2*32*32+16+3,
 				3*32*32+0, 3*32*32+1, 3*32*32+2, 3*32*32+3, 3*32*32+16+0, 3*32*32+16+1, 3*32*32+16+2, 3*32*32+16+3 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 				8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32,
 				16*32, 17*32, 18*32, 19*32, 20*32, 21*32, 22*32, 23*32,
 				24*32, 25*32, 26*32, 27*32, 28*32, 29*32, 30*32, 31*32 },
 		512*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ 0*4, 1*4, 2*4, 3*4 },
-		{ 0, 1, 2, 3, 16+0, 16+1, 16+2, 16+3,
+		new int[] { 0*4, 1*4, 2*4, 3*4 },
+		new int[] { 0, 1, 2, 3, 16+0, 16+1, 16+2, 16+3,
 				16*32+0, 16*32+1, 16*32+2, 16*32+3, 16*32+16+0, 16*32+16+1, 16*32+16+2, 16*32+16+3 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 				8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout rshark_spritelayout =
-	{
+	static GfxLayout rshark_spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4,
 				16*32+0*4, 16*32+1*4, 16*32+2*4, 16*32+3*4, 16*32+4*4, 16*32+5*4, 16*32+6*4, 16*32+7*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 				8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32 },
 		128*8
+	);
+	
+	
+	static GfxDecodeInfo lastday_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &lastday_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,       256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,         768, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &tilelayout,         512, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	
-	static struct GfxDecodeInfo lastday_gfxdecodeinfo[] =
+	static GfxDecodeInfo bluehawk_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &lastday_charlayout,   0, 16 },
-		{ REGION_GFX2, 0, &spritelayout,       256, 16 },
-		{ REGION_GFX3, 0, &tilelayout,         768, 16 },
-		{ REGION_GFX4, 0, &tilelayout,         512, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &bluehawk_charlayout,  0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,       256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,         768, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &tilelayout,         512, 16 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, &tilelayout,           0, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo bluehawk_gfxdecodeinfo[] =
+	static GfxDecodeInfo primella_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &bluehawk_charlayout,  0, 16 },
-		{ REGION_GFX2, 0, &spritelayout,       256, 16 },
-		{ REGION_GFX3, 0, &tilelayout,         768, 16 },
-		{ REGION_GFX4, 0, &tilelayout,         512, 16 },
-		{ REGION_GFX5, 0, &tilelayout,           0, 16 },
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo primella_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &bluehawk_charlayout,  0, 16 },
+		new GfxDecodeInfo( REGION_GFX1, 0, &bluehawk_charlayout,  0, 16 ),
 		/* no sprites */
-		{ REGION_GFX2, 0, &tilelayout,         768, 16 },
-		{ REGION_GFX3, 0, &tilelayout,         512, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,         768, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout,         512, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo rshark_gfxdecodeinfo[] =
+	static GfxDecodeInfo rshark_gfxdecodeinfo[] =
 	{
 		/* no chars */
-		{ REGION_GFX1, 0, &rshark_spritelayout,  0, 16 },
-		{ REGION_GFX2, 0, &spritelayout,       256, 16 },
-		{ REGION_GFX3, 0, &spritelayout,       512, 16 },
-		{ REGION_GFX4, 0, &spritelayout,       768, 16 },
-		{ REGION_GFX5, 0, &spritelayout,      1024, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &rshark_spritelayout,  0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &spritelayout,       256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,       512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &spritelayout,       768, 16 ),
+		new GfxDecodeInfo( REGION_GFX5, 0, &spritelayout,      1024, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

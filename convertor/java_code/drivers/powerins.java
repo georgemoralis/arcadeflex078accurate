@@ -251,54 +251,54 @@ public class powerins
 	***************************************************************************/
 	
 	/* 8x8x4 tiles */
-	static struct GfxLayout layout_8x8x4 =
-	{
+	static GfxLayout layout_8x8x4 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{0,1,2,3},
-		{0*4,1*4,2*4,3*4,4*4,5*4,6*4,7*4},
-		{0*32,1*32,2*32,3*32,4*32,5*32,6*32,7*32},
+		new int[] {0,1,2,3},
+		new int[] {0*4,1*4,2*4,3*4,4*4,5*4,6*4,7*4},
+		new int[] {0*32,1*32,2*32,3*32,4*32,5*32,6*32,7*32},
 		8*8*4
-	};
+	);
 	
 	
 	/* 16x16x4 tiles (made of four 8x8 tiles) */
-	static struct GfxLayout layout_16x16x4 =
-	{
+	static GfxLayout layout_16x16x4 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{0,1,2,3},
-		{0*4,1*4,2*4,3*4,4*4,5*4,6*4,7*4,
+		new int[] {0,1,2,3},
+		new int[] {0*4,1*4,2*4,3*4,4*4,5*4,6*4,7*4,
 		 128*4,129*4,130*4,131*4,132*4,133*4,134*4,135*4},
-		{0*32,1*32,2*32,3*32,4*32,5*32,6*32,7*32,
+		new int[] {0*32,1*32,2*32,3*32,4*32,5*32,6*32,7*32,
 		 8*32,9*32,10*32,11*32,12*32,13*32,14*32,15*32},
 		16*16*4
-	};
+	);
 	
 	
 	/* 16x16x4 tiles (made of four 8x8 tiles). The bytes are swapped */
-	static struct GfxLayout layout_16x16x4_swap =
-	{
+	static GfxLayout layout_16x16x4_swap = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{0,1,2,3},
-		{2*4,3*4,0*4,1*4,6*4,7*4,4*4,5*4,
+		new int[] {0,1,2,3},
+		new int[] {2*4,3*4,0*4,1*4,6*4,7*4,4*4,5*4,
 		 130*4,131*4,128*4,129*4,134*4,135*4,132*4,133*4},
-		{0*32,1*32,2*32,3*32,4*32,5*32,6*32,7*32,
+		new int[] {0*32,1*32,2*32,3*32,4*32,5*32,6*32,7*32,
 		 8*32,9*32,10*32,11*32,12*32,13*32,14*32,15*32},
 		16*16*4
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo powerins_gfxdecodeinfo[] =
+	static GfxDecodeInfo powerins_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x16x4,      0x000, 0x20 }, // [0] Tiles
-		{ REGION_GFX2, 0, &layout_8x8x4,        0x200, 0x10 }, // [1] Tiles
-		{ REGION_GFX3, 0, &layout_16x16x4_swap, 0x400, 0x40 }, // [2] Sprites
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4,      0x000, 0x20 ), // [0] Tiles
+		new GfxDecodeInfo( REGION_GFX2, 0, &layout_8x8x4,        0x200, 0x10 ), // [1] Tiles
+		new GfxDecodeInfo( REGION_GFX3, 0, &layout_16x16x4_swap, 0x400, 0x40 ), // [2] Sprites
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

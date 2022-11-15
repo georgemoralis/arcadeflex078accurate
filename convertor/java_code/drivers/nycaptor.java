@@ -643,35 +643,35 @@ public class nycaptor
 		PORT_ANALOG( 0xff, 0x80, IPT_LIGHTGUN_Y | IPF_PLAYER1, 25, 15, 0x00, 0xff);
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,2),
 		4,
-		{ RGN_FRAC(1,2)+0, RGN_FRAC(1,2)+4, 0, 4 },
-		{ 3, 2, 1, 0, 8+3, 8+2, 8+1, 8+0 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { RGN_FRAC(1,2)+0, RGN_FRAC(1,2)+4, 0, 4 },
+		new int[] { 3, 2, 1, 0, 8+3, 8+2, 8+1, 8+0 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		16*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,2),
 		4,
-		{ RGN_FRAC(1,2)+0, RGN_FRAC(1,2)+4, 0, 4 },
-		{ 3, 2, 1, 0, 8+3, 8+2, 8+1, 8+0,
+		new int[] { RGN_FRAC(1,2)+0, RGN_FRAC(1,2)+4, 0, 4 },
+		new int[] { 3, 2, 1, 0, 8+3, 8+2, 8+1, 8+0,
 				16*8+3, 16*8+2, 16*8+1, 16*8+0, 16*8+8+3, 16*8+8+2, 16*8+8+1, 16*8+8+0 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				16*16, 17*16, 18*16, 19*16, 20*16, 21*16, 22*16, 23*16 },
 		64*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,     0, 16 },//16 kolorow
-		{ REGION_GFX1, 0, &spritelayout, 256, 16 },//paleta 2, 16 kolorow
-		{ -1 }	/* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 16 ),//16 kolorow
+		new GfxDecodeInfo( REGION_GFX1, 0, &spritelayout, 256, 16 ),//paleta 2, 16 kolorow
+		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	
 	

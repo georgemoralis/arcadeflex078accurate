@@ -256,22 +256,22 @@ public class tecmosys
 	INPUT_PORTS_END(); }}; 
 	
 	/*
-	static struct GfxLayout tecmosys_charlayout =
-	{
+	static GfxLayout tecmosys_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 0,1,2,3 },
-		{ 0, 4, 8, 12, 16, 20, 24, 28 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0,1,2,3 },
+		new int[] { 0, 4, 8, 12, 16, 20, 24, 28 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		8*32
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tecmosys_charlayout,   0, 1  },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &tecmosys_charlayout,   0, 1  ),
+		new GfxDecodeInfo( -1 )
 	};
 	*/
 	

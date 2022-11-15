@@ -2890,74 +2890,74 @@ public class taito_z
 	                       GFX DECODING
 	***********************************************************/
 	
-	static struct GfxLayout tile16x8_layout =
-	{
+	static GfxLayout tile16x8_layout = new GfxLayout
+	(
 		16,8,	/* 16*8 sprites */
 		RGN_FRAC(1,1),
 		4,	/* 4 bits per pixel */
-		{ 0, 8, 16, 24 },
-		{ 32, 33, 34, 35, 36, 37, 38, 39, 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
+		new int[] { 0, 8, 16, 24 },
+		new int[] { 32, 33, 34, 35, 36, 37, 38, 39, 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
 		64*8	/* every sprite takes 64 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout tile16x16_layout =
-	{
+	static GfxLayout tile16x16_layout = new GfxLayout
+	(
 		16,16,	/* 16*16 sprites */
 		RGN_FRAC(1,1),
 		4,	/* 4 bits per pixel */
-		{ 0, 8, 16, 24 },
-		{ 32, 33, 34, 35, 36, 37, 38, 39, 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*64, 1*64,  2*64,  3*64,  4*64,  5*64,  6*64,  7*64,
+		new int[] { 0, 8, 16, 24 },
+		new int[] { 32, 33, 34, 35, 36, 37, 38, 39, 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*64, 1*64,  2*64,  3*64,  4*64,  5*64,  6*64,  7*64,
 		  8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },
 		64*16	/* every sprite takes 128 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		RGN_FRAC(1,1),
 		4,	/* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8	/* every sprite takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout dblaxle_charlayout =
-	{
+	static GfxLayout dblaxle_charlayout = new GfxLayout
+	(
 		16,16,    /* 16*16 characters */
 		RGN_FRAC(1,1),
 		4,        /* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 1*4, 0*4, 5*4, 4*4, 3*4, 2*4, 7*4, 6*4, 9*4, 8*4, 13*4, 12*4, 11*4, 10*4, 15*4, 14*4 },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64, 8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 1*4, 0*4, 5*4, 4*4, 3*4, 2*4, 7*4, 6*4, 9*4, 8*4, 13*4, 12*4, 11*4, 10*4, 15*4, 14*4 },
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64, 8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },
 		128*8     /* every sprite takes 128 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo taitoz_gfxdecodeinfo[] =
+	static GfxDecodeInfo taitoz_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX2, 0x0, &tile16x8_layout,  0, 256 },	/* sprite parts */
-		{ REGION_GFX1, 0x0, &charlayout,  0, 256 },		/* sprites & playfield */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile16x8_layout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &charlayout,  0, 256 ),		/* sprites & playfield */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/* taitoic.c TC0100SCN routines expect scr stuff to be in second gfx
 	   slot, so 2nd batch of obj must be placed third */
 	
-	static struct GfxDecodeInfo chasehq_gfxdecodeinfo[] =
+	static GfxDecodeInfo chasehq_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX2, 0x0, &tile16x16_layout,  0, 256 },	/* sprite parts */
-		{ REGION_GFX1, 0x0, &charlayout,  0, 256 },		/* sprites & playfield */
-		{ REGION_GFX4, 0x0, &tile16x16_layout,  0, 256 },	/* sprite parts */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile16x16_layout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &charlayout,  0, 256 ),		/* sprites & playfield */
+		new GfxDecodeInfo( REGION_GFX4, 0x0, &tile16x16_layout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo dblaxle_gfxdecodeinfo[] =
+	static GfxDecodeInfo dblaxle_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX2, 0x0, &tile16x8_layout,  0, 256 },	/* sprite parts */
-		{ REGION_GFX1, 0x0, &dblaxle_charlayout,  0, 256 },	/* sprites & playfield */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile16x8_layout,  0, 256 ),	/* sprite parts */
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &dblaxle_charlayout,  0, 256 ),	/* sprites & playfield */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

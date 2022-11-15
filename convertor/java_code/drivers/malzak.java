@@ -221,66 +221,66 @@ public class malzak
 	
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		1,
-		{ 0 },
-		{ 7, 6, 5, 4, 3, 2, 1, 0, 15, 14, 13, 12, 11, 10, 9, 8 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0 },
+		new int[] { 7, 6, 5, 4, 3, 2, 1, 0, 15, 14, 13, 12, 11, 10, 9, 8 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 		  8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 	//	{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		16*16
 	//	8*8
-	};
+	);
 	
-	static struct GfxLayout s2636_character10 =
-	{
+	static GfxLayout s2636_character10 = new GfxLayout
+	(
 		8,10,
 		5,
 		1,
-		{ 0 },
-		{ 0,1,2,3,4,5,6,7 },
-	   	{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8, 8*8, 9*8 },
+		new int[] { 0 },
+		new int[] { 0,1,2,3,4,5,6,7 },
+	   	new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8, 8*8, 9*8 },
 		8*16
-	};
+	);
 	
-	static struct GfxLayout saa5050_charlayout =
-	{
+	static GfxLayout saa5050_charlayout = new GfxLayout
+	(
 		6, 10,
 		256,
 		1,
-		{ 0 },
-		{ 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8,
+		new int[] { 0 },
+		new int[] { 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8,
 		  5*8, 6*8, 7*8, 8*8, 9*8 },
 		8 * 10
-	};
+	);
 	
-	static struct GfxLayout saa5050_hilayout =
-	{
+	static GfxLayout saa5050_hilayout = new GfxLayout
+	(
 		6, 10,
 		256,
 		1,
-		{ 0 },
-		{ 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 0*8, 1*8, 1*8, 2*8,
+		new int[] { 0 },
+		new int[] { 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 0*8, 1*8, 1*8, 2*8,
 		  2*8, 3*8, 3*8, 4*8, 4*8 },
 		8 * 10
-	};
+	);
 	
-	static struct GfxLayout saa5050_lolayout =
-	{
+	static GfxLayout saa5050_lolayout = new GfxLayout
+	(
 		6, 10,
 		256,
 		1,
-		{ 0 },
-		{ 2, 3, 4, 5, 6, 7 },
-		{ 5*8, 5*8, 6*8, 6*8, 7*8,
+		new int[] { 0 },
+		new int[] { 2, 3, 4, 5, 6, 7 },
+		new int[] { 5*8, 5*8, 6*8, 6*8, 7*8,
 		  7*8, 8*8, 8*8, 9*8, 9*8 },
 		8 * 10
-	};
+	);
 	
 	static unsigned char saa5050_palette[8 * 3] =
 	{
@@ -308,15 +308,15 @@ public class malzak
 	};
 	
 	//add s2636 decodes here (i.e. from zac2650) and maybe re-arrange them
-	static struct GfxDecodeInfo malzak_gfxdecodeinfo[] =
+	static GfxDecodeInfo malzak_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,  0, 16 },
-	  	{ REGION_CPU1, 0x0000, &s2636_character10, 0, 8 },	/* s2636 #1  */
-		{ REGION_CPU1, 0x0000, &s2636_character10, 0, 8 },	/* s2636 #2  */
-		{ REGION_GFX2, 0x0000, &saa5050_charlayout, 0, 128},
-		{ REGION_GFX2, 0x0000, &saa5050_hilayout, 0, 128},
-		{ REGION_GFX2, 0x0000, &saa5050_lolayout, 0, 128},
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 16 ),
+	  	new GfxDecodeInfo( REGION_CPU1, 0x0000, &s2636_character10, 0, 8 ),	/* s2636 #1  */
+		new GfxDecodeInfo( REGION_CPU1, 0x0000, &s2636_character10, 0, 8 ),	/* s2636 #2  */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &saa5050_charlayout, 0, 128),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &saa5050_hilayout, 0, 128),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &saa5050_lolayout, 0, 128),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static int val = -1;

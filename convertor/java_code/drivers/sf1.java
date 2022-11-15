@@ -769,38 +769,38 @@ public class sf1
 	
 	
 	
-	static struct GfxLayout char_layout =
-	{
+	static GfxLayout char_layout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		2,
-		{ 4, 0 },
-		{ 0, 1, 2, 3, 8+0, 8+1, 8+2, 8+3 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { 4, 0 },
+		new int[] { 0, 1, 2, 3, 8+0, 8+1, 8+2, 8+3 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		16*8
-	};
+	);
 	
-	static struct GfxLayout sprite_layout =
-	{
+	static GfxLayout sprite_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,2),
 		4,
-		{ 4, 0, RGN_FRAC(1,2)+4, RGN_FRAC(1,2) },
-		{ 0, 1, 2, 3, 8+0, 8+1, 8+2, 8+3,
+		new int[] { 4, 0, RGN_FRAC(1,2)+4, RGN_FRAC(1,2) },
+		new int[] { 0, 1, 2, 3, 8+0, 8+1, 8+2, 8+3,
 				16*16+0, 16*16+1, 16*16+2, 16*16+3, 16*16+8+0, 16*16+8+1, 16*16+8+2, 16*16+8+3 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		64*8
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &sprite_layout,   0, 16 },
-		{ REGION_GFX2, 0, &sprite_layout, 256, 16 },
-		{ REGION_GFX3, 0, &sprite_layout, 512, 16 },
-		{ REGION_GFX4, 0, &char_layout,   768, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &sprite_layout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout, 256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &sprite_layout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &char_layout,   768, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

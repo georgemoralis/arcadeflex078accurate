@@ -234,36 +234,36 @@ public class lemmings
 	
 	/******************************************************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		2048,
 		4,
-		{ 4, 5, 6, 7 },
-	    { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
-		{ 0*0, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
+		new int[] { 4, 5, 6, 7 },
+	    new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0*0, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
 		8*64
-	};
+	);
 	
-	static struct GfxLayout sprite_layout =
-	{
+	static GfxLayout sprite_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		4,
-		{ 0x30000*8, 0x20000*8, 0x10000*8, 0x00000*8 },
-		{
+		new int[] { 0x30000*8, 0x20000*8, 0x10000*8, 0x00000*8 },
+		new int[] {
 			7, 6, 5, 4, 3, 2, 1, 0, 16*8+7, 16*8+6, 16*8+5, 16*8+4, 16*8+3, 16*8+2, 16*8+1, 16*8+0
 		},
-		{ 15*8, 14*8, 13*8, 12*8, 11*8, 10*8, 9*8, 8*8, 7*8, 6*8, 5*8, 4*8, 3*8, 2*8, 1*8, 0*8 },
+		new int[] { 15*8, 14*8, 13*8, 12*8, 11*8, 10*8, 9*8, 8*8, 7*8, 6*8, 5*8, 4*8, 3*8, 2*8, 1*8, 0*8 },
 		32*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &sprite_layout,  32*16, 16 },	/* Sprites 16x16 */
-		{ REGION_GFX2, 0, &sprite_layout,  48*16, 16 },	/* Sprites 16x16 */
-		{ 0,           0, &charlayout,         0, 16 }, /* Dynamically modified */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &sprite_layout,  32*16, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout,  48*16, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( 0,           0, &charlayout,         0, 16 ), /* Dynamically modified */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/******************************************************************************/

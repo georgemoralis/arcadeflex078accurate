@@ -186,29 +186,29 @@ public class mainsnk
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static struct GfxLayout tile_layout =
-	{
+	static GfxLayout tile_layout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24},
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24},
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		256
-	};
+	);
 	
 	
-	static struct GfxLayout sprite_layout =
-	{
+	static GfxLayout sprite_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,3),
 		3,
-		{ RGN_FRAC(2,3),RGN_FRAC(1,3),RGN_FRAC(0,3) },  
-		{ 7,6,5,4,3,2,1,0, 15,14,13,12,11,10,9,8 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { RGN_FRAC(2,3),RGN_FRAC(1,3),RGN_FRAC(0,3) },  
+		new int[] { 7,6,5,4,3,2,1,0, 15,14,13,12,11,10,9,8 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 			8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		256
-	};
+	);
 	
 	static struct namco_interface snkwave_interface =
 	{
@@ -219,11 +219,11 @@ public class mainsnk
 	};
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0, &tile_layout,	0,  8 },
-		{ REGION_GFX2, 0x0, &sprite_layout,	0, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &tile_layout,	0,  8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &sprite_layout,	0, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	static MACHINE_DRIVER_START( mainsnk)

@@ -497,83 +497,83 @@ public class atarifb
 	 *
 	 *************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		64,
 		1,
-		{ 0 },
-		{ 15, 14, 13, 12, 7, 6, 5, 4 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { 0 },
+		new int[] { 15, 14, 13, 12, 7, 6, 5, 4 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		16*8
-	};
+	);
 	
 	
-	static struct GfxLayout fieldlayout =
-	{
+	static GfxLayout fieldlayout = new GfxLayout
+	(
 		8,8,
 		64,
 		1,
-		{ 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
 	
-	static struct GfxLayout soccer_fieldlayout =
-	{
+	static GfxLayout soccer_fieldlayout = new GfxLayout
+	(
 		8,8,
 		64,
 		1,
-		{ 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		16*8
-	};
+	);
 	
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		8,16,
 		64,
 		1,
-		{ 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
 		16*8
-	};
+	);
 	
 	
-	static struct GfxLayout spritemasklayout =
-	{
+	static GfxLayout spritemasklayout = new GfxLayout
+	(
 		8,16,
 		64,
 		1,
-		{ 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
 		16*8
+	);
+	
+	
+	static GfxDecodeInfo gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0x00, 0x01 ), /* offset into colors, # of colors */
+		new GfxDecodeInfo( REGION_GFX2, 0, &fieldlayout, 0x02, 0x01 ), /* offset into colors, # of colors */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo soccer_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,  0x00, 0x01 }, /* offset into colors, # of colors */
-		{ REGION_GFX2, 0, &fieldlayout, 0x02, 0x01 }, /* offset into colors, # of colors */
-		{ -1 } /* end of array */
-	};
-	
-	
-	static struct GfxDecodeInfo soccer_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0x0000, &charlayout,         0x00, 0x01 }, /* offset into colors, # of colors */
-		{ REGION_GFX3, 0x0400, &soccer_fieldlayout, 0x06, 0x01 }, /* offset into colors, # of colors */
-		{ REGION_GFX2, 0x0000, &spritelayout,       0x02, 0x02 }, /* offset into colors, # of colors */
-		{ REGION_GFX3, 0x0000, &spritemasklayout,   0x06, 0x03 }, /* offset into colors, # of colors */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,         0x00, 0x01 ), /* offset into colors, # of colors */
+		new GfxDecodeInfo( REGION_GFX3, 0x0400, &soccer_fieldlayout, 0x06, 0x01 ), /* offset into colors, # of colors */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout,       0x02, 0x02 ), /* offset into colors, # of colors */
+		new GfxDecodeInfo( REGION_GFX3, 0x0000, &spritemasklayout,   0x06, 0x03 ), /* offset into colors, # of colors */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

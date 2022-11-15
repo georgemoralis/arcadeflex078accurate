@@ -37,6 +37,8 @@ public class convertMame {
     static final int MEMORY_WRITE8 = 15;
     static final int PORT_READ8 = 16;
     static final int PORT_WRITE8 = 17;
+    static final int GFXLAYOUT = 18;
+    static final int GFXDECODE = 19;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -722,6 +724,47 @@ public class convertMame {
                             }
                         }
                     } // end of static but not static struct
+                    else {
+                        sUtil.skipSpace();
+                        if (sUtil.getToken("GfxLayout")) {
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '=') {
+                                Convertor.inpos = i;
+                            } else {
+                                sUtil.skipSpace();
+                                sUtil.putString("static GfxLayout " + Convertor.token[0] + " = new GfxLayout");
+                                type = GFXLAYOUT;
+                                i3 = -1;
+                                continue;
+                            }
+                        }
+                        if (sUtil.getToken("GfxDecodeInfo")) {
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '[') {
+                                Convertor.inpos = i;
+                            } else {
+                                sUtil.skipSpace();
+                                if (sUtil.parseChar() != ']') {
+                                    Convertor.inpos = i;
+                                } else {
+                                    sUtil.skipSpace();
+                                    if (sUtil.parseChar() != '=') {
+                                        Convertor.inpos = i;
+                                    } else {
+                                        sUtil.skipSpace();
+                                        sUtil.putString("static GfxDecodeInfo " + Convertor.token[0] + "[] =");
+                                        type = GFXDECODE;
+                                        i3 = -1;
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -925,6 +968,29 @@ public class convertMame {
                             continue;
                         }
                     }
+                    if (type == GFXLAYOUT) {
+                        i3++;
+                        insideagk[i3] = 0;
+                        if (i3 == 0) {
+                            Convertor.outbuf[(Convertor.outpos++)] = '(';
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                        if ((i3 == 1) && ((insideagk[0] == 4) || (insideagk[0] == 5) || (insideagk[0] == 6) || (insideagk[0] == 7))) {
+                            sUtil.putString("new int[] {");
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
+                    if (type == GFXDECODE) {
+                        i3++;
+                        insideagk[i3] = 0;
+                        if (i3 == 1) {
+                            sUtil.putString("new GfxDecodeInfo(");
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -951,8 +1017,37 @@ public class convertMame {
                             continue;
                         }
                     }
+                    if (type == GFXLAYOUT) {
+                        i3--;
+                        if (i3 == -1) {
+                            Convertor.outbuf[(Convertor.outpos++)] = 41;
+                            Convertor.inpos += 1;
+                            type = -1;
+                            continue;
+                        }
+                    }
+                    if (type == GFXDECODE) {
+                        i3--;
+                        if (i3 == -1) {
+                            type = -1;
+                        } else if (i3 == 0) {
+                            Convertor.outbuf[(Convertor.outpos++)] = ')';
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
+                break;
+                case ',': {
+                    if (type == GFXLAYOUT || type == GFXDECODE) {
+                        if ((type != -1)) {
+                            if (i3 != -1) {
+                                insideagk[i3] += 1;
+                            }
+                        }
+                    }
+                }
                 break;
             }
 

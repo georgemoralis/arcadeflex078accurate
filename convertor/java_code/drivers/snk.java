@@ -693,117 +693,117 @@ public class snk
 	
 	/*********************************************************************/
 	
-	static struct GfxLayout char512 =
-	{
+	static GfxLayout char512 = new GfxLayout
+	(
 		8,8,
 		512,
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24},
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24},
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		256
-	};
+	);
 	
-	static struct GfxLayout char1024 =
-	{
+	static GfxLayout char1024 = new GfxLayout
+	(
 		8,8,
 		1024,
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24},
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24},
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		256
-	};
+	);
 	
-	static struct GfxLayout tile1024 =
-	{
+	static GfxLayout tile1024 = new GfxLayout
+	(
 		16,16,
 		1024,
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24,
 			32+4, 32+0, 32+12, 32+8, 32+20, 32+16, 32+28, 32+24, },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
 			8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout tile2048 =
-	{
+	static GfxLayout tile2048 = new GfxLayout
+	(
 		16,16,
 		2048,
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24,
 			32+4, 32+0, 32+12, 32+8, 32+20, 32+16, 32+28, 32+24, },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
 			8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout tdfever_tiles =
-	{
+	static GfxLayout tdfever_tiles = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24,
 			32+4, 32+0, 32+12, 32+8, 32+20, 32+16, 32+28, 32+24, },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
 			8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout tdfever2_tiles =
-	{
+	static GfxLayout tdfever2_tiles = new GfxLayout
+	(
 		16,16,
 		512*6,
 		4,
-		{ 0, 1, 2, 3 },
-		{ 4, 0, 12, 8, 20, 16, 28, 24,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 4, 0, 12, 8, 20, 16, 28, 24,
 			32+4, 32+0, 32+12, 32+8, 32+20, 32+16, 32+28, 32+24, },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
 			8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout sprite512 =
-	{
+	static GfxLayout sprite512 = new GfxLayout
+	(
 		16,16,
 		512,
 		3,
-		{ 2*1024*256, 1*1024*256, 0*1024*256 },
-		{ 7,6,5,4,3,2,1,0, 15,14,13,12,11,10,9,8 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 2*1024*256, 1*1024*256, 0*1024*256 },
+		new int[] { 7,6,5,4,3,2,1,0, 15,14,13,12,11,10,9,8 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 			8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		256
-	};
+	);
 	
-	static struct GfxLayout sprite1024 =
-	{
+	static GfxLayout sprite1024 = new GfxLayout
+	(
 		16,16,
 		1024,
 		3,
-		{ 2*1024*256,1*1024*256,0*1024*256 },
-		{ 7,6,5,4,3,2,1,0, 15,14,13,12,11,10,9,8 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 2*1024*256,1*1024*256,0*1024*256 },
+		new int[] { 7,6,5,4,3,2,1,0, 15,14,13,12,11,10,9,8 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 			8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		256
-	};
+	);
 	
-	static struct GfxLayout big_sprite512 =
-	{
+	static GfxLayout big_sprite512 = new GfxLayout
+	(
 		32,32,
 		512,
 		3,
-		{ 2*2048*256,1*2048*256,0*2048*256 },
-		{
+		new int[] { 2*2048*256,1*2048*256,0*2048*256 },
+		new int[] {
 			7,6,5,4,3,2,1,0,
 			15,14,13,12,11,10,9,8,
 			23,22,21,20,19,18,17,16,
 			31,30,29,28,27,26,25,24
 		},
-		{
+		new int[] {
 			0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 			8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32,
 			16*32+0*32, 16*32+1*32, 16*32+2*32, 16*32+3*32,
@@ -812,48 +812,48 @@ public class snk
 			16*32+12*32, 16*32+13*32, 16*32+14*32, 16*32+15*32,
 		},
 		16*32*2
-	};
+	);
 	
-	static struct GfxLayout gwar_sprite1024 =
-	{
+	static GfxLayout gwar_sprite1024 = new GfxLayout
+	(
 		16,16,
 		1024,
 		4,
-		{ 3*2048*256,2*2048*256,1*2048*256,0*2048*256 },
-		{
+		new int[] { 3*2048*256,2*2048*256,1*2048*256,0*2048*256 },
+		new int[] {
 			8,9,10,11,12,13,14,15,
 			0,1,2,3,4,5,6,7
 		},
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		256
-	};
+	);
 	
-	static struct GfxLayout gwar_sprite2048 =
-	{
+	static GfxLayout gwar_sprite2048 = new GfxLayout
+	(
 		16,16,
 		2048,
 		4,
-		{  3*2048*256,2*2048*256,1*2048*256,0*2048*256 },
-		{ 8,9,10,11,12,13,14,15, 0,1,2,3,4,5,6,7 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] {  3*2048*256,2*2048*256,1*2048*256,0*2048*256 },
+		new int[] { 8,9,10,11,12,13,14,15, 0,1,2,3,4,5,6,7 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		256
-	};
+	);
 	
-	static struct GfxLayout gwar_big_sprite1024 =
-	{
+	static GfxLayout gwar_big_sprite1024 = new GfxLayout
+	(
 		32,32,
 		1024,
 		4,
-		{ 3*1024*1024, 2*1024*1024, 1*1024*1024, 0*1024*1024 },
-		{
+		new int[] { 3*1024*1024, 2*1024*1024, 1*1024*1024, 0*1024*1024 },
+		new int[] {
 			24,25,26,27,28,29,30,31,
 			16,17,18,19,20,21,22,23,
 			8,9,10,11,12,13,14,15,
 			0,1,2,3,4,5,6,7
 		},
-		{
+		new int[] {
 			0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 			8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32,
 			16*32+0*32, 16*32+1*32, 16*32+2*32, 16*32+3*32,
@@ -862,21 +862,21 @@ public class snk
 			16*32+12*32, 16*32+13*32, 16*32+14*32, 16*32+15*32,
 		},
 		1024
-	};
+	);
 	
-	static struct GfxLayout tdfever_big_sprite1024 =
-	{
+	static GfxLayout tdfever_big_sprite1024 = new GfxLayout
+	(
 		32,32,
 		1024,
 		4,
-		{ 0*0x100000, 1*0x100000, 2*0x100000, 3*0x100000 },
-		{
+		new int[] { 0*0x100000, 1*0x100000, 2*0x100000, 3*0x100000 },
+		new int[] {
 			7,6,5,4,3,2,1,0,
 			15,14,13,12,11,10,9,8,
 			23,22,21,20,19,18,17,16,
 			31,30,29,28,27,26,25,24
 		},
-		{
+		new int[] {
 			0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 			8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32,
 			16*32+0*32, 16*32+1*32, 16*32+2*32, 16*32+3*32,
@@ -885,77 +885,77 @@ public class snk
 			16*32+12*32, 16*32+13*32, 16*32+14*32, 16*32+15*32,
 		},
 		1024
-	};
+	);
 	
 	/*********************************************************************/
 	
-	static struct GfxDecodeInfo tnk3_gfxdecodeinfo[] =
+	static GfxDecodeInfo tnk3_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0, &char512,	128*3,  8 },
-		{ REGION_GFX2, 0x0, &char1024,	128*1, 16 },
-		{ REGION_GFX3, 0x0, &sprite512,	128*0, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &char512,	128*3,  8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &char1024,	128*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, &sprite512,	128*0, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo athena_gfxdecodeinfo[] =
+	static GfxDecodeInfo athena_gfxdecodeinfo[] =
 	{
 		/* colors 512-1023 are currently unused, I think they are a second bank */
-		{ REGION_GFX1, 0x0, &char512,	128*3,  8 },	/* colors 384..511 */
-		{ REGION_GFX2, 0x0, &char1024,   128*1, 16 },	/* colors 128..383 */
-		{ REGION_GFX3, 0x0, &sprite1024,		0, 16 },	/* colors   0..127 */
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &char512,	128*3,  8 ),	/* colors 384..511 */
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &char1024,   128*1, 16 ),	/* colors 128..383 */
+		new GfxDecodeInfo( REGION_GFX3, 0x0, &sprite1024,		0, 16 ),	/* colors   0..127 */
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo ikari_gfxdecodeinfo[] =
+	static GfxDecodeInfo ikari_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0, &char512,             256, 16 },
-		{ REGION_GFX2, 0x0, &tile1024,            256, 16 },
-		{ REGION_GFX3, 0x0, &sprite1024,            0, 16 },
-		{ REGION_GFX4, 0x0, &big_sprite512,       128, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &char512,             256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile1024,            256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, &sprite1024,            0, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0x0, &big_sprite512,       128, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo gwar_gfxdecodeinfo[] =
+	static GfxDecodeInfo gwar_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0, &char1024,             256*0, 16 },
-		{ REGION_GFX2, 0x0, &tile2048,             256*3, 16 },
-		{ REGION_GFX3, 0x0, &gwar_sprite2048,      256*1, 16 },
-		{ REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,             256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile2048,             256*3, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, &gwar_sprite2048,      256*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo bermudat_gfxdecodeinfo[] =
+	static GfxDecodeInfo bermudat_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0, &char1024,             256*0, 16 },
-		{ REGION_GFX2, 0x0, &tile2048,             256*3, 16 },
-		{ REGION_GFX3, 0x0, &gwar_sprite1024,      256*1, 16 },
-		{ REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,             256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile2048,             256*3, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, &gwar_sprite1024,      256*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo psychos_gfxdecodeinfo[] =
+	static GfxDecodeInfo psychos_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0, &char1024,             256*0, 16 },
-		{ REGION_GFX2, 0x0, &tile2048,             256*3, 16 },
-		{ REGION_GFX3, 0x0, &gwar_sprite1024,      256*1, 16 },
-		{ REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,             256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tile2048,             256*3, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, &gwar_sprite1024,      256*1, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0x0, &gwar_big_sprite1024,  256*2, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo tdfever_gfxdecodeinfo[] =
+	static GfxDecodeInfo tdfever_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0, &char1024,					256*0, 16 },
-		{ REGION_GFX2, 0x0, &tdfever_tiles,				256*2, 16 },
-		{ REGION_GFX3, 0x0, &tdfever_big_sprite1024,	256*1, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,					256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tdfever_tiles,				256*2, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, &tdfever_big_sprite1024,	256*1, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo tdfever2_gfxdecodeinfo[] =
+	static GfxDecodeInfo tdfever2_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0, &char1024,					256*0, 16 },
-		{ REGION_GFX2, 0x0, &tdfever2_tiles,				256*2, 16 },
-		{ REGION_GFX3, 0x0, &tdfever_big_sprite1024,	256*1, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0, &char1024,					256*0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0, &tdfever2_tiles,				256*2, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0, &tdfever_big_sprite1024,	256*1, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	/**********************************************************************/

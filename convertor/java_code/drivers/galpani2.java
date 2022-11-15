@@ -438,21 +438,21 @@ public class galpani2
 		16x16x8 made of four 8x8x8 tiles arrenged like:	01
 														23
 	*/
-	static struct GfxLayout layout_16x16x8 =
-	{
+	static GfxLayout layout_16x16x8 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		8,
-		{ STEP8(0,1) },
-		{ STEP8(0,8),   STEP8(8*8*8*1,8)   },
-		{ STEP8(0,8*8), STEP8(8*8*8*2,8*8) },
+		new int[] { STEP8(0,1) },
+		new int[] { STEP8(0,8),   STEP8(8*8*8*1,8)   },
+		new int[] { STEP8(0,8*8), STEP8(8*8*8*2,8*8) },
 		16*16*8
-	};
+	);
 	
-	static struct GfxDecodeInfo galpani2_gfxdecodeinfo[] =
+	static GfxDecodeInfo galpani2_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x16x8,	0,	0x40	}, // [0] Sprites
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8,	0,	0x40	), // [0] Sprites
+		new GfxDecodeInfo( -1 )
 	};
 	
 	/***************************************************************************

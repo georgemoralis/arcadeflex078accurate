@@ -864,32 +864,32 @@ public class mcr68
 	 *
 	 *************************************/
 	
-	static struct GfxLayout zwackery_layout =
-	{
+	static GfxLayout zwackery_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,2),
 		8,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },
-		{  3,  2,  1,  0, 11, 10,  9,  8,
+		new int[] { 0, 0, 0, 0, 0, 0, 0, 0 },
+		new int[] {  3,  2,  1,  0, 11, 10,  9,  8,
 		  19, 18, 17, 16, 27, 26, 25, 24 },
-		{ 4, RGN_FRAC(1,2)+4, 0, RGN_FRAC(1,2)+0, 36, RGN_FRAC(1,2)+36, 32, RGN_FRAC(1,2)+32,
+		new int[] { 4, RGN_FRAC(1,2)+4, 0, RGN_FRAC(1,2)+0, 36, RGN_FRAC(1,2)+36, 32, RGN_FRAC(1,2)+32,
 		  68, RGN_FRAC(1,2)+68, 64, RGN_FRAC(1,2)+64, 100, RGN_FRAC(1,2)+100, 96, RGN_FRAC(1,2)+96 },
 		128
+	);
+	
+	static GfxDecodeInfo gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &mcr_bg_layout,     0, 4 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &mcr_sprite_layout, 0, 4 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo zwackery_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &mcr_bg_layout,     0, 4 },
-		{ REGION_GFX2, 0, &mcr_sprite_layout, 0, 4 },
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo zwackery_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &zwackery_layout,       0, 16 },
-		{ REGION_GFX2, 0, &mcr_sprite_layout, 0x800, 32 },
-		{ REGION_GFX1, 0, &zwackery_layout,       0, 16 },	/* yes, an extra copy */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &zwackery_layout,       0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &mcr_sprite_layout, 0x800, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &zwackery_layout,       0, 16 ),	/* yes, an extra copy */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

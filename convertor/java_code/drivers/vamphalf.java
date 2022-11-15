@@ -58,21 +58,21 @@ public class vamphalf
 	
 	} };
 	
-	static struct GfxLayout vamphalf_layout =
-	{
+	static GfxLayout vamphalf_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		8,
-		{ 0,1,2,3,4,5,6,7 },
-		{ 0,8,16,24, 32,40,48,56, 64,72,80,88 ,96,104,112,120 },
-		{ 0*128, 1*128, 2*128, 3*128, 4*128, 5*128, 6*128, 7*128, 8*128,9*128,10*128,11*128,12*128,13*128,14*128,15*128 },
+		new int[] { 0,1,2,3,4,5,6,7 },
+		new int[] { 0,8,16,24, 32,40,48,56, 64,72,80,88 ,96,104,112,120 },
+		new int[] { 0*128, 1*128, 2*128, 3*128, 4*128, 5*128, 6*128, 7*128, 8*128,9*128,10*128,11*128,12*128,13*128,14*128,15*128 },
 		16*128,
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &vamphalf_layout,   0x0, 1  }, /* bg tiles */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &vamphalf_layout,   0x0, 1  ), /* bg tiles */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static MACHINE_DRIVER_START( vamphalf )

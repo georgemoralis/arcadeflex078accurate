@@ -836,64 +836,64 @@ public class fitfight
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static struct GfxLayout fof_tile_layout =
-	{
+	static GfxLayout fof_tile_layout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		4,
-		{ 0,RGN_FRAC(1,4),RGN_FRAC(2,4),RGN_FRAC(3,4) },
-		{ 0,1,2,3,4,5,6,7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0,RGN_FRAC(1,4),RGN_FRAC(2,4),RGN_FRAC(3,4) },
+		new int[] { 0,1,2,3,4,5,6,7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
 	
-	static struct GfxLayout fof_sprite_layout =
-	{
+	static GfxLayout fof_sprite_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		4,
-		{ 0,RGN_FRAC(1,4),RGN_FRAC(2,4),RGN_FRAC(3,4) },
-		{ 0,1,2,3,4,5,6,7,8*8+0,8*8+1,8*8+2,8*8+3,8*8+4,8*8+5,8*8+6,8*8+7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0,RGN_FRAC(1,4),RGN_FRAC(2,4),RGN_FRAC(3,4) },
+		new int[] { 0,1,2,3,4,5,6,7,8*8+0,8*8+1,8*8+2,8*8+3,8*8+4,8*8+5,8*8+6,8*8+7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 		16*8+0*8,16*8+1*8,16*8+2*8,16*8+3*8,16*8+4*8,16*8+5*8,16*8+6*8,16*8+7*8
 	
 		},
 		16*16
-	};
+	);
 	
-	static struct GfxLayout bbprot_sprite_layout =
-	{
+	static GfxLayout bbprot_sprite_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,5),
 		5,
-		{ 0,RGN_FRAC(1,5),RGN_FRAC(2,5),RGN_FRAC(3,5),RGN_FRAC(4,5) },
-		{ 0,1,2,3,4,5,6,7,8*8+0,8*8+1,8*8+2,8*8+3,8*8+4,8*8+5,8*8+6,8*8+7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0,RGN_FRAC(1,5),RGN_FRAC(2,5),RGN_FRAC(3,5),RGN_FRAC(4,5) },
+		new int[] { 0,1,2,3,4,5,6,7,8*8+0,8*8+1,8*8+2,8*8+3,8*8+4,8*8+5,8*8+6,8*8+7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 		16*8+0*8,16*8+1*8,16*8+2*8,16*8+3*8,16*8+4*8,16*8+5*8,16*8+6*8,16*8+7*8
 	
 		},
 		16*16
+	);
+	
+	static GfxDecodeInfo gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &fof_tile_layout,   0x000, 256  ), /* tx tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, &fof_tile_layout,   0x200, 256  ), /* mid tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, &fof_tile_layout,   0x400, 256  ), /* bg tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0, &fof_sprite_layout, 0x600, 256  ), /* sprites */
+	
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo prot_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &fof_tile_layout,   0x000, 256  }, /* tx tiles */
-		{ REGION_GFX1, 0, &fof_tile_layout,   0x200, 256  }, /* mid tiles */
-		{ REGION_GFX1, 0, &fof_tile_layout,   0x400, 256  }, /* bg tiles */
-		{ REGION_GFX2, 0, &fof_sprite_layout, 0x600, 256  }, /* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, &fof_tile_layout,     0x0000, 256  ), /* tx tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, &fof_tile_layout,     0x0800, 256  ), /* mid tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0, &fof_tile_layout,     0x1000, 256  ), /* bg tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0, &bbprot_sprite_layout,0x1800, 256  ), /* sprites */
 	
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo prot_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &fof_tile_layout,     0x0000, 256  }, /* tx tiles */
-		{ REGION_GFX1, 0, &fof_tile_layout,     0x0800, 256  }, /* mid tiles */
-		{ REGION_GFX1, 0, &fof_tile_layout,     0x1000, 256  }, /* bg tiles */
-		{ REGION_GFX2, 0, &bbprot_sprite_layout,0x1800, 256  }, /* sprites */
-	
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static MACHINE_DRIVER_START( fitfight )

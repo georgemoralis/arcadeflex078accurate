@@ -1025,66 +1025,66 @@ public class segar
 	 *
 	 *************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		256,
 		2,
-		{ 0x1000*8, 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0x1000*8, 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
 	
-	static struct GfxLayout backlayout =
-	{
+	static GfxLayout backlayout = new GfxLayout
+	(
 		8,8,
 		256,
 		2,
-		{ 0x2000*8, 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0x2000*8, 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
 	
-	static struct GfxLayout spaceod_layout =
-	{
+	static GfxLayout spaceod_layout = new GfxLayout
+	(
 		8,8,
 		256,
 		6,
-		{ 0, 0x1000*8, 0x2000*8, 0x3000*8, 0x4000*8, 0x5000*8 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 0x1000*8, 0x2000*8, 0x3000*8, 0x4000*8, 0x5000*8 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
+	);
+	
+	
+	static GfxDecodeInfo gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_CPU1, 0xe800, &charlayout, 0x01, 0x10 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo monsterb_gfxdecodeinfo[] =
 	{
-		{ REGION_CPU1, 0xe800, &charlayout, 0x01, 0x10 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_CPU1, 0xe800, &charlayout, 0x01, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &backlayout, 0x41, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0800, &backlayout, 0x41, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x1000, &backlayout, 0x41, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x1800, &backlayout, 0x41, 0x10 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	
-	static struct GfxDecodeInfo monsterb_gfxdecodeinfo[] =
+	static GfxDecodeInfo spaceod_gfxdecodeinfo[] =
 	{
-		{ REGION_CPU1, 0xe800, &charlayout, 0x01, 0x10 },
-		{ REGION_GFX1, 0x0000, &backlayout, 0x41, 0x10 },
-		{ REGION_GFX1, 0x0800, &backlayout, 0x41, 0x10 },
-		{ REGION_GFX1, 0x1000, &backlayout, 0x41, 0x10 },
-		{ REGION_GFX1, 0x1800, &backlayout, 0x41, 0x10 },
-		{ -1 } /* end of array */
-	};
-	
-	
-	static struct GfxDecodeInfo spaceod_gfxdecodeinfo[] =
-	{
-		{ REGION_CPU1, 0xe800, &charlayout,     0x01, 0x10 },
-		{ REGION_GFX1, 0x0000, &spaceod_layout, 0x41, 1 },
-		{ REGION_GFX1, 0x0800, &spaceod_layout, 0x41, 1 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_CPU1, 0xe800, &charlayout,     0x01, 0x10 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spaceod_layout, 0x41, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0800, &spaceod_layout, 0x41, 1 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

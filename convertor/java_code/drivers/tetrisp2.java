@@ -646,36 +646,36 @@ public class tetrisp2
 	
 	
 	/* 8x8x8 tiles */
-	static struct GfxLayout layout_8x8x8 =
-	{
+	static GfxLayout layout_8x8x8 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		8,
-		{ STEP8(0,1) },
-		{ STEP8(0,8) },
-		{ STEP8(0,8*8) },
+		new int[] { STEP8(0,1) },
+		new int[] { STEP8(0,8) },
+		new int[] { STEP8(0,8*8) },
 		8*8*8
-	};
+	);
 	
 	/* 16x16x8 tiles */
-	static struct GfxLayout layout_16x16x8 =
-	{
+	static GfxLayout layout_16x16x8 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		8,
-		{ STEP8(0,1) },
-		{ STEP16(0,8) },
-		{ STEP16(0,16*8) },
+		new int[] { STEP8(0,1) },
+		new int[] { STEP16(0,8) },
+		new int[] { STEP16(0,16*8) },
 		16*16*8
-	};
+	);
 	
-	static struct GfxDecodeInfo tetrisp2_gfxdecodeinfo[] =
+	static GfxDecodeInfo tetrisp2_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_8x8x8,   0x0000, 0x10 }, // [0] Sprites
-		{ REGION_GFX2, 0, &layout_16x16x8, 0x1000, 0x10 }, // [1] Background
-		{ REGION_GFX3, 0, &layout_16x16x8, 0x2000, 0x10 }, // [2] Rotation
-		{ REGION_GFX4, 0, &layout_8x8x8,   0x6000, 0x10 }, // [3] Foreground
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8,   0x0000, 0x10 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x8, 0x1000, 0x10 ), // [1] Background
+		new GfxDecodeInfo( REGION_GFX3, 0, &layout_16x16x8, 0x2000, 0x10 ), // [2] Rotation
+		new GfxDecodeInfo( REGION_GFX4, 0, &layout_8x8x8,   0x6000, 0x10 ), // [3] Foreground
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

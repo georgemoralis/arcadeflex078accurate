@@ -255,46 +255,46 @@ public class dday
 	
 	
 	
-	static struct GfxLayout layout_1bpp =
-	{
+	static GfxLayout layout_1bpp = new GfxLayout
+	(
 		8,8,    		/* 8*8 characters */
 		RGN_FRAC(1,2),	/* 256 characters */
 		1,      		/* 1 bit per pixel */
-		{ RGN_FRAC(0,1) },
-		{ 7, 6, 5, 4, 3, 2, 1, 0 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(0,1) },
+		new int[] { 7, 6, 5, 4, 3, 2, 1, 0 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8     /* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout layout_2bpp =
-	{
+	static GfxLayout layout_2bpp = new GfxLayout
+	(
 		8,8,    		/* 8*8 characters */
 		RGN_FRAC(1,2),	/* 256 characters */
 		2,      		/* 2 bits per pixel */
-		{ RGN_FRAC(0,2), RGN_FRAC(1,2) }, /* the bitplanes are separated */
-		{ 7, 6, 5, 4, 3, 2, 1, 0 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(0,2), RGN_FRAC(1,2) }, /* the bitplanes are separated */
+		new int[] { 7, 6, 5, 4, 3, 2, 1, 0 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8     /* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout layout_3bpp =
-	{
+	static GfxLayout layout_3bpp = new GfxLayout
+	(
 		8,8,    		/* 8*8 characters */
 		RGN_FRAC(1,3),	/* 256 characters */
 		3,      		/* 3 bits per pixel */
-		{ RGN_FRAC(0,3), RGN_FRAC(1,3), RGN_FRAC(2,3) }, /* the bitplanes are separated */
-		{ 7, 6, 5, 4, 3, 2, 1, 0 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(0,3), RGN_FRAC(1,3), RGN_FRAC(2,3) }, /* the bitplanes are separated */
+		new int[] { 7, 6, 5, 4, 3, 2, 1, 0 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8     /* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_3bpp, 0,       256/8 },	/* background */
-		{ REGION_GFX2, 0, &layout_2bpp, 8*4,     8 },		/* foreground */
-		{ REGION_GFX3, 0, &layout_2bpp, 8*4+8*4, 8 },		/* text */
-		{ REGION_GFX4, 0, &layout_1bpp, 254,     1 },		/* searchlight */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_3bpp, 0,       256/8 ),	/* background */
+		new GfxDecodeInfo( REGION_GFX2, 0, &layout_2bpp, 8*4,     8 ),		/* foreground */
+		new GfxDecodeInfo( REGION_GFX3, 0, &layout_2bpp, 8*4+8*4, 8 ),		/* text */
+		new GfxDecodeInfo( REGION_GFX4, 0, &layout_1bpp, 254,     1 ),		/* searchlight */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

@@ -1086,28 +1086,28 @@ public class srmp2
 	};
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		16, 16,
 		RGN_FRAC(1, 2),
 		4,
-		{ RGN_FRAC(1, 2) + 8, RGN_FRAC(1, 2) + 0, 8, 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7, 128, 129, 130, 131, 132, 133, 134, 135 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { RGN_FRAC(1, 2) + 8, RGN_FRAC(1, 2) + 0, 8, 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 128, 129, 130, 131, 132, 133, 134, 135 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 		  16*16, 17*16, 18*16, 19*16, 20*16, 21*16, 22*16, 23*16 },
 		16*16*2
+	);
+	
+	static GfxDecodeInfo srmp2_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 64 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo srmp2_gfxdecodeinfo[] =
+	static GfxDecodeInfo srmp3_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout, 0, 64 },
-		{ -1 }
-	};
-	
-	static struct GfxDecodeInfo srmp3_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &charlayout, 0, 32 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout, 0, 32 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

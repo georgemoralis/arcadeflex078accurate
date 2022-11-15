@@ -247,93 +247,93 @@ public class runaway
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static struct GfxLayout runaway_tile_layout =
-	{
+	static GfxLayout runaway_tile_layout = new GfxLayout
+	(
 		8, 8,
 		256,
 		3,
-		{
+		new int[] {
 			RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3)
 		},
-		{
+		new int[] {
 			0, 1, 2, 3, 4, 5, 6, 7
 		},
-		{
+		new int[] {
 			0x00, 0x08, 0x10, 0x18, 0x20, 0x28, 0x30, 0x38
 		},
 		0x40
-	};
+	);
 	
 	
-	static struct GfxLayout qwak_tile_layout =
-	{
+	static GfxLayout qwak_tile_layout = new GfxLayout
+	(
 		8, 8,
 		256,
 		4,
-		{
+		new int[] {
 			RGN_FRAC(3,4), RGN_FRAC(2,4), RGN_FRAC(1,4), RGN_FRAC(0,4)
 		},
-		{
+		new int[] {
 			0, 1, 2, 3, 4, 5, 6, 7
 		},
-		{
+		new int[] {
 			0x00, 0x08, 0x10, 0x18, 0x20, 0x28, 0x30, 0x38
 		},
 		0x40
-	};
+	);
 	
 	
-	static struct GfxLayout runaway_sprite_layout =
-	{
+	static GfxLayout runaway_sprite_layout = new GfxLayout
+	(
 		8, 16,
 		384,
 		3,
-		{
+		new int[] {
 			RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3)
 		},
-		{
+		new int[] {
 			0, 1, 2, 3, 4, 5, 6, 7
 		},
-		{
+		new int[] {
 			0x00, 0x08, 0x10, 0x18, 0x20, 0x28, 0x30, 0x38,
 			0x40, 0x48, 0x50, 0x58, 0x60, 0x68, 0x70, 0x78
 		},
 		0x80
-	};
+	);
 	
 	
-	static struct GfxLayout qwak_sprite_layout =
-	{
+	static GfxLayout qwak_sprite_layout = new GfxLayout
+	(
 		8, 16,
 		128,
 		4,
-		{
+		new int[] {
 			RGN_FRAC(3,4), RGN_FRAC(2,4), RGN_FRAC(1,4), RGN_FRAC(0,4)
 		},
-		{
+		new int[] {
 			0, 1, 2, 3, 4, 5, 6, 7
 		},
-		{
+		new int[] {
 			0x00, 0x08, 0x10, 0x18, 0x20, 0x28, 0x30, 0x38,
 			0x40, 0x48, 0x50, 0x58, 0x60, 0x68, 0x70, 0x78
 		},
 		0x80
+	);
+	
+	
+	static GfxDecodeInfo runaway_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0x000, &runaway_tile_layout,   0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x800, &runaway_sprite_layout, 8, 1 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	
-	static struct GfxDecodeInfo runaway_gfxdecodeinfo[] =
+	static GfxDecodeInfo qwak_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x000, &runaway_tile_layout,   0, 1 },
-		{ REGION_GFX1, 0x800, &runaway_sprite_layout, 8, 1 },
-		{ -1 }
-	};
-	
-	
-	static struct GfxDecodeInfo qwak_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0x800, &qwak_tile_layout,   0, 1 },
-		{ REGION_GFX1, 0x000, &qwak_sprite_layout, 0, 1 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x800, &qwak_tile_layout,   0, 1 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x000, &qwak_sprite_layout, 0, 1 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

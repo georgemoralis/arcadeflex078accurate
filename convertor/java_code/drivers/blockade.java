@@ -392,38 +392,38 @@ public class blockade
 	
 	
 	
-	static struct GfxLayout blockade_layout =
-	{
+	static GfxLayout blockade_layout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		32, /* 32 characters */
 		1,  /* 1 bit per pixel */
-		{ 0 },  /* no separation in 1 bpp */
-		{ 4,5,6,7,256*8+4,256*8+5,256*8+6,256*8+7 },    /* Merge nibble-wide roms */
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0 },  /* no separation in 1 bpp */
+		new int[] { 4,5,6,7,256*8+4,256*8+5,256*8+6,256*8+7 },    /* Merge nibble-wide roms */
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8 /* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout blasto_layout =
-	{
+	static GfxLayout blasto_layout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		64, /* 64 characters */
 		1,  /* 1 bit per pixel */
-		{ 0 },  /* no separation in 1 bpp */
-		{ 4,5,6,7,512*8+4,512*8+5,512*8+6,512*8+7 },    /* Merge nibble-wide roms */
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0 },  /* no separation in 1 bpp */
+		new int[] { 4,5,6,7,512*8+4,512*8+5,512*8+6,512*8+7 },    /* Merge nibble-wide roms */
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8 /* every char takes 8 consecutive bytes */
+	);
+	
+	static GfxDecodeInfo gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &blockade_layout, 0, 2 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo blasto_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &blockade_layout, 0, 2 },
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo blasto_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0x0000, &blasto_layout,   0, 2 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &blasto_layout,   0, 2 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

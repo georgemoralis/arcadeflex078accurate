@@ -210,37 +210,37 @@ public class sslam
 	
 	/* GFX Decodes */
 	
-	static struct GfxLayout tiles8x8_layout =
-	{
+	static GfxLayout tiles8x8_layout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		4,
-		{ 0, RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout tiles16x16_layout =
-	{
+	static GfxLayout tiles16x16_layout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		4,
-		{ 0, RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7,
+		new int[] { 0, RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7,
 			16*8+0, 16*8+1, 16*8+2, 16*8+3, 16*8+4, 16*8+5, 16*8+6, 16*8+7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 			8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
 		16*16
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tiles16x16_layout, 0    , 16 }, /* bg */
-		{ REGION_GFX1, 0, &tiles16x16_layout, 0x100, 16 }, /* mid */
-		{ REGION_GFX1, 0, &tiles8x8_layout,   0x200, 16 }, /* tx */
-		{ REGION_GFX2, 0, &tiles8x8_layout,   0x300, 16 }, /* spr */
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &tiles16x16_layout, 0    , 16 ), /* bg */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tiles16x16_layout, 0x100, 16 ), /* mid */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tiles8x8_layout,   0x200, 16 ), /* tx */
+		new GfxDecodeInfo( REGION_GFX2, 0, &tiles8x8_layout,   0x300, 16 ), /* spr */
+		new GfxDecodeInfo( -1 )
 	};
 	
 	/* Machine Driver */

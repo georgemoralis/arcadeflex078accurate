@@ -332,22 +332,22 @@ public class exzisus
 	
 	***************************************************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8, 8,
 		8*2048,
 		4,
-		{ 0x40000*8, 0x40000*8+4, 0, 4 },
-		{ 3, 2, 1, 0, 8+3, 8+2, 8+1, 8+0 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { 0x40000*8, 0x40000*8+4, 0, 4 },
+		new int[] { 3, 2, 1, 0, 8+3, 8+2, 8+1, 8+0 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		16*8
-	};
+	);
 	
-	static struct GfxDecodeInfo exzisus_gfxdecodeinfo[] =
+	static GfxDecodeInfo exzisus_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,   0, 256 },
-		{ REGION_GFX2, 0, &charlayout, 256, 256 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,   0, 256 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 256, 256 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static MACHINE_DRIVER_START( exzisus )

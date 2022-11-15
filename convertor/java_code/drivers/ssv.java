@@ -2506,68 +2506,68 @@ public class ssv
 	/*	16 x 8 tiles. Depth is 8 bits, but can be decreased to 6 (and maybe
 		less) at runtime.	*/
 	
-	static struct GfxLayout layout_16x8x8 =
-	{
+	static GfxLayout layout_16x8x8 = new GfxLayout
+	(
 		16,8,
 		RGN_FRAC(1,4),
 		8,
-		{	RGN_FRAC(3,4)+8, RGN_FRAC(3,4)+0,
+		new int[] {	RGN_FRAC(3,4)+8, RGN_FRAC(3,4)+0,
 			RGN_FRAC(2,4)+8, RGN_FRAC(2,4)+0,
 			RGN_FRAC(1,4)+8, RGN_FRAC(1,4)+0,
 			RGN_FRAC(0,4)+8, RGN_FRAC(0,4)+0	},
-		{	STEP8(0,1), STEP8(16,1)	},
-		{	STEP8(0,16*2)	},
+		new int[] {	STEP8(0,1), STEP8(16,1)	},
+		new int[] {	STEP8(0,16*2)	},
 		16*8*2
-	};
+	);
 	
-	static struct GfxLayout layout_16x8x6 =
-	{
+	static GfxLayout layout_16x8x6 = new GfxLayout
+	(
 		16,8,
 		RGN_FRAC(1,4),
 		6,
-		{
+		new int[] {
 			RGN_FRAC(2,4)+8, RGN_FRAC(2,4)+0,
 			RGN_FRAC(1,4)+8, RGN_FRAC(1,4)+0,
 			RGN_FRAC(0,4)+8, RGN_FRAC(0,4)+0	},
-		{	STEP8(0,1), STEP8(16,1)	},
-		{	STEP8(0,16*2)	},
+		new int[] {	STEP8(0,1), STEP8(16,1)	},
+		new int[] {	STEP8(0,16*2)	},
 		16*8*2
+	);
+	
+	static GfxDecodeInfo ssv_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x8x8, 0, 0x8000/64 ), // [0] Sprites (256 colors)
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x8x6, 0, 0x8000/64 ), // [1] Sprites (64 colors)
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo ssv_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &layout_16x8x8, 0, 0x8000/64 }, // [0] Sprites (256 colors)
-		{ REGION_GFX1, 0, &layout_16x8x6, 0, 0x8000/64 }, // [1] Sprites (64 colors)
-		{ -1 }
-	};
-	
-	static struct GfxLayout layout_16x8x8_2 =
-	{
+	static GfxLayout layout_16x8x8_2 = new GfxLayout
+	(
 		16,8,
 		RGN_FRAC(1,1),
 		8,
-		{	STEP8(0,1)		},
-		{	STEP16(0,8)		},
-		{	STEP8(0,16*8)	},
+		new int[] {	STEP8(0,1)		},
+		new int[] {	STEP16(0,8)		},
+		new int[] {	STEP8(0,16*8)	},
 		16*8*8
-	};
+	);
 	
-	static struct GfxLayout layout_16x8x6_2 =
-	{
+	static GfxLayout layout_16x8x6_2 = new GfxLayout
+	(
 		16,8,
 		RGN_FRAC(1,1),
 		6,
-		{	STEP8(0,1)		},
-		{	STEP16(0,8)		},
-		{	STEP8(0,16*8)	},
+		new int[] {	STEP8(0,1)		},
+		new int[] {	STEP16(0,8)		},
+		new int[] {	STEP8(0,16*8)	},
 		16*8*8
-	};
+	);
 	
-	static struct GfxDecodeInfo eaglshot_gfxdecodeinfo[] =
+	static GfxDecodeInfo eaglshot_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x8x8_2, 0, 0x8000/64 }, // [0] Sprites (256 colors)
-		{ REGION_GFX1, 0, &layout_16x8x6_2, 0, 0x8000/64 }, // [1] Sprites (64 colors)
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x8x8_2, 0, 0x8000/64 ), // [0] Sprites (256 colors)
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x8x6_2, 0, 0x8000/64 ), // [1] Sprites (64 colors)
+		new GfxDecodeInfo( -1 )
 	};
 	
 	/***************************************************************************

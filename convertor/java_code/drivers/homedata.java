@@ -1186,80 +1186,80 @@ public class homedata
 	/**************************************************************************/
 	
 	
-	static struct GfxLayout char_layout =
-	{
+	static GfxLayout char_layout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8
+	);
+	
+	static GfxDecodeInfo mrokumei_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &char_layout, 0x6000, 0x100 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &char_layout, 0x7000, 0x100 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo mrokumei_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &char_layout, 0x6000, 0x100 },
-		{ REGION_GFX2, 0, &char_layout, 0x7000, 0x100 },
-		{ -1 }
-	};
-	
-	static struct GfxLayout tile_layout =
-	{
+	static GfxLayout tile_layout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		8,
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
 		64*8
+	);
+	
+	static GfxDecodeInfo reikaids_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout, 0x6000, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout, 0x4000, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &tile_layout, 0x2000, 0x20 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &tile_layout, 0x0000, 0x20 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo reikaids_gfxdecodeinfo[] =
+	static GfxDecodeInfo pteacher_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tile_layout, 0x6000, 0x20 },
-		{ REGION_GFX2, 0, &tile_layout, 0x4000, 0x20 },
-		{ REGION_GFX3, 0, &tile_layout, 0x2000, 0x20 },
-		{ REGION_GFX4, 0, &tile_layout, 0x0000, 0x20 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout, 0x0000, 0x40 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout, 0x4000, 0x40 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo pteacher_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &tile_layout, 0x0000, 0x40 },
-		{ REGION_GFX2, 0, &tile_layout, 0x4000, 0x40 },
-		{ -1 }
-	};
-	
-	static struct GfxLayout tile_layout_4bpp_hi =
-	{
+	static GfxLayout tile_layout_4bpp_hi = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
+		new int[] { 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
 		64*8
-	};
+	);
 	
-	static struct GfxLayout tile_layout_4bpp_lo =
-	{
+	static GfxLayout tile_layout_4bpp_lo = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64 },
 		64*8
-	};
+	);
 	
-	static struct GfxDecodeInfo lemnangl_gfxdecodeinfo[] =
+	static GfxDecodeInfo lemnangl_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tile_layout_4bpp_hi, 0x0000, 0x200 },
-		{ REGION_GFX1, 0, &tile_layout_4bpp_lo, 0x2000, 0x200 },
-		{ REGION_GFX2, 0, &tile_layout_4bpp_lo, 0x4000, 0x200 },
-		{ REGION_GFX2, 0, &tile_layout_4bpp_hi, 0x6000, 0x200 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout_4bpp_hi, 0x0000, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &tile_layout_4bpp_lo, 0x2000, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout_4bpp_lo, 0x4000, 0x200 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &tile_layout_4bpp_hi, 0x6000, 0x200 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

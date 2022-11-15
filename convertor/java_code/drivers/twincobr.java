@@ -656,47 +656,47 @@ public class twincobr
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,			/* 8*8 characters */
 		RGN_FRAC(1,3),	/* 2048 characters */
 		3,				/* 3 bits per pixel */
-		{ RGN_FRAC(0,3), RGN_FRAC(1,3), RGN_FRAC(2,3) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(0,3), RGN_FRAC(1,3), RGN_FRAC(2,3) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8				/* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		8,8,			/* 8*8 tiles */
 		RGN_FRAC(1,4),	/* 4096/8192 tiles */
 		4,				/* 4 bits per pixel */
-		{ RGN_FRAC(0,4), RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(0,4), RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8				/* every tile takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,			/* 16*16 sprites */
 		RGN_FRAC(1,4),	/* 2048 sprites */
 		4,				/* 4 bits per pixel */
-		{ RGN_FRAC(0,4), RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { RGN_FRAC(0,4), RGN_FRAC(1,4), RGN_FRAC(2,4), RGN_FRAC(3,4) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		32*8			/* every sprite takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x00000, &charlayout,	1536, 32 },	/* colors 1536-1791 */
-		{ REGION_GFX2, 0x00000, &tilelayout,	1280, 16 },	/* colors 1280-1535 */
-		{ REGION_GFX3, 0x00000, &tilelayout,	1024, 16 },	/* colors 1024-1079 */
-		{ REGION_GFX4, 0x00000, &spritelayout,	   0, 64 },	/* colors    0-1023 */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout,	1536, 32 ),	/* colors 1536-1791 */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, &tilelayout,	1280, 16 ),	/* colors 1280-1535 */
+		new GfxDecodeInfo( REGION_GFX3, 0x00000, &tilelayout,	1024, 16 ),	/* colors 1024-1079 */
+		new GfxDecodeInfo( REGION_GFX4, 0x00000, &spritelayout,	   0, 64 ),	/* colors    0-1023 */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

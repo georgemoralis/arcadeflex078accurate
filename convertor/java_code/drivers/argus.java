@@ -691,106 +691,106 @@ public class argus
 	
 	***************************************************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,    /* 8x8 characters */
 		1024,	/* 1024 characters */
 		4,      /* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 0, 4, 8, 12, 16, 20, 24, 28 },
-		{ 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0, 4, 8, 12, 16, 20, 24, 28 },
+		new int[] { 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8 },
 		32*8
-	};
+	);
 	
-	static struct GfxLayout tilelayout_256 =
-	{
+	static GfxLayout tilelayout_256 = new GfxLayout
+	(
 		16,16,  /* 16x16 characters */
 		256,	/* 256 characters */
 		4,      /* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 0, 4, 8, 12, 16, 20, 24, 28,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0, 4, 8, 12, 16, 20, 24, 28,
 			64*8, 64*8+4, 64*8+8, 64*8+12, 64*8+16, 64*8+20, 64*8+24, 64*8+28 },
-		{ 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
+		new int[] { 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
 			32*8, 36*8, 40*8, 44*8, 48*8, 52*8, 56*8, 60*8 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout tilelayout_512 =
-	{
+	static GfxLayout tilelayout_512 = new GfxLayout
+	(
 		16,16,  /* 16x16 characters */
 		512,	/* 512 characters */
 		4,      /* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 0, 4, 8, 12, 16, 20, 24, 28,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0, 4, 8, 12, 16, 20, 24, 28,
 			64*8, 64*8+4, 64*8+8, 64*8+12, 64*8+16, 64*8+20, 64*8+24, 64*8+28 },
-		{ 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
+		new int[] { 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
 			32*8, 36*8, 40*8, 44*8, 48*8, 52*8, 56*8, 60*8 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout tilelayout_1024 =
-	{
+	static GfxLayout tilelayout_1024 = new GfxLayout
+	(
 		16,16,  /* 16x16 characters */
 		1024,	/* 1024 characters */
 		4,      /* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 0, 4, 8, 12, 16, 20, 24, 28,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0, 4, 8, 12, 16, 20, 24, 28,
 			64*8, 64*8+4, 64*8+8, 64*8+12, 64*8+16, 64*8+20, 64*8+24, 64*8+28 },
-		{ 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
+		new int[] { 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
 			32*8, 36*8, 40*8, 44*8, 48*8, 52*8, 56*8, 60*8 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout tilelayout_2048 =
-	{
+	static GfxLayout tilelayout_2048 = new GfxLayout
+	(
 		16,16,  /* 16x16 characters */
 		2048,	/* 2048 characters */
 		4,      /* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 0, 4, 8, 12, 16, 20, 24, 28,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0, 4, 8, 12, 16, 20, 24, 28,
 			64*8, 64*8+4, 64*8+8, 64*8+12, 64*8+16, 64*8+20, 64*8+24, 64*8+28 },
-		{ 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
+		new int[] { 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
 			32*8, 36*8, 40*8, 44*8, 48*8, 52*8, 56*8, 60*8 },
 		128*8
-	};
+	);
 	
-	static struct GfxLayout tilelayout_4096 =
-	{
+	static GfxLayout tilelayout_4096 = new GfxLayout
+	(
 		16,16,  /* 16x16 characters */
 		4096,	/* 4096 characters */
 		4,      /* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 0, 4, 8, 12, 16, 20, 24, 28,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0, 4, 8, 12, 16, 20, 24, 28,
 			64*8, 64*8+4, 64*8+8, 64*8+12, 64*8+16, 64*8+20, 64*8+24, 64*8+28 },
-		{ 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
+		new int[] { 0*8, 4*8, 8*8, 12*8, 16*8, 20*8, 24*8, 28*8,
 			32*8, 36*8, 40*8, 44*8, 48*8, 52*8, 56*8, 60*8 },
 		128*8
+	);
+	
+	static GfxDecodeInfo argus_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout_1024, 0*16,   8 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout_1024, 8*16,  16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout_256,  24*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &charlayout,      40*16, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo argus_gfxdecodeinfo[] =
+	static GfxDecodeInfo valtric_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tilelayout_1024, 0*16,   8 },
-		{ REGION_GFX2, 0, &tilelayout_1024, 8*16,  16 },
-		{ REGION_GFX3, 0, &tilelayout_256,  24*16, 16 },
-		{ REGION_GFX4, 0, &charlayout,      40*16, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout_1024, 0*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout_2048, 16*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout,      32*16, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo valtric_gfxdecodeinfo[] =
+	static GfxDecodeInfo butasan_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tilelayout_1024, 0*16, 16 },
-		{ REGION_GFX2, 0, &tilelayout_2048, 16*16, 16 },
-		{ REGION_GFX3, 0, &charlayout,      32*16, 16 },
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo butasan_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &tilelayout_4096, 0*16,  16 },
-		{ REGION_GFX2, 0, &tilelayout_1024, 16*16, 16 },
-		{ REGION_GFX3, 0, &tilelayout_512,  12*16, 16 },
-		{ REGION_GFX4, 0, &charlayout,      32*16, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout_4096, 0*16,  16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout_1024, 16*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &tilelayout_512,  12*16, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &charlayout,      32*16, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static MACHINE_DRIVER_START( argus )

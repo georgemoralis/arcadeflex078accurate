@@ -587,37 +587,37 @@ public class ninjaw
 		(Thanks to Raine for the obj decoding)
 	***********************************************************/
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		16,16,	/* 16*16 sprites */
 		RGN_FRAC(1,1),
 		4,	/* 4 bits per pixel */
-		{ 8, 12, 0, 4 },	/* pixel bits separated, jump 4 to get to next one */
-		{ 3, 2, 1, 0, 19, 18, 17, 16,
+		new int[] { 8, 12, 0, 4 },	/* pixel bits separated, jump 4 to get to next one */
+		new int[] { 3, 2, 1, 0, 19, 18, 17, 16,
 		  3+ 32*8, 2+ 32*8, 1+ 32*8, 0+ 32*8, 19+ 32*8, 18+ 32*8, 17+ 32*8, 16+ 32*8 },
 		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 		  64*8 + 0*32, 64*8 + 1*32, 64*8 + 2*32, 64*8 + 3*32,
 		  64*8 + 4*32, 64*8 + 5*32, 64*8 + 6*32, 64*8 + 7*32 },
 		128*8	/* every sprite takes 128 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		RGN_FRAC(1,1),
 		4,	/* 4 bits per pixel */
-		{ 0, 1, 2, 3 },
-		{ 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8	/* every sprite takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo ninjaw_gfxdecodeinfo[] =
+	static GfxDecodeInfo ninjaw_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX2, 0, &tilelayout,  0, 256 },	/* sprites */
-		{ REGION_GFX1, 0, &charlayout,  0, 256 },	/* scr tiles (screen 1) */
-		{ REGION_GFX3, 0, &charlayout,  0, 256 },	/* scr tiles (screens 2+) */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout,  0, 256 ),	/* sprites */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,  0, 256 ),	/* scr tiles (screen 1) */
+		new GfxDecodeInfo( REGION_GFX3, 0, &charlayout,  0, 256 ),	/* scr tiles (screens 2+) */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

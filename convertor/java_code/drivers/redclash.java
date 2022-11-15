@@ -293,70 +293,70 @@ public class redclash
 		PORT_BIT_IMPULSE( 0x02, IP_ACTIVE_HIGH, IPT_COIN2, 1 );
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		2,
-		{ 8*8, 0 },
-		{ 7, 6, 5, 4, 3, 2, 1, 0 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 8*8, 0 },
+		new int[] { 7, 6, 5, 4, 3, 2, 1, 0 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		16*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout8x8 =
-	{
+	static GfxLayout spritelayout8x8 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		2,
-		{ 1, 0 },
-		{ STEP8(0,2) },
-		{ STEP8(7*16,-16) },
+		new int[] { 1, 0 },
+		new int[] { STEP8(0,2) },
+		new int[] { STEP8(7*16,-16) },
 		16*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout16x16 =
-	{
+	static GfxLayout spritelayout16x16 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		2,
-		{ 1, 0 },
-		{ STEP8(24*2,2), STEP8(8*64+24*2,2) },
-		{ STEP8(23*64,-64), STEP8(7*64,-64) },
+		new int[] { 1, 0 },
+		new int[] { STEP8(24*2,2), STEP8(8*64+24*2,2) },
+		new int[] { STEP8(23*64,-64), STEP8(7*64,-64) },
 		64*32
-	};
+	);
 	
-	static struct GfxLayout spritelayout24x24 =
-	{
+	static GfxLayout spritelayout24x24 = new GfxLayout
+	(
 		24,24,
 		RGN_FRAC(1,1),
 		2,
-		{ 1, 0 },
-		{ STEP8(0,2), STEP8(8*2,2), STEP8(16*2,2) },
-		{ STEP8(23*64,-64), STEP8(15*64,-64), STEP8(7*64,-64) },
+		new int[] { 1, 0 },
+		new int[] { STEP8(0,2), STEP8(8*2,2), STEP8(16*2,2) },
+		new int[] { STEP8(23*64,-64), STEP8(15*64,-64), STEP8(7*64,-64) },
 		64*32
-	};
+	);
 	
-	static struct GfxLayout spritelayout16x16bis =
-	{
+	static GfxLayout spritelayout16x16bis = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		2,
-		{ 1, 0 },
-		{ STEP8(0,2), STEP8(8*2,2) },
-		{ STEP8(15*64,-64), STEP8(7*64,-64) },
+		new int[] { 1, 0 },
+		new int[] { STEP8(0,2), STEP8(8*2,2) },
+		new int[] { STEP8(15*64,-64), STEP8(7*64,-64) },
 		32*32
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout,          0,  8 },
-		{ REGION_GFX3, 0x0000, &spritelayout8x8,   4*8, 16 },
-		{ REGION_GFX2, 0x0000, &spritelayout16x16, 4*8, 16 },
-		{ REGION_GFX2, 0x0000, &spritelayout24x24, 4*8, 16 },
-		{ REGION_GFX2, 0x0000, &spritelayout16x16bis, 4*8, 16 },
-		{ REGION_GFX2, 0x0004, &spritelayout16x16bis, 4*8, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,          0,  8 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0000, &spritelayout8x8,   4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout16x16, 4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout24x24, 4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout16x16bis, 4*8, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0004, &spritelayout16x16bis, 4*8, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

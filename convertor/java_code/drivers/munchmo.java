@@ -213,75 +213,75 @@ public class munchmo
 		PORT_DIPSETTING(    0x80, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout char_layout =
-	{
+	static GfxLayout char_layout = new GfxLayout
+	(
 		8,8,
 		256,
 		4,
-		{ 0, 8, 256*128,256*128+8 },
-		{ 7,6,5,4,3,2,1,0 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { 0, 8, 256*128,256*128+8 },
+		new int[] { 7,6,5,4,3,2,1,0 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		128
-	};
+	);
 	
-	static struct GfxLayout tile_layout =
-	{
+	static GfxLayout tile_layout = new GfxLayout
+	(
 		8,8,
 		0x100,
 		4,
-		{ 8,12,0,4 },
-		{ 0,0,1,1,2,2,3,3 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { 8,12,0,4 },
+		new int[] { 0,0,1,1,2,2,3,3 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		128
-	};
+	);
 	
-	static struct GfxLayout sprite_layout1 =
-	{
+	static GfxLayout sprite_layout1 = new GfxLayout
+	(
 		32,32,
 		128,
 		3,
-		{ 0x4000*8,0x2000*8,0 },
-		{
+		new int[] { 0x4000*8,0x2000*8,0 },
+		new int[] {
 			7,7,6,6,5,5,4,4,3,3,2,2,1,1,0,0,
 			0x8000+7,0x8000+7,0x8000+6,0x8000+6,0x8000+5,0x8000+5,0x8000+4,0x8000+4,
 			0x8000+3,0x8000+3,0x8000+2,0x8000+2,0x8000+1,0x8000+1,0x8000+0,0x8000+0
 		},
-		{
+		new int[] {
 			 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 			 8*8, 9*8,10*8,11*8,12*8,13*8,14*8,15*8,
 			16*8,17*8,18*8,19*8,20*8,21*8,22*8,23*8,
 			24*8,25*8,26*8,27*8,28*8,29*8,30*8,31*8
 		},
 		256
-	};
+	);
 	
-	static struct GfxLayout sprite_layout2 =
-	{
+	static GfxLayout sprite_layout2 = new GfxLayout
+	(
 		32,32,
 		128,
 		3,
-		{ 0,0,0 },
-		{
+		new int[] { 0,0,0 },
+		new int[] {
 			7,7,6,6,5,5,4,4,3,3,2,2,1,1,0,0,
 			0x8000+7,0x8000+7,0x8000+6,0x8000+6,0x8000+5,0x8000+5,0x8000+4,0x8000+4,
 			0x8000+3,0x8000+3,0x8000+2,0x8000+2,0x8000+1,0x8000+1,0x8000+0,0x8000+0
 		},
-		{
+		new int[] {
 			 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 			 8*8, 9*8,10*8,11*8,12*8,13*8,14*8,15*8,
 			16*8,17*8,18*8,19*8,20*8,21*8,22*8,23*8,
 			24*8,25*8,26*8,27*8,28*8,29*8,30*8,31*8
 		},
 		256
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0,      &char_layout,      0,  4 },	/* colors   0- 63 */
-		{ REGION_GFX2, 0x1000, &tile_layout,     64,  4 },	/* colors  64-127 */
-		{ REGION_GFX3, 0,      &sprite_layout1, 128, 16 },	/* colors 128-255 */
-		{ REGION_GFX4, 0,      &sprite_layout2, 128, 16 },	/* colors 128-255 */
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0,      &char_layout,      0,  4 ),	/* colors   0- 63 */
+		new GfxDecodeInfo( REGION_GFX2, 0x1000, &tile_layout,     64,  4 ),	/* colors  64-127 */
+		new GfxDecodeInfo( REGION_GFX3, 0,      &sprite_layout1, 128, 16 ),	/* colors 128-255 */
+		new GfxDecodeInfo( REGION_GFX4, 0,      &sprite_layout2, 128, 16 ),	/* colors 128-255 */
+		new GfxDecodeInfo( -1 )
 	};
 	
 	static MACHINE_DRIVER_START( munchmo )

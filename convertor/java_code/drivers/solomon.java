@@ -166,36 +166,36 @@ public class solomon
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		2048,	/* 2048 characters */
 		4,	/* 4 bits per pixel */
-		{ 0, 1, 2, 3 },	/* the bitplanes are packed in one nibble */
-		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },	/* the bitplanes are packed in one nibble */
+		new int[] { 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8	/* every char takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,	/* 8*8 sprites */
 		512,	/* 512 sprites */
 		4,		/* 4 bits per pixel */
-		{ 0, 512*32*8, 2*512*32*8, 3*512*32*8 },	/* the bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7,	/* pretty straightforward layout */
+		new int[] { 0, 512*32*8, 2*512*32*8, 3*512*32*8 },	/* the bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7,	/* pretty straightforward layout */
 				8*8+0, 8*8+1, 8*8+2, 8*8+3, 8*8+4, 8*8+5, 8*8+6, 8*8+7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				16*8, 17*8, 18*8, 19*8, 20*8, 21*8, 22*8, 23*8 },
 		32*8	/* every sprite takes 32 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,     0, 8 },	/* colors   0-127 */
-		{ REGION_GFX2, 0, &charlayout,   128, 8 },	/* colors 128-255 */
-		{ REGION_GFX3, 0, &spritelayout,   0, 8 },	/* colors   0-127 */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,     0, 8 ),	/* colors   0-127 */
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout,   128, 8 ),	/* colors 128-255 */
+		new GfxDecodeInfo( REGION_GFX3, 0, &spritelayout,   0, 8 ),	/* colors   0-127 */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static struct AY8910interface ay8910_interface =

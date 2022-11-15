@@ -222,43 +222,43 @@ public class shootout
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static struct GfxLayout char_layout =
-	{
+	static GfxLayout char_layout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		0x400,	/* 1024 characters */
 		2,	/* 2 bits per pixel */
-		{ 0,4 },	/* the bitplanes are packed in the same byte */
-		{ (0x2000*8)+0, (0x2000*8)+1, (0x2000*8)+2, (0x2000*8)+3, 0, 1, 2, 3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0,4 },	/* the bitplanes are packed in the same byte */
+		new int[] { (0x2000*8)+0, (0x2000*8)+1, (0x2000*8)+2, (0x2000*8)+3, 0, 1, 2, 3 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8 /* every char takes 8 consecutive bytes */
-	};
-	static struct GfxLayout sprite_layout =
-	{
+	);
+	static GfxLayout sprite_layout = new GfxLayout
+	(
 		16,16,	/* 16*16 sprites */
 		0x800,	/* 2048 sprites */
 		3,	/* 3 bits per pixel */
-		{ 0*0x10000*8, 1*0x10000*8, 2*0x10000*8 },	/* the bitplanes are separated */
-		{ 128+0, 128+1, 128+2, 128+3, 128+4, 128+5, 128+6, 128+7, 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8, 8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
+		new int[] { 0*0x10000*8, 1*0x10000*8, 2*0x10000*8 },	/* the bitplanes are separated */
+		new int[] { 128+0, 128+1, 128+2, 128+3, 128+4, 128+5, 128+6, 128+7, 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8, 8*8, 9*8, 10*8, 11*8, 12*8, 13*8, 14*8, 15*8 },
 		32*8	/* every char takes 32 consecutive bytes */
-	};
-	static struct GfxLayout tile_layout =
-	{
+	);
+	static GfxLayout tile_layout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		0x800,	/* 2048 characters */
 		2,	/* 2 bits per pixel */
-		{ 0,4 },	/* the bitplanes are packed in the same byte */
-		{ (0x4000*8)+0, (0x4000*8)+1, (0x4000*8)+2, (0x4000*8)+3, 0, 1, 2, 3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0,4 },	/* the bitplanes are packed in the same byte */
+		new int[] { (0x4000*8)+0, (0x4000*8)+1, (0x4000*8)+2, (0x4000*8)+3, 0, 1, 2, 3 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8 /* every char takes 8 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &char_layout,   16*4+8*8, 16 }, /* characters */
-		{ REGION_GFX2, 0, &sprite_layout, 16*4, 	 8 }, /* sprites */
-		{ REGION_GFX3, 0, &tile_layout,   0,		16 }, /* tiles */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &char_layout,   16*4+8*8, 16 ), /* characters */
+		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout, 16*4, 	 8 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX3, 0, &tile_layout,   0,		16 ), /* tiles */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static void shootout_snd_irq(int linestate)

@@ -902,99 +902,99 @@ public class aerofgt
 	
 	
 	
-	static struct GfxLayout pspikes_charlayout =
-	{
+	static GfxLayout pspikes_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 1*4, 0*4, 3*4, 2*4, 5*4, 4*4, 7*4, 6*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 1*4, 0*4, 3*4, 2*4, 5*4, 4*4, 7*4, 6*4 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8
-	};
+	);
 	
-	static struct GfxLayout aerofgt_charlayout =
-	{
+	static GfxLayout aerofgt_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4 },
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32 },
 		32*8
-	};
+	);
 	
-	static struct GfxLayout pspikes_spritelayout =
-	{
+	static GfxLayout pspikes_spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,2),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 1*4, 0*4, 3*4, 2*4, RGN_FRAC(1,2)+1*4, RGN_FRAC(1,2)+0*4, RGN_FRAC(1,2)+3*4, RGN_FRAC(1,2)+2*4,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 1*4, 0*4, 3*4, 2*4, RGN_FRAC(1,2)+1*4, RGN_FRAC(1,2)+0*4, RGN_FRAC(1,2)+3*4, RGN_FRAC(1,2)+2*4,
 				5*4, 4*4, 7*4, 6*4, RGN_FRAC(1,2)+5*4, RGN_FRAC(1,2)+4*4, RGN_FRAC(1,2)+7*4, RGN_FRAC(1,2)+6*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 				8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32 },
 		64*8
-	};
+	);
 	
-	static struct GfxLayout aerofgtb_spritelayout =
-	{
+	static GfxLayout aerofgtb_spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,2),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 3*4, 2*4, 1*4, 0*4, RGN_FRAC(1,2)+3*4, RGN_FRAC(1,2)+2*4, RGN_FRAC(1,2)+1*4, RGN_FRAC(1,2)+0*4,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 3*4, 2*4, 1*4, 0*4, RGN_FRAC(1,2)+3*4, RGN_FRAC(1,2)+2*4, RGN_FRAC(1,2)+1*4, RGN_FRAC(1,2)+0*4,
 				7*4, 6*4, 5*4, 4*4, RGN_FRAC(1,2)+7*4, RGN_FRAC(1,2)+6*4, RGN_FRAC(1,2)+5*4, RGN_FRAC(1,2)+4*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 				8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32 },
 		64*8
-	};
+	);
 	
-	static struct GfxLayout aerofgt_spritelayout =
-	{
+	static GfxLayout aerofgt_spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 2*4, 3*4, 0*4, 1*4, 6*4, 7*4, 4*4, 5*4,
 				10*4, 11*4, 8*4, 9*4, 14*4, 15*4, 12*4, 13*4 },
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,
 				8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },
 		128*8
+	);
+	
+	static GfxDecodeInfo pspikes_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &pspikes_charlayout,      0, 64 ),	/* colors    0-1023 in 8 banks */
+		new GfxDecodeInfo( REGION_GFX2, 0, &pspikes_spritelayout, 1024, 64 ),	/* colors 1024-2047 in 4 banks */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo pspikes_gfxdecodeinfo[] =
+	static GfxDecodeInfo turbofrc_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &pspikes_charlayout,      0, 64 },	/* colors    0-1023 in 8 banks */
-		{ REGION_GFX2, 0, &pspikes_spritelayout, 1024, 64 },	/* colors 1024-2047 in 4 banks */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &pspikes_charlayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &pspikes_charlayout,   256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &pspikes_spritelayout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &pspikes_spritelayout, 768, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo turbofrc_gfxdecodeinfo[] =
+	static GfxDecodeInfo aerofgtb_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &pspikes_charlayout,     0, 16 },
-		{ REGION_GFX2, 0, &pspikes_charlayout,   256, 16 },
-		{ REGION_GFX3, 0, &pspikes_spritelayout, 512, 16 },
-		{ REGION_GFX4, 0, &pspikes_spritelayout, 768, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &pspikes_charlayout,      0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &pspikes_charlayout,    256, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &aerofgtb_spritelayout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX4, 0, &aerofgtb_spritelayout, 768, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo aerofgtb_gfxdecodeinfo[] =
+	static GfxDecodeInfo aerofgt_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &pspikes_charlayout,      0, 16 },
-		{ REGION_GFX2, 0, &pspikes_charlayout,    256, 16 },
-		{ REGION_GFX3, 0, &aerofgtb_spritelayout, 512, 16 },
-		{ REGION_GFX4, 0, &aerofgtb_spritelayout, 768, 16 },
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo aerofgt_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &aerofgt_charlayout,     0, 16 },
-		{ REGION_GFX1, 0, &aerofgt_charlayout,   256, 16 },
-		{ REGION_GFX2, 0, &aerofgt_spritelayout, 512, 16 },
-		{ REGION_GFX3, 0, &aerofgt_spritelayout, 768, 16 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &aerofgt_charlayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &aerofgt_charlayout,   256, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &aerofgt_spritelayout, 512, 16 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &aerofgt_spritelayout, 768, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

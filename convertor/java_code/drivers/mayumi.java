@@ -249,21 +249,21 @@ public class mayumi
 	
 	/****************************************************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		8192,   /* 8192 characters */
 		3,      /* 3 bits per pixel */
-		{0x20000*8,0x10000*8,0},
-		{STEP8(0,1)},
-		{STEP8(0,8)},
+		new int[] {0x20000*8,0x10000*8,0},
+		new int[] {STEP8(0,1)},
+		new int[] {STEP8(0,8)},
 		8*8
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x00000, &charlayout, 0, 32 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, &charlayout, 0, 32 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static struct YM2203interface ym2203_interface =

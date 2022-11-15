@@ -271,44 +271,44 @@ public class boxer
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static struct GfxLayout tile_layout =
-	{
+	static GfxLayout tile_layout = new GfxLayout
+	(
 		8, 8,
 		64,
 		1,
-		{ 0 },
-		{
+		new int[] { 0 },
+		new int[] {
 			0x7, 0x6, 0x5, 0x4, 0xf, 0xe, 0xd, 0xc
 		},
-		{
+		new int[] {
 			0x00, 0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70
 		},
 		0x80
-	};
+	);
 	
 	
-	static struct GfxLayout sprite_layout =
-	{
+	static GfxLayout sprite_layout = new GfxLayout
+	(
 		8, 8,
 		64,
 		1,
-		{ 0 },
-		{
+		new int[] { 0 },
+		new int[] {
 			0x4, 0x5, 0x6, 0x7, 0xc, 0xd, 0xe, 0xf
 		},
-		{
+		new int[] {
 			0x00, 0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70
 		},
 		0x80
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &sprite_layout, 0, 1 },
-		{ REGION_GFX2, 0, &sprite_layout, 0, 1 },
-		{ REGION_GFX3, 0, &tile_layout, 2, 1 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &sprite_layout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &sprite_layout, 0, 1 ),
+		new GfxDecodeInfo( REGION_GFX3, 0, &tile_layout, 2, 1 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

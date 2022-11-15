@@ -3396,116 +3396,116 @@ public class metro
 	
 	
 	/* 8x8x4 tiles */
-	static struct GfxLayout layout_8x8x4 =
-	{
+	static GfxLayout layout_8x8x4 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,
-		{ GFX_RAW },
-		{ 0 },		/* org displacement */
-		{ 4*8 },	/* line modulo */
+		new int[] { GFX_RAW },
+		new int[] { 0 },		/* org displacement */
+		new int[] { 4*8 },	/* line modulo */
 		32*8		/* char modulo */
-	};
+	);
 	
 	/* 8x8x8 tiles for later games */
-	static struct GfxLayout layout_8x8x8h =
-	{
+	static GfxLayout layout_8x8x8h = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		8,
-		{ GFX_RAW },
-		{ 0 },		/* org displacement */
-		{ 8*8 },	/* line modulo */
+		new int[] { GFX_RAW },
+		new int[] { 0 },		/* org displacement */
+		new int[] { 8*8 },	/* line modulo */
 		32*8		/* char modulo (half char step) */
-	};
+	);
 	
 	/* 16x16x4 tiles for later games */
-	static struct GfxLayout layout_16x16x4q =
-	{
+	static GfxLayout layout_16x16x4q = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ GFX_RAW },
-		{ 0 },		/* org displacement */
-		{ 8*8 },	/* line modulo */
+		new int[] { GFX_RAW },
+		new int[] { 0 },		/* org displacement */
+		new int[] { 8*8 },	/* line modulo */
 		32*8		/* char modulo (quarter char step) */
-	};
+	);
 	
 	/* 16x16x8 tiles for later games */
-	static struct GfxLayout layout_16x16x8o =
-	{
+	static GfxLayout layout_16x16x8o = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		8,
-		{ GFX_RAW },
-		{ 0 },		/* org displacement */
-		{ 16*8 },	/* line modulo */
+		new int[] { GFX_RAW },
+		new int[] { 0 },		/* org displacement */
+		new int[] { 16*8 },	/* line modulo */
 		32*8		/* char modulo (1/8th char step) */
-	};
+	);
 	
-	static struct GfxLayout layout_053936 =
-	{
+	static GfxLayout layout_053936 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		8,
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
-		{ 0*8*8, 1*8*8, 2*8*8, 3*8*8, 4*8*8, 5*8*8, 6*8*8, 7*8*8 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0*8*8, 1*8*8, 2*8*8, 3*8*8, 4*8*8, 5*8*8, 6*8*8, 7*8*8 },
 		8*8*8
-	};
+	);
 	
-	static struct GfxLayout layout_053936_16 =
-	{
+	static GfxLayout layout_053936_16 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		8,
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 		8*8*8+0*8, 8*8*8+1*8, 8*8*8+2*8, 8*8*8+3*8, 8*8*8+4*8, 8*8*8+5*8, 8*8*8+6*8, 8*8*8+7*8,
 		},
 	
-		{ 0*8*8, 1*8*8, 2*8*8, 3*8*8, 4*8*8, 5*8*8, 6*8*8, 7*8*8,
+		new int[] { 0*8*8, 1*8*8, 2*8*8, 3*8*8, 4*8*8, 5*8*8, 6*8*8, 7*8*8,
 		8*8*8*2+0*8*8,	8*8*8*2+1*8*8,	8*8*8*2+2*8*8,	8*8*8*2+3*8*8,	8*8*8*2+4*8*8,	8*8*8*2+5*8*8,	8*8*8*2+6*8*8,	8*8*8*2+7*8*8,
 		},
 		8*8*8*4
+	);
+	
+	static GfxDecodeInfo gfxdecodeinfo_14100[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 ), // [0] 4 Bit Tiles
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo_14100[] =
+	static GfxDecodeInfo gfxdecodeinfo_14220[] =
 	{
-		{ REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 }, // [0] 4 Bit Tiles
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 ), // [0] 4 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 ), // [1] 8 Bit Tiles
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo_14220[] =
+	static GfxDecodeInfo gfxdecodeinfo_blzntrnd[] =
 	{
-		{ REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 }, // [0] 4 Bit Tiles
-		{ REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 }, // [1] 8 Bit Tiles
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 ), // [0] 4 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 ), // [1] 8 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX3, 0, &layout_053936,   0x0,  0x20 ), // [2] 053936 Tiles
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo_blzntrnd[] =
+	static GfxDecodeInfo gfxdecodeinfo_gstrik2[] =
 	{
-		{ REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 }, // [0] 4 Bit Tiles
-		{ REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 }, // [1] 8 Bit Tiles
-		{ REGION_GFX3, 0, &layout_053936,   0x0,  0x20 }, // [2] 053936 Tiles
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 ), // [0] 4 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 ), // [1] 8 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX3, 0, &layout_053936_16,0x0,  0x20 ), // [2] 053936 Tiles
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo_gstrik2[] =
+	static GfxDecodeInfo gfxdecodeinfo_14300[] =
 	{
-		{ REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 }, // [0] 4 Bit Tiles
-		{ REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 }, // [1] 8 Bit Tiles
-		{ REGION_GFX3, 0, &layout_053936_16,0x0,  0x20 }, // [2] 053936 Tiles
-		{ -1 }
-	};
-	
-	static struct GfxDecodeInfo gfxdecodeinfo_14300[] =
-	{
-		{ REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 }, // [0] 4 Bit Tiles
-		{ REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 }, // [1] 8 Bit Tiles
-		{ REGION_GFX1, 0, &layout_16x16x4q, 0x0, 0x200 }, // [2] 4 Bit Tiles 16x16
-		{ REGION_GFX1, 0, &layout_16x16x8o, 0x0, 0x200 }, // [2] 8 Bit Tiles 16x16
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x4,    0x0, 0x200 ), // [0] 4 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x8h,   0x0,  0x20 ), // [1] 8 Bit Tiles
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4q, 0x0, 0x200 ), // [2] 4 Bit Tiles 16x16
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8o, 0x0, 0x200 ), // [2] 8 Bit Tiles 16x16
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

@@ -629,55 +629,55 @@ public class wiz
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		256,	/* 256 characters */
 		3,		/* 3 bits per pixel */
-		{ 0x4000*8, 0x2000*8, 0 },	/* the three bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0x4000*8, 0x2000*8, 0 },	/* the three bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* every char takes 8 consecutive bytes */
-	};
+	);
 	
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,	/* 16*16 sprites */
 		256,	/* 256 sprites */
 		3,		/* 3 bits per pixel */
-		{ 0x4000*8, 0x2000*8, 0 },	/* the three bitplanes are separated */
-		{ 0, 1, 2, 3, 4, 5, 6, 7,
+		new int[] { 0x4000*8, 0x2000*8, 0 },	/* the three bitplanes are separated */
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7,
 		 8*8+0, 8*8+1, 8*8+2, 8*8+3, 8*8+4, 8*8+5, 8*8+6, 8*8+7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 		  16*8, 17*8, 18*8, 19*8, 20*8, 21*8, 22*8, 23*8 },
 		32*8	/* every sprite takes 32 consecutive bytes */
+	);
+	
+	
+	static GfxDecodeInfo wiz_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0800, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x6000, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0800, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x6800, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x6000, &spritelayout, 0, 32 ),
+		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	
-	
-	static struct GfxDecodeInfo wiz_gfxdecodeinfo[] =
+	static GfxDecodeInfo stinger_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout,   0, 32 },
-		{ REGION_GFX1, 0x0800, &charlayout,   0, 32 },
-		{ REGION_GFX2, 0x6000, &charlayout,   0, 32 },
-		{ REGION_GFX2, 0x0000, &charlayout,   0, 32 },
-		{ REGION_GFX2, 0x0800, &charlayout,   0, 32 },
-		{ REGION_GFX2, 0x6800, &charlayout,   0, 32 },
-		{ REGION_GFX1, 0x0000, &spritelayout, 0, 32 },
-		{ REGION_GFX2, 0x0000, &spritelayout, 0, 32 },
-		{ REGION_GFX2, 0x6000, &spritelayout, 0, 32 },
-		{ -1 }	/* end of array */
-	};
-	
-	static struct GfxDecodeInfo stinger_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0x0000, &charlayout,   0, 32 },
-		{ REGION_GFX1, 0x0800, &charlayout,   0, 32 },
-		{ REGION_GFX2, 0x0000, &charlayout,   0, 32 },
-		{ REGION_GFX2, 0x0800, &charlayout,   0, 32 },
-		{ REGION_GFX1, 0x0000, &spritelayout, 0, 32 },
-		{ REGION_GFX2, 0x0000, &spritelayout, 0, 32 },
-		{ -1 }	/* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0800, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0800, &charlayout,   0, 32 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout, 0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout, 0, 32 ),
+		new GfxDecodeInfo( -1 )	/* end of array */
 	};
 	
 	

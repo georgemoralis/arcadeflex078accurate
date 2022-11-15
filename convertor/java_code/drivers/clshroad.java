@@ -261,53 +261,53 @@ public class clshroad
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static struct GfxLayout layout_8x8x2 =
-	{
+	static GfxLayout layout_8x8x2 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		2,
-		{ 0, 4 },
-		{ STEP4(0,1), STEP4(8,1) },
-		{ STEP8(0,8*2) },
+		new int[] { 0, 4 },
+		new int[] { STEP4(0,1), STEP4(8,1) },
+		new int[] { STEP8(0,8*2) },
 		8*8*2
-	};
+	);
 	
-	static struct GfxLayout layout_8x8x4 =
-	{
+	static GfxLayout layout_8x8x4 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,2),
 		4,
-		{ RGN_FRAC(1,2) + 0, RGN_FRAC(1,2) + 4, 0, 4 },
-		{ STEP4(0,1), STEP4(8,1) },
-		{ STEP8(0,8*2) },
+		new int[] { RGN_FRAC(1,2) + 0, RGN_FRAC(1,2) + 4, 0, 4 },
+		new int[] { STEP4(0,1), STEP4(8,1) },
+		new int[] { STEP8(0,8*2) },
 		8*8*2
-	};
+	);
 	
-	static struct GfxLayout layout_16x16x4 =
-	{
+	static GfxLayout layout_16x16x4 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,2),
 		4,
-		{ RGN_FRAC(1,2) + 0, RGN_FRAC(1,2) + 4, 0, 4 },
-		{ STEP4(0,1), STEP4(8,1), STEP4(8*8*2+0,1), STEP4(8*8*2+8,1) },
-		{ STEP8(0,8*2), STEP8(8*8*2*2,8*2) },
+		new int[] { RGN_FRAC(1,2) + 0, RGN_FRAC(1,2) + 4, 0, 4 },
+		new int[] { STEP4(0,1), STEP4(8,1), STEP4(8*8*2+0,1), STEP4(8*8*2+8,1) },
+		new int[] { STEP8(0,8*2), STEP8(8*8*2*2,8*2) },
 		16*16*2
+	);
+	
+	static GfxDecodeInfo firebatl_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4,   0, 16 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4,	 16,  1 ), // [1] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x2,   512, 64 ), // [2] Layer 1
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo firebatl_gfxdecodeinfo[] =
+	static GfxDecodeInfo clshroad_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x16x4,   0, 16 }, // [0] Sprites
-		{ REGION_GFX2, 0, &layout_16x16x4,	 16,  1 }, // [1] Layer 0
-		{ REGION_GFX3, 0, &layout_8x8x2,   512, 64 }, // [2] Layer 1
-		{ -1 }
-	};
-	
-	static struct GfxDecodeInfo clshroad_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &layout_16x16x4, 0, 16 }, // [0] Sprites
-		{ REGION_GFX2, 0, &layout_16x16x4, 0x90,  1 }, // [1] Layer 0
-		{ REGION_GFX3, 0, &layout_8x8x4,   0, 16 }, // [2] Layer 1
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x4, 0, 16 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x4, 0x90,  1 ), // [1] Layer 0
+		new GfxDecodeInfo( REGION_GFX3, 0, &layout_8x8x4,   0, 16 ), // [2] Layer 1
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

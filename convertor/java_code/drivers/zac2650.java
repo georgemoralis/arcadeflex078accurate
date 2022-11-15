@@ -271,54 +271,54 @@ public class zac2650
 	************************************************************************************************/
 	
 	
-	static struct GfxLayout tinvader_character =
-	{
+	static GfxLayout tinvader_character = new GfxLayout
+	(
 		24,24,
 		128,
 		1,
-		{ 0 },
-		{ 0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7 },
-	   	{ 0*8, 0*8, 0*8, 1*8, 1*8, 1*8, 2*8, 2*8, 2*8, 3*8, 3*8, 3*8, 4*8, 4*8, 4*8,
+		new int[] { 0 },
+		new int[] { 0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7 },
+	   	new int[] { 0*8, 0*8, 0*8, 1*8, 1*8, 1*8, 2*8, 2*8, 2*8, 3*8, 3*8, 3*8, 4*8, 4*8, 4*8,
 		  5*8, 5*8, 5*8, 6*8, 6*8, 6*8, 7*8, 7*8, 7*8 },
 		8*8
-	};
+	);
 	
 	
-	static struct GfxLayout s2636_character8 =
-	{
+	static GfxLayout s2636_character8 = new GfxLayout
+	(
 		32,30,
 		16,
 		1,
-		{ 0 },
-		{ 0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7 },
-	   	{ 0*8, 0*8, 0*8, 1*8, 1*8, 1*8, 2*8, 2*8, 2*8, 3*8, 3*8, 3*8,
+		new int[] { 0 },
+		new int[] { 0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7 },
+	   	new int[] { 0*8, 0*8, 0*8, 1*8, 1*8, 1*8, 2*8, 2*8, 2*8, 3*8, 3*8, 3*8,
 		  4*8, 4*8, 4*8, 5*8, 5*8, 5*8, 6*8, 6*8, 6*8, 7*8, 7*8, 7*8,
 		  8*8, 8*8, 8*8, 9*8, 9*8, 9*8 	} ,
 		8*8
-	};
+	);
 	
-	static struct GfxLayout s2636_character16 =
-	{
+	static GfxLayout s2636_character16 = new GfxLayout
+	(
 		64,60,
 		16,
 		1,
-		{ 0 },
-		{ 0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,
+		new int[] { 0 },
+		new int[] { 0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,
 		  4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7 },
-	   	{ 0*8, 0*8, 0*8, 0*8, 0*8, 0*8, 1*8, 1*8, 1*8, 1*8, 1*8, 1*8,
+	   	new int[] { 0*8, 0*8, 0*8, 0*8, 0*8, 0*8, 1*8, 1*8, 1*8, 1*8, 1*8, 1*8,
 		  2*8, 2*8, 2*8, 2*8, 2*8, 2*8, 3*8, 3*8, 3*8, 3*8, 3*8, 3*8,
 		  4*8, 4*8, 4*8, 4*8, 4*8, 4*8, 5*8, 5*8, 5*8, 5*8, 5*8, 5*8,
 		  6*8, 6*8, 6*8, 6*8, 6*8, 6*8, 7*8, 7*8, 7*8, 7*8, 7*8, 7*8,
 		  8*8, 8*8, 8*8, 8*8, 8*8, 8*8, 9*8, 9*8, 9*8, 9*8, 9*8, 9*8 	} ,
 		8*8
-	};
+	);
 	
-	static struct GfxDecodeInfo tinvader_gfxdecodeinfo[] =
+	static GfxDecodeInfo tinvader_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tinvader_character,  0, 2 },
-	  	{ REGION_CPU1, 0x1F00, &s2636_character8, 0, 2 },	/* dynamic */
-	  	{ REGION_CPU1, 0x1F00, &s2636_character16, 0, 2 },	/* dynamic */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tinvader_character,  0, 2 ),
+	  	new GfxDecodeInfo( REGION_CPU1, 0x1F00, &s2636_character8, 0, 2 ),	/* dynamic */
+	  	new GfxDecodeInfo( REGION_CPU1, 0x1F00, &s2636_character16, 0, 2 ),	/* dynamic */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static MACHINE_DRIVER_START( tinvader )

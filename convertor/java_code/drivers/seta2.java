@@ -1231,92 +1231,92 @@ public class seta2
 	
 	***************************************************************************/
 	
-	static struct GfxLayout layout_4bpp_lo =
-	{
+	static GfxLayout layout_4bpp_lo = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		4,
-		{	RGN_FRAC(1,4)+8,RGN_FRAC(1,4)+0,
+		new int[] {	RGN_FRAC(1,4)+8,RGN_FRAC(1,4)+0,
 			RGN_FRAC(0,4)+8,RGN_FRAC(0,4)+0		},
-		{	STEP8(0,1)		},
-		{	STEP8(0,8*2)	},
+		new int[] {	STEP8(0,1)		},
+		new int[] {	STEP8(0,8*2)	},
 		8*8*2
-	};
+	);
 	
-	static struct GfxLayout layout_4bpp_hi =
-	{
+	static GfxLayout layout_4bpp_hi = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		4,
-		{	RGN_FRAC(3,4)+8,RGN_FRAC(3,4)+0,
+		new int[] {	RGN_FRAC(3,4)+8,RGN_FRAC(3,4)+0,
 			RGN_FRAC(2,4)+8,RGN_FRAC(2,4)+0		},
-		{	STEP8(0,1)		},
-		{	STEP8(0,8*2)	},
+		new int[] {	STEP8(0,1)		},
+		new int[] {	STEP8(0,8*2)	},
 		8*8*2
-	};
+	);
 	
-	static struct GfxLayout layout_6bpp =
-	{
+	static GfxLayout layout_6bpp = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		6,
-		{
+		new int[] {
 			RGN_FRAC(2,4)+8,RGN_FRAC(2,4)+0,
 			RGN_FRAC(1,4)+8,RGN_FRAC(1,4)+0,
 			RGN_FRAC(0,4)+8,RGN_FRAC(0,4)+0		},
-		{	STEP8(0,1)		},
-		{	STEP8(0,8*2)	},
+		new int[] {	STEP8(0,1)		},
+		new int[] {	STEP8(0,8*2)	},
 		8*8*2
-	};
+	);
 	
-	static struct GfxLayout layout_8bpp =
-	{
+	static GfxLayout layout_8bpp = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		8,
-		{	RGN_FRAC(3,4)+8,RGN_FRAC(3,4)+0,
+		new int[] {	RGN_FRAC(3,4)+8,RGN_FRAC(3,4)+0,
 			RGN_FRAC(2,4)+8,RGN_FRAC(2,4)+0,
 			RGN_FRAC(1,4)+8,RGN_FRAC(1,4)+0,
 			RGN_FRAC(0,4)+8,RGN_FRAC(0,4)+0		},
-		{	STEP8(0,1)		},
-		{	STEP8(0,8*2)	},
+		new int[] {	STEP8(0,1)		},
+		new int[] {	STEP8(0,8*2)	},
 		8*8*2
-	};
+	);
 	
-	static struct GfxLayout layout_3bpp_lo =
-	{
+	static GfxLayout layout_3bpp_lo = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		3,
-		{	                RGN_FRAC(1,4)+0,
+		new int[] {	                RGN_FRAC(1,4)+0,
 			RGN_FRAC(0,4)+8,RGN_FRAC(0,4)+0		},
-		{	STEP8(0,1)		},
-		{	STEP8(0,8*2)	},
+		new int[] {	STEP8(0,1)		},
+		new int[] {	STEP8(0,8*2)	},
 		8*8*2
-	};
+	);
 	
-	static struct GfxLayout layout_2bpp_hi =
-	{
+	static GfxLayout layout_2bpp_hi = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		2,
-		{	RGN_FRAC(2,4)+8,RGN_FRAC(2,4)+0 },
-		{	STEP8(0,1)		},
-		{	STEP8(0,8*2)	},
+		new int[] {	RGN_FRAC(2,4)+8,RGN_FRAC(2,4)+0 },
+		new int[] {	STEP8(0,1)		},
+		new int[] {	STEP8(0,8*2)	},
 		8*8*2
-	};
+	);
 	
 	/*	Tiles are 8bpp, but the hardware is additionally able to discard
 		some bitplanes and use the low 4 bits only, or the high 4 bits only	*/
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_4bpp_lo, 0, 0x8000/16 },
-		{ REGION_GFX1, 0, &layout_4bpp_hi, 0, 0x8000/16 },
-		{ REGION_GFX1, 0, &layout_6bpp,    0, 0x8000/16 },	/* 6bpp, but 4bpp granularity */
-		{ REGION_GFX1, 0, &layout_8bpp,    0, 0x8000/16 },	/* 8bpp, but 4bpp granularity */
-		{ REGION_GFX1, 0, &layout_3bpp_lo, 0, 0x8000/16 },	/* 3bpp, but 4bpp granularity */
-		{ REGION_GFX1, 0, &layout_2bpp_hi, 0, 0x8000/16 },	/* ??? */
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_4bpp_lo, 0, 0x8000/16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_4bpp_hi, 0, 0x8000/16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_6bpp,    0, 0x8000/16 ),	/* 6bpp, but 4bpp granularity */
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8bpp,    0, 0x8000/16 ),	/* 8bpp, but 4bpp granularity */
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_3bpp_lo, 0, 0x8000/16 ),	/* 3bpp, but 4bpp granularity */
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_2bpp_hi, 0, 0x8000/16 ),	/* ??? */
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

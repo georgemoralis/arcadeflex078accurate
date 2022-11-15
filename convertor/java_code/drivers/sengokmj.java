@@ -107,36 +107,36 @@ public class sengokmj
 	
 	/***************************************************************************************/
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		16,16,	/* 16*16 sprites  */
 		RGN_FRAC(1,1),
 		4,	/* 4 bits per pixel */
-		{ 8, 12, 0, 4 },
-		{ 3, 2, 1, 0, 16+3, 16+2, 16+1, 16+0,
+		new int[] { 8, 12, 0, 4 },
+		new int[] { 3, 2, 1, 0, 16+3, 16+2, 16+1, 16+0,
 	             3+32*16, 2+32*16, 1+32*16, 0+32*16, 16+3+32*16, 16+2+32*16, 16+1+32*16, 16+0+32*16 },
-		{ 0*16, 2*16, 4*16, 6*16, 8*16, 10*16, 12*16, 14*16,
+		new int[] { 0*16, 2*16, 4*16, 6*16, 8*16, 10*16, 12*16, 14*16,
 				16*16, 18*16, 20*16, 22*16, 24*16, 26*16, 28*16, 30*16 },
 		128*8	/* every sprite takes 128 consecutive bytes */
-	};
+	);
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		4,	/* 4 bits per pixel */
-		{ 8, 12, 0, 4 },
-		{ 3, 2, 1, 0, 16+3, 16+2, 16+1, 16+0 },
-		{ 0*16, 2*16, 4*16, 6*16, 8*16, 10*16, 12*16, 14*16 },
+		new int[] { 8, 12, 0, 4 },
+		new int[] { 3, 2, 1, 0, 16+3, 16+2, 16+1, 16+0 },
+		new int[] { 0*16, 2*16, 4*16, 6*16, 8*16, 10*16, 12*16, 14*16 },
 		128*8	/* every sprite takes 128 consecutive bytes */
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x00000, &tilelayout, 0x00*16,  0x40 }, /* Sprites */
-		{ REGION_GFX2, 0x00000, &tilelayout, 0x00*16,  0x80 }, /* Tiles */
-		{ REGION_GFX2, 0x00000, &charlayout, 0x00*16,  0x80 }, /* Text */
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x00000, &tilelayout, 0x00*16,  0x40 ), /* Sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, &tilelayout, 0x00*16,  0x80 ), /* Tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0x00000, &charlayout, 0x00*16,  0x80 ), /* Text */
+		new GfxDecodeInfo( -1 )
 	};
 	
 	/***************************************************************************************/

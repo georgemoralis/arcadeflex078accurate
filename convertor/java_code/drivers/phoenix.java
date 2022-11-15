@@ -544,29 +544,29 @@ public class phoenix
 	
 	
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		256,	/* 256 characters */
 		2,	/* 2 bits per pixel */
-		{ 256*8*8, 0 }, /* the two bitplanes are separated */
-		{ 7, 6, 5, 4, 3, 2, 1, 0 }, /* pretty straightforward layout */
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 256*8*8, 0 }, /* the two bitplanes are separated */
+		new int[] { 7, 6, 5, 4, 3, 2, 1, 0 }, /* pretty straightforward layout */
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8 /* every char takes 8 consecutive bytes */
+	);
+	
+	static GfxDecodeInfo phoenix_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,	  0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 16*4, 16 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo phoenix_gfxdecodeinfo[] =
+	static GfxDecodeInfo pleiads_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &charlayout,	  0, 16 },
-		{ REGION_GFX2, 0, &charlayout, 16*4, 16 },
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo pleiads_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &charlayout,	  0, 32 },
-		{ REGION_GFX2, 0, &charlayout, 32*4, 32 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &charlayout,	  0, 32 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &charlayout, 32*4, 32 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

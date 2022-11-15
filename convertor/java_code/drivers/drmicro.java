@@ -168,57 +168,57 @@ public class drmicro
 	
 	/****************************************************************************/
 	
-	static struct GfxLayout spritelayout4 =
-	{
+	static GfxLayout spritelayout4 = new GfxLayout
+	(
 		16,16,
 		0x100,
 		2,
-		{0,0x2000*8},
-		{STEP8(7,-1),STEP8(71,-1)},
-		{STEP8(0,8),STEP8(128,8)},
+		new int[] {0,0x2000*8},
+		new int[] {STEP8(7,-1),STEP8(71,-1)},
+		new int[] {STEP8(0,8),STEP8(128,8)},
 		8*8*4
-	};
+	);
 	
-	static struct GfxLayout spritelayout8 =
-	{
+	static GfxLayout spritelayout8 = new GfxLayout
+	(
 		16,16,
 		0x100,
 		3,
-		{0x2000*16,0x2000*8,0},
-		{STEP8(7,-1),STEP8(71,-1)},
-		{STEP8(0,8),STEP8(128,8)},
+		new int[] {0x2000*16,0x2000*8,0},
+		new int[] {STEP8(7,-1),STEP8(71,-1)},
+		new int[] {STEP8(0,8),STEP8(128,8)},
 		8*8*4
-	};
+	);
 	
-	static struct GfxLayout charlayout4 =
-	{
+	static GfxLayout charlayout4 = new GfxLayout
+	(
 		8,8,
 		0x400,
 		2,
-		{0,0x2000*8},
-		{STEP8(7,-1)},
-		{STEP8(0,8)},
+		new int[] {0,0x2000*8},
+		new int[] {STEP8(7,-1)},
+		new int[] {STEP8(0,8)},
 		8*8*1
-	};
+	);
 	
-	static struct GfxLayout charlayout8 =
-	{
+	static GfxLayout charlayout8 = new GfxLayout
+	(
 		8,8,
 		0x400,
 		3,
-		{0x2000*16,0x2000*8,0},
-		{STEP8(7,-1)},
-		{STEP8(0,8)},
+		new int[] {0x2000*16,0x2000*8,0},
+		new int[] {STEP8(7,-1)},
+		new int[] {STEP8(0,8)},
 		8*8*1
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout4,     0, 64 }, /* tiles */
-		{ REGION_GFX2, 0x0000, &charlayout8,   256, 32 }, /* tiles */
-		{ REGION_GFX1, 0x0000, &spritelayout4,   0, 64 }, /* sprites */
-		{ REGION_GFX2, 0x0000, &spritelayout8, 256, 32 }, /* sprites */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout4,     0, 64 ), /* tiles */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &charlayout8,   256, 32 ), /* tiles */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout4,   0, 64 ), /* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &spritelayout8, 256, 32 ), /* sprites */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static struct SN76496interface sn76496_interface =

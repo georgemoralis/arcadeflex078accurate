@@ -208,39 +208,39 @@ public class raiders5
 	
 	/****************************************************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,   /* 8*8 characters */
 		512,   /* 512 characters */
 		4,     /* 4 bits per pixel */
-		{0,1,2,3},
-		{0,4,8192*8+0,8192*8+4,8,12,8192*8+8,8192*8+12},
-		{16*0, 16*1, 16*2, 16*3, 16*4, 16*5, 16*6, 16*7},
+		new int[] {0,1,2,3},
+		new int[] {0,4,8192*8+0,8192*8+4,8,12,8192*8+8,8192*8+12},
+		new int[] {16*0, 16*1, 16*2, 16*3, 16*4, 16*5, 16*6, 16*7},
 		16*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,    /* 16*16 characters */
 		128,	  /* 128 sprites */
 		4,        /* 4 bits per pixel */
-		{0,1,2,3},
-		{0,4,8192*8+0,8192*8+4,8,12,8192*8+8,8192*8+12,
+		new int[] {0,1,2,3},
+		new int[] {0,4,8192*8+0,8192*8+4,8,12,8192*8+8,8192*8+12,
 		16*8+0,16*8+4,16*8+8192*8+0,16*8+8192*8+4,16*8+8,16*8+12,16*8+8192*8+8,16*8+8192*8+12},
-		{16*0, 16*1, 16*2, 16*3, 16*4, 16*5, 16*6, 16*7,
+		new int[] {16*0, 16*1, 16*2, 16*3, 16*4, 16*5, 16*6, 16*7,
 		 16*16, 16*17, 16*18, 16*19, 16*20, 16*21, 16*22, 16*23},
 		16*8*4
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &spritelayout, 512, 16 }, /* sprite */
-		{ REGION_GFX1, 0x4000, &spritelayout, 512, 16 }, /* sprite */
-		{ REGION_GFX1, 0x0000, &charlayout,     0, 16 }, /* FG */
-		{ REGION_GFX1, 0x8000, &charlayout,   256, 16 }, /* BG */
-		{ REGION_GFX1, 0x4000, &charlayout,   256, 16 }, /* BG (?)*/
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout, 512, 16 ), /* sprite */
+		new GfxDecodeInfo( REGION_GFX1, 0x4000, &spritelayout, 512, 16 ), /* sprite */
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,     0, 16 ), /* FG */
+		new GfxDecodeInfo( REGION_GFX1, 0x8000, &charlayout,   256, 16 ), /* BG */
+		new GfxDecodeInfo( REGION_GFX1, 0x4000, &charlayout,   256, 16 ), /* BG (?)*/
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/****************************************************************************/

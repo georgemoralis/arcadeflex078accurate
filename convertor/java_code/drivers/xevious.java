@@ -801,87 +801,87 @@ public class xevious
 	
 	
 	/* foreground characters */
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		512,	/* 512 characters */
 		1,	/* 1 bit per pixel */
-		{ 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* every char takes 8 consecutive bytes */
-	};
+	);
 	/* background tiles */
-	static struct GfxLayout bgcharlayout =
-	{
+	static GfxLayout bgcharlayout = new GfxLayout
+	(
 		8,8,	/* 8*8 characters */
 		512,	/* 512 characters */
 		2,	/* 2 bits per pixel */
-		{ 0, 512*8*8 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 512*8*8 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* every char takes 8 consecutive bytes */
-	};
+	);
 	/* sprite set #1 */
-	static struct GfxLayout spritelayout1 =
-	{
+	static GfxLayout spritelayout1 = new GfxLayout
+	(
 		16,16,	/* 16*16 sprites */
 		128,	/* 128 sprites */
 		3,	/* 3 bits per pixel */
-		{ 128*64*8+4, 0, 4 },
-		{ 0, 1, 2, 3, 8*8+0, 8*8+1, 8*8+2, 8*8+3,
+		new int[] { 128*64*8+4, 0, 4 },
+		new int[] { 0, 1, 2, 3, 8*8+0, 8*8+1, 8*8+2, 8*8+3,
 				16*8+0, 16*8+1, 16*8+2, 16*8+3, 24*8+0, 24*8+1, 24*8+2, 24*8+3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				32*8, 33*8, 34*8, 35*8, 36*8, 37*8, 38*8, 39*8 },
 		64*8	/* every sprite takes 128 consecutive bytes */
-	};
+	);
 	/* sprite set #2 */
-	static struct GfxLayout spritelayout2 =
-	{
+	static GfxLayout spritelayout2 = new GfxLayout
+	(
 		16,16,	/* 16*16 sprites */
 		128,	/* 128 sprites */
 		3,	/* 3 bits per pixel */
-		{ 0, 128*64*8, 128*64*8+4 },
-		{ 0, 1, 2, 3, 8*8+0, 8*8+1, 8*8+2, 8*8+3,
+		new int[] { 0, 128*64*8, 128*64*8+4 },
+		new int[] { 0, 1, 2, 3, 8*8+0, 8*8+1, 8*8+2, 8*8+3,
 				16*8+0, 16*8+1, 16*8+2, 16*8+3, 24*8+0, 24*8+1, 24*8+2, 24*8+3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				32*8, 33*8, 34*8, 35*8, 36*8, 37*8, 38*8, 39*8 },
 		64*8	/* every sprite takes 128 consecutive bytes */
-	};
+	);
 	/* sprite set #3 */
-	static struct GfxLayout spritelayout3 =
-	{
+	static GfxLayout spritelayout3 = new GfxLayout
+	(
 		16,16,	/* 16*16 sprites */
 		64,	/* 64 sprites */
 		3,	/* 3 bits per pixel (one is always 0) */
-		{ 64*64*8, 0, 4 },
-		{ 0, 1, 2, 3, 8*8+0, 8*8+1, 8*8+2, 8*8+3,
+		new int[] { 64*64*8, 0, 4 },
+		new int[] { 0, 1, 2, 3, 8*8+0, 8*8+1, 8*8+2, 8*8+3,
 				16*8+0, 16*8+1, 16*8+2, 16*8+3, 24*8+0, 24*8+1, 24*8+2, 24*8+3 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8,
 				32*8, 33*8, 34*8, 35*8, 36*8, 37*8, 38*8, 39*8 },
 		64*8	/* every sprite takes 64 consecutive bytes */
+	);
+	
+	
+	
+	static GfxDecodeInfo gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout, 128*4+64*8,  64 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &bgcharlayout,        0, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0000, &spritelayout1,   128*4,  64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x2000, &spritelayout2,   128*4,  64 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x6000, &spritelayout3,   128*4,  64 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	
-	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	/*static GfxDecodeInfo battles_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0x0000, &charlayout, 128*4+64*8,  64 },
-		{ REGION_GFX2, 0x0000, &bgcharlayout,        0, 128 },
-		{ REGION_GFX3, 0x0000, &spritelayout1,   128*4,  64 },
-		{ REGION_GFX3, 0x2000, &spritelayout2,   128*4,  64 },
-		{ REGION_GFX3, 0x6000, &spritelayout3,   128*4,  64 },
-		{ -1 } /* end of array */
-	};
-	
-	/*static struct GfxDecodeInfo battles_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0x0000, &charlayout,      128*4 + 128*8, 128 },
-		{ REGION_GFX2, 0x0000, &bgcharlayout,                0, 128 },
-		{ REGION_GFX3, 0x0000, &spritelayout1,   128*4        , 128 },
-		{ REGION_GFX3, 0x2000, &spritelayout2,   128*4        , 128 },
-		{ REGION_GFX3, 0x6000, &spritelayout3,   128*4        , 128 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &charlayout,      128*4 + 128*8, 128 ),
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &bgcharlayout,                0, 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x0000, &spritelayout1,   128*4        , 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x2000, &spritelayout2,   128*4        , 128 ),
+		new GfxDecodeInfo( REGION_GFX3, 0x6000, &spritelayout3,   128*4        , 128 ),
+		new GfxDecodeInfo( -1 )
 	};
 	*/
 	

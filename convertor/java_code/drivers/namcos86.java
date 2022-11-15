@@ -1104,29 +1104,29 @@ public class namcos86
 	
 	/*******************************************************************/
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,3),
 		3,
-		{ RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { RGN_FRAC(2,3), RGN_FRAC(1,3), RGN_FRAC(0,3) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
-	#define SPRITELAYOUT(NUM) static struct GfxLayout spritelayout_##NUM =         \
-	{																			   \
+	#define SPRITELAYOUT(NUM) static GfxLayout spritelayout_##NUM = new GfxLayout\
+	(																			   \
 		16,16,	/* 16*16 sprites */												   \
 		NUM,	/* NUM sprites */												   \
 		4,	/* 4 bits per pixel */												   \
-		{ 0, 1, 2, 3 },															   \
-		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4,								   \
+		new int[] { 0, 1, 2, 3 },															   \
+		new int[] { 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4,								   \
 				8*4, 9*4, 10*4, 11*4, 12*4, 13*4, 14*4, 15*4 },					   \
-		{ 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,						   \
+		new int[] { 0*64, 1*64, 2*64, 3*64, 4*64, 5*64, 6*64, 7*64,						   \
 				8*64, 9*64, 10*64, 11*64, 12*64, 13*64, 14*64, 15*64 },			   \
 		16*64																	   \
-	}
+	)
 	
 	SPRITELAYOUT(256);
 	SPRITELAYOUT(512);
@@ -1134,19 +1134,19 @@ public class namcos86
 	
 	
 	#define GFXDECODE(SPRITE)													\
-	static struct GfxDecodeInfo gfxdecodeinfo_##SPRITE[] =						\
+	static GfxDecodeInfo gfxdecodeinfo_##SPRITE[] =\
 	{																			\
-		{ REGION_GFX1, 0x00000,      &tilelayout,            2048*0, 256 },		\
-		{ REGION_GFX2, 0x00000,      &tilelayout,            2048*0, 256 },		\
-		{ REGION_GFX3, 0*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 },		\
-		{ REGION_GFX3, 1*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 },		\
-		{ REGION_GFX3, 2*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 },		\
-		{ REGION_GFX3, 3*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 },		\
-		{ REGION_GFX3, 4*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 },		\
-		{ REGION_GFX3, 5*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 },		\
-		{ REGION_GFX3, 6*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 },		\
-		{ REGION_GFX3, 7*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 },		\
-		{ -1 }																	\
+		new GfxDecodeInfo( REGION_GFX1, 0x00000,      &tilelayout,            2048*0, 256 ),		\
+		new GfxDecodeInfo( REGION_GFX2, 0x00000,      &tilelayout,            2048*0, 256 ),		\
+		new GfxDecodeInfo( REGION_GFX3, 0*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 ),		\
+		new GfxDecodeInfo( REGION_GFX3, 1*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 ),		\
+		new GfxDecodeInfo( REGION_GFX3, 2*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 ),		\
+		new GfxDecodeInfo( REGION_GFX3, 3*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 ),		\
+		new GfxDecodeInfo( REGION_GFX3, 4*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 ),		\
+		new GfxDecodeInfo( REGION_GFX3, 5*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 ),		\
+		new GfxDecodeInfo( REGION_GFX3, 6*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 ),		\
+		new GfxDecodeInfo( REGION_GFX3, 7*128*SPRITE, &spritelayout_##SPRITE, 2048*1, 128 ),		\
+		new GfxDecodeInfo( -1 )																	\
 	};
 	
 	GFXDECODE( 256)

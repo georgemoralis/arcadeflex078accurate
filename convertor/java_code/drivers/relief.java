@@ -295,36 +295,36 @@ public class relief
 	 *
 	 *************************************/
 	
-	static struct GfxLayout pfmolayout =
-	{
+	static GfxLayout pfmolayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		4,
-		{ RGN_FRAC(3,4), RGN_FRAC(2,4), RGN_FRAC(1,4), RGN_FRAC(0,4) },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 2*8, 4*8, 6*8, 8*8, 10*8, 12*8, 14*8 },
+		new int[] { RGN_FRAC(3,4), RGN_FRAC(2,4), RGN_FRAC(1,4), RGN_FRAC(0,4) },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 2*8, 4*8, 6*8, 8*8, 10*8, 12*8, 14*8 },
 		16*8
-	};
+	);
 	
 	
-	static struct GfxLayout moexlayout =
-	{
+	static GfxLayout moexlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,1),
 		5,
-		{ 0, 0, 0, 0, 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
+		new int[] { 0, 0, 0, 0, 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8
-	};
+	);
 	
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &pfmolayout,   0, 64 },		/* alpha & playfield */
-		{ REGION_GFX1, 1, &pfmolayout, 256, 16 },		/* sprites */
-		{ REGION_GFX2, 0, &moexlayout, 256, 16 },		/* extra sprite bit */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &pfmolayout,   0, 64 ),		/* alpha & playfield */
+		new GfxDecodeInfo( REGION_GFX1, 1, &pfmolayout, 256, 16 ),		/* sprites */
+		new GfxDecodeInfo( REGION_GFX2, 0, &moexlayout, 256, 16 ),		/* extra sprite bit */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

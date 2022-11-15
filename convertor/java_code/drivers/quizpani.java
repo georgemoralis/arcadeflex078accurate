@@ -236,24 +236,24 @@ public class quizpani
 		PORT_DIPSETTING(      0x0000, DEF_STR( "On") );
 	INPUT_PORTS_END(); }}; 
 	
-	static struct GfxLayout tilelayout =
-	{
+	static GfxLayout tilelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		4,
-		{ 0, 1, 2, 3 },
-		{ 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4,
+		new int[] { 0, 1, 2, 3 },
+		new int[] { 0*4, 1*4, 2*4, 3*4, 4*4, 5*4, 6*4, 7*4,
 				16*32+0*4, 16*32+1*4, 16*32+2*4, 16*32+3*4, 16*32+4*4, 16*32+5*4, 16*32+6*4, 16*32+7*4 },
-		{ 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
+		new int[] { 0*32, 1*32, 2*32, 3*32, 4*32, 5*32, 6*32, 7*32,
 				8*32, 9*32, 10*32, 11*32, 12*32, 13*32, 14*32, 15*32 },
 		32*32
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tilelayout, 0x100, 16 }, /* Background */
-		{ REGION_GFX2, 0, &tilelayout, 0x000, 16 }, /* Text */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tilelayout, 0x100, 16 ), /* Background */
+		new GfxDecodeInfo( REGION_GFX2, 0, &tilelayout, 0x000, 16 ), /* Text */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	static struct OKIM6295interface okim6295_interface =

@@ -614,25 +614,25 @@ public class unico
 	***************************************************************************/
 	
 	/* 16x16x8 */
-	static struct GfxLayout layout_16x16x8 =
-	{
+	static GfxLayout layout_16x16x8 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		8,
-		{	RGN_FRAC(3,4)+8,	RGN_FRAC(3,4)+0,
+		new int[] {	RGN_FRAC(3,4)+8,	RGN_FRAC(3,4)+0,
 			RGN_FRAC(2,4)+8,	RGN_FRAC(2,4)+0,
 			RGN_FRAC(1,4)+8,	RGN_FRAC(1,4)+0,
 			RGN_FRAC(0,4)+8,	RGN_FRAC(0,4)+0	},
-		{	STEP8(0,1), 		STEP8(16,1)		},
-		{	STEP16(0,16*2)						},
+		new int[] {	STEP8(0,1), 		STEP8(16,1)		},
+		new int[] {	STEP16(0,16*2)						},
 		16*16*2
-	};
+	);
 	
-	static struct GfxDecodeInfo unico_gfxdecodeinfo[] =
+	static GfxDecodeInfo unico_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_16x16x8, 0x0, 0x20 }, // [0] Sprites
-		{ REGION_GFX2, 0, &layout_16x16x8, 0x0, 0x20 }, // [1] Layers
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_16x16x8, 0x0, 0x20 ), // [0] Sprites
+		new GfxDecodeInfo( REGION_GFX2, 0, &layout_16x16x8, 0x0, 0x20 ), // [1] Layers
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

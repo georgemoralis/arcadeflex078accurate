@@ -325,21 +325,21 @@ public class fantland
 	
 	***************************************************************************/
 	
-	static struct GfxLayout layout16x16x6 =
-	{
+	static GfxLayout layout16x16x6 = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,1),
 		6,
-		{ 0,1,2,3,4,5 },
-		{ STEP4(3*6,-6),STEP4(7*6,-6),STEP4(11*6,-6),STEP4(15*6,-6) },
-		{ STEP16(0,16*6) },
+		new int[] { 0,1,2,3,4,5 },
+		new int[] { STEP4(3*6,-6),STEP4(7*6,-6),STEP4(11*6,-6),STEP4(15*6,-6) },
+		new int[] { STEP16(0,16*6) },
 		16*16*6
-	};
+	);
 	
-	static struct GfxDecodeInfo fantland_gfxdecodeinfo[] =
+	static GfxDecodeInfo fantland_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout16x16x6, 0, 4 }, // [0] Sprites
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout16x16x6, 0, 4 ), // [0] Sprites
+		new GfxDecodeInfo( -1 )
 	};
 	
 	/***************************************************************************

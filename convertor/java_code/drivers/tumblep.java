@@ -658,46 +658,46 @@ public class tumblep
 	
 	/******************************************************************************/
 	
-	static struct GfxLayout tcharlayout =
-	{
+	static GfxLayout tcharlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,2),
 		4,
-		{ RGN_FRAC(1,2)+8, RGN_FRAC(1,2)+0, 8, 0 },
-		{ 0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
+		new int[] { RGN_FRAC(1,2)+8, RGN_FRAC(1,2)+0, 8, 0 },
+		new int[] { 0, 1, 2, 3, 4, 5, 6, 7 },
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16 },
 		16*8
-	};
+	);
 	
-	static struct GfxLayout tlayout =
-	{
+	static GfxLayout tlayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,2),
 		4,
-		{ RGN_FRAC(1,2)+8, RGN_FRAC(1,2)+0, 8, 0 },
-		{ 32*8+0, 32*8+1, 32*8+2, 32*8+3, 32*8+4, 32*8+5, 32*8+6, 32*8+7,
+		new int[] { RGN_FRAC(1,2)+8, RGN_FRAC(1,2)+0, 8, 0 },
+		new int[] { 32*8+0, 32*8+1, 32*8+2, 32*8+3, 32*8+4, 32*8+5, 32*8+6, 32*8+7,
 				0, 1, 2, 3, 4, 5, 6, 7 },
-		{ 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
+		new int[] { 0*16, 1*16, 2*16, 3*16, 4*16, 5*16, 6*16, 7*16,
 				8*16, 9*16, 10*16, 11*16, 12*16, 13*16, 14*16, 15*16 },
 		64*8
+	);
+	
+	static GfxDecodeInfo gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &tcharlayout, 256, 16 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tlayout,     512, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tlayout,     256, 16 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, &tlayout,       0, 16 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo fncywld_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &tcharlayout, 256, 16 },	/* Characters 8x8 */
-		{ REGION_GFX1, 0, &tlayout,     512, 16 },	/* Tiles 16x16 */
-		{ REGION_GFX1, 0, &tlayout,     256, 16 },	/* Tiles 16x16 */
-		{ REGION_GFX2, 0, &tlayout,       0, 16 },	/* Sprites 16x16 */
-		{ -1 } /* end of array */
-	};
-	
-	static struct GfxDecodeInfo fncywld_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &tcharlayout, 0x400, 0x40 },	/* Characters 8x8 */
-		{ REGION_GFX1, 0, &tlayout,     0x400, 0x40 },	/* Tiles 16x16 */
-		{ REGION_GFX1, 0, &tlayout,     0x200, 0x40 },	/* Tiles 16x16 */
-		{ REGION_GFX2, 0, &tlayout,       0, 0x40 },	/* Sprites 16x16 */
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tcharlayout, 0x400, 0x40 ),	/* Characters 8x8 */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tlayout,     0x400, 0x40 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX1, 0, &tlayout,     0x200, 0x40 ),	/* Tiles 16x16 */
+		new GfxDecodeInfo( REGION_GFX2, 0, &tlayout,       0, 0x40 ),	/* Sprites 16x16 */
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	/******************************************************************************/

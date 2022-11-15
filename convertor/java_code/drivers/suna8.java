@@ -1865,21 +1865,21 @@ public class suna8
 	***************************************************************************/
 	
 	/* 8x8x4 tiles (2 bitplanes per ROM) */
-	static struct GfxLayout layout_8x8x4 =
-	{
+	static GfxLayout layout_8x8x4 = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,2),
 		4,
-		{ RGN_FRAC(1,2) + 0, RGN_FRAC(1,2) + 4, 0, 4 },
-		{ 3,2,1,0, 11,10,9,8},
-		{ STEP8(0,16) },
+		new int[] { RGN_FRAC(1,2) + 0, RGN_FRAC(1,2) + 4, 0, 4 },
+		new int[] { 3,2,1,0, 11,10,9,8},
+		new int[] { STEP8(0,16) },
 		8*8*2
-	};
+	);
 	
-	static struct GfxDecodeInfo suna8_gfxdecodeinfo[] =
+	static GfxDecodeInfo suna8_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &layout_8x8x4, 0, 16 }, // [0] Sprites
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &layout_8x8x4, 0, 16 ), // [0] Sprites
+		new GfxDecodeInfo( -1 )
 	};
 	
 	

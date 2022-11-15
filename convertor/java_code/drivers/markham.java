@@ -191,35 +191,35 @@ public class markham
 	
 	/****************************************************************************/
 	
-	static struct GfxLayout charlayout =
-	{
+	static GfxLayout charlayout = new GfxLayout
+	(
 		8,8,    /* 8*8 characters */
 		1024,   /* 1024 characters */
 		3,      /* 3 bits per pixel */
-		{0,8192*8,8192*8*2},
-		{7,6,5,4,3,2,1,0},
-		{8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7},
+		new int[] {0,8192*8,8192*8*2},
+		new int[] {7,6,5,4,3,2,1,0},
+		new int[] {8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7},
 		8*8
-	};
+	);
 	
-	static struct GfxLayout spritelayout =
-	{
+	static GfxLayout spritelayout = new GfxLayout
+	(
 		16,16,  /* 16*16 characters */
 		256,    /* 256 characters */
 		3,      /* 3 bits per pixel */
-		{8192*8*2,8192*8,0},
-		{7,6,5,4,3,2,1,0,
+		new int[] {8192*8*2,8192*8,0},
+		new int[] {7,6,5,4,3,2,1,0,
 			8*16+7,8*16+6,8*16+5,8*16+4,8*16+3,8*16+2,8*16+1,8*16+0},
-		{8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7,
+		new int[] {8*0, 8*1, 8*2, 8*3, 8*4, 8*5, 8*6, 8*7,
 			8*8,8*9,8*10,8*11,8*12,8*13,8*14,8*15},
 		8*8*4
-	};
+	);
 	
-	static struct GfxDecodeInfo gfxdecodeinfo[] =
+	static GfxDecodeInfo gfxdecodeinfo[] =
 	{
-		{ REGION_GFX2, 0x0000, &charlayout,   512, 64 },
-		{ REGION_GFX1, 0x0000, &spritelayout, 0,   64 },
-		{ -1 } /* end of array */
+		new GfxDecodeInfo( REGION_GFX2, 0x0000, &charlayout,   512, 64 ),
+		new GfxDecodeInfo( REGION_GFX1, 0x0000, &spritelayout, 0,   64 ),
+		new GfxDecodeInfo( -1 ) /* end of array */
 	};
 	
 	

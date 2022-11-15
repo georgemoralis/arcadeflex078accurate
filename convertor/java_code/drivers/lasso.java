@@ -629,83 +629,83 @@ public class lasso
 	
 	
 	
-	static struct GfxLayout lasso_charlayout =
-	{
+	static GfxLayout lasso_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,4),
 		2,
-		{ RGN_FRAC(0,4), RGN_FRAC(2,4) },
-		{ STEP8(0,1) },
-		{ STEP8(0,8) },
+		new int[] { RGN_FRAC(0,4), RGN_FRAC(2,4) },
+		new int[] { STEP8(0,1) },
+		new int[] { STEP8(0,8) },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout lasso_spritelayout =
-	{
+	static GfxLayout lasso_spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		2,
-		{ RGN_FRAC(1,4), RGN_FRAC(3,4) },
-		{ STEP8(0,1), STEP8(8*8*1,1) },
-		{ STEP8(0,8), STEP8(8*8*2,8) },
+		new int[] { RGN_FRAC(1,4), RGN_FRAC(3,4) },
+		new int[] { STEP8(0,1), STEP8(8*8*1,1) },
+		new int[] { STEP8(0,8), STEP8(8*8*2,8) },
 		16*16
-	};
+	);
 	
-	static struct GfxLayout wwjgtin_tracklayout =
-	{
+	static GfxLayout wwjgtin_tracklayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,4),
 		4,
-		{ RGN_FRAC(1,4), RGN_FRAC(3,4), RGN_FRAC(0,4), RGN_FRAC(2,4) },
-		{ STEP8(0,1), STEP8(8*8*1,1) },
-		{ STEP8(0,8), STEP8(8*8*2,8) },
+		new int[] { RGN_FRAC(1,4), RGN_FRAC(3,4), RGN_FRAC(0,4), RGN_FRAC(2,4) },
+		new int[] { STEP8(0,1), STEP8(8*8*1,1) },
+		new int[] { STEP8(0,8), STEP8(8*8*2,8) },
 		16*16
-	};
+	);
 	
 	/* Pinbo is 3bpp, otherwise the same */
-	static struct GfxLayout pinbo_charlayout =
-	{
+	static GfxLayout pinbo_charlayout = new GfxLayout
+	(
 		8,8,
 		RGN_FRAC(1,6),
 		3,
-		{ RGN_FRAC(0,6), RGN_FRAC(2,6), RGN_FRAC(4,6) },
-		{ STEP8(0,1) },
-		{ STEP8(0,8) },
+		new int[] { RGN_FRAC(0,6), RGN_FRAC(2,6), RGN_FRAC(4,6) },
+		new int[] { STEP8(0,1) },
+		new int[] { STEP8(0,8) },
 		8*8
-	};
+	);
 	
-	static struct GfxLayout pinbo_spritelayout =
-	{
+	static GfxLayout pinbo_spritelayout = new GfxLayout
+	(
 		16,16,
 		RGN_FRAC(1,6),
 		3,
-		{ RGN_FRAC(1,6), RGN_FRAC(3,6), RGN_FRAC(5,6) },
-		{ STEP8(0,1), STEP8(8*8*1,1) },
-		{ STEP8(0,8), STEP8(8*8*2,8) },
+		new int[] { RGN_FRAC(1,6), RGN_FRAC(3,6), RGN_FRAC(5,6) },
+		new int[] { STEP8(0,1), STEP8(8*8*1,1) },
+		new int[] { STEP8(0,8), STEP8(8*8*2,8) },
 		16*16
+	);
+	
+	
+	static GfxDecodeInfo lasso_gfxdecodeinfo[] =
+	{
+		new GfxDecodeInfo( REGION_GFX1, 0, &lasso_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &lasso_spritelayout, 0, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	
-	static struct GfxDecodeInfo lasso_gfxdecodeinfo[] =
+	static GfxDecodeInfo wwjgtin_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &lasso_charlayout,   0, 16 },
-		{ REGION_GFX1, 0, &lasso_spritelayout, 0, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &lasso_charlayout,       0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &lasso_spritelayout,     0, 16 ),
+		new GfxDecodeInfo( REGION_GFX2, 0, &wwjgtin_tracklayout,	4*16, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
-	static struct GfxDecodeInfo wwjgtin_gfxdecodeinfo[] =
+	static GfxDecodeInfo pinbo_gfxdecodeinfo[] =
 	{
-		{ REGION_GFX1, 0, &lasso_charlayout,       0, 16 },
-		{ REGION_GFX1, 0, &lasso_spritelayout,     0, 16 },
-		{ REGION_GFX2, 0, &wwjgtin_tracklayout,	4*16, 16 },
-		{ -1 }
-	};
-	
-	static struct GfxDecodeInfo pinbo_gfxdecodeinfo[] =
-	{
-		{ REGION_GFX1, 0, &pinbo_charlayout,   0, 16 },
-		{ REGION_GFX1, 0, &pinbo_spritelayout, 0, 16 },
-		{ -1 }
+		new GfxDecodeInfo( REGION_GFX1, 0, &pinbo_charlayout,   0, 16 ),
+		new GfxDecodeInfo( REGION_GFX1, 0, &pinbo_spritelayout, 0, 16 ),
+		new GfxDecodeInfo( -1 )
 	};
 	
 	
