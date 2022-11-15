@@ -21,8 +21,6 @@ public class flkatck
 	
 	/* from vidhrdw/flkatck.c */
 	
-	extern unsigned char *k007121_ram;
-	extern int flkatck_irq_enabled;
 	
 	/***************************************************************************/
 	

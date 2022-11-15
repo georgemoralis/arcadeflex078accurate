@@ -208,13 +208,13 @@ public class namcos1
 {
 	
 	/* from vidhrdw */
-	extern extern 
+	
 	/* from machine */
 	
 	
 	
-	extern 
-	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
+	
+	
 	
 	/**********************************************************************/
 	

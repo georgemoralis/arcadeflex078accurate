@@ -50,7 +50,6 @@ public class flower
 	
 	
 	
-	extern data8_t *flower_soundregs1,*flower_soundregs2;
 	int flower_sh_start(const struct MachineSound *msound);
 	void flower_sh_stop(void);
 	

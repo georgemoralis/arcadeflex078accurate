@@ -1,8 +1,5 @@
 /* Video emulation definitions */
 
-extern data16_t *dec0_pf1_rowscroll,*dec0_pf2_rowscroll,*dec0_pf3_rowscroll;
-extern data16_t *dec0_pf1_colscroll,*dec0_pf2_colscroll,*dec0_pf3_colscroll;
-extern data16_t *dec0_pf1_data,*dec0_pf2_data,*dec0_pf3_data;
 
 WRITE16_HANDLER( dec0_pf1_control_0_w );
 WRITE16_HANDLER( dec0_pf1_control_1_w );
@@ -37,8 +34,4 @@ WRITE16_HANDLER( slyspy_24e000_w );
 
 
 
-extern void dec0_i8751_write(int data);
-extern void dec0_i8751_reset(void);
 
-extern data16_t *dec0_ram;
-extern data8_t *robocop_shared_ram;

@@ -56,18 +56,10 @@ public class omegaf
 	  Variables
 	**************************************************************************/
 	
-	extern UINT8 *omegaf_fg_videoram;
-	extern size_t omegaf_fgvideoram_size;
 	
-	extern UINT8 *omegaf_bg0_scroll_x;
-	extern UINT8 *omegaf_bg1_scroll_x;
-	extern UINT8 *omegaf_bg2_scroll_x;
-	extern UINT8 *omegaf_bg0_scroll_y;
-	extern UINT8 *omegaf_bg1_scroll_y;
-	extern UINT8 *omegaf_bg2_scroll_y;
 	
-	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	static int omegaf_bank_latch = 2;
 	
 	

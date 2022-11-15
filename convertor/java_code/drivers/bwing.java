@@ -39,9 +39,8 @@ public class bwing
 	//****************************************************************************
 	// Imports
 	
-	extern struct GfxLayout bwing_tilelayout;
 	
-	extern extern extern extern extern extern extern extern 
+	
 	//****************************************************************************
 	// Local Vars
 	

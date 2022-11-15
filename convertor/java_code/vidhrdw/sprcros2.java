@@ -15,7 +15,6 @@ public class sprcros2
 	static struct tilemap *sprcros2_bgtilemap, *sprcros2_fgtilemap;
 	data8_t *sprcros2_fgvideoram, *sprcros2_spriteram, *sprcros2_bgvideoram;
 	size_t sprcros2_spriteram_size;
-	extern int sprcros2_m_port7;
 	
 	public static PaletteInitHandlerPtr palette_init_sprcros2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,bit0,bit1,bit2,r,g,b;

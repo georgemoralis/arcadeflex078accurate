@@ -20,7 +20,6 @@ public class simpsons
 	/* from vidhrdw */
 	
 	/* from machine */
-	extern int simpsons_firq_enabled;
 	
 	/***************************************************************************
 	

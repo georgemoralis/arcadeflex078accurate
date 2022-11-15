@@ -17,8 +17,8 @@ package drivers;
 public class markham
 {
 	
-	extern extern extern 
-	extern extern extern 
+	
+	
 	static UINT8 *markham_sharedram;
 	
 	/****************************************************************************/

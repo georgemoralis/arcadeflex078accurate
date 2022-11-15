@@ -29,10 +29,7 @@ public class tigeroad
 {
 	
 	
-	extern WRITE16_HANDLER( tigeroad_videoram_w );
-	extern WRITE16_HANDLER( tigeroad_videoctrl_w );
-	extern WRITE16_HANDLER( tigeroad_scroll_w );
-	extern extern extern 
+	
 	
 	static data16_t *ram16;
 	

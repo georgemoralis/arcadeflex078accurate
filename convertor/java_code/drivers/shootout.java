@@ -48,8 +48,8 @@ public class shootout
 	
 	UINT8 *shootout_textram;
 	
-	extern extern 
-	extern extern extern extern 
+	
+	
 	/*******************************************************************************/
 	
 	public static WriteHandlerPtr shootout_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){

@@ -37,12 +37,10 @@ package drivers;
 public class sbrkout
 {
 	
-	extern extern extern extern extern extern extern 
-	extern UINT8 *sbrkout_horiz_ram;
-	extern UINT8 *sbrkout_vert_ram;
 	
-	extern 
-	extern extern 
+	
+	
+	
 	
 	/*************************************
 	 *

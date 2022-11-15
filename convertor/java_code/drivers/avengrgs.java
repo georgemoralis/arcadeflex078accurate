@@ -66,7 +66,6 @@ public class avengrgs
 {
 	
 	
-	extern data32_t *avengrgs_vram,*avengrgs_ram1, *avengrgs_ram2;
 	static data32_t *avengrgs_ram;
 	
 	/***************************************************************************/

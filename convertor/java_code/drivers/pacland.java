@@ -39,10 +39,9 @@ public class pacland
 	
 	static UINT8 *sharedram1;
 	
-	extern UINT8 *pacland_videoram2;
 	
-	extern extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	public static ReadHandlerPtr sharedram1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return sharedram1[offset];

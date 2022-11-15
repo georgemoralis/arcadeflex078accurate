@@ -78,12 +78,9 @@ public class geebee
 	/* from machine/geebee.c */
 	
 	/* from vidhrdw/geebee.c */
-	extern extern 
-	extern extern extern extern extern 
+	
+	
 	/* from sndhrdw/geebee.c */
-	extern int geebee_sh_start(const struct MachineSound *msound);
-	extern void geebee_sh_stop(void);
-	extern void geebee_sh_update(void);
 	
 	
 	/*******************************************************

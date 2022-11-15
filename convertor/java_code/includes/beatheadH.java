@@ -6,8 +6,6 @@
 
 /*----------- defined in vidhrdw/beathead.c -----------*/
 
-extern data32_t *	beathead_vram_bulk_latch;
-extern data32_t *	beathead_palette_select;
 
 
 void beathead_scanline_update(int scanline);

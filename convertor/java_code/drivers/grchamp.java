@@ -51,16 +51,11 @@ public class grchamp
 {
 	
 	/* from vidhrdw */
-	extern extern extern extern extern UINT8 *grchamp_videoram;
-	extern UINT8 *grchamp_radar;
-	extern UINT8 grchamp_player_ypos;
 	
-	extern extern extern extern extern 
+	
 	/* from machine */
-	extern int grchamp_cpu_irq_enable[2];
-	extern extern extern extern 
-	extern extern extern extern 
-	extern int grchamp_collision;
+	
+	
 	
 	/***************************************************************************/
 	

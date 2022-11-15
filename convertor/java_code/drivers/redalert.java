@@ -19,13 +19,7 @@ public class redalert
 {
 	
 	/* vidhrdw/redalert.c */
-	extern unsigned char *redalert_backram;
-	extern unsigned char *redalert_spriteram1;
-	extern unsigned char *redalert_spriteram2;
-	extern unsigned char *redalert_spriteram3;
-	extern unsigned char *redalert_characterram;
-	extern unsigned char *redalert_characterram2;
-	extern 
+	
 	
 	/* sndhrdw/redalert.c */
 	

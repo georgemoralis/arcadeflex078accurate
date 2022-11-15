@@ -127,9 +127,6 @@ public class galaxian
 	
 	
 	
-	extern struct AY8910interface cclimber_ay8910_interface;
-	extern struct AY8910interface swimmer_ay8910_interface;
-	extern struct CustomSound_interface cclimber_custom_interface;
 	
 	
 	/* Send sound data to the sound cpu and cause an nmi */

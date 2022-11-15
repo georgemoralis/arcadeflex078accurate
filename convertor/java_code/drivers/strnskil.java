@@ -21,8 +21,8 @@ public class strnskil
 	
 	/****************************************************************************/
 	
-	extern extern extern 
-	extern extern extern 
+	
+	
 	public static WriteHandlerPtr strnskil_sharedram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		strnskil_sharedram[offset] = data;
 	} };

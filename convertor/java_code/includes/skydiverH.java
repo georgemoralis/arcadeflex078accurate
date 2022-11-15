@@ -6,5 +6,4 @@
 
 /*----------- defined in vidhrdw/skydiver.c -----------*/
 
-extern data8_t *skydiver_videoram;
 

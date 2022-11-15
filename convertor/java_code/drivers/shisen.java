@@ -14,8 +14,8 @@ package drivers;
 public class shisen
 {
 	
-	extern extern extern 
-	extern extern 
+	
+	
 	public static ReadHandlerPtr sichuan2_dsw1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int ret = input_port_3_r(0);
 	

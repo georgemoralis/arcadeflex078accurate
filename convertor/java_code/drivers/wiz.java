@@ -166,11 +166,6 @@ package drivers;
 public class wiz
 {
 	
-	extern unsigned char *wiz_videoram2;
-	extern unsigned char *wiz_colorram2;
-	extern unsigned char *wiz_attributesram;
-	extern unsigned char *wiz_attributesram2;
-	extern unsigned char *wiz_sprite_bank;
 	
 	
 	public static WriteHandlerPtr sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){

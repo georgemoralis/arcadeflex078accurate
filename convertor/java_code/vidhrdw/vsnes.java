@@ -8,7 +8,6 @@ public class vsnes
 {
 	
 	/* from machine */
-	extern int vsnes_gun_controller;
 	
 	
 	public static PaletteInitHandlerPtr palette_init_vsnes  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){

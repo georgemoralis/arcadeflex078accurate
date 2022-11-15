@@ -88,7 +88,6 @@ public class polyplay
 {
 	
 	/* video hardware access */
-	extern unsigned char *polyplay_characterram;
 	
 	/* I/O Port handling */
 	

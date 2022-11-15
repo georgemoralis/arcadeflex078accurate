@@ -19,7 +19,6 @@ public class _88games
 	static unsigned char *ram;
 	static int videobank;
 	
-	extern int k88games_priority;
 	
 	
 	public static InterruptHandlerPtr k88games_interrupt = new InterruptHandlerPtr() {public void handler(){

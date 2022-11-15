@@ -44,12 +44,8 @@ package drivers;
 public class astrof
 {
 	
-	extern unsigned char *astrof_color;
-	extern unsigned char *tomahawk_protection;
 	
 	
-	extern struct Samplesinterface astrof_samples_interface;
-	extern struct Samplesinterface tomahawk_samples_interface;
 	
 	public static Memory_ReadAddress readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),

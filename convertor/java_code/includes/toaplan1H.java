@@ -21,9 +21,7 @@ READ16_HANDLER ( vimana_input_port_5_word_r );
 WRITE16_HANDLER( samesame_coin_w );
 
 
-extern int toaplan1_unk_reset_port;
 
-extern data8_t *toaplan1_sharedram;
 
 
 
@@ -57,7 +55,3 @@ WRITE16_HANDLER( toaplan1_spriteram_offs_w );
 
 
 
-extern data16_t *toaplan1_colorram1;
-extern data16_t *toaplan1_colorram2;
-extern size_t toaplan1_colorram1_size;
-extern size_t toaplan1_colorram2_size;

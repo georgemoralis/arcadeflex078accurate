@@ -37,13 +37,11 @@ public class gotya
 {
 	
 	
-	extern UINT8 *gotya_scroll;
-	extern UINT8 *gotya_videoram2;
 	
-	extern extern extern 
-	extern extern extern 
-	extern 
-	extern 
+	
+	
+	
+	
 	
 	public static Memory_ReadAddress readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),

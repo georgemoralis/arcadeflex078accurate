@@ -16,8 +16,8 @@ public class higemaru
 {
 	
 	
-	extern extern extern 
-	extern extern extern 
+	
+	
 	
 	public static InterruptHandlerPtr higemaru_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0) 

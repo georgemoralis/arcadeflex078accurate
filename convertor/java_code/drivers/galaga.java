@@ -81,12 +81,9 @@ public class galaga
 	
 	
 	
-	extern unsigned char *galaga_sharedram;
 	
 	
-	extern unsigned char *galaga_starcontrol;
 	
-	extern unsigned char *pengo_soundregs;
 	
 	
 	public static WriteHandlerPtr flip_screen_w = new WriteHandlerPtr() {public void handler(int offset, int data){

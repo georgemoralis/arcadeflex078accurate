@@ -155,7 +155,6 @@ public class armedf
 	#define LEGION_HACK	0
 	
 	
-	extern void armedf_setgfxtype( int type );
 	
 	
 	WRITE16_HANDLER( armedf_bg_videoram_w );
@@ -169,10 +168,6 @@ public class armedf
 	WRITE16_HANDLER( armedf_bg_scrollx_w );
 	WRITE16_HANDLER( armedf_bg_scrolly_w );
 	
-	extern data16_t armedf_vreg;
-	extern data16_t *armedf_bg_videoram;
-	extern data16_t *armedf_fg_videoram;
-	extern data16_t *terraf_text_videoram;
 	
 	
 	static WRITE16_HANDLER( io_w )

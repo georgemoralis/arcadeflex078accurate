@@ -136,14 +136,7 @@ public class cclimber
 	
 	
 	
-	extern unsigned char *cclimber_bsvideoram;
-	extern size_t cclimber_bsvideoram_size;
-	extern unsigned char *cclimber_bigspriteram;
-	extern unsigned char *cclimber_column_scroll;
 	
-	extern struct AY8910interface cclimber_ay8910_interface;
-	extern struct AY8910interface swimmer_ay8910_interface;
-	extern struct CustomSound_interface cclimber_custom_interface;
 	
 	
 	public static WriteHandlerPtr flip_screen_x_w = new WriteHandlerPtr() {public void handler(int offset, int data){

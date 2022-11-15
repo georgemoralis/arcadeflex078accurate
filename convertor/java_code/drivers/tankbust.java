@@ -27,7 +27,6 @@ public class tankbust
 	
 	
 	
-	extern data8_t * txt_ram;
 	
 	
 	

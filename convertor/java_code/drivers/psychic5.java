@@ -319,10 +319,10 @@ public class psychic5
 {
 	
 	
-	extern extern extern 
-	extern extern 
-	extern 
-	extern extern 
+	
+	
+	
+	
 	static int psychic5_bank_latch = 0x0;
 	
 	

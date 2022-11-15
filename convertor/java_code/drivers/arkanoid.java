@@ -54,13 +54,13 @@ package drivers;
 public class arkanoid
 {
 	
-	extern extern extern 
-	extern 
-	extern 
-	extern extern 
-	extern extern extern 
-	extern extern extern 
-	extern extern 
+	
+	
+	
+	
+	
+	
+	
 	/*
 	Paddle 2 MCU simulation
 	

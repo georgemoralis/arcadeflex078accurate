@@ -26,7 +26,6 @@ package drivers;
 public class skychut
 {
 	
-	extern UINT8* iremm15_chargen;
 	
 	
 	static UINT8 *memory;

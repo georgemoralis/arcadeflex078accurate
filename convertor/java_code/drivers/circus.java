@@ -36,10 +36,9 @@ package drivers;
 public class circus
 {
 	
-	extern extern extern 
-	extern 
-	extern extern extern extern extern extern 
-	extern extern struct Samplesinterface circus_samples_interface;
+	
+	
+	
 	#if 0
 	static int circus_interrupt;
 	

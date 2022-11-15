@@ -8,7 +8,6 @@ public class bladestl
 {
 	
 	static int layer_colorbase[2];
-	extern int bladestl_spritebank;
 	
 	public static PaletteInitHandlerPtr palette_init_bladestl  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;

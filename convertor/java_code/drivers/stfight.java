@@ -243,10 +243,6 @@ public class stfight
 	// vidhrdw
 	
 	// vidhrdw
-	extern unsigned char *stfight_text_char_ram;
-	extern unsigned char *stfight_text_attr_ram;
-	extern unsigned char *stfight_vh_latch_ram;
-	extern unsigned char *stfight_sprite_ram;
 	
 	public static Memory_ReadAddress readmem_cpu1[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),

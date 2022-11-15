@@ -12,4 +12,3 @@ void dominos_ac_signal_flip(int dummy);
 /*----------- defined in vidhrdw/dominos.c -----------*/
 
 
-extern unsigned char *dominos_sound_ram;

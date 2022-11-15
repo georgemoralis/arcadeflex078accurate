@@ -85,19 +85,14 @@ public class vicdual
 	
 	static unsigned char *vicdual_ram;
 	
-	extern unsigned char *vicdual_characterram;
 	
 	/* Carnival sound handlers */
-	extern const char *carnival_sample_names[];
 	
 	/* Depth Charge sound handlers */
-	extern const char *depthch_sample_names[];
 	
 	/* Invinco sound handlers */
-	extern const char *invinco_sample_names[];
 	
 	/* Pulsar sound handlers */
-	extern const char *pulsar_sample_names[];
 	
 	
 	static int protection_data;

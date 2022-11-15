@@ -26,11 +26,9 @@ public class popeye
 {
 	
 	
-	extern UINT8 *popeye_background_pos;
-	extern UINT8 *popeye_palettebank;
 	
-	extern extern extern extern extern 
-	extern extern extern extern extern 
+	
+	
 	
 	
 	public static InterruptHandlerPtr popeye_interrupt = new InterruptHandlerPtr() {public void handler(){

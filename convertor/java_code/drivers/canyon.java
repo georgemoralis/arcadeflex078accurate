@@ -41,9 +41,8 @@ package drivers;
 public class canyon
 {
 	
-	extern 
-	extern extern 
-	extern UINT8* canyon_videoram;
+	
+	
 	
 	
 	/*************************************

@@ -13,12 +13,10 @@ package drivers;
 public class wolfpack
 {
 	
-	extern int wolfpack_collision;
 	
-	extern UINT8* wolfpack_alpha_num_ram;
 	
-	extern extern extern 
-	extern extern extern extern extern extern extern extern extern extern extern extern 
+	
+	
 	
 	static void periodic_callback(int scanline)
 	{

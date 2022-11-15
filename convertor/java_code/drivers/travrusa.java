@@ -56,7 +56,6 @@ package drivers;
 public class travrusa
 {
 	
-	extern unsigned char *travrusa_videoram;
 	
 	
 	

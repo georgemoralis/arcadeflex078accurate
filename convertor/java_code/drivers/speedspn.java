@@ -60,7 +60,6 @@ public class speedspn
 	******************************************************************************/
 	
 	/* in vidhrdw */
-	extern data8_t *speedspn_attram;
 	
 	
 	public static ReadHandlerPtr speedspn_irq_ack_r  = new ReadHandlerPtr() { public int handler(int offset){

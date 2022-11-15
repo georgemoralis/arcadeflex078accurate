@@ -71,9 +71,6 @@ public class gberet
 	
 	
 	
-	extern unsigned char *gberet_videoram,*gberet_colorram;
-	extern unsigned char *gberet_spritebank;
-	extern unsigned char *gberet_scrollram;
 	
 	
 	

@@ -53,8 +53,8 @@ public class funkybee
 {
 	
 	
-	extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	public static ReadHandlerPtr funkybee_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		watchdog_reset_r(0);

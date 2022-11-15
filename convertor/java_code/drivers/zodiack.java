@@ -27,16 +27,12 @@ package drivers;
 public class zodiack
 {
 	
-	extern UINT8 *zodiack_videoram2;
-	extern UINT8 *zodiack_attributesram;
-	extern UINT8 *zodiack_bulletsram;
-	extern size_t zodiack_bulletsram_size;
 	
-	extern extern extern extern 
-	extern extern extern 
+	
+	
 	int percuss_hardware;
 	
-	extern extern extern extern 
+	
 	
 	public static MachineInitHandlerPtr machine_init_zodiack  = new MachineInitHandlerPtr() { public void handler(){
 		percuss_hardware = 0;

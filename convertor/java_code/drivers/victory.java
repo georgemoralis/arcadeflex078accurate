@@ -118,7 +118,6 @@ public class victory
 	
 	
 	/* video driver data & functions */
-	extern UINT8 *victory_charram;
 	
 	
 	

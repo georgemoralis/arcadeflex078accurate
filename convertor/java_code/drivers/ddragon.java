@@ -50,14 +50,7 @@ public class ddragon
 {
 	
 	/* from vidhrdw */
-	extern unsigned char *ddragon_bgvideoram,*ddragon_fgvideoram;
-	extern int ddragon_scrollx_hi, ddragon_scrolly_hi;
-	extern unsigned char *ddragon_scrollx_lo;
-	extern unsigned char *ddragon_scrolly_lo;
-	extern unsigned char *ddragon_spriteram;
-	extern int technos_video_hw;
-	/* end of extern code & data */
-	
+	/* end of 
 	/* private globals */
 	static int dd_sub_cpu_busy;
 	static int sprite_irq, sound_irq, ym_irq, snd_cpu;

@@ -91,11 +91,10 @@ public class tp84
 {
 	
 	
-	extern UINT8 *tp84_videoram2, *tp84_colorram2;
 	
-	extern extern extern extern extern extern extern extern extern extern 
-	extern extern extern 
-	extern 
+	
+	
+	
 	
 	static UINT8 *sharedram;
 	

@@ -41,7 +41,6 @@ public class deniam
 {
 	
 	
-	extern data16_t *deniam_videoram,*deniam_textram;
 	
 	WRITE16_HANDLER( deniam_videoram_w );
 	WRITE16_HANDLER( deniam_textram_w );

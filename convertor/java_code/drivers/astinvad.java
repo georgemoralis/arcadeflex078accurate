@@ -22,10 +22,9 @@ public class astinvad
 {
 	
 	
-	extern extern 
-	extern extern extern 
-	extern extern extern extern extern extern extern 
-	extern struct Samplesinterface astinvad_samples_interface;
+	
+	
+	
 	
 	
 	public static PaletteInitHandlerPtr palette_init_astinvad  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){

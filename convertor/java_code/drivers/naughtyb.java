@@ -114,8 +114,6 @@ public class naughtyb
 	
 	
 	
-	extern unsigned char *naughtyb_videoram2;
-	extern unsigned char *naughtyb_scrollreg;
 	
 	
 	int naughtyb_sh_start(const struct MachineSound *msound);

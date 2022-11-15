@@ -45,8 +45,6 @@ public class superpac
 {
 	
 	
-	extern unsigned char *superpac_sharedram;
-	extern unsigned char *superpac_customio_1,*superpac_customio_2;
 	
 	
 	

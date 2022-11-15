@@ -23,10 +23,9 @@ public class mystston
 {
 	
 	
-	extern UINT8 *mystston_videoram2;
 	
-	extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	static int VBLK = 0x80;
 	static int soundlatch;

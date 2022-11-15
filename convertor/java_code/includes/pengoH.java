@@ -11,4 +11,3 @@
 
 
 
-extern data8_t *sprite_bank, *tiles_bankram;

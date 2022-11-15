@@ -67,9 +67,7 @@ public class gunsmoke
 	#define GUNSMOKE_HACK	0
 	
 	
-	extern 
-	extern unsigned char *gunsmoke_bg_scrollx;
-	extern unsigned char *gunsmoke_bg_scrolly;
+	
 	
 	
 	

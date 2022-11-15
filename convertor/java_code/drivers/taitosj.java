@@ -135,13 +135,6 @@ public class taitosj
 	
 	
 	
-	extern unsigned char *taitosj_videoram2,*taitosj_videoram3;
-	extern unsigned char *taitosj_characterram;
-	extern unsigned char *taitosj_scroll;
-	extern unsigned char *taitosj_colscrolly;
-	extern unsigned char *taitosj_gfxpointer;
-	extern unsigned char *taitosj_colorbank,*taitosj_video_priority;
-	extern unsigned char *kikstart_scrollram;
 	
 	
 	static int sndnmi_disable = 1;

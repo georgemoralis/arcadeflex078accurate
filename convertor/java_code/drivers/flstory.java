@@ -20,7 +20,6 @@ public class flstory
 {
 	
 	
-	extern UINT8 *flstory_scrlram;
 	
 	
 	

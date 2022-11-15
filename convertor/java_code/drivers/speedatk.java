@@ -85,7 +85,7 @@ public class speedatk
 	
 	static UINT8 mux_data;
 	
-	extern extern extern extern extern extern 
+	
 	/* This "key matrix" device maps some buttons with multiple bit activations,for        *
 	 * example pressing button A + button B it causes an output of button C.               *
 	 * This function converts the bit inputs of this game into the usual way MAME does,and *

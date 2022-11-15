@@ -82,14 +82,10 @@ package drivers;
 public class sauro
 {
 	
-	extern UINT8 *tecfri_videoram;
-	extern UINT8 *tecfri_colorram;
-	extern UINT8 *tecfri_videoram2;
-	extern UINT8 *tecfri_colorram2;
 	
-	extern extern extern extern extern extern extern extern 
-	extern extern 
-	extern extern 
+	
+	
+	
 	
 	public static WriteHandlerPtr sauro_sound_command_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		data |= 0x80;

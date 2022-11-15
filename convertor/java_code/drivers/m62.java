@@ -63,8 +63,6 @@ public class m62
 	
 	
 	
-	extern data8_t *m62_tileram;
-	extern data8_t *m62_textram;
 	
 	
 	
@@ -75,7 +73,6 @@ public class m62
 	
 	
 	
-	extern data8_t *horizon_scrollram;
 	
 	static int bankaddress;
 	static int bankaddress2;

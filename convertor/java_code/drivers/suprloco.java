@@ -20,7 +20,6 @@ package drivers;
 public class suprloco
 {
 	
-	extern unsigned char *suprloco_videoram;
 	
 	
 	

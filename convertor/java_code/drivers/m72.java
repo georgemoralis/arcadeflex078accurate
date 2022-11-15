@@ -80,7 +80,6 @@ public class m72
 	
 	
 	/* in vidhrdw/m72.c */
-	extern unsigned char *m72_videoram1,*m72_videoram2,*majtitle_rowscrollram;
 	
 	
 	static unsigned char *protection_ram;

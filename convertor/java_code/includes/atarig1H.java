@@ -11,4 +11,3 @@ WRITE16_HANDLER( atarig1_mo_control_w );
 
 void atarig1_scanline_update(int param);
 
-extern UINT8 atarig1_pitfight;

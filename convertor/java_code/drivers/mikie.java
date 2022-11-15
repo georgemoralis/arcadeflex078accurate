@@ -25,8 +25,8 @@ package drivers;
 public class mikie
 {
 	
-	extern extern extern extern 
-	extern extern extern 
+	
+	
 	public static ReadHandlerPtr mikie_sh_timer_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int clock;
 	

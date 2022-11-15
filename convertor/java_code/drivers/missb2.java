@@ -19,12 +19,8 @@ public class missb2
 	data8_t *bg_paletteram,*bg_vram;
 	
 	/* vidhrdw/bublbobl.c */
-	extern unsigned char *bublbobl_objectram;
-	extern size_t bublbobl_objectram_size;
 	
 	/* machine/bublbobl.c */
-	extern unsigned char *bublbobl_sharedram1,*bublbobl_sharedram2;
-	extern int bublbobl_video_enable;
 	
 	
 	public static VideoUpdateHandlerPtr video_update_missb2  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){

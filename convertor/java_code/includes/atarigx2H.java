@@ -6,9 +6,6 @@
 
 /*----------- defined in vidhrdw/atarigx2.c -----------*/
 
-extern UINT16 atarigx2_playfield_base;
-extern UINT16 atarigx2_motion_object_base;
-extern UINT16 atarigx2_motion_object_mask;
 
 
 WRITE16_HANDLER( atarigx2_mo_control_w );

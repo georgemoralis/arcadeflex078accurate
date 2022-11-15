@@ -250,8 +250,6 @@ public class megasys1
 	
 	
 	
-	extern struct GameDriver driver_lomakai;
-	extern struct GameDriver driver_soldamj;
 	
 	
 	public static VideoStartHandlerPtr video_start_megasys1  = new VideoStartHandlerPtr() { public int handler(){
@@ -699,10 +697,6 @@ public class megasys1
 	int megasys1_layers_order[16];
 	
 	
-	extern struct GameDriver driver_64street;
-	extern struct GameDriver driver_bigstrik;
-	extern struct GameDriver driver_chimerab;
-	extern struct GameDriver driver_iganinju;
 	
 	/*
 		Layers order encoded as an int like: 0x01234, where

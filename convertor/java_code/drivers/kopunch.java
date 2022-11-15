@@ -7,10 +7,9 @@ package drivers;
 public class kopunch
 {
 	
-	extern UINT8 *kopunch_videoram2;
 	
-	extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	public static InterruptHandlerPtr kopunch_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

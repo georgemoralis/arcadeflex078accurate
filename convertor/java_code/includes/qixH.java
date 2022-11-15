@@ -18,9 +18,6 @@ public class qixH
 	
 	/*----------- defined in machine/qix.c -----------*/
 	
-	extern UINT8 *qix_sharedram;
-	extern UINT8 *qix_68705_port_out;
-	extern UINT8 *qix_68705_ddr;
 	
 	
 	
@@ -32,8 +29,6 @@ public class qixH
 	
 	/*----------- defined in vidhrdw/qix.c -----------*/
 	
-	extern UINT8 *qix_videoaddress;
-	extern UINT8 qix_cocktail_flip;
 	
 	
 	void qix_scanline_callback(int scanline);

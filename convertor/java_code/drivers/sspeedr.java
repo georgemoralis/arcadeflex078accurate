@@ -13,10 +13,10 @@ package drivers;
 public class sspeedr
 {
 	
-	extern extern extern extern 
-	extern extern extern extern 
-	extern extern extern extern 
-	extern extern extern 
+	
+	
+	
+	
 	static UINT8 led_TIME[2];
 	static UINT8 led_SCORE[24];
 	

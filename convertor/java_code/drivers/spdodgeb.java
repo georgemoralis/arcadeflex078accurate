@@ -27,7 +27,6 @@ public class spdodgeb
 {
 	
 	
-	extern unsigned char *spdodgeb_videoram;
 	
 	
 	

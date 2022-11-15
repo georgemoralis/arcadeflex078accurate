@@ -25,14 +25,11 @@ public class kingobox
 {
 	
 	/* from vidhrdw */
-	extern UINT8 *kingofb_videoram2;
-	extern UINT8 *kingofb_colorram2;
-	extern UINT8 *kingofb_scroll_y;
 	
-	extern extern extern extern 
-	extern 
-	extern extern extern 
-	extern extern extern 
+	
+	
+	
+	
 	static UINT8 *video_shared;
 	static UINT8 *sprite_shared;
 	int kingofb_nmi_enable = 0;

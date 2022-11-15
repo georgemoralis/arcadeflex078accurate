@@ -852,7 +852,6 @@ public class fastfred
 		ROM_LOAD( "15",     0x1000, 0x1000, CRC(85fcc195) SHA1(a76f24201c037d1e6f909fb0ea4ad59b1d6ddd57) ) //unknown
 	ROM_END(); }}; 
 	
-	extern int fastfred_hardware_type;
 	
 	public static DriverInitHandlerPtr init_flyboy  = new DriverInitHandlerPtr() { public void handler(){
 		fastfred_hardware_type = 1;

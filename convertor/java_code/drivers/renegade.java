@@ -108,8 +108,7 @@ package drivers;
 public class renegade
 {
 	
-	extern extern 
-	extern UINT8 *renegade_videoram2;
+	
 	
 	/********************************************************************************************/
 	

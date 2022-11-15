@@ -57,7 +57,6 @@ public class system16
 	
 	void (*sys16_custom_irq)(void);
 	
-	extern int sys16_wwfix, sys16_alienfix;
 	
 	public static MachineInitHandlerPtr machine_init_sys16_onetime  = new MachineInitHandlerPtr() { public void handler()
 		sys16_wwfix = sys16_alienfix = 0;

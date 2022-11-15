@@ -44,11 +44,9 @@ package drivers;
 public class sidearms
 {
 	
-	extern UINT8 *sidearms_bg_scrollx;
-	extern UINT8 *sidearms_bg_scrolly;
 	
-	extern extern extern extern extern extern 
-	extern extern extern extern 
+	
+	
 	int sidearms_gameid;
 	
 	public static WriteHandlerPtr sidearms_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){

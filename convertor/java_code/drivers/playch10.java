@@ -306,12 +306,9 @@ public class playch10
 	#define N2A03_DEFAULTCLOCK (21477272.724 / 12)
 	
 	/* from vidhrdw */
-	extern extern extern extern 
+	
 	/* from machine */
-	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
-	extern int pc10_sdcs;
-	extern int pc10_nmi_enable;
-	extern int pc10_dog_di;
+	
 	
 	/******************************************************************************/
 	

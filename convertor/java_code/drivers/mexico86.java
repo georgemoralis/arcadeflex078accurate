@@ -76,11 +76,8 @@ public class mexico86
 {
 	
 	/* in machine/mexico86.c */
-	extern unsigned char *mexico86_protection_ram;
 	
 	/* in vidhrdw/mexico86.c */
-	extern unsigned char *mexico86_videoram,*mexico86_objectram;
-	extern size_t mexico86_objectram_size;
 	
 	//AT
 	public static ReadHandlerPtr kiki_2203_r  = new ReadHandlerPtr() { public int handler(int offset){

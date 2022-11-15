@@ -21,12 +21,8 @@ public class tceptor
 	#endif
 	
 	
-	extern extern extern 
-	extern extern extern extern extern extern extern 
-	extern data8_t *tceptor_tile_ram;
-	extern data8_t *tceptor_tile_attr;
-	extern data8_t *tceptor_bg_ram;
-	extern data16_t *tceptor_sprite_ram;
+	
+	
 	
 	
 	/*******************************************************************/

@@ -16,11 +16,9 @@ package drivers;
 public class ssozumo
 {
 	
-	extern UINT8 *ssozumo_videoram2;
-	extern UINT8 *ssozumo_colorram2;
 	
-	extern extern extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	public static InterruptHandlerPtr ssozumo_interrupt = new InterruptHandlerPtr() {public void handler(){
 		static int coin;

@@ -115,8 +115,7 @@ public class atarigt
 	 *************************************/
 	
 	public static VideoStartHandlerPtr video_start_atarigt  = new VideoStartHandlerPtr() { public int handler(){
-		extern UINT32 direct_rgb_components[3];
-		static const struct atarirle_desc modesc =
+			static const struct atarirle_desc modesc =
 		{
 			REGION_GFX3,/* region where the GFX data lives */
 			256,		/* number of entries in sprite RAM */

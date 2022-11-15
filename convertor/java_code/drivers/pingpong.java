@@ -7,8 +7,8 @@ package drivers;
 public class pingpong
 {
 	
-	extern extern 
-	extern extern extern 
+	
+	
 	static int intenable;
 	
 	public static WriteHandlerPtr coin_w = new WriteHandlerPtr() {public void handler(int offset, int data){

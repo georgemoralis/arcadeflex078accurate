@@ -135,6 +135,15 @@ public class convertMame {
                 }
                 Convertor.inpos = i;
                 break;
+                case 'e': {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("extern")) {
+                        sUtil.skipLine();
+                        continue;
+                    }
+                }
+                Convertor.inpos = i;
+                break;
                 case 'G': {
                     i = Convertor.inpos;
                     if (sUtil.getToken("GAME") || sUtil.getToken("GAMEX")) {

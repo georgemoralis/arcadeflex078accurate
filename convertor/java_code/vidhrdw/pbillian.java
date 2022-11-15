@@ -16,8 +16,6 @@ public class pbillian
 {
 	
 	struct tilemap *pb_tilemap;
-	extern data8_t *pb_videoram;
-	extern int is_pbillian;
 	
 	public static WriteHandlerPtr pb_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		pb_videoram[offset] = data;

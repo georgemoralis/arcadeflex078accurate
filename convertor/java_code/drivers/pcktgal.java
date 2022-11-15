@@ -21,8 +21,8 @@ package drivers;
 public class pcktgal
 {
 	
-	extern extern 
-	extern extern extern 
+	
+	
 	/***************************************************************************/
 	
 	public static WriteHandlerPtr pcktgal_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data){

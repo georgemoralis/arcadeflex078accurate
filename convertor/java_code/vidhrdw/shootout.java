@@ -13,7 +13,6 @@ public class shootout
 {
 	
 	static struct tilemap *background, *foreground;
-	extern unsigned char *shootout_textram;
 	
 	
 	public static PaletteInitHandlerPtr palette_init_shootout  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){

@@ -13,12 +13,8 @@ package drivers;
 public class sprint8
 {
 	
-	extern extern extern 
-	extern 
-	extern UINT8* sprint8_video_ram;
-	extern UINT8* sprint8_pos_h_ram;
-	extern UINT8* sprint8_pos_v_ram;
-	extern UINT8* sprint8_pos_d_ram;
+	
+	
 	
 	static int steer_dir[8];
 	static int steer_flag[8];

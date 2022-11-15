@@ -21,7 +21,6 @@ public class fastlane
 {
 	
 	/* from vidhrdw/fastlane.c */
-	extern unsigned char *fastlane_k007121_regs,*fastlane_videoram1,*fastlane_videoram2;
 	
 	public static InterruptHandlerPtr fastlane_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

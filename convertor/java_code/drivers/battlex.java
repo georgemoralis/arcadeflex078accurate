@@ -50,8 +50,8 @@ public class battlex
 {
 	
 	
-	extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	/*** MEMORY & PORT READ / WRITE **********************************************/
 	

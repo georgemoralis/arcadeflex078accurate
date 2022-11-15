@@ -30,7 +30,6 @@ public class galspnbl
 {
 	
 	
-	extern data16_t *galspnbl_bgvideoram,*galspnbl_videoram,*galspnbl_colorram;
 	
 	WRITE16_HANDLER( galspnbl_bgvideoram_w );
 	WRITE16_HANDLER( galspnbl_scroll_w );

@@ -18,10 +18,6 @@ public class yamato
 	
 	
 	
-	extern unsigned char *cclimber_bsvideoram;
-	extern size_t cclimber_bsvideoram_size;
-	extern unsigned char *cclimber_bigspriteram;
-	extern unsigned char *cclimber_column_scroll;
 	
 	
 	public static PaletteInitHandlerPtr palette_init_yamato  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){

@@ -8,7 +8,6 @@
 
 
 
-extern unsigned char *capbowl_rowaddress;
 
 
 

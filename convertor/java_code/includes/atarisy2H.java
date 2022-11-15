@@ -16,4 +16,3 @@ WRITE16_HANDLER( atarisy2_videoram_w );
 WRITE16_HANDLER( atarisy2_paletteram_w );
 
 
-extern data16_t *atarisy2_slapstic;

@@ -26,10 +26,9 @@ package drivers;
 public class sprint2
 {
 	
-	extern extern 
-	extern extern extern 
-	extern extern extern 
-	extern UINT8* sprint2_video_ram;
+	
+	
+	
 	
 	
 	static int attract;

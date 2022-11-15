@@ -30,7 +30,6 @@ public class jcross
 	
 	
 	
-	extern extern extern int jcross_vregs[5];
 	
 	static int sound_cpu_busy=0;
 	

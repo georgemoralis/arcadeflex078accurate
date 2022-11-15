@@ -20,8 +20,6 @@ package drivers;
 public class mainsnk
 {
 	
-	extern data8_t *me_fgram;
-	extern data8_t *me_bgram;
 	
 	static int sound_cpu_ready;
 	static int sound_command;

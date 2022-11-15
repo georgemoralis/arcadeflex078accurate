@@ -120,11 +120,8 @@ package drivers;
 public class digdug
 {
 	
-	extern unsigned char *digdug_sharedram;
 	
-	extern unsigned char *digdug_vlatches;
 	
-	extern unsigned char *pengo_soundregs;
 	
 	
 	

@@ -10,7 +10,6 @@
 
 /*----------- defined in vidhrdw/missile.c -----------*/
 
-extern unsigned char *missile_video2ram;
 
 
 

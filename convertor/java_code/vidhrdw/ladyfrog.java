@@ -21,7 +21,6 @@ public class ladyfrog
 	UINT8 *ladyfrog_scrlram;
 	
 	UINT8 *ladyfrog_spriteram;
-	extern UINT8 *ladyfrog_sharedram;
 	
 	public static WriteHandlerPtr ladyfrog_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		ladyfrog_spriteram[offset]=data;

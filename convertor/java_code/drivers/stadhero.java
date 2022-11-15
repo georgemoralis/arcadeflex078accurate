@@ -17,7 +17,6 @@ public class stadhero
 	
 	/* Video emulation definitions */
 	
-	extern data16_t *stadhero_pf1_data,*stadhero_pf2_data;
 	
 	WRITE16_HANDLER( stadhero_pf1_data_w );
 	WRITE16_HANDLER( stadhero_pf2_data_w );

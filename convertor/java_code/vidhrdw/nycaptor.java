@@ -32,7 +32,6 @@ public class nycaptor
 	UINT8 *nycaptor_scrlram;
 	
 	UINT8 *nycaptor_spriteram;
-	extern UINT8 *nycaptor_sharedram;
 	public static WriteHandlerPtr nycaptor_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		nycaptor_spriteram[offset]=data;
 	} };

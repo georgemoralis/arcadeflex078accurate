@@ -41,8 +41,8 @@ public class blockade
 	
 	/* #define BLOCKADE_LOG 1 */
 	
-	extern 
-	extern extern 
+	
+	
 	/* These are used to simulate coin latch circuitry */
 	
 	static int coin_latch;  /* Active Low */

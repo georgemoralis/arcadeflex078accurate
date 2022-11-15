@@ -25,19 +25,12 @@ public class sbasketb
 {
 	
 	
-	extern void konami1_decode(void);
 	
-	extern UINT8 *sbasketb_scroll;
-	extern UINT8 *sbasketb_palettebank;
-	extern UINT8 *sbasketb_spriteram_select;
 	
-	extern extern extern extern 
-	extern extern extern 
-	extern struct VLM5030interface konami_vlm5030_interface;
-	extern struct SN76496interface konami_sn76496_interface;
-	extern struct DACinterface konami_dac_interface;
 	
-	extern extern extern extern 
+	
+	
+	
 	
 	public static WriteHandlerPtr sbasketb_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		cpu_set_irq_line_and_vector(1,0,HOLD_LINE,0xff);

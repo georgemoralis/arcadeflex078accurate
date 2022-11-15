@@ -13,7 +13,6 @@ package drivers;
 public class stvhacks
 {
 	
-	extern data32_t *stv_workram_h;
 	
 	/* Hack the boot vectors .. not right but allows several IC13 games (which fail the checksums before hacking) to boot */
 	public static DriverInitHandlerPtr init_ic13  = new DriverInitHandlerPtr() { public void handler(){

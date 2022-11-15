@@ -18,8 +18,8 @@ public class shaolins
 	
 	UINT8 shaolins_nmi_enable;
 	
-	extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	public static InterruptHandlerPtr shaolins_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0) cpu_set_irq_line(0, 0, HOLD_LINE);

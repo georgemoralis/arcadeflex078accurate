@@ -254,7 +254,6 @@ public class gaplus
 		gaplus_starfield_control[offset] = data;
 	}
 	
-	extern unsigned char *gaplus_sharedram;
 	
 	public static VideoStartHandlerPtr video_start_gaplus  = new VideoStartHandlerPtr() { public int handler()
 	

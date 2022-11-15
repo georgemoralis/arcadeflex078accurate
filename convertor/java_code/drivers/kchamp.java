@@ -72,8 +72,8 @@ public class kchamp
 	
 	
 	/* from vidhrdw */
-	extern extern extern 
-	extern extern extern extern 
+	
+	
 	
 	static int nmi_enable = 0;
 	static int sound_nmi_enable = 0;

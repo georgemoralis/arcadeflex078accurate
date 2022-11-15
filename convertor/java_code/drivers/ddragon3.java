@@ -34,16 +34,9 @@ public class ddragon3
 {
 	
 	
-	extern UINT16 *ddragon3_bg_videoram16;
-	extern UINT16 *ddragon3_fg_videoram16;
-	extern UINT16 ddragon3_vreg;
 	
-	extern WRITE16_HANDLER( ddragon3_bg_videoram16_w );
-	extern WRITE16_HANDLER( ddragon3_fg_videoram16_w );
-	extern WRITE16_HANDLER( ddragon3_scroll16_w );
-	extern READ16_HANDLER( ddragon3_scroll16_r );
 	
-	extern extern extern 
+	
 	/* Read/Write Handlers */
 	
 	public static WriteHandlerPtr oki_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){

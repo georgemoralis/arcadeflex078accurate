@@ -58,7 +58,7 @@ public class mrflea
 	static int mrflea_select2;
 	static int mrflea_select3;
 	
-	extern extern extern extern extern 
+	
 	static struct AY8910interface ay8910_interface = {
 		3,	/* 3 chips */
 		2000000, /* 2 MHz? */

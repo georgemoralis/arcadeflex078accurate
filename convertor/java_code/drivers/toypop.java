@@ -23,12 +23,10 @@ public class toypop
 	// machine\toypop.c
 	WRITE16_HANDLER( toypop_m68000_interrupt_enable_w );
 	WRITE16_HANDLER( toypop_m68000_interrupt_disable_w );
-	extern unsigned char *toypop_sound_sharedram, *toypop_m68000_sharedram, *toypop_customio;
 	READ16_HANDLER( toypop_m68000_sharedram_r );
 	WRITE16_HANDLER( toypop_m68000_sharedram_w );
 	
 	// vidhrdw\toypop.c
-	extern data16_t *toypop_bg_image;
 	READ16_HANDLER( toypop_merged_background_r );
 	WRITE16_HANDLER( toypop_merged_background_w );
 	WRITE16_HANDLER( toypop_flipscreen_w );

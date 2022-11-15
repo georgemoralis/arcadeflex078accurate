@@ -243,8 +243,7 @@ public class spy
 	//ZT
 	
 	public static WriteHandlerPtr spy_3f90_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		extern int spy_video_enable;
-		static int old;
+			static int old;
 	
 		/*********************************************************************
 		*

@@ -50,7 +50,7 @@ package drivers;
 public class mole
 {
 	
-	extern extern extern 
+	
 	
 	static struct GfxLayout tile_layout =
 	{

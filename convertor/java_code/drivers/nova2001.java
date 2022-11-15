@@ -41,10 +41,9 @@ public class nova2001
 {
 	
 	/* From vidhrdw/nova2001.c */
-	extern UINT8 *nova2001_videoram2, *nova2001_colorram2;
 	
-	extern extern extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	
 	public static Memory_ReadAddress readmem[]={

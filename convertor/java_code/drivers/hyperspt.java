@@ -14,18 +14,13 @@ public class hyperspt
 {
 	
 	
-	extern void konami1_decode(void);
 	
-	extern UINT8 *hyperspt_scroll;
 	
-	extern extern extern 
-	extern extern extern extern extern 
-	extern extern extern 
+	
+	
+	
 	/* these routines lurk in sndhrdw/trackfld.c */
-	extern struct VLM5030interface konami_vlm5030_interface;
-	extern struct SN76496interface konami_sn76496_interface;
-	extern struct DACinterface konami_dac_interface;
-	extern extern 
+	
 	
 	public static WriteHandlerPtr hyperspt_coin_counter_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		coin_counter_w(offset,data);

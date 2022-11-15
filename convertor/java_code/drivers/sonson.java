@@ -56,8 +56,8 @@ package drivers;
 public class sonson
 {
 	
-	extern extern extern extern 
-	extern extern extern 
+	
+	
 	public static WriteHandlerPtr sonson_sh_irqtrigger_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int last;
 	

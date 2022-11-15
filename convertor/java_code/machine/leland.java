@@ -435,8 +435,7 @@ public class leland
 	
 	static void leland_interrupt_callback(int scanline)
 	{
-		extern UINT8 leland_last_scanline_int;
-		leland_last_scanline_int = scanline;
+			leland_last_scanline_int = scanline;
 	
 		/* interrupts generated on the VA10 line, which is every */
 		/* 16 scanlines starting with scanline #8 */
@@ -452,8 +451,7 @@ public class leland
 	
 	static void ataxx_interrupt_callback(int scanline)
 	{
-		extern UINT8 leland_last_scanline_int;
-		leland_last_scanline_int = scanline;
+			leland_last_scanline_int = scanline;
 	
 		/* interrupts generated according to the interrupt control register */
 		cpu_set_irq_line(0, 0, HOLD_LINE);

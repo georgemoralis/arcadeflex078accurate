@@ -32,11 +32,10 @@ public class exctsccr
 {
 	
 	/* from vidhrdw */
-	extern extern extern extern 
-	extern extern extern 
+	
+	
 	/* from machine */
-	extern UINT8 *exctsccr_mcu_ram;
-	extern extern 
+	
 	
 	public static WriteHandlerPtr exctsccr_DAC_data_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		DAC_signed_data_w(offset,data << 2);

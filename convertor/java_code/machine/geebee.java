@@ -29,8 +29,6 @@ public class geebee
 	int geebee_inv;
 	
 	#ifdef MAME_DEBUG
-	extern char geebee_msg[32+1];
-	extern int geebee_cnt;
 	#endif
 	
 	public static ReadHandlerPtr geebee_in_r  = new ReadHandlerPtr() { public int handler(int offset){

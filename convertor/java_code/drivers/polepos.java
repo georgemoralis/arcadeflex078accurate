@@ -84,10 +84,6 @@ public class polepos
 	void polepos_sh_update(void);
 	
 	/* from vidhrdw */
-	extern data16_t *polepos_view16_memory;
-	extern data16_t *polepos_road16_memory;
-	extern data16_t *polepos_alpha16_memory;
-	extern data16_t *polepos_sprite16_memory;
 	
 	
 	WRITE16_HANDLER( polepos_view16_w );

@@ -48,7 +48,6 @@ public class raiden
 	
 	
 	static unsigned char *raiden_shared_ram;
-	extern unsigned char *raiden_back_data,*raiden_fore_data,*raiden_scroll_ram;
 	
 	/***************************************************************************/
 	

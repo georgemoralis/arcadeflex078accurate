@@ -66,12 +66,11 @@ public class bagman
 {
 	
 	
-	extern extern extern 
 	
-	extern UINT8 *bagman_video_enable;
 	
-	extern extern extern 
-	extern extern extern 
+	
+	
+	
 	
 	static int speech_rom_address = 0;
 	

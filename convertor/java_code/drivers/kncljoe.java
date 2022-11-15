@@ -33,7 +33,6 @@ public class kncljoe
 	
 	
 	/* from vidhrdw */
-	extern extern extern extern extern extern extern UINT8 *kncljoe_scrollregs;
 	
 	
 	public static Memory_ReadAddress readmem[]={

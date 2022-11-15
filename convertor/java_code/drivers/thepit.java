@@ -64,8 +64,6 @@ package drivers;
 public class thepit
 {
 	
-	extern unsigned char *thepit_attributesram;
-	extern unsigned char *intrepid_sprite_bank_select;
 	
 	
 	public static WriteHandlerPtr flip_screen_x_w = new WriteHandlerPtr() {public void handler(int offset, int data){

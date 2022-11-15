@@ -31,8 +31,6 @@ public class msisaac
 	
 	
 	
-	extern extern extern unsigned char *msisaac_videoram;
-	extern unsigned char *msisaac_videoram2;
 	
 	
 	

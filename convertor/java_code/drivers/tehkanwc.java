@@ -88,10 +88,9 @@ public class tehkanwc
 {
 	
 	
-	extern UINT8 *tehkanwc_videoram2;
 	
-	extern extern extern extern extern extern extern extern extern 
-	extern extern 
+	
+	
 	
 	static UINT8 *shared_ram;
 	

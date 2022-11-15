@@ -19,12 +19,9 @@ public class exedexes
 {
 	
 	
-	extern UINT8 *exedexes_bg_scroll;
-	extern UINT8 *exedexes_nbg_yscroll;
-	extern UINT8 *exedexes_nbg_xscroll;
 	
-	extern extern extern extern 
-	extern extern extern extern 
+	
+	
 	
 	
 	public static InterruptHandlerPtr exedexes_interrupt = new InterruptHandlerPtr() {public void handler(){

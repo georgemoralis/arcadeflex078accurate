@@ -155,14 +155,11 @@ package drivers;
 public class gottlieb
 {
 	
-	extern UINT8 *gottlieb_charram;
 	
-	extern extern extern extern extern 
-	extern extern 
-	extern 
-	extern UINT8 *riot_ram;
-	extern extern extern extern extern extern extern void gottlieb_sound_init(void);
-	extern extern extern extern extern 
+	
+	
+	
+	
 	
 	static UINT8 *audiobuffer_region;
 	

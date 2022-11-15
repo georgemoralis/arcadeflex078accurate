@@ -6,7 +6,6 @@
 
 **************************************************************************/
 
-extern data32_t *voodoo_regs;
 
 
 void voodoo_set_init_enable(data32_t newval);

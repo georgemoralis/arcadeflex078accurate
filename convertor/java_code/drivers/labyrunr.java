@@ -20,7 +20,6 @@ public class labyrunr
 	
 	
 	/* from vidhrdw/labyrunr.c */
-	extern unsigned char *labyrunr_videoram1,*labyrunr_videoram2;
 	
 	public static InterruptHandlerPtr labyrunr_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

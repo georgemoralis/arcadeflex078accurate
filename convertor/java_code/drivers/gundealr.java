@@ -56,7 +56,6 @@ public class gundealr
 {
 	
 	
-	extern unsigned char *gundealr_bg_videoram,*gundealr_fg_videoram;
 	
 	
 	

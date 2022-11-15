@@ -18,8 +18,6 @@ public class arabianH
 	
 	/*----------- defined in vidhrdw/arabian.c -----------*/
 	
-	extern UINT8 arabian_video_control;
-	extern UINT8 arabian_flip_screen;
 	
 	
 	}

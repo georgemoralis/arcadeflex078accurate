@@ -76,7 +76,6 @@ public class pitnrun
 	
 	
 	
-	extern UINT8* videoram2;
 	
 	
 	

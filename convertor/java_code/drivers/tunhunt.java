@@ -58,8 +58,8 @@ public class tunhunt
 {
 	
 	
-	extern extern 
-	extern extern extern 
+	
+	
 	
 	/*************************************
 	 *

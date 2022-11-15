@@ -33,10 +33,8 @@ public class usgames
 {
 	
 	/* vidhrdw */
-	extern struct tilemap *usg_tilemap;
 	
 	
-	extern data8_t *usg_videoram,*usg_charram;
 	
 	
 	public static WriteHandlerPtr usg_rombank_w = new WriteHandlerPtr() {public void handler(int offset, int data){

@@ -72,7 +72,6 @@ package drivers;
 public class _8080bw
 {
 	
-	extern struct Samplesinterface circus_samples_interface;
 	
 	
 	public static PaletteInitHandlerPtr palette_init_8080bw  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){

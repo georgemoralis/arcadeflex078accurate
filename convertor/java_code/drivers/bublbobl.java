@@ -144,11 +144,8 @@ public class bublbobl
 	
 	
 	/* vidhrdw/bublbobl.c */
-	extern unsigned char *bublbobl_objectram;
-	extern size_t bublbobl_objectram_size;
 	
 	/* machine/bublbobl.c */
-	extern unsigned char *bublbobl_sharedram1,*bublbobl_sharedram2;
 	
 	
 	
@@ -1093,8 +1090,7 @@ public class bublbobl
 	
 	
 	public static DriverInitHandlerPtr init_tokio  = new DriverInitHandlerPtr() { public void handler(){
-		extern int bublbobl_video_enable;
-	
+		
 		/* preemptively enable video, the bit is not mapped for this game and */
 		/* I don't know if it even has it. */
 		bublbobl_video_enable = 1;

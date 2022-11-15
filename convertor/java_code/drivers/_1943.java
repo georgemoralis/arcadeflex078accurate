@@ -15,9 +15,6 @@ public class _1943
 	
 	
 	
-	extern unsigned char *c1943_scrollx;
-	extern unsigned char *c1943_scrolly;
-	extern unsigned char *c1943_bgscrolly;
 	
 	
 	

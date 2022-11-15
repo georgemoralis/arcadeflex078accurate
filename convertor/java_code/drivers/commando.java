@@ -52,8 +52,6 @@ public class commando
 {
 	
 	
-	extern unsigned char *commando_fgvideoram;
-	extern unsigned char *commando_bgvideoram;
 	
 	
 	

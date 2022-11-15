@@ -26,7 +26,6 @@ public class xain
 	static unsigned char *xain_sharedram;
 	
 	
-	extern unsigned char *xain_charram, *xain_bgram0, *xain_bgram1;
 	
 	
 	public static ReadHandlerPtr xain_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset){

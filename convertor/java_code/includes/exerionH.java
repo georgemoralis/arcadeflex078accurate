@@ -8,4 +8,3 @@
 
 
 
-extern UINT8 exerion_cocktail_flip;

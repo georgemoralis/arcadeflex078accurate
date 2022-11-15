@@ -16,7 +16,6 @@ public class beezer
 {
 	
 	/* from vidhrdw/beezer.c */
-	extern UINT8 *videoram;
 	
 	/* from machine/beezer.c */
 	

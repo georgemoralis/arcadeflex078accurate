@@ -76,8 +76,8 @@ public class bombjack
 {
 	
 	
-	extern extern extern extern 
-	extern extern 
+	
+	
 	
 	static int latch;
 	

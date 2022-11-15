@@ -46,8 +46,8 @@ public class jack
 {
 	
 	
-	extern extern extern extern extern 
-	extern extern 
+	
+	
 	static int timer_rate;
 	
 	public static ReadHandlerPtr timer_r  = new ReadHandlerPtr() { public int handler(int offset){

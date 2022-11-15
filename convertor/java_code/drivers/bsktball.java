@@ -30,11 +30,10 @@ package drivers;
 public class bsktball
 {
 	
-	extern UINT8 *bsktball_motion;
 	
-	extern 
-	extern extern 
-	extern extern extern extern extern extern extern extern extern extern 
+	
+	
+	
 	/*************************************
 	 *
 	 *	Palette generation

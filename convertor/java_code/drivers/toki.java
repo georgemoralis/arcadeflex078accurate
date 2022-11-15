@@ -27,10 +27,6 @@ package drivers;
 public class toki
 {
 	
-	extern data16_t *toki_background1_videoram16;
-	extern data16_t *toki_background2_videoram16;
-	extern data16_t *toki_sprites_dataram16;
-	extern data16_t *toki_scrollram16;
 	
 	WRITE16_HANDLER( toki_background1_videoram16_w );
 	WRITE16_HANDLER( toki_background2_videoram16_w );

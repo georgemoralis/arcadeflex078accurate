@@ -39,8 +39,8 @@ public class hanaawas
 {
 	
 	
-	extern extern extern 
-	extern extern extern 
+	
+	
 	
 	public static ReadHandlerPtr hanaawas_input_port_0_r  = new ReadHandlerPtr() { public int handler(int offset){
 		int i,ordinal = 0;

@@ -70,8 +70,8 @@ public class exprraid
 {
 	
 	
-	extern extern extern extern extern extern 
-	extern extern 
+	
+	
 	
 	/*****************************************************************************************/
 	/* Emulate Protection ( only for original express raider, code is cracked on the bootleg */

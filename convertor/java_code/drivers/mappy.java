@@ -54,8 +54,6 @@ public class mappy
 	
 	
 	/* machine driver data & functions */
-	extern unsigned char *mappy_sharedram;
-	extern unsigned char *mappy_customio_1,*mappy_customio_2;
 	
 	
 	
@@ -64,7 +62,6 @@ public class mappy
 	/* video driver data & functions */
 	
 	/* sound driver data & functions */
-	extern unsigned char *mappy_soundregs;
 	
 	
 	/* CPU 1 read addresses */

@@ -72,9 +72,6 @@ public class vastar
 	
 	
 	
-	extern data8_t *vastar_bg1videoram,*vastar_bg2videoram,*vastar_fgvideoram;
-	extern data8_t *vastar_bg1_scroll,*vastar_bg2_scroll;
-	extern data8_t *vastar_sprite_priority;
 	
 	
 	static unsigned char *vastar_sharedram;

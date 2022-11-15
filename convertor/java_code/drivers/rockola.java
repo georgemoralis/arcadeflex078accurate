@@ -96,17 +96,14 @@ public class rockola
 {
 	
 	
-	extern UINT8 *rockola_videoram2;
-	extern UINT8 *rockola_charram;
-	
-	extern const char *vanguard_sample_names[];
 	
 	
-	extern extern extern extern extern extern extern 
-	extern extern extern 
-	extern extern extern 
-	extern extern 
-	extern extern extern extern extern extern extern 
+	
+	
+	
+	
+	
+	
 	int rockola_sh_start(const struct MachineSound *msound);
 	void rockola_sh_update(void);
 	

@@ -140,10 +140,10 @@ public class vsnes
 	#define DUAL_RBI 1
 	
 	/* from vidhrdw */
-	extern extern extern extern extern extern 
+	
 	/* from machine */
-	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
-	extern extern extern extern extern extern 
+	
+	
 	/******************************************************************************/
 	
 	/* local stuff */

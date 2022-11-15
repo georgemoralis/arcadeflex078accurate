@@ -46,7 +46,6 @@ public class freekick
 {
 	
 	
-	extern data8_t *freek_videoram;
 	
 	
 	static int oigas_inval,oigas_outval,oigas_cnt;//oigas

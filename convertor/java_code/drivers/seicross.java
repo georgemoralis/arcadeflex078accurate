@@ -51,10 +51,9 @@ package drivers;
 public class seicross
 {
 	
-	extern UINT8 *seicross_row_scroll;
 	
-	extern extern 
-	extern extern extern 
+	
+	
 	static UINT8 *nvram;
 	static size_t nvram_size;
 	

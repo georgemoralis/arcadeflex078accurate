@@ -58,8 +58,6 @@ package drivers;
 public class diverboy
 {
 	
-	extern data16_t *diverboy_spriteram;
-	extern size_t diverboy_spriteram_size;
 	
 	
 	

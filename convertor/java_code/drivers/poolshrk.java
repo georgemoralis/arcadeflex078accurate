@@ -13,10 +13,7 @@ package drivers;
 public class poolshrk
 {
 	
-	extern extern 
-	extern UINT8* poolshrk_playfield_ram;
-	extern UINT8* poolshrk_hpos_ram;
-	extern UINT8* poolshrk_vpos_ram;
+	
 	
 	static int poolshrk_da_latch;
 	

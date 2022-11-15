@@ -19,11 +19,9 @@ package drivers;
 public class runaway
 {
 	
-	extern extern extern extern 
-	extern UINT8* runaway_video_ram;
-	extern UINT8* runaway_sprite_ram;
 	
-	extern extern extern 
+	
+	
 	
 	static void interrupt_callback(int scanline)
 	{

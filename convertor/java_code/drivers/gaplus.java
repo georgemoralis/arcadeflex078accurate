@@ -17,17 +17,13 @@ package drivers;
 public class gaplus
 {
 	
-	extern unsigned char *gaplus_snd_sharedram;
-	extern unsigned char *gaplus_sharedram;
-	extern unsigned char *gaplus_customio_1, *gaplus_customio_2, *gaplus_customio_3;
-	extern unsigned char *mappy_soundregs;
 	
 	/* shared memory functions */
 	
 	/* custom IO chips functions */
 	
-	extern extern extern 
-	extern extern extern extern 
+	
+	
 	public static Memory_ReadAddress readmem_cpu1[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_ReadAddress( 0x0000, 0x03ff, videoram_r ),				/* video RAM */

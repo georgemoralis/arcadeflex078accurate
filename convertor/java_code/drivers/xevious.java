@@ -208,17 +208,12 @@ public class xevious
 	
 	
 	/* XEVIOUS */
-	extern unsigned char *xevious_sharedram;
 	
 	
-	extern unsigned char *xevious_fg_videoram,*xevious_fg_colorram;
-	extern unsigned char *xevious_bg_videoram,*xevious_bg_colorram;
 	
-	extern unsigned char *pengo_soundregs;
 	
 	
 	/* BATTLES */
-	extern unsigned char *battles_sharedram;
 	
 	
 	

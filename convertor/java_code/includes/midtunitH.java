@@ -30,7 +30,6 @@ public class midtunitH
 	
 	/*----------- defined in vidhrdw/midtunit.c -----------*/
 	
-	extern UINT8 midtunit_gfx_rom_large;
 	
 	
 	READ16_HANDLER( midtunit_gfxrom_r );

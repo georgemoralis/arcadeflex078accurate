@@ -17,10 +17,9 @@ package drivers;
 public class bogeyman
 {
 	
-	extern UINT8 *bogeyman_videoram2, *bogeyman_colorram2;
 	
-	extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	/******************************************************************************/
 	
 	/* Sound section is copied from Mysterious Stones driver by Nicola, Mike, Brad */

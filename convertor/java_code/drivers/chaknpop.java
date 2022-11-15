@@ -18,10 +18,6 @@ public class chaknpop
 	
 	
 	/* vidhrdw/chaknpop.c */
-	extern data8_t *chaknpop_txram;
-	extern data8_t *chaknpop_sprram;
-	extern size_t chaknpop_sprram_size;
-	extern data8_t *chaknpop_attrram;
 	
 	
 	

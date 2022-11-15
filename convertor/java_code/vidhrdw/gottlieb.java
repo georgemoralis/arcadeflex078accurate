@@ -92,8 +92,7 @@ public class gottlieb
 	} };
 	
 	public static WriteHandlerPtr gottlieb_video_outputs_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		extern void gottlieb_knocker(void);
-		int last = 0;
+			int last = 0;
 	
 		background_priority = data & 0x01;
 	

@@ -97,22 +97,10 @@ public class vball
 {
 	
 	/* from vidhrdw */
-	extern unsigned char *vb_attribram;
-	extern unsigned char *vb_spriteram;
-	extern unsigned char *vb_videoram;
-	extern unsigned char *vb_scrolly_lo;
-	extern int vb_scrollx_hi;
-	extern int vb_scrolly_hi;
-	extern int vb_scrollx_lo;
-	extern int vball_gfxset;
-	
-	extern void vb_bgprombank_w(int bank);
-	extern void vb_spprombank_w(int bank);
-	extern extern extern void vb_mark_all_dirty(void);
 	
 	
-	/* end of extern code & data */
 	
+	/* end of 
 	
 	
 	/* bit 0 = bank switch

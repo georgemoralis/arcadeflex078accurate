@@ -14,10 +14,9 @@ public class rocnrope
 {
 	
 	
-	extern void konami1_decode(void);
 	
-	extern extern extern 
-	extern extern extern 
+	
+	
 	
 	/* Roc'n'Rope has the IRQ vectors in RAM. The rom contains $FFFF at this address! */
 	public static WriteHandlerPtr rocnrope_interrupt_vector_w = new WriteHandlerPtr() {public void handler(int offset, int data){

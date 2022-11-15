@@ -32,9 +32,9 @@ public class redclash
 {
 	
 	
-	extern extern extern 
-	extern extern extern extern 
-	extern extern extern 
+	
+	
+	
 	/*
 	  This game doesn't have VBlank interrupts.
 	  Interrupts are still used, but they are related to coin

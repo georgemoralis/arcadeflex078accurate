@@ -16,11 +16,10 @@ public class ironhors
 {
 	
 	
-	extern UINT8 *ironhors_scroll;
 	static UINT8 *ironhors_interrupt_enable;
 	
-	extern extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	public static InterruptHandlerPtr ironhors_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

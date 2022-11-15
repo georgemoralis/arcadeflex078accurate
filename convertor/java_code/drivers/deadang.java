@@ -25,10 +25,9 @@ public class deadang
 	
 	
 	static UINT8 *deadang_shared_ram;
-	extern UINT8 *deadang_video_data, *deadang_scroll_ram;
 	
-	extern extern extern 
-	extern extern 
+	
+	
 	/* Read/Write Handlers */
 	
 	public static ReadHandlerPtr deadang_shared_r  = new ReadHandlerPtr() { public int handler(int offset){

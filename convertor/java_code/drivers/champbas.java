@@ -49,8 +49,8 @@ public class champbas
 	
 	
 	
-	extern extern extern extern 
-	extern extern extern 
+	
+	
 	
 	
 	public static WriteHandlerPtr champbas_dac_w = new WriteHandlerPtr() {public void handler(int offset, int data){

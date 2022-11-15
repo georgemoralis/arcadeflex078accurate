@@ -56,12 +56,11 @@ package drivers;
 public class yiear
 {
 	
-	extern int nmi_enable;
 	
-	extern extern 
-	extern extern extern 
+	
+	
 	/* in sndhrdw/trackfld.c */
-	extern extern 
+	
 	
 	public static ReadHandlerPtr yiear_speech_r  = new ReadHandlerPtr() { public int handler(int offset){
 		if (VLM5030_BSY()) return 1;

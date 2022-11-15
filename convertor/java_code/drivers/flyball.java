@@ -13,14 +13,8 @@ package drivers;
 public class flyball
 {
 	
-	extern extern 
-	extern UINT8 flyball_pitcher_pic;
-	extern UINT8 flyball_pitcher_vert;
-	extern UINT8 flyball_pitcher_horz;
-	extern UINT8 flyball_ball_vert;
-	extern UINT8 flyball_ball_horz;
 	
-	extern UINT8* flyball_playfield_ram;
+	
 	
 	static UINT8 flyball_potmask;
 	static UINT8 flyball_potsense;

@@ -16,10 +16,9 @@ public class tourtabl
 {
 	
 	
-	extern extern 
-	extern extern 
-	extern extern 
-	extern void tia_init(void);
+	
+	
+	
 	
 	
 	static UINT8* r6532_0_ram;

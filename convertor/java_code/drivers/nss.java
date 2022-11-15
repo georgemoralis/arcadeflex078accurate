@@ -40,7 +40,7 @@ package drivers;
 public class nss
 {
 	
-	extern 
+	
 	public static Memory_ReadAddress snes_readmem[]={
 		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
 		new Memory_ReadAddress( 0x000000, 0x2fffff, snes_r_bank1 ),	/* I/O and ROM (repeats for each bank) */

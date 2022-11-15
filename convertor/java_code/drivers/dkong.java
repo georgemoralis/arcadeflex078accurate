@@ -175,11 +175,11 @@ public class dkong
 	static int t[2] = { 1,1 };
 	
 	
-	extern extern extern extern extern extern 
-	extern 
-	extern extern extern extern extern extern extern 
-	extern extern extern extern extern extern extern extern extern 
-	extern 
+	
+	
+	
+	
+	
 	#define ACTIVELOW_PORT_BIT(P,A,D)   ((P & (~(1 << A))) | ((D ^ 1) << A))
 	
 	
