@@ -1,5 +1,0 @@
-/* appoooh.h */
-
-
-/* vidhrdw */
-
