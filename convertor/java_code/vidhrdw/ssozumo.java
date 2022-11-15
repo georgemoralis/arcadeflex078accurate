@@ -32,20 +32,20 @@ public class ssozumo
 	
 		for (i = 0 ; i < 64 ; i++)
 		{
-			bit0 = (color_prom[0] >> 0) & 0x01;
-			bit1 = (color_prom[0] >> 1) & 0x01;
-			bit2 = (color_prom[0] >> 2) & 0x01;
-			bit3 = (color_prom[0] >> 3) & 0x01;
+			bit0 = (color_prom.read(0)>> 0) & 0x01;
+			bit1 = (color_prom.read(0)>> 1) & 0x01;
+			bit2 = (color_prom.read(0)>> 2) & 0x01;
+			bit3 = (color_prom.read(0)>> 3) & 0x01;
 			r = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
-			bit0 = (color_prom[0] >> 4) & 0x01;
-			bit1 = (color_prom[0] >> 5) & 0x01;
-			bit2 = (color_prom[0] >> 6) & 0x01;
-			bit3 = (color_prom[0] >> 7) & 0x01;
+			bit0 = (color_prom.read(0)>> 4) & 0x01;
+			bit1 = (color_prom.read(0)>> 5) & 0x01;
+			bit2 = (color_prom.read(0)>> 6) & 0x01;
+			bit3 = (color_prom.read(0)>> 7) & 0x01;
 			g = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
-			bit0 = (color_prom[64] >> 0) & 0x01;
-			bit1 = (color_prom[64] >> 1) & 0x01;
-			bit2 = (color_prom[64] >> 2) & 0x01;
-			bit3 = (color_prom[64] >> 3) & 0x01;
+			bit0 = (color_prom.read(64)>> 0) & 0x01;
+			bit1 = (color_prom.read(64)>> 1) & 0x01;
+			bit2 = (color_prom.read(64)>> 2) & 0x01;
+			bit3 = (color_prom.read(64)>> 3) & 0x01;
 			b = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 	
 			palette_set_color(i,r,g,b);
@@ -62,9 +62,9 @@ public class ssozumo
 	} };
 	
 	public static WriteHandlerPtr ssozumo_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -127,8 +127,8 @@ public class ssozumo
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + ((colorram[tile_index] & 0x08) << 5);
-		int color = (colorram[tile_index] & 0x30) >> 4;
+		int code = videoram[tile_index] + ((colorram.read(tile_index)& 0x08) << 5);
+		int color = (colorram.read(tile_index)& 0x30) >> 4;
 		int flags = ((tile_index % 32) >= 16) ? TILE_FLIPY : 0;
 	
 		SET_TILE_INFO(1, code, color, flags)

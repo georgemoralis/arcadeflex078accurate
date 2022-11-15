@@ -78,7 +78,7 @@ public class pandoras
 	
 	public static GetTileInfoHandlerPtr get_tile_info0 = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		unsigned char attr = colorram[tile_index];
+		unsigned char attr = colorram.read(tile_index);
 		SET_TILE_INFO(
 				0,
 				videoram[tile_index] + ((attr & 0x10) << 4),
@@ -113,7 +113,7 @@ public class pandoras
 	} };
 	
 	public static ReadHandlerPtr pandoras_cram_r  = new ReadHandlerPtr() { public int handler(int offset){
-		return colorram[offset];
+		return colorram.read(offset);
 	} };
 	
 	public static WriteHandlerPtr pandoras_vram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
@@ -125,10 +125,10 @@ public class pandoras
 	} };
 	
 	public static WriteHandlerPtr pandoras_cram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
 			tilemap_mark_tile_dirty(layer0,offset);
-			colorram[offset] = data;
+			colorram.write(offset,data);
 		}
 	} };
 	

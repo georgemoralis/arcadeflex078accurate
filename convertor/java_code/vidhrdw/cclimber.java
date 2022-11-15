@@ -144,19 +144,19 @@ public class cclimber
 	
 	
 			/* red component */
-			bit0 = (color_prom[i] >> 0) & 0x01;
-			bit1 = (color_prom[i] >> 1) & 0x01;
-			bit2 = (color_prom[i] >> 2) & 0x01;
+			bit0 = (color_prom.read(i)>> 0) & 0x01;
+			bit1 = (color_prom.read(i)>> 1) & 0x01;
+			bit2 = (color_prom.read(i)>> 2) & 0x01;
 			r = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 			/* green component */
-			bit0 = (color_prom[i] >> 3) & 0x01;
-			bit1 = (color_prom[i+256] >> 0) & 0x01;
-			bit2 = (color_prom[i+256] >> 1) & 0x01;
+			bit0 = (color_prom.read(i)>> 3) & 0x01;
+			bit1 = (color_prom.read(i+256)>> 0) & 0x01;
+			bit2 = (color_prom.read(i+256)>> 1) & 0x01;
 			g = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 			/* blue component */
 			bit0 = 0;
-			bit1 = (color_prom[i+256] >> 2) & 0x01;
-			bit2 = (color_prom[i+256] >> 3) & 0x01;
+			bit1 = (color_prom.read(i+256)>> 2) & 0x01;
+			bit2 = (color_prom.read(i+256)>> 3) & 0x01;
 			b = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 	
 			palette_set_color(i,r,g,b);
@@ -184,19 +184,19 @@ public class cclimber
 	
 	
 			/* red component */
-			bit0 = (color_prom[i] >> 0) & 0x01;
-			bit1 = (color_prom[i] >> 1) & 0x01;
-			bit2 = (color_prom[i] >> 2) & 0x01;
+			bit0 = (color_prom.read(i)>> 0) & 0x01;
+			bit1 = (color_prom.read(i)>> 1) & 0x01;
+			bit2 = (color_prom.read(i)>> 2) & 0x01;
 			r = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 			/* green component */
-			bit0 = (color_prom[i] >> 3) & 0x01;
-			bit1 = (color_prom[i] >> 4) & 0x01;
-			bit2 = (color_prom[i] >> 5) & 0x01;
+			bit0 = (color_prom.read(i)>> 3) & 0x01;
+			bit1 = (color_prom.read(i)>> 4) & 0x01;
+			bit2 = (color_prom.read(i)>> 5) & 0x01;
 			g = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 			/* blue component */
 			bit0 = 0;
-			bit1 = (color_prom[i] >> 6) & 0x01;
-			bit2 = (color_prom[i] >> 7) & 0x01;
+			bit1 = (color_prom.read(i)>> 6) & 0x01;
+			bit2 = (color_prom.read(i)>> 7) & 0x01;
 			b = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 	
 			palette_set_color(i+256,r,g,b);
@@ -262,7 +262,7 @@ public class cclimber
 	
 	
 	public static WriteHandlerPtr cclimber_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
 			/* bit 5 of the address is not used for color memory. There is just */
 			/* 512 bytes of memory; every two consecutive rows share the same memory */
@@ -272,8 +272,8 @@ public class cclimber
 			dirtybuffer[offset] = 1;
 			dirtybuffer[offset + 0x20] = 1;
 	
-			colorram[offset] = data;
-			colorram[offset + 0x20] = data;
+			colorram.write(offset,data);
+			colorram.write(offset + 0x20,data);
 		}
 	} };
 	
@@ -372,8 +372,8 @@ public class cclimber
 	
 				sx = offs % 32;
 				sy = offs / 32;
-				flipx = colorram[offs] & 0x40;
-				flipy = colorram[offs] & 0x80;
+				flipx = colorram.read(offs)& 0x40;
+				flipy = colorram.read(offs)& 0x80;
 				/* vertical flipping flips two adjacent characters */
 				if (flipy) sy ^= 1;
 	
@@ -388,9 +388,9 @@ public class cclimber
 					flipy = !flipy;
 				}
 	
-				drawgfx(tmpbitmap,Machine->gfx[(colorram[offs] & 0x10) ? 1 : 0],
-						videoram[offs] + 8 * (colorram[offs] & 0x20),
-						colorram[offs] & 0x0f,
+				drawgfx(tmpbitmap,Machine->gfx[(colorram.read(offs)& 0x10) ? 1 : 0],
+						videoram[offs] + 8 * (colorram.read(offs)& 0x20),
+						colorram.read(offs)& 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);
@@ -489,12 +489,12 @@ public class cclimber
 	
 				sx = offs % 32;
 				sy = offs / 32;
-				flipx = colorram[offs] & 0x40;
-				flipy = colorram[offs] & 0x80;
+				flipx = colorram.read(offs)& 0x40;
+				flipy = colorram.read(offs)& 0x80;
 				/* vertical flipping flips two adjacent characters */
 				if (flipy) sy ^= 1;
 	
-				color = (colorram[offs] & 0x0f) + 0x10 * palettebank;
+				color = (colorram.read(offs)& 0x0f) + 0x10 * palettebank;
 				if (sx >= 24 && sidepanel_enabled)
 				{
 				    color += 32;
@@ -512,7 +512,7 @@ public class cclimber
 				}
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x10) << 4),
+						videoram[offs] + ((colorram.read(offs)& 0x10) << 4),
 						color,
 						flipx,flipy,
 						8*sx,8*sy,

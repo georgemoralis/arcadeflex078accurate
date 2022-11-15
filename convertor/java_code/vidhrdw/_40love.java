@@ -42,24 +42,24 @@ public class _40love
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
 			/* red component */
-			bit0 = (color_prom[0] >> 0) & 0x01;
-			bit1 = (color_prom[0] >> 1) & 0x01;
-			bit2 = (color_prom[0] >> 2) & 0x01;
-			bit3 = (color_prom[0] >> 3) & 0x01;
+			bit0 = (color_prom.read(0)>> 0) & 0x01;
+			bit1 = (color_prom.read(0)>> 1) & 0x01;
+			bit2 = (color_prom.read(0)>> 2) & 0x01;
+			bit3 = (color_prom.read(0)>> 3) & 0x01;
 			r = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			
 			/* green component */
-			bit0 = (color_prom[Machine->drv->total_colors] >> 0) & 0x01;
-			bit1 = (color_prom[Machine->drv->total_colors] >> 1) & 0x01;
-			bit2 = (color_prom[Machine->drv->total_colors] >> 2) & 0x01;
-			bit3 = (color_prom[Machine->drv->total_colors] >> 3) & 0x01;
+			bit0 = (color_prom.read(Machine.drv.total_colors)>> 0) & 0x01;
+			bit1 = (color_prom.read(Machine.drv.total_colors)>> 1) & 0x01;
+			bit2 = (color_prom.read(Machine.drv.total_colors)>> 2) & 0x01;
+			bit3 = (color_prom.read(Machine.drv.total_colors)>> 3) & 0x01;
 			g = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			
 			/* blue component */
-			bit0 = (color_prom[2*Machine->drv->total_colors] >> 0) & 0x01;
-			bit1 = (color_prom[2*Machine->drv->total_colors] >> 1) & 0x01;
-			bit2 = (color_prom[2*Machine->drv->total_colors] >> 2) & 0x01;
-			bit3 = (color_prom[2*Machine->drv->total_colors] >> 3) & 0x01;
+			bit0 = (color_prom.read(2*Machine.drv.total_colors)>> 0) & 0x01;
+			bit1 = (color_prom.read(2*Machine.drv.total_colors)>> 1) & 0x01;
+			bit2 = (color_prom.read(2*Machine.drv.total_colors)>> 2) & 0x01;
+			bit3 = (color_prom.read(2*Machine.drv.total_colors)>> 3) & 0x01;
 			b = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			
 			palette_set_color(i,r,g,b);
@@ -87,7 +87,7 @@ public class _40love
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int tile_number = videoram[tile_index];
-		int tile_attrib = colorram[(tile_index/64)*2];
+		int tile_attrib = colorram.read((tile_index/64)*2);
 		int tile_h_bank = (tile_attrib&0x40)<<3;	/* 0x40->0x200 */
 		int tile_l_bank = (tile_attrib&0x18)<<3;	/* 0x10->0x80, 0x08->0x40 */
 	
@@ -138,7 +138,7 @@ public class _40love
 	static void fortyl_set_scroll_x(int offset)
 	{
 		int	i = offset & ~1;
-		int x = ((colorram[i] & 0x80) << 1) | colorram[i+1];	/* 9 bits signed */
+		int x = ((colorram.read(i)& 0x80) << 1) | colorram.read(i+1);	/* 9 bits signed */
 	
 		if (fortyl_flipscreen)
 			x += 0x51;
@@ -226,11 +226,11 @@ public class _40love
 	} };
 	
 	public static WriteHandlerPtr fortyl_bg_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if( colorram[offset]!=data )
+		if( colorram.read(offset)!=data )
 		{
 			int i;
 	
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			for (i=(offset/2)*64; i<(offset/2)*64+64; i++)
 				tilemap_mark_tile_dirty(background,i);
 	
@@ -238,7 +238,7 @@ public class _40love
 		}
 	} };
 	public static ReadHandlerPtr fortyl_bg_colorram_r  = new ReadHandlerPtr() { public int handler(int offset){
-		return colorram[offset];
+		return colorram.read(offset);
 	} };
 	
 	/***************************************************************************

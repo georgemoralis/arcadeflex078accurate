@@ -25,9 +25,9 @@ public class kchamp
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
 		{
-			red = color_prom[i];
-			green = color_prom[Machine->drv->total_colors+i];
-			blue = color_prom[2*Machine->drv->total_colors+i];
+			red = color_prom.read(i);
+			green = color_prom.read(Machine.drv.total_colors+i);
+			blue = color_prom.read(2*Machine.drv.total_colors+i);
 	
 			palette_set_color(i,red*0x11,green*0x11,blue*0x11);
 	
@@ -44,9 +44,9 @@ public class kchamp
 	} };
 	
 	public static WriteHandlerPtr kchamp_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -57,8 +57,8 @@ public class kchamp
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + ((colorram[tile_index] & 7) << 8);
-		int color = (colorram[tile_index] >> 3) & 0x1f;
+		int code = videoram[tile_index] + ((colorram.read(tile_index)& 7) << 8);
+		int color = (colorram.read(tile_index)>> 3) & 0x1f;
 	
 		SET_TILE_INFO(0, code, color, 0)
 	} };

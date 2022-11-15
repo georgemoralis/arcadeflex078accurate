@@ -88,9 +88,9 @@ public class hyperspt
 	} };
 	
 	public static WriteHandlerPtr hyperspt_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -105,9 +105,9 @@ public class hyperspt
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + ((colorram[tile_index] & 0x80) << 1) + ((colorram[tile_index] & 0x40) << 3);
-		int color = colorram[tile_index] & 0x0f;
-		int flags = ((colorram[tile_index] & 0x10) ? TILE_FLIPX : 0) | ((colorram[tile_index] & 0x20) ? TILE_FLIPY : 0);
+		int code = videoram[tile_index] + ((colorram.read(tile_index)& 0x80) << 1) + ((colorram.read(tile_index)& 0x40) << 3);
+		int color = colorram.read(tile_index)& 0x0f;
+		int flags = ((colorram.read(tile_index)& 0x10) ? TILE_FLIPX : 0) | ((colorram.read(tile_index)& 0x20) ? TILE_FLIPY : 0);
 	
 		SET_TILE_INFO(0, code, color, flags)
 	} };
@@ -184,9 +184,9 @@ public class hyperspt
 	
 	public static GetTileInfoHandlerPtr roadf_get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + ((colorram[tile_index] & 0x80) << 1) + ((colorram[tile_index] & 0x60) << 4);
-		int color = colorram[tile_index] & 0x0f;
-		int flags = (colorram[tile_index] & 0x10) ? TILE_FLIPX : 0;
+		int code = videoram[tile_index] + ((colorram.read(tile_index)& 0x80) << 1) + ((colorram.read(tile_index)& 0x60) << 4);
+		int color = colorram.read(tile_index)& 0x0f;
+		int flags = (colorram.read(tile_index)& 0x10) ? TILE_FLIPX : 0;
 	
 		SET_TILE_INFO(0, code, color, flags)
 	} };

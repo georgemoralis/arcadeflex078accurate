@@ -44,18 +44,18 @@ public class seicross
 			int bit0,bit1,bit2,r,g,b;
 	
 			/* red component */
-			bit0 = (color_prom[i] >> 0) & 0x01;
-			bit1 = (color_prom[i] >> 1) & 0x01;
-			bit2 = (color_prom[i] >> 2) & 0x01;
+			bit0 = (color_prom.read(i)>> 0) & 0x01;
+			bit1 = (color_prom.read(i)>> 1) & 0x01;
+			bit2 = (color_prom.read(i)>> 2) & 0x01;
 			r = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* green component */
-			bit0 = (color_prom[i] >> 3) & 0x01;
-			bit1 = (color_prom[i] >> 4) & 0x01;
-			bit2 = (color_prom[i] >> 5) & 0x01;
+			bit0 = (color_prom.read(i)>> 3) & 0x01;
+			bit1 = (color_prom.read(i)>> 4) & 0x01;
+			bit2 = (color_prom.read(i)>> 5) & 0x01;
 			g = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* blue component */
-			bit0 = (color_prom[i] >> 6) & 0x01;
-			bit1 = (color_prom[i] >> 7) & 0x01;
+			bit0 = (color_prom.read(i)>> 6) & 0x01;
+			bit1 = (color_prom.read(i)>> 7) & 0x01;
 			b = 0x4f * bit0 + 0xa8 * bit1;
 	
 			palette_set_color(i,r,g,b);
@@ -71,15 +71,15 @@ public class seicross
 	} };
 	
 	public static WriteHandlerPtr seicross_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
 			/* bit 5 of the address is not used for color memory. There is just */
 			/* 512k of memory; every two consecutive rows share the same memory */
 			/* region. */
 			offset &= 0xffdf;
 	
-			colorram[offset] = data;
-			colorram[offset + 0x20] = data;
+			colorram.write(offset,data);
+			colorram.write(offset + 0x20,data);
 	
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 			tilemap_mark_tile_dirty(bg_tilemap, offset + 0x20);
@@ -88,9 +88,9 @@ public class seicross
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + ((colorram[tile_index] & 0x10) << 4);
-		int color = colorram[tile_index] & 0x0f;
-		int flags = ((colorram[tile_index] & 0x40) ? TILE_FLIPX : 0) | ((colorram[tile_index] & 0x80) ? TILE_FLIPY : 0);
+		int code = videoram[tile_index] + ((colorram.read(tile_index)& 0x10) << 4);
+		int color = colorram.read(tile_index)& 0x0f;
+		int flags = ((colorram.read(tile_index)& 0x40) ? TILE_FLIPX : 0) | ((colorram.read(tile_index)& 0x80) ? TILE_FLIPY : 0);
 	
 		SET_TILE_INFO(0, code, color, flags)
 	} };

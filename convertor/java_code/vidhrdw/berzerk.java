@@ -74,7 +74,7 @@ public class berzerk
 		y = offset >> 5;
 		x = offset << 3;
 	
-	    copy_byte(x, y, data, colorram[coloroffset]);
+	    copy_byte(x, y, data, colorram.read(coloroffset));
 	} };
 	
 	
@@ -83,7 +83,7 @@ public class berzerk
 		UINT8 x, y;
 	
 	
-		colorram[offset] = data;
+		colorram.write(offset,data);
 	
 		/* Need to change the affected pixels' colors */
 	

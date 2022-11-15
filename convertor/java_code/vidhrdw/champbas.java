@@ -91,9 +91,9 @@ public class champbas
 	} };
 	
 	public static WriteHandlerPtr champbas_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -117,7 +117,7 @@ public class champbas
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int code = videoram[tile_index];
-		int color = (colorram[tile_index] & 0x1f) + 32;
+		int color = (colorram.read(tile_index)& 0x1f) + 32;
 	
 		SET_TILE_INFO(gfxbank, code, color, 0)
 	} };

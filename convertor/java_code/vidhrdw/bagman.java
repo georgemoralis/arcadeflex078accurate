@@ -30,9 +30,9 @@ public class bagman
 	} };
 	
 	public static WriteHandlerPtr bagman_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -74,18 +74,18 @@ public class bagman
 			int bit0, bit1, bit2, r, g, b;
 	
 			/* red component */
-			bit0 = (color_prom[i] >> 0) & 0x01;
-			bit1 = (color_prom[i] >> 1) & 0x01;
-			bit2 = (color_prom[i] >> 2) & 0x01;
+			bit0 = (color_prom.read(i)>> 0) & 0x01;
+			bit1 = (color_prom.read(i)>> 1) & 0x01;
+			bit2 = (color_prom.read(i)>> 2) & 0x01;
 			r = combine_3_weights(weights_r, bit0, bit1, bit2);
 			/* green component */
-			bit0 = (color_prom[i] >> 3) & 0x01;
-			bit1 = (color_prom[i] >> 4) & 0x01;
-			bit2 = (color_prom[i] >> 5) & 0x01;
+			bit0 = (color_prom.read(i)>> 3) & 0x01;
+			bit1 = (color_prom.read(i)>> 4) & 0x01;
+			bit2 = (color_prom.read(i)>> 5) & 0x01;
 			g = combine_3_weights(weights_g, bit0, bit1, bit2);
 			/* blue component */
-			bit0 = (color_prom[i] >> 6) & 0x01;
-			bit1 = (color_prom[i] >> 7) & 0x01;
+			bit0 = (color_prom.read(i)>> 6) & 0x01;
+			bit1 = (color_prom.read(i)>> 7) & 0x01;
 			b = combine_2_weights(weights_b, bit0, bit1);
 	
 			palette_set_color(i,r,g,b);
@@ -102,9 +102,9 @@ public class bagman
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int gfxbank = (Machine->gfx[2] && (colorram[tile_index] & 0x10)) ? 2 : 0;
-		int code = videoram[tile_index] + 8 * (colorram[tile_index] & 0x20);
-		int color = colorram[tile_index] & 0x0f;
+		int gfxbank = (Machine->gfx[2] && (colorram.read(tile_index)& 0x10)) ? 2 : 0;
+		int code = videoram[tile_index] + 8 * (colorram.read(tile_index)& 0x20);
+		int color = colorram.read(tile_index)& 0x0f;
 	
 		SET_TILE_INFO(gfxbank, code, color, 0)
 	} };

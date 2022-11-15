@@ -47,22 +47,22 @@ public class kingobox
 	
 	
 			/* red component */
-			bit0 = (color_prom[0] >> 0) & 0x01;
-			bit1 = (color_prom[0] >> 1) & 0x01;
-			bit2 = (color_prom[0] >> 2) & 0x01;
-			bit3 = (color_prom[0] >> 3) & 0x01;
+			bit0 = (color_prom.read(0)>> 0) & 0x01;
+			bit1 = (color_prom.read(0)>> 1) & 0x01;
+			bit2 = (color_prom.read(0)>> 2) & 0x01;
+			bit3 = (color_prom.read(0)>> 3) & 0x01;
 			r = 0x10 * bit0 + 0x21 * bit1 + 0x45 * bit2 + 0x89 * bit3;
 			/* green component */
-			bit0 = (color_prom[256] >> 0) & 0x01;
-			bit1 = (color_prom[256] >> 1) & 0x01;
-			bit2 = (color_prom[256] >> 2) & 0x01;
-			bit3 = (color_prom[256] >> 3) & 0x01;
+			bit0 = (color_prom.read(256)>> 0) & 0x01;
+			bit1 = (color_prom.read(256)>> 1) & 0x01;
+			bit2 = (color_prom.read(256)>> 2) & 0x01;
+			bit3 = (color_prom.read(256)>> 3) & 0x01;
 			g = 0x10 * bit0 + 0x21 * bit1 + 0x45 * bit2 + 0x89 * bit3;
 			/* blue component */
-			bit0 = (color_prom[2*256] >> 0) & 0x01;
-			bit1 = (color_prom[2*256] >> 1) & 0x01;
-			bit2 = (color_prom[2*256] >> 2) & 0x01;
-			bit3 = (color_prom[2*256] >> 3) & 0x01;
+			bit0 = (color_prom.read(2*256)>> 0) & 0x01;
+			bit1 = (color_prom.read(2*256)>> 1) & 0x01;
+			bit2 = (color_prom.read(2*256)>> 2) & 0x01;
+			bit3 = (color_prom.read(2*256)>> 3) & 0x01;
 			b = 0x10 * bit0 + 0x21 * bit1 + 0x45 * bit2 + 0x89 * bit3;
 	
 			palette_set_color(i,r,g,b);
@@ -103,22 +103,22 @@ public class kingobox
 	
 	
 			/* red component */
-			bit0 = (color_prom[0] >> 4) & 0x01;
-			bit1 = (color_prom[0] >> 5) & 0x01;
-			bit2 = (color_prom[0] >> 6) & 0x01;
-			bit3 = (color_prom[0] >> 7) & 0x01;
+			bit0 = (color_prom.read(0)>> 4) & 0x01;
+			bit1 = (color_prom.read(0)>> 5) & 0x01;
+			bit2 = (color_prom.read(0)>> 6) & 0x01;
+			bit3 = (color_prom.read(0)>> 7) & 0x01;
 			r = 0x10 * bit0 + 0x21 * bit1 + 0x45 * bit2 + 0x89 * bit3;
 			/* green component */
-			bit0 = (color_prom[0] >> 0) & 0x01;
-			bit1 = (color_prom[0] >> 1) & 0x01;
-			bit2 = (color_prom[0] >> 2) & 0x01;
-			bit3 = (color_prom[0] >> 3) & 0x01;
+			bit0 = (color_prom.read(0)>> 0) & 0x01;
+			bit1 = (color_prom.read(0)>> 1) & 0x01;
+			bit2 = (color_prom.read(0)>> 2) & 0x01;
+			bit3 = (color_prom.read(0)>> 3) & 0x01;
 			g = 0x10 * bit0 + 0x21 * bit1 + 0x45 * bit2 + 0x89 * bit3;
 			/* blue component */
-			bit0 = (color_prom[256] >> 0) & 0x01;
-			bit1 = (color_prom[256] >> 1) & 0x01;
-			bit2 = (color_prom[256] >> 2) & 0x01;
-			bit3 = (color_prom[256] >> 3) & 0x01;
+			bit0 = (color_prom.read(256)>> 0) & 0x01;
+			bit1 = (color_prom.read(256)>> 1) & 0x01;
+			bit2 = (color_prom.read(256)>> 2) & 0x01;
+			bit3 = (color_prom.read(256)>> 3) & 0x01;
 			b = 0x10 * bit0 + 0x21 * bit1 + 0x45 * bit2 + 0x89 * bit3;
 	
 			palette_set_color(i,r,g,b);
@@ -154,9 +154,9 @@ public class kingobox
 	} };
 	
 	public static WriteHandlerPtr kingofb_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -195,7 +195,7 @@ public class kingobox
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int attr = colorram[tile_index];
+		int attr = colorram.read(tile_index);
 		int bank = ((attr & 0x04) >> 2) + 2;
 		int code = (tile_index / 16) ? videoram[tile_index] + ((attr & 0x03) << 8) : 0;
 		int color = ((attr & 0x70) >> 4) + 8 * palette_bank;
@@ -273,7 +273,7 @@ public class kingobox
 	public static GetTileInfoHandlerPtr ringking_get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int code = (tile_index / 16) ? videoram[tile_index] : 0;
-		int color = ((colorram[tile_index] & 0x70) >> 4) + 8 * palette_bank;
+		int color = ((colorram.read(tile_index)& 0x70) >> 4) + 8 * palette_bank;
 	
 		SET_TILE_INFO(4, code, color, 0)
 	} };

@@ -70,20 +70,20 @@ public class galivan
 		{
 			int bit0,bit1,bit2,bit3,r,g,b;
 	
-			bit0 = (color_prom[0] >> 0) & 0x01;
-			bit1 = (color_prom[0] >> 1) & 0x01;
-			bit2 = (color_prom[0] >> 2) & 0x01;
-			bit3 = (color_prom[0] >> 3) & 0x01;
+			bit0 = (color_prom.read(0)>> 0) & 0x01;
+			bit1 = (color_prom.read(0)>> 1) & 0x01;
+			bit2 = (color_prom.read(0)>> 2) & 0x01;
+			bit3 = (color_prom.read(0)>> 3) & 0x01;
 			r = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
-			bit0 = (color_prom[Machine->drv->total_colors] >> 0) & 0x01;
-			bit1 = (color_prom[Machine->drv->total_colors] >> 1) & 0x01;
-			bit2 = (color_prom[Machine->drv->total_colors] >> 2) & 0x01;
-			bit3 = (color_prom[Machine->drv->total_colors] >> 3) & 0x01;
+			bit0 = (color_prom.read(Machine.drv.total_colors)>> 0) & 0x01;
+			bit1 = (color_prom.read(Machine.drv.total_colors)>> 1) & 0x01;
+			bit2 = (color_prom.read(Machine.drv.total_colors)>> 2) & 0x01;
+			bit3 = (color_prom.read(Machine.drv.total_colors)>> 3) & 0x01;
 			g = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
-			bit0 = (color_prom[2*Machine->drv->total_colors] >> 0) & 0x01;
-			bit1 = (color_prom[2*Machine->drv->total_colors] >> 1) & 0x01;
-			bit2 = (color_prom[2*Machine->drv->total_colors] >> 2) & 0x01;
-			bit3 = (color_prom[2*Machine->drv->total_colors] >> 3) & 0x01;
+			bit0 = (color_prom.read(2*Machine.drv.total_colors)>> 0) & 0x01;
+			bit1 = (color_prom.read(2*Machine.drv.total_colors)>> 1) & 0x01;
+			bit2 = (color_prom.read(2*Machine.drv.total_colors)>> 2) & 0x01;
+			bit3 = (color_prom.read(2*Machine.drv.total_colors)>> 3) & 0x01;
 			b = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 	
 			palette_set_color(i,r,g,b);
@@ -155,7 +155,7 @@ public class galivan
 	
 	public static GetTileInfoHandlerPtr get_tx_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int attr = colorram[tile_index];
+		int attr = colorram.read(tile_index);
 		int code = videoram[tile_index] | ((attr & 0x01) << 8);
 		SET_TILE_INFO(
 				0,
@@ -179,7 +179,7 @@ public class galivan
 	
 	public static GetTileInfoHandlerPtr ninjemak_get_tx_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int attr = colorram[tile_index];
+		int attr = colorram.read(tile_index);
 		int code = videoram[tile_index] | ((attr & 0x03) << 8);
 		SET_TILE_INFO(
 				0,
@@ -237,9 +237,9 @@ public class galivan
 	} };
 	
 	public static WriteHandlerPtr galivan_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(tx_tilemap,offset);
 		}
 	} };

@@ -154,9 +154,9 @@ public class docastle
 	} };
 	
 	public static WriteHandlerPtr docastle_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 			tilemap_mark_tile_dirty(fg_tilemap, offset);
 		}
@@ -186,16 +186,16 @@ public class docastle
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + 8 * (colorram[tile_index] & 0x20);
-		int color = colorram[tile_index] & 0x1f;
+		int code = videoram[tile_index] + 8 * (colorram.read(tile_index)& 0x20);
+		int color = colorram.read(tile_index)& 0x1f;
 	
 		SET_TILE_INFO(0, code, color, 0)
 	} };
 	
 	public static GetTileInfoHandlerPtr get_fg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int code = videoram[tile_index] + 8 * (colorram[tile_index] & 0x20);
-		int color = (colorram[tile_index] & 0x1f) + 32;
+		int code = videoram[tile_index] + 8 * (colorram.read(tile_index)& 0x20);
+		int color = (colorram.read(tile_index)& 0x1f) + 32;
 	
 		SET_TILE_INFO(0, code, color, 0)
 	} };

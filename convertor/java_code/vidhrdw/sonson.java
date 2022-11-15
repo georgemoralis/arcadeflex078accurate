@@ -58,22 +58,22 @@ public class sonson
 	
 	
 			/* red component */
-			bit0 = (color_prom[i + Machine->drv->total_colors] >> 0) & 0x01;
-			bit1 = (color_prom[i + Machine->drv->total_colors] >> 1) & 0x01;
-			bit2 = (color_prom[i + Machine->drv->total_colors] >> 2) & 0x01;
-			bit3 = (color_prom[i + Machine->drv->total_colors] >> 3) & 0x01;
+			bit0 = (color_prom.read(i + Machine.drv.total_colors)>> 0) & 0x01;
+			bit1 = (color_prom.read(i + Machine.drv.total_colors)>> 1) & 0x01;
+			bit2 = (color_prom.read(i + Machine.drv.total_colors)>> 2) & 0x01;
+			bit3 = (color_prom.read(i + Machine.drv.total_colors)>> 3) & 0x01;
 			r = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			/* green component */
-			bit0 = (color_prom[i] >> 4) & 0x01;
-			bit1 = (color_prom[i] >> 5) & 0x01;
-			bit2 = (color_prom[i] >> 6) & 0x01;
-			bit3 = (color_prom[i] >> 7) & 0x01;
+			bit0 = (color_prom.read(i)>> 4) & 0x01;
+			bit1 = (color_prom.read(i)>> 5) & 0x01;
+			bit2 = (color_prom.read(i)>> 6) & 0x01;
+			bit3 = (color_prom.read(i)>> 7) & 0x01;
 			g = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			/* blue component */
-			bit0 = (color_prom[i] >> 0) & 0x01;
-			bit1 = (color_prom[i] >> 1) & 0x01;
-			bit2 = (color_prom[i] >> 2) & 0x01;
-			bit3 = (color_prom[i] >> 3) & 0x01;
+			bit0 = (color_prom.read(i)>> 0) & 0x01;
+			bit1 = (color_prom.read(i)>> 1) & 0x01;
+			bit2 = (color_prom.read(i)>> 2) & 0x01;
+			bit3 = (color_prom.read(i)>> 3) & 0x01;
 			b = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 	
 			palette_set_color(i,r,g,b);
@@ -100,9 +100,9 @@ public class sonson
 	} };
 	
 	public static WriteHandlerPtr sonson_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -126,7 +126,7 @@ public class sonson
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int attr = colorram[tile_index];
+		int attr = colorram.read(tile_index);
 		int code = videoram[tile_index] + 256 * (attr & 0x03);
 		int color = attr >> 2;
 		

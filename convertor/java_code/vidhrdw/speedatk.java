@@ -44,19 +44,19 @@ public class speedatk
 			int bit0,bit1,bit2,r,g,b;
 	
 			/* red component */
-			bit0 = (color_prom[i] >> 0) & 0x01;
-			bit1 = (color_prom[i] >> 1) & 0x01;
-			bit2 = (color_prom[i] >> 2) & 0x01;
+			bit0 = (color_prom.read(i)>> 0) & 0x01;
+			bit1 = (color_prom.read(i)>> 1) & 0x01;
+			bit2 = (color_prom.read(i)>> 2) & 0x01;
 			r = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* green component */
-			bit0 = (color_prom[i] >> 3) & 0x01;
-			bit1 = (color_prom[i] >> 4) & 0x01;
-			bit2 = (color_prom[i] >> 5) & 0x01;
+			bit0 = (color_prom.read(i)>> 3) & 0x01;
+			bit1 = (color_prom.read(i)>> 4) & 0x01;
+			bit2 = (color_prom.read(i)>> 5) & 0x01;
 			g = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* blue component */
 			bit0 = 0;
-			bit1 = (color_prom[i] >> 6) & 0x01;
-			bit2 = (color_prom[i] >> 7) & 0x01;
+			bit1 = (color_prom.read(i)>> 6) & 0x01;
+			bit2 = (color_prom.read(i)>> 7) & 0x01;
 			b = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 	
 			palette_set_color(i,r,g,b);
@@ -66,7 +66,7 @@ public class speedatk
 	
 		/* Colortable entry */
 		for(i = 0; i < 0x100; i++)
-			colortable[i] = color_prom[i];	
+			colortable[i] = color_prom.read(i);	
 	} };
 	
 	public static WriteHandlerPtr speedatk_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
@@ -78,9 +78,9 @@ public class speedatk
 	} };
 	
 	public static WriteHandlerPtr speedatk_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(tilemap, offset);
 		}
 	} };
@@ -93,9 +93,9 @@ public class speedatk
 	{
 		int code, color, region;
 	
-		code = videoram[tile_index] + ((colorram[tile_index] & 0xe0) << 3);
-		color = colorram[tile_index] & 0x0f;
-		region = (colorram[tile_index] & 0x10) >> 4;
+		code = videoram[tile_index] + ((colorram.read(tile_index)& 0xe0) << 3);
+		color = colorram.read(tile_index)& 0x0f;
+		region = (colorram.read(tile_index)& 0x10) >> 4;
 	
 		color += 2;
 		if(region)

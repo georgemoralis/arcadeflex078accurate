@@ -265,7 +265,7 @@ public class gomoku
 						sprintf(buf, "%02X", gomoku_bgram[((y * 16) + x)] & 0xff);
 					//	sprintf(buf, "%02X", spriteram[((y * 16) + x)] & 0xff);
 					//	sprintf(buf, "%02X", videoram[((y * 16) + x)] & 0xff);
-					//	sprintf(buf, "%02X", colorram[((y * 16) + x)] & 0xff);
+					//	sprintf(buf, "%02X", colorram.read(((y * 16) + x))& 0xff);
 						ui_text(Machine->scrbitmap, buf, (16 + (x * 14)), (24 + (y * 8)));
 					}
 				}

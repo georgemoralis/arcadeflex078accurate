@@ -39,7 +39,7 @@ public class yumefuda
 	public static GetTileInfoHandlerPtr y_get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int code = videoram[tile_index];
-		int color = colorram[tile_index];
+		int color = colorram.read(tile_index);
 	
 		SET_TILE_INFO(
 				0,

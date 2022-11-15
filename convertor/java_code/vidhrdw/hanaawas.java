@@ -63,14 +63,14 @@ public class hanaawas
 	
 		for (i = 0;i < TOTAL_COLORS(0)/8 ;i++)
 		{
-			COLOR(0,i*8+0) = color_prom[i*4+0x00] & 0x0f;
-			COLOR(0,i*8+1) = color_prom[i*4+0x01] & 0x0f;
-			COLOR(0,i*8+2) = color_prom[i*4+0x02] & 0x0f;
-			COLOR(0,i*8+3) = color_prom[i*4+0x03] & 0x0f;
-			COLOR(0,i*8+4) = color_prom[i*4+0x80] & 0x0f;
-			COLOR(0,i*8+5) = color_prom[i*4+0x81] & 0x0f;
-			COLOR(0,i*8+6) = color_prom[i*4+0x82] & 0x0f;
-			COLOR(0,i*8+7) = color_prom[i*4+0x83] & 0x0f;
+			COLOR(0,i*8+0) = color_prom.read(i*4+0x00)& 0x0f;
+			COLOR(0,i*8+1) = color_prom.read(i*4+0x01)& 0x0f;
+			COLOR(0,i*8+2) = color_prom.read(i*4+0x02)& 0x0f;
+			COLOR(0,i*8+3) = color_prom.read(i*4+0x03)& 0x0f;
+			COLOR(0,i*8+4) = color_prom.read(i*4+0x80)& 0x0f;
+			COLOR(0,i*8+5) = color_prom.read(i*4+0x81)& 0x0f;
+			COLOR(0,i*8+6) = color_prom.read(i*4+0x82)& 0x0f;
+			COLOR(0,i*8+7) = color_prom.read(i*4+0x83)& 0x0f;
 		}
 	} };
 	
@@ -83,9 +83,9 @@ public class hanaawas
 	} };
 	
 	public static WriteHandlerPtr hanaawas_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 	
 			/* dirty both current and next offsets */
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
@@ -106,10 +106,10 @@ public class hanaawas
 	{
 		/* the color is determined by the current color byte, but the bank is via the previous one!!! */
 		int offset = (tile_index + (flip_screen ? 1 : -1)) & 0x3ff;
-		int attr = colorram[offset];
+		int attr = colorram.read(offset);
 		int gfxbank = (attr & 0x40) >> 6;
 		int code = videoram[tile_index] + ((attr & 0x20) << 3);
-		int color = colorram[tile_index] & 0x1f;
+		int color = colorram.read(tile_index)& 0x1f;
 		
 		SET_TILE_INFO(gfxbank, code, color, 0)
 	} };

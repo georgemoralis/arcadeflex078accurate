@@ -51,7 +51,7 @@ public class astinvad
 	
 	static void spaceint_refresh(int offset)
 	{
-		int n = ((offset >> 5) & 0xf0) | colorram[offset];
+		int n = ((offset >> 5) & 0xf0) | colorram.read(offset);
 	
 		//
 		//	This is almost certainly wrong.
@@ -84,7 +84,7 @@ public class astinvad
 	
 	public static WriteHandlerPtr spaceint_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		videoram[offset] = data;
-		colorram[offset] = spaceint_color;
+		colorram.write(offset,spaceint_color);
 	
 		spaceint_refresh(offset);
 	} };

@@ -100,7 +100,7 @@ public class drmicro
 		}
 	
 		for (i=0; i<Machine->drv->color_table_len; i++)
-			colortable[i] = color_prom[i] & 0x0f;
+			colortable[i] = color_prom.read(i)& 0x0f;
 	} };
 	
 	public static VideoStartHandlerPtr video_start_drmicro  = new VideoStartHandlerPtr() { public int handler(){

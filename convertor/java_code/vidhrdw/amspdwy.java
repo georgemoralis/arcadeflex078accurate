@@ -53,7 +53,7 @@ public class amspdwy
 	public static GetTileInfoHandlerPtr get_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		data8_t code	=	videoram[ tile_index ];
-		data8_t color	=	colorram[ tile_index ];
+		data8_t color	=	colorram.read( tile_index );
 		SET_TILE_INFO(
 				0,
 				code + ((color & 0x18)<<5),
@@ -70,9 +70,9 @@ public class amspdwy
 	} };
 	
 	public static WriteHandlerPtr amspdwy_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(tilemap, offset);
 		}
 	} };

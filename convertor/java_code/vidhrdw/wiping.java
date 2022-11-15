@@ -123,7 +123,7 @@ public class wiping
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
 						videoram[offs],
-						colorram[offs] & 0x3f,
+						colorram.read(offs)& 0x3f,
 						flipscreen,flipscreen,
 						sx*8,sy*8,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
@@ -162,7 +162,7 @@ public class wiping
 		/* redraw high priority chars */
 		for (offs = videoram_size - 1; offs > 0; offs--)
 		{
-			if (colorram[offs] & 0x80)
+			if (colorram.read(offs)& 0x80)
 			{
 				int mx,my,sx,sy;
 	
@@ -193,7 +193,7 @@ public class wiping
 	
 				drawgfx(bitmap,Machine->gfx[0],
 						videoram[offs],
-						colorram[offs] & 0x3f,
+						colorram.read(offs)& 0x3f,
 						flipscreen,flipscreen,
 						sx*8,sy*8,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);

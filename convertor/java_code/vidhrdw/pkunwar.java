@@ -55,8 +55,8 @@ public class pkunwar
 				if (flipscreen[1]) sy = 31 - sy;
 	
 				drawgfx(tmpbitmap,Machine->gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x07) << 8),
-						(colorram[offs] & 0xf0) >> 4,
+						videoram[offs] + ((colorram.read(offs)& 0x07) << 8),
+						(colorram.read(offs)& 0xf0) >> 4,
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,
 						&Machine->visible_area,TRANSPARENCY_NONE,0);
@@ -100,7 +100,7 @@ public class pkunwar
 		/* redraw characters which have priority over sprites */
 		for (offs = videoram_size - 1;offs >= 0;offs--)
 		{
-			if (colorram[offs] & 0x08)
+			if (colorram.read(offs)& 0x08)
 			{
 				int sx,sy;
 	
@@ -111,8 +111,8 @@ public class pkunwar
 				if (flipscreen[1]) sy = 31 - sy;
 	
 				drawgfx(bitmap,Machine->gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x07) << 8),
-						(colorram[offs] & 0xf0) >> 4,
+						videoram[offs] + ((colorram.read(offs)& 0x07) << 8),
+						(colorram.read(offs)& 0xf0) >> 4,
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,
 						&Machine->visible_area,TRANSPARENCY_PEN,0);

@@ -81,19 +81,19 @@ public class popeye
 	
 	
 			/* red component */
-			bit0 = ((color_prom[prom_offs] ^ invertmask) >> 0) & 0x01;
-			bit1 = ((color_prom[prom_offs] ^ invertmask) >> 1) & 0x01;
-			bit2 = ((color_prom[prom_offs] ^ invertmask) >> 2) & 0x01;
+			bit0 = ((color_prom.read(prom_offs)^ invertmask) >> 0) & 0x01;
+			bit1 = ((color_prom.read(prom_offs)^ invertmask) >> 1) & 0x01;
+			bit2 = ((color_prom.read(prom_offs)^ invertmask) >> 2) & 0x01;
 			r = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* green component */
-			bit0 = ((color_prom[prom_offs] ^ invertmask) >> 3) & 0x01;
-			bit1 = ((color_prom[prom_offs] ^ invertmask) >> 4) & 0x01;
-			bit2 = ((color_prom[prom_offs] ^ invertmask) >> 5) & 0x01;
+			bit0 = ((color_prom.read(prom_offs)^ invertmask) >> 3) & 0x01;
+			bit1 = ((color_prom.read(prom_offs)^ invertmask) >> 4) & 0x01;
+			bit2 = ((color_prom.read(prom_offs)^ invertmask) >> 5) & 0x01;
 			g = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* blue component */
 			bit0 = 0;
-			bit1 = ((color_prom[prom_offs] ^ invertmask) >> 6) & 0x01;
-			bit2 = ((color_prom[prom_offs] ^ invertmask) >> 7) & 0x01;
+			bit1 = ((color_prom.read(prom_offs)^ invertmask) >> 6) & 0x01;
+			bit2 = ((color_prom.read(prom_offs)^ invertmask) >> 7) & 0x01;
 			b = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 	
 			palette_set_color(pal_index++,r,g,b);
@@ -108,19 +108,19 @@ public class popeye
 	
 	
 			/* red component */
-			bit0 = ((color_prom[0] ^ invertmask) >> 0) & 0x01;
-			bit1 = ((color_prom[0] ^ invertmask) >> 1) & 0x01;
-			bit2 = ((color_prom[0] ^ invertmask) >> 2) & 0x01;
+			bit0 = ((color_prom.read(0)^ invertmask) >> 0) & 0x01;
+			bit1 = ((color_prom.read(0)^ invertmask) >> 1) & 0x01;
+			bit2 = ((color_prom.read(0)^ invertmask) >> 2) & 0x01;
 			r = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* green component */
-			bit0 = ((color_prom[0] ^ invertmask) >> 3) & 0x01;
-			bit1 = ((color_prom[256] ^ invertmask) >> 0) & 0x01;
-			bit2 = ((color_prom[256] ^ invertmask) >> 1) & 0x01;
+			bit0 = ((color_prom.read(0)^ invertmask) >> 3) & 0x01;
+			bit1 = ((color_prom.read(256)^ invertmask) >> 0) & 0x01;
+			bit2 = ((color_prom.read(256)^ invertmask) >> 1) & 0x01;
 			g = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* blue component */
 			bit0 = 0;
-			bit1 = ((color_prom[256] ^ invertmask) >> 2) & 0x01;
-			bit2 = ((color_prom[256] ^ invertmask) >> 3) & 0x01;
+			bit1 = ((color_prom.read(256)^ invertmask) >> 2) & 0x01;
+			bit2 = ((color_prom.read(256)^ invertmask) >> 3) & 0x01;
 			b = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 	
 			palette_set_color(pal_index++,r,g,b);
@@ -202,9 +202,9 @@ public class popeye
 	} };
 	
 	public static WriteHandlerPtr popeye_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(fg_tilemap, offset);
 		}
 	} };
@@ -261,7 +261,7 @@ public class popeye
 	public static GetTileInfoHandlerPtr get_fg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
 		int code = videoram[tile_index];
-		int color = colorram[tile_index];
+		int color = colorram.read(tile_index);
 	
 		SET_TILE_INFO(0, code, color, 0)
 	} };

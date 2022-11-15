@@ -33,9 +33,9 @@ public class superqix
 	} };
 	
 	public static WriteHandlerPtr superqix_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap, offset);
 		}
 	} };
@@ -113,7 +113,7 @@ public class superqix
 	
 	public static GetTileInfoHandlerPtr get_bg_tile_info = new GetTileInfoHandlerPtr() { public void handler(int tile_index) 
 	{
-		int attr = colorram[tile_index];
+		int attr = colorram.read(tile_index);
 		int bank = (attr & 0x04) ? 0 : (1 + gfxbank);
 		int code = videoram[tile_index] + 256 * (attr & 0x03);
 		int color = (attr & 0xf0) >> 4;

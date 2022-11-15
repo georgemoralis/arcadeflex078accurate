@@ -108,7 +108,7 @@ public class astrof
 		int dx = 1;
 	
 		videoram[offset] = data;
-		colorram[offset] = color;
+		colorram.write(offset,color);
 	
 		fore = Machine->pens[color | 1];
 		back = Machine->pens[color    ];
@@ -238,7 +238,7 @@ public class astrof
 			/* redraw bitmap */
 			for (offs = 0; offs < videoram_size; offs++)
 			{
-				common_videoram_w(offs, videoram[offs], colorram[offs]);
+				common_videoram_w(offs, videoram[offs], colorram.read(offs));
 			}
 		}
 		
