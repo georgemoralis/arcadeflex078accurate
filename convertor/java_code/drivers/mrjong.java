@@ -55,22 +55,26 @@ public class mrjong
 	extern extern extern 
 	extern extern extern 
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x87ff, MRA_RAM },
-		{ 0xa000, 0xa7ff, MRA_RAM },
-		{ 0xe000, 0xe3ff, MRA_RAM },
-		{ 0xe400, 0xe7ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x87ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xa000, 0xa7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xe3ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe400, 0xe7ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0x87ff, MWA_RAM },
-		{ 0xa000, 0xa7ff, MWA_RAM },
-		{ 0xe000, 0xe3ff, mrjong_videoram_w, &videoram },
-		{ 0xe400, 0xe7ff, mrjong_colorram_w, &colorram },
-		{ 0xe000, 0xe03f, MWA_RAM, &spriteram, &spriteram_size},	/* here to initialize the pointer */
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xa000, 0xa7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xe000, 0xe3ff, mrjong_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0xe400, 0xe7ff, mrjong_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0xe000, 0xe03f, MWA_RAM, &spriteram, &spriteram_size),	/* here to initialize the pointer */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static WriteHandlerPtr io_0x00_w = new WriteHandlerPtr() {public void handler(int offset, int data){

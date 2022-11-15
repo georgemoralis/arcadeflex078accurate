@@ -198,51 +198,63 @@ public class ojankohs
 	} };
 	
 	
-	static MEMORY_READ_START( readmem_ojankohs )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x8fff, ojankohs_videoram_r },
-		{ 0x9000, 0x9fff, ojankohs_colorram_r },
-		{ 0xa000, 0xb7ff, MRA_RAM },
-		{ 0xb800, 0xbfff, ojankohs_palette_r },
-		{ 0xc000, 0xffff, MRA_BANK1 },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_ojankohs[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x8fff, ojankohs_videoram_r ),
+		new Memory_ReadAddress( 0x9000, 0x9fff, ojankohs_colorram_r ),
+		new Memory_ReadAddress( 0xa000, 0xb7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xb800, 0xbfff, ojankohs_palette_r ),
+		new Memory_ReadAddress( 0xc000, 0xffff, MRA_BANK1 ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_ojankohs )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0x8fff, ojankohs_videoram_w },
-		{ 0x9000, 0x9fff, ojankohs_colorram_w },
-		{ 0xa000, 0xb7ff, MWA_RAM, &generic_nvram, &generic_nvram_size },
-		{ 0xb800, 0xbfff, ojankohs_palette_w },
-		{ 0xc000, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_ojankohs[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x8fff, ojankohs_videoram_w ),
+		new Memory_WriteAddress( 0x9000, 0x9fff, ojankohs_colorram_w ),
+		new Memory_WriteAddress( 0xa000, 0xb7ff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
+		new Memory_WriteAddress( 0xb800, 0xbfff, ojankohs_palette_w ),
+		new Memory_WriteAddress( 0xc000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_ojankoy )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x9fff, ojankohs_videoram_r },
-		{ 0xa000, 0xafff, ojankohs_colorram_r },
-		{ 0xb000, 0xbfff, MRA_RAM },
-		{ 0xc000, 0xffff, MRA_BANK1 },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_ojankoy[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x9fff, ojankohs_videoram_r ),
+		new Memory_ReadAddress( 0xa000, 0xafff, ojankohs_colorram_r ),
+		new Memory_ReadAddress( 0xb000, 0xbfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc000, 0xffff, MRA_BANK1 ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_ojankoy )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0x9fff, ojankohs_videoram_w },
-		{ 0xa000, 0xafff, ojankohs_colorram_w },
-		{ 0xb000, 0xbfff, MWA_RAM, &generic_nvram, &generic_nvram_size },
-		{ 0xc000, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_ojankoy[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x9fff, ojankohs_videoram_w ),
+		new Memory_WriteAddress( 0xa000, 0xafff, ojankohs_colorram_w ),
+		new Memory_WriteAddress( 0xb000, 0xbfff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
+		new Memory_WriteAddress( 0xc000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_ojankoc )
-		{ 0x0000, 0x77ff, MRA_ROM },
-		{ 0x7800, 0x7fff, MRA_RAM },
-		{ 0x8000, 0xffff, MRA_BANK1 },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_ojankoc[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x77ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x7800, 0x7fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_BANK1 ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_ojankoc )
-		{ 0x0000, 0x77ff, MWA_ROM },
-		{ 0x7800, 0x7fff, MWA_RAM, &generic_nvram, &generic_nvram_size },
-		{ 0x8000, 0xffff, ojankoc_videoram_w },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_ojankoc[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x77ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x7800, 0x7fff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
+		new Memory_WriteAddress( 0x8000, 0xffff, ojankoc_videoram_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( readport_ojankohs )

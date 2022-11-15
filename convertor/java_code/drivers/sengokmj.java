@@ -142,37 +142,41 @@ public class sengokmj
 	
 	/***************************************************************************************/
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x00000, 0x003ff, MRA_RAM },/*Just initialized at start-up,then not used at all...*/
-		{ 0x06700, 0x068ff, MRA_RAM },
-		{ 0x07800, 0x07fff, MRA_RAM },
-		{ 0x08000, 0x087ff, MRA_RAM },
-		{ 0x08800, 0x097ff, MRA_RAM },
-		{ 0x09800, 0x09fff, MRA_RAM },
-		{ 0x0c000, 0x0c7ff, sengoku_bg_vram_r },
-		{ 0x0c800, 0x0cfff, sengoku_fg_vram_r },
-		{ 0x0d000, 0x0d7ff, sengoku_md_vram_r },
-		{ 0x0d800, 0x0e7ff, sengoku_tx_vram_r },
-		{ 0x0f000, 0x0f7ff, paletteram_r },
-		{ 0x0f800, 0x0ffff, MRA_RAM },
-		{ 0xc0000, 0xfffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x003ff, MRA_RAM ),/*Just initialized at start-up,then not used at all...*/
+		new Memory_ReadAddress( 0x06700, 0x068ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x07800, 0x07fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x08000, 0x087ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x08800, 0x097ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x09800, 0x09fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x0c000, 0x0c7ff, sengoku_bg_vram_r ),
+		new Memory_ReadAddress( 0x0c800, 0x0cfff, sengoku_fg_vram_r ),
+		new Memory_ReadAddress( 0x0d000, 0x0d7ff, sengoku_md_vram_r ),
+		new Memory_ReadAddress( 0x0d800, 0x0e7ff, sengoku_tx_vram_r ),
+		new Memory_ReadAddress( 0x0f000, 0x0f7ff, paletteram_r ),
+		new Memory_ReadAddress( 0x0f800, 0x0ffff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc0000, 0xfffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x00000, 0x003ff, MWA_RAM },  /*Ditto from above...*/
-		{ 0x06700, 0x068ff, MWA_RAM },
-		{ 0x07800, 0x07fff, MWA_RAM },
-		{ 0x08000, 0x087ff, MWA_RAM },
-		{ 0x08800, 0x097ff, MWA_RAM },
-		{ 0x09800, 0x09fff, MWA_RAM },
-		{ 0x0c000, 0x0c7ff, sengoku_bg_vram_w ,&bg_vram },
-		{ 0x0c800, 0x0cfff, sengoku_fg_vram_w ,&fg_vram },
-		{ 0x0d000, 0x0d7ff, sengoku_md_vram_w ,&md_vram },
-		{ 0x0d800, 0x0e7ff, sengoku_tx_vram_w ,&tx_vram },
-		{ 0x0e800, 0x0f7ff, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram },
-		{ 0x0f800, 0x0ffff, MWA_RAM ,&spriteram },
-		{ 0xc0000, 0xfffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x003ff, MWA_RAM ),  /*Ditto from above...*/
+		new Memory_WriteAddress( 0x06700, 0x068ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x07800, 0x07fff, MWA_RAM ),
+		new Memory_WriteAddress( 0x08000, 0x087ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x08800, 0x097ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x09800, 0x09fff, MWA_RAM ),
+		new Memory_WriteAddress( 0x0c000, 0x0c7ff, sengoku_bg_vram_w ,&bg_vram ),
+		new Memory_WriteAddress( 0x0c800, 0x0cfff, sengoku_fg_vram_w ,&fg_vram ),
+		new Memory_WriteAddress( 0x0d000, 0x0d7ff, sengoku_md_vram_w ,&md_vram ),
+		new Memory_WriteAddress( 0x0d800, 0x0e7ff, sengoku_tx_vram_w ,&tx_vram ),
+		new Memory_WriteAddress( 0x0e800, 0x0f7ff, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram ),
+		new Memory_WriteAddress( 0x0f800, 0x0ffff, MWA_RAM ,&spriteram ),
+		new Memory_WriteAddress( 0xc0000, 0xfffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport )
 		{ 0x4000, 0x400f, seibu_main_v30_r },

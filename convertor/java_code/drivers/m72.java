@@ -516,27 +516,31 @@ public class m72
 	
 	
 	#define CPU1_MEMORY(NAME,ROMSIZE,WORKRAM) 						\
-	static MEMORY_READ_START( NAME##_readmem )						\
-		{ 0x00000, ROMSIZE-1, MRA_ROM },							\
-		{ WORKRAM, WORKRAM+0x3fff, MRA_RAM },						\
-		{ 0xc0000, 0xc03ff, MRA_RAM },								\
-		{ 0xc8000, 0xc8bff, m72_palette1_r },						\
-		{ 0xcc000, 0xccbff, m72_palette2_r },						\
-		{ 0xd0000, 0xd3fff, m72_videoram1_r },						\
-		{ 0xd8000, 0xdbfff, m72_videoram2_r },						\
-		{ 0xe0000, 0xeffff, soundram_r },							\
-	MEMORY_END														\
+	public static Memory_ReadAddress NAME##_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),					\
+		new Memory_ReadAddress( 0x00000, ROMSIZE-1, MRA_ROM ),							\
+		new Memory_ReadAddress( WORKRAM, WORKRAM+0x3fff, MRA_RAM ),						\
+		new Memory_ReadAddress( 0xc0000, 0xc03ff, MRA_RAM ),								\
+		new Memory_ReadAddress( 0xc8000, 0xc8bff, m72_palette1_r ),						\
+		new Memory_ReadAddress( 0xcc000, 0xccbff, m72_palette2_r ),						\
+		new Memory_ReadAddress( 0xd0000, 0xd3fff, m72_videoram1_r ),						\
+		new Memory_ReadAddress( 0xd8000, 0xdbfff, m72_videoram2_r ),						\
+		new Memory_ReadAddress( 0xe0000, 0xeffff, soundram_r ),							\
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};													\
 																	\
-	static MEMORY_WRITE_START( NAME##_writemem )					\
-		{ 0x00000, ROMSIZE-1, MWA_ROM },							\
-		{ WORKRAM, WORKRAM+0x3fff, MWA_RAM },	/* work RAM */		\
-		{ 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size },	\
-		{ 0xc8000, 0xc8bff, m72_palette1_w, &paletteram },			\
-		{ 0xcc000, 0xccbff, m72_palette2_w, &paletteram_2 },		\
-		{ 0xd0000, 0xd3fff, m72_videoram1_w, &m72_videoram1 },		\
-		{ 0xd8000, 0xdbfff, m72_videoram2_w, &m72_videoram2 },		\
-		{ 0xe0000, 0xeffff, soundram_w },							\
-	MEMORY_END
+	public static Memory_WriteAddress NAME##_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),				\
+		new Memory_WriteAddress( 0x00000, ROMSIZE-1, MWA_ROM ),							\
+		new Memory_WriteAddress( WORKRAM, WORKRAM+0x3fff, MWA_RAM ),	/* work RAM */		\
+		new Memory_WriteAddress( 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size ),	\
+		new Memory_WriteAddress( 0xc8000, 0xc8bff, m72_palette1_w, &paletteram ),			\
+		new Memory_WriteAddress( 0xcc000, 0xccbff, m72_palette2_w, &paletteram_2 ),		\
+		new Memory_WriteAddress( 0xd0000, 0xd3fff, m72_videoram1_w, &m72_videoram1 ),		\
+		new Memory_WriteAddress( 0xd8000, 0xdbfff, m72_videoram2_w, &m72_videoram2 ),		\
+		new Memory_WriteAddress( 0xe0000, 0xeffff, soundram_w ),							\
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*                     ROMSIZE  WORKRAM */
@@ -546,121 +550,141 @@ public class m72
 	CPU1_MEMORY( dbreed,   0x80000, 0x90000 )
 	
 	
-	static MEMORY_READ_START( rtype2_readmem )
-		{ 0x00000, 0x7ffff, MRA_ROM },
-		{ 0xc0000, 0xc03ff, MRA_RAM },
-		{ 0xc8000, 0xc8bff, m72_palette1_r },
-		{ 0xd0000, 0xd3fff, m72_videoram1_r },
-		{ 0xd4000, 0xd7fff, m72_videoram2_r },
-		{ 0xd8000, 0xd8bff, m72_palette2_r },
-		{ 0xe0000, 0xe3fff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress rtype2_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x7ffff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc0000, 0xc03ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc8000, 0xc8bff, m72_palette1_r ),
+		new Memory_ReadAddress( 0xd0000, 0xd3fff, m72_videoram1_r ),
+		new Memory_ReadAddress( 0xd4000, 0xd7fff, m72_videoram2_r ),
+		new Memory_ReadAddress( 0xd8000, 0xd8bff, m72_palette2_r ),
+		new Memory_ReadAddress( 0xe0000, 0xe3fff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( rtype2_writemem )
-		{ 0x00000, 0x7ffff, MWA_ROM },
-		{ 0xb0000, 0xb0001, m72_irq_line_w },
-		{ 0xbc000, 0xbc001, m72_dmaon_w },
-		{ 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc8000, 0xc8bff, m72_palette1_w, &paletteram },
-		{ 0xd0000, 0xd3fff, m72_videoram1_w, &m72_videoram1 },
-		{ 0xd4000, 0xd7fff, m72_videoram2_w, &m72_videoram2 },
-		{ 0xd8000, 0xd8bff, m72_palette2_w, &paletteram_2 },
-		{ 0xe0000, 0xe3fff, MWA_RAM },	/* work RAM */
-	MEMORY_END
+	public static Memory_WriteAddress rtype2_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x7ffff, MWA_ROM ),
+		new Memory_WriteAddress( 0xb0000, 0xb0001, m72_irq_line_w ),
+		new Memory_WriteAddress( 0xbc000, 0xbc001, m72_dmaon_w ),
+		new Memory_WriteAddress( 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc8000, 0xc8bff, m72_palette1_w, &paletteram ),
+		new Memory_WriteAddress( 0xd0000, 0xd3fff, m72_videoram1_w, &m72_videoram1 ),
+		new Memory_WriteAddress( 0xd4000, 0xd7fff, m72_videoram2_w, &m72_videoram2 ),
+		new Memory_WriteAddress( 0xd8000, 0xd8bff, m72_palette2_w, &paletteram_2 ),
+		new Memory_WriteAddress( 0xe0000, 0xe3fff, MWA_RAM ),	/* work RAM */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( majtitle_readmem )
-		{ 0x00000, 0x7ffff, MRA_ROM },
-		{ 0xa0000, 0xa03ff, MRA_RAM },
-		{ 0xa4000, 0xa4bff, m72_palette2_r },
-		{ 0xac000, 0xaffff, m72_videoram1_r },
-		{ 0xb0000, 0xbffff, m72_videoram2_r },
-		{ 0xc0000, 0xc03ff, MRA_RAM },
-		{ 0xc8000, 0xc83ff, MRA_RAM },
-		{ 0xcc000, 0xccbff, m72_palette1_r },
-		{ 0xd0000, 0xd3fff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress majtitle_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x7ffff, MRA_ROM ),
+		new Memory_ReadAddress( 0xa0000, 0xa03ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xa4000, 0xa4bff, m72_palette2_r ),
+		new Memory_ReadAddress( 0xac000, 0xaffff, m72_videoram1_r ),
+		new Memory_ReadAddress( 0xb0000, 0xbffff, m72_videoram2_r ),
+		new Memory_ReadAddress( 0xc0000, 0xc03ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc8000, 0xc83ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xcc000, 0xccbff, m72_palette1_r ),
+		new Memory_ReadAddress( 0xd0000, 0xd3fff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( majtitle_writemem )
-		{ 0x00000, 0x7ffff, MWA_ROM },
-		{ 0xa0000, 0xa03ff, MWA_RAM, &majtitle_rowscrollram },
-		{ 0xa4000, 0xa4bff, m72_palette2_w, &paletteram_2 },
-		{ 0xac000, 0xaffff, m72_videoram1_w, &m72_videoram1 },
-		{ 0xb0000, 0xbffff, m72_videoram2_w, &m72_videoram2 },	/* larger than the other games */
-		{ 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc8000, 0xc83ff, MWA_RAM, &spriteram_2 },
-		{ 0xcc000, 0xccbff, m72_palette1_w, &paletteram },
-		{ 0xd0000, 0xd3fff, MWA_RAM },	/* work RAM */
-		{ 0xe0000, 0xe0001, m72_irq_line_w },
-		{ 0xe4000, 0xe4001, MWA_RAM },	/* playfield enable? 1 during screen transitions, 0 otherwise */
-		{ 0xec000, 0xec001, m72_dmaon_w },
-	MEMORY_END
+	public static Memory_WriteAddress majtitle_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x7ffff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa0000, 0xa03ff, MWA_RAM, &majtitle_rowscrollram ),
+		new Memory_WriteAddress( 0xa4000, 0xa4bff, m72_palette2_w, &paletteram_2 ),
+		new Memory_WriteAddress( 0xac000, 0xaffff, m72_videoram1_w, &m72_videoram1 ),
+		new Memory_WriteAddress( 0xb0000, 0xbffff, m72_videoram2_w, &m72_videoram2 ),	/* larger than the other games */
+		new Memory_WriteAddress( 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc8000, 0xc83ff, MWA_RAM, &spriteram_2 ),
+		new Memory_WriteAddress( 0xcc000, 0xccbff, m72_palette1_w, &paletteram ),
+		new Memory_WriteAddress( 0xd0000, 0xd3fff, MWA_RAM ),	/* work RAM */
+		new Memory_WriteAddress( 0xe0000, 0xe0001, m72_irq_line_w ),
+		new Memory_WriteAddress( 0xe4000, 0xe4001, MWA_RAM ),	/* playfield enable? 1 during screen transitions, 0 otherwise */
+		new Memory_WriteAddress( 0xec000, 0xec001, m72_dmaon_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( hharry_readmem )
-		{ 0x00000, 0x7ffff, MRA_ROM },
-		{ 0xa0000, 0xa3fff, MRA_RAM },
-		{ 0xc0000, 0xc03ff, MRA_RAM },
-		{ 0xc8000, 0xc8bff, m72_palette1_r },
-		{ 0xcc000, 0xccbff, m72_palette2_r },
-		{ 0xd0000, 0xd3fff, m72_videoram1_r },
-		{ 0xd8000, 0xdbfff, m72_videoram2_r },
-	MEMORY_END
+	public static Memory_ReadAddress hharry_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x7ffff, MRA_ROM ),
+		new Memory_ReadAddress( 0xa0000, 0xa3fff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc0000, 0xc03ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc8000, 0xc8bff, m72_palette1_r ),
+		new Memory_ReadAddress( 0xcc000, 0xccbff, m72_palette2_r ),
+		new Memory_ReadAddress( 0xd0000, 0xd3fff, m72_videoram1_r ),
+		new Memory_ReadAddress( 0xd8000, 0xdbfff, m72_videoram2_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( hharry_writemem )
-		{ 0x00000, 0x7ffff, MWA_ROM },
-		{ 0xa0000, 0xa3fff, MWA_RAM },	/* work RAM */
-		{ 0xb0ffe, 0xb0fff, MWA_RAM },	/* leftover from protection?? */
-		{ 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc8000, 0xc8bff, m72_palette1_w, &paletteram },
-		{ 0xcc000, 0xccbff, m72_palette2_w, &paletteram_2 },
-		{ 0xd0000, 0xd3fff, m72_videoram1_w, &m72_videoram1 },
-		{ 0xd8000, 0xdbfff, m72_videoram2_w, &m72_videoram2 },
-	MEMORY_END
+	public static Memory_WriteAddress hharry_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x7ffff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa0000, 0xa3fff, MWA_RAM ),	/* work RAM */
+		new Memory_WriteAddress( 0xb0ffe, 0xb0fff, MWA_RAM ),	/* leftover from protection?? */
+		new Memory_WriteAddress( 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc8000, 0xc8bff, m72_palette1_w, &paletteram ),
+		new Memory_WriteAddress( 0xcc000, 0xccbff, m72_palette2_w, &paletteram_2 ),
+		new Memory_WriteAddress( 0xd0000, 0xd3fff, m72_videoram1_w, &m72_videoram1 ),
+		new Memory_WriteAddress( 0xd8000, 0xdbfff, m72_videoram2_w, &m72_videoram2 ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( hharryu_readmem )
-		{ 0x00000, 0x7ffff, MRA_ROM },
-		{ 0xa0000, 0xa0bff, m72_palette1_r },
-		{ 0xa8000, 0xa8bff, m72_palette2_r },
-		{ 0xc0000, 0xc03ff, MRA_RAM },
-		{ 0xd0000, 0xd3fff, m72_videoram1_r },
-		{ 0xd4000, 0xd7fff, m72_videoram2_r },
-		{ 0xe0000, 0xe3fff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress hharryu_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x7ffff, MRA_ROM ),
+		new Memory_ReadAddress( 0xa0000, 0xa0bff, m72_palette1_r ),
+		new Memory_ReadAddress( 0xa8000, 0xa8bff, m72_palette2_r ),
+		new Memory_ReadAddress( 0xc0000, 0xc03ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd0000, 0xd3fff, m72_videoram1_r ),
+		new Memory_ReadAddress( 0xd4000, 0xd7fff, m72_videoram2_r ),
+		new Memory_ReadAddress( 0xe0000, 0xe3fff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( hharryu_writemem )
-		{ 0x00000, 0x7ffff, MWA_ROM },
-		{ 0xa0000, 0xa0bff, m72_palette1_w, &paletteram },
-		{ 0xa8000, 0xa8bff, m72_palette2_w, &paletteram_2 },
-		{ 0xb0000, 0xb0001, m72_irq_line_w },
-		{ 0xbc000, 0xbc001, m72_dmaon_w },
-		{ 0xb0ffe, 0xb0fff, MWA_RAM },	/* leftover from protection?? */
-		{ 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xd0000, 0xd3fff, m72_videoram1_w, &m72_videoram1 },
-		{ 0xd4000, 0xd7fff, m72_videoram2_w, &m72_videoram2 },
-		{ 0xe0000, 0xe3fff, MWA_RAM },	/* work RAM */
-	MEMORY_END
+	public static Memory_WriteAddress hharryu_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x7ffff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa0000, 0xa0bff, m72_palette1_w, &paletteram ),
+		new Memory_WriteAddress( 0xa8000, 0xa8bff, m72_palette2_w, &paletteram_2 ),
+		new Memory_WriteAddress( 0xb0000, 0xb0001, m72_irq_line_w ),
+		new Memory_WriteAddress( 0xbc000, 0xbc001, m72_dmaon_w ),
+		new Memory_WriteAddress( 0xb0ffe, 0xb0fff, MWA_RAM ),	/* leftover from protection?? */
+		new Memory_WriteAddress( 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd0000, 0xd3fff, m72_videoram1_w, &m72_videoram1 ),
+		new Memory_WriteAddress( 0xd4000, 0xd7fff, m72_videoram2_w, &m72_videoram2 ),
+		new Memory_WriteAddress( 0xe0000, 0xe3fff, MWA_RAM ),	/* work RAM */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( kengo_readmem )
-		{ 0x00000, 0x7ffff, MRA_ROM },
-		{ 0xa0000, 0xa0bff, m72_palette1_r },
-		{ 0xa8000, 0xa8bff, m72_palette2_r },
-		{ 0xc0000, 0xc03ff, MRA_RAM },
-		{ 0x80000, 0x83fff, m72_videoram1_r },
-		{ 0x84000, 0x87fff, m72_videoram2_r },
-		{ 0xe0000, 0xe3fff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress kengo_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x7ffff, MRA_ROM ),
+		new Memory_ReadAddress( 0xa0000, 0xa0bff, m72_palette1_r ),
+		new Memory_ReadAddress( 0xa8000, 0xa8bff, m72_palette2_r ),
+		new Memory_ReadAddress( 0xc0000, 0xc03ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x80000, 0x83fff, m72_videoram1_r ),
+		new Memory_ReadAddress( 0x84000, 0x87fff, m72_videoram2_r ),
+		new Memory_ReadAddress( 0xe0000, 0xe3fff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( kengo_writemem )
-		{ 0x00000, 0x7ffff, MWA_ROM },
-		{ 0xa0000, 0xa0bff, m72_palette1_w, &paletteram },
-		{ 0xa8000, 0xa8bff, m72_palette2_w, &paletteram_2 },
-		{ 0xb0000, 0xb0001, m72_irq_line_w },
-	{ 0xb4000, 0xb4001, MWA_NOP },	/* ??? */
-		{ 0xbc000, 0xbc001, m72_dmaon_w },
-		{ 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0x80000, 0x83fff, m72_videoram1_w, &m72_videoram1 },
-		{ 0x84000, 0x87fff, m72_videoram2_w, &m72_videoram2 },
-		{ 0xe0000, 0xe3fff, MWA_RAM },	/* work RAM */
-	MEMORY_END
+	public static Memory_WriteAddress kengo_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x7ffff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa0000, 0xa0bff, m72_palette1_w, &paletteram ),
+		new Memory_WriteAddress( 0xa8000, 0xa8bff, m72_palette2_w, &paletteram_2 ),
+		new Memory_WriteAddress( 0xb0000, 0xb0001, m72_irq_line_w ),
+	new Memory_WriteAddress( 0xb4000, 0xb4001, MWA_NOP ),	/* ??? */
+		new Memory_WriteAddress( 0xbc000, 0xbc001, m72_dmaon_w ),
+		new Memory_WriteAddress( 0xc0000, 0xc03ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0x80000, 0x83fff, m72_videoram1_w, &m72_videoram1 ),
+		new Memory_WriteAddress( 0x84000, 0x87fff, m72_videoram2_w, &m72_videoram2 ),
+		new Memory_WriteAddress( 0xe0000, 0xe3fff, MWA_RAM ),	/* work RAM */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport )
 		{ 0x00, 0x00, input_port_0_r },
@@ -750,13 +774,17 @@ public class m72
 	PORT_END
 	
 	
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0xffff, MWA_RAM, &soundram },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xffff, MWA_RAM, &soundram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( sound_readport )
 		{ 0x01, 0x01, YM2151_status_port_0_r },

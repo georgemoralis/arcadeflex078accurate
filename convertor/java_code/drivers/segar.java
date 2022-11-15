@@ -160,40 +160,46 @@ public class segar
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0xc7ff, MRA_ROM },
-		{ 0xc800, 0xcfff, MRA_RAM },	/* Misc RAM */
-		{ 0xe000, 0xe3ff, MRA_RAM },
-		{ 0xe400, 0xe7ff, MRA_RAM },	/* Used by at least Monster Bash? */
-		{ 0xe800, 0xefff, MRA_RAM },
-		{ 0xf000, 0xf03f, MRA_RAM },	/* Dynamic color table */
-		{ 0xf040, 0xf07f, MRA_RAM },	/* Dynamic color table for background (Monster Bash)*/
-		{ 0xf080, 0xf7ff, MRA_RAM },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xc7ff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_RAM ),	/* Misc RAM */
+		new Memory_ReadAddress( 0xe000, 0xe3ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe400, 0xe7ff, MRA_RAM ),	/* Used by at least Monster Bash? */
+		new Memory_ReadAddress( 0xe800, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf000, 0xf03f, MRA_RAM ),	/* Dynamic color table */
+		new Memory_ReadAddress( 0xf040, 0xf07f, MRA_RAM ),	/* Dynamic color table for background (Monster Bash)*/
+		new Memory_ReadAddress( 0xf080, 0xf7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0xffff, segar_w, &segar_mem },
-		{ 0xe000, 0xe3ff, MWA_RAM, &videoram, &videoram_size },	/* handled by */
-		{ 0xe800, 0xefff, MWA_RAM, &segar_characterram },    	/* the above, */
-		{ 0xf000, 0xf03f, MWA_RAM, &segar_mem_colortable },     /* here only */
-		{ 0xf040, 0xf07f, MWA_RAM, &segar_mem_bcolortable },    /* to initialize */
-		{ 0xf800, 0xffff, MWA_RAM, &segar_characterram2 },    	/* the pointers */
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xffff, segar_w, &segar_mem ),
+		new Memory_WriteAddress( 0xe000, 0xe3ff, MWA_RAM, &videoram, &videoram_size ),	/* handled by */
+		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM, &segar_characterram ),    	/* the above, */
+		new Memory_WriteAddress( 0xf000, 0xf03f, MWA_RAM, &segar_mem_colortable ),     /* here only */
+		new Memory_WriteAddress( 0xf040, 0xf07f, MWA_RAM, &segar_mem_bcolortable ),    /* to initialize */
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &segar_characterram2 ),    	/* the pointers */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( sindbadm_writemem )
-		{ 0x0000, 0xc7ff, MWA_ROM },
-		{ 0xc800, 0xcfff, MWA_RAM },
-		{ 0xe000, 0xe3ff, videoram_w, &videoram, &videoram_size },
-		{ 0xe400, 0xe7ff, MWA_RAM },
-		{ 0xe800, 0xefff, segar_characterram_w, &segar_characterram },
-		{ 0xf000, 0xf03f, segar_bcolortable_w, &segar_mem_bcolortable },    /* NOTE, the two color tables are flipped! */
-		{ 0xf040, 0xf07f, segar_colortable_w, &segar_mem_colortable },
-		{ 0xf080, 0xf7ff, MWA_RAM },
-		{ 0xf800, 0xffff, segar_characterram2_w, &segar_characterram2 },
-	MEMORY_END
+	public static Memory_WriteAddress sindbadm_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xc7ff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, MWA_RAM ),
+		new Memory_WriteAddress( 0xe000, 0xe3ff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xe400, 0xe7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xe800, 0xefff, segar_characterram_w, &segar_characterram ),
+		new Memory_WriteAddress( 0xf000, 0xf03f, segar_bcolortable_w, &segar_mem_bcolortable ),    /* NOTE, the two color tables are flipped! */
+		new Memory_WriteAddress( 0xf040, 0xf07f, segar_colortable_w, &segar_mem_colortable ),
+		new Memory_WriteAddress( 0xf080, 0xf7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xf800, 0xffff, segar_characterram2_w, &segar_characterram2 ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -231,24 +237,32 @@ public class segar
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( speech_readmem )
-		{ 0x0000, 0x07ff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress speech_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x07ff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( speech_writemem )
-		{ 0x0000, 0x07ff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress speech_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_READ_START( monsterb_7751_readmem )
-		{ 0x0000, 0x03ff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress monsterb_7751_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x03ff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( monsterb_7751_writemem )
-		{ 0x0000, 0x03ff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress monsterb_7751_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( monsterb_7751_readport )
@@ -268,19 +282,23 @@ public class segar
 	PORT_END
 	
 	
-	static MEMORY_READ_START( sindbadm_sound_readmem )
-		{ 0x0000, 0x1fff, MRA_ROM },
-		{ 0x8000, 0x87ff, MRA_RAM },
-		{ 0xe000, 0xe000, soundlatch_r },
-	MEMORY_END
+	public static Memory_ReadAddress sindbadm_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x87ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xe000, soundlatch_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( sindbadm_sound_writemem )
-		{ 0x0000, 0x1fff, MWA_ROM },
-		{ 0x8000, 0x87ff, MWA_RAM },
-		{ 0xa000, 0xa003, sindbadm_SN76496_0_w },    /* the four addresses are written */
-		{ 0xc000, 0xc003, sindbadm_SN76496_1_w },    /* in sequence */
-	MEMORY_END
+	public static Memory_WriteAddress sindbadm_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x1fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xa000, 0xa003, sindbadm_SN76496_0_w ),    /* the four addresses are written */
+		new Memory_WriteAddress( 0xc000, 0xc003, sindbadm_SN76496_1_w ),    /* in sequence */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

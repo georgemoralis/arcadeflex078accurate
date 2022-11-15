@@ -341,22 +341,26 @@ public class omegrace
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x3fff, MRA_ROM },
-		{ 0x4000, 0x4bff, MRA_RAM },
-		{ 0x5c00, 0x5cff, MRA_RAM }, /* NVRAM */
-		{ 0x8000, 0x8fff, MRA_RAM },
-		{ 0x9000, 0x9fff, MRA_ROM }, /* vector rom */
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x3fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x4000, 0x4bff, MRA_RAM ),
+		new Memory_ReadAddress( 0x5c00, 0x5cff, MRA_RAM ), /* NVRAM */
+		new Memory_ReadAddress( 0x8000, 0x8fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x9000, 0x9fff, MRA_ROM ), /* vector rom */
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x3fff, MWA_ROM }, /* Omega Race tries to write there! */
-		{ 0x4000, 0x4bff, MWA_RAM },
-		{ 0x5c00, 0x5cff, MWA_RAM, &generic_nvram, &generic_nvram_size }, /* NVRAM */
-		{ 0x8000, 0x8fff, MWA_RAM, &vectorram, &vectorram_size }, /* vector ram */
-		{ 0x9000, 0x9fff, MWA_ROM }, /* vector rom */
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ), /* Omega Race tries to write there! */
+		new Memory_WriteAddress( 0x4000, 0x4bff, MWA_RAM ),
+		new Memory_WriteAddress( 0x5c00, 0x5cff, MWA_RAM, &generic_nvram, &generic_nvram_size ), /* NVRAM */
+		new Memory_WriteAddress( 0x8000, 0x8fff, MWA_RAM, &vectorram, &vectorram_size ), /* vector ram */
+		new Memory_WriteAddress( 0x9000, 0x9fff, MWA_ROM ), /* vector rom */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( readport )
@@ -386,16 +390,20 @@ public class omegrace
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0x07ff, MRA_ROM },
-		{ 0x1000, 0x13ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x07ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x1000, 0x13ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0x07ff, MWA_ROM },
-		{ 0x1000, 0x13ff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x1000, 0x13ff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( sound_readport )

@@ -372,25 +372,29 @@ public class punchout
 	
 	
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xc3ff, MRA_RAM },
-		{ 0xd000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xc3ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc3ff, MWA_RAM, &generic_nvram, &generic_nvram_size },
-		{ 0xd000, 0xd7ff, MWA_RAM },
-		{ 0xdff0, 0xdff7, MWA_RAM, &punchout_bigsprite1 },
-		{ 0xdff8, 0xdffc, MWA_RAM, &punchout_bigsprite2 },
-		{ 0xdffd, 0xdffd, punchout_palettebank_w, &punchout_palettebank },
-		{ 0xd800, 0xdfff, videoram_w, &videoram, &videoram_size },
-		{ 0xe000, 0xe7ff, punchout_bigsprite1ram_w, &punchout_bigsprite1ram, &punchout_bigsprite1ram_size },
-		{ 0xe800, 0xefff, punchout_bigsprite2ram_w, &punchout_bigsprite2ram, &punchout_bigsprite2ram_size },
-		{ 0xf000, 0xf03f, MWA_RAM, &punchout_scroll },
-		{ 0xf000, 0xffff, punchout_videoram2_w, &punchout_videoram2, &punchout_videoram2_size },
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc3ff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xdff0, 0xdff7, MWA_RAM, &punchout_bigsprite1 ),
+		new Memory_WriteAddress( 0xdff8, 0xdffc, MWA_RAM, &punchout_bigsprite2 ),
+		new Memory_WriteAddress( 0xdffd, 0xdffd, punchout_palettebank_w, &punchout_palettebank ),
+		new Memory_WriteAddress( 0xd800, 0xdfff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, punchout_bigsprite1ram_w, &punchout_bigsprite1ram, &punchout_bigsprite1ram_size ),
+		new Memory_WriteAddress( 0xe800, 0xefff, punchout_bigsprite2ram_w, &punchout_bigsprite2ram, &punchout_bigsprite2ram_size ),
+		new Memory_WriteAddress( 0xf000, 0xf03f, MWA_RAM, &punchout_scroll ),
+		new Memory_WriteAddress( 0xf000, 0xffff, punchout_videoram2_w, &punchout_videoram2, &punchout_videoram2_size ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport )
 		{ 0x00, 0x00, input_port_0_r },
@@ -442,19 +446,23 @@ public class punchout
 		{ 0xf7, 0xf7, spunchout_prot_f_w },
 	PORT_END
 	
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0x07ff, MRA_RAM },
-		{ 0x4016, 0x4016, soundlatch_r },
-		{ 0x4017, 0x4017, soundlatch2_r },
-		{ 0x4000, 0x4017, NESPSG_0_r },
-		{ 0xe000, 0xffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x07ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x4016, 0x4016, soundlatch_r ),
+		new Memory_ReadAddress( 0x4017, 0x4017, soundlatch2_r ),
+		new Memory_ReadAddress( 0x4000, 0x4017, NESPSG_0_r ),
+		new Memory_ReadAddress( 0xe000, 0xffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0x07ff, MWA_RAM },
-		{ 0x4000, 0x4017, NESPSG_0_w },
-		{ 0xe000, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x4000, 0x4017, NESPSG_0_w ),
+		new Memory_WriteAddress( 0xe000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -672,7 +680,7 @@ public class punchout
 		{ 0, 1, 2, 3, 4, 5, 6, 7 },
 		{ 0*8, 1*8, 2*8, 3*8, 4*8, 5*8, 6*8, 7*8 },
 		8*8	/* every char takes 8 consecutive bytes */
-	} };;
+	};
 	
 	static struct GfxLayout armwrest_charlayout =
 	{

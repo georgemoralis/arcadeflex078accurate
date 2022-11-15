@@ -54,22 +54,26 @@ public class leland
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( master_readmem )
-		{ 0x0000, 0x1fff, MRA_ROM },
-		{ 0x2000, 0x9fff, MRA_BANK1 },
-		{ 0xa000, 0xdfff, MRA_BANK2 },
-		{ 0xe000, 0xefff, MRA_RAM },
-		{ 0xf000, 0xf3ff, leland_gated_paletteram_r },
-	MEMORY_END
+	public static Memory_ReadAddress master_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x2000, 0x9fff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xa000, 0xdfff, MRA_BANK2 ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf000, 0xf3ff, leland_gated_paletteram_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( master_writemem )
-		{ 0x0000, 0x9fff, MWA_ROM },
-		{ 0xa000, 0xdfff, leland_battery_ram_w },
-		{ 0xe000, 0xefff, MWA_RAM },
-		{ 0xf000, 0xf3ff, leland_gated_paletteram_w, &paletteram },
-		{ 0xf800, 0xf801, leland_master_video_addr_w },
-	MEMORY_END
+	public static Memory_WriteAddress master_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa000, 0xdfff, leland_battery_ram_w ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress( 0xf000, 0xf3ff, leland_gated_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xf801, leland_master_video_addr_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( master_readport )
@@ -93,36 +97,44 @@ public class leland
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( slave_small_readmem )
-		{ 0x0000, 0x1fff, MRA_ROM },
-		{ 0x2000, 0xdfff, MRA_BANK3 },
-		{ 0xe000, 0xefff, MRA_RAM },
-		{ 0xf802, 0xf802, leland_raster_r },
-	MEMORY_END
+	public static Memory_ReadAddress slave_small_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x2000, 0xdfff, MRA_BANK3 ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf802, 0xf802, leland_raster_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( slave_small_writemem )
-		{ 0x0000, 0xdfff, MWA_ROM },
-		{ 0xe000, 0xefff, MWA_RAM },
-		{ 0xf800, 0xf801, leland_slave_video_addr_w },
-		{ 0xf803, 0xf803, leland_slave_small_banksw_w },
-	MEMORY_END
+	public static Memory_WriteAddress slave_small_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xdfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress( 0xf800, 0xf801, leland_slave_video_addr_w ),
+		new Memory_WriteAddress( 0xf803, 0xf803, leland_slave_small_banksw_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_READ_START( slave_large_readmem )
-		{ 0x0000, 0x1fff, MRA_ROM },
-		{ 0x4000, 0xbfff, MRA_BANK3 },
-		{ 0xe000, 0xefff, MRA_RAM },
-		{ 0xf802, 0xf802, leland_raster_r },
-	MEMORY_END
+	public static Memory_ReadAddress slave_large_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x4000, 0xbfff, MRA_BANK3 ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf802, 0xf802, leland_raster_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( slave_large_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc000, leland_slave_large_banksw_w },
-		{ 0xe000, 0xefff, MWA_RAM },
-		{ 0xf800, 0xf801, leland_slave_video_addr_w },
-	MEMORY_END
+	public static Memory_WriteAddress slave_large_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc000, leland_slave_large_banksw_w ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress( 0xf800, 0xf801, leland_slave_video_addr_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( slave_readport )

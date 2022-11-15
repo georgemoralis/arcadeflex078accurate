@@ -78,35 +78,43 @@ public class kchamp
 	static int nmi_enable = 0;
 	static int sound_nmi_enable = 0;
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xcfff, MRA_RAM },
-		{ 0xd000, 0xd3ff, MRA_RAM },
-		{ 0xd400, 0xd7ff, MRA_RAM },
-		{ 0xd800, 0xd8ff, MRA_RAM },
-		{ 0xd900, 0xdfff, MRA_RAM },
-		{ 0xe000, 0xffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xd3ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd400, 0xd7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd800, 0xd8ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd900, 0xdfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xcfff, MWA_RAM },
-		{ 0xd000, 0xd3ff, kchamp_videoram_w, &videoram },
-		{ 0xd400, 0xd7ff, kchamp_colorram_w, &colorram },
-		{ 0xd800, 0xd8ff, spriteram_w, &spriteram, &spriteram_size },
-		{ 0xd900, 0xdfff, MWA_RAM },
-		{ 0xe000, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, kchamp_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0xd400, 0xd7ff, kchamp_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0xd800, 0xd8ff, spriteram_w, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd900, 0xdfff, MWA_RAM ),
+		new Memory_WriteAddress( 0xe000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0x5fff, MRA_ROM },
-		{ 0x6000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x5fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x6000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0x5fff, MWA_ROM },
-		{ 0x6000, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x6000, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	public static WriteHandlerPtr control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		nmi_enable = data & 1;
@@ -166,33 +174,41 @@ public class kchamp
 	* 1 Player Version  *
 	********************/
 	
-	static MEMORY_READ_START( kc_readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xdfff, MRA_RAM },
-		{ 0xe000, 0xe3ff, MRA_RAM },
-		{ 0xe400, 0xe7ff, MRA_RAM },
-		{ 0xea00, 0xeaff, MRA_RAM },
-		{ 0xeb00, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress kc_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xe3ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe400, 0xe7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xea00, 0xeaff, MRA_RAM ),
+		new Memory_ReadAddress( 0xeb00, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( kc_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xdfff, MWA_RAM },
-		{ 0xe000, 0xe3ff, kchamp_videoram_w, &videoram },
-		{ 0xe400, 0xe7ff, kchamp_colorram_w, &colorram },
-		{ 0xea00, 0xeaff, spriteram_w, &spriteram, &spriteram_size },
-		{ 0xeb00, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress kc_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM ),
+		new Memory_WriteAddress( 0xe000, 0xe3ff, kchamp_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0xe400, 0xe7ff, kchamp_colorram_w, &colorram ),
+		new Memory_WriteAddress( 0xea00, 0xeaff, spriteram_w, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xeb00, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( kc_sound_readmem )
-		{ 0x0000, 0xdfff, MRA_ROM },
-		{ 0xe000, 0xe2ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress kc_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xdfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xe000, 0xe2ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( kc_sound_writemem )
-		{ 0x0000, 0xdfff, MWA_ROM },
-		{ 0xe000, 0xe2ff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress kc_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xdfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xe000, 0xe2ff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	public static ReadHandlerPtr sound_reset_r  = new ReadHandlerPtr() { public int handler(int offset)
 		cpu_set_reset_line(1,PULSE_LINE);

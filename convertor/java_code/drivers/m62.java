@@ -190,21 +190,25 @@ public class m62
 	} };
 	
 	
-	static MEMORY_READ_START( kungfum_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0xd000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress kungfum_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xd000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( kungfum_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0xa000, 0xa000, m62_hscroll_low_w },
-		{ 0xb000, 0xb000, m62_hscroll_high_w },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
+	public static Memory_WriteAddress kungfum_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa000, 0xa000, m62_hscroll_low_w ),
+		new Memory_WriteAddress( 0xb000, 0xb000, m62_hscroll_high_w ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
 		/* Kung Fu Master is the only game in this driver to have separated (but */
 		/* contiguous) videoram and colorram. They are interleaved in all the others. */
-		{ 0xd000, 0xdfff, kungfum_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+		new Memory_WriteAddress( 0xd000, 0xdfff, kungfum_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( kungfum_readport )
 		{ 0x00, 0x00, input_port_0_r },   /* coin */
@@ -220,19 +224,23 @@ public class m62
 	PORT_END
 	
 	
-	static MEMORY_READ_START( battroad_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0xa000, 0xbfff, MRA_BANK1 },
-		{ 0xc800, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress battroad_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xa000, 0xbfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xc800, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( battroad_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc800, 0xcfff, m62_textram_w, &m62_textram },
-		{ 0xd000, 0xdfff, m62_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress battroad_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, m62_textram_w, &m62_textram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( battroad_writeport )
 		{ 0x00, 0x00, irem_sound_cmd_w },
@@ -244,31 +252,39 @@ public class m62
 	PORT_END
 	
 	
-	static MEMORY_READ_START( ldrun_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0xd000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress ldrun_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xd000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( ldrun_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xd000, 0xdfff, m62_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress ldrun_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_READ_START( ldrun2_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x9fff, MRA_BANK1 },
-		{ 0xd000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress ldrun2_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x9fff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xd000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( ldrun2_writemem )
-		{ 0x0000, 0x9fff, MWA_ROM },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xd000, 0xdfff, m62_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress ldrun2_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( ldrun2_readport )
 		{ 0x00, 0x00, input_port_0_r },   /* coin */
@@ -286,20 +302,24 @@ public class m62
 	PORT_END
 	
 	
-	static MEMORY_READ_START( ldrun3_readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc800, 0xc800, ldrun3_prot_5_r },
-		{ 0xcc00, 0xcc00, ldrun3_prot_7_r },
-		{ 0xcfff, 0xcfff, ldrun3_prot_7_r },
-		{ 0xd000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress ldrun3_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc800, 0xc800, ldrun3_prot_5_r ),
+		new Memory_ReadAddress( 0xcc00, 0xcc00, ldrun3_prot_7_r ),
+		new Memory_ReadAddress( 0xcfff, 0xcfff, ldrun3_prot_7_r ),
+		new Memory_ReadAddress( 0xd000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( ldrun3_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xd000, 0xdfff, m62_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress ldrun3_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( ldrun3_writeport )
 		{ 0x00, 0x00, irem_sound_cmd_w },
@@ -309,19 +329,23 @@ public class m62
 	PORT_END
 	
 	
-	static MEMORY_READ_START( ldrun4_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_BANK1 },
-		{ 0xd000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress ldrun4_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xd000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( ldrun4_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc800, 0xc800, ldrun4_bankswitch_w },
-		{ 0xd000, 0xdfff, m62_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress ldrun4_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xc800, ldrun4_bankswitch_w ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( ldrun4_writeport )
 		{ 0x00, 0x00, irem_sound_cmd_w },
@@ -331,35 +355,43 @@ public class m62
 	PORT_END
 	
 	
-	static MEMORY_READ_START( lotlot_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0xa000, 0xafff, MRA_RAM },
-		{ 0xd000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress lotlot_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xa000, 0xafff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( lotlot_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0xa000, 0xafff, m62_textram_w, &m62_textram },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xd000, 0xdfff, m62_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress lotlot_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa000, 0xafff, m62_textram_w, &m62_textram ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_READ_START( kidniki_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x9fff, MRA_BANK1 },
-		{ 0xa000, 0xafff, MRA_RAM },
-		{ 0xd000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress kidniki_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x9fff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xa000, 0xafff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( kidniki_writemem )
-		{ 0x0000, 0x9fff, MWA_ROM },
-		{ 0xa000, 0xafff, m62_tileram_w, &m62_tileram },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xd000, 0xdfff, m62_textram_w, &m62_textram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress kidniki_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa000, 0xafff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, m62_textram_w, &m62_textram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( kidniki_writeport )
 		{ 0x00, 0x00, irem_sound_cmd_w },
@@ -373,66 +405,78 @@ public class m62
 	PORT_END
 	
 	
-	static MEMORY_READ_START( spelunkr_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x9fff, MRA_BANK1 },
-		{ 0xa000, 0xbfff, MRA_RAM },
-		{ 0xc800, 0xcfff, MRA_RAM },
-		{ 0xe000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress spelunkr_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x9fff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xa000, 0xbfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( spelunkr_writemem )
-		{ 0x0000, 0x9fff, MWA_ROM },
-		{ 0xa000, 0xbfff, m62_tileram_w, &m62_tileram },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc800, 0xcfff, m62_textram_w, &m62_textram },
-		{ 0xd000, 0xd000, m62_vscroll_low_w },
-		{ 0xd001, 0xd001, m62_vscroll_high_w },
-		{ 0xd002, 0xd002, m62_hscroll_low_w },
-		{ 0xd003, 0xd003, m62_hscroll_high_w },
-		{ 0xd004, 0xd004, spelunkr_bankswitch_w },
-		{ 0xd005, 0xd005, spelunkr_palbank_w },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
-	
-	
-	static MEMORY_READ_START( spelunk2_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x8fff, MRA_BANK1 },
-		{ 0x9000, 0x9fff, MRA_BANK2 },
-		{ 0xa000, 0xbfff, MRA_RAM },
-		{ 0xc800, 0xcfff, MRA_RAM },
-		{ 0xe000, 0xefff, MRA_RAM },
-	MEMORY_END
-	
-	static MEMORY_WRITE_START( spelunk2_writemem )
-		{ 0x0000, 0x9fff, MWA_ROM },
-		{ 0xa000, 0xbfff, m62_tileram_w, &m62_tileram },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc800, 0xcfff, m62_textram_w, &m62_textram },
-		{ 0xd000, 0xd000, m62_vscroll_low_w },
-		{ 0xd001, 0xd001, m62_hscroll_low_w },
-		{ 0xd002, 0xd002, spelunk2_gfxport_w },
-		{ 0xd003, 0xd003, spelunk2_bankswitch_w },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress spelunkr_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa000, 0xbfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, m62_textram_w, &m62_textram ),
+		new Memory_WriteAddress( 0xd000, 0xd000, m62_vscroll_low_w ),
+		new Memory_WriteAddress( 0xd001, 0xd001, m62_vscroll_high_w ),
+		new Memory_WriteAddress( 0xd002, 0xd002, m62_hscroll_low_w ),
+		new Memory_WriteAddress( 0xd003, 0xd003, m62_hscroll_high_w ),
+		new Memory_WriteAddress( 0xd004, 0xd004, spelunkr_bankswitch_w ),
+		new Memory_WriteAddress( 0xd005, 0xd005, spelunkr_palbank_w ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_READ_START( youjyudn_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_BANK1 },
-		{ 0xc800, 0xcfff, MRA_RAM },
-		{ 0xd000, 0xd7ff, MRA_RAM },
-		{ 0xe000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress spelunk2_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x8fff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0x9000, 0x9fff, MRA_BANK2 ),
+		new Memory_ReadAddress( 0xa000, 0xbfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( youjyudn_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc800, 0xcfff, m62_textram_w, &m62_textram },
-		{ 0xd000, 0xd7ff, m62_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress spelunk2_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa000, 0xbfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, m62_textram_w, &m62_textram ),
+		new Memory_WriteAddress( 0xd000, 0xd000, m62_vscroll_low_w ),
+		new Memory_WriteAddress( 0xd001, 0xd001, m62_hscroll_low_w ),
+		new Memory_WriteAddress( 0xd002, 0xd002, spelunk2_gfxport_w ),
+		new Memory_WriteAddress( 0xd003, 0xd003, spelunk2_bankswitch_w ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
+	
+	
+	public static Memory_ReadAddress youjyudn_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xd7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
+	
+	public static Memory_WriteAddress youjyudn_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, m62_textram_w, &m62_textram ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( youjyudn_writeport )
 		{ 0x00, 0x00, irem_sound_cmd_w },
@@ -443,21 +487,25 @@ public class m62
 	PORT_END
 	
 	
-	static MEMORY_READ_START( horizon_readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xc1ff, MRA_RAM },
-		{ 0xc800, 0xc83f, MRA_RAM },
-		{ 0xd000, 0xdfff, MRA_RAM },
-		{ 0xe000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress horizon_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xc1ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc800, 0xc83f, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xdfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( horizon_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc1ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc800, 0xc83f, horizon_scrollram_w, &horizon_scrollram },
-		{ 0xd000, 0xdfff, m62_tileram_w, &m62_tileram },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress horizon_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc1ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xc83f, horizon_scrollram_w, &horizon_scrollram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, m62_tileram_w, &m62_tileram ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

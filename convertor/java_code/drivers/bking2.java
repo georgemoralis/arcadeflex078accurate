@@ -124,17 +124,21 @@ public class bking2
 		return 0x31; //no "bad rom.", no "bad ext."
 	} };
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x83ff, MRA_RAM },
-		{ 0x9000, 0x97ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x83ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x9000, 0x97ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0x83ff, MWA_RAM },
-		{ 0x9000, 0x97ff, bking2_playfield_w, &bking2_playfield_ram },
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x83ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x9000, 0x97ff, bking2_playfield_w, &bking2_playfield_ram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport )
 		{ 0x00, 0x00, input_port_0_r },
@@ -174,29 +178,33 @@ public class bking2
 		{ 0x8f, 0x8f, bk3_l_w },
 	PORT_END
 	
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0x1fff, MRA_ROM },
-		{ 0x2000, 0x2fff, MRA_ROM }, //only bking3
-		{ 0x4000, 0x43ff, MRA_RAM },
-		{ 0x4401, 0x4401, AY8910_read_port_0_r },
-		{ 0x4403, 0x4403, AY8910_read_port_1_r },
-		{ 0x4800, 0x4800, soundlatch_r },
-		{ 0x4802, 0x4802, bking2_sndnmi_disable_r },
-		{ 0xe000, 0xefff, MRA_ROM },   /* space for some other ROM???
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x2000, 0x2fff, MRA_ROM ), //only bking3
+		new Memory_ReadAddress( 0x4000, 0x43ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x4401, 0x4401, AY8910_read_port_0_r ),
+		new Memory_ReadAddress( 0x4403, 0x4403, AY8910_read_port_1_r ),
+		new Memory_ReadAddress( 0x4800, 0x4800, soundlatch_r ),
+		new Memory_ReadAddress( 0x4802, 0x4802, bking2_sndnmi_disable_r ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_ROM ),   /* space for some other ROM???
 										  It's checked if there is valid code there
 										  [Probably diagnostic ROM like other early Taito games -AS]*/
-	MEMORY_END
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0x1fff, MWA_ROM },
-		{ 0x2000, 0x2fff, MWA_ROM }, //only bking3
-		{ 0x4000, 0x43ff, MWA_RAM },
-		{ 0x4400, 0x4400, AY8910_control_port_0_w },
-		{ 0x4401, 0x4401, AY8910_write_port_0_w },
-		{ 0x4402, 0x4402, AY8910_control_port_1_w },
-		{ 0x4403, 0x4403, AY8910_write_port_1_w },
-		{ 0x4802, 0x4802, bking2_sndnmi_enable_w },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x1fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x2000, 0x2fff, MWA_ROM ), //only bking3
+		new Memory_WriteAddress( 0x4000, 0x43ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x4400, 0x4400, AY8910_control_port_0_w ),
+		new Memory_WriteAddress( 0x4401, 0x4401, AY8910_write_port_0_w ),
+		new Memory_WriteAddress( 0x4402, 0x4402, AY8910_control_port_1_w ),
+		new Memory_WriteAddress( 0x4403, 0x4403, AY8910_write_port_1_w ),
+		new Memory_WriteAddress( 0x4802, 0x4802, bking2_sndnmi_enable_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static InputPortHandlerPtr input_ports_bking = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( bking )
 		PORT_START();   /* IN0 */

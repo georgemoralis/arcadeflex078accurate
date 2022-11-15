@@ -104,29 +104,33 @@ public class spdbuggy
 	} };
 	
 	// f002 read : watchdog reset
-	static MEMORY_READ_START ( spdbuggy_readmem )
-		{ 0x00000, 0x023ff, MRA_RAM },
+	public static Memory_ReadAddress spdbuggy_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x023ff, MRA_RAM ),
 	
-		{ 0x08000, 0x08fff, MRA_RAM },
-		{ 0x0a000, 0x0afff, MRA_RAM },	// shared?
-		{ 0x18000, 0x18fff, MRA_RAM },
+		new Memory_ReadAddress( 0x08000, 0x08fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x0a000, 0x0afff, MRA_RAM ),	// shared?
+		new Memory_ReadAddress( 0x18000, 0x18fff, MRA_RAM ),
 	
-		{ 0x10000, 0x17fff, MRA_ROM },
-		{ 0x20000, 0x2ffff, MRA_ROM },
-		{ 0xf0000, 0xfffff, MRA_ROM },
-	MEMORY_END
+		new Memory_ReadAddress( 0x10000, 0x17fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x20000, 0x2ffff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf0000, 0xfffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START ( spdbuggy_writemem )
-		{ 0x00000, 0x023ff, MWA_RAM },
+	public static Memory_WriteAddress spdbuggy_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x023ff, MWA_RAM ),
 	
-		{ 0x08000, 0x08fff, spdbuggy_fgram_w, &spdbuggy_fgram	},	// fg
-		{ 0x18000, 0x18fff, spdbuggy_bgram_w, &spdbuggy_bgram	},	// bg
-		{ 0x0a000, 0x0afff, MWA_RAM },	// shared?
+		new Memory_WriteAddress( 0x08000, 0x08fff, spdbuggy_fgram_w, &spdbuggy_fgram	),	// fg
+		new Memory_WriteAddress( 0x18000, 0x18fff, spdbuggy_bgram_w, &spdbuggy_bgram	),	// bg
+		new Memory_WriteAddress( 0x0a000, 0x0afff, MWA_RAM ),	// shared?
 	
-		{ 0x10000, 0x17fff, MWA_ROM },
-		{ 0x20000, 0x2ffff, MWA_ROM },
-		{ 0xf0000, 0xfffff, MWA_ROM },
-	MEMORY_END
+		new Memory_WriteAddress( 0x10000, 0x17fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x20000, 0x2ffff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf0000, 0xfffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -159,15 +163,19 @@ public class spdbuggy
 	} };
 	
 	
-	static MEMORY_READ_START ( spdbuggy_readmem2 )
-		{ 0x0000, 0x7fff, spdbuggy_ram2_r },
-		{ 0x8000, 0xffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress spdbuggy_readmem2[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, spdbuggy_ram2_r ),
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START ( spdbuggy_writemem2 )
-		{ 0x0000, 0x7fff, MWA_RAM, &spdbuggy_ram2 },
-		{ 0x8000, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress spdbuggy_writemem2[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_RAM, &spdbuggy_ram2 ),
+		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

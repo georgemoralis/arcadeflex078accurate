@@ -210,21 +210,25 @@ public class arabian
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0xc000, 0xc000, input_port_0_r },
-		{ 0xc200, 0xc200, input_port_1_r },
-		{ 0xd000, 0xd7ef, MRA_RAM },
-		{ 0xd7f0, 0xd7ff, custom_cpu_r },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xc000, input_port_0_r ),
+		new Memory_ReadAddress( 0xc200, 0xc200, input_port_1_r ),
+		new Memory_ReadAddress( 0xd000, 0xd7ef, MRA_RAM ),
+		new Memory_ReadAddress( 0xd7f0, 0xd7ff, custom_cpu_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0xbfff, arabian_videoram_w, &videoram },
-		{ 0xd000, 0xd7ff, MWA_RAM, &custom_cpu_ram },
-		{ 0xe000, 0xe07f, arabian_blitter_w, &spriteram },
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0xbfff, arabian_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, MWA_RAM, &custom_cpu_ram ),
+		new Memory_WriteAddress( 0xe000, 0xe07f, arabian_blitter_w, &spriteram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

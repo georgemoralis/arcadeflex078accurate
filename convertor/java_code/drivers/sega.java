@@ -149,19 +149,23 @@ public class sega
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc800, 0xcfff, MRA_RAM },
-		{ 0xe000, 0xefff, MRA_RAM },
-		{ 0xd000, 0xdfff, MRA_RAM },			/* sound ram */
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xdfff, MRA_RAM ),			/* sound ram */
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0xffff, sega_w, &sega_mem },
-		{ 0xe000, 0xefff, MWA_RAM, &vectorram, &vectorram_size },	/* handled by the above, */
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xffff, sega_w, &sega_mem ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM, &vectorram, &vectorram_size ),	/* handled by the above, */
 													/* here only to initialize the pointer */
-	MEMORY_END
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	public static ReadHandlerPtr sega_sh_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* 0x80 = universal sound board ready */
@@ -187,14 +191,18 @@ public class sega
 	
 	
 	
-	static MEMORY_READ_START( speech_readmem )
-		{ 0x0000, 0x07ff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress speech_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x07ff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( speech_writemem )
-		{ 0x0000, 0x07ff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress speech_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x07ff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*************************************

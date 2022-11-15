@@ -105,19 +105,23 @@ public class marinedt
 	static	int coll,cx,cyr,cyq;
 	static	int collh,cxh,cyrh,cyqh;
 	
-	static MEMORY_READ_START( marinedt_readmem )
-		{ 0x0000, 0x37ff, MRA_ROM },
-		{ 0x4000, 0x43ff, MRA_RAM },
-		{ 0x4400, 0x47ff, MRA_RAM },	//unused, vram mirror?
-		{ 0x4000, 0x4bff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress marinedt_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x37ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x4000, 0x43ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x4400, 0x47ff, MRA_RAM ),	//unused, vram mirror?
+		new Memory_ReadAddress( 0x4000, 0x4bff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( marinedt_writemem )
-		{ 0x0000, 0x37ff, MWA_ROM },
-		{ 0x4000, 0x47ff, MWA_RAM },
-		{ 0x4800, 0x4bff, videoram_w, &videoram, &videoram_size },
-		{ 0x4c00, 0x4c00, MWA_NOP },	//?? maybe off by one error
-	MEMORY_END
+	public static Memory_WriteAddress marinedt_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x37ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x4800, 0x4bff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x4c00, 0x4c00, MWA_NOP ),	//?? maybe off by one error
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	public static ReadHandlerPtr marinedt_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 	//might need to be reversed for cocktail stuff

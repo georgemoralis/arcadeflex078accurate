@@ -53,22 +53,26 @@ public class paradise
 	} };
 	
 	
-	static MEMORY_READ_START( paradise_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM		},	// ROM
-		{ 0x8000, 0xbfff, MRA_BANK1		},	// ROM (banked)
-		{ 0xc000, 0xffff, MRA_RAM		},	// RAM
-	MEMORY_END
+	public static Memory_ReadAddress paradise_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM		),	// ROM
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1		),	// ROM (banked)
+		new Memory_ReadAddress( 0xc000, 0xffff, MRA_RAM		),	// RAM
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( paradise_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM		},	// ROM
-		{ 0x8000, 0xbfff, MWA_ROM		},	// ROM (banked)
-		{ 0xc000, 0xc7ff, paradise_vram_2_w,&paradise_vram_2	},	// Background
-		{ 0xc800, 0xcfff, paradise_vram_1_w,&paradise_vram_1	},	// Midground
-		{ 0xd000, 0xd7ff, paradise_vram_0_w,&paradise_vram_0	},	// Foreground
-		{ 0xd800, 0xd8ff, MWA_RAM								},	// RAM
-		{ 0xd900, 0xe0ff, MWA_RAM, &spriteram, &spriteram_size	},	// Sprites
-		{ 0xe100, 0xffff, MWA_RAM								},	// RAM
-	MEMORY_END
+	public static Memory_WriteAddress paradise_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM		),	// ROM
+		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_ROM		),	// ROM (banked)
+		new Memory_WriteAddress( 0xc000, 0xc7ff, paradise_vram_2_w,&paradise_vram_2	),	// Background
+		new Memory_WriteAddress( 0xc800, 0xcfff, paradise_vram_1_w,&paradise_vram_1	),	// Midground
+		new Memory_WriteAddress( 0xd000, 0xd7ff, paradise_vram_0_w,&paradise_vram_0	),	// Foreground
+		new Memory_WriteAddress( 0xd800, 0xd8ff, MWA_RAM								),	// RAM
+		new Memory_WriteAddress( 0xd900, 0xe0ff, MWA_RAM, &spriteram, &spriteram_size	),	// Sprites
+		new Memory_WriteAddress( 0xe100, 0xffff, MWA_RAM								),	// RAM
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

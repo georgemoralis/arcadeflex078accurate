@@ -349,21 +349,25 @@ public class djboy
 	
 	/******************************************************************************/
 	
-	static MEMORY_READ_START( cpu1_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0xb000, 0xbfff, MRA_RAM }, /* spriteram */
-		{ 0xc000, 0xdfff, MRA_BANK1 },
-		{ 0xe000, 0xefff, MRA_RAM }, /* shareram */
-		{ 0xf000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress cpu1_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xb000, 0xbfff, MRA_RAM ), /* spriteram */
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ), /* shareram */
+		new Memory_ReadAddress( 0xf000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( cpu1_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0xb000, 0xbfff, MWA_RAM, &spriteram },
-		{ 0xc000, 0xdfff, MWA_ROM },
-		{ 0xe000, 0xffff, MWA_RAM, &sharedram },
-	MEMORY_END
+	public static Memory_WriteAddress cpu1_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xb000, 0xbfff, MWA_RAM, &spriteram ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM, &sharedram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( cpu1_writeport )
 		{ 0x00, 0x00, cpu1_bankswitch_w },
@@ -371,24 +375,28 @@ public class djboy
 	
 	/******************************************************************************/
 	
-	static MEMORY_READ_START( cpu2_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_BANK2 },
-		{ 0xc000, 0xcfff, MRA_RAM }, /* videoram */
-		{ 0xd000, 0xd3ff, MRA_RAM }, /* paletteram */
-		{ 0xd400, 0xd7ff, MRA_RAM }, /* workram */
-		/* { 0xd800, 0xd8ff, MRA_RAM }, */ /* protection? */
-		{ 0xe000, 0xffff, sharedram_r },
-	MEMORY_END
+	public static Memory_ReadAddress cpu2_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK2 ),
+		new Memory_ReadAddress( 0xc000, 0xcfff, MRA_RAM ), /* videoram */
+		new Memory_ReadAddress( 0xd000, 0xd3ff, MRA_RAM ), /* paletteram */
+		new Memory_ReadAddress( 0xd400, 0xd7ff, MRA_RAM ), /* workram */
+		/* new Memory_ReadAddress( 0xd800, 0xd8ff, MRA_RAM ), */ /* protection? */
+		new Memory_ReadAddress( 0xe000, 0xffff, sharedram_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( cpu2_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xcfff, djboy_videoram_w, &videoram },
-		{ 0xd000, 0xd3ff, djboy_paletteram_w, &paletteram },
-		{ 0xd400, 0xd7ff, MWA_RAM }, /* workram */
-		/* { 0xd800, 0xd8ff, MWA_RAM }, */ /* protection? */
-		{ 0xe000, 0xffff, sharedram_w },
-	MEMORY_END
+	public static Memory_WriteAddress cpu2_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, djboy_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0xd000, 0xd3ff, djboy_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0xd400, 0xd7ff, MWA_RAM ), /* workram */
+		/* new Memory_WriteAddress( 0xd800, 0xd8ff, MWA_RAM ), */ /* protection? */
+		new Memory_WriteAddress( 0xe000, 0xffff, sharedram_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport2 )
 		{ 0x04, 0x04, cpu2_data_r },
@@ -406,17 +414,21 @@ public class djboy
 	
 	/******************************************************************************/
 	
-	static MEMORY_READ_START( cpu3_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_BANK3 },
-		{ 0xc000, 0xdfff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress cpu3_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK3 ),
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( cpu3_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0xc000, 0xdfff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress cpu3_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( cpu3_readport )
 		{ 0x02, 0x02, YM2203_status_port_0_r },

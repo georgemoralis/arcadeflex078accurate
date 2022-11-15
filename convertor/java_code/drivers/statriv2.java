@@ -249,33 +249,41 @@ public class statriv2
 		return (question_data[offs] ^ 0xFF) ^ XORval;
 	} };
 	
-	static MEMORY_READ_START( statriv2_readmem )
-		{ 0x0000, 0x2fff, MRA_ROM },
-		{ 0x4000, 0x43ff, MRA_RAM },
-		{ 0x4800, 0x48ff, MRA_RAM },
-		{ 0xc800, 0xcfff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress statriv2_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x2fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x4000, 0x43ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x4800, 0x48ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( statriv2_writemem )
-		{ 0x0000, 0x2fff, MWA_ROM },
-		{ 0x4000, 0x43ff, MWA_RAM },
-		{ 0x4800, 0x48ff, MWA_RAM, &generic_nvram, &generic_nvram_size },    // backup ram?
-		{ 0xc800, 0xcfff, statriv2_videoram_w, &statriv2_videoram },
-	MEMORY_END
+	public static Memory_WriteAddress statriv2_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x4000, 0x43ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x4800, 0x48ff, MWA_RAM, &generic_nvram, &generic_nvram_size ),    // backup ram?
+		new Memory_WriteAddress( 0xc800, 0xcfff, statriv2_videoram_w, &statriv2_videoram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( supertr2_readmem )
-		{ 0x0000, 0x3fff, MRA_ROM },
-		{ 0x4000, 0x43ff, MRA_RAM },
-		{ 0x4800, 0x48ff, MRA_RAM },
-		{ 0xc800, 0xcfff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress supertr2_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x3fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x4000, 0x43ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x4800, 0x48ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( supertr2_writemem )
-		{ 0x0000, 0x3fff, MWA_ROM },
-		{ 0x4000, 0x43ff, MWA_RAM },
-		{ 0x4800, 0x48ff, MWA_RAM, &generic_nvram, &generic_nvram_size },    // backup ram?
-		{ 0xc800, 0xcfff, statriv2_videoram_w, &statriv2_videoram },
-	MEMORY_END
+	public static Memory_WriteAddress supertr2_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x4000, 0x43ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x4800, 0x48ff, MWA_RAM, &generic_nvram, &generic_nvram_size ),    // backup ram?
+		new Memory_WriteAddress( 0xc800, 0xcfff, statriv2_videoram_w, &statriv2_videoram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( statriv2_readport )
 		{ 0x20, 0x20, input_port_0_r },

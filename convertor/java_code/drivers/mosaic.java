@@ -93,35 +93,43 @@ public class mosaic
 	
 	
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x00000, 0x0ffff, MRA_ROM },
-		{ 0x20000, 0x21fff, MRA_RAM },
-		{ 0x22000, 0x23fff, MRA_RAM },
-		{ 0x24000, 0x241ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x0ffff, MRA_ROM ),
+		new Memory_ReadAddress( 0x20000, 0x21fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x22000, 0x23fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x24000, 0x241ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x00000, 0x0ffff, MWA_ROM },
-		{ 0x20000, 0x21fff, MWA_RAM },
-		{ 0x22000, 0x22fff, mosaic_bgvideoram_w, &mosaic_bgvideoram },
-		{ 0x23000, 0x23fff, mosaic_fgvideoram_w, &mosaic_fgvideoram },
-		{ 0x24000, 0x241ff, paletteram_xRRRRRGGGGGBBBBB_w, &paletteram },
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x0ffff, MWA_ROM ),
+		new Memory_WriteAddress( 0x20000, 0x21fff, MWA_RAM ),
+		new Memory_WriteAddress( 0x22000, 0x22fff, mosaic_bgvideoram_w, &mosaic_bgvideoram ),
+		new Memory_WriteAddress( 0x23000, 0x23fff, mosaic_fgvideoram_w, &mosaic_fgvideoram ),
+		new Memory_WriteAddress( 0x24000, 0x241ff, paletteram_xRRRRRGGGGGBBBBB_w, &paletteram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( gfire2_readmem )
-		{ 0x00000, 0x0ffff, MRA_ROM },
-		{ 0x10000, 0x17fff, MRA_RAM },
-		{ 0x22000, 0x23fff, MRA_RAM },
-		{ 0x24000, 0x241ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress gfire2_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x00000, 0x0ffff, MRA_ROM ),
+		new Memory_ReadAddress( 0x10000, 0x17fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x22000, 0x23fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x24000, 0x241ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( gfire2_writemem )
-		{ 0x00000, 0x0ffff, MWA_ROM },
-		{ 0x10000, 0x17fff, MWA_RAM },
-		{ 0x22000, 0x22fff, mosaic_bgvideoram_w, &mosaic_bgvideoram },
-		{ 0x23000, 0x23fff, mosaic_fgvideoram_w, &mosaic_fgvideoram },
-		{ 0x24000, 0x241ff, paletteram_xRRRRRGGGGGBBBBB_w, &paletteram },
-	MEMORY_END
+	public static Memory_WriteAddress gfire2_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x00000, 0x0ffff, MWA_ROM ),
+		new Memory_WriteAddress( 0x10000, 0x17fff, MWA_RAM ),
+		new Memory_WriteAddress( 0x22000, 0x22fff, mosaic_bgvideoram_w, &mosaic_bgvideoram ),
+		new Memory_WriteAddress( 0x23000, 0x23fff, mosaic_fgvideoram_w, &mosaic_fgvideoram ),
+		new Memory_WriteAddress( 0x24000, 0x241ff, paletteram_xRRRRRGGGGGBBBBB_w, &paletteram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport )
 		{ 0x30, 0x30, IORP_NOP },	/* Z180 internal registers */

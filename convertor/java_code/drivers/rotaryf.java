@@ -33,24 +33,28 @@ public class rotaryf
 	
 	} };
 	
-	static MEMORY_READ_START( rotaryf_readmem )
-		{ 0x0000, 0x03ff, MRA_ROM },
-		{ 0x4000, 0x57ff, MRA_ROM },
-	//	{ 0x6ffb, 0x6ffb, random_r }, ??
-	//	{ 0x6ffd, 0x6ffd, random_r }, ??
-	//	{ 0x6fff, 0x6fff, random_r }, ??
-		{ 0x7000, 0x73ff, MRA_RAM },
-		{ 0x8000, 0x9fff, MRA_RAM },
-		{ 0xa000, 0xa1ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress rotaryf_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x03ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x4000, 0x57ff, MRA_ROM ),
+	//	new Memory_ReadAddress( 0x6ffb, 0x6ffb, random_r ), ??
+	//	new Memory_ReadAddress( 0x6ffd, 0x6ffd, random_r ), ??
+	//	new Memory_ReadAddress( 0x6fff, 0x6fff, random_r ), ??
+		new Memory_ReadAddress( 0x7000, 0x73ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x8000, 0x9fff, MRA_RAM ),
+		new Memory_ReadAddress( 0xa000, 0xa1ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( rotaryf_writemem )
-		{ 0x0000, 0x03ff, MWA_ROM },
-		{ 0x4000, 0x57ff, MWA_ROM },
-		{ 0x7000, 0x73ff, MWA_RAM }, // clears to 1ff ?
-		{ 0x8000, 0x9fff, c8080bw_videoram_w, &videoram, &videoram_size },
-		{ 0xa000, 0xa1ff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress rotaryf_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x4000, 0x57ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x7000, 0x73ff, MWA_RAM ), // clears to 1ff ?
+		new Memory_WriteAddress( 0x8000, 0x9fff, c8080bw_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xa000, 0xa1ff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( rotaryf_readport )
 	//	{ 0x00, 0x00, input_port_0_r },

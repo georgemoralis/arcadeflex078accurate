@@ -136,15 +136,19 @@ public class yunsun16
 	
 	***************************************************************************/
 	
-	static MEMORY_READ_START( yunsun16_sound_readmem )
-		{ 0x0000, 0xdfff, MRA_ROM		},	// ROM
-		{ 0xe000, 0xe7ff, MRA_RAM		},	// RAM
-	MEMORY_END
+	public static Memory_ReadAddress yunsun16_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xdfff, MRA_ROM		),	// ROM
+		new Memory_ReadAddress( 0xe000, 0xe7ff, MRA_RAM		),	// RAM
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( yunsun16_sound_writemem )
-		{ 0x0000, 0xdfff, MWA_ROM		},	// ROM
-		{ 0xe000, 0xe7ff, MWA_RAM		},	// RAM
-	MEMORY_END
+	public static Memory_WriteAddress yunsun16_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xdfff, MWA_ROM		),	// ROM
+		new Memory_WriteAddress( 0xe000, 0xe7ff, MWA_RAM		),	// RAM
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( yunsun16_sound_readport )
 		{ 0x10, 0x10, YM3812_status_port_0_r	},	// YM3812

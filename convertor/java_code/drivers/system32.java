@@ -962,19 +962,23 @@ public class system32
 		s32_f1_prot = data;
 	} };
 	
-	static MEMORY_READ_START( sound_readmem_32 )
-		{ 0x0000, 0x9fff, MRA_ROM },
-		{ 0xa000, 0xbfff, system32_bank_r },
-		{ 0xd000, 0xdfff, RF5C68_r },
-		{ 0xe000, 0xffff, sys32_shared_snd_r },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem_32[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x9fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xa000, 0xbfff, system32_bank_r ),
+		new Memory_ReadAddress( 0xd000, 0xdfff, RF5C68_r ),
+		new Memory_ReadAddress( 0xe000, 0xffff, sys32_shared_snd_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem_32 )
-		{ 0x0000, 0x9fff, MWA_ROM },
-		{ 0xc000, 0xc008, RF5C68_reg_w },
-		{ 0xd000, 0xdfff, RF5C68_w },
-		{ 0xe000, 0xffff, sys32_shared_snd_w },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem_32[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x9fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc008, RF5C68_reg_w ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, RF5C68_w ),
+		new Memory_WriteAddress( 0xe000, 0xffff, sys32_shared_snd_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static void s32_recomp_bank(void)
 	{
@@ -1068,19 +1072,23 @@ public class system32
 		return tocab;
 	} };
 	
-	static MEMORY_READ_START( jpcab_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x8fff, MRA_RAM },
-		{ 0xc000, 0xc008, jpcab_z80_read },
-		{ 0xd000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress jpcab_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x8fff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc000, 0xc008, jpcab_z80_read ),
+		new Memory_ReadAddress( 0xd000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( jpcab_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0x8fff, MWA_RAM },
-		{ 0xc000, 0xc008, MWA_RAM },
-		{ 0xd000, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress jpcab_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x8fff, MWA_RAM ),
+		new Memory_WriteAddress( 0xc000, 0xc008, MWA_RAM ),
+		new Memory_WriteAddress( 0xd000, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( jpcab_readport )
 		{ 0x04, 0x04, IORP_NOP },		// interrupt control

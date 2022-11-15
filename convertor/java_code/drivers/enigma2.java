@@ -79,29 +79,33 @@ public class enigma2
 		return 0x38;
 	} };
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x1fff, MRA_ROM },
-		{ 0x2000, 0x21ff, MRA_RAM },
-	  { 0x2200, 0x3fff, videoram_r },
-		{ 0x4000, 0x4fff, MRA_ROM },
-		{ 0x5001, 0x5001, fake_r }, /* sub cpu communication */
-		{ 0x5002, 0x5002, fake_r2 },
-		{ 0x5035, 0x5035, fake_r3 },		/* only enigma2a (pc:1282) */
-		{ 0x5801, 0x5801, input_port_0_r }, /* only enigma2a, used instead of ports */
-		{ 0x5802, 0x5802, input_port_1_r }, /* only enigma2a, used instead of ports */
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x2000, 0x21ff, MRA_RAM ),
+	  new Memory_ReadAddress( 0x2200, 0x3fff, videoram_r ),
+		new Memory_ReadAddress( 0x4000, 0x4fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x5001, 0x5001, fake_r ), /* sub cpu communication */
+		new Memory_ReadAddress( 0x5002, 0x5002, fake_r2 ),
+		new Memory_ReadAddress( 0x5035, 0x5035, fake_r3 ),		/* only enigma2a (pc:1282) */
+		new Memory_ReadAddress( 0x5801, 0x5801, input_port_0_r ), /* only enigma2a, used instead of ports */
+		new Memory_ReadAddress( 0x5802, 0x5802, input_port_1_r ), /* only enigma2a, used instead of ports */
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x1fff, MWA_ROM },
-		{ 0x2000, 0x21ff, MWA_RAM },
-		{ 0x2200, 0x3fff, enigma2_videoram_w, &videoram },
-		{ 0x4000, 0x4fff, MWA_ROM },
-		{ 0x5015, 0x53fb, MWA_RAM }, /* every 0x20 */
-		{ 0x5415, 0x541b, MWA_RAM }, /* always zero ? */
-		{ 0x5803, 0x5803, MWA_RAM }, /* only enigma2a, used instead of ports */
-		{ 0x5805, 0x5805, MWA_RAM }, /* only enigma2a, used instead of ports */
-		{ 0x5806, 0x5806, MWA_RAM }, /* only enigma2a, used instead of ports */
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x1fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x2000, 0x21ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x2200, 0x3fff, enigma2_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x4000, 0x4fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x5015, 0x53fb, MWA_RAM ), /* every 0x20 */
+		new Memory_WriteAddress( 0x5415, 0x541b, MWA_RAM ), /* always zero ? */
+		new Memory_WriteAddress( 0x5803, 0x5803, MWA_RAM ), /* only enigma2a, used instead of ports */
+		new Memory_WriteAddress( 0x5805, 0x5805, MWA_RAM ), /* only enigma2a, used instead of ports */
+		new Memory_WriteAddress( 0x5806, 0x5806, MWA_RAM ), /* only enigma2a, used instead of ports */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport )
 		{ 0x01, 0x01, input_port_0_r },

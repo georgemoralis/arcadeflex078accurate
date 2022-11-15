@@ -175,20 +175,24 @@ public class sbowling
 			return input_port_3_r(0);
 	} };
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x2fff, MRA_RAM },
-		{ 0x8000, 0xbfff, MRA_RAM },
-		{ 0xf801, 0xf801, AY8910_read_port_0_r },
-		{ 0xfc00, 0xffff, MRA_RAM },		
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x2fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf801, 0xf801, AY8910_read_port_0_r ),
+		new Memory_ReadAddress( 0xfc00, 0xffff, MRA_RAM ),		
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x2fff, MWA_ROM },
-		{ 0x8000, 0xbfff, sbw_videoram_w, &videoram, &videoram_size },
-		{ 0xf800, 0xf800, AY8910_control_port_0_w },
-		{ 0xf801, 0xf801, AY8910_write_port_0_w },
-		{ 0xfc00, 0xffff, MWA_RAM },	
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x2fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0xbfff, sbw_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xf800, 0xf800, AY8910_control_port_0_w ),
+		new Memory_WriteAddress( 0xf801, 0xf801, AY8910_write_port_0_w ),
+		new Memory_WriteAddress( 0xfc00, 0xffff, MWA_RAM ),	
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( readport )

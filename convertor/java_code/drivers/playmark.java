@@ -273,16 +273,20 @@ public class playmark
 	MEMORY_END
 	
 	
-	static MEMORY_READ_START( playmark_sound_readmem )
-		{ PIC16C57_MEMORY_READ },
+	public static Memory_ReadAddress playmark_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( PIC16C57_MEMORY_READ ),
 			/* $000 - 07F  Internal memory mapped registers */
 			/* $000 - 7FF  Program ROM for PIC16C57. Note: code is 12bits wide */
 			/*             View the ROM at $1000 in the debugger memory windows */
-	MEMORY_END
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( playmark_sound_writemem )
-		{ PIC16C57_MEMORY_WRITE },
-	MEMORY_END
+	public static Memory_WriteAddress playmark_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( PIC16C57_MEMORY_WRITE ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( playmark_sound_readport )
 		{ 0x00, 0x00, IORP_NOP },				/* 4 bit port */

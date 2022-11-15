@@ -1579,14 +1579,18 @@ public class kaneko16
 	} };
 	#endif
 	
-	static MEMORY_READ_START( blazeon_sound_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM					},	// ROM
-		{ 0xc000, 0xdfff, MRA_RAM					},	// RAM
-	MEMORY_END
-	static MEMORY_WRITE_START( blazeon_sound_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM					},	// ROM
-		{ 0xc000, 0xdfff, MWA_RAM					},	// RAM
-	MEMORY_END
+	public static Memory_ReadAddress blazeon_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM					),	// ROM
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_RAM					),	// RAM
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
+	public static Memory_WriteAddress blazeon_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM					),	// ROM
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM					),	// RAM
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( blazeon_sound_readport )
 		{ 0x03, 0x03, YM2151_status_port_0_r	},
@@ -1629,16 +1633,20 @@ public class kaneko16
 		soundlatch2_w(0,data);
 	} };
 	
-	static MEMORY_READ_START( sandscrp_sound_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM					},	// ROM
-		{ 0x8000, 0xbfff, MRA_BANK1					},	// Banked ROM
-		{ 0xc000, 0xdfff, MRA_RAM					},	// RAM
-	MEMORY_END
-	static MEMORY_WRITE_START( sandscrp_sound_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM					},	// ROM
-		{ 0x8000, 0xbfff, MWA_ROM					},	// Banked ROM
-		{ 0xc000, 0xdfff, MWA_RAM					},	// RAM
-	MEMORY_END
+	public static Memory_ReadAddress sandscrp_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM					),	// ROM
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1					),	// Banked ROM
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_RAM					),	// RAM
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
+	public static Memory_WriteAddress sandscrp_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM					),	// ROM
+		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_ROM					),	// Banked ROM
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM					),	// RAM
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( sandscrp_sound_readport )
 		{ 0x02, 0x02, YM2203_status_port_0_r		},	// YM2203

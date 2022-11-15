@@ -41,30 +41,38 @@ public class astinvad
 	} };
 	
 	
-	static MEMORY_READ_START( astinvad_readmem )
-		{ 0x0000, 0x1bff, MRA_ROM },
-		{ 0x1c00, 0x3fff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress astinvad_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1bff, MRA_ROM ),
+		new Memory_ReadAddress( 0x1c00, 0x3fff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( astinvad_writemem )
-		{ 0x0000, 0x1bff, MWA_ROM },
-		{ 0x1c00, 0x1fff, MWA_RAM },
-		{ 0x2000, 0x3fff, astinvad_videoram_w, &videoram, &videoram_size },
-		{ 0x4000, 0x4fff, MWA_NOP }, /* sloppy game code writes here */
-	MEMORY_END
+	public static Memory_WriteAddress astinvad_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x1bff, MWA_ROM ),
+		new Memory_WriteAddress( 0x1c00, 0x1fff, MWA_RAM ),
+		new Memory_WriteAddress( 0x2000, 0x3fff, astinvad_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0x4000, 0x4fff, MWA_NOP ), /* sloppy game code writes here */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_READ_START( spaceint_readmem )
-		{ 0x0000, 0x17ff, MRA_ROM },
-		{ 0x2000, 0x23ff, MRA_RAM },
-		{ 0x4000, 0x5fff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress spaceint_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x17ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x2000, 0x23ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x4000, 0x5fff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( spaceint_writemem )
-		{ 0x0000, 0x17ff, MWA_ROM },
-		{ 0x2000, 0x23ff, MWA_RAM },
-		{ 0x4000, 0x5fff, spaceint_videoram_w, &videoram, &videoram_size },
-	MEMORY_END
+	public static Memory_WriteAddress spaceint_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x17ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x2000, 0x23ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x4000, 0x5fff, spaceint_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( astinvad_readport )

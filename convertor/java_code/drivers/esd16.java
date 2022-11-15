@@ -211,17 +211,21 @@ public class esd16
 		cpu_setbank(1, memory_region(REGION_CPU2) + 0x4000 * bank);
 	} };
 	
-	static MEMORY_READ_START( multchmp_sound_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM		},	// ROM
-		{ 0x8000, 0xbfff, MRA_BANK1		},	// Banked ROM
-		{ 0xf800, 0xffff, MRA_RAM		},	// RAM
-	MEMORY_END
+	public static Memory_ReadAddress multchmp_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM		),	// ROM
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1		),	// Banked ROM
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM		),	// RAM
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( multchmp_sound_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM		},	// ROM
-		{ 0x8000, 0xbfff, MWA_ROM		},	// Banked ROM
-		{ 0xf800, 0xffff, MWA_RAM		},	// RAM
-	MEMORY_END
+	public static Memory_WriteAddress multchmp_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM		),	// ROM
+		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_ROM		),	// Banked ROM
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM		),	// RAM
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	public static ReadHandlerPtr esd16_sound_command_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* Clear IRQ only after reading the command, or some get lost */

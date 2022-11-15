@@ -138,27 +138,31 @@ public class yumefuda
 	
 	/***************************************************************************************/
 	
-	static MEMORY_READ_START( readmem )
-		{	0x0000,	0x7fff,	MRA_ROM	},
-		{   0x8000, 0x9fff, MRA_BANK1 },
-		{	0xaf80, 0xafff, custom_ram_r },
-		{	0xb000, 0xb0ff, paletteram_r },
-		{	0xc000, 0xc3ff, MRA_RAM },
-		{	0xd000, 0xd3ff, MRA_RAM },
-		{   0xe000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress(	0x0000,	0x7fff,	MRA_ROM	),
+		new Memory_ReadAddress(   0x8000, 0x9fff, MRA_BANK1 ),
+		new Memory_ReadAddress(	0xaf80, 0xafff, custom_ram_r ),
+		new Memory_ReadAddress(	0xb000, 0xb0ff, paletteram_r ),
+		new Memory_ReadAddress(	0xc000, 0xc3ff, MRA_RAM ),
+		new Memory_ReadAddress(	0xd000, 0xd3ff, MRA_RAM ),
+		new Memory_ReadAddress(   0xe000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 	0x0000, 0x7fff, MWA_ROM },
-		{   0x8000, 0x9fff, MWA_ROM },
-		{	0xa7fc, 0xa7fc, prot_lock_w },
-		{   0xa7ff, 0xa7ff, nvram_lock_w },
-		{	0xaf80, 0xafff, custom_ram_w ,&cus_ram }, //260d - 2626
-		{	0xb000, 0xb0ff, paletteram_BBGGGRRR_w , &paletteram },/*Wrong format?*/
-		{	0xc000, 0xc3ff, yumefuda_vram_w	, &videoram },
-		{	0xd000, 0xd3ff, MWA_RAM,&colorram },
-		{   0xe000, 0xffff, MWA_RAM },/*work ram*/
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 	0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress(   0x8000, 0x9fff, MWA_ROM ),
+		new Memory_WriteAddress(	0xa7fc, 0xa7fc, prot_lock_w ),
+		new Memory_WriteAddress(   0xa7ff, 0xa7ff, nvram_lock_w ),
+		new Memory_WriteAddress(	0xaf80, 0xafff, custom_ram_w ,&cus_ram ), //260d - 2626
+		new Memory_WriteAddress(	0xb000, 0xb0ff, paletteram_BBGGGRRR_w , &paletteram ),/*Wrong format?*/
+		new Memory_WriteAddress(	0xc000, 0xc3ff, yumefuda_vram_w	, &videoram ),
+		new Memory_WriteAddress(	0xd000, 0xd3ff, MWA_RAM,&colorram ),
+		new Memory_WriteAddress(   0xe000, 0xffff, MWA_RAM ),/*work ram*/
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport )
 		{	0x00, 0x00, AY8910_read_port_0_r },

@@ -216,131 +216,167 @@ public class nbmj8991
 	} };
 	
 	
-	static MEMORY_READ_START( readmem_pstadium )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf000, 0xf00f, pstadium_paltbl_r },
-		{ 0xf200, 0xf3ff, MRA_RAM },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_pstadium[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xf00f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf200, 0xf3ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_pstadium )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf000, 0xf00f, pstadium_paltbl_w },
-		{ 0xf200, 0xf3ff, pstadium_palette_w, &paletteram },
-		{ 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size },	// finalbny
-	MEMORY_END
+	public static Memory_WriteAddress writemem_pstadium[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xf00f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),	// finalbny
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_triplew1 )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf000, 0xf1ff, MRA_RAM },
-		{ 0xf200, 0xf20f, pstadium_paltbl_r },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_triplew1[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xf1ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf200, 0xf20f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_triplew1 )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf000, 0xf1ff, pstadium_palette_w, &paletteram },
-		{ 0xf200, 0xf20f, pstadium_paltbl_w },
-		{ 0xf800, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_triplew1[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf200, 0xf20f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_triplew2 )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf000, 0xf1ff, MRA_RAM },
-		{ 0xf400, 0xf40f, pstadium_paltbl_r },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_triplew2[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xf1ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf400, 0xf40f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_triplew2 )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf000, 0xf1ff, pstadium_palette_w, &paletteram },
-		{ 0xf400, 0xf40f, pstadium_paltbl_w },
-		{ 0xf800, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_triplew2[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf400, 0xf40f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_mjlstory )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf200, 0xf3ff, MRA_RAM },
-		{ 0xf700, 0xf70f, pstadium_paltbl_r },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_mjlstory[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf200, 0xf3ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf700, 0xf70f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_mjlstory )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf200, 0xf3ff, pstadium_palette_w, &paletteram },
-		{ 0xf700, 0xf70f, pstadium_paltbl_w },
-		{ 0xf800, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_mjlstory[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf700, 0xf70f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_galkoku )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf000, 0xf00f, pstadium_paltbl_r },
-		{ 0xf400, 0xf5ff, MRA_RAM },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_galkoku[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xf00f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf400, 0xf5ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_galkoku )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf000, 0xf00f, pstadium_paltbl_w },
-		{ 0xf400, 0xf5ff, galkoku_palette_w, &paletteram },
-		{ 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size },	// hyouban
-	MEMORY_END
+	public static Memory_WriteAddress writemem_galkoku[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xf00f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf400, 0xf5ff, galkoku_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),	// hyouban
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_galkaika )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf000, 0xf00f, pstadium_paltbl_r },
-		{ 0xf400, 0xf5ff, MRA_RAM },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_galkaika[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xf00f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf400, 0xf5ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_galkaika )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf000, 0xf00f, pstadium_paltbl_w },
-		{ 0xf400, 0xf5ff, galkaika_palette_w, &paletteram },
-		{ 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size },	// tokimbsj
-	MEMORY_END
+	public static Memory_WriteAddress writemem_galkaika[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xf00f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf400, 0xf5ff, galkaika_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &nb1413m3_nvram, &nb1413m3_nvram_size ),	// tokimbsj
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_tokyogal )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf000, 0xf1ff, MRA_RAM },
-		{ 0xf400, 0xf40f, pstadium_paltbl_r },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_tokyogal[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xf1ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf400, 0xf40f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_tokyogal )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf000, 0xf1ff, galkaika_palette_w, &paletteram },
-		{ 0xf400, 0xf40f, pstadium_paltbl_w },
-		{ 0xf800, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_tokyogal[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, galkaika_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf400, 0xf40f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_av2mj1bb )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf000, 0xf1ff, MRA_RAM },
-		{ 0xf500, 0xf50f, pstadium_paltbl_r },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_av2mj1bb[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xf1ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf500, 0xf50f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_av2mj1bb )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf000, 0xf1ff, pstadium_palette_w, &paletteram },
-		{ 0xf500, 0xf50f, pstadium_paltbl_w },
-		{ 0xf800, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_av2mj1bb[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xf1ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf500, 0xf50f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( readmem_av2mj2rg )
-		{ 0x0000, 0xefff, MRA_ROM },
-		{ 0xf000, 0xf00f, pstadium_paltbl_r },
-		{ 0xf200, 0xf3ff, MRA_RAM },
-		{ 0xf800, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem_av2mj2rg[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xefff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xf00f, pstadium_paltbl_r ),
+		new Memory_ReadAddress( 0xf200, 0xf3ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_av2mj2rg )
-		{ 0x0000, 0xefff, MWA_ROM },
-		{ 0xf000, 0xf00f, pstadium_paltbl_w },
-		{ 0xf200, 0xf3ff, pstadium_palette_w, &paletteram },
-		{ 0xf800, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem_av2mj2rg[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xefff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xf00f, pstadium_paltbl_w ),
+		new Memory_WriteAddress( 0xf200, 0xf3ff, pstadium_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	public static ReadHandlerPtr io_pstadium_r  = new ReadHandlerPtr() { public int handler(int offset){
@@ -548,16 +584,20 @@ public class nbmj8991
 	PORT_END
 	
 	
-	static MEMORY_READ_START( sound_readmem_pstadium )
-		{ 0x0000, 0x3fff, MRA_ROM },
-		{ 0x4000, 0x7fff, MRA_RAM },
-		{ 0x8000, 0xffff, MRA_BANK1 },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem_pstadium[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x3fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x4000, 0x7fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_BANK1 ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem_pstadium )
-		{ 0x0000, 0x3fff, MWA_ROM },
-		{ 0x4000, 0x7fff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem_pstadium[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x4000, 0x7fff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( sound_readport_pstadium )

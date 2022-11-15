@@ -81,12 +81,14 @@ public class splash
 	MEMORY_END
 	
 	
-	static MEMORY_READ_START( splash_readmem_sound )
-		{ 0x0000, 0xd7ff, MRA_ROM },					/* ROM */
-		{ 0xe800, 0xe800, soundlatch_r },				/* Sound latch */
-		{ 0xf000, 0xf000, YM3812_status_port_0_r },		/* YM3812 */
-		{ 0xf800, 0xffff, MRA_RAM },					/* RAM */
-	MEMORY_END
+	public static Memory_ReadAddress splash_readmem_sound[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xd7ff, MRA_ROM ),					/* ROM */
+		new Memory_ReadAddress( 0xe800, 0xe800, soundlatch_r ),				/* Sound latch */
+		new Memory_ReadAddress( 0xf000, 0xf000, YM3812_status_port_0_r ),		/* YM3812 */
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),					/* RAM */
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static int adpcm_data;
 	
@@ -101,14 +103,16 @@ public class splash
 	}
 	
 	
-	static MEMORY_WRITE_START( splash_writemem_sound )
-		{ 0x0000, 0xd7ff, MWA_ROM },					/* ROM */
-		{ 0xd800, 0xd800, splash_adpcm_data_w },		/* ADPCM data for the MSM5205 chip */
-	//	{ 0xe000, 0xe000, MWA_NOP },					/* ??? */
-		{ 0xf000, 0xf000, YM3812_control_port_0_w },	/* YM3812 */
-		{ 0xf001, 0xf001, YM3812_write_port_0_w },		/* YM3812 */
-		{ 0xf800, 0xffff, MWA_RAM },					/* RAM */
-	MEMORY_END
+	public static Memory_WriteAddress splash_writemem_sound[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xd7ff, MWA_ROM ),					/* ROM */
+		new Memory_WriteAddress( 0xd800, 0xd800, splash_adpcm_data_w ),		/* ADPCM data for the MSM5205 chip */
+	//	new Memory_WriteAddress( 0xe000, 0xe000, MWA_NOP ),					/* ??? */
+		new Memory_WriteAddress( 0xf000, 0xf000, YM3812_control_port_0_w ),	/* YM3812 */
+		new Memory_WriteAddress( 0xf001, 0xf001, YM3812_write_port_0_w ),		/* YM3812 */
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM ),					/* RAM */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static InputPortHandlerPtr input_ports_splash = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( splash )
@@ -193,7 +197,7 @@ public class splash
 		{ 0,1,2,3,4,5,6,7 },
 		{ 0*8,1*8,2*8,3*8,4*8,5*8,6*8,7*8 },
 		8*8
-	} };;
+	};
 	
 	static struct GfxLayout tilelayout16 =
 	{

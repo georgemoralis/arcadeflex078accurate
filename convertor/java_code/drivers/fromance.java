@@ -226,46 +226,54 @@ public class fromance
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( nekkyoku_readmem_main )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xdfff, MRA_RAM },
-		{ 0xf000, 0xf000, input_port_0_r },
-		{ 0xf001, 0xf001, fromance_keymatrix_r },
-		{ 0xf002, 0xf002, input_port_1_r },
-		{ 0xf003, 0xf003, fromance_busycheck_main_r },
-		{ 0xf004, 0xf004, input_port_3_r },
-		{ 0xf005, 0xf005, input_port_2_r },
-	MEMORY_END
+	public static Memory_ReadAddress nekkyoku_readmem_main[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf000, 0xf000, input_port_0_r ),
+		new Memory_ReadAddress( 0xf001, 0xf001, fromance_keymatrix_r ),
+		new Memory_ReadAddress( 0xf002, 0xf002, input_port_1_r ),
+		new Memory_ReadAddress( 0xf003, 0xf003, fromance_busycheck_main_r ),
+		new Memory_ReadAddress( 0xf004, 0xf004, input_port_3_r ),
+		new Memory_ReadAddress( 0xf005, 0xf005, input_port_2_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( nekkyoku_writemem_main )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xdfff, MWA_RAM },
-		{ 0xf000, 0xf000, fromance_portselect_w },
-		{ 0xf001, 0xf001, MWA_NOP },
-		{ 0xf002, 0xf002, fromance_coinctr_w },
-		{ 0xf003, 0xf003, fromance_commanddata_w },
-	MEMORY_END
+	public static Memory_WriteAddress nekkyoku_writemem_main[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM ),
+		new Memory_WriteAddress( 0xf000, 0xf000, fromance_portselect_w ),
+		new Memory_WriteAddress( 0xf001, 0xf001, MWA_NOP ),
+		new Memory_WriteAddress( 0xf002, 0xf002, fromance_coinctr_w ),
+		new Memory_WriteAddress( 0xf003, 0xf003, fromance_commanddata_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_READ_START( fromance_readmem_main )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0xc000, 0xdfff, MRA_RAM },
-		{ 0x9e89, 0x9e89, MRA_NOP },			// unknown (idolmj)
-		{ 0xe000, 0xe000, input_port_0_r },
-		{ 0xe001, 0xe001, fromance_keymatrix_r },
-		{ 0xe002, 0xe002, input_port_1_r },
-		{ 0xe003, 0xe003, fromance_busycheck_main_r },
-		{ 0xe004, 0xe004, input_port_3_r },
-		{ 0xe005, 0xe005, input_port_2_r },
-	MEMORY_END
+	public static Memory_ReadAddress fromance_readmem_main[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_RAM ),
+		new Memory_ReadAddress( 0x9e89, 0x9e89, MRA_NOP ),			// unknown (idolmj)
+		new Memory_ReadAddress( 0xe000, 0xe000, input_port_0_r ),
+		new Memory_ReadAddress( 0xe001, 0xe001, fromance_keymatrix_r ),
+		new Memory_ReadAddress( 0xe002, 0xe002, input_port_1_r ),
+		new Memory_ReadAddress( 0xe003, 0xe003, fromance_busycheck_main_r ),
+		new Memory_ReadAddress( 0xe004, 0xe004, input_port_3_r ),
+		new Memory_ReadAddress( 0xe005, 0xe005, input_port_2_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( fromance_writemem_main )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0xc000, 0xdfff, MWA_RAM },
-		{ 0xe000, 0xe000, fromance_portselect_w },
-		{ 0xe002, 0xe002, fromance_coinctr_w },
-		{ 0xe003, 0xe003, fromance_commanddata_w },
-	MEMORY_END
+	public static Memory_WriteAddress fromance_writemem_main[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_RAM ),
+		new Memory_WriteAddress( 0xe000, 0xe000, fromance_portselect_w ),
+		new Memory_WriteAddress( 0xe002, 0xe002, fromance_coinctr_w ),
+		new Memory_WriteAddress( 0xe003, 0xe003, fromance_commanddata_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	
@@ -275,38 +283,46 @@ public class fromance
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( nekkyoku_readmem_sub )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_BANK1 },
-		{ 0xc000, 0xefff, fromance_videoram_r },
-		{ 0xf000, 0xf7ff, MRA_RAM },
-		{ 0xf800, 0xffff, fromance_paletteram_r },
-	MEMORY_END
+	public static Memory_ReadAddress nekkyoku_readmem_sub[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xc000, 0xefff, fromance_videoram_r ),
+		new Memory_ReadAddress( 0xf000, 0xf7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf800, 0xffff, fromance_paletteram_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( nekkyoku_writemem_sub )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xefff, fromance_videoram_w },
-		{ 0xf000, 0xf7ff, MWA_RAM },
-		{ 0xf800, 0xffff, fromance_paletteram_w },
-	MEMORY_END
+	public static Memory_WriteAddress nekkyoku_writemem_sub[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xefff, fromance_videoram_w ),
+		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xf800, 0xffff, fromance_paletteram_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_READ_START( fromance_readmem_sub )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_BANK1 },
-		{ 0xc000, 0xc7ff, MRA_RAM },
-		{ 0xc800, 0xcfff, fromance_paletteram_r },
-		{ 0xd000, 0xffff, fromance_videoram_r },
-	MEMORY_END
+	public static Memory_ReadAddress fromance_readmem_sub[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xc000, 0xc7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, fromance_paletteram_r ),
+		new Memory_ReadAddress( 0xd000, 0xffff, fromance_videoram_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( fromance_writemem_sub )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc7ff, MWA_RAM },
-		{ 0xc800, 0xcfff, fromance_paletteram_w },
-		{ 0xd000, 0xffff, fromance_videoram_w },
-	MEMORY_END
+	public static Memory_WriteAddress fromance_writemem_sub[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, fromance_paletteram_w ),
+		new Memory_WriteAddress( 0xd000, 0xffff, fromance_videoram_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

@@ -1173,20 +1173,24 @@ public class ddenlovr
 	
 	
 	
-	static MEMORY_READ_START( quizchq_readmem )
-		{ 0x0000, 0x5fff, MRA_ROM					},	// ROM
-		{ 0x6000, 0x6fff, MRA_RAM					},	// RAM
-		{ 0x7000, 0x7fff, MRA_BANK2					},	// RAM (Banked)
-		{ 0x8000, 0xffff, MRA_BANK1					},	// ROM (Banked)
-	MEMORY_END
+	public static Memory_ReadAddress quizchq_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x5fff, MRA_ROM					),	// ROM
+		new Memory_ReadAddress( 0x6000, 0x6fff, MRA_RAM					),	// RAM
+		new Memory_ReadAddress( 0x7000, 0x7fff, MRA_BANK2					),	// RAM (Banked)
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_BANK1					),	// ROM (Banked)
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( quizchq_writemem )
-		{ 0x0000, 0x5fff, MWA_ROM					},	// ROM
-		{ 0x6000, 0x6fff, MWA_RAM					},	// RAM
-		{ 0x7000, 0x7fff, MWA_BANK2					},	// RAM (Banked)
-		{ 0x8000, 0x81ff, rongrong_palette_w	},	// ROM (Banked)
-		{ 0x8000, 0xffff, MWA_ROM					},	// ROM (Banked)
-	MEMORY_END
+	public static Memory_WriteAddress quizchq_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM					),	// ROM
+		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_RAM					),	// RAM
+		new Memory_WriteAddress( 0x7000, 0x7fff, MWA_BANK2					),	// RAM (Banked)
+		new Memory_WriteAddress( 0x8000, 0x81ff, rongrong_palette_w	),	// ROM (Banked)
+		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM					),	// ROM (Banked)
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( quizchq_readport )
 		{ 0x03, 0x03, rongrong_gfxrom_r			},	// Video Chip
@@ -1216,20 +1220,24 @@ public class ddenlovr
 	
 	
 	
-	static MEMORY_READ_START( rongrong_readmem )
-		{ 0x0000, 0x5fff, MRA_ROM					},	// ROM
-		{ 0x6000, 0x6fff, MRA_RAM					},	// RAM
-		{ 0x7000, 0x7fff, MRA_BANK2					},	// RAM (Banked)
-		{ 0x8000, 0xffff, MRA_BANK1					},	// ROM (Banked)
-	MEMORY_END
+	public static Memory_ReadAddress rongrong_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x5fff, MRA_ROM					),	// ROM
+		new Memory_ReadAddress( 0x6000, 0x6fff, MRA_RAM					),	// RAM
+		new Memory_ReadAddress( 0x7000, 0x7fff, MRA_BANK2					),	// RAM (Banked)
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_BANK1					),	// ROM (Banked)
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( rongrong_writemem )
-		{ 0x0000, 0x5fff, MWA_ROM					},	// ROM
-		{ 0x6000, 0x6fff, MWA_RAM					},	// RAM
-		{ 0x7000, 0x7fff, MWA_BANK2					},	// RAM (Banked)
-		{ 0xf000, 0xf1ff, rongrong_palette_w	},
-		{ 0x8000, 0xffff, MWA_ROM					},	// ROM (Banked)
-	MEMORY_END
+	public static Memory_WriteAddress rongrong_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM					),	// ROM
+		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_RAM					),	// RAM
+		new Memory_WriteAddress( 0x7000, 0x7fff, MWA_BANK2					),	// RAM (Banked)
+		new Memory_WriteAddress( 0xf000, 0xf1ff, rongrong_palette_w	),
+		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM					),	// ROM (Banked)
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( rongrong_readport )
 		{ 0x03, 0x03, rongrong_gfxrom_r			},	// Video Chip
@@ -1328,21 +1336,25 @@ public class ddenlovr
 	
 	/* Main CPU */
 	
-	static MEMORY_READ_START( mmpanic_readmem )
-		{ 0x0051, 0x0051, magic_r					},	// ?
-		{ 0x0000, 0x5fff, MRA_ROM					},	// ROM
-		{ 0x6000, 0x6fff, MRA_RAM					},	// RAM
-		{ 0x7000, 0x7fff, MRA_BANK2					},	// RAM (Banked)
-		{ 0x8000, 0xffff, MRA_BANK1					},	// ROM (Banked)
-	MEMORY_END
+	public static Memory_ReadAddress mmpanic_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0051, 0x0051, magic_r					),	// ?
+		new Memory_ReadAddress( 0x0000, 0x5fff, MRA_ROM					),	// ROM
+		new Memory_ReadAddress( 0x6000, 0x6fff, MRA_RAM					),	// RAM
+		new Memory_ReadAddress( 0x7000, 0x7fff, MRA_BANK2					),	// RAM (Banked)
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_BANK1					),	// ROM (Banked)
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( mmpanic_writemem )
-		{ 0x0000, 0x5fff, MWA_ROM					},	// ROM
-		{ 0x6000, 0x6fff, MWA_RAM					},	// RAM
-		{ 0x7000, 0x7fff, MWA_BANK2					},	// RAM (Banked)
-		{ 0x8000, 0x81ff, rongrong_palette_w		},	// ROM (Banked)
-		{ 0x8000, 0xffff, MWA_ROM					},	// ROM (Banked)
-	MEMORY_END
+	public static Memory_WriteAddress mmpanic_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM					),	// ROM
+		new Memory_WriteAddress( 0x6000, 0x6fff, MWA_RAM					),	// RAM
+		new Memory_WriteAddress( 0x7000, 0x7fff, MWA_BANK2					),	// RAM (Banked)
+		new Memory_WriteAddress( 0x8000, 0x81ff, rongrong_palette_w		),	// ROM (Banked)
+		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM					),	// ROM (Banked)
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( mmpanic_readport )
 		{ 0x00, 0x0f, rtc_r					},	// 6242RTC
@@ -1388,17 +1400,21 @@ public class ddenlovr
 	
 	/* Sound CPU */
 	
-	static MEMORY_READ_START( mmpanic_sound_readmem )
-		{ 0x0000, 0x5fff, MRA_ROM					},	// ROM
-		{ 0x6000, 0x66ff, MRA_RAM					},	// RAM
-		{ 0x8000, 0xffff, MRA_ROM					},	// ROM
-	MEMORY_END
+	public static Memory_ReadAddress mmpanic_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x5fff, MRA_ROM					),	// ROM
+		new Memory_ReadAddress( 0x6000, 0x66ff, MRA_RAM					),	// RAM
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_ROM					),	// ROM
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( mmpanic_sound_writemem )
-		{ 0x0000, 0x5fff, MWA_ROM					},	// ROM
-		{ 0x6000, 0x66ff, MWA_RAM					},	// RAM
-		{ 0x8000, 0xffff, MWA_ROM					},	// ROM
-	MEMORY_END
+	public static Memory_WriteAddress mmpanic_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x5fff, MWA_ROM					),	// ROM
+		new Memory_WriteAddress( 0x6000, 0x66ff, MWA_RAM					),	// RAM
+		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM					),	// ROM
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( mmpanic_sound_readport )
 		{ 0x00, 0x00, soundlatch_r		},
@@ -1970,7 +1986,7 @@ public class ddenlovr
 		1,
 		3579545,	/* ???? */
 		{ YM2413_VOL(80,MIXER_PAN_CENTER,80,MIXER_PAN_CENTER) }
-	} };;
+	};
 	
 	static struct AY8910interface ay8910_interface =
 	{

@@ -197,35 +197,43 @@ public class tigeroad
 		{ 0xffc000, 0xffffff, MWA16_RAM, &ram16 },
 	MEMORY_END
 	
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x8000, YM2203_status_port_0_r },
-		{ 0xa000, 0xa000, YM2203_status_port_1_r },
-		{ 0xc000, 0xc7ff, MRA_RAM },
-		{ 0xe000, 0xe000, soundlatch_r },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x8000, YM2203_status_port_0_r ),
+		new Memory_ReadAddress( 0xa000, 0xa000, YM2203_status_port_1_r ),
+		new Memory_ReadAddress( 0xc000, 0xc7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xe000, 0xe000, soundlatch_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0x8000, YM2203_control_port_0_w },
-		{ 0x8001, 0x8001, YM2203_write_port_0_w },
-		{ 0xa000, 0xa000, YM2203_control_port_1_w },
-		{ 0xa001, 0xa001, YM2203_write_port_1_w },
-		{ 0xc000, 0xc7ff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x8000, YM2203_control_port_0_w ),
+		new Memory_WriteAddress( 0x8001, 0x8001, YM2203_write_port_0_w ),
+		new Memory_WriteAddress( 0xa000, 0xa000, YM2203_control_port_1_w ),
+		new Memory_WriteAddress( 0xa001, 0xa001, YM2203_write_port_1_w ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( sound_writeport )
 		{ 0x7f, 0x7f, soundlatch2_w },
 	PORT_END
 	
-	static MEMORY_READ_START( sample_readmem )
-		{ 0x0000, 0xffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress sample_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	/* yes, no RAM */
-	static MEMORY_WRITE_START( sample_writemem )
-		{ 0x0000, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress sample_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( sample_readport )
 		{ 0x00, 0x00, soundlatch2_r },

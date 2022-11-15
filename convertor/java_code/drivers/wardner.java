@@ -237,31 +237,35 @@ public class wardner
 	
 	
 	/* Z80 #1 memory/port maps */
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x6fff, MRA_ROM },			/* Main CPU ROM code */
-		{ 0x7000, 0x7fff, wardner_mainram_r },	/* Main RAM */
-		{ 0x8000, 0xffff, wardner_ram_rom_r },	/* Overlapped RAM/Banked ROM - See below */
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x6fff, MRA_ROM ),			/* Main CPU ROM code */
+		new Memory_ReadAddress( 0x7000, 0x7fff, wardner_mainram_r ),	/* Main RAM */
+		new Memory_ReadAddress( 0x8000, 0xffff, wardner_ram_rom_r ),	/* Overlapped RAM/Banked ROM - See below */
 		/* memory layout in bank 0 is really as follows */
-	//	{ 0x8000, 0x8fff, wardner_sprite_r },	/* Sprite RAM data */
-	//	{ 0x9000, 0x9fff, MRA_ROM },			/* Banked ROM */
-	//	{ 0xa000, 0xadff, paletteram_r },		/* Palette RAM */
-	//	{ 0xae00, 0xafff, MRA_BANK2 },			/* Unused Palette RAM */
-	//	{ 0xb000, 0xbfff, MRA_ROM },			/* Banked ROM */
-	//	{ 0xc000, 0xc7ff, MRA_BANK3 },			/* Shared RAM with Sound CPU RAM */
-	//	{ 0xc800, 0xffff, MRA_ROM },			/* Banked ROM */
-	MEMORY_END
+	//	new Memory_ReadAddress( 0x8000, 0x8fff, wardner_sprite_r ),	/* Sprite RAM data */
+	//	new Memory_ReadAddress( 0x9000, 0x9fff, MRA_ROM ),			/* Banked ROM */
+	//	new Memory_ReadAddress( 0xa000, 0xadff, paletteram_r ),		/* Palette RAM */
+	//	new Memory_ReadAddress( 0xae00, 0xafff, MRA_BANK2 ),			/* Unused Palette RAM */
+	//	new Memory_ReadAddress( 0xb000, 0xbfff, MRA_ROM ),			/* Banked ROM */
+	//	new Memory_ReadAddress( 0xc000, 0xc7ff, MRA_BANK3 ),			/* Shared RAM with Sound CPU RAM */
+	//	new Memory_ReadAddress( 0xc800, 0xffff, MRA_ROM ),			/* Banked ROM */
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x6fff, MWA_ROM },
-		{ 0x7000, 0x7fff, wardner_mainram_w, &wardner_mainram },
-		{ 0x8000, 0x8fff, wardner_sprite_w, (data8_t **)&spriteram16, &spriteram_size },
-		{ 0x9000, 0x9fff, MWA_ROM },
-		{ 0xa000, 0xadff, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram },
-		{ 0xae00, 0xafff, wardner_spare_pal_ram_w, &wardner_spare_pal_ram },
-		{ 0xc000, 0xc7ff, wardner_sharedram_w, &wardner_sharedram },
-		{ 0xb000, 0xbfff, MWA_ROM },
-		{ 0xc800, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x6fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x7000, 0x7fff, wardner_mainram_w, &wardner_mainram ),
+		new Memory_WriteAddress( 0x8000, 0x8fff, wardner_sprite_w, (data8_t **)&spriteram16, &spriteram_size ),
+		new Memory_WriteAddress( 0x9000, 0x9fff, MWA_ROM ),
+		new Memory_WriteAddress( 0xa000, 0xadff, paletteram_xBBBBBGGGGGRRRRR_w, &paletteram ),
+		new Memory_WriteAddress( 0xae00, 0xafff, wardner_spare_pal_ram_w, &wardner_spare_pal_ram ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, wardner_sharedram_w, &wardner_sharedram ),
+		new Memory_WriteAddress( 0xb000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc800, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( readport )
 		{ 0x50, 0x50, input_port_3_r },			/* DSW A */
@@ -290,19 +294,23 @@ public class wardner
 	
 	
 	/* Z80 #2 memory/port maps */
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x807f, MRA_BANK4 },
-		{ 0xc000, 0xc7ff, wardner_sharedram_r },
-		{ 0xc800, 0xcfff, MRA_BANK5 },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x807f, MRA_BANK4 ),
+		new Memory_ReadAddress( 0xc000, 0xc7ff, wardner_sharedram_r ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_BANK5 ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0x807f, MWA_BANK4 },
-		{ 0xc000, 0xc7ff, wardner_sharedram_w },
-		{ 0xc800, 0xcfff, MWA_BANK5 },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x807f, MWA_BANK4 ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, wardner_sharedram_w ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, MWA_BANK5 ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( sound_readport )
 		{ 0x00, 0x00, YM3812_status_port_0_r },

@@ -91,17 +91,21 @@ public class hnayayoi
 	
 	
 	
-	static MEMORY_READ_START( hnayayoi_readmem )
-		{ 0x0000, 0x77ff, MRA_ROM },
-		{ 0x7800, 0x7fff, MRA_RAM },
-		{ 0x8000, 0xffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress hnayayoi_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x77ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x7800, 0x7fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( hnayayoi_writemem )
-		{ 0x0000, 0x77ff, MWA_ROM },
-		{ 0x7800, 0x7fff, MWA_RAM, &generic_nvram, &generic_nvram_size },
-		{ 0x8000, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress hnayayoi_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x77ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x7800, 0x7fff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
+		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( hnayayoi_readport )
@@ -129,35 +133,39 @@ public class hnayayoi
 	PORT_END
 	
 	
-	static MEMORY_READ_START( hnfubuki_readmem )
-		{ 0x0000, 0x77ff, MRA_ROM },
-		{ 0x7800, 0x7fff, MRA_RAM },
-		{ 0x8000, 0xfeff, MRA_ROM },
-		{ 0xff02, 0xff02, YM2203_status_port_0_r },
-		{ 0xff03, 0xff03, YM2203_read_port_0_r },
-		{ 0xff04, 0xff04, input_port_2_r },
-		{ 0xff41, 0xff41, keyboard_0_r },
-		{ 0xff42, 0xff42, keyboard_1_r },
-		{ 0xff43, 0xff43, input_port_3_r },
-	MEMORY_END
+	public static Memory_ReadAddress hnfubuki_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x77ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x7800, 0x7fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x8000, 0xfeff, MRA_ROM ),
+		new Memory_ReadAddress( 0xff02, 0xff02, YM2203_status_port_0_r ),
+		new Memory_ReadAddress( 0xff03, 0xff03, YM2203_read_port_0_r ),
+		new Memory_ReadAddress( 0xff04, 0xff04, input_port_2_r ),
+		new Memory_ReadAddress( 0xff41, 0xff41, keyboard_0_r ),
+		new Memory_ReadAddress( 0xff42, 0xff42, keyboard_1_r ),
+		new Memory_ReadAddress( 0xff43, 0xff43, input_port_3_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( hnfubuki_writemem )
-		{ 0x0000, 0x77ff, MWA_ROM },
-		{ 0x7800, 0x7fff, MWA_RAM, &generic_nvram, &generic_nvram_size },
-		{ 0x8000, 0xfeff, MWA_ROM },
-		{ 0xff00, 0xff00, YM2203_control_port_0_w },
-		{ 0xff01, 0xff01, YM2203_write_port_0_w },
-		{ 0xff06, 0xff06, adpcm_data_w },
-	//	{ 0xff08, 0xff08, IOWP_NOP },	// CRT Controller
-	//	{ 0xff09, 0xff09, IOWP_NOP },	// CRT Controller
-		{ 0xff0a, 0xff0a, dynax_blitter_rev1_start_w },
-		{ 0xff0c, 0xff0c, dynax_blitter_rev1_clear_w },
-		{ 0xff23, 0xff23, adpcm_vclk_w },
-		{ 0xff24, 0xff24, adpcm_reset_inv_w },
-		{ 0xff40, 0xff40, keyboard_w },
-		{ 0xff60, 0xff61, hnayayoi_palbank_w },
-		{ 0xff62, 0xff67, dynax_blitter_rev1_param_w },
-	MEMORY_END
+	public static Memory_WriteAddress hnfubuki_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x77ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x7800, 0x7fff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
+		new Memory_WriteAddress( 0x8000, 0xfeff, MWA_ROM ),
+		new Memory_WriteAddress( 0xff00, 0xff00, YM2203_control_port_0_w ),
+		new Memory_WriteAddress( 0xff01, 0xff01, YM2203_write_port_0_w ),
+		new Memory_WriteAddress( 0xff06, 0xff06, adpcm_data_w ),
+	//	new Memory_WriteAddress( 0xff08, 0xff08, IOWP_NOP ),	// CRT Controller
+	//	new Memory_WriteAddress( 0xff09, 0xff09, IOWP_NOP ),	// CRT Controller
+		new Memory_WriteAddress( 0xff0a, 0xff0a, dynax_blitter_rev1_start_w ),
+		new Memory_WriteAddress( 0xff0c, 0xff0c, dynax_blitter_rev1_clear_w ),
+		new Memory_WriteAddress( 0xff23, 0xff23, adpcm_vclk_w ),
+		new Memory_WriteAddress( 0xff24, 0xff24, adpcm_reset_inv_w ),
+		new Memory_WriteAddress( 0xff40, 0xff40, keyboard_w ),
+		new Memory_WriteAddress( 0xff60, 0xff61, hnayayoi_palbank_w ),
+		new Memory_WriteAddress( 0xff62, 0xff67, dynax_blitter_rev1_param_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( hnfubuki_readport )
@@ -167,17 +175,21 @@ public class hnayayoi
 	PORT_END
 	
 	
-	static MEMORY_READ_START( untoucha_readmem )
-		{ 0x0000, 0x77ff, MRA_ROM },
-		{ 0x7800, 0x7fff, MRA_RAM },
-		{ 0x8000, 0xffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress untoucha_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x77ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x7800, 0x7fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x8000, 0xffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( untoucha_writemem )
-		{ 0x0000, 0x77ff, MWA_ROM },
-		{ 0x7800, 0x7fff, MWA_RAM, &generic_nvram, &generic_nvram_size },
-		{ 0x8000, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress untoucha_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x77ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x7800, 0x7fff, MWA_RAM, &generic_nvram, &generic_nvram_size ),
+		new Memory_WriteAddress( 0x8000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( untoucha_readport )

@@ -91,20 +91,24 @@ public class yunsung8
 		d000-dfff	Tiles	""
 	*/
 	
-	static MEMORY_READ_START( yunsung8_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM				},	// ROM
-		{ 0x8000, 0xbfff, MRA_BANK1				},	// Banked ROM
-		{ 0xc000, 0xdfff, yunsung8_videoram_r	},	// Video RAM (Banked)
-		{ 0xe000, 0xffff, MRA_RAM				},	// RAM
-	MEMORY_END
+	public static Memory_ReadAddress yunsung8_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM				),	// ROM
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1				),	// Banked ROM
+		new Memory_ReadAddress( 0xc000, 0xdfff, yunsung8_videoram_r	),	// Video RAM (Banked)
+		new Memory_ReadAddress( 0xe000, 0xffff, MRA_RAM				),	// RAM
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( yunsung8_writemem )
-		{ 0x0000, 0x0000, MWA_ROM				},	// ROM
-		{ 0x0001, 0x0001, yunsung8_bankswitch_w	},	// ROM Bank (again?)
-		{ 0x0002, 0xbfff, MWA_ROM				},	// ROM
-		{ 0xc000, 0xdfff, yunsung8_videoram_w	},	// Video RAM (Banked)
-		{ 0xe000, 0xffff, MWA_RAM				},	// RAM
-	MEMORY_END
+	public static Memory_WriteAddress yunsung8_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x0000, MWA_ROM				),	// ROM
+		new Memory_WriteAddress( 0x0001, 0x0001, yunsung8_bankswitch_w	),	// ROM Bank (again?)
+		new Memory_WriteAddress( 0x0002, 0xbfff, MWA_ROM				),	// ROM
+		new Memory_WriteAddress( 0xc000, 0xdfff, yunsung8_videoram_w	),	// Video RAM (Banked)
+		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM				),	// RAM
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( yunsung8_readport )
@@ -157,22 +161,26 @@ public class yunsung8
 	
 	
 	
-	static MEMORY_READ_START( yunsung8_sound_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM						},	// ROM
-		{ 0x8000, 0xbfff, MRA_BANK2						},	// Banked ROM
-		{ 0xf000, 0xf7ff, MRA_RAM						},	// RAM
-		{ 0xf800, 0xf800, soundlatch_r					},	// From Main CPU
-	MEMORY_END
+	public static Memory_ReadAddress yunsung8_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM						),	// ROM
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK2						),	// Banked ROM
+		new Memory_ReadAddress( 0xf000, 0xf7ff, MRA_RAM						),	// RAM
+		new Memory_ReadAddress( 0xf800, 0xf800, soundlatch_r					),	// From Main CPU
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( yunsung8_sound_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM						},	// ROM
-		{ 0x8000, 0xbfff, MWA_ROM						},	// Banked ROM
-		{ 0xe000, 0xe000, yunsung8_sound_bankswitch_w	},	// ROM Bank
-		{ 0xe400, 0xe400, yunsung8_adpcm_w				},
-		{ 0xec00, 0xec00, YM3812_control_port_0_w		},	// YM3812
-		{ 0xec01, 0xec01, YM3812_write_port_0_w			},
-		{ 0xf000, 0xf7ff, MWA_RAM						},	// RAM
-	MEMORY_END
+	public static Memory_WriteAddress yunsung8_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM						),	// ROM
+		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_ROM						),	// Banked ROM
+		new Memory_WriteAddress( 0xe000, 0xe000, yunsung8_sound_bankswitch_w	),	// ROM Bank
+		new Memory_WriteAddress( 0xe400, 0xe400, yunsung8_adpcm_w				),
+		new Memory_WriteAddress( 0xec00, 0xec00, YM3812_control_port_0_w		),	// YM3812
+		new Memory_WriteAddress( 0xec01, 0xec01, YM3812_write_port_0_w			),
+		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_RAM						),	// RAM
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	

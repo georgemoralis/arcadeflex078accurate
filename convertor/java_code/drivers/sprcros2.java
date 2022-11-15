@@ -114,23 +114,27 @@ public class sprcros2
 		sprcros2_s_port3 = data;
 	} };
 	
-	static MEMORY_READ_START( sprcros2_m_readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xdfff, MRA_BANK1 },
-		{ 0xe000, 0xf7ff, MRA_RAM },
-		{ 0xf800, 0xffff, MRA_RAM },						//shared with slave cpu
-	MEMORY_END
+	public static Memory_ReadAddress sprcros2_m_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xe000, 0xf7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_RAM ),						//shared with slave cpu
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sprcros2_m_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xdfff, MWA_BANK1 },
-		{ 0xe000, 0xe7ff, sprcros2_fgvideoram_w, &sprcros2_fgvideoram },
-		{ 0xe800, 0xe817, MWA_RAM },						//always zero
-		{ 0xe818, 0xe83f, MWA_RAM, &sprcros2_spriteram, &sprcros2_spriteram_size },
-		{ 0xe840, 0xefff, MWA_RAM },						//always zero
-		{ 0xf000, 0xf7ff, MWA_RAM },
-		{ 0xf800, 0xffff, MWA_RAM, &sprcros2_sharedram },	//shared with slave cpu
-	MEMORY_END
+	public static Memory_WriteAddress sprcros2_m_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_BANK1 ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, sprcros2_fgvideoram_w, &sprcros2_fgvideoram ),
+		new Memory_WriteAddress( 0xe800, 0xe817, MWA_RAM ),						//always zero
+		new Memory_WriteAddress( 0xe818, 0xe83f, MWA_RAM, &sprcros2_spriteram, &sprcros2_spriteram_size ),
+		new Memory_WriteAddress( 0xe840, 0xefff, MWA_RAM ),						//always zero
+		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_RAM, &sprcros2_sharedram ),	//shared with slave cpu
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( sprcros2_m_readport )
 		{ 0x00, 0x00, input_port_0_r },
@@ -147,23 +151,27 @@ public class sprcros2
 		{ 0x07, 0x07, sprcros2_m_port7_w },
 	PORT_END
 	
-	static MEMORY_READ_START( sprcros2_s_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xdfff, MRA_BANK2 },
-		{ 0xe000, 0xf7ff, MRA_RAM },
-		{ 0xf800, 0xffff, sprcros2_sharedram_r },
-	MEMORY_END
+	public static Memory_ReadAddress sprcros2_s_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xdfff, MRA_BANK2 ),
+		new Memory_ReadAddress( 0xe000, 0xf7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf800, 0xffff, sprcros2_sharedram_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sprcros2_s_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xdfff, MWA_BANK2 },
-		{ 0xe000, 0xe7ff, sprcros2_bgvideoram_w, &sprcros2_bgvideoram },
-		{ 0xe800, 0xefff, MWA_RAM },						//always zero
-		{ 0xf000, 0xf7ff, MWA_RAM },
-		{ 0xf800, 0xffff, sprcros2_sharedram_w },
-	MEMORY_END
+	public static Memory_WriteAddress sprcros2_s_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xdfff, MWA_BANK2 ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, sprcros2_bgvideoram_w, &sprcros2_bgvideoram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM ),						//always zero
+		new Memory_WriteAddress( 0xf000, 0xf7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xf800, 0xffff, sprcros2_sharedram_w ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( sprcros2_s_writeport )
 		{ 0x00, 0x00, sprcros2_bgscrollx_w },

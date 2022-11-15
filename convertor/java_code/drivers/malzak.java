@@ -83,44 +83,48 @@ public class malzak
 	} };
 	
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x0fff, MRA_ROM },
-		{ 0x1000, 0x10ff, MRA_RAM },
-		{ 0x1100, 0x11ff, MRA_RAM },
-		{ 0x1200, 0x12ff, MRA_RAM },
-		{ 0x1300, 0x13ff, MRA_RAM },
-		{ 0x14cb, 0x14cb, fake_VRLE_r },
-		{ 0x1400, 0x14ff, malzak_s2636_1_r },
-		{ 0x1500, 0x15ff, malzak_s2636_2_r },
-		{ 0x1600, 0x16ff, MRA_RAM },
-		{ 0x1700, 0x17ff, MRA_RAM },
-		{ 0x1800, 0x1fff, saa5050_r },  // SAA 5050 video RAM
-		{ 0x2000, 0x2fff, MRA_ROM },
-		{ 0x3000, 0x3fff, ram_mirror_r },
-		{ 0x4000, 0x4fff, MRA_ROM },
-		{ 0x5000, 0x5fff, ram_mirror_r },
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x0fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x1000, 0x10ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x1100, 0x11ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x1200, 0x12ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x1300, 0x13ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x14cb, 0x14cb, fake_VRLE_r ),
+		new Memory_ReadAddress( 0x1400, 0x14ff, malzak_s2636_1_r ),
+		new Memory_ReadAddress( 0x1500, 0x15ff, malzak_s2636_2_r ),
+		new Memory_ReadAddress( 0x1600, 0x16ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x1700, 0x17ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x1800, 0x1fff, saa5050_r ),  // SAA 5050 video RAM
+		new Memory_ReadAddress( 0x2000, 0x2fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x3000, 0x3fff, ram_mirror_r ),
+		new Memory_ReadAddress( 0x4000, 0x4fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x5000, 0x5fff, ram_mirror_r ),
 	
-	MEMORY_END
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x0fff, MWA_ROM },
-		{ 0x1000, 0x10ff, MWA_RAM },
-		{ 0x1100, 0x11ff, MWA_RAM },
-		{ 0x1200, 0x12ff, MWA_RAM },
-		{ 0x1300, 0x13ff, MWA_RAM },
-		{ 0x1400, 0x14ff, malzak_s2636_1_w }, // S2636 offset $CB bit 40 tested as collision ?
-		{ 0x1500, 0x15ff, malzak_s2636_2_w },
-		{ 0x1600, 0x16ff, playfield_w },
-		{ 0x1600, 0x16ff, MWA_RAM },
-		{ 0x1700, 0x17ff, MWA_RAM },
-		{ 0x1800, 0x1fff, saa5050_w },  // SAA 5050 video RAM
-		{ 0x2000, 0x2fff, MWA_ROM },
-		{ 0x3000, 0x3fff, ram_mirror_w },
-		{ 0x4000, 0x4fff, MWA_ROM },
-		{ 0x5000, 0x5dff, ram_mirror_w },
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x0fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x1000, 0x10ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x1100, 0x11ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x1200, 0x12ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x1300, 0x13ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x1400, 0x14ff, malzak_s2636_1_w ), // S2636 offset $CB bit 40 tested as collision ?
+		new Memory_WriteAddress( 0x1500, 0x15ff, malzak_s2636_2_w ),
+		new Memory_WriteAddress( 0x1600, 0x16ff, playfield_w ),
+		new Memory_WriteAddress( 0x1600, 0x16ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x1700, 0x17ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x1800, 0x1fff, saa5050_w ),  // SAA 5050 video RAM
+		new Memory_WriteAddress( 0x2000, 0x2fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x3000, 0x3fff, ram_mirror_w ),
+		new Memory_WriteAddress( 0x4000, 0x4fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x5000, 0x5dff, ram_mirror_w ),
 	
-	MEMORY_END
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	public static ReadHandlerPtr s2650_data_r  = new ReadHandlerPtr() { public int handler(int offset){
 		usrintf_showmessage("S2650 data port read");

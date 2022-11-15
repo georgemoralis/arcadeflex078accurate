@@ -263,25 +263,29 @@ public class bigevglf
 	
 	/*****************************************************************************/
 	/* Main CPU */
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xcfff, MRA_RAM },
-		{ 0xd000, 0xd7ff, MRA_BANK1 },
-		{ 0xd800, 0xdbff, beg_sharedram_r }, /* only half of the RAM is accessible, line a10 of IC73 (6116) is GNDed */
-		{ 0xf000, 0xf0ff, bigevglf_vidram_r }, /* 41464 (64kB * 8 chips), addressed using ports 1 and 5 */
-		{ 0xf840, 0xf8ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xd7ff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xd800, 0xdbff, beg_sharedram_r ), /* only half of the RAM is accessible, line a10 of IC73 (6116) is GNDed */
+		new Memory_ReadAddress( 0xf000, 0xf0ff, bigevglf_vidram_r ), /* 41464 (64kB * 8 chips), addressed using ports 1 and 5 */
+		new Memory_ReadAddress( 0xf840, 0xf8ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xcfff, MWA_RAM },
-		{ 0xd000, 0xd7ff, MWA_ROM },
-		{ 0xd800, 0xdbff, beg_sharedram_w, &beg_sharedram },
-		{ 0xe000, 0xe7ff, beg_palette_w, &paletteram },
-		{ 0xe800, 0xefff, MWA_RAM, &beg_spriteram1 }, /* sprite 'templates' */
-		{ 0xf000, 0xf0ff, bigevglf_vidram_w },
-		{ 0xf840, 0xf8ff, MWA_RAM,&beg_spriteram2 },  /* spriteram (x,y,offset in spriteram1,palette) */
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, MWA_RAM ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, MWA_ROM ),
+		new Memory_WriteAddress( 0xd800, 0xdbff, beg_sharedram_w, &beg_sharedram ),
+		new Memory_WriteAddress( 0xe000, 0xe7ff, beg_palette_w, &paletteram ),
+		new Memory_WriteAddress( 0xe800, 0xefff, MWA_RAM, &beg_spriteram1 ), /* sprite 'templates' */
+		new Memory_WriteAddress( 0xf000, 0xf0ff, bigevglf_vidram_w ),
+		new Memory_WriteAddress( 0xf840, 0xf8ff, MWA_RAM,&beg_spriteram2 ),  /* spriteram (x,y,offset in spriteram1,palette) */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_WRITE_START( bigevglf_writeport )
 		{ 0x00, 0x00, IOWP_NOP }, 	/* video ram enable ???*/
@@ -300,17 +304,21 @@ public class bigevglf
 	/*********************************************************************************/
 	/* Sub CPU */
 	
-	static MEMORY_READ_START( readmem_sub )
-		{ 0x0000, 0x3fff, MRA_ROM },
-		{ 0x4000, 0x47ff, MRA_RAM },
-		{ 0x8000, 0x83ff, beg_sharedram_r }, /* shared with main CPU */
-	MEMORY_END
+	public static Memory_ReadAddress readmem_sub[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x3fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x4000, 0x47ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x8000, 0x83ff, beg_sharedram_r ), /* shared with main CPU */
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem_sub )
-		{ 0x0000, 0x3fff, MWA_ROM },
-		{ 0x4000, 0x47ff, MWA_RAM },
-		{ 0x8000, 0x83ff, beg_sharedram_w }, /* shared with main CPU */
-	MEMORY_END
+	public static Memory_WriteAddress writemem_sub[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x4000, 0x47ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x8000, 0x83ff, beg_sharedram_w ), /* shared with main CPU */
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_WRITE_START( bigevglf_sub_writeport )
@@ -354,50 +362,58 @@ public class bigevglf
 	/*********************************************************************************/
 	/* Sound CPU */
 	
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xc000, 0xc7ff, MRA_RAM },
-		{ 0xda00, 0xda00, soundstate_r },
-		{ 0xd800, 0xd800, sound_command_r },	/* read from D800 sets bit 0 in status */
-		{ 0xe000, 0xefff, MRA_NOP },	/* space for diagnostics ROM */
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xc000, 0xc7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xda00, 0xda00, soundstate_r ),
+		new Memory_ReadAddress( 0xd800, 0xd800, sound_command_r ),	/* read from D800 sets bit 0 in status */
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_NOP ),	/* space for diagnostics ROM */
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc7ff, MWA_RAM },
-		{ 0xc800, 0xc800, AY8910_control_port_0_w },
-		{ 0xc801, 0xc801, AY8910_write_port_0_w },
-		{ 0xca00, 0xca0d, MSM5232_0_w },
-		{ 0xcc00, 0xcc00, MWA_NOP },
-		{ 0xce00, 0xce00, MWA_NOP },
-		{ 0xd800, 0xd800, beg_fromsound_w },	/* write to D800 sets bit 1 in status */
-		{ 0xda00, 0xda00, nmi_enable_w },
-		{ 0xdc00, 0xdc00, nmi_disable_w },
-		{ 0xde00, 0xde00, MWA_NOP },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc7ff, MWA_RAM ),
+		new Memory_WriteAddress( 0xc800, 0xc800, AY8910_control_port_0_w ),
+		new Memory_WriteAddress( 0xc801, 0xc801, AY8910_write_port_0_w ),
+		new Memory_WriteAddress( 0xca00, 0xca0d, MSM5232_0_w ),
+		new Memory_WriteAddress( 0xcc00, 0xcc00, MWA_NOP ),
+		new Memory_WriteAddress( 0xce00, 0xce00, MWA_NOP ),
+		new Memory_WriteAddress( 0xd800, 0xd800, beg_fromsound_w ),	/* write to D800 sets bit 1 in status */
+		new Memory_WriteAddress( 0xda00, 0xda00, nmi_enable_w ),
+		new Memory_WriteAddress( 0xdc00, 0xdc00, nmi_disable_w ),
+		new Memory_WriteAddress( 0xde00, 0xde00, MWA_NOP ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*********************************************************************************/
 	/* MCU */
 	
-	static MEMORY_READ_START( m68705_readmem )
-		{ 0x0000, 0x0000, bigevglf_68705_portA_r },
-		{ 0x0001, 0x0001, bigevglf_68705_portB_r },
-		{ 0x0002, 0x0002, bigevglf_68705_portC_r },
-		{ 0x0010, 0x007f, MRA_RAM },
-		{ 0x0080, 0x07ff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress m68705_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x0000, bigevglf_68705_portA_r ),
+		new Memory_ReadAddress( 0x0001, 0x0001, bigevglf_68705_portB_r ),
+		new Memory_ReadAddress( 0x0002, 0x0002, bigevglf_68705_portC_r ),
+		new Memory_ReadAddress( 0x0010, 0x007f, MRA_RAM ),
+		new Memory_ReadAddress( 0x0080, 0x07ff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( m68705_writemem )
-		{ 0x0000, 0x0000, bigevglf_68705_portA_w },
-		{ 0x0001, 0x0001, bigevglf_68705_portB_w },
-		{ 0x0002, 0x0002, bigevglf_68705_portC_w },
-		{ 0x0004, 0x0004, bigevglf_68705_ddrA_w },
-		{ 0x0005, 0x0005, bigevglf_68705_ddrB_w },
-		{ 0x0006, 0x0006, bigevglf_68705_ddrC_w },
-		{ 0x0010, 0x007f, MWA_RAM },
-		{ 0x0080, 0x07ff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress m68705_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x0000, bigevglf_68705_portA_w ),
+		new Memory_WriteAddress( 0x0001, 0x0001, bigevglf_68705_portB_w ),
+		new Memory_WriteAddress( 0x0002, 0x0002, bigevglf_68705_portC_w ),
+		new Memory_WriteAddress( 0x0004, 0x0004, bigevglf_68705_ddrA_w ),
+		new Memory_WriteAddress( 0x0005, 0x0005, bigevglf_68705_ddrB_w ),
+		new Memory_WriteAddress( 0x0006, 0x0006, bigevglf_68705_ddrC_w ),
+		new Memory_WriteAddress( 0x0010, 0x007f, MWA_RAM ),
+		new Memory_WriteAddress( 0x0080, 0x07ff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static struct GfxLayout gfxlayout =

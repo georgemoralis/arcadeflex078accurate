@@ -114,91 +114,103 @@ public class decocass
 		rom[offset+diff] = swap_bits_5_6(data);
 	} };
 	
-	static MEMORY_READ_START( decocass_readmem )
-		{ 0x0000, 0x1fff, MRA_RAM },
-		{ 0x2000, 0xbfff, MRA_RAM },				/* RMS3 RAM */
-		{ 0xc000, 0xc7ff, MRA_RAM },				/* DSP3 videoram + colorram */
-		{ 0xc800, 0xcbff, decocass_mirrorvideoram_r },
-		{ 0xcc00, 0xcfff, decocass_mirrorcolorram_r },
-		{ 0xd000, 0xdbff, MRA_RAM },				/* B103 RAM */
-		{ 0xe300, 0xe300, input_port_7_r }, 		/* DSW1 */
-		{ 0xe301, 0xe301, input_port_8_r }, 		/* DSW2 */
-		{ 0xe500, 0xe5ff, decocass_e5xx_r },		/* read data from 8041/status */
-		{ 0xe600, 0xe6ff, decocass_input_r },		/* inputs */
-		{ 0xe700, 0xe700, decocass_sound_data_r },	/* read sound CPU data */
-		{ 0xe701, 0xe701, decocass_sound_ack_r },	/* read sound CPU ack status */
-		{ 0xf000, 0xffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress decocass_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x2000, 0xbfff, MRA_RAM ),				/* RMS3 RAM */
+		new Memory_ReadAddress( 0xc000, 0xc7ff, MRA_RAM ),				/* DSP3 videoram + colorram */
+		new Memory_ReadAddress( 0xc800, 0xcbff, decocass_mirrorvideoram_r ),
+		new Memory_ReadAddress( 0xcc00, 0xcfff, decocass_mirrorcolorram_r ),
+		new Memory_ReadAddress( 0xd000, 0xdbff, MRA_RAM ),				/* B103 RAM */
+		new Memory_ReadAddress( 0xe300, 0xe300, input_port_7_r ), 		/* DSW1 */
+		new Memory_ReadAddress( 0xe301, 0xe301, input_port_8_r ), 		/* DSW2 */
+		new Memory_ReadAddress( 0xe500, 0xe5ff, decocass_e5xx_r ),		/* read data from 8041/status */
+		new Memory_ReadAddress( 0xe600, 0xe6ff, decocass_input_r ),		/* inputs */
+		new Memory_ReadAddress( 0xe700, 0xe700, decocass_sound_data_r ),	/* read sound CPU data */
+		new Memory_ReadAddress( 0xe701, 0xe701, decocass_sound_ack_r ),	/* read sound CPU ack status */
+		new Memory_ReadAddress( 0xf000, 0xffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( decocass_writemem )
-		{ 0x0000, 0xffff, decocass_w },
+	public static Memory_WriteAddress decocass_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xffff, decocass_w ),
 	
-		{ 0x0000, 0x1fff, MWA_RAM },
-		{ 0x2000, 0x5fff, MWA_RAM },	/* RMS3 RAM */
-		{ 0x6000, 0xbfff, decocass_charram_w, &decocass_charram }, /* still RMS3 RAM */
-		{ 0xc000, 0xc3ff, decocass_fgvideoram_w, &decocass_fgvideoram, &decocass_fgvideoram_size },  /* DSP3 RAM */
-		{ 0xc400, 0xc7ff, decocass_colorram_w, &decocass_colorram, &decocass_colorram_size },
-		{ 0xc800, 0xcbff, decocass_mirrorvideoram_w },
-		{ 0xcc00, 0xcfff, decocass_mirrorcolorram_w },
-		{ 0xd000, 0xd7ff, decocass_tileram_w, &decocass_tileram, &decocass_tileram_size },
-		{ 0xd800, 0xdbff, decocass_objectram_w, &decocass_objectram, &decocass_objectram_size },
-		{ 0xe000, 0xe0ff, decocass_paletteram_w, &paletteram },
-		{ 0xe300, 0xe300, decocass_watchdog_count_w },
-		{ 0xe301, 0xe301, decocass_watchdog_flip_w },
-		{ 0xe302, 0xe302, decocass_color_missiles_w },
-		{ 0xe400, 0xe400, decocass_reset_w },
+		new Memory_WriteAddress( 0x0000, 0x1fff, MWA_RAM ),
+		new Memory_WriteAddress( 0x2000, 0x5fff, MWA_RAM ),	/* RMS3 RAM */
+		new Memory_WriteAddress( 0x6000, 0xbfff, decocass_charram_w, &decocass_charram ), /* still RMS3 RAM */
+		new Memory_WriteAddress( 0xc000, 0xc3ff, decocass_fgvideoram_w, &decocass_fgvideoram, &decocass_fgvideoram_size ),  /* DSP3 RAM */
+		new Memory_WriteAddress( 0xc400, 0xc7ff, decocass_colorram_w, &decocass_colorram, &decocass_colorram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcbff, decocass_mirrorvideoram_w ),
+		new Memory_WriteAddress( 0xcc00, 0xcfff, decocass_mirrorcolorram_w ),
+		new Memory_WriteAddress( 0xd000, 0xd7ff, decocass_tileram_w, &decocass_tileram, &decocass_tileram_size ),
+		new Memory_WriteAddress( 0xd800, 0xdbff, decocass_objectram_w, &decocass_objectram, &decocass_objectram_size ),
+		new Memory_WriteAddress( 0xe000, 0xe0ff, decocass_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0xe300, 0xe300, decocass_watchdog_count_w ),
+		new Memory_WriteAddress( 0xe301, 0xe301, decocass_watchdog_flip_w ),
+		new Memory_WriteAddress( 0xe302, 0xe302, decocass_color_missiles_w ),
+		new Memory_WriteAddress( 0xe400, 0xe400, decocass_reset_w ),
 	
 	/* BIO-3 board */
-		{ 0xe402, 0xe402, decocass_mode_set_w },
-		{ 0xe403, 0xe403, decocass_back_h_shift_w },
-		{ 0xe404, 0xe404, decocass_back_vl_shift_w },
-		{ 0xe405, 0xe405, decocass_back_vr_shift_w },
-		{ 0xe406, 0xe406, decocass_part_h_shift_w },
-		{ 0xe407, 0xe407, decocass_part_v_shift_w },
+		new Memory_WriteAddress( 0xe402, 0xe402, decocass_mode_set_w ),
+		new Memory_WriteAddress( 0xe403, 0xe403, decocass_back_h_shift_w ),
+		new Memory_WriteAddress( 0xe404, 0xe404, decocass_back_vl_shift_w ),
+		new Memory_WriteAddress( 0xe405, 0xe405, decocass_back_vr_shift_w ),
+		new Memory_WriteAddress( 0xe406, 0xe406, decocass_part_h_shift_w ),
+		new Memory_WriteAddress( 0xe407, 0xe407, decocass_part_v_shift_w ),
 	
-		{ 0xe410, 0xe410, decocass_color_center_bot_w },
-		{ 0xe411, 0xe411, decocass_center_h_shift_space_w },
-		{ 0xe412, 0xe412, decocass_center_v_shift_w },
-		{ 0xe413, 0xe413, decocass_coin_counter_w },
-		{ 0xe414, 0xe414, decocass_sound_command_w },
-		{ 0xe415, 0xe416, decocass_quadrature_decoder_reset_w },
-		{ 0xe417, 0xe417, decocass_nmi_reset_w },
-		{ 0xe420, 0xe42f, decocass_adc_w },
+		new Memory_WriteAddress( 0xe410, 0xe410, decocass_color_center_bot_w ),
+		new Memory_WriteAddress( 0xe411, 0xe411, decocass_center_h_shift_space_w ),
+		new Memory_WriteAddress( 0xe412, 0xe412, decocass_center_v_shift_w ),
+		new Memory_WriteAddress( 0xe413, 0xe413, decocass_coin_counter_w ),
+		new Memory_WriteAddress( 0xe414, 0xe414, decocass_sound_command_w ),
+		new Memory_WriteAddress( 0xe415, 0xe416, decocass_quadrature_decoder_reset_w ),
+		new Memory_WriteAddress( 0xe417, 0xe417, decocass_nmi_reset_w ),
+		new Memory_WriteAddress( 0xe420, 0xe42f, decocass_adc_w ),
 	
-		{ 0xe500, 0xe5ff, decocass_e5xx_w },
+		new Memory_WriteAddress( 0xe500, 0xe5ff, decocass_e5xx_w ),
 	
-		{ 0xf000, 0xffff, MWA_ROM },
-	MEMORY_END
+		new Memory_WriteAddress( 0xf000, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( decocass_sound_readmem )
-		{ 0x0000, 0x0fff, MRA_RAM },
-		{ 0x1000, 0x17ff, decocass_sound_nmi_enable_r },
-		{ 0x1800, 0x1fff, decocass_sound_data_ack_reset_r },
-		{ 0xa000, 0xafff, decocass_sound_command_r },
-		{ 0xf800, 0xffff, MRA_ROM },
-	MEMORY_END
+	public static Memory_ReadAddress decocass_sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x0fff, MRA_RAM ),
+		new Memory_ReadAddress( 0x1000, 0x17ff, decocass_sound_nmi_enable_r ),
+		new Memory_ReadAddress( 0x1800, 0x1fff, decocass_sound_data_ack_reset_r ),
+		new Memory_ReadAddress( 0xa000, 0xafff, decocass_sound_command_r ),
+		new Memory_ReadAddress( 0xf800, 0xffff, MRA_ROM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( decocass_sound_writemem )
-		{ 0x0000, 0x0fff, MWA_RAM },
-		{ 0x1000, 0x17ff, decocass_sound_nmi_enable_w },
-		{ 0x1800, 0x1fff, decocass_sound_data_ack_reset_w },
-		{ 0x2000, 0x2fff, AY8910_write_port_0_w },
-		{ 0x4000, 0x4fff, AY8910_control_port_0_w },
-		{ 0x6000, 0x6fff, AY8910_write_port_1_w },
-		{ 0x8000, 0x8fff, AY8910_control_port_1_w },
-		{ 0xc000, 0xcfff, decocass_sound_data_w },
-		{ 0xf800, 0xffff, MWA_ROM },
-	MEMORY_END
+	public static Memory_WriteAddress decocass_sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x0fff, MWA_RAM ),
+		new Memory_WriteAddress( 0x1000, 0x17ff, decocass_sound_nmi_enable_w ),
+		new Memory_WriteAddress( 0x1800, 0x1fff, decocass_sound_data_ack_reset_w ),
+		new Memory_WriteAddress( 0x2000, 0x2fff, AY8910_write_port_0_w ),
+		new Memory_WriteAddress( 0x4000, 0x4fff, AY8910_control_port_0_w ),
+		new Memory_WriteAddress( 0x6000, 0x6fff, AY8910_write_port_1_w ),
+		new Memory_WriteAddress( 0x8000, 0x8fff, AY8910_control_port_1_w ),
+		new Memory_WriteAddress( 0xc000, 0xcfff, decocass_sound_data_w ),
+		new Memory_WriteAddress( 0xf800, 0xffff, MWA_ROM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_READ_START( decocass_mcu_readmem )
-		{ 0x0000, 0x03ff, MRA_ROM },
-		{ 0x0800, 0x083f, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress decocass_mcu_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x03ff, MRA_ROM ),
+		new Memory_ReadAddress( 0x0800, 0x083f, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( decocass_mcu_writemem )
-		{ 0x0000, 0x03ff, MWA_ROM },
-		{ 0x0800, 0x083f, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress decocass_mcu_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x03ff, MWA_ROM ),
+		new Memory_WriteAddress( 0x0800, 0x083f, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( decocass_mcu_readport )
 		{ 0x01, 0x01, i8041_p1_r },

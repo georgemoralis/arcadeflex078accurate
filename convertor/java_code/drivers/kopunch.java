@@ -55,18 +55,22 @@ public class kopunch
 	
 	
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x1fff, MRA_ROM },
-		{ 0x2000, 0x23ff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x1fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x2000, 0x23ff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x1fff, MWA_ROM },
-		{ 0x2000, 0x23ff, MWA_RAM },
-		{ 0x6000, 0x63ff, kopunch_videoram_w, &videoram },
-		{ 0x7000, 0x70ff, kopunch_videoram2_w, &kopunch_videoram2 },
-		{ 0x7100, 0x7aff, MWA_RAM },	// ???
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x1fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x2000, 0x23ff, MWA_RAM ),
+		new Memory_WriteAddress( 0x6000, 0x63ff, kopunch_videoram_w, &videoram ),
+		new Memory_WriteAddress( 0x7000, 0x70ff, kopunch_videoram2_w, &kopunch_videoram2 ),
+		new Memory_WriteAddress( 0x7100, 0x7aff, MWA_RAM ),	// ???
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	public static ReadHandlerPtr pip_r  = new ReadHandlerPtr() { public int handler(int offset){
 		return rand();

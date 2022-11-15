@@ -37,26 +37,30 @@ public class kyugo
 	 *
 	 *************************************/
 	
-	static MEMORY_READ_START( main_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0x97ff, MRA_RAM },
-		{ 0x9800, 0x9fff, kyugo_spriteram_2_r },
-		{ 0xa000, 0xa7ff, MRA_RAM },
-		{ 0xf000, 0xf7ff, kyugo_sharedram_r },
-	MEMORY_END
+	public static Memory_ReadAddress main_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0x97ff, MRA_RAM ),
+		new Memory_ReadAddress( 0x9800, 0x9fff, kyugo_spriteram_2_r ),
+		new Memory_ReadAddress( 0xa000, 0xa7ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xf000, 0xf7ff, kyugo_sharedram_r ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( main_writemem )
-		{ 0x0000, 0x7fff, MWA_ROM },
-		{ 0x8000, 0x87ff, kyugo_bgvideoram_w, &kyugo_bgvideoram },
-		{ 0x8800, 0x8fff, kyugo_bgattribram_w, &kyugo_bgattribram },
-		{ 0x9000, 0x97ff, kyugo_fgvideoram_w, &kyugo_fgvideoram },
-		{ 0x9800, 0x9fff, MWA_RAM, &kyugo_spriteram_2 },
-		{ 0xa000, 0xa7ff, MWA_RAM, &kyugo_spriteram_1 },
-		{ 0xa800, 0xa800, kyugo_scroll_x_lo_w },
-		{ 0xb000, 0xb000, kyugo_gfxctrl_w },
-		{ 0xb800, 0xb800, kyugo_scroll_y_w },
-		{ 0xf000, 0xf7ff, kyugo_sharedram_w, &kyugo_sharedram },
-	MEMORY_END
+	public static Memory_WriteAddress main_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x7fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x8000, 0x87ff, kyugo_bgvideoram_w, &kyugo_bgvideoram ),
+		new Memory_WriteAddress( 0x8800, 0x8fff, kyugo_bgattribram_w, &kyugo_bgattribram ),
+		new Memory_WriteAddress( 0x9000, 0x97ff, kyugo_fgvideoram_w, &kyugo_fgvideoram ),
+		new Memory_WriteAddress( 0x9800, 0x9fff, MWA_RAM, &kyugo_spriteram_2 ),
+		new Memory_WriteAddress( 0xa000, 0xa7ff, MWA_RAM, &kyugo_spriteram_1 ),
+		new Memory_WriteAddress( 0xa800, 0xa800, kyugo_scroll_x_lo_w ),
+		new Memory_WriteAddress( 0xb000, 0xb000, kyugo_gfxctrl_w ),
+		new Memory_WriteAddress( 0xb800, 0xb800, kyugo_scroll_y_w ),
+		new Memory_WriteAddress( 0xf000, 0xf7ff, kyugo_sharedram_w, &kyugo_sharedram ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	/*************************************
@@ -84,18 +88,22 @@ public class kyugo
 	 *************************************/
 	
 	#define Sub_MemMap( name, rom_end, shared, in0, in1, in2 )	\
-	static MEMORY_READ_START( name##_sub_readmem )				\
-		{ 0x0000, rom_end, MRA_ROM },							\
-		{ shared, shared+0x7ff, kyugo_sharedram_r },			\
-		{ in0, in0, input_port_2_r },							\
-		{ in1, in1, input_port_3_r },							\
-		{ in2, in2, input_port_4_r },							\
-	MEMORY_END													\
+	public static Memory_ReadAddress name##_sub_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),			\
+		new Memory_ReadAddress( 0x0000, rom_end, MRA_ROM ),							\
+		new Memory_ReadAddress( shared, shared+0x7ff, kyugo_sharedram_r ),			\
+		new Memory_ReadAddress( in0, in0, input_port_2_r ),							\
+		new Memory_ReadAddress( in1, in1, input_port_3_r ),							\
+		new Memory_ReadAddress( in2, in2, input_port_4_r ),							\
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};												\
 																\
-	static MEMORY_WRITE_START( name##_sub_writemem )			\
-		{ 0x0000, rom_end, MWA_ROM },							\
-		{ shared, shared+0x7ff, kyugo_sharedram_w },			\
-	MEMORY_END
+	public static Memory_WriteAddress name##_sub_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),		\
+		new Memory_WriteAddress( 0x0000, rom_end, MWA_ROM ),							\
+		new Memory_WriteAddress( shared, shared+0x7ff, kyugo_sharedram_w ),			\
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	Sub_MemMap( gyrodine, 0x1fff, 0x4000, 0x8080, 0x8040, 0x8000 )
 	Sub_MemMap( sonofphx, 0x7fff, 0xa000, 0xc080, 0xc040, 0xc000 )

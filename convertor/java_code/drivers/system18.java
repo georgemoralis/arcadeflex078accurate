@@ -74,21 +74,25 @@ public class system18
 		return sys18_SoundMemBank[offset];
 	}
 	
-	static MEMORY_READ_START( sound_readmem_18 )
-		{ 0x0000, 0x9fff, MRA_ROM },
-		{ 0xa000, 0xbfff, system18_bank_r },
+	public static Memory_ReadAddress sound_readmem_18[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x9fff, MRA_ROM ),
+		new Memory_ReadAddress( 0xa000, 0xbfff, system18_bank_r ),
 		/**** D/A register ****/
-		{ 0xd000, 0xdfff, RF5C68_r },
-		{ 0xe000, 0xffff, MRA_RAM },
-	MEMORY_END
+		new Memory_ReadAddress( 0xd000, 0xdfff, RF5C68_r ),
+		new Memory_ReadAddress( 0xe000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem_18 )
-		{ 0x0000, 0xbfff, MWA_ROM },
+	public static Memory_WriteAddress sound_writemem_18[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
 		/**** D/A register ****/
-		{ 0xc000, 0xc008, RF5C68_reg_w },
-		{ 0xd000, 0xdfff, RF5C68_w },
-		{ 0xe000, 0xffff, MWA_RAM },	//??
-	MEMORY_END
+		new Memory_WriteAddress( 0xc000, 0xc008, RF5C68_reg_w ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, RF5C68_w ),
+		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM ),	//??
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	public static WriteHandlerPtr sys18_soundbank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 		/* select access bank for a000~bfff */

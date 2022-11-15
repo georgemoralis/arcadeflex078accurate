@@ -466,19 +466,23 @@ public class fromanc2
 	// 	Z80 SUB Program (fromanc2, fromancr)
 	// ----------------------------------------------------------------------------
 	
-	static MEMORY_READ_START( fromanc2_readmem_sub )
-		{ 0x0000, 0x3fff, MRA_ROM },					// ROM
-		{ 0x4000, 0x7fff, MRA_BANK1 },					// ROM(BANK)
-		{ 0x8000, 0xbfff, MRA_RAM },					// RAM(WORK)
-		{ 0xc000, 0xffff, MRA_BANK2 },					// RAM(BANK)
-	MEMORY_END
+	public static Memory_ReadAddress fromanc2_readmem_sub[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x3fff, MRA_ROM ),					// ROM
+		new Memory_ReadAddress( 0x4000, 0x7fff, MRA_BANK1 ),					// ROM(BANK)
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_RAM ),					// RAM(WORK)
+		new Memory_ReadAddress( 0xc000, 0xffff, MRA_BANK2 ),					// RAM(BANK)
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( fromanc2_writemem_sub )
-		{ 0x0000, 0x3fff, MWA_ROM },					// ROM
-		{ 0x4000, 0x7fff, MWA_BANK1 },					// ROM(BANK)
-		{ 0x8000, 0xbfff, MWA_RAM },					// RAM(WORK)
-		{ 0xc000, 0xffff, MWA_BANK2 },					// RAM(BANK)
-	MEMORY_END
+	public static Memory_WriteAddress fromanc2_writemem_sub[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x3fff, MWA_ROM ),					// ROM
+		new Memory_WriteAddress( 0x4000, 0x7fff, MWA_BANK1 ),					// ROM(BANK)
+		new Memory_WriteAddress( 0x8000, 0xbfff, MWA_RAM ),					// RAM(WORK)
+		new Memory_WriteAddress( 0xc000, 0xffff, MWA_BANK2 ),					// RAM(BANK)
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( fromanc2_readport_sub )
 		{ 0x02, 0x02, fromanc2_maincpu_r_l },			// to MAIN CPU
@@ -497,15 +501,19 @@ public class fromanc2
 	// 	Z80 Sound Program (fromanc2, fromancr, fromanc4)
 	// ----------------------------------------------------------------------------
 	
-	static MEMORY_READ_START( fromanc2_readmem_sound )
-		{ 0x0000, 0xdfff, MRA_ROM },
-		{ 0xe000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress fromanc2_readmem_sound[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xdfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xe000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( fromanc2_writemem_sound )
-		{ 0x0000, 0xdfff, MWA_ROM },
-		{ 0xe000, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress fromanc2_writemem_sound[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xdfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( fromanc2_readport_sound )
 		{ 0x00, 0x00, soundlatch_r },					// snd cmd (1P)

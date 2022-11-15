@@ -105,17 +105,21 @@ public class embargo
 	} };
 	
 	
-	static MEMORY_READ_START( readmem )
-		{ 0x0000, 0x0fff, MRA_ROM },
-		{ 0x1e00, 0x3dff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x0fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x1e00, 0x3dff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
-	static MEMORY_WRITE_START( writemem )
-		{ 0x0000, 0x0fff, MWA_ROM },
-		{ 0x1e00, 0x1fff, MWA_RAM },
-		{ 0x2000, 0x3dff, embargo_videoram_w, &videoram, &videoram_size },
-	MEMORY_END
+	public static Memory_WriteAddress writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0x0fff, MWA_ROM ),
+		new Memory_WriteAddress( 0x1e00, 0x1fff, MWA_RAM ),
+		new Memory_WriteAddress( 0x2000, 0x3dff, embargo_videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	
 	static PORT_READ_START( readport )

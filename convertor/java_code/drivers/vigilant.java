@@ -52,22 +52,26 @@ public class vigilant
 	
 	
 	
-	static MEMORY_READ_START( vigilant_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_BANK1 },
-		{ 0xc020, 0xc0df, MRA_RAM },
-		{ 0xc800, 0xcfff, MRA_RAM },
-		{ 0xd000, 0xdfff, videoram_r },
-		{ 0xe000, 0xefff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress vigilant_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xc020, 0xc0df, MRA_RAM ),
+		new Memory_ReadAddress( 0xc800, 0xcfff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xdfff, videoram_r ),
+		new Memory_ReadAddress( 0xe000, 0xefff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( vigilant_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc020, 0xc0df, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc800, 0xcfff, vigilant_paletteram_w, &paletteram },
-		{ 0xd000, 0xdfff, videoram_w, &videoram, &videoram_size },
-		{ 0xe000, 0xefff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress vigilant_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc020, 0xc0df, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcfff, vigilant_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xe000, 0xefff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( vigilant_readport )
 		{ 0x00, 0x00, input_port_0_r },
@@ -86,22 +90,26 @@ public class vigilant
 		{ 0x84, 0x84, vigilant_rear_color_w }, /* RCOD */
 	PORT_END
 	
-	static MEMORY_READ_START( kikcubic_readmem )
-		{ 0x0000, 0x7fff, MRA_ROM },
-		{ 0x8000, 0xbfff, MRA_BANK1 },
-		{ 0xc000, 0xc0ff, MRA_RAM },
-		{ 0xc800, 0xcaff, MRA_RAM },
-		{ 0xd000, 0xdfff, videoram_r },
-		{ 0xe000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress kikcubic_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0x7fff, MRA_ROM ),
+		new Memory_ReadAddress( 0x8000, 0xbfff, MRA_BANK1 ),
+		new Memory_ReadAddress( 0xc000, 0xc0ff, MRA_RAM ),
+		new Memory_ReadAddress( 0xc800, 0xcaff, MRA_RAM ),
+		new Memory_ReadAddress( 0xd000, 0xdfff, videoram_r ),
+		new Memory_ReadAddress( 0xe000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( kikcubic_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size },
-		{ 0xc800, 0xcaff, vigilant_paletteram_w, &paletteram },
-		{ 0xd000, 0xdfff, videoram_w, &videoram, &videoram_size },
-		{ 0xe000, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress kikcubic_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xc000, 0xc0ff, MWA_RAM, &spriteram, &spriteram_size ),
+		new Memory_WriteAddress( 0xc800, 0xcaff, vigilant_paletteram_w, &paletteram ),
+		new Memory_WriteAddress( 0xd000, 0xdfff, videoram_w, &videoram, &videoram_size ),
+		new Memory_WriteAddress( 0xe000, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( kikcubic_readport )
 		{ 0x00, 0x00, input_port_3_r },
@@ -118,15 +126,19 @@ public class vigilant
 	//	{ 0x07, 0x07, IOWP_NOP },	/* ?? */
 	PORT_END
 	
-	static MEMORY_READ_START( sound_readmem )
-		{ 0x0000, 0xbfff, MRA_ROM },
-		{ 0xf000, 0xffff, MRA_RAM },
-	MEMORY_END
+	public static Memory_ReadAddress sound_readmem[]={
+		new Memory_ReadAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_READ | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_ReadAddress( 0x0000, 0xbfff, MRA_ROM ),
+		new Memory_ReadAddress( 0xf000, 0xffff, MRA_RAM ),
+		new Memory_ReadAddress(MEMPORT_MARKER, 0)
+	};
 	
-	static MEMORY_WRITE_START( sound_writemem )
-		{ 0x0000, 0xbfff, MWA_ROM },
-		{ 0xf000, 0xffff, MWA_RAM },
-	MEMORY_END
+	public static Memory_WriteAddress sound_writemem[]={
+		new Memory_WriteAddress(MEMPORT_MARKER, MEMPORT_DIRECTION_WRITE | MEMPORT_TYPE_MEM | MEMPORT_WIDTH_8),
+		new Memory_WriteAddress( 0x0000, 0xbfff, MWA_ROM ),
+		new Memory_WriteAddress( 0xf000, 0xffff, MWA_RAM ),
+		new Memory_WriteAddress(MEMPORT_MARKER, 0)
+	};
 	
 	static PORT_READ_START( sound_readport )
 		{ 0x01, 0x01, YM2151_status_port_0_r },
