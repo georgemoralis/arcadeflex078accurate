@@ -4,20 +4,17 @@
 package arcadeflex.v078.platform;
 
 //mame imports
-import static arcadeflex.v078.AAdummy.driver.drivers;
 import static arcadeflex.v078.mame.common.*;
-import arcadeflex.v078.mame.driverH.GameDriver;
-import arcadeflex.v078.mame.driverH.InternalMachineDriver;
-import static arcadeflex.v078.mame.driverH.NOT_A_DRIVER;
+import static arcadeflex.v078.mame.driverH.*;
 import static arcadeflex.v078.mame.version.*;
 //platform imports
 import static arcadeflex.v078.platform.rcH.*;
 //common imports
 import static common.libc.cstdio.*;
-import static common.libc.cstring.strchr;
-import static common.libc.cstring.stricmp;
-import static common.libc.cstring.strncmp;
-import static common.libc.cstring.strstr;
+import static common.libc.cstring.*;
+
+//TO BE REMOVED!!
+import static arcadeflex.v078.AAdummy.driver.drivers;
 
 public class fronthlp {
 
@@ -527,11 +524,12 @@ public class fronthlp {
                     + "Windows:  windows.txt\n");
             return 0;
         }
+
+        /* HACK: some options REQUIRE gamename field to work: default to "*" */
+        if (gamename == null || (strlen(gamename) == 0)) {
+            gamename = all_games;
+        }
         /*TODO*///
-/*TODO*///	/* HACK: some options REQUIRE gamename field to work: default to "*" */
-/*TODO*///	if (!gamename || (strlen(gamename) == 0))
-/*TODO*///		gamename = all_games;
-/*TODO*///
 /*TODO*///	/* sort the list if requested */
 /*TODO*///	if (sortby)
 /*TODO*///	{

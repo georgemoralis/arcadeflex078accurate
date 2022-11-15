@@ -72,7 +72,6 @@ public class sndintrfH {
     public static final int SOUND_K051649 = 37;
     public static final int SOUND_K053260 = 38;
     public static final int SOUND_K054539 = 39;
-
     public static final int SOUND_SEGAPCM = 40;
     public static final int SOUND_RF5C68 = 41;
     public static final int SOUND_CEM3394 = 42;
@@ -96,16 +95,6 @@ public class sndintrfH {
     public static final int SOUND_PSXSPU = 60;
     public static final int SOUND_YMF271 = 61;
 
-    /*TODO*///#ifdef MESS
-/*TODO*///#if (HAS_BEEP)
-/*TODO*///	SOUND_BEEP,
-/*TODO*///#endif
-/*TODO*///#if (HAS_SPEAKER)
-/*TODO*///	SOUND_SPEAKER,
-/*TODO*///#endif
-/*TODO*///#if (HAS_WAVE)
-/*TODO*///	SOUND_WAVE,
-/*TODO*///#endif
     public static final int SOUND_COUNT = 62;
 
     /* structure for SOUND_CUSTOM sound drivers */
