@@ -32,17 +32,17 @@ public class irem
 			{
 				/* PSG 0 or 1? */
 				if (port2 & 0x08)
-					AY8910_control_port_0_w(0,port1);
+					AY8910_control_port_0_w.handler(0,port1);
 				if (port2 & 0x10)
-					AY8910_control_port_1_w(0,port1);
+					AY8910_control_port_1_w.handler(0,port1);
 			}
 			else
 			{
 				/* PSG 0 or 1? */
 				if (port2 & 0x08)
-					AY8910_write_port_0_w(0,port1);
+					AY8910_write_port_0_w.handler(0,port1);
 				if (port2 & 0x10)
-					AY8910_write_port_1_w(0,port1);
+					AY8910_write_port_1_w.handler(0,port1);
 			}
 		}
 		port2 = data;
@@ -52,9 +52,9 @@ public class irem
 	public static ReadHandlerPtr irem_port1_r  = new ReadHandlerPtr() { public int handler(int offset){
 		/* PSG 0 or 1? */
 		if (port2 & 0x08)
-			return AY8910_read_port_0_r(0);
+			return AY8910_read_port_0_r.handler(0);
 		if (port2 & 0x10)
-			return AY8910_read_port_1_r(0);
+			return AY8910_read_port_1_r.handler(0);
 		return 0xff;
 	} };
 	

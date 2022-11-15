@@ -102,6 +102,73 @@ public class convertMame {
                     line_change_flag = true;
                     continue;
                 }
+                case 'A': {
+                    i = Convertor.inpos;
+                    if (type == READ_HANDLER8 || type == WRITE_HANDLER8) {
+                        if (sUtil.getToken("AY8910_read_port_0_r")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_read_port_0_r.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_read_port_1_r")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_read_port_1_r.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_read_port_2_r")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_read_port_2_r.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_read_port_3_r")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_read_port_3_r.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_read_port_4_r")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_read_port_4_r.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_write_port_0_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_write_port_0_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_write_port_1_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_write_port_1_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_write_port_2_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_write_port_2_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_write_port_3_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_write_port_3_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_write_port_4_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_write_port_4_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_control_port_0_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_control_port_0_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_control_port_1_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_control_port_1_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_control_port_2_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_control_port_2_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_control_port_3_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_control_port_3_w.handler").toString());
+                            continue;
+                        }
+                        if (sUtil.getToken("AY8910_control_port_4_w")) {
+                            sUtil.putString((new StringBuilder()).append("AY8910_control_port_4_w.handler").toString());
+                            continue;
+                        }
+                    }
+                }
+                Convertor.inpos = i;
+                break;
                 case 'D': {
                     i = Convertor.inpos;
                     if (type2 == INPUTPORTS) {
@@ -754,7 +821,7 @@ public class convertMame {
                                     continue;
                                 }
                             }
-                        } 
+                        }
                     } // end of static but not static struct
                     else {
                         sUtil.skipSpace();
