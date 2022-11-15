@@ -139,8 +139,7 @@ public class centiped
 	#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 	#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
-	PALETTE_INIT( centiped )
-	{
+	public static PaletteInitHandlerPtr palette_init_centiped  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* characters use colors 0-3 */
@@ -160,7 +159,7 @@ public class centiped
 			COLOR(1,i+2) = 4 + ((i >> 4) & 3);
 			COLOR(1,i+3) = 4 + ((i >> 6) & 3);
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( centiped_paletteram_w )
@@ -201,8 +200,7 @@ public class centiped
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( warlords )
-	{
+	public static PaletteInitHandlerPtr palette_init_warlords  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i, j;
 	
 		for (i = 0; i < Machine->drv->total_colors; i++)
@@ -229,7 +227,7 @@ public class centiped
 				COLOR(0,i*4+j) = i*16+j;
 				COLOR(1,i*4+j) = i*16+j*4;
 			}
-	}
+	} };
 	
 	
 	
@@ -249,8 +247,7 @@ public class centiped
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( milliped )
-	{
+	public static PaletteInitHandlerPtr palette_init_milliped  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* characters use colors 0-15 */
@@ -271,7 +268,7 @@ public class centiped
 			COLOR(1,i+2) = 16 + 4*((i >> 8) & 3) + ((i >> 4) & 3);
 			COLOR(1,i+3) = 16 + 4*((i >> 8) & 3) + ((i >> 6) & 3);
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( milliped_paletteram_w )

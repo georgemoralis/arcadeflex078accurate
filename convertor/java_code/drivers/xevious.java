@@ -232,7 +232,6 @@ public class xevious
 	WRITE_HANDLER( xevious_fg_colorram_w );
 	WRITE_HANDLER( xevious_bg_videoram_w );
 	WRITE_HANDLER( xevious_bg_colorram_w );
-	PALETTE_INIT( xevious );
 	
 	WRITE_HANDLER( pengo_sound_w );
 	extern unsigned char *pengo_soundregs;
@@ -258,7 +257,6 @@ public class xevious
 	
 	
 	MACHINE_INIT( battles );
-	PALETTE_INIT( battles );
 	
 	
 	

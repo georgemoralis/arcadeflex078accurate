@@ -24,7 +24,6 @@ public class fastlane
 	extern unsigned char *fastlane_k007121_regs,*fastlane_videoram1,*fastlane_videoram2;
 	WRITE_HANDLER( fastlane_vram1_w );
 	WRITE_HANDLER( fastlane_vram2_w );
-	PALETTE_INIT( fastlane );
 	
 	public static InterruptHandlerPtr fastlane_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

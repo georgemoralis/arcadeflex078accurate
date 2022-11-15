@@ -11,16 +11,14 @@ public class vsnes
 	extern int vsnes_gun_controller;
 	
 	
-	PALETTE_INIT( vsnes )
-	{
+	public static PaletteInitHandlerPtr palette_init_vsnes  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		ppu2c03b_init_palette( 0 );
-	}
+	} };
 	
-	PALETTE_INIT( vsdual )
-	{
+	public static PaletteInitHandlerPtr palette_init_vsdual  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		ppu2c03b_init_palette( 0 );
 		ppu2c03b_init_palette( 64 );
-	}
+	} };
 	
 	static void ppu_irq( int num, int *ppu_regs )
 	{

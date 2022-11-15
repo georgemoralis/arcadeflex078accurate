@@ -41,8 +41,7 @@ public class mappy
 	  bit 0 -- 1  kohm resistor  -- RED
 	
 	***************************************************************************/
-	PALETTE_INIT( mappy )
-	{
+	public static PaletteInitHandlerPtr palette_init_mappy  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -73,7 +72,7 @@ public class mappy
 		/* sprites */
 		for (i = 64*4;i < Machine->drv->color_table_len;i++)
 			colortable[i] = color_prom[i] & 0x0f;
-	}
+	} };
 	
 	
 	static public static VideoStartHandlerPtr video_start_common  = new VideoStartHandlerPtr() { public int handler(){

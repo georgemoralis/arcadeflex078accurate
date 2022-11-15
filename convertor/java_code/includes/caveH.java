@@ -27,11 +27,6 @@ WRITE16_HANDLER( cave_vram_1_8x8_w );
 WRITE16_HANDLER( cave_vram_2_8x8_w );
 WRITE16_HANDLER( cave_vram_3_8x8_w );
 
-PALETTE_INIT( ddonpach );
-PALETTE_INIT( dfeveron );
-PALETTE_INIT( mazinger );
-PALETTE_INIT( sailormn );
-PALETTE_INIT( pwrinst2 );
 
 
 

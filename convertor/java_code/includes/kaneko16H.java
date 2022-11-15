@@ -42,7 +42,6 @@ WRITE16_HANDLER( kaneko16_bg15_select_w );
 READ16_HANDLER ( kaneko16_bg15_reg_r );
 WRITE16_HANDLER( kaneko16_bg15_reg_w );
 
-PALETTE_INIT( berlwall );
 
 
 /* Priorities: */
@@ -78,7 +77,6 @@ extern data16_t *galpani2_bg8_0_scrolly, *galpani2_bg8_1_scrolly;
 
 extern data16_t *galpani2_bg15;
 
-PALETTE_INIT( galpani2 );
 
 WRITE16_HANDLER( galpani2_palette_0_w );
 WRITE16_HANDLER( galpani2_palette_1_w );

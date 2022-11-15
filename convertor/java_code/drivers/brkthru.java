@@ -62,7 +62,6 @@ public class brkthru
 	WRITE_HANDLER( brkthru_1800_w );
 	WRITE_HANDLER( brkthru_bgram_w );
 	WRITE_HANDLER( brkthru_fgram_w );
-	PALETTE_INIT( brkthru );
 	
 	
 	static int nmi_enable;

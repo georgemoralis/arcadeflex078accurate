@@ -88,8 +88,7 @@ public class speedatk
 	extern WRITE_HANDLER( speedatk_videoram_w );
 	extern WRITE_HANDLER( speedatk_colorram_w );
 	extern WRITE_HANDLER( speedatk_flip_screen_w );
-	extern PALETTE_INIT( speedatk );
-	extern extern 
+	extern extern extern 
 	/* This "key matrix" device maps some buttons with multiple bit activations,for        *
 	 * example pressing button A + button B it causes an output of button C.               *
 	 * This function converts the bit inputs of this game into the usual way MAME does,and *

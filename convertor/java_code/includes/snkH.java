@@ -20,9 +20,7 @@ extern int snk_irq_delay;
 
 /*----------- defined in vidhrdw/snk.c -----------*/
 
-extern PALETTE_INIT( snk_3bpp_shadow );
-extern PALETTE_INIT( snk_4bpp_shadow );
-
+extern extern 
 extern extern 
 extern extern extern extern extern 
 extern void tnk3_draw_text( struct mame_bitmap *bitmap, int bank, unsigned char *source );
@@ -36,4 +34,4 @@ extern int snk_blink_parity;
 
 /*----------- defined in drivers/hal21.c -----------*/
 
-extern PALETTE_INIT( aso );
+extern 

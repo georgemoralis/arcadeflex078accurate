@@ -81,7 +81,6 @@ public class mustache
 	WRITE_HANDLER( mustache_videoram_w );
 	WRITE_HANDLER( mustache_scroll_w );
 	WRITE_HANDLER ( mustache_video_control_w);
-	PALETTE_INIT( mustache );
 	
 	
 	static int read_coins=0;

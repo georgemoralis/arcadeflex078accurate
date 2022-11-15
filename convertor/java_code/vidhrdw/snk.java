@@ -46,8 +46,7 @@ public class snk
 		drawgfx( bitmap,Machine->uifont,digit[num&0xf],     0,0,0,32,row*8+8,0,TRANSPARENCY_NONE,0);
 	}
 	
-	PALETTE_INIT( snk_3bpp_shadow )
-	{
+	public static PaletteInitHandlerPtr palette_init_snk_3bpp_shadow  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		palette_init_RRRR_GGGG_BBBB(colortable, color_prom);
 	
@@ -59,10 +58,9 @@ public class snk
 	
 		gfx_drawmode_table[6] = DRAWMODE_SHADOW;
 		gfx_drawmode_table[7] = DRAWMODE_NONE;
-	}
+	} };
 	
-	PALETTE_INIT( snk_4bpp_shadow )
-	{
+	public static PaletteInitHandlerPtr palette_init_snk_4bpp_shadow  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		palette_init_RRRR_GGGG_BBBB(colortable, color_prom);
 	
@@ -74,7 +72,7 @@ public class snk
 	
 		gfx_drawmode_table[14] = DRAWMODE_SHADOW;
 		gfx_drawmode_table[15] = DRAWMODE_NONE;
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_snk  = new VideoStartHandlerPtr() { public int handler(){
 		snk_blink_parity = 0;

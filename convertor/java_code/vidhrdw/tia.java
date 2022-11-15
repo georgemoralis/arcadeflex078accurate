@@ -89,8 +89,7 @@ public class tia
 	};
 	
 	
-	PALETTE_INIT( tia_NTSC )
-	{
+	public static PaletteInitHandlerPtr palette_init_tia_NTSC  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i, j;
 	
 		static const double color[16][2] =
@@ -144,11 +143,10 @@ public class tia
 					(UINT8) (255 * B + 0.5));
 			}
 		}
-	}
+	} };
 	
 	
-	PALETTE_INIT( tia_PAL )
-	{
+	public static PaletteInitHandlerPtr palette_init_tia_PAL  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i, j;
 	
 		static const double color[16][2] =
@@ -202,7 +200,7 @@ public class tia
 					(UINT8) (255 * B + 0.5));
 			}
 		}
-	}
+	} };
 	
 	
 	public static VideoStartHandlerPtr video_start_tia  = new VideoStartHandlerPtr() { public int handler(){

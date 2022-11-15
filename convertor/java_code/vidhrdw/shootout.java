@@ -16,8 +16,7 @@ public class shootout
 	extern unsigned char *shootout_textram;
 	
 	
-	PALETTE_INIT( shootout )
-	{
+	public static PaletteInitHandlerPtr palette_init_shootout  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -43,7 +42,7 @@ public class shootout
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	

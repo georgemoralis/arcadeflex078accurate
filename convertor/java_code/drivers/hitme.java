@@ -33,7 +33,6 @@ public class hitme
 	data8_t *hitme_vidram;
 	
 	WRITE_HANDLER( hitme_vidram_w );
-	PALETTE_INIT( hitme );
 	
 	static InputPortHandlerPtr input_ports_hitme = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( hitme )
 		PORT_START(); 

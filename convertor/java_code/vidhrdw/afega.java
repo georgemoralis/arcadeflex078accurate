@@ -73,13 +73,12 @@ public class afega
 	
 	/* This game uses 8 bit tiles, so it ignores the color codes and just
 	   uses the same 256 colors for every tile */
-	PALETTE_INIT( grdnstrm )
-	{
+	public static PaletteInitHandlerPtr palette_init_grdnstrm  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int color, pen;
 		for( color = 0; color < 16; color++ )
 			for( pen = 0; pen < 256; pen++ )
 				colortable[color * 256 + pen + 256*3] = 256*0 + pen;
-	}
+	} };
 	
 	
 	/***************************************************************************

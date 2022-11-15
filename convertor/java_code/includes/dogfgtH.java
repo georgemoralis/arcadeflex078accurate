@@ -7,4 +7,3 @@ WRITE_HANDLER( dogfgt_bgvideoram_w );
 WRITE_HANDLER( dogfgt_scroll_w );
 WRITE_HANDLER( dogfgt_1800_w );
 
-PALETTE_INIT( dogfgt );

@@ -43,8 +43,7 @@ public class tagteam
 	extern WRITE_HANDLER( tagteam_control_w );
 	extern WRITE_HANDLER( tagteam_flipscreen_w );
 	
-	extern PALETTE_INIT( tagteam );
-	extern extern 
+	extern extern extern 
 	static WRITE_HANDLER( sound_command_w )
 	{
 		soundlatch_w(offset,data);

@@ -19,7 +19,6 @@ public class rockrage
 	
 	/* from vidhrdw */
 	WRITE_HANDLER( rockrage_vreg_w );
-	PALETTE_INIT( rockrage );
 	
 	public static InterruptHandlerPtr rockrage_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (K007342_is_INT_enabled())

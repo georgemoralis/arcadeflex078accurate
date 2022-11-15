@@ -62,7 +62,6 @@ WRITE_HANDLER( spyhunt_alpharam_w );
 void mcr3_update_sprites(struct mame_bitmap *bitmap, const struct rectangle *cliprect, int color_mask, int code_xor, int dx, int dy);
 
 
-PALETTE_INIT( spyhunt );
 
 
 
@@ -79,4 +78,3 @@ WRITE16_HANDLER( zwackery_paletteram_w );
 WRITE16_HANDLER( zwackery_videoram_w );
 WRITE16_HANDLER( zwackery_spriteram_w );
 
-PALETTE_INIT( zwackery );

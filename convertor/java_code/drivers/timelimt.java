@@ -20,8 +20,7 @@ public class timelimt
 {
 	
 	/* from vidhrdw */
-	extern extern PALETTE_INIT( timelimt );
-	extern 
+	extern extern extern 
 	extern WRITE_HANDLER( timelimt_videoram_w );
 	extern WRITE_HANDLER( timelimt_bg_videoram_w );
 	extern WRITE_HANDLER( timelimt_scroll_y_w );

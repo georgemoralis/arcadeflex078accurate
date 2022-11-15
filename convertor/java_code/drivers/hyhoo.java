@@ -34,7 +34,6 @@ public class hyhoo
 	#define	SIGNED_DAC	0		// 0:unsigned DAC, 1:signed DAC
 	
 	
-	PALETTE_INIT( hyhoo );
 	
 	WRITE_HANDLER( hyhoo_palette_w );
 	void hyhoo_radrx_w(int data);

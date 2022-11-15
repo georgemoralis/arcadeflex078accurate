@@ -46,8 +46,7 @@ public class gridlee
 	 *
 	 *************************************/
 	
-	PALETTE_INIT( gridlee )
-	{
+	public static PaletteInitHandlerPtr palette_init_gridlee  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < Machine->drv->total_colors; i++)
@@ -58,7 +57,7 @@ public class gridlee
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	
 	

@@ -82,8 +82,7 @@ public class equites
 	}
 	
 	// Equites Hardware
-	PALETTE_INIT( equites )
-	{
+	public static PaletteInitHandlerPtr palette_init_equites  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		UINT8 *clut_ptr;
 		int i, r, g, b;
 	
@@ -103,7 +102,7 @@ public class equites
 		clut_ptr = memory_region(REGION_USER1) + 0x80;
 		for (i=0; i<128; i++)
 			colortable[i+0x100] = clut_ptr[i];
-	}
+	} };
 	
 	static void equites_charinfo(int offset)
 	{
@@ -130,8 +129,7 @@ public class equites
 	} };
 	
 	// Splendor Blast Hardware
-	PALETTE_INIT( splndrbt )
-	{
+	public static PaletteInitHandlerPtr palette_init_splndrbt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		UINT8 *prom_ptr;
 		int i, r, g, b;
 	
@@ -155,7 +153,7 @@ public class equites
 		prom_ptr += 0x100;
 		colortable += 0x100;
 		for (i=0; i<0x400; i++) colortable[i] = prom_ptr[i];
-	}
+	} };
 	
 	static void splndrbt_char0info(int offset)
 	{

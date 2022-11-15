@@ -76,8 +76,7 @@ public class kchamp
 	extern WRITE_HANDLER( kchamp_colorram_w );
 	extern WRITE_HANDLER( kchamp_flipscreen_w );
 	
-	extern PALETTE_INIT( kchamp );
-	extern extern extern 
+	extern extern extern extern 
 	
 	static int nmi_enable = 0;
 	static int sound_nmi_enable = 0;

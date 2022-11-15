@@ -157,8 +157,7 @@ public class crgolf
 	 *
 	 *************************************/
 	
-	PALETTE_INIT( crgolf )
-	{
+	public static PaletteInitHandlerPtr palette_init_crgolf  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < 32; i++)
@@ -185,7 +184,7 @@ public class crgolf
 			palette_set_color(i, r, g, b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	
 	

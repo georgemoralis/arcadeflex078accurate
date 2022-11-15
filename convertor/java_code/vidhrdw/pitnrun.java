@@ -136,8 +136,7 @@ public class pitnrun
 	}
 	
 	
-	PALETTE_INIT (pitnrun)
-	{
+	public static PaletteInitHandlerPtr palette_init_pitnrun  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		int bit0,bit1,bit2,r,g,b;
 		for (i = 0;i < 32*3; i++)
@@ -180,7 +179,7 @@ public class pitnrun
 			palette_set_color(i+16,(r>0xff)?0xff:r,(g>0xff)?0xff:g,(b>0xff)?0xff:b);	
 		
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_pitnrun  = new VideoStartHandlerPtr() { public int handler(){
 		fg = tilemap_create( get_tile_info1,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,32,32 );

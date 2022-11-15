@@ -36,7 +36,6 @@ public class grobda
 	MACHINE_INIT( grobda );
 	
 	/* video functions */
-	PALETTE_INIT( grobda );
 	
 	
 	static WRITE_HANDLER( flip_screen_w )

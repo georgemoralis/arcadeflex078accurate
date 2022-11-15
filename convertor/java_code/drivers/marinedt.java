@@ -368,8 +368,7 @@ public class marinedt
 		{ -1 }
 	};
 	
-	PALETTE_INIT( marinedt )
-	{
+	public static PaletteInitHandlerPtr palette_init_marinedt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,r,b,g;
 	
 		for (i = 0;i < Machine->drv->total_colors; i++)
@@ -398,7 +397,7 @@ public class marinedt
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	public static VideoUpdateHandlerPtr video_update_marinedt  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int offs,sx,sy,flipx,flipy;

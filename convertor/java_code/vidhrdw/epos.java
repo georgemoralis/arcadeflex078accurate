@@ -34,8 +34,7 @@ public class epos
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( epos )
-	{
+	public static PaletteInitHandlerPtr palette_init_epos  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < Machine->drv->total_colors; i++)
@@ -61,7 +60,7 @@ public class epos
 	
 			color_prom++;
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( epos_videoram_w )

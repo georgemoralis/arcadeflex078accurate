@@ -35,8 +35,7 @@ public class ironhors
 	  bit 0 -- 2.2kohm resistor  -- RED/GREEN/BLUE
 	
 	***************************************************************************/
-	PALETTE_INIT( ironhors )
-	{
+	public static PaletteInitHandlerPtr palette_init_ironhors  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -94,7 +93,7 @@ public class ironhors
 	
 			color_prom++;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( ironhors_videoram_w )
 	{

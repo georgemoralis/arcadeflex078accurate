@@ -63,7 +63,6 @@ public class shangkid
 	
 	WRITE_HANDLER( shangkid_videoram_w );
 	
-	PALETTE_INIT( dynamski );
 	
 	/***************************************************************************************/
 	

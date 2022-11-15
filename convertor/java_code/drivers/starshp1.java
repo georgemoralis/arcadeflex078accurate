@@ -71,8 +71,7 @@ public class starshp1
 	}
 	
 	
-	static PALETTE_INIT( starshp1 )
-	{
+	public static PaletteInitHandlerPtr palette_init_starshp1  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		static const UINT16 colortable_source[] =
 		{
 			0, 3,       /* for the alpha numerics */
@@ -85,7 +84,7 @@ public class starshp1
 		starshp1_write_palette(0);
 	
 		memcpy(colortable, colortable_source, sizeof(colortable_source));
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( starshp1_audio_w )

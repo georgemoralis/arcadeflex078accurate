@@ -75,8 +75,7 @@ public class skyarmy
 	}
 	
 	
-	PALETTE_INIT( skyarmy )
-	{
+	public static PaletteInitHandlerPtr palette_init_skyarmy  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < 32;i++)
@@ -101,7 +100,7 @@ public class skyarmy
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_skyarmy  = new VideoStartHandlerPtr() { public int handler(){
 	        skyarmy_tilemap = tilemap_create(get_skyarmy_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,8,8,32,32);

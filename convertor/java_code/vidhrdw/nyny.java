@@ -23,15 +23,14 @@ public class nyny
 	
 	
 	/* used by nyny and spiders */
-	PALETTE_INIT( nyny )
-	{
+	public static PaletteInitHandlerPtr palette_init_nyny  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
 		{
 			palette_set_color(i,((i >> 0) & 1) * 0xff,((i >> 1) & 1) * 0xff,((i >> 2) & 1) * 0xff);
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************

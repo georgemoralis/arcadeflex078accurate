@@ -85,8 +85,7 @@ public class mario
 	extern WRITE_HANDLER( mario_palettebank_w );
 	extern WRITE_HANDLER( mario_scroll_w );
 	
-	extern PALETTE_INIT( mario );
-	extern extern 
+	extern extern extern 
 	/*
 	 *  from sndhrdw/mario.c
 	 */

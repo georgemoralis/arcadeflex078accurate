@@ -18,8 +18,7 @@ public class mustache
 	static struct tilemap *bg_tilemap;
 	static int control_byte;
 	
-	PALETTE_INIT(mustache)
-	{
+	public static PaletteInitHandlerPtr palette_init_mustache  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 	  int i;
 	
 	  for (i = 0;i < 256;i++)
@@ -49,7 +48,7 @@ public class mustache
 	
 		palette_set_color(i,r,g,b);
 	  }
-	}
+	} };
 	
 	WRITE_HANDLER( mustache_videoram_w )
 	{

@@ -315,8 +315,7 @@ public class sbowling
 		{ 0 }
 	};
 	
-	static PALETTE_INIT( sbowling )
-	{
+	public static PaletteInitHandlerPtr palette_init_sbowling  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		const int resistances_rg[3] = { 470, 270, 100 };
@@ -351,7 +350,7 @@ public class sbowling
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( sbowling )
 	

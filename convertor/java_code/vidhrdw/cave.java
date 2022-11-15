@@ -140,8 +140,7 @@ public class cave
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( dfeveron )
-	{
+	public static PaletteInitHandlerPtr palette_init_dfeveron  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int color, pen;
 	
 		/* Fill the 0-3fff range, used by sprites ($40 color codes * $100 pens)
@@ -152,10 +151,9 @@ public class cave
 		for( color = 0; color < 0x40; color++ )
 			for( pen = 0; pen < 16; pen++ )
 				colortable[color * 256 + pen] = color * 16 + pen;
-	}
+	} };
 	
-	PALETTE_INIT( ddonpach )
-	{
+	public static PaletteInitHandlerPtr palette_init_ddonpach  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int color, pen;
 	
 		/* Fill the 8000-83ff range ($40 color codes * $10 pens) for
@@ -166,10 +164,9 @@ public class cave
 		for( color = 0; color < 0x40; color++ )
 			for( pen = 0; pen < 16; pen++ )
 				colortable[color * 16 + pen + 0x8000] = 0x4000 + color * 256 + pen;
-	}
+	} };
 	
-	PALETTE_INIT( mazinger )
-	{
+	public static PaletteInitHandlerPtr palette_init_mazinger  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int color, pen;
 	
 		/* Sprites (encrypted) are 4 bit deep */
@@ -182,10 +179,9 @@ public class cave
 		for( color = 0; color < 0x40; color++ )
 			for( pen = 0; pen < 64; pen++ )
 				colortable[color * 64 + pen + 0x4400] = 0x400 + (color % (64/4)) * 64 + pen;
-	}
+	} };
 	
-	PALETTE_INIT( sailormn )
-	{
+	public static PaletteInitHandlerPtr palette_init_sailormn  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int color, pen;
 	
 		/* Sprites (encrypted) are 4 bit deep */
@@ -198,10 +194,9 @@ public class cave
 		for( color = 0; color < 0x40; color++ )
 			for( pen = 0; pen < 64; pen++ )
 				colortable[color * 64 + pen + 0x4c00] = 0xc00 + (color % (64/4)) * 64 + pen;
-	}
+	} };
 	
-	PALETTE_INIT( pwrinst2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_pwrinst2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int color, pen;
 	
 		for( color = 0; color < 0x80; color++ )
@@ -210,7 +205,7 @@ public class cave
 	
 		for( color = 0x8000; color < Machine->drv->color_table_len; color++ )
 				colortable[color] = (color - 0x8000) % Machine->drv->total_colors;
-	}
+	} };
 	
 	/***************************************************************************
 	

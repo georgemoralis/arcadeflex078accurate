@@ -30,8 +30,7 @@ public class rockola
 	  Zarzon has a different PROM layout from the others.
 	
 	***************************************************************************/
-	PALETTE_INIT( rockola )
-	{
+	public static PaletteInitHandlerPtr palette_init_rockola  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
@@ -82,7 +81,7 @@ public class rockola
 			else
 				COLOR(1, i) = i + 0x20;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( rockola_videoram_w )
 	{
@@ -219,8 +218,7 @@ public class rockola
 	
 	/* Satan of Saturn */
 	
-	PALETTE_INIT( satansat )
-	{
+	public static PaletteInitHandlerPtr palette_init_satansat  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
@@ -271,7 +269,7 @@ public class rockola
 			else
 				COLOR(1, i) = 4 * (i % 4) + (i / 4) + 0x10;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( satansat_b002_w )
 	{

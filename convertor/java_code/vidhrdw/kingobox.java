@@ -36,8 +36,7 @@ public class kingobox
 	  bit 3 --  51 ohm resistor  -- BLUE
 	
 	***************************************************************************/
-	PALETTE_INIT( kingofb )
-	{
+	public static PaletteInitHandlerPtr palette_init_kingofb  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -89,12 +88,11 @@ public class kingobox
 			COLOR(0,2*i+0) = 0;	/* transparent */
 			COLOR(0,2*i+1) = 256 + i;
 		}
-	}
+	} };
 	
 	
 	/* Ring King has one 256x8 PROM instead of two 256x4 */
-	PALETTE_INIT( ringking )
-	{
+	public static PaletteInitHandlerPtr palette_init_ringking  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -146,7 +144,7 @@ public class kingobox
 			COLOR(0,2*i+0) = 0;	/* transparent */
 			COLOR(0,2*i+1) = 256 + i;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( kingofb_videoram_w )
 	{

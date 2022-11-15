@@ -307,8 +307,7 @@ public class playch10
 	
 	/* from vidhrdw */
 	extern WRITE_HANDLER( playch10_videoram_w );
-	extern PALETTE_INIT( playch10 );
-	extern extern 
+	extern extern extern 
 	/* from machine */
 	extern MACHINE_INIT( pc10 );
 	extern DRIVER_INIT( playch10 );	/* standard games */

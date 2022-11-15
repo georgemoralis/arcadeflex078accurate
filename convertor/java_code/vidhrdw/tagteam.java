@@ -19,8 +19,7 @@ public class tagteam
 	
 	static struct tilemap *bg_tilemap;
 	
-	PALETTE_INIT( tagteam )
-	{
+	public static PaletteInitHandlerPtr palette_init_tagteam  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -47,7 +46,7 @@ public class tagteam
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( tagteam_videoram_w )
 	{

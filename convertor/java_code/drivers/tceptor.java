@@ -21,8 +21,7 @@ public class tceptor
 	#endif
 	
 	
-	extern PALETTE_INIT( tceptor );
-	extern extern 
+	extern extern extern 
 	extern READ_HANDLER( tceptor_tile_ram_r );
 	extern WRITE_HANDLER( tceptor_tile_ram_w );
 	extern READ_HANDLER( tceptor_tile_attr_r );

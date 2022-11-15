@@ -11,8 +11,7 @@ public class bogeyman
 	
 	static struct tilemap *bg_tilemap, *fg_tilemap;
 	
-	PALETTE_INIT( bogeyman )
-	{
+	public static PaletteInitHandlerPtr palette_init_bogeyman  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* first 16 colors are RAM */
@@ -42,7 +41,7 @@ public class bogeyman
 			palette_set_color(i+16,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( bogeyman_videoram_w )
 	{

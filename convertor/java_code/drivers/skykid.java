@@ -41,7 +41,6 @@ public class skykid
 	WRITE_HANDLER( skykid_scroll_x_w );
 	WRITE_HANDLER( skykid_scroll_y_w );
 	WRITE_HANDLER( skykid_flipscreen_w );
-	PALETTE_INIT( skykid );
 	
 	
 	static int irq_disabled = 1;

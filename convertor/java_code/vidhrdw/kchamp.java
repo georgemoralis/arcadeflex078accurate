@@ -17,8 +17,7 @@ public class kchamp
 	
 	static struct tilemap *bg_tilemap;
 	
-	PALETTE_INIT( kchamp )
-	{
+	public static PaletteInitHandlerPtr palette_init_kchamp  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i, red, green, blue;
 	
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
@@ -34,7 +33,7 @@ public class kchamp
 	
 			*(colortable++) = i;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( kchamp_videoram_w )
 	{

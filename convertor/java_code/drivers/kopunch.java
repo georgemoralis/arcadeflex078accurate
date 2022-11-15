@@ -15,8 +15,7 @@ public class kopunch
 	extern WRITE_HANDLER( kopunch_scroll_y_w );
 	extern WRITE_HANDLER( kopunch_gfxbank_w );
 	
-	extern PALETTE_INIT( kopunch );
-	extern extern 
+	extern extern extern 
 	
 	public static InterruptHandlerPtr kopunch_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

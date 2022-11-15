@@ -47,8 +47,7 @@ public class thepit
 	
 	
 	***************************************************************************/
-	PALETTE_INIT( thepit )
-	{
+	public static PaletteInitHandlerPtr palette_init_thepit  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -87,7 +86,7 @@ public class thepit
 		{
 			colortable[i] = i + 8;
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************
@@ -96,8 +95,7 @@ public class thepit
 	 unknown.
 	
 	***************************************************************************/
-	PALETTE_INIT( suprmous )
-	{
+	public static PaletteInitHandlerPtr palette_init_suprmous  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -142,7 +140,7 @@ public class thepit
 		{
 			colortable[i] = i + 8;
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( thepit_attributes_w )

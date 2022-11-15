@@ -170,8 +170,7 @@ public class galaxian
 	  The RGB outputs have a 470 ohm pull-down each.
 	
 	***************************************************************************/
-	PALETTE_INIT( galaxian )
-	{
+	public static PaletteInitHandlerPtr palette_init_galaxian  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -207,28 +206,25 @@ public class galaxian
 		/* bullets - yellow and white */
 		palette_set_color(BULLETS_COLOR_BASE+0,0xef,0xef,0x00);
 		palette_set_color(BULLETS_COLOR_BASE+1,0xef,0xef,0xef);
-	}
+	} };
 	
-	PALETTE_INIT( scramble )
-	{
+	public static PaletteInitHandlerPtr palette_init_scramble  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_init_galaxian(colortable, color_prom);
 	
 	
 		/* blue background - 390 ohm resistor */
 		palette_set_color(BACKGROUND_COLOR_BASE,0,0,0x56);
-	}
+	} };
 	
-	PALETTE_INIT( moonwar )
-	{
+	public static PaletteInitHandlerPtr palette_init_moonwar  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_init_scramble(colortable, color_prom);
 	
 	
 		/* wire mod to connect the bullet blue output to the 220 ohm resistor */
 		palette_set_color(BULLETS_COLOR_BASE+0,0xef,0xef,0x97);
-	}
+	} };
 	
-	PALETTE_INIT( turtles )
-	{
+	public static PaletteInitHandlerPtr palette_init_turtles  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -249,10 +245,9 @@ public class galaxian
 	
 			palette_set_color(BACKGROUND_COLOR_BASE+i,r,g,b);
 		}
-	}
+	} };
 	
-	PALETTE_INIT( stratgyx )
-	{
+	public static PaletteInitHandlerPtr palette_init_stratgyx  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -273,19 +268,17 @@ public class galaxian
 	
 			palette_set_color(BACKGROUND_COLOR_BASE+i,r,g,b);
 		}
-	}
+	} };
 	
-	PALETTE_INIT( frogger )
-	{
+	public static PaletteInitHandlerPtr palette_init_frogger  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_init_galaxian(colortable, color_prom);
 	
 	
 		/* blue background - 470 ohm resistor */
 		palette_set_color(BACKGROUND_COLOR_BASE,0,0,0x47);
-	}
+	} };
 	
-	PALETTE_INIT( rockclim )
-	{
+	public static PaletteInitHandlerPtr palette_init_rockclim  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -313,7 +306,7 @@ public class galaxian
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	/***************************************************************************
 	
 	  Convert the color PROMs into a more useable format.
@@ -332,8 +325,7 @@ public class galaxian
 	  The RGB outputs have a 470 ohm pull-down each.
 	
 	***************************************************************************/
-	PALETTE_INIT( darkplnt )
-	{
+	public static PaletteInitHandlerPtr palette_init_darkplnt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -364,10 +356,9 @@ public class galaxian
 		/* bullets - red and blue */
 		palette_set_color(BULLETS_COLOR_BASE+0,0xef,0x00,0x00);
 		palette_set_color(BULLETS_COLOR_BASE+1,0x00,0x00,0xef);
-	}
+	} };
 	
-	PALETTE_INIT( minefld )
-	{
+	public static PaletteInitHandlerPtr palette_init_minefld  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -395,10 +386,9 @@ public class galaxian
 			int b = i / 2;
 			palette_set_color(BACKGROUND_COLOR_BASE+128+i,r,g,b);
 		}
-	}
+	} };
 	
-	PALETTE_INIT( rescue )
-	{
+	public static PaletteInitHandlerPtr palette_init_rescue  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -416,10 +406,9 @@ public class galaxian
 			int b = i * 2;
 			palette_set_color(BACKGROUND_COLOR_BASE+i,r,g,b);
 		}
-	}
+	} };
 	
-	PALETTE_INIT( mariner )
-	{
+	public static PaletteInitHandlerPtr palette_init_mariner  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -445,7 +434,7 @@ public class galaxian
 	
 			palette_set_color(BACKGROUND_COLOR_BASE+i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************

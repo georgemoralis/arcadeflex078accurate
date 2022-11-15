@@ -55,8 +55,7 @@ public class namcos86
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( namcos86 )
-	{
+	public static PaletteInitHandlerPtr palette_init_namcos86  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		int totcolors,totlookup;
 	
@@ -103,7 +102,7 @@ public class namcos86
 		/* color_prom now points to the beginning of the tile address decode PROM */
 	
 		tile_address_prom = color_prom;	/* we'll need this at run time */
-	}
+	} };
 	
 	
 	

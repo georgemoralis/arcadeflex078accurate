@@ -59,8 +59,7 @@ public class funkybee
 	extern WRITE_HANDLER( funkybee_scroll_w );
 	extern WRITE_HANDLER( funkybee_flipscreen_w );
 	
-	extern PALETTE_INIT( funkybee );
-	extern extern 
+	extern extern extern 
 	
 	static READ_HANDLER( funkybee_input_port_0_r )
 	{

@@ -34,8 +34,7 @@ public class _40love
 	*	color prom decoding
 	*/
 	
-	PALETTE_INIT( fortyl )
-	{
+	public static PaletteInitHandlerPtr palette_init_fortyl  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -67,7 +66,7 @@ public class _40love
 	
 			color_prom++;
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	

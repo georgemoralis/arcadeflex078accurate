@@ -77,8 +77,7 @@ public class bagman
 	extern WRITE_HANDLER( bagman_colorram_w );
 	extern WRITE_HANDLER( bagman_flipscreen_w );
 	
-	extern PALETTE_INIT( bagman );
-	extern extern 
+	extern extern extern 
 	
 	static int speech_rom_address = 0;
 	

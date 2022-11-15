@@ -73,8 +73,7 @@ public class naughtyb
 	  plus 270 ohm pullup and pulldown resistors on all lines
 	
 	***************************************************************************/
-	PALETTE_INIT( naughtyb )
-	{
+	public static PaletteInitHandlerPtr palette_init_naughtyb  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -146,7 +145,7 @@ public class naughtyb
 				COLOR(1,4*i + j*4*8 + 3) = 3*8 + i + 32 + j*64;
 			}
 		}
-	}
+	} };
 	
 	
 	

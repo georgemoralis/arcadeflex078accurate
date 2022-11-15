@@ -27,8 +27,7 @@ public class playch10
 		}
 	}
 	
-	PALETTE_INIT( playch10 )
-	{
+	public static PaletteInitHandlerPtr palette_init_playch10  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < 256; i++)
@@ -67,7 +66,7 @@ public class playch10
 		}
 	
 		ppu2c03b_init_palette( 256 );
-	}
+	} };
 	
 	static void ppu_irq( int num, int *ppu_regs )
 	{

@@ -86,7 +86,6 @@ public class vicdual
 	static unsigned char *vicdual_ram;
 	
 	extern unsigned char *vicdual_characterram;
-	PALETTE_INIT( vicdual );
 	WRITE_HANDLER( vicdual_characterram_w );
 	READ_HANDLER( vicdual_characterram_r );
 	WRITE_HANDLER( vicdual_palette_bank_w );

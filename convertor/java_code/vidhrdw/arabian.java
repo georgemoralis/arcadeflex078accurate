@@ -38,8 +38,7 @@ public class arabian
 	 *
 	 *************************************/
 	
-	PALETTE_INIT( arabian )
-	{
+	public static PaletteInitHandlerPtr palette_init_arabian  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* there are effectively 6 bits of color: 2 red, 2 green, 2 blue */
@@ -156,7 +155,7 @@ public class arabian
 							(ghi << 3) | (glo << 2) |
 							(bhi << 1) | bbase;
 		}
-	}
+	} };
 	
 	
 	

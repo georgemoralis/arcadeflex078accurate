@@ -20,8 +20,7 @@ public class rocnrope
 	extern WRITE_HANDLER( rocnrope_colorram_w );
 	extern WRITE_HANDLER( rocnrope_flipscreen_w );
 	
-	extern PALETTE_INIT( rocnrope );
-	extern extern 
+	extern extern extern 
 	
 	/* Roc'n'Rope has the IRQ vectors in RAM. The rom contains $FFFF at this address! */
 	WRITE_HANDLER( rocnrope_interrupt_vector_w )

@@ -44,17 +44,6 @@ extern size_t galaxian_spriteram_size;
 extern size_t galaxian_spriteram2_size;
 extern size_t galaxian_bulletsram_size;
 
-PALETTE_INIT( galaxian );
-PALETTE_INIT( scramble );
-PALETTE_INIT( turtles );
-PALETTE_INIT( moonwar );
-PALETTE_INIT( darkplnt );
-PALETTE_INIT( rescue );
-PALETTE_INIT( minefld );
-PALETTE_INIT( stratgyx );
-PALETTE_INIT( mariner );
-PALETTE_INIT( frogger );
-PALETTE_INIT( rockclim );
 
 WRITE_HANDLER( galaxian_videoram_w );
 READ_HANDLER( galaxian_videoram_r );

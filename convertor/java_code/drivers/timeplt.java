@@ -56,7 +56,6 @@ public class timeplt
 	WRITE_HANDLER( timeplt_videoram_w );
 	WRITE_HANDLER( timeplt_colorram_w );
 	WRITE_HANDLER( timeplt_flipscreen_w );
-	PALETTE_INIT( timeplt );
 	
 	
 	

@@ -62,9 +62,6 @@ public class m62
 {
 	
 	
-	PALETTE_INIT( irem );
-	PALETTE_INIT( battroad );
-	PALETTE_INIT( spelunk2 );
 	
 	WRITE_HANDLER( m62_tileram_w );
 	WRITE_HANDLER( m62_textram_w );

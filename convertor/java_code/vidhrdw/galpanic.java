@@ -14,8 +14,7 @@ public class galpanic
 	
 	
 	
-	PALETTE_INIT( galpanic )
-	{
+	public static PaletteInitHandlerPtr palette_init_galpanic  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* first 1024 colors are dynamic */
@@ -34,7 +33,7 @@ public class galpanic
 			b = (b << 3) | (b >> 2);
 			palette_set_color(i+1024,r,g,b);
 		}
-	}
+	} };
 	
 	
 	

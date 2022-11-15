@@ -42,7 +42,6 @@ package drivers;
 public class nyny
 {
 	
-	PALETTE_INIT( nyny );
 	
 	unsigned char *nyny_videoram ;
 	unsigned char *nyny_colourram ;

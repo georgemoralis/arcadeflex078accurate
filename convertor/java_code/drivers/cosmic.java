@@ -21,11 +21,6 @@ public class cosmic
 {
 	
 	
-	PALETTE_INIT( panic );
-	PALETTE_INIT( cosmica );
-	PALETTE_INIT( cosmicg );
-	PALETTE_INIT( magspot2 );
-	PALETTE_INIT( nomnlnd );
 	WRITE_HANDLER( cosmic_color_register_w );
 	WRITE_HANDLER( cosmic_background_enable_w );
 	

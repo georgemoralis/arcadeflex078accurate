@@ -43,8 +43,7 @@ public class vicdual
 	  bit 0 -- Unused
 	
 	***************************************************************************/
-	PALETTE_INIT( vicdual )
-	{
+	public static PaletteInitHandlerPtr palette_init_vicdual  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		/* for b&w games we'll use the Head On PROM */
 		static unsigned char bw_color_prom[] =
@@ -105,7 +104,7 @@ public class vicdual
 					Machine->gamedrv == &driver_tranqgun)
 				palette_bank = 1;
 		}
-	}
+	} };
 	
 	
 	

@@ -30,8 +30,7 @@ public class dogfgt
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( dogfgt )
-	{
+	public static PaletteInitHandlerPtr palette_init_dogfgt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* first 16 colors are RAM */
@@ -60,7 +59,7 @@ public class dogfgt
 			palette_set_color(i+16,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	
 	/***************************************************************************

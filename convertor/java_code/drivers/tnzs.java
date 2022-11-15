@@ -211,7 +211,6 @@ public class tnzs
 	
 	
 	/* prototypes for functions in ../vidhrdw/tnzs.c */
-	PALETTE_INIT( arknoid2 );
 	
 	
 	

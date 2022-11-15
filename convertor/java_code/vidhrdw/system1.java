@@ -65,10 +65,9 @@ public class system1
 	  accurate to +/- .003K ohms.
 	
 	***************************************************************************/
-	PALETTE_INIT( system1 )
-	{
+	public static PaletteInitHandlerPtr palette_init_system1  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		system1_color_prom = color_prom;
-	}
+	} };
 	
 	WRITE_HANDLER( system1_paletteram_w )
 	{

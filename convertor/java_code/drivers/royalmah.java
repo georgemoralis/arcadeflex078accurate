@@ -86,8 +86,7 @@ public class royalmah
 	static int palette_base;
 	
 	
-	PALETTE_INIT( royalmah )
-	{
+	public static PaletteInitHandlerPtr palette_init_royalmah  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -114,11 +113,10 @@ public class royalmah
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	/* 0 B01234 G01234 R01234 */
-	PALETTE_INIT( mjderngr )
-	{
+	public static PaletteInitHandlerPtr palette_init_mjderngr  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -133,7 +131,7 @@ public class royalmah
 			b =  (b << 3) | (b >> 2);
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( royalmah_videoram_w )

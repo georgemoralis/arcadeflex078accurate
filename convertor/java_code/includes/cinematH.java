@@ -39,6 +39,4 @@ MACHINE_DRIVER_EXTERN( demon_sound );
 
 void CinemaVectorData(int fromx, int fromy, int tox, int toy, int color);
 
-PALETTE_INIT( cinemat );
-PALETTE_INIT( cinemat_color );
 

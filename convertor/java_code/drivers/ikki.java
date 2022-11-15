@@ -17,7 +17,6 @@ package drivers;
 public class ikki
 {
 	
-	PALETTE_INIT( ikki );
 	
 	static UINT8 *ikki_sharedram;
 	

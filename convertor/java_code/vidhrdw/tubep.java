@@ -45,8 +45,7 @@ public class tubep
 	  bit 0 -- 1  kohm resistor  -- /
 	
 	***************************************************************************/
-	PALETTE_INIT( rjammer )
-	{
+	public static PaletteInitHandlerPtr palette_init_rjammer  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -92,7 +91,7 @@ public class tubep
 			COLOR(0, 2*i + 0) = 0;		/* transparent "black" */
 			COLOR(0, 2*i + 1) = i+16;	/* /SOFF is on the A4 line */
 		}
-	}
+	} };
 	
 	
 	
@@ -216,8 +215,7 @@ public class tubep
 	***************************************************************************/
 	
 	
-	PALETTE_INIT( tubep )
-	{
+	public static PaletteInitHandlerPtr palette_init_tubep  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,r,g,b;
 	
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
@@ -423,7 +421,7 @@ public class tubep
 				palette_set_color(32+i*0x40+sh, r,g,b);
 			}
 		}
-	}
+	} };
 	
 	
 	

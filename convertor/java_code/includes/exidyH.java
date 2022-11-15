@@ -55,7 +55,6 @@ extern UINT16 exidy_2bpp_colortable[];
 extern UINT8 exidy_collision_mask;
 extern UINT8 exidy_collision_invert;
 
-PALETTE_INIT( exidy );
 
 
 WRITE_HANDLER( exidy_characterram_w );

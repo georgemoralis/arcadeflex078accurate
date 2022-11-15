@@ -53,8 +53,7 @@ public class grchamp
 		grchamp_rain_ypos = data;
 	}
 	
-	PALETTE_INIT( grchamp )
-	{
+	public static PaletteInitHandlerPtr palette_init_grchamp  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		for( i=0; i<0x20; i++ )
 		{
@@ -95,7 +94,7 @@ public class grchamp
 		palette_set_color(0x41,0,0,0);
 		palette_set_color(0x42,0,0,0);
 		palette_set_color(0x43,0,0,0);
-	}
+	} };
 	
 	WRITE_HANDLER( grchamp_videoram_w )
 	{

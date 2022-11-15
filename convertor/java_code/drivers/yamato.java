@@ -24,11 +24,9 @@ public class yamato
 	extern unsigned char *cclimber_column_scroll;
 	WRITE_HANDLER( cclimber_colorram_w );
 	WRITE_HANDLER( cclimber_bigsprite_videoram_w );
-	PALETTE_INIT( cclimber );
 	
 	
-	PALETTE_INIT( yamato )
-	{
+	public static PaletteInitHandlerPtr palette_init_yamato  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + (offs)])
@@ -107,7 +105,7 @@ public class yamato
 			if (i % 4 == 0) COLOR(2,i) = 0;
 			else COLOR(2,i) = i + 64;
 		}
-	}
+	} };
 	
 	
 	

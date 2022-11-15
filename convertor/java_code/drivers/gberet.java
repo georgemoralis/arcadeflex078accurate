@@ -79,7 +79,6 @@ public class gberet
 	WRITE_HANDLER( gberet_e044_w );
 	WRITE_HANDLER( gberet_scroll_w );
 	WRITE_HANDLER( gberetb_scroll_w );
-	PALETTE_INIT( gberet );
 	
 	
 	

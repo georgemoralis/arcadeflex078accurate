@@ -87,8 +87,7 @@ public class mazerbla
 	
 	static double weights_r[2], weights_g[3], weights_b[3];
 	
-	static PALETTE_INIT( mazerbla )
-	{
+	public static PaletteInitHandlerPtr palette_init_mazerbla  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 	
 		const int resistances_r[2]  = { 4700, 2200 };
 		const int resistances_gb[3] = { 10000, 4700, 2200 };
@@ -101,7 +100,7 @@ public class mazerbla
 				3,	resistances_gb,	weights_b,	3600,	0,
 				2,	resistances_r,	weights_r,	3600,	0);
 	
-	}
+	} };
 	
 	
 	static struct mame_bitmap * tmpbitmaps[4];

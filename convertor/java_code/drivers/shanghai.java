@@ -684,8 +684,7 @@ public class shanghai
 	
 	
 	
-	PALETTE_INIT( shanghai )
-	{
+	public static PaletteInitHandlerPtr palette_init_shanghai  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -712,7 +711,7 @@ public class shanghai
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_shanghai  = new VideoStartHandlerPtr() { public int handler(){
 		return HD63484_start();

@@ -113,8 +113,7 @@ public class m79amb
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static PALETTE_INIT( m79amb )
-	{
+	public static PaletteInitHandlerPtr palette_init_m79amb  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0,0x00,0x00,0x00); /* BLACK */
 		palette_set_color(1,0xff,0xff,0xff); /* WHITE */
 		palette_set_color(2,0xff,0x20,0x20); /* RED */
@@ -122,7 +121,7 @@ public class m79amb
 		palette_set_color(4,0xff,0xff,0x20); /* YELLOW */
 		palette_set_color(5,0x20,0xff,0xff); /* CYAN */
 		palette_set_color(6,0xff,0x20,0xff); /* PURPLE */
-	}
+	} };
 	
 	public static InterruptHandlerPtr M79_interrupt = new InterruptHandlerPtr() {public void handler(){
 		cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, 0xcf);  /* RST 08h */

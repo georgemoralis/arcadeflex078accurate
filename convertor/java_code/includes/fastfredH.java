@@ -11,7 +11,6 @@ extern data8_t *fastfred_spriteram;
 extern size_t fastfred_spriteram_size;
 extern data8_t *fastfred_attributesram;
 
-PALETTE_INIT( fastfred );
 WRITE_HANDLER( fastfred_videoram_w );
 WRITE_HANDLER( fastfred_attributes_w );
 WRITE_HANDLER( fastfred_charbank1_w );

@@ -79,8 +79,7 @@ public class carpolo
 	 *
 	 **************************************************************************/
 	
-	PALETTE_INIT( carpolo )
-	{
+	public static PaletteInitHandlerPtr palette_init_carpolo  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		/* thanks to Jarek Burczynski for analyzing the circuit */
 	//	const static float MAX_VOLTAGE = 6.9620;
 		const static float MIN_VOLTAGE = 1.7434;
@@ -169,7 +168,7 @@ public class carpolo
 		COLOR(2, 1*2+1) = ALPHA1_COLOR;
 		COLOR(2, 2*2+1) = ALPHA2_COLOR;
 		COLOR(2, 3*2+1) = ALPHA3_COLOR;
-	}
+	} };
 	
 	
 	/*************************************

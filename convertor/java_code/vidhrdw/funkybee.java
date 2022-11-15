@@ -18,8 +18,7 @@ public class funkybee
 	static int gfx_bank;
 	static struct tilemap *bg_tilemap;
 	
-	PALETTE_INIT( funkybee )
-	{
+	public static PaletteInitHandlerPtr palette_init_funkybee  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -47,7 +46,7 @@ public class funkybee
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( funkybee_videoram_w )
 	{

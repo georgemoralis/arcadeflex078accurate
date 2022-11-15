@@ -82,9 +82,7 @@ public class geebee
 	WRITE_HANDLER( geebee_out7_w );
 	
 	/* from vidhrdw/geebee.c */
-	extern PALETTE_INIT( geebee );
-	extern PALETTE_INIT( navalone );
-	
+	extern extern 
 	extern extern extern extern extern 
 	/* from sndhrdw/geebee.c */
 	WRITE_HANDLER( geebee_sound_w );

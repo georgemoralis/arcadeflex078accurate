@@ -173,8 +173,7 @@ public class liberate
 		paletteram_BBGGGRRR_w(offset,~data);
 	}
 	
-	PALETTE_INIT( liberate )
-	{
+	public static PaletteInitHandlerPtr palette_init_liberate  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,bit0,bit1,bit2,g,r,b;
 	
 		for (i = 0;i < 32;i++)
@@ -201,7 +200,7 @@ public class liberate
 			palette_set_color(i,r,g,b);
 		}
 		palette_set_color(32,0,0,0); /* Allocate black for when no background is displayed */
-	}
+	} };
 	
 	/***************************************************************************/
 	

@@ -59,8 +59,7 @@ public class bking2
 	  bit 0 -- 220 ohm resistor  -- RED
 	
 	***************************************************************************/
-	PALETTE_INIT( bking2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_bking2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -111,7 +110,7 @@ public class bking2
 			COLOR(2,i) = ((i << 6) & 0x180) | ((i & 0x01) << 3);
 			COLOR(3,i) = ((i << 6) & 0x180) | ((i & 0x01) << 4);
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( bking2_xld1_w )

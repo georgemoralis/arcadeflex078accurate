@@ -23,7 +23,6 @@ package drivers;
 public class liberate
 {
 	
-	PALETTE_INIT( liberate );
 	
 	static int deco16_bank;
 	static data8_t *scratchram;

@@ -10,8 +10,7 @@ public class pingpong
 	extern WRITE_HANDLER( pingpong_videoram_w );
 	extern WRITE_HANDLER( pingpong_colorram_w );
 	
-	extern PALETTE_INIT( pingpong );
-	extern extern 
+	extern extern extern 
 	static int intenable;
 	
 	static WRITE_HANDLER( coin_w )

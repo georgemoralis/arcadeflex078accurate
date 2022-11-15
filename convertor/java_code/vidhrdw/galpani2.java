@@ -128,8 +128,7 @@ public class galpani2
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( galpani2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_galpani2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		/* first $4200 colors are dynamic */
 	
@@ -146,7 +145,7 @@ public class galpani2
 			b = (b << 3) | (b >> 2);
 			palette_set_color(0x4200+i,r,g,b);
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_galpani2  = new VideoStartHandlerPtr() { public int handler(){
 		if ((galpani2_bg15_bitmap  = auto_bitmap_alloc_depth(256*8, 256, 16)) == 0)	return 1;

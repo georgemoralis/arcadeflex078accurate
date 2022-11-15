@@ -35,8 +35,7 @@ public class ladybug
 	  bit 0 -- inverter -- 470 ohm resistor  -- RED
 	
 	***************************************************************************/
-	PALETTE_INIT( ladybug )
-	{
+	public static PaletteInitHandlerPtr palette_init_ladybug  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < 32;i++)
@@ -85,7 +84,7 @@ public class ladybug
 			bit3 = (color_prom[i + 32] >> 4) & 0x01;
 			colortable[i + 4 * 16] = 1 * bit0 + 2 * bit1 + 4 * bit2 + 8 * bit3;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( ladybug_videoram_w )
 	{

@@ -177,8 +177,6 @@ public class alpha68k
 	
 	#define SBASEBAL_HACK	0
 	
-	PALETTE_INIT( kyros );
-	PALETTE_INIT( paddlem );
 	WRITE16_HANDLER( alpha68k_II_video_bank_w );
 	void alpha68k_V_video_bank_w(int bank);
 	void alpha68k_flipscreen_w(int flip);

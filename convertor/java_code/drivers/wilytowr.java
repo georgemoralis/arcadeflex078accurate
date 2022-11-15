@@ -37,8 +37,7 @@ public class wilytowr
 	static struct tilemap *bg_tilemap, *fg_tilemap;
 	
 	
-	PALETTE_INIT( wilytowr )
-	{
+	public static PaletteInitHandlerPtr palette_init_wilytowr  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -91,7 +90,7 @@ public class wilytowr
 	
 			palette_set_color(i+256,r,g,b);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( wilytowr_videoram_w )
 	{

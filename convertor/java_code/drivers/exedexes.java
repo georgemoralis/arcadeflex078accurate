@@ -28,8 +28,7 @@ public class exedexes
 	extern WRITE_HANDLER( exedexes_c804_w );
 	extern WRITE_HANDLER( exedexes_gfxctrl_w );
 	
-	extern PALETTE_INIT( exedexes );
-	extern extern extern 
+	extern extern extern extern 
 	
 	
 	public static InterruptHandlerPtr exedexes_interrupt = new InterruptHandlerPtr() {public void handler(){

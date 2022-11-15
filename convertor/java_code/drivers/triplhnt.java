@@ -302,8 +302,7 @@ public class triplhnt
 	};
 	
 	
-	static PALETTE_INIT( triplhnt )
-	{
+	public static PaletteInitHandlerPtr palette_init_triplhnt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0, 0xAF, 0xAF, 0xAF);  /* sprites */
 		palette_set_color(1, 0x00, 0x00, 0x00);
 		palette_set_color(2, 0xFF, 0xFF, 0xFF);
@@ -312,7 +311,7 @@ public class triplhnt
 		palette_set_color(5, 0x3F, 0x3F, 0x3F);
 		palette_set_color(6, 0x00, 0x00, 0x00);
 		palette_set_color(7, 0x3F, 0x3F, 0x3F);
-	}
+	} };
 	
 	
 	static MACHINE_DRIVER_START( triplhnt )

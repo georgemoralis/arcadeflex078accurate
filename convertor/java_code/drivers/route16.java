@@ -85,7 +85,6 @@ public class route16
 	DRIVER_INIT( route16 );
 	DRIVER_INIT( route16b );
 	DRIVER_INIT( stratvox );
-	PALETTE_INIT( route16 );
 	WRITE_HANDLER( route16_out0_w );
 	WRITE_HANDLER( route16_out1_w );
 	WRITE_HANDLER( route16_videoram1_w );

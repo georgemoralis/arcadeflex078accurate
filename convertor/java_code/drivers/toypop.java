@@ -47,7 +47,6 @@ public class toypop
 	WRITE_HANDLER( toypop_palettebank_w );
 	WRITE16_HANDLER( toypop_flipscreen_w );
 	WRITE16_HANDLER( liblrabl_flipscreen_w );
-	PALETTE_INIT( toypop );
 	
 	
 	

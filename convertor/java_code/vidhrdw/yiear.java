@@ -36,8 +36,7 @@ public class yiear
 	  bit 0 -- 1  kohm resistor  -- RED
 	
 	***************************************************************************/
-	PALETTE_INIT( yiear )
-	{
+	public static PaletteInitHandlerPtr palette_init_yiear  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -66,7 +65,7 @@ public class yiear
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( yiear_videoram_w )
 	{

@@ -58,8 +58,6 @@ public class travrusa
 	
 	extern unsigned char *travrusa_videoram;
 	
-	PALETTE_INIT( travrusa );
-	PALETTE_INIT( shtrider );
 	WRITE_HANDLER( travrusa_videoram_w );
 	WRITE_HANDLER( travrusa_scroll_x_low_w );
 	WRITE_HANDLER( travrusa_scroll_x_high_w );

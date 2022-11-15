@@ -30,8 +30,7 @@ public class mystston
 	extern WRITE_HANDLER( mystston_scroll_w );
 	extern WRITE_HANDLER( mystston_control_w );
 	
-	extern PALETTE_INIT( mystston );
-	extern extern 
+	extern extern extern 
 	
 	static int VBLK = 0x80;
 	static int soundlatch;

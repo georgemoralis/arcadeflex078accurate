@@ -129,8 +129,6 @@ public class combatsc
 	extern unsigned char* banked_area;
 	
 	/* from vidhrdw/combasc.c */
-	PALETTE_INIT( combasc );
-	PALETTE_INIT( combascb );
 	READ_HANDLER( combasc_video_r );
 	WRITE_HANDLER( combasc_video_w );
 	

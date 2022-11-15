@@ -337,8 +337,7 @@ public class homedata
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( mrokumei )
-	{
+	public static PaletteInitHandlerPtr palette_init_mrokumei  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* initialize 555 RGB palette */
@@ -361,10 +360,9 @@ public class homedata
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
-	PALETTE_INIT( reikaids )
-	{
+	public static PaletteInitHandlerPtr palette_init_reikaids  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* initialize 555 RGB palette */
@@ -387,10 +385,9 @@ public class homedata
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
-	PALETTE_INIT( pteacher )
-	{
+	public static PaletteInitHandlerPtr palette_init_pteacher  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* initialize 555 RGB palette */
@@ -413,7 +410,7 @@ public class homedata
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	

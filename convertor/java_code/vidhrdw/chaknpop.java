@@ -43,8 +43,7 @@ public class chaknpop
 	  palette decode
 	***************************************************************************/
 	
-	PALETTE_INIT( chaknpop )
-	{
+	public static PaletteInitHandlerPtr palette_init_chaknpop  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < 1024; i++)
@@ -74,7 +73,7 @@ public class chaknpop
 	
 			palette_set_color(i, r, g, b);
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	  Memory handlers

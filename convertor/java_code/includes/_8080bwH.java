@@ -107,9 +107,5 @@ WRITE_HANDLER( cosmo_colorram_w );
 
 
 
-PALETTE_INIT( invadpt2 );
-PALETTE_INIT( helifire );
-PALETTE_INIT( sflush );
-PALETTE_INIT( cosmo );
 
 WRITE_HANDLER( bowler_bonus_display_w );

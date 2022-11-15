@@ -140,9 +140,7 @@ public class docastle
 	extern WRITE_HANDLER( docastle_flipscreen_off_w );
 	extern WRITE_HANDLER( docastle_flipscreen_on_w );
 	
-	extern PALETTE_INIT( docastle );
-	extern PALETTE_INIT( dorunrun );
-	extern extern 
+	extern extern extern extern 
 	static MEMORY_READ_START( docastle_readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },
 		{ 0x8000, 0x97ff, MRA_RAM },

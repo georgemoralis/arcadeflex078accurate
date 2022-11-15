@@ -47,8 +47,7 @@ public class gaplus
 	extern WRITE_HANDLER( gaplus_interrupt_ctrl_3a_w );
 	WRITE_HANDLER( gaplus_interrupt_ctrl_3b_w );
 	
-	extern extern PALETTE_INIT( gaplus );
-	extern extern MACHINE_INIT( gaplus );
+	extern extern extern extern MACHINE_INIT( gaplus );
 	WRITE_HANDLER( gaplus_starfield_control_w );
 	
 	static MEMORY_READ_START( readmem_cpu1 )

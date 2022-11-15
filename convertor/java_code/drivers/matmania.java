@@ -37,7 +37,6 @@ public class matmania
 	extern unsigned char *matmania_pageselect;
 	
 	WRITE_HANDLER( matmania_paletteram_w );
-	PALETTE_INIT( matmania );
 	WRITE_HANDLER( matmania_videoram3_w );
 	WRITE_HANDLER( matmania_colorram3_w );
 	

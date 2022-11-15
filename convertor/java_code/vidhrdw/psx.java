@@ -228,8 +228,7 @@ public class psx
 	#define TEXTURE_V( a ) ( (UINT8)a.b.h )
 	#define TEXTURE_U( a ) ( (UINT8)a.b.l )
 	
-	PALETTE_INIT( psx )
-	{
+	public static PaletteInitHandlerPtr palette_init_psx  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		UINT32 n_r;
 		UINT32 n_g;
 		UINT32 n_b;
@@ -243,7 +242,7 @@ public class psx
 	
 			palette_set_color( n_colour, n_r, n_g, n_b );
 		}
-	}
+	} };
 	
 	#if defined( MAME_DEBUG )
 	

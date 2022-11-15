@@ -26,7 +26,6 @@ WRITE_HANDLER( irobot_sharedmem_w );
 
 /*----------- defined in vidhrdw/irobot.c -----------*/
 
-PALETTE_INIT( irobot );
 
 WRITE_HANDLER( irobot_paletteram_w );
 

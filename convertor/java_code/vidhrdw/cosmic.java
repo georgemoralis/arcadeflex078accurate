@@ -102,8 +102,7 @@ public class cosmic
 	 * (1k to ground) so second version of table has blue set to 2/3
 	 */
 	
-	PALETTE_INIT( panic )
-	{
+	public static PaletteInitHandlerPtr palette_init_panic  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -126,7 +125,7 @@ public class cosmic
 	
 	
 	    map_color = panic_map_color;
-	}
+	} };
 	
 	
 	/*
@@ -138,8 +137,7 @@ public class cosmic
 	 *
 	 */
 	
-	PALETTE_INIT( cosmica )
-	{
+	public static PaletteInitHandlerPtr palette_init_cosmica  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
@@ -162,7 +160,7 @@ public class cosmic
 	
 	
 	    map_color = cosmica_map_color;
-	}
+	} };
 	
 	
 	/*
@@ -175,8 +173,7 @@ public class cosmic
 	 * resistor chain would never drop to zero, Anybody know ?
 	 */
 	
-	PALETTE_INIT( cosmicg )
-	{
+	public static PaletteInitHandlerPtr palette_init_cosmicg  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -193,10 +190,9 @@ public class cosmic
 	
 	
 	    map_color = cosmicg_map_color;
-	}
+	} };
 	
-	PALETTE_INIT( magspot2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_magspot2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -225,11 +221,10 @@ public class cosmic
 	
 	    map_color = magspot2_map_color;
 	    magspot_pen_mask = 0x0f;
-	}
+	} };
 	
 	
-	PALETTE_INIT( nomnlnd )
-	{
+	public static PaletteInitHandlerPtr palette_init_nomnlnd  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -254,7 +249,7 @@ public class cosmic
 	
 	    map_color = magspot2_map_color;
 	    magspot_pen_mask = 0x07;
-	}
+	} };
 	
 	
 	WRITE_HANDLER( cosmic_background_enable_w )

@@ -47,8 +47,7 @@ public class polepos
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( polepos )
-	{
+	public static PaletteInitHandlerPtr palette_init_polepos  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i, j;
 	
 		/*******************************************************
@@ -146,7 +145,7 @@ public class polepos
 		road_control = &color_prom[0x2000];
 		road_bits1 = &color_prom[0x4000];
 		road_bits2 = &color_prom[0x6000];
-	}
+	} };
 	
 	
 	/***************************************************************************

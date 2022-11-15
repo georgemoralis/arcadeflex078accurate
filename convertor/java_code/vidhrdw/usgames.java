@@ -14,8 +14,7 @@ public class usgames
 	
 	
 	
-	PALETTE_INIT(usg)
-	{
+	public static PaletteInitHandlerPtr palette_init_usg  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int j;
 	
 		for (j = 0;j < 16;j++)
@@ -37,7 +36,7 @@ public class usgames
 			colortable[2*j] = j & 0x0f;
 			colortable[2*j+1] = j >> 4;
 		}
-	}
+	} };
 	
 	
 	

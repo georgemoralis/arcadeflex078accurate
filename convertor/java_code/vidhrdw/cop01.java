@@ -24,8 +24,7 @@ public class cop01
 	
 	
 	
-	PALETTE_INIT( cop01 )
-	{
+	public static PaletteInitHandlerPtr palette_init_cop01  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -71,7 +70,7 @@ public class cop01
 		/* sprites use colors 128-143 (or 128-191, but the four rows are identical) */
 		for (i = 0;i < TOTAL_COLORS(2);i++)
 			COLOR(2,i) = 0x80 + (*(color_prom++) & 0x0f);
-	}
+	} };
 	
 	
 	

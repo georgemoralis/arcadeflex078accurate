@@ -58,8 +58,7 @@ public class bagman
 	  bit 0 -- 1  kohm resistor  -- /
 	
 	***************************************************************************/
-	PALETTE_INIT( bagman )
-	{
+	public static PaletteInitHandlerPtr palette_init_bagman  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		const int resistances_rg[3] = { 1000, 470, 220 };
 		const int resistances_b [2] = { 470, 220 };
@@ -93,7 +92,7 @@ public class bagman
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( bagman_flipscreen_w )
 	{

@@ -31,7 +31,6 @@ public class ddrible
 	WRITE_HANDLER( ddrible_bg_videoram_w );
 	
 	/* video hardware functions */
-	PALETTE_INIT( ddrible );
 	WRITE_HANDLER( K005885_0_w );
 	WRITE_HANDLER( K005885_1_w );
 	

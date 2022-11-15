@@ -61,8 +61,6 @@ public class btime
 	extern unsigned char *zoar_scrollram;
 	extern unsigned char *deco_charram;
 	
-	PALETTE_INIT( btime );
-	PALETTE_INIT( lnc );
 	
 	MACHINE_INIT( lnc );
 	

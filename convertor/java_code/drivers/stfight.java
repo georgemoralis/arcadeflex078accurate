@@ -252,7 +252,6 @@ public class stfight
 	WRITE_HANDLER( stfight_adpcm_control_w );
 	
 	// vidhrdw
-	PALETTE_INIT( stfight );
 	WRITE_HANDLER( stfight_text_char_w );
 	WRITE_HANDLER( stfight_text_attr_w );
 	WRITE_HANDLER( stfight_vh_latch_w );

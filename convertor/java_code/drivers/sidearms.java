@@ -54,8 +54,7 @@ public class sidearms
 	extern WRITE_HANDLER( sidearms_c804_w );
 	extern WRITE_HANDLER( sidearms_gfxctrl_w );
 	
-	extern PALETTE_INIT( sidearms );
-	extern extern extern 
+	extern extern extern extern 
 	int sidearms_gameid;
 	
 	static WRITE_HANDLER( sidearms_bankswitch_w )

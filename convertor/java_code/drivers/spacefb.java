@@ -132,7 +132,6 @@ public class spacefb
 {
 	
 	
-	PALETTE_INIT( spacefb );
 	
 	WRITE_HANDLER( spacefb_video_control_w );
 	WRITE_HANDLER( spacefb_port_2_w );

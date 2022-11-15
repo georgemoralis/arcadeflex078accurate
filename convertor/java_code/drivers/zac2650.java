@@ -249,15 +249,14 @@ public class zac2650
 	INPUT_PORTS_END(); }}; 
 	
 	
-	static PALETTE_INIT( zac2650 )
-	{
+	public static PaletteInitHandlerPtr palette_init_zac2650  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0,0x00,0x00,0x00); /* BLACK */
 		palette_set_color(1,0xff,0xff,0xff); /* WHITE */
 		colortable[0] = 0;
 		colortable[1] = 1;
 		colortable[2] = 0;
 		colortable[3] = 0;
-	}
+	} };
 	
 	/************************************************************************************************
 	

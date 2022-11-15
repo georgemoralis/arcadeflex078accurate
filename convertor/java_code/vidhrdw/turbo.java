@@ -58,8 +58,7 @@ public class turbo
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( turbo )
-	{
+	public static PaletteInitHandlerPtr palette_init_turbo  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < 512; i++, color_prom++)
@@ -91,11 +90,10 @@ public class turbo
 	
 			palette_set_color(adjusted_index,r,g,b);
 		}
-	}
+	} };
 	
 	
-	PALETTE_INIT( subroc3d )
-	{
+	public static PaletteInitHandlerPtr palette_init_subroc3d  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* Subroc3D uses a common final color PROM with 512 entries */
@@ -123,11 +121,10 @@ public class turbo
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
-	PALETTE_INIT( buckrog )
-	{
+	public static PaletteInitHandlerPtr palette_init_buckrog  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* Buck Rogers uses 1024 entries for the sprite color PROM */
@@ -208,7 +205,7 @@ public class turbo
 	
 			palette_set_color(i+1024+512,r,g,b);
 		}
-	}
+	} };
 	
 	
 	

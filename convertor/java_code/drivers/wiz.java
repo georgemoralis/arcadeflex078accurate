@@ -178,7 +178,6 @@ public class wiz
 	WRITE_HANDLER( wiz_bgcolor_w );
 	WRITE_HANDLER( wiz_flipx_w );
 	WRITE_HANDLER( wiz_flipy_w );
-	PALETTE_INIT( wiz );
 	
 	static WRITE_HANDLER( sound_command_w )
 	{

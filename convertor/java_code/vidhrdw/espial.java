@@ -47,8 +47,7 @@ public class espial
 	  bit 0 -- 1  kohm resistor  -- RED
 	
 	***************************************************************************/
-	PALETTE_INIT( espial )
-	{
+	public static PaletteInitHandlerPtr palette_init_espial  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -75,7 +74,7 @@ public class espial
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	

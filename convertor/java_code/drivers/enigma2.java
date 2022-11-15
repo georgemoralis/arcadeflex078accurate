@@ -217,8 +217,7 @@ public class enigma2
 	    cpu_set_irq_line_and_vector(0, 0, HOLD_LINE, vector);
 	} };
 	
-	PALETTE_INIT( enigma2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_enigma2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 	/*
 		Washed colors were hand-tuned from :
 		http://www.arcadeflyers.com/?page=flyerdb&subpage=thumbs&id=1756&PHPSESSID=9c8361a00f26b15f9b49bdd7cca9d47f
@@ -231,7 +230,7 @@ public class enigma2
 		palette_set_color(5,238,187,186);
 		/* 6 */
 		palette_set_color(7,0xff,0xff,0xff);
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( enigma2 )
 		MDRV_CPU_ADD_TAG("main",Z80, 2500000)

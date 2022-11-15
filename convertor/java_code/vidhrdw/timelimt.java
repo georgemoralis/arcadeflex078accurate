@@ -34,7 +34,7 @@ public class timelimt
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( timelimt ) {
+	public static PaletteInitHandlerPtr palette_init_timelimt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom)
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -58,7 +58,7 @@ public class timelimt
 	
 			palette_set_color(i,r,g,b);
 			color_prom++;
-		}
+		} };
 	}
 	
 	/***************************************************************************

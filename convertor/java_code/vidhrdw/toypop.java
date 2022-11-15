@@ -29,8 +29,7 @@ public class toypop
 	
 	
 	***************************************************************************/
-	PALETTE_INIT( toypop )
-	{
+	public static PaletteInitHandlerPtr palette_init_toypop  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < 256;i++)
@@ -66,7 +65,7 @@ public class toypop
 			// sprites
 			colortable[i+512] = color_prom[i + 0x500];
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( toypop_palettebank_w )
 	{

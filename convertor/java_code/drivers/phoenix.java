@@ -53,8 +53,6 @@ public class phoenix
 	READ_HANDLER( pleiads_input_port_0_r );
 	READ_HANDLER( survival_input_port_0_r );
 	READ_HANDLER( survival_protection_r );
-	PALETTE_INIT( phoenix );
-	PALETTE_INIT( pleiads );
 	
 	WRITE_HANDLER( phoenix_sound_control_a_w );
 	WRITE_HANDLER( phoenix_sound_control_b_w );

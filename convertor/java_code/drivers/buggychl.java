@@ -106,7 +106,6 @@ public class buggychl
 	extern unsigned char buggychl_sprite_lookup[0x2000];
 	extern unsigned char *buggychl_character_ram;
 	
-	PALETTE_INIT( buggychl );
 	WRITE_HANDLER( buggychl_chargen_w );
 	WRITE_HANDLER( buggychl_sprite_lookup_bank_w );
 	WRITE_HANDLER( buggychl_sprite_lookup_w );

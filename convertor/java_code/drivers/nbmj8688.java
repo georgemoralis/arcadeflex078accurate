@@ -40,9 +40,6 @@ public class nbmj8688
 	#define	SIGNED_DAC	0		// 0:unsigned DAC, 1:signed DAC
 	
 	
-	PALETTE_INIT( mbmj8688_8bit );
-	PALETTE_INIT( mbmj8688_12bit );
-	PALETTE_INIT( mbmj8688_16bit );
 	
 	WRITE_HANDLER( nbmj8688_color_lookup_w );
 	WRITE_HANDLER( nbmj8688_blitter_w );

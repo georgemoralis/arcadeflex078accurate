@@ -40,5 +40,4 @@ void carpolo_generate_car_border_interrupt(int car, int horizontal_border);
 extern data8_t *carpolo_alpharam;
 extern data8_t *carpolo_spriteram;
 
-PALETTE_INIT( carpolo );
 WRITE_HANDLER( carpolo_videoram_w );

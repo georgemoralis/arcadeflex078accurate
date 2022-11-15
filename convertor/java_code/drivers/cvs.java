@@ -91,7 +91,6 @@ package drivers;
 public class cvs
 {
 	
-	PALETTE_INIT( cvs );
 	int  s2650_get_flag(void);
 	
 	extern unsigned char *dirty_character;

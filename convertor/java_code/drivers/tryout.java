@@ -191,8 +191,7 @@ public class tryout
 	//		nmi_line_pulse();
 	} };
 	
-	PALETTE_INIT( tryout )
-	{
+	public static PaletteInitHandlerPtr palette_init_tryout  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -217,7 +216,7 @@ public class tryout
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( tryout )
 		MDRV_CPU_ADD(M6502, 2000000)		 /* ?? */

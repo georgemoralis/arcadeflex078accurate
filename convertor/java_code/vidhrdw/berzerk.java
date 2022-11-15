@@ -23,8 +23,7 @@ public class berzerk
 	static data8_t collision = 0;
 	
 	
-	PALETTE_INIT( berzerk )
-	{
+	public static PaletteInitHandlerPtr palette_init_berzerk  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* Simple 1-bit RGBI palette */
@@ -37,7 +36,7 @@ public class berzerk
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	INLINE void copy_byte(UINT8 x, UINT8 y, data8_t data, data8_t col)

@@ -56,7 +56,6 @@ WRITE_HANDLER( segar_bcolortable_w );
 
 WRITE_HANDLER( segar_video_port_w );
 
-PALETTE_INIT( segar );
 
 WRITE_HANDLER( monsterb_back_port_w );
 

@@ -72,7 +72,6 @@ public class stactics
 	extern unsigned char *stactics_chardata_f;
 	extern unsigned char *stactics_display_buffer;
 	
-	PALETTE_INIT( stactics );
 	
 	WRITE_HANDLER( stactics_palette_w );
 	WRITE_HANDLER( stactics_scroll_ram_w );

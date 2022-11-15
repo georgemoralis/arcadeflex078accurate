@@ -6,8 +6,6 @@
 
 /*----------- defined in vidhrdw/pengo.c -----------*/
 
-PALETTE_INIT( pacman );
-PALETTE_INIT( pengo );
 
 
 WRITE_HANDLER( pengo_gfxbank_w );

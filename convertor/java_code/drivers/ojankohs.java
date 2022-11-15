@@ -41,7 +41,6 @@ public class ojankohs
 {
 	
 	
-	PALETTE_INIT( ojankoy );
 	READ_HANDLER( ojankohs_palette_r );
 	WRITE_HANDLER( ojankohs_palette_w );
 	WRITE_HANDLER( ccasino_palette_w );

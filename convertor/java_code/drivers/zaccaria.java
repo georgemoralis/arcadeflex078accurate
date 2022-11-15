@@ -45,7 +45,6 @@ public class zaccaria
 	
 	extern data8_t *zaccaria_videoram,*zaccaria_attributesram;
 	
-	PALETTE_INIT( zaccaria );
 	WRITE_HANDLER( zaccaria_videoram_w );
 	WRITE_HANDLER( zaccaria_attributes_w );
 	WRITE_HANDLER( zaccaria_flip_screen_x_w );

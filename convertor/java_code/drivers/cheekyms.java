@@ -18,7 +18,6 @@ public class cheekyms
 	
 	
 	
-	PALETTE_INIT( cheekyms );
 	WRITE_HANDLER( cheekyms_sprite_w );
 	WRITE_HANDLER( cheekyms_port_40_w );
 	WRITE_HANDLER( cheekyms_port_80_w );

@@ -99,8 +99,7 @@ public class mcr68
 	 *
 	 *************************************/
 	
-	PALETTE_INIT( zwackery )
-	{
+	public static PaletteInitHandlerPtr palette_init_zwackery  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		const UINT8 *colordatabase = (const UINT8 *)memory_region(REGION_GFX3);
 		struct GfxElement *gfx0 = Machine->gfx[0];
 		struct GfxElement *gfx2 = Machine->gfx[2];
@@ -141,7 +140,7 @@ public class mcr68
 				gfxdata2 += gfx2->line_modulo;
 			}
 		}
-	}
+	} };
 	
 	
 	

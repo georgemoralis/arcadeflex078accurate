@@ -94,7 +94,6 @@ public class bosco
 	MACHINE_INIT( bosco );
 	
 	WRITE_HANDLER( bosco_cpu_reset_w );
-	PALETTE_INIT( bosco );
 	
 	extern unsigned char *bosco_videoram2,*bosco_colorram2;
 	extern unsigned char *bosco_radarx,*bosco_radary,*bosco_radarattr;

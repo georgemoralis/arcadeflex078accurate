@@ -33,7 +33,6 @@ public class namcos86
 	
 	/*******************************************************************/
 	
-	PALETTE_INIT( namcos86 );
 	READ_HANDLER( rthunder_videoram1_r );
 	WRITE_HANDLER( rthunder_videoram1_w );
 	READ_HANDLER( rthunder_videoram2_r );

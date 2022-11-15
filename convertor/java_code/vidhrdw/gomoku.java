@@ -34,8 +34,7 @@ public class gomoku
 	
 	******************************************************************************/
 	
-	PALETTE_INIT( gomoku )
-	{
+	public static PaletteInitHandlerPtr palette_init_gomoku  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < Machine->drv->total_colors; i++)
@@ -61,7 +60,7 @@ public class gomoku
 			palette_set_color(i, r, g, b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	/******************************************************************************
 	

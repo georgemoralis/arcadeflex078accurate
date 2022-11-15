@@ -184,8 +184,7 @@ public class shangkid
 	} };
 	
 	
-	PALETTE_INIT( dynamski )
-	{
+	public static PaletteInitHandlerPtr palette_init_dynamski  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -214,7 +213,7 @@ public class shangkid
 		/* characters */
 		for (i = 0;i < TOTAL_COLORS(0);i++)
 			COLOR(0,i) = (color_prom[i] & 0x0f);
-	}
+	} };
 	
 	
 	static void dynamski_draw_background( struct mame_bitmap *bitmap, const struct rectangle *cliprect, int pri )

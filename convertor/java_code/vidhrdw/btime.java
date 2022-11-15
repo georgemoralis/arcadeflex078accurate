@@ -50,8 +50,7 @@ public class btime
 	    bit 0 -- 47 kohm resistor  -- RED (inverted)
 	
 	***************************************************************************/
-	PALETTE_INIT( btime )
-	{
+	public static PaletteInitHandlerPtr palette_init_btime  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -81,7 +80,7 @@ public class btime
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	
@@ -99,8 +98,7 @@ public class btime
 	    bit 0 -- 15 kohm resistor  -- BLUE
 	
 	***************************************************************************/
-	PALETTE_INIT( lnc )
-	{
+	public static PaletteInitHandlerPtr palette_init_lnc  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -126,7 +124,7 @@ public class btime
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	MACHINE_INIT( lnc )

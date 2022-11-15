@@ -30,7 +30,6 @@ public class baraduke
 	WRITE_HANDLER( baraduke_videoram_w );
 	WRITE_HANDLER( baraduke_scroll0_w );
 	WRITE_HANDLER( baraduke_scroll1_w );
-	PALETTE_INIT( baraduke );
 	
 	static int inputport_selected;
 	

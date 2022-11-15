@@ -40,10 +40,9 @@ public class route16
 	
 	
 	
-	PALETTE_INIT( route16 )
-	{
+	public static PaletteInitHandlerPtr palette_init_route16  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		route16_color_prom = color_prom;	/* we'll need this later */
-	}
+	} };
 	
 	
 	/***************************************************************************

@@ -16,7 +16,6 @@ public class rollrace
 {
 	
 	
-	PALETTE_INIT( wiz );
 	
 	WRITE_HANDLER( rollrace_charbank_w );
 	WRITE_HANDLER( rollrace_backgroundpage_w);

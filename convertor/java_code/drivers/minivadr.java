@@ -21,7 +21,6 @@ public class minivadr
 	
 	
 	WRITE_HANDLER( minivadr_videoram_w );
-	PALETTE_INIT( minivadr );
 	
 	
 	static MEMORY_READ_START( readmem )

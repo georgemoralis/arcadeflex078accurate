@@ -7,7 +7,6 @@
 #if !defined( PSX_H )
 
 /* vidhrdw */
-PALETTE_INIT( psx );
 extern void psx_gpu_reset( void );
 extern void psx_gpu_read( UINT32 *p_ram, INT32 n_size );
 extern void psx_gpu_write( UINT32 *p_ram, INT32 n_size );

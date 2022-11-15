@@ -1079,21 +1079,19 @@ public class avgdvg
 	 ************************************/
 	
 	/* Black and White vector colors for Asteroids, Lunar Lander, Omega Race */
-	PALETTE_INIT( avg_white )
-	{
+	public static PaletteInitHandlerPtr palette_init_avg_white  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		for (i = 0; i < 32; i++)
 			colorram[i] = MAKE_RGB(0xff, 0xff, 0xff);
-	}
+	} };
 	
 	
 	/* Basic 8 rgb vector colors for Tempest, Gravitar, Major Havoc etc. */
-	PALETTE_INIT( avg_multi )
-	{
+	public static PaletteInitHandlerPtr palette_init_avg_multi  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		for (i = 0; i < 32; i++)
 			colorram[i] = VECTOR_COLOR111(i);
-	}
+	} };
 	
 	
 	

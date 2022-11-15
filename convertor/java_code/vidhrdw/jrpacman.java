@@ -42,8 +42,7 @@ public class jrpacman
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( jrpacman )
-	{
+	public static PaletteInitHandlerPtr palette_init_jrpacman  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < 32;i++)
@@ -77,7 +76,7 @@ public class jrpacman
 			if (color_prom[i]) colortable[i + 64*4] = color_prom[i] + 0x10;
 			else colortable[i + 64*4] = 0;
 		}
-	}
+	} };
 	
 	
 	

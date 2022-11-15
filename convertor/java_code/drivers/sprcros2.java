@@ -71,7 +71,6 @@ public class sprcros2
 	WRITE_HANDLER( sprcros2_bgscrollx_w );
 	WRITE_HANDLER( sprcros2_bgscrolly_w );
 	
-	PALETTE_INIT( sprcros2 );
 	static data8_t *sprcros2_sharedram;
 	int sprcros2_m_port7 = 0;
 	static int sprcros2_s_port3 = 0;

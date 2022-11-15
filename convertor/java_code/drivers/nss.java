@@ -205,8 +205,7 @@ public class nss
 		{ -1 } /* end of array */
 	};
 	
-	static PALETTE_INIT( snes )
-	{
+	public static PaletteInitHandlerPtr palette_init_snes  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i, r, g, b;
 	
 		for( i = 0; i < 32768; i++ )
@@ -220,7 +219,7 @@ public class nss
 		/* The colortable can be black */
 		for( i = 0; i < 256; i++ )
 			colortable[i] = 0;
-	}
+	} };
 	
 	static MACHINE_DRIVER_START( snes )
 		/* basic machine hardware */

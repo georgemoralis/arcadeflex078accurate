@@ -43,8 +43,7 @@ public class hanaawas
 	extern WRITE_HANDLER( hanaawas_colorram_w );
 	extern WRITE_HANDLER( hanaawas_portB_w );
 	
-	extern PALETTE_INIT( hanaawas );
-	extern extern 
+	extern extern extern 
 	
 	static READ_HANDLER( hanaawas_input_port_0_r )
 	{

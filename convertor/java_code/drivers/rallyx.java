@@ -75,7 +75,6 @@ public class rallyx
 	WRITE_HANDLER( rallyx_colorram2_w );
 	WRITE_HANDLER( rallyx_spriteram_w );
 	WRITE_HANDLER( rallyx_flipscreen_w );
-	PALETTE_INIT( rallyx );
 	
 	
 	static WRITE_HANDLER( rallyx_coin_lockout_w )

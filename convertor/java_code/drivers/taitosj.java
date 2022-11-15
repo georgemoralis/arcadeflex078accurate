@@ -158,7 +158,6 @@ public class taitosj
 	extern unsigned char *taitosj_gfxpointer;
 	extern unsigned char *taitosj_colorbank,*taitosj_video_priority;
 	extern unsigned char *kikstart_scrollram;
-	PALETTE_INIT( taitosj );
 	READ_HANDLER( taitosj_gfxrom_r );
 	WRITE_HANDLER( taitosj_videoram2_w );
 	WRITE_HANDLER( taitosj_videoram3_w );

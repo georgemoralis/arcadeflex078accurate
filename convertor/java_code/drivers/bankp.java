@@ -53,8 +53,7 @@ public class bankp
 	extern WRITE_HANDLER( bankp_scroll_w );
 	extern WRITE_HANDLER( bankp_out_w );
 	
-	extern PALETTE_INIT( bankp );
-	extern extern 
+	extern extern extern 
 	
 	
 	static MEMORY_READ_START( readmem )

@@ -14,7 +14,6 @@ READ_HANDLER( berzerk_led_off_r );
 
 extern data8_t *berzerk_magicram;
 
-PALETTE_INIT( berzerk );
 WRITE_HANDLER( berzerk_videoram_w );
 WRITE_HANDLER( berzerk_colorram_w );
 WRITE_HANDLER( berzerk_magicram_w );

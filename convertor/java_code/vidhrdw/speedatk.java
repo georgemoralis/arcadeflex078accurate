@@ -36,8 +36,7 @@ public class speedatk
 	
 	*/
 	
-	PALETTE_INIT( speedatk )
-	{
+	public static PaletteInitHandlerPtr palette_init_speedatk  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < 0x10;i++)
@@ -68,7 +67,7 @@ public class speedatk
 		/* Colortable entry */
 		for(i = 0; i < 0x100; i++)
 			colortable[i] = color_prom[i];	
-	}
+	} };
 	
 	WRITE_HANDLER( speedatk_videoram_w )
 	{

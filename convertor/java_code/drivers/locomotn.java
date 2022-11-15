@@ -65,7 +65,6 @@ public class locomotn
 	WRITE_HANDLER( rallyx_videoram2_w );
 	WRITE_HANDLER( rallyx_colorram2_w );
 	WRITE_HANDLER( rallyx_flipscreen_w );
-	PALETTE_INIT( locomotn );
 	
 	
 	static WRITE_HANDLER( coin_1_w )

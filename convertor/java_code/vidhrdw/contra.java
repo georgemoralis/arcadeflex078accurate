@@ -34,8 +34,7 @@ public class contra
 	**
 	***************************************************************************/
 	
-	PALETTE_INIT( contra )
-	{
+	public static PaletteInitHandlerPtr palette_init_contra  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,chip,pal,clut;
 	
 		for (chip = 0;chip < 2;chip++)
@@ -57,7 +56,7 @@ public class contra
 				}
 			}
 		}
-	}
+	} };
 	
 	
 	

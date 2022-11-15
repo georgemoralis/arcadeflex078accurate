@@ -85,7 +85,6 @@ public class mappy
 	WRITE_HANDLER( mappy_videoram_w );
 	WRITE_HANDLER( mappy_colorram_w );
 	WRITE_HANDLER( mappy_scroll_w );
-	PALETTE_INIT( mappy );
 	
 	/* sound driver data & functions */
 	extern unsigned char *mappy_soundregs;

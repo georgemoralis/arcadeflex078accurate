@@ -51,4 +51,3 @@ WRITE_HANDLER( dynax_extra_scrolly_w );
 
 
 
-PALETTE_INIT( sprtmtch );

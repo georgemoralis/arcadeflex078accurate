@@ -138,7 +138,6 @@ public class digdug
 	extern unsigned char *digdug_vlatches;
 	WRITE_HANDLER( digdug_cpu_reset_w );
 	WRITE_HANDLER( digdug_vh_latch_w );
-	PALETTE_INIT( digdug );
 	
 	WRITE_HANDLER( pengo_sound_w );
 	extern unsigned char *pengo_soundregs;

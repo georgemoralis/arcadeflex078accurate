@@ -587,8 +587,7 @@ public class _8080bw
 	static int death_colors_rng = 0;
 	static int death_colors_timing = 0;
 	
-	PALETTE_INIT( helifire )
-	{
+	public static PaletteInitHandlerPtr palette_init_helifire  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < 8; i++)
@@ -617,7 +616,7 @@ public class _8080bw
 			/* green brightness was not verified */
 			palette_set_color(768+8+i,level,192,0);	/* shades of red with green star */
 		}
-	}
+	} };
 	
 	
 	
@@ -930,8 +929,7 @@ public class _8080bw
 	} };
 	
 	
-	PALETTE_INIT( invadpt2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_invadpt2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -943,11 +941,10 @@ public class _8080bw
 			int b = 0xff * ((i >> 1) & 1);
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
-	PALETTE_INIT( sflush )
-	{
+	public static PaletteInitHandlerPtr palette_init_sflush  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -960,7 +957,7 @@ public class _8080bw
 			palette_set_color(i,r,g,b);
 		}
 		palette_set_color(0,0x80,0x80,0xff);
-	}
+	} };
 	
 	
 	static WRITE_HANDLER( invadpt2_videoram_w )
@@ -986,8 +983,7 @@ public class _8080bw
 		plot_byte(x, y, data, col, 0);
 	}
 	
-	PALETTE_INIT( cosmo )
-	{
+	public static PaletteInitHandlerPtr palette_init_cosmo  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -998,7 +994,7 @@ public class _8080bw
 			int b = 0xff * ((i >> 2) & 1);
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( cosmo_colorram_w )
 	{

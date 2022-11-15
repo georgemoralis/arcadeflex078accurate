@@ -25,8 +25,7 @@ public class strnskil
 	extern WRITE_HANDLER( strnskil_scroll_x_w );
 	extern WRITE_HANDLER( strnskil_scrl_ctrl_w );
 	
-	extern PALETTE_INIT( strnskil );
-	extern extern 
+	extern extern extern 
 	WRITE_HANDLER( strnskil_sharedram_w )
 	{
 		strnskil_sharedram[offset] = data;

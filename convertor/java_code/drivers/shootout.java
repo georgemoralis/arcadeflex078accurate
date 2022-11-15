@@ -51,8 +51,7 @@ public class shootout
 	extern WRITE_HANDLER( shootout_videoram_w );
 	extern WRITE_HANDLER( shootout_textram_w );
 	
-	extern PALETTE_INIT( shootout );
-	extern extern extern 
+	extern extern extern extern 
 	/*******************************************************************************/
 	
 	static WRITE_HANDLER( shootout_bankswitch_w )

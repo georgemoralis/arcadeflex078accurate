@@ -21,8 +21,7 @@ public class gotya
 	  I'm using Pac Man resistor values
 	
 	***************************************************************************/
-	PALETTE_INIT( gotya )
-	{
+	public static PaletteInitHandlerPtr palette_init_gotya  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
@@ -71,7 +70,7 @@ public class gotya
 		{
 			COLOR(0, i) = *(color_prom++) & 0x07;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( gotya_videoram_w )
 	{

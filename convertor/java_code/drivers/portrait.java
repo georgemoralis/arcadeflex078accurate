@@ -30,7 +30,6 @@ public class portrait
 	
 	int portrait_scrollx_hi, portrait_scrollx_lo;
 	
-	PALETTE_INIT( portrait );
 	WRITE_HANDLER( portrait_bgvideo_write );
 	WRITE_HANDLER( portrait_fgvideo_write );
 	

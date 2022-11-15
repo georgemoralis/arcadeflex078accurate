@@ -53,7 +53,6 @@ public class mpatrol
 	WRITE_HANDLER( mpatrol_bg2ypos_w );
 	WRITE_HANDLER( mpatrol_bgcontrol_w );
 	WRITE_HANDLER( mpatrol_flipscreen_w );
-	PALETTE_INIT( mpatrol );
 	
 	READ_HANDLER( mpatrol_input_port_3_r );
 	

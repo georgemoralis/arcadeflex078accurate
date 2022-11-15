@@ -44,7 +44,6 @@ public class system1H
 	WRITE_HANDLER( system1_videoram_w );
 	WRITE_HANDLER( system1_paletteram_w );
 	WRITE_HANDLER( system1_backgroundram_w );
-	PALETTE_INIT( system1 );
 	WRITE_HANDLER( system1_videomode_w );
 	READ_HANDLER( system1_videomode_r );
 	

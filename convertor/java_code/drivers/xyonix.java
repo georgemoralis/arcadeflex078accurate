@@ -31,7 +31,6 @@ public class xyonix
 	data8_t *xyonix_vidram;
 	
 	/* in vidhrdw/xyonix.c */
-	PALETTE_INIT( xyonix );
 	WRITE_HANDLER( xyonix_vidram_w );
 	
 	

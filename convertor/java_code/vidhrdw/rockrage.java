@@ -10,8 +10,7 @@ public class rockrage
 	static int layer_colorbase[2];
 	static int rockrage_vreg;
 	
-	PALETTE_INIT( rockrage )
-	{
+	public static PaletteInitHandlerPtr palette_init_rockrage  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -21,7 +20,7 @@ public class rockrage
 			COLOR(0,i) = 0x00 + (color_prom[i] & 0x0f);
 			COLOR(0,(TOTAL_COLORS(0)/2)+i) = 0x10 + (color_prom[0x100+i] & 0x0f);
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	

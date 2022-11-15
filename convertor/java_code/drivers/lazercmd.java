@@ -653,13 +653,12 @@ public class lazercmd
 		 1, 0,
 		 0, 1
 	};
-	static PALETTE_INIT( lazercmd )
-	{
+	public static PaletteInitHandlerPtr palette_init_lazercmd  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0,0x00,0x00,0x00); 	/* black */
 		palette_set_color(1,0xb0,0xb0,0xb0); 	/* white */
 		palette_set_color(2,0xff,0xff,0xff);	/* bright white */
 		memcpy(colortable,colortable_source,sizeof(colortable_source));
-	}
+	} };
 	
 	static struct DACinterface lazercmd_DAC_interface =
 	{

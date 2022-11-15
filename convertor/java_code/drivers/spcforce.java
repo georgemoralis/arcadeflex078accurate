@@ -244,13 +244,12 @@ public class spcforce
 		0, 3, 4, 5, 6, 7, 0, 1,
 		0, 2, 3, 4, 5, 6, 7, 0
 	};
-	static PALETTE_INIT( spcforce )
-	{
+	public static PaletteInitHandlerPtr palette_init_spcforce  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		for (i = 0; i < 8; i++)
 			palette_set_color(i, (i & 1) * 0xff, ((i >> 1) & 1) * 0xff, ((i >> 2) & 1) * 0xff);
 		memcpy(colortable,colortable_source,sizeof(colortable_source));
-	}
+	} };
 	
 	
 	static struct SN76496interface sn76496_interface =

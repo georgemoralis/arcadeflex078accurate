@@ -31,8 +31,7 @@ public class battlane
 	extern WRITE_HANDLER( battlane_bitmap_w );
 	extern WRITE_HANDLER( battlane_video_ctrl_w );
 	
-	extern PALETTE_INIT( battlane );
-	extern extern 
+	extern extern extern 
 	
 	/* CPU interrupt control register */
 	int battlane_cpu_control;

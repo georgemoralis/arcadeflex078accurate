@@ -95,8 +95,7 @@ public class terracre
 	
 	extern data16_t *amazon_videoram;
 	
-	extern PALETTE_INIT( amazon );
-	extern WRITE16_HANDLER( amazon_background_w );
+	extern extern WRITE16_HANDLER( amazon_background_w );
 	extern WRITE16_HANDLER( amazon_foreground_w );
 	extern WRITE16_HANDLER( amazon_scrolly_w );
 	extern WRITE16_HANDLER( amazon_scrollx_w );

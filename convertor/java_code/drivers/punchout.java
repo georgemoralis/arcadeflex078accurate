@@ -118,8 +118,6 @@ public class punchout
 	WRITE_HANDLER( punchout_bigsprite1ram_w );
 	WRITE_HANDLER( punchout_bigsprite2ram_w );
 	WRITE_HANDLER( punchout_palettebank_w );
-	PALETTE_INIT( punchout );
-	PALETTE_INIT( armwrest );
 	
 	DRIVER_INIT( punchout );
 	DRIVER_INIT( spnchout );

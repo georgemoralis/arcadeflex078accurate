@@ -32,8 +32,7 @@ public class higemaru
 	  Convert the color PROMs into a more useable format.
 	
 	***************************************************************************/
-	PALETTE_INIT( higemaru )
-	{
+	public static PaletteInitHandlerPtr palette_init_higemaru  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -74,7 +73,7 @@ public class higemaru
 		/* sprites use colors 16-31 */
 		for (i = 0;i < TOTAL_COLORS(1);i++)
 			COLOR(1,i) = (*(color_prom++) & 0x0f) + 0x10;
-	}
+	} };
 	
 	WRITE_HANDLER( higemaru_c800_w )
 	{

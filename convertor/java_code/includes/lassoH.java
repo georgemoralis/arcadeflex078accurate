@@ -20,7 +20,5 @@ WRITE_HANDLER( wwjgtin_video_control_w );
 WRITE_HANDLER( pinbo_video_control_w );
 WRITE_HANDLER( wwjgtin_lastcolor_w );
 
-PALETTE_INIT( lasso );
-PALETTE_INIT( wwjgtin );
 
 

@@ -35,9 +35,7 @@ public class popeye
 	extern WRITE_HANDLER( popeye_bitmap_w );
 	extern WRITE_HANDLER( skyskipr_bitmap_w );
 	
-	extern PALETTE_INIT( popeye );
-	extern PALETTE_INIT( popeyebl );
-	extern extern extern 
+	extern extern extern extern extern 
 	
 	
 	public static InterruptHandlerPtr popeye_interrupt = new InterruptHandlerPtr() {public void handler(){

@@ -138,8 +138,7 @@ public class hal21
 	static WRITE_HANDLER( hal21_vreg7_w ){ hal21_vreg[7] = data; }
 	
 	
-	PALETTE_INIT( aso )
-	{
+	public static PaletteInitHandlerPtr palette_init_aso  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		int num_colors = 1024;
 	
@@ -178,7 +177,7 @@ public class hal21
 	
 		gfx_drawmode_table[6] = DRAWMODE_SHADOW;
 		gfx_drawmode_table[7] = DRAWMODE_NONE;
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_aso  = new VideoStartHandlerPtr() { public int handler(){
 		snk_blink_parity = 0;

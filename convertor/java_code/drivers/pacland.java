@@ -48,8 +48,7 @@ public class pacland
 	extern WRITE_HANDLER( pacland_bankswitch_w );
 	extern WRITE_HANDLER( pacland_flipscreen_w );
 	
-	extern PALETTE_INIT( pacland );
-	extern extern 
+	extern extern extern 
 	
 	static READ_HANDLER( sharedram1_r )
 	{

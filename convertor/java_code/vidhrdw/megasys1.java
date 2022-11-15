@@ -789,8 +789,7 @@ public class megasys1
 		pens.
 	*/
 	
-	PALETTE_INIT( megasys1 )
-	{
+	public static PaletteInitHandlerPtr palette_init_megasys1  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int pri_code, offset, i, order;
 	
 		/* First check if we have an hand-crafted priority scheme
@@ -946,7 +945,7 @@ public class megasys1
 	#endif
 	
 	
-	}
+	} };
 	
 	
 	

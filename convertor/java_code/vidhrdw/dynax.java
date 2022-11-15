@@ -36,8 +36,7 @@ public class dynax
 	
 	
 	/* 0 B01234 G01234 R01234 */
-	PALETTE_INIT( sprtmtch )
-	{
+	public static PaletteInitHandlerPtr palette_init_sprtmtch  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -52,7 +51,7 @@ public class dynax
 			b =  (b << 3) | (b >> 2);
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	

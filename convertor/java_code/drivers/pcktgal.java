@@ -24,8 +24,7 @@ public class pcktgal
 	extern WRITE_HANDLER( pcktgal_videoram_w );
 	extern WRITE_HANDLER( pcktgal_flipscreen_w );
 	
-	extern PALETTE_INIT( pcktgal );
-	extern extern 
+	extern extern extern 
 	/***************************************************************************/
 	
 	static WRITE_HANDLER( pcktgal_bank_w )

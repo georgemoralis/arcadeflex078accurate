@@ -50,8 +50,7 @@ public class sbugger
 	} };
 	
 	/* not right but so we can see things ok */
-	PALETTE_INIT(sbugger)
-	{
+	public static PaletteInitHandlerPtr palette_init_sbugger  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		/* just some random colours for now */
 		int i;
 	
@@ -67,5 +66,5 @@ public class sbugger
 	
 		}
 	
-	}
+	} };
 }

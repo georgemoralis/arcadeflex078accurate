@@ -23,7 +23,6 @@ public class yard
 	extern unsigned char *yard_scroll_y_low;
 	extern unsigned char *yard_score_panel_disabled;
 	
-	PALETTE_INIT( yard );
 	WRITE_HANDLER( yard_flipscreen_w );
 	WRITE_HANDLER( yard_scroll_panel_w );
 	

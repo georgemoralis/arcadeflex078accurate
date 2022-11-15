@@ -47,8 +47,7 @@ public class tceptor
 	
 	/*******************************************************************/
 	
-	PALETTE_INIT( tceptor )
-	{
+	public static PaletteInitHandlerPtr palette_init_tceptor  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int totcolors, totlookup;
 		int i;
 	
@@ -112,7 +111,7 @@ public class tceptor
 		for (i = 0; i < 1024; i++)
 			if (colortable[i + 1024] == SPR_MASK_COLOR)
 				is_mask_spr[i / 16] = 1;
-	}
+	} };
 	
 	
 	/*******************************************************************/

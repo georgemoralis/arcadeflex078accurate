@@ -140,9 +140,7 @@ public class vsnes
 	#define DUAL_RBI 1
 	
 	/* from vidhrdw */
-	extern extern PALETTE_INIT( vsnes );
-	extern extern extern extern PALETTE_INIT( vsdual );
-	
+	extern extern extern extern extern extern 
 	/* from machine */
 	extern MACHINE_INIT( vsnes );
 	extern MACHINE_INIT( vsdual );

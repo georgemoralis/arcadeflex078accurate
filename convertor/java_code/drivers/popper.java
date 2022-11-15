@@ -98,7 +98,6 @@ public class popper
 	WRITE_HANDLER( popper_e002_w );
 	WRITE_HANDLER( popper_gfx_bank_w );
 	
-	PALETTE_INIT( popper );
 	static data8_t *popper_sharedram;
 	
 	static READ_HANDLER( popper_sharedram_r )

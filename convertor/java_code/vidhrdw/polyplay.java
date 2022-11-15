@@ -23,8 +23,7 @@ public class polyplay
 	
 	
 	
-	PALETTE_INIT( polyplay )
-	{
+	public static PaletteInitHandlerPtr palette_init_polyplay  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0,0x00,0x00,0x00);
 		palette_set_color(1,0xff,0xff,0xff);
 	
@@ -36,7 +35,7 @@ public class polyplay
 		palette_set_color(7,0xff,0x00,0xff);
 		palette_set_color(8,0x00,0xff,0xff);
 		palette_set_color(9,0xff,0xff,0xff);
-	}
+	} };
 	
 	
 	WRITE_HANDLER( polyplay_characterram_w )

@@ -82,8 +82,7 @@ public class cvs
 	 * colours are taken from SRAM and are programmable   *
 	 ******************************************************/
 	
-	PALETTE_INIT( cvs )
-	{
+	public static PaletteInitHandlerPtr palette_init_cvs  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int attr,col,map;
 	
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
@@ -137,7 +136,7 @@ public class cvs
 	    scroll[0]=0;
 	    scroll[6]=0;
 	    scroll[7]=0;
-	}
+	} };
 	
 	WRITE_HANDLER( cvs_video_fx_w )
 	{

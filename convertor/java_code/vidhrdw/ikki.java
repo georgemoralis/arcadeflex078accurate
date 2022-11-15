@@ -19,8 +19,7 @@ public class ikki
 	
 	static UINT8 ikki_flipscreen, ikki_scroll[2];
 	
-	PALETTE_INIT( ikki )
-	{
+	public static PaletteInitHandlerPtr palette_init_ikki  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i<256; i++)
@@ -58,7 +57,7 @@ public class ikki
 		for (i=0; i<512; i++)
 			*(colortable++) = *(color_prom++);
 	
-	}
+	} };
 	
 	WRITE_HANDLER( ikki_scroll_w )
 	{

@@ -56,8 +56,7 @@ public class mrjong
 	extern WRITE_HANDLER( mrjong_colorram_w );
 	extern WRITE_HANDLER( mrjong_flipscreen_w );
 	
-	extern PALETTE_INIT( mrjong );
-	extern extern 
+	extern extern extern 
 	
 	static MEMORY_READ_START( readmem )
 		{ 0x0000, 0x7fff, MRA_ROM },

@@ -25,11 +25,6 @@ WRITE16_HANDLER( seta_vram_0_w );
 WRITE16_HANDLER( seta_vram_2_w );
 WRITE16_HANDLER( seta_vregs_w );
 
-PALETTE_INIT( blandia );
-PALETTE_INIT( gundhara );
-PALETTE_INIT( jjsquawk );
-PALETTE_INIT( usclssic );
-PALETTE_INIT( zingzip );
 
 
 

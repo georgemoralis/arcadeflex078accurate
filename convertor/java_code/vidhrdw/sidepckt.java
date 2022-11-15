@@ -12,8 +12,7 @@ public class sidepckt
 	static int flipscreen;
 	
 	
-	PALETTE_INIT( sidepckt )
-	{
+	public static PaletteInitHandlerPtr palette_init_sidepckt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -41,7 +40,7 @@ public class sidepckt
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	

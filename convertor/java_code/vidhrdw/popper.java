@@ -18,8 +18,7 @@ public class popper
 	static int popper_flipscreen, popper_e002, popper_gfx_bank;
 	static struct rectangle tilemap_clip;
 	
-	PALETTE_INIT( popper )
-	{
+	public static PaletteInitHandlerPtr palette_init_popper  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors; i++)
@@ -43,7 +42,7 @@ public class popper
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( popper_ol_videoram_w )
 	{

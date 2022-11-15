@@ -79,8 +79,7 @@ public class compgolf
 		SET_TILE_INFO(1, compgolf_bg_ram[cgindex+1]|(compgolf_bg_ram[cgindex]<<8), compgolf_bg_ram[cgindex]>>2, 0)
 	}
 	
-	PALETTE_INIT( compgolf )
-	{
+	public static PaletteInitHandlerPtr palette_init_compgolf  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < Machine->drv->total_colors;i++)
@@ -101,7 +100,7 @@ public class compgolf
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_compgolf  = new VideoStartHandlerPtr() { public int handler(){
 		background_tilemap = tilemap_create(get_back_info,tilemap_scan_rows,TILEMAP_OPAQUE,16,16,32,32);

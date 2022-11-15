@@ -26,8 +26,7 @@ public class baraduke
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( baraduke )
-	{
+	public static PaletteInitHandlerPtr palette_init_baraduke  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		int bit0,bit1,bit2,bit3,r,g,b;
 	
@@ -57,7 +56,7 @@ public class baraduke
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	

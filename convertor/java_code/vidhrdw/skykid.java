@@ -27,8 +27,7 @@ public class skykid
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( skykid )
-	{
+	public static PaletteInitHandlerPtr palette_init_skykid  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		int bit0,bit1,bit2,bit3,r,g,b;
 		int totcolors = Machine->drv->total_colors;
@@ -75,7 +74,7 @@ public class skykid
 		for (i = 0;i < 64*8;i++)
 			*(colortable++) = *(color_prom++);
 	
-	}
+	} };
 	
 	/***************************************************************************
 	

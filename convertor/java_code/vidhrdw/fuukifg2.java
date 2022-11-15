@@ -90,15 +90,14 @@ public class fuukifg2
 	***************************************************************************/
 	
 	/* Not used atm, seems to be fine without clearing pens? */
-	PALETTE_INIT( fuuki16 )
-	{
+	public static PaletteInitHandlerPtr palette_init_fuuki16  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int pen;
 	
 		/* The game does not initialise the palette at startup. It should
 		   be totally black */
 		for (pen = 0; pen < Machine->drv->total_colors; pen++)
 			palette_set_color(pen,0,0,0);
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_fuuki16  = new VideoStartHandlerPtr() { public int handler(){
 		tilemap_0 = tilemap_create(	get_tile_info_0, tilemap_scan_rows,

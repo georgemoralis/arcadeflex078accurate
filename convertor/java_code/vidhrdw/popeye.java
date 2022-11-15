@@ -143,19 +143,17 @@ public class popeye
 		}
 	}
 	
-	PALETTE_INIT( popeye )
-	{
+	public static PaletteInitHandlerPtr palette_init_popeye  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		invertmask = 0xff;
 	
 		convert_color_prom(colortable,color_prom);
-	}
+	} };
 	
-	PALETTE_INIT( popeyebl )
-	{
+	public static PaletteInitHandlerPtr palette_init_popeyebl  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		invertmask = 0x00;
 	
 		convert_color_prom(colortable,color_prom);
-	}
+	} };
 	
 	static void set_background_palette(int bank)
 	{

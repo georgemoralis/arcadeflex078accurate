@@ -56,8 +56,7 @@ public class battlex
 	extern WRITE_HANDLER( battlex_scroll_x_msb_w );
 	extern WRITE_HANDLER( battlex_flipscreen_w );
 	
-	extern PALETTE_INIT( battlex );
-	extern extern 
+	extern extern extern 
 	
 	/*** MEMORY & PORT READ / WRITE **********************************************/
 	

@@ -26,7 +26,6 @@ public class contra
 	extern unsigned char *contra_bg_vram,*contra_bg_cram;
 	extern unsigned char *contra_text_vram,*contra_text_cram;
 	
-	PALETTE_INIT( contra );
 	
 	WRITE_HANDLER( contra_fg_vram_w );
 	WRITE_HANDLER( contra_fg_cram_w );

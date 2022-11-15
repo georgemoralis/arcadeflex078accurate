@@ -12,8 +12,7 @@ public class fastlane
 	static struct rectangle clip0, clip1;
 	
 	
-	PALETTE_INIT( fastlane )
-	{
+	public static PaletteInitHandlerPtr palette_init_fastlane  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int pal,col;
 	
 		for (pal = 0;pal < 16;pal++)
@@ -23,7 +22,7 @@ public class fastlane
 				*(colortable++) = (col & ~0x0f) | color_prom[16 * pal + (col & 0x0f)];
 			}
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	

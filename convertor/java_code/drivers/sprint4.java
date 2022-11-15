@@ -29,8 +29,7 @@ public class sprint4
 	static int gear[4];
 	
 	
-	static PALETTE_INIT( sprint4 )
-	{
+	public static PaletteInitHandlerPtr palette_init_sprint4  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0, 0x00, 0x00, 0x00); /* black  */
 		palette_set_color(1, 0xfc, 0xdf, 0x80); /* peach  */
 		palette_set_color(2, 0xf0, 0x00, 0xf0); /* violet */
@@ -45,7 +44,7 @@ public class sprint4
 		colortable[5] = 3;
 		colortable[7] = 4;
 		colortable[9] = 5;
-	}
+	} };
 	
 	
 	static void input_callback(int dummy)

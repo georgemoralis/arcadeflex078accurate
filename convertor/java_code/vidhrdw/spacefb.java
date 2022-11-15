@@ -36,8 +36,7 @@ public class spacefb
 	  bit 0 -- 1  kohm resistor  -- RED
 	
 	***************************************************************************/
-	PALETTE_INIT( spacefb )
-	{
+	public static PaletteInitHandlerPtr palette_init_spacefb  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0;i < 32;i++)
@@ -66,7 +65,7 @@ public class spacefb
 			if (i & 3) colortable[i] = i;
 			else colortable[i] = 0;
 		}
-	}
+	} };
 	
 	
 	WRITE_HANDLER( spacefb_video_control_w )

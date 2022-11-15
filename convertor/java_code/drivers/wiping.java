@@ -44,7 +44,6 @@ public class wiping
 	
 	
 	WRITE_HANDLER( wiping_flipscreen_w );
-	PALETTE_INIT( wiping );
 	
 	extern unsigned char *wiping_soundregs;
 	int wiping_sh_start(const struct MachineSound *msound);

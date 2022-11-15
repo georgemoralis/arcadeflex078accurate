@@ -72,8 +72,7 @@ public class tankbatt
 	
 	extern WRITE_HANDLER( tankbatt_videoram_w );
 	
-	extern PALETTE_INIT( tankbatt );
-	extern extern 
+	extern extern extern 
 	WRITE_HANDLER( tankbatt_led_w )
 	{
 		set_led_status(offset,data & 1);

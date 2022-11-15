@@ -56,8 +56,7 @@ public class astrocde
 	
 	
 	
-	PALETTE_INIT( astrocde )
-	{
+	public static PaletteInitHandlerPtr palette_init_astrocde  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		/* This routine builds a palette using a transformation from */
 		/* the YUV (Y, B-Y, R-Y) to the RGB color space */
 	
@@ -120,7 +119,7 @@ public class astrocde
 				palette_set_color(i*8+j,floor(R+.5),floor(G+.5),floor(B+.5));
 			}
 		}
-	}
+	} };
 	
 	
 	

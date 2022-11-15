@@ -257,8 +257,7 @@ public class r2dtank
 	
 	INPUT_PORTS_END(); }}; 
 	
-	PALETTE_INIT( r2dtank )
-	{
+	public static PaletteInitHandlerPtr palette_init_r2dtank  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		/* colours derived from tim's screenshots */
 	
 		palette_set_color(0x0,0,0,0);		// background
@@ -270,7 +269,7 @@ public class r2dtank
 		palette_set_color(0x6,255,0,255); 	// pink tank
 		palette_set_color(0x7,236,141,181); // sigma (c)
 	
-	}
+	} };
 	
 	public static VideoUpdateHandlerPtr video_update_r2dtank  = new VideoUpdateHandlerPtr() { public void handler(mame_bitmap bitmap, rectangle cliprect){
 		int loop, data0, data1;

@@ -70,8 +70,7 @@ public class phozon
 	extern MACHINE_INIT( phozon );
 	
 	/* video functions */
-	extern extern PALETTE_INIT( phozon );
-	extern 
+	extern extern extern 
 		/* CPU 1 (MAIN CPU) read addresses */
 	static MEMORY_READ_START( readmem_cpu1 )
 		{ 0x0000, 0x03ff, videoram_r },			/* video RAM */

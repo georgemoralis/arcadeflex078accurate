@@ -104,8 +104,7 @@ public class tp84
 	extern WRITE_HANDLER( tp84_col0_w );
 	extern READ_HANDLER( tp84_scanline_r );
 	
-	extern PALETTE_INIT( tp84 );
-	extern extern 
+	extern extern extern 
 	extern 
 	
 	static UINT8 *sharedram;

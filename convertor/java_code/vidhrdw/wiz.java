@@ -68,8 +68,7 @@ public class wiz
 	  bit 0 -- 1  kohm resistor  -- RED/GREEN/BLUE
 	
 	***************************************************************************/
-	PALETTE_INIT( wiz )
-	{
+	public static PaletteInitHandlerPtr palette_init_wiz  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -98,7 +97,7 @@ public class wiz
 	
 			color_prom++;
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( wiz_attributes_w )
 	{

@@ -173,7 +173,6 @@ public class spiders
 	
 	/* VIDHRDW */
 	
-	PALETTE_INIT( nyny );
 	
 	/* MACHINE */
 	

@@ -45,7 +45,6 @@ package drivers;
 public class dec8
 {
 	
-	PALETTE_INIT( ghostb );
 	
 	WRITE_HANDLER( dec8_bac06_0_w );
 	WRITE_HANDLER( dec8_bac06_1_w );

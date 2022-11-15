@@ -57,7 +57,6 @@ public class vulgus
 	WRITE_HANDLER( vulgus_bgvideoram_w );
 	WRITE_HANDLER( vulgus_c804_w );
 	WRITE_HANDLER( vulgus_palette_bank_w );
-	PALETTE_INIT( vulgus );
 	
 	
 	

@@ -48,8 +48,7 @@ public class brkthru
 	  bit 0 -- 2.2kohm resistor  -- BLUE
 	
 	***************************************************************************/
-	PALETTE_INIT( brkthru )
-	{
+	public static PaletteInitHandlerPtr palette_init_brkthru  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 	
@@ -78,7 +77,7 @@ public class brkthru
 	
 			color_prom++;
 		}
-	}
+	} };
 	
 	
 	

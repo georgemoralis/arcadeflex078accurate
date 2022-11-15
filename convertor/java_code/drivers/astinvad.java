@@ -35,8 +35,7 @@ public class astinvad
 	extern struct Samplesinterface astinvad_samples_interface;
 	
 	
-	static PALETTE_INIT( astinvad )
-	{
+	public static PaletteInitHandlerPtr palette_init_astinvad  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < 8; i++)
@@ -46,7 +45,7 @@ public class astinvad
 				(i & 4) ? 0xff : 0,
 				(i & 2) ? 0xff : 0);
 		}
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( astinvad_readmem )

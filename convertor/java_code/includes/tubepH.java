@@ -1,5 +1,3 @@
-PALETTE_INIT( tubep );
-PALETTE_INIT( rjammer );
 
 extern data8_t *rjammer_backgroundram;
 extern data8_t *tubep_backgroundram;

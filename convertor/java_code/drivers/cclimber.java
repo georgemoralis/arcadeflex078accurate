@@ -142,7 +142,6 @@ public class cclimber
 	extern unsigned char *cclimber_column_scroll;
 	WRITE_HANDLER( cclimber_colorram_w );
 	WRITE_HANDLER( cclimber_bigsprite_videoram_w );
-	PALETTE_INIT( cclimber );
 	
 	extern struct AY8910interface cclimber_ay8910_interface;
 	extern struct AY8910interface swimmer_ay8910_interface;
@@ -1078,7 +1077,6 @@ public class cclimber
 	
 	WRITE_HANDLER( swimmer_bgcolor_w );
 	WRITE_HANDLER( swimmer_palettebank_w );
-	PALETTE_INIT( swimmer );
 	WRITE_HANDLER( swimmer_sidepanel_enable_w );
 	
 	

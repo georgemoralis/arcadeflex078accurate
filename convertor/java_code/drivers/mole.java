@@ -50,8 +50,7 @@ package drivers;
 public class mole
 {
 	
-	extern PALETTE_INIT( moleattack );
-	extern extern 
+	extern extern extern 
 	WRITE_HANDLER( moleattack_videoram_w );
 	WRITE_HANDLER( moleattack_tilesetselector_w );
 	WRITE_HANDLER( moleattack_flipscreen_w );

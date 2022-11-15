@@ -35,8 +35,7 @@ public class pooyan
 	  bit 0 -- 1  kohm resistor  -- RED
 	
 	***************************************************************************/
-	PALETTE_INIT( pooyan )
-	{
+	public static PaletteInitHandlerPtr palette_init_pooyan  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -76,7 +75,7 @@ public class pooyan
 		/* characters */
 		for (i = 0;i < TOTAL_COLORS(0);i++)
 			COLOR(0,i) = (*(color_prom++) & 0x0f) + 0x10;
-	}
+	} };
 	
 	WRITE_HANDLER( pooyan_videoram_w )
 	{

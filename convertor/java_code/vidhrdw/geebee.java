@@ -101,22 +101,20 @@ public class geebee
 	} };
 	
 	/* Initialise the palette */
-	PALETTE_INIT( geebee )
-	{
+	public static PaletteInitHandlerPtr palette_init_geebee  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		for (i = 0; i < sizeof(geebee_palette)/3; i++)
 			palette_set_color(i,geebee_palette[i*3+0],geebee_palette[i*3+1],geebee_palette[i*3+2]);
 		memcpy(colortable, geebee_colortable, sizeof (geebee_colortable));
-	}
+	} };
 	
 	/* Initialise the palette */
-	PALETTE_INIT( navalone )
-	{
+	public static PaletteInitHandlerPtr palette_init_navalone  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		for (i = 0; i < sizeof(geebee_palette)/3; i++)
 			palette_set_color(i,geebee_palette[i*3+0],geebee_palette[i*3+1],geebee_palette[i*3+2]);
 		memcpy(colortable, navalone_colortable, sizeof (navalone_colortable));
-	}
+	} };
 	
 	
 	INLINE void geebee_plot(struct mame_bitmap *bitmap, const struct rectangle *cliprect, int x, int y)

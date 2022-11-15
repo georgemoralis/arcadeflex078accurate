@@ -99,8 +99,7 @@ public class sprint2
 	} };
 	
 	
-	static PALETTE_INIT( sprint2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_sprint2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0, 0x00, 0x00, 0x00);
 		palette_set_color(1, 0x5b, 0x5b, 0x5b);
 		palette_set_color(2, 0xa4, 0xa4, 0xa4);
@@ -119,7 +118,7 @@ public class sprint2
 		colortable[0x9] = 2;
 		colortable[0xa] = 1;	/* car #4 */
 		colortable[0xb] = 2;
-	}
+	} };
 	
 	
 	static READ_HANDLER( sprint2_wram_r )

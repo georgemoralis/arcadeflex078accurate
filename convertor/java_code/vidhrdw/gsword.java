@@ -25,8 +25,7 @@ public class gsword
 	
 	static struct tilemap *bg_tilemap;
 	
-	PALETTE_INIT( josvolly )
-	{
+	public static PaletteInitHandlerPtr palette_init_josvolly  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		/* sprite lookup table is not original but it is almost 98% correct */
 	
 		int sprite_lookup_table[16] = { 0x00,0x02,0x05,0x8C,0x49,0xDD,0xB7,0x06,
@@ -74,10 +73,9 @@ public class gsword
 		/* sprites */
 		for (i = 0;i < TOTAL_COLORS(1);i++)
 			COLOR(1,i) = sprite_lookup_table[*(color_prom++)];
-	}
+	} };
 	
-	PALETTE_INIT( gsword )
-	{
+	public static PaletteInitHandlerPtr palette_init_gsword  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		/* sprite lookup table is not original but it is almost 98% correct */
 	
 		int sprite_lookup_table[16] = { 0x00,0x02,0x05,0x8C,0x49,0xDD,0xB7,0x06,
@@ -121,7 +119,7 @@ public class gsword
 		/* sprites */
 		for (i = 0;i < TOTAL_COLORS(1);i++)
 			COLOR(1,i) = sprite_lookup_table[*(color_prom++)];
-	}
+	} };
 	
 	WRITE_HANDLER( gsword_videoram_w )
 	{

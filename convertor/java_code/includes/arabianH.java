@@ -21,7 +21,6 @@ public class arabianH
 	extern UINT8 arabian_video_control;
 	extern UINT8 arabian_flip_screen;
 	
-	PALETTE_INIT( arabian );
 	
 	WRITE_HANDLER( arabian_blitter_w );
 	WRITE_HANDLER( arabian_videoram_w );

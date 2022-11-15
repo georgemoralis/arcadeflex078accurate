@@ -480,8 +480,7 @@ public class gameplan
 	
 	
 	
-	static PALETTE_INIT( gameplan )
-	{
+	public static PaletteInitHandlerPtr palette_init_gameplan  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0,0xff,0xff,0xff); /* 0 WHITE   */
 		palette_set_color(1,0x20,0xff,0xff); /* 1 CYAN    */
 		palette_set_color(2,0xff,0x20,0xff); /* 2 MAGENTA */
@@ -490,7 +489,7 @@ public class gameplan
 		palette_set_color(5,0x20,0xff,0x20); /* 5 GREEN   */
 		palette_set_color(6,0xff,0x20,0x20); /* 6 RED     */
 		palette_set_color(7,0x00,0x00,0x00); /* 7 BLACK   */
-	}
+	} };
 	
 	
 	static struct AY8910interface ay8910_interface =

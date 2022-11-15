@@ -69,8 +69,7 @@ public class looping
 	
 	static struct tilemap *tilemap;
 	
-	PALETTE_INIT( looping )
-	{
+	public static PaletteInitHandlerPtr palette_init_looping  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		for (i = 0;i < 0x20;i++)
 		{
@@ -94,7 +93,7 @@ public class looping
 			palette_set_color(i,r,g,b);
 			color_prom++;
 		}
-	}
+	} };
 	
 	static void get_tile_info( int offset )
 	{

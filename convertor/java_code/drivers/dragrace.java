@@ -302,8 +302,7 @@ public class dragrace
 	};
 	
 	
-	static PALETTE_INIT( dragrace )
-	{
+	public static PaletteInitHandlerPtr palette_init_dragrace  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0, 0xFF, 0xFF, 0xFF);   /* 2 color tiles */
 		palette_set_color(1, 0x00, 0x00, 0x00);
 		palette_set_color(2, 0x00, 0x00, 0x00);
@@ -320,7 +319,7 @@ public class dragrace
 		palette_set_color(13,0x5F, 0x5F, 0x5F);
 		palette_set_color(14,0xB0, 0xB0, 0xB0);
 		palette_set_color(15,0x00, 0x00, 0x00);
-	}
+	} };
 	
 	
 	/************************************************************************/

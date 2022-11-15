@@ -98,7 +98,6 @@ public class pitnrun
 	READ_HANDLER( pitnrun_videoram_r );
 	READ_HANDLER( pitnrun_videoram2_r );
 	
-	PALETTE_INIT(pitnrun);
 	
 	static int pitnrun_nmi;
 	

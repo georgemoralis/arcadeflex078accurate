@@ -45,8 +45,7 @@ public class nova2001
 	
 	static struct tilemap *bg_tilemap, *fg_tilemap;
 	
-	PALETTE_INIT( nova2001 )
-	{
+	public static PaletteInitHandlerPtr palette_init_nova2001  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,j;
 	
 	
@@ -92,7 +91,7 @@ public class nova2001
 				}
 			}
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( nova2001_videoram_w )
 	{

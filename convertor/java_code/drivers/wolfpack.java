@@ -53,8 +53,7 @@ public class wolfpack
 	}
 	
 	
-	static PALETTE_INIT( wolfpack )
-	{
+	public static PaletteInitHandlerPtr palette_init_wolfpack  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		palette_set_color(0, 0x00, 0x00, 0x00);
@@ -82,7 +81,7 @@ public class wolfpack
 		colortable[5] = 2;
 		colortable[6] = 0;
 		colortable[7] = 3;
-	}
+	} };
 	
 	
 	static READ_HANDLER( wolfpack_zeropage_r )

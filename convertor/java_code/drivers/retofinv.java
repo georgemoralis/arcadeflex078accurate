@@ -32,7 +32,6 @@ public class retofinv
 	READ_HANDLER( retofinv_mcu_status_r );
 	
 	/* in vidhrdw */
-	PALETTE_INIT( retofinv );
 	READ_HANDLER( retofinv_bg_videoram_r );
 	READ_HANDLER( retofinv_fg_videoram_r );
 	READ_HANDLER( retofinv_bg_colorram_r );

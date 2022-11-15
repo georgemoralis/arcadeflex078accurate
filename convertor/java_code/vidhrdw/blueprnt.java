@@ -34,8 +34,7 @@ public class blueprnt
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( blueprnt )
-	{
+	public static PaletteInitHandlerPtr palette_init_blueprnt  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -63,7 +62,7 @@ public class blueprnt
 		/* sprites */
 		for (i = 0;i < 8;i++)
 			COLOR(1,i) = i;
-	}
+	} };
 	
 	
 	

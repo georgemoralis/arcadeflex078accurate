@@ -34,8 +34,7 @@ public class skychut
 	static UINT8 *memory;
 	
 	
-	static PALETTE_INIT( skychut )
-	{
+	public static PaletteInitHandlerPtr palette_init_skychut  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		palette_set_color(0,0xff,0xff,0xff);
@@ -52,7 +51,7 @@ public class skychut
 			colortable[2*i+0] = 7;
 			colortable[2*i+1] = i;
 		}
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( skychut_readmem )

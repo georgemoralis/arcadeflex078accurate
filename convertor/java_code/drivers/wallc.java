@@ -82,8 +82,7 @@ public class wallc
 	
 	***************************************************************************/
 	
-	static PALETTE_INIT( wallc )
-	{
+	public static PaletteInitHandlerPtr palette_init_wallc  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		const int resistances_rg[2] = { 330, 220 };
@@ -117,7 +116,7 @@ public class wallc
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	static WRITE_HANDLER( wallc_videoram_w )
 	{

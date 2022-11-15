@@ -26,7 +26,6 @@ package drivers;
 public class bking2
 {
 	
-	PALETTE_INIT( bking2 );
 	
 	
 	WRITE_HANDLER( bking2_xld1_w );

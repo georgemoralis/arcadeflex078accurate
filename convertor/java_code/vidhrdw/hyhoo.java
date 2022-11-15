@@ -42,8 +42,7 @@ public class hyhoo
 	
 	
 	******************************************************************************/
-	PALETTE_INIT( hyhoo )
-	{
+	public static PaletteInitHandlerPtr palette_init_hyhoo  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		/* initialize 655 RGB lookup */
@@ -61,7 +60,7 @@ public class hyhoo
 			b = ((b << 3) | (b >> 2));
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	WRITE_HANDLER( hyhoo_palette_w )
 	{

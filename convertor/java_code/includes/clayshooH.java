@@ -15,5 +15,4 @@ READ_HANDLER( clayshoo_analog_r );
 
 /* defined in vidhrdw/clayshoo.c */
 
-PALETTE_INIT( clayshoo );
 WRITE_HANDLER( clayshoo_videoram_w );

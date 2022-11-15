@@ -172,8 +172,7 @@ public class zaxxon
 	extern WRITE_HANDLER( zaxxon_videoram_w );
 	extern WRITE_HANDLER( congo_colorram_w );
 	
-	extern PALETTE_INIT( zaxxon );
-	
+	extern 
 	extern extern extern 
 	extern extern extern extern 
 	extern READ_HANDLER( zaxxon_IN2_r );

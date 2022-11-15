@@ -184,9 +184,7 @@ public class dkong
 	
 	extern WRITE_HANDLER( dkong_videoram_w );
 	
-	extern PALETTE_INIT( dkong );
-	extern PALETTE_INIT( dkong3 );
-	extern extern extern extern extern 
+	extern extern extern extern extern extern extern 
 	extern WRITE_HANDLER( dkong_sh_w );
 	extern WRITE_HANDLER( dkongjr_sh_death_w );
 	extern WRITE_HANDLER( dkongjr_sh_drop_w );

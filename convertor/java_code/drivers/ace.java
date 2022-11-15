@@ -115,11 +115,10 @@ public class ace
 	} };
 	
 	
-	static PALETTE_INIT( ace )
-	{
+	public static PaletteInitHandlerPtr palette_init_ace  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0,0x10,0x20,0xd0); /* light bluish */
 		palette_set_color(1,0xff,0xff,0xff); /* white */
-	}
+	} };
 	
 	
 	static READ_HANDLER( ace_characterram_r )

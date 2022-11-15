@@ -69,7 +69,6 @@ public class gyruss
 	
 	WRITE_HANDLER( gyruss_flipscreen_w );
 	READ_HANDLER( gyruss_scanline_r );
-	PALETTE_INIT( gyruss );
 	
 	
 	READ_HANDLER( gyruss_portA_r );

@@ -107,8 +107,7 @@ public class sprint8
 	}
 	
 	
-	static PALETTE_INIT( sprint8 )
-	{
+	public static PaletteInitHandlerPtr palette_init_sprint8  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		fill_palette(0);
@@ -123,7 +122,7 @@ public class sprint8
 		colortable[33] = 16;
 		colortable[34] = 16;
 		colortable[35] = 17;
-	}
+	} };
 	
 	
 	static MACHINE_INIT( sprint8 )

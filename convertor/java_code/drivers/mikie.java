@@ -30,8 +30,7 @@ public class mikie
 	extern WRITE_HANDLER( mikie_palettebank_w );
 	extern WRITE_HANDLER( mikie_flipscreen_w );
 	
-	extern PALETTE_INIT( mikie );
-	extern extern 
+	extern extern extern 
 	static READ_HANDLER( mikie_sh_timer_r )
 	{
 		int clock;

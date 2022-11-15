@@ -13,8 +13,7 @@ public class mogura
 	data8_t* mogura_gfxram;
 	static struct tilemap *mogura_tilemap;
 	
-	PALETTE_INIT( mogura )
-	{
+	public static PaletteInitHandlerPtr palette_init_mogura  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i,j;
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
@@ -43,7 +42,7 @@ public class mogura
 			j+=4;
 			if (j>31) j-=31;
 		}
-	}
+	} };
 	
 	
 	static void get_mogura_tile_info(int tile_index)

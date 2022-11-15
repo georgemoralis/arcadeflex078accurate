@@ -46,7 +46,6 @@ public class ambush
 	extern unsigned char *ambush_scrollram;
 	extern unsigned char *ambush_colorbank;
 	
-	PALETTE_INIT( ambush );
 	
 	
 	static WRITE_HANDLER( ambush_coin_counter_w )

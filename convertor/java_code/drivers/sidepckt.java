@@ -23,7 +23,6 @@ public class sidepckt
 {
 	
 	/* from vidhrdw */
-	PALETTE_INIT( sidepckt );
 	
 	WRITE_HANDLER( sidepckt_flipscreen_w );
 	WRITE_HANDLER( sidepckt_videoram_w );

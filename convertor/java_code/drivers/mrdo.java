@@ -29,7 +29,6 @@ public class mrdo
 	WRITE_HANDLER( mrdo_scrollx_w );
 	WRITE_HANDLER( mrdo_scrolly_w );
 	WRITE_HANDLER( mrdo_flipscreen_w );
-	PALETTE_INIT( mrdo );
 	
 	
 	

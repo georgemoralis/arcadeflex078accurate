@@ -24,8 +24,7 @@ public class srmp2
 	int mjyuugi_gfx_bank;
 	
 	
-	PALETTE_INIT( srmp2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_srmp2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < Machine->drv->total_colors; i++)
@@ -49,11 +48,10 @@ public class srmp2
 		{
 			colortable[i] = i ^ 0x0f;
 		}
-	}
+	} };
 	
 	
-	PALETTE_INIT( srmp3 )
-	{
+	public static PaletteInitHandlerPtr palette_init_srmp3  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 	
 		for (i = 0; i < Machine->drv->total_colors; i++)
@@ -72,7 +70,7 @@ public class srmp2
 	
 			palette_set_color(i,r,g,b);
 		}
-	}
+	} };
 	
 	
 	static void srmp2_draw_sprites(struct mame_bitmap *bitmap)

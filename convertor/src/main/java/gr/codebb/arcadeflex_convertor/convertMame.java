@@ -26,6 +26,7 @@ public class convertMame {
     static final int VIDEO_STOP = 4;
     static final int VIDEO_UPDATE = 5;
     static final int VIDEO_EOF = 6;
+    static final int PALETTE_INIT = 7;
 
     public static void Convert() {
         Convertor.inpos = 0;//position of pointer inside the buffers
@@ -220,6 +221,30 @@ public class convertMame {
                             Convertor.inpos = i;
                         }
                     }
+                    if (sUtil.getToken("PALETTE_INIT")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '(') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        sUtil.skipSpace();
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        if (sUtil.parseChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        } else {
+                            sUtil.putString("public static PaletteInitHandlerPtr palette_init_" + Convertor.token[0] + "  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom)");
+                            type = PALETTE_INIT;
+                            i3 = -1;
+                            Convertor.inpos += 1;
+                            continue;
+                        }
+                    }
                 }
                 Convertor.inpos = i;
                 break;
@@ -273,6 +298,30 @@ public class convertMame {
                             } else {
                                 sUtil.putString("public static InterruptHandlerPtr " + Convertor.token[0] + " = new InterruptHandlerPtr() {public void handler()");
                                 type = INTERRUPT;
+                                i3 = -1;
+                                Convertor.inpos += 1;
+                                continue;
+                            }
+                        }
+                        if (sUtil.getToken("PALETTE_INIT")) {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != '(') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            sUtil.skipSpace();
+                            Convertor.token[0] = sUtil.parseToken();
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() != ')') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            if (sUtil.parseChar() == ';') {
+                                sUtil.skipLine();
+                                continue;
+                            } else {
+                                sUtil.putString("public static PaletteInitHandlerPtr palette_init_" + Convertor.token[0] + "  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom)");
+                                type = PALETTE_INIT;
                                 i3 = -1;
                                 Convertor.inpos += 1;
                                 continue;
@@ -413,7 +462,7 @@ public class convertMame {
                 case '{': {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
-                            || type == VIDEO_EOF) {
+                            || type == VIDEO_EOF || type == PALETTE_INIT) {
                         i3++;
                     }
                 }
@@ -422,7 +471,7 @@ public class convertMame {
                 case '}': {
                     i = Convertor.inpos;
                     if (type == INTERRUPT || type == VIDEO_START || type == VIDEO_STOP || type == VIDEO_UPDATE
-                            || type == VIDEO_EOF) {
+                            || type == VIDEO_EOF || type == PALETTE_INIT) {
                         i3--;
                         if (i3 == -1) {
                             sUtil.putString("} };");

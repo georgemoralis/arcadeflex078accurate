@@ -48,8 +48,7 @@ public class pingpong
 	  bit 0 -- 1  kohm resistor  -- RED
 	
 	***************************************************************************/
-	PALETTE_INIT( pingpong )
-	{
+	public static PaletteInitHandlerPtr palette_init_pingpong  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -99,7 +98,7 @@ public class pingpong
 		/* characters */
 		for (i = 0;i < TOTAL_COLORS(0);i++)
 			COLOR(0,i) = (*(color_prom++) & 0x0f) + 0x10;
-	}
+	} };
 	
 	WRITE_HANDLER( pingpong_videoram_w )
 	{

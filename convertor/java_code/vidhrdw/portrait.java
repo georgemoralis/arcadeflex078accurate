@@ -76,9 +76,8 @@ public class portrait
 	} };
 	
 	
-	PALETTE_INIT( portrait )
-	{
-	}
+	public static PaletteInitHandlerPtr palette_init_portrait  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
+	} };
 	
 	static void draw_sprites( struct mame_bitmap *bitmap )
 	{

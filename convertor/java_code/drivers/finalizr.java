@@ -24,7 +24,6 @@ public class finalizr
 	
 	int finalizr_T1_line;
 	
-	PALETTE_INIT( finalizr );
 	WRITE_HANDLER( finalizr_videoctrl_w );
 	
 	

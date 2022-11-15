@@ -36,7 +36,6 @@ public class bladestl
 	
 	/* from vidhrdw */
 	int bladestl_spritebank;
-	PALETTE_INIT( bladestl );
 	WRITE_HANDLER( bladestl_vreg_w );
 	
 	public static InterruptHandlerPtr bladestl_interrupt = new InterruptHandlerPtr() {public void handler(){

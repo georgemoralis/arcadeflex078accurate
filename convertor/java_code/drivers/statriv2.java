@@ -110,8 +110,7 @@ public class statriv2
 		tilemap_draw(bitmap,cliprect,statriv2_tilemap,0,0);
 	} };
 	
-	PALETTE_INIT(statriv2)
-	{
+	public static PaletteInitHandlerPtr palette_init_statriv2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int j;
 	
 		for (j = 0;j < 16;j++)
@@ -134,7 +133,7 @@ public class statriv2
 			colortable[2*j+1] = j >> 4;
 		}
 	        palette_set_color(8,0xFF,0xFF,0xFF);
-	}
+	} };
 	
 	/* end video related */
 	

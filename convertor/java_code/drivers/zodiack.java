@@ -37,8 +37,7 @@ public class zodiack
 	extern WRITE_HANDLER( zodiack_attributes_w );
 	extern WRITE_HANDLER( zodiack_flipscreen_w );
 	
-	extern PALETTE_INIT( zodiack );
-	extern extern 
+	extern extern extern 
 	int percuss_hardware;
 	
 	extern MACHINE_INIT( espial );

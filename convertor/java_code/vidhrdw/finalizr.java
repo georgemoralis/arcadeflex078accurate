@@ -23,8 +23,7 @@ public class finalizr
 	
 	
 	
-	PALETTE_INIT( finalizr )
-	{
+	public static PaletteInitHandlerPtr palette_init_finalizr  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -71,7 +70,7 @@ public class finalizr
 		{
 			COLOR(0,i) = (*(color_prom++) & 0x0f) + 0x10;
 		}
-	}
+	} };
 	
 	public static VideoStartHandlerPtr video_start_finalizr  = new VideoStartHandlerPtr() { public int handler(){
 		dirtybuffer = 0;

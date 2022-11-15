@@ -17,7 +17,6 @@ public class ttmahjng
 	extern unsigned char *ttmahjng_videoram2;
 	extern size_t ttmahjng_videoram_size;
 	
-	PALETTE_INIT( ttmahjng );
 	WRITE_HANDLER( ttmahjng_out0_w );
 	WRITE_HANDLER( ttmahjng_out1_w );
 	WRITE_HANDLER( ttmahjng_videoram1_w );

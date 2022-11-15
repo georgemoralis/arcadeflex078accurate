@@ -109,8 +109,7 @@ public class taitosj
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( taitosj )
-	{
+	public static PaletteInitHandlerPtr palette_init_taitosj  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
@@ -148,7 +147,7 @@ public class taitosj
 				draworder[i][j] = data;
 			}
 		}
-	}
+	} };
 	
 	
 	

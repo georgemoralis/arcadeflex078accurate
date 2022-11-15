@@ -22,7 +22,6 @@ public class gomoku
 {
 	
 	
-	PALETTE_INIT(gomoku);
 	
 	WRITE_HANDLER( gomoku_videoram_w );
 	WRITE_HANDLER( gomoku_colorram_w );

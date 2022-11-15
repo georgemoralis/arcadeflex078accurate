@@ -23,7 +23,6 @@ public class mermaid
 	extern unsigned char* mermaid_foreground_scrollram;
 	
 	
-	PALETTE_INIT( mermaid );
 	WRITE_HANDLER( mermaid_flip_screen_x_w );
 	WRITE_HANDLER( mermaid_flip_screen_y_w );
 	

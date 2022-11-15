@@ -75,11 +75,10 @@ public class _8080bw
 	extern struct Samplesinterface circus_samples_interface;
 	
 	
-	static PALETTE_INIT( 8080bw )
-	{
+	public static PaletteInitHandlerPtr palette_init_8080bw  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0,0x00,0x00,0x00); /* black */
 		palette_set_color(1,0xff,0xff,0xff); /* white */
-	}
+	} };
 	
 	
 	static MEMORY_READ_START( c8080bw_readmem )
@@ -2457,12 +2456,11 @@ public class _8080bw
 	/*                                                     */
 	/*******************************************************/
 	
-	static PALETTE_INIT( phantom2 )
-	{
+	public static PaletteInitHandlerPtr palette_init_phantom2  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0,0x00,0x00,0x00); /* black */
 		palette_set_color(1,0xff,0xff,0xff); /* white */
 		palette_set_color(2,0xc0,0xc0,0xc0); /* grey */
-	}
+	} };
 	
 	
 	static InputPortHandlerPtr input_ports_phantom2 = new InputPortHandlerPtr(){ public void handler() { INPUT_PORTS_START( phantom2 )

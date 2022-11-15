@@ -24,8 +24,7 @@ public class shaolins
 	extern WRITE_HANDLER( shaolins_scroll_w );
 	extern WRITE_HANDLER( shaolins_nmi_w );
 	
-	extern PALETTE_INIT( shaolins );
-	extern extern 
+	extern extern extern 
 	
 	public static InterruptHandlerPtr shaolins_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0) cpu_set_irq_line(0, 0, HOLD_LINE);

@@ -30,7 +30,6 @@ public class pandoras
 	static unsigned char *pandoras_sharedram2;
 	
 	/* from vidhrdw */
-	PALETTE_INIT( pandoras );
 	READ_HANDLER( pandoras_vram_r );
 	READ_HANDLER( pandoras_cram_r );
 	WRITE_HANDLER( pandoras_vram_w );

@@ -37,8 +37,7 @@ public class trackfld
 	extern WRITE_HANDLER( trackfld_colorram_w );
 	extern WRITE_HANDLER( trackfld_flipscreen_w );
 	
-	extern PALETTE_INIT( trackfld );
-	extern extern 
+	extern extern extern 
 	extern WRITE_HANDLER( konami_sh_irqtrigger_w );
 	extern READ_HANDLER( trackfld_sh_timer_r );
 	extern READ_HANDLER( trackfld_speech_r );

@@ -47,7 +47,6 @@ public class jackal
 	WRITE_HANDLER( jackal_voram_w );
 	WRITE_HANDLER( jackal_spriteram_w );
 	
-	PALETTE_INIT( jackal );
 	
 	
 	

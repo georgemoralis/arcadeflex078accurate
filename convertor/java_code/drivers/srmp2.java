@@ -71,8 +71,6 @@ public class srmp2
 	
 	***************************************************************************/
 	
-	PALETTE_INIT( srmp2 );
-	PALETTE_INIT( srmp3 );
 	
 	
 	extern int srmp2_color_bank;

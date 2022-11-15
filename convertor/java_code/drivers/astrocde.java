@@ -76,7 +76,6 @@ public class astrocde
 	extern const char *wow_sample_names[];
 	extern const char *gorf_sample_names[];
 	
-	PALETTE_INIT( astrocde );
 	READ_HANDLER( wow_intercept_r );
 	WRITE_HANDLER( wow_videoram_w );
 	WRITE_HANDLER( astrocde_magic_expand_color_w );

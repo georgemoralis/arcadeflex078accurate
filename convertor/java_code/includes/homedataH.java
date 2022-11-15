@@ -16,7 +16,4 @@ WRITE_HANDLER( mrokumei_blitter_start_w );
 WRITE_HANDLER( reikaids_blitter_start_w );
 WRITE_HANDLER( pteacher_blitter_start_w );
 
-PALETTE_INIT( mrokumei );
-PALETTE_INIT( reikaids );
-PALETTE_INIT( pteacher );
 

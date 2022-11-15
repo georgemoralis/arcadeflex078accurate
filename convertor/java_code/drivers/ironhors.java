@@ -25,8 +25,7 @@ public class ironhors
 	extern WRITE_HANDLER( ironhors_charbank_w );
 	extern WRITE_HANDLER( ironhors_flipscreen_w );
 	
-	extern PALETTE_INIT( ironhors );
-	extern extern 
+	extern extern extern 
 	
 	public static InterruptHandlerPtr ironhors_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0)

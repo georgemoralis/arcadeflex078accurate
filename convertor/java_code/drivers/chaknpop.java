@@ -32,7 +32,6 @@ public class chaknpop
 	extern data8_t *chaknpop_attrram;
 	
 	
-	PALETTE_INIT( chaknpop );
 	
 	READ_HANDLER( chaknpop_gfxmode_r );
 	WRITE_HANDLER( chaknpop_gfxmode_w );

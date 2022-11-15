@@ -34,8 +34,7 @@ public class speedbal
 	static struct mame_bitmap *bitmap_bg;   /* background tiles */
 	static struct mame_bitmap *bitmap_ch;   /* foreground char  */
 	
-	PALETTE_INIT( speedbal )
-	{
+	public static PaletteInitHandlerPtr palette_init_speedbal  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine->gfx[gfxn]->total_colors * Machine->gfx[gfxn]->color_granularity)
 		#define COLOR(gfxn,offs) (colortable[Machine->drv->gfxdecodeinfo[gfxn].color_codes_start + offs])
@@ -79,7 +78,7 @@ public class speedbal
 		for (i = 0;i < TOTAL_COLORS(2);i++)
 			COLOR(2,i) = *(color_prom++) & 0x0f;
 	
-	}
+	} };
 	
 	
 	/*************************************

@@ -20,8 +20,7 @@ public class higemaru
 	extern WRITE_HANDLER( higemaru_colorram_w );
 	extern WRITE_HANDLER( higemaru_c800_w );
 	
-	extern PALETTE_INIT( higemaru );
-	extern extern 
+	extern extern extern 
 	
 	public static InterruptHandlerPtr higemaru_interrupt = new InterruptHandlerPtr() {public void handler(){
 		if (cpu_getiloops() == 0) 

@@ -57,7 +57,6 @@ public class superpac
 	WRITE_HANDLER( superpac_reset_2_w );
 	
 	MACHINE_INIT( superpac );
-	PALETTE_INIT( superpac );
 	READ_HANDLER( superpac_flipscreen_r );
 	WRITE_HANDLER( superpac_flipscreen_w );
 	

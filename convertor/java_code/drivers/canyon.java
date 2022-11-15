@@ -53,8 +53,7 @@ public class canyon
 	 *
 	 *************************************/
 	
-	static PALETTE_INIT( canyon )
-	{
+	public static PaletteInitHandlerPtr palette_init_canyon  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		palette_set_color(0, 0x00, 0x00, 0x00); /* BLACK */
 		palette_set_color(1, 0xff, 0xff, 0xff); /* WHITE */
 		palette_set_color(2, 0x80, 0x80, 0x80); /* GREY  */
@@ -63,7 +62,7 @@ public class canyon
 		colortable[1] = 0;
 		colortable[2] = 2;
 		colortable[3] = 1;
-	}
+	} };
 	
 	
 	/*************************************

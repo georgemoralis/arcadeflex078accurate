@@ -51,8 +51,7 @@ public class nova2001
 	extern WRITE_HANDLER( nova2001_scroll_y_w );
 	extern WRITE_HANDLER( nova2001_flipscreen_w );
 	
-	extern PALETTE_INIT( nova2001 );
-	extern extern 
+	extern extern extern 
 	
 	
 	static MEMORY_READ_START( readmem )

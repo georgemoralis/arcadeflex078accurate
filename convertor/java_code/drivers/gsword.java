@@ -149,9 +149,7 @@ public class gsword
 	extern WRITE_HANDLER( gsword_videoram_w );
 	extern WRITE_HANDLER( gsword_scroll_w );
 	
-	extern PALETTE_INIT( josvolly );
-	extern PALETTE_INIT( gsword );
-	extern extern 
+	extern extern extern extern 
 	extern size_t gsword_spritexy_size;
 	
 	extern UINT8 *gsword_spritexy_ram;

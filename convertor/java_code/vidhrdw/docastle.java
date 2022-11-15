@@ -136,15 +136,13 @@ public class docastle
 		}
 	}
 	
-	PALETTE_INIT( docastle )
-	{
+	public static PaletteInitHandlerPtr palette_init_docastle  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		convert_color_prom(colortable,color_prom,0);
-	}
+	} };
 	
-	PALETTE_INIT( dorunrun )
-	{
+	public static PaletteInitHandlerPtr palette_init_dorunrun  = new PaletteInitHandlerPtr() { public void handler(char[] colortable, UBytePtr color_prom){
 		convert_color_prom(colortable,color_prom,1);
-	}
+	} };
 	
 	WRITE_HANDLER( docastle_videoram_w )
 	{
