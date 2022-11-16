@@ -143,7 +143,7 @@ public class fronthlp {
         new rc_option("listnvram", null, rc_set_int, assign_list, null, LIST_NVRAM, 0, null, "games with nvram"),
         new rc_option("wrongorientation", null, rc_set_int, assign_list, null, LIST_WRONGORIENTATION, 0, null, "wrong orientation"),
         new rc_option("wrongfps", null, rc_set_int, assign_list, null, LIST_WRONGFPS, 0, null, "wrong fps"),
-        /*TODO*///        new rc_option("clones", null, rc_bool, assign_clones, "1", 0, 0, null, "enable/disable clones"),
+        new rc_option("clones", null, rc_bool, assign_clones, "1", 0, 0, null, "enable/disable clones"),
         new rc_option("listroms", null, rc_set_int, assign_list, null, LIST_ROMS, 0, null, "list required roms for a driver"),
         new rc_option("listsamples", null, rc_set_int, assign_list, null, LIST_SAMPLES, 0, null, "list optional samples for a driver"),
         new rc_option("verifyroms", null, rc_set_int, assign_verify, null, VERIFY_ROMS, 0, null, "report romsets that have problems"),

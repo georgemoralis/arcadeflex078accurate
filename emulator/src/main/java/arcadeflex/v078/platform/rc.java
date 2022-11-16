@@ -26,19 +26,19 @@ public class rc {
     /* private variables */
     static int rc_requires_arg[] = {0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0};
 
-    /*TODO*///
-/*TODO*////* private methods */
-/*TODO*///static int rc_verify(struct rc_option *option, float value)
-/*TODO*///{
-/*TODO*///   if(option->min == option->max)
-/*TODO*///      return 0;
-/*TODO*///
-/*TODO*///   if( (value < option->min) || (value > option->max) )
-/*TODO*///      return -1;
-/*TODO*///
-/*TODO*///   return 0;
-/*TODO*///}
-/*TODO*///
+    /* private methods */
+    static int rc_verify(rc_option option, float value) {
+        if (option.min == option.max) {
+            return 0;
+        }
+
+        if ((value < option.min) || (value > option.max)) {
+            return -1;
+        }
+
+        return 0;
+    }
+
     static int rc_set_defaults(rc_option[] option) {
         int i;
 
@@ -692,18 +692,15 @@ public class rc {
             /*TODO*///            break;
             case rc_int:
             case rc_bool: {
-                throw new UnsupportedOperationException("Unsupported");
-                /*TODO*///            int x;
-/*TODO*///            x = strtol(arg, &end, 0);
-/*TODO*///            if (*end || rc_verify(option, x))
-/*TODO*///            {
-/*TODO*///               fprintf(stderr, "error invalid value for %s: %s\n", option->name, arg);
-/*TODO*///               return -1;
-/*TODO*///            }
-/*TODO*///            *(int *)option->dest = x;
-
+                int x;
+                x = Integer.parseInt(arg);//x = strtol(arg, &end, 0);
+                if (rc_verify(option, x) != 0) { //if (*end || rc_verify(option, x))
+                    fprintf(stderr, "error invalid value for %s: %s\n", option.name, arg);
+                    return -1;
+                }
+                ((RcAssignFuncHandlerPtr) (option.dest)).handler(x);
             }
-/*TODO*///            break;
+            break;
             case rc_float: {
                 throw new UnsupportedOperationException("Unsupported");
                 /*TODO*///            float x;
