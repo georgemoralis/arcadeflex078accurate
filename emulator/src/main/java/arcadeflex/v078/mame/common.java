@@ -921,70 +921,60 @@ public class common {
 /*TODO*///}
 /*TODO*///
 /*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	rom_next_region - return pointer to next ROM
-/*TODO*///	region
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///const struct RomModule *rom_next_region(const struct RomModule *romp)
-/*TODO*///{
-/*TODO*///	romp++;
-/*TODO*///	while (!ROMENTRY_ISREGIONEND(romp))
-/*TODO*///		romp++;
-/*TODO*///	return ROMENTRY_ISEND(romp) ? NULL : romp;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	rom_first_file - return pointer to first ROM
-/*TODO*///	file
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///const struct RomModule *rom_first_file(const struct RomModule *romp)
-/*TODO*///{
-/*TODO*///	romp++;
-/*TODO*///	while (!ROMENTRY_ISFILE(romp) && !ROMENTRY_ISREGIONEND(romp))
-/*TODO*///		romp++;
-/*TODO*///	return ROMENTRY_ISREGIONEND(romp) ? NULL : romp;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	rom_next_file - return pointer to next ROM
-/*TODO*///	file
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///const struct RomModule *rom_next_file(const struct RomModule *romp)
-/*TODO*///{
-/*TODO*///	romp++;
-/*TODO*///	while (!ROMENTRY_ISFILE(romp) && !ROMENTRY_ISREGIONEND(romp))
-/*TODO*///		romp++;
-/*TODO*///	return ROMENTRY_ISREGIONEND(romp) ? NULL : romp;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	rom_first_chunk - return pointer to first ROM
-/*TODO*///	chunk
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///const struct RomModule *rom_first_chunk(const struct RomModule *romp)
-/*TODO*///{
-/*TODO*///	return (ROMENTRY_ISFILE(romp)) ? romp : NULL;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	rom_next_chunk - return pointer to next ROM
-/*TODO*///	chunk
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///const struct RomModule *rom_next_chunk(const struct RomModule *romp)
-/*TODO*///{
-/*TODO*///	romp++;
-/*TODO*///	return (ROMENTRY_ISCONTINUE(romp)) ? romp : NULL;
-/*TODO*///}
-/*TODO*///
+    /*-------------------------------------------------
+            rom_next_region - return pointer to next ROM
+            region
+    -------------------------------------------------*/
+    public static int rom_next_region(RomModule[] romp, int romp_ptr) {
+        romp_ptr++;
+        while (!ROMENTRY_ISREGIONEND(romp, romp_ptr)) {
+            romp_ptr++;
+        }
+        return ROMENTRY_ISEND(romp, romp_ptr) ? -1 : romp_ptr;
+    }
+
+    /*-------------------------------------------------
+            rom_first_file - return pointer to first ROM
+            file
+    -------------------------------------------------*/
+    public static int rom_first_file(RomModule[] romp, int romp_ptr) {
+        romp_ptr++;
+        while (!ROMENTRY_ISFILE(romp, romp_ptr) && !ROMENTRY_ISREGIONEND(romp, romp_ptr)) {
+            romp_ptr++;
+        }
+        return ROMENTRY_ISREGIONEND(romp, romp_ptr) ? -1 : romp_ptr;
+    }
+
+    /*-------------------------------------------------
+            rom_next_file - return pointer to next ROM
+            file
+    -------------------------------------------------*/
+    public static int rom_next_file(RomModule[] romp, int romp_ptr) {
+        romp_ptr++;
+        while (!ROMENTRY_ISFILE(romp, romp_ptr) && !ROMENTRY_ISREGIONEND(romp, romp_ptr)) {
+            romp_ptr++;
+        }
+        return ROMENTRY_ISREGIONEND(romp, romp_ptr) ? -1 : romp_ptr;
+    }
+
+    /*-------------------------------------------------
+	rom_first_chunk - return pointer to first ROM
+	chunk
+    -------------------------------------------------*/
+    public static int rom_first_chunk(RomModule[] romp, int romp_ptr) {
+        return (ROMENTRY_ISFILE(romp, romp_ptr)) ? romp_ptr : -1;
+    }
+
+    /*-------------------------------------------------
+            rom_next_chunk - return pointer to next ROM
+            chunk
+    -------------------------------------------------*/
+    public static int rom_next_chunk(RomModule[] romp, int romp_ptr) {
+        romp_ptr++;
+        return (ROMENTRY_ISCONTINUE(romp, romp_ptr)) ? romp_ptr : -1;
+    }
+
+    /*TODO*///
 /*TODO*///
 /*TODO*////*-------------------------------------------------
 /*TODO*///	debugload - log data to a file
@@ -1907,37 +1897,37 @@ public class common {
 	printromlist - print list of ROMs
     -------------------------------------------------*/
     public static void printromlist(RomModule[] romp, String basename) {
-        throw new UnsupportedOperationException("Unsupported");
-        /*TODO*///	const struct RomModule *region, *rom, *chunk;
-/*TODO*///	char buf[512];
-/*TODO*///
-/*TODO*///	if (!romp) return;
-/*TODO*///
-/*TODO*///
-/*TODO*///	printf("This is the list of the ROMs required for driver \"%s\".\n"
-/*TODO*///			"Name              Size       Checksum\n",basename);
-/*TODO*///
-/*TODO*///	for (region = romp; region; region = rom_next_region(region))
-/*TODO*///	{
-/*TODO*///		for (rom = rom_first_file(region); rom; rom = rom_next_file(rom))
-/*TODO*///		{
-/*TODO*///			const char *name = ROM_GETNAME(rom);
-/*TODO*///			const char* hash = ROM_GETHASHDATA(rom);
-/*TODO*///			int length = -1; /* default is for disks! */
-/*TODO*///
-/*TODO*///			if (ROMREGION_ISROMDATA(region))
-/*TODO*///			{
-/*TODO*///				length = 0;
-/*TODO*///				for (chunk = rom_first_chunk(rom); chunk; chunk = rom_next_chunk(chunk))
-/*TODO*///					length += ROM_GETLENGTH(chunk);
-/*TODO*///			}
-/*TODO*///
-/*TODO*///			printf("%-12s ", name);
-/*TODO*///			if (length >= 0)
-/*TODO*///				printf("%7d",length);
-/*TODO*///				else
-/*TODO*///				printf("       ");
-/*TODO*///
+        int chunk;
+        int rom;
+        int region;
+        int rom_ptr = 0;
+        if (romp == null) {
+            return;
+        }
+
+        printf("This is the list of the ROMs required for driver \"%s\".\n"
+                + "Name              Size       Checksum\n", basename);
+
+        for (region = rom_ptr; region != -1; region = rom_next_region(romp, region)) {
+            for (rom = rom_first_file(romp, region); rom != -1; rom = rom_next_file(romp, rom)) {
+                String name = ROM_GETNAME(romp, rom);
+                String hash = ROM_GETHASHDATA(romp, rom);
+                int length = -1;/* default is for disks! */
+
+                if (ROMREGION_ISROMDATA(romp, region)) {
+                    length = 0;
+                    for (chunk = rom_first_chunk(romp, rom); chunk != -1; chunk = rom_next_chunk(romp, chunk)) {
+                        length += ROM_GETLENGTH(romp, chunk);
+                    }
+                }
+
+                printf("%-12s ", name);
+                if (length >= 0) {
+                    printf("%7d", length);
+                } else {
+                    printf("       ");
+                }
+                /*TODO*///
 /*TODO*///			if (!hash_data_has_info(hash, HASH_INFO_NO_DUMP))
 /*TODO*///			{
 /*TODO*///				if (hash_data_has_info(hash, HASH_INFO_BAD_DUMP))
@@ -1949,8 +1939,8 @@ public class common {
 /*TODO*///			else
 /*TODO*///				printf(" NO GOOD DUMP KNOWN");
 /*TODO*///
-/*TODO*///			printf("\n");
-/*TODO*///		}
-/*TODO*///	}
+                printf("\n");
+            }
+        }
     }
 }
