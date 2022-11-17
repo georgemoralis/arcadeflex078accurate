@@ -5,6 +5,10 @@ package arcadeflex.v078.mame;
 
 //mame imports
 import static arcadeflex.v078.mame.commonH.*;
+import static arcadeflex.v078.mame.hash.hash_data_has_info;
+import static arcadeflex.v078.mame.hash.hash_data_print;
+import static arcadeflex.v078.mame.hashH.HASH_INFO_BAD_DUMP;
+import static arcadeflex.v078.mame.hashH.HASH_INFO_NO_DUMP;
 //common imports
 import static common.libc.cstdio.*;
 
@@ -1927,18 +1931,16 @@ public class common {
                 } else {
                     printf("       ");
                 }
-                /*TODO*///
-/*TODO*///			if (!hash_data_has_info(hash, HASH_INFO_NO_DUMP))
-/*TODO*///			{
-/*TODO*///				if (hash_data_has_info(hash, HASH_INFO_BAD_DUMP))
-/*TODO*///					printf(" BAD");
-/*TODO*///
-/*TODO*///				hash_data_print(hash, 0, buf);
-/*TODO*///				printf(" %s", buf);
-/*TODO*///			}
-/*TODO*///			else
-/*TODO*///				printf(" NO GOOD DUMP KNOWN");
-/*TODO*///
+                if (hash_data_has_info(hash, HASH_INFO_NO_DUMP) == 0) {
+                    if (hash_data_has_info(hash, HASH_INFO_BAD_DUMP) != 0) {
+                        printf(" BAD");
+                    }
+                    String buf = hash_data_print(hash, 0);
+                    printf(" %s", buf);
+                } else {
+                    printf(" NO GOOD DUMP KNOWN");
+                }
+
                 printf("\n");
             }
         }

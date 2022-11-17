@@ -3,7 +3,11 @@
  */
 package arcadeflex.v078.mame;
 
+//common imports
+import static common.libc.cstring.*;
+
 public class hash {
+
     /*TODO*////*
 /*TODO*/// * DONE:	
 /*TODO*/// *
@@ -183,12 +187,13 @@ public class hash {
 /*TODO*///	},
 /*TODO*///};
 /*TODO*///
-/*TODO*///const char* info_strings[] =
-/*TODO*///{
-/*TODO*///	"$ND$",       // No dump
-/*TODO*///	"$BD$"        // Bad dump
-/*TODO*///};
-/*TODO*///
+    static String info_strings[]
+            = {
+                "NO_DUMP",/*"$ND$", */ // No dump
+                "BAD_DUMP"/*"$BD$"  */ // Bad dump
+            };
+
+    /*TODO*///
 /*TODO*///static const char* binToStr = "0123456789abcdef";
 /*TODO*///
 /*TODO*///
@@ -448,16 +453,17 @@ public class hash {
 /*TODO*///	return 1;
 /*TODO*///}
 /*TODO*///
-/*TODO*///int hash_data_has_info(const char* data, unsigned int info)
-/*TODO*///{
-/*TODO*///	char* res = strstr(data, info_strings[info]);
-/*TODO*///
-/*TODO*///	if (!res)
-/*TODO*///		return 0;
-/*TODO*///
-/*TODO*///	return 1;
-/*TODO*///}
-/*TODO*///
+    public static int hash_data_has_info(String data, int info) {
+        int res = strstr(data, info_strings[info]);
+
+        if (res == -1) {
+            return 0;
+        }
+
+        return 1;
+    }
+
+    /*TODO*///
 /*TODO*///void hash_data_copy(char* dst, const char* src)
 /*TODO*///{
 /*TODO*///	// Copying string is enough
@@ -542,8 +548,9 @@ public class hash {
 /*TODO*///	*dst = '\0';
 /*TODO*///}
 /*TODO*///
-/*TODO*///void hash_data_print(const char* data, unsigned int functions, char* buffer)
-/*TODO*///{
+    public static String hash_data_print(String data, int functions) {
+        data = data.replace("BAD_DUMP", "");//remove BAD_DUMP it is already printed
+        return data;//TODO fixed it better
 /*TODO*///	int i, j;
 /*TODO*///	char first = 1;
 /*TODO*///
@@ -575,8 +582,8 @@ public class hash {
 /*TODO*///			strcat(buffer, ")");
 /*TODO*///		}	
 /*TODO*///	}
-/*TODO*///}
-/*TODO*///
+    }
+    /*TODO*///
 /*TODO*///int hash_verify_string(const char *hash)
 /*TODO*///{
 /*TODO*///	int len, i;

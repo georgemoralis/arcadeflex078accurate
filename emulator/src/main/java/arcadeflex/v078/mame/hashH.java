@@ -4,7 +4,8 @@
 package arcadeflex.v078.mame;
 
 public class hashH {
-/*TODO*////*********************************************************************
+
+    /*TODO*////*********************************************************************
 /*TODO*///
 /*TODO*///	hash.h
 /*TODO*///
@@ -19,9 +20,9 @@ public class hashH {
 /*TODO*///extern "C" {
 /*TODO*///#endif
 /*TODO*///
-/*TODO*///#define HASH_INFO_NO_DUMP	0
-/*TODO*///#define HASH_INFO_BAD_DUMP	1
-/*TODO*///
+    public static final int HASH_INFO_NO_DUMP = 0;
+    public static final int HASH_INFO_BAD_DUMP = 1;
+    /*TODO*///
 /*TODO*///#define HASH_CRC    (1 << 0)
 /*TODO*///#define HASH_SHA1   (1 << 1)
 /*TODO*///#define HASH_MD5    (1 << 2)
