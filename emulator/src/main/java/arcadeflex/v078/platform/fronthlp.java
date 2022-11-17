@@ -15,6 +15,15 @@ import static common.libc.cstring.*;
 
 //TO BE REMOVED!!
 import static arcadeflex.v078.AAdummy.driver.drivers;
+import static arcadeflex.v078.mame.commonH.REGION_CPU1;
+import static arcadeflex.v078.mame.commonH.REGION_CPU8;
+import static arcadeflex.v078.mame.commonH.REGION_GFX1;
+import static arcadeflex.v078.mame.commonH.REGION_GFX8;
+import static arcadeflex.v078.mame.commonH.REGION_SOUND1;
+import static arcadeflex.v078.mame.commonH.REGION_SOUND8;
+import static arcadeflex.v078.mame.commonH.ROMREGION_GETTYPE;
+import static arcadeflex.v078.mame.commonH.ROM_GETLENGTH;
+import arcadeflex.v078.mame.commonH.RomModule;
 
 public class fronthlp {
 
@@ -641,6 +650,7 @@ public class fronthlp {
                 if (list == LIST_ROMS) {
                     printromlist(gamedrv.rom, gamename);
                 } else {
+                    throw new UnsupportedOperationException("Unsupported");
                     /*TODO*///				int k;
 /*TODO*///				expand_machine_driver(gamedrv->drv, &drv);
 /*TODO*///				for( k = 0; drv.sound[k].sound_type && k < MAX_SOUND; k++ )
@@ -1284,37 +1294,41 @@ public class fronthlp {
 /*TODO*///			return 0;
 /*TODO*///			break;
 /*TODO*///
-/*TODO*///		case LIST_ROMSIZE: /* I used this for statistical analysis */
-/*TODO*///			for (i = 0; drivers[i]; i++)
-/*TODO*///			{
-/*TODO*///				if (drivers[i]->clone_of == 0 || (drivers[i]->clone_of->flags & NOT_A_DRIVER))
-/*TODO*///				{
-/*TODO*///					const struct RomModule *region, *rom, *chunk;
-/*TODO*///					int romtotal = 0,romcpu = 0,romgfx = 0,romsound = 0;
-/*TODO*///
-/*TODO*///					for (region = rom_first_region(drivers[i]); region; region = rom_next_region(region))
-/*TODO*///					{
-/*TODO*///						int type = ROMREGION_GETTYPE(region);
-/*TODO*///
-/*TODO*///						for (rom = rom_first_file(region); rom; rom = rom_next_file(rom))
-/*TODO*///						{
-/*TODO*///							for (chunk = rom_first_chunk(rom); chunk; chunk = rom_next_chunk(chunk))
-/*TODO*///							{
-/*TODO*///								romtotal += ROM_GETLENGTH(chunk);
-/*TODO*///								if (type >= REGION_CPU1 && type <= REGION_CPU8) romcpu += ROM_GETLENGTH(chunk);
-/*TODO*///								if (type >= REGION_GFX1 && type <= REGION_GFX8) romgfx += ROM_GETLENGTH(chunk);
-/*TODO*///								if (type >= REGION_SOUND1 && type <= REGION_SOUND8) romsound += ROM_GETLENGTH(chunk);
-/*TODO*///							}
-/*TODO*///						}
-/*TODO*///					}
-/*TODO*///
-/*TODO*/////					printf("%-8s\t%-5s\t%u\t%u\t%u\t%u\n",drivers[i]->name,drivers[i]->year,romtotal,romcpu,romgfx,romsound);
-/*TODO*///					printf("%-8s\t%-5s\t%u\n",drivers[i]->name,drivers[i]->year,romtotal);
-/*TODO*///				}
-/*TODO*///			}
-/*TODO*///			return 0;
-/*TODO*///			break;
-/*TODO*///
+            case LIST_ROMSIZE:
+                /* I used this for statistical analysis */
+                for (i = 0; drivers[i] != null; i++) {
+                    if (drivers[i].clone_of == null || (drivers[i].clone_of.flags & NOT_A_DRIVER) != 0) {
+                        int chunk;
+                        int rom;
+                        int region;
+                        int rom_ptr = 0;
+                        int romtotal = 0, romcpu = 0, romgfx = 0, romsound = 0;
+                        RomModule[] romp = rom_first_region(drivers[i]);
+                        for (region = rom_ptr; region != -1; region = rom_next_region(romp, region)) {
+                            int type = ROMREGION_GETTYPE(romp,region);
+
+                            for (rom = rom_first_file(romp, region); rom != -1; rom = rom_next_file(romp, rom)) {
+                                for (chunk = rom_first_chunk(romp, rom); chunk != -1; chunk = rom_next_chunk(romp, chunk)) {
+                                    romtotal += ROM_GETLENGTH(romp,chunk);
+                                    if (type >= REGION_CPU1 && type <= REGION_CPU8) {
+                                        romcpu += ROM_GETLENGTH(romp,chunk);
+                                    }
+                                    if (type >= REGION_GFX1 && type <= REGION_GFX8) {
+                                        romgfx += ROM_GETLENGTH(romp,chunk);
+                                    }
+                                    if (type >= REGION_SOUND1 && type <= REGION_SOUND8) {
+                                        romsound += ROM_GETLENGTH(romp,chunk);
+                                    }
+                                }
+                            }
+                        }
+
+//					printf("%-8s\t%-5s\t%u\t%u\t%u\t%u\n",drivers[i]->name,drivers[i]->year,romtotal,romcpu,romgfx,romsound);
+                        printf("%-8s\t%-5s\t%d\n", drivers[i].name, drivers[i].year, romtotal);
+                    }
+                }
+                return 0;
+            /*TODO*///
 /*TODO*///		case LIST_ROMDISTRIBUTION: /* I used this for statistical analysis */
 /*TODO*///			{
 /*TODO*///				int year;

@@ -5,6 +5,7 @@ package arcadeflex.v078.mame;
 
 //mame imports
 import static arcadeflex.v078.mame.commonH.*;
+import arcadeflex.v078.mame.driverH.GameDriver;
 import static arcadeflex.v078.mame.hash.hash_data_has_info;
 import static arcadeflex.v078.mame.hash.hash_data_print;
 import static arcadeflex.v078.mame.hashH.HASH_INFO_BAD_DUMP;
@@ -907,24 +908,23 @@ public class common {
 /*TODO*///}
 /*TODO*///
 /*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	ROM loading code
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	rom_first_region - return pointer to first ROM
-/*TODO*///	region
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///const struct RomModule *rom_first_region(const struct GameDriver *drv)
-/*TODO*///{
-/*TODO*///	return drv->rom;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
+    /**
+     * *************************************************************************
+     *
+     * ROM loading code
+     *
+     **************************************************************************
+     */
+
+    /*-------------------------------------------------
+	rom_first_region - return pointer to first ROM
+	region
+    -------------------------------------------------*/
+    public static RomModule[] rom_first_region(GameDriver drv) {
+        return drv.rom;
+    }
+
+
     /*-------------------------------------------------
             rom_next_region - return pointer to next ROM
             region
