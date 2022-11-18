@@ -5,11 +5,9 @@ package arcadeflex.v078.mame;
 
 //mame imports
 import static arcadeflex.v078.mame.commonH.*;
-import arcadeflex.v078.mame.driverH.GameDriver;
-import static arcadeflex.v078.mame.hash.hash_data_has_info;
-import static arcadeflex.v078.mame.hash.hash_data_print;
-import static arcadeflex.v078.mame.hashH.HASH_INFO_BAD_DUMP;
-import static arcadeflex.v078.mame.hashH.HASH_INFO_NO_DUMP;
+import static arcadeflex.v078.mame.driverH.*;
+import static arcadeflex.v078.mame.hash.*;
+import static arcadeflex.v078.mame.hashH.*;
 //common imports
 import static common.libc.cstdio.*;
 
@@ -82,9 +80,10 @@ public class common {
 /*TODO*///static struct malloc_info malloc_list[MAX_MALLOCS];
 /*TODO*///static int malloc_list_index = 0;
 /*TODO*///
-/*TODO*////* resource tracking */
-/*TODO*///int resource_tracking_tag = 0;
-/*TODO*///
+    /* resource tracking */
+    static int resource_tracking_tag = 0;
+
+    /*TODO*///
 /*TODO*////* generic NVRAM */
 /*TODO*///size_t generic_nvram_size;
 /*TODO*///data8_t *generic_nvram;
@@ -731,19 +730,17 @@ public class common {
 /*TODO*///	return bitmap_alloc_core(width,height,depth,1);
 /*TODO*///}
 /*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	begin_resource_tracking - start tracking
-/*TODO*///	resources
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///void begin_resource_tracking(void)
-/*TODO*///{
-/*TODO*///	/* increment the tag counter */
-/*TODO*///	resource_tracking_tag++;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
+
+    /*-------------------------------------------------
+	begin_resource_tracking - start tracking
+	resources
+    -------------------------------------------------*/
+    public static void begin_resource_tracking() {
+        /* increment the tag counter */
+        resource_tracking_tag++;
+    }
+
+    /*TODO*///
 /*TODO*////*-------------------------------------------------
 /*TODO*///	end_resource_tracking - stop tracking
 /*TODO*///	resources

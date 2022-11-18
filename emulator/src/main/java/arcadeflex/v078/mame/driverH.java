@@ -288,6 +288,7 @@ public class driverH {
 /*TODO*///					/* which can run at the same time. Currently, 5 is enough. */
 /*TODO*///
     public static class InternalMachineDriver {
+
         /*TODO*///	struct MachineCPU cpu[MAX_CPU];
 /*TODO*///	float frames_per_second;
 /*TODO*///	int vblank_duration;
@@ -297,8 +298,8 @@ public class driverH {
 /*TODO*///	void (*machine_stop)(void);
 /*TODO*///	void (*nvram_handler)(mame_file *file, int read_or_write);
 /*TODO*///
-/*TODO*///	UINT32 video_attributes;
-/*TODO*///	UINT32 aspect_x, aspect_y;
+        public int /*UINT32*/ video_attributes;
+        /*TODO*///	UINT32 aspect_x, aspect_y;
 /*TODO*///	int screen_width,screen_height;
 /*TODO*///	struct rectangle default_visible_area;
 /*TODO*///	struct GfxDecodeInfo *gfxdecodeinfo;
@@ -374,9 +375,10 @@ public class driverH {
 /*TODO*////* Mish 181099:  See comments in vidhrdw/generic.c for details */
 /*TODO*///#define VIDEO_BUFFERS_SPRITERAM		0x0100
 /*TODO*///
-/*TODO*////* game wants to use a hicolor or truecolor bitmap (e.g. for alpha blending) */
-/*TODO*///#define VIDEO_RGB_DIRECT 			0x0200
-/*TODO*///
+    /* game wants to use a hicolor or truecolor bitmap (e.g. for alpha blending) */
+    public static final int VIDEO_RGB_DIRECT = 0x0200;
+
+    /*TODO*///
 /*TODO*////* automatically extend the palette creating a darker copy for shadows */
 /*TODO*///#define VIDEO_HAS_SHADOWS			0x0400
 /*TODO*///

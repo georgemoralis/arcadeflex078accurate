@@ -3,7 +3,16 @@
  */
 package arcadeflex.v078.mame;
 
-import static common.libc.cstdio.printf;
+//generic imports
+import static arcadeflex.v078.generic.funcPtr.*;
+//mame imports
+import static arcadeflex.v078.mame.common.*;
+import static arcadeflex.v078.mame.driverH.*;
+import static arcadeflex.v078.mame.mameH.*;
+//common imports
+import static common.libc.cstdio.*;
+
+import static arcadeflex.v078.AAdummy.driver.drivers;
 
 public class mame {
 
@@ -135,19 +144,19 @@ public class mame {
 /*TODO*///void *record;	/* for -record */
 /*TODO*///void *playback; /* for -playback */
     static int bailing;/* set to 1 if the startup is aborted to prevent multiple error messages */
- /*TODO*///
-/*TODO*////* the active machine */
-/*TODO*///static struct RunningMachine active_machine;
-/*TODO*///struct RunningMachine *Machine = &active_machine;
-/*TODO*///
-/*TODO*////* the active game driver */
-/*TODO*///static const struct GameDriver *gamedrv;
-/*TODO*///static struct InternalMachineDriver internal_drv;
-/*TODO*///
-/*TODO*////* various game options filled in by the OSD */
-/*TODO*///struct GameOptions options;
-/*TODO*///
-/*TODO*////* the active video display */
+
+ /* the active machine */
+    public static RunningMachine active_machine;
+    public static RunningMachine Machine = active_machine;
+
+    /* the active game driver */
+    static GameDriver gamedrv;
+    static InternalMachineDriver internal_drv;
+
+    /* various game options filled in by the OSD */
+    public static GameOptions options =new GameOptions();
+
+    /*TODO*////* the active video display */
 /*TODO*///static struct mame_display current_display;
 /*TODO*///static UINT8 visible_area_changed;
 /*TODO*///
@@ -192,7 +201,6 @@ public class mame {
 /*TODO*///	mame_chd_write,
 /*TODO*///	mame_chd_length
 /*TODO*///};
-
     /**
      * *************************************************************************
      *
@@ -226,32 +234,29 @@ public class mame {
     -------------------------------------------------*/
     public static int run_game(int game) {
         int err = 1;
-        throw new UnsupportedOperationException("Unsupported");
-        /*TODO*///
-/*TODO*///	begin_resource_tracking();
-/*TODO*///
-/*TODO*///
-/*TODO*///	/* first give the machine a good cleaning */
-/*TODO*///	memset(Machine, 0, sizeof(Machine));
-/*TODO*///
-/*TODO*///	/* initialize the driver-related variables in the Machine */
-/*TODO*///	Machine->gamedrv = gamedrv = drivers[game];
-/*TODO*///	expand_machine_driver(gamedrv->drv, &internal_drv);
-/*TODO*///	Machine->drv = &internal_drv;
-/*TODO*///
-/*TODO*///	/* initialize the game options */
-/*TODO*///	if (init_game_options())
-/*TODO*///		return 1;
-/*TODO*///
-/*TODO*///	/* if we're coming in with a savegame request, process it now */
+        begin_resource_tracking();
+
+        /* initialize the driver-related variables in the Machine */
+        Machine.gamedrv = gamedrv = drivers[game];
+        expand_machine_driver(gamedrv.drv, internal_drv);
+        Machine.drv = internal_drv;
+
+        /* initialize the game options */
+        if (init_game_options() != 0) {
+            return 1;
+        }
+
+        /*TODO*///	/* if we're coming in with a savegame request, process it now */
 /*TODO*///	if (options.savegame)
 /*TODO*///		cpu_loadsave_schedule(LOADSAVE_LOAD, options.savegame);
 /*TODO*///	else
 /*TODO*///		cpu_loadsave_reset();
-/*TODO*///
-/*TODO*///	/* here's the meat of it all */
-/*TODO*///	bailing = 0;
-/*TODO*///
+
+        /* here's the meat of it all */
+        bailing = 0;
+
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///
 /*TODO*///	/* let the OSD layer start up first */
 /*TODO*///	if (osd_init())
 /*TODO*///		bail_and_print("Unable to initialize system");
@@ -282,6 +287,7 @@ public class mame {
 /*TODO*///	end_resource_tracking();
 /*TODO*///	return err;
     }
+
     /*TODO*///
 /*TODO*///
 /*TODO*///
@@ -563,24 +569,20 @@ public class mame {
 /*TODO*///	palette_set_global_brightness_adjust(pause ? options.pause_bright : 1.00);
 /*TODO*///	schedule_full_refresh();
 /*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	expand_machine_driver - construct a machine
-/*TODO*///	driver from the macroized state
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///void expand_machine_driver(void (*constructor)(struct InternalMachineDriver *), struct InternalMachineDriver *output)
-/*TODO*///{
-/*TODO*///	/* keeping this function allows us to pre-init the driver before constructing it */
-/*TODO*///	memset(output, 0, sizeof(*output));
-/*TODO*///	(*constructor)(output);
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
+
+    /*-------------------------------------------------
+	expand_machine_driver - construct a machine
+	driver from the macroized state
+    -------------------------------------------------*/
+    public static void expand_machine_driver(MachineHandlerPtr constructor, InternalMachineDriver output) {
+        /* keeping this function allows us to pre-init the driver before constructing it */
+        if (output == null) {
+            output = new InternalMachineDriver();
+        }
+        (constructor).handler(output);
+    }
+
+    /*TODO*////*-------------------------------------------------
 /*TODO*///	vh_open - start up the video system
 /*TODO*///-------------------------------------------------*/
 /*TODO*///
@@ -751,24 +753,22 @@ public class mame {
 /*TODO*///}
 /*TODO*///
 /*TODO*///
-/*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	init_game_options - initialize the various
-/*TODO*///	game options
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///static int init_game_options(void)
-/*TODO*///{
-/*TODO*///	/* copy some settings into easier-to-handle variables */
-/*TODO*///	record	   = options.record;
+
+    /*-------------------------------------------------
+	init_game_options - initialize the various
+	game options
+-------------------------------------------------*/
+    static int init_game_options() {
+        /* copy some settings into easier-to-handle variables */
+ /*TODO*///	record	   = options.record;
 /*TODO*///	playback   = options.playback;
-/*TODO*///
-/*TODO*///	/* determine the color depth */
-/*TODO*///	Machine->color_depth = 16;
-/*TODO*///	alpha_active = 0;
-/*TODO*///	if (Machine->drv->video_attributes & VIDEO_RGB_DIRECT)
-/*TODO*///	{
-/*TODO*///		/* first pick a default */
+
+        /* determine the color depth */
+        Machine.color_depth = 16;
+        /*TODO*///	alpha_active = 0;
+        if ((Machine.drv.video_attributes & VIDEO_RGB_DIRECT) != 0) {
+            throw new UnsupportedOperationException("Unsupported");
+            /*TODO*///		/* first pick a default */
 /*TODO*///		if (Machine->drv->video_attributes & VIDEO_NEEDS_6BITS_PER_GUN)
 /*TODO*///			Machine->color_depth = 32;
 /*TODO*///		else
@@ -781,22 +781,26 @@ public class mame {
 /*TODO*///		/* enable alpha for direct video modes */
 /*TODO*///		alpha_active = 1;
 /*TODO*///		alpha_init();
-/*TODO*///	}
-/*TODO*///
-/*TODO*///	/* update the vector width/height with defaults */
-/*TODO*///	if (options.vector_width == 0) options.vector_width = 640;
-/*TODO*///	if (options.vector_height == 0) options.vector_height = 480;
-/*TODO*///
-/*TODO*///	/* initialize the samplerate */
-/*TODO*///	Machine->sample_rate = options.samplerate;
-/*TODO*///
-/*TODO*///	/* get orientation right */
-/*TODO*///	Machine->orientation = ROT0;
-/*TODO*///	Machine->ui_orientation = options.ui_orientation;
-/*TODO*///
-/*TODO*///	return 0;
-/*TODO*///}
-/*TODO*///
+        }
+
+        /* update the vector width/height with defaults */
+        if (options.vector_width == 0) {
+            options.vector_width = 640;
+        }
+        if (options.vector_height == 0) {
+            options.vector_height = 480;
+        }
+
+        /* initialize the samplerate */
+        Machine.sample_rate = options.samplerate;
+
+        /* get orientation right */
+        Machine.orientation = ROT0;
+        Machine.ui_orientation = options.ui_orientation;
+
+        return 0;
+    }
+    /*TODO*///
 /*TODO*///
 /*TODO*///
 /*TODO*////*-------------------------------------------------

@@ -13,6 +13,7 @@ import static common.libc.cstring.*;
 
 //just for testing!!!! remove it
 import static arcadeflex.v078.AAdummy.driver.*;
+import static arcadeflex.v078.mame.mame.options;
 
 public class config {
 
@@ -21,8 +22,8 @@ public class config {
 /*TODO*///static int curlogsize;
 /*TODO*///static int errorlog;
 /*TODO*///static int erroroslog;
-/*TODO*///static int showconfig;
-/*TODO*///static int showusage;
+    static int showconfig;
+    /*TODO*///static int showusage;
 /*TODO*///static int readconfig;
 /*TODO*///static int createconfig;
 /*TODO*///extern int verbose;
@@ -126,7 +127,26 @@ public class config {
 /*TODO*///}
 /*TODO*///
 /*TODO*///
-/* struct definitions */
+
+    static RcAssignFuncHandlerPtr assign_skip_disclaimer = new RcAssignFuncHandlerPtr() {
+        @Override
+        public void handler(int value) {
+            options.skip_disclaimer = value;
+        }
+    };
+    static RcAssignFuncHandlerPtr assign_showconfig = new RcAssignFuncHandlerPtr() {
+        @Override
+        public void handler(int value) {
+            showconfig = value;
+        }
+    };
+    static RcAssignFuncHandlerPtr assign_samplerate = new RcAssignFuncHandlerPtr() {
+        @Override
+        public void handler(int value) {
+            options.samplerate = value;
+        }
+    };
+    /* struct definitions */
     static rc_option opts[] = {
         /* name, shortname, type, dest, deflt, min, max, func, help */
         new rc_option(null, null, rc_link, frontend_opts, null, 0, 0, null, null),
@@ -134,13 +154,9 @@ public class config {
         /*TODO*///	{ NULL, NULL, rc_link, video_opts, NULL, 0,	0, NULL, NULL },
         /*TODO*///	{ NULL, NULL, rc_link, sound_opts, NULL, 0,	0, NULL, NULL },
         /*TODO*///	{ NULL, NULL, rc_link, input_opts, NULL, 0,	0, NULL, NULL },
-        /*TODO*///#ifdef MESS
-        /*TODO*///	{ NULL, NULL, rc_link, mess_opts, NULL, 0,	0, NULL, NULL },
-        /*TODO*///#endif
-        /*TODO*///
         /*TODO*///	/* options supported by the mame core */
         /*TODO*///	/* video */
-        /*TODO*///	{ "Mame CORE video options", NULL, rc_seperator, NULL, NULL, 0, 0, NULL, NULL },
+        new rc_option("Mame CORE video options", null, rc_seperator, null, null, 0, 0, null, null),
         /*TODO*///	{ "norotate", NULL, rc_bool, &video_norotate, "0", 0, 0, NULL, "do not apply rotation" },
         /*TODO*///	{ "ror", NULL, rc_bool, &video_ror, "0", 0, 0, NULL, "rotate screen clockwise" },
         /*TODO*///	{ "rol", NULL, rc_bool, &video_rol, "0", 0, 0, NULL, "rotate screen anti-clockwise" },
@@ -154,7 +170,7 @@ public class config {
         /*TODO*///	{ "pause_brightness", NULL, rc_float, &options.pause_bright, "0.65", 0.5, 2.0, NULL, "additional pause brightness"},
         /*TODO*///
         /*TODO*///	/* vector */
-        /*TODO*///	{ "Mame CORE vector " GAMENOUN " options", NULL, rc_seperator, NULL, NULL, 0, 0, NULL, NULL },
+        new rc_option("Mame CORE vector game options", null, rc_seperator, null, null, 0, 0, null, null),
         /*TODO*///	{ "antialias", "aa", rc_bool, &options.antialias, "1", 0, 0, NULL, "draw antialiased vectors" },
         /*TODO*///	{ "translucency", "tl", rc_bool, &options.translucency, "1", 0, 0, NULL, "draw translucent vectors" },
         /*TODO*///	{ "beam", NULL, rc_float, &f_beam, "1.0", 1.0, 16.0, video_set_beam, "set beam width in vector " GAMESNOUN },
@@ -162,20 +178,20 @@ public class config {
         /*TODO*///	{ "intensity", NULL, rc_float, &f_intensity, "1.5", 0.5, 3.0, video_set_intensity, "set intensity in vector " GAMESNOUN },
         /*TODO*///
         /*TODO*///	/* sound */
-        /*TODO*///	{ "Mame CORE sound options", NULL, rc_seperator, NULL, NULL, 0, 0, NULL, NULL },
-        /*TODO*///	{ "samplerate", "sr", rc_int, &options.samplerate, "44100", 5000, 50000, NULL, "set samplerate" },
+        new rc_option("Mame CORE sound options", null, rc_seperator, null, null, 0, 0, null, null),
+        new rc_option("samplerate", "sr", rc_int, assign_samplerate, "44100", 5000, 50000, null, "set samplerate"),
         /*TODO*///	{ "samples", NULL, rc_bool, &options.use_samples, "1", 0, 0, NULL, "use samples" },
         /*TODO*///	{ "resamplefilter", NULL, rc_bool, &options.use_filter, "1", 0, 0, NULL, "resample if samplerate does not match" },
         /*TODO*///	{ "sound", NULL, rc_bool, &enable_sound, "1", 0, 0, NULL, "enable/disable sound and sound CPUs" },
         /*TODO*///	{ "volume", "vol", rc_int, &attenuation, "0", -32, 0, NULL, "volume (range [-32,0])" },
         /*TODO*///
         /*TODO*///	/* misc */
-        /*TODO*///	{ "Mame CORE misc options", NULL, rc_seperator, NULL, NULL, 0, 0, NULL, NULL },
-        /*TODO*///	{ "artwork", "art", rc_bool, &use_artwork, "1", 0, 0, NULL, "use additional " GAMENOUN " artwork (sets default for specific options below)" },
+        new rc_option("Mame CORE misc options", null, rc_seperator, null, null, 0, 0, null, null),
+        /*TODO*///	{ "artwork", "art", rc_bool, &use_artwork, "1", 0, 0, NULL, "use additional game artwork (sets default for specific options below)" },
         /*TODO*///	{ "use_backdrops", "backdrop", rc_bool, &use_backdrops, "1", 0, 0, NULL, "use backdrop artwork" },
         /*TODO*///	{ "use_overlays", "overlay", rc_bool, &use_overlays, "1", 0, 0, NULL, "use overlay artwork" },
         /*TODO*///	{ "use_bezels", "bezel", rc_bool, &use_bezels, "1", 0, 0, NULL, "use bezel artwork" },
-        /*TODO*///	{ "artwork_crop", "artcrop", rc_bool, &options.artwork_crop, "0", 0, 0, NULL, "crop artwork to " GAMENOUN " screen only" },
+        /*TODO*///	{ "artwork_crop", "artcrop", rc_bool, &options.artwork_crop, "0", 0, 0, NULL, "crop artwork to game screen only" },
         /*TODO*///	{ "artwork_resolution", "artres", rc_int, &options.artwork_res, "0", 0, 0, NULL, "artwork resolution (0 for auto)" },
         /*TODO*///	{ "cheat", "c", rc_bool, &options.cheat, "0", 0, 0, NULL, "enable/disable cheat subsystem" },
         /*TODO*///	{ "debug", "d", rc_bool, &options.mame_debug, "0", 0, 0, NULL, "enable/disable debugger (only if available)" },
@@ -184,15 +200,15 @@ public class config {
         /*TODO*///	{ "log", NULL, rc_bool, &errorlog, "0", 0, 0, init_errorlog, "generate error.log" },
         /*TODO*///	{ "maxlogsize", NULL, rc_int, &maxlogsize, "10000", 1, 2000000, NULL, "maximum error.log size (in KB)" },
         /*TODO*///	{ "oslog", NULL, rc_bool, &erroroslog, "0", 0, 0, NULL, "output error log to debugger" },
-        /*TODO*///	{ "skip_disclaimer", NULL, rc_bool, &options.skip_disclaimer, "0", 0, 0, NULL, "skip displaying the disclaimer screen" },
-        /*TODO*///	{ "skip_gameinfo", NULL, rc_bool, &options.skip_gameinfo, "0", 0, 0, NULL, "skip displaying the " GAMENOUN " info screen" },
+        new rc_option("skip_disclaimer", null, rc_bool, assign_skip_disclaimer, "0", 0, 0, null, "skip displaying the disclaimer screen"),
+        /*TODO*///	{ "skip_gameinfo", NULL, rc_bool, &options.skip_gameinfo, "0", 0, 0, NULL, "skip displaying the game info screen" },
         /*TODO*///	{ "crconly", NULL, rc_bool, &options.crc_only, "0", 0, 0, NULL, "use only CRC for all integrity checks" },
         /*TODO*///	{ "bios", NULL, rc_string, &options.bios, "default", 0, 14, NULL, "change system bios" },
         /*TODO*///
         /*TODO*///	/* config options */
         /*TODO*///	{ "Configuration options", NULL, rc_seperator, NULL, NULL, 0, 0, NULL, NULL },
         /*TODO*///	{ "createconfig", "cc", rc_set_int, &createconfig, NULL, 1, 0, NULL, "create the default configuration file" },
-        /*TODO*///	{ "showconfig",	"sc", rc_set_int, &showconfig, NULL, 1, 0, NULL, "display running parameters in rc style" },
+        new rc_option("showconfig", "sc", rc_set_int, assign_showconfig, null, 1, 0, null, "display running parameters in rc style"),
         /*TODO*///	{ "showusage", "su", rc_set_int, &showusage, NULL, 1, 0, NULL, "show this help" },
         /*TODO*///	{ "readconfig",	"rc", rc_bool, &readconfig, "1", 0, 0, NULL, "enable/disable loading of configfiles" },
         /*TODO*///	{ "verbose", "v", rc_bool, &verbose, "0", 0, 0, NULL, "display additional diagnostic information" },
@@ -436,7 +452,7 @@ public class config {
 /*TODO*///
 /*TODO*///	if (showusage)
 /*TODO*///	{
-/*TODO*///		fprintf(stdout, "Usage: %s [" GAMENOUN "] [options]\n" "Options:\n", cmd_name);
+/*TODO*///		fprintf(stdout, "Usage: %s [" game "] [options]\n" "Options:\n", cmd_name);
 /*TODO*///
 /*TODO*///		/* actual help message */
 /*TODO*///		rc_print_help(rc, stdout);
@@ -475,7 +491,7 @@ public class config {
 /*TODO*///				{
 /*TODO*///					game_index = i;
 /*TODO*///					gamename = (char *)drivers[i]->name;
-/*TODO*///					printf("Playing back previously recorded " GAMENOUN " %s (%s) [press return]\n",
+/*TODO*///					printf("Playing back previously recorded " game " %s (%s) [press return]\n",
 /*TODO*///							drivers[game_index]->name,drivers[game_index]->description);
 /*TODO*///					getchar();
 /*TODO*///					break;
