@@ -167,33 +167,33 @@ public class mameH {
 /*TODO*///		mame_file *	language_file;	/* handle to file for localization */
 /*TODO*///	
 /*TODO*///		int		mame_debug;		/* 1 to enable debugging */
-/*TODO*///		int		cheat;			/* 1 to enable cheating */
-/*TODO*///		int 	gui_host;		/* 1 to tweak some UI-related things for better GUI integration */
+        public int cheat;/* 1 to enable cheating */
+        public int gui_host;/* 1 to tweak some UI-related things for better GUI integration */
         public int skip_disclaimer;/* 1 to skip the disclaimer screen at startup */
- /*TODO*///		int 	skip_gameinfo;		/* 1 to skip the game info screen at startup */
-/*TODO*///	
+        public int skip_gameinfo;/* 1 to skip the game info screen at startup */
+
         public int samplerate;/* sound sample playback rate, in Hz */
- /*TODO*///		int		use_samples;	/* 1 to enable external .wav samples */
-/*TODO*///		int		use_filter;		/* 1 to enable FIR filter on final mixer output */
-/*TODO*///	
-/*TODO*///		float	brightness;		/* brightness of the display */
-/*TODO*///		float	pause_bright;		/* additional brightness when in pause */
-/*TODO*///		float	gamma;			/* gamma correction of the display */
-/*TODO*///		int		color_depth;	/* 15, 16, or 32, any other value means auto */
+        public int use_samples;/* 1 to enable external .wav samples */
+        public int use_filter;/* 1 to enable FIR filter on final mixer output */
+
+        public float brightness;/* brightness of the display */
+        public float pause_bright;/* additional brightness when in pause */
+        public float gamma;/* gamma correction of the display */
+        public int color_depth;/* 15, 16, or 32, any other value means auto */
         public int vector_width;/* requested width for vector games; 0 means default (640) */
         public int vector_height;/* requested height for vector games; 0 means default (480) */
         public int ui_orientation;/* orientation of the UI relative to the video */
+
+        public int beam;/* vector beam width */
+        public float vector_flicker;/* vector beam flicker effect control */
+        public float vector_intensity;/* vector beam intensity */
+        public int translucency;/* 1 to enable translucency on vectors */
+        public int antialias;/* 1 to enable antialiasing on vectors */
+
+        public int use_artwork;/* bitfield indicating which artwork pieces to use */
+        public int artwork_res;/* 1 for 1x game scaling, 2 for 2x */
+        public int artwork_crop;/* 1 to crop artwork to the game screen */
  /*TODO*///	
-/*TODO*///		int		beam;			/* vector beam width */
-/*TODO*///		float	vector_flicker;	/* vector beam flicker effect control */
-/*TODO*///		float	vector_intensity;/* vector beam intensity */
-/*TODO*///		int		translucency;	/* 1 to enable translucency on vectors */
-/*TODO*///		int 	antialias;		/* 1 to enable antialiasing on vectors */
-/*TODO*///	
-/*TODO*///		int		use_artwork;	/* bitfield indicating which artwork pieces to use */
-/*TODO*///		int		artwork_res;	/* 1 for 1x game scaling, 2 for 2x */
-/*TODO*///		int		artwork_crop;	/* 1 to crop artwork to the game screen */
-/*TODO*///	
 /*TODO*///		char	savegame;		/* character representing a savegame to load */
 /*TODO*///		int     crc_only;       /* specify if only CRC should be used as checksum */
 /*TODO*///		char *	bios;			/* specify system bios (if used), 0 is default */
@@ -202,16 +202,6 @@ public class mameH {
 /*TODO*///		int		debug_height;	/* requested height of debugger bitmap */
 /*TODO*///		int		debug_depth;	/* requested depth of debugger bitmap */
 /*TODO*///	
-/*TODO*///		#ifdef MESS
-/*TODO*///		UINT32 ram;
-/*TODO*///		struct ImageFile image_files[MAX_IMAGES];
-/*TODO*///		int		image_count;
-/*TODO*///		int		(*mess_printf_output)(const char *fmt, va_list arg);
-/*TODO*///		int disable_normal_ui;
-/*TODO*///	
-/*TODO*///		int		min_width;		/* minimum width for the display */
-/*TODO*///		int		min_height;		/* minimum height for the display */
-/*TODO*///		#endif
     }
     /*TODO*///	
 /*TODO*///	

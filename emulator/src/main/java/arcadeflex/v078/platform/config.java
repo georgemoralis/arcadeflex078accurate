@@ -18,15 +18,15 @@ import static arcadeflex.v078.mame.mame.options;
 public class config {
 
     /*TODO*///static FILE *logfile;
-/*TODO*///static int maxlogsize;
-/*TODO*///static int curlogsize;
-/*TODO*///static int errorlog;
-/*TODO*///static int erroroslog;
+    static int maxlogsize;
+    static int curlogsize;
+    static int errorlog;
+    static int erroroslog;
     static int showconfig;
-    /*TODO*///static int showusage;
-/*TODO*///static int readconfig;
-/*TODO*///static int createconfig;
-/*TODO*///extern int verbose;
+    static int showusage;
+    static int readconfig;
+    static int createconfig;
+    /*TODO*///extern int verbose;
 /*TODO*///
     static rc_struct rc;
     /*TODO*///
@@ -39,60 +39,62 @@ public class config {
 /*TODO*///static char *recordname;
     static String gamename;
     static String rompath_extra;
+
+    static float f_beam;
+    static float f_flicker;
+    static float f_intensity;
+
+    static int enable_sound = 1;
+
+    static int use_artwork = 1;
+    static int use_backdrops = -1;
+    static int use_overlays = -1;
+    static int use_bezels = -1;
+
+    static int video_norotate = 0;
+    static int video_flipy = 0;
+    static int video_flipx = 0;
+    static int video_ror = 0;
+    static int video_rol = 0;
+    static int video_autoror = 0;
+    static int video_autorol = 0;
+
+    public static RcFuncHandlerPtr video_set_beam = new RcFuncHandlerPtr() {
+        public int handler(rc_option option, String arg, int priority) {
+            options.beam = (int) (f_beam * 0x00010000);
+            if (options.beam < 0x00010000) {
+                options.beam = 0x00010000;
+            }
+            if (options.beam > 0x00100000) {
+                options.beam = 0x00100000;
+            }
+            option.priority = priority;
+            return 0;
+        }
+    };
+
+    public static RcFuncHandlerPtr video_set_flicker = new RcFuncHandlerPtr() {
+        public int handler(rc_option option, String arg, int priority) {
+            options.vector_flicker = (int) (f_flicker * 2.55);
+            if (options.vector_flicker < 0) {
+                options.vector_flicker = 0;
+            }
+            if (options.vector_flicker > 255) {
+                options.vector_flicker = 255;
+            }
+            option.priority = priority;
+            return 0;
+        }
+    };
+
+    public static RcFuncHandlerPtr video_set_intensity = new RcFuncHandlerPtr() {
+        public int handler(rc_option option, String arg, int priority) {
+            options.vector_intensity = f_intensity;
+            option.priority = priority;
+            return 0;
+        }
+    };
     /*TODO*///
-/*TODO*///static float f_beam;
-/*TODO*///static float f_flicker;
-/*TODO*///static float f_intensity;
-/*TODO*///
-/*TODO*///static int enable_sound = 1;
-/*TODO*///
-/*TODO*///static int use_artwork = 1;
-/*TODO*///static int use_backdrops = -1;
-/*TODO*///static int use_overlays = -1;
-/*TODO*///static int use_bezels = -1;
-/*TODO*///
-/*TODO*///static int video_norotate = 0;
-/*TODO*///static int video_flipy = 0;
-/*TODO*///static int video_flipx = 0;
-/*TODO*///static int video_ror = 0;
-/*TODO*///static int video_rol = 0;
-/*TODO*///static int video_autoror = 0;
-/*TODO*///static int video_autorol = 0;
-/*TODO*///
-/*TODO*///static char *win_basename(char *filename);
-/*TODO*///static char *win_dirname(char *filename);
-/*TODO*///static char *win_strip_extension(char *filename);
-/*TODO*///
-/*TODO*///
-/*TODO*///static int video_set_beam(struct rc_option *option, const char *arg, int priority)
-/*TODO*///{
-/*TODO*///	options.beam = (int)(f_beam * 0x00010000);
-/*TODO*///	if (options.beam < 0x00010000)
-/*TODO*///		options.beam = 0x00010000;
-/*TODO*///	if (options.beam > 0x00100000)
-/*TODO*///		options.beam = 0x00100000;
-/*TODO*///	option->priority = priority;
-/*TODO*///	return 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///static int video_set_flicker(struct rc_option *option, const char *arg, int priority)
-/*TODO*///{
-/*TODO*///	options.vector_flicker = (int)(f_flicker * 2.55);
-/*TODO*///	if (options.vector_flicker < 0)
-/*TODO*///		options.vector_flicker = 0;
-/*TODO*///	if (options.vector_flicker > 255)
-/*TODO*///		options.vector_flicker = 255;
-/*TODO*///	option->priority = priority;
-/*TODO*///	return 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///static int video_set_intensity(struct rc_option *option, const char *arg, int priority)
-/*TODO*///{
-/*TODO*///	options.vector_intensity = f_intensity;
-/*TODO*///	option->priority = priority;
-/*TODO*///	return 0;
-/*TODO*///}
-/*TODO*///
 /*TODO*///static int video_set_debugres(struct rc_option *option, const char *arg, int priority)
 /*TODO*///{
 /*TODO*///	if (!strcmp(arg, "auto"))
@@ -127,7 +129,6 @@ public class config {
 /*TODO*///}
 /*TODO*///
 /*TODO*///
-
     static RcAssignFuncHandlerPtr assign_skip_disclaimer = new RcAssignFuncHandlerPtr() {
         @Override
         public void handler(int value) {
@@ -144,6 +145,18 @@ public class config {
         @Override
         public void handler(int value) {
             options.samplerate = value;
+        }
+    };
+    static RcAssignFuncHandlerPtr assign_use_samples = new RcAssignFuncHandlerPtr() {
+        @Override
+        public void handler(int value) {
+            options.use_samples = value;
+        }
+    };
+    static RcAssignFuncHandlerPtr assign_use_filter = new RcAssignFuncHandlerPtr() {
+        @Override
+        public void handler(int value) {
+            options.use_filter = value;
         }
     };
     /* struct definitions */
@@ -180,8 +193,8 @@ public class config {
         /*TODO*///	/* sound */
         new rc_option("Mame CORE sound options", null, rc_seperator, null, null, 0, 0, null, null),
         new rc_option("samplerate", "sr", rc_int, assign_samplerate, "44100", 5000, 50000, null, "set samplerate"),
-        /*TODO*///	{ "samples", NULL, rc_bool, &options.use_samples, "1", 0, 0, NULL, "use samples" },
-        /*TODO*///	{ "resamplefilter", NULL, rc_bool, &options.use_filter, "1", 0, 0, NULL, "resample if samplerate does not match" },
+        new rc_option("samples", null, rc_bool, assign_use_samples, "1", 0, 0, null, "use samples"),
+        new rc_option("resamplefilter", null, rc_bool, assign_use_filter, "1", 0, 0, null, "resample if samplerate does not match"),
         /*TODO*///	{ "sound", NULL, rc_bool, &enable_sound, "1", 0, 0, NULL, "enable/disable sound and sound CPUs" },
         /*TODO*///	{ "volume", "vol", rc_int, &attenuation, "0", -32, 0, NULL, "volume (range [-32,0])" },
         /*TODO*///
