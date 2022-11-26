@@ -5,18 +5,16 @@
 package arcadeflex.v078.mame;
 
 //mame imports
+import arcadeflex.v078.mame.commonH.GameSamples;
+import arcadeflex.v078.mame.drawgfxH.GfxElement;
+import arcadeflex.v078.mame.drawgfxH.rectangle;
 import static arcadeflex.v078.mame.driverH.*;
 
 public class mameH {
 
-    /*TODO*///	/***************************************************************************
-/*TODO*///	
-/*TODO*///		Parameters
-/*TODO*///	
-/*TODO*///	***************************************************************************/
-/*TODO*///	
-/*TODO*///	#define MAX_GFX_ELEMENTS 32
-/*TODO*///	#define MAX_MEMORY_REGIONS 32
+    public static final int MAX_GFX_ELEMENTS = 32;
+
+    /*TODO*///	#define MAX_MEMORY_REGIONS 32
 /*TODO*///	
 /*TODO*///	#ifndef MESS
 /*TODO*///	#define APPNAME					"MAME"
@@ -45,92 +43,74 @@ public class mameH {
 /*TODO*///		UINT32		type;
 /*TODO*///		UINT32		flags;
 /*TODO*///	};
+/*TODO*///
     public static class RunningMachine {
 
         /* ----- game-related information ----- */
 
  /* points to the definition of the game machine */
         public GameDriver gamedrv;
+
         /* points to the constructed MachineDriver */
         public InternalMachineDriver drv;
-        /*TODO*///		/* array of memory regions */
-/*TODO*///		struct RegionInfo		memory_region[MAX_MEMORY_REGIONS];
-/*TODO*///	
-/*TODO*///	
-/*TODO*///		/* ----- video-related information ----- */
-/*TODO*///	
-/*TODO*///		/* array of pointers to graphic sets (chars, sprites) */
-/*TODO*///		struct GfxElement *		gfx[MAX_GFX_ELEMENTS];
-/*TODO*///	
-/*TODO*///		/* main bitmap to render to (but don't do it directly!) */
-/*TODO*///		struct mame_bitmap *	scrbitmap;
-/*TODO*///	
-/*TODO*///		/* current visible area, and a prerotated one adjusted for orientation */
-/*TODO*///		struct rectangle 		visible_area;
-/*TODO*///		struct rectangle		absolute_visible_area;
-/*TODO*///	
-/*TODO*///		/* remapped palette pen numbers. When you write directly to a bitmap in a
-/*TODO*///		   non-paletteized mode, use this array to look up the pen number. For example,
-/*TODO*///		   if you want to use color #6 in the palette, use pens[6] instead of just 6. */
-/*TODO*///		pen_t *					pens;
-/*TODO*///	
-/*TODO*///		/* lookup table used to map gfx pen numbers to color numbers */
-/*TODO*///		UINT16 *				game_colortable;
-/*TODO*///	
-/*TODO*///		/* the above, already remapped through Machine->pens */
-/*TODO*///		pen_t *					remapped_colortable;
+        /*TODO*///
+/*TODO*///	/* array of memory regions */
+/*TODO*///	struct RegionInfo		memory_region[MAX_MEMORY_REGIONS];
+/*TODO*///
+/*TODO*///
+/*TODO*///	/* ----- video-related information ----- */
+/*TODO*///
+        /* array of pointers to graphic sets (chars, sprites) */
+        public GfxElement gfx[] = new GfxElement[MAX_GFX_ELEMENTS];
+        /*TODO*///	/* main bitmap to render to (but don't do it directly!) */
+/*TODO*///	struct mame_bitmap *	scrbitmap;
+/*TODO*///
+        /* current visible area, and a prerotated one adjusted for orientation */
+        public rectangle visible_area;
+        public rectangle absolute_visible_area;
 
-        /* video color depth: 16, 15 or 32 */
-        public int color_depth;
-        /* video orientation; obsolete; always set to 0 */
-        public int orientation;
+        /* remapped palette pen numbers. When you write directly to a bitmap in a
+	   non-paletteized mode, use this array to look up the pen number. For example,
+	   if you want to use color #6 in the palette, use pens[6] instead of just 6. */
+        public int[] /*pen_t *	 */ pens;
 
-        /* ----- audio-related information ----- */
- /* the digital audio sample rate; 0 if sound is disabled. */
-        public int sample_rate;
+        /*TODO*///	/* lookup table used to map gfx pen numbers to color numbers */
+/*TODO*///	UINT16 *				game_colortable;
+/*TODO*///
+/*TODO*///	/* the above, already remapped through Machine->pens */
+/*TODO*///	pen_t *					remapped_colortable;
+/*TODO*///
+        public int color_depth;/* video color depth: 16, 15 or 32 */
+        public int orientation;/* video orientation; obsolete; always set to 0 */
 
-        /*TODO*///		/* samples loaded from disk */
-/*TODO*///		struct GameSamples *	samples;
-/*TODO*///	
-/*TODO*///	
-/*TODO*///		/* ----- input-related information ----- */
-/*TODO*///	
-/*TODO*///		/* the input ports definition from the driver is copied here and modified */
-/*TODO*///		struct InputPort *		input_ports;
-/*TODO*///	
-/*TODO*///		/* original input_ports without modifications */
-/*TODO*///		struct InputPort *		input_ports_default;
-/*TODO*///	
-/*TODO*///	
-/*TODO*///		/* ----- user interface-related information ----- */
-/*TODO*///	
-/*TODO*///		/* font used by the user interface */
-/*TODO*///		struct GfxElement *		uifont;
-/*TODO*///	
-/*TODO*///		/* font parameters */
-/*TODO*///		int 					uifontwidth, uifontheight;
-/*TODO*///	
-/*TODO*///		/* user interface visible area */
-/*TODO*///		int 					uixmin, uiymin;
-/*TODO*///		int 					uiwidth, uiheight;
-/*TODO*///	
-/*TODO*///		/* user interface orientation */
-        public int ui_orientation;
-        /*TODO*///	
-/*TODO*///	
-/*TODO*///		/* ----- debugger-related information ----- */
-/*TODO*///	
-/*TODO*///		/* bitmap where the debugger is rendered */
-/*TODO*///		struct mame_bitmap *	debug_bitmap;
-/*TODO*///	
-/*TODO*///		/* pen array for the debugger, analagous to the pens above */
-/*TODO*///		pen_t *					debug_pens;
-/*TODO*///	
-/*TODO*///		/* colortable mapped through the pens, as for the game */
-/*TODO*///		pen_t *					debug_remapped_colortable;
-/*TODO*///	
-/*TODO*///		/* font used by the debugger */
-/*TODO*///		struct GfxElement *		debugger_font;
+
+ /* ----- audio-related information ----- */
+        public int sample_rate;/* the digital audio sample rate; 0 if sound is disabled. */
+        public GameSamples samples;/* samples loaded from disk */
+
+ /*TODO*///
+/*TODO*///	/* ----- input-related information ----- */
+/*TODO*///
+/*TODO*///	/* the input ports definition from the driver is copied here and modified */
+/*TODO*///	struct InputPort *		input_ports;
+/*TODO*///
+/*TODO*///	/* original input_ports without modifications */
+/*TODO*///	struct InputPort *		input_ports_default;
+/*TODO*///
+/*TODO*///
+/*TODO*///	/* ----- user interface-related information ----- */
+/*TODO*///
+/*TODO*///	/* font used by the user interface */
+/*TODO*///	struct GfxElement *		uifont;
+/*TODO*///
+/*TODO*///	/* font parameters */
+/*TODO*///	int 					uifontwidth, uifontheight;
+
+        /* user interface visible area */
+        public int uixmin, uiymin;
+        public int uiwidth, uiheight;
+
+        public int ui_orientation;/* user interface orientation */
     }
 
     /*TODO*///	/***************************************************************************

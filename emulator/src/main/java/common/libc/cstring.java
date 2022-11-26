@@ -1,10 +1,30 @@
 package common.libc;
 
+import static common.ptrLib.*;
+
 /**
  *
  * @author shadow
  */
 public class cstring {
+
+    /**
+     * memcpy
+     */
+    public static void memcpy(UBytePtr dst, UBytePtr src, int size) {
+        for (int i = 0; i < Math.min(size, src.memory.length); i++) {
+            dst.write(i, src.read(i));
+        }
+    }
+
+    /**
+     * memset
+     */
+    public static void memset(char[] dst, int value, int size) {
+        for (int mem = 0; mem < size; mem++) {
+            dst[mem] = (char) value;
+        }
+    }
 
     /**
      * strlen
@@ -92,7 +112,7 @@ public class cstring {
         {
             return null;
         } else {
-            return str.substring(found,str.length());
+            return str.substring(found, str.length());
         }
     }
 }

@@ -1,7 +1,7 @@
 /**
  * ported to 0.78
  */
-package arcadeflex.v078.mame.sound;
+package arcadeflex.v078.sound;
 
 import common.ptrLib.ShortPtr;
 
@@ -681,9 +681,9 @@ public class mixer {
 /*TODO*///	mixer_sh_start
 /*TODO*///***************************************************************************/
 /*TODO*///
-/*TODO*///int mixer_sh_start(void)
-/*TODO*///{
-/*TODO*///	struct mixer_channel_data *channel;
+    public static int mixer_sh_start() {
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///	struct mixer_channel_data *channel;
 /*TODO*///	int i;
 /*TODO*///
 /*TODO*///	/* reset all channels to their defaults */
@@ -713,16 +713,17 @@ public class mixer {
 /*TODO*///	mixer_sound_enabled = 1;
 /*TODO*///
 /*TODO*///	return 0;
-/*TODO*///}
-/*TODO*///
+    }
+
+    /*TODO*///
 /*TODO*///
 /*TODO*////***************************************************************************
 /*TODO*///	mixer_sh_stop
 /*TODO*///***************************************************************************/
 /*TODO*///
-/*TODO*///void mixer_sh_stop(void)
-/*TODO*///{
-/*TODO*///	struct mixer_channel_data *channel;
+    public static void mixer_sh_stop() {
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///	struct mixer_channel_data *channel;
 /*TODO*///	int i;
 /*TODO*///
 /*TODO*///	osd_stop_audio_stream();
@@ -734,8 +735,9 @@ public class mixer {
 /*TODO*///		filter_state_free(channel->left);
 /*TODO*///		filter_state_free(channel->right);
 /*TODO*///	}
-/*TODO*///}
-/*TODO*///
+    }
+
+    /*TODO*///
 /*TODO*////***************************************************************************
 /*TODO*///	mixer_update_channel
 /*TODO*///***************************************************************************/
@@ -769,9 +771,8 @@ public class mixer {
 /*TODO*///	mixer_sh_update
 /*TODO*///***************************************************************************/
 /*TODO*///
-/*TODO*///void mixer_sh_update(void)
-/*TODO*///{
-/*TODO*///	struct mixer_channel_data* channel;
+    public static void mixer_sh_update() {
+        /*TODO*///	struct mixer_channel_data* channel;
 /*TODO*///	unsigned accum_pos = accum_base;
 /*TODO*///	INT16 *mix;
 /*TODO*///	int sample;
@@ -865,8 +866,8 @@ public class mixer {
 /*TODO*///	accum_base = accum_pos;
 /*TODO*///
 /*TODO*///	profiler_mark(PROFILER_END);
-/*TODO*///}
-/*TODO*///
+    }
+
     /**
      * *************************************************************************
      * mixer_allocate_channel

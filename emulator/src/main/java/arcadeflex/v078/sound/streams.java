@@ -1,14 +1,14 @@
 /**
  * ported to 0.78
  */
-package arcadeflex.v078.mame.sound;
+package arcadeflex.v078.sound;
 
 //mame imports
 import static arcadeflex.v078.mame.mame.*;
 import static arcadeflex.v078.mame.sndintrf.*;
 //sound imports
-import static arcadeflex.v078.mame.sound.mixer.*;
-import static arcadeflex.v078.mame.sound.mixerH.*;
+import static arcadeflex.v078.sound.mixer.*;
+import static arcadeflex.v078.sound.mixerH.*;
 //common imports
 import static common.ptrLib.*;
 

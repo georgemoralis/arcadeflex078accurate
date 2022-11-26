@@ -63,15 +63,14 @@ public class drawgfxH {
 /*TODO*///   not be prerotated and will rely on GFX_SWAPXY.
 /*TODO*///*/
 /*TODO*///
-/*TODO*///struct GfxElement
-/*TODO*///{
-/*TODO*///	UINT16 width,height;
+    public static class GfxElement {
+
+        /*TODO*///	UINT16 width,height;
 /*TODO*///
 /*TODO*///	UINT32 total_elements;	/* total number of characters/sprites */
-/*TODO*///	UINT16 color_granularity;	/* number of colors for each color code */
-/*TODO*///							/* (for example, 4 for 2 bitplanes gfx) */
-/*TODO*///	UINT32 total_colors;
-/*TODO*///	pen_t *colortable;	/* map color codes to screen pens */
+        public int/*UINT16*/ color_granularity;/* number of colors for each color code (for example, 4 for 2 bitplanes gfx) */
+        public int/*UINT32*/ total_colors;
+        /*TODO*///	pen_t *colortable;	/* map color codes to screen pens */
 /*TODO*///	UINT32 *pen_usage;	/* an array of total_elements entries. */
 /*TODO*///						/* It is a table of the pens each character uses */
 /*TODO*///						/* (bit 0 = pen 0, and so on). This is used by */
@@ -81,23 +80,25 @@ public class drawgfxH {
 /*TODO*///	UINT32 line_modulo;	/* amount to add to get to the next line (usually = width) */
 /*TODO*///	UINT32 char_modulo;	/* = line_modulo * height */
 /*TODO*///	UINT32 flags;
-/*TODO*///};
-/*TODO*///
+    }
+
+    /*TODO*///
 /*TODO*///#define GFX_PACKED				1	/* two 4bpp pixels are packed in one byte of gfxdata */
 /*TODO*///#define GFX_SWAPXY				2	/* characters are mirrored along the top-left/bottom-right diagonal */
 /*TODO*///#define GFX_DONT_FREE_GFXDATA	4	/* gfxdata was not malloc()ed, so don't free it on exit */
 /*TODO*///
 /*TODO*///
-/*TODO*///struct GfxDecodeInfo
-/*TODO*///{
-/*TODO*///	int memory_region;	/* memory region where the data resides (usually 1) */
+    public static class GfxDecodeInfo {
+
+        /*TODO*///	int memory_region;	/* memory region where the data resides (usually 1) */
 /*TODO*///						/* -1 marks the end of the array */
 /*TODO*///	UINT32 start;	/* beginning of data to decode */
 /*TODO*///	struct GfxLayout *gfxlayout;
-/*TODO*///	UINT16 color_codes_start;	/* offset in the color lookup table where color codes start */
-/*TODO*///	UINT16 total_color_codes;	/* total number of color codes */
-/*TODO*///};
-/*TODO*///
+        public int/*UINT16*/ color_codes_start;/* offset in the color lookup table where color codes start */
+ /*TODO*///	UINT16 total_color_codes;	/* total number of color codes */
+    }
+
+    /*TODO*///
 /*TODO*///
     public static class rectangle {
 
@@ -130,18 +131,16 @@ public class drawgfxH {
 /*TODO*///
 /*TODO*///extern struct _alpha_cache alpha_cache;
 /*TODO*///
-/*TODO*///enum
-/*TODO*///{
-/*TODO*///	TRANSPARENCY_NONE,			/* opaque with remapping */
-/*TODO*///	TRANSPARENCY_NONE_RAW,		/* opaque with no remapping */
-/*TODO*///	TRANSPARENCY_PEN,			/* single pen transparency with remapping */
-/*TODO*///	TRANSPARENCY_PEN_RAW,		/* single pen transparency with no remapping */
-/*TODO*///	TRANSPARENCY_PENS,			/* multiple pen transparency with remapping */
-/*TODO*///	TRANSPARENCY_PENS_RAW,		/* multiple pen transparency with no remapping */
-/*TODO*///	TRANSPARENCY_COLOR,			/* single remapped pen transparency with remapping */
-/*TODO*///	TRANSPARENCY_PEN_TABLE,		/* special pen remapping modes (see DRAWMODE_xxx below) with remapping */
-/*TODO*///	TRANSPARENCY_PEN_TABLE_RAW,	/* special pen remapping modes (see DRAWMODE_xxx below) with no remapping */
-/*TODO*///	TRANSPARENCY_BLEND,			/* blend two bitmaps, shifting the source and ORing to the dest with remapping */
+    public static final int TRANSPARENCY_NONE = 0;/* opaque with remapping */
+    public static final int TRANSPARENCY_NONE_RAW = 1;/* opaque with no remapping */
+    public static final int TRANSPARENCY_PEN = 2;/* single pen transparency with remapping */
+    public static final int TRANSPARENCY_PEN_RAW = 3;/* single pen transparency with no remapping */
+    public static final int TRANSPARENCY_PENS = 4;/* multiple pen transparency with remapping */
+    public static final int TRANSPARENCY_PENS_RAW = 5;/* multiple pen transparency with no remapping */
+    public static final int TRANSPARENCY_COLOR = 6;/* single remapped pen transparency with remapping */
+    public static final int TRANSPARENCY_PEN_TABLE = 7;/* special pen remapping modes (see DRAWMODE_xxx below) with remapping */
+    public static final int TRANSPARENCY_PEN_TABLE_RAW = 8;/* special pen remapping modes (see DRAWMODE_xxx below) with no remapping */
+ /*TODO*///	TRANSPARENCY_BLEND,			/* blend two bitmaps, shifting the source and ORing to the dest with remapping */
 /*TODO*///	TRANSPARENCY_BLEND_RAW,		/* blend two bitmaps, shifting the source and ORing to the dest with no remapping */
 /*TODO*///	TRANSPARENCY_ALPHAONE,		/* single pen transparency, single pen alpha */
 /*TODO*///	TRANSPARENCY_ALPHA,			/* single pen transparency, other pens alpha */
@@ -297,14 +296,21 @@ public class drawgfxH {
 /*TODO*///void drawgfx_toggle_crosshair(void);
 /*TODO*///void draw_crosshair(struct mame_bitmap *bitmap,int x,int y,const struct rectangle *clip);
 /*TODO*///
-/*TODO*///INLINE void sect_rect(struct rectangle *dst, const struct rectangle *src)
-/*TODO*///{
-/*TODO*///	if (src->min_x > dst->min_x) dst->min_x = src->min_x;
-/*TODO*///	if (src->max_x < dst->max_x) dst->max_x = src->max_x;
-/*TODO*///	if (src->min_y > dst->min_y) dst->min_y = src->min_y;
-/*TODO*///	if (src->max_y < dst->max_y) dst->max_y = src->max_y;
-/*TODO*///}
-/*TODO*///
+    public static void sect_rect(rectangle dst, rectangle src) {
+        if (src.min_x > dst.min_x) {
+            dst.min_x = src.min_x;
+        }
+        if (src.max_x < dst.max_x) {
+            dst.max_x = src.max_x;
+        }
+        if (src.min_y > dst.min_y) {
+            dst.min_y = src.min_y;
+        }
+        if (src.max_y < dst.max_y) {
+            dst.max_y = src.max_y;
+        }
+    }
+    /*TODO*///
 /*TODO*///
 /*TODO*///#ifdef __cplusplus
 /*TODO*///}

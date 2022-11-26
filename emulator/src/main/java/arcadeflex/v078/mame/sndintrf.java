@@ -3,40 +3,44 @@
  */
 package arcadeflex.v078.mame;
 
+//generic imports
+import static arcadeflex.v078.generic.funcPtr.*;
+import static arcadeflex.v078.mame.driverH.*;
+import static arcadeflex.v078.mame.mame.*;
+import static arcadeflex.v078.mame.sndintrfH.*;
+//mame improts
+import static arcadeflex.v078.mame.timer.*;
+import static arcadeflex.v078.mame.timerH.*;
+//platform imports
+import static arcadeflex.v078.platform.config.*;
+//sound imports
+import static arcadeflex.v078.sound.mixer.*;
+import static arcadeflex.v078.sound.streams.*;
+import arcadeflex.v078.sound.customSound;
+import arcadeflex.v078.sound.dummySound;
+
 public class sndintrf {
 
-    /*TODO*///#include "driver.h"
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///  Many games use a master-slave CPU setup. Typically, the main CPU writes
-/*TODO*///  a command to some register, and then writes to another register to trigger
-/*TODO*///  an interrupt on the slave CPU (the interrupt might also be triggered by
-/*TODO*///  the first write). The slave CPU, notified by the interrupt, goes and reads
-/*TODO*///  the command.
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*///static int cleared_value = 0x00;
-/*TODO*///
-/*TODO*///static int latch,read_debug;
-/*TODO*///
-/*TODO*///
-/*TODO*///static void soundlatch_callback(int param)
-/*TODO*///{
-/*TODO*///	if (read_debug == 0 && latch != param)
-/*TODO*///		logerror("Warning: sound latch written before being read. Previous: %02x, new: %02x\n",latch,param);
-/*TODO*///	latch = param;
-/*TODO*///	read_debug = 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///WRITE_HANDLER( soundlatch_w )
-/*TODO*///{
-/*TODO*///	/* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
-/*TODO*///	timer_set(TIME_NOW,data,soundlatch_callback);
-/*TODO*///}
-/*TODO*///
+    static int cleared_value = 0x00;
+
+    static int latch, read_debug;
+
+    public static TimerCallbackHandlerPtr soundlatch_callback = new TimerCallbackHandlerPtr() {
+        public void handler(int param) {
+            if (read_debug == 0 && latch != param) {
+                logerror("Warning: sound latch written before being read. Previous: %02x, new: %02x\n", latch, param);
+            }
+            latch = param;
+            read_debug = 0;
+        }
+    };
+    public static WriteHandlerPtr soundlatch_w = new WriteHandlerPtr() {
+        public void handler(int offset, int data) {
+            /* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
+            timer_set(TIME_NOW, data, soundlatch_callback);
+        }
+    };
+    /*TODO*///
 /*TODO*///WRITE16_HANDLER( soundlatch_word_w )
 /*TODO*///{
 /*TODO*///	static data16_t word;
@@ -46,40 +50,44 @@ public class sndintrf {
 /*TODO*///	timer_set(TIME_NOW,word,soundlatch_callback);
 /*TODO*///}
 /*TODO*///
-/*TODO*///READ_HANDLER( soundlatch_r )
-/*TODO*///{
-/*TODO*///	read_debug = 1;
-/*TODO*///	return latch;
-/*TODO*///}
-/*TODO*///
+    public static ReadHandlerPtr soundlatch_r = new ReadHandlerPtr() {
+        public int handler(int offset) {
+            read_debug = 1;
+            return latch;
+        }
+    };
+    /*TODO*///
 /*TODO*///READ16_HANDLER( soundlatch_word_r )
 /*TODO*///{
 /*TODO*///	read_debug = 1;
 /*TODO*///	return latch;
 /*TODO*///}
 /*TODO*///
-/*TODO*///WRITE_HANDLER( soundlatch_clear_w )
-/*TODO*///{
-/*TODO*///	latch = cleared_value;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///static int latch2,read_debug2;
-/*TODO*///
-/*TODO*///static void soundlatch2_callback(int param)
-/*TODO*///{
-/*TODO*///	if (read_debug2 == 0 && latch2 != param)
-/*TODO*///		logerror("Warning: sound latch 2 written before being read. Previous: %02x, new: %02x\n",latch2,param);
-/*TODO*///	latch2 = param;
-/*TODO*///	read_debug2 = 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///WRITE_HANDLER( soundlatch2_w )
-/*TODO*///{
-/*TODO*///	/* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
-/*TODO*///	timer_set(TIME_NOW,data,soundlatch2_callback);
-/*TODO*///}
-/*TODO*///
+    public static WriteHandlerPtr soundlatch_clear_w = new WriteHandlerPtr() {
+        public void handler(int offset, int data) {
+            latch = cleared_value;
+        }
+    };
+
+    static int latch2, read_debug2;
+
+    public static TimerCallbackHandlerPtr soundlatch2_callback = new TimerCallbackHandlerPtr() {
+        public void handler(int param) {
+            if (read_debug2 == 0 && latch2 != param) {
+                logerror("Warning: sound latch 2 written before being read. Previous: %02x, new: %02x\n", latch2, param);
+            }
+            latch2 = param;
+            read_debug2 = 0;
+        }
+    };
+
+    public static WriteHandlerPtr soundlatch2_w = new WriteHandlerPtr() {
+        public void handler(int offset, int data) {
+            /* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
+            timer_set(TIME_NOW, data, soundlatch2_callback);
+        }
+    };
+    /*TODO*///
 /*TODO*///WRITE16_HANDLER( soundlatch2_word_w )
 /*TODO*///{
 /*TODO*///	static data16_t word;
@@ -89,40 +97,44 @@ public class sndintrf {
 /*TODO*///	timer_set(TIME_NOW,word,soundlatch2_callback);
 /*TODO*///}
 /*TODO*///
-/*TODO*///READ_HANDLER( soundlatch2_r )
-/*TODO*///{
-/*TODO*///	read_debug2 = 1;
-/*TODO*///	return latch2;
-/*TODO*///}
-/*TODO*///
+    public static ReadHandlerPtr soundlatch2_r = new ReadHandlerPtr() {
+        public int handler(int offset) {
+            read_debug2 = 1;
+            return latch2;
+        }
+    };
+    /*TODO*///
 /*TODO*///READ16_HANDLER( soundlatch2_word_r )
 /*TODO*///{
 /*TODO*///	read_debug2 = 1;
 /*TODO*///	return latch2;
 /*TODO*///}
 /*TODO*///
-/*TODO*///WRITE_HANDLER( soundlatch2_clear_w )
-/*TODO*///{
-/*TODO*///	latch2 = cleared_value;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///static int latch3,read_debug3;
-/*TODO*///
-/*TODO*///static void soundlatch3_callback(int param)
-/*TODO*///{
-/*TODO*///	if (read_debug3 == 0 && latch3 != param)
-/*TODO*///		logerror("Warning: sound latch 3 written before being read. Previous: %02x, new: %02x\n",latch3,param);
-/*TODO*///	latch3 = param;
-/*TODO*///	read_debug3 = 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///WRITE_HANDLER( soundlatch3_w )
-/*TODO*///{
-/*TODO*///	/* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
-/*TODO*///	timer_set(TIME_NOW,data,soundlatch3_callback);
-/*TODO*///}
-/*TODO*///
+    public static WriteHandlerPtr soundlatch2_clear_w = new WriteHandlerPtr() {
+        public void handler(int offset, int data) {
+            latch2 = cleared_value;
+        }
+    };
+
+    static int latch3, read_debug3;
+
+    public static TimerCallbackHandlerPtr soundlatch3_callback = new TimerCallbackHandlerPtr() {
+        public void handler(int param) {
+            if (read_debug3 == 0 && latch3 != param) {
+                logerror("Warning: sound latch 3 written before being read. Previous: %02x, new: %02x\n", latch3, param);
+            }
+            latch3 = param;
+            read_debug3 = 0;
+        }
+    };
+
+    public static WriteHandlerPtr soundlatch3_w = new WriteHandlerPtr() {
+        public void handler(int offset, int data) {
+            /* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
+            timer_set(TIME_NOW, data, soundlatch3_callback);
+        }
+    };
+    /*TODO*///
 /*TODO*///WRITE16_HANDLER( soundlatch3_word_w )
 /*TODO*///{
 /*TODO*///	static data16_t word;
@@ -131,41 +143,45 @@ public class sndintrf {
 /*TODO*///	/* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
 /*TODO*///	timer_set(TIME_NOW,word,soundlatch3_callback);
 /*TODO*///}
-/*TODO*///
-/*TODO*///READ_HANDLER( soundlatch3_r )
-/*TODO*///{
-/*TODO*///	read_debug3 = 1;
-/*TODO*///	return latch3;
-/*TODO*///}
-/*TODO*///
+
+    public static ReadHandlerPtr soundlatch3_r = new ReadHandlerPtr() {
+        public int handler(int offset) {
+            read_debug3 = 1;
+            return latch3;
+        }
+    };
+    /*TODO*///
 /*TODO*///READ16_HANDLER( soundlatch3_word_r )
 /*TODO*///{
 /*TODO*///	read_debug3 = 1;
 /*TODO*///	return latch3;
 /*TODO*///}
 /*TODO*///
-/*TODO*///WRITE_HANDLER( soundlatch3_clear_w )
-/*TODO*///{
-/*TODO*///	latch3 = cleared_value;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///static int latch4,read_debug4;
-/*TODO*///
-/*TODO*///static void soundlatch4_callback(int param)
-/*TODO*///{
-/*TODO*///	if (read_debug4 == 0 && latch4 != param)
-/*TODO*///		logerror("Warning: sound latch 4 written before being read. Previous: %02x, new: %02x\n",latch2,param);
-/*TODO*///	latch4 = param;
-/*TODO*///	read_debug4 = 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///WRITE_HANDLER( soundlatch4_w )
-/*TODO*///{
-/*TODO*///	/* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
-/*TODO*///	timer_set(TIME_NOW,data,soundlatch4_callback);
-/*TODO*///}
-/*TODO*///
+    public static WriteHandlerPtr soundlatch3_clear_w = new WriteHandlerPtr() {
+        public void handler(int offset, int data) {
+            latch3 = cleared_value;
+        }
+    };
+
+    static int latch4, read_debug4;
+
+    public static TimerCallbackHandlerPtr soundlatch4_callback = new TimerCallbackHandlerPtr() {
+        public void handler(int param) {
+            if (read_debug4 == 0 && latch4 != param) {
+                logerror("Warning: sound latch 4 written before being read. Previous: %02x, new: %02x\n", latch2, param);
+            }
+            latch4 = param;
+            read_debug4 = 0;
+        }
+    };
+
+    public static WriteHandlerPtr soundlatch4_w = new WriteHandlerPtr() {
+        public void handler(int offset, int data) {
+            /* make all the CPUs synchronize, and only AFTER that write the new command to the latch */
+            timer_set(TIME_NOW, data, soundlatch4_callback);
+        }
+    };
+    /*TODO*///
 /*TODO*///WRITE16_HANDLER( soundlatch4_word_w )
 /*TODO*///{
 /*TODO*///	static data16_t word;
@@ -175,78 +191,54 @@ public class sndintrf {
 /*TODO*///	timer_set(TIME_NOW,word,soundlatch4_callback);
 /*TODO*///}
 /*TODO*///
-/*TODO*///READ_HANDLER( soundlatch4_r )
-/*TODO*///{
-/*TODO*///	read_debug4 = 1;
-/*TODO*///	return latch4;
-/*TODO*///}
-/*TODO*///
+    public static ReadHandlerPtr soundlatch4_r = new ReadHandlerPtr() {
+        public int handler(int offset) {
+            read_debug4 = 1;
+            return latch4;
+        }
+    };
+    /*TODO*///
 /*TODO*///READ16_HANDLER( soundlatch4_word_r )
 /*TODO*///{
 /*TODO*///	read_debug4 = 1;
 /*TODO*///	return latch4;
 /*TODO*///}
 /*TODO*///
-/*TODO*///WRITE_HANDLER( soundlatch4_clear_w )
-/*TODO*///{
-/*TODO*///	latch4 = cleared_value;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///void soundlatch_setclearedvalue(int value)
-/*TODO*///{
-/*TODO*///	cleared_value = value;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*///static void *sound_update_timer;
-/*TODO*///static double refresh_period;
-/*TODO*///static double refresh_period_inv;
-/*TODO*///
-/*TODO*///
-/*TODO*///struct snd_interface
-/*TODO*///{
-/*TODO*///	unsigned sound_num;										/* ID */
-/*TODO*///	const char *name;										/* description */
-/*TODO*///	int (*chips_num)(const struct MachineSound *msound);	/* returns number of chips if applicable */
-/*TODO*///	int (*chips_clock)(const struct MachineSound *msound);	/* returns chips clock if applicable */
-/*TODO*///	int (*start)(const struct MachineSound *msound);		/* starts sound emulation */
-/*TODO*///	void (*stop)(void);										/* stops sound emulation */
-/*TODO*///	void (*update)(void);									/* updates emulation once per frame if necessary */
-/*TODO*///	void (*reset)(void);									/* resets sound emulation */
-/*TODO*///};
-/*TODO*///
-/*TODO*///
-/*TODO*///#if (HAS_CUSTOM)
-/*TODO*///static const struct CustomSound_interface *cust_intf;
-/*TODO*///
-/*TODO*///int custom_sh_start(const struct MachineSound *msound)
-/*TODO*///{
-/*TODO*///	cust_intf = msound->sound_interface;
-/*TODO*///
-/*TODO*///	if (cust_intf->sh_start)
-/*TODO*///		return (*cust_intf->sh_start)(msound);
-/*TODO*///	else return 0;
-/*TODO*///}
-/*TODO*///void custom_sh_stop(void)
-/*TODO*///{
-/*TODO*///	if (cust_intf->sh_stop) (*cust_intf->sh_stop)();
-/*TODO*///}
-/*TODO*///void custom_sh_update(void)
-/*TODO*///{
-/*TODO*///	if (cust_intf->sh_update) (*cust_intf->sh_update)();
-/*TODO*///}
-/*TODO*///#endif
-/*TODO*///#if (HAS_DAC)
+    public static WriteHandlerPtr soundlatch4_clear_w = new WriteHandlerPtr() {
+        public void handler(int offset, int data) {
+            latch4 = cleared_value;
+        }
+    };
+
+    public static void soundlatch_setclearedvalue(int value) {
+        cleared_value = value;
+    }
+
+    /**
+     * *************************************************************************
+     *
+     *
+     *
+     **************************************************************************
+     */
+    static mame_timer sound_update_timer;
+    static double refresh_period;
+    static double refresh_period_inv;
+
+    public static abstract class snd_interface {
+
+        public int sound_num;
+        public String name;
+
+        public abstract int chips_num(MachineSound msound);/* returns number of chips if applicable */
+        public abstract int chips_clock(MachineSound msound);/* returns chips clock if applicable */
+        public abstract int start(MachineSound msound);/* starts sound emulation */
+        public abstract void stop();/* stops sound emulation */
+        public abstract void update();/* updates emulation once per frame if necessary */
+        public abstract void reset();/* resets sound emulation */
+    }
+
+    /*TODO*///#if (HAS_DAC)
 /*TODO*///int DAC_num(const struct MachineSound *msound) { return ((struct DACinterface*)msound->sound_interface)->num; }
 /*TODO*///#endif
 /*TODO*///#if (HAS_ADPCM)
@@ -418,31 +410,12 @@ public class sndintrf {
 /*TODO*///#endif
 /*TODO*///#endif
 /*TODO*///
-/*TODO*///struct snd_interface sndintf[] =
-/*TODO*///{
-/*TODO*///    {
-/*TODO*///		SOUND_DUMMY,
-/*TODO*///		"",
-/*TODO*///		0,
-/*TODO*///		0,
-/*TODO*///		0,
-/*TODO*///		0,
-/*TODO*///		0,
-/*TODO*///		0
-/*TODO*///	},
-/*TODO*///#if (HAS_CUSTOM)
-/*TODO*///    {
-/*TODO*///		SOUND_CUSTOM,
-/*TODO*///		"Custom",
-/*TODO*///		0,
-/*TODO*///		0,
-/*TODO*///		custom_sh_start,
-/*TODO*///		custom_sh_stop,
-/*TODO*///		custom_sh_update,
-/*TODO*///		0
-/*TODO*///	},
-/*TODO*///#endif
-/*TODO*///#if (HAS_SAMPLES)
+    public static snd_interface sndintf[]
+            = {
+                new dummySound(),
+                new customSound(),
+                new dummySound(),
+            /*TODO*///#if (HAS_SAMPLES)
 /*TODO*///    {
 /*TODO*///		SOUND_SAMPLES,
 /*TODO*///		"Samples",
@@ -454,6 +427,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_DAC)
 /*TODO*///    {
 /*TODO*///		SOUND_DAC,
@@ -466,6 +440,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_DISCRETE)
 /*TODO*///    {
 /*TODO*///		SOUND_DISCRETE,
@@ -478,6 +453,7 @@ public class sndintrf {
 /*TODO*///		discrete_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_AY8910)
 /*TODO*///    {
 /*TODO*///		SOUND_AY8910,
@@ -490,6 +466,7 @@ public class sndintrf {
 /*TODO*///		AY8910_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM2203)
 /*TODO*///    {
 /*TODO*///		SOUND_YM2203,
@@ -502,6 +479,7 @@ public class sndintrf {
 /*TODO*///		YM2203_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM2151 || HAS_YM2151_ALT)
 /*TODO*///    {
 /*TODO*///		SOUND_YM2151,
@@ -514,6 +492,7 @@ public class sndintrf {
 /*TODO*///		YM2151_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM2608)
 /*TODO*///    {
 /*TODO*///		SOUND_YM2608,
@@ -526,6 +505,7 @@ public class sndintrf {
 /*TODO*///		YM2608_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM2610)
 /*TODO*///    {
 /*TODO*///		SOUND_YM2610,
@@ -538,6 +518,7 @@ public class sndintrf {
 /*TODO*///		YM2610_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM2610B)
 /*TODO*///    {
 /*TODO*///		SOUND_YM2610B,
@@ -550,6 +531,7 @@ public class sndintrf {
 /*TODO*///		YM2610_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM2612)
 /*TODO*///    {
 /*TODO*///		SOUND_YM2612,
@@ -562,6 +544,7 @@ public class sndintrf {
 /*TODO*///		YM2612_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM3438)
 /*TODO*///    {
 /*TODO*///		SOUND_YM3438,
@@ -574,6 +557,7 @@ public class sndintrf {
 /*TODO*///		YM2612_sh_reset
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM2413)
 /*TODO*///    {
 /*TODO*///		SOUND_YM2413,
@@ -586,6 +570,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM3812)
 /*TODO*///    {
 /*TODO*///		SOUND_YM3812,
@@ -598,6 +583,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YM3526)
 /*TODO*///    {
 /*TODO*///		SOUND_YM3526,
@@ -610,6 +596,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YMZ280B)
 /*TODO*///    {
 /*TODO*///		SOUND_YMZ280B,
@@ -622,6 +609,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_Y8950)
 /*TODO*///	{
 /*TODO*///		SOUND_Y8950,
@@ -634,6 +622,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_SN76477)
 /*TODO*///    {
 /*TODO*///		SOUND_SN76477,
@@ -646,6 +635,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_SN76496)
 /*TODO*///    {
 /*TODO*///		SOUND_SN76496,
@@ -657,6 +647,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_POKEY)
 /*TODO*///    {
 /*TODO*///		SOUND_POKEY,
@@ -669,6 +660,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_NES)
 /*TODO*///    {
 /*TODO*///		SOUND_NES,
@@ -681,6 +673,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_ASTROCADE)
 /*TODO*///    {
 /*TODO*///		SOUND_ASTROCADE,
@@ -693,6 +686,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_NAMCO)
 /*TODO*///    {
 /*TODO*///		SOUND_NAMCO,
@@ -705,6 +699,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_NAMCONA)
 /*TODO*///    {
 /*TODO*///		SOUND_NAMCONA,
@@ -717,6 +712,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_TMS36XX)
 /*TODO*///    {
 /*TODO*///		SOUND_TMS36XX,
@@ -729,6 +725,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_TMS5110)
 /*TODO*///    {
 /*TODO*///		SOUND_TMS5110,
@@ -741,6 +738,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_TMS5220)
 /*TODO*///    {
 /*TODO*///		SOUND_TMS5220,
@@ -753,6 +751,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_VLM5030)
 /*TODO*///    {
 /*TODO*///		SOUND_VLM5030,
@@ -765,6 +764,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_ADPCM)
 /*TODO*///    {
 /*TODO*///		SOUND_ADPCM,
@@ -777,6 +777,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_OKIM6295)
 /*TODO*///    {
 /*TODO*///		SOUND_OKIM6295,
@@ -789,6 +790,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_MSM5205)
 /*TODO*///    {
 /*TODO*///		SOUND_MSM5205,
@@ -801,6 +803,7 @@ public class sndintrf {
 /*TODO*///		MSM5205_sh_reset,
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_MSM5232)
 /*TODO*///    {
 /*TODO*///		SOUND_MSM5232,
@@ -813,6 +816,7 @@ public class sndintrf {
 /*TODO*///		MSM5232_sh_reset,
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_UPD7759)
 /*TODO*///    {
 /*TODO*///		SOUND_UPD7759,
@@ -825,6 +829,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_HC55516)
 /*TODO*///    {
 /*TODO*///		SOUND_HC55516,
@@ -837,6 +842,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_K005289)
 /*TODO*///    {
 /*TODO*///		SOUND_K005289,
@@ -849,6 +855,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_K007232)
 /*TODO*///    {
 /*TODO*///		SOUND_K007232,
@@ -861,6 +868,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_K051649)
 /*TODO*///    {
 /*TODO*///		SOUND_K051649,
@@ -873,6 +881,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_K053260)
 /*TODO*///    {
 /*TODO*///		SOUND_K053260,
@@ -885,6 +894,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_K054539)
 /*TODO*///    {
 /*TODO*///		SOUND_K054539,
@@ -897,6 +907,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_SEGAPCM)
 /*TODO*///	{
 /*TODO*///		SOUND_SEGAPCM,
@@ -909,6 +920,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_RF5C68)
 /*TODO*///	{
 /*TODO*///		SOUND_RF5C68,
@@ -921,6 +933,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_CEM3394)
 /*TODO*///	{
 /*TODO*///		SOUND_CEM3394,
@@ -933,6 +946,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_C140)
 /*TODO*///	{
 /*TODO*///		SOUND_C140,
@@ -945,6 +959,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_QSOUND)
 /*TODO*///	{
 /*TODO*///		SOUND_QSOUND,
@@ -957,6 +972,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_SAA1099)
 /*TODO*///	{
 /*TODO*///		SOUND_SAA1099,
@@ -969,6 +985,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_IREMGA20)
 /*TODO*///	{
 /*TODO*///		SOUND_IREMGA20,
@@ -981,6 +998,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_ES5505)
 /*TODO*///	{
 /*TODO*///		SOUND_ES5505,
@@ -993,6 +1011,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_ES5506)
 /*TODO*///	{
 /*TODO*///		SOUND_ES5506,
@@ -1005,6 +1024,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_BSMT2000)
 /*TODO*///	{
 /*TODO*///		SOUND_BSMT2000,
@@ -1017,6 +1037,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YMF262)
 /*TODO*///	{
 /*TODO*///		 SOUND_YMF262,
@@ -1029,6 +1050,7 @@ public class sndintrf {
 /*TODO*///		 0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_YMF278B)
 /*TODO*///	{
 /*TODO*///		 SOUND_YMF278B,
@@ -1041,6 +1063,7 @@ public class sndintrf {
 /*TODO*///		 0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_GAELCO_CG1V)
 /*TODO*///	{
 /*TODO*///		SOUND_GAELCO_CG1V,
@@ -1053,6 +1076,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_GAELCO_GAE1)
 /*TODO*///	{
 /*TODO*///		SOUND_GAELCO_GAE1,
@@ -1065,6 +1089,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_X1_010)
 /*TODO*///	{
 /*TODO*///		SOUND_X1_010,
@@ -1077,6 +1102,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_MULTIPCM)
 /*TODO*///	{
 /*TODO*///		SOUND_MULTIPCM,
@@ -1089,6 +1115,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_C6280)
 /*TODO*///	{
 /*TODO*///		SOUND_C6280,
@@ -1101,6 +1128,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_TIA)
 /*TODO*///    {
 /*TODO*///		SOUND_TIA,
@@ -1113,6 +1141,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_SP0250)
 /*TODO*///	{
 /*TODO*///		SOUND_SP0250,
@@ -1125,6 +1154,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_SCSP)
 /*TODO*///	{
 /*TODO*///		SOUND_SCSP,
@@ -1137,6 +1167,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound(),
 /*TODO*///#if (HAS_PSXSPU)
 /*TODO*///	{
 /*TODO*///		SOUND_PSXSPU,
@@ -1149,6 +1180,7 @@ public class sndintrf {
 /*TODO*///		0
 /*TODO*///	},
 /*TODO*///#endif
+                new dummySound()
 /*TODO*///#if (HAS_YMF271)
 /*TODO*///	{
 /*TODO*///		SOUND_YMF271,
@@ -1200,19 +1232,12 @@ public class sndintrf {
 /*TODO*///		0,
 /*TODO*///		0
 /*TODO*///	},
-/*TODO*///#endif
-/*TODO*///#endif
-/*TODO*///
-/*TODO*///};
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///int sound_start(void)
-/*TODO*///{
-/*TODO*///	int totalsound = 0;
-/*TODO*///	int i;
-/*TODO*///
+            };
+
+    public static int sound_start() {
+        int totalsound = 0;
+        int i;
+        /*TODO*///
 /*TODO*///	/* Verify the order of entries in the sndintf[] array */
 /*TODO*///	for (i = 0;i < SOUND_COUNT;i++)
 /*TODO*///	{
@@ -1226,134 +1251,105 @@ public class sndintrf {
 /*TODO*///		}
 /*TODO*///	}
 /*TODO*///
-/*TODO*///
-/*TODO*///	/* samples will be read later if needed */
-/*TODO*///	Machine->samples = 0;
-/*TODO*///
-/*TODO*///	refresh_period = TIME_IN_HZ(Machine->drv->frames_per_second);
-/*TODO*///	refresh_period_inv = 1.0 / refresh_period;
-/*TODO*///	sound_update_timer = timer_alloc(NULL);
-/*TODO*///
-/*TODO*///	if (mixer_sh_start() != 0)
-/*TODO*///		return 1;
-/*TODO*///
-/*TODO*///	if (streams_sh_start() != 0)
-/*TODO*///		return 1;
-/*TODO*///
-/*TODO*///	while (Machine->drv->sound[totalsound].sound_type != 0 && totalsound < MAX_SOUND)
-/*TODO*///	{
-/*TODO*///		if ((*sndintf[Machine->drv->sound[totalsound].sound_type].start)(&Machine->drv->sound[totalsound]) != 0)
-/*TODO*///			goto getout;
-/*TODO*///
-/*TODO*///		totalsound++;
-/*TODO*///	}
-/*TODO*///
-/*TODO*///	return 0;
-/*TODO*///
-/*TODO*///
-/*TODO*///getout:
-/*TODO*///	/* TODO: should also free the resources allocated before */
-/*TODO*///	return 1;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///void sound_stop(void)
-/*TODO*///{
-/*TODO*///	int totalsound = 0;
-/*TODO*///
-/*TODO*///
-/*TODO*///	while (Machine->drv->sound[totalsound].sound_type != 0 && totalsound < MAX_SOUND)
-/*TODO*///	{
-/*TODO*///		if (sndintf[Machine->drv->sound[totalsound].sound_type].stop)
-/*TODO*///			(*sndintf[Machine->drv->sound[totalsound].sound_type].stop)();
-/*TODO*///
-/*TODO*///		totalsound++;
-/*TODO*///	}
-/*TODO*///
-/*TODO*///	streams_sh_stop();
-/*TODO*///	mixer_sh_stop();
-/*TODO*///
-/*TODO*///	/* free audio samples */
-/*TODO*///	Machine->samples = 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///void sound_update(void)
-/*TODO*///{
-/*TODO*///	int totalsound = 0;
-/*TODO*///
-/*TODO*///
-/*TODO*///	profiler_mark(PROFILER_SOUND);
-/*TODO*///
-/*TODO*///	while (Machine->drv->sound[totalsound].sound_type != 0 && totalsound < MAX_SOUND)
-/*TODO*///	{
-/*TODO*///		if (sndintf[Machine->drv->sound[totalsound].sound_type].update)
-/*TODO*///			(*sndintf[Machine->drv->sound[totalsound].sound_type].update)();
-/*TODO*///
-/*TODO*///		totalsound++;
-/*TODO*///	}
-/*TODO*///
-/*TODO*///	streams_sh_update();
-/*TODO*///	mixer_sh_update();
-/*TODO*///
-/*TODO*///	timer_adjust(sound_update_timer, TIME_NEVER, 0, 0);
-/*TODO*///
-/*TODO*///	profiler_mark(PROFILER_END);
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///void sound_reset(void)
-/*TODO*///{
-/*TODO*///	int totalsound = 0;
-/*TODO*///
-/*TODO*///
-/*TODO*///	while (Machine->drv->sound[totalsound].sound_type != 0 && totalsound < MAX_SOUND)
-/*TODO*///	{
-/*TODO*///		if (sndintf[Machine->drv->sound[totalsound].sound_type].reset)
-/*TODO*///			(*sndintf[Machine->drv->sound[totalsound].sound_type].reset)();
-/*TODO*///
-/*TODO*///		totalsound++;
-/*TODO*///	}
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*///const char *soundtype_name(int soundtype)
-/*TODO*///{
-/*TODO*///	if (soundtype < SOUND_COUNT)
-/*TODO*///		return sndintf[soundtype].name;
-/*TODO*///	else
-/*TODO*///		return "";
-/*TODO*///}
-/*TODO*///
-/*TODO*///const char *sound_name(const struct MachineSound *msound)
-/*TODO*///{
-/*TODO*///	return soundtype_name(msound->sound_type);
-/*TODO*///}
-/*TODO*///
-/*TODO*///int sound_num(const struct MachineSound *msound)
-/*TODO*///{
-/*TODO*///	if (msound->sound_type < SOUND_COUNT && sndintf[msound->sound_type].chips_num)
-/*TODO*///		return (*sndintf[msound->sound_type].chips_num)(msound);
-/*TODO*///	else
-/*TODO*///		return 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///int sound_clock(const struct MachineSound *msound)
-/*TODO*///{
-/*TODO*///	if (msound->sound_type < SOUND_COUNT && sndintf[msound->sound_type].chips_clock)
-/*TODO*///		return (*sndintf[msound->sound_type].chips_clock)(msound);
-/*TODO*///	else
-/*TODO*///		return 0;
-/*TODO*///}
-/*TODO*///
-/*TODO*///
-    public static int sound_scalebufferpos(int value) {
-        throw new UnsupportedOperationException("Unsupported");
-        /*TODO*///	int result = (int)((double)value * timer_timeelapsed(sound_update_timer) * refresh_period_inv);
-/*TODO*///	if (value >= 0) return (result < value) ? result : value;
-/*TODO*///	else return (result > value) ? result : value;
+
+        /* samples will be read later if needed */
+        Machine.samples = null;
+
+        refresh_period = TIME_IN_HZ(Machine.drv.frames_per_second);
+        refresh_period_inv = 1.0 / refresh_period;
+        sound_update_timer = timer_alloc(null);
+
+        if (mixer_sh_start() != 0) {
+            return 1;
+        }
+
+        if (streams_sh_start() != 0) {
+            return 1;
+        }
+
+        while (Machine.drv.sound[totalsound].sound_type != 0 && totalsound < MAX_SOUND) {
+            if ((sndintf[Machine.drv.sound[totalsound].sound_type].start(Machine.drv.sound[totalsound])) != 0) {
+                return 1;//goto getout;
+            }
+            totalsound++;
+        }
+
+        return 0;
     }
+
+    public static void sound_stop() {
+        int totalsound = 0;
+
+        while (Machine.drv.sound[totalsound].sound_type != 0 && totalsound < MAX_SOUND) {
+            sndintf[Machine.drv.sound[totalsound].sound_type].stop();
+            totalsound++;
+        }
+
+        streams_sh_stop();
+        mixer_sh_stop();
+
+        /* free audio samples */
+        Machine.samples = null;
+    }
+
+    public static void sound_update() {
+        int totalsound = 0;
+
+        while (Machine.drv.sound[totalsound].sound_type != 0 && totalsound < MAX_SOUND) {
+            sndintf[Machine.drv.sound[totalsound].sound_type].update();
+            totalsound++;
+        }
+
+        streams_sh_update();
+        mixer_sh_update();
+
+        timer_adjust(sound_update_timer, TIME_NEVER, 0, 0);
+    }
+
+    public static void sound_reset() {
+        int totalsound = 0;
+
+        while (Machine.drv.sound[totalsound].sound_type != 0 && totalsound < MAX_SOUND) {
+            sndintf[Machine.drv.sound[totalsound].sound_type].reset();
+            totalsound++;
+        }
+    }
+
+    public static String soundtype_name(int soundtype) {
+        if (soundtype < SOUND_COUNT) {
+            return sndintf[soundtype].name;
+        } else {
+            return "";
+        }
+    }
+
+    public static String sound_name(MachineSound msound) {
+        return soundtype_name(msound.sound_type);
+    }
+
+    public static int sound_num(MachineSound msound) {
+        if (msound.sound_type < SOUND_COUNT && sndintf[msound.sound_type].chips_num(msound) != 0) {
+            return sndintf[msound.sound_type].chips_num(msound);
+        } else {
+            return 0;
+        }
+    }
+
+    public static int sound_clock(MachineSound msound) {
+        if (msound.sound_type < SOUND_COUNT && sndintf[msound.sound_type].chips_clock(msound) != 0) {
+            return sndintf[msound.sound_type].chips_clock(msound);
+        } else {
+            return 0;
+        }
+    }
+
+    public static int sound_scalebufferpos(int value) {
+        int result = (int) ((double) value * timer_timeelapsed(sound_update_timer) * refresh_period_inv);
+        if (value >= 0) {
+            return (result < value) ? result : value;
+        } else {
+            return (result > value) ? result : value;
+        }
+    }
+
 }

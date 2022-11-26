@@ -7,7 +7,9 @@ package arcadeflex.v078.mame;
 import static arcadeflex.v078.generic.funcPtr.*;
 //mame imports
 import static arcadeflex.v078.mame.commonH.*;
+import static arcadeflex.v078.mame.drawgfxH.*;
 import static arcadeflex.v078.mame.inptportH.*;
+import static arcadeflex.v078.mame.sndintrfH.*;
 
 public class driverH {
 
@@ -274,37 +276,35 @@ public class driverH {
 /*TODO*///void machine_remove_sound(struct InternalMachineDriver *machine, const char *tag);
 /*TODO*///
 /*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	Internal representation of a machine driver, built from the constructor
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*///#define MAX_CPU 8	/* MAX_CPU is the maximum number of CPUs which cpuintrf.c */
-/*TODO*///					/* can run at the same time. Currently, 8 is enough. */
-/*TODO*///
-/*TODO*///#define MAX_SOUND 5	/* MAX_SOUND is the maximum number of sound subsystems */
-/*TODO*///					/* which can run at the same time. Currently, 5 is enough. */
-/*TODO*///
+    /**
+     * *************************************************************************
+     *
+     * Internal representation of a machine driver, built from the constructor
+     *
+     **************************************************************************
+     */
+    public static final int MAX_CPU = 8;/* MAX_CPU is the maximum number of CPUs which cpuintrf.c can run at the same time. Currently, 8 is enough. */
+
+    public static final int MAX_SOUND = 5;/* MAX_SOUND is the maximum number of sound subsystems which can run at the same time. Currently, 5 is enough. */
+
     public static class InternalMachineDriver {
 
         /*TODO*///	struct MachineCPU cpu[MAX_CPU];
-/*TODO*///	float frames_per_second;
-/*TODO*///	int vblank_duration;
+        public double frames_per_second;
+        /*TODO*///	int vblank_duration;
 /*TODO*///	UINT32 cpu_slices_per_frame;
 /*TODO*///
 /*TODO*///	void (*machine_init)(void);
 /*TODO*///	void (*machine_stop)(void);
 /*TODO*///	void (*nvram_handler)(mame_file *file, int read_or_write);
 /*TODO*///
-        public int /*UINT32*/ video_attributes;
-        /*TODO*///	UINT32 aspect_x, aspect_y;
-/*TODO*///	int screen_width,screen_height;
-/*TODO*///	struct rectangle default_visible_area;
-/*TODO*///	struct GfxDecodeInfo *gfxdecodeinfo;
-/*TODO*///	UINT32 total_colors;
-/*TODO*///	UINT32 color_table_len;
+        public int/*UINT32*/ video_attributes;
+        public int/*UINT32*/ aspect_x, aspect_y;
+        public int screen_width, screen_height;
+        public rectangle default_visible_area;
+        public GfxDecodeInfo[] gfxdecodeinfo;
+        public int/*UINT32*/ total_colors;
+        /*TODO*///	UINT32 color_table_len;
 /*TODO*///
 /*TODO*///	void (*init_palette)(UINT16 *colortable,const UINT8 *color_prom);
 /*TODO*///	int (*video_start)(void);
@@ -312,8 +312,8 @@ public class driverH {
 /*TODO*///	void (*video_eof)(void);
 /*TODO*///	void (*video_update)(struct mame_bitmap *bitmap,const struct rectangle *cliprect);
 /*TODO*///
-/*TODO*///	UINT32 sound_attributes;
-/*TODO*///	struct MachineSound sound[MAX_SOUND];
+        public int /*UINT32*/ sound_attributes;
+        public MachineSound sound[] = MachineSound.create(MAX_SOUND);
     }
 
     /*TODO*///

@@ -714,11 +714,12 @@ public class common {
 /*TODO*///	current screen depth
 /*TODO*///-------------------------------------------------*/
 /*TODO*///
-/*TODO*///struct mame_bitmap *auto_bitmap_alloc(int width,int height)
-/*TODO*///{
-/*TODO*///	return bitmap_alloc_core(width,height,Machine->scrbitmap->depth,1);
-/*TODO*///}
-/*TODO*///
+    public static mame_bitmap auto_bitmap_alloc(int width, int height) {
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///	return bitmap_alloc_core(width,height,Machine->scrbitmap->depth,1);
+    }
+
+    /*TODO*///
 /*TODO*///
 /*TODO*////*-------------------------------------------------
 /*TODO*///	bitmap_alloc_depth - allocate a bitmap for a

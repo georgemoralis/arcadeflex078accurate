@@ -154,7 +154,7 @@ public class mame {
     static InternalMachineDriver internal_drv;
 
     /* various game options filled in by the OSD */
-    public static GameOptions options =new GameOptions();
+    public static GameOptions options = new GameOptions();
 
     /*TODO*////* the active video display */
 /*TODO*///static struct mame_display current_display;
@@ -800,6 +800,7 @@ public class mame {
 
         return 0;
     }
+
     /*TODO*///
 /*TODO*///
 /*TODO*///
@@ -963,9 +964,9 @@ public class mame {
 /*TODO*///	of the bitmap area dynamically
 /*TODO*///-------------------------------------------------*/
 /*TODO*///
-/*TODO*///void set_visible_area(int min_x, int max_x, int min_y, int max_y)
-/*TODO*///{
-/*TODO*///	if (       Machine->visible_area.min_x == min_x
+    public static void set_visible_area(int min_x, int max_x, int min_y, int max_y) {
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///	if (       Machine->visible_area.min_x == min_x
 /*TODO*///			&& Machine->visible_area.max_x == max_x
 /*TODO*///			&& Machine->visible_area.min_y == min_y
 /*TODO*///			&& Machine->visible_area.max_y == max_y)
@@ -995,8 +996,8 @@ public class mame {
 /*TODO*///
 /*TODO*///	/* recompute scanline timing */
 /*TODO*///	cpu_compute_scanline_timing();
-/*TODO*///}
-/*TODO*///
+    }
+    /*TODO*///
 /*TODO*///
 /*TODO*///
 /*TODO*////*-------------------------------------------------

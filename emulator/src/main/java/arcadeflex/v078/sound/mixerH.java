@@ -1,7 +1,7 @@
 /**
  * ported to 0.78
  */
-package arcadeflex.v078.mame.sound;
+package arcadeflex.v078.sound;
 
 public class mixerH {
 
