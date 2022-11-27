@@ -407,6 +407,7 @@ public class commonH {
     public static void ROM_LOAD(String name, int offset, int length, String hash) {
         ROMX_LOAD(name, offset, length, hash, 0);
     }
+
     /*TODO*///#define ROM_LOAD_OPTIONAL(name,offset,length,hash)   ROMX_LOAD(name, offset, length, hash, ROM_OPTIONAL)
 /*TODO*///#define ROM_CONTINUE(offset,length)					ROMX_LOAD(ROMENTRY_CONTINUE, offset, length, 0, ROM_INHERITFLAGS)
 /*TODO*///#define ROM_RELOAD(offset,length)					ROMX_LOAD(ROMENTRY_RELOAD, offset, length, 0, ROM_INHERITFLAGS)
@@ -504,12 +505,12 @@ public class commonH {
 /*TODO*////* automatic resource management */
 /*TODO*///void begin_resource_tracking(void);
 /*TODO*///void end_resource_tracking(void);
-/*TODO*///INLINE int get_resource_tag(void)
-/*TODO*///{
-/*TODO*///	extern int resource_tracking_tag;
+    public static int get_resource_tag() {
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///	extern int resource_tracking_tag;
 /*TODO*///	return resource_tracking_tag;
-/*TODO*///}
-/*TODO*///
+    }
+    /*TODO*///
 /*TODO*////* automatically-freeing memory */
 /*TODO*///void *auto_malloc(size_t size);
 /*TODO*///char *auto_strdup(const char *str);
