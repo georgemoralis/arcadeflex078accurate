@@ -3,6 +3,9 @@
  */
 package arcadeflex.v078.platform;
 
+//mame imports
+import static arcadeflex.v078.mame.driver.*;
+import static arcadeflex.v078.mame.mame.*;
 //platform imports
 import static arcadeflex.v078.platform.fronthlp.*;
 import static arcadeflex.v078.platform.rc.*;
@@ -10,10 +13,6 @@ import static arcadeflex.v078.platform.rcH.*;
 //common imports
 import static common.libc.cstdio.*;
 import static common.libc.cstring.*;
-
-//just for testing!!!! remove it
-import static arcadeflex.v078.AAdummy.driver.*;
-import static arcadeflex.v078.mame.mame.options;
 
 public class config {
 

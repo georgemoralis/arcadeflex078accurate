@@ -5,25 +5,15 @@ package arcadeflex.v078.platform;
 
 //mame imports
 import static arcadeflex.v078.mame.common.*;
+import static arcadeflex.v078.mame.commonH.*;
 import static arcadeflex.v078.mame.driverH.*;
 import static arcadeflex.v078.mame.version.*;
+import static arcadeflex.v078.mame.driver.*;
 //platform imports
 import static arcadeflex.v078.platform.rcH.*;
 //common imports
 import static common.libc.cstdio.*;
 import static common.libc.cstring.*;
-
-//TO BE REMOVED!!
-import static arcadeflex.v078.AAdummy.driver.drivers;
-import static arcadeflex.v078.mame.commonH.REGION_CPU1;
-import static arcadeflex.v078.mame.commonH.REGION_CPU8;
-import static arcadeflex.v078.mame.commonH.REGION_GFX1;
-import static arcadeflex.v078.mame.commonH.REGION_GFX8;
-import static arcadeflex.v078.mame.commonH.REGION_SOUND1;
-import static arcadeflex.v078.mame.commonH.REGION_SOUND8;
-import static arcadeflex.v078.mame.commonH.ROMREGION_GETTYPE;
-import static arcadeflex.v078.mame.commonH.ROM_GETLENGTH;
-import arcadeflex.v078.mame.commonH.RomModule;
 
 public class fronthlp {
 
@@ -1305,19 +1295,19 @@ public class fronthlp {
                         int romtotal = 0, romcpu = 0, romgfx = 0, romsound = 0;
                         RomModule[] romp = rom_first_region(drivers[i]);
                         for (region = rom_ptr; region != -1; region = rom_next_region(romp, region)) {
-                            int type = ROMREGION_GETTYPE(romp,region);
+                            int type = ROMREGION_GETTYPE(romp, region);
 
                             for (rom = rom_first_file(romp, region); rom != -1; rom = rom_next_file(romp, rom)) {
                                 for (chunk = rom_first_chunk(romp, rom); chunk != -1; chunk = rom_next_chunk(romp, chunk)) {
-                                    romtotal += ROM_GETLENGTH(romp,chunk);
+                                    romtotal += ROM_GETLENGTH(romp, chunk);
                                     if (type >= REGION_CPU1 && type <= REGION_CPU8) {
-                                        romcpu += ROM_GETLENGTH(romp,chunk);
+                                        romcpu += ROM_GETLENGTH(romp, chunk);
                                     }
                                     if (type >= REGION_GFX1 && type <= REGION_GFX8) {
-                                        romgfx += ROM_GETLENGTH(romp,chunk);
+                                        romgfx += ROM_GETLENGTH(romp, chunk);
                                     }
                                     if (type >= REGION_SOUND1 && type <= REGION_SOUND8) {
-                                        romsound += ROM_GETLENGTH(romp,chunk);
+                                        romsound += ROM_GETLENGTH(romp, chunk);
                                     }
                                 }
                             }

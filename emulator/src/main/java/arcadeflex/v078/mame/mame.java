@@ -7,6 +7,7 @@ package arcadeflex.v078.mame;
 import static arcadeflex.v078.generic.funcPtr.*;
 //mame imports
 import static arcadeflex.v078.mame.common.*;
+import static arcadeflex.v078.mame.driver.*;
 import static arcadeflex.v078.mame.driverH.*;
 import static arcadeflex.v078.mame.mameH.*;
 import static arcadeflex.v078.mame.cpuexecH.*;
@@ -14,8 +15,6 @@ import static arcadeflex.v078.mame.cpuexecH.*;
 import static arcadeflex.v078.platform.config.*;
 //common imports
 import static common.libc.cstdio.*;
-
-import static arcadeflex.v078.AAdummy.driver.drivers;
 
 public class mame {
 
