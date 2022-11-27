@@ -7,9 +7,11 @@ package arcadeflex.v078.mame;
 import static arcadeflex.v078.generic.funcPtr.*;
 //mame imports
 import static arcadeflex.v078.mame.commonH.*;
+import static arcadeflex.v078.mame.cpuexecH.*;
 import static arcadeflex.v078.mame.drawgfxH.*;
 import static arcadeflex.v078.mame.inptportH.*;
 import static arcadeflex.v078.mame.sndintrfH.*;
+import static arcadeflex.v078.mame.mame.*;
 
 public class driverH {
 
@@ -97,30 +99,36 @@ public class driverH {
 /*TODO*///	void construct_##game(struct InternalMachineDriver *machine)		\
 /*TODO*///
 /*TODO*///
-/*TODO*////* start/end tags for the machine driver */
-/*TODO*///#define MACHINE_DRIVER_START(game) 										\
-/*TODO*///	void construct_##game(struct InternalMachineDriver *machine)		\
-/*TODO*///	{																	\
-/*TODO*///		struct MachineCPU *cpu = NULL;									\
-/*TODO*///		(void)cpu;														\
-/*TODO*///
-/*TODO*///#define MACHINE_DRIVER_END 												\
-/*TODO*///	}																	\
-/*TODO*///
+/* start/end tags for the machine driver */
+    static MachineCPU temp_cpu = null;//reference to current cpu
+    static InternalMachineDriver temp_machine = null;//reference to current machine
+
+    public static void MACHINE_DRIVER_START(InternalMachineDriver machine) {
+        temp_machine = machine;
+    }
+
+    public static void MACHINE_DRIVER_END() {
+        //clear temp variables
+        temp_cpu = null;
+        temp_machine = null;
+    }
+
+    /*TODO*///
 /*TODO*///
 /*TODO*////* importing data from other machine drivers */
 /*TODO*///#define MDRV_IMPORT_FROM(game) 											\
 /*TODO*///	construct_##game(machine); 											\
 /*TODO*///
 /*TODO*///
-/*TODO*////* add/modify/remove/replace CPUs */
-/*TODO*///#define MDRV_CPU_ADD_TAG(tag, type, clock)								\
-/*TODO*///	cpu = machine_add_cpu(machine, (tag), CPU_##type, (clock));			\
-/*TODO*///
-/*TODO*///#define MDRV_CPU_ADD(type, clock)										\
-/*TODO*///	MDRV_CPU_ADD_TAG(NULL, type, clock)									\
-/*TODO*///
-/*TODO*///#define MDRV_CPU_MODIFY(tag)											\
+    public static void MDRV_CPU_ADD_TAG(String tag, int type, int clock) {
+        temp_cpu = machine_add_cpu(temp_machine, tag, type, clock);
+    }
+
+    public static void MDRV_CPU_ADD(int type, int clock) {
+        MDRV_CPU_ADD_TAG(null, type, clock);
+    }
+
+    /*TODO*///#define MDRV_CPU_MODIFY(tag)											\
 /*TODO*///	cpu = machine_find_cpu(machine, tag);								\
 /*TODO*///
 /*TODO*///#define MDRV_CPU_REMOVE(tag)											\
@@ -136,37 +144,39 @@ public class driverH {
 /*TODO*///	}																	\
 /*TODO*///
 /*TODO*///
-/*TODO*////* CPU parameters */
-/*TODO*///#define MDRV_CPU_FLAGS(flags)											\
-/*TODO*///	if (cpu)															\
-/*TODO*///		cpu->cpu_flags = (flags);										\
-/*TODO*///
-/*TODO*///#define MDRV_CPU_CONFIG(config)											\
+/* CPU parameters */
+    public static void MDRV_CPU_FLAGS(int flags) {
+        if (temp_cpu != null) {
+            temp_cpu.cpu_flags = (flags);
+        }
+    }
+
+    /*TODO*///#define MDRV_CPU_CONFIG(config)											\
 /*TODO*///	if (cpu)															\
 /*TODO*///		cpu->reset_param = &(config);									\
 /*TODO*///
-/*TODO*///#define MDRV_CPU_MEMORY(readmem, writemem)								\
-/*TODO*///	if (cpu)															\
-/*TODO*///	{																	\
-/*TODO*///		cpu->memory_read = (readmem);									\
-/*TODO*///		cpu->memory_write = (writemem);									\
-/*TODO*///	}																	\
-/*TODO*///
-/*TODO*///#define MDRV_CPU_PORTS(readport, writeport)								\
+    public static void MDRV_CPU_MEMORY(Object[] readmem, Object[] writemem) {
+        if (temp_cpu != null) {
+            temp_cpu.memory_read = readmem;
+            temp_cpu.memory_write = writemem;
+        }
+    }
+
+    /*TODO*///#define MDRV_CPU_PORTS(readport, writeport)								\
 /*TODO*///	if (cpu)															\
 /*TODO*///	{																	\
 /*TODO*///		cpu->port_read = (readport);									\
 /*TODO*///		cpu->port_write = (writeport);									\
 /*TODO*///	}																	\
 /*TODO*///
-/*TODO*///#define MDRV_CPU_VBLANK_INT(func, rate)									\
-/*TODO*///	if (cpu)															\
-/*TODO*///	{																	\
-/*TODO*///		cpu->vblank_interrupt = func;									\
-/*TODO*///		cpu->vblank_interrupts_per_frame = (rate);						\
-/*TODO*///	}																	\
-/*TODO*///
-/*TODO*///#define MDRV_CPU_PERIODIC_INT(func, rate)								\
+    public static void MDRV_CPU_VBLANK_INT(InterruptHandlerPtr func, int rate) {
+        if (temp_cpu != null) {
+            temp_cpu.vblank_interrupt = func;
+            temp_cpu.vblank_interrupts_per_frame = (rate);
+        }
+    }
+
+    /*TODO*///#define MDRV_CPU_PERIODIC_INT(func, rate)								\
 /*TODO*///	if (cpu)															\
 /*TODO*///	{																	\
 /*TODO*///		cpu->timed_interrupt = func;									\
@@ -174,14 +184,16 @@ public class driverH {
 /*TODO*///	}																	\
 /*TODO*///
 /*TODO*///
-/*TODO*////* core parameters */
-/*TODO*///#define MDRV_FRAMES_PER_SECOND(rate)									\
-/*TODO*///	machine->frames_per_second = (rate);								\
-/*TODO*///
-/*TODO*///#define MDRV_VBLANK_DURATION(duration)									\
-/*TODO*///	machine->vblank_duration = (duration);								\
-/*TODO*///
-/*TODO*///#define MDRV_INTERLEAVE(interleave)										\
+    /* core parameters */
+    public static void MDRV_FRAMES_PER_SECOND(int rate) {
+        temp_machine.frames_per_second = (rate);
+    }
+
+    public static void MDRV_VBLANK_DURATION(int duration) {
+        temp_machine.vblank_duration = (duration);
+    }
+
+    /*TODO*///#define MDRV_INTERLEAVE(interleave)										\
 /*TODO*///	machine->cpu_slices_per_frame = (interleave);						\
 /*TODO*///
 /*TODO*///
@@ -196,52 +208,58 @@ public class driverH {
 /*TODO*///	machine->nvram_handler = nvram_handler_##name;						\
 /*TODO*///
 /*TODO*///
-/*TODO*////* core video parameters */
-/*TODO*///#define MDRV_VIDEO_ATTRIBUTES(flags)									\
-/*TODO*///	machine->video_attributes = (flags);								\
-/*TODO*///
-/*TODO*///#define MDRV_ASPECT_RATIO(num, den)										\
+/* core video parameters */
+    public static void MDRV_VIDEO_ATTRIBUTES(int flags) {
+        temp_machine.video_attributes = (flags);
+    }
+
+    /*TODO*///#define MDRV_ASPECT_RATIO(num, den)										\
 /*TODO*///	machine->aspect_x = (num);											\
 /*TODO*///	machine->aspect_y = (den);											\
 /*TODO*///
-/*TODO*///#define MDRV_SCREEN_SIZE(width, height)									\
-/*TODO*///	machine->screen_width = (width);									\
-/*TODO*///	machine->screen_height = (height);									\
-/*TODO*///
-/*TODO*///#define MDRV_VISIBLE_AREA(minx, maxx, miny, maxy)						\
-/*TODO*///	machine->default_visible_area.min_x = (minx);						\
-/*TODO*///	machine->default_visible_area.max_x = (maxx);						\
-/*TODO*///	machine->default_visible_area.min_y = (miny);						\
-/*TODO*///	machine->default_visible_area.max_y = (maxy);						\
-/*TODO*///
-/*TODO*///#define MDRV_GFXDECODE(gfx)												\
+    public static void MDRV_SCREEN_SIZE(int width, int height) {
+        temp_machine.screen_width = (width);
+        temp_machine.screen_height = (height);
+    }
+
+    public static void MDRV_VISIBLE_AREA(int minx, int maxx, int miny, int maxy) {
+        temp_machine.default_visible_area.min_x = (minx);
+        temp_machine.default_visible_area.max_x = (maxx);
+        temp_machine.default_visible_area.min_y = (miny);
+        temp_machine.default_visible_area.max_y = (maxy);
+    }
+
+    /*TODO*///#define MDRV_GFXDECODE(gfx)												\
 /*TODO*///	machine->gfxdecodeinfo = (gfx);										\
 /*TODO*///
-/*TODO*///#define MDRV_PALETTE_LENGTH(length)										\
-/*TODO*///	machine->total_colors = (length);									\
-/*TODO*///
-/*TODO*///#define MDRV_COLORTABLE_LENGTH(length)									\
+    public static void MDRV_PALETTE_LENGTH(int length) {
+        temp_machine.total_colors = (length);
+    }
+
+    /*TODO*///#define MDRV_COLORTABLE_LENGTH(length)									\
 /*TODO*///	machine->color_table_len = (length);								\
 /*TODO*///
 /*TODO*///
-/*TODO*////* core video functions */
-/*TODO*///#define MDRV_PALETTE_INIT(name)											\
-/*TODO*///	machine->init_palette = palette_init_##name;						\
-/*TODO*///
-/*TODO*///#define MDRV_VIDEO_START(name)											\
-/*TODO*///	machine->video_start = video_start_##name;							\
-/*TODO*///
-/*TODO*///#define MDRV_VIDEO_STOP(name)											\
+/* core video functions */
+    public static void MDRV_PALETTE_INIT(PaletteInitHandlerPtr name) {
+        temp_machine.init_palette = name;
+    }
+
+    public static void MDRV_VIDEO_START(VideoStartHandlerPtr name) {
+        temp_machine.video_start = name;
+    }
+
+    /*TODO*///#define MDRV_VIDEO_STOP(name)											\
 /*TODO*///	machine->video_stop = video_stop_##name;							\
 /*TODO*///
 /*TODO*///#define MDRV_VIDEO_EOF(name)											\
 /*TODO*///	machine->video_eof = video_eof_##name;								\
 /*TODO*///
-/*TODO*///#define MDRV_VIDEO_UPDATE(name)											\
-/*TODO*///	machine->video_update = video_update_##name;						\
-/*TODO*///
-/*TODO*///
-/*TODO*////* core sound parameters */
+    public static void MDRV_VIDEO_UPDATE(VideoUpdateHandlerPtr name) {
+        temp_machine.video_update = name;
+    }
+
+    /*TODO*////* core sound parameters */
 /*TODO*///#define MDRV_SOUND_ATTRIBUTES(flags)									\
 /*TODO*///	machine->sound_attributes = (flags);								\
 /*TODO*///
@@ -289,10 +307,10 @@ public class driverH {
 
     public static class InternalMachineDriver {
 
-        /*TODO*///	struct MachineCPU cpu[MAX_CPU];
+        public MachineCPU cpu[] = MachineCPU.create(MAX_CPU);
         public double frames_per_second;
-        /*TODO*///	int vblank_duration;
-/*TODO*///	UINT32 cpu_slices_per_frame;
+        public int vblank_duration;
+        /*TODO*///	UINT32 cpu_slices_per_frame;
 /*TODO*///
 /*TODO*///	void (*machine_init)(void);
 /*TODO*///	void (*machine_stop)(void);
@@ -301,17 +319,17 @@ public class driverH {
         public int/*UINT32*/ video_attributes;
         public int/*UINT32*/ aspect_x, aspect_y;
         public int screen_width, screen_height;
-        public rectangle default_visible_area;
+        public rectangle default_visible_area = new rectangle();
         public GfxDecodeInfo[] gfxdecodeinfo;
         public int/*UINT32*/ total_colors;
         /*TODO*///	UINT32 color_table_len;
 /*TODO*///
-/*TODO*///	void (*init_palette)(UINT16 *colortable,const UINT8 *color_prom);
-/*TODO*///	int (*video_start)(void);
-/*TODO*///	void (*video_stop)(void);
+        public PaletteInitHandlerPtr init_palette;
+        public VideoStartHandlerPtr video_start;
+        /*TODO*///	void (*video_stop)(void);
 /*TODO*///	void (*video_eof)(void);
-/*TODO*///	void (*video_update)(struct mame_bitmap *bitmap,const struct rectangle *cliprect);
-/*TODO*///
+        public VideoUpdateHandlerPtr video_update;
+        /*TODO*///
         public int /*UINT32*/ sound_attributes;
         public MachineSound sound[] = MachineSound.create(MAX_SOUND);
     }
@@ -339,9 +357,9 @@ public class driverH {
 /*TODO*////* Here are some predefined, TOTALLY ARBITRARY values for vblank_duration, which should */
 /*TODO*////* be OK for most cases. I have NO IDEA how accurate they are compared to the real */
 /*TODO*////* hardware, they could be completely wrong. */
-/*TODO*///#define DEFAULT_60HZ_VBLANK_DURATION 0
-/*TODO*///#define DEFAULT_30HZ_VBLANK_DURATION 0
-/*TODO*////* If you use IPT_VBLANK, you need a duration different from 0. */
+    public static final int DEFAULT_60HZ_VBLANK_DURATION = 0;
+    public static final int DEFAULT_30HZ_VBLANK_DURATION = 0;
+    /*TODO*////* If you use IPT_VBLANK, you need a duration different from 0. */
 /*TODO*///#define DEFAULT_REAL_60HZ_VBLANK_DURATION 2500
 /*TODO*///#define DEFAULT_REAL_30HZ_VBLANK_DURATION 2500
 /*TODO*///
@@ -349,8 +367,8 @@ public class driverH {
 /*TODO*////* ----- flags for video_attributes ----- */
 /*TODO*///
 /*TODO*////* bit 0 of the video attributes indicates raster or vector video hardware */
-/*TODO*///#define	VIDEO_TYPE_RASTER			0x0000
-/*TODO*///#define	VIDEO_TYPE_VECTOR			0x0001
+    public static final int VIDEO_TYPE_RASTER = 0x0000;
+    /*TODO*///#define	VIDEO_TYPE_VECTOR			0x0001
 /*TODO*///
 /*TODO*////* bit 3 of the video attributes indicates that the game's palette has 6 or more bits */
 /*TODO*////*       per gun, and would therefore require a 24-bit display. This is entirely up to */

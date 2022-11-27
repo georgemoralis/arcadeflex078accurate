@@ -9,6 +9,9 @@ import static arcadeflex.v078.generic.funcPtr.*;
 import static arcadeflex.v078.mame.common.*;
 import static arcadeflex.v078.mame.driverH.*;
 import static arcadeflex.v078.mame.mameH.*;
+import static arcadeflex.v078.mame.cpuexecH.*;
+//platform imports
+import static arcadeflex.v078.platform.config.*;
 //common imports
 import static common.libc.cstdio.*;
 
@@ -997,6 +1000,7 @@ public class mame {
 /*TODO*///	/* recompute scanline timing */
 /*TODO*///	cpu_compute_scanline_timing();
     }
+
     /*TODO*///
 /*TODO*///
 /*TODO*///
@@ -1310,28 +1314,26 @@ public class mame {
 /*TODO*///
 /*TODO*///
 /*TODO*///
-/*TODO*////*-------------------------------------------------
-/*TODO*///	machine_add_cpu - add a CPU during machine
-/*TODO*///	driver expansion
-/*TODO*///-------------------------------------------------*/
-/*TODO*///
-/*TODO*///struct MachineCPU *machine_add_cpu(struct InternalMachineDriver *machine, const char *tag, int type, int cpuclock)
-/*TODO*///{
-/*TODO*///	int cpunum;
-/*TODO*///
-/*TODO*///	for (cpunum = 0; cpunum < MAX_CPU; cpunum++)
-/*TODO*///		if (machine->cpu[cpunum].cpu_type == 0)
-/*TODO*///		{
-/*TODO*///			machine->cpu[cpunum].tag = tag;
-/*TODO*///			machine->cpu[cpunum].cpu_type = type;
-/*TODO*///			machine->cpu[cpunum].cpu_clock = cpuclock;
-/*TODO*///			return &machine->cpu[cpunum];
-/*TODO*///		}
-/*TODO*///
-/*TODO*///	logerror("Out of CPU's!\n");
-/*TODO*///	return NULL;
-/*TODO*///}
-/*TODO*///
+/*-------------------------------------------------
+ 	machine_add_cpu - add a CPU during machine
+ 	driver expansion
+    -------------------------------------------------*/
+    public static MachineCPU machine_add_cpu(InternalMachineDriver machine, String tag, int type, int cpuclock) {
+        int cpunum;
+
+        for (cpunum = 0; cpunum < MAX_CPU; cpunum++) {
+            if (machine.cpu[cpunum].cpu_type == 0) {
+                machine.cpu[cpunum].tag = tag;
+                machine.cpu[cpunum].cpu_type = type;
+                machine.cpu[cpunum].cpu_clock = cpuclock;
+                return machine.cpu[cpunum];
+            }
+        }
+
+        logerror("Out of CPU's!\n");
+        return null;
+    }
+    /*TODO*///
 /*TODO*///
 /*TODO*///
 /*TODO*////*-------------------------------------------------

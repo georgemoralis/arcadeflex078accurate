@@ -3,6 +3,8 @@
  */
 package arcadeflex.v078.mame;
 
+//generic imports
+import static arcadeflex.v078.generic.funcPtr.*;
 //java imports
 import java.util.HashMap;
 
@@ -145,6 +147,7 @@ public class inptport {
             put("Unknown", "Unknown");
         }
     };
+
     /*TODO*///
 /*TODO*///struct ipd inputport_defaults[] =
 /*TODO*///{
@@ -2667,9 +2670,9 @@ public class inptport {
 /*TODO*///
 /*TODO*///
 /*TODO*///
-/*TODO*///int readinputport(int port)
-/*TODO*///{
-/*TODO*///	struct InputPort *in;
+    public static int readinputport(int port) {
+        throw new UnsupportedOperationException("Unsupported");
+        /*TODO*///	struct InputPort *in;
 /*TODO*///
 /*TODO*///	/* Update analog ports on demand */
 /*TODO*///	in=input_analog[port];
@@ -2679,10 +2682,14 @@ public class inptport {
 /*TODO*///	}
 /*TODO*///
 /*TODO*///	return input_port_value[port];
-/*TODO*///}
-/*TODO*///
-/*TODO*///READ_HANDLER( input_port_0_r ) { return readinputport(0); }
-/*TODO*///READ_HANDLER( input_port_1_r ) { return readinputport(1); }
+    }
+
+    public static ReadHandlerPtr input_port_0_r = new ReadHandlerPtr() {
+        public int handler(int offset) {
+            return readinputport(0);
+        }
+    };
+    /*TODO*///READ_HANDLER( input_port_1_r ) { return readinputport(1); }
 /*TODO*///READ_HANDLER( input_port_2_r ) { return readinputport(2); }
 /*TODO*///READ_HANDLER( input_port_3_r ) { return readinputport(3); }
 /*TODO*///READ_HANDLER( input_port_4_r ) { return readinputport(4); }

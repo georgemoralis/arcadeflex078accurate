@@ -3,7 +3,12 @@
  */
 package arcadeflex.v078.mame;
 
+import arcadeflex.v078.generic.funcPtr.ReadHandlerPtr;
+import arcadeflex.v078.generic.funcPtr.WriteHandlerPtr;
+import common.ptrLib.UBytePtr;
+
 public class memoryH {
+
     /*TODO*////***************************************************************************
 /*TODO*///
 /*TODO*///	Parameters
@@ -118,141 +123,144 @@ public class memoryH {
 /*TODO*///
 /*TODO*///***************************************************************************/
 /*TODO*///
-/*TODO*////* ----- memory/port width constants ----- */
-/*TODO*///#define MEMPORT_WIDTH_MASK		0x00000003				/* mask to get at the width bits */
-/*TODO*///#define MEMPORT_WIDTH_8			0x00000001				/* this memory/port array is for an 8-bit databus */
-/*TODO*///#define MEMPORT_WIDTH_16 		0x00000002				/* this memory/port array is for a 16-bit databus */
-/*TODO*///#define MEMPORT_WIDTH_32 		0x00000003				/* this memory/port array is for a 32-bit databus */
-/*TODO*///
-/*TODO*////* ----- memory/port type constants ----- */
-/*TODO*///#define MEMPORT_TYPE_MASK		0x30000000				/* mask to get at the type bits */
-/*TODO*///#define MEMPORT_TYPE_MEM 		0x10000000				/* this memory/port array is for memory */
-/*TODO*///#define MEMPORT_TYPE_IO			0x20000000				/* this memory/port array is for ports */
-/*TODO*///
-/*TODO*////* ----- memory/port direction constants ----- */
-/*TODO*///#define MEMPORT_DIRECTION_MASK	0xc0000000				/* mask to get at the direction bits */
-/*TODO*///#define MEMPORT_DIRECTION_READ	0x40000000				/* this memory/port array is for reads */
-/*TODO*///#define MEMPORT_DIRECTION_WRITE	0x80000000				/* this memory/port array is for writes */
-/*TODO*///
-/*TODO*////* ----- memory/port address bits constants ----- */
-/*TODO*///#define MEMPORT_ABITS_MASK		0x08000000				/* set this bit to indicate the entry has address bits */
-/*TODO*///#define MEMPORT_ABITS_VAL_MASK	0x000000ff				/* number of address bits */
-/*TODO*///
-/*TODO*////* ----- memory/port struct marker constants ----- */
-/*TODO*///#define MEMPORT_MARKER			((offs_t)~0)			/* used in the end field to indicate end of array */
-/*TODO*///
-/*TODO*////* ----- static memory/port handler constants ----- */
-/*TODO*///#define STATIC_INVALID			0						/* invalid - should never be used */
-/*TODO*///#define STATIC_BANK1			1						/* banked memory #1 */
-/*TODO*///#define STATIC_BANK2			2						/* banked memory #2 */
-/*TODO*///#define STATIC_BANK3			3						/* banked memory #3 */
-/*TODO*///#define STATIC_BANK4			4						/* banked memory #4 */
-/*TODO*///#define STATIC_BANK5			5						/* banked memory #5 */
-/*TODO*///#define STATIC_BANK6			6						/* banked memory #6 */
-/*TODO*///#define STATIC_BANK7			7						/* banked memory #7 */
-/*TODO*///#define STATIC_BANK8			8						/* banked memory #8 */
-/*TODO*///#define STATIC_BANK9			9						/* banked memory #9 */
-/*TODO*///#define STATIC_BANK10			10						/* banked memory #10 */
-/*TODO*///#define STATIC_BANK11			11						/* banked memory #11 */
-/*TODO*///#define STATIC_BANK12			12						/* banked memory #12 */
-/*TODO*///#define STATIC_BANK13			13						/* banked memory #13 */
-/*TODO*///#define STATIC_BANK14			14						/* banked memory #14 */
-/*TODO*///#define STATIC_BANK15			15						/* banked memory #15 */
-/*TODO*///#define STATIC_BANK16			16						/* banked memory #16 */
-/*TODO*///#define STATIC_BANK17			17						/* banked memory #17 */
-/*TODO*///#define STATIC_BANK18			18						/* banked memory #18 */
-/*TODO*///#define STATIC_BANK19			19						/* banked memory #19 */
-/*TODO*///#define STATIC_BANK20			20						/* banked memory #20 */
-/*TODO*///#define STATIC_BANK21			21						/* banked memory #21 */
-/*TODO*///#define STATIC_BANK22			22						/* banked memory #22 */
-/*TODO*///#define STATIC_BANK23			23						/* banked memory #23 */
-/*TODO*///#define STATIC_BANK24			24						/* banked memory #24 */
-/*TODO*///#define STATIC_RAM				25						/* RAM - standard reads/writes */
-/*TODO*///#define STATIC_ROM				26						/* ROM - just like RAM, but writes to the bit-bucket */
-/*TODO*///#define STATIC_RAMROM			27						/* RAMROM - use for access in encrypted 8-bit systems */
-/*TODO*///#define STATIC_NOP				28						/* NOP - reads are 0, writes to the bit-bucket */
-/*TODO*///#define STATIC_UNUSED1			29						/* unused - reserved for future use */
-/*TODO*///#define STATIC_UNUSED2			30						/* unused - reserved for future use */
-/*TODO*///#define STATIC_UNMAP			31						/* unmapped - all unmapped memory goes here */
-/*TODO*///#define STATIC_COUNT			32						/* total number of static handlers */
-/*TODO*///
-/*TODO*////* ----- banking constants ----- */
-/*TODO*///#define MAX_BANKS				24						/* maximum number of banks */
-/*TODO*///#define STATIC_BANKMAX			(STATIC_RAM - 1)		/* handler constant of last bank */
-/*TODO*///
-/*TODO*///
-/*TODO*///
-/*TODO*////***************************************************************************
-/*TODO*///
-/*TODO*///	Constants for static entries in memory read/write arrays
-/*TODO*///
-/*TODO*///	The first 32 entries in the memory lookup table are reserved for
-/*TODO*///	"static" handlers. These are internal handlers for RAM, ROM, banks,
-/*TODO*///	and unmapped memory areas. The following definitions are the
-/*TODO*///	properly-casted versions of the STATIC_ constants above.
-/*TODO*///
-/*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*////* 8-bit reads */
-/*TODO*///#define MRA_BANK1				((mem_read_handler)STATIC_BANK1)
-/*TODO*///#define MRA_BANK2				((mem_read_handler)STATIC_BANK2)
-/*TODO*///#define MRA_BANK3				((mem_read_handler)STATIC_BANK3)
-/*TODO*///#define MRA_BANK4				((mem_read_handler)STATIC_BANK4)
-/*TODO*///#define MRA_BANK5				((mem_read_handler)STATIC_BANK5)
-/*TODO*///#define MRA_BANK6				((mem_read_handler)STATIC_BANK6)
-/*TODO*///#define MRA_BANK7				((mem_read_handler)STATIC_BANK7)
-/*TODO*///#define MRA_BANK8				((mem_read_handler)STATIC_BANK8)
-/*TODO*///#define MRA_BANK9				((mem_read_handler)STATIC_BANK9)
-/*TODO*///#define MRA_BANK10				((mem_read_handler)STATIC_BANK10)
-/*TODO*///#define MRA_BANK11				((mem_read_handler)STATIC_BANK11)
-/*TODO*///#define MRA_BANK12				((mem_read_handler)STATIC_BANK12)
-/*TODO*///#define MRA_BANK13				((mem_read_handler)STATIC_BANK13)
-/*TODO*///#define MRA_BANK14				((mem_read_handler)STATIC_BANK14)
-/*TODO*///#define MRA_BANK15				((mem_read_handler)STATIC_BANK15)
-/*TODO*///#define MRA_BANK16				((mem_read_handler)STATIC_BANK16)
-/*TODO*///#define MRA_BANK17				((mem_read_handler)STATIC_BANK17)
-/*TODO*///#define MRA_BANK18				((mem_read_handler)STATIC_BANK18)
-/*TODO*///#define MRA_BANK19				((mem_read_handler)STATIC_BANK19)
-/*TODO*///#define MRA_BANK20				((mem_read_handler)STATIC_BANK20)
-/*TODO*///#define MRA_BANK21				((mem_read_handler)STATIC_BANK21)
-/*TODO*///#define MRA_BANK22				((mem_read_handler)STATIC_BANK22)
-/*TODO*///#define MRA_BANK23				((mem_read_handler)STATIC_BANK23)
-/*TODO*///#define MRA_BANK24				((mem_read_handler)STATIC_BANK24)
-/*TODO*///#define MRA_NOP					((mem_read_handler)STATIC_NOP)
-/*TODO*///#define MRA_RAM					((mem_read_handler)STATIC_RAM)
-/*TODO*///#define MRA_ROM					((mem_read_handler)STATIC_ROM)
-/*TODO*///#define MRA_RAMROM				((mem_read_handler)STATIC_RAMROM)
-/*TODO*///
-/*TODO*////* 8-bit writes */
-/*TODO*///#define MWA_BANK1				((mem_write_handler)STATIC_BANK1)
-/*TODO*///#define MWA_BANK2				((mem_write_handler)STATIC_BANK2)
-/*TODO*///#define MWA_BANK3				((mem_write_handler)STATIC_BANK3)
-/*TODO*///#define MWA_BANK4				((mem_write_handler)STATIC_BANK4)
-/*TODO*///#define MWA_BANK5				((mem_write_handler)STATIC_BANK5)
-/*TODO*///#define MWA_BANK6				((mem_write_handler)STATIC_BANK6)
-/*TODO*///#define MWA_BANK7				((mem_write_handler)STATIC_BANK7)
-/*TODO*///#define MWA_BANK8				((mem_write_handler)STATIC_BANK8)
-/*TODO*///#define MWA_BANK9				((mem_write_handler)STATIC_BANK9)
-/*TODO*///#define MWA_BANK10				((mem_write_handler)STATIC_BANK10)
-/*TODO*///#define MWA_BANK11				((mem_write_handler)STATIC_BANK11)
-/*TODO*///#define MWA_BANK12				((mem_write_handler)STATIC_BANK12)
-/*TODO*///#define MWA_BANK13				((mem_write_handler)STATIC_BANK13)
-/*TODO*///#define MWA_BANK14				((mem_write_handler)STATIC_BANK14)
-/*TODO*///#define MWA_BANK15				((mem_write_handler)STATIC_BANK15)
-/*TODO*///#define MWA_BANK16				((mem_write_handler)STATIC_BANK16)
-/*TODO*///#define MWA_BANK17				((mem_write_handler)STATIC_BANK17)
-/*TODO*///#define MWA_BANK18				((mem_write_handler)STATIC_BANK18)
-/*TODO*///#define MWA_BANK19				((mem_write_handler)STATIC_BANK19)
-/*TODO*///#define MWA_BANK20				((mem_write_handler)STATIC_BANK20)
-/*TODO*///#define MWA_BANK21				((mem_write_handler)STATIC_BANK21)
-/*TODO*///#define MWA_BANK22				((mem_write_handler)STATIC_BANK22)
-/*TODO*///#define MWA_BANK23				((mem_write_handler)STATIC_BANK23)
-/*TODO*///#define MWA_BANK24				((mem_write_handler)STATIC_BANK24)
-/*TODO*///#define MWA_NOP					((mem_write_handler)STATIC_NOP)
-/*TODO*///#define MWA_RAM					((mem_write_handler)STATIC_RAM)
-/*TODO*///#define MWA_ROM					((mem_write_handler)STATIC_ROM)
-/*TODO*///#define MWA_RAMROM				((mem_write_handler)STATIC_RAMROM)
-/*TODO*///
+    /* ----- memory/port width constants ----- */
+    public static final int MEMPORT_WIDTH_MASK = 0x00000003;/* mask to get at the width bits */
+    public static final int MEMPORT_WIDTH_8 = 0x00000001;/* this memory/port array is for an 8-bit databus */
+    public static final int MEMPORT_WIDTH_16 = 0x00000002;/* this memory/port array is for a 16-bit databus */
+    public static final int MEMPORT_WIDTH_32 = 0x00000003;/* this memory/port array is for a 32-bit databus */
+
+ /* ----- memory/port type constants ----- */
+    public static final int MEMPORT_TYPE_MASK = 0x30000000;/* mask to get at the type bits */
+    public static final int MEMPORT_TYPE_MEM = 0x10000000;/* this memory/port array is for memory */
+    public static final int MEMPORT_TYPE_IO = 0x20000000;/* this memory/port array is for ports */
+
+ /* ----- memory/port direction constants ----- */
+    public static final int MEMPORT_DIRECTION_MASK = 0xc0000000;/* mask to get at the direction bits */
+    public static final int MEMPORT_DIRECTION_READ = 0x40000000;/* this memory/port array is for reads */
+    public static final int MEMPORT_DIRECTION_WRITE = 0x80000000;/* this memory/port array is for writes */
+
+ /* ----- memory/port address bits constants ----- */
+    public static final int MEMPORT_ABITS_MASK = 0x08000000;/* set this bit to indicate the entry has address bits */
+    public static final int MEMPORT_ABITS_VAL_MASK = 0x000000ff;/* number of address bits */
+
+ /* ----- memory/port struct marker constants ----- */
+    public static final int MEMPORT_MARKER = Integer.MAX_VALUE;/*((offs_t)~0);*//* used in the end field to indicate end of array */
+
+ /* ----- static memory/port handler constants ----- */
+    public static final int STATIC_INVALID = 0;/* invalid - should never be used */
+    public static final int STATIC_BANK1 = 1;/* banked memory #1 */
+    public static final int STATIC_BANK2 = 2;/* banked memory #2 */
+    public static final int STATIC_BANK3 = 3;/* banked memory #3 */
+    public static final int STATIC_BANK4 = 4;/* banked memory #4 */
+    public static final int STATIC_BANK5 = 5;/* banked memory #5 */
+    public static final int STATIC_BANK6 = 6;/* banked memory #6 */
+    public static final int STATIC_BANK7 = 7;/* banked memory #7 */
+    public static final int STATIC_BANK8 = 8;/* banked memory #8 */
+    public static final int STATIC_BANK9 = 9;/* banked memory #9 */
+    public static final int STATIC_BANK10 = 10;/* banked memory #10 */
+    public static final int STATIC_BANK11 = 11;/* banked memory #11 */
+    public static final int STATIC_BANK12 = 12;/* banked memory #12 */
+    public static final int STATIC_BANK13 = 13;/* banked memory #13 */
+    public static final int STATIC_BANK14 = 14;/* banked memory #14 */
+    public static final int STATIC_BANK15 = 15;/* banked memory #15 */
+    public static final int STATIC_BANK16 = 16;/* banked memory #16 */
+    public static final int STATIC_BANK17 = 17;/* banked memory #17 */
+    public static final int STATIC_BANK18 = 18;/* banked memory #18 */
+    public static final int STATIC_BANK19 = 19;/* banked memory #19 */
+    public static final int STATIC_BANK20 = 20;/* banked memory #20 */
+    public static final int STATIC_BANK21 = 21;/* banked memory #21 */
+    public static final int STATIC_BANK22 = 22;/* banked memory #22 */
+    public static final int STATIC_BANK23 = 23;/* banked memory #23 */
+    public static final int STATIC_BANK24 = 24;/* banked memory #24 */
+    public static final int STATIC_RAM = 25;/* RAM - standard reads/writes */
+    public static final int STATIC_ROM = 26;/* ROM - just like RAM, but writes to the bit-bucket */
+    public static final int STATIC_RAMROM = 27;/* RAMROM - use for access in encrypted 8-bit systems */
+    public static final int STATIC_NOP = 28;/* NOP - reads are 0, writes to the bit-bucket */
+    public static final int STATIC_UNUSED1 = 29;/* unused - reserved for future use */
+    public static final int STATIC_UNUSED2 = 30;/* unused - reserved for future use */
+    public static final int STATIC_UNMAP = 31;/* unmapped - all unmapped memory goes here */
+    public static final int STATIC_COUNT = 32;/* total number of static handlers */
+
+ /* ----- banking constants ----- */
+    public static final int MAX_BANKS = 24;/* maximum number of banks */
+    public static final int STATIC_BANKMAX = (STATIC_RAM - 1);/* handler constant of last bank */
+
+
+    /**
+     * *************************************************************************
+     *
+     * Constants for static entries in memory read/write arrays
+     *
+     * The first 32 entries in the memory lookup table are reserved for "static"
+     * handlers. These are internal handlers for RAM, ROM, banks, and unmapped
+     * memory areas. The following definitions are the properly-casted versions
+     * of the STATIC_ constants above.
+     *
+     **************************************************************************
+     */
+
+    /* 8-bit reads */
+    public static final int MRA_BANK1 = STATIC_BANK1;
+    public static final int MRA_BANK2 = STATIC_BANK2;
+    public static final int MRA_BANK3 = STATIC_BANK3;
+    public static final int MRA_BANK4 = STATIC_BANK4;
+    public static final int MRA_BANK5 = STATIC_BANK5;
+    public static final int MRA_BANK6 = STATIC_BANK6;
+    public static final int MRA_BANK7 = STATIC_BANK7;
+    public static final int MRA_BANK8 = STATIC_BANK8;
+    public static final int MRA_BANK9 = STATIC_BANK9;
+    public static final int MRA_BANK10 = STATIC_BANK10;
+    public static final int MRA_BANK11 = STATIC_BANK11;
+    public static final int MRA_BANK12 = STATIC_BANK12;
+    public static final int MRA_BANK13 = STATIC_BANK13;
+    public static final int MRA_BANK14 = STATIC_BANK14;
+    public static final int MRA_BANK15 = STATIC_BANK15;
+    public static final int MRA_BANK16 = STATIC_BANK16;
+    public static final int MRA_BANK17 = STATIC_BANK17;
+    public static final int MRA_BANK18 = STATIC_BANK18;
+    public static final int MRA_BANK19 = STATIC_BANK19;
+    public static final int MRA_BANK20 = STATIC_BANK20;
+    public static final int MRA_BANK21 = STATIC_BANK21;
+    public static final int MRA_BANK22 = STATIC_BANK22;
+    public static final int MRA_BANK23 = STATIC_BANK23;
+    public static final int MRA_BANK24 = STATIC_BANK24;
+    public static final int MRA_NOP = STATIC_NOP;
+    public static final int MRA_RAM = STATIC_RAM;
+    public static final int MRA_ROM = STATIC_ROM;
+    public static final int MRA_RAMROM = STATIC_RAMROM;
+
+    /* 8-bit writes */
+    public static final int MWA_BANK1 = STATIC_BANK1;
+    public static final int MWA_BANK2 = STATIC_BANK2;
+    public static final int MWA_BANK3 = STATIC_BANK3;
+    public static final int MWA_BANK4 = STATIC_BANK4;
+    public static final int MWA_BANK5 = STATIC_BANK5;
+    public static final int MWA_BANK6 = STATIC_BANK6;
+    public static final int MWA_BANK7 = STATIC_BANK7;
+    public static final int MWA_BANK8 = STATIC_BANK8;
+    public static final int MWA_BANK9 = STATIC_BANK9;
+    public static final int MWA_BANK10 = STATIC_BANK10;
+    public static final int MWA_BANK11 = STATIC_BANK11;
+    public static final int MWA_BANK12 = STATIC_BANK12;
+    public static final int MWA_BANK13 = STATIC_BANK13;
+    public static final int MWA_BANK14 = STATIC_BANK14;
+    public static final int MWA_BANK15 = STATIC_BANK15;
+    public static final int MWA_BANK16 = STATIC_BANK16;
+    public static final int MWA_BANK17 = STATIC_BANK17;
+    public static final int MWA_BANK18 = STATIC_BANK18;
+    public static final int MWA_BANK19 = STATIC_BANK19;
+    public static final int MWA_BANK20 = STATIC_BANK20;
+    public static final int MWA_BANK21 = STATIC_BANK21;
+    public static final int MWA_BANK22 = STATIC_BANK22;
+    public static final int MWA_BANK23 = STATIC_BANK23;
+    public static final int MWA_BANK24 = STATIC_BANK24;
+    public static final int MWA_NOP = STATIC_NOP;
+    public static final int MWA_RAM = STATIC_RAM;
+    public static final int MWA_ROM = STATIC_ROM;
+
+    public static final int MWA_RAMROM = STATIC_RAMROM;
+
+    /*TODO*///
 /*TODO*////* 16-bit reads */
 /*TODO*///#define MRA16_BANK1				((mem_read16_handler)STATIC_BANK1)
 /*TODO*///#define MRA16_BANK2				((mem_read16_handler)STATIC_BANK2)
@@ -412,14 +420,37 @@ public class memoryH {
 /*TODO*///	the memory area processed by the handler.
 /*TODO*///
 /*TODO*///***************************************************************************/
-/*TODO*///
-/*TODO*////* ----- structs for memory read arrays ----- */
-/*TODO*///struct Memory_ReadAddress
-/*TODO*///{
-/*TODO*///	offs_t				start, end;		/* start, end addresses, inclusive */
-/*TODO*///	mem_read_handler 	handler;		/* handler callback */
-/*TODO*///};
-/*TODO*///
+
+    /* ----- structs for memory read arrays ----- */
+    public static class Memory_ReadAddress {
+
+        public Memory_ReadAddress(int start, int end) {
+            this.start = start;
+            this.end = end;
+            this.handler = -15000;//random number for not matching something else
+            this._handler = null;
+        }
+
+        public Memory_ReadAddress(int start, int end, int handler) {
+            this.start = start;
+            this.end = end;
+            this.handler = handler;
+            this._handler = null;
+        }
+
+        public Memory_ReadAddress(int start, int end, ReadHandlerPtr _handler) {
+            this.start = start;
+            this.end = end;
+            this.handler = -15000;//random number for not matching something else
+            this._handler = _handler;
+        }
+
+        public int start, end;/* start, end addresses, inclusive */
+        public ReadHandlerPtr _handler;/* handler callback */
+        public int handler;
+    }
+
+    /*TODO*///
 /*TODO*///struct Memory_ReadAddress16
 /*TODO*///{
 /*TODO*///	offs_t				start, end;		/* start, end addresses, inclusive */
@@ -432,15 +463,79 @@ public class memoryH {
 /*TODO*///	mem_read32_handler	handler;		/* handler callback */
 /*TODO*///};
 /*TODO*///
-/*TODO*////* ----- structs for memory write arrays ----- */
-/*TODO*///struct Memory_WriteAddress
-/*TODO*///{
-/*TODO*///    offs_t				start, end;		/* start, end addresses, inclusive */
-/*TODO*///	mem_write_handler	handler;		/* handler callback */
-/*TODO*///	data8_t **			base;			/* receives pointer to memory (optional) */
-/*TODO*///    size_t *			size;			/* receives size of memory in bytes (optional) */
-/*TODO*///};
-/*TODO*///
+/* ----- structs for memory write arrays ----- */
+    public static class Memory_WriteAddress {
+
+        public Memory_WriteAddress(int start, int end) {
+            this.start = start;
+            this.end = end;
+            this._handler = null;
+            this.handler = -15000;//random number for not matching something else
+            this.base = null;
+            this.size = null;
+        }
+
+        public Memory_WriteAddress(int start, int end, int handler) {
+            this.start = start;
+            this.end = end;
+            this.handler = handler;
+            this._handler = null;
+            this.base = null;
+            this.size = null;
+        }
+
+        public Memory_WriteAddress(int start, int end, int handler, UBytePtr base) {
+            this.start = start;
+            this.end = end;
+            this.handler = handler;
+            this._handler = null;
+            this.base = base;
+            this.size = null;
+        }
+
+        public Memory_WriteAddress(int start, int end, int handler, UBytePtr base, int[] size) {
+            this.start = start;
+            this.end = end;
+            this.handler = handler;
+            this._handler = null;
+            this.base = base;
+            this.size = size;
+        }
+
+        public Memory_WriteAddress(int start, int end, WriteHandlerPtr _handler) {
+            this.start = start;
+            this.end = end;
+            this.handler = -15000;//random number for not matching something else
+            this._handler = _handler;
+            this.base = null;
+            this.size = null;
+        }
+
+        public Memory_WriteAddress(int start, int end, WriteHandlerPtr _handler, UBytePtr base) {
+            this.start = start;
+            this.end = end;
+            this._handler = _handler;
+            this.handler = -15000;//random number for not matching something else
+            this.base = base;
+            this.size = null;
+        }
+
+        public Memory_WriteAddress(int start, int end, WriteHandlerPtr _handler, UBytePtr base, int[] size) {
+            this.start = start;
+            this.end = end;
+            this._handler = _handler;
+            this.handler = -15000;//random number for not matching something else
+            this.base = base;
+            this.size = size;
+        }
+
+        public int start, end;/* start, end addresses, inclusive */
+        public WriteHandlerPtr _handler;/* handler callback */
+        public int handler;
+        public UBytePtr base;/* receives pointer to memory (optional) */
+        public int[] size;/* receives size of memory in bytes (optional) */
+    }
+    /*TODO*///
 /*TODO*///struct Memory_WriteAddress16
 /*TODO*///{
 /*TODO*///    offs_t				start, end;		/* start, end addresses, inclusive */
